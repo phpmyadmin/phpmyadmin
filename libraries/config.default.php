@@ -325,7 +325,7 @@ $cfg['ZeroConf'] = true;
 
 /**
  * Database used for Relation, Bookmark and PDF Features
- * (see examples/create_tables.sql)
+ * (see sql/create_tables.sql)
  *   - leave blank for no support
  *     SUGGESTED: 'phpmyadmin'
  *

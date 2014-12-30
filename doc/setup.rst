@@ -262,25 +262,25 @@ in your own database, or in a central database for a multi-user installation
 (this database would then be accessed by the controluser, so no other user
 should have rights to it).
 
-Please look at your ``./examples/`` directory, where you should find a
+Please look at your ``./sql/`` directory, where you should find a
 file called *create\_tables.sql*. (If you are using a Windows server,
 pay special attention to :ref:`faq1_23`).
 
 If you already had this infrastructure and:
 
 * upgraded to MySQL 4.1.2 or newer, please use
-  :file:`examples/upgrade_tables_mysql_4_1_2+.sql`.
+  :file:`sql/upgrade_tables_mysql_4_1_2+.sql`.
 * upgraded to phpMyAdmin 4.3.0 or newer from 2.5.0 or newer (<= 4.2.x),
-  please use :file:`examples/upgrade_column_info_4_3_0+.sql`.
+  please use :file:`sql/upgrade_column_info_4_3_0+.sql`.
 
-and then create new tables by importing :file:`examples/create_tables.sql`.
+and then create new tables by importing :file:`sql/create_tables.sql`.
 
 You can use your phpMyAdmin to create the tables for you. Please be
 aware that you may need special (administrator) privileges to create
 the database and tables, and that the script may need some tuning,
 depending on the database name.
 
-After having imported the :file:`examples/create_tables.sql` file, you
+After having imported the :file:`sql/create_tables.sql` file, you
 should specify the table names in your :file:`config.inc.php` file. The
 directives used for that can be found in the :ref:`config`.
 
@@ -313,12 +313,12 @@ specific.
 If you have upgraded your MySQL server from a version previous to 4.1.2 to
 version 5.x or newer and if you use the phpMyAdmin configuration storage, you
 should run the :term:`SQL` script found in
-:file:`examples/upgrade_tables_mysql_4_1_2+.sql`.
+:file:`sql/upgrade_tables_mysql_4_1_2+.sql`.
 
 If you have upgraded your phpMyAdmin to 4.3.0 or newer from 2.5.0 or
 newer (<= 4.2.x) and if you use the phpMyAdmin configuration storage, you
 should run the :term:`SQL` script found in
-:file:`examples/upgrade_column_info_4_3_0+.sql`.
+:file:`sql/upgrade_column_info_4_3_0+.sql`.
 
 .. index:: Authentication mode
 

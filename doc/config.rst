@@ -608,7 +608,7 @@ Server connection settings
     transformation system to work. phpMyAdmin will upgrade it automatically
     for you by analyzing your current column\_info table structure.
     However, if something goes wrong with the auto-upgrade then you can
-    use the SQL script found in ``./examples/upgrade_column_info_4_3_0+.sql``
+    use the SQL script found in ``./sql/upgrade_column_info_4_3_0+.sql``
     to upgrade it manually.
 
     To allow the usage of this functionality:
@@ -628,7 +628,7 @@ Server connection settings
            ADD `transformation` VARCHAR( 255 ) NOT NULL,
            ADD `transformation_options` VARCHAR( 255 ) NOT NULL;
     * to update your PRE-4.3.0 Column\_info table manually use this
-      ``./examples/upgrade_column_info_4_3_0+.sql`` SQL script.
+      ``./sql/upgrade_column_info_4_3_0+.sql`` SQL script.
 
     .. note::
 

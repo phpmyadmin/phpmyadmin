@@ -163,7 +163,7 @@ for kit in $KITS ; do
     # Cleanup translations
     cd phpMyAdmin-$version-$kit
     scripts/lang-cleanup.sh $kit
-    if [ -f examples/create_tables.sql ] ; then
+    if [ -f sql/create_tables.sql ] ; then
         # 3.5 and newer
         rm -rf scripts
     else
