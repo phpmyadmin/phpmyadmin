@@ -2527,7 +2527,6 @@ function PMA_updateColumns($db, $table)
                 isset($_REQUEST['field_comments'][$i])
                 ? $_REQUEST['field_comments'][$i]
                 : '',
-                $i,
                 isset($_REQUEST['field_move_to'][$i])
                 ? $_REQUEST['field_move_to'][$i]
                 : ''
@@ -2707,7 +2706,6 @@ function PMA_moveColumns($db, $table)
             isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra'] : false,
             isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
             ? $data['COLUMN_COMMENT'] : false,
-            $i,
             $i === 0 ? '-first' : $column_names[$i - 1]
         );
         // update current column_names array, first delete old position

@@ -629,7 +629,6 @@ class PMA_Table
      *                                    type
      * @param string      $extra          'AUTO_INCREMENT'
      * @param string      $comment        field comment
-     * @param string      $index          index
      * @param string      $move_to        new position for column
      *
      * @see PMA_Table::generateFieldSpec()
@@ -638,7 +637,7 @@ class PMA_Table
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default_type, $default_value,
-        $extra, $comment, $index, $move_to
+        $extra, $comment, $move_to
     ) {
         return PMA_Util::backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec(

@@ -710,13 +710,12 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $default_value = 'VARCHAR';
         $extra = 'AUTO_INCREMENT';
         $comment = 'PMA comment';
-        $index = array('new_name');
         $move_to = 'new_name';
 
         $result = PMA_Table::generateAlter(
             $oldcol, $newcol, $type, $length,
             $attribute, $collation, $null, $default_type, $default_value,
-            $extra, $comment, $index, $move_to
+            $extra, $comment, $move_to
         );
 
         $expect = "";
