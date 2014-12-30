@@ -997,7 +997,7 @@ function PMA_checkAndFixPMATablesInCurrentDb()
             && empty($GLOBALS['cfg']['Server']['pmadb'])
         ) {
             $default_tables = PMA_getDefaultPMATableNames();
-            if (PMA_searchPMATablesInDb(
+            if (! PMA_foundTablesInDb(
                 $GLOBALS['db'],
                 array_keys($default_tables)
             )
