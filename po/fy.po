@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-21 13:06+0100\n"
-"PO-Revision-Date: 2014-12-24 23:04+0200\n"
+"PO-Revision-Date: 2014-12-31 22:40+0200\n"
 "Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
 "Language-Team: Frisian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fy/>\n"
@@ -5533,7 +5533,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:252
 msgid "Security"
-msgstr "Befeiliging"
+msgstr ""
 
 #: libraries/config/messages.inc.php:254
 msgid ""
