@@ -355,7 +355,7 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             if (! $gis_obj) {
                 continue;
             }
-            $params = array_merge($params, $gis_obj->generateParams($sub_part, $i));
+            $params = array_merge($params, $gis_obj->generateParams($sub_part));
             $i++;
         }
         return $params;
