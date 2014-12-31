@@ -2948,10 +2948,9 @@ msgid "Queried time"
 msgstr "A lekérdezés végrehajtási ideje"
 
 #: libraries/Console.class.php:195
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL-lekérdezési panelek"
+msgstr "SQL lekérdezés konzol"
 
 #: libraries/Console.class.php:196
 msgid "Console"
@@ -6235,7 +6234,7 @@ msgstr "Írja be a szerver csatlakozási paramétereit"
 
 #: libraries/config/messages.inc.php:266
 msgid "Configuration storage"
-msgstr "Konfigurációs tároló"
+msgstr "Beállítás tároló"
 
 #: libraries/config/messages.inc.php:268
 #, fuzzy
@@ -7870,10 +7869,9 @@ msgid "Skip locked tables"
 msgstr "A zárolt táblák kihagyása"
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected"
 msgid "A warning is displayed on the main page if Suhosin is detected."
-msgstr "Figyelmeztetés megjelenítése a főoldalon, Suhosin észlelésekor"
+msgstr "Egy figyelmeztetés jelenik meg a főoldalon, ha Suhosin észlelhető."
 
 #: libraries/config/messages.inc.php:743
 msgid "Suhosin warning"
