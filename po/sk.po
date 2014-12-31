@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-21 06:11-0500\n"
-"PO-Revision-Date: 2014-12-29 13:17+0200\n"
+"PO-Revision-Date: 2014-12-31 08:54+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/sk/>\n"
@@ -21,12 +21,12 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Súbor %s nebol nájdený na tomto systéme, viac informácií nájdete na stránke "
-"www.phpmyadmin.net."
+"Súbor %s nie je dostupný na tomto systéme. Viac informácií nájdete na "
+"stránke www.phpmyadmin.net."
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Ústredný zoznam stĺpcov pre aktuálnu databázu je prázdny."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
@@ -52,7 +52,7 @@ msgstr "Komentár k databáze:"
 #: libraries/tbl_columns_definition_form.lib.php:73
 #: libraries/tbl_printview.lib.php:577
 msgid "Table comments:"
-msgstr "Komentár k tabuľke:"
+msgstr "Komentáre k tabuľke:"
 
 #: db_datadict.php:103 libraries/Index.class.php:569
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1292
@@ -1871,10 +1871,9 @@ msgid "Primary key added."
 msgstr "Bol pridaný primárny kľúč."
 
 #: js/messages.php:315 libraries/normalization.lib.php:174
-#, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "Informácie o monitorovanie"
+msgstr "Vezmeme vás na ďalší krok…"
 
 #: js/messages.php:316
 #, php-format
@@ -1982,22 +1981,19 @@ msgid "Show search criteria"
 msgstr "Zobraziť parametre vyhľadávania"
 
 #: js/messages.php:345
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "Hľadať v tabuľke"
+msgstr "Rozsah vyhľadávania"
 
 #: js/messages.php:346
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Názvy stĺpcov: "
+msgstr "Najväčšia hodnota stĺpca:"
 
 #: js/messages.php:347
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Názvy stĺpcov: "
+msgstr "Najmenšia hodnota stĺpca:"
 
 #: js/messages.php:348
 #| msgid "Maximum tables"
@@ -2148,10 +2144,9 @@ msgid "Untitled"
 msgstr "Nepomenovaná"
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Prosím zvolte si Stránku, ktorú chcete upraviť"
+msgstr "Prosím zvoľte si stránku, kde chcete pokračovať"
 
 #: js/messages.php:409
 #| msgid "Please enter a valid number!"
@@ -2167,10 +2162,9 @@ msgid "Successfully deleted the page"
 msgstr ""
 
 #: js/messages.php:412
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Upraviť alebo exportovať relačnú schému"
+msgstr "Exportovať relačnú schému"
 
 #: js/messages.php:413
 msgid "Modifications have been saved"
@@ -2429,10 +2423,9 @@ msgid "Execute this query again?"
 msgstr "Vykonať tento dopyt znovu?"
 
 #: js/messages.php:528
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Naozaj chcete odstrániť vyhľadávanie \"%s\"?"
+msgstr "Naozaj chcete odstrániť túto záložku?"
 
 #: js/messages.php:556
 msgctxt "Previous month"
@@ -2793,13 +2786,13 @@ msgid "Delete"
 msgstr "Zmazať"
 
 #: libraries/Console.class.php:108
-#, fuzzy, php-format
+#, php-format
 #| msgid "New bookmark"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Nová záložka"
-msgstr[1] "Nová záložka"
-msgstr[2] "Nová záložka"
+msgstr[0] "Spolu %d záložka"
+msgstr[1] "Spolu %d záložky"
+msgstr[2] "Spolu %d záložiek"
 
 #: libraries/Console.class.php:116
 msgid "private"
@@ -2811,16 +2804,15 @@ msgstr "zdieľaný"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "Záznam z obľúbených bol zmazaný."
+msgstr ""
 
 #: libraries/Console.class.php:130
-#, fuzzy
 #| msgid "New bookmark"
 msgid "No bookmarks"
-msgstr "Nová záložka"
+msgstr "Žiadne záložky"
 
 #: libraries/Console.class.php:180
 #| msgid "Explain SQL"
@@ -2833,22 +2825,19 @@ msgid "Profiling"
 msgstr "Profilovanie"
 
 #: libraries/Console.class.php:183
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
-msgstr "Tabuľka záložiek"
+msgstr "Záložka"
 
 #: libraries/Console.class.php:184
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Vyrovnávacia pamäť príkazov"
+msgstr "Dopyt zlyhal"
 
 #: libraries/Console.class.php:188
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Čas behu dopytu"
+msgstr "Čas behu"
 
 #: libraries/Console.class.php:195
 #| msgid "SQL Query box"
@@ -2898,10 +2887,9 @@ msgid "Options"
 msgstr "Nastavenia"
 
 #: libraries/Console.class.php:209 libraries/Console.class.php:262
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Tabuľka záložiek"
+msgstr "Záložky"
 
 #: libraries/Console.class.php:218
 #| msgid "Execute every"
@@ -2924,44 +2912,38 @@ msgid "Add"
 msgstr "Pridať"
 
 #: libraries/Console.class.php:278
-#, fuzzy
 #| msgid "New bookmark"
 msgid "Add bookmark"
-msgstr "Nová záložka"
+msgstr "Pridať záložku"
 
 #: libraries/Console.class.php:282
-#, fuzzy
 #| msgid "Label:"
 msgid "Label"
-msgstr "Názov:"
+msgstr "Názov"
 
 #: libraries/Console.class.php:284
 msgid "Target database"
 msgstr "Cieľová databáza"
 
 #: libraries/Console.class.php:287
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "Share this bookmark"
-msgstr "Vytvoriť záložku"
+msgstr "Zdieľať túto záložku"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "Obnoviť predvolené"
+msgstr "Nastaviť predvolené"
 
 #: libraries/Console.class.php:308
-#, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
-msgstr "Vždy odosielať chybové hlásenia"
+msgstr "Vždy rozbaliť správy dopytu"
 
 #: libraries/Console.class.php:310
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "Tabuľka histórie SQL dopytov"
+msgstr "Zobraziť históriu dopytov na začiatku"
 
 #: libraries/Console.class.php:312
 msgid "Show current browsing query"
@@ -3059,10 +3041,9 @@ msgid "Submit Query"
 msgstr "Odošli dopyt"
 
 #: libraries/DBQbe.class.php:1495
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Hľadať"
+msgstr "Uložené vyhľadávania:"
 
 #: libraries/DBQbe.class.php:1497
 msgid "New bookmark"
@@ -3411,10 +3392,9 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Príliš veľa chybových správ, niektoré neboli zobrazené."
 
 #: libraries/Error_Handler.class.php:336
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "Import"
+msgstr "Nahlásiť"
 
 #: libraries/Error_Handler.class.php:341 libraries/error_report.lib.php:370
 msgid "Automatically send report next time"
@@ -3675,10 +3655,9 @@ msgid "Designer"
 msgstr "Dizajnér"
 
 #: libraries/Menu.class.php:496 libraries/Util.class.php:4120
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Stĺpce s textovou oblasťou"
+msgstr "Centrálne stĺpce"
 
 #: libraries/Menu.class.php:535 libraries/Util.class.php:4092
 #: libraries/config/messages.inc.php:228 libraries/server_common.lib.php:48
@@ -4122,10 +4101,9 @@ msgid "Replace with:"
 msgstr "Nahradiť za:"
 
 #: libraries/TableSearch.class.php:1370
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "ako regulárny výraz"
+msgstr "Použiť regulárny výraz"
 
 #: libraries/TableSearch.class.php:1472
 msgid "Find and replace - preview"
@@ -4700,10 +4678,9 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/central_columns.lib.php:282
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Nemožno uložiť nastavenie"
+msgstr "Nepodarilo sa pridať stĺpce!"
 
 #: libraries/central_columns.lib.php:358
 #, php-format
@@ -4712,10 +4689,9 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:370
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove columns!"
-msgstr "Nepodarilo sa uložiť najnovšiu tabuľku!"
+msgstr "Nepodarilo sa odstrániť stĺpce!"
 
 #: libraries/central_columns.lib.php:511
 msgid "YES"
@@ -4752,36 +4728,32 @@ msgid "Extra"
 msgstr "Extra"
 
 #: libraries/central_columns.lib.php:662
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Vybrať Tabuľky"
+msgstr "Vyberte tabuľku"
 
 #: libraries/central_columns.lib.php:716 libraries/structure.lib.php:1694
 msgid "Add column"
 msgstr "Pridať stĺpec"
 
 #: libraries/central_columns.lib.php:728
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Zvoľte dva stĺpce"
+msgstr "Zvoľte stĺpec."
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Navýšenie pri automatickom zväčšovaní"
+msgstr "auto_increment"
 
 #: libraries/central_columns.lib.php:811 libraries/central_columns.lib.php:921
 msgid "on update CURRENT_TIMESTAMP"
 msgstr ""
 
 #: libraries/central_columns.lib.php:888
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
-msgstr "Pridať stĺpec"
+msgstr "Pridať nový stĺpec"
 
 #: libraries/common.inc.php:582
 msgid "Failed to read configuration file!"
@@ -5167,10 +5139,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/Validator.class.php:249
-#, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
-msgstr "Nepodarilo sa inicializovať knižnicu na pripojenie k serveru Drizzle"
+msgstr "Nepodarilo sa inicializovať knižnicu Drizzle!"
 
 #: libraries/config/Validator.class.php:258
 #: libraries/config/Validator.class.php:266
@@ -5180,25 +5151,27 @@ msgid "Could not connect to the database server!"
 msgstr "Nepodarilo sa pripojiť k databázovému serveru!"
 
 #: libraries/config/Validator.class.php:316
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
-"Pri použití nastavenej autorizačnej metódy nebolo vyplnené užívateľské meno"
+"Pri použití prihlasovacej metódy  [kbd]config[/kbd] nebolo vyplnené "
+"užívateľské meno!"
 
 #: libraries/config/Validator.class.php:323
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Prázdny názov relácie signon pri využití autentifikačnej metódy signon"
+msgstr ""
+"Prázdny názov relácie signon pri použití priholasovacej metódy "
+"[kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:332
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "Prázdna signon URL pri využití autentifikačnej metódy signon"
+msgstr ""
+"Prázdna prihlasovacia URL adresa pri použití prihlasovacej metódy "
+"[kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:378
 msgid ""
@@ -5208,7 +5181,6 @@ msgstr ""
 "phpMyAdmin configuration storage!"
 
 #: libraries/config/Validator.class.php:383
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
 #| "configuration storage"
@@ -5216,8 +5188,8 @@ msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
-"Prázdne heslo pre phpMyAdmin control užívateľa pri využití phpMyAdmin "
-"configuration storage"
+"Prázdne heslo pre phpMyAdmin control užívateľa pri použití úložiska "
+"nastavení phpMyAdmin!"
 
 #: libraries/config/Validator.class.php:467
 msgid "Incorrect value:"
@@ -7553,12 +7525,9 @@ msgid "Skip locked tables"
 msgstr "Preskočiť zamknuté tabuľky"
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected"
 msgid "A warning is displayed on the main page if Suhosin is detected."
-msgstr ""
-"Na hlavnej stránke je zobrazené varovanie pokiaľ je detekované rozšírenie "
-"Suhosin"
+msgstr "Vypne varovanie na hlavnej stránke ak sa používa Suhosin."
 
 #: libraries/config/messages.inc.php:743
 msgid "Suhosin warning"
