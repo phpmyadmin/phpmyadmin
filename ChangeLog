@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.3.5.0 (not yet released)
 - bug       Auto-configuration: tables were not created automatically
+- bug #4677 Advanced feature checker does not check for favorite tables feature
 
 4.3.4.0 (2014-12-29)
 - bug #4653 Always connection error was shown, on /setup at tab "configuration storage"
