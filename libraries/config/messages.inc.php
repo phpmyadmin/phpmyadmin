@@ -633,6 +633,11 @@ $strConfigServers_recent_desc = __(
     . 'suggested: [kbd]pma__recent[/kbd].'
 );
 $strConfigServers_recent_name = __('Recently used table');
+$strConfigServers_favorite_desc = __(
+    'Leave blank for no "persistent" favorite tables across sessions, '
+    . 'suggested: [kbd]pma__favorite[/kbd].'
+);
+$strConfigServers_favorite_name = __('Favorites table');
 $strConfigServers_relation_desc = __(
     'Leave blank for no '
     . '[a@http://wiki.phpmyadmin.net/pma/relation]relation-links[/a] support, '
