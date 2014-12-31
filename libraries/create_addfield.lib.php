@@ -34,7 +34,6 @@ function PMA_getIndexedColumns()
  * add columns to a existing table
  *
  * @param int     $field_cnt      number of columns
- * @param int     &$field_primary primary index field
  * @param boolean $is_create_tbl  true if requirement is to get the statement
  *                                for table creation
  *
@@ -42,7 +41,7 @@ function PMA_getIndexedColumns()
  *                             according to the request
  */
 function PMA_buildColumnCreationStatement(
-    $field_cnt, &$field_primary, $is_create_tbl = true
+    $field_cnt, $is_create_tbl = true
 ) {
     $definitions = array();
     for ($i = 0; $i < $field_cnt; ++$i) {
@@ -216,7 +215,7 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
             $field_unique, $field_fulltext
             ) = PMA_getIndexedColumns();
     $definitions = PMA_buildColumnCreationStatement(
-        $field_cnt, $field_primary, $is_create_tbl
+        $field_cnt, $is_create_tbl
     );
 
     // Builds the PRIMARY KEY statements
