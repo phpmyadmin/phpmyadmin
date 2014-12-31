@@ -45,6 +45,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['pdf_pages'] = 'pdf_pages';
         $GLOBALS['cfg']['Server']['history'] = 'history';
         $GLOBALS['cfg']['Server']['recent'] = 'recent';
+        $GLOBALS['cfg']['Server']['favorite'] = 'favorite';
         $GLOBALS['cfg']['Server']['table_uiprefs'] = 'table_uiprefs';
         $GLOBALS['cfg']['Server']['tracking'] = 'tracking';
         $GLOBALS['cfg']['Server']['userconfig'] = 'userconfig';
