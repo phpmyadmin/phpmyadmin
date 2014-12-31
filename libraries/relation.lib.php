@@ -215,6 +215,17 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             $messages
         );
         $retval .= PMA_getDiagMessageForParameter(
+            'favorite',
+            isset($cfgRelation['favorite']),
+            $messages,
+            'favorite'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Persistent favorite tables'),
+            'favoritework',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
             'table_uiprefs',
             isset($cfgRelation['table_uiprefs']),
             $messages,
@@ -414,6 +425,7 @@ function PMA_checkRelationsParam()
     $cfgRelation['mimework']       = false;
     $cfgRelation['historywork']    = false;
     $cfgRelation['recentwork']     = false;
+    $cfgRelation['favoritework']   = false;
     $cfgRelation['uiprefswork']    = false;
     $cfgRelation['trackingwork']   = false;
     $cfgRelation['userconfigwork'] = false;
@@ -477,6 +489,8 @@ function PMA_checkRelationsParam()
             $cfgRelation['history']         = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['recent']) {
             $cfgRelation['recent']          = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['favorite']) {
+            $cfgRelation['favorite']        = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['table_uiprefs']) {
             $cfgRelation['table_uiprefs']   = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['tracking']) {
@@ -523,6 +537,10 @@ function PMA_checkRelationsParam()
         $cfgRelation['recentwork']      = true;
     }
 
+    if (isset($cfgRelation['favorite'])) {
+        $cfgRelation['favoritework']    = true;
+    }
+
     if (isset($cfgRelation['table_uiprefs'])) {
         $cfgRelation['uiprefswork']     = true;
     }
@@ -562,7 +580,7 @@ function PMA_checkRelationsParam()
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
         && $cfgRelation['bookmarkwork'] && $cfgRelation['central_columnswork']
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
-        && $cfgRelation['savedsearcheswork']
+        && $cfgRelation['savedsearcheswork'] && $cfgRelation['favoritework']
     ) {
         $cfgRelation['allworks'] = true;
     }
@@ -1774,7 +1792,7 @@ function PMA_searchColumnInForeigners($foreigners, $column)
 }
 
 /**
- * Whether we found a set of tables in the specified db 
+ * Whether we found a set of tables in the specified db
  *
  * @param string $db     Database
  * @param array  $tables Table names
