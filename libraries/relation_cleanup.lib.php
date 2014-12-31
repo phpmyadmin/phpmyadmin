@@ -106,6 +106,24 @@ function PMA_relationsCleanupTable($db, $table)
             . ' AND foreign_table = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
         PMA_queryAsControlUser($remove_query);
     }
+
+    if ($cfgRelation['uiprefswork']) {
+        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['table_uiprefs'])
+            . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+            . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['navwork']) {
+        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['navigationhiding'])
+            . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+            . ' AND (table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\''
+            . ' OR (item_name = \'' . PMA_Util::sqlAddSlashes($table) . '\''
+            . ' AND item_type = \'table\'))';
+        PMA_queryAsControlUser($remove_query);
+    }
 }
 
 /**
@@ -161,6 +179,34 @@ function PMA_relationsCleanupDatabase($db)
         $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
             . '.' . PMA_Util::backquote($cfgRelation['relation'])
             . ' WHERE foreign_db  = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['uiprefswork']) {
+        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['table_uiprefs'])
+            . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['navwork']) {
+        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['navigationhiding'])
+            . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['savedsearcheswork']) {
+        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['savedsearches'])
+            . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['central_columnswork']) {
+        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['central_columns'])
+            . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
         PMA_queryAsControlUser($remove_query);
     }
 }
