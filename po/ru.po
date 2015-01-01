@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-01 07:06-0500\n"
+"POT-Creation-Date: 2015-01-01 08:24-0500\n"
 "PO-Revision-Date: 2014-12-24 03:16+0200\n"
 "Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-3/"
@@ -9209,10 +9209,13 @@ msgstr ""
 "один столбец."
 
 #: libraries/normalization.lib.php:381
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "As per above partial dependencies, in order to put the original table "
+#| "'%1$s' into Second normal form we need to create the following tables:"
 msgid ""
-"As per above partial dependencies, in order to put the original table '%1$s' "
-"into Second normal form we need to create the following tables:"
+"In order to put the original table '%1$s' into Second normal form we need to "
+"create the following tables:"
 msgstr ""
 "Из-за наличия приведенных выше частичных зависимостей, для того, чтобы "
 "привести исходную таблицу '%1$s' ко второй нормальной форме, необходимо "
@@ -9229,10 +9232,13 @@ msgid "Error in processing!"
 msgstr "Ошибка при обработке!"
 
 #: libraries/normalization.lib.php:501
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "As per above dependencies, in order to put the original table '%1$s' into "
+#| "Third normal form we need to create the following tables:"
 msgid ""
-"As per above dependencies, in order to put the original table '%1$s' into "
-"Third normal form we need to create the following tables:"
+"In order to put the original table '%1$s' into Third normal form we need to "
+"create the following tables:"
 msgstr ""
 "Из-за наличия приведенных выше зависимостей, для того, чтобы привести "
 "исходную таблицу '%1$s' к третьей нормальной форме, необходимо создать "

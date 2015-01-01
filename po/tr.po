@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-01 07:06-0500\n"
+"POT-Creation-Date: 2015-01-01 08:24-0500\n"
 "PO-Revision-Date: 2015-01-01 13:45+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-3/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-3/"
+"tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6745,20 +6745,16 @@ msgstr ""
 "pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:607
-#| msgid "Central columns"
 msgid "Central columns table"
 msgstr "Merkezi sütunlar tablosu"
 
 #: libraries/config/messages.inc.php:609
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
-#| "kbd]."
 msgid ""
 "Leave blank for no central columns support, suggested: [kbd]"
 "pma__central_columns[/kbd]."
 msgstr ""
-"Merkezi sütunlar desteği istenmiyorsa boş bırakın, önerilen: "
-"[kbd]pma__central_columns[/kbd]."
+"Merkezi sütunlar desteği istenmiyorsa boş bırakın, önerilen: [kbd]"
+"pma__central_columns[/kbd]."
 
 #: libraries/config/messages.inc.php:612
 msgid "Try to connect without password."
@@ -6839,9 +6835,6 @@ msgid "Recently used table"
 msgstr "Son kullanılan tablo"
 
 #: libraries/config/messages.inc.php:641
-#| msgid ""
-#| "Leave blank for no \"persistent\" recently used tables across sessions, "
-#| "suggested: [kbd]pma__recent[/kbd]."
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -6850,7 +6843,6 @@ msgstr ""
 "bırakın, önerilen: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:644
-#| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "Sık kullanılanlar tablosu"
 
@@ -9201,10 +9193,13 @@ msgstr ""
 "bir sütuna sahiptir."
 
 #: libraries/normalization.lib.php:381
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "As per above partial dependencies, in order to put the original table "
+#| "'%1$s' into Second normal form we need to create the following tables:"
 msgid ""
-"As per above partial dependencies, in order to put the original table '%1$s' "
-"into Second normal form we need to create the following tables:"
+"In order to put the original table '%1$s' into Second normal form we need to "
+"create the following tables:"
 msgstr ""
 "Yukarıdaki kısmi bağımlılıklara göre, İkinci normal biçim içine orijinal "
 "'%1$s' tablosunu koymak için aşağıdaki tabloları oluşturmamız gerekli:"
@@ -9220,10 +9215,13 @@ msgid "Error in processing!"
 msgstr "İşlemede hata!"
 
 #: libraries/normalization.lib.php:501
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "As per above dependencies, in order to put the original table '%1$s' into "
+#| "Third normal form we need to create the following tables:"
 msgid ""
-"As per above dependencies, in order to put the original table '%1$s' into "
-"Third normal form we need to create the following tables:"
+"In order to put the original table '%1$s' into Third normal form we need to "
+"create the following tables:"
 msgstr ""
 "Yukarıdaki bağımlılıklara göre, Üçüncü normal biçim içine orijinal '%1$s' "
 "tablosunu koymak için aşağıdaki tabloları oluşturmamız gerekli:"
@@ -10511,7 +10509,6 @@ msgid "Persistent recently used tables"
 msgstr "Sürekli son kullanılan tablolar"
 
 #: libraries/relation.lib.php:224
-#| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
 msgstr "Sürekli sık kullanılan tablolar"
 
