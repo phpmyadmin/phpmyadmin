@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #4678 Some of the data stored in configuration storage are not deleted upon db or table delete
 - bug #4679 Setup does not allow providing a name for favorites table
 - bug #4680 Number of favorite table are not configurable in setup
+- bug #4681 'Central columns table' field in setup does not have a description
 
 4.3.4.0 (2014-12-29)
 - bug #4653 Always connection error was shown, on /setup at tab "configuration storage"
