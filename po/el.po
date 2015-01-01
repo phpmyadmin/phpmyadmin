@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-01 07:07-0500\n"
+"POT-Creation-Date: 2015-01-01 08:24-0500\n"
 "PO-Revision-Date: 2014-12-15 22:44+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -9307,10 +9307,13 @@ msgstr ""
 "στήλη."
 
 #: libraries/normalization.lib.php:381
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "As per above partial dependencies, in order to put the original table "
+#| "'%1$s' into Second normal form we need to create the following tables:"
 msgid ""
-"As per above partial dependencies, in order to put the original table '%1$s' "
-"into Second normal form we need to create the following tables:"
+"In order to put the original table '%1$s' into Second normal form we need to "
+"create the following tables:"
 msgstr ""
 "Αναφορικά με τις παραπάνω μερικές εξαρτήσεις, με σκοπό την τοποθέτηση του "
 "αρχικού πίνακα «%1$s» στην Δεύτερη κανονική μορφή χρειαζόμαστε να "
@@ -9327,10 +9330,13 @@ msgid "Error in processing!"
 msgstr "Σφάλμα στην προώθηση!"
 
 #: libraries/normalization.lib.php:501
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "As per above dependencies, in order to put the original table '%1$s' into "
+#| "Third normal form we need to create the following tables:"
 msgid ""
-"As per above dependencies, in order to put the original table '%1$s' into "
-"Third normal form we need to create the following tables:"
+"In order to put the original table '%1$s' into Third normal form we need to "
+"create the following tables:"
 msgstr ""
 "Αναφορικά με τις παραπάνω εξαρτήσεις, με σκοπό την τοποθέτηση του αρχικού "
 "πίνακα «%1$s» στην Τρίτη κανονική μορφή χρειαζόμαστε να δημιουργήσουμε τους "
