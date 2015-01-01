@@ -85,59 +85,39 @@ $cfg['Servers'][$i]['AllowDeny']['rules']       = array();
 
 /* phpMyAdmin configuration storage settings */
 /**
- * MySQL control host. This permits to use a host different than the
- * main host, for the phpMyAdmin configuration storage. If left empty,
- * $cfg['Servers'][$i]['host'] is used instead.
- */
-// $cfg['Servers'][$i]['controlhost']           = 'localhost';
-
-/**
- * MySQL control port. This permits to use a port different than the
- * main port, for the phpMyAdmin configuration storage. If left empty,
- * $cfg['Servers'][$i]['port'] is used instead.
- */
-// $cfg['Servers'][$i]['controlport']           = '';
-
-/**
- * MySQL control user settings (this user must have read-only
- * access to the "mysql/user" and "mysql/db" tables). The controluser is also
- * used for all relational features (pmadb)
- */
-// $cfg['Servers'][$i]['controluser']           = '';
-
-/**
- * MySQL control user settings (this user must have read-only
- * access to the "mysql/user" and "mysql/db" tables). The controluser is also
- * used for all relational features (pmadb)
- */
-// $cfg['Servers'][$i]['controlpass']           = '';
-
-
-/* Storage database and tables */
-/**
  * for more info/explanation about these VARS have look at
  *  libraries/config.default.php
  */
-// $cfg['Servers'][$i]['pmadb']                 = 'phpmyadmin';
-// $cfg['Servers'][$i]['bookmarktable']         = 'pma__bookmark';
-// $cfg['Servers'][$i]['relation']              = 'pma__relation';
-// $cfg['Servers'][$i]['table_info']            = 'pma__table_info';
-// $cfg['Servers'][$i]['table_coords']          = 'pma__table_coords';
-// $cfg['Servers'][$i]['pdf_pages']             = 'pma__pdf_pages';
-// $cfg['Servers'][$i]['column_info']           = 'pma__column_info';
-// $cfg['Servers'][$i]['history']               = 'pma__history';
-// $cfg['Servers'][$i]['table_uiprefs']         = 'pma__table_uiprefs';
-// $cfg['Servers'][$i]['tracking']              = 'pma__tracking';
-// $cfg['Servers'][$i]['designer_coords']       = 'pma__designer_coords';
-// $cfg['Servers'][$i]['userconfig']            = 'pma__userconfig';
-// $cfg['Servers'][$i]['recent']                = 'pma__recent';
-// $cfg['Servers'][$i]['favorite']              = 'pma__favorite';
-// $cfg['Servers'][$i]['users']                 = 'pma__users';
-// $cfg['Servers'][$i]['usergroups']            = 'pma__usergroups';
-// $cfg['Servers'][$i]['navigationhiding']      = 'pma__navigationhiding';
-// $cfg['Servers'][$i]['savedsearches']         = 'pma__savedsearches';
-// $cfg['Servers'][$i]['central_columns']       = 'pma__central_columns';
-// $cfg['Servers'][$i]['auth_swekey_config']    = '';
+/*
+$cfg['Servers'][$i]['controlhost']              = 'localhost';
+$cfg['Servers'][$i]['controlport']              = '';
+$cfg['Servers'][$i]['controluser']              = '';
+$cfg['Servers'][$i]['controlpass']              = '';
+*/
+
+/* Storage database and tables */
+/*
+$cfg['Servers'][$i]['pmadb']                    = 'phpmyadmin';
+$cfg['Servers'][$i]['bookmarktable']            = 'pma__bookmark';
+$cfg['Servers'][$i]['relation']                 = 'pma__relation';
+$cfg['Servers'][$i]['table_info']               = 'pma__table_info';
+$cfg['Servers'][$i]['table_coords']             = 'pma__table_coords';
+$cfg['Servers'][$i]['pdf_pages']                = 'pma__pdf_pages';
+$cfg['Servers'][$i]['column_info']              = 'pma__column_info';
+$cfg['Servers'][$i]['history']                  = 'pma__history';
+$cfg['Servers'][$i]['table_uiprefs']            = 'pma__table_uiprefs';
+$cfg['Servers'][$i]['tracking']                 = 'pma__tracking';
+$cfg['Servers'][$i]['designer_coords']          = 'pma__designer_coords';
+$cfg['Servers'][$i]['userconfig']               = 'pma__userconfig';
+$cfg['Servers'][$i]['recent']                   = 'pma__recent';
+$cfg['Servers'][$i]['favorite']                 = 'pma__favorite';
+$cfg['Servers'][$i]['users']                    = 'pma__users';
+$cfg['Servers'][$i]['usergroups']               = 'pma__usergroups';
+$cfg['Servers'][$i]['navigationhiding']         = 'pma__navigationhiding';
+$cfg['Servers'][$i]['savedsearches']            = 'pma__savedsearches';
+$cfg['Servers'][$i]['central_columns']          = 'pma__central_columns';
+$cfg['Servers'][$i]['auth_swekey_config']       = '';
+*/
 
 
 /***************************************
@@ -174,6 +154,7 @@ $cfg['Servers'][$i]['AllowDeny']['rules']       = array();
 
 /*
 $cfg['Servers'][$i]['controlhost']              = 'localhost';
+$cfg['Servers'][$i]['controlport']              = '';
 $cfg['Servers'][$i]['controluser']              = '';
 $cfg['Servers'][$i]['controlpass']              = '';
 $cfg['Servers'][$i]['pmadb']                    = 'phpmyadmin';
