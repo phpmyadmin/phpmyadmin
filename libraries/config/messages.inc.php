@@ -604,7 +604,11 @@ $strConfigServers_savedsearches_desc = __(
     'Leave blank for no QBE saved searches support, suggested: '
     . '[kbd]pma__savedsearches[/kbd].'
 );
-
+$strConfigServers_central_columns_name = __('Central columns table');
+$strConfigServers_central_columns_desc = __(
+    'Leave blank for no central columns support, suggested: '
+    . '[kbd]pma__central_columns[/kbd].'
+);
 $strConfigServers_nopassword_desc = __('Try to connect without password.');
 $strConfigServers_nopassword_name = __('Connect without password');
 $strConfigServers_only_db_desc = __(
