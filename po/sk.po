@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-12-31 08:54+0200\n"
+"PO-Revision-Date: 2015-01-01 16:38+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5166,7 +5166,6 @@ msgid "Allow login to any MySQL server"
 msgstr "Povoliť prihlásenie k ľubovoľnému MySQL serveru"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 #| msgid ""
 #| "Enabling this allows a page located on a different domain to call "
 #| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
@@ -5177,8 +5176,8 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Povolením tejto možnosti umožníte stránke umiestnenej na inej doméne zavolať "
-"phpMyAdmina vo vnútri rámca a je potenciálnou [strong]bezpečnostnou dierou[/"
-"strong] dovoľujúcou XFS (cross-frame scripting) útoky"
+"phpMyAdmina vo vnútri rámca a je potenciálnou [strong]bezpečnostnou "
+"dierou[/strong] dovoľujúcou XSS (cross-frame scripting) útoky."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -5647,18 +5646,16 @@ msgid "Browse mode"
 msgstr "Režim prezerania"
 
 #: libraries/config/messages.inc.php:205
-#, fuzzy
 #| msgid "Customize browse mode"
 msgid "Customize browse mode."
-msgstr "Prispôsobiť režim prezerania"
+msgstr "Prispôsobiť režim prezerania."
 
 #: libraries/config/messages.inc.php:207 libraries/config/messages.inc.php:209
 #: libraries/config/messages.inc.php:227 libraries/config/messages.inc.php:238
 #: libraries/config/messages.inc.php:240 libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Customize default options"
 msgid "Customize default options."
-msgstr "Prispôsobenie východzích nastavení"
+msgstr "Prispôsobenie východzích nastavení."
 
 #: libraries/config/messages.inc.php:208 libraries/config/setup.forms.php:247
 #: libraries/config/setup.forms.php:324
@@ -5672,30 +5669,27 @@ msgid "Developer"
 msgstr "Vývojár"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 #| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "Nastavenia pre vývojára phpMyAdmina"
+msgstr "Nastavenia pre vývojárov phpMyAdmina."
 
 #: libraries/config/messages.inc.php:212
 msgid "Edit mode"
 msgstr "Režim úprav"
 
 #: libraries/config/messages.inc.php:213
-#, fuzzy
 #| msgid "Customize edit mode"
 msgid "Customize edit mode."
-msgstr "Prispôsobenie režimu úprav"
+msgstr "Prispôsobenie režimu úprav."
 
 #: libraries/config/messages.inc.php:215
 msgid "Export defaults"
 msgstr "Východzie nastavenia exportu"
 
 #: libraries/config/messages.inc.php:216
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default export options."
-msgstr "Prispôsobiť východzie nastavenia exportu"
+msgstr "Prispôsobiť východzie nastavenia exportu."
 
 #: libraries/config/messages.inc.php:217 libraries/config/messages.inc.php:278
 #: setup/frames/menu.inc.php:22
@@ -5707,40 +5701,36 @@ msgid "General"
 msgstr "Všeobecné"
 
 #: libraries/config/messages.inc.php:219
-#, fuzzy
 #| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
-msgstr "Nastaviť zvyčajne používané nastavenia"
+msgstr "Nastaviť často používané nastavenia."
 
 #: libraries/config/messages.inc.php:221
 msgid "Import defaults"
 msgstr "Východzie nastavenia importu"
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "Customize default common import options"
 msgid "Customize default common import options."
-msgstr "Prispôsobiť východzie nastavenia importu"
+msgstr "Prispôsobiť východzie nastavenia importu."
 
 #: libraries/config/messages.inc.php:223
 msgid "Import / export"
 msgstr "Import / export"
 
 #: libraries/config/messages.inc.php:225
-#, fuzzy
 #| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
-msgstr "Nastaví adresáre pre import a export a voľby kompresie"
+msgstr "Nastaví adresáre pre import a export a voľby kompresie."
 
 #: libraries/config/messages.inc.php:226
 msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:229
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Databases display options."
-msgstr "Nastavenia zobrazenia databáz"
+msgstr "Nastavenia zobrazenia databáz."
 
 #: libraries/config/messages.inc.php:230 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
