@@ -59,10 +59,6 @@ function PMA_queryAsControlUser($sql, $show_error = true, $options = 0)
  */
 function PMA_getRelationsParam()
 {
-    // avoid breakage if pmadb got unconfigured after login
-    if (! defined('TESTSUITE') && empty($GLOBALS['cfg']['Server']['pmadb'])) {
-        unset($_SESSION['relation'][$GLOBALS['server']]);
-    }
     if (empty($_SESSION['relation'][$GLOBALS['server']])) {
         $_SESSION['relation'][$GLOBALS['server']] = PMA_checkRelationsParam();
     }
@@ -97,7 +93,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
     $messages['enabled']  = '<font color="green">' . __('Enabled') . '</font>';
     $messages['disabled'] = '<font color="red">'   . __('Disabled') . '</font>';
 
-    if (false === $GLOBALS['cfg']['Server']['pmadb']) {
+    if (empty($GLOBALS['cfg']['Server']['pmadb'])) {
         $retval .= __('Configuration of pmadb… ')
              . $messages['error']
              . PMA_Util::showDocu('setup', 'linked-tables')
@@ -580,6 +576,7 @@ function PMA_checkRelationsParam()
  */
 function PMA_tryUpgradeTransformations()
 {
+    $cfgRelation = PMA_getRelationsParam();
     // From 4.3, new input oriented transformation feature was introduced.
     // Check whether column_info table has input transformation columns
     $new_cols = array(
@@ -587,8 +584,8 @@ function PMA_tryUpgradeTransformations()
         "input_transformation_options"
     );
     $query = 'SHOW COLUMNS FROM '
-        . PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . '.' . PMA_Util::backquote($GLOBALS['cfg']['Server']['column_info'])
+        . PMA_Util::backquote($cfgRelation['db'])
+        . '.' . PMA_Util::backquote($cfgRelation['column_info'])
         . ' WHERE Field IN (\'' . implode('\', \'', $new_cols) . '\')';
     $result = PMA_queryAsControlUser(
         $query, false, PMA_DatabaseInterface::QUERY_STORE
@@ -1774,7 +1771,7 @@ function PMA_searchColumnInForeigners($foreigners, $column)
 }
 
 /**
- * Whether we found a set of tables in the specified db 
+ * Whether we found a set of tables in the specified db
  *
  * @param string $db     Database
  * @param array  $tables Table names
@@ -1846,51 +1843,40 @@ function PMA_getDefaultPMATableNames()
 function PMA_fixPMATables($db)
 {
     $default_tables = PMA_getDefaultPMATableNames();
+    $tablesToFeatures = array(
+        'pma__bookmark' => 'bookmarktable',
+        'pma__relation' => 'relation',
+        'pma__table_info' => 'table_info',
+        'pma__table_coords' => 'table_coords',
+        'pma__pdf_pages' => 'pdf_pages',
+        'pma__column_info' => 'column_info',
+        'pma__history' => 'history',
+        'pma__recent' => 'recent',
+        'pma__favorite' => 'favorite',
+        'pma__table_uiprefs' => 'table_uiprefs',
+        'pma__tracking' => 'tracking',
+        'pma__userconfig' => 'userconfig',
+        'pma__users' => 'users',
+        'pma__usergroups' => 'usergroups',
+        'pma__navigationhiding' => 'navigationhiding',
+        'pma__savedsearches' => 'savedsearches',
+        'pma__central_columns' => 'central_columns'
+    );
+
     $GLOBALS['dbi']->selectDb($db);
+    $existingTables = $GLOBALS['dbi']->fetchResult(
+        'SHOW TABLES', null, null, $GLOBALS['controllink']
+    );
 
     foreach ($default_tables as $table => $create_query) {
-        $GLOBALS['dbi']->tryQuery($create_query);
-
-        if ($error = $GLOBALS['dbi']->getError()) {
-            $GLOBALS['message'] = $error;
-            break;
+        if (! in_array($table, $existingTables)) {
+            $GLOBALS['dbi']->tryQuery($create_query);
+            if ($error = $GLOBALS['dbi']->getError()) {
+                $GLOBALS['message'] = $error;
+                break;
+            }
         }
-
-        if ($table == 'pma__bookmark') {
-            $GLOBALS['cfg']['Server']['bookmarktable']           = $table;
-        } elseif ($table == 'pma__relation') {
-            $GLOBALS['cfg']['Server']['relation']           = $table;
-        } elseif ($table == 'pma__table_info') {
-            $GLOBALS['cfg']['Server']['table_info']         = $table;
-        } elseif ($table == 'pma__table_coords') {
-            $GLOBALS['cfg']['Server']['table_coords']       = $table;
-        } elseif ($table == 'pma__column_info') {
-            $GLOBALS['cfg']['Server']['column_info']        = $table;
-        } elseif ($table == 'pma__pdf_pages') {
-            $GLOBALS['cfg']['Server']['pdf_pages']          = $table;
-        } elseif ($table == 'pma__history') {
-            $GLOBALS['cfg']['Server']['history']            = $table;
-        } elseif ($table == 'pma__recent') {
-            $GLOBALS['cfg']['Server']['recent']             = $table;
-        } elseif ($table == 'pma__table_uiprefs') {
-            $GLOBALS['cfg']['Server']['table_uiprefs']      = $table;
-        } elseif ($table == 'pma__tracking') {
-            $GLOBALS['cfg']['Server']['tracking']           = $table;
-        } elseif ($table == 'pma__userconfig') {
-            $GLOBALS['cfg']['Server']['userconfig']         = $table;
-        } elseif ($table == 'pma__users') {
-            $GLOBALS['cfg']['Server']['users']              = $table;
-        } elseif ($table == 'pma__usergroups') {
-            $GLOBALS['cfg']['Server']['usergroups']         = $table;
-        } elseif ($table == 'pma__navigationhiding') {
-            $GLOBALS['cfg']['Server']['navigationhiding']   = $table;
-        } elseif ($table == 'pma__savedsearches') {
-            $GLOBALS['cfg']['Server']['savedsearches']      = $table;
-        } elseif ($table == 'pma__central_columns') {
-            $GLOBALS['cfg']['Server']['central_columns']    = $table;
-        } else if ($table == 'pma__designer_coords') {
-            $GLOBALS['cfg']['Server']['designer_coords']    = $table;
-        }
+        $GLOBALS['cfg']['Server'][$tablesToFeatures[$table]] = $table;
     }
     $GLOBALS['cfg']['Server']['pmadb'] = $db;
     $_SESSION['relation'][$GLOBALS['server']] = PMA_checkRelationsParam();
