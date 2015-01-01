@@ -130,11 +130,11 @@ class PMA_Menu
         $allowedTabs = PMA_Util::getMenuTabList($level);
         $cfgRelation = PMA_getRelationsParam();
         if (isset($cfgRelation['menuswork']) && $cfgRelation['menuswork']) {
-            $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+            $groupTable = PMA_Util::backquote($cfgRelation['db'])
                 . "."
-                . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
-            $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-                . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+                . PMA_Util::backquote($cfgRelation['usergroups']);
+            $userTable = PMA_Util::backquote($cfgRelation['db'])
+                . "." . PMA_Util::backquote($cfgRelation['users']);
 
             $sql_query = "SELECT `tab` FROM " . $groupTable
                 . " WHERE `allowed` = 'N'"

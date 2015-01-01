@@ -1487,8 +1487,9 @@ class PMA_Table
      */
     protected function getUiPrefsFromDb()
     {
-        $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
-            . PMA_Util::backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
+        $cfgRelation = PMA_getRelationsParam();
+        $pma_table = PMA_Util::backquote($cfgRelation['db']) . "."
+            . PMA_Util::backquote($cfgRelation['table_uiprefs']);
 
         // Read from phpMyAdmin database
         $sql_query = " SELECT `prefs` FROM " . $pma_table
@@ -1511,8 +1512,9 @@ class PMA_Table
      */
     protected function saveUiPrefsToDb()
     {
-        $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
-            . PMA_Util::backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
+        $cfgRelation = PMA_getRelationsParam();
+        $pma_table = PMA_Util::backquote($cfgRelation['db']) . "."
+            . PMA_Util::backquote($cfgRelation['table_uiprefs']);
 
         $secureDbName = PMA_Util::sqlAddSlashes($this->db_name);
 
@@ -1582,6 +1584,7 @@ class PMA_Table
      */
     protected function loadUiPrefs()
     {
+        $cfgRelation = PMA_getRelationsParam();
         $server_id = $GLOBALS['server'];
 
         // set session variable if it's still undefined
@@ -1589,8 +1592,8 @@ class PMA_Table
             // check whether we can get from pmadb
             $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name]
             [$this->name]
-                = (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
-                    && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
+                = (/*overload*/mb_strlen($cfgRelation['db'])
+                    && /*overload*/mb_strlen($cfgRelation['table_uiprefs'])
                 )
                     ?  $this->getUiPrefsFromDb()
                     : array();
@@ -1723,8 +1726,9 @@ class PMA_Table
         $this->uiprefs[$property] = $value;
 
         // check if pmadb is set
-        if (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
-            && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
+        $cfgRelation = PMA_getRelationsParam();
+        if (/*overload*/mb_strlen($cfgRelation['db'])
+            && /*overload*/mb_strlen($cfgRelation['table_uiprefs'])
         ) {
             return $this->saveUiprefsToDb();
         }
@@ -1746,9 +1750,10 @@ class PMA_Table
         if (isset($this->uiprefs[$property])) {
             unset($this->uiprefs[$property]);
 
+            $cfgRelation = PMA_getRelationsParam();
             // check if pmadb is set
-            if (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
-                && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
+            if (/*overload*/mb_strlen($cfgRelation['db'])
+                && /*overload*/mb_strlen($cfgRelation['table_uiprefs'])
             ) {
                 return $this->saveUiprefsToDb();
             }

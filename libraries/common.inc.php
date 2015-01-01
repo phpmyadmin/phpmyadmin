@@ -1143,11 +1143,4 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     include $__redirect;
     exit();
 }
-
-// If Zero configuration mode enabled, check PMA tables in current db.
-if (isset($GLOBALS['cfg']['ZeroConf'])
-    && $GLOBALS['cfg']['ZeroConf'] == true
-) {
-    PMA_checkAndFixPMATablesInCurrentDb();
-}
 ?>

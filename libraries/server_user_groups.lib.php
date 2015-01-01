@@ -23,8 +23,9 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
         . sprintf(__('Users of \'%s\' user group'), htmlspecialchars($userGroup))
         . '</h2>';
 
-    $usersTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+    $cfgRelation = PMA_getRelationsParam();
+    $usersTable = PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['users']);
     $sql_query = "SELECT `username` FROM " . $usersTable
         . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
     $result = PMA_queryAsControlUser($sql_query, false);
@@ -61,8 +62,9 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
 function PMA_getHtmlForUserGroupsTable()
 {
     $html_output  = '<h2>' . __('User groups') . '</h2>';
-    $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+    $cfgRelation = PMA_getRelationsParam();
+    $groupTable = PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['usergroups']);
     $sql_query = "SELECT * FROM " . $groupTable . " ORDER BY `usergroup` ASC";
     $result = PMA_queryAsControlUser($sql_query, false);
 
@@ -180,10 +182,11 @@ function _getAllowedTabNames($row, $level)
  */
 function PMA_deleteUserGroup($userGroup)
 {
-    $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
-    $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+    $cfgRelation = PMA_getRelationsParam();
+    $userTable = PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['users']);
+    $groupTable = PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['usergroups']);
     $sql_query = "DELETE FROM " . $userTable
         . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
     PMA_queryAsControlUser($sql_query, true);
@@ -241,8 +244,9 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
         'table'  => array()
     );
     if ($userGroup != null) {
-        $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-            . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+        $cfgRelation = PMA_getRelationsParam();
+        $groupTable = PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['usergroups']);
         $sql_query = "SELECT * FROM " . $groupTable
             . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
         $result = PMA_queryAsControlUser($sql_query, false);
@@ -324,8 +328,9 @@ function _getTabList($title, $level, $selected)
 function PMA_editUserGroup($userGroup, $new = false)
 {
     $tabs = PMA_Util::getMenuTabList();
-    $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+    $cfgRelation = PMA_getRelationsParam();
+    $groupTable = PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['usergroups']);
 
     if (! $new) {
         $sql_query = "DELETE FROM " . $groupTable
