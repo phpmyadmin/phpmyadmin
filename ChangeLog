@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #4679 Setup does not allow providing a name for favorites table
 - bug #4680 Number of favorite table are not configurable in setup
 - bug #4681 'Central columns table' field in setup does not have a description
+- bug #4318 Default connection collation and sorting
 
          --- Older ChangeLogs can be found on our project website ---
                      http://www.phpmyadmin.net/old-stuff/ChangeLogs/
