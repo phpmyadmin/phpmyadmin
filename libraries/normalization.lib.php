@@ -378,7 +378,7 @@ function PMA_getHtmlForNewTables2NF($partialDependencies,$table)
 {
     $html = '<p><b>' . sprintf(
         __(
-            'As per above partial dependencies, in order to put the '
+            'In order to put the '
             . 'original table \'%1$s\' into Second normal form we need '
             . 'to create the following tables:'
         ), htmlspecialchars($table)
@@ -498,7 +498,7 @@ function PMA_getHtmlForNewTables3NF($dependencies, $tables, $db)
         }
         $html .= '<p><b>' . sprintf(
             __(
-                'As per above dependencies, in order to put the '
+                'In order to put the '
                 . 'original table \'%1$s\' into Third normal form we need '
                 . 'to create the following tables:'
             ), htmlspecialchars($table)
