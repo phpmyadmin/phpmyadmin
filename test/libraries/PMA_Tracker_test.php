@@ -402,7 +402,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $date = date('Y-m-d H:i:s');
 
         $expectedMainQuery = "/*NOTRACK*/" .
-        "\nINSERT INTO. (db_name, table_name, version, date_created, date_updated," .
+        "\nINSERT INTO `pmadb`.`tracking` (db_name, table_name, version, date_created, date_updated," .
         " schema_snapshot, schema_sql, data_sql, tracking ) values (
         'pma_test',
         '',
