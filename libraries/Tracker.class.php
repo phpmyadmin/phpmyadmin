@@ -242,7 +242,7 @@ class PMA_Tracker
         // Save version
 
         $sql_query = "/*NOTRACK*/\n" .
-        "INSERT INTO" . self::_getTrackingTable() . " (" .
+        "INSERT INTO " . self::_getTrackingTable() . " (" .
         "db_name, " .
         "table_name, " .
         "version, " .
