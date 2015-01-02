@@ -33,9 +33,13 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
-        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
-        $GLOBALS['cfg']['Server']['users'] = 'users';
-        $GLOBALS['cfg']['Server']['usergroups'] = 'usergroups';
+
+        $GLOBALS['server'] = 1;
+        $_SESSION['relation'][$GLOBALS['server']] = array(
+            'db' => 'pmadb',
+            'users' => 'users',
+            'usergroups' => 'usergroups'
+        );
 
         $GLOBALS['pmaThemeImage'] = 'image';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
