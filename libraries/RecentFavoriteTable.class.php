@@ -60,7 +60,7 @@ class PMA_RecentFavoriteTable
         if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])
         ) {
             $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id]
-                = (! empty($this->_getPmaTable())) ? $this->getFromDb() : array();
+                = $this->_getPmaTable() ? $this->getFromDb() : array();
         }
         $this->_tables
             =& $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id];
@@ -284,7 +284,7 @@ class PMA_RecentFavoriteTable
             array_unshift($this->_tables, $table_arr);
             $this->_tables = array_merge(array_unique($this->_tables, SORT_REGULAR));
             $this->trim();
-            if (! empty($this->_getPmaTable())) {
+            if ($this->_getPmaTable()) {
                 return $this->saveToDb();
             }
         }
@@ -331,7 +331,7 @@ class PMA_RecentFavoriteTable
                 unset($this->_tables[$key]);
             }
         }
-        if (! empty($this->_getPmaTable())) {
+        if ($this->_getPmaTable()) {
             return $this->saveToDb();
         }
         return true;
