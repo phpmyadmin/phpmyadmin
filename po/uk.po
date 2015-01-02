@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-12-05 11:55+0200\n"
-"Last-Translator: Igor <vmta@yahoo.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/uk/>\n"
+"PO-Revision-Date: 2015-01-02 17:07+0200\n"
+"Last-Translator: Сергій Педько <nitrotoll@gmail.com>\n"
+"Language-Team: Ukrainian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1309,7 +1309,7 @@ msgstr "Почати автоматичне оновлення"
 
 #: js/messages.php:153
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Припинити автоматичне оновлення"
 
 #: js/messages.php:155
 msgid "general_log and slow_query_log are enabled."
@@ -1827,13 +1827,15 @@ msgstr "Дивитись більше"
 
 #: js/messages.php:311
 msgid "Are you sure?"
-msgstr ""
+msgstr "Ви впевнені?"
 
 #: js/messages.php:312
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Ця дія може змінити визначення деяких стовпців.<br/>Ви впевнені, що бажаєте "
+"продовжувати?"
 
 #: js/messages.php:313
 msgid "Continue"
@@ -1855,7 +1857,7 @@ msgstr "Перехід до наступного кроку…"
 #: js/messages.php:319
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Перший крок нормалізації для таблиці '%s' завершений."
 
 #: js/messages.php:320 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
@@ -1865,7 +1867,7 @@ msgstr "Кінець кроку"
 
 #: js/messages.php:321
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Другий крок нормалізації (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:322 js/messages.php:555 libraries/normalization.lib.php:264
@@ -1874,11 +1876,11 @@ msgstr "Готово"
 
 #: js/messages.php:323
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Підтвердіть часткові залежності"
 
 #: js/messages.php:324
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Обрані часткові залежності такі:"
 
 #: js/messages.php:325
 msgid ""
@@ -1893,29 +1895,32 @@ msgstr "Немає обраних часткових залежностей!"
 #: js/messages.php:328
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"Покажіть мені можливі часткові залежності, що ґрунтуються на даних у таблиці"
 
 #: js/messages.php:329
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Приховати список часткових залежностей"
 
 #: js/messages.php:330
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Всім залишатись на місцях! Це може зайняти деякий час, залежно від розміру "
+"даних та кількості стовпців у таблиці."
 
 #: js/messages.php:331
 msgid "Step"
-msgstr ""
+msgstr "Крок"
 
 #: js/messages.php:332
 msgid "The following actions will be performed:"
-msgstr ""
+msgstr "Будуть виконані наступні дії:"
 
 #: js/messages.php:333
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "СКИНУТИ стовпці %s для таблиці %s"
 
 #: js/messages.php:334
 msgid "Create the following table"
@@ -1923,15 +1928,15 @@ msgstr "Створити наступну таблицю"
 
 #: js/messages.php:337
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Третій крок нормалізації (3NF)"
 
 #: js/messages.php:338
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Підтвердіть перехресні залежності"
 
 #: js/messages.php:339
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Обрані залежності такі:"
 
 #: js/messages.php:340
 msgid "No dependencies selected!"
@@ -2108,10 +2113,9 @@ msgid "Delete page"
 msgstr "Видалити сторінку"
 
 #: js/messages.php:410 libraries/db_designer.lib.php:382
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "Модуль"
+msgstr "Без назви"
 
 #: js/messages.php:411
 msgid "Please select a page to continue"
@@ -2119,15 +2123,15 @@ msgstr "Будь ласка, оберіть сторінку для продов
 
 #: js/messages.php:412
 msgid "Please enter a valid page name"
-msgstr ""
+msgstr "Будь-ласка, введіть допустиме ім`я сторінки"
 
 #: js/messages.php:413
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Ви хочете зберегти зміни до поточної сторінки?"
 
 #: js/messages.php:414
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Сторінка успішно видалена"
 
 #: js/messages.php:415
 msgid "Export relational schema"
@@ -2168,7 +2172,6 @@ msgid "Click to sort results by this column."
 msgstr "Клацніть для сортування за цим стовпчиком."
 
 #: js/messages.php:427
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2177,8 +2180,9 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Натисніть Shift та клацніть для додавання цього стовпчика до ORDER.<br />- "
-"Натисніть Control та клацніть для видалення стовпчика з ORDER BY"
+"Shift+клік для додавання цього стовпчика до списку ORDER BY або перемикання "
+"ASC/DESC.<br />- Ctrl+клік чи Alt+клік (для Mac: Shift+Option+клік) для "
+"видалення стовпчика із списку ORDER BY"
 
 #: js/messages.php:428
 msgid "Click to mark/unmark."
@@ -2213,12 +2217,16 @@ msgstr ""
 #: js/messages.php:435
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
+"Будь-ласка введіть допустимий шістнадцятковий рядок. Допустимі символи: 0-9, "
+"A-F."
 
 #: js/messages.php:436
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Ви дійсно хочете побачити усі рядки? Для великих таблиць це може призвести "
+"до зависання браузеру."
 
 #: js/messages.php:439
 msgid "cancel"
@@ -2230,7 +2238,7 @@ msgstr "Перервано"
 
 #: js/messages.php:442
 msgid "Success"
-msgstr ""
+msgstr "Успішно"
 
 #: js/messages.php:443
 msgid "Import status"
@@ -2381,11 +2389,11 @@ msgstr ""
 
 #: js/messages.php:509 js/messages.php:521
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "На сервері були виявлені деякі помилки!"
 
 #: js/messages.php:511
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Будь-ласка зверніть увагу на нижню частину цього вікна."
 
 #: js/messages.php:516 libraries/Error_Handler.class.php:353
 msgid "Ignore All"
@@ -2394,7 +2402,7 @@ msgstr "Ігнорувати все"
 #: js/messages.php:523
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
+msgstr "Згідно ваших налаштувань, що наразі вносяться, будьте терплячими."
 
 #: js/messages.php:530
 msgid "Execute this query again?"
@@ -2740,11 +2748,11 @@ msgstr "Розмір шрифту"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:175
 msgid "Collapse"
-msgstr ""
+msgstr "Згорнути"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:177
 msgid "Expand"
-msgstr ""
+msgstr "Розгорнути"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:178
 msgid "Requery"
@@ -2781,13 +2789,13 @@ msgstr "База даних"
 #, php-format
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Всього %d закладка"
+msgstr[1] "Всього %d закладки"
+msgstr[2] "Всього %d закладок"
 
 #: libraries/Console.class.php:116
 msgid "private"
-msgstr ""
+msgstr "закритий"
 
 #: libraries/Console.class.php:120 libraries/bookmark.lib.php:87
 msgid "shared"
@@ -2797,7 +2805,7 @@ msgstr "загальні"
 #: libraries/Console.class.php:124
 #, php-format
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr ""
+msgstr "%1$s, %2$s та %3$s закладки включено"
 
 #: libraries/Console.class.php:130
 msgid "No bookmarks"
