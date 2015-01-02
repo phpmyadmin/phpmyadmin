@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-02 13:23+0200\n"
+"PO-Revision-Date: 2015-01-02 15:48+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
@@ -6752,7 +6752,6 @@ msgid "Control host"
 msgstr "Kontrolný hostiteľ"
 
 #: libraries/config/messages.inc.php:578
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -6761,18 +6760,18 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
-"Alternatívny hostiteľ na ukladanie konfigurácie; ponechajte prázdne aby sa "
-"použil už definovaný hostiteľ"
+"Alternatívny port na pripojenie k serveru na ukladanie konfigurácie; "
+"ponechajte prázdne na použitie štandardného portu alebo už definovaný port, "
+"ak je nastavený server rovnaký ako hostiteľ."
 
 #: libraries/config/messages.inc.php:582
 msgid "Control port"
 msgstr "Kontrolný port"
 
 #: libraries/config/messages.inc.php:584
-#, fuzzy
 #| msgid "Hide databases matching regular expression (PCRE)"
 msgid "Hide databases matching regular expression (PCRE)."
-msgstr "Skryť databázy odpovedajúce regulárnemu výrazu (PCRE)"
+msgstr "Skryť databázy zodpovedajúce regulárnemu výrazu (PCRE)."
 
 #: libraries/config/messages.inc.php:585
 msgid ""
@@ -6791,7 +6790,6 @@ msgid "Hide databases"
 msgstr "Skryť databázy"
 
 #: libraries/config/messages.inc.php:589
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma__history"
 #| "[/kbd]"
@@ -6799,18 +6797,17 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Nechať prázdne pre vypnutie histórie SQL dopytov, navrhované: [kbd]"
-"pma__history[/kbd]"
+"Nechajte prázdne pre vypnutie histórie SQL dopytov, navrhované: "
+"[kbd]pma__history[/kbd]."
 
 #: libraries/config/messages.inc.php:592
 msgid "SQL query history table"
 msgstr "Tabuľka histórie SQL dopytov"
 
 #: libraries/config/messages.inc.php:593
-#, fuzzy
 #| msgid "Hostname where MySQL server is running"
 msgid "Hostname where MySQL server is running."
-msgstr "Meno počítača, kde beží MySQL server"
+msgstr "Meno počítača, kde beží MySQL server."
 
 #: libraries/config/messages.inc.php:594
 msgid "Server hostname"
@@ -6821,7 +6818,6 @@ msgid "Logout URL"
 msgstr "URL pri odhlásení"
 
 #: libraries/config/messages.inc.php:597
-#, fuzzy
 #| msgid ""
 #| "Limits number of table preferences which are stored in database, the "
 #| "oldest records are automatically removed"
@@ -6830,7 +6826,7 @@ msgid ""
 "records are automatically removed."
 msgstr ""
 "Obmedzuje počet nastavení tabuľky, ktoré sú uložené v databáze. Najstaršie "
-"záznamy sú automaticky odstraňované"
+"záznamy sú automaticky odstraňované."
 
 #: libraries/config/messages.inc.php:601
 msgid "Maximal number of table preferences to store"
@@ -6871,10 +6867,9 @@ msgstr ""
 "[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:612
-#, fuzzy
 #| msgid "Try to connect without password"
 msgid "Try to connect without password."
-msgstr "Pokusiť sa pripojiť bez hesla"
+msgstr "Pokúsiť sa pripojiť bez hesla."
 
 #: libraries/config/messages.inc.php:613
 msgid "Connect without password"
@@ -6895,10 +6890,9 @@ msgid "Show only listed databases"
 msgstr "Zobraziť len vybrané databázy"
 
 #: libraries/config/messages.inc.php:620 libraries/config/messages.inc.php:713
-#, fuzzy
 #| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
-msgstr "Nechajte prázdne, pokiaľ nepoužívate prihlásenie podľa konfigurácie"
+msgstr "Nechajte prázdne ak nepoužívate prihlasovací config."
 
 #: libraries/config/messages.inc.php:621
 msgid "Password for config auth"
