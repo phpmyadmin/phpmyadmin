@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-12-24 23:01+0200\n"
-"Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-3/nl/"
-">\n"
+"PO-Revision-Date: 2015-01-02 11:17+0200\n"
+"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-3/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6780,13 +6780,11 @@ msgstr ""
 "opzoekingen uit te schakelen, suggestie: [kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:607
-#, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Centrale kolommen"
+msgstr "Centrale kolommen tabel"
 
 #: libraries/config/messages.inc.php:609
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]."
@@ -6794,8 +6792,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: [kbd]"
 "pma__central_columns[/kbd]."
 msgstr ""
-"Laat dit veld leeg om geen PDF-schema te ondersteunen, suggestie: [kbd]"
-"pma__table_coords[/kbd]."
+"Laat dit veld leeg om centrale kolommen tabel niet te ondersteunen, "
+"suggestie: [kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:612
 msgid "Try to connect without password."
@@ -6890,10 +6888,9 @@ msgstr ""
 "sessies heen, voorstel: [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
-msgstr "Favoriete tabellen"
+msgstr "Favorieten tabel"
 
 #: libraries/config/messages.inc.php:646
 msgid ""
@@ -9272,7 +9269,7 @@ msgstr ""
 "(%1$s) maar één kolom heeft."
 
 #: libraries/normalization.lib.php:381
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above partial dependencies, in order to put the original table "
 #| "'%1$s' into Second normal form we need to create the following tables:"
@@ -9280,9 +9277,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
-"Door de hierboven genoemde gedeeltelijke afhankelijkheden, moeten we om de "
-"originele tabel '%1$s' in de tweede normaal vorm te plaatsen de volgende "
-"tabellen aanmaken:"
+"Om de originele tabel '%1$s' in de tweede normaal vorm te plaatsen, moeten "
+"we de volgende tabellen aanmaken:"
 
 #: libraries/normalization.lib.php:417
 #, php-format
@@ -9295,7 +9291,7 @@ msgid "Error in processing!"
 msgstr "Verwerkingsfout!"
 
 #: libraries/normalization.lib.php:501
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above dependencies, in order to put the original table '%1$s' into "
 #| "Third normal form we need to create the following tables:"
@@ -9303,9 +9299,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
-"Door de hierboven genoemde gedeeltelijke afhankelijkheden, moeten we om de "
-"originele tabel '%1$s' in de derde normaal vorm te plaatsen, de volgende "
-"tabellen aanmaken:"
+"Om de originele tabel '%1$s' in de derde normaal vorm te plaatsen, moeten we "
+"de volgende tabellen aanmaken:"
 
 #: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
@@ -10596,10 +10591,9 @@ msgid "Persistent recently used tables"
 msgstr "Persistente recent gebruikte tabellen"
 
 #: libraries/relation.lib.php:224
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Persistente recent gebruikte tabellen"
+msgstr "Persistente veel gebruikte tabellen"
 
 #: libraries/relation.lib.php:235
 msgid "Persistent tables' UI preferences"
