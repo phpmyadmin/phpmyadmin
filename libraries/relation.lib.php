@@ -1831,7 +1831,6 @@ function PMA_getDefaultPMATableNames()
  */
 function PMA_fixPMATables($db, $create = true)
 {
-    $default_tables = PMA_getDefaultPMATableNames();
     $tablesToFeatures = array(
         'pma__bookmark' => 'bookmarktable',
         'pma__relation' => 'relation',
@@ -1852,25 +1851,27 @@ function PMA_fixPMATables($db, $create = true)
         'pma__central_columns' => 'central_columns'
     );
 
-    $GLOBALS['dbi']->selectDb($db);
-    $existingTables = $GLOBALS['dbi']->fetchResult(
-        'SHOW TABLES', null, null, $GLOBALS['controllink']
-    );
+    $existingTables = $GLOBALS['dbi']->getTables($db, $GLOBALS['controllink']);
 
-    foreach ($default_tables as $table => $create_query) {
+    $createQueries = null;
+    foreach ($tablesToFeatures as $table => $feature) {
         if (! in_array($table, $existingTables)) {
             if ($create) {
-                $GLOBALS['dbi']->tryQuery($create_query);
+                if ($createQueries == null) { // first create
+                    $createQueries = PMA_getDefaultPMATableNames();
+                    $GLOBALS['dbi']->selectDb($db);
+                }
+                $GLOBALS['dbi']->tryQuery($createQueries[$table]);
                 if ($error = $GLOBALS['dbi']->getError()) {
                     $GLOBALS['message'] = $error;
-                    break;
+                    return;
                 }
-                $GLOBALS['cfg']['Server'][$tablesToFeatures[$table]] = $table;
+                $GLOBALS['cfg']['Server'][$feature] = $table;
             } else {
                 return;
             }
         } else {
-            $GLOBALS['cfg']['Server'][$tablesToFeatures[$table]] = $table;
+            $GLOBALS['cfg']['Server'][$feature] = $table;
         }
     }
 
