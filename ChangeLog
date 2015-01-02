@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - bug #4681 'Central columns table' field in setup does not have a description
 - bug #4318 Default connection collation and sorting
 - bug #4683 Relational data is not properly updated on table rename
+- bug #4655 Undefined index: collation_connection (second patch)
 
          --- Older ChangeLogs can be found on our project website ---
                      http://www.phpmyadmin.net/old-stuff/ChangeLogs/
