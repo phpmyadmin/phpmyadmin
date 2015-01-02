@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-02 15:44+0200\n"
+"PO-Revision-Date: 2015-01-02 15:48+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/sk/>\n"
@@ -6784,7 +6784,6 @@ msgid "Logout URL"
 msgstr "URL pri odhlásení"
 
 #: libraries/config/messages.inc.php:597
-#, fuzzy
 #| msgid ""
 #| "Limits number of table preferences which are stored in database, the "
 #| "oldest records are automatically removed"
@@ -6793,7 +6792,7 @@ msgid ""
 "records are automatically removed."
 msgstr ""
 "Obmedzuje počet nastavení tabuľky, ktoré sú uložené v databáze. Najstaršie "
-"záznamy sú automaticky odstraňované"
+"záznamy sú automaticky odstraňované."
 
 #: libraries/config/messages.inc.php:601
 msgid "Maximal number of table preferences to store"
@@ -6834,10 +6833,9 @@ msgstr ""
 "[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:612
-#, fuzzy
 #| msgid "Try to connect without password"
 msgid "Try to connect without password."
-msgstr "Pokusiť sa pripojiť bez hesla"
+msgstr "Pokúsiť sa pripojiť bez hesla."
 
 #: libraries/config/messages.inc.php:613
 msgid "Connect without password"
@@ -6858,10 +6856,9 @@ msgid "Show only listed databases"
 msgstr "Zobraziť len vybrané databázy"
 
 #: libraries/config/messages.inc.php:620 libraries/config/messages.inc.php:713
-#, fuzzy
 #| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
-msgstr "Nechajte prázdne, pokiaľ nepoužívate prihlásenie podľa konfigurácie"
+msgstr "Nechajte prázdne ak nepoužívate prihlasovací config."
 
 #: libraries/config/messages.inc.php:621
 msgid "Password for config auth"
