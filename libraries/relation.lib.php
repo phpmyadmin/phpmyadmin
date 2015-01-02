@@ -1613,20 +1613,56 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
         );
     }
 
-    /**
-     * @todo Can't get moving PDFs the right way. The page numbers
-     * always get screwed up independently from duplication because the
-     * numbers do not seem to be stored on a per-database basis. Would
-     * the author of pdf support please have a look at it?
-     */
-
     if ($GLOBALS['cfgRelation']['pdfwork']) {
+        if ($source_db == $target_db) {
+            // rename within the database can be handled
+            PMA_REL_renameSingleTable(
+                'table_coords',
+                $source_db, $target_db,
+                $source_table, $target_table,
+                'db_name', 'table_name'
+            );
+        } else {
+            // if the table is moved out of the database we can no loger keep the
+            // record for table coordinate
+            $remove_query = "DELETE FROM "
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
+                . " WHERE db_name  = '" . PMA_Util::sqlAddSlashes($source_db) . "'"
+                . " AND table_name = '" . PMA_Util::sqlAddSlashes($source_table)
+                . "'";
+            PMA_queryAsControlUser($remove_query);
+        }
+    }
+
+    if ($GLOBALS['cfgRelation']['uiprefswork']) {
         PMA_REL_renameSingleTable(
-            'table_coords',
+            'table_uiprefs',
             $source_db, $target_db,
             $source_table, $target_table,
             'db_name', 'table_name'
         );
+    }
+
+    if ($GLOBALS['cfgRelation']['navwork']) {
+        // update hidden items inside table
+        PMA_REL_renameSingleTable(
+            'navigationhiding',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'db_name', 'table_name'
+        );
+
+        // update data for hidden table
+        $query = "UPDATE "
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['navigationhiding'])
+            . " SET db_name = '" . PMA_Util::sqlAddSlashes($target_db) . "',"
+            . " item_name = '" . PMA_Util::sqlAddSlashes($target_table) . "'"
+            . " WHERE db_name  = '" . PMA_Util::sqlAddSlashes($source_db) . "'"
+            . " AND item_name = '" . PMA_Util::sqlAddSlashes($source_table) . "'"
+            . " AND item_type = 'table'";
+        PMA_queryAsControlUser($query);
     }
 }
 
