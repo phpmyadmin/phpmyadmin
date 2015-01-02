@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-12-19 16:08+0200\n"
+"PO-Revision-Date: 2015-01-02 09:53+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6717,10 +6717,9 @@ msgstr ""
 "soovitatav: [kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:607
-#, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Kesksed veerud"
+msgstr "Kesksete veergude tabel"
 
 #: libraries/config/messages.inc.php:609
 #, fuzzy
