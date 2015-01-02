@@ -220,6 +220,12 @@ class PMA_Header
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $pftext = ! empty($_SESSION['tmpval']['pftext'])
             ? $_SESSION['tmpval']['pftext'] : '';
+
+        // not sure when this happens, but it happens
+        if (! isset($GLOBALS['collation_connection'])) {
+            $GLOBALS['collation_connection'] = 'utf8_general_ci';
+        }
+
         return array(
             'common_query' => PMA_URL_getCommon(array(), 'text'),
             'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
