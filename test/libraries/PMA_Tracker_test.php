@@ -236,10 +236,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
 
-        $reflection = new \ReflectionClass('PMA_Tracker');
-        $method = $reflection->getMethod('init');
-        $method->setAccessible(true);
-        $method->invoke(null, array());
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
