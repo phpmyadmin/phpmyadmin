@@ -584,7 +584,7 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
  * Function to get html for bookmark support if bookmarks are enabled. Else will
  * return null
  *
- * @param string $displayParts   the parts to display
+ * @param array  $displayParts   the parts to display
  * @param bool   $cfgBookmark    configuration setting for bookmarking
  * @param string $sql_query      sql query
  * @param string $db             current database
@@ -1667,7 +1667,7 @@ function PMA_getBookmarkCreatedMessage()
  * @param PMA_DisplayResults $displayResultsObject instance of DisplayResult.class
  * @param string             $pmaThemeImage        theme image uri
  * @param string             $url_query            url query
- * @param string             $displayParts         the parts to display
+ * @param array              $displayParts         the parts to display
  * @param bool               $editable             whether the result table is
  *                                                 editable or not
  * @param int                $unlim_num_rows       unlimited number of rows
