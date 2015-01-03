@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-02 13:25+0200\n"
+"PO-Revision-Date: 2015-01-03 12:41+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: English (United Kingdom) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/en_GB/>\n"
@@ -257,15 +257,14 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Database %1$s has been copied to %2$s."
 
 #: db_operations.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"The phpMyAdmin configuration storage has been deactivated. To find out why "
-"click %shere%s."
+"The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:764
