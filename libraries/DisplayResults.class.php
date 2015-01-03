@@ -1766,7 +1766,7 @@ class PMA_DisplayResults
 
             $form_html .= '<form method="post" action="tbl_row_action.php" '
                 . 'name="resultsForm"'
-                . ' id="resultsForm_' . $this->__get('unique_id'). '"';
+                . ' id="resultsForm_' . $this->__get('unique_id') . '"';
 
             $form_html .= ' class="ajax" ';
 
@@ -5284,7 +5284,9 @@ class PMA_DisplayResults
             return $results_operations_html;
         }
 
-        if (($displayParts['ins_row'] == '1') || ($displayParts['pview_lnk'] == '1')) {
+        if (($displayParts['ins_row'] == '1')
+            || ($displayParts['pview_lnk'] == '1')
+        ) {
             // Displays "printable view" link if required
             if ($displayParts['pview_lnk'] == '1') {
 
@@ -5976,8 +5978,8 @@ class PMA_DisplayResults
         if ($position == self::POSITION_LEFT) {
 
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
-                $del_url, $displayParts, $row_no, $where_clause_html, $condition_array,
-                '_left', ''
+                $del_url, $displayParts, $row_no, $where_clause_html,
+                $condition_array, '_left', ''
             );
 
             $ret .= $this->_getEditLink(
