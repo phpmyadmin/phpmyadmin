@@ -338,29 +338,15 @@ class PMA_DisplayResults
 
 
     /**
-     * Defines the display mode to use for the results of a SQL query
+     * Defines the parts to display for the results of a SQL query
      *
-     * It uses a synthetic string that contains all the required information.
-     * In this string:
-     *   - the first two characters stand for the action to do while
-     *     clicking on the "edit" link (e.g. 'ur' for update a row, 'nn' for no
-     *     edit link...);
-     *   - the next two characters stand for the action to do while
-     *     clicking on the "delete" link (e.g. 'kp' for kill a process, 'nn' for
-     *     no delete link...);
-     *   - the next characters are boolean values (1/0) and respectively stand
-     *     for sorting links, navigation bar, "insert a new row" link, the
-     *     bookmark feature, the expand/collapse text/blob fields button and
-     *     the "display printable view" option.
-     *     Of course '0'/'1' means the feature won't/will be enabled.
-     *
-     * @param string  &$the_disp_mode the synthetic value for display_mode (see a few
-     *                                lines above for explanations)
-     * @param integer &$the_total     the total number of rows returned by the SQL
-     *                                 query without any programmatically appended
-     *                                 LIMIT clause
-     *                                 (just a copy of $unlim_num_rows if it exists,
-     *                                 elsecomputed inside this function)
+     * @param string  $displayParts the parts to display (see a few
+     *                              lines above for explanations)
+     * @param integer &$the_total   the total number of rows returned by the SQL
+     *                              query without any programmatically appended
+     *                              LIMIT clause
+     *                              (just a copy of $unlim_num_rows if it exists,
+     *                              elsecomputed inside this function)
      *
      * @return array    an array with explicit indexes for all the display
      *                   elements
@@ -369,11 +355,11 @@ class PMA_DisplayResults
      *
      * @see     getTable()
      */
-    private function _setDisplayMode(&$the_disp_mode, &$the_total)
+    private function _setDisplayParts($displayParts, &$the_total)
     {
 
-        // Following variables are needed for use in isset/empty or
-        // use with array indexes or safe use in foreach
+        // 1. Following variables are needed for use in isset/empty or
+        //    use with array indexes or safe use in foreach
         $db = $this->__get('db');
         $table = $this->__get('table');
         $unlim_num_rows = $this->__get('unlim_num_rows');
@@ -381,133 +367,118 @@ class PMA_DisplayResults
         $fields_meta = $this->__get('fields_meta');
         $printview = $this->__get('printview');
 
-        // 1. Initializes the $displayParts array
-        $displayParts              = array();
-        $displayParts['edit_lnk']  = $the_disp_mode[0] . $the_disp_mode[1];
-        $displayParts['del_lnk']   = $the_disp_mode[2] . $the_disp_mode[3];
-        $displayParts['sort_lnk']  = (string) $the_disp_mode[4];
-        $displayParts['nav_bar']   = (string) $the_disp_mode[5];
-        $displayParts['ins_row']   = (string) $the_disp_mode[6];
-        $displayParts['bkm_form']  = (string) $the_disp_mode[7];
-        $displayParts['text_btn']  = (string) $the_disp_mode[8];
-        $displayParts['pview_lnk'] = (string) $the_disp_mode[9];
+        // 2. Updates the display mode
+        if (isset($printview) && ($printview == '1')) {
+            // 2.0 Print view -> set all elements to false!
+            $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
+            $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
+            $displayParts['sort_lnk']  = (string) '0';
+            $displayParts['nav_bar']   = (string) '0';
+            $displayParts['ins_row']   = (string) '0';
+            $displayParts['bkm_form']  = (string) '0';
+            $displayParts['text_btn']  = (string) '0';
+            $displayParts['pview_lnk'] = (string) '0';
 
-        // 2. Display mode is not "false for all elements" -> updates the
-        // display mode
-        if ($the_disp_mode != 'nnnn000000') {
+        } elseif ($this->__get('is_count') || $this->__get('is_analyse')
+            || $this->__get('is_maint') || $this->__get('is_explain')
+        ) {
+            // 2.1 Statement is a "SELECT COUNT", a
+            //     "CHECK/ANALYZE/REPAIR/OPTIMIZE", an "EXPLAIN" one or
+            //     contains a "PROC ANALYSE" part
+            $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
+            $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
+            $displayParts['sort_lnk']  = (string) '0';
+            $displayParts['nav_bar']   = (string) '0';
+            $displayParts['ins_row']   = (string) '0';
+            $displayParts['bkm_form']  = (string) '1';
 
-            if (isset($printview) && ($printview == '1')) {
-                // 2.0 Print view -> set all elements to false!
-                $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
-                $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
-                $displayParts['sort_lnk']  = (string) '0';
-                $displayParts['nav_bar']   = (string) '0';
-                $displayParts['ins_row']   = (string) '0';
-                $displayParts['bkm_form']  = (string) '0';
-                $displayParts['text_btn']  = (string) '0';
-                $displayParts['pview_lnk'] = (string) '0';
-
-            } elseif ($this->__get('is_count') || $this->__get('is_analyse')
-                || $this->__get('is_maint') || $this->__get('is_explain')
-            ) {
-                // 2.1 Statement is a "SELECT COUNT", a
-                //     "CHECK/ANALYZE/REPAIR/OPTIMIZE", an "EXPLAIN" one or
-                //     contains a "PROC ANALYSE" part
-                $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
-                $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
-                $displayParts['sort_lnk']  = (string) '0';
-                $displayParts['nav_bar']   = (string) '0';
-                $displayParts['ins_row']   = (string) '0';
-                $displayParts['bkm_form']  = (string) '1';
-
-                if ($this->__get('is_maint')) {
-                    $displayParts['text_btn']  = (string) '1';
-                } else {
-                    $displayParts['text_btn']  = (string) '0';
-                }
-                $displayParts['pview_lnk'] = (string) '1';
-
-            } elseif ($this->__get('is_show')) {
-                // 2.2 Statement is a "SHOW..."
-                /**
-                 * 2.2.1
-                 * @todo defines edit/delete links depending on show statement
-                 */
-                preg_match(
-                    '@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?'
-                    . 'PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS'
-                    . ')@i',
-                    $this->__get('sql_query'), $which
-                );
-
-                $bIsProcessList = isset($which[1]);
-                if ($bIsProcessList) {
-                    $str = ' ' . strtoupper($which[1]);
-                    $bIsProcessList = $bIsProcessList
-                        && strpos($str, 'PROCESSLIST') > 0;
-                }
-
-                if ($bIsProcessList) {
-                    // no edit link
-                    $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
-                    // "kill process" type edit link
-                    $displayParts['del_lnk']  = self::KILL_PROCESS;
-                } else {
-                    // Default case -> no links
-                    // no edit link
-                    $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
-                    // no delete link
-                    $displayParts['del_lnk']  = self::NO_EDIT_OR_DELETE;
-                }
-                unset($bIsProcessList);
-                // 2.2.2 Other settings
-                $displayParts['sort_lnk']  = (string) '0';
-                $displayParts['nav_bar']   = (string) '0';
-                $displayParts['ins_row']   = (string) '0';
-                $displayParts['bkm_form']  = (string) '1';
+            if ($this->__get('is_maint')) {
                 $displayParts['text_btn']  = (string) '1';
-                $displayParts['pview_lnk'] = (string) '1';
-
             } else {
-                // 2.3 Other statements (ie "SELECT" ones) -> updates
-                //     $displayParts['edit_lnk'], $displayParts['del_lnk'] and
-                //     $displayParts['text_btn'] (keeps other default values)
-                $prev_table = $fields_meta[0]->table;
-                $displayParts['text_btn']  = (string) '1';
+                $displayParts['text_btn']  = (string) '0';
+            }
+            $displayParts['pview_lnk'] = (string) '1';
 
-                for ($i = 0; $i < $this->__get('fields_cnt'); $i++) {
+        } elseif ($this->__get('is_show')) {
+            // 2.2 Statement is a "SHOW..."
+            /**
+             * 2.2.1
+             * @todo defines edit/delete links depending on show statement
+             */
+            preg_match(
+                '@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?'
+                . 'PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS'
+                . ')@i',
+                $this->__get('sql_query'), $which
+            );
 
-                    $is_link = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                        || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
-                        || ($displayParts['sort_lnk'] != '0')
-                        || ($displayParts['ins_row'] != '0');
+            $bIsProcessList = isset($which[1]);
+            if ($bIsProcessList) {
+                $str = ' ' . strtoupper($which[1]);
+                $bIsProcessList = $bIsProcessList
+                    && strpos($str, 'PROCESSLIST') > 0;
+            }
 
-                    // 2.3.2 Displays edit/delete/sort/insert links?
-                    if ($is_link
-                        && (($fields_meta[$i]->table == '')
-                        || ($fields_meta[$i]->table != $prev_table))
-                    ) {
-                        // don't display links
-                        $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
-                        $displayParts['del_lnk']  = self::NO_EDIT_OR_DELETE;
-                        /**
-                         * @todo May be problematic with same field names
-                         * in two joined table.
-                         */
-                        // $displayParts['sort_lnk'] = (string) '0';
-                        $displayParts['ins_row']  = (string) '0';
-                        if ($displayParts['text_btn'] == '1') {
-                            break;
-                        }
-                    } // end if (2.3.2)
+            if ($bIsProcessList) {
+                // no edit link
+                $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
+                // "kill process" type edit link
+                $displayParts['del_lnk']  = self::KILL_PROCESS;
+            } else {
+                // Default case -> no links
+                // no edit link
+                $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
+                // no delete link
+                $displayParts['del_lnk']  = self::NO_EDIT_OR_DELETE;
+            }
+            unset($bIsProcessList);
+            // 2.2.2 Other settings
+            $displayParts['sort_lnk']  = (string) '0';
+            $displayParts['nav_bar']   = (string) '0';
+            $displayParts['ins_row']   = (string) '0';
+            $displayParts['bkm_form']  = (string) '1';
+            $displayParts['text_btn']  = (string) '1';
+            $displayParts['pview_lnk'] = (string) '1';
 
-                    // 2.3.3 Always display print view link
-                    $displayParts['pview_lnk']    = (string) '1';
-                    $prev_table = $fields_meta[$i]->table;
+        } else {
+            // 2.3 Other statements (ie "SELECT" ones) -> updates
+            //     $displayParts['edit_lnk'], $displayParts['del_lnk'] and
+            //     $displayParts['text_btn'] (keeps other default values)
+            $prev_table = $fields_meta[0]->table;
+            $displayParts['text_btn']  = (string) '1';
 
-                } // end for
-            } // end if..elseif...else (2.1 -> 2.3)
-        } // end if (2)
+            for ($i = 0; $i < $this->__get('fields_cnt'); $i++) {
+
+                $is_link = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                    || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
+                    || ($displayParts['sort_lnk'] != '0')
+                    || ($displayParts['ins_row'] != '0');
+
+                // 2.3.2 Displays edit/delete/sort/insert links?
+                if ($is_link
+                    && (($fields_meta[$i]->table == '')
+                    || ($fields_meta[$i]->table != $prev_table))
+                ) {
+                    // don't display links
+                    $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
+                    $displayParts['del_lnk']  = self::NO_EDIT_OR_DELETE;
+                    /**
+                     * @todo May be problematic with same field names
+                     * in two joined table.
+                     */
+                    // $displayParts['sort_lnk'] = (string) '0';
+                    $displayParts['ins_row']  = (string) '0';
+                    if ($displayParts['text_btn'] == '1') {
+                        break;
+                    }
+                } // end if (2.3.2)
+
+                // 2.3.3 Always display print view link
+                $displayParts['pview_lnk']    = (string) '1';
+                $prev_table = $fields_meta[$i]->table;
+
+            } // end for
+        } // end if..elseif...else (2.1 -> 2.3)
 
         // 3. Gets the total number of rows if it is unknown
         if (isset($unlim_num_rows) && $unlim_num_rows != '') {
@@ -543,12 +514,9 @@ class PMA_DisplayResults
             }
         } // end if (3)
 
-        // 5. Updates the synthetic var
-        $the_disp_mode = join('', $displayParts);
-
         return $displayParts;
 
-    } // end of the 'setDisplayMode()' function
+    } // end of the 'setDisplayParts()' function
 
 
     /**
@@ -4475,11 +4443,10 @@ class PMA_DisplayResults
 
     /**
      * Prepare a table of results returned by a SQL query.
-     * This function is called by the "sql.php" script.
      *
      * @param integer &$dt_result         the link id associated to the query
      *                                    which results have to be displayed
-     * @param array   &$the_disp_mode     the display mode
+     * @param array   &$displayParts      the parts to display
      * @param array   $analyzed_sql       the analyzed query
      * @param boolean $is_limited_display With limited operations or not
      *
@@ -4490,7 +4457,7 @@ class PMA_DisplayResults
      * @see     sql.php file
      */
     public function getTable(
-        &$dt_result, &$the_disp_mode, $analyzed_sql,
+        &$dt_result, &$displayParts, $analyzed_sql,
         $is_limited_display = false
     ) {
 
@@ -4534,7 +4501,7 @@ class PMA_DisplayResults
         // 1.1 Gets the information about which functionalities should be
         //     displayed
         $total      = '';
-        $displayParts = $this->_setDisplayMode($the_disp_mode, $total);
+        $displayParts = $this->_setDisplayParts($displayParts, $total);
 
         // 1.2 Defines offsets for the next and previous pages
         if ($displayParts['nav_bar'] == '1') {
@@ -4686,7 +4653,7 @@ class PMA_DisplayResults
         // 6. ----- Prepare "Query results operations"
         if ((! isset($printview) || ($printview != '1')) && ! $is_limited_display) {
             $table_html .= $this->_getResultsOperations(
-                $the_disp_mode, $analyzed_sql
+                $displayParts, $analyzed_sql
             );
         }
 
@@ -5258,11 +5225,10 @@ class PMA_DisplayResults
     {
 
         $results_operations_html = '';
-        $fake_display_mode       = array();
-        //calling to _getResultOperations with a fake display mode
+        //calling to _getResultOperations with a fake $displayParts
         //and setting only_view parameter to be true to generate just view
         $results_operations_html .= $this->_getResultsOperations(
-            $fake_display_mode,
+            array(),
             $analyzed_sql,
             true
         );
@@ -5272,9 +5238,9 @@ class PMA_DisplayResults
     /**
      * Get operations that are available on results.
      *
-     * @param array   $the_disp_mode the display mode
-     * @param array   $analyzed_sql  the analyzed query
-     * @param boolean $only_view     Whether to show only view
+     * @param array   $displayParts the parts to display
+     * @param array   $analyzed_sql the analyzed query
+     * @param boolean $only_view    Whether to show only view
      *
      * @return string $results_operations_html  html content
      *
@@ -5283,7 +5249,7 @@ class PMA_DisplayResults
      * @see     getTable()
      */
     private function _getResultsOperations(
-        $the_disp_mode, $analyzed_sql, $only_view = false
+        $displayParts, $analyzed_sql, $only_view = false
     ) {
         global $printview;
 
@@ -5318,9 +5284,9 @@ class PMA_DisplayResults
             return $results_operations_html;
         }
 
-        if (($the_disp_mode[6] == '1') || ($the_disp_mode[9] == '1')) {
+        if (($displayParts['ins_row'] == '1') || ($displayParts['pview_lnk'] == '1')) {
             // Displays "printable view" link if required
-            if ($the_disp_mode[9] == '1') {
+            if ($displayParts['pview_lnk'] == '1') {
 
                 $results_operations_html
                     .= PMA_Util::linkOrButton(

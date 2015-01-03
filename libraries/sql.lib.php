@@ -584,7 +584,7 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
  * Function to get html for bookmark support if bookmarks are enabled. Else will
  * return null
  *
- * @param string $disp_mode      display mode
+ * @param string $displayParts   the parts to display
  * @param bool   $cfgBookmark    configuration setting for bookmarking
  * @param string $sql_query      sql query
  * @param string $db             current database
@@ -594,10 +594,10 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
  *
  * @return string $html
  */
-function PMA_getHtmlForBookmark($disp_mode, $cfgBookmark, $sql_query, $db, $table,
-    $complete_query, $bkm_user
+function PMA_getHtmlForBookmark($displayParts, $cfgBookmark, $sql_query, $db,
+    $table, $complete_query, $bkm_user
 ) {
-    if ($disp_mode[7] == '1'
+    if ($displayParts['bkm_form'] == '1'
         && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
         && ! empty($sql_query)
     ) {
@@ -1667,7 +1667,7 @@ function PMA_getBookmarkCreatedMessage()
  * @param PMA_DisplayResults $displayResultsObject instance of DisplayResult.class
  * @param string             $pmaThemeImage        theme image uri
  * @param string             $url_query            url query
- * @param string             $disp_mode            display mode
+ * @param string             $displayParts         the parts to display
  * @param bool               $editable             whether the result table is
  *                                                 editable or not
  * @param int                $unlim_num_rows       unlimited number of rows
@@ -1679,7 +1679,7 @@ function PMA_getBookmarkCreatedMessage()
  * @return String
  */
 function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
-    $pmaThemeImage, $url_query, $disp_mode,
+    $pmaThemeImage, $url_query, $displayParts,
     $editable, $unlim_num_rows, $num_rows, $showtable, $result,
     $analyzed_sql_results
 ) {
@@ -1720,10 +1720,20 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
                     $editable
                 );
 
-                $disp_mode = 'nnnn110111'; // uneditable
+                $displayParts = array(
+                    'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
+                    'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
+                    'sort_lnk' => '1',
+                    'nav_bar'  => '1',
+                    'ins_row'  => '0',
+                    'bkm_form' => '1',
+                    'text_btn' => '1',
+                    'pview_lnk' => '1'
+                );
+
                 $table_html .= $displayResultsObject->getTable(
                     $result,
-                    $disp_mode,
+                    $displayParts,
                     $analyzed_sql_results['analyzed_sql']
                 );
             }
@@ -1750,7 +1760,7 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
         );
 
         $table_html .= $displayResultsObject->getTable(
-            $result, $disp_mode, $analyzed_sql_results['analyzed_sql']
+            $result, $displayParts, $analyzed_sql_results['analyzed_sql']
         );
         $GLOBALS['dbi']->freeResult($result);
     }
@@ -1938,16 +1948,41 @@ function PMA_getQueryResponseForResultsReturned($result,
 
     $editable = ($has_unique || $updatableView) && $just_one_table;
 
-    // Displays the results in a table
-    // see the "PMA_setDisplayMode()" function in
-    // libraries/DisplayResults.class.php
-    $disp_mode = 'urdr111101';
+    $displayParts = array(
+        'edit_lnk' => $displayResultsObject::UPDATE_ROW,
+        'del_lnk' => $displayResultsObject::DELETE_ROW,
+        'sort_lnk' => '1',
+        'nav_bar'  => '1',
+        'ins_row'  => '1',
+        'bkm_form' => '1',
+        'text_btn' => '0',
+        'pview_lnk' => '1'
+    );
 
     if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
-        $disp_mode = 'nnnn110111';
+        $displayParts = array(
+            'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
+            'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
+            'sort_lnk' => '1',
+            'nav_bar'  => '1',
+            'ins_row'  => '0',
+            'bkm_form' => '1',
+            'text_btn' => '1',
+            'pview_lnk' => '1'
+        );
+
     }
     if ( isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
-        $disp_mode = 'nnnn000000';
+        $displayParts = array(
+            'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
+            'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
+            'sort_lnk' => '0',
+            'nav_bar'  => '0',
+            'ins_row'  => '0',
+            'bkm_form' => '0',
+            'text_btn' => '0',
+            'pview_lnk' => '0'
+        );
     }
 
     if (isset($_REQUEST['table_maintenance'])) {
@@ -1962,7 +1997,7 @@ function PMA_getQueryResponseForResultsReturned($result,
         }
         $table_maintenance_html .= PMA_getHtmlForSqlQueryResultsTable(
             $displayResultsObject,
-            $pmaThemeImage, $url_query, $disp_mode,
+            $pmaThemeImage, $url_query, $displayParts,
             false, $unlim_num_rows, $num_rows, $showtable, $result,
             $analyzed_sql_results
         );
@@ -2003,7 +2038,7 @@ function PMA_getQueryResponseForResultsReturned($result,
 
     $table_html = PMA_getHtmlForSqlQueryResultsTable(
         $displayResultsObject,
-        $pmaThemeImage, $url_query, $disp_mode,
+        $pmaThemeImage, $url_query, $displayParts,
         $editable, $unlim_num_rows, $num_rows, $showtable, $result,
         $analyzed_sql_results
     );
@@ -2016,7 +2051,7 @@ function PMA_getQueryResponseForResultsReturned($result,
     $cfgBookmark = PMA_Bookmark_getParams();
     if ($cfgBookmark) {
         $bookmark_support_html = PMA_getHtmlForBookmark(
-            $disp_mode,
+            $displayParts,
             $cfgBookmark,
             $sql_query, $db, $table,
             isset($complete_query) ? $complete_query : $sql_query,
