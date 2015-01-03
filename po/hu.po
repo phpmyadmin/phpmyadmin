@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-03 12:22+0200\n"
+"PO-Revision-Date: 2015-01-03 20:48+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
@@ -1920,7 +1920,7 @@ msgstr "Átvitel a következő lépésre…"
 #: js/messages.php:319
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "A normalizálás első lépése elkészült a következő táblánál: „%s”."
+msgstr "A normalizálás első lépése befejeződött a következő táblánál: „%s”."
 
 #: js/messages.php:320 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
@@ -1951,6 +1951,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Megjegyzés: a, b -> d,f azt jelenti, hogy az „a” és „b” oszlopok értékei "
+"együtt meghatározzák a „d” és „f” oszlopok értékét."
 
 #: js/messages.php:326
 #| msgid "No databases selected."
@@ -2263,6 +2265,9 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
+"ORDER BY kikötés hozzáadása ehhez az oszlophoz Shift+kattintással, vagy ASC/"
+"DESC váltogatása.<br />- Oszlop eltávolítása az ORDER BY kikötésből Ctrl+"
+"kattintás vagy Alt+kattintás (Mac: Shift+Option+kattintás) használatával"
 
 #: js/messages.php:428
 #| msgid "Click to mark/unmark"
@@ -6883,7 +6888,7 @@ msgstr "Fejlécek ismétlése"
 
 #: libraries/config/messages.inc.php:530
 msgid "Grid editing: trigger action"
-msgstr "Rács szerkesztés: művelet indítása"
+msgstr "Rács szerkesztés: eseményindító művelet"
 
 #: libraries/config/messages.inc.php:531
 msgid "Grid editing: save all edited cells at once"
@@ -9587,15 +9592,18 @@ msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"Nincs elsődleges kulcs, adjon hozzá egyet.<br/>Tipp: Az elsődleges kulcs egy "
+"olyan oszlop (vagy oszlopok kombinációja), amely egyértelműen azonosítja az "
+"összes sort."
 
 #: libraries/normalization.lib.php:185
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Elsődleges kulcs hozzáadása meglévő oszlopra vagy oszlopokra"
 
 #: libraries/normalization.lib.php:190
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
-msgstr ""
+msgstr "Ha nem lehetséges a meglévő oszlopkombinációkat elsődleges kulcsá tenni"
 
 #: libraries/normalization.lib.php:194
 #| msgid "Add primary key"
@@ -9619,6 +9627,8 @@ msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"Ellenőrizze a redundáns oszlopokat és kattintson az eltávolításhoz. Ha nincs "
+"redundáns oszlop, kattintson a „Nincs redundáns oszlop” lehetőségre"
 
 #: libraries/normalization.lib.php:226
 #| msgid "Remove selected users"
@@ -9632,7 +9642,7 @@ msgstr "Nincs redundáns oszlop"
 
 #: libraries/normalization.lib.php:248
 msgid "Move repeating groups"
-msgstr ""
+msgstr "Ismétlődő csoportok áthelyezése"
 
 #: libraries/normalization.lib.php:251
 msgid ""
@@ -9648,18 +9658,20 @@ msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
+"Ellenőrizze az oszlopokat, amelyek ismétlődő csoportot alkotnak. Ha nincs "
+"ilyen csoport, kattintson a „Nincs ismétlődő csoport” lehetőségre"
 
 #: libraries/normalization.lib.php:265
 msgid "No repeating group"
-msgstr ""
+msgstr "Nincs ismétlődő csoport"
 
 #: libraries/normalization.lib.php:291
 msgid "Step 2."
-msgstr ""
+msgstr "2. lépés."
 
 #: libraries/normalization.lib.php:291
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Részleges függőségek keresése"
 
 #: libraries/normalization.lib.php:313
 #, php-format
@@ -9670,7 +9682,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "A tábla már második normál formában van."
 
 #: libraries/normalization.lib.php:323
 #, php-format
@@ -9678,16 +9690,22 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"Az elsődleges kulcs ( %1$s ) egynél több oszlopból áll, így meg kell "
+"keresnünk a részleges függőségeket."
 
 #: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
+"Válaszoljon gondosan a következő kérdésekre a helyes normalizálás "
+"megtalálásához."
 
 #: libraries/normalization.lib.php:331
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"+ A lehetséges részleges függőségek megjelenítése a táblában lévő adatok "
+"alapján"
 
 #: libraries/normalization.lib.php:335
 msgid ""
@@ -9699,7 +9717,7 @@ msgstr ""
 #: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "„%1$s” függ ettől:"
 
 #: libraries/normalization.lib.php:356
 #, php-format
@@ -9707,6 +9725,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"Nem lehetséges részleges függőség, mivel az elsődleges kulcs (%1$s) csak egy "
+"oszlopból áll."
 
 #: libraries/normalization.lib.php:381
 #, php-format
@@ -9714,11 +9734,14 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
+"Annak érdekében, hogy az eredeti „%1$s” táblát második normál formába "
+"tegyük, létre kell hoznunk a következő táblákat:"
 
 #: libraries/normalization.lib.php:417
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
+"A normalizálás második lépése befejeződött a következő táblánál: „%1$s”."
 
 #: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
 #: libraries/normalization.lib.php:663
@@ -9732,15 +9755,17 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
+"Annak érdekében, hogy az eredeti „%1$s” táblát harmadik normál formába "
+"tegyük, létre kell hoznunk a következő táblákat:"
 
 #: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "A normalizálás harmadik lépése befejeződött."
 
 #: libraries/normalization.lib.php:642
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr ""
+msgstr "A kijelölt ismétlődő csoport át lett helyezve a következő táblába: „%s”"
 
 #: libraries/normalization.lib.php:689
 #| msgid "Sep"
@@ -9749,7 +9774,7 @@ msgstr "3. lépés."
 
 #: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "Tranzitív függőségek keresése"
 
 #: libraries/normalization.lib.php:696
 msgid ""
@@ -9764,10 +9789,12 @@ msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"Nem lehetséges tranzitív függőség, mivel a tábla nem tartalmaz nem "
+"elsődleges kulcs oszlopokat"
 
 #: libraries/normalization.lib.php:747
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "A tábla már harmadik normál formában van!"
 
 #: libraries/normalization.lib.php:770
 #| msgid "Hide table structure actions"
@@ -9776,31 +9803,35 @@ msgstr "Táblaszerkezet javítása (normalizálás):"
 
 #: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Válassza ki, hogy legfeljebb melyik lépésre szeretne normalizálni"
 
 #: libraries/normalization.lib.php:774
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "A normalizálás második lépése (1NF+2NF)"
 
 #: libraries/normalization.lib.php:775
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "A normalizálás harmadik lépése (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:782
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"Tipp: Gondosan kövesse az eljárást annak érdekében, hogy a helyes "
+"normalizálás alakuljon ki"
 
 #: libraries/normalization.lib.php:843
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"Ez a lista a tábla adatainak egy részhalmazán alapul és nem feltétlenül "
+"pontos. "
 
 #: libraries/normalization.lib.php:859
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "Nem található részleges függőség!"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
@@ -10447,22 +10478,22 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:511
 msgid "It appears your database uses procedures;"
-msgstr ""
+msgstr "Úgy tűnik, az adatbázis eljárásokat használ;"
 
 #: libraries/plugins/export/ExportSql.class.php:515
 #: libraries/plugins/export/ExportSql.class.php:551
 #: libraries/plugins/export/ExportSql.class.php:1260
 #: libraries/plugins/export/ExportSql.class.php:1800
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "az álnév exportálás nem minden esetben működhet megbízhatóan."
 
 #: libraries/plugins/export/ExportSql.class.php:548
 msgid "It appears your database uses functions;"
-msgstr ""
+msgstr "Úgy tűnik, az adatbázis függvényeket használ;"
 
 #: libraries/plugins/export/ExportSql.class.php:1257
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "Úgy tűnik, az adatbázis nézeteket használ;"
 
 #: libraries/plugins/export/ExportSql.class.php:1302
 msgid "Constraints for dumped tables"
@@ -10498,7 +10529,7 @@ msgstr "TÁBLA KAPCSOLATAI"
 
 #: libraries/plugins/export/ExportSql.class.php:1797
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Úgy tűnik, a tábla eseményindítókat használ;"
 
 #: libraries/plugins/export/ExportSql.class.php:1829
 #, php-format
@@ -10741,6 +10772,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Logikai értékeket alakít át szövegre (alapértelmezetten „T” és „F”). Az első "
+"lehetőség az IGAZ, a második a HAMIS. Nem nulla = igaz."
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -10838,10 +10871,13 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Képfeltöltés funkcionalitás, amely szintén bélyegképeket jelenít meg. A "
+"lehetőségek a bélyegkép szélessége és magassága képpontban. Az "
+"alapértelmezett 100 X 100."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:78
 msgid "Image preview here"
-msgstr ""
+msgstr "Kép előnézete itt"
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
@@ -10878,11 +10914,14 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Reguláris kifejezés használatával ellenőrzi a karakterláncot, és csak akkor "
+"hajtja végre a beszúrást, ha a karakterlánc illeszkedik arra. Az első "
+"lehetőség a reguláris kifejezés."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Az ellenőrzés nem sikerült a következő bemeneti karakterláncnál: %s."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10907,6 +10946,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Fájlfeltöltés funkcionalitás TEXT oszlopokhoz. Nincs szövegdoboz a "
+"bemenethez."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -10944,7 +10985,7 @@ msgstr "Hiba: nem sikerült hozzáadni az IDEGEN KULCS kapcsolatot!"
 
 #: libraries/pmd_common.php:548
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Hiba: hiányzó index az oszlopokról."
 
 #: libraries/pmd_common.php:552
 msgid "Error: Relational features are disabled!"
@@ -11062,11 +11103,11 @@ msgstr "Navigációs elemek mutatása/elrejtése"
 
 #: libraries/relation.lib.php:296
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "Példa szerinti lekérdezés (QBE) keresések mentése"
 
 #: libraries/relation.lib.php:307
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Oszlopok központi listájának kezelése"
 
 #: libraries/relation.lib.php:315
 msgid "Quick steps to setup advanced features:"
@@ -11433,7 +11474,7 @@ msgstr "Hiba a többszörözés visszaállításakor."
 
 #: libraries/replication_gui.lib.php:935
 msgid "Success."
-msgstr ""
+msgstr "Sikerült."
 
 #: libraries/replication_gui.lib.php:936
 #| msgid "Error"
@@ -11741,7 +11782,7 @@ msgstr "Eljárás paraméterei"
 
 #: libraries/rte/rte_triggers.lib.php:103
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Elnézést, nem sikerült visszaállítani az eldobott triggert."
+msgstr "Elnézést, nem sikerült visszaállítani az eldobott eseményindítót."
 
 #: libraries/rte/rte_triggers.lib.php:110
 #, php-format
@@ -11759,7 +11800,7 @@ msgstr "Eseményindító szerkesztése"
 
 #: libraries/rte/rte_triggers.lib.php:326
 msgid "Trigger name"
-msgstr "Trigger neve"
+msgstr "Eseményindító neve"
 
 #: libraries/rte/rte_triggers.lib.php:349
 msgctxt "Trigger action time"
@@ -11769,17 +11810,17 @@ msgstr "Idő"
 #: libraries/rte/rte_triggers.lib.php:429
 #| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "Meg kell adnia egy trigger nevet!"
+msgstr "Meg kell adnia egy eseményindító nevet!"
 
 #: libraries/rte/rte_triggers.lib.php:436
 #| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Meg kell adnia egy érvényes időzítést a triggerhez!"
+msgstr "Meg kell adnia egy érvényes időzítést az eseményindítóhoz!"
 
 #: libraries/rte/rte_triggers.lib.php:443
 #| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "Meg kell adnia egy érvényes eseményt a triggerhez!"
+msgstr "Meg kell adnia egy érvényes eseményt a eseményindítóhoz!"
 
 #: libraries/rte/rte_triggers.lib.php:451
 #| msgid "You must provide a valid table name"
@@ -11788,7 +11829,7 @@ msgstr "Meg kell adnia egy érvényes táblanevet!"
 
 #: libraries/rte/rte_triggers.lib.php:457
 msgid "You must provide a trigger definition."
-msgstr "Meg kell adnia egy trigger meghatározást."
+msgstr "Meg kell adnia egy eseményindító meghatározást."
 
 #: libraries/rte/rte_words.lib.php:27
 msgid "Add routine"
@@ -11818,7 +11859,7 @@ msgstr "Nincsenek megjeleníthető eljárások."
 
 #: libraries/rte/rte_words.lib.php:41
 msgid "Add trigger"
-msgstr "Trigger hozzáadása"
+msgstr "Eseményindító hozzáadása"
 
 #: libraries/rte/rte_words.lib.php:43
 #, php-format
@@ -11831,16 +11872,16 @@ msgstr "eseményindító"
 
 #: libraries/rte/rte_words.lib.php:46
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Önnek nincs meg a szükséges jogosultsága trigger létrehozásához"
+msgstr "Önnek nincs meg a szükséges jogosultsága eseményindító létrehozásához"
 
 #: libraries/rte/rte_words.lib.php:48
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Nem található %1$s nevű trigger a(z) %2$s adatbázisban"
+msgstr "Nem található %1$s nevű eseményindító a(z) %2$s adatbázisban"
 
 #: libraries/rte/rte_words.lib.php:49
 msgid "There are no triggers to display."
-msgstr "Nincsenek megjelítendő triggerek."
+msgstr "Nincsenek megjelenítendő eseményindítók."
 
 #: libraries/rte/rte_words.lib.php:55
 msgid "Add event"
@@ -12329,7 +12370,7 @@ msgstr "Engedélyezés"
 
 #: libraries/server_privileges.lib.php:2045
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Nincs elegendő jogosultság a felhasználók megtekintéséhez."
 
 #: libraries/server_privileges.lib.php:2064
 #: libraries/server_privileges.lib.php:3416
@@ -12481,6 +12522,8 @@ msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
+"Megjegyzés: annak a felhasználónak a jogosultságait próbálja szerkeszteni, "
+"amellyel jelenleg be van lépve."
 
 #: libraries/server_privileges.lib.php:3920 libraries/server_users.lib.php:25
 msgid "Users overview"
