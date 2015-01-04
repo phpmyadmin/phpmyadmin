@@ -125,8 +125,8 @@ class Table_Stats_Svg extends TableStats
 
         /*
          * it is unknown what value must be added, because
-        * table title is affected by the tabe width value
-        */
+         * table title is affected by the table width value
+         */
         while ($this->width
             < PMA_Font::getStringWidth($this->getTitle(), $font, $fontSize)
         ) {

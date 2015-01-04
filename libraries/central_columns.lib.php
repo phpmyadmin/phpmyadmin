@@ -41,7 +41,7 @@ function PMA_centralColumnsGetParams()
 }
 
 /**
- * get $num columns of given database from central columnslist
+ * get $num columns of given database from central columns list
  * starting at offset $from
  *
  * @param string $db   selected database

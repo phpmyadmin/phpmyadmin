@@ -94,7 +94,7 @@ class Table_Stats_Dia extends TableStats
      * primary fields are underlined in tables. Dia object
      * is used to generate the XML of Dia Document. Database Table
      * Object and their attributes are involved in the combination
-     * of displaing Database - Table on Dia Document.
+     * of displaying Database - Table on Dia Document.
      *
      * @param boolean $showColor Whether to show color for tables text or not
      * if showColor is true then an array of $listOfColors will be used to choose
