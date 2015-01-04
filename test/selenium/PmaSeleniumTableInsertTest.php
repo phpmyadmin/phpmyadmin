@@ -103,7 +103,7 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
     private function _assertDataPresent()
     {
         $this->byLinkText("Browse")->click();
-        $this->waitForElement("byId", "table_results");
+        $this->waitForElement("byClassName", "table_results");
 
         $this->assertEquals(
             "1",

@@ -54,7 +54,6 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
 
         $column_dropdown_details = array(
             "field_0_6" => "UNSIGNED",
-            "field_0_8" => "PRIMARY",
             "field_1_2" => "VARCHAR",
             "field_1_5" => "utf8_general_ci",
             "field_1_4" => "As defined:"
@@ -64,6 +63,12 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
             $sel = $this->select($this->byId($selector));
             $sel->selectOptionByLabel($value);
         }
+
+        // To handle the dialogbox opened after selecting PRIMARY
+        $this->select($this->byId('field_0_8'))->selectOptionByLabel('PRIMARY');
+        $this->byXPath(
+            "//*[contains(text(), 'Go')]"
+        )->click();
 
         $this->byName("field_default_value[1]")->value("def");
         $this->byId("field_0_9")->click(); // auto increment
