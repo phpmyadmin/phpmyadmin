@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-12-12 14:01+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-3/ko/"
-">\n"
+"PO-Revision-Date: 2015-01-04 06:01+0200\n"
+"Last-Translator: Yong Kim <kim@nhn.com>\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,8 +25,9 @@ msgstr ""
 "보를 확인하시기 바랍니다."
 
 #: db_central_columns.php:85
+#, fuzzy
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "현재 데이터베이스의 central list of columns가 비어있습니다."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
@@ -1866,7 +1867,7 @@ msgstr ""
 
 #: js/messages.php:326
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "부분 의존성 목록을 숨김"
 
 #: js/messages.php:327
 msgid ""
@@ -1931,11 +1932,11 @@ msgstr "범위 검색"
 
 #: js/messages.php:346
 msgid "Column maximum:"
-msgstr "열(컬럼) 최대값:"
+msgstr "열(컬럼) 최댓값:"
 
 #: js/messages.php:347
 msgid "Column minimum:"
-msgstr "열(컬럼) 최저값:"
+msgstr "열(컬럼) 최솟값:"
 
 #: js/messages.php:348
 msgid "Minimum value:"
@@ -1947,11 +1948,11 @@ msgstr "최댓값:"
 
 #: js/messages.php:352
 msgid "Hide find and replace criteria"
-msgstr "검색/변경 조건 숨기기"
+msgstr "찾기와 바꾸기 조건 숨김"
 
 #: js/messages.php:353
 msgid "Show find and replace criteria"
-msgstr "검색/변경 조건 보이기"
+msgstr "찾기와 바꾸기 조건 보임"
 
 #: js/messages.php:357
 msgid "Each point represents a data row."
@@ -5645,11 +5646,11 @@ msgstr "데이터베이스 표시 옵션."
 
 #: libraries/config/messages.inc.php:230 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
-msgstr "네비게이션 패널"
+msgstr "내비게이션 패널"
 
 #: libraries/config/messages.inc.php:231
 msgid "Customize appearance of the navigation panel."
-msgstr "네비게이션 패널 모양 설정."
+msgstr "내비게이션 패널 모양 설정."
 
 #: libraries/config/messages.inc.php:232 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:144
