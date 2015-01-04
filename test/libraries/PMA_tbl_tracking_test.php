@@ -44,11 +44,15 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = "PMA_db";
         $GLOBALS['table'] = "PMA_table";
-        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['ServerDefault'] = "server";
-        $GLOBALS['cfg']['Server']['tracking'] = "tracking";
         $GLOBALS['cfg']['ActionLinksMode'] = 'ActionLinksMode';
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
+
+        $_SESSION['relation'][$GLOBALS['server']] = array(
+            'db' => 'pmadb',
+            'tracking' => 'tracking',
+            'trackingwork' => true
+        );
 
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 

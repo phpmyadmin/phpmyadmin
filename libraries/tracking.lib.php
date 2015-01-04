@@ -208,9 +208,10 @@ function PMA_getHtmlForActivateDeactivateTracking(
  */
 function PMA_getListOfVersionsOfTable()
 {
+    $cfgRelation = PMA_getRelationsParam();
     $sql_query = " SELECT * FROM " .
-         PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
-         PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
+         PMA_Util::backquote($cfgRelation['db']) . "." .
+         PMA_Util::backquote($cfgRelation['tracking']) .
          " WHERE db_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "' " .
          " AND table_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['table']) . "' " .
          " ORDER BY version DESC ";
@@ -350,10 +351,11 @@ function PMA_getTableLastVersionNumber($sql_result)
 function PMA_getSQLResultForSelectableTables()
 {
     include_once 'libraries/relation.lib.php';
+    $cfgRelation = PMA_getRelationsParam();
 
     $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
-             PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
-             PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
+             PMA_Util::backquote($cfgRelation['db']) . "." .
+             PMA_Util::backquote($cfgRelation['tracking']) .
              " WHERE db_name = '" . PMA_Util::sqlAddSlashes($GLOBALS['db']) . "' " .
              " ORDER BY db_name, table_name";
 
