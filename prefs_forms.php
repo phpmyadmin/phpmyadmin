@@ -54,10 +54,6 @@ $error = null;
 if ($form_display->process(false) && !$form_display->hasErrors()) {
     // save settings
     $result = PMA_saveUserprefs($cf->getConfigArray());
-    if (! isset($_REQUEST['ZeroConf'])) {
-        $_SESSION['relation'][$GLOBALS['server']] = null;
-    }
-
     if ($result === true) {
         // reload config
         $GLOBALS['PMA_Config']->loadUserPreferences();

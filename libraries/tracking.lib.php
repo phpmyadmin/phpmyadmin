@@ -197,9 +197,10 @@ function PMA_getHtmlForActivateDeactivateTracking(
  */
 function PMA_getListOfVersionsOfTable()
 {
+    $cfgRelation = PMA_getRelationsParam();
     $sql_query = " SELECT * FROM " .
-         PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
-         PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
+         PMA_Util::backquote($cfgRelation['db']) . "." .
+         PMA_Util::backquote($cfgRelation['tracking']) .
          " WHERE db_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "' " .
          " AND table_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['table']) . "' " .
          " ORDER BY version DESC ";
@@ -317,10 +318,11 @@ function PMA_getTableLastVersionNumber($sql_result)
 function PMA_getSQLResultForSelectableTables()
 {
     include_once 'libraries/relation.lib.php';
+    $cfgRelation = PMA_getRelationsParam();
 
     $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
-             PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
-             PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
+             PMA_Util::backquote($cfgRelation['db']) . "." .
+             PMA_Util::backquote($cfgRelation['tracking']) .
              " WHERE db_name = '" . PMA_Util::sqlAddSlashes($GLOBALS['db']) . "' " .
              " ORDER BY db_name, table_name";
 
@@ -606,7 +608,7 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
     // no need for the secondth returned parameter
     list($html,) = PMA_getHtmlForDataStatements(
         $data, $filter_users, $filter_ts_from, $filter_ts_to, $url_params,
-        $drop_image_or_text, 'dmlog', __('Data manipulation statement'), 
+        $drop_image_or_text, 'dmlog', __('Data manipulation statement'),
         $ddlog_count, 'dml_versions'
     );
 
@@ -682,7 +684,7 @@ function PMA_getHtmlForDataDefinitionStatements($data, $filter_users,
 ) {
     list($html, $line_number) = PMA_getHtmlForDataStatements(
         $data, $filter_users, $filter_ts_from, $filter_ts_to, $url_params,
-        $drop_image_or_text, 'ddlog', __('Data definition statement'), 
+        $drop_image_or_text, 'ddlog', __('Data definition statement'),
         1, 'ddl_versions'
     );
 

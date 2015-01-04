@@ -30,8 +30,8 @@ function PMA_centralColumnsGetParams()
     ) {
         $cfgCentralColumns = array(
             'user'  => $GLOBALS['cfg']['Server']['user'],
-            'db'    => $GLOBALS['cfg']['Server']['pmadb'],
-            'table' => $GLOBALS['cfg']['Server']['central_columns'],
+            'db'    => $cfgRelation['db'],
+            'table' => $cfgRelation['central_columns'],
         );
     } else {
         $cfgCentralColumns = false;
@@ -57,9 +57,9 @@ function PMA_getColumnsList($db, $from=0, $num=25)
     if (empty($cfgCentralColumns)) {
         return array();
     }
-    $pmadb = $GLOBALS['cfg']['Server']['pmadb'];
+    $pmadb = $cfgCentralColumns['db'];
     $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
-    $central_list_table = $GLOBALS['cfg']['Server']['central_columns'];
+    $central_list_table = $cfgCentralColumns['table'];
     //get current values of $db from central column list
     if ($num == 0) {
         $query = 'SELECT * FROM ' . PMA_Util::backquote($central_list_table) . ' '

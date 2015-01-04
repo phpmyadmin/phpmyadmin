@@ -23,14 +23,6 @@ require_once './libraries/Message.class.php';
 class PMA_RecentFavoriteTable
 {
     /**
-     * Defines the internal PMA table which contains recent/favorite tables.
-     *
-     * @access  private
-     * @var string
-     */
-    private $_pmaTable;
-
-    /**
      * Reference to session variable containing recently used or favorite tables.
      *
      * @access private
@@ -64,18 +56,11 @@ class PMA_RecentFavoriteTable
     private function __construct($type)
     {
         $this->_tableType = $type;
-        if (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
-            && /*overload*/mb_strlen($GLOBALS['cfg']['Server'][$this->_tableType])
-        ) {
-            $this->_pmaTable
-                = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
-                . PMA_Util::backquote($GLOBALS['cfg']['Server'][$this->_tableType]);
-        }
         $server_id = $GLOBALS['server'];
         if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])
         ) {
             $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id]
-                = isset($this->_pmaTable) ? $this->getFromDb() : array();
+                = $this->_getPmaTable() ? $this->getFromDb() : array();
         }
         $this->_tables
             =& $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id];
@@ -115,7 +100,7 @@ class PMA_RecentFavoriteTable
     {
         // Read from phpMyAdmin database, if recent tables is not in session
         $sql_query
-            = " SELECT `tables` FROM " . $this->_pmaTable .
+            = " SELECT `tables` FROM " . $this->_getPmaTable() .
             " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'";
 
         $return = array();
@@ -138,7 +123,7 @@ class PMA_RecentFavoriteTable
     {
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query
-            = " REPLACE INTO " . $this->_pmaTable . " (`username`, `tables`)" .
+            = " REPLACE INTO " . $this->_getPmaTable() . " (`username`, `tables`)" .
                 " VALUES ('" . $username . "', '"
                 . PMA_Util::sqlAddSlashes(
                     json_encode($this->_tables)
@@ -285,7 +270,7 @@ class PMA_RecentFavoriteTable
      */
     public function add($db, $table)
     {
-        // If table does not exist, do not add.
+        // If table does not exist, do not add._getPmaTable()
         if (! $GLOBALS['dbi']->getColumns($db, $table)) {
             return true;
         }
@@ -299,7 +284,7 @@ class PMA_RecentFavoriteTable
             array_unshift($this->_tables, $table_arr);
             $this->_tables = array_merge(array_unique($this->_tables, SORT_REGULAR));
             $this->trim();
-            if (isset($this->_pmaTable)) {
+            if ($this->_getPmaTable()) {
                 return $this->saveToDb();
             }
         }
@@ -346,7 +331,7 @@ class PMA_RecentFavoriteTable
                 unset($this->_tables[$key]);
             }
         }
-        if (isset($this->_pmaTable)) {
+        if ($this->_getPmaTable()) {
             return $this->saveToDb();
         }
         return true;
@@ -386,6 +371,23 @@ class PMA_RecentFavoriteTable
         $retval  = '<a class="hide" id="update_recent_tables"';
         $retval .= ' href="' . $url . '"></a>';
         return $retval;
+    }
+
+    /**
+     * Reutrn the name of the configuration storage table
+     *
+     * @return string pma table name
+     */
+    private function _getPmaTable()
+    {
+        $cfgRelation = PMA_getRelationsParam();
+        if (/*overload*/mb_strlen($cfgRelation['db'])
+            && /*overload*/mb_strlen($cfgRelation[$this->_tableType])
+        ) {
+            return PMA_Util::backquote($cfgRelation['db']) . "."
+                . PMA_Util::backquote($cfgRelation[$this->_tableType]);
+        }
+        return null;
     }
 }
 ?>

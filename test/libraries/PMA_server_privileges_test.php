@@ -60,9 +60,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
-        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
-        $GLOBALS['cfg']['Server']['usergroups'] = 'usergroups';
-        $GLOBALS['cfg']['Server']['users'] = 'users';
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
         $GLOBALS['cfg']['PmaAbsoluteUri'] = "PmaAbsoluteUri";
@@ -86,6 +83,12 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['relation'][$GLOBALS['server']] = array(
+            'db' => 'pmadb',
+            'users' => 'users',
+            'usergroups' => 'usergroups',
+            'menuswork' => true
+        );
 
         $pmaconfig = $this->getMockBuilder('PMA_Config')
             ->disableOriginalConstructor()
@@ -582,9 +585,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     {
         $username = "PMA_username";
         $hostname = "PMA_hostname";
-        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
-        $GLOBALS['cfg']['Server']['usergroups'] = 'usergroups';
-        $GLOBALS['cfg']['Server']['users'] = 'users';
         $GLOBALS['cfg']['TextareaCols'] = 'TextareaCols';
         $GLOBALS['cfg']['TextareaRows'] = 'TextareaCols';
 
