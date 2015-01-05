@@ -13,7 +13,9 @@ phpMyAdmin - ChangeLog
 + rfe #1567 Sever Variables Table UI Improvements
 - bug #4675 phpMyAdmin should be able to work without 'examples' DIR - move SQL scripts to sql directory
 
-4.3.5.0 (not yet released)
+4.3.6.0 (not yet released)
+
+4.3.5.0 (2015-01-05)
 - bug       Auto-configuration: tables were not created automatically
 - bug #4677 Advanced feature checker does not check for favorite tables feature
 - bug #4678 Some of the data stored in configuration storage are not deleted upon db or table delete
