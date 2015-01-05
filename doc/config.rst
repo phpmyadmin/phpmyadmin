@@ -1462,12 +1462,6 @@ Navigation panel setup
     is properly created and the related configuration directives (such as
     :config:option:`$cfg['Servers'][$i]['pmadb']` and so on) are configured.
 
-    .. note::
-
-        If there is no central configuration storage defined then you may end
-        up with different set of phpMyAdmin configuration storage tables for
-        different databases.
-
     For more information, refer to :ref:`linked-tables`.
 
 .. config:option:: $cfg['NavigationLinkWithMainPanel']

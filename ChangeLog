@@ -11,6 +11,9 @@ phpMyAdmin - ChangeLog
 - bug #4318 Default connection collation and sorting
 - bug #4683 Relational data is not properly updated on table rename
 - bug #4655 Undefined index: collation_connection (second patch)
+- bug #4682 4.3.3 & 4.3.4 Import sql created by mysqldump fails on foreign keys
+- bug #4676 Auto-configuration issues
+- bug #4416 New lines are removed when grid editing (part two: TEXT)
 
          --- Older ChangeLogs can be found on our project website ---
                      http://www.phpmyadmin.net/old-stuff/ChangeLogs/

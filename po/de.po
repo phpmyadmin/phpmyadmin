@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-12-18 22:29+0200\n"
+"PO-Revision-Date: 2015-01-04 14:43+0200\n"
 "Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/4-3/de/"
-">\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6919,10 +6919,9 @@ msgstr ""
 "\"dauerhaft\" zu speichern, Vorschlag: [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
-msgstr "Favoriten-Tabellen"
+msgstr "Favoriten-Tabelle"
 
 #: libraries/config/messages.inc.php:646
 msgid ""
@@ -9299,7 +9298,7 @@ msgstr ""
 "eine Spalte umfasst."
 
 #: libraries/normalization.lib.php:381
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above partial dependencies, in order to put the original table "
 #| "'%1$s' into Second normal form we need to create the following tables:"
@@ -9307,9 +9306,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
-"Aufgrund obiger teilweiser Abhängigkeiten, um die ursprüngliche Tabelle "
-"'%1$s' in die zweite Normalform zu bringen müssen wir die folgenden Tabellen "
-"erstellen:"
+"Um die ursprüngliche Tabelle '%1$s' in die zweite Normalform zu bringen, "
+"müssen wir die folgenden Tabellen erstellen:"
 
 #: libraries/normalization.lib.php:417
 #, php-format
@@ -9323,7 +9321,7 @@ msgid "Error in processing!"
 msgstr "Fehler beim Bearbeiten der Anfrage!"
 
 #: libraries/normalization.lib.php:501
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above dependencies, in order to put the original table '%1$s' into "
 #| "Third normal form we need to create the following tables:"
@@ -9331,9 +9329,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
-"Aufgrund obiger teilweiser Abhängigkeiten, um die ursprüngliche Tabelle "
-"'%1$s' in die dritte Normalform zu bringen müssen wir die folgenden Tabellen "
-"erstellen:"
+"Um die ursprüngliche Tabelle '%1$s' in die dritte Normalform zu bringen, "
+"müssen wir die folgenden Tabellen erstellen:"
 
 #: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
@@ -10643,10 +10640,9 @@ msgid "Persistent recently used tables"
 msgstr "Gespeicherte kürzlich verwendete Tabellen"
 
 #: libraries/relation.lib.php:224
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Gespeicherte kürzlich verwendete Tabellen"
+msgstr "Dauerhafte Favoriten-Tabellen"
 
 #: libraries/relation.lib.php:235
 msgid "Persistent tables' UI preferences"
