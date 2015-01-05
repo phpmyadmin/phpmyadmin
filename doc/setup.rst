@@ -272,16 +272,17 @@ disable set :config:option:`$cfg['ZeroConf']` to false.
 
 The following three scenarios are convered by the Zero Configuration mode:
 
-* When entering a database where there are no pma tables, phpMyAdmin offers to
-  create them from the Operations tab.
+* When entering a database where the configuration storage tables are not
+  present, phpMyAdmin offers to create them from the Operations tab.
 * When entering a database where the tables do already exist, the software
   automatically detects this and begins using them. This is the most common
   situation; after the tables are initially created automatically they are
   continually used without disturbing the user; this is also most useful on
   shared hosting where the user is not able to edit :file:`config.inc.php` and
-  the user only has access to one database.
+  usually the user only has access to one database.
 * When having access to multiple databases, if the user first enters the
-  database containing the pma tables then switches to another database,
+  database containing the configuration storage tables then switches to
+  another database,
   phpMyAdmin continues to use the tables from the first database; the user is
   not prompted to create more tables in the new database.
 
