@@ -1458,6 +1458,10 @@ Navigation panel setup
     create phpMyAdmin configuration storage in the current database
     or use the existing one, if already present.
 
+    This setting has no effect if the phpMyAdmin configuration storage database
+    is properly created and the related configuration directives (such as
+    :config:option:`$cfg['Servers'][$i]['pmadb']` and so on) are configured.
+
 .. config:option:: $cfg['NavigationLinkWithMainPanel']
 
     :type: boolean
