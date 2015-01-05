@@ -1151,6 +1151,11 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
 if (isset($GLOBALS['cfg']['ZeroConf'])
     && $GLOBALS['cfg']['ZeroConf'] == true
 ) {
-    PMA_checkAndFixPMATablesInCurrentDb();
+    if (! empty($GLOBALS['db'])) {
+        $cfgRelation = PMA_getRelationsParam();
+        if (empty($cfgRelation['db'])) {
+            PMA_fixPMATables($GLOBALS['db'], false);
+        }
+    }
 }
 ?>

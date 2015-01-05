@@ -2417,7 +2417,7 @@ $cfg['DefaultLang'] = 'en';
  *
  * @global string $cfg['DefaultConnectionCollation']
  */
-$cfg['DefaultConnectionCollation'] = 'utf8_general_ci';
+$cfg['DefaultConnectionCollation'] = 'utf8_unicode_ci';
 
 /**
  * Force: always use this language

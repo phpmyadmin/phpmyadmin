@@ -986,41 +986,6 @@ function PMA_emptyRecursive($value)
 }
 
 /**
- * Checks and fixes configuration storage in current DB.
- *
- * @return void
- */
-function PMA_checkAndFixPMATablesInCurrentDb()
-{
-    if (isset($GLOBALS['db']) && ! empty($GLOBALS['db'])) {
-        if (isset($GLOBALS['cfg']['Server']['pmadb'])
-            && empty($GLOBALS['cfg']['Server']['pmadb'])
-        ) {
-            $default_tables = PMA_getDefaultPMATableNames();
-            if (PMA_searchPMATablesInDb(
-                $GLOBALS['db'],
-                array_keys($default_tables)
-            )
-            ) {
-                PMA_fixPMATables($GLOBALS['db']);
-                // Since configuration storage is updated, we need to
-                // re-initialize the favorite and recent tables stored in the
-                // session from the current configuration storage.
-                include_once 'libraries/RecentFavoriteTable.class.php';
-                $fav_tables = PMA_RecentFavoriteTable::getInstance('favorite');
-                $recent_tables = PMA_RecentFavoriteTable::getInstance('recent');
-                $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']]
-                    = $fav_tables->getFromDb();
-                $_SESSION['tmpval']['recent_tables'][$GLOBALS['server']]
-                    = $recent_tables->getFromDb();
-                // Reload navi panel to update the recent/favorite lists.
-                $GLOBALS['reload'] = true;
-            }
-        }
-    }
-}
-
-/**
  * Creates some globals from $_POST variables matching a pattern
  *
  * @param array $post_patterns The patterns to search for

@@ -59,10 +59,6 @@ function PMA_queryAsControlUser($sql, $show_error = true, $options = 0)
  */
 function PMA_getRelationsParam()
 {
-    // avoid breakage if pmadb got unconfigured after login
-    if (! defined('TESTSUITE') && empty($GLOBALS['cfg']['Server']['pmadb'])) {
-        unset($_SESSION['relation'][$GLOBALS['server']]);
-    }
     if (empty($_SESSION['relation'][$GLOBALS['server']])) {
         $_SESSION['relation'][$GLOBALS['server']] = PMA_checkRelationsParam();
     }
@@ -97,7 +93,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
     $messages['enabled']  = '<font color="green">' . __('Enabled') . '</font>';
     $messages['disabled'] = '<font color="red">'   . __('Disabled') . '</font>';
 
-    if (false === $GLOBALS['cfg']['Server']['pmadb']) {
+    if (empty($GLOBALS['cfg']['Server']['pmadb'])) {
         $retval .= __('Configuration of pmadb… ')
              . $messages['error']
              . PMA_Util::showDocu('setup', 'linked-tables')
@@ -212,6 +208,17 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
         $retval .= PMA_getDiagMessageForFeature(
             __('Persistent recently used tables'),
             'recentwork',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'favorite',
+            isset($cfgRelation['favorite']),
+            $messages,
+            'favorite'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Persistent favorite tables'),
+            'favoritework',
             $messages
         );
         $retval .= PMA_getDiagMessageForParameter(
@@ -414,6 +421,7 @@ function PMA_checkRelationsParam()
     $cfgRelation['mimework']       = false;
     $cfgRelation['historywork']    = false;
     $cfgRelation['recentwork']     = false;
+    $cfgRelation['favoritework']   = false;
     $cfgRelation['uiprefswork']    = false;
     $cfgRelation['trackingwork']   = false;
     $cfgRelation['userconfigwork'] = false;
@@ -477,6 +485,8 @@ function PMA_checkRelationsParam()
             $cfgRelation['history']         = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['recent']) {
             $cfgRelation['recent']          = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['favorite']) {
+            $cfgRelation['favorite']        = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['table_uiprefs']) {
             $cfgRelation['table_uiprefs']   = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['tracking']) {
@@ -523,6 +533,10 @@ function PMA_checkRelationsParam()
         $cfgRelation['recentwork']      = true;
     }
 
+    if (isset($cfgRelation['favorite'])) {
+        $cfgRelation['favoritework']    = true;
+    }
+
     if (isset($cfgRelation['table_uiprefs'])) {
         $cfgRelation['uiprefswork']     = true;
     }
@@ -562,7 +576,7 @@ function PMA_checkRelationsParam()
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
         && $cfgRelation['bookmarkwork'] && $cfgRelation['central_columnswork']
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
-        && $cfgRelation['savedsearcheswork']
+        && $cfgRelation['savedsearcheswork'] && $cfgRelation['favoritework']
     ) {
         $cfgRelation['allworks'] = true;
     }
@@ -1595,20 +1609,56 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
         );
     }
 
-    /**
-     * @todo Can't get moving PDFs the right way. The page numbers
-     * always get screwed up independently from duplication because the
-     * numbers do not seem to be stored on a per-database basis. Would
-     * the author of pdf support please have a look at it?
-     */
-
     if ($GLOBALS['cfgRelation']['pdfwork']) {
+        if ($source_db == $target_db) {
+            // rename within the database can be handled
+            PMA_REL_renameSingleTable(
+                'table_coords',
+                $source_db, $target_db,
+                $source_table, $target_table,
+                'db_name', 'table_name'
+            );
+        } else {
+            // if the table is moved out of the database we can no loger keep the
+            // record for table coordinate
+            $remove_query = "DELETE FROM "
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['table_coords'])
+                . " WHERE db_name  = '" . PMA_Util::sqlAddSlashes($source_db) . "'"
+                . " AND table_name = '" . PMA_Util::sqlAddSlashes($source_table)
+                . "'";
+            PMA_queryAsControlUser($remove_query);
+        }
+    }
+
+    if ($GLOBALS['cfgRelation']['uiprefswork']) {
         PMA_REL_renameSingleTable(
-            'table_coords',
+            'table_uiprefs',
             $source_db, $target_db,
             $source_table, $target_table,
             'db_name', 'table_name'
         );
+    }
+
+    if ($GLOBALS['cfgRelation']['navwork']) {
+        // update hidden items inside table
+        PMA_REL_renameSingleTable(
+            'navigationhiding',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'db_name', 'table_name'
+        );
+
+        // update data for hidden table
+        $query = "UPDATE "
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . "."
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['navigationhiding'])
+            . " SET db_name = '" . PMA_Util::sqlAddSlashes($target_db) . "',"
+            . " item_name = '" . PMA_Util::sqlAddSlashes($target_table) . "'"
+            . " WHERE db_name  = '" . PMA_Util::sqlAddSlashes($source_db) . "'"
+            . " AND item_name = '" . PMA_Util::sqlAddSlashes($source_table) . "'"
+            . " AND item_type = 'table'";
+        PMA_queryAsControlUser($query);
     }
 }
 
@@ -1774,35 +1824,6 @@ function PMA_searchColumnInForeigners($foreigners, $column)
 }
 
 /**
- * Searches a DB for the existence of PMA tables.
- *
- * @param string $db     Database
- * @param array  $tables Default table names
- *
- * @return bool
- */
-function PMA_searchPMATablesInDb($db, $tables)
-{
-    $tab_rs = $GLOBALS['dbi']->getTables($db);
-
-    if ($tab_rs === false) {
-        return false;
-    }
-
-    foreach ($tab_rs as $curr_table) {
-        if (in_array($curr_table, $tables)) {
-            $tables = array_diff($tables, array($curr_table));
-        }
-    }
-
-    if (count($tables) != 0) {
-        return false;
-    }
-
-    return true;
-}
-
-/**
  * Returns default PMA table names and their create queries.
  *
  * @return array table name, create query
@@ -1839,61 +1860,75 @@ function PMA_getDefaultPMATableNames()
 /**
  * Creates PMA tables in the given db, updates if already exists.
  *
- * @param string $db Database
+ * @param string  $db     database
+ * @param boolean $create whether to create tables if they don't exist.
  *
  * @return void
  */
-function PMA_fixPMATables($db)
+function PMA_fixPMATables($db, $create = true)
 {
-    $default_tables = PMA_getDefaultPMATableNames();
-    $GLOBALS['dbi']->selectDb($db);
+    $tablesToFeatures = array(
+        'pma__bookmark' => 'bookmarktable',
+        'pma__relation' => 'relation',
+        'pma__table_info' => 'table_info',
+        'pma__table_coords' => 'table_coords',
+        'pma__pdf_pages' => 'pdf_pages',
+        'pma__column_info' => 'column_info',
+        'pma__history' => 'history',
+        'pma__recent' => 'recent',
+        'pma__favorite' => 'favorite',
+        'pma__table_uiprefs' => 'table_uiprefs',
+        'pma__tracking' => 'tracking',
+        'pma__userconfig' => 'userconfig',
+        'pma__users' => 'users',
+        'pma__usergroups' => 'usergroups',
+        'pma__navigationhiding' => 'navigationhiding',
+        'pma__savedsearches' => 'savedsearches',
+        'pma__central_columns' => 'central_columns'
+    );
 
-    foreach ($default_tables as $table => $create_query) {
-        $GLOBALS['dbi']->tryQuery($create_query);
+    $existingTables = $GLOBALS['dbi']->getTables($db, $GLOBALS['controllink']);
 
-        if ($error = $GLOBALS['dbi']->getError()) {
-            $GLOBALS['message'] = $error;
-            break;
-        }
-
-        if ($table == 'pma__bookmark') {
-            $GLOBALS['cfg']['Server']['bookmarktable']           = $table;
-        } elseif ($table == 'pma__relation') {
-            $GLOBALS['cfg']['Server']['relation']           = $table;
-        } elseif ($table == 'pma__table_info') {
-            $GLOBALS['cfg']['Server']['table_info']         = $table;
-        } elseif ($table == 'pma__table_coords') {
-            $GLOBALS['cfg']['Server']['table_coords']       = $table;
-        } elseif ($table == 'pma__column_info') {
-            $GLOBALS['cfg']['Server']['column_info']        = $table;
-        } elseif ($table == 'pma__pdf_pages') {
-            $GLOBALS['cfg']['Server']['pdf_pages']          = $table;
-        } elseif ($table == 'pma__history') {
-            $GLOBALS['cfg']['Server']['history']            = $table;
-        } elseif ($table == 'pma__recent') {
-            $GLOBALS['cfg']['Server']['recent']             = $table;
-        } elseif ($table == 'pma__table_uiprefs') {
-            $GLOBALS['cfg']['Server']['table_uiprefs']      = $table;
-        } elseif ($table == 'pma__tracking') {
-            $GLOBALS['cfg']['Server']['tracking']           = $table;
-        } elseif ($table == 'pma__userconfig') {
-            $GLOBALS['cfg']['Server']['userconfig']         = $table;
-        } elseif ($table == 'pma__users') {
-            $GLOBALS['cfg']['Server']['users']              = $table;
-        } elseif ($table == 'pma__usergroups') {
-            $GLOBALS['cfg']['Server']['usergroups']         = $table;
-        } elseif ($table == 'pma__navigationhiding') {
-            $GLOBALS['cfg']['Server']['navigationhiding']   = $table;
-        } elseif ($table == 'pma__savedsearches') {
-            $GLOBALS['cfg']['Server']['savedsearches']      = $table;
-        } elseif ($table == 'pma__central_columns') {
-            $GLOBALS['cfg']['Server']['central_columns']    = $table;
-        } else if ($table == 'pma__designer_coords') {
-            $GLOBALS['cfg']['Server']['designer_coords']    = $table;
+    $createQueries = null;
+    foreach ($tablesToFeatures as $table => $feature) {
+        if (! in_array($table, $existingTables)) {
+            if ($create) {
+                if ($createQueries == null) { // first create
+                    $createQueries = PMA_getDefaultPMATableNames();
+                    $GLOBALS['dbi']->selectDb($db);
+                }
+                $GLOBALS['dbi']->tryQuery($createQueries[$table]);
+                if ($error = $GLOBALS['dbi']->getError()) {
+                    $GLOBALS['message'] = $error;
+                    return;
+                }
+                $GLOBALS['cfg']['Server'][$feature] = $table;
+            } else {
+                return;
+            }
+        } else {
+            $GLOBALS['cfg']['Server'][$feature] = $table;
         }
     }
+
     $GLOBALS['cfg']['Server']['pmadb'] = $db;
     $_SESSION['relation'][$GLOBALS['server']] = PMA_checkRelationsParam();
+
+    // Since configuration storage is updated, we need to
+    // re-initialize the favorite and recent tables stored in the
+    // session from the current configuration storage.
+    include_once 'libraries/RecentFavoriteTable.class.php';
+
+    $fav_tables = PMA_RecentFavoriteTable::getInstance('favorite');
+    $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']]
+        = $fav_tables->getFromDb();
+
+    $recent_tables = PMA_RecentFavoriteTable::getInstance('recent');
+    $_SESSION['tmpval']['recent_tables'][$GLOBALS['server']]
+        = $recent_tables->getFromDb();
+
+    // Reload navi panel to update the recent/favorite lists.
+    $GLOBALS['reload'] = true;
 }
 
 /**

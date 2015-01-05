@@ -526,10 +526,11 @@ function PMA_getHtmlToChooseUserGroup($username)
     $html_output .= '<fieldset id="fieldset_user_group_selection">';
     $html_output .= '<legend>' . __('User group') . '</legend>';
 
-    $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
-    $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+    $cfgRelation = PMA_getRelationsParam();
+    $groupTable = PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['usergroups']);
+    $userTable = PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['users']);
 
     $userGroups = array();
     $sql_query = "SELECT DISTINCT `usergroup` FROM " . $groupTable;
@@ -577,8 +578,9 @@ function PMA_getHtmlToChooseUserGroup($username)
  */
 function PMA_setUserGroup($username, $userGroup)
 {
-    $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+    $cfgRelation = PMA_getRelationsParam();
+    $userTable = PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['users']);
 
     $sql_query = "SELECT `usergroup` FROM " . $userTable
         . " WHERE `username` = '" . PMA_Util::sqlAddSlashes($username) . "'";
@@ -2306,8 +2308,9 @@ function PMA_getUserGroupEditLink($username)
  */
 function PMA_getUserGroupCount()
 {
-    $user_group_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . '.' . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+    $cfgRelation = PMA_getRelationsParam();
+    $user_group_table = PMA_Util::backquote($cfgRelation['db'])
+        . '.' . PMA_Util::backquote($cfgRelation['usergroups']);
     $sql_query = 'SELECT COUNT(*) FROM ' . $user_group_table;
     $user_group_count = $GLOBALS['dbi']->fetchValue(
         $sql_query, 0, 0, $GLOBALS['controllink']
@@ -3016,9 +3019,10 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
  */
 function PMA_getHtmlTableBodyForUserRights($db_rights)
 {
-    if ($GLOBALS['cfgRelation']['menuswork']) {
-        $users_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-            . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+    $cfgRelation = PMA_getRelationsParam();
+    if ($cfgRelation['menuswork']) {
+        $users_table = PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['users']);
         $sql_query = 'SELECT * FROM ' . $users_table;
         $result = PMA_queryAsControlUser($sql_query, false);
         $group_assignment = array();

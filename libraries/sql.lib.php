@@ -2204,7 +2204,7 @@ function PMA_sendQueryResponseForResultsReturned($result,
     );
 
     $profiling_chart_html = PMA_getHtmlForProfilingChart(
-        $disp_mode, $db, isset($profiling_results) ? $profiling_results : null
+        $url_query, $db, isset($profiling_results) ? $profiling_results : null
     );
 
     $missing_unique_column_msg = PMA_getMessageIfMissingColumnIndex(

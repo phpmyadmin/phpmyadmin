@@ -262,6 +262,34 @@ in your own database, or in a central database for a multi-user installation
 (this database would then be accessed by the controluser, so no other user
 should have rights to it).
 
+Zero configuration
+------------------
+
+In many cases, this database structure can be automatically created and
+configured. This is called “Zero Configuration” mode and can be particularly
+useful in shared hosting situations. “Zeroconf” mode is on by default, to
+disable set :config:option:`$cfg['ZeroConf']` to false.
+
+The following three scenarios are convered by the Zero Configuration mode:
+
+* When entering a database where the configuration storage tables are not
+  present, phpMyAdmin offers to create them from the Operations tab.
+* When entering a database where the tables do already exist, the software
+  automatically detects this and begins using them. This is the most common
+  situation; after the tables are initially created automatically they are
+  continually used without disturbing the user; this is also most useful on
+  shared hosting where the user is not able to edit :file:`config.inc.php` and
+  usually the user only has access to one database.
+* When having access to multiple databases, if the user first enters the
+  database containing the configuration storage tables then switches to
+  another database,
+  phpMyAdmin continues to use the tables from the first database; the user is
+  not prompted to create more tables in the new database.
+
+
+Manual configuration
+--------------------
+
 Please look at your ``./examples/`` directory, where you should find a
 file called *create\_tables.sql*. (If you are using a Windows server,
 pay special attention to :ref:`faq1_23`).
