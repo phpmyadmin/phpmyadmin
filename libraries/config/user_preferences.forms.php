@@ -83,7 +83,9 @@ $forms['Navi_panel']['Navi_panel'] = array(
     'NavigationTreeEnableGrouping',
     'NavigationTreeDisableDatabaseExpansion',
     'NavigationTreeDisplayItemFilterMinimum',
-    'NumRecentTables');
+    'NumRecentTables',
+    'NumFavoriteTables'
+);
 $forms['Navi_panel']['Navi_databases'] = array(
     'NavigationTreeDisplayDbFilterMinimum',
     'NavigationTreeDbSeparator');

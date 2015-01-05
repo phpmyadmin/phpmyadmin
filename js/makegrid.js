@@ -573,7 +573,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if (!g.isCellEditActive) {
                     var $cell = $(cell);
 
-                    if ($cell.is('.text')) {
+                    if (
+                        'string' === $cell.attr('data-type')
+                        || 'blob' === $cell.attr('data-type')
+                    ) {
                         g.cEdit = g.cEditTextarea;
                     } else {
                         g.cEdit = g.cEditStd;

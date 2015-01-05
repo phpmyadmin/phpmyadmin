@@ -59,11 +59,12 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
 }
 
 // ---------------------------------------------------------------------------
+$cfgRelation = PMA_getRelationsParam();
 
 // Prepare statement to get HEAD version
 $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
-     PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
-     PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
+     PMA_Util::backquote($cfgRelation['db']) . '.' .
+     PMA_Util::backquote($cfgRelation['tracking']) .
      ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($_REQUEST['db']) . '\' ' .
      ' GROUP BY table_name' .
      ' ORDER BY table_name ASC';
@@ -109,8 +110,8 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
     while ($one_result = $GLOBALS['dbi']->fetchArray($all_tables_result)) {
         list($table_name, $version_number) = $one_result;
         $table_query = ' SELECT * FROM ' .
-             PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
-             PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
+             PMA_Util::backquote($cfgRelation['db']) . '.' .
+             PMA_Util::backquote($cfgRelation['tracking']) .
              ' WHERE `db_name` = \'' . PMA_Util::sqlAddSlashes($_REQUEST['db'])
              . '\' AND `table_name`  = \'' . PMA_Util::sqlAddSlashes($table_name)
              . '\' AND `version` = \'' . $version_number . '\'';

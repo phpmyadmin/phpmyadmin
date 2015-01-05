@@ -24,52 +24,6 @@ class PMA_Tracker
     static protected $enabled = false;
 
     /**
-     * Defines the internal PMA table which contains tracking data.
-     *
-     * @access  protected
-     * @var string
-     */
-    static protected $pma_table;
-
-    /**
-     * Defines the usage of DROP TABLE statement in SQL dumps.
-     *
-     * @access protected
-     * @var boolean
-     */
-    static protected $add_drop_table;
-
-    /**
-     * Defines the usage of DROP VIEW statement in SQL dumps.
-     *
-     * @access protected
-     * @var boolean
-     */
-    static protected $add_drop_view;
-
-    /**
-     * Defines the usage of DROP DATABASE statement in SQL dumps.
-     *
-     * @access protected
-     * @var boolean
-     */
-    static protected $add_drop_database;
-
-    /**
-     * Defines auto-creation of tracking versions.
-     *
-     * @var boolean
-     */
-    static protected $version_auto_create;
-
-    /**
-     * Defines the default set of tracked statements.
-     *
-     * @var string
-     */
-    static protected $default_tracking_set;
-
-    /**
      * Flags copied from `tracking` column definition in `pma_tracking` table.
      * Used for column type conversion in Drizzle.
      *
@@ -81,35 +35,6 @@ class PMA_Tracker
         'RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX',
         'CREATE VIEW','ALTER VIEW','DROP VIEW'
     );
-
-
-    /**
-     * Initializes settings.
-     *
-     * @static
-     *
-     * @return void
-     */
-    static protected function init()
-    {
-        self::$pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-            . '.' . PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']);
-
-        self::$add_drop_table
-            = $GLOBALS['cfg']['Server']['tracking_add_drop_table'];
-
-        self::$add_drop_view
-            = $GLOBALS['cfg']['Server']['tracking_add_drop_view'];
-
-        self::$add_drop_database
-            = $GLOBALS['cfg']['Server']['tracking_add_drop_database'];
-
-        self::$default_tracking_set
-            = $GLOBALS['cfg']['Server']['tracking_default_statements'];
-
-        self::$version_auto_create
-            = $GLOBALS['cfg']['Server']['tracking_version_auto_create'];
-    }
 
     /**
      * Actually enables tracking. This needs to be done after all
@@ -146,9 +71,9 @@ class PMA_Tracker
         if (! $cfgRelation['trackingwork']) {
             return false;
         }
-        self::init();
 
-        if (isset(self::$pma_table)) {
+        $pma_table = self::_getTrackingTable();
+        if (isset($pma_table)) {
             return true;
         } else {
             return false;
@@ -210,7 +135,7 @@ class PMA_Tracker
             return false;
         }
 
-        $sql_query = " SELECT tracking_active FROM " . self::$pma_table .
+        $sql_query = " SELECT tracking_active FROM " . self::_getTrackingTable() .
         " WHERE db_name = '" . PMA_Util::sqlAddSlashes($dbname) . "' " .
         " AND table_name = '" . PMA_Util::sqlAddSlashes($tablename) . "' " .
         " ORDER BY version DESC";
@@ -256,7 +181,8 @@ class PMA_Tracker
         global $sql_backquotes, $export_type;
 
         if ($tracking_set == '') {
-            $tracking_set = self::$default_tracking_set;
+            $tracking_set
+                = $GLOBALS['cfg']['Server']['tracking_default_statements'];
         }
 
         // get Export SQL instance
@@ -295,13 +221,17 @@ class PMA_Tracker
 
         $create_sql  = "";
 
-        if (self::$add_drop_table == true && $is_view == false) {
+        if ($GLOBALS['cfg']['Server']['tracking_add_drop_table'] == true
+            && $is_view == false
+        ) {
             $create_sql .= self::getLogComment()
                 . 'DROP TABLE IF EXISTS ' . PMA_Util::backquote($tablename) . ";\n";
 
         }
 
-        if (self::$add_drop_view == true && $is_view == true) {
+        if ($GLOBALS['cfg']['Server']['tracking_add_drop_view'] == true
+            && $is_view == true
+        ) {
             $create_sql .= self::getLogComment()
                 . 'DROP VIEW IF EXISTS ' . PMA_Util::backquote($tablename) . ";\n";
         }
@@ -312,7 +242,7 @@ class PMA_Tracker
         // Save version
 
         $sql_query = "/*NOTRACK*/\n" .
-        "INSERT INTO" . self::$pma_table . " (" .
+        "INSERT INTO " . self::_getTrackingTable() . " (" .
         "db_name, " .
         "table_name, " .
         "version, " .
@@ -359,7 +289,7 @@ class PMA_Tracker
     static public function deleteTracking($dbname, $tablename)
     {
         $sql_query = "/*NOTRACK*/\n"
-            . "DELETE FROM " . self::$pma_table
+            . "DELETE FROM " . self::_getTrackingTable()
             . " WHERE `db_name` = '"
             . PMA_Util::sqlAddSlashes($dbname) . "'"
             . " AND `table_name` = '"
@@ -388,12 +318,13 @@ class PMA_Tracker
         $date = date('Y-m-d H:i:s');
 
         if ($tracking_set == '') {
-            $tracking_set = self::$default_tracking_set;
+            $tracking_set
+                = $GLOBALS['cfg']['Server']['tracking_default_statements'];
         }
 
         $create_sql  = "";
 
-        if (self::$add_drop_database == true) {
+        if ($GLOBALS['cfg']['Server']['tracking_add_drop_database'] == true) {
             $create_sql .= self::getLogComment()
                 . 'DROP DATABASE IF EXISTS ' . PMA_Util::backquote($dbname) . ";\n";
         }
@@ -402,7 +333,7 @@ class PMA_Tracker
 
         // Save version
         $sql_query = "/*NOTRACK*/\n" .
-        "INSERT INTO" . self::$pma_table . " (" .
+        "INSERT INTO " . self::_getTrackingTable() . " (" .
         "db_name, " .
         "table_name, " .
         "version, " .
@@ -448,7 +379,7 @@ class PMA_Tracker
         $version, $new_state
     ) {
 
-        $sql_query = " UPDATE " . self::$pma_table .
+        $sql_query = " UPDATE " . self::_getTrackingTable() .
         " SET `tracking_active` = '" . $new_state . "' " .
         " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($dbname) . "' " .
         " AND `table_name` = '" . PMA_Util::sqlAddSlashes($tablename) . "' " .
@@ -494,7 +425,7 @@ class PMA_Tracker
             $new_data_processed = $new_data;
         }
 
-        $sql_query = " UPDATE " . self::$pma_table .
+        $sql_query = " UPDATE " . self::_getTrackingTable() .
         " SET `" . $save_to . "` = '" . $new_data_processed . "' " .
         " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($dbname) . "' " .
         " AND `table_name` = '" . PMA_Util::sqlAddSlashes($tablename) . "' " .
@@ -553,7 +484,7 @@ class PMA_Tracker
      */
     static public function getVersion($dbname, $tablename, $statement = null)
     {
-        $sql_query = " SELECT MAX(version) FROM " . self::$pma_table .
+        $sql_query = " SELECT MAX(version) FROM " . self::_getTrackingTable() .
         " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($dbname) . "' " .
         " AND `table_name` = '" . PMA_Util::sqlAddSlashes($tablename) . "' ";
 
@@ -587,10 +518,7 @@ class PMA_Tracker
      */
     static public function getTrackedData($dbname, $tablename, $version)
     {
-        if (! isset(self::$pma_table)) {
-            self::init();
-        }
-        $sql_query = " SELECT * FROM " . self::$pma_table .
+        $sql_query = " SELECT * FROM " . self::_getTrackingTable() .
             " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($dbname) . "' ";
         if (! empty($tablename)) {
             $sql_query .= " AND `table_name` = '"
@@ -961,7 +889,7 @@ class PMA_Tracker
             );
 
             // If version not exists and auto-creation is enabled
-            if (self::$version_auto_create == true
+            if ($GLOBALS['cfg']['Server']['tracking_version_auto_create'] == true
                 && self::isTracked($dbname, $result['tablename']) == false
                 && $version == -1
             ) {
@@ -1005,7 +933,7 @@ class PMA_Tracker
 
                 // Mark it as untouchable
                 $sql_query = " /*NOTRACK*/\n"
-                    . " UPDATE " . self::$pma_table
+                    . " UPDATE " . self::_getTrackingTable()
                     . " SET " . PMA_Util::backquote($save_to)
                     . " = CONCAT( " . PMA_Util::backquote($save_to) . ",'\n"
                     . PMA_Util::sqlAddSlashes($query) . "') ,"
@@ -1088,6 +1016,18 @@ class PMA_Tracker
         }
 
         return $flags;
+    }
+
+    /**
+     * Returns the tracking table
+     *
+     * @return string tracking table
+     */
+    private static function _getTrackingTable()
+    {
+        $cfgRelation = PMA_getRelationsParam();
+        return PMA_Util::backquote($cfgRelation['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['tracking']);
     }
 }
 ?>
