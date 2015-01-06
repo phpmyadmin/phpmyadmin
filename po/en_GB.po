@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-03 12:41+0200\n"
+"PO-Revision-Date: 2015-01-06 18:52+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: English (United Kingdom) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/en_GB/>\n"
@@ -335,17 +335,17 @@ msgid "Access denied!"
 msgstr "Access denied!"
 
 #: db_tracking.php:38 db_tracking.php:63
-#, fuzzy
 #| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "Tracking data definition successfully deleted"
+msgstr "Tracking data deleted successfully."
 
 #: db_tracking.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Version %1$s was created, tracking for %2$s is active."
+msgstr ""
+"Version %1$s was created for selected tables, tracking is active for them."
 
 #: db_tracking.php:78
 #, fuzzy
