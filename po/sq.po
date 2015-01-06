@@ -2224,7 +2224,7 @@ msgstr "Modifikimet janë ruajtur"
 #, php-format
 #| msgid "Value for the column \"%s\""
 msgid "Add an option for column \"%s\"."
-msgstr "Shto një opsion për kolonë "
+msgstr "Shto një opsion për kolonë \"%s\"."
 
 #: js/messages.php:417
 #, php-format
@@ -6964,16 +6964,17 @@ msgstr ""
 "[kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:607
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Central columns table"
-msgstr "Shto/Fshi kollonat e fushës"
+msgstr "Tabela e kolonave qendrore"
 
 #: libraries/config/messages.inc.php:609
 msgid ""
 "Leave blank for no central columns support, suggested: [kbd]"
 "pma__central_columns[/kbd]."
 msgstr ""
+"Lëre të zbrazët për jo mbështetje të kolonave qendrore, sugjerohet: "
+"[kbd]pma__central_columns[/kbd]."
 
 #: libraries/config/messages.inc.php:612
 #| msgid "Do not change the password"
@@ -7061,6 +7062,8 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
+"Lëre të zbrazët për jo tabela të preferuara të \"përhershme\" gjatë "
+"sesionit, sugjerohet: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:644
 #| msgid "Variables"
@@ -9851,7 +9854,7 @@ msgstr "Nuk mund lidhet: rregullime të pavlefshme."
 #: libraries/plugins/auth/AuthenticationHttp.class.php:86
 #, php-format
 msgid "Welcome to %s"
-msgstr "Mirësevini në %s"
+msgstr "Mirësevjen në %s"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
