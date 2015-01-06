@@ -97,10 +97,10 @@ function Show_new_page_tables(check)
     for (var tab in all_tables) {
         var input = all_tables[tab];
         if (input.value) {
-            VisibleTab(input, input.value);
             var element = document.getElementById(input.value);
             element.style.top = Get_random(550, 20) + 'px';
             element.style.left = Get_random(700, 20) + 'px';
+            VisibleTab(input, input.value);
         }
     }
     selected_page = -1;
