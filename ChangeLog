@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - bug       Undefined index notices while configuring recent and favorite tables
 - bug #4687 Designer breaks without configuration storage
 - bug #4686 Select elements flicker and selects something else
+- bug #4689 Setup tool creates "pma__favorites" incorrectly
 
 4.3.5.0 (2015-01-05)
 - bug       Auto-configuration: tables were not created automatically
