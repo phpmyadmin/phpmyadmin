@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-02 15:48+0200\n"
+"PO-Revision-Date: 2015-01-05 18:58+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
@@ -6934,18 +6934,16 @@ msgid "Database name"
 msgstr "Meno databázy"
 
 #: libraries/config/messages.inc.php:633
-#, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
-"Port, na ktorom počúva MySQL server, nechajte prázdne pre východziu hodnotu"
+"Port, na ktorom počúva MySQL server, nechajte prázdne pre východziu hodnotu."
 
 #: libraries/config/messages.inc.php:634
 msgid "Server port"
 msgstr "Port servera"
 
 #: libraries/config/messages.inc.php:636
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]"
@@ -6954,14 +6952,13 @@ msgid ""
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
 "Nechajte prázdne pre vypnutie možnosti \"trvalého\" ukladania nedávno "
-"použitých tabuliek. Odporúčaná hodnota: [kbd]pma__recent[/kbd]"
+"použitých tabuliek. Odporúčaná hodnota: [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:639
 msgid "Recently used table"
 msgstr "Naposledy použitá tabuľka"
 
 #: libraries/config/messages.inc.php:641
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]"
@@ -6969,8 +6966,8 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Nechajte prázdne pre vypnutie možnosti \"trvalého\" ukladania nedávno "
-"použitých tabuliek. Odporúčaná hodnota: [kbd]pma__recent[/kbd]"
+"Nechajte prázdne pre vypnutie možnosti \"trvalého\" ukladania obľúbených "
+"tabuliek počas sedenia. Odporúčaná hodnota: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:644
 #, fuzzy
@@ -6995,7 +6992,6 @@ msgid "Relation table"
 msgstr "Relačná tabuľka"
 
 #: libraries/config/messages.inc.php:652
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
@@ -7004,7 +7000,7 @@ msgid ""
 "[/a] for an example."
 msgstr ""
 "Priklad, viď [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]typy "
-"overovania[/a]"
+"overovania[/a]."
 
 #: libraries/config/messages.inc.php:655
 msgid "Signon session name"
@@ -7015,28 +7011,25 @@ msgid "Signon URL"
 msgstr "URL pri prihlásení"
 
 #: libraries/config/messages.inc.php:658
-#, fuzzy
 #| msgid "Socket on which MySQL server is listening, leave empty for default"
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
-"Socket na ktorom počúva MySQL server, nechajte prázdne pre východziu hodnotu"
+"Socket na ktorom počúva MySQL server, nechajte prázdne pre východziu hodnotu."
 
 #: libraries/config/messages.inc.php:659
 msgid "Server socket"
 msgstr "Socket servera"
 
 #: libraries/config/messages.inc.php:660
-#, fuzzy
 #| msgid "Enable SSL for connection to MySQL server"
 msgid "Enable SSL for connection to MySQL server."
-msgstr "Povoliť SSL pre pripojenie k MySQL serveru"
+msgstr "Povoliť SSL pre pripojenie k MySQL serveru."
 
 #: libraries/config/messages.inc.php:661
 msgid "Use SSL"
 msgstr "Použiť SSL"
 
 #: libraries/config/messages.inc.php:663
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]"
@@ -7044,14 +7037,13 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Nechajte prázdne pro vypnutie podpory pre PDF schému. Odporúčaná hodnota: "
-"[kbd]pma__table_coords[/kbd]"
+"Nechajte prázdne pre vypnutie podpory pre PDF schému. Odporúčaná hodnota: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:665
-#, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
-msgstr "PDF schéma: tabuľka súradníc"
+msgstr "Dizajnér a PDF schéma: tabuľka súradníc"
 
 #: libraries/config/messages.inc.php:667
 #, fuzzy

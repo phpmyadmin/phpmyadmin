@@ -381,8 +381,8 @@ class PMA_RecentFavoriteTable
     private function _getPmaTable()
     {
         $cfgRelation = PMA_getRelationsParam();
-        if (/*overload*/mb_strlen($cfgRelation['db'])
-            && /*overload*/mb_strlen($cfgRelation[$this->_tableType])
+        if (! empty($cfgRelation['db'])
+            && ! empty($cfgRelation[$this->_tableType])
         ) {
             return PMA_Util::backquote($cfgRelation['db']) . "."
                 . PMA_Util::backquote($cfgRelation[$this->_tableType]);
