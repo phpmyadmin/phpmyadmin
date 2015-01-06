@@ -317,13 +317,6 @@ $cfg['Servers'][$i]['hide_db'] = '';
 $cfg['Servers'][$i]['verbose'] = '';
 
 /**
- * Zero Configuration mode.
- *
- * @global boolean $cfg['ZeroConf']
- */
-$cfg['ZeroConf'] = true;
-
-/**
  * Database used for Relation, Bookmark and PDF Features
  * (see sql/create_tables.sql)
  *   - leave blank for no support
@@ -2922,6 +2915,12 @@ $cfg['DisableMultiTableMaintenance'] = false;
  */
 $cfg['SendErrorReports'] = 'ask';
 
+/**
+ * Zero Configuration mode.
+ *
+ * @global boolean $cfg['ZeroConf']
+ */
+$cfg['ZeroConf'] = true;
 
 /*******************************************************************************
  * Developers ONLY!
