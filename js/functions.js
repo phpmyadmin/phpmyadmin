@@ -3688,14 +3688,13 @@ AJAX.registerOnload('functions.js', function () {
             cache: false,
             type: 'POST',
             data: {
-                favorite_tables: (window.localStorage && window.localStorage.favorite_tables
-                    !== undefined)
-                    ? window.localStorage.favorite_tables
+                favorite_tables: (isStorageSupported('localStorage'))
+                    ? window.localStorage['favorite_tables']
                     : ''
             },
             success: function (data) {
                 // Update localStorage.
-                if (window.localStorage && window.localStorage !== undefined) {
+                if (isStorageSupported('localStorage')) {
                     window.localStorage.favorite_tables
                         = data.favorite_tables;
                 }
@@ -4369,6 +4368,7 @@ function isStorageSupported(type)
         }
     } catch(error) {
         // Not supported
+        PMA_ajaxShowMessage(PMA_messages.strNoLocalStorage, false);
     }
     return false;
 }
