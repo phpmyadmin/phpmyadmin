@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-03 20:48+0200\n"
+"PO-Revision-Date: 2015-01-07 21:39+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
@@ -2476,6 +2476,9 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Figyelmeztetés: ezen az oldalon az egyik űrlap több mint %d mezőt tartalmaz. "
+"Elküldéskor a mezők egy része mellőzve lehet a PHP max_input_vars beállítása "
+"miatt."
 
 #: js/messages.php:509 js/messages.php:521
 msgid "Some errors have been detected on the server!"
@@ -2494,6 +2497,7 @@ msgstr "Összes mellőzése"
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"A beállítások szerint jelenleg elküldés alatt vannak, legyen türelemmel."
 
 #: js/messages.php:530
 #| msgid "Show this query here again"
@@ -7464,6 +7468,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Ez a tábla és a felhasználói csoportok tábla is szükséges a beállítható "
+"menük szolgáltatás engedélyezéséhez. Az egyikük üresen hagyása le fogja "
+"tiltani ezt a szolgáltatást, ajánlott: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:708
 msgid "Users table"
@@ -7475,6 +7482,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Ez a tábla és a felhasználók tábla is szükséges a beállítható menük "
+"szolgáltatás engedélyezéséhez. Az egyikük üresen hagyása le fogja tiltani "
+"ezt a szolgáltatást, ajánlott: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:710
 msgid "User groups table"
@@ -7584,7 +7594,6 @@ msgid "Show Last check timestamp"
 msgstr "Utolsó ellenőrzés időbélyegének megjelenítése"
 
 #: libraries/config/messages.inc.php:728
-#, fuzzy
 #| msgid ""
 #| "Defines whether or not type display direction option is shown when "
 #| "browsing a table"
@@ -7593,14 +7602,13 @@ msgid ""
 "a table."
 msgstr ""
 "Meghatározza, hogy látható legyen vagy sem az írásirány opció a táblák "
-"böngészése közben"
+"böngészése közben."
 
 #: libraries/config/messages.inc.php:729
 msgid "Show display direction"
 msgstr "Megjelenítési irány megjelenítése"
 
 #: libraries/config/messages.inc.php:730
-#, fuzzy
 #| msgid ""
 #| "Defines whether or not type fields should be initially displayed in edit/"
 #| "insert mode"
@@ -7609,7 +7617,7 @@ msgid ""
 "insert mode."
 msgstr ""
 "Megadja, hogy a típusmezők kezdetben megjelenjenek-e a szerkesztés/beszúró "
-"módban"
+"módban."
 
 #: libraries/config/messages.inc.php:731
 msgid "Show field types"
@@ -8494,7 +8502,7 @@ msgstr "Az importálandó fájl:"
 
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "Továbbá behúzhat és beejthet egy fájlt bármely oldalra."
 
 #: libraries/display_import.lib.php:246
 msgid "File uploads are not allowed on this server."
@@ -8527,6 +8535,8 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Ennyi számú lekérdezés (SQL esetén) vagy sor (más formátumoknál) kihagyása "
+"az elsőtől kezdve:"
 
 #: libraries/display_import.lib.php:340
 msgid "Format-Specific Options:"
@@ -8927,6 +8937,10 @@ msgid ""
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
+"A phpMyAdmin hibába ütközött. Összegyűjtöttük az adatokat erről a hibáról, "
+"valamint a hozzá tartozó konfigurációs beállításokkal kapcsolatos "
+"információkról, hogy elküldje a phpMyAdmin csapatnak a probléma "
+"megtalálásának segítségéül."
 
 #: libraries/error_report.lib.php:358
 msgid "You may examine the data in the error report:"
@@ -9030,6 +9044,8 @@ msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Csak INSERT, UPDATE, DELETE és REPLACE SQL-lekérdezéseket tartalmazó "
+"tranzakciós motor táblák görgethetők vissza."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -9389,6 +9405,9 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Nagy elemcsoportok vannak a navigációs panelen, amelyek hatással lehetnek a "
+"teljesítményre. Fontolja meg az elemcsoportosítás letiltását a navigációs "
+"panelen."
 
 #: libraries/navigation/NavigationTree.class.php:857
 #, php-format
@@ -9548,6 +9567,8 @@ msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Van olyan oszlopa, amely felosztható egynél több oszlopra? Például: a "
+"postacím felosztható országra, irányítószámra, településre és utcára."
 
 #: libraries/normalization.lib.php:128
 msgid "Show me the central list of columns that are not already in this table"
@@ -9621,6 +9642,10 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"Van olyan oszlopcsoportja, amelyek egyesítéskor egy meglévő oszlopot adnak? "
+"Például ha van vezetéknév, keresztnév és teljes_név oszlopa, akkor a "
+"vezetéknév és a keresztnév egyesítése a teljes_név oszlopot adja, amely "
+"redundáns."
 
 #: libraries/normalization.lib.php:221
 msgid ""
