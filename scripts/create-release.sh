@@ -283,7 +283,7 @@ Todo now:
  3. upload the files to SF, you can use scripts/upload-release, eg.:
 
         ./scripts/upload-release \$USER $version release
- 4. if this is a stable version, visit https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin, pick the newly created version, expand the directory and use the I icons to mark that
+ 4. if this is the latest stable version, visit https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin, pick the newly created version, expand the directory and use the I icons to mark that
         - the -all-languages.zip file is the default for Windows and Others
         - the -all-languages.tar.gz file is the default for Solaris
         - the -all-languages.tar.bz2 file is the default for Mac OS X, Linux and BSD
