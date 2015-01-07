@@ -1043,6 +1043,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // No need to check for 'PMA_BYPASS_GET_INSTANCE' since this execution path
         // applies only to initial login
         $response = PMA_Response::getInstance();
+        $response->getHeader()->disableMenuAndConsole();
         $response->getFooter()->setMinimal();
     }
 
