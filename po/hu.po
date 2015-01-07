@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-07 21:39+0200\n"
+"PO-Revision-Date: 2015-01-07 22:51+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/hu/>\n"
@@ -1228,7 +1228,7 @@ msgstr "Szabad lapozófájl"
 
 #: js/messages.php:124
 msgid "Bytes sent"
-msgstr "Bájt elküldve"
+msgstr "Elküldött bájtok"
 
 #: js/messages.php:125
 msgid "Bytes received"
@@ -5711,15 +5711,15 @@ msgstr "Excel változat"
 
 #: libraries/config/messages.inc.php:120
 msgid "Database name template"
-msgstr "Adatbázisnév-sablon"
+msgstr "Adatbázisnév sablon"
 
 #: libraries/config/messages.inc.php:121
 msgid "Server name template"
-msgstr "Szervernév-sablon"
+msgstr "Kiszolgálónév sablon"
 
 #: libraries/config/messages.inc.php:122
 msgid "Table name template"
-msgstr "Táblanév-sablon"
+msgstr "Táblanév sablon"
 
 #: libraries/config/messages.inc.php:126 libraries/config/messages.inc.php:140
 #: libraries/config/messages.inc.php:149 libraries/config/messages.inc.php:183
@@ -9641,6 +9641,11 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"Van olyan kettő vagy több oszlopból álló csoportja, amelyek szorosan "
+"kapcsolódóak és mind ugyanazt az attribútumot ismétli? Például könyveket "
+"tároló táblánál lehetnek ilyen oszlopok, mint például könyv_id, szerző1, "
+"szerző2, szerző3 és így tovább, amelyek ismétlődő csoportot alkotnak. Ebben "
+"az esetben egy új táblát (könyv_id, szerző) kell létrehozni."
 
 #: libraries/normalization.lib.php:259
 msgid ""
@@ -9668,6 +9673,8 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"Nem lehetséges részleges függőség, mert nem létezik nem elsődleges oszlop, "
+"mivel az elsődleges kulcs (%1$s) a tábla összes oszlopából áll."
 
 #: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
@@ -9702,6 +9709,9 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"Minden lenti oszlopnál válassza ki az oszlopok <b>legkisebb halmazát</b> a "
+"megadott halmaz közül, amelyek értékei egymással összekapcsolva elegendőek "
+"az oszlop értékének meghatározásához."
 
 #: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
@@ -9772,6 +9782,10 @@ msgid ""
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
+"Minden lenti oszlopnál válassza ki az oszlopok <b>legkisebb halmazát</b> a "
+"megadott halmaz közül, amelyek értékei egymással összekapcsolva elegendőek "
+"az oszlop értékének meghatározásához.<br />Megjegyzés: egy oszlopnak nem "
+"lehet tranzitív függősége, ebben az esetben nem kell kiválasztania semmit."
 
 #: libraries/normalization.lib.php:743
 msgid ""
@@ -14140,7 +14154,7 @@ msgstr "Idővonal"
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "Pont"
 
 #: libraries/tbl_chart.lib.php:82
 msgid "Stacked"
