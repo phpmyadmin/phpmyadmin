@@ -75,7 +75,7 @@ $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'column_info' => 'pma__column_info',
     'history' => 'pma__history',
     'recent' => 'pma__recent',
-    'favorite' => 'pma_favorite',
+    'favorite' => 'pma__favorite',
     'table_uiprefs' => 'pma__table_uiprefs',
     'tracking' => 'pma__tracking',
     'table_coords' => 'pma__table_coords',

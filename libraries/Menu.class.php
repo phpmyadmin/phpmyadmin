@@ -507,13 +507,13 @@ class PMA_Menu
      */
     private function _getServerTabs()
     {
-        $is_superuser = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isSuperuser();
+        $is_superuser = $GLOBALS['dbi']->isSuperuser();
         $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
             || $GLOBALS['dbi']->isUserType('create');
         $binary_logs = null;
         $notDrizzle = ! defined('PMA_DRIZZLE')
             || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE);
-        if (isset($GLOBALS['dbi']) && $notDrizzle) {
+        if ($notDrizzle) {
             if (PMA_Util::cacheExists('binary_logs')) {
                 $binary_logs = PMA_Util::cacheGet('binary_logs');
             } else {

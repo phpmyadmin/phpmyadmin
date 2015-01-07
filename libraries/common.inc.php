@@ -1042,7 +1042,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
         $_SESSION['tmpval']['previous_server'] = $GLOBALS['server'];
 
-    } // end server connecting
+    } else { // end server connecting
+        // No need to check for 'PMA_BYPASS_GET_INSTANCE' since this execution path
+        // applies only to initial login
+        $response = PMA_Response::getInstance();
+        $response->getHeader()->disableMenuAndConsole();
+        $response->getFooter()->setMinimal();
+    }
 
     /**
      * check if profiling was requested and remember it
@@ -1148,7 +1154,8 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
 }
 
 // If Zero configuration mode enabled, check PMA tables in current db.
-if (isset($GLOBALS['cfg']['ZeroConf'])
+if (! defined('PMA_MINIMUM_COMMON')
+    && isset($GLOBALS['cfg']['ZeroConf'])
     && $GLOBALS['cfg']['ZeroConf'] == true
 ) {
     if (! empty($GLOBALS['db'])) {
