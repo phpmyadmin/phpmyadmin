@@ -1,6 +1,10 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.10.8 (2015-01-07)
+- rfe #1588 recursive function too deep - operator change suggestion 
+- rfe #1589 support early versions of PHP5.2 (register_shutdown_function)
+
 4.0.10.7 (2014-12-03)
 - bug #4611 [security] DOS attack with long passwords
 
