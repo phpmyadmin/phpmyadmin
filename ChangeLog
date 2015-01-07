@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.3.6.0 (not yet released)
+4.3.6.0 (2015-01-07)
 - bug       Undefined index notices while configuring recent and favorite tables
 - bug #4687 Designer breaks without configuration storage
 - bug #4686 Select elements flicker and selects something else
