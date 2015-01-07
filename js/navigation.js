@@ -406,8 +406,7 @@ $(function () {
             cache: false,
             type: 'POST',
             data: {
-                favorite_tables: (window.localStorage && window.localStorage.favorite_tables
-                    !== undefined)
+                favorite_tables: (isStorageSupported('localStorage'))
                     ? window.localStorage.favorite_tables
                     : ''
             },
@@ -421,7 +420,7 @@ $(function () {
                         $('#' + anchor_id).attr("title")
                     );
                     // Update localStorage.
-                    if (window.localStorage && window.localStorage !== undefined) {
+                    if (isStorageSupported('localStorage')) {
                         window.localStorage.favorite_tables = data.favorite_tables;
                     }
                 } else {
