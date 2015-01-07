@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-06 23:47+0200\n"
+"PO-Revision-Date: 2015-01-07 01:02+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sq/>\n"
@@ -46,7 +46,7 @@ msgstr "Databaza %1$s është krijuar."
 
 #: db_datadict.php:48 libraries/operations.lib.php:32
 msgid "Database comment:"
-msgstr "Komenti i databazës: "
+msgstr "Komenti i databazës:"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:990
@@ -248,13 +248,13 @@ msgstr "Emri i databazës është i zbrazët!"
 #, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Databaza %1$s është riemëruar në %2$s"
+msgstr "Databaza %1$s është riemëruar në %2$s."
 
 #: db_operations.php:138
 #, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Databaza %1$s është kopjuar në %2$s"
+msgstr "Databaza %1$s është kopjuar në %2$s."
 
 #: db_operations.php:259
 #, php-format
@@ -309,7 +309,7 @@ msgstr "Aktualizimi i fundit:"
 #: db_printview.php:134 libraries/plugins/export/ExportSql.class.php:1170
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1005
 msgid "Last check:"
-msgstr "Kontrolli i fundit"
+msgstr "Kontrolli i fundit:"
 
 #: db_printview.php:146 libraries/structure.lib.php:169
 #, php-format
@@ -336,22 +336,22 @@ msgid "Access denied!"
 msgstr "Hyrja nuk lejohet!"
 
 #: db_tracking.php:38 db_tracking.php:63
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Tracking data deleted successfully."
-msgstr "Të drejtat u përditësuan me sukses."
+msgstr "Të dhënat e gjurmuara u fshinë me sukses."
 
 #: db_tracking.php:47
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Versioni %$1s është krijuar për tabelat e zgjedhura, gjurmimi është aktiv "
+"për ta."
 
 #: db_tracking.php:78
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Nuk është zgjedhur asnjë databazë."
+msgstr "Nuk është zgjedhur tabelë."
 
 #: db_tracking.php:112
 msgid "Tracked tables"
@@ -795,7 +795,7 @@ msgstr "Versioni klient i databazës:"
 
 #: index.php:331
 msgid "PHP extension:"
-msgstr "PHP zgjerimi"
+msgstr "Zgjerimi PHP:"
 
 #: index.php:349
 msgid "Show PHP information"
@@ -803,7 +803,7 @@ msgstr "Shfaq informacionin PHP"
 
 #: index.php:372
 msgid "Version information:"
-msgstr "Informacion mbi versionin"
+msgstr "Informacion mbi versionin:"
 
 #: index.php:381 libraries/Util.class.php:429 libraries/Util.class.php:491
 #: libraries/config/FormDisplay.tpl.php:148
@@ -1440,7 +1440,7 @@ msgstr "Pasivizo %s"
 #, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Set long_query_time to %d seconds."
-msgstr "Vendos long_query_time në %ds"
+msgstr "Vendos long_query_time në %d sekonda."
 
 #: js/messages.php:173
 msgid ""
@@ -1655,7 +1655,7 @@ msgstr "Importi"
 
 #: js/messages.php:231
 msgid "Import monitor configuration"
-msgstr "Konfigurimi i monitorit të importit "
+msgstr "Konfigurimi i monitorit të importit"
 
 #: js/messages.php:232
 msgid "Please select the file you want to import."
@@ -1712,7 +1712,7 @@ msgstr "Anulo"
 #: js/messages.php:254 libraries/navigation/NavigationHeader.class.php:57
 #: libraries/server_status_monitor.lib.php:123
 msgid "Loading…"
-msgstr "Ngarkon..."
+msgstr "Ngarkon…"
 
 #: js/messages.php:255
 msgid "Request Aborted!!"
@@ -1932,7 +1932,7 @@ msgstr "Çelësi primar u shtua."
 #: js/messages.php:318 libraries/normalization.lib.php:174
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "Kalimi në hapin tjetër..."
+msgstr "Po kalon në hapin tjetër…"
 
 #: js/messages.php:319
 #, php-format
@@ -2220,7 +2220,7 @@ msgstr "Pa titull"
 #: js/messages.php:411
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Ju lutem zgjedh një faqe për të vazhduar."
+msgstr "Ju lutem, zgjedh një faqe për të vazhduar"
 
 #: js/messages.php:412
 msgid "Please enter a valid page name"
@@ -2252,7 +2252,7 @@ msgstr "Shto një opsion për kolonë \"%s\"."
 #: js/messages.php:420
 #, php-format
 msgid "%d object(s) created."
-msgstr "%d objekt(e) u krijuan"
+msgstr "%d objekt(e) u krijuan."
 
 #: js/messages.php:423
 msgid "Press escape to cancel editing."
@@ -2286,7 +2286,7 @@ msgstr ""
 
 #: js/messages.php:428
 msgid "Click to mark/unmark."
-msgstr "Kliko për të shënjuar/mos-shënjuar"
+msgstr "Kliko për të shënjuar/mos-shënjuar."
 
 #: js/messages.php:429
 #| msgid "Copy column name"
@@ -2791,7 +2791,7 @@ msgstr "Dështoi në llogaritjen e vlerës për rregullin '%s'."
 #: libraries/Advisor.class.php:144
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "Dështoi me ekzekutimin e testit për rregullin '%s'"
+msgstr "Dështoi në ekzekutimin e testit për rregullin '%s'."
 
 #: libraries/Advisor.class.php:224
 #, php-format
@@ -3404,7 +3404,7 @@ msgstr "Vrit"
 
 #: libraries/DisplayResults.class.php:4524
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Mund të jetë me afërsi. Shiko [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Mund të jetë me afërsi. Shiko [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4581 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql_query_form.lib.php:89
@@ -3562,7 +3562,7 @@ msgstr "Gabim i panjohur në ngarkimin e filit."
 #: libraries/File.class.php:461
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
-"Gabim në lëvizjen e filit të ngarkuar, shiko [doc@faq1-11]FAQ 1.11[/doc]"
+"Gabim në lëvizjen e filit të ngarkuar, shiko [doc@faq1-11]FAQ 1.11[/doc]."
 
 #: libraries/File.class.php:479
 msgid "Error while moving uploaded file."
@@ -3652,7 +3652,7 @@ msgstr "Çelësi primar është fshirë."
 #: libraries/Index.class.php:610
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Indeksi %s është fshirë"
+msgstr "Indeksi %s është fshirë."
 
 #: libraries/Index.class.php:627 libraries/Util.class.php:3414
 #: libraries/Util.class.php:3415 libraries/server_databases.lib.php:146
@@ -4090,7 +4090,7 @@ msgstr "Ky MySQL server nuk e mbështet motorin e ruajtjes %s."
 #: libraries/Table.class.php:397
 #| msgid "Show tables"
 msgid "Unknown table status:"
-msgstr "Status i panjohur tabele: "
+msgstr "Status i panjohur tabele:"
 
 #: libraries/Table.class.php:775
 #, php-format
@@ -4124,7 +4124,7 @@ msgstr "Tabela %1$s është riemëruar në %2$s."
 
 #: libraries/Table.class.php:1529
 msgid "Could not save table UI preferences!"
-msgstr "Nuk mund të ruajë tabelën e preferencave UI"
+msgstr "Nuk mund të ruajë tabelën e preferencave UI!"
 
 #: libraries/Table.class.php:1558
 #, php-format
@@ -4338,8 +4338,8 @@ msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
-"Një integer 4-bajt, rrezja e nënshkrimit është -2,147,483,648 deri "
-"2,147,483,647, rrezja e mos-nënshkrimit është 0 deri 4,294,967,295."
+"Një integer 4-bajt, rrezja e nënshkruar është -2,147,483,648 deri "
+"2,147,483,647, rrezja e panënshkruar është 0 deri 4,294,967,295"
 
 #: libraries/Types.class.php:328
 msgid ""
@@ -4540,7 +4540,7 @@ msgid ""
 "'' error value"
 msgstr ""
 "Një numërim, i zgjedhur nga lista e deri 65,535 vlerave ose '' vlera e "
-"gabimit speciale "
+"gabimit special"
 
 #: libraries/Types.class.php:380
 msgid "A single value chosen from a set of up to 64 members"
@@ -4552,7 +4552,7 @@ msgstr "Një tip që mund të ruajë gjeometrinë e çdo tipi"
 
 #: libraries/Types.class.php:384
 msgid "A point in 2-dimensional space"
-msgstr "Një pikë në hapësirë 2-dimensionale "
+msgstr "Një pikë në hapësirë 2-dimensionale"
 
 #: libraries/Types.class.php:386
 msgid "A curve with linear interpolation between points"
@@ -5141,7 +5141,7 @@ msgstr "Vlerë jokorrekte!"
 #: libraries/config/Validator.class.php:621
 #, php-format
 msgid "Value must be equal or lower than %s!"
-msgstr "Vlera duhet të jetë e barabartë ose më e ulët se %s"
+msgstr "Vlera duhet të jetë e barabartë ose më e ulët se %s!"
 
 #: libraries/config/FormDisplay.class.php:571
 #, php-format
@@ -5301,8 +5301,9 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Nëse përdorni gatim (cookie) autentifikimi dhe %sLogin cookie store%s is not "
-"0, %sLogin cookie validity%s must be set to a value less or equal to it."
+"Nëse përdorni gatimin [kbd]cookie[/kbd] e autentifikimit dhe %sRezerva e "
+"hyrjes cookie%s nuk është 0, %sVlefshmëria e cookie të hyrjes%s duhet të "
+"jetë vendosur në një vlerë më të vogël ose të barabartë me të."
 
 #: libraries/config/ServerConfigChecks.class.php:423
 #, php-format
@@ -5312,10 +5313,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"If you feel this is necessary, use additional protection settings - %shost "
-"authentication%s settings and %strusted proxies list%s. However, IP-based "
-"protection may not be reliable if your IP belongs to an ISP where thousands "
-"of users, including you, are connected to."
+"Nëse mendoni se kjo është e nevojshme, përdor rregullimet shtesë të "
+"mbrojtjes -%sautentifikimi i pritësit%s rregullimet dhe %slistën proksi të "
+"besuar%s. Megjithatë, mbrojtja e bazuar në IP nuk mund të jetë e besueshme, "
+"nëse IP-a juaj i përket një ISP-je, ku mijëra përdorues, përfshirë edhe ju, "
+"janë të lidhur me të."
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -5339,7 +5341,7 @@ msgid ""
 "system."
 msgstr ""
 "%sZip kompresim%s kërkon funksionet (%s), të cilat nuk janë të vlefshme në "
-"këtë sistem"
+"këtë sistem."
 
 #: libraries/config/ServerConfigChecks.class.php:444
 #, php-format
@@ -6071,7 +6073,7 @@ msgstr "Autentifikimi"
 #: libraries/config/messages.inc.php:259
 #| msgid "Documentation"
 msgid "Authentication settings."
-msgstr "Rregullimet e autentifikimit"
+msgstr "Rregullimet e autentifikimit."
 
 #: libraries/config/messages.inc.php:260
 msgid "Server configuration"
@@ -6867,7 +6869,7 @@ msgid ""
 "pma__column_info[/kbd]."
 msgstr ""
 "Lëre të zbrazët për asnjë kolonë të tipeve komente/mime, sugjerohet: "
-"[kbd]pma__column_info[/kbd]"
+"[kbd]pma__column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:560
 msgid "Column information table"
@@ -6900,8 +6902,8 @@ msgid ""
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "Një përdorues i veçantë MySQL, i konfiguruar me lejime të kufizuara, më "
-"shumë informacion i vlefshëm në "
-"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"tepër informacion të vlefshëm në "
+"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 
 #: libraries/config/messages.inc.php:571
 msgid "Control user"
@@ -6945,12 +6947,12 @@ msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Më tepër informacion në [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+"PMA bug tracker[/a] dhe [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/config/messages.inc.php:586
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr "Disable use of INFORMATION_SCHEMA"
+msgstr "Pasivizo përdorimin e INFORMATION_SCHEMA"
 
 #: libraries/config/messages.inc.php:587
 msgid "Hide databases"
@@ -6961,8 +6963,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Lëre të zbrazët për asnjë mbështetje historie të pyetsorit SQL, sugjerohet: "
-"[kbd]pma__history[/kbd]"
+"Lëre të zbrazët për asnjë mbështetje të historisë së pyetsorit SQL, "
+"sugjerohet: [kbd]pma__history[/kbd]."
 
 #: libraries/config/messages.inc.php:592
 msgid "SQL query history table"
@@ -7001,8 +7003,8 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: [kbd]"
 "pma__savedsearches[/kbd]."
 msgstr ""
-"Lëre të zbrazët për asnjë mbështetje skeme PDF, sugjerohet: "
-"[kbd]pma__pdf_pages[/kbd]"
+"Lëre të zbrazët për asnjë mbështetje kërkimi të QBE të ruajtur, sugjerohet: "
+"[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:607
 #| msgid "Add/Delete Field Columns"
@@ -7052,8 +7054,8 @@ msgstr "Fjalëkalimi për konfig autent"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Lëre të zbrazët për asnjë mbështetje skeme PDF, sugjerohet: "
-"[kbd]pma__pdf_pages[/kbd]"
+"Lëre të zbrazët për asnjë mbështetje të skemës PDF, sugjerohet: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:625
 msgid "PDF schema: pages table"
@@ -7065,9 +7067,9 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Databaza e përdorur për tipare relacionesh, faqruajtësish dhe PDF. Shiko "
+"Databaza e përdorur për relacione, faqruajtës dhe tipare PDF. Shiko "
 "[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] për informacion më të "
-"plotë. Lëre të zbrazët për mos mbështetje. Sugjerohet: [kbd]phpmyadmin[/kbd]"
+"plotë. Lëre të zbrazët për mos mbështetje. Sugjerohet: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:631
 #: libraries/display_create_database.lib.php:31
@@ -7090,8 +7092,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
-"Lëre të zbrazët për tabela jo të përdorura së fundi \"persistente\" përmes "
-"sesionit, sugjerohet: [kbd]pma__recent[/kbd]"
+"Lëre të zbrazët për asnjë tabelë të \"përhershme\" të përdorur së fundi "
+"përmes sesionit, sugjerohet: [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:639
 #| msgid "Analyze table"
@@ -7163,8 +7165,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Lëre të zbrazët për asnjë mbështetje skeme PDF, sugjerohet: "
-"[kbd]pma__table_coords[/kbd]"
+"Lëre të zbrazët për asnjë mbështetje të skemës PDF, sugjerohet: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:665
 msgid "Designer and PDF schema: table coordinates"
@@ -7175,8 +7177,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
-"Tabela për të përshkruar kolonat e shfaqjes, lëre të zbrazët për asnjë "
-"mbështetje; sugjerohet: [kbd]pma__table_info[/kbd]"
+"Tabela që përshkruan kolonat e shfaqjes, lëre të zbrazët për asnjë "
+"mbështetje; sugjerohet: [kbd]pma__table_info[/kbd]."
 
 #: libraries/config/messages.inc.php:670
 #| msgid "Displaying Column Comments"
@@ -7188,8 +7190,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
-"Lëre të zbrazët për preferenca tabelash UI jo \"persistente\" preferencash "
-"përrmes sesionit, sugjerohet: [kbd]pma__table_uiprefs[/kbd]"
+"Lëre të zbrazët për preferenca tabelash UI jo të \"përhershme\" përrmes "
+"sesionit, sugjerohet:  [kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/config/messages.inc.php:675
 #| msgid "Defragment table"
@@ -7248,7 +7250,7 @@ msgid ""
 "[/kbd]."
 msgstr ""
 "Lëre të zbrazët për asnjë mbështetje gjurmimi të pyetsorit SQL, sugjerohet: "
-"[kbd]pma__tracking[/kbd]"
+"[kbd]pma__tracking[/kbd]."
 
 #: libraries/config/messages.inc.php:698
 msgid "SQL query tracking table"
@@ -7444,7 +7446,7 @@ msgid ""
 "output."
 msgstr ""
 "Shfaq lidhjen tek rezultati "
-"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]"
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:737
 msgid "Show phpinfo() link"
@@ -7509,9 +7511,9 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)."
 msgstr ""
-"Madhësia e zonës së tekstit (kolonat) në mënyrën e korrigjimit, kjo vlerë do "
-"të theksohet për zonat e tekstit të pyetsorit SQL (*2) dhe për dritaren e "
-"pyetsorit (*1.25)"
+"Madhësia e zonës së tekstit (kolonave) në mënyrën e korrigjimit, kjo vlerë "
+"do të theksohet për zonat e tekstit të pyetsorit SQL (*2) dhe për dritaren e "
+"pyetsorit (*1.25)."
 
 #: libraries/config/messages.inc.php:754
 #| msgid "Add/Delete Field Columns"
@@ -7559,10 +7561,10 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
-"Vendos proksi si [kbd]IP: koka të besuar HTTP[/kbd]. Shembulli i mëposhtëm "
+"Vendos proksi si [kbd]IP: koka e besuar HTTP[/kbd]. Shembulli i mëposhtëm "
 "përcakton se phpMyAdmin duhet të besojë një kokë HTTP_X_FORWARDED_FOR (X"
-"-Forwarded-For) që vjen nga proksi 1.2.3.4:[br][kbd]1.2.3.4: "
-"HTTP_X_FORWARDED_FOR[/kbd]"
+"-Forwarded-For), që vjen nga proksi 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]."
 
 #: libraries/config/messages.inc.php:766
 msgid "List of trusted proxies for IP allow/deny"
@@ -7926,7 +7928,7 @@ msgstr "Fsheh"
 #: libraries/db_designer.lib.php:517
 #| msgid "Number of rows per page"
 msgid "Number of tables:"
-msgstr "Numri i tabelave"
+msgstr "Numri i tabelave:"
 
 #: libraries/db_designer.lib.php:864
 msgid "Delete relation"
@@ -8160,7 +8162,7 @@ msgstr "përdore këtë për eksporte në të ardhmen"
 #: libraries/display_export.lib.php:541 libraries/display_import.lib.php:179
 #: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:454
 msgid "Character set of the file:"
-msgstr "Seti i karaktereve të filit"
+msgstr "Seti i karaktereve të filit:"
 
 #: libraries/display_export.lib.php:585
 #| msgid "Compression"
@@ -8315,7 +8317,7 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"Lejo ndërprerjen e një importi në rast se skripti zbulon se është afër "
+"Lejo ndërprerjen e një importi, në rast se skripti zbulon që është afër "
 "limitit kohor të PHP timeout. <i>(Kjo mund të jetë një mënyrë e mirë për të "
 "importuar file të mëdha, por mund të thyejë transaksionet.)</ i>"
 
@@ -8348,7 +8350,7 @@ msgstr "%s nga %s"
 
 #: libraries/display_import.lib.php:455
 msgid "Uploading your import file…"
-msgstr "Ngarkon filin tuaj të importit..."
+msgstr "Ngarkon filin tuaj të importit…"
 
 #: libraries/display_import.lib.php:456
 #, php-format
@@ -8793,11 +8795,11 @@ msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Ndrysho ndonjë nga rregullimet e saj, duke klikuar lidhjen korresponduese \""
-"Options\" (opsionet)"
+"Options\" (opsionet)."
 
 #: libraries/import.lib.php:1258
 msgid "Edit structure by following the \"Structure\" link."
-msgstr "Korrigjo strukturën duke ndjekur lidhjen \"Structure\" (struktura)"
+msgstr "Korrigjo strukturën duke ndjekur lidhjen \"Structure\" (struktura)."
 
 #: libraries/import.lib.php:1264
 #, php-format
@@ -8861,7 +8863,7 @@ msgstr "Binar - mos korrigjo"
 #: libraries/insert_edit.lib.php:1171 libraries/sql_query_form.lib.php:442
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "dosja e ngarkimit në web server"
+msgstr "drejtoria e ngarkimit në ueb server:"
 
 #: libraries/insert_edit.lib.php:1392
 #, php-format
@@ -9224,7 +9226,7 @@ msgstr "Filtro databazat sipas emrit ose regex"
 #: libraries/navigation/NavigationTree.class.php:1210
 #| msgid "Save as file"
 msgid "Clear fast filter"
-msgstr "Pastro filtrin e shpejtë."
+msgstr "Pastro filtrin e shpejtë"
 
 #: libraries/navigation/NavigationTree.class.php:1209
 #| msgid "Alter table order by"
@@ -9383,7 +9385,7 @@ msgstr ""
 #: libraries/normalization.lib.php:138 normalization.php:19
 #| msgid "Select two columns"
 msgid "Select one…"
-msgstr "Zgjedh një..."
+msgstr "Zgjedh një…"
 
 #: libraries/normalization.lib.php:139 normalization.php:20
 #| msgid "Add/Delete Field Columns"
@@ -9392,7 +9394,7 @@ msgstr "Jo kolonë të tillë"
 
 #: libraries/normalization.lib.php:146
 msgid "split into "
-msgstr "ndaj në"
+msgstr "ndaj në "
 
 #: libraries/normalization.lib.php:167
 msgid "Have a primary key"
@@ -9508,7 +9510,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
-msgstr "Tabela është ndërkohë në formën normale të dytë!"
+msgstr "Tabela është ndërkohë në formën normale të dytë."
 
 #: libraries/normalization.lib.php:323
 #, php-format
@@ -9611,10 +9613,10 @@ msgid ""
 "in that case you don't have to select any."
 msgstr ""
 "Për çdo kolonë më poshtë, ju lutem zgjedh <b>set minimal</b> të kolonave, në "
-"mesin e setit të dhënë, vlerat e të cilit të kombinuara së bashku janë të "
-"mjaftueshme për të përcaktuar vlerën e kolonës.<br / Shënim:. Një kolonë "
-"mund të mos ketë varësinë kalimtare, në këtë rast ju nuk keni për të "
-"zgjedhur ndonjë."
+"mesin e setit të dhënë, vlerat e të cilit, të kombinuara së bashku, janë të "
+"mjaftueshme për të përcaktuar vlerën e kolonës.<br />Shënim: Një kolonë mund "
+"të mos ketë varësi kalimtare, në këtë rast, ju nuk keni për të zgjedhur "
+"ndonjë."
 
 #: libraries/normalization.lib.php:743
 msgid ""
@@ -9871,7 +9873,7 @@ msgstr "Hyrja pa fjalëkalim ndalohet nga konfigurimi (shiko AllowNoPassword)"
 #: libraries/plugins/AuthenticationPlugin.class.php:73
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Pa aktivitet për %s sekonda; ju lutem, hyni përsëri"
+msgstr "Pa aktivitet për %s sekonda; ju lutem, hyni përsëri."
 
 #: libraries/plugins/AuthenticationPlugin.class.php:82
 #: libraries/plugins/AuthenticationPlugin.class.php:84
@@ -9944,7 +9946,7 @@ msgstr "Emri i përdoruesit:"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:205
 #| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Zgjidhja e serverit"
+msgstr "Zgjedhja e serverit:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:383
 msgid "Entered captcha is wrong, try again!"
@@ -10139,7 +10141,7 @@ msgstr "Shfaq tipet MIME"
 #: libraries/plugins/export/ExportLatex.class.php:162
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Vendos emrat e kolonave në radhë të parë"
+msgstr "Vendos emrat e kolonave në radhë të parë:"
 
 #: libraries/plugins/export/ExportLatex.class.php:205
 #: libraries/plugins/export/ExportSql.class.php:670
@@ -10171,7 +10173,7 @@ msgstr "PHP Versioni:"
 #: libraries/sql.lib.php:291
 #| msgid "Database"
 msgid "Database:"
-msgstr "Databaza"
+msgstr "Databaza:"
 
 #: libraries/plugins/export/ExportLatex.class.php:306
 #: libraries/plugins/export/ExportSql.class.php:1900
@@ -10182,7 +10184,7 @@ msgstr "Të dhëna:"
 #: libraries/plugins/export/ExportLatex.class.php:488
 #| msgid "Structure"
 msgid "Structure:"
-msgstr "Struktura"
+msgstr "Struktura:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 #| msgid "Export"
@@ -11086,7 +11088,7 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
-"Pasi të keni rifilluar MySQL server, ju lutemi klikoni mbi butonin Shko. Më "
+"Pasi të keni rifilluar serverin MySQL, ju lutem, kliko mbi butonin Shko. Më "
 "pas, do të shihni një mesazh, që ju informon, se ky server <b>është</ b> "
 "konfiguruar si master."
 
@@ -11471,7 +11473,7 @@ msgstr "Përcaktuesi"
 #: libraries/rte/rte_routines.lib.php:1130
 #: libraries/rte/rte_triggers.lib.php:422
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "Përcaktuesi duhet të jetë në formatin \"username@hostname\""
+msgstr "Përcaktuesi duhet të jetë në formatin \"username@hostname\"!"
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide an event name!"
@@ -11611,7 +11613,7 @@ msgstr "SQL hyrje e të dhënave"
 
 #: libraries/rte/rte_routines.lib.php:1146
 msgid "You must provide a routine name!"
-msgstr "Duhet të siguroni një emër rutinë."
+msgstr "Duhet të siguroni një emër rutinë!"
 
 #: libraries/rte/rte_routines.lib.php:1180
 #, php-format
@@ -12087,7 +12089,7 @@ msgstr "Grup përdoruesi"
 
 #: libraries/server_privileges.lib.php:715
 msgid "Resource limits"
-msgstr "Resource limits"
+msgstr "Kufizimet e burimeve"
 
 #: libraries/server_privileges.lib.php:717
 msgid "Note: Setting these options to 0 (zero) removes the limit."
@@ -12404,7 +12406,7 @@ msgstr "I ri"
 #: libraries/server_privileges.lib.php:3840
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
-msgstr "Korrigjo privilegjet"
+msgstr "Korrigjo privilegjet:"
 
 #: libraries/server_privileges.lib.php:3900
 msgid ""
@@ -12608,11 +12610,11 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occurring SELECT statements to further analyze them."
 msgstr ""
-"Për të shfaqur pyetsorët nga regjistrat (logs), zgjedh hapësirën ​​përkatëse "
-"kohore në çdo grafik, duke mbajtur butonin e majtë të miut dhe duke e "
-"pjerrësuar mbi tabelë. Pasi konfirmohet, kjo do të ngarkojë një tabelë të "
-"pyetësorëve të grupuar, aty mund të klikoni mbi ndonjë deklaratatë SELECT "
-"për t'i analizuar ato më tej."
+"Për të shfaqur pyetsorët nga regjistrat (logs), zgjedh hapësirën përkatëse "
+"kohore në çdo grafik, duke mbajtur të shtypur butonin e majtë të miut dhe "
+"duke e pjerrësuar atë mbi tabelë. Pasi konfirmohet, kjo do të ngarkojë një "
+"tabelë të pyetësorëve të grupuar, aty mund të klikoni mbi ndonjë deklaratatë "
+"SELECT, për t'i analizuar ato më tej."
 
 #: libraries/server_status_monitor.lib.php:147
 msgid "Please note:"
@@ -12626,11 +12628,11 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 "Aftësimi i general_log mund të rrisë ngarkimin e serverit me 5-15%. "
-"Gjithashtu, të jeni të vetëdijshëm se gjenerimi i statistikave nga "
+"Gjithashtu, duhet të jeni i vetëdijshëm se gjenerimi i statistikave nga "
 "regjistrat (logs) është një detyrë ngarkimi intensive, kështu që është e "
-"këshillueshme të zgjedhni vetëm një hapësirë ​​të vogël kohe dhe të "
-"pasivizoni general_log dhe zbrazni tabelat e saj, sapo monitorimi të mos "
-"kërkohet më."
+"këshillueshme të zgjedhni vetëm një hapësirë të vogël kohe dhe të pasivizoni "
+"general_log, dhe të zbrazni tabelat e saj, sapo monitorimi të mos kërkohet "
+"më."
 
 #: libraries/server_status_monitor.lib.php:171
 #: libraries/server_status_monitor.lib.php:281
@@ -13616,7 +13618,7 @@ msgstr "Përmbledhje sipas gjendjes"
 #: libraries/sql.lib.php:357
 #| msgid "Total time:"
 msgid "Total Time"
-msgstr "Koha gjithsejt:"
+msgstr "Koha gjithsejt"
 
 #: libraries/sql.lib.php:359
 #| msgid "Time"
@@ -13649,7 +13651,7 @@ msgstr "Lejo çdo përdorues të hyjë në këtë faqeruajtës"
 #: libraries/sql.lib.php:885
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
-msgstr "Faqeruajtësi nuk është krijuar"
+msgstr "Faqeruajtësi nuk është krijuar!"
 
 #: libraries/sql.lib.php:992
 #, php-format
@@ -13797,7 +13799,7 @@ msgstr "Paraqitja %s është fshirë."
 #, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
-msgstr "Tabela %s është fshirë"
+msgstr "Tabela %s është fshirë."
 
 #: libraries/structure.lib.php:178
 msgid "Sum"
@@ -13814,7 +13816,7 @@ msgstr "Shto prefiks tek tabela"
 
 #: libraries/structure.lib.php:338
 msgid "Replace table prefix"
-msgstr "Zëvendëso prefiksin e tabelës "
+msgstr "Zëvendëso prefiksin e tabelës"
 
 #: libraries/structure.lib.php:340
 msgid "Copy table with prefix"
@@ -14004,7 +14006,7 @@ msgstr "Efektive"
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "Tabela %1$s është alternuar me sukses"
+msgstr "Tabela %1$s është alternuar me sukses."
 
 #: libraries/structure.lib.php:2599 libraries/tracking.lib.php:1046
 #| msgid "Query type"
@@ -14730,7 +14732,7 @@ msgstr "Shkarko"
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
 "Formset (set forme) jo korrekt, kontrollo grupin $formsets në "
-"setup/frames/form.inc.php"
+"setup/frames/form.inc.php!"
 
 #: setup/frames/index.inc.php:53
 msgid "Cannot load or save configuration"
@@ -14996,7 +14998,7 @@ msgstr "Përshkrim"
 #, php-format
 #| msgid "Tracking report"
 msgid "Taking you to %s."
-msgstr "Faleminderit për %s"
+msgstr "Po ju kalojmë tek %s."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
@@ -15743,8 +15745,8 @@ msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
-"Shumë tabela të përkohëshme po shkruhen në disk, në vend se të mbahen në "
-"kujtesë"
+"Shumë tabela të përkohëshme po shkruhen në disk, në vend që të mbahen në "
+"kujtesë."
 
 #: libraries/advisory_rules.txt:273
 msgid ""
