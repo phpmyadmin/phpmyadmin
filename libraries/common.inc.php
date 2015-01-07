@@ -1042,7 +1042,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
         $_SESSION['tmpval']['previous_server'] = $GLOBALS['server'];
 
-    } // end server connecting
+    } else { // end server connecting
+        // No need to check for 'PMA_BYPASS_GET_INSTANCE' since this execution path
+        // applies only to initial login
+        $response = PMA_Response::getInstance();
+        $response->getFooter()->setMinimal();
+    }
 
     /**
      * check if profiling was requested and remember it
