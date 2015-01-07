@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 - bug #4689 Setup tool creates "pma__favorites" incorrectly
 - bug #4685 Call to a member function isUserType() on a non-object
 - bug #4691 Do not include console when no server is selected
+- bug #4688 File permissions in archive
 
 4.3.5.0 (2015-01-05)
 - bug       Auto-configuration: tables were not created automatically
