@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-07 22:51+0200\n"
+"PO-Revision-Date: 2015-01-07 23:27+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/hu/>\n"
@@ -632,9 +632,9 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
-"A feltöltött fájlt nem lehet átmozgatni, mert a szerveren be van kapcsolva "
-"az open_basedir anélkül, hogy a(%s) könyvtárhoz hozzáférési engedélye lenne "
-"(az ideiglenes fájlokhoz)."
+"A feltöltött fájlt nem lehet átmozgatni, mert a kiszolgálón be van kapcsolva "
+"az open_basedir anélkül, hogy a(z) %s könyvtárhoz hozzáférési engedélye "
+"lenne (az ideiglenes fájlokhoz)."
 
 #: import.php:466 import.php:527 libraries/File.class.php:418
 #: libraries/File.class.php:512
@@ -725,8 +725,8 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"Ön demo szervert használ. Bármit szerkeszthet, de kérjük, ne változtasson "
-"root, debian-sys-maint és pma felhasználók értékein. További információ: %s."
+"Ön demo kiszolgálót használ. Bármit szerkeszthet, de kérjük, ne változtasson "
+"a root, debian-sys-maint és pma felhasználókon. További információ: %s."
 
 #: index.php:158
 msgid "General Settings"
@@ -759,13 +759,13 @@ msgstr "Kiszolgáló:"
 
 #: index.php:282
 msgid "Server type:"
-msgstr "A szerver típusa:"
+msgstr "Kiszolgáló típusa:"
 
 #: index.php:286 libraries/plugins/export/ExportLatex.class.php:212
 #: libraries/plugins/export/ExportSql.class.php:681
 #: libraries/plugins/export/ExportXml.class.php:189
 msgid "Server version:"
-msgstr "Szerver verzió:"
+msgstr "Kiszolgáló verziója:"
 
 #: index.php:292
 msgid "Protocol version:"
@@ -781,7 +781,7 @@ msgstr "A kiszolgáló karakterkódolása:"
 
 #: index.php:316
 msgid "Web server"
-msgstr "Webszerver"
+msgstr "Webkiszolgáló"
 
 #: index.php:327
 msgid "Database client version:"
@@ -836,8 +836,8 @@ msgid ""
 msgstr ""
 "A konfigurációs fájl olyan beállításokat tartalmaz (jelszó nélküli root "
 "hozzáférés), amelyek megegyeznek az alapértelmezett MySQL jogosultsági "
-"fiókkal. A MySQL szerver most ezzel az alapbeállítással fut, behatolásra "
-"nyitott, ezért javítsa ki ezt a biztonsági rést úgy, hogy a 'root' "
+"fiókkal. A MySQL kiszolgáló most ezzel az alapbeállítással fut, behatolásra "
+"nyitott, ezért javítsa ki ezt a biztonsági rést úgy, hogy a „root” "
 "felhasználóhoz jelszót rendel."
 
 #: index.php:457
@@ -923,8 +923,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
-"A PHP MySQL függvénytár %s-s verziója eltér a MySQL szerver %s-s "
-"verziójától. Ez kiszámíthatatlan viselkedést okozhat."
+"A PHP MySQL programkönyvtár verziója (%s) eltér a MySQL kiszolgáló "
+"verziójától (%s). Ez kiszámíthatatlan viselkedést okozhat."
 
 #: index.php:609
 #, php-format
@@ -932,7 +932,7 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"A szerver Suhosinnal fut. Kérjük, hogy a lehetséges problémáknak nézzen "
+"A kiszolgáló Suhosinnal fut. Kérjük, hogy a lehetséges problémáknak nézzen "
 "utána a %sdokumentációban%s."
 
 #: js/messages.php:29 libraries/import.lib.php:125 sql.php:145
@@ -1368,9 +1368,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log engedélyezve van, de a szerver csak azokat a lekérdezéseket "
-"naplózza, amelyek %d másodpercnél hosszabb ideig tartanak. Ajánlott a "
-"long_query_time beállítása 0-2 másodperc értékre, a rendszertől függően."
+"A slow_query_log engedélyezve van, de a kiszolgáló csak azokat a "
+"lekérdezéseket naplózza, amelyek %d másodpercnél hosszabb ideig tartanak. "
+"Ajánlott a long_query_time beállítása 0-2 másodpercre a rendszertől függően."
 
 #: js/messages.php:159
 #, php-format
@@ -1583,7 +1583,7 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
-"Az új grafikon adatainak lekérésekor a szerver érvénytelen választ adott. "
+"Az új grafikon adatainak lekérésekor a kiszolgáló érvénytelen választ adott. "
 "Valószínűleg a munkamenet lejárt. Az oldal újratöltése, és a belépési adatok "
 "újbóli megadása segíthet."
 
@@ -4015,22 +4015,22 @@ msgstr ""
 #: libraries/StorageEngine.class.php:373 libraries/structure.lib.php:209
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "Ezen a MySQL szerveren a(z) %s az alapértelmezett tárolómotor."
+msgstr "Ezen a MySQL kiszolgálón a(z) %s az alapértelmezett tárolómotor."
 
 #: libraries/StorageEngine.class.php:376
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr "A(z) %s motor elérhető ezen a MySQL szerveren."
+msgstr "A(z) %s elérhető ezen a MySQL kiszolgálón."
 
 #: libraries/StorageEngine.class.php:379
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr "%s letiltott ezen a MySQL szerveren."
+msgstr "A(z) %s le lett tiltva ezen a MySQL kiszolgálón."
 
 #: libraries/StorageEngine.class.php:383
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "Ez a MySQL szerver nem támogatja a(z) %s tárolómotort."
+msgstr "Ez a MySQL kiszolgáló nem támogatja a(z) %s tárolómotort."
 
 #: libraries/Table.class.php:397
 #| msgid "unknown table status: "
@@ -4658,7 +4658,7 @@ msgstr "Számítógép tallózása:"
 #: libraries/Util.class.php:3324
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Válasszon a szerver feltöltési könyvtárából <b> %s </b>:"
+msgstr "Válasszon a webkiszolgáló feltöltési könyvtárából <b> %s </b>:"
 
 #: libraries/Util.class.php:3353 libraries/insert_edit.lib.php:1167
 #: libraries/sql_query_form.lib.php:441
@@ -4877,7 +4877,7 @@ msgstr ""
 #: libraries/common.inc.php:634
 #, php-format
 msgid "Invalid server index: %s"
-msgstr "Érvénytelen szerverindex: %s"
+msgstr "Érvénytelen kiszolgálóindex: %s"
 
 #: libraries/common.inc.php:645
 #, php-format
@@ -5128,7 +5128,7 @@ msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:205
 msgid "You allow for connecting to the server without a password."
-msgstr "Ön engedélyezi a jelszó nélküli csatlakozást a szerverhez."
+msgstr "Ön engedélyezi a jelszó nélküli csatlakozást a kiszolgálóhoz."
 
 #: libraries/config/ServerConfigChecks.class.php:343
 msgid "Key is too short, it should have at least 8 characters."
@@ -5148,10 +5148,10 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Ezt a %slehetőséget%s le kell tiltani, ugyanis a támadóknak bármilyen MySQL-"
-"szerverre lehetővé teszi az egyszerű bejelentkezést. Ha úgy érzi, hogy erre "
-"szükség van, akkor használja a %smegbízható proxylistákat%s. Az IP-alapú "
-"védelem azonban lehet, hogy nem megbízható, ha az Ön IP-címe olyan "
+"Ezt a %slehetőséget%s le kell tiltani, ugyanis a támadóknak bármilyen MySQL "
+"kiszolgálóra lehetővé teszi az egyszerű bejelentkezést. Ha úgy érzi, hogy "
+"erre szükség van, akkor használja a %smegbízható proxylistákat%s. Az IP-"
+"alapú védelem azonban lehet, hogy nem megbízható, ha az Ön IP-címe olyan "
 "internetszolgáltatóhoz tartozik, ahol több ezer felhasználó, köztük Ön is, "
 "csatlakozik az internethez."
 
@@ -5185,8 +5185,8 @@ msgid ""
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
 "Ezt az értéket alaposan kell ellenőrizni, hogy megbizonyosodjon róla, ehhez "
-"a könyvtárhoz nem férhet hozzá mindenki, s a szerveren lévő többi "
-"felhasználó által sem írható."
+"a könyvtárhoz nem férhet hozzá mindenki, és a kiszolgálón lévő többi "
+"felhasználó által sem írható vagy olvasható."
 
 #: libraries/config/ServerConfigChecks.class.php:386
 #, php-format
@@ -5357,12 +5357,12 @@ msgstr "A következő IP-cím hibás: %s"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Ha engedélyezve van, akkor a felhasználó bármilyen MySQL-szervert be tud "
-"írni a bejelentkezési űrlapban cookie hitelesítéshez."
+"Ha engedélyezve van, akkor a felhasználó bármilyen MySQL kiszolgálót be tud "
+"írni a bejelentkezési űrlapon cookie hitelesítéshez."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
-msgstr "Bármilyen MySQL-szerverre történő bejelentkezés engedélyezése"
+msgstr "Bármilyen MySQL kiszolgálóra történő bejelentkezés engedélyezése"
 
 #: libraries/config/messages.inc.php:21
 #| msgid ""
@@ -5582,7 +5582,7 @@ msgstr "A kiszolgálóra belépéskor megjelenített lap."
 
 #: libraries/config/messages.inc.php:86
 msgid "Default server tab"
-msgstr "Alapértelmezett szerver fül"
+msgstr "Alapértelmezett kiszolgáló lap"
 
 #: libraries/config/messages.inc.php:87
 #| msgid "Tab that is displayed when entering a table"
@@ -5604,11 +5604,11 @@ msgstr "Táblaszerkezet műveletek elrejtése"
 
 #: libraries/config/messages.inc.php:93
 msgid "Show server listing as a list instead of a drop down."
-msgstr "A szerverek legördülő helyett listaként történő megjelenítése."
+msgstr "A kiszolgálók legördülő helyett listaként történő megjelenítése."
 
 #: libraries/config/messages.inc.php:94
 msgid "Display servers as a list"
-msgstr "A szerverek megjelenítése listaként"
+msgstr "Kiszolgálók megjelenítése listaként"
 
 #: libraries/config/messages.inc.php:96
 msgid ""
@@ -5767,7 +5767,7 @@ msgstr "Exportálás módja"
 
 #: libraries/config/messages.inc.php:150 libraries/config/messages.inc.php:152
 msgid "Save on server"
-msgstr "Mentés a szerveren"
+msgstr "Mentés a kiszolgálón"
 
 #: libraries/config/messages.inc.php:151 libraries/config/messages.inc.php:154
 #: libraries/display_export.lib.php:403 libraries/display_export.lib.php:438
@@ -5993,7 +5993,7 @@ msgstr "A navigációs keret megjelenésének testreszabása."
 #: libraries/config/messages.inc.php:232 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:144
 msgid "Servers"
-msgstr "Szerverek"
+msgstr "Kiszolgálók"
 
 #: libraries/config/messages.inc.php:233
 #| msgid "Servers display options"
@@ -6073,7 +6073,7 @@ msgstr "Hitelesítés beállításai."
 
 #: libraries/config/messages.inc.php:260
 msgid "Server configuration"
-msgstr "Szerverbeállítások"
+msgstr "Kiszolgáló beállítások"
 
 #: libraries/config/messages.inc.php:262
 #| msgid ""
@@ -6083,8 +6083,8 @@ msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
 msgstr ""
-"Speciális szerverbeállítások, amelyeket ne módosítson, ha nem tudja, hogy "
-"mire valók."
+"Speciális kiszolgáló beállítások, amelyeket ne módosítson, ha nem tudja, "
+"hogy mire valók."
 
 #: libraries/config/messages.inc.php:265
 #| msgid "Enter server connection parameters"
@@ -6375,10 +6375,10 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"Ha engedélyezi, akkor a kijelentkezés valamennyi szerver cookie-jait törli, "
+"Ha TRUE, akkor a kijelentkezés valamennyi kiszolgáló sütijeit törli, "
 "különben csak a jelenlegiét. E beállítás FALSE lehetőségre állításával több "
-"szerver használata esetén könnyen megfeledkezhet a másik szerverről "
-"kijelentkezésről."
+"kiszolgáló használata esetén könnyen megfeledkezhet a másik kiszolgálóról "
+"való kijelentkezésről."
 
 #: libraries/config/messages.inc.php:370
 msgid "Delete all cookies on logout"
@@ -6569,7 +6569,7 @@ msgstr "A választható kiszolgálók megjelenítése a navigációs panel tetej
 
 #: libraries/config/messages.inc.php:433
 msgid "Display servers selection"
-msgstr "A választható szerverek megjelenítése"
+msgstr "Kiszolgálók kiválasztásának megjelenítése"
 
 #: libraries/config/messages.inc.php:434
 msgid "Target for quick access icon"
@@ -6752,7 +6752,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:497
 msgid "Server/library difference warning"
-msgstr "Figyelmeztetés a szerver/könyvtár eltérésre"
+msgstr "Kiszolgáló/programkönyvtár eltérés figyelmeztetés"
 
 #: libraries/config/messages.inc.php:499
 #| msgid ""
@@ -7478,12 +7478,12 @@ msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
-"A szerver felhasználóbarát leírása. Hagyja üresen az állomásnév "
+"A kiszolgáló felhasználóbarát leírása. Hagyja üresen az állomásnév "
 "megjelenítéséhez."
 
 #: libraries/config/messages.inc.php:716
 msgid "Verbose name of this server"
-msgstr "A szerver részletes neve"
+msgstr "A kiszolgáló részletes neve"
 
 #: libraries/config/messages.inc.php:717
 #| msgid "Whether a user should be displayed a \"show all (rows)\" button"
@@ -7622,7 +7622,7 @@ msgstr "A phpinfo() hivatkozás megjelenítése"
 
 #: libraries/config/messages.inc.php:738
 msgid "Show detailed MySQL server information"
-msgstr "A MySQL-szerver részletes adatainak megjelenítése"
+msgstr "Részletes MySQL kiszolgáló információk megjelenítése"
 
 #: libraries/config/messages.inc.php:739
 #| msgid ""
@@ -8229,7 +8229,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:169
 msgid "Exporting databases from the current server"
-msgstr "Adatbázisok exportálása a jelenlegi szerverről"
+msgstr "Adatbázisok exportálása a jelenlegi kiszolgálóról"
 
 #: libraries/display_export.lib.php:172
 #, php-format
@@ -8305,7 +8305,7 @@ msgstr "Kimenet:"
 #: libraries/display_export.lib.php:392 libraries/display_export.lib.php:427
 #, php-format
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Mentés a szerver <b>%s</b> könyvtárába"
+msgstr "Mentés a kiszolgáló <b>%s</b> könyvtárába"
 
 #: libraries/display_export.lib.php:457
 msgid "File name template:"
@@ -8313,7 +8313,7 @@ msgstr "Fájlnévsablon:"
 
 #: libraries/display_export.lib.php:459
 msgid "@SERVER@ will become the server name"
-msgstr "@SERVER@ lesz a szerver neve"
+msgstr "@SERVER@ lesz a kiszolgáló neve"
 
 #: libraries/display_export.lib.php:461
 msgid ", @DATABASE@ will become the database name"
@@ -8470,7 +8470,7 @@ msgstr "Továbbá behúzhat és beejthet egy fájlt bármely oldalra."
 
 #: libraries/display_import.lib.php:246
 msgid "File uploads are not allowed on this server."
-msgstr "Ezen a szerveren a fájlfeltöltések nem engedélyezettek."
+msgstr "A fájlfeltöltések nem engedélyezettek ezen a kiszolgálón."
 
 #: libraries/display_import.lib.php:270
 msgid "Partial Import:"
