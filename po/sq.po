@@ -345,7 +345,7 @@ msgstr "Të dhënat e gjurmuara u fshinë me sukses."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
-"Versioni %$1s është krijuar për tabelat e zgjedhura, gjurmimi është aktiv "
+"Versioni %1$s është krijuar për tabelat e zgjedhura, gjurmimi është aktiv "
 "për ta."
 
 #: db_tracking.php:78
