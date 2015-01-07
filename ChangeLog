@@ -13,7 +13,9 @@ phpMyAdmin - ChangeLog
 + rfe #1567 Sever Variables Table UI Improvements
 - bug #4675 phpMyAdmin should be able to work without 'examples' DIR - move SQL scripts to sql directory
 
-4.3.6.0 (not yet released)
+4.3.7.0 (not yet released)
+
+4.3.6.0 (2015-01-07)
 - bug       Undefined index notices while configuring recent and favorite tables
 - bug #4687 Designer breaks without configuration storage
 - bug #4686 Select elements flicker and selects something else
