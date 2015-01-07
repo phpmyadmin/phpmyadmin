@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-12-15 22:44+0200\n"
+"PO-Revision-Date: 2015-01-06 10:07+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-3/el/"
-">\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-3/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6793,13 +6793,11 @@ msgstr ""
 "[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:607
-#, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Κεντρικές στήλες"
+msgstr "Πίνακας κεντρικών στηλών"
 
 #: libraries/config/messages.inc.php:609
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]."
@@ -6807,8 +6805,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: [kbd]"
 "pma__central_columns[/kbd]."
 msgstr ""
-"Αφήστε το κενό για να μην υποστηρίζεται σχέδιο PDF. Προτείνεται: [kbd]"
-"pma__table_coords[/kbd]."
+"Αφήστε το κενό για να μην υποστηρίζονται κεντρικές στήλες. Προτείνεται: "
+"[kbd]pma__central_columns[/kbd]."
 
 #: libraries/config/messages.inc.php:612
 msgid "Try to connect without password."
@@ -6889,7 +6887,6 @@ msgid "Recently used table"
 msgstr "Πρόσφατα χρησιμοποιημένος πίνακας"
 
 #: libraries/config/messages.inc.php:641
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]."
@@ -6897,8 +6894,8 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Αφήστε το κενό για μη «μόνιμους» πρόσφατα χρησιμοποιημένους πίνακες μεταξύ "
-"συνεδριών, προτείνεται: [kbd]pma__recent[/kbd]."
+"Αφήστε το κενό για μη «μόνιμους» αγαπημένους πίνακες μεταξύ συνεδριών, "
+"προτείνεται: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:644
 #, fuzzy
@@ -9278,7 +9275,7 @@ msgstr ""
 "στήλη."
 
 #: libraries/normalization.lib.php:381
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above partial dependencies, in order to put the original table "
 #| "'%1$s' into Second normal form we need to create the following tables:"
@@ -9286,9 +9283,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
-"Αναφορικά με τις παραπάνω μερικές εξαρτήσεις, με σκοπό την τοποθέτηση του "
-"αρχικού πίνακα «%1$s» στην Δεύτερη κανονική μορφή χρειαζόμαστε να "
-"δημιουργήσουμε τους ακόλουθους πίνακες:"
+"Με σκοπό την τοποθέτηση του αρχικού πίνακα «%1$s» στην Δεύτερη κανονική "
+"μορφή χρειαζόμαστε να δημιουργήσουμε τους ακόλουθους πίνακες:"
 
 #: libraries/normalization.lib.php:417
 #, php-format
@@ -10607,10 +10603,9 @@ msgid "Persistent recently used tables"
 msgstr "Μόνιμοι πρόσφατα χρησιμοποιημένοι πίνακες"
 
 #: libraries/relation.lib.php:224
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Μόνιμοι πρόσφατα χρησιμοποιημένοι πίνακες"
+msgstr "Μόνιμοι αγαπημένοι πίνακες"
 
 #: libraries/relation.lib.php:235
 msgid "Persistent tables' UI preferences"

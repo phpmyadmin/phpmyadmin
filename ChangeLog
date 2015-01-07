@@ -1,6 +1,16 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.6.0 (2015-01-07)
+- bug       Undefined index notices while configuring recent and favorite tables
+- bug #4687 Designer breaks without configuration storage
+- bug #4686 Select elements flicker and selects something else
+- bug #4689 Setup tool creates "pma__favorites" incorrectly
+- bug #4685 Call to a member function isUserType() on a non-object
+- bug #4691 Do not include console when no server is selected
+- bug #4688 File permissions in archive
+- bug #4692 Dynamic javascripts gives 500 when db selected
+
 4.3.5.0 (2015-01-05)
 - bug       Auto-configuration: tables were not created automatically
 - bug #4677 Advanced feature checker does not check for favorite tables feature
