@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.3.7.0 (not yet released)
+- bug #4694 js error on marking table as favorite in Safari (in private mode)
 
 4.3.6.0 (2015-01-07)
 - bug       Undefined index notices while configuring recent and favorite tables
