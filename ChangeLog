@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 - bug #4695 Changing $cfg['DefaultTabTable'] doesn't update link and title
 - bug       Undefined index menuswork
 - bug       Undefined index navwork
+- bug       Undefined index central_columnswork
 
 4.3.6.0 (2015-01-07)
 - bug       Undefined index notices while configuring recent and favorite tables
