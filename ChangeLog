@@ -12,8 +12,9 @@ phpMyAdmin - ChangeLog
 + rfe #1572 User prefs: Diff-friendly JSON for config
 + rfe #1567 Sever Variables Table UI Improvements
 - bug #4675 phpMyAdmin should be able to work without 'examples' DIR - move SQL scripts to sql directory
-- rfe #1578 Warn about reserved word only when a column is created
++ rfe #1578 Warn about reserved word only when a column is created
 + rfe #1590 Recaptcha API v2
++ rfe #1580 Individual Zeroconf PMA tables support
 
 4.3.7.0 (not yet released)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)
