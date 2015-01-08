@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-12-09 21:39+0200\n"
-"Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-3/az/>\n"
+"PO-Revision-Date: 2015-01-08 08:37+0200\n"
+"Last-Translator: Jafar <sharifov@programmer.net>\n"
+"Language-Team: Azerbaijani "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.1\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -926,7 +926,7 @@ msgstr ""
 
 #: js/messages.php:43
 msgid "Dropping Foreign key."
-msgstr "İkinci dərəcəli açarı at"
+msgstr "İkinci dərəcəli açarı at."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
