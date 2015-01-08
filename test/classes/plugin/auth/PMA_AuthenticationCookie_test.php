@@ -372,24 +372,13 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'src="https://www.google.com/recaptcha/api/'
-            . 'challenge?k=testpubkey&amp;hl=en">',
+            '<script src="https://www.google.com/recaptcha/api.js?hl=en"'
+            . ' async defer></script>',
             $result
         );
 
         $this->assertContains(
-            'iframe src="https://www.google.com/recaptcha/api/noscript' .
-            '?k=testpubkey"',
-            $result
-        );
-
-        $this->assertContains(
-            '<textarea name="recaptcha_challenge_field" rows="3" cols="40">',
-            $result
-        );
-
-        $this->assertContains(
-            '<input type="hidden" name="recaptcha_response_field"',
+            '<div class="g-recaptcha" data-sitekey="testpubkey">',
             $result
         );
 
@@ -473,8 +462,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_SESSION['last_valid_captcha'] = false;
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
-        $_POST["recaptcha_challenge_field"] = 'captcha1';
-        $_POST["recaptcha_response_field"] = '';
+        $_POST["g-recaptcha-response"] = '';
 
         $this->assertFalse(
             $this->object->authCheck()
@@ -483,18 +471,6 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             'Please enter correct captcha!',
             $GLOBALS['conn_error']
-        );
-
-        // case 3
-
-        $_SESSION['last_valid_captcha'] = false;
-        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
-        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
-        $_POST["recaptcha_challenge_field"] = '';
-        $_POST["recaptcha_response_field"] = '';
-
-        $this->assertFalse(
-            $this->object->authCheck()
         );
 
         // case 4
