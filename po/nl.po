@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-02 11:17+0200\n"
+"PO-Revision-Date: 2015-01-08 22:56+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-3/nl/>"
 "\n"
@@ -21,12 +21,12 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Het bestand %s is niet beschikbaar op dit systeem, bezoek www.phpmyadmin.net "
-"voor meer informatie."
+"Het bestand %s is niet beschikbaar op dit systeem, bezoek a.u.b. "
+"www.phpmyadmin.net voor meer informatie."
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr "De centrale lijst met kolommen voor de huidige database is leeg."
+msgstr "De centrale lijst van kolommen voor de huidige database is leeg."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
@@ -44,14 +44,14 @@ msgstr "Database %1$s is aangemaakt."
 
 #: db_datadict.php:48 libraries/operations.lib.php:32
 msgid "Database comment:"
-msgstr "Database-opmerking:"
+msgstr "Database opmerking:"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:990
 #: libraries/tbl_columns_definition_form.lib.php:73
 #: libraries/tbl_printview.lib.php:581
 msgid "Table comments:"
-msgstr "Tabelopmerkingen:"
+msgstr "Tabel opmerkingen:"
 
 #: db_datadict.php:103 libraries/Index.class.php:569
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1292
@@ -9277,8 +9277,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
-"Om de originele tabel '%1$s' in de tweede normaal vorm te plaatsen, moeten "
-"we de volgende tabellen aanmaken:"
+"Om de originele tabel '%1$s' in de tweede normaal vorm te plaatsen moeten we "
+"de volgende tabellen aanmaken:"
 
 #: libraries/normalization.lib.php:417
 #, php-format
@@ -10593,7 +10593,7 @@ msgstr "Persistente recent gebruikte tabellen"
 #: libraries/relation.lib.php:224
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Persistente veel gebruikte tabellen"
+msgstr "Persistente veelgebruikte tabellen"
 
 #: libraries/relation.lib.php:235
 msgid "Persistent tables' UI preferences"
