@@ -150,9 +150,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $retval
         );
 
-        //$GLOBALS['cfg']['Server']['pmadb']==false
-        $value = $GLOBALS['cfg']['Server']['pmadb'];
-        $GLOBALS['cfg']['Server']['pmadb'] = false;
+        $relationsPara['db'] = false;
         $retval = PMA_getRelationsParamDiagnostic($relationsPara);
 
         $result = __('General relation features');
@@ -170,9 +168,6 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $result,
             $retval
         );
-
-        $GLOBALS['cfg']['Server']['pmadb'] = $value;
-
     }
 
     /**

@@ -8,14 +8,20 @@
 
 require_once 'libraries/common.inc.php';
 
-// If request for fixing PMA tables.
-if (isset($_REQUEST['fix_pmadb'])) {
+// If request for creating all PMA tables.
+if (isset($_REQUEST['create_pmadb'])) {
     PMA_fixPMATables($GLOBALS['db']);
+}
+
+$cfgRelation = PMA_getRelationsParam();
+// If request for creating missing PMA tables.
+if (isset($_REQUEST['fix_pmadb'])) {
+    PMA_fixPMATables($cfgRelation['db']);
 }
 
 $response = PMA_Response::getInstance();
 $response->addHTML(
-    PMA_getRelationsParamDiagnostic(PMA_getRelationsParam())
+    PMA_getRelationsParamDiagnostic($cfgRelation)
 );
 
 ?>

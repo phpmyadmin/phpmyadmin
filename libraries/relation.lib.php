@@ -93,7 +93,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
     $messages['enabled']  = '<font color="green">' . __('Enabled') . '</font>';
     $messages['disabled'] = '<font color="red">'   . __('Disabled') . '</font>';
 
-    if (empty($GLOBALS['cfg']['Server']['pmadb'])) {
+    if (empty($cfgRelation['db'])) {
         $retval .= __('Configuration of pmadb… ')
              . $messages['error']
              . PMA_Util::showDocu('setup', 'linked-tables')
@@ -102,13 +102,19 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
              . ' <font color="green">' . __('Disabled')
              . '</font>' . "\n";
         if (! empty($GLOBALS['db']) && $GLOBALS['cfg']['ZeroConf']) {
-            $retval .= PMA_getHtmlFixPMATables();
+            $retval .= PMA_getHtmlFixPMATables(true);
         }
     } else {
         $retval .= '<table>' . "\n";
+
+        if (! $cfgRelation['allworks'] && $GLOBALS['cfg']['ZeroConf']) {
+            $retval .= PMA_getHtmlFixPMATables(false);
+            $retval .= '<br />';
+        }
+
         $retval .= PMA_getDiagMessageForParameter(
             'pmadb',
-            $GLOBALS['cfg']['Server']['pmadb'],
+            $cfgRelation['db'],
             $messages,
             'pmadb'
         );
@@ -1890,6 +1896,7 @@ function PMA_fixPMATables($db, $create = true)
     $existingTables = $GLOBALS['dbi']->getTables($db, $GLOBALS['controllink']);
 
     $createQueries = null;
+    $foundOne = false;
     foreach ($tablesToFeatures as $table => $feature) {
         if (! in_array($table, $existingTables)) {
             if ($create) {
@@ -1903,51 +1910,69 @@ function PMA_fixPMATables($db, $create = true)
                     return;
                 }
                 $GLOBALS['cfg']['Server'][$feature] = $table;
-            } else {
-                return;
             }
         } else {
+            $foundOne = true;
             $GLOBALS['cfg']['Server'][$feature] = $table;
         }
     }
 
+    if (! $foundOne) {
+        return;
+    }
     $GLOBALS['cfg']['Server']['pmadb'] = $db;
     $_SESSION['relation'][$GLOBALS['server']] = PMA_checkRelationsParam();
 
-    // Since configuration storage is updated, we need to
-    // re-initialize the favorite and recent tables stored in the
-    // session from the current configuration storage.
-    include_once 'libraries/RecentFavoriteTable.class.php';
+    $cfgRelation = PMA_getRelationsParam();
+    if ($cfgRelation['recentwork'] || $cfgRelation['favoritework']) {
+        // Since configuration storage is updated, we need to
+        // re-initialize the favorite and recent tables stored in the
+        // session from the current configuration storage.
+        include_once 'libraries/RecentFavoriteTable.class.php';
 
-    $fav_tables = PMA_RecentFavoriteTable::getInstance('favorite');
-    $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']]
-        = $fav_tables->getFromDb();
+        if ($cfgRelation['favoritework']) {
+            $fav_tables = PMA_RecentFavoriteTable::getInstance('favorite');
+            $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']]
+                = $fav_tables->getFromDb();
+        }
 
-    $recent_tables = PMA_RecentFavoriteTable::getInstance('recent');
-    $_SESSION['tmpval']['recent_tables'][$GLOBALS['server']]
-        = $recent_tables->getFromDb();
+        if ($cfgRelation['recentwork']) {
+            $recent_tables = PMA_RecentFavoriteTable::getInstance('recent');
+            $_SESSION['tmpval']['recent_tables'][$GLOBALS['server']]
+                = $recent_tables->getFromDb();
+        }
 
-    // Reload navi panel to update the recent/favorite lists.
-    $GLOBALS['reload'] = true;
+        // Reload navi panel to update the recent/favorite lists.
+        $GLOBALS['reload'] = true;
+    }
 }
 
 /**
  * Get Html for PMA tables fixing anchor.
  *
+ * @param boolean $allTables whether to create all tables
+ *
  * @return string Html
  */
-function PMA_getHtmlFixPMATables()
+function PMA_getHtmlFixPMATables($allTables)
 {
     $retval = '';
 
     $url_query = PMA_URL_getCommon(array('db' => $GLOBALS['db']));
-    $url_query .= '&amp;goto=db_operations.php&amp;fix_pmadb=1';
-    $message = PMA_Message::notice(
-        __(
-            '%sCreate%s the phpMyAdmin configuration storage in the '
-            . 'current database.'
-        )
-    );
+    if ($allTables) {
+        $url_query .= '&amp;goto=db_operations.php&amp;create_pmadb=1';
+        $message = PMA_Message::notice(
+            __(
+                '%sCreate%s the phpMyAdmin configuration storage in the '
+                . 'current database.'
+            )
+        );
+    } else {
+        $url_query .= '&amp;goto=db_operations.php&amp;fix_pmadb=1';
+        $message = PMA_Message::notice(
+            __('%sCreate%s missing phpMyAdmin configuration storage tables.')
+        );
+    }
     $message->addParam(
         '<a href="' . $GLOBALS['cfg']['PmaAbsoluteUri']
         . 'chk_rel.php' . $url_query . '">',
