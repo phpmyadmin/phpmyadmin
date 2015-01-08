@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-08 12:00-0500\n"
-"PO-Revision-Date: 2015-01-04 15:11+0200\n"
+"PO-Revision-Date: 2015-01-08 21:07+0200\n"
 "Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -2459,6 +2459,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Ihr Webbrowser unterstützt keine lokale Speicherung von Einstellungen, oder "
+"die Maximalmenge an Daten ist erreicht. Einige Funktionen könnten für Sie "
+"nicht korrekt funktionieren. In Safari wird dieses Problem häufig durch den "
+"privaten Modus verursacht."
 
 #: js/messages.php:560
 msgctxt "Previous month"
@@ -6853,10 +6857,9 @@ msgstr ""
 "pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:607
-#, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Zentrale Spalten"
+msgstr "Tabelle für zentrale Spalten"
 
 #: libraries/config/messages.inc.php:609
 msgid ""
@@ -10730,10 +10733,10 @@ msgstr ""
 "Datenbank."
 
 #: libraries/relation.lib.php:1973
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Fehlende phpMyAdmin-Konfigurationsspeicher-Tabellen"
+msgstr "Fehlende phpMyAdmin-Konfigurationsspeicher-Tabellen %sanlegen%s."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -14544,10 +14547,10 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Zeile: %1$s, Spalte: %2$s, Fehler: %3$s"
 
 #: tbl_structure.php:59
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The column name(s) '%s' are MySQL reserved keyword."
-msgstr "Der Spaltenname '%s' ist ein reserviertes MySQL-Schlüsselwort."
+msgstr "Spaltenname(n) '%s' ist/sind reservierte(s) MySQL-Schlüsselwort(e)."
 
 #: tbl_structure.php:120
 msgid "No column selected."
