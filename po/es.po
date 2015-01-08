@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-08 12:00-0500\n"
-"PO-Revision-Date: 2014-12-20 20:09+0200\n"
-"Last-Translator: Luis Garcia <floss.dev@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"PO-Revision-Date: 2015-01-08 20:13+0200\n"
+"Last-Translator: Rodrigo A. <ra4@openmailbox.org>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -2447,6 +2447,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Tu navegador web no soporta el almacenamiento de preferencias a nivel local, "
+"o el límite de almacenamiento ha sido alcanzado, algunas características "
+"podrían no funcionar correctamente. En Safari, ésto puede deberse al \"Modo "
+"de Navegación Privada\"."
 
 #: js/messages.php:560
 msgctxt "Previous month"
@@ -6871,7 +6875,6 @@ msgid "Central columns table"
 msgstr "Columnas centrales"
 
 #: libraries/config/messages.inc.php:609
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]."
@@ -6879,8 +6882,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: [kbd]"
 "pma__central_columns[/kbd]."
 msgstr ""
-"Dejar en blanco para evitar soporte de esquema en PDF, sugerido: [kbd]"
-"pma__table_coords[/kbd]."
+"Dejar en blanco para desactivar el soporte a las columnas centrales, "
+"sugerencia: [kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:612
 msgid "Try to connect without password."
@@ -6962,7 +6965,6 @@ msgid "Recently used table"
 msgstr "Tabla recientemente utilizada"
 
 #: libraries/config/messages.inc.php:641
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]."
@@ -6970,11 +6972,10 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Deje en blanco para eliminar la \"persistencia\" de las tablas recientemente "
-"utilizadas entre sesiones, valor sugerido: [kbd]pma__recent[/kbd]."
+"Deje en blanco para evitar conservar de manera \"persistente\" sus tablas "
+"favoritas, valor sugerido: [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "Tablas favoritas"
@@ -10688,10 +10689,9 @@ msgid "Persistent recently used tables"
 msgstr "Tablas persistentes utilizadas recientemente"
 
 #: libraries/relation.lib.php:226
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Tablas persistentes utilizadas recientemente"
+msgstr "Tablas favoritas usadas recientemente"
 
 #: libraries/relation.lib.php:237
 msgid "Persistent tables' UI preferences"
@@ -10758,10 +10758,10 @@ msgstr ""
 "base de datos actual."
 
 #: libraries/relation.lib.php:1973
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Faltan las tablas de almacenaje de configuración de phpMyAdmin"
+msgstr "Cree las tablas en las que se guarda la configuración de phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
