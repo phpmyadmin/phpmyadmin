@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-08 12:00-0500\n"
-"PO-Revision-Date: 2015-01-02 11:13+0200\n"
+"PO-Revision-Date: 2015-01-08 23:06+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -21,12 +21,12 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Het bestand %s is niet beschikbaar op dit systeem, bezoek www.phpmyadmin.net "
-"voor meer informatie."
+"Het bestand %s is niet beschikbaar op dit systeem, bezoek a.u.b. "
+"www.phpmyadmin.net voor meer informatie."
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr "De centrale lijst met kolommen voor de huidige database is leeg."
+msgstr "De centrale lijst van kolommen voor de huidige database is leeg."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
@@ -44,14 +44,14 @@ msgstr "Database %1$s is aangemaakt."
 
 #: db_datadict.php:48 libraries/operations.lib.php:32
 msgid "Database comment:"
-msgstr "Database-opmerking:"
+msgstr "Database opmerking:"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:990
 #: libraries/tbl_columns_definition_form.lib.php:71
 #: libraries/tbl_printview.lib.php:581
 msgid "Table comments:"
-msgstr "Tabelopmerkingen:"
+msgstr "Tabel opmerkingen:"
 
 #: db_datadict.php:103 libraries/Index.class.php:569
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1292
@@ -2439,6 +2439,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Uw webbrowser ondersteunt geen lokale opslag van instelling of de limiet is "
+"bereikt, sommige functies werken mogelijk niet correct. In Safari, wordt dit "
+"probleem vaak veroorzaakt door het gebruik van de \"Incognito mode\" van de "
+"browser."
 
 #: js/messages.php:560
 msgctxt "Previous month"
@@ -9300,7 +9304,7 @@ msgstr ""
 "(%1$s) maar één kolom heeft."
 
 #: libraries/normalization.lib.php:381
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above partial dependencies, in order to put the original table '%1"
 #| "$s' into Second normal form we need to create the following tables:"
@@ -9308,9 +9312,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
-"Door de hierboven genoemde gedeeltelijke afhankelijkheden, moeten we om de "
-"originele tabel '%1$s' in de tweede normaal vorm te plaatsen de volgende "
-"tabellen aanmaken:"
+"Om de originele tabel '%1$s' in de tweede normaal vorm te plaatsen moeten we "
+"de volgende tabellen aanmaken:"
 
 #: libraries/normalization.lib.php:417
 #, php-format
@@ -9323,7 +9326,7 @@ msgid "Error in processing!"
 msgstr "Verwerkingsfout!"
 
 #: libraries/normalization.lib.php:501
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above dependencies, in order to put the original table '%1$s' into "
 #| "Third normal form we need to create the following tables:"
@@ -9331,9 +9334,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
-"Door de hierboven genoemde gedeeltelijke afhankelijkheden, moeten we om de "
-"originele tabel '%1$s' in de derde normaal vorm te plaatsen, de volgende "
-"tabellen aanmaken:"
+"Om de originele tabel '%1$s' in de derde normaal vorm te plaatsen, moeten we "
+"de volgende tabellen aanmaken:"
 
 #: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
@@ -10621,10 +10623,9 @@ msgid "Persistent recently used tables"
 msgstr "Persistente recent gebruikte tabellen"
 
 #: libraries/relation.lib.php:226
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Persistente recent gebruikte tabellen"
+msgstr "Persistente veelgebruikte tabellen"
 
 #: libraries/relation.lib.php:237
 msgid "Persistent tables' UI preferences"
@@ -10693,10 +10694,10 @@ msgstr ""
 "%sMaak%s de configuratie-opslag van phpMyAdmin aan in de huidige database."
 
 #: libraries/relation.lib.php:1973
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Tabellen voor de configuratie-opslag van phpMyAdmin ontbreken"
+msgstr "%sCreate%s ontbrekende phpMyAdmin configuratie opslag tabellen."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -14487,7 +14488,7 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rij: %1$s, Kolom: %2$s, Fout: %3$s"
 
 #: tbl_structure.php:59
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The column name(s) '%s' are MySQL reserved keyword."
 msgstr "De kolomnaam '%s' is een gereserveerd MySQL sleutelwoord."
