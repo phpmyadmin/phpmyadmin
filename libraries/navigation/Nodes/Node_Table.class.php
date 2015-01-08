@@ -48,6 +48,23 @@ class Node_Table extends Node_DatabaseChild
             $this->icon  = PMA_Util::getImage('b_browse.png', __('Browse'));
             break;
         }
+        switch($GLOBALS['cfg']['DefaultTabTable']) {
+        case 'tbl_structure.php':
+            $this->title = __('Structure');
+            break;
+        case 'tbl_select.php':
+            $this->title = __('Search');
+            break;
+        case 'tbl_change.php':
+            $this->title = __('Insert');
+            break;
+        case 'tbl_sql.php':
+            $this->title = __('SQL');
+            break;
+        case 'sql.php':
+            $this->title = __('Browse');
+            break;
+        }
         $this->links = array(
             'text' => $GLOBALS['cfg']['DefaultTabTable']
                     . '?server=' . $GLOBALS['server']
@@ -57,7 +74,7 @@ class Node_Table extends Node_DatabaseChild
                     . '?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s&amp;token='
                     . $_SESSION[' PMA_token '],
-            'title' => __('Browse')
+            'title' => $this->title
         );
         $this->classes = 'table';
     }
