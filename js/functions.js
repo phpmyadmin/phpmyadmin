@@ -2064,6 +2064,30 @@ function PMA_previewSQL($form)
     });
 }
 
+/**
+ * check for reserved keyword column name
+ *
+ * @param jQuery Object $form Form
+ *
+ * @returns true|false
+ */
+
+function PMA_checkReservedWordColumns($form) {
+    var is_confirmed = true;
+    $.ajax({
+        type: 'POST',
+        url: "tbl_structure.php",
+        data: $form.serialize() + '&reserved_word_check=1',
+        success: function (data) {
+            if (typeof data.success != 'undefined' && data.success === true) {
+                is_confirmed = confirm(data.message);
+            }
+        },
+        async:false
+    });
+    return is_confirmed;
+}
+
 // This event only need to be fired once after the initial page load
 $(function () {
     /**
@@ -2474,73 +2498,75 @@ AJAX.registerOnload('functions.js', function () {
          */
 
         if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
-            PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             PMA_prepareForAjaxRequest($form);
-            //User wants to submit the form
-            $.post($form.attr('action'), $form.serialize() + "&do_save_data=1", function (data) {
-                if (typeof data !== 'undefined' && data.success === true) {
-                    $('#properties_message')
-                     .removeClass('error')
-                     .html('');
-                    PMA_ajaxShowMessage(data.message);
-                    // Only if the create table dialog (distinct panel) exists
-                    if ($("#create_table_dialog").length > 0) {
-                        $("#create_table_dialog").dialog("close").remove();
-                    }
-                    $('#tableslistcontainer').before(data.formatted_sql);
+            if (PMA_checkReservedWordColumns($form)) {
+                PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+                //User wants to submit the form
+                $.post($form.attr('action'), $form.serialize() + "&do_save_data=1", function (data) {
+                    if (typeof data !== 'undefined' && data.success === true) {
+                        $('#properties_message')
+                         .removeClass('error')
+                         .html('');
+                        PMA_ajaxShowMessage(data.message);
+                        // Only if the create table dialog (distinct panel) exists
+                        if ($("#create_table_dialog").length > 0) {
+                            $("#create_table_dialog").dialog("close").remove();
+                        }
+                        $('#tableslistcontainer').before(data.formatted_sql);
 
-                    /**
-                     * @var tables_table    Object referring to the <tbody> element that holds the list of tables
-                     */
-                    var tables_table = $("#tablesForm").find("tbody").not("#tbl_summary_row");
-                    // this is the first table created in this db
-                    if (tables_table.length === 0) {
-                        PMA_commonActions.refreshMain(
-                            PMA_commonParams.get('opendb_url')
-                        );
+                        /**
+                         * @var tables_table    Object referring to the <tbody> element that holds the list of tables
+                         */
+                        var tables_table = $("#tablesForm").find("tbody").not("#tbl_summary_row");
+                        // this is the first table created in this db
+                        if (tables_table.length === 0) {
+                            PMA_commonActions.refreshMain(
+                                PMA_commonParams.get('opendb_url')
+                            );
+                        } else {
+                            /**
+                             * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
+                             */
+                            var curr_last_row = $(tables_table).find('tr:last');
+                            /**
+                             * @var curr_last_row_index_string   String containing the index of {@link curr_last_row}
+                             */
+                            var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
+                            /**
+                             * @var curr_last_row_index Index of {@link curr_last_row}
+                             */
+                            var curr_last_row_index = parseFloat(curr_last_row_index_string);
+                            /**
+                             * @var new_last_row_index   Index of the new row to be appended to {@link tables_table}
+                             */
+                            var new_last_row_index = curr_last_row_index + 1;
+                            /**
+                             * @var new_last_row_id String containing the id of the row to be appended to {@link tables_table}
+                             */
+                            var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
+
+                            data.new_table_string = data.new_table_string.replace(/checkbox_tbl_/, new_last_row_id);
+                            //append to table
+                            $(data.new_table_string)
+                             .appendTo(tables_table);
+
+                            //Sort the table
+                            $(tables_table).PMA_sort_table('th');
+
+                            // Adjust summary row
+                            PMA_adjustTotals();
+                        }
+
+                        //Refresh navigation as a new table has been added
+                        PMA_reloadNavigation();
                     } else {
-                        /**
-                         * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
-                         */
-                        var curr_last_row = $(tables_table).find('tr:last');
-                        /**
-                         * @var curr_last_row_index_string   String containing the index of {@link curr_last_row}
-                         */
-                        var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
-                        /**
-                         * @var curr_last_row_index Index of {@link curr_last_row}
-                         */
-                        var curr_last_row_index = parseFloat(curr_last_row_index_string);
-                        /**
-                         * @var new_last_row_index   Index of the new row to be appended to {@link tables_table}
-                         */
-                        var new_last_row_index = curr_last_row_index + 1;
-                        /**
-                         * @var new_last_row_id String containing the id of the row to be appended to {@link tables_table}
-                         */
-                        var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
-
-                        data.new_table_string = data.new_table_string.replace(/checkbox_tbl_/, new_last_row_id);
-                        //append to table
-                        $(data.new_table_string)
-                         .appendTo(tables_table);
-
-                        //Sort the table
-                        $(tables_table).PMA_sort_table('th');
-
-                        // Adjust summary row
-                        PMA_adjustTotals();
+                        PMA_ajaxShowMessage(
+                            '<div class="error">' + data.error + '</div>',
+                            false
+                        );
                     }
-
-                    //Refresh navigation as a new table has been added
-                    PMA_reloadNavigation();
-                } else {
-                    PMA_ajaxShowMessage(
-                        '<div class="error">' + data.error + '</div>',
-                        false
-                    );
-                }
-            }); // end $.post()
+                }); // end $.post()
+            }
         } // end if (checkTableEditForm() )
     }); // end create table form (save)
 
