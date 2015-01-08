@@ -39,6 +39,33 @@ if (isset($_REQUEST['move_columns'])
 }
 
 /**
+ * handle MySQL reserved words columns check
+ */
+if (isset($_REQUEST['reserved_word_check'])) {
+    $response = PMA_Response::getInstance();
+    if ($GLOBALS['cfg']['ReservedWordDisableWarning'] === false) {
+        $columns_names = $_REQUEST['field_name'];
+        $cols = "";
+        foreach ($columns_names as $column) {
+            if (PMA_SQP_isKeyWord($column)) {
+                $cols .= $column . ", ";
+            }
+        }
+        if ($cols == "") {
+            $response->isSuccess(false);
+        }
+        $response->addJSON(
+            'message', sprintf(
+                __('The column name(s) \'%s\' are MySQL reserved keyword.'),
+                trim($cols, ", ")
+            )
+        );
+    } else {
+        $response->isSuccess(false);
+    }
+    exit;
+}
+/**
  * A click on Change has been made for one column
  */
 if (isset($_REQUEST['change_column'])) {
@@ -106,10 +133,6 @@ require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
 $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'tbl_structure.php';
-
-// Check column names for MySQL reserved words
-$reserved_word_column_messages = PMA_getReservedWordColumnNameMessages($db, $table);
-$response->addHTML($reserved_word_column_messages);
 
 /**
  * Prepares the table structure display

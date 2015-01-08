@@ -108,31 +108,33 @@ AJAX.registerOnload('tbl_structure.js', function () {
         if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
             // OK, form passed validation step
             PMA_prepareForAjaxRequest($form);
-            //User wants to submit the form
-            $msg = PMA_ajaxShowMessage();
-            $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
-                if ($(".sqlqueryresults").length !== 0) {
-                    $(".sqlqueryresults").remove();
-                } else if ($(".error:not(.tab)").length !== 0) {
-                    $(".error:not(.tab)").remove();
-                }
-                if (typeof data.success != 'undefined' && data.success === true) {
-                    $("#page_content")
-                        .empty()
-                        .append(data.message)
-                        .append(data.sql_query)
-                        .show();
-                    PMA_highlightSQL($('#page_content'));
-                    $(".result_query .notice").remove();
-                    reloadFieldForm();
-                    $form.remove();
-                    PMA_ajaxRemoveMessage($msg);
-                    PMA_init_slider();
-                    PMA_reloadNavigation();
-                } else {
-                    PMA_ajaxShowMessage(data.error, false);
-                }
-            }); // end $.post()
+            if (PMA_checkReservedWordColumns($form)) {
+                //User wants to submit the form
+                $msg = PMA_ajaxShowMessage();
+                $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
+                    if ($(".sqlqueryresults").length !== 0) {
+                        $(".sqlqueryresults").remove();
+                    } else if ($(".error:not(.tab)").length !== 0) {
+                        $(".error:not(.tab)").remove();
+                    }
+                    if (typeof data.success != 'undefined' && data.success === true) {
+                        $("#page_content")
+                            .empty()
+                            .append(data.message)
+                            .append(data.sql_query)
+                            .show();
+                        PMA_highlightSQL($('#page_content'));
+                        $(".result_query .notice").remove();
+                        reloadFieldForm();
+                        $form.remove();
+                        PMA_ajaxRemoveMessage($msg);
+                        PMA_init_slider();
+                        PMA_reloadNavigation();
+                    } else {
+                        PMA_ajaxShowMessage(data.error, false);
+                    }
+                }); // end $.post()
+            }
         }
     }); // end change table button "do_save_data"
 

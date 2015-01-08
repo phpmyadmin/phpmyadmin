@@ -2118,7 +2118,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         );
     }
     $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
-    if (isset($GLOBALS['cfgRelation']['central_columnswork']) 
+    if (isset($GLOBALS['cfgRelation']['central_columnswork'])
         && $GLOBALS['cfgRelation']['central_columnswork']
     ) {
         $html_output .= '<li class="browse nowrap">';
@@ -2761,33 +2761,6 @@ function PMA_getColumnsWithUniqueIndex($db ,$table)
         }
     }
     return $columns_with_unique_index;
-}
-
-/**
- * Check column names for MySQL reserved words
- *
- * @param string $db    database name
- * @param string $table tablename
- *
- * @return array $messages      array of PMA_Messages
- */
-function PMA_getReservedWordColumnNameMessages($db ,$table)
-{
-    $messages = array();
-    if ($GLOBALS['cfg']['ReservedWordDisableWarning'] === false) {
-        $pma_table = new PMA_Table($table, $db);
-        $columns = $pma_table->getReservedColumnNames();
-        if (!empty($columns)) {
-            foreach ($columns as $column) {
-                $msg = PMA_message::notice(
-                    __('The column name \'%s\' is a MySQL reserved keyword.')
-                );
-                $msg->addParam($column);
-                $messages[] = $msg;
-            }
-        }
-    }
-    return $messages;
 }
 
 /**
