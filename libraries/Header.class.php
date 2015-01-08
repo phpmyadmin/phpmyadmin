@@ -499,7 +499,7 @@ class PMA_Header
         if (!empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
-            $captcha_url = ' https://www.google.com ';
+            $captcha_url = ' https://www.google.com https://www.gstatic.com ';
         } else {
             $captcha_url = '';
         }

@@ -233,39 +233,10 @@ class AuthenticationCookie extends AuthenticationPlugin
             && !$skip
         ) {
             // If enabled show captcha to the user on the login screen.
-            echo '<script type="text/javascript">
-                    var RecaptchaOptions = {
-                        theme : "white"
-                    };
-                 </script>
-                 <script type="text/javascript"
-                    src="https://www.google.com/recaptcha/api/challenge?'
-                    . 'k=' . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '&amp;'
-                    . 'hl=' . $GLOBALS['lang'] . '">
-                 </script>
-                 <noscript>
-                    <iframe src="https://www.google.com/recaptcha/api/noscript?k='
-                . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '"
-                        height="300" width="500" frameborder="0"></iframe><br>
-                    <textarea name="recaptcha_challenge_field" rows="3" cols="40">
-                    </textarea>
-                    <input type="hidden" name="recaptcha_response_field"
-                        value="manual_challenge">
-                 </noscript>
-                 <script type="text/javascript">
-                    $(function() {
-                        $(document).on(
-                          "mouseover",
-                          "#recaptcha_reload_btn," +
-                          "#recaptcha_switch_audio_btn," +
-                          "#recaptcha_switch_img_btn," +
-                          "#recaptcha_whatsthis_btn," +
-                          "#recaptcha_audio_play_again"
-                          function() {
-                            $(this).addClass("disableAjax");
-                        });
-                    });
-                 </script>';
+            echo '<script src="https://www.google.com/recaptcha/api.js?hl='
+                . $GLOBALS['lang'] . '" async defer></script>';
+            echo '<div class="g-recaptcha" data-sitekey="'
+                . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '"></div>';
         }
 
         echo '</fieldset>
@@ -365,36 +336,32 @@ class AuthenticationCookie extends AuthenticationPlugin
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
             && !$skip
         ) {
-            if (  !empty($_POST["recaptcha_challenge_field"])
-                && !empty($_POST["recaptcha_response_field"])
-            ) {
-                include_once 'libraries/plugins/auth/recaptchalib.php';
+            if (! empty($_POST["g-recaptcha-response"])) {
 
-                // Use private key to verify captcha status.
-                $resp = recaptcha_check_answer(
-                    $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
+                include_once 'libraries/plugins/auth/recaptcha/recaptchalib.php';
+                $reCaptcha = new ReCaptcha(
+                    $GLOBALS['cfg']['CaptchaLoginPrivateKey']
+                );
+
+                // verify captcha status.
+                $resp = $reCaptcha->verifyResponse(
                     $_SERVER["REMOTE_ADDR"],
-                    $_POST["recaptcha_challenge_field"],
-                    $_POST["recaptcha_response_field"]
+                    $_POST["g-recaptcha-response"]
                 );
 
                 // Check if the captcha entered is valid, if not stop the login.
-                if ( !$resp->is_valid ) {
+                if ($resp == null || ! $resp->success) {
                     $conn_error = __('Entered captcha is wrong, try again!');
                     $_SESSION['last_valid_captcha'] = false;
                     return false;
                 } else {
                     $_SESSION['last_valid_captcha'] = true;
                 }
-            } elseif (! empty($_POST["recaptcha_challenge_field"])
-                && empty($_POST["recaptcha_response_field"])
-            ) {
-                $conn_error = __('Please enter correct captcha!');
-                return false;
             } else {
                 if (! isset($_SESSION['last_valid_captcha'])
                     || ! $_SESSION['last_valid_captcha']
                 ) {
+                    $conn_error = __('Please enter correct captcha!');
                     return false;
                 }
             }
