@@ -624,7 +624,7 @@ class Node_Database extends Node
     {
         $ret = '';
         $cfgRelation = PMA_getRelationsParam();
-        if ($cfgRelation['navwork']) {
+        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
             if ( $this->_hiddenCount > 0) {
                 $ret = '<span class="dbItemControls">'
                     . '<a href="navigation.php'
