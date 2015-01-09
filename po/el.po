@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-08 12:00-0500\n"
-"PO-Revision-Date: 2015-01-06 10:07+0200\n"
+"PO-Revision-Date: 2015-01-09 07:23+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -2435,6 +2435,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Ο φυλλομετρητής σας δεν υποστηρίζει τοπική αποθήκευση των ρυθμίσεων ή "
+"φτάσατε το όριο αποθήκευσης, ορισμένα χαρακτηριστικά ίσως δεν λειτουργούν "
+"σωστά για σας. Στο Safari, τέτοιο πρόβλημα συνήθως συμβαίνει λόγω "
+"ενεργοποίησης της «Κατάστασης Ιδιωτικής Πλοήγησης»."
 
 #: js/messages.php:560
 msgctxt "Previous month"
@@ -6931,10 +6935,9 @@ msgstr ""
 "προτείνεται: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
-msgstr "Αγαπημένοι πίνακες"
+msgstr "Πίνακας αγαπημένων"
 
 #: libraries/config/messages.inc.php:646
 msgid ""
@@ -9325,7 +9328,7 @@ msgid "Error in processing!"
 msgstr "Σφάλμα στην προώθηση!"
 
 #: libraries/normalization.lib.php:501
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above dependencies, in order to put the original table '%1$s' into "
 #| "Third normal form we need to create the following tables:"
@@ -9333,9 +9336,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
-"Αναφορικά με τις παραπάνω εξαρτήσεις, με σκοπό την τοποθέτηση του αρχικού "
-"πίνακα «%1$s» στην Τρίτη κανονική μορφή χρειαζόμαστε να δημιουργήσουμε τους "
-"ακόλουθους πίνακες:"
+"Με σκοπό την τοποθέτηση του αρχικού πίνακα «%1$s» στην Τρίτη κανονική μορφή "
+"χρειαζόμαστε να δημιουργήσουμε τους ακόλουθους πίνακες:"
 
 #: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
@@ -10698,10 +10700,11 @@ msgstr ""
 "τρέχουσα βάση δεδομένων."
 
 #: libraries/relation.lib.php:1973
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Λείπουν πίνακες αποθήκευσης ρυθμίσεων του phpMyAdmin"
+msgstr ""
+"%sΔημιουργία%s των πινάκων αποθήκευσης ρυθμίσεων του phpMyAdmin που λείπουν."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -14510,10 +14513,11 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Γραμμή: %1$s, Στήλη: %2$s, Σφάλμα: %3$s"
 
 #: tbl_structure.php:59
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The column name(s) '%s' are MySQL reserved keyword."
-msgstr "Το όνομα στήλης «%s» είναι μια δεσμευμένη λέξη-κλειδί MySQL."
+msgstr ""
+"Το(α) όνομα(τα) στήλης «%s» είναι δεσμευμένη(ες) λέξη(εις)-κλειδί(α) MySQL."
 
 #: tbl_structure.php:120
 msgid "No column selected."
