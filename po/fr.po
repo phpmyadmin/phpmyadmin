@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-08 12:00-0500\n"
-"PO-Revision-Date: 2015-01-01 15:23+0200\n"
+"PO-Revision-Date: 2015-01-09 14:23+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -2437,6 +2437,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Votre navigateur ne supporte pas le stockage local des paramètres ou la "
+"limite de quota a été atteinte, certaines fonctionnalités peuvent ne pas "
+"fonctionner correctement pour vous. Dans Safari, ce problème est souvent "
+"causée par le « Mode de navigation privée »."
 
 #: js/messages.php:560
 msgctxt "Previous month"
@@ -10614,10 +10618,9 @@ msgid "Persistent recently used tables"
 msgstr "Tables récemment utilisées (persistantes)"
 
 #: libraries/relation.lib.php:226
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Tables récemment utilisées (persistantes)"
+msgstr "Tables préférées (persistantes)"
 
 #: libraries/relation.lib.php:237
 msgid "Persistent tables' UI preferences"
@@ -10685,10 +10688,12 @@ msgstr ""
 "active."
 
 #: libraries/relation.lib.php:1973
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Tables manquantes pour le stockage de configurations phpMyAdmin"
+msgstr ""
+"%sCréer%s les tables manquantes pour le stockage de configurations "
+"phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -14461,10 +14466,10 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Ligne : %1$s, Colonne : %2$s, Erreur : %3$s"
 
 #: tbl_structure.php:59
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The column name(s) '%s' are MySQL reserved keyword."
-msgstr "Le nom de colonne '%s' est un mot-clé MySQL réservé."
+msgstr "Les noms de colonnes '%s' sont des mots-clé MySQL réservés."
 
 #: tbl_structure.php:120
 msgid "No column selected."

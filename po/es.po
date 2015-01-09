@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-08 12:00-0500\n"
-"PO-Revision-Date: 2015-01-08 20:13+0200\n"
-"Last-Translator: Rodrigo A. <ra4@openmailbox.org>\n"
+"PO-Revision-Date: 2015-01-09 09:34+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
@@ -10761,7 +10761,8 @@ msgstr ""
 #, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Cree las tablas en las que se guarda la configuración de phpMyAdmin."
+msgstr ""
+"%sCree%s las tablas en las que se guarda la configuración de phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
