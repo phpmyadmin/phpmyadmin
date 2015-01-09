@@ -59,7 +59,8 @@ if (isset($_REQUEST['reserved_word_check'])) {
                 _ngettext(
                     'The column name \'%s\' is a MySQL reserved keyword.',
                     'The column names \'%s\' are MySQL reserved keywords.',
-                    count($reserved_keywords_columns)),
+                    count($reserved_keywords_columns)
+                ),
                 implode(',', $reserved_keywords_columns)
             )
         );
