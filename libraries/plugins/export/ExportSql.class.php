@@ -1357,7 +1357,7 @@ class ExportSql extends ExportPlugin
                     $sql_auto_increments = $this->generateComment(
                         $crlf, $sql_auto_increments,
                         __('AUTO_INCREMENT for dumped tables'),
-                        __('Indexes for table'), $table_alias, $compat
+                        __('AUTO_INCREMENT for table'), $table_alias, $compat
                     );
                     $sql_auto_increments .= 'ALTER TABLE '
                         . PMA_Util::backquoteCompat(
