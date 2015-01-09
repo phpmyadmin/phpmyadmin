@@ -327,6 +327,9 @@ using following statement:
 Upgrading from an older version
 +++++++++++++++++++++++++++++++
 
+**Never** extract the new version over an existing installation
+of phpMyAdmin; we had evidence of problems caused by this.
+
 Simply copy :file:`config.inc.php` from your previous installation into
 the newly unpacked one. Configuration files from old versions may
 require some tweaking as some options have been changed or removed.
