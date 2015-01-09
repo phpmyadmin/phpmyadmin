@@ -45,19 +45,22 @@ if (isset($_REQUEST['reserved_word_check'])) {
     $response = PMA_Response::getInstance();
     if ($GLOBALS['cfg']['ReservedWordDisableWarning'] === false) {
         $columns_names = $_REQUEST['field_name'];
-        $cols = "";
+        $reserved_keywords_columns = array();
         foreach ($columns_names as $column) {
             if (PMA_SQP_isKeyWord($column)) {
-                $cols .= $column . ", ";
+                $reserved_keywords_columns[] = $column;
             }
         }
-        if ($cols == "") {
+        if (count($reserved_keywords_columns) == 0) {
             $response->isSuccess(false);
         }
         $response->addJSON(
             'message', sprintf(
-                __('The column name(s) \'%s\' are MySQL reserved keyword.'),
-                trim($cols, ", ")
+                _ngettext(
+                    'The column name \'%s\' is a MySQL reserved keyword.',
+                    'The column names \'%s\' are MySQL reserved keywords.',
+                    count($reserved_keywords_columns)),
+                implode(',', $reserved_keywords_columns)
             )
         );
     } else {
