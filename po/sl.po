@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-08 12:00-0500\n"
-"PO-Revision-Date: 2015-01-01 17:13+0200\n"
+"PO-Revision-Date: 2015-01-09 02:20+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -2416,6 +2416,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Vaš spletni brskalnik ne podpira lokalne hrambe nastavitev ali pa je "
+"dosežena omejitev prostora. Nekatere funkcionalnosti za vas morda ne bodo "
+"delovale pravilno. V Safariju to težavo pogosto povroči brskanje v zasebnem "
+"načinu (Private Mode Browsing)."
 
 #: js/messages.php:560
 msgctxt "Previous month"
@@ -6871,7 +6875,6 @@ msgid "Recently used table"
 msgstr "Nedavno uporabljena tabela"
 
 #: libraries/config/messages.inc.php:641
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]."
@@ -6879,14 +6882,13 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Pustite prazno, če ne želite »vztrajnih« nedavno uporabljenih tabel skozi "
-"seje; predlagano: [kbd]pma__recent[/kbd]."
+"Pustite prazno, če ne želite »vztrajnih« priljubljenih tabel skozi seje; "
+"predlagano: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
-msgstr "Priljubljene tabele"
+msgstr "Tabela priljubljenih"
 
 #: libraries/config/messages.inc.php:646
 msgid ""
@@ -10589,10 +10591,10 @@ msgstr ""
 "podatkov."
 
 #: libraries/relation.lib.php:1973
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Manjkajoče tabele hrambe konfiguracije phpMyAdmin"
+msgstr "%sUstvari%s manjkajoče tabele hrambe konfiguracije phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -14332,10 +14334,10 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Vrstica: %1$s, Stolpec: %2$s, Napaka: %3$s"
 
 #: tbl_structure.php:59
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The column name(s) '%s' are MySQL reserved keyword."
-msgstr "Ime stolpca '%s' je rezervirana beseda MySQL."
+msgstr "Ime stolpca/stolpcev '%s' so rezervirana beseda MySQL."
 
 #: tbl_structure.php:120
 msgid "No column selected."
