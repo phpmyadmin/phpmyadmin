@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 + rfe #1590 Recaptcha API v2
 + rfe #1580 Individual Zeroconf PMA tables support
 + rfe #1525 Generate keys one per line
++ rfe #347 allow table with transformed column anywhere in FROM clause
 
 4.3.7.0 (not yet released)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)
