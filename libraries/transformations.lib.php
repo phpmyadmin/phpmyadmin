@@ -200,9 +200,9 @@ function PMA_getMIME($db, $table, $strict = false, $fullName = false)
     if ($fullName) {
         $com_qry .= "SELECT CONCAT("
             . "`db_name`, '.', `table_name`, '.', `column_name`"
-            . ") AS column_name,";
+            . ") AS column_name, ";
     } else {
-        $com_qry  = "SELECT `column_name`,";
+        $com_qry  = "SELECT `column_name`, ";
     }
     $com_qry .= '`mimetype`,
                 `transformation`,
