@@ -1445,7 +1445,7 @@ class ExportSql extends ExportPlugin
                             if ($posConstraint === false) {
                                 $tmp_str = preg_replace(
                                     '/(FOREIGN[\s]+KEY)/',
-                                    'ADD \1',
+                                    '  ADD \1',
                                     $sql_lines[$j]
                                 );
 
@@ -1455,7 +1455,7 @@ class ExportSql extends ExportPlugin
                             } else {
                                 $tmp_str = preg_replace(
                                     '/(CONSTRAINT)/',
-                                    'ADD \1',
+                                    '  ADD \1',
                                     $sql_lines[$j]
                                 );
 
