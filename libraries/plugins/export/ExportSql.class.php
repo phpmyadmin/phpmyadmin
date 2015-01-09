@@ -1340,15 +1340,13 @@ class ExportSql extends ExportPlugin
                     $sql_indexes_query_start = 'ALTER TABLE '
                         . PMA_Util::backquoteCompat(
                             $table_alias, $compat, $sql_backquotes
-                        )
-                        . $crlf . ' ';
+                        );
                     $sql_indexes_query .= $sql_indexes_query_start;
 
                     $sql_indexes_start = 'ALTER TABLE '
                         . PMA_Util::backquoteCompat(
                             $table_alias,  $compat, $sql_backquotes
-                        )
-                        . $crlf . ' ';
+                        );
                     $sql_indexes .= $sql_indexes_start;
                 }
                 if ($update_indexes_increments && preg_match(
@@ -1490,7 +1488,7 @@ class ExportSql extends ExportPlugin
                                 $sql_index_ended = false;
                             }
 
-                            $tmp_str = " ADD " . $sql_lines[$j];
+                            $tmp_str = $crlf . "  ADD " . $sql_lines[$j];
                             $sql_indexes_query .= $tmp_str;
                             $sql_indexes .= $tmp_str;
 
