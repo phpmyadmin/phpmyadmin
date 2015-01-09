@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-08 12:00-0500\n"
+"POT-Creation-Date: 2015-01-09 12:30-0500\n"
 "PO-Revision-Date: 2014-12-29 15:37+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -545,7 +545,7 @@ msgid "Add geometry"
 msgstr "Addera geometri"
 
 #: gis_data_editor.php:409 js/messages.php:250
-#: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1697
+#: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1686
 #: libraries/TableSearch.class.php:1238 libraries/browse_foreigners.lib.php:54
 #: libraries/core.lib.php:604 libraries/display_change_password.lib.php:109
 #: libraries/display_create_table.lib.php:72
@@ -1322,11 +1322,11 @@ msgstr "Addera diagrammet till rutnätet"
 msgid "Please add at least one variable to the series!"
 msgstr "Lägg till minst en variabel till serien!"
 
-#: js/messages.php:149 libraries/DisplayResults.class.php:1334
+#: js/messages.php:149 libraries/DisplayResults.class.php:1323
 #: libraries/TableSearch.class.php:876 libraries/TableSearch.class.php:1045
 #: libraries/config.values.php:61 libraries/db_designer.lib.php:976
 #: libraries/display_export.lib.php:587
-#: libraries/plugins/export/ExportSql.class.php:1900
+#: libraries/plugins/export/ExportSql.class.php:1898
 #: libraries/server_privileges.lib.php:2691
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:258
@@ -1821,7 +1821,7 @@ msgid "Show query box"
 msgstr "Visa frågerutan"
 
 #: js/messages.php:301 libraries/Console.class.php:96
-#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3436
+#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3463
 #: libraries/Index.class.php:593 libraries/Util.class.php:665
 #: libraries/Util.class.php:1190 libraries/Util.class.php:3418
 #: libraries/Util.class.php:3419 libraries/central_columns.lib.php:756
@@ -2094,7 +2094,7 @@ msgstr "Innehåll för datapunkt"
 msgid "Ignore"
 msgstr "Ignorera"
 
-#: js/messages.php:380 libraries/DisplayResults.class.php:3439
+#: js/messages.php:380 libraries/DisplayResults.class.php:3466
 msgid "Copy"
 msgstr "Kopiera"
 
@@ -2110,7 +2110,7 @@ msgstr "Linestring"
 msgid "Polygon"
 msgstr "Polygon"
 
-#: js/messages.php:387 libraries/DisplayResults.class.php:1680
+#: js/messages.php:387 libraries/DisplayResults.class.php:1669
 msgid "Geometry"
 msgstr "Geometri"
 
@@ -2415,7 +2415,7 @@ msgstr ", senaste stabila version:"
 msgid "up to date"
 msgstr "aktuell"
 
-#: js/messages.php:487 libraries/DisplayResults.class.php:5204
+#: js/messages.php:487 libraries/DisplayResults.class.php:5231
 #: view_create.php:182
 msgid "Create view"
 msgstr "Skapa vy"
@@ -2847,8 +2847,8 @@ msgid "Requery"
 msgstr "underfråga"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
-#: libraries/DisplayResults.class.php:3507
-#: libraries/DisplayResults.class.php:5070
+#: libraries/DisplayResults.class.php:3534
+#: libraries/DisplayResults.class.php:5097
 #: libraries/central_columns.lib.php:758 libraries/db_designer.lib.php:870
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:383 libraries/tracking.lib.php:440
@@ -2953,7 +2953,7 @@ msgid "History"
 msgstr "SQL-historik"
 
 #: libraries/Console.class.php:205 libraries/Console.class.php:300
-#: libraries/DisplayResults.class.php:1616 libraries/TableSearch.class.php:788
+#: libraries/DisplayResults.class.php:1605 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
@@ -3054,9 +3054,9 @@ msgstr "Tabell för SQL-frågehistorik"
 msgid "Show current browsing query"
 msgstr ""
 
-#: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1318
-#: libraries/DisplayResults.class.php:2156
-#: libraries/DisplayResults.class.php:2162 libraries/TableSearch.class.php:847
+#: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1307
+#: libraries/DisplayResults.class.php:2145
+#: libraries/DisplayResults.class.php:2151 libraries/TableSearch.class.php:847
 #: libraries/config.values.php:62 libraries/operations.lib.php:576
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
@@ -3065,9 +3065,9 @@ msgstr ""
 msgid "Ascending"
 msgstr "Stigande"
 
-#: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1330
-#: libraries/DisplayResults.class.php:2152
-#: libraries/DisplayResults.class.php:2166 libraries/TableSearch.class.php:848
+#: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1319
+#: libraries/DisplayResults.class.php:2141
+#: libraries/DisplayResults.class.php:2155 libraries/TableSearch.class.php:848
 #: libraries/config.values.php:63 libraries/operations.lib.php:579
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
@@ -3334,107 +3334,107 @@ msgstr "horisontell (roterade rubriker)"
 msgid "vertical"
 msgstr "vertikal"
 
-#: libraries/DisplayResults.class.php:1276
+#: libraries/DisplayResults.class.php:1265
 msgid "Sort by key"
 msgstr "Sortera efter nyckel"
 
-#: libraries/DisplayResults.class.php:1622
-#: libraries/DisplayResults.class.php:1730
+#: libraries/DisplayResults.class.php:1611
+#: libraries/DisplayResults.class.php:1719
 msgid "Partial texts"
 msgstr "Förkortade texter"
 
-#: libraries/DisplayResults.class.php:1623
-#: libraries/DisplayResults.class.php:1734
+#: libraries/DisplayResults.class.php:1612
+#: libraries/DisplayResults.class.php:1723
 msgid "Full texts"
 msgstr "Kompletta texter"
 
-#: libraries/DisplayResults.class.php:1639
+#: libraries/DisplayResults.class.php:1628
 msgid "Relational key"
 msgstr "Besläktad nyckel"
 
-#: libraries/DisplayResults.class.php:1640
+#: libraries/DisplayResults.class.php:1629
 msgid "Relational display column"
 msgstr "Kolumn för besläktad nyckel"
 
-#: libraries/DisplayResults.class.php:1653
+#: libraries/DisplayResults.class.php:1642
 msgid "Show binary contents"
 msgstr "Visa binärt innehåll"
 
-#: libraries/DisplayResults.class.php:1659
+#: libraries/DisplayResults.class.php:1648
 msgid "Show BLOB contents"
 msgstr "Visa BLOB-innehåll"
 
-#: libraries/DisplayResults.class.php:1671
+#: libraries/DisplayResults.class.php:1660
 msgid "Hide browser transformation"
 msgstr "Dölj webbläsarens transformation"
 
-#: libraries/DisplayResults.class.php:1681
+#: libraries/DisplayResults.class.php:1670
 msgid "Well Known Text"
 msgstr "Välkänd text"
 
-#: libraries/DisplayResults.class.php:1682
+#: libraries/DisplayResults.class.php:1671
 msgid "Well Known Binary"
 msgstr "Välkänd binär"
 
-#: libraries/DisplayResults.class.php:3481
-#: libraries/DisplayResults.class.php:3497
+#: libraries/DisplayResults.class.php:3508
+#: libraries/DisplayResults.class.php:3524
 msgid "The row has been deleted."
 msgstr "Raden har raderats."
 
-#: libraries/DisplayResults.class.php:3534
-#: libraries/DisplayResults.class.php:5070
+#: libraries/DisplayResults.class.php:3561
+#: libraries/DisplayResults.class.php:5097
 #: libraries/server_status_processes.lib.php:252
 msgid "Kill"
 msgstr "Döda"
 
-#: libraries/DisplayResults.class.php:4491
+#: libraries/DisplayResults.class.php:4518
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Kan vara ungefärligt. Se [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/DisplayResults.class.php:4548 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4575 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql_query_form.lib.php:89
 #: libraries/tbl_relation.lib.php:1034 tbl_find_replace.php:51
 #: tbl_operations.php:200 tbl_row_action.php:121 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "Din SQL-fråga utfördes korrekt."
 
-#: libraries/DisplayResults.class.php:4928 libraries/structure.lib.php:688
+#: libraries/DisplayResults.class.php:4955 libraries/structure.lib.php:688
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr "Denna vy har åtminstone detta antal rader. Se %sdokumentationen%s."
 
-#: libraries/DisplayResults.class.php:4941
+#: libraries/DisplayResults.class.php:4968
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Visar raderna %1s - %2s"
 
-#: libraries/DisplayResults.class.php:4956
+#: libraries/DisplayResults.class.php:4983
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d totalt, %2$d i fråga"
 
-#: libraries/DisplayResults.class.php:4961
+#: libraries/DisplayResults.class.php:4988
 #, php-format
 msgid "%d total"
 msgstr "%d totalt"
 
-#: libraries/DisplayResults.class.php:4973 libraries/sql.lib.php:1504
+#: libraries/DisplayResults.class.php:5000 libraries/sql.lib.php:1504
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Frågan tog %01.4f sekunder."
 
-#: libraries/DisplayResults.class.php:5077
-#: libraries/DisplayResults.class.php:5085 libraries/Util.class.php:4559
+#: libraries/DisplayResults.class.php:5104
+#: libraries/DisplayResults.class.php:5112 libraries/Util.class.php:4559
 #: libraries/Util.class.php:4565 libraries/mult_submits.inc.php:45
 #: libraries/structure.lib.php:292 libraries/structure.lib.php:308
 #: libraries/structure.lib.php:310
 msgid "With selected:"
 msgstr "Med markerade:"
 
-#: libraries/DisplayResults.class.php:5082
-#: libraries/DisplayResults.class.php:5084 libraries/Util.class.php:4561
+#: libraries/DisplayResults.class.php:5109
+#: libraries/DisplayResults.class.php:5111 libraries/Util.class.php:4561
 #: libraries/Util.class.php:4562 libraries/server_privileges.lib.php:1046
 #: libraries/server_privileges.lib.php:1047
 #: libraries/server_user_groups.lib.php:231 libraries/structure.lib.php:295
@@ -3442,13 +3442,13 @@ msgstr "Med markerade:"
 msgid "Check All"
 msgstr "Markera alla"
 
-#: libraries/DisplayResults.class.php:5089 libraries/structure.lib.php:1481
+#: libraries/DisplayResults.class.php:5116 libraries/structure.lib.php:1481
 #: libraries/structure.lib.php:2206
 msgid "Change"
 msgstr "Ändra"
 
-#: libraries/DisplayResults.class.php:5102
-#: libraries/DisplayResults.class.php:5373 libraries/Menu.class.php:336
+#: libraries/DisplayResults.class.php:5129
+#: libraries/DisplayResults.class.php:5400 libraries/Menu.class.php:336
 #: libraries/Menu.class.php:438 libraries/Menu.class.php:571
 #: libraries/Util.class.php:3420 libraries/Util.class.php:3421
 #: libraries/Util.class.php:4123 libraries/Util.class.php:4138
@@ -3461,29 +3461,29 @@ msgstr "Ändra"
 msgid "Export"
 msgstr "Exportera"
 
-#: libraries/DisplayResults.class.php:5259
+#: libraries/DisplayResults.class.php:5286
 msgid "Query results operations"
 msgstr "Operationer för frågeresultat"
 
-#: libraries/DisplayResults.class.php:5297 libraries/Header.class.php:367
+#: libraries/DisplayResults.class.php:5324 libraries/Header.class.php:367
 #: libraries/structure.lib.php:316 libraries/structure.lib.php:389
 #: libraries/structure.lib.php:1618
 msgid "Print view"
 msgstr "Utskriftsvänlig visning"
 
-#: libraries/DisplayResults.class.php:5315
+#: libraries/DisplayResults.class.php:5342
 msgid "Print view (with full texts)"
 msgstr "Utskriftsvänlig version (med fullständiga texter)"
 
-#: libraries/DisplayResults.class.php:5386 libraries/tbl_chart.lib.php:351
+#: libraries/DisplayResults.class.php:5413 libraries/tbl_chart.lib.php:351
 msgid "Display chart"
 msgstr "Visa diagram"
 
-#: libraries/DisplayResults.class.php:5411
+#: libraries/DisplayResults.class.php:5438
 msgid "Visualize GIS data"
 msgstr "Visualisera GIS-data"
 
-#: libraries/DisplayResults.class.php:5647
+#: libraries/DisplayResults.class.php:5674
 msgid "Link not found!"
 msgstr "Länken hittades inte!"
 
@@ -3732,7 +3732,7 @@ msgstr "Spårning"
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:557
 #: libraries/plugins/export/ExportOdt.class.php:685
-#: libraries/plugins/export/ExportSql.class.php:1775
+#: libraries/plugins/export/ExportSql.class.php:1773
 #: libraries/plugins/export/ExportTexytext.class.php:503
 #: libraries/plugins/export/ExportXml.class.php:125
 #: libraries/rte/rte_words.lib.php:50
@@ -9807,7 +9807,7 @@ msgstr "Dumpningsalternativ för data"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:201
 #: libraries/plugins/export/ExportOdt.class.php:256
-#: libraries/plugins/export/ExportSql.class.php:2056
+#: libraries/plugins/export/ExportSql.class.php:2054
 #: libraries/plugins/export/ExportTexytext.class.php:183
 msgid "Dumping data for table"
 msgstr "Dumpning av Data i tabell"
@@ -9830,21 +9830,21 @@ msgstr "Definition"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:544
 #: libraries/plugins/export/ExportOdt.class.php:671
-#: libraries/plugins/export/ExportSql.class.php:1756
+#: libraries/plugins/export/ExportSql.class.php:1754
 #: libraries/plugins/export/ExportTexytext.class.php:492
 msgid "Table structure for table"
 msgstr "Tabellstruktur"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:564
 #: libraries/plugins/export/ExportOdt.class.php:695
-#: libraries/plugins/export/ExportSql.class.php:1811
+#: libraries/plugins/export/ExportSql.class.php:1809
 #: libraries/plugins/export/ExportTexytext.class.php:508
 msgid "Structure for view"
 msgstr "Struktur för vy"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:573
 #: libraries/plugins/export/ExportOdt.class.php:707
-#: libraries/plugins/export/ExportSql.class.php:1847
+#: libraries/plugins/export/ExportSql.class.php:1845
 #: libraries/plugins/export/ExportTexytext.class.php:515
 msgid "Stand-in structure for view"
 msgstr "Ersättningsstruktur för vy"
@@ -9932,7 +9932,7 @@ msgid "Database:"
 msgstr "Databas:"
 
 #: libraries/plugins/export/ExportLatex.class.php:306
-#: libraries/plugins/export/ExportSql.class.php:1900
+#: libraries/plugins/export/ExportSql.class.php:1898
 msgid "Data:"
 msgstr "Data:"
 
@@ -10011,7 +10011,7 @@ msgid "Data creation options"
 msgstr "Valmöjligheter vid skapande av data"
 
 #: libraries/plugins/export/ExportSql.class.php:336
-#: libraries/plugins/export/ExportSql.class.php:2002
+#: libraries/plugins/export/ExportSql.class.php:2000
 msgid "Truncate table before insert"
 msgstr "Trunkera tabell innan inläggning"
 
@@ -10099,7 +10099,7 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:515
 #: libraries/plugins/export/ExportSql.class.php:551
 #: libraries/plugins/export/ExportSql.class.php:1260
-#: libraries/plugins/export/ExportSql.class.php:1800
+#: libraries/plugins/export/ExportSql.class.php:1798
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
@@ -10124,32 +10124,35 @@ msgid "Indexes for dumped tables"
 msgstr "Index för dumpade tabeller"
 
 #: libraries/plugins/export/ExportSql.class.php:1338
-#: libraries/plugins/export/ExportSql.class.php:1362
 msgid "Indexes for table"
 msgstr "Index för tabell"
 
-#: libraries/plugins/export/ExportSql.class.php:1361
+#: libraries/plugins/export/ExportSql.class.php:1359
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT för dumpade tabeller"
 
-#: libraries/plugins/export/ExportSql.class.php:1609
+#: libraries/plugins/export/ExportSql.class.php:1360
+msgid "AUTO_INCREMENT for table"
+msgstr "AUTO_INCREMENT för tabell"
+
+#: libraries/plugins/export/ExportSql.class.php:1607
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME-TYPER FÖR TABELL"
 
-#: libraries/plugins/export/ExportSql.class.php:1634
+#: libraries/plugins/export/ExportSql.class.php:1632
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONER FÖR TABELL"
 
-#: libraries/plugins/export/ExportSql.class.php:1797
+#: libraries/plugins/export/ExportSql.class.php:1795
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1829
+#: libraries/plugins/export/ExportSql.class.php:1827
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Struktur för vy %s exporterad som en tabell"
 
-#: libraries/plugins/export/ExportSql.class.php:1918
+#: libraries/plugins/export/ExportSql.class.php:1916
 msgid "Error reading data:"
 msgstr "Fel vid läsning av data:"
 
@@ -14535,13 +14538,15 @@ msgstr "Ogiltigt tabellnamn"
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
-#: tbl_structure.php:59
+#: tbl_structure.php:60
 #, fuzzy, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
-msgid "The column name(s) '%s' are MySQL reserved keyword."
-msgstr "Kolumnnamnet '%s' är ett reserverat nyckelord i MySQL."
+msgid "The column name '%s' is a MySQL reserved keyword."
+msgid_plural "The column names '%s' are MySQL reserved keywords."
+msgstr[0] "Kolumnnamnet '%s' är ett reserverat nyckelord i MySQL."
+msgstr[1] "Kolumnnamnet '%s' är ett reserverat nyckelord i MySQL."
 
-#: tbl_structure.php:120
+#: tbl_structure.php:123
 msgid "No column selected."
 msgstr "Ingen kolumn vald."
 
@@ -15873,9 +15878,6 @@ msgstr "concurrent_insert är satt till 0"
 
 #~ msgid "Display errors"
 #~ msgstr "Visa fel"
-
-#~ msgid "AUTO_INCREMENT for table"
-#~ msgstr "AUTO_INCREMENT för tabell"
 
 #~ msgid "Redraw"
 #~ msgstr "Rita om"
