@@ -1647,15 +1647,23 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     {
         $transformation_plugin = new Text_Plain_Link();
         $meta = new StdClass();
+        $meta->db = 'foo';
+        $meta->table = 'tbl';
+        $meta->orgtable = 'tbl';
         $meta->type = 'BLOB';
         $meta->flags = 'blob binary';
         $meta->name = 'tblob';
+        $meta->orgname = 'tblob';
 
         $meta2 = new StdClass();
+        $meta2->db = 'foo';
+        $meta2->table = 'tbl';
+        $meta2->orgtable = 'tbl';
         $meta2->type = 'string';
         $meta2->flags = '';
         $meta2->decimals = 0;
         $meta2->name = 'varchar';
+        $meta2->orgname = 'varchar';
         $url_params = array('db' => 'foo');
 
         return array(

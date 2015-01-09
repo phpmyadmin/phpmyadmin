@@ -1098,17 +1098,6 @@ class PMA_DisplayResults
         //       because of space usage
         $comments_map = $this->_getTableCommentsArray($direction, $analyzed_sql);
 
-        if ($GLOBALS['cfgRelation']['commwork']
-            && $GLOBALS['cfgRelation']['mimework']
-            && $GLOBALS['cfg']['BrowseMIME']
-            && ! $_SESSION['tmpval']['hide_transformation']
-        ) {
-            $this->__set(
-                'mime_map',
-                PMA_getMIME($this->__get('db'), $this->__get('table'))
-            );
-        }
-
         // See if we have to highlight any header fields of a WHERE query.
         // Uses SQL-Parser results.
         $this->_setHighlightedColumnGlobalField($analyzed_sql);
@@ -2553,8 +2542,9 @@ class PMA_DisplayResults
         }
 
         $mime_map = $this->__get('mime_map');
+        $orgFullColName = $meta->db . '.' . $meta->orgtable . '.' . $meta->orgname;
         if ($transformation_plugin != $default_function
-            || !empty($mime_map[$meta->name]['input_transformation'])
+            || !empty($mime_map[$orgFullColName]['input_transformation'])
         ) {
             $classes[] = 'transformed';
         }
@@ -2757,6 +2747,7 @@ class PMA_DisplayResults
             } // end if (1)
 
             // 2. Displays the rows' values
+            $this->_setMimeMap();
             $table_body_html .= $this->_getRowValues(
                 $dt_result, $row, $row_no, $col_order, $map,
                 $grid_edit_class, $col_visib, $where_clause,
@@ -2799,6 +2790,40 @@ class PMA_DisplayResults
         return $table_body_html;
 
     } // end of the '_getTableBody()' function
+
+    /**
+     * Sets the MIME details of the columns in the results set
+     *
+     * @return void
+     */
+    private function _setMimeMap()
+    {
+        $fields_meta = $this->__get('fields_meta');
+        $mimeMap = array();
+        $added = array();
+
+        for ($currentColumn = 0;
+                $currentColumn < $this->__get('fields_cnt');
+                ++$currentColumn) {
+
+            $meta = $fields_meta[$currentColumn];
+            $orgFullTableName = $meta->db . '.' . $meta->orgtable;
+
+            if ($GLOBALS['cfgRelation']['commwork']
+                && $GLOBALS['cfgRelation']['mimework']
+                && $GLOBALS['cfg']['BrowseMIME']
+                && ! $_SESSION['tmpval']['hide_transformation']
+                && empty($added[$orgFullTableName])
+            ) {
+                $mimeMap = array_merge(
+                    $mimeMap, PMA_getMIME($meta->db, $meta->orgtable, false, true)
+                );
+                $added[$orgFullTableName] = true;
+            }
+        }
+
+        $this->__set('mime_map', $mimeMap);
+    }
 
 
     /**
@@ -2850,6 +2875,9 @@ class PMA_DisplayResults
             $i = $col_order ? $col_order[$currentColumn] : $currentColumn;
 
             $meta    = $fields_meta[$i];
+            $orgFullColName
+                = $meta->db . '.' . $meta->orgtable . '.' . $meta->orgname;
+
             $not_null_class = $meta->not_null ? 'not_null' : '';
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
             $hide_class = ($col_visib && ! $col_visib[$currentColumn]
@@ -2887,12 +2915,12 @@ class PMA_DisplayResults
                 && $GLOBALS['cfg']['BrowseMIME']
             ) {
 
-                if (isset($mime_map[$meta->name]['mimetype'])
-                    && isset($mime_map[$meta->name]['transformation'])
-                    && !empty($mime_map[$meta->name]['transformation'])
+                if (isset($mime_map[$orgFullColName]['mimetype'])
+                    && isset($mime_map[$orgFullColName]['transformation'])
+                    && !empty($mime_map[$orgFullColName]['transformation'])
                 ) {
 
-                    $file = $mime_map[$meta->name]['transformation'];
+                    $file = $mime_map[$orgFullColName]['transformation'];
                     $include_file = 'libraries/plugins/transformations/' . $file;
 
                     if (file_exists($include_file)) {
@@ -2906,17 +2934,17 @@ class PMA_DisplayResults
                         );
 
                         $transform_options  = PMA_Transformation_getOptions(
-                            isset($mime_map[$meta->name]
+                            isset($mime_map[$orgFullColName]
                                 ['transformation_options']
                             )
-                            ? $mime_map[$meta->name]
+                            ? $mime_map[$orgFullColName]
                             ['transformation_options']
                             : ''
                         );
 
                         $meta->mimetype = str_replace(
                             '_', '/',
-                            $mime_map[$meta->name]['mimetype']
+                            $mime_map[$orgFullColName]['mimetype']
                         );
 
                     } // end if file_exists
@@ -2936,14 +2964,14 @@ class PMA_DisplayResults
                 $this->__get('fields_meta'),
                 $row,
                 false,
-                $this->__get('table')
+                $meta->orgtable
             );
 
             $transform_url_params = array(
-                'db'            => $this->__get('db'),
-                'table'         => $this->__get('table'),
+                'db'            => $meta->db,
+                'table'         => $meta->orgtable,
                 'where_clause'  => $unique_conditions[0],
-                'transform_key' => $meta->name
+                'transform_key' => $meta->orgname
             );
 
             if (! empty($sql_query)) {
@@ -2958,9 +2986,9 @@ class PMA_DisplayResults
 
             // Check whether the field needs to display with syntax highlighting
 
-            $dbLower = /*overload*/mb_strtolower($this->__get('db'));
-            $tblLower = /*overload*/mb_strtolower($this->__get('table'));
-            $nameLower = /*overload*/mb_strtolower($meta->name);
+            $dbLower = /*overload*/mb_strtolower($meta->db);
+            $tblLower = /*overload*/mb_strtolower($meta->orgtable);
+            $nameLower = /*overload*/mb_strtolower($meta->orgname);
             if (! empty($this->transformation_info[$dbLower][$tblLower][$nameLower])
                 && (trim($row[$i]) != '')
             ) {
@@ -2971,17 +2999,16 @@ class PMA_DisplayResults
                     [$dbLower][$tblLower][$nameLower][1](null);
 
                 $transform_options  = PMA_Transformation_getOptions(
-                    isset($mime_map[$meta->name]['transformation_options'])
-                    ? $mime_map[$meta->name]['transformation_options']
+                    isset($mime_map[$orgFullColName]['transformation_options'])
+                    ? $mime_map[$orgFullColName]['transformation_options']
                     : ''
                 );
 
-                $dbLower = /*overload*/mb_strtolower($this->__get('db'));
                 $meta->mimetype = str_replace(
                     '_', '/',
                     $this->transformation_info[$dbLower]
-                    [/*overload*/mb_strtolower($this->__get('table'))]
-                    [/*overload*/mb_strtolower($meta->name)][2]
+                    [/*overload*/mb_strtolower($meta->orgtable)]
+                    [/*overload*/mb_strtolower($meta->orgname)][2]
                 );
 
             }
@@ -2994,7 +3021,7 @@ class PMA_DisplayResults
             ) {
 
                 $linking_url = $this->_getSpecialLinkUrl(
-                    $row[$i], $row_info, /*overload*/mb_strtolower($meta->name)
+                    $row[$i], $row_info, /*overload*/mb_strtolower($meta->orgname)
                 );
                 include_once
                     "libraries/plugins/transformations/Text_Plain_Link.class.php";
