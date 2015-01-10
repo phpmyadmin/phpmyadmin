@@ -24,7 +24,7 @@ phpMyAdmin - ChangeLog
 - bug       Undefined index menuswork
 - bug       Undefined index navwork
 - bug       Undefined index central_columnswork
-- bug       Server Status refresh not behaving as expected
+- bug #4697 Server Status refresh not behaving as expected
 
 4.3.6.0 (2015-01-07)
 - bug       Undefined index notices while configuring recent and favorite tables
