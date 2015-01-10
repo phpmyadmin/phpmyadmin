@@ -271,8 +271,9 @@ class Node
     }
 
     /**
-     * Returns true the node has some siblings (other nodes on the same tree level,
-     * in the same branch), false otherwise. The only exception is for nodes on
+     * Returns true if the node has some siblings (other nodes on the same tree
+     * level, in the same branch), false otherwise.
+     * The only exception is for nodes on
      * the third level of the tree (columns and indexes), for which the function
      * always returns true. This is because we want to render the containers
      * for these nodes
