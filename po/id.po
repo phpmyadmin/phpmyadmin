@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-08 06:34+0200\n"
+"PO-Revision-Date: 2015-01-10 03:49+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/id/>\n"
@@ -11047,24 +11047,22 @@ msgid "Enabled"
 msgstr "Aktif"
 
 #: libraries/relation.lib.php:101
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "Konfigurasi disimpan."
+msgstr "Konfigurasi pmadb … "
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:126
 msgid "General relation features"
-msgstr "Ciri-ciri dari General Relation"
+msgstr "Fitur umum relasi"
 
 #: libraries/relation.lib.php:137
 msgid "Display Features"
 msgstr "Tampilkan ciri-ciri"
 
 #: libraries/relation.lib.php:154
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Pembuatan PDF"
+msgstr "Desain dan pembuatan PDF"
 
 #: libraries/relation.lib.php:165
 msgid "Displaying Column Comments"
@@ -11075,13 +11073,12 @@ msgid "Browser transformation"
 msgstr "Transformasi Browser"
 
 #: libraries/relation.lib.php:178
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
-"Harap pelajari dokumentasi tentang cara memperbarui tabel column_comments "
-"Anda."
+"Silakan lihat dokumentasi mengenai bagaimana mengupdate column_info tabel "
+"anda. "
 
 #: libraries/relation.lib.php:191 libraries/sql_query_form.lib.php:358
 msgid "Bookmarked SQL query"
@@ -11096,10 +11093,9 @@ msgid "Persistent recently used tables"
 msgstr "Tabel baru digunakan persisten"
 
 #: libraries/relation.lib.php:224
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Tabel baru digunakan persisten"
+msgstr "Tabel favorit persisten"
 
 #: libraries/relation.lib.php:235
 msgid "Persistent tables' UI preferences"
@@ -11110,10 +11106,9 @@ msgid "User preferences"
 msgstr "Preferensi pengguna"
 
 #: libraries/relation.lib.php:274
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Konfigurasi: %s"
+msgstr "Menu konfigurasi"
 
 #: libraries/relation.lib.php:285
 #, fuzzy
