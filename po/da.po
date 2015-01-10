@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-12-29 18:24+0200\n"
-"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-3/da/"
-">\n"
+"PO-Revision-Date: 2015-01-09 23:31+0200\n"
+"Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6723,13 +6723,11 @@ msgstr ""
 "pma_pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:607
-#, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Centerkolonner"
+msgstr "Center tabelkolonner"
 
 #: libraries/config/messages.inc.php:609
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]."
@@ -6737,8 +6735,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: [kbd]"
 "pma__central_columns[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
-"pma_table_coords[/kbd]."
+"Efterlades tom for at undlade understøttelse af kolonner, forslag: "
+"[kbd]pma_table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:612
 msgid "Try to connect without password."
@@ -6816,7 +6814,6 @@ msgid "Recently used table"
 msgstr "Senest benyttede tabel"
 
 #: libraries/config/messages.inc.php:641
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]."
@@ -6824,11 +6821,10 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade \"vedvarende\", senest benyttede tabeller på "
-"tværs af sessioner, forslag: [kbd]pma_recent[/kbd]."
+"Efterlades tom for at undlade \"vedvarende\", favorit tabeller på tværs af "
+"sessioner, forslag: [kbd]pma_favorit[/kbd]."
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "Favorit tabeller"
@@ -9170,7 +9166,7 @@ msgstr ""
 "blot har én kolonne."
 
 #: libraries/normalization.lib.php:381
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above partial dependencies, in order to put the original table "
 #| "'%1$s' into Second normal form we need to create the following tables:"
@@ -9178,8 +9174,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
-"Som ovenfor med delvise afhængigheder, for at indsætte den oprindelige tabel "
-"'%1$s' i den anden normale form, så skal vi oprette følgende tabeller:"
+"For at indsætte den oprindelige tabel '%1$s' i den anden normale form, så "
+"skal vi oprette følgende tabeller:"
 
 #: libraries/normalization.lib.php:417
 #, php-format
@@ -9192,7 +9188,7 @@ msgid "Error in processing!"
 msgstr "Fejl under udførslen!"
 
 #: libraries/normalization.lib.php:501
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above dependencies, in order to put the original table '%1$s' into "
 #| "Third normal form we need to create the following tables:"
@@ -9200,8 +9196,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
-"Som ovenfor med delvise afhængigheder, for at indsætte den oprindelige tabel "
-"'%1$s' i den tredje normale form, så skal vi oprette følgende tabeller:"
+"For at indsætte den oprindelige tabel '%1$s' i den tredje normale form, så "
+"skal vi oprette følgende tabeller:"
 
 #: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
@@ -10484,10 +10480,9 @@ msgid "Persistent recently used tables"
 msgstr "Vedvarende senest brugte tabeller"
 
 #: libraries/relation.lib.php:224
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Vedvarende senest brugte tabeller"
+msgstr "Vedvarende favorit tabeller"
 
 #: libraries/relation.lib.php:235
 msgid "Persistent tables' UI preferences"
