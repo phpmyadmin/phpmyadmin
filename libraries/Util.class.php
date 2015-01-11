@@ -3197,7 +3197,7 @@ class PMA_Util
             'db_search.php' => __('Search'),
             'db_operations.php' => __('Operations'),
         );
-        return $mapping[$target];
+        return isset($mapping[$target]) ? $mapping[$target] : false;
     }
 
     /**
