@@ -203,7 +203,9 @@ function PMA_relationsCleanupDatabase($db)
         PMA_queryAsControlUser($remove_query);
     }
 
-    if ($cfgRelation['central_columnswork']) {
+    if (isset($cfgRelation['central_columnswork'])
+        && $cfgRelation['central_columnswork']
+    ) {
         $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
             . '.' . PMA_Util::backquote($cfgRelation['central_columns'])
             . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
