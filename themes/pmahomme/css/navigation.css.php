@@ -217,14 +217,14 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     z-index: 10;
 }
 #pma_navigation_tree div.block a + a {
-<?php echo $left; ?>: 100%;
+    <?php echo $left; ?>: 100%;
 }
 #pma_navigation_tree div.block.double a,
 #pma_navigation_tree div.block.double u {
-<?php echo $left; ?>: 33%;
+    <?php echo $left; ?>: 33%;
 }
 #pma_navigation_tree div.block.double a + a {
-<?php echo $left; ?>: 85%;
+    <?php echo $left; ?>: 85%;
 }
 #pma_navigation_tree div.block img {
     position: relative;
