@@ -1032,18 +1032,37 @@ class PMA_NavigationTree
                 $retval .= "<i>";
             }
             if (PMA_Util::showIcons('TableNavigationLinksMode')) {
-                $retval .= "<div class='block'>";
-                if (isset($node->links['icon'])) {
+                $divClass = '';
+
+                if (isset($node->links['icon']) && !empty($node->links['icon'])) {
+                    $iconLinks = $node->links['icon'];
+                    $icons = $node->icon;
+                    if (!is_array($iconLinks)) {
+                        $iconLinks = array($iconLinks);
+                        $icons = array($icons);
+                    }
+
+                    if (count($icons) > 1) {
+                        $divClass = 'double';
+                    }
+                }
+
+                $retval .= "<div class='block links " . $divClass . "'>";
+
+                if (isset($node->links['icon']) && !empty($node->links['icon'])) {
                     $args = array();
                     foreach ($node->parents(true) as $parent) {
                         $args[] = urlencode($parent->real_name);
                     }
-                    $link = vsprintf($node->links['icon'], $args);
-                    if ($linkClass != '') {
-                        $retval .= "<a class='$linkClass' href='$link'>";
-                        $retval .= "{$node->icon}</a>";
-                    } else {
-                        $retval .= "<a href='$link'>{$node->icon}</a>";
+
+                    foreach ($iconLinks as $key => $iconLink) {
+                        $link = vsprintf($iconLink, $args);
+                        if ($linkClass != '') {
+                            $retval .= "<a class='$linkClass' href='$link'>";
+                            $retval .= "{$icons[$key]}</a>";
+                        } else {
+                            $retval .= "<a href='$link'>{$icons[$key]}</a>";
+                        }
                     }
                 } else {
                     $retval .= "<u>{$node->icon}</u>";

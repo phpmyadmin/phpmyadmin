@@ -942,6 +942,20 @@ $cfg['NavigationTreeDisplayDbFilterMinimum'] = 30;
 $cfg['NavigationTreeDefaultTabTable'] = 'tbl_structure.php';
 
 /**
+ * target of the navigation panel quick second access icon
+ *
+ * Possible values:
+ * 'tbl_structure.php' = fields list
+ * 'tbl_sql.php' = SQL form
+ * 'tbl_select.php' = search page
+ * 'tbl_change.php' = insert row page
+ * 'sql.php' = browse page
+ *
+ * @global string $cfg['NavigationTreeDefaultTabTable']
+ */
+$cfg['NavigationTreeDefaultTabTable2'] = 'tbl_select.php';
+
+/**
  * Disables the possibility of database expansion
  *
  * @global boolean $cfg['DisableDatabaseExpansion']
