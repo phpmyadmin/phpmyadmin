@@ -69,7 +69,7 @@ class Node_Table_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;
         $node = PMA_NodeFactory::getInstance('Node_Table');
-        $this->assertContains($imageName, $node->icon);
+        $this->assertContains($imageName, $node->icon[0]);
     }
 
     /**
