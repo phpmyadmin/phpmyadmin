@@ -1047,7 +1047,7 @@ class PMA_NavigationTree
                     }
                 }
 
-                $retval .= "<div class='block links " . $divClass . "'>";
+                $retval .= "<div class='block " . $divClass . "'>";
 
                 if (isset($node->links['icon']) && !empty($node->links['icon'])) {
                     $args = array();

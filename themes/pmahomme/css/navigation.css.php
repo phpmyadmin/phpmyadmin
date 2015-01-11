@@ -178,7 +178,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     min-height: 16px;
     float: <?php echo $left; ?>;
 }
-#pma_navigation_tree div.block.links.double {
+#pma_navigation_tree div.block.double {
     width: 2.5em;
 }
 #pma_navigation_tree div.block i,
