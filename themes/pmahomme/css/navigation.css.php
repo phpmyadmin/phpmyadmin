@@ -221,10 +221,10 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 #pma_navigation_tree div.block.double a,
 #pma_navigation_tree div.block.double u {
-<?php echo $left; ?>: 25%;
+<?php echo $left; ?>: 33%;
 }
 #pma_navigation_tree div.block.double a + a {
-<?php echo $left; ?>: 75%;
+<?php echo $left; ?>: 85%;
 }
 #pma_navigation_tree div.block img {
     position: relative;
