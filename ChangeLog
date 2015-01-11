@@ -25,6 +25,7 @@ phpMyAdmin - ChangeLog
 - bug       Undefined index navwork
 - bug       Undefined index central_columnswork
 - bug #4697 Server Status refresh not behaving as expected
+- bug       Null argument in array_multisort()
 
 4.3.6.0 (2015-01-07)
 - bug       Undefined index notices while configuring recent and favorite tables
