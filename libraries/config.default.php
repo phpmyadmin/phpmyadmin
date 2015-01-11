@@ -952,7 +952,7 @@ $cfg['NavigationTreeDefaultTabTable'] = 'tbl_structure.php';
  * 'sql.php' = browse page
  * null = no link
  *
- * @global string $cfg['NavigationTreeDefaultTabTable']
+ * @global string $cfg['NavigationTreeDefaultTabTable2']
  */
 $cfg['NavigationTreeDefaultTabTable2'] = null;
 

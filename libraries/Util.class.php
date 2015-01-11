@@ -3176,6 +3176,7 @@ class PMA_Util
      * in order to display it as a title in navigation panel
      *
      * @param string $target a valid value for $cfg['NavigationTreeDefaultTabTable'],
+     *                       $cfg['NavigationTreeDefaultTabTable2'],
      *                       $cfg['DefaultTabTable'] or $cfg['DefaultTabDatabase']
      *
      * @return array
