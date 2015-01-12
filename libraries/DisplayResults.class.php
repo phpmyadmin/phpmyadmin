@@ -2512,10 +2512,14 @@ class PMA_DisplayResults
 
         while ($row = $GLOBALS['dbi']->fetchRow($dt_result)) {
 
-            // "vertical display" mode stuff
-            $table_body_html .= $this->_getVerticalDisplaySupportSegments(
-                $vertical_display, $row_no
-            );
+            // add repeating headers
+            if ((($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0))
+                && !($row_no % $_SESSION['tmpval']['repeat_cells'])
+            ) {
+                $table_body_html .= $this->_getRepeatingHeaders(
+                    $vertical_display, $row_no
+                );
+            }
 
             $alternating_color_class = ($odd_row ? 'odd' : 'even');
             $odd_row = ! $odd_row;
@@ -3205,56 +3209,48 @@ class PMA_DisplayResults
 
 
     /**
-     * Prepare vertical display mode necessary HTML stuff
+     * Get HTML for reapeating headers
      *
      * @param array   $vertical_display information used with vertical
      *                                  display mode
      * @param integer $row_no           the index of current row
      *
-     * @return  string  $vertical_disp_html     html content
+     * @return  string  $header_html    html content
      *
      * @access  private
      *
      * @see     _getTableBody()
      */
-    private function _getVerticalDisplaySupportSegments(
+    private function _getRepeatingHeaders(
         $vertical_display, $row_no
     ) {
+        $header_html = '<tr>' . "\n";
 
-        $support_html = '';
+        if ($vertical_display['emptypre'] > 0) {
 
-        if ((($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0))
-            && !($row_no % $_SESSION['tmpval']['repeat_cells'])
-        ) {
+            $header_html .= '    <th colspan="'
+                . $vertical_display['emptypre'] . '">'
+                . "\n" . '        &nbsp;</th>' . "\n";
 
-            $support_html .= '<tr>' . "\n";
+        } else if ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
+            $header_html .= '    <th></th>' . "\n";
+        }
 
-            if ($vertical_display['emptypre'] > 0) {
+        foreach ($vertical_display['desc'] as $val) {
+            $header_html .= $val;
+        }
 
-                $support_html .= '    <th colspan="'
-                    . $vertical_display['emptypre'] . '">'
-                    . "\n" . '        &nbsp;</th>' . "\n";
+        if ($vertical_display['emptyafter'] > 0) {
+            $header_html
+                .= '    <th colspan="' . $vertical_display['emptyafter']
+                . '">'
+                . "\n" . '        &nbsp;</th>' . "\n";
+        }
+        $header_html .= '</tr>' . "\n";
 
-            } else if ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
-                $support_html .= '    <th></th>' . "\n";
-            }
+        return $header_html;
 
-            foreach ($vertical_display['desc'] as $val) {
-                $support_html .= $val;
-            }
-
-            if ($vertical_display['emptyafter'] > 0) {
-                $support_html
-                    .= '    <th colspan="' . $vertical_display['emptyafter']
-                    . '">'
-                    . "\n" . '        &nbsp;</th>' . "\n";
-            }
-            $support_html .= '</tr>' . "\n";
-        } // end if
-
-        return $support_html;
-
-    } // end of the '_getVerticalDisplaySupportSegments()' function
+    } // end of the '_getRepeatingHeaders()' function
 
 
     /**
