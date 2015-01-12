@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-12 06:01+0200\n"
+"PO-Revision-Date: 2015-01-12 06:43+0200\n"
 "Last-Translator: Zufar Fathi Suhardi <zufar.bogor@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/id/>\n"
@@ -1305,12 +1305,10 @@ msgid "Pause monitor"
 msgstr "Jeda pemantauan"
 
 #: js/messages.php:149 libraries/server_status_processes.lib.php:37
-#, fuzzy
 msgid "Start auto refresh"
 msgstr "Mulai penyegaran otomatis"
 
 #: js/messages.php:150
-#, fuzzy
 msgid "Stop auto refresh"
 msgstr "Hentikan Penyegaran Otomatis"
 
