@@ -2867,7 +2867,7 @@ msgstr "compartilhado"
 #, fuzzy, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "O marcador foi incluído."
+msgstr "O marcador foi incluído %1$s, %2$s and %3$s."
 
 #: libraries/Console.class.php:130
 #| msgid "New bookmark"
