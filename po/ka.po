@@ -16674,16 +16674,6 @@ msgstr "max. concurrent connections"
 #~ msgstr "ცხრილების არჩევა"
 
 #, fuzzy
-#~| msgid ""
-#~| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#~ "[/kbd]"
-
-#, fuzzy
 #~ msgid "Page has been created."
 #~ msgstr "Table %1$s has been created."
 

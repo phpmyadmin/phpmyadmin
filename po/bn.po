@@ -15947,13 +15947,6 @@ msgstr "concurrent_insert এর জন্য ০ নির্ধারন ক�
 #~ msgid "mcrypt warning"
 #~ msgstr "mcrypt সর্তকতা"
 
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "নকশাকারী সহায়তা দিতে না চাইলে খালি রাখুন, দেখুন:[kbd]pma_designer_coords[/"
-#~ "kbd]।"
-
 #~ msgid "Designer table"
 #~ msgstr "নকশাকারী টেবল"
 

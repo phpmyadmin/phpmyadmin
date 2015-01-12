@@ -15933,20 +15933,6 @@ msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 #~ msgstr "mcrypt අනතුරු ඇඟවීම"
 
 #, fuzzy
-#~| msgid ""
-#~| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~| "[/kbd]"
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "සැලසුම්කරණය විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma__designer_coords[/"
-#~ "kbd]"
-
-#~ msgid "Designer table"
-#~ msgstr "සැලසුම්කරණ වගුව"
-
-#, fuzzy
 #~| msgid "Edit or export relational schema"
 #~ msgid "Import/Export coordinates for relational schema"
 #~ msgstr "ක්‍රමානුරූපය සංස්කරණය හෝ අපනයනය කරන්න"

@@ -16016,17 +16016,6 @@ msgstr "concurrent_insert установлен в 0"
 #~ msgid "mcrypt warning"
 #~ msgstr "Предупреждение о mcrypt"
 
-#, fuzzy
-#~| msgid ""
-#~| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~| "[/kbd]"
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Для отключения поддержки Дизайнера Связей оставьте поле пустым, "
-#~ "рекомендуется: [kbd]pma__designer_coords[/kbd]"
-
 #~ msgid "Designer table"
 #~ msgstr "Таблица Дизайнера"
 

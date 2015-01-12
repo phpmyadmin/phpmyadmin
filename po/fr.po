@@ -16036,13 +16036,6 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 #~ msgid "mcrypt warning"
 #~ msgstr "avertissement mcrypt"
 
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Laisser vider pour désactiver, suggestion : [kbd]pma__designer_coords[/"
-#~ "kbd]."
-
 #~ msgid "Designer table"
 #~ msgstr "Table pour la fonctionnalité Concepteur"
 
