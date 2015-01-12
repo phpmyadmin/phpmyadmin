@@ -2456,18 +2456,17 @@ class PMA_Util
 
             // Move to the beginning or to the previous page
             if ($pos > 0) {
+                $caption1 = ''; $caption2 = '';
                 if (self::showIcons('TableNavigationLinksMode')) {
-                    $caption1 = '&lt;&lt;';
-                    $caption2 = ' &lt; ';
-                    $title1   = ' title="' . _pgettext('First page', 'Begin') . '"';
-                    $title2   = ' title="'
-                        . _pgettext('Previous page', 'Previous') . '"';
-                } else {
-                    $caption1 = _pgettext('First page', 'Begin') . ' &lt;&lt;';
-                    $caption2 = _pgettext('Previous page', 'Previous') . ' &lt;';
-                    $title1   = '';
-                    $title2   = '';
-                } // end if... else...
+                    $caption1 .= '&lt;&lt; ';
+                    $caption2 .= '&lt; ';
+                }
+                if (self::showText('TableNavigationLinksMode')) {
+                    $caption1 .= _pgettext('First page', 'Begin');
+                    $caption2 .= _pgettext('Previous page', 'Previous');
+                }
+                $title1 = ' title="' . _pgettext('First page', 'Begin') . '"';
+                $title2 = ' title="' . _pgettext('Previous page', 'Previous') . '"';
 
                 $_url_params[$name] = 0;
                 $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
@@ -2475,7 +2474,7 @@ class PMA_Util
                     . '</a>';
 
                 $_url_params[$name] = $pos - $max_count;
-                $list_navigator_html .= '<a' . $class . $title2 . ' href="' . $script
+                $list_navigator_html .= ' <a' . $class . $title2 . ' href="' . $script
                     . PMA_URL_getCommon($_url_params) . '">' . $caption2
                     . '</a>';
             }
@@ -2493,17 +2492,20 @@ class PMA_Util
             $list_navigator_html .= '</form>';
 
             if ($pos + $max_count < $count) {
-                if ( self::showIcons('TableNavigationLinksMode')) {
-                    $caption3 = ' &gt; ';
-                    $caption4 = '&gt;&gt;';
-                    $title3   = ' title="' . _pgettext('Next page', 'Next') . '"';
-                    $title4   = ' title="' . _pgettext('Last page', 'End') . '"';
-                } else {
-                    $caption3 = '&gt; ' . _pgettext('Next page', 'Next');
-                    $caption4 = '&gt;&gt; ' . _pgettext('Last page', 'End');
-                    $title3   = '';
-                    $title4   = '';
-                } // end if... else...
+                $caption3 = ''; $caption4 = '';
+                if (self::showText('TableNavigationLinksMode')) {
+                    $caption3 .= _pgettext('Next page', 'Next');
+                    $caption4 .= _pgettext('Last page', 'End');
+                }
+                if (self::showIcons('TableNavigationLinksMode')) {
+                    $caption3 .= ' &gt;';
+                    $caption4 .= ' &gt;&gt;';
+                    if (! self::showText('TableNavigationLinksMode')) {
+
+                    }
+                }
+                $title3 = ' title="' . _pgettext('Next page', 'Next') . '"';
+                $title4 = ' title="' . _pgettext('Last page', 'End') . '"';
 
                 $_url_params[$name] = $pos + $max_count;
                 $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
@@ -2515,7 +2517,7 @@ class PMA_Util
                     $_url_params[$name] = $count - $max_count;
                 }
 
-                $list_navigator_html .= '<a' . $class . $title4 . ' href="' . $script
+                $list_navigator_html .= ' <a' . $class . $title4 . ' href="' . $script
                     . PMA_URL_getCommon($_url_params) . '" >' . $caption4
                     . '</a>';
             }
