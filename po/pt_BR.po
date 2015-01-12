@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-09 12:30-0500\n"
-"PO-Revision-Date: 2015-01-11 17:18+0200\n"
-"Last-Translator: Yan Gabriel <yansilvagabriel@gmail.com>\n"
+"PO-Revision-Date: 2015-01-12 09:48+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2864,7 +2864,7 @@ msgstr "compartilhado"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:124
-#, php-format
+#, fuzzy, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "O marcador foi incluído."
