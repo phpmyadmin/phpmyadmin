@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-02 09:53+0200\n"
+"PO-Revision-Date: 2015-01-12 09:17+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/et/>\n"
@@ -6694,7 +6694,6 @@ msgid "Central columns table"
 msgstr "Kesksete veergude tabel"
 
 #: libraries/config/messages.inc.php:609
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]."
@@ -6702,8 +6701,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: [kbd]"
 "pma__central_columns[/kbd]."
 msgstr ""
-"Jäta tühjaks, kui puudub PDF skeemi tugi, soovitatav: [kbd]pma__table_coords"
-"[/kbd]."
+"Jäta tühjaks, et keskseid veerge mitte kasutada, soovitatav: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:612
 msgid "Try to connect without password."
