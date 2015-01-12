@@ -699,12 +699,9 @@ class PMA_NavigationTree
                 );
                 $groups[$key]->separator = $node->separator;
                 $groups[$key]->separator_depth = $node->separator_depth - 1;
-                $groups[$key]->icon = '';
-                if (PMA_Util::showIcons('TableNavigationLinksMode')) {
-                    $groups[$key]->icon = PMA_Util::getImage(
-                        'b_group.png'
-                    );
-                }
+                $groups[$key]->icon = PMA_Util::getImage(
+                    'b_group.png'
+                );
                 $groups[$key]->pos2 = $node->pos2;
                 $groups[$key]->pos3 = $node->pos3;
                 if ($node instanceof Node_Table_Container
@@ -1031,25 +1028,25 @@ class PMA_NavigationTree
             if ($node->type == Node::CONTAINER) {
                 $retval .= "<i>";
             }
-            if (PMA_Util::showIcons('TableNavigationLinksMode')) {
-                $retval .= "<div class='block'>";
-                if (isset($node->links['icon'])) {
-                    $args = array();
-                    foreach ($node->parents(true) as $parent) {
-                        $args[] = urlencode($parent->real_name);
-                    }
-                    $link = vsprintf($node->links['icon'], $args);
-                    if ($linkClass != '') {
-                        $retval .= "<a class='$linkClass' href='$link'>";
-                        $retval .= "{$node->icon}</a>";
-                    } else {
-                        $retval .= "<a href='$link'>{$node->icon}</a>";
-                    }
-                } else {
-                    $retval .= "<u>{$node->icon}</u>";
+
+            $retval .= "<div class='block'>";
+            if (isset($node->links['icon'])) {
+                $args = array();
+                foreach ($node->parents(true) as $parent) {
+                    $args[] = urlencode($parent->real_name);
                 }
-                $retval .= "</div>";
+                $link = vsprintf($node->links['icon'], $args);
+                if ($linkClass != '') {
+                    $retval .= "<a class='$linkClass' href='$link'>";
+                    $retval .= "{$node->icon}</a>";
+                } else {
+                    $retval .= "<a href='$link'>{$node->icon}</a>";
+                }
+            } else {
+                $retval .= "<u>{$node->icon}</u>";
             }
+            $retval .= "</div>";
+
             if (isset($node->links['text'])) {
                 $args = array();
                 foreach ($node->parents(true) as $parent) {
