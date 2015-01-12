@@ -43,7 +43,7 @@ $cfg_db['NavigationTreeDefaultTabTable'] = array(
     'sql.php'            // browse page
 );
 $cfg_db['NavigationTreeDefaultTabTable2'] = array(
-    null, //don't display
+    '', //don't display
     'tbl_structure.php', // fields list
     'tbl_sql.php',       // SQL form
     'tbl_select.php',    // search page
