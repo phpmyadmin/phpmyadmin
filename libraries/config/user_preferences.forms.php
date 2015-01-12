@@ -114,12 +114,10 @@ $forms['Main_panel']['Browse'] = array(
     'BrowseMarkerEnable',
     'GridEditing',
     'SaveCellsAtOnce',
-    'ShowDisplayDirection',
     'RepeatCells',
     'LimitChars',
     'RowActionLinks',
     'TablePrimaryKeyOrder',
-    'DefaultDisplay',
     'RememberSorting');
 $forms['Main_panel']['Edit'] = array(
     'ProtectBinary',

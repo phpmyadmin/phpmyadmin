@@ -2590,26 +2590,11 @@ $cfg['RowActionLinks'] = 'left';
 $cfg['TablePrimaryKeyOrder'] = 'NONE';
 
 /**
- * default display direction (horizontal|vertical|horizontalflipped)
- *
- * @global string $cfg['DefaultDisplay']
- */
-$cfg['DefaultDisplay'] = 'horizontal';
-
-/**
  * remember the last way a table sorted
  *
  * @global string $cfg['RememberSorting']
  */
 $cfg['RememberSorting'] = true;
-
-/**
- * table-header rotation via faking or CSS? (css|fake|auto)
- * NOTE: CSS only works in IE browsers!
- *
- * @global string $cfg['HeaderFlipType']
- */
-$cfg['HeaderFlipType'] = 'auto';
 
 /**
  * shows stored relation-comments in 'browse' mode.
@@ -2624,11 +2609,6 @@ $cfg['ShowBrowseComments'] = true;
  * @global boolean $cfg['ShowPropertyComments']
  */
 $cfg['ShowPropertyComments']= true;
-
-/**
- * shows table display direction.
- */
-$cfg['ShowDisplayDirection'] = false;
 
 /**
  * repeat header names every X cells? (0 = deactivate)

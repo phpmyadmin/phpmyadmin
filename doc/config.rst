@@ -2252,18 +2252,6 @@ Design customization
     the left side, right side, both sides or nowhere). "left" and "right"
     are parsed as "top" and "bottom" with vertical display mode.
 
-.. config:option:: $cfg['DefaultDisplay']
-
-    :type: string
-    :default: ``'horizontal'``
-
-    There are 3 display modes: horizontal, horizontalflipped and vertical.
-    Define which one is displayed by default. The first mode displays each
-    row on a horizontal line, the second rotates the headers by 90
-    degrees, so you can use descriptive headers even though columns only
-    contain small values and still print them out. The vertical mode sorts
-    each row on a vertical lineup.
-
 .. config:option:: $cfg['RememberSorting']
 
     :type: boolean
@@ -2515,14 +2503,6 @@ Web server upload/save/import directories
 
 Various display setting
 -----------------------
-
-.. config:option:: $cfg['ShowDisplayDirection']
-
-    :type: boolean
-    :default: false
-
-    Defines whether or not type display direction option is shown when
-    browsing a table.
 
 .. config:option:: $cfg['RepeatCells']
 

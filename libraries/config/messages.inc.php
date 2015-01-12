@@ -78,7 +78,6 @@ $strConfigConfirm_desc = __(
 );
 $strConfigConfirm_name = __('Confirm DROP queries');
 $strConfigDBG_sql_name = __('Debug SQL');
-$strConfigDefaultDisplay_name = __('Default display direction');
 $strConfigDefaultTabDatabase_desc
     = __('Tab that is displayed when entering a database.');
 $strConfigDefaultTabDatabase_name = __('Default database tab');
@@ -725,8 +724,6 @@ $strConfigShowDbStructureLastUpdate_desc = __('Show or hide a column displaying 
 $strConfigShowDbStructureLastUpdate_name = __('Show Last update timestamp');
 $strConfigShowDbStructureLastCheck_desc = __('Show or hide a column displaying the Last check timestamp for all tables.');
 $strConfigShowDbStructureLastCheck_name = __('Show Last check timestamp');
-$strConfigShowDisplayDirection_desc = __('Defines whether or not type display direction option is shown when browsing a table.');
-$strConfigShowDisplayDirection_name = __('Show display direction');
 $strConfigShowFieldTypesInDataEditView_desc = __('Defines whether or not type fields should be initially displayed in edit/insert mode.');
 $strConfigShowFieldTypesInDataEditView_name = __('Show field types');
 $strConfigShowFunctionFields_desc = __('Display the function fields in edit/insert mode.');

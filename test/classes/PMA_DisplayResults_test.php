@@ -186,9 +186,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['num_rows'] = '20';
         $GLOBALS['unlim_num_rows'] = '50';
         $GLOBALS['cfg']['ShowAll'] = true;
-        $GLOBALS['cfg']['ShowDisplayDirection'] = true;
         $_SESSION['tmpval']['repeat_cells'] = '1';
-        $_SESSION['tmpval']['disp_direction'] = '1';
 
         /**
          * FIXME Counting words of a generated large HTML is not a good way
@@ -270,8 +268,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     ) {
         $GLOBALS['cfg']['BrowsePointerEnable'] = true;
         $GLOBALS['cfg']['BrowseMarkerEnable'] = true;
-        $_SESSION['tmpval']['disp_direction']
-            = PMA_DisplayResults::DISP_DIR_VERTICAL;
 
         $this->assertEquals(
             $output,
@@ -334,63 +330,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Provide data for testGetOperationLinksForVerticalTable
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForTestGetOperationLinksForVerticalTable()
-    {
-        return array(
-            array(
-                'edit',
-                '<tr>
-</tr>
-'
-            ),
-            array(
-                'copy',
-                "<tr>\nCOPY1COPY2</tr>\n"
-            ),
-            array(
-                'delete',
-                "<tr>\nDELETE1DELETE2</tr>\n"
-            ),
-        );
-    }
-
-    /**
-     * Test for _getOperationLinksForVerticalTable
-     *
-     * @param string $operation edit/copy/delete
-     * @param string $output    output of _getOperationLinksForVerticalTable
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForTestGetOperationLinksForVerticalTable
-     */
-    public function testGetOperationLinksForVerticalTable(
-        $operation, $output
-    ) {
-        $vertical_display = array(
-            'row_delete' => array(),
-            'textbtn' => '<th  rowspan="4" class="vmiddle">\n        \n    </th>\n',
-            'edit' => array(),
-            'copy' => array('COPY1', 'COPY2'),
-            'delete' => array('DELETE1', 'DELETE2'),
-        );
-
-        $this->object->__set('vertical_display', $vertical_display);
-
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getOperationLinksForVerticalTable',
-                array($operation)
-            )
-        );
-    }
-
-    /**
      * Data provider for testGetCheckBoxesForMultipleRowOperations
      *
      * @return array parameters and output
@@ -420,7 +359,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * Test for _getCheckBoxesForMultipleRowOperations
      *
      * @param string $dir          _left / _right
-     * @param array  $displayParts which parts to display 
+     * @param array  $displayParts which parts to display
      * @param string $output       output of _getCheckBoxesForMultipleRowOperations
      *
      * @return void
