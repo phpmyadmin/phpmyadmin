@@ -580,6 +580,7 @@ class PMA_DisplayResults
      * @param string  $title              text for button
      * @param integer $pos                position for next query
      * @param string  $html_sql_query     query ready for display
+     * @param boolean $back               whether 'begin' or 'previous'
      * @param string  $onsubmit           optional onsubmit clause
      * @param string  $input_for_real_end optional hidden field for special treatment
      * @param string  $onclick            optional onclick clause
@@ -592,17 +593,25 @@ class PMA_DisplayResults
      *          _getMoveForwardButtonsForTableNavigation()
      */
     private function _getTableNavigationButton(
-        $caption, $title, $pos, $html_sql_query, $onsubmit = '',
+        $caption, $title, $pos, $html_sql_query, $back, $onsubmit = '',
         $input_for_real_end = '', $onclick = ''
     ) {
 
         $caption_output = '';
-        if (PMA_Util::showIcons('TableNavigationLinksMode')) {
-            $caption_output .= $caption;
-        }
-
-        if (PMA_Util::showText('TableNavigationLinksMode')) {
-            $caption_output .= '&nbsp;' . $title;
+        if ($back) {
+            if (PMA_Util::showIcons('TableNavigationLinksMode')) {
+                $caption_output .= $caption;
+            }
+            if (PMA_Util::showText('TableNavigationLinksMode')) {
+                $caption_output .= '&nbsp;' . $title;
+            }
+        } else {
+            if (PMA_Util::showText('TableNavigationLinksMode')) {
+                $caption_output .= $title;
+            }
+            if (PMA_Util::showIcons('TableNavigationLinksMode')) {
+                $caption_output .= '&nbsp;' . $caption;
+            }
         }
         $title_output = ' title="' . $title . '"';
 
@@ -833,11 +842,11 @@ class PMA_DisplayResults
         $html_sql_query, $pos_prev
     ) {
         return $this->_getTableNavigationButton(
-            '&lt;&lt;', _pgettext('First page', 'Begin'), 0, $html_sql_query
+            '&lt;&lt;', _pgettext('First page', 'Begin'), 0, $html_sql_query, true
         )
         . $this->_getTableNavigationButton(
             '&lt;', _pgettext('Previous page', 'Previous'), $pos_prev,
-            $html_sql_query
+            $html_sql_query, true
         );
     } // end of the '_getMoveBackwardButtonsForTableNavigation()' function
 
@@ -900,7 +909,8 @@ class PMA_DisplayResults
             '&gt;',
             _pgettext('Next page', 'Next'),
             $pos_next,
-            $html_sql_query
+            $html_sql_query,
+            false
         );
 
         // prepare some options for the End button
@@ -932,7 +942,7 @@ class PMA_DisplayResults
                 $this->__get('unlim_num_rows')
                 / $_SESSION['tmpval']['max_rows']
             )- 1) * $maxRows),
-            $html_sql_query, $onsubmit, $input_for_real_end, $onclick
+            $html_sql_query, false, $onsubmit, $input_for_real_end, $onclick
         );
 
         return $buttons_html;
