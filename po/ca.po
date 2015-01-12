@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-09 12:30-0500\n"
-"PO-Revision-Date: 2014-12-03 07:58+0200\n"
+"PO-Revision-Date: 2015-01-12 08:36+0200\n"
 "Last-Translator: josep constanti <jconstanti@ovi.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ca/>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.1-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -329,23 +329,23 @@ msgid "Access denied!"
 msgstr "Accés denegat!"
 
 #: db_tracking.php:38 db_tracking.php:63
-#, fuzzy
 #| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "Definició de seguiment de dades eliminat correctament"
+msgstr "Les dades de seguiment s'han eliminat correctament."
 
 #: db_tracking.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "S'ha creat la versió %1$s, activat el seguiment per %2$s."
+msgstr ""
+"S'ha creat la versió %1$s de les taules seleccionades, el seu seguiment està "
+"actiu."
 
 #: db_tracking.php:78
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "No s'han triat bases de dades."
+msgstr "No s'han triat taules."
 
 #: db_tracking.php:113
 msgid "Tracked tables"
@@ -393,10 +393,9 @@ msgid "Delete tracking data for this table"
 msgstr "Esborra les dades de seguiment per aquesta taula"
 
 #: db_tracking.php:146 db_tracking.php:208
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "Esborra les dades de seguiment"
+msgstr "Esborra seguiment"
 
 #: db_tracking.php:184
 msgid "Versions"
@@ -949,28 +948,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Ets a punt de TRUNCAR completament una taula sencera!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Esborra les dades de seguiment per aquesta taula"
+msgstr "Voleu esborrar les dades de seguiment per aquesta taula?"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Esborra les dades de seguiment per aquesta taula"
+msgstr "Voleu esborrar les dades de seguiment per aquestes taules?"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Esborra les dades de seguiment per aquesta taula"
+msgstr "Voleu esborrar les dades de seguiment per aquesta versió?"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Esborra les dades de seguiment per aquesta taula"
+msgstr "Voleu esborrar les dades de seguiment per aquestes versions?"
 
 #: js/messages.php:44
 msgid "Deleting tracking data"
@@ -2193,7 +2188,6 @@ msgid "Click to sort results by this column."
 msgstr "Cliqueu per ordenar els resultats segons aquest columna."
 
 #: js/messages.php:427
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2202,9 +2196,10 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Premeu Majúscules mentre cliqueu per afegir aquesta columna a la clàusula "
-"«ORDER BY» o per canviar l'ordre ascendent o descendent. <br />- Premeu "
-"Control mentre cliqueu per treure aquesta columna de la clàusula «ORDER BY»"
+"Premeu Majúscules mentre cliqueu per afegir aquesta columna a la clàusula «"
+"ORDER BY» o per canviar l'ordre ascendent o descendent. <br />- Premeu Ctrl "
+"o Alt mentre cliqueu (Mac: Majúscules i Option mentre cliqueu) per treure "
+"aquesta columna de la clàusula «ORDER BY»"
 
 #: js/messages.php:428
 msgid "Click to mark/unmark."
@@ -5956,44 +5951,40 @@ msgid "Startup"
 msgstr "Inici"
 
 #: libraries/config/messages.inc.php:290
-#, fuzzy
 #| msgid "Customize startup page"
 msgid "Customize startup page."
-msgstr "Configura la pàgina d'inici"
+msgstr "Configura la pàgina d'inici."
 
 #: libraries/config/messages.inc.php:291
 msgid "Database structure"
 msgstr "Estructura de base de dades"
 
 #: libraries/config/messages.inc.php:293
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Tria els detalls a mostrar en l'estructura de base de dades (llista de "
-"taules)"
+"taules)."
 
 #: libraries/config/messages.inc.php:294
 msgid "Table structure"
 msgstr "Estructura de taula"
 
 #: libraries/config/messages.inc.php:296
-#, fuzzy
 #| msgid "Settings for the table structure (list of columns)"
 msgid "Settings for the table structure (list of columns)."
-msgstr "Configuració de l'estructura de la taula (llista de columnes)"
+msgstr "Configuració de l'estructura de la taula (llista de columnes)."
 
 #: libraries/config/messages.inc.php:297
 msgid "Tabs"
 msgstr "Pestanyes"
 
 #: libraries/config/messages.inc.php:298
-#, fuzzy
 #| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
-msgstr "Tria cóm vols que treballin les pestanyes"
+msgstr "Tria cóm vols que treballin les pestanyes."
 
 #: libraries/config/messages.inc.php:299
 msgid "Display relational schema"
@@ -6010,10 +6001,9 @@ msgid "Text fields"
 msgstr "Camps de text"
 
 #: libraries/config/messages.inc.php:304
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Customize text input fields."
-msgstr "Configurar camps d'entrada de text"
+msgstr "Configurar els camps d'entrada de text."
 
 #: libraries/config/messages.inc.php:305
 msgid "Texy! text"
@@ -6028,13 +6018,11 @@ msgid "Warnings"
 msgstr "Avisos"
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "Desactiva alguns dels avisos mostrats per phpMyAdmin"
+msgstr "Desactiva alguns dels avisos mostrats per phpMyAdmin."
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations"
@@ -6043,7 +6031,7 @@ msgid ""
 "and export operations."
 msgstr ""
 "Activa la compressió [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] per a les "
-"operacions d'importació i exportació"
+"operacions d'importació i exportació."
 
 #: libraries/config/messages.inc.php:314
 msgid "GZip"
@@ -6054,7 +6042,6 @@ msgid "Extra parameters for iconv"
 msgstr "Paràmetres adiccionals per iconv"
 
 #: libraries/config/messages.inc.php:317
-#, fuzzy
 #| msgid ""
 #| "If enabled, phpMyAdmin continues computing multiple-statement queries "
 #| "even if one of the queries failed"
@@ -6062,8 +6049,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
-"Si està activat, phpMyAdmin continúa processant consultes de múltiples "
-"instruccions encara que una d'elles falli"
+"Si està activat, phpMyAdmin continuarà processant consultes de múltiples "
+"instruccions fins la darrera encara que alguna anterior falli."
 
 #: libraries/config/messages.inc.php:320
 msgid "Ignore multiple statement errors"
@@ -6095,7 +6082,6 @@ msgid "Replace table data with file"
 msgstr "Canviar les dades de la taula per l'arxiu"
 
 #: libraries/config/messages.inc.php:335
-#, fuzzy
 #| msgid ""
 #| "Default format; be aware that this list depends on location (database, "
 #| "table) and only SQL is always available"
@@ -6103,8 +6089,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
 msgstr ""
-"Format predeterminat; sigues conscient que la llista depén de la situació "
-"(base de dades, taula) i només SQL està sempre disponible"
+"Format predeterminat; sigueu conscient que la llista depén de la situació ("
+"base de dades, taula) i només SQL està sempre disponible."
 
 #: libraries/config/messages.inc.php:338
 msgid "Format of imported file"
@@ -6134,10 +6120,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importar percentatges amb els decimals adients (12.00% a .12)"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of queries to skip from start."
-msgstr "Nombre de consultes a saltar des de l'inici"
+msgstr "Nombre de consultes a saltar des de l'inici."
 
 #: libraries/config/messages.inc.php:352
 msgid "Partial import: skip queries"
@@ -6152,25 +6137,23 @@ msgid "Initial state for sliders"
 msgstr "Estat inicial per a les barres de desplaçament"
 
 #: libraries/config/messages.inc.php:359
-#, fuzzy
 #| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
-msgstr "Quantes files es poden inserir a la vegada"
+msgstr "Quantes files es poden inserir de cop."
 
 #: libraries/config/messages.inc.php:360
 msgid "Number of inserted rows"
 msgstr "Nombre de files a inserir"
 
 #: libraries/config/messages.inc.php:362
-#, fuzzy
 #| msgid ""
 #| "Maximum number of characters shown in any non-numeric column on browse "
 #| "view"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
-"Màxim nombre de caràcters usats en qualsevol columna no-numèrica a la vista "
-"de navegació"
+"Màxim nombre de caràcters mostrats a qualsevol columna no-numèrica a la "
+"vista de navegació."
 
 #: libraries/config/messages.inc.php:364
 msgid "Limit column characters"
@@ -6192,7 +6175,6 @@ msgid "Delete all cookies on logout"
 msgstr "Esborra totes les galetes al desconnectar"
 
 #: libraries/config/messages.inc.php:372
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode"
@@ -6201,7 +6183,7 @@ msgid ""
 "kbd] authentication mode."
 msgstr ""
 "Defineix si l'anterior autenticació s'ha de recuperar o no al mode "
-"d'autenticació per galetes"
+"d'autenticació per  [kbd]galetes [/kbd]."
 
 #: libraries/config/messages.inc.php:375
 msgid "Recall user name"
@@ -6224,32 +6206,29 @@ msgid "Login cookie store"
 msgstr "Emmagatzema les galetes de connexió"
 
 #: libraries/config/messages.inc.php:384
-#, fuzzy
 #| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr ""
-"Defineix durant quant de temps (en segons) es vàlida una galeta "
-"d'autenticació"
+"Definiu durant quant de temps (en segons) una galeta d'autenticació és "
+"vàlida."
 
 #: libraries/config/messages.inc.php:385
 msgid "Login cookie validity"
 msgstr "Validesa de l'autenticació per galetes"
 
 #: libraries/config/messages.inc.php:387
-#, fuzzy
 #| msgid "Double size of textarea for LONGTEXT columns"
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr "Doble tamany de textareas per a columnes LONGTEXT"
+msgstr "Doble tamany de textarea per a columnes LONGTEXT."
 
 #: libraries/config/messages.inc.php:388
 msgid "Bigger textarea for LONGTEXT"
 msgstr "textarea més gran per a LONGTEXT"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr "Màxim nombre de caràcters usats quan es mostra una consulta SQL"
+msgstr "Màxim nombre de caràcters usats quan es mostra una consulta SQL."
 
 #: libraries/config/messages.inc.php:391
 msgid "Maximum displayed SQL length"
@@ -6261,10 +6240,9 @@ msgid "Users cannot set a higher value"
 msgstr "Els usuaris no poden establir un valor més gran"
 
 #: libraries/config/messages.inc.php:394
-#, fuzzy
 #| msgid "Maximum number of databases displayed in database list"
 msgid "Maximum number of databases displayed in database list."
-msgstr "Màxim nombre de bases de dades mostrades a la llista"
+msgstr "Màxim nombre de bases de dades mostrades a la llista."
 
 #: libraries/config/messages.inc.php:395
 msgid "Maximum databases"
