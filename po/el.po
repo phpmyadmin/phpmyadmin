@@ -16111,13 +16111,6 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgid "mcrypt warning"
 #~ msgstr "προειδοποιηση mcrypt"
 
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Αφήστε το κενό για καμία υποστήριξη Σχεδιαστή, προτείνεται: [kbd]"
-#~ "pma_designer_coords[/kbd]."
-
 #~ msgid "Designer table"
 #~ msgstr "Πίνακας σχεδιαστή"
 

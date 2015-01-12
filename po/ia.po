@@ -15317,13 +15317,6 @@ msgstr ""
 #~ msgid "mcrypt warning"
 #~ msgstr "aviso de mcrypt"
 
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Lassa vacue pro nulle supporto de Designer, proponite:  [kbd]"
-#~ "pma__designer_coords[/kbd]."
-
 #~ msgid "Designer table"
 #~ msgstr "Tabella de designator assistite"
 

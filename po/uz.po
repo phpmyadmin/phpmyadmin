@@ -17579,17 +17579,6 @@ msgstr "Максимал уланишлар сони "
 #~ "[kbd]cookie[/kbd]-аутентификация усулида cookie-ларни шифрлаш учун "
 #~ "ишлатиладиган сирли ибора"
 
-#, fuzzy
-#~| msgid ""
-#~| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords"
-#~| "[/kbd]"
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Дизайнер ишлатмаслик учун бўш қолдиринг, асл қиймати: [kbd]"
-#~ "pma_designer_coords[/kbd]"
-
 #~ msgid "Designer table"
 #~ msgstr "Дизайнер жадвали"
 

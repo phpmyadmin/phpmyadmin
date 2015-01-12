@@ -15485,17 +15485,6 @@ msgstr "concurrent_insert가 0으로 설정되었습니다"
 #~ msgid "mcrypt warning"
 #~ msgstr "mcrypt 경고"
 
-#, fuzzy
-#~| msgid ""
-#~| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
-#~| "kbd]"
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/"
-#~ "kbd]"
-
 #~ msgid "Designer table"
 #~ msgstr "디자이너 테이블"
 

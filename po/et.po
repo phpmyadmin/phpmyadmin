@@ -15779,13 +15779,6 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgid "mcrypt warning"
 #~ msgstr "mcrypt'i hoiatus"
 
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Jäta tühjaks, kui puudub kujundaja tugi, soovitatav: [kbd]"
-#~ "pma__designer_coords[/kbd]."
-
 #~ msgid "Designer table"
 #~ msgstr "Kujundaja tabel"
 

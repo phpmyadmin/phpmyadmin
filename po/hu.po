@@ -15983,17 +15983,6 @@ msgstr "A concurrent_insert 0-ra van állítva"
 #~ msgid "mcrypt warning"
 #~ msgstr "mcrypt figyelmeztetés"
 
-#, fuzzy
-#~| msgid ""
-#~| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~| "[/kbd]"
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Hagyja üresen, ha nem akar Tervező támogatást, ajánlott: [kbd]"
-#~ "pma_designer_coords[/kbd]"
-
 #~ msgid "Designer table"
 #~ msgstr "Tervező tábla"
 

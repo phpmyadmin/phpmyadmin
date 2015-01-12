@@ -17068,17 +17068,6 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ msgid "mcrypt warning"
 #~ msgstr "mcrypt 警告"
 
-#, fuzzy
-#~| msgid ""
-#~| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords"
-#~| "[/kbd]"
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "デザイナを使わない場合は空欄にします。[kbd]pma_designer_coords[/kbd] とし"
-#~ "ておくのがいいでしょう。"
-
 #~ msgid "Designer table"
 #~ msgstr "デザイナテーブル"
 
