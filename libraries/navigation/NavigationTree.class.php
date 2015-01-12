@@ -1055,13 +1055,13 @@ class PMA_NavigationTree
                         $args[] = urlencode($parent->real_name);
                     }
 
-                    foreach ($iconLinks as $key => $iconLink) {
-                        $link = vsprintf($iconLink, $args);
+                    foreach ($icons as $key => $icon) {
+                        $link = vsprintf($iconLinks[$key], $args);
                         if ($linkClass != '') {
                             $retval .= "<a class='$linkClass' href='$link'>";
-                            $retval .= "{$icons[$key]}</a>";
+                            $retval .= "{$icon}</a>";
                         } else {
-                            $retval .= "<a href='$link'>{$icons[$key]}</a>";
+                            $retval .= "<a href='$link'>{$icon}</a>";
                         }
                     }
                 } else {
