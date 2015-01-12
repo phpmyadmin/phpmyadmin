@@ -2620,16 +2620,6 @@ class PMA_DisplayResults
             } // end if (3)
 
             $table_body_html .= '</tr>';
-
-            // 4. Gather links of del_urls and edit_urls in an array for later
-            //    output
-            $this->_gatherLinksForLaterOutputs(
-                $row_no, $displayParts, $where_clause, $where_clause_html, $js_conf,
-                $del_url, $del_str, $edit_anchor_class, $edit_url,
-                $edit_str, $copy_url, $copy_str, $alternating_color_class,
-                $condition_array
-            );
-
             $table_body_html .= "\n";
             $row_no++;
 
@@ -2939,117 +2929,6 @@ class PMA_DisplayResults
         return $row_values_html;
 
     } // end of the '_getRowValues()' function
-
-
-    /**
-     * Gather delete/edit url links for further outputs
-     *
-     * @param integer $row_no                  the index of current row
-     * @param array   $displayParts            which elements to display
-     * @param string  $where_clause            where clause
-     * @param string  $where_clause_html       the html encoded where clause
-     * @param string  $js_conf                 text for the JS confirmation
-     * @param string  $del_url                 the url for delete row
-     * @param string  $del_str                 the label for delete row
-     * @param string  $edit_anchor_class       the class for html element for edit
-     * @param string  $edit_url                the url for edit row
-     * @param string  $edit_str                the label for edit row
-     * @param string  $copy_url                the url for copy row
-     * @param string  $copy_str                the label for copy row
-     * @param string  $alternating_color_class class for display two colors in rows
-     * @param array   $condition_array         array of keys
-     *                                         (primary,unique,condition)
-     *
-     * @return  void
-     *
-     * @access  private
-     *
-     * @see     _getTableBody()
-     */
-    private function _gatherLinksForLaterOutputs(
-        $row_no, $displayParts, $where_clause, $where_clause_html, $js_conf,
-        $del_url, $del_str, $edit_anchor_class, $edit_url, $edit_str,
-        $copy_url, $copy_str, $alternating_color_class, $condition_array
-    ) {
-
-        $vertical_display = $this->__get('vertical_display');
-
-        if (! isset($vertical_display['edit'][$row_no])) {
-            $vertical_display['edit'][$row_no]       = '';
-            $vertical_display['copy'][$row_no]       = '';
-            $vertical_display['delete'][$row_no]     = '';
-            $vertical_display['row_delete'][$row_no] = '';
-        }
-
-        $vertical_class = ' row_' . $row_no;
-        if ($GLOBALS['cfg']['BrowsePointerEnable'] == true) {
-            $vertical_class .= ' vpointer';
-        }
-
-        if ($GLOBALS['cfg']['BrowseMarkerEnable'] == true) {
-            $vertical_class .= ' vmarker';
-        }
-
-        if (!empty($del_url)
-            && ($displayParts['del_lnk'] != self::KILL_PROCESS)
-        ) {
-
-            $vertical_display['row_delete'][$row_no]
-                .= $this->_getCheckboxForMultiRowSubmissions(
-                    $del_url, $displayParts, $row_no, $where_clause_html,
-                    $condition_array, '[%_PMA_CHECKBOX_DIR_%]',
-                    $alternating_color_class . $vertical_class
-                );
-
-        } else {
-            unset($vertical_display['row_delete'][$row_no]);
-        }
-
-        if (isset($edit_url)) {
-
-            $vertical_display['edit'][$row_no] .= $this->_getEditLink(
-                $edit_url,
-                $alternating_color_class . ' ' . $edit_anchor_class
-                . $vertical_class, $edit_str,
-                $where_clause,
-                $where_clause_html
-            );
-
-        } else {
-            unset($vertical_display['edit'][$row_no]);
-        }
-
-        if (isset($copy_url)) {
-
-            $vertical_display['copy'][$row_no] .= $this->_getCopyLink(
-                $copy_url, $copy_str, $where_clause, $where_clause_html,
-                $alternating_color_class . $vertical_class
-            );
-
-        } else {
-            unset($vertical_display['copy'][$row_no]);
-        }
-
-        if (isset($del_url)) {
-
-            if (! isset($js_conf)) {
-                $js_conf = '';
-            }
-
-            $vertical_display['delete'][$row_no]
-                .= $this->_getDeleteLink(
-                    $del_url, $del_str, $js_conf,
-                    $alternating_color_class . $vertical_class
-                );
-
-        } else {
-            unset($vertical_display['delete'][$row_no]);
-        }
-
-        $this->__set('vertical_display', $vertical_display);
-
-    } // end of the '_gatherLinksForLaterOutputs()' function
-
 
     /**
      * Get link for display special schema links
