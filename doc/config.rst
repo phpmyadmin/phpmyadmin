@@ -1655,6 +1655,16 @@ Browse mode
     Defines whether the table navigation links contain ``'icons'``, ``'text'``
     or ``'both'``.
 
+.. config:option:: $cfg['ActionLinksMode']
+
+    :type: string
+    :default: ``'both'``
+
+    If set to ``icons``, will display icons instead of text for db and table
+    properties links (like :guilabel:`Browse`, :guilabel:`Select`,
+    :guilabel:`Insert`, ...). Can be set to ``'both'``
+    if you want icons AND text. When set to ``text``, will only show text.
+
 .. config:option:: $cfg['ShowAll']
 
     :type: boolean
@@ -1834,16 +1844,6 @@ Tabs display settings
     :default: ``'both'``
 
     Defines whether the menu tabs contain ``'icons'``, ``'text'`` or ``'both'``.
-
-.. config:option:: $cfg['ActionLinksMode']
-
-    :type: string
-    :default: ``'both'``
-
-    If set to ``icons``, will display icons instead of text for db and table
-    properties links (like :guilabel:`Browse`, :guilabel:`Select`,
-    :guilabel:`Insert`, ...). Can be set to ``'both'``
-    if you want icons AND text. When set to ``text``, will only show text.
 
 .. config:option:: $cfg['PropertiesNumColumns']
 
