@@ -2268,19 +2268,6 @@ Design customization
     when there is no sort order defines externally.
     Acceptable values : ['NONE', 'ASC', 'DESC']
 
-.. config:option:: $cfg['HeaderFlipType']
-
-    :type: string
-    :default: ``'auto'``
-
-    The HeaderFlipType can be set to 'auto', 'css' or 'fake'. When using
-    'css' the rotation of the header for horizontalflipped is done via
-    CSS. The CSS transformation currently works only in Internet
-    Explorer.If set to 'fake' PHP does the transformation for you, but of
-    course this does not look as good as CSS. The 'auto' option enables
-    CSS transformation when browser supports it and use PHP based one
-    otherwise.
-
 .. config:option:: $cfg['ShowBrowseComments']
 
     :type: boolean
