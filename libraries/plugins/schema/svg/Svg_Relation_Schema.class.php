@@ -188,7 +188,7 @@ class PMA_SVG extends XMLWriter
         $output = $this->flush();
         PMA_Response::getInstance()->disable();
         PMA_downloadHeader(
-            $fileName . '.svg',
+            $fileName,
             'image/svg+xml',
             /*overload*/mb_strlen($output)
         );
@@ -405,11 +405,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
     function showOutput()
     {
         global $svg;
-        $filename = $GLOBALS['db'];
-        if ($this->pageNumber != -1) {
-            $filename .= '-' . $this->pageNumber;
-        }
-        $svg->showOutput($filename);
+        $svg->showOutput($this->getFileName('.svg'));
     }
 
 
