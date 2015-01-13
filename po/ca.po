@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-09 12:30-0500\n"
-"PO-Revision-Date: 2015-01-12 08:36+0200\n"
+"PO-Revision-Date: 2015-01-13 07:55+0200\n"
 "Last-Translator: josep constanti <jconstanti@ovi.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -6249,30 +6249,31 @@ msgid "Maximum databases"
 msgstr "Màxim de bases de dades"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree"
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
-msgstr "El nombre d'items  que es poden mostrar a l'arbre de navegació"
+msgstr ""
+"El nombre d'items  que es poden mostrar a cadapàgina en el primer nivell de "
+"l'arbre de navegació."
 
 #: libraries/config/messages.inc.php:400
-#, fuzzy
 #| msgid "Maximum items in branch"
 msgid "Maximum items on first level"
-msgstr "Màxim nombre d'elements en una branca"
+msgstr "Màxim nombre d'items al primer nivell"
 
 #: libraries/config/messages.inc.php:402
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree"
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr "El nombre d'items  que es poden mostrar a l'arbre de navegació"
+msgstr ""
+"El nombre d'items  que es poden mostrar a cada pàgina de l'arbre de "
+"navegació."
 
 #: libraries/config/messages.inc.php:404
 msgid "Maximum items in branch"
@@ -6291,17 +6292,15 @@ msgid "Maximum number of rows to display"
 msgstr "Màxim nombre de files a mostrar"
 
 #: libraries/config/messages.inc.php:412
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
-msgstr "Màxim nombre de taules mostrades a la llista"
+msgstr "Màxim nombre de taules mostrades a la llista de taules."
 
 #: libraries/config/messages.inc.php:413
 msgid "Maximum tables"
 msgstr "Màxim de taules"
 
 #: libraries/config/messages.inc.php:415
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)"
@@ -6309,8 +6308,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)."
 msgstr ""
-"El nombre d'octets que una ordre està autoritzada a reservar, ex. [kbd]32M[/"
-"kbd] ([kbd]0[/kbd] per no posar límit)"
+"El nombre d'octets que una ordre està autoritzada a reservar, ex. "
+"[kbd]32M[/kbd] ([kbd]0[/kbd] per no posar límit)."
 
 #: libraries/config/messages.inc.php:418
 msgid "Memory limit"
@@ -6321,27 +6320,24 @@ msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
 #: libraries/config/messages.inc.php:421
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show logo in navigation panel."
-msgstr "Mostra el logo al panell de navegació"
+msgstr "Mostra el logo al panell de navegació."
 
 #: libraries/config/messages.inc.php:422
 msgid "Display logo"
 msgstr "Mostra el logo"
 
 #: libraries/config/messages.inc.php:424
-#, fuzzy
 #| msgid "URL where logo in the navigation panel will point to"
 msgid "URL where logo in the navigation panel will point to."
-msgstr "URL on apunta el logo al panell de navegació"
+msgstr "URL on apuntarà el logo al panell de navegació."
 
 #: libraries/config/messages.inc.php:425
 msgid "Logo link URL"
 msgstr "Enllaç d'URL al logo"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 #| msgid ""
 #| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 #| "([kbd]new[/kbd])"
@@ -6350,17 +6346,16 @@ msgid ""
 "([kbd]new[/kbd])."
 msgstr ""
 "Obrir la pàgina enllaçada a la finestra principal ([kbd]main[/kbd]) o bé a "
-"una de nova ([kbd]new[/kbd])"
+"una de nova ([kbd]new[/kbd])."
 
 #: libraries/config/messages.inc.php:430
 msgid "Logo link target"
 msgstr "Destí d'enllaç al logo"
 
 #: libraries/config/messages.inc.php:432
-#, fuzzy
 #| msgid "Display server choice at the top of the navigation panel"
 msgid "Display server choice at the top of the navigation panel."
-msgstr "Mostra el servidor triat a dalt del panell de navegació"
+msgstr "Mostra el servidor triat a dalt del panell de navegació."
 
 #: libraries/config/messages.inc.php:433
 msgid "Display servers selection"
@@ -6387,7 +6382,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Mínim nombre de bases de dades a mostrar a la caixa de filtre"
 
 #: libraries/config/messages.inc.php:444
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)"
@@ -6396,27 +6390,25 @@ msgid ""
 "below)."
 msgstr ""
 "Agrupar ítems a l'arbre de navegació (determinat pel separador definit tot "
-"seguit)"
+"seguit)."
 
 #: libraries/config/messages.inc.php:446
 msgid "Group items in the tree"
 msgstr "Agrupar elements en l'arbre"
 
 #: libraries/config/messages.inc.php:448
-#, fuzzy
 #| msgid "String that separates databases into different tree levels"
 msgid "String that separates databases into different tree levels."
-msgstr "Text que separa bases de dades en diferents nivells d'arbre"
+msgstr "Text que separa bases de dades en diferents nivells d'arbre."
 
 #: libraries/config/messages.inc.php:449
 msgid "Database tree separator"
 msgstr "Separador per l'arbre de bases de dades"
 
 #: libraries/config/messages.inc.php:451
-#, fuzzy
 #| msgid "String that separates tables into different tree levels"
 msgid "String that separates tables into different tree levels."
-msgstr "Text que separa taules en diferents nivells d'arbre"
+msgstr "Text que separa taules en diferents nivells d'arbre."
 
 #: libraries/config/messages.inc.php:452
 msgid "Table tree separator"
