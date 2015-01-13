@@ -341,12 +341,12 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '_left',
                 array('edit_lnk' => null, 'del_lnk' => null),
                 //array('edit_lnk' => 'nn', 'del_lnk' => 'nn'),
-                '<td class="odd row_0 vpointer vmarker" class="center"><input type='
+                '<td class="odd" class="center"><input type='
                 . '"checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" '
                 . 'class="multi_checkbox" value="%60cars%60.%60id%60+%3D+3"  />'
                 . '<input type="hidden" class="condition_array" value="{&quot;'
-                . '`cars`.`id`&quot;:&quot;= 3&quot;}" />    </td><td class="even '
-                . 'row_1 vpointer vmarker" class="center"><input type="checkbox" '
+                . '`cars`.`id`&quot;:&quot;= 3&quot;}" />    </td><td class="even"'
+                . ' class="center"><input type="checkbox" '
                 . 'id="id_rows_to_delete1_left" name="rows_to_delete[1]" class='
                 . '"multi_checkbox" value="%60cars%60.%60id%60+%3D+9"  /><input '
                 . 'type="hidden" class="condition_array" value="{&quot;`cars`.'
@@ -371,13 +371,13 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     ) {
         $vertical_display = array(
             'row_delete' => array(
-                '<td class="odd row_0 vpointer vmarker" class="center"><input '
+                '<td class="odd" class="center"><input '
                 . 'type="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" '
                 . 'name="rows_to_delete[0]" class="multi_checkbox" value="%60cars'
                 . '%60.%60id%60+%3D+3"  /><input type="hidden" class="condition_'
                 . 'array" value="{&quot;`cars`.`id`&quot;:&quot;= 3&quot;}" />    '
                 . '</td>',
-                '<td class="even row_1 vpointer vmarker" class="center"><input '
+                '<td class="even" class="center"><input '
                 . 'type="checkbox" id="id_rows_to_delete1[%_PMA_CHECKBOX_DIR_%]" '
                 . 'name="rows_to_delete[1]" class="multi_checkbox" value="%60cars'
                 . '%60.%60id%60+%3D+9"  /><input type="hidden" class="condition_'
@@ -508,8 +508,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '%60new%60.%60id%60+%3D+1',
                 array('`new`.`id`' => '= 1'),
                 '[%_PMA_CHECKBOX_DIR_%]',
-                'odd row_0 vpointer vmarker',
-                '<td class="odd row_0 vpointer vmarker" class="center"><input type'
+                'odd',
+                '<td class="odd" class="center"><input type'
                 . '="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name='
                 . '"rows_to_delete[0]" class="multi_checkbox checkall" value="%60'
                 . 'new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_'
@@ -565,12 +565,12 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . 'customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_'
                 . 'action=update&amp;token=bbd5003198a3bd856b21d9607d6c6a1e',
-                'odd edit_row_anchor row_0 vpointer vmarker',
+                'odd edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt='
                 . '"Edit" class="icon ic_b_edit" /> Edit</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
-                '<td class="odd edit_row_anchor row_0 vpointer vmarker center"  >'
+                '<td class="odd edit_row_anchor center"  >'
                 . '<span class="nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -632,8 +632,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '="Copy" class="icon ic_b_insrow" /> Copy</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
-                'odd row_0 vpointer vmarker',
-                '<td class="odd row_0 vpointer vmarker center"  ><span class='
+                'odd',
+                '<td class="odd center"  ><span class='
                 . '"nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -697,8 +697,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
-                'odd row_0 vpointer vmarker',
-                '<td class="odd row_0 vpointer vmarker center"  >' . "\n"
+                'odd',
+                '<td class="odd center"  >' . "\n"
                 . '<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE'
                 . '+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D'
                 . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
