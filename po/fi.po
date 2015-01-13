@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-09 12:30-0500\n"
-"PO-Revision-Date: 2015-01-13 22:08+0200\n"
+"PO-Revision-Date: 2015-01-13 22:09+0200\n"
 "Last-Translator: Juha <jremes@outlook.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
@@ -395,10 +395,9 @@ msgid "Delete tracking data for this table"
 msgstr "Poista tämän taulun seurantatiedot"
 
 #: db_tracking.php:146 db_tracking.php:208
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "Seurantatietojen poisto"
+msgstr "Poista seurantatiedot"
 
 #: db_tracking.php:184
 msgid "Versions"
