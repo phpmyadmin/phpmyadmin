@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-09 12:30-0500\n"
-"PO-Revision-Date: 2015-01-13 21:46+0200\n"
+"PO-Revision-Date: 2015-01-13 21:55+0200\n"
 "Last-Translator: Juha <jremes@outlook.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
@@ -254,15 +254,15 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Tietokanta %1$s on kopioitu kohteeseen %2$s."
 
 #: db_operations.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"phpMyAdminin asetusmuisti on poistettu käytöstä. Katso %slisätietoja%s, "
-"mistä tämä johtuu."
+"phpMyAdminin asetusmuisti on poistettu käytöstä. Virheenkorjaukseksi, ole "
+"hyvä ja katso %slisätietoja%s."
 
 #: db_printview.php:48 db_tracking.php:124 db_tracking.php:264
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:764
