@@ -84,23 +84,6 @@ class Table_Stats_Svg extends TableStats
     }
 
     /**
-     * Displays an error on missing coordinates
-     *
-     * @return void
-     */
-    protected function showMissingCoordinatesError()
-    {
-        $this->diagram->dieSchema(
-            $this->pageNumber,
-            "SVG",
-            sprintf(
-                __('Please configure the coordinates for table %s'),
-                $this->tableName
-            )
-        );
-    }
-
-    /**
      * Sets the width of the table
      *
      * @param string  $font     The font size

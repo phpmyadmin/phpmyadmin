@@ -70,24 +70,6 @@ class Table_Stats_Dia extends TableStats
     }
 
     /**
-     * Displays an error on missing coordinates
-     *
-     * @return void
-     */
-    protected function showMissingCoordinatesError()
-    {
-        $this->diagram->dieSchema(
-            $this->pageNumber,
-            "DIA",
-            sprintf(
-                __('Please configure the coordinates for table %s'),
-                $this->tableName
-            )
-        );
-    }
-
-
-    /**
      * Do draw the table
      *
      * Tables are generated using object type Database - Table
