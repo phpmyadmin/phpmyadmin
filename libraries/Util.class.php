@@ -3178,6 +3178,7 @@ class PMA_Util
      * in order to display it as a title in navigation panel
      *
      * @param string $target a valid value for $cfg['NavigationTreeDefaultTabTable'],
+     *                       $cfg['NavigationTreeDefaultTabTable2'],
      *                       $cfg['DefaultTabTable'] or $cfg['DefaultTabDatabase']
      *
      * @return array
@@ -3198,7 +3199,7 @@ class PMA_Util
             'db_search.php' => __('Search'),
             'db_operations.php' => __('Operations'),
         );
-        return $mapping[$target];
+        return isset($mapping[$target]) ? $mapping[$target] : false;
     }
 
     /**

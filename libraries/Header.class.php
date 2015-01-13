@@ -244,6 +244,9 @@ class PMA_Header
             'pma_text_left_default_tab' => PMA_Util::getTitleForTarget(
                 $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
             ),
+            'pma_text_left_default_tab2' => PMA_Util::getTitleForTarget(
+                $GLOBALS['cfg']['NavigationTreeDefaultTabTable2']
+            ),
             'LimitChars' => $GLOBALS['cfg']['LimitChars'],
             'pftext' => $pftext,
             'confirm' => $GLOBALS['cfg']['Confirm'],

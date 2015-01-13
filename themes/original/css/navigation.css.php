@@ -189,6 +189,9 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     min-height: 16px;
     float: <?php echo $left; ?>;
 }
+#pma_navigation_tree div.block.double {
+    width: 3em;
+}
 #pma_navigation_tree div.block i,
 #pma_navigation_tree div.block b {
     width: 1.5em;
@@ -223,6 +226,15 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     <?php echo $left; ?>: 50%;
     top: 50%;
     z-index: 10;
+}#pma_navigation_tree div.block a + a {
+    <?php echo $left; ?>: 100%;
+}
+#pma_navigation_tree div.block.double a,
+#pma_navigation_tree div.block.double u {
+    <?php echo $left; ?>: 25%;
+}
+#pma_navigation_tree div.block.double a + a {
+    <?php echo $left; ?>: 70%;
 }
 #pma_navigation_tree div.block img {
     position: relative;

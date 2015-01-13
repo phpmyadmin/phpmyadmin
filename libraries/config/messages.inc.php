@@ -431,6 +431,9 @@ $strConfigNavigationDisplayServers_desc
     = __('Display server choice at the top of the navigation panel.');
 $strConfigNavigationDisplayServers_name = __('Display servers selection');
 $strConfigNavigationTreeDefaultTabTable_name = __('Target for quick access icon');
+$strConfigNavigationTreeDefaultTabTable2_name = __(
+    'Target for second quick access icon'
+);
 $strConfigNavigationTreeDisplayItemFilterMinimum_desc = __(
     'Defines the minimum number of items (tables, views, routines and events) to '
     . 'display a filter box.'
