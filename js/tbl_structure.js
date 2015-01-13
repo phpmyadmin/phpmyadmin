@@ -66,6 +66,13 @@ function reloadFieldForm() {
     $('#page_content').show();
 }
 
+function checkFirst() {
+    if ($("select[name=after_field] option:selected").data('pos') === 'first') {
+        $("input[name=field_where]").val('first');
+    } else {
+        $("input[name=field_where]").val('after');
+    }
+}
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -86,6 +93,9 @@ AJAX.registerOnload('tbl_structure.js', function () {
     unique_indexes = [];
     indexes = [];
     fulltext_indexes = [];
+
+    //by default select the last option to add new column (adds at end of the table)
+    $("select[name=after_field] option:last").attr("selected","selected");
 
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form

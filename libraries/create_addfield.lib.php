@@ -99,10 +99,6 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
         return $sql_suffix;
     }
 
-    if ($_REQUEST['field_where'] == 'last') {
-        return $sql_suffix;
-    }
-
     // Only the first field can be added somewhere other than at the end
     if ($current_field_num == 0) {
         if ($_REQUEST['field_where'] == 'first') {
@@ -177,7 +173,7 @@ function PMA_getStatementPrefix($is_create_tbl = true)
 }
 
 /**
- * Merge index definitions for one type of index 
+ * Merge index definitions for one type of index
  *
  * @param array   $definitions     the index definitions to merge to
  * @param boolean $is_create_tbl   true if requirement is to get the statement
@@ -185,7 +181,7 @@ function PMA_getStatementPrefix($is_create_tbl = true)
  * @param array   $indexed_columns the columns for one type of index
  * @param string  $index_keyword   the index keyword to use in the definition
  *
- * @return array $index_definitions 
+ * @return array $index_definitions
  */
 function PMA_mergeIndexStatements(
     $definitions, $is_create_tbl, $indexed_columns, $index_keyword
