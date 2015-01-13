@@ -108,6 +108,14 @@ abstract class TableStats
     }
 
     /**
+     * Displays an error when the table cannot be found.
+     *
+     * @return void
+     * @abstract
+     */
+    protected abstract function showMissingTableError();
+
+    /**
      * Loads coordinates of a table
      *
      * @return void

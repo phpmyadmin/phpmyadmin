@@ -268,5 +268,32 @@ class PMA_Export_Relation_Schema
 
         return $filename;
     }
+
+    /**
+     * Displays an error message
+     *
+     * @param integer $pageNumber    ID of the chosen page
+     * @param string  $type          Schema Type
+     * @param string  $error_message The error message
+     *
+     * @access public
+     *
+     * @return void
+     */
+    function dieSchema($pageNumber, $type = '', $error_message = '')
+    {
+        echo "<p><strong>" . __("SCHEMA ERROR: ") .  $type . "</strong></p>" . "\n";
+        if (!empty($error_message)) {
+            $error_message = htmlspecialchars($error_message);
+        }
+        echo '<p>' . "\n";
+        echo '    ' . $error_message . "\n";
+        echo '</p>' . "\n";
+        echo '<a href="db_designer.php'
+            . PMA_URL_getCommon(array('db' => $GLOBALS['db']))
+            . '&page=' . htmlspecialchars($pageNumber) . '">' . __('Back') . '</a>';
+        echo "\n";
+        exit;
+    }
 }
 ?>

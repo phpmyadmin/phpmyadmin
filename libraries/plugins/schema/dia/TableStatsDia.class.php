@@ -56,6 +56,20 @@ class Table_Stats_Dia extends TableStats
     }
 
     /**
+     * Displays an error when the table cannot be found.
+     *
+     * @return void
+     */
+    protected function showMissingTableError()
+    {
+        $this->diagram->dieSchema(
+            $this->pageNumber,
+            "DIA",
+            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
+        );
+    }
+
+    /**
      * Do draw the table
      *
      * Tables are generated using object type Database - Table

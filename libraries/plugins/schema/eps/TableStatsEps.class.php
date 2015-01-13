@@ -69,6 +69,20 @@ class Table_Stats_Eps extends TableStats
     }
 
     /**
+     * Displays an error when the table cannot be found.
+     *
+     * @return void
+     */
+    protected function showMissingTableError()
+    {
+        $this->diagram->dieSchema(
+            $this->pageNumber,
+            "EPS",
+            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
+        );
+    }
+
+    /**
      * Sets the width of the table
      *
      * @param string  $font     The font name
