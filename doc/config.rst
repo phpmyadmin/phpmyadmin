@@ -2252,18 +2252,6 @@ Design customization
     the left side, right side, both sides or nowhere). "left" and "right"
     are parsed as "top" and "bottom" with vertical display mode.
 
-.. config:option:: $cfg['DefaultDisplay']
-
-    :type: string
-    :default: ``'horizontal'``
-
-    There are 3 display modes: horizontal, horizontalflipped and vertical.
-    Define which one is displayed by default. The first mode displays each
-    row on a horizontal line, the second rotates the headers by 90
-    degrees, so you can use descriptive headers even though columns only
-    contain small values and still print them out. The vertical mode sorts
-    each row on a vertical lineup.
-
 .. config:option:: $cfg['RememberSorting']
 
     :type: boolean
@@ -2279,19 +2267,6 @@ Design customization
     This defines the default sort order for the tables, having a primary key,
     when there is no sort order defines externally.
     Acceptable values : ['NONE', 'ASC', 'DESC']
-
-.. config:option:: $cfg['HeaderFlipType']
-
-    :type: string
-    :default: ``'auto'``
-
-    The HeaderFlipType can be set to 'auto', 'css' or 'fake'. When using
-    'css' the rotation of the header for horizontalflipped is done via
-    CSS. The CSS transformation currently works only in Internet
-    Explorer.If set to 'fake' PHP does the transformation for you, but of
-    course this does not look as good as CSS. The 'auto' option enables
-    CSS transformation when browser supports it and use PHP based one
-    otherwise.
 
 .. config:option:: $cfg['ShowBrowseComments']
 
@@ -2515,14 +2490,6 @@ Web server upload/save/import directories
 
 Various display setting
 -----------------------
-
-.. config:option:: $cfg['ShowDisplayDirection']
-
-    :type: boolean
-    :default: false
-
-    Defines whether or not type display direction option is shown when
-    browsing a table.
 
 .. config:option:: $cfg['RepeatCells']
 

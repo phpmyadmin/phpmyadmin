@@ -3587,70 +3587,13 @@ AJAX.registerOnload('functions.js', function () {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('functions.js', function () {
-    $(document).off('mouseenter', '.vpointer');
-    $(document).off('mouseleave', '.vpointer');
-    $(document).off('click', '.vmarker');
     $(document).off('change', 'select.pageselector');
     $(document).off('click', 'a.formLinkSubmit');
     $('#update_recent_tables').unbind('ready');
     $('#sync_favorite_tables').unbind('ready');
 });
-/**
- * Vertical pointer
- */
+
 AJAX.registerOnload('functions.js', function () {
-    $(document).on('mouseenter', '.vpointer',
-        //handlerIn
-        function (e) {
-            var $this_td = $(this);
-            var row_num = PMA_getRowNumber($this_td.attr('class'));
-            // for all td of the same vertical row, add hover
-            $('.vpointer').filter('.row_' + row_num).addClass('hover');
-        }
-    );
-    $(document).on('mouseleave', '.vpointer',
-        //handlerOut
-        function (e) {
-            var $this_td = $(this);
-            var row_num = PMA_getRowNumber($this_td.attr('class'));
-            // for all td of the same vertical row, remove hover
-            $('.vpointer').filter('.row_' + row_num).removeClass('hover');
-        }
-    );
-
-
-    /**
-     * Vertical marker
-     */
-    $(document).on('click', '.vmarker', function (e) {
-        // do not trigger when clicked on anchor
-        if ($(e.target).is('a, img, a *')) {
-            return;
-        }
-
-        var $this_td = $(this);
-        var row_num = PMA_getRowNumber($this_td.attr('class'));
-
-        // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
-        var $checkbox = $('.vmarker').filter('.row_' + row_num + ':first').find(':checkbox');
-        if ($checkbox.length) {
-            // checkbox in a row, add or remove class depending on checkbox state
-            var checked = $checkbox.prop('checked');
-            if (!$(e.target).is(':checkbox, label')) {
-                checked = !checked;
-                $checkbox.prop('checked', checked);
-            }
-            // for all td of the same vertical row, toggle the marked class
-            if (checked) {
-                $('.vmarker').filter('.row_' + row_num).addClass('marked');
-            } else {
-                $('.vmarker').filter('.row_' + row_num).removeClass('marked');
-            }
-        } else {
-            // normal data table, just toggle class
-            $('.vmarker').filter('.row_' + row_num).toggleClass('marked');
-        }
-    });
 
     /**
      * Autosubmit page selector

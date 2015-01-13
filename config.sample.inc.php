@@ -116,12 +116,6 @@ $cfg['SaveDir'] = '';
 //$cfg['DefaultLang'] = 'de';
 
 /**
- * default display direction (horizontal|vertical|horizontalflipped)
- */
-//$cfg['DefaultDisplay'] = 'vertical';
-
-
-/**
  * How many columns should be used for table display of a database?
  * (a value larger than 1 results in some information being hidden)
  * default = 1

@@ -63,7 +63,6 @@ $cfg_db['TablePrimaryKeyOrder'] = array(
     'DESC'  => __('Descending')
 );
 $cfg_db['ProtectBinary'] = array(false, 'blob', 'noblob', 'all');
-$cfg_db['DefaultDisplay'] = array('horizontal', 'vertical', 'horizontalflipped');
 $cfg_db['CharEditing'] = array('input', 'textarea');
 $cfg_db['TabsMode'] = array(
     'icons' => __('Icons'),
