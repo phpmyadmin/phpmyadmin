@@ -22,6 +22,9 @@ Code status
 .. image:: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/badges/quality-score.png?s=93dfde29ffa5771d9c254b7ffb11c4e673315035
     :target: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/
 
+.. image:: https://img.shields.io/sourceforge/dm/phpmyadmin.svg
+    :target: http://www.phpmyadmin.net/home_page/downloads.php
+
 Download
 --------
 
