@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-09 12:30-0500\n"
-"PO-Revision-Date: 2015-01-13 21:55+0200\n"
+"PO-Revision-Date: 2015-01-13 22:08+0200\n"
 "Last-Translator: Juha <jremes@outlook.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
@@ -333,17 +333,16 @@ msgid "Access denied!"
 msgstr "Käyttö estetty!"
 
 #: db_tracking.php:38 db_tracking.php:63
-#, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data deleted successfully."
-msgstr "Seuraa näitä tiedon määritelmän lauseita:"
+msgstr "Seurantatiedot poistettu onnistuneesti."
 
 #: db_tracking.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Versio %s on luotu, kohteen %s.%s seuranta on käytössä."
+msgstr "Versio %1$s luotiin valituille tauluille, seuranta on käytössä."
 
 #: db_tracking.php:78
 #, fuzzy
