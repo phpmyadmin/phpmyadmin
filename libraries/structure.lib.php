@@ -1704,7 +1704,7 @@ function PMA_getHtmlForAddColumn($columns_list)
 
     $column_selector .= '<option '
             . 'value="first" data-pos = "first">'
-            . __('At Begin')
+            . __('Beginning of table')
             . '</option>';
     foreach ($columns_list as $one_column_name) {
         $column_selector .= '<option '
