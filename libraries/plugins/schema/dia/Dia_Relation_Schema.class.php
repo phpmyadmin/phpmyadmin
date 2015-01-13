@@ -176,7 +176,7 @@ class PMA_DIA extends XMLWriter
         $output = $this->flush();
         PMA_Response::getInstance()->disable();
         PMA_downloadHeader(
-            $fileName . '.dia',
+            $fileName,
             'application/x-dia-diagram',
             /*overload*/mb_strlen($output)
         );
@@ -302,11 +302,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
     function showOutput()
     {
         global $dia;
-        $filename = $GLOBALS['db'];
-        if ($this->pageNumber != -1) {
-            $filename .= '-' . $this->pageNumber;
-        }
-        $dia->showOutput($filename);
+        $dia->showOutput($this->getFileName('.dia'));
     }
 
     /**
