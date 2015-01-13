@@ -42,6 +42,14 @@ $cfg_db['NavigationTreeDefaultTabTable'] = array(
     'tbl_change.php',    // insert row page
     'sql.php'            // browse page
 );
+$cfg_db['NavigationTreeDefaultTabTable2'] = array(
+    '', //don't display
+    'tbl_structure.php', // fields list
+    'tbl_sql.php',       // SQL form
+    'tbl_select.php',    // search page
+    'tbl_change.php',    // insert row page
+    'sql.php'            // browse page
+);
 $cfg_db['NavigationTreeDbSeparator'] = 'short_string';
 $cfg_db['NavigationTreeTableSeparator'] = 'short_string';
 $cfg_db['TableNavigationLinksMode'] = array(
