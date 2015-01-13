@@ -345,10 +345,9 @@ msgid ""
 msgstr "Versio %1$s luotiin valituille tauluille, seuranta on käytössä."
 
 #: db_tracking.php:78
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Yhtään tietokantaa ei ole valittu."
+msgstr "Yhtään taulua ei ole valittu."
 
 #: db_tracking.php:113
 msgid "Tracked tables"
