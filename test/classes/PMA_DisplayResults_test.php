@@ -242,7 +242,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '',
                 '',
                 0,
-                'data grid_edit not_null    row_0 vpointer vmarker'
+                'data grid_edit not_null    '
             )
         );
     }
