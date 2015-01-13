@@ -17675,17 +17675,6 @@ msgstr "Maksimal ulanishlar soni "
 #~ "[kbd]cookie[/kbd]-autentifikatsiya usulida cookie-larni shifrlash uchun "
 #~ "ishlatiladigan sirli ibora"
 
-#, fuzzy
-#~| msgid ""
-#~| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords"
-#~| "[/kbd]"
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Dizayner ishlatmaslik uchun bo‘sh qoldiring, asl qiymati: [kbd]"
-#~ "pma_designer_coords[/kbd]"
-
 #~ msgid "Designer table"
 #~ msgstr "Dizayner jadvali"
 

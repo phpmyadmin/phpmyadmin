@@ -16713,17 +16713,6 @@ msgstr "MyISAM concurrent įterpimai"
 #~ msgid "mcrypt warning"
 #~ msgstr "mcrypt įspėjimas"
 
-#, fuzzy
-#~| msgid ""
-#~| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords"
-#~| "[/kbd]"
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Palikite tuščią jeigu nenorite „Designer“ palaikymo, siūlome: [kbd]"
-#~ "pma_designer_coords[/kbd]"
-
 #~ msgid "Designer table"
 #~ msgstr "Suprojektuoti lentelę"
 

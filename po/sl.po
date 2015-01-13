@@ -15882,13 +15882,6 @@ msgstr "concurrent_insert je nastavljeno na 0"
 #~ msgid "mcrypt warning"
 #~ msgstr "Opozorilo mcrypt"
 
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Pustite prazno, če ne želite podpore Oblikovalnika; predlagano: [kbd]"
-#~ "pma__designer_coords[/kbd]."
-
 #~ msgid "Designer table"
 #~ msgstr "Tabela Oblikovalnika"
 

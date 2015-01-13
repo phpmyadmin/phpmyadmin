@@ -16664,17 +16664,6 @@ msgstr "concurrent_insert este setat cu 0"
 #~ msgid "mcrypt warning"
 #~ msgstr "avertisment mcrypt"
 
-#, fuzzy
-#~| msgid ""
-#~| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords"
-#~| "[/kbd]"
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Lăsați necompletat dacă nu doriți suport pentru Designeri, sugestie: [kbd]"
-#~ "pma_designer_coords[/kbd]"
-
 #~ msgid "Designer table"
 #~ msgstr "Tabelul designeri"
 

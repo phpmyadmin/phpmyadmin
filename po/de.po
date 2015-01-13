@@ -16144,17 +16144,6 @@ msgstr "concurrent_insert ist auf 0 gesetzt"
 #~ msgid "mcrypt warning"
 #~ msgstr "mcrypt Warnhinweis"
 
-#, fuzzy
-#~| msgid ""
-#~| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~| "[/kbd]"
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Leer lassen für keine Designer-Unterstützung, Vorschlag: [kbd]"
-#~ "pma__designer_coords[/kbd]"
-
 #~ msgid "Designer table"
 #~ msgstr "Designer Coords Table"
 

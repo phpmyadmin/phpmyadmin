@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-09 12:30-0500\n"
-"PO-Revision-Date: 2014-11-26 19:13+0200\n"
+"PO-Revision-Date: 2015-01-12 09:30+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.1-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -2205,7 +2205,6 @@ msgid "Click to sort results by this column."
 msgstr "Pulsa pro ordinar exitos per iste columna."
 
 #: js/messages.php:427
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2214,9 +2213,9 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Shift+pulsar pro adder iste columna al clausula de ORDER BY (ordina per) o "
-"pro commutar inter ASC/DESC.<br />- Control+pulsar pro remover columna ab le "
-"clausula de ORDER BY"
+"Shift+Click (Pulsar) pro adder iste columna al clausula de ORDER BY (ordina "
+"per) o pro commutar inter ASC/DESC.<br />- Ctrl+Clickr o Alt+Click (Mac: "
+"Shift+Option+Click) pro remover columna ab le clausula de ORDER BY"
 
 #: js/messages.php:428
 msgid "Click to mark/unmark."
@@ -6854,13 +6853,11 @@ msgstr ""
 "pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:607
-#, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Columnas central"
+msgstr "Tabella central de columnas"
 
 #: libraries/config/messages.inc.php:609
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]."
@@ -6868,8 +6865,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: [kbd]"
 "pma__central_columns[/kbd]."
 msgstr ""
-"Lassa vacue pro necun supporto de schema PDF, proponite:  [kbd]"
-"pma__table_coords[/kbd]."
+"Lassa vacue pro necun supporto central de columnas, proponite:  "
+"[kbd]pma__central_columns[/kbd]."
 
 #: libraries/config/messages.inc.php:612
 msgid "Try to connect without password."
@@ -6951,7 +6948,6 @@ msgid "Recently used table"
 msgstr "Tabella usate recentemente"
 
 #: libraries/config/messages.inc.php:641
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]."
@@ -6959,11 +6955,10 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Lassa vacue pro necun \"persistente\" recentemente usava tabellas trans "
-"sessiones, proponite:  [kbd]pma__recent[/kbd]."
+"Lassa vacue pro necun \"persistente\" tabellas favorite trans sessiones, "
+"proponite: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "Tabellas favorite"
@@ -10523,10 +10518,9 @@ msgid "Persistent recently used tables"
 msgstr ""
 
 #: libraries/relation.lib.php:226
-#, fuzzy
 #| msgid "There are no favorite tables."
 msgid "Persistent favorite tables"
-msgstr "Il non ha tabellas favorite."
+msgstr "Tabellas favorite persistente"
 
 #: libraries/relation.lib.php:237
 msgid "Persistent tables' UI preferences"
@@ -10557,11 +10551,11 @@ msgid "Quick steps to setup advanced features:"
 msgstr ""
 
 #: libraries/relation.lib.php:323
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr "Crea le tabella necessari con <code>examples/create_tables.sql</code>."
+msgstr "Crea le tabella necessari con le <code>%screate_tables.sql</code>."
 
 #: libraries/relation.lib.php:331
 msgid "Create a pma user and give access to these tables."
@@ -10590,10 +10584,12 @@ msgstr ""
 "currente."
 
 #: libraries/relation.lib.php:1973
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Tabellas de immagazinage de configuration de phpMyAdmin es mancante"
+msgstr ""
+"%sCreate%s mancante de tabellas de immagazinage de configuration de "
+"phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -15316,13 +15312,6 @@ msgstr ""
 
 #~ msgid "mcrypt warning"
 #~ msgstr "aviso de mcrypt"
-
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Lassa vacue pro nulle supporto de Designer, proponite:  [kbd]"
-#~ "pma__designer_coords[/kbd]."
 
 #~ msgid "Designer table"
 #~ msgstr "Tabella de designator assistite"

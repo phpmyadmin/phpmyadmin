@@ -16483,16 +16483,6 @@ msgstr "concurrent_insert 0 पर सेट है"
 #~ msgid "mcrypt warning"
 #~ msgstr "mcrypt चेतावनी"
 
-#, fuzzy
-#~| msgid ""
-#~| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords"
-#~| "[/kbd]"
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "कोई डिजाइनर समर्थन के लिए खाली छोड़ दें, सुझाव [kbd]pma_designer_coords[/kbd]"
-
 #~ msgid "Designer table"
 #~ msgstr "डिजाइनर टेबल"
 

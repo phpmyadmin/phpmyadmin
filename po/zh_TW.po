@@ -15258,11 +15258,6 @@ msgstr "concurrent_insert 目前設定為 0"
 #~ msgid "mcrypt warning"
 #~ msgstr "mcrypt 的警告"
 
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr "不使用設計功能請留空，建議值: [kbd]pma__designer_coords[/kbd]。"
-
 #~ msgid "Designer table"
 #~ msgstr "設計表"
 

@@ -16785,17 +16785,6 @@ msgstr "concurrent_insert on asetettu arvoon 0"
 #~ msgid "mcrypt warning"
 #~ msgstr "mcrypt varoitus"
 
-#, fuzzy
-#~| msgid ""
-#~| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~| "[/kbd]"
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Jätä tyhjäksi, jos et halua Suunnittelija tukea, oletusarvo: [kbd]"
-#~ "pma__designer_coords[/kbd]"
-
 #~ msgid "Designer table"
 #~ msgstr "Suunnittelija-taulu"
 

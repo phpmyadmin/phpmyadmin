@@ -15870,13 +15870,6 @@ msgstr "concurrent_insert je nastaveno na 0"
 #~ msgid "mcrypt warning"
 #~ msgstr "Varování o mcrypt"
 
-#~ msgid ""
-#~ "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#~ "[/kbd]."
-#~ msgstr ""
-#~ "Nechte prázdné pro vypnutí návrháře, doporučené nastavení: [kbd]"
-#~ "pma__designer_coords[/kbd]."
-
 #~ msgid "Designer table"
 #~ msgstr "Tabulka návrháře"
 
