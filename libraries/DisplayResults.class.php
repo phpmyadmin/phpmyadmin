@@ -604,10 +604,9 @@ class PMA_DisplayResults
     /**
      * Get a navigation bar to browse among the results of a SQL query
      *
-     * @param integer $pos_next                  the offset for the "next" page
-     * @param integer $pos_prev                  the offset for the "previous" page
-     * @param string  $id_for_direction_dropdown the id for the direction dropdown
-     * @param boolean $is_innodb                 whether its InnoDB or not
+     * @param integer $pos_next  the offset for the "next" page
+     * @param integer $pos_prev  the offset for the "previous" page
+     * @param boolean $is_innodb whether its InnoDB or not
      *
      * @return string                            html content
      *
@@ -616,7 +615,7 @@ class PMA_DisplayResults
      * @see     _getTable()
      */
     private function _getTableNavigation(
-        $pos_next, $pos_prev, $id_for_direction_dropdown, $is_innodb
+        $pos_next, $pos_prev, $is_innodb
     ) {
 
         $table_navigation_html = '';
@@ -772,7 +771,7 @@ class PMA_DisplayResults
         );
 
         $table_navigation_html .= $this->_getAdditionalFieldsForTableNavigation(
-            $html_sql_query, $id_for_direction_dropdown
+            $html_sql_query
         );
 
         $table_navigation_html .= '</form>'
@@ -923,8 +922,7 @@ class PMA_DisplayResults
      * Prepare fields for table navigation
      * Number of rows
      *
-     * @param string $html_sql_query            the sql encoded by htmlspecialchars()
-     * @param string $id_for_direction_dropdown the id for the direction dropdown
+     * @param string $html_sql_query the sql encoded by htmlspecialchars()
      *
      * @return  string  $additional_fields_html html content
      *
@@ -933,7 +931,7 @@ class PMA_DisplayResults
      * @see     _getTableNavigation()
      */
     private function _getAdditionalFieldsForTableNavigation(
-        $html_sql_query, $id_for_direction_dropdown
+        $html_sql_query
     ) {
 
         $additional_fields_html = '';
@@ -1306,8 +1304,8 @@ class PMA_DisplayResults
      * Set column span, row span and prepare html with full/partial
      * text button or link
      *
-     * @param array   &$displayParts             which elements to display
-     * @param string  $full_or_partial_text_link full/partial link or text button
+     * @param array  &$displayParts             which elements to display
+     * @param string $full_or_partial_text_link full/partial link or text button
      *
      * @return  array   3 element array - $colspan, $rowspan, $button_html
      *
@@ -2222,10 +2220,10 @@ class PMA_DisplayResults
     /**
      * Prepare column to show at right side - check boxes or empty column
      *
-     * @param array   &$displayParts             which elements to display
-     * @param string  $full_or_partial_text_link full/partial link or text button
-     * @param string  $colspan                   column span of table header
-     * @param string  $rowspan                   row span of table header
+     * @param array  &$displayParts             which elements to display
+     * @param string $full_or_partial_text_link full/partial link or text button
+     * @param string $colspan                   column span of table header
+     * @param string $rowspan                   row span of table header
      *
      * @return  string  html content
      *
@@ -4662,7 +4660,7 @@ class PMA_DisplayResults
         }
 
         $navigation_html .= $this->_getTableNavigation(
-            $pos_next, $pos_prev, 'top_direction_dropdown', $is_innodb
+            $pos_next, $pos_prev, $is_innodb
         );
 
         if ($place == self::PLACE_TOP_DIRECTION_DROPDOWN) {
