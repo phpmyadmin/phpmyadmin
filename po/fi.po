@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-09 12:30-0500\n"
-"PO-Revision-Date: 2015-01-13 22:09+0200\n"
+"PO-Revision-Date: 2015-01-13 22:31+0200\n"
 "Last-Translator: Juha <jremes@outlook.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
@@ -447,6 +447,7 @@ msgstr ""
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Mikäli sinulla on ongelmia, ole hyvä ja lähetä virheraportti manuaalisesti."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
@@ -593,20 +594,18 @@ msgstr ""
 "”Arvo”-kenttään."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Käyttö estetty!"
+msgstr "Kirjanmerkki lisätty onnistuneesti"
 
 #: import.php:58 js/messages.php:441
 msgid "Failed"
-msgstr ""
+msgstr "Tuonti epäonnistui"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "Kokonaiset lisäyslauseet"
+msgstr "Vaillinaiset parametrit"
 
 #: import.php:162
 #, php-format
@@ -631,6 +630,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Ladattua tiedostoa ei voida siirtää, koska palvelimella on open_basedir "
+"käytössä ilman pääsyä hakemistoon %s väliaikaistiedostoja varten."
 
 #: import.php:466 import.php:527 libraries/File.class.php:418
 #: libraries/File.class.php:512
@@ -712,6 +713,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Käytät demopalvelinta. Voit tehdä täällä mitä tahansa, mutta ethän muuta "
+"root-käyttäjää, debian-sys-maint ja pma-käyttäjiä. Lisätietoja saatavilla "
+"linkissä%s."
 
 #: index.php:158
 msgid "General Settings"
