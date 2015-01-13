@@ -70,20 +70,6 @@ class Table_Stats_Pdf extends TableStats
     }
 
     /**
-     * Displays an error when the table cannot be found.
-     *
-     * @return void
-     */
-    protected function showMissingTableError()
-    {
-        $this->diagram->dieSchema(
-            $this->pageNumber,
-            "PDF",
-            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
-        );
-    }
-
-    /**
      * Returns title of the current table,
      * title can have the dimensions of the table
      *
