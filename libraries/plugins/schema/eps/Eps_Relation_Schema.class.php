@@ -295,7 +295,7 @@ class PMA_EPS
         $output = $this->stringCommands;
         PMA_Response::getInstance()->disable();
         PMA_downloadHeader(
-            $fileName . '.eps',
+            $fileName,
             'image/x-eps',
             /*overload*/mb_strlen($output)
         );
@@ -432,11 +432,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
     function showOutput()
     {
         global $eps;
-        $filename = $GLOBALS['db'];
-        if ($this->pageNumber != -1) {
-            $filename .= '-' . $this->pageNumber;
-        }
-        $eps->showOutput($filename);
+        $eps->showOutput($this->getFileName('.eps'));
     }
 
     /**

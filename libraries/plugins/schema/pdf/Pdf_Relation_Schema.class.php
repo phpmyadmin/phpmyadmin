@@ -653,7 +653,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      */
     function showOutput()
     {
-        $this->_showOutput($this->pageNumber);
+        global $pdf;
+        $pdf->Download($this->getFileName('.pdf'));
     }
 
     /**
@@ -822,47 +823,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         foreach ($this->_tables as $table) {
             $table->tableDraw(null, $this->_withDoc, $this->showColor);
         }
-    }
-
-    /**
-     * Outputs the PDF document to a file
-     * or sends the output to browser
-     *
-     * @param integer $pageNumber page number
-     *
-     * @global object  $pdf  The current PDF document
-     * @access private
-     *
-     * @return void
-     *
-     * @see PMA_Schema_PDF
-     */
-    private function _showOutput($pageNumber)
-    {
-        global $pdf;
-
-        // Get the name of this pdfpage to use as filename
-        if ($this->offline) {
-            $filename = $GLOBALS['db'];
-            if ($this->pageNumber != -1) {
-                $filename .= '-' . $this->pageNumber;
-            }
-        } else {
-            $_name_sql = 'SELECT page_descr FROM '
-                . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-                . PMA_Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
-                . ' WHERE page_nr = ' . $pageNumber;
-            $_name_rs = PMA_queryAsControlUser($_name_sql);
-            if ($_name_rs) {
-                $_name_row = $GLOBALS['dbi']->fetchRow($_name_rs);
-                $filename = $_name_row[0] . '.pdf';
-            }
-            if (empty($filename)) {
-                $filename = $pageNumber . '.pdf';
-            }
-        }
-
-        $pdf->Download($filename);
     }
 
     /**
