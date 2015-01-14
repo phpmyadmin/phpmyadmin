@@ -78,7 +78,7 @@ class PMA_Scripts
                 }
             }
             if ($include) {
-                $scripts[] = "scripts[]=" . $value['filename'];
+                $scripts[] = "scripts%5B%5D=" . $value['filename'];
             }
         }
         $separator = PMA_URL_getArgSeparator();
