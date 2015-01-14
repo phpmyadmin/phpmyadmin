@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-09 12:30-0500\n"
-"PO-Revision-Date: 2015-01-13 07:55+0200\n"
+"PO-Revision-Date: 2015-01-14 08:50+0200\n"
 "Last-Translator: josep constanti <jconstanti@ovi.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -6419,10 +6419,9 @@ msgid "Maximum table tree depth"
 msgstr "Màxima profunditat de l'arbre de taules"
 
 #: libraries/config/messages.inc.php:455
-#, fuzzy
 #| msgid "Highlight server under the mouse cursor"
 msgid "Highlight server under the mouse cursor."
-msgstr "Resalta el servidor sota el cursor del ratolí"
+msgstr "Resalta el servidor sota el cursor del ratolí."
 
 #: libraries/config/messages.inc.php:456
 msgid "Enable highlighting"
@@ -6433,32 +6432,28 @@ msgid "Whether to disable the possibility of database expansion or not."
 msgstr ""
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 #| msgid "Display databases as a list"
 msgid "Disable database expansion"
-msgstr "Mostra bases de dades com a llista"
+msgstr "Desactiva l'expansió de la base de dades"
 
 #: libraries/config/messages.inc.php:462
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of recently used tables; set 0 to disable."
-msgstr "Màxim nombre de taules usades recentment; 0 per desactivar"
+msgstr "Màxim nombre de taules usades recentment; indiqueu 0 per desactivar."
 
 #: libraries/config/messages.inc.php:464
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr "Màxim nombre de taules usades recentment; 0 per desactivar"
+msgstr "Màxim nombre de taules preferides; indiqueu 0 per desactivar."
 
 #: libraries/config/messages.inc.php:465
 msgid "Recently used tables"
 msgstr "Taules usades recentment"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "These are Edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links."
-msgstr "Aixó són enllaços a Edició, Còpia i Esborrat"
+msgstr "Aquests són els enllaços a Edició, Còpia i Esborrat."
 
 #: libraries/config/messages.inc.php:468
 msgid "Where to show the table row links"
