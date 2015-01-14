@@ -94,6 +94,7 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 if (isset($_REQUEST['add_key'])) {
     include 'sql.php';
+    $GLOBALS['reload'] = true;
 }
 
 /**
