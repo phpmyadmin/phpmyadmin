@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 + rfe #1525 Generate keys one per line
 + rfe #347  allow table with transformed column anywhere in FROM clause
 + rfe #1591 Shortcut link to search page
+- bug #4705 Table structure: adding primary key doesn't refresh page
 
 4.3.7.0 (not yet released)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)

@@ -2121,7 +2121,6 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
 
     $response = PMA_Response::getInstance();
     $response->addHTML($html_output);
-    exit();
 }
 
 /**

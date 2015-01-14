@@ -89,6 +89,12 @@ if (isset($_REQUEST['do_save_data'])) {
         unset($_REQUEST['selected']);
     }
 }
+/**
+ * Adding indexes
+ */
+if (isset($_REQUEST['add_key'])) {
+    include 'sql.php';
+}
 
 /**
  * handle multiple field commands if required
