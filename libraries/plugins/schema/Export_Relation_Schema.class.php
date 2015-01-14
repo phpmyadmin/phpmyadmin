@@ -280,7 +280,7 @@ class PMA_Export_Relation_Schema
      *
      * @return void
      */
-    function dieSchema($pageNumber, $type = '', $error_message = '')
+    public static function dieSchema($pageNumber, $type = '', $error_message = '')
     {
         echo "<p><strong>" . __("SCHEMA ERROR: ") .  $type . "</strong></p>" . "\n";
         if (!empty($error_message)) {
