@@ -1948,13 +1948,20 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
     ) {
         $html_output .= $titles['No' . $action];
     } else {
-        $html_output .= '<a rel="samepage" '
-            . ($hasLinkClass ? 'class="ajax add_primary_key_anchor" ' :
-               ($action=='Index' ? 'class="ajax add_index_anchor"' :
-                ($action=='Unique' ? 'class="ajax add_unique_anchor"' : ' ')
-               )
-              )
-            . ' href="sql.php' . $url_query . '&amp;sql_query='
+        $html_output .= '<a rel="samepage" class="ajax add_key';
+        if ($hasLinkClass) {
+            $html_output .= ' add_primary_key_anchor"';
+        } else if ($action=='Index') {
+            $html_output .= ' add_index_anchor"';
+        } else if ($action=='Unique') {
+            $html_output .= ' add_unique_anchor"';
+        } else if ($action=='Spatial') {
+            $html_output .= ' add_spatial_anchor"';
+        } else {
+            $html_output .= '"';
+        }
+        $html_output .= ' href="tbl_structure.php' . $url_query
+            . '&amp;add_key=1&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
                 . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '')
@@ -1997,8 +2004,9 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
         && (/*overload*/mb_strpos($type, 'text') !== false
         || /*overload*/mb_strpos($type, 'char') !== false)
     ) {
-        $html_output .= '<a rel="samepage" href="sql.php' . $url_query
-            . '&amp;sql_query='
+        $html_output .= '<a rel="samepage" class="ajax add_key add_fulltext_anchor" '
+            . 'href="tbl_structure.php' . $url_query
+            . '&amp;add_key=1&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
                 . ' ADD FULLTEXT(' . PMA_Util::backquote($row['Field'])

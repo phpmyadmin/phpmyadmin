@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 + rfe #347  allow table with transformed column anywhere in FROM clause
 + rfe #1591 Shortcut link to search page
 + rfe #1568 Fold Add Column After / Before into dropdown
+- bug #4705 Table structure: adding primary key doesn't refresh page
 
 4.3.7.0 (not yet released)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)

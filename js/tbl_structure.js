@@ -78,9 +78,7 @@ function checkFirst() {
  */
 AJAX.registerTeardown('tbl_structure.js', function () {
     $(document).off('click', "a.drop_column_anchor.ajax");
-    $(document).off('click', "a.add_primary_key_anchor.ajax");
-    $(document).off('click', "a.add_index_anchor.ajax");
-    $(document).off('click', "a.add_unique_anchor.ajax");
+    $(document).off('click', "a.add_key.ajax");
     $(document).off('click', "#move_columns_anchor");
     $(document).off('submit', ".append_fields_form.ajax");
     $('body').off('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]');
@@ -211,141 +209,35 @@ AJAX.registerOnload('tbl_structure.js', function () {
     }); //end of Drop Column Anchor action
 
     /**
-     * Ajax Event handler for 'Add Primary Key'
+     * Ajax Event handler for adding keys
      */
-    $(document).on('click', "a.add_primary_key_anchor.ajax", function (event) {
+    $(document).on('click', "a.add_key.ajax", function (event) {
         event.preventDefault();
-        /**
-         * @var curr_table_name String containing the name of the current table
-         */
-        var curr_table_name = $(this).closest('form').find('input[name=table]').val();
-        /**
-         * @var curr_column_name    String containing name of the field referred to by {@link curr_row}
-         */
-        var curr_column_name = $(this).parents('tr').children('th').children('label').text();
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = PMA_sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` ADD PRIMARY KEY(`' + escapeHtml(curr_column_name) + '`);');
-        $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages.strAddingPrimaryKey, false);
-            $.get(url,
-                {'is_js_confirmed' : 1, 'ajax_request' : true, 'index_change' : true},
-                function (data) {
-                if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxRemoveMessage($msg);
-                    $(this).remove();
-                    if (typeof data.reload != 'undefined') {
-                        PMA_commonActions.refreshMain(false, function () {
-                            if ($('.result_query').length) {
-                                $('.result_query').remove();
-                            }
-                            if (data.sql_query) {
-                                $('<div class="result_query"></div>')
-                                    .html(data.sql_query)
-                                    .prependTo('#page_content');
-                                PMA_highlightSQL($('#page_content'));
-                            }
-                        });
-                        PMA_reloadNavigation();
-                    }
-                    if (data.indexes_list) {
-                        $('.index_info').replaceWith(data.indexes_list);
-                    }
-                } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
-                }
-            }); // end $.get()
-        }); // end $.PMA_confirm()
-    }); //end Add Primary Key
 
-    /**
-     * Ajax Event handler for 'Add Index'
-     */
-    $(document).on('click', "a.add_index_anchor.ajax", function (event) {
-        event.preventDefault();
-        /**
-         * @var curr_table_name String containing the name of the current table
-         */
-        var curr_table_name = $(this).closest('form').find('input[name=table]').val();
-        /**
-         * @var curr_column_name    String containing name of the field referred to by {@link curr_row}
-         */
-        var curr_column_name = $(this).parents('tr').children('th').children('label').text();
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = PMA_sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` ADD INDEX(`' + escapeHtml(curr_column_name) + '`);');
-        $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages.strAddingIndex, false);
-            $.get(url,
-                {'is_js_confirmed' : 1, 'ajax_request' : true, 'index_change' : true},
-                function (data) {
-                if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxRemoveMessage($msg);
-                    if ($('.result_query').length) {
-                        $('.result_query').remove();
-                    }
-                    if (data.sql_query) {
-                        $('<div class="result_query"></div>')
-                            .html(data.sql_query)
-                            .prependTo('#page_content');
-                        PMA_highlightSQL($('#page_content'));
-                    }
-                    if (data.indexes_list) {
-                        $('.index_info').replaceWith(data.indexes_list);
-                    }
-                    PMA_reloadNavigation();
-                } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
-                }
-            }); // end $.get()
-        }); // end $.PMA_confirm()
-    }); //end Add Index
+        $this = $(this);
+        var curr_table_name = $this.closest('form').find('input[name=table]').val();
+        var curr_column_name = $this.parents('tr').children('th').children('label').text();
 
-    /**
-     * Ajax Event handler for 'Add Unique'
-     */
-    $(document).on('click', "a.add_unique_anchor.ajax", function (event) {
-        event.preventDefault();
-        /**
-         * @var curr_table_name String containing the name of the current table
-         */
-        var curr_table_name = $(this).closest('form').find('input[name=table]').val();
-        /**
-         * @var curr_column_name    String containing name of the field referred to by {@link curr_row}
-         */
-        var curr_column_name = $(this).parents('tr').children('th').children('label').text();
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = PMA_sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` ADD UNIQUE(`' + escapeHtml(curr_column_name) + '`);');
+        var add_clause = '';
+        if ($this.is('.add_primary_key_anchor')) {
+            add_clause = 'ADD PRIMARY KEY';
+        } else if ($this.is('.add_index_anchor')) {
+            add_clause = 'ADD INDEX';
+        } else if ($this.is('.add_unique_anchor')) {
+            add_clause = 'ADD UNIQUE';
+        } else if ($this.is('.add_spatial_anchor')) {
+            add_clause = 'ADD SPATIAL';
+        } else if ($this.is('.add_fulltext_anchor')) {
+            add_clause = 'ADD FULLTEXT';
+        }
+        var question = PMA_sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' +
+                escapeHtml(curr_table_name) + '` ' + add_clause + '(`' + escapeHtml(curr_column_name) + '`);');
+
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages.strAddingUnique, false);
-            $.get(url,
-                {'is_js_confirmed' : 1, 'ajax_request' : true, 'index_change' : true},
-                function (data) {
-                if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxRemoveMessage($msg);
-                    if ($('.result_query').length) {
-                        $('.result_query').remove();
-                    }
-                    if (data.sql_query) {
-                        $('<div id="result_query"></div>')
-                            .html(data.sql_query)
-                            .prependTo('#page_content');
-                        PMA_highlightSQL($('#page_content'));
-                    }
-                    if (data.indexes_list) {
-                        $('.index_info').replaceWith(data.indexes_list);
-                    }
-                    PMA_reloadNavigation();
-                } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
-                }
-            }); // end $.get()
+            PMA_ajaxShowMessage();
+            $.get(url, {'ajax_request' : true, 'ajax_page_request' : true}, AJAX.responseHandler);
         }); // end $.PMA_confirm()
-    }); //end Add Unique
+    }); //end Add key
 
     /**
      * Inline move columns
