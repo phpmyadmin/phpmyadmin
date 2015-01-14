@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2015-01-14 20:48+0200\n"
+"PO-Revision-Date: 2015-01-14 20:50+0200\n"
 "Last-Translator: Juha <jremes@outlook.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
@@ -1945,7 +1945,7 @@ msgstr "Seuraavat toiminnot tullaan suorittamaan:"
 #: js/messages.php:333
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "DROP sarakkeet %s taulusta %s"
 
 #: js/messages.php:334
 #, fuzzy
