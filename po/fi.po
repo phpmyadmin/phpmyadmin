@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-13 22:31+0200\n"
+"PO-Revision-Date: 2015-01-14 20:53+0200\n"
 "Last-Translator: Juha <jremes@outlook.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/fi/>\n"
@@ -33,10 +33,10 @@ msgid "Click to sort."
 msgstr "Järjestä napsauttamalla."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Näytetään rivi(t) %1$s–%2$s"
+msgstr "Näytetään rivi(t) %1$s–%2$s."
 
 #: db_create.php:61
 #, php-format
@@ -889,7 +889,7 @@ msgstr ""
 "luvattoman asetuksien lataamisen takia."
 
 #: index.php:533
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -897,13 +897,16 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Linkitettyihin tauluihin liittyvät lisäominaisuudet eivät ole käytössä. "
-"Katso miksi %slisätietoja%s."
+"phpMyAdmin asetusmuisti ei ole kokonaan konfiguroitu, linkitettyihin "
+"tauluihin liittyvät lisäominaisuudet eivät ole käytössä. Katso miksi "
+"%slisätietoja%s. "
 
 #: index.php:540
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Vaihtoehtoisesti, navigoi minkä tahansa tietokannan \"Toiminnot\" - "
+"välilehdelle."
 
 #: index.php:585
 #, php-format
@@ -957,10 +960,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Pääavaimen tai indeksin poisto"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Valitse liiteavain"
+msgstr "Poistetaan liiteavainta."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -983,10 +985,9 @@ msgstr ""
 "sivulta?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Haluatko varmasti poistaa haun ”%s”?"
+msgstr "Haluatko varmasti peruuttaa valittujen käyttäjien oikeudet?"
 
 #: js/messages.php:51
 msgid "Save & Close"
@@ -1032,40 +1033,35 @@ msgid "Add %s column(s) to index"
 msgstr "Lisää indeksiin %s kolumni(a)"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Luo relaatio"
+msgstr "Luo yhden sarakkeen avain"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Luo relaatio"
+msgstr "Luo komposiitti-indeksi"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Composite with:"
-msgstr "Sarakkeiden rajausmerkki"
+msgstr "Yhdistä:"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Lisää indeksiin %s kolumni(a)"
+msgstr "Ole hyvä ja valitse sarakkeet avainta varten."
 
 #: js/messages.php:69 libraries/structure.lib.php:1683
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "Vähintään yksi kenttä on lisättävä."
+msgstr "Sinun tulee lisätä vähintään yksi sarake."
 
 #: js/messages.php:72 libraries/insert_edit.lib.php:1541
 #: libraries/tbl_columns_definition_form.lib.php:145
 #: libraries/tbl_relation.lib.php:655
 msgid "Preview SQL"
-msgstr ""
+msgstr "Esikatsele SQL."
 
 #: js/messages.php:75
 msgid "Simulate query"
@@ -1132,10 +1128,9 @@ msgid "Connections / Processes"
 msgstr "Yhteyttä / Prosessi"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "Paikallisen seurannan asetukset yhteensopimattomat"
+msgstr "Paikallisen seurannan asetukset ovat yhteensopimattomat!"
 
 #: js/messages.php:102
 msgid ""
@@ -1317,11 +1312,11 @@ msgstr "Keskeytä seuranta"
 
 #: js/messages.php:149 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Aloita automaattinen päivittäminen"
 
 #: js/messages.php:150
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Lopeta automaattinen päivittäminen"
 
 #: js/messages.php:152
 msgid "general_log and slow_query_log are enabled."
@@ -1440,6 +1435,8 @@ msgstr "Yleisestä lokista"
 #: js/messages.php:185
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
+"Tietokannan nimi ei ole tiedossa palvelimen lokitiedostoissa tätä "
+"hakukyselyä varten."
 
 #: js/messages.php:187
 msgid "Analysing logs"
@@ -1817,7 +1814,7 @@ msgstr "Selaa viitearvoja"
 
 #: js/messages.php:303 libraries/normalization.lib.php:849
 msgid "Pick"
-msgstr ""
+msgstr "Poimi sarake"
 
 #: js/messages.php:304
 msgid "Column selector"
@@ -1833,6 +1830,9 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Keskeisessä listassa ei ole sarakkeita. Ole hyvä ja varmista että keskeinen "
+"sarakelistaus tietokantaa %s varten sisältää sarakkeita jotka eivät ole "
+"tämän hetkisessä taulussa."
 
 #: js/messages.php:307
 msgid "See more"
@@ -1840,13 +1840,15 @@ msgstr "Katso lisää"
 
 #: js/messages.php:308
 msgid "Are you sure?"
-msgstr ""
+msgstr "Oletko varma?"
 
 #: js/messages.php:309
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Tämä toiminto saattaa muuttaa joidenkin sarakkeiden määritelmiä.<br/>Oletko "
+"varma että haluat jatkaa?"
 
 #: js/messages.php:310
 msgid "Continue"
@@ -1868,7 +1870,7 @@ msgstr "Viedään sinut seuraavaan vaiheeseen…"
 #: js/messages.php:316
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Ensimmäinen askel taulun '%s' normalisoinnille on valmis."
 
 #: js/messages.php:317 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
@@ -1878,7 +1880,7 @@ msgstr "Vaiheen loppu"
 
 #: js/messages.php:318
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Normalisaation toinen askel (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:319 js/messages.php:552 libraries/normalization.lib.php:264
@@ -1887,76 +1889,78 @@ msgstr "Valmis"
 
 #: js/messages.php:320
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Vahvista todeksi osittaiset riippuvuudet"
 
 #: js/messages.php:321
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Osittaiset riippuvuudet ovat seuraavat:"
 
 #: js/messages.php:322
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Huomio: a, b -> d, f merkitsee että sarakkeiden a ja b arvot yhdistettynä "
+"voivat määrittää sarakkeiden d ja f arvot."
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Yhtään tietokantaa ei ole valittu."
+msgstr "Osittaisia riippuvuuksia ei ole valittu!"
 
 #: js/messages.php:325
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"Näytä minulle mahdolliset osittaiset riippuvuudet perustuen taulun tietoihin"
 
 #: js/messages.php:326
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Piilota osittaisten riippuvuuksien lista"
 
 #: js/messages.php:327
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Ei hötkyillä, rentoudu hieman ja pidä vaikka kahvitauko! Normalisointi voi "
+"viedä sekunnin tai kaksi riippuen tietojen koosta ja taulun sarakkeiden "
+"määrästä."
 
 #: js/messages.php:328
 msgid "Step"
-msgstr ""
+msgstr "Askel"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "Seuraavat kyselyt on suoritettu:"
+msgstr "Seuraavat toiminnot tullaan suorittamaan:"
 
 #: js/messages.php:330
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "DROP sarakkeet %s taulusta %s"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
-msgstr "Lisää käyttöoikeudet seuraavaan tauluun"
+msgstr "Luo seuraava taulu"
 
 #: js/messages.php:334
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Normalisaation kolmas askel (3NF)"
 
 #: js/messages.php:335
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Vahvista todeksi transitiiviset riippuvuudet"
 
 #: js/messages.php:336
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Valitut riippuvuudet ovat seuraavat:"
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Yhtään tietokantaa ei ole valittu."
+msgstr "Yhtään riippuvuutta ei ole valittu!"
 
 #: js/messages.php:340 libraries/insert_edit.lib.php:1452
 #: libraries/server_variables.lib.php:157
@@ -1975,10 +1979,9 @@ msgid "Show search criteria"
 msgstr "Näytä hakukriteerit"
 
 #: js/messages.php:345
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "Taulu haku"
+msgstr "Aluehaku"
 
 #: js/messages.php:346
 msgid "Column maximum:"
@@ -2129,10 +2132,9 @@ msgid "Delete page"
 msgstr "Poista sivu"
 
 #: js/messages.php:407 libraries/db_designer.lib.php:382
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "Yksikkö"
+msgstr "Nimetön"
 
 #: js/messages.php:408
 msgid "Please select a page to continue"
@@ -2144,11 +2146,11 @@ msgstr "Annathan kelvollisen sivun nimen"
 
 #: js/messages.php:410
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Haluatko tallentaa nykyisen sivun muutokset?"
 
 #: js/messages.php:411
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Sivu poistettu onnistuneesti"
 
 #: js/messages.php:412
 msgid "Export relational schema"
