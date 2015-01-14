@@ -1069,7 +1069,9 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
     if ((strlen($searchTable) > 0) || strlen($searchDb) > 0) {
         $ignored = true;
     }
-    foreach ($GLOBALS['replication_info']['slave']['Wild_Ignore_Table'] as $db_table) {
+    foreach (
+        $GLOBALS['replication_info']['slave']['Wild_Ignore_Table'] as $db_table
+        ) {
         $table_part = PMA_extractDbOrTable($db_table, 'table');
         $pattern = "@^"
             . /*overload*/mb_substr($table_part, 0, -1)
@@ -1698,9 +1700,12 @@ function PMA_getHtmlForAddColumn($columns_list)
     // I tried displaying the drop-down inside the label but with Firefox
     // the drop-down was blinking
     $column_selector = '<select name="after_field" '
-        . 'onclick="this.form.field_where[2].checked=true" '
-        . 'onchange="this.form.field_where[2].checked=true">';
+        . 'onchange="checkFirst()">';
 
+    $column_selector .= '<option '
+            . 'value="first" data-pos = "first">'
+            . __('Beginning of table')
+            . '</option>';
     foreach ($columns_list as $one_column_name) {
         $column_selector .= '<option '
             . 'value="' . htmlspecialchars($one_column_name) . '">'
@@ -1708,15 +1713,8 @@ function PMA_getHtmlForAddColumn($columns_list)
             . '</option>';
     }
     $column_selector .= '</select>';
-
-    $choices = array(
-        'last'  => __('At End of Table'),
-        'first' => __('At Beginning of Table'),
-        'after' => sprintf(__('After %s'), '')
-    );
-    $html_output .= PMA_Util::getRadioFields(
-        'field_where', $choices, 'last', false
-    );
+    $html_output .= '<input type="hidden" name="field_where" value="after"/>';
+    $html_output .= ' ' . __('after') . ' ';
     $html_output .= $column_selector;
     $html_output .= '<input type="submit" value="' . __('Go') . '" />'
         . '</form>';
@@ -2847,7 +2845,9 @@ function PMA_displayTableBrowseForSelectedColumns($db, $table, $goto,
  */
 function PMA_checkFavoriteTable($db, $current_table)
 {
-    foreach ($_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $key => $value) {
+    foreach (
+        $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $key => $value
+        ) {
         if ($value['db'] == $db && $value['table'] == $current_table) {
             return true;
         }
