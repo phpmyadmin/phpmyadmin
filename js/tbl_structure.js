@@ -208,20 +208,20 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var curr_table_name = $this.closest('form').find('input[name=table]').val();
         var curr_column_name = $this.parents('tr').children('th').children('label').text();
 
-        var add_cluase = '';
+        var add_clause = '';
         if ($this.is('.add_primary_key_anchor')) {
-            add_cluase = 'ADD PRIMARY KEY';
+            add_clause = 'ADD PRIMARY KEY';
         } else if ($this.is('.add_index_anchor')) {
-            add_cluase = 'ADD INDEX';
+            add_clause = 'ADD INDEX';
         } else if ($this.is('.add_unique_anchor')) {
-            add_cluase = 'ADD UNIQUE';
+            add_clause = 'ADD UNIQUE';
         } else if ($this.is('.add_spatial_anchor')) {
-            add_cluase = 'ADD SPATIAL';
+            add_clause = 'ADD SPATIAL';
         } else if ($this.is('.add_fulltext_anchor')) {
-            add_cluase = 'ADD FULLTEXT';
+            add_clause = 'ADD FULLTEXT';
         }
         var question = PMA_sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' +
-                escapeHtml(curr_table_name) + '` ' + add_cluase + '(`' + escapeHtml(curr_column_name) + '`);');
+                escapeHtml(curr_table_name) + '` ' + add_clause + '(`' + escapeHtml(curr_column_name) + '`);');
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage();
