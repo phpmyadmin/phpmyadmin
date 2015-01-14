@@ -1060,10 +1060,9 @@ msgid "Please select column(s) for the index."
 msgstr "Ole hyvä ja valitse sarakkeet avainta varten."
 
 #: js/messages.php:72 libraries/structure.lib.php:1681
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "Vähintään yksi kenttä on lisättävä."
+msgstr "Sinun tulee lisätä vähintään yksi sarake."
 
 #: js/messages.php:75 libraries/insert_edit.lib.php:1541
 #: libraries/tbl_columns_definition_form.lib.php:143
