@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2015-01-10 01:09+0200\n"
+"PO-Revision-Date: 2015-01-15 12:45+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -6302,10 +6302,9 @@ msgid "Target for quick access icon"
 msgstr "Cilj ikone za hitri dostop"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "Cilj ikone za hitri dostop"
+msgstr "Cilj druge ikone za hitri dostop"
 
 #: libraries/config/messages.inc.php:438
 msgid ""
@@ -13346,16 +13345,14 @@ msgid "Add %s column(s)"
 msgstr "Dodaj %s stolpec(-cev)"
 
 #: libraries/structure.lib.php:1707
-#, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Beginning of table"
-msgstr "Na začetku tabele"
+msgstr "Začetek tabele"
 
 #: libraries/structure.lib.php:1717
-#, fuzzy
 #| msgid "after %s"
 msgid "after"
-msgstr "po %s"
+msgstr "po"
 
 #: libraries/structure.lib.php:1807
 msgid "Row statistics"
