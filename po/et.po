@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-12 09:17+0200\n"
+"PO-Revision-Date: 2015-01-15 13:34+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/et/>\n"
@@ -6783,7 +6783,6 @@ msgid "Recently used table"
 msgstr "Hiljuti kasutatud tabel"
 
 #: libraries/config/messages.inc.php:641
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]."
@@ -6791,11 +6790,10 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Jäta tühjaks, kui seansside vahel puuduvad \"püsivad\" hiljuti kasutatud "
-"tabelid, soovitatav: [kbd]pma__recent[/kbd]."
+"Jäta tühjaks, kui sa ei soovi seansside vahelisi \"püsivad\" hiljuti "
+"kasutatud tabeleid, soovitatav: [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "Lemmikute tabel"
