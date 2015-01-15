@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.3.7.0 (not yet released)
+4.3.7.0 (2015-01-15)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)
 - bug #4695 Changing $cfg['DefaultTabTable'] doesn't update link and title
 - bug       Undefined index menuswork
