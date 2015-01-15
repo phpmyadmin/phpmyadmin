@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2014-12-01 12:37+0200\n"
+"PO-Revision-Date: 2015-01-15 09:05+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"cs/>\n"
+"Language-Team: Czech "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.1-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -2302,16 +2302,14 @@ msgstr "Zobrazit skryté položky navigačního panelu."
 
 #: js/messages.php:475 libraries/config/messages.inc.php:419
 #: libraries/navigation/NavigationTree.class.php:1257
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Přizpůsobení hlavního panelu"
+msgstr "Spojit s hlavním panelem"
 
 #: js/messages.php:476 libraries/navigation/NavigationTree.class.php:1260
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Přizpůsobení hlavního panelu"
+msgstr "Odpojit od hlavního panelu"
 
 #: js/messages.php:479
 msgid "The requested page was not found in the history, it may have expired."
@@ -8865,10 +8863,9 @@ msgid "Filter by name or regex"
 msgstr "Filtrovat položky podle jména nebo regexu"
 
 #: libraries/navigation/NavigationTree.class.php:1251
-#, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse all"
-msgstr "Rozbalit/sbalit"
+msgstr "Sbalit vše"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9179,10 +9176,9 @@ msgstr ""
 
 #: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
 #: libraries/normalization.lib.php:663
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing!"
-msgstr "Chyba při zpracování požadavku:"
+msgstr "Chyba při zpracování!"
 
 #: libraries/normalization.lib.php:501
 #, php-format
@@ -9869,7 +9865,6 @@ msgstr ""
 "code>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
-#, fuzzy
 #| msgid ""
 #| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 #| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -9878,7 +9873,7 @@ msgid ""
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "obě výše uvedené možnosti<br /> &nbsp; &nbsp; &nbsp; Příklad: <code>INSERT "
-"INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:408
 msgid ""
@@ -10221,7 +10216,6 @@ msgstr ""
 "musí být prázdný."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -10248,13 +10242,13 @@ msgstr ""
 "JEN PRO LINUX: Spustí externí program, na jeho standardní vstup pošle obsah "
 "pole a zobrazí výstup programu. Výchozí je program Tidy, který pěkně "
 "zformátuje HTML. Z bezpečnostních důvodů musíte jména povolených programů "
-"zapsat do souboru libraries/plugins/transformations/Text_Plain_External."
-"class.php. První parametr je číslo programu, který má být spuštěn a druhý "
-"parametr udává parametry tohoto programu. Třetí parametr určuje, zda mají "
-"být ve výstupu nahrazeny HTML entity (např. pro zobrazení zdrojového kódu "
-"HTML) (výchozí je 1, tedy převádět na entity), čtvrtý (při nastavení na 1) "
-"zajistí přidání parametru NOWRAP k vypisovanému textu, čímž se zachová "
-"formátování (výchozí je 1)."
+"zapsat do souboru libraries/plugins/transformations/output/"
+"Text_Plain_External.class.php. První parametr je číslo programu, který má "
+"být spuštěn a druhý parametr udává parametry tohoto programu. Třetí parametr "
+"určuje, zda mají být ve výstupu nahrazeny HTML entity (např. pro zobrazení "
+"zdrojového kódu HTML) (výchozí je 1, tedy převádět na entity), čtvrtý (při "
+"nastavení na 1) zajistí přidání parametru NOWRAP k vypisovanému textu, čímž "
+"se zachová formátování (výchozí je 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -10409,10 +10403,9 @@ msgid "Error: FOREIGN KEY relation could not be removed!"
 msgstr "Chyba: Relace nemohla být přidána!"
 
 #: libraries/pmd_common.php:651
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be removed!"
-msgstr "Chyba: Relace nemohla být přidána!"
+msgstr "Chyba: Itenrní relace nemohla být odstraněna!"
 
 #: libraries/pmd_common.php:655
 #, fuzzy
@@ -13729,10 +13722,9 @@ msgid "Foreign key constraints"
 msgstr "Omezení cizího klíče"
 
 #: libraries/tbl_relation.lib.php:374
-#, fuzzy
 #| msgid "Action"
 msgid "Actions"
-msgstr "Operace"
+msgstr "Akce"
 
 #: libraries/tbl_relation.lib.php:375
 #, fuzzy
@@ -13750,10 +13742,9 @@ msgid "Foreign key constraint"
 msgstr "Omezení cizího klíče"
 
 #: libraries/tbl_relation.lib.php:406
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "Přidat integritní omezení"
+msgstr "+ Přidat omezení"
 
 #: libraries/tbl_relation.lib.php:443
 #, fuzzy, php-format
@@ -13766,10 +13757,9 @@ msgid "Constraint name"
 msgstr "Jméno omezení"
 
 #: libraries/tbl_relation.lib.php:530
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
-msgstr "Přidat sloupec"
+msgstr "+ Přidat sloupec"
 
 #: libraries/tbl_relation.lib.php:674
 msgid "Choose column to display:"
@@ -13782,10 +13772,9 @@ msgid "Display column was successfully updated."
 msgstr "Vlákno %s bylo úspěšně zabito."
 
 #: libraries/tbl_relation.lib.php:909
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
-msgstr "Interní relace byla vytvořena."
+msgstr "Interní relace byla úspěšně změněna."
 
 #: libraries/tbl_relation.lib.php:1174
 #, php-format
@@ -14305,7 +14294,7 @@ msgstr "Chybné jméno tabulky"
 #: tbl_replace.php:236
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Řádek: %1$s, Sloupec: %2$s, Chyba: %3$s"
 
 #: tbl_structure.php:60
 #, fuzzy, php-format
