@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-07-15 01:20+0200\n"
-"Last-Translator: Valtteri Laitinen <valtteri.laitinen@gmail.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fi/>\n"
+"PO-Revision-Date: 2015-01-13 22:31+0200\n"
+"Last-Translator: Juha <jremes@outlook.com>\n"
+"Language-Team: Finnish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Tämän tietokannan keskeinen sarakelistaus on tyhjä."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
@@ -254,15 +254,15 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Tietokanta %1$s on kopioitu kohteeseen %2$s."
 
 #: db_operations.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"phpMyAdminin asetusmuisti on poistettu käytöstä. Katso %slisätietoja%s, "
-"mistä tämä johtuu."
+"phpMyAdminin asetusmuisti on poistettu käytöstä. Virheenkorjaukseksi, ole "
+"hyvä ja katso %slisätietoja%s."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:764
@@ -451,6 +451,7 @@ msgstr ""
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Mikäli sinulla on ongelmia, ole hyvä ja lähetä virheraportti manuaalisesti."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
@@ -597,20 +598,18 @@ msgstr ""
 "”Arvo”-kenttään."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Käyttö estetty!"
+msgstr "Kirjanmerkki lisätty onnistuneesti"
 
 #: import.php:58 js/messages.php:438
 msgid "Failed"
-msgstr ""
+msgstr "Tuonti epäonnistui"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "Kokonaiset lisäyslauseet"
+msgstr "Vaillinaiset parametrit"
 
 #: import.php:162
 #, php-format
@@ -635,6 +634,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Ladattua tiedostoa ei voida siirtää, koska palvelimella on open_basedir "
+"käytössä ilman pääsyä hakemistoon %s väliaikaistiedostoja varten."
 
 #: import.php:466 import.php:527 libraries/File.class.php:418
 #: libraries/File.class.php:512
@@ -716,6 +717,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Käytät demopalvelinta. Voit tehdä täällä mitä tahansa, mutta ethän muuta "
+"root-käyttäjää, debian-sys-maint ja pma-käyttäjiä. Lisätietoja saatavilla "
+"linkissä%s."
 
 #: index.php:158
 msgid "General Settings"

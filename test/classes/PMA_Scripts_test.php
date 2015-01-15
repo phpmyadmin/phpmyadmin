@@ -79,7 +79,7 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             '<script type="text/javascript" src="js/get_scripts.js.php?'
-            . 'scripts[]=common.js"></script>',
+            . 'scripts%5B%5D=common.js"></script>',
             $this->_callPrivateFunction(
                 '_includeFiles',
                 array(
@@ -108,7 +108,7 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
 
         $this->assertRegExp(
             '@<script type="text/javascript" src="js/get_scripts.js.php\\?'
-            . 'scripts\\[\\]=common.js"></script><script type="text/'
+            . 'scripts%5B%5D=common.js"></script><script type="text/'
             . 'javascript">// <!\\[CDATA\\[' . "\n"
             . 'AJAX.scriptHandler.add\\("common.js",1\\);' . "\n"
             . '\\$\\(function\\(\\) \\{AJAX.fireOnload\\("common.js"\\);\\}\\);'

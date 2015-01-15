@@ -374,7 +374,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             $output,
             $this->_callPrivateFunction(
                 '_getTableNavigationButton',
-                array(&$caption, $title, $pos, $html_sql_query)
+                array(&$caption, $title, $pos, $html_sql_query, true)
             )
         );
     }

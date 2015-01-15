@@ -330,8 +330,7 @@ $(function () {
             cache: false,
             type: 'POST',
             data: {
-                favorite_tables: (window.localStorage && window.localStorage.favorite_tables
-                    !== undefined)
+                favorite_tables: (isStorageSupported('localStorage'))
                     ? window.localStorage.favorite_tables
                     : ''
             },
@@ -345,7 +344,7 @@ $(function () {
                         $('#' + anchor_id).attr("title")
                     );
                     // Update localStorage.
-                    if (window.localStorage && window.localStorage !== undefined) {
+                    if (isStorageSupported('localStorage')) {
                         window.localStorage.favorite_tables = data.favorite_tables;
                     }
                 } else {
@@ -360,7 +359,9 @@ $(function () {
         var storage = window.sessionStorage;
         // remove tree from storage if Navi_panel config form is submitted
         $(document).on('submit', 'form.config-form', function(event) {
-            if ($(this).attr('action').indexOf('form=Navi_panel') >= 0) {
+            if ($(this).attr('action').indexOf('form=Navi_panel') >= 0 ||
+                $(this).attr('action').indexOf('form=Main_panel') >= 0
+            ) {
                 storage.removeItem('navTree');
             }
         });

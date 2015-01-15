@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-11-16 12:56+0200\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-3/id/>\n"
+"PO-Revision-Date: 2015-01-12 06:43+0200\n"
+"Last-Translator: Zufar Fathi Suhardi <zufar.bogor@gmail.com>\n"
+"Language-Team: Indonesian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.1-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: changelog.php:36 license.php:28
@@ -26,7 +26,6 @@ msgstr ""
 "net untuk informasi lebih lanjut."
 
 #: db_central_columns.php:85
-#, fuzzy
 msgid "The central list of columns for the current database is empty."
 msgstr "Daftar pusat kolom untuk database saat ini kosong."
 
@@ -978,10 +977,9 @@ msgstr ""
 "meninggalkan halaman ini?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Anda yakin akan menghapus grup pengguna \"%s\"?"
+msgstr "Anda yakin akan menghapus pengguna yang dipilih?"
 
 #: js/messages.php:51
 msgid "Save & Close"
@@ -994,10 +992,9 @@ msgid "Reset"
 msgstr "Reset"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Pilih Semua"
+msgstr "Ulang Semua"
 
 #: js/messages.php:56
 msgid "Missing value in the form!"
@@ -1029,22 +1026,19 @@ msgid "Add %s column(s) to index"
 msgstr "Tambahkan %s kolom ke index"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Buat relasi"
+msgstr "Buat index kolom-tunggal"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Buat relasi"
+msgstr "Buat index gabungan"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "Kolom diapit oleh:"
+msgstr "Gabung dengan:"
 
 #: js/messages.php:66
 #, fuzzy
@@ -1311,12 +1305,10 @@ msgid "Pause monitor"
 msgstr "Jeda pemantauan"
 
 #: js/messages.php:149 libraries/server_status_processes.lib.php:37
-#, fuzzy
 msgid "Start auto refresh"
 msgstr "Mulai penyegaran otomatis"
 
 #: js/messages.php:150
-#, fuzzy
 msgid "Stop auto refresh"
 msgstr "Hentikan Penyegaran Otomatis"
 
@@ -1725,10 +1717,9 @@ msgid "(Disabled)"
 msgstr "(Tidak aktif)"
 
 #: js/messages.php:273
-#, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "Gagal mengambil header"
+msgstr "Gagal mengambil jumlah baris sesungguhnya"
 
 #: js/messages.php:276
 msgid "Searching"
@@ -10962,13 +10953,11 @@ msgstr ""
 "Output bila sebuah Substring dibalikkan (Default: …) ."
 
 #: libraries/plugins/transformations/abstract/TextFileUploadTransformationsPlugin.class.php:33
-#, fuzzy
 msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
-"Berkas fungsi meng-upload untuk kolom TEXT. Tidak memiliki textarea untuk "
-"input."
+"Berkas fungsi upload untuk kolom TEXT. Tidak memiliki textarea untuk input."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -10994,19 +10983,16 @@ msgid "Error: relation already exists."
 msgstr "Galat: relasi sudah ada."
 
 #: libraries/pmd_common.php:538
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "Relasi FOREIGN KEY ditambahkan"
+msgstr "Relasi FOREIGN KEY telah ditambahkan."
 
 #: libraries/pmd_common.php:543
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr "Galat: Relasi tidak ditambahkan."
+msgstr "Galat: Relasi FOREIGN KEY tidak dapat ditambahkan.!"
 
 #: libraries/pmd_common.php:548
-#, fuzzy
 msgid "Error: Missing index on column(s)."
 msgstr "Galat: index hilang pada kolom."
 
@@ -11015,44 +11001,38 @@ msgid "Error: Relational features are disabled!"
 msgstr "Galat: Fitur Relasi tidak diaktifkan!"
 
 #: libraries/pmd_common.php:572
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Relasi internal ditambahkan"
+msgstr "Relasi internal telah ditambahkan."
 
 #: libraries/pmd_common.php:577
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relation could not be added!"
-msgstr "Galat: Relasi tidak ditambahkan."
+msgstr "Galat: Relasi internal tidak dapat ditambahkan!"
 
 #: libraries/pmd_common.php:618
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been removed."
-msgstr "Relasi FOREIGN KEY ditambahkan"
+msgstr "Relasi FOREIGN KEY telah dihapus."
 
 #: libraries/pmd_common.php:624
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr "Galat: Relasi tidak ditambahkan."
+msgstr "Galat: Relasi FOREIGN KEY tidak dapat dihapus!"
 
 #: libraries/pmd_common.php:651
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relation could not be removed!"
-msgstr "Galat: Relasi tidak ditambahkan."
+msgstr "Galat: Relasi Internal tidak dapat dihapus!"
 
 #: libraries/pmd_common.php:655
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been removed."
-msgstr "Relasi internal ditambahkan"
+msgstr "Relasi internal telah dihapus."
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
-msgstr "tidak oke"
+msgstr "Tidak OK"
 
 #: libraries/relation.lib.php:94
 msgctxt "Correctly working"
@@ -11064,24 +11044,22 @@ msgid "Enabled"
 msgstr "Aktif"
 
 #: libraries/relation.lib.php:101
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "Konfigurasi disimpan."
+msgstr "Konfigurasi pmadb … "
 
 #: libraries/relation.lib.php:105 libraries/relation.lib.php:126
 msgid "General relation features"
-msgstr "Ciri-ciri dari General Relation"
+msgstr "Fitur umum relasi"
 
 #: libraries/relation.lib.php:137
 msgid "Display Features"
 msgstr "Tampilkan ciri-ciri"
 
 #: libraries/relation.lib.php:154
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Pembuatan PDF"
+msgstr "Desain dan pembuatan PDF"
 
 #: libraries/relation.lib.php:165
 msgid "Displaying Column Comments"
@@ -11092,13 +11070,12 @@ msgid "Browser transformation"
 msgstr "Transformasi Browser"
 
 #: libraries/relation.lib.php:178
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
-"Harap pelajari dokumentasi tentang cara memperbarui tabel column_comments "
-"Anda."
+"Silakan lihat dokumentasi mengenai bagaimana mengupdate column_info tabel "
+"anda. "
 
 #: libraries/relation.lib.php:191 libraries/sql_query_form.lib.php:358
 msgid "Bookmarked SQL query"
@@ -11113,10 +11090,9 @@ msgid "Persistent recently used tables"
 msgstr "Tabel baru digunakan persisten"
 
 #: libraries/relation.lib.php:224
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Tabel baru digunakan persisten"
+msgstr "Tabel favorit persisten"
 
 #: libraries/relation.lib.php:235
 msgid "Persistent tables' UI preferences"
@@ -11127,10 +11103,9 @@ msgid "User preferences"
 msgstr "Preferensi pengguna"
 
 #: libraries/relation.lib.php:274
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Konfigurasi: %s"
+msgstr "Menu konfigurasi"
 
 #: libraries/relation.lib.php:285
 #, fuzzy

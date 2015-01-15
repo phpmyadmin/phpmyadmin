@@ -62,7 +62,7 @@ class Table_Stats_Dia extends TableStats
      */
     protected function showMissingTableError()
     {
-        $this->diagram->dieSchema(
+        PMA_Export_Relation_Schema::dieSchema(
             $this->pageNumber,
             "DIA",
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
@@ -76,7 +76,7 @@ class Table_Stats_Dia extends TableStats
      */
     protected function showMissingCoordinatesError()
     {
-        $this->diagram->dieSchema(
+        PMA_Export_Relation_Schema::dieSchema(
             $this->pageNumber,
             "DIA",
             sprintf(

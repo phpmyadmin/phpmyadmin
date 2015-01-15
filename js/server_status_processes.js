@@ -152,6 +152,7 @@ AJAX.registerOnload('server_status_processes.js', function() {
     // Bind event handler for change in refresh rate
     $('#id_refreshRate').on('change', function(event) {
         processList.refreshInterval = $(this).val();
+        processList.refresh();
     });
     // Bind event handler for table header links
     $('#tableprocesslist').on('click', 'thead a', function() {

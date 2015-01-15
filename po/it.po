@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-06-08 22:28+0200\n"
+"PO-Revision-Date: 2015-01-09 15:52+0200\n"
 "Last-Translator: Marco Pozzato <ironpotts@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "L'elenco centrale di colonne per il database corrente è vuota."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
@@ -254,15 +254,15 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Il database %1$s è stato copiato come %2$s."
 
 #: db_operations.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Le opzioni di configurazione dello storage di phpMyAdmin sono state "
-"disabilitate. Per scoprire la ragione, clicca %squi%s."
+"La configurazione dello storage di phpMyAdmin è disabilitata. %sScopri la "
+"ragione%s."
 
 #: db_printview.php:48 db_tracking.php:83 db_tracking.php:207
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:764
@@ -598,20 +598,18 @@ msgstr ""
 "sottostante nel campo \"Valore\"."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Accesso negato!"
+msgstr "Riuscito"
 
 #: import.php:58 js/messages.php:438
 msgid "Failed"
-msgstr ""
+msgstr "Fallito"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "inserimenti completi"
+msgstr "Parametri incompleti"
 
 #: import.php:162
 #, php-format
@@ -902,7 +900,7 @@ msgstr ""
 "persone non autorizzate che scaricano la vostra configurazione."
 
 #: index.php:533
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -910,14 +908,15 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"La configurazione di phpMyAdmin non é completa, quindi alcune "
-"caratteristiche aggiuntive sono state disattivate. Per scoprire perché "
-"clicca %squi%s."
+"La configurazione dello storage di phpMyAdmin non é completa, quindi alcune "
+"caratteristiche aggiuntive sono state disattivate. %sScopri perché%s. "
 
 #: index.php:540
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"In alternativa, vai alla scheda 'Operazioni' di qualunque database per "
+"configurarlo da lì."
 
 #: index.php:585
 #, php-format
@@ -974,7 +973,7 @@ msgstr "Cancellazione Chiave primaria/index"
 #, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Seleziona Foreign Key"
+msgstr "Scarta Foreign Key."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -991,26 +990,23 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Sei sicuro di voler eliminare la ricerca \"%s\"?"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid ""
 #| "You have edited some data and they have not been saved. Are you sure you "
 #| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"Hai modificato dei dati e non hai salvato. Sei sicuro di voler navigare via "
-"da questa pagina senza salvare i dati?"
+"Le modifiche non sono state salvate; sei sicuro di voler lasciare questa "
+"pagina?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Sei sicuro di voler eliminare la ricerca \"%s\"?"
+msgstr "Sei sicuro di voler eliminare l'utente/i selezionati?"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Salva con nome"
+msgstr "Salva &amp; Chiudi"
 
 #: js/messages.php:52 libraries/config/FormDisplay.tpl.php:395
 #: libraries/insert_edit.lib.php:1543 prefs_manage.php:339
@@ -1019,10 +1015,9 @@ msgid "Reset"
 msgstr "Riavvia"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Seleziona tutto"
+msgstr "Reimposta tutto"
 
 #: js/messages.php:56
 msgid "Missing value in the form!"
@@ -1057,25 +1052,25 @@ msgstr "Aggiungi %s campo/i all'indice"
 #, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Crea routine"
+msgstr "Crea indice a colonna singola"
 
 #: js/messages.php:64
 #, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Crea routine"
+msgstr "Crea indice composito"
 
 #: js/messages.php:65
 #, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "Campi limitati da:"
+msgstr "Composto da:"
 
 #: js/messages.php:66
 #, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Aggiungi %s campo/i all'indice"
+msgstr "Selezionare la colonna/e per l'indice."
 
 #: js/messages.php:69 libraries/structure.lib.php:1683
 msgid "You have to add at least one column."
@@ -1088,13 +1083,11 @@ msgid "Preview SQL"
 msgstr "Anteprima SQL"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "nella query"
+msgstr "Simula query"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
 msgstr "Righe coinvolte:"
@@ -1339,12 +1332,14 @@ msgid "Pause monitor"
 msgstr "Arresta il monitoraggio"
 
 #: js/messages.php:149 libraries/server_status_processes.lib.php:37
+#, fuzzy
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Avvia auto-refresh"
 
 #: js/messages.php:150
+#, fuzzy
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Ferma auto-refresh"
 
 #: js/messages.php:152
 msgid "general_log and slow_query_log are enabled."
@@ -1847,7 +1842,6 @@ msgid "Browse foreign values"
 msgstr "Naviga tra i valori esterni"
 
 #: js/messages.php:303 libraries/normalization.lib.php:849
-#, fuzzy
 msgid "Pick"
 msgstr "Seleziona"
 
@@ -1869,26 +1863,27 @@ msgstr ""
 "il database %s abbia colonne non presenti nella tabella corrente."
 
 #: js/messages.php:307
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
 msgstr "Vedi altri"
 
 #: js/messages.php:308
 msgid "Are you sure?"
-msgstr ""
+msgstr "Sei sicuro?"
 
 #: js/messages.php:309
+#, fuzzy
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Questa azione potrebbe cambiare la definizione di alcune colonne.<br/>Vuoi "
+"continuare?"
 
 #: js/messages.php:310
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "Contribuisci"
+msgstr "Continua"
 
 #: js/messages.php:313 libraries/structure.lib.php:2168
 #: libraries/structure.lib.php:2171
@@ -1896,21 +1891,20 @@ msgid "Add primary key"
 msgstr "Aggiungi chiave primaria"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Una chiave primaria è stata aggiunta in %s."
+msgstr "Chiave primaria aggiunta."
 
 #: js/messages.php:315 libraries/normalization.lib.php:174
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "Rapporto tracking"
+msgstr "Alla fase successiva…"
 
 #: js/messages.php:316
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "La prima fase di normalizzazione per la tabella '%s' è completa."
 
 #: js/messages.php:317 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
@@ -1918,11 +1912,11 @@ msgstr ""
 #, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Fine del file"
+msgstr "Fase terminata"
 
 #: js/messages.php:318
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Seconda fase di normalizzazione (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:319 js/messages.php:552 libraries/normalization.lib.php:264
@@ -1931,47 +1925,51 @@ msgstr "Fatto"
 
 #: js/messages.php:320
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Conferma dipendenze parziali"
 
 #: js/messages.php:321
+#, fuzzy
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Le dipendenze parziali selezionate sono come segue:"
 
 #: js/messages.php:322
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Nota: a, b -> d, f implica che i valori delle colonne a e b combinati "
+"possono determinare i valori delle colonne d ed f."
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Nessun database selezionato."
+msgstr "Nessuna dipendenza parziale selezionata!"
 
 #: js/messages.php:325
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"Mostrami le possibili dipendenze parziali basandoti sui dati nella tabella"
 
 #: js/messages.php:326
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Nascondi la lista delle dipendenze parziali"
 
 #: js/messages.php:327
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Stai pronto! Potrebbero volerci alcuni secondi, in base alla quantità di "
+"dati e al numero di colonne della tabella."
 
 #: js/messages.php:328
 msgid "Step"
-msgstr ""
+msgstr "Fase"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "Le seguenti query sono state eseguite:"
+msgstr "Verranno eseguite le seguenti azioni:"
 
 #: js/messages.php:330
 #, php-format
