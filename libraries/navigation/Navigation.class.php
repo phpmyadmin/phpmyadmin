@@ -34,30 +34,45 @@ class PMA_Navigation
             $header = new PMA_NavigationHeader();
             $retval = $header->getDisplay();
         }
-        $tree = new PMA_NavigationTree();
-        if (! PMA_Response::getInstance()->isAjax()
-            || ! empty($_REQUEST['full'])
-            || ! empty($_REQUEST['reload'])
-        ) {
-            $treeRender = $tree->renderState();
-        } else {
-            $treeRender = $tree->renderPath();
-        }
+        if ($GLOBALS['cfg']['ShowNavigationAsTree']) {
+            $class = ' class="list_container';
+            if ($GLOBALS['cfg']['NavigationLinkWithMainPanel']) {
+                $class .= ' synced';
+            }
+            if ($GLOBALS['cfg']['NavigationTreePointerEnable']) {
+                $class .= ' highlight';
+            }
+            $class .= '"';
+            $retval .= '<div id="pma_navigation_tree"' . $class . '>';
+            $tree = new PMA_NavigationTree();
+            if (! PMA_Response::getInstance()->isAjax()
+                || ! empty($_REQUEST['full'])
+                || ! empty($_REQUEST['reload'])
+            ) {
+                $treeRender  = $this->_quickWarp();
+                $treeRender .= $tree->renderState();
+            } else {
+                $treeRender = $tree->renderPath();
+            }
 
-        if (! $treeRender) {
-            $retval .= PMA_Message::error(
-                __('An error has occurred while loading the navigation tree')
-            )->getDisplay();
+            if (! $treeRender) {
+                $retval .= PMA_Message::error(
+                    __('An error has occurred while loading the navigation tree')
+                )->getDisplay();
+            } else {
+                $retval .= $treeRender;
+            }
+            $retval .= '</div>'; // pma_navigation_tree
         } else {
-            $retval .= $treeRender;
+            // provide legacy pre-4.0 navigation
+            $retval  .= $this->_quickWarp();
         }
 
         if (! PMA_Response::getInstance()->isAjax()) {
             // closes the tags that were opened by the navigation header
-            $retval .= '</div>';
-            $retval .= '</div>';
+            $retval .= '</div>'; // pma_navigation_content
             $retval .= $this->_getDropHandler();
-            $retval .= '</div>';
+            $retval .= '</div>'; // pma_navigation
         }
 
         return $retval;
@@ -218,6 +233,25 @@ class PMA_Navigation
         $html .= '</fieldset>';
         $html .= '</form>';
         return $html;
+    }
+
+    /**
+     * Display quick warp links, contain Recents and Favorites
+     *
+     * @return string HTML code
+     */
+    private function _quickWarp()
+    {
+        $retval  = '<div class="pma_quick_warp">';
+        if ($GLOBALS['cfg']['NumRecentTables'] > 0) {
+            $retval .= PMA_RecentFavoriteTable::getInstance('recent')->getHtml();
+        }
+        if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
+            $retval .= PMA_RecentFavoriteTable::getInstance('favorite')->getHtml();
+        }
+        $retval .= '<div class="clearfloat"></div>';
+        $retval .= '</div>';
+        return $retval;
     }
 }
 ?>

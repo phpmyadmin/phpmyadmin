@@ -768,8 +768,7 @@ class PMA_NavigationTree
     public function renderState()
     {
         $this->_buildPath();
-        $retval  = $this->_quickWarp();
-        $retval .= '<div class="clearfloat"></div>';
+        $retval = '<div class="clearfloat"></div>';
         $retval .= '<ul>';
         $retval .= $this->_fastFilterHtml($this->_tree);
         if (! $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
@@ -1350,25 +1349,6 @@ class PMA_NavigationTree
         } else {
             return strcasecmp($a->name, $b->name);
         }
-    }
-
-    /**
-     * Display quick warp links, contain Recents and Favorites
-     *
-     * @return string HTML code
-     */
-    private function _quickWarp()
-    {
-        $retval  = '<div class="pma_quick_warp">';
-        if ($GLOBALS['cfg']['NumRecentTables'] > 0) {
-            $retval .= PMA_RecentFavoriteTable::getInstance('recent')->getHtml();
-        }
-        if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
-            $retval .= PMA_RecentFavoriteTable::getInstance('favorite')->getHtml();
-        }
-        $retval .= '<div class="clearfloat"></div>';
-        $retval .= '</div>';
-        return $retval;
     }
 }
 ?>
