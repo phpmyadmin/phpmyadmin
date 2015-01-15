@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2015-01-12 09:17+0200\n"
+"PO-Revision-Date: 2015-01-15 13:43+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -2404,6 +2404,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Su veebilehitseha ei toeta seadistuse kohalikku salvestamist, või on jõutud "
+"selleks lubatud mahuni. Seetõttu ei pruugi mõned omadused korrektselt "
+"töötada. Safaris põhjustab seda tavaliselt \"Privaartrežiimis lehitsemine\" ("
+"\"Private Mode Browsing\")."
 
 #: js/messages.php:560
 msgctxt "Previous month"
@@ -6247,10 +6251,9 @@ msgid "Target for quick access icon"
 msgstr "Kiiravamisikooni sihtkoht"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "Kiiravamisikooni sihtkoht"
+msgstr "Teise kiiravamisikooni sihtkoht"
 
 #: libraries/config/messages.inc.php:438
 msgid ""
@@ -6804,7 +6807,6 @@ msgid "Recently used table"
 msgstr "Hiljuti kasutatud tabel"
 
 #: libraries/config/messages.inc.php:643
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]."
@@ -6812,11 +6814,10 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Jäta tühjaks, kui seansside vahel puuduvad \"püsivad\" hiljuti kasutatud "
-"tabelid, soovitatav: [kbd]pma__recent[/kbd]."
+"Jäta tühjaks, kui sa ei soovi seansside vahelisi \"püsivad\" hiljuti "
+"kasutatud tabeleid, soovitatav: [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:646
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "Lemmikute tabel"
@@ -9128,7 +9129,7 @@ msgstr ""
 "ainult ühe veeru."
 
 #: libraries/normalization.lib.php:381
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above partial dependencies, in order to put the original table '%1"
 #| "$s' into Second normal form we need to create the following tables:"
@@ -9136,8 +9137,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
-"Vastavalt ülaltoodud osalistele sõltuvustele peame originaaltabeli '%1$s' "
-"viimiseks teisele normaalkujule looma järgmised tabelid:"
+"Originaaltabeli '%1$s' viimiseks teisele normaalkujule peame looma järgmised "
+"tabelid:"
 
 #: libraries/normalization.lib.php:417
 #, php-format
@@ -9150,7 +9151,7 @@ msgid "Error in processing!"
 msgstr "Töötlemisel esines viga!"
 
 #: libraries/normalization.lib.php:501
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above dependencies, in order to put the original table '%1$s' into "
 #| "Third normal form we need to create the following tables:"
@@ -9158,8 +9159,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
-"Vastavalt ülaltoodud sõltuvustele peame originaaltabeli '%1$s' viimiseks "
-"kolmandale normaalkujule looma järgmised tabelid:"
+"Originaaltabeli '%1$s' viimiseks kolmandale normaalkujule peame looma "
+"järgmised tabelid:"
 
 #: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
@@ -10429,10 +10430,9 @@ msgid "Persistent recently used tables"
 msgstr "Püsivad hiljuti kasutatud tabelid"
 
 #: libraries/relation.lib.php:226
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Püsivad hiljuti kasutatud tabelid"
+msgstr "Püsivad lemmiktabelid"
 
 #: libraries/relation.lib.php:237
 msgid "Persistent tables' UI preferences"
@@ -10495,10 +10495,10 @@ msgstr ""
 "%sLoo%s phpMyAdmini seadistuse salvestuse tabelid aktiivses andmebaasis."
 
 #: libraries/relation.lib.php:1973
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Puudulikud phpMyAdmini seadistuse salvestuse tabelid"
+msgstr "%sLoo%s puuduvad phpMyAdmini seadistuse salvestuse tabelid."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -13259,16 +13259,14 @@ msgid "Add %s column(s)"
 msgstr "Lisa %s veerg(u)"
 
 #: libraries/structure.lib.php:1707
-#, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Beginning of table"
-msgstr "Tabeli algusesse"
+msgstr "Tabel algus"
 
 #: libraries/structure.lib.php:1717
-#, fuzzy
 #| msgid "after %s"
 msgid "after"
-msgstr "peale %s"
+msgstr "peale"
 
 #: libraries/structure.lib.php:1807
 msgid "Row statistics"
@@ -14206,12 +14204,12 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rida: %1$s, veerg: %2$s, viga: %3$s"
 
 #: tbl_structure.php:60
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgid_plural "The column names '%s' are MySQL reserved keywords."
 msgstr[0] "Veeru nimi '%s' on MySQLi reserveeritud võtmesõna."
-msgstr[1] "Veeru nimi '%s' on MySQLi reserveeritud võtmesõna."
+msgstr[1] "Veergude nimed '%s' on MySQLi reserveeritud võtmesõnad."
 
 #: tbl_structure.php:124
 msgid "No column selected."
