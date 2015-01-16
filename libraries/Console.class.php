@@ -164,6 +164,8 @@ class PMA_Console
                 $this->_scripts->addFile('codemirror/addon/runmode/runmode.js');
                 $this->_scripts->addFile('codemirror/addon/hint/show-hint.js');
                 $this->_scripts->addFile('codemirror/addon/hint/sql-hint.js');
+                $this->_scripts->addFile('codemirror2/lib/util/formatting.js');
+                $this->_scripts->addFile('codemirror2/lib/util/sql-formatting.js');
             }
             $this->_scripts->addFile('console.js');
             $output .= $this->_scripts->getDisplay();
