@@ -129,5 +129,5 @@ if ($cfgRelation['pdfwork']) {
     );
 }
 
-$response->addHTML($db_qbe->getSelectionForm($cfgRelation));
+$response->addHTML($db_qbe->getSelectionForm());
 ?>

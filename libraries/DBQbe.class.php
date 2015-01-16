@@ -1420,11 +1420,9 @@ class PMA_DbQbe
     /**
      * Provides the generated QBE form
      *
-     * @param array $cfgRelation Relation Settings
-     *
      * @return string QBE form
      */
-    public function getSelectionForm($cfgRelation)
+    public function getSelectionForm()
     {
         $html_output = '<form action="db_qbe.php" method="post" id="formQBE">';
         $html_output .= '<fieldset>';
