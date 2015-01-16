@@ -241,7 +241,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '',
                 '',
                 '',
-                0,
                 'data grid_edit not_null   '
             )
         );
@@ -255,7 +254,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @param string  $relation_class   the class for relations in a column
      * @param string  $hide_class       the class for visibility of a column
      * @param string  $field_type_class the class related to type of the field
-     * @param integer $row_no           the row index
      * @param string  $output           output of__getResettedClassForInlineEdit
      *
      * @return void
@@ -264,7 +262,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetClassesForColumn(
         $grid_edit_class, $not_null_class, $relation_class,
-        $hide_class, $field_type_class, $row_no, $output
+        $hide_class, $field_type_class, $output
     ) {
         $GLOBALS['cfg']['BrowsePointerEnable'] = true;
         $GLOBALS['cfg']['BrowseMarkerEnable'] = true;
@@ -275,7 +273,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '_getClassesForColumn',
                 array(
                     $grid_edit_class, $not_null_class, $relation_class,
-                    $hide_class, $field_type_class, $row_no
+                    $hide_class, $field_type_class
                 )
             )
         );

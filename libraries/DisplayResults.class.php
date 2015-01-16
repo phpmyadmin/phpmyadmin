@@ -1142,8 +1142,7 @@ class PMA_DisplayResults
         // Display column at rightside - checkboxes or empty column
         if (! $printview) {
             $table_headers_html .= $this->_getColumnAtRightSide(
-                $displayParts, $full_or_partial_text_link,
-                $colspan, $rowspan
+                $displayParts, $full_or_partial_text_link, $colspan
             );
         }
         $table_headers_html .= '</tr>' . '</thead>';
@@ -1318,7 +1317,7 @@ class PMA_DisplayResults
     ) {
 
         $button_html = '';
-        $colspan = $rowspan = null;
+        $rowspan = null;
         $vertical_display = $this->__get('vertical_display');
 
         // 1. Displays the full/partial text button (part 1)...
@@ -2223,7 +2222,6 @@ class PMA_DisplayResults
      * @param array  &$displayParts             which elements to display
      * @param string $full_or_partial_text_link full/partial link or text button
      * @param string $colspan                   column span of table header
-     * @param string $rowspan                   row span of table header
      *
      * @return  string  html content
      *
@@ -2232,8 +2230,7 @@ class PMA_DisplayResults
      * @see     _getTableHeaders()
      */
     private function _getColumnAtRightSide(
-        &$displayParts, $full_or_partial_text_link,
-        $colspan, $rowspan
+        &$displayParts, $full_or_partial_text_link, $colspan
     ) {
 
         $right_column_html = '';
@@ -2515,7 +2512,7 @@ class PMA_DisplayResults
                 && !($row_no % $_SESSION['tmpval']['repeat_cells'])
             ) {
                 $table_body_html .= $this->_getRepeatingHeaders(
-                    $vertical_display, $row_no
+                    $vertical_display
                 );
             }
 
@@ -2727,7 +2724,7 @@ class PMA_DisplayResults
             // combine all the classes applicable to this column's value
             $class = $this->_getClassesForColumn(
                 $grid_edit_class, $not_null_class, $relation_class,
-                $hide_class, $field_type_class, $row_no
+                $hide_class, $field_type_class
             );
 
             //  See if this column should get highlight because it's used in the
@@ -3086,11 +3083,10 @@ class PMA_DisplayResults
 
 
     /**
-     * Get HTML for reapeating headers
+     * Get HTML for repeating headers
      *
-     * @param array   $vertical_display information used with vertical
-     *                                  display mode
-     * @param integer $row_no           the index of current row
+     * @param array $vertical_display information used with vertical
+     *                                display mode
      *
      * @return  string  $header_html    html content
      *
@@ -3099,7 +3095,7 @@ class PMA_DisplayResults
      * @see     _getTableBody()
      */
     private function _getRepeatingHeaders(
-        $vertical_display, $row_no
+        $vertical_display
     ) {
         $header_html = '<tr>' . "\n";
 
@@ -3375,7 +3371,6 @@ class PMA_DisplayResults
      * @param string  $relation_class   the class for relations in a column
      * @param string  $hide_class       the class for visibility of a column
      * @param string  $field_type_class the class related to type of the field
-     * @param integer $row_no           the row index
      *
      * @return string $class the combined classes
      *
@@ -3385,11 +3380,8 @@ class PMA_DisplayResults
      */
     private function _getClassesForColumn(
         $grid_edit_class, $not_null_class, $relation_class,
-        $hide_class, $field_type_class, $row_no
+        $hide_class, $field_type_class
     ) {
-
-        $printview = $this->__get('printview');
-
         $class = 'data ' . $grid_edit_class . ' ' . $not_null_class . ' '
             . $relation_class . ' ' . $hide_class . ' ' . $field_type_class;
 
