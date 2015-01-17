@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 + rfe #1591 Shortcut link to search page
 + rfe #1568 Fold Add Column After / Before into dropdown
 - bug #4705 Table structure: adding primary key doesn't refresh page
++ rfe #1582 SQL formatter
 
 4.3.8.0 (not yet released)
 
