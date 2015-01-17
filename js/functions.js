@@ -976,6 +976,30 @@ function insertQuery(queryType)
     if (queryType == "clear") {
         setQuery('');
         return;
+    } else if (queryType == "format") {
+        if (codemirror_editor) {
+            $('#querymessage').html(PMA_messages.strFormatting
+                + '&nbsp;<img class="ajaxIcon" src="'
+                + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+            var href = 'db_sql_format.php';
+            var params = {
+                'ajax_request': true,
+                'token': PMA_commonParams.get('token'),
+                'sql': codemirror_editor.getValue()
+            };
+            $.ajax({
+                type: 'POST',
+                url: href,
+                data: params,
+                success: function (data) {
+                    if (data.success) {
+                        codemirror_editor.setValue(data.sql);
+                    }
+                    $('#querymessage').html('');
+                }
+            });
+        }
+        return;
     }
 
     var query = "";

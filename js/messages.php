@@ -245,6 +245,8 @@ $js_messages['strJustification'] = __('Justification');
 $js_messages['strFormula'] = __('Used variable / formula');
 $js_messages['strTest'] = __('Test');
 
+/* For query editor */
+$js_messages['strFormatting'] = __('Formatting SQL...');
 
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');

@@ -216,6 +216,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
         . $auto_sel . $locking . '>'
         . htmlspecialchars($query)
         . '</textarea>';
+    $html .= '<div id="querymessage"></div>';
     // Add buttons to generate query easily for
     // select all, single select, insert, update and delete
     if (count($fields_list)) {
@@ -232,6 +233,10 @@ function PMA_getHtmlForSqlQueryFormInsert(
     }
     $html .= '<input type="button" value="' . __('Clear') . '" id="clear"'
         . ' class="button sqlbutton" />';
+    if ($GLOBALS['cfg']['CodemirrorEnable']) {
+        $html .= '<input type="button" value="' . __('Format') . '" id="format"'
+            . ' class="button sqlbutton" />';
+    }
     $html .= '</div>' . "\n";
 
     if (count($fields_list)) {
