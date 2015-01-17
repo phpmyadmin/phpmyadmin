@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2014-02-14 13:01+0200\n"
-"Last-Translator: Yuki Shira <shirayuking@gmail.com>\n"
-"Language-Team: Japanese <http://hosted.weblate.org/projects/phpmyadmin/"
-"master/ja/>\n"
+"PO-Revision-Date: 2015-01-17 20:36+0200\n"
+"Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
+"Language-Team: Japanese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -26,19 +26,18 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "現在のデータベースのカラムのセントラルリストは空です。"
 
 #: db_central_columns.php:109
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "クリックでソート"
+msgstr "クリックでソート。"
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1$s - %2$s."
-msgstr "行の表示"
+msgstr "%1$s から %2$s の行の表示。"
 
 #: db_create.php:61
 #, php-format
@@ -256,15 +255,13 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "データベース %1$s を %2$s にコピーしました。"
 
 #: db_operations.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"phpMyAdmin 環境保管領域が無効になっています。理由については%sこちら%sをご覧く"
-"ださい。"
+msgstr "phpMyAdmin 環境保管領域が無効になっています。理由については%sこちら%sをご覧ください。"
 
 #: db_printview.php:48 db_tracking.php:124 db_tracking.php:264
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:764
@@ -589,22 +586,18 @@ msgid "Output"
 msgstr "成形結果"
 
 #: gis_data_editor.php:415
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
-msgstr ""
-"「関数」の項目で「GeomFromText」を選択して、下の文字列を「値」の項目に貼り付"
-"けてください"
+msgstr "「関数」の項目で「GeomFromText」を選択して、下の文字列を「値」の項目に貼り付けてください。"
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "アクセスが拒否されました!"
+msgstr "成功しました"
 
 #: import.php:58 js/messages.php:441
 msgid "Failed"
@@ -3709,7 +3702,7 @@ msgstr "コメント"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "主キーを削除しました"
+msgstr "主キーを削除しました。"
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -7289,8 +7282,8 @@ msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"詳細は [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug tracker[/"
-"a] と [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]。"
+"詳細は [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug tracker[/a] と "
+"[a@http://bugs.mysql.com/19588]MySQL Bugs[/a]を"
 
 #: libraries/config/messages.inc.php:588
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -10237,7 +10230,7 @@ msgstr "テーブルを最適化する"
 #: libraries/operations.lib.php:1128
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "テーブル %s をフラッシュしました"
+msgstr "テーブル %s をフラッシュしました。"
 
 #: libraries/operations.lib.php:1135
 msgid "Flush the table (FLUSH)"
@@ -11550,9 +11543,7 @@ msgstr "スレーブの IO スレッドが実行していません！"
 #: libraries/replication_gui.lib.php:225
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr ""
-"サーバはレプリケーションプロセスではスレーブとして設定されています。どのよう"
-"にしたいですか?"
+msgstr "サーバはレプリケーションプロセスではスレーブとして設定されています。どのようにしたいですか:"
 
 #: libraries/replication_gui.lib.php:229
 msgid "See slave status table"
@@ -12892,7 +12883,7 @@ msgstr "起動以後のネットワークトラフィック：%s"
 #: libraries/server_status.lib.php:66
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "この MySQL サーバの稼働時間: %1$s (起動時刻: %2$s)"
+msgstr "この MySQL サーバの稼働時間: %1$s (起動時刻: %2$s)。"
 
 #: libraries/server_status.lib.php:80
 msgid ""
@@ -14209,7 +14200,7 @@ msgstr "無効な句読点文字です"
 #: libraries/structure.lib.php:70 tbl_operations.php:355
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "テーブル %s を空にしました"
+msgstr "テーブル %s を空にしました。"
 
 #: libraries/structure.lib.php:93
 msgid "Tracking is active."
@@ -14299,7 +14290,7 @@ msgstr "なし"
 #: libraries/structure.lib.php:1445
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "カラム %s を削除しました"
+msgstr "カラム %s を削除しました。"
 
 #: libraries/structure.lib.php:1507 libraries/structure.lib.php:2216
 #: libraries/structure.lib.php:2226
@@ -14401,12 +14392,12 @@ msgstr "次の自動付番"
 #: libraries/structure.lib.php:2094 libraries/structure.lib.php:2109
 #, php-format
 msgid "An index has been added on %s."
-msgstr "%s にインデックスを追加しました"
+msgstr "%s にインデックスを追加しました。"
 
 #: libraries/structure.lib.php:2080
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "%s に主キーを追加しました"
+msgstr "%s に主キーを追加しました。"
 
 #: libraries/structure.lib.php:2159 libraries/structure.lib.php:2230
 msgid "Distinct values"
@@ -14440,7 +14431,7 @@ msgstr "有効"
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "テーブル %1$s は正常に変更されました"
+msgstr "テーブル %1$s は正常に変更されました。"
 
 #: libraries/structure.lib.php:2597 libraries/tracking.lib.php:1048
 msgid "Query error"
@@ -15037,7 +15028,7 @@ msgstr "ユーザ環境設定の管理"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:301
 msgid "Configuration has been saved."
-msgstr "設定を保存しました"
+msgstr "設定を保存しました。"
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -15494,14 +15485,12 @@ msgstr ""
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
-msgstr ""
-"統計データをより正確にするために、サーバを 1 日以上稼動させてから解析すること"
-"をお勧めします。"
+msgstr "統計データをより正確にするために、サーバを 1 日以上稼動させてから解析することをお勧めします"
 
 #: libraries/advisory_rules.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr "%s しか稼動していません。"
+msgstr "%s しか稼動していません"
 
 #: libraries/advisory_rules.txt:56
 msgid "Questions below 1,000"
@@ -15541,9 +15530,7 @@ msgstr "クエリの全体量に対して長時間処理であるスロークエ
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
-msgstr ""
-"{long_query_time} を増やすか、クエリログからスロークエリを見つけ出し最適化し"
-"てみてください。"
+msgstr "{long_query_time} を増やすか、クエリログからスロークエリを見つけ出し最適化してみてください"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
@@ -15617,7 +15604,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "log_slow_queries が「OFF」に設定されています。"
+msgstr "log_slow_queries が「OFF」に設定されています"
 
 #: libraries/advisory_rules.txt:95
 #, fuzzy
@@ -15681,7 +15668,7 @@ msgstr "バージョン 5.5.8 (5.5 の 最初の安定版) 未満です。"
 
 #: libraries/advisory_rules.txt:118
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "安定版 MySQL 5.5 へのアップグレードを推奨します。"
+msgstr "安定版 MySQL 5.5 へのアップグレードを推奨します"
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 #: libraries/advisory_rules.txt:135
@@ -15708,8 +15695,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
-msgstr ""
-"バージョンコメント (version_comment) に 「source」という文字があります。"
+msgstr "バージョンコメント (version_comment) に 「source」という文字があります"
 
 #: libraries/advisory_rules.txt:131 libraries/advisory_rules.txt:138
 msgid "The MySQL manual only is accurate for official MySQL binaries."
@@ -15719,21 +15705,20 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:132
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr "Percona ドキュメントは http://www.percona.com/docs/wiki/ にあります。"
+msgstr "Percona ドキュメントは http://www.percona.com/docs/wiki/ にあります"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
-msgstr ""
-"バージョンコメント (version_comment) に 「percona」という文字があります。"
+msgstr "バージョンコメント (version_comment) に 「percona」という文字があります"
 
 #: libraries/advisory_rules.txt:139
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr "Drizzle ドキュメントは http://docs.drizzle.org/ にあります。"
+msgstr "Drizzle ドキュメントは http://docs.drizzle.org/ にあります"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr "バージョンの文字列 (%s) が Drizzle のバージョン形態と一致しています。"
+msgstr "バージョンの文字列 (%s) が Drizzle のバージョン形態と一致しています"
 
 #: libraries/advisory_rules.txt:142
 msgid "MySQL Architecture"
@@ -15780,9 +15765,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
-"query_cache_size が 0 に設定されているか、query_cache_type が「OFF」に設定さ"
-"れています。"
+msgstr "query_cache_size が 0 に設定されているか、query_cache_type が「OFF」に設定されています"
 
 #: libraries/advisory_rules.txt:160
 msgid "Query caching method"
@@ -16798,10 +16781,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "MyISAM における同時挿入"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "concurrent_insert に 1 を設定して、同時挿入を有効にしてください。"
+msgstr "{concurrent_insert} に 1 を設定して、同時挿入を有効にしてください"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
@@ -16809,13 +16791,13 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
-"{concurrent_insert} を 1 に設定すると、一つのテーブル内における読み書きの衝突"
-"を減らすことができます。<a href=\"http://dev.mysql.com/doc/refman/5.1/ja/"
-"concurrent-inserts.html\">MySQL ドキュメント</a>もご覧になってください。"
+"{concurrent_insert} を 1 に設定すると、一つのテーブル内における読み書きの衝突を減らすことができます。<a href=\""
+"http://dev.mysql.com/doc/refman/5.1/ja/concurrent-inserts.html\">MySQL "
+"ドキュメント</a>もご覧になってください"
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
-msgstr "concurrent_insert は 0 に設定されています。"
+msgstr "concurrent_insert は 0 に設定されています"
 
 #, fuzzy
 #~| msgid "Mode"
