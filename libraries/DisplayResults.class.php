@@ -1057,9 +1057,9 @@ class PMA_DisplayResults
             $displayParts['del_lnk']
         );
 
-        // 1. Set $colspan or $rowspan and generate html with full/partial
+        // 1. Set $colspan and generate html with full/partial
         // text button or link
-        list($colspan, $rowspan, $button_html)
+        list($colspan, $button_html)
             = $this->_getFieldVisibilityParams(
                 $displayParts, $full_or_partial_text_link
             );
@@ -1306,7 +1306,7 @@ class PMA_DisplayResults
      * @param array  &$displayParts             which elements to display
      * @param string $full_or_partial_text_link full/partial link or text button
      *
-     * @return  array   3 element array - $colspan, $rowspan, $button_html
+     * @return  array   2 element array - $colspan, $button_html
      *
      * @access  private
      *
@@ -1317,7 +1317,6 @@ class PMA_DisplayResults
     ) {
 
         $button_html = '';
-        $rowspan = null;
         $vertical_display = $this->__get('vertical_display');
 
         // 1. Displays the full/partial text button (part 1)...
@@ -1378,7 +1377,7 @@ class PMA_DisplayResults
 
         $this->__set('vertical_display', $vertical_display);
 
-        return array($colspan, $rowspan, $button_html);
+        return array($colspan, $button_html);
 
     } // end of the '_getFieldVisibilityParams()' function
 
