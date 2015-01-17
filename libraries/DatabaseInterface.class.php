@@ -638,10 +638,12 @@ class PMA_DatabaseInterface
                         }
                     }
 
-                    if ($sort_order == 'DESC') {
-                        array_multisort($$sort_by, SORT_DESC, $each_tables);
-                    } else {
-                        array_multisort($$sort_by, SORT_ASC, $each_tables);
+                    if (! empty($$sort_by)) {
+                        if ($sort_order == 'DESC') {
+                            array_multisort($$sort_by, SORT_DESC, $each_tables);
+                        } else {
+                            array_multisort($$sort_by, SORT_ASC, $each_tables);
+                        }
                     }
 
                     // cleanup the temporary sort array

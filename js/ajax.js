@@ -525,7 +525,7 @@ var AJAX = {
                 if ($.inArray(script, self._scripts) == -1) {
                     needRequest = true;
                     this.add(script);
-                    request.push("scripts[]=" + script);
+                    request.push("scripts%5B%5D=" + script);
                 }
             }
             request.push("call_done=1");

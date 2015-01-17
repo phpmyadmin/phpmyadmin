@@ -91,6 +91,11 @@ class Node
     public $links;
 
     /**
+     * @var string HTML title
+     */
+    public $title;
+
+    /**
      * @var string Extra CSS classes for the node
      */
     public $classes = '';

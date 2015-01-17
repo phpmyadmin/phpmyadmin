@@ -1,6 +1,19 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.7.0 (2015-01-15)
+- bug #4694 js error on marking table as favorite in Safari (in private mode)
+- bug #4695 Changing $cfg['DefaultTabTable'] doesn't update link and title
+- bug       Undefined index menuswork
+- bug       Undefined index navwork
+- bug       Undefined index central_columnswork
+- bug #4697 Server Status refresh not behaving as expected
+- bug       Null argument in array_multisort()
+- bug #4699 Navigation panel should not hide icons based on 'TableNavigationLinksMode'
+- bug #4703 Unsaved schema page exported as pdf.pdf
+- bug #4707 Call to undefined method PMA_Schema_PDF::dieSchema()
+- bug #4702 URL is non RFC-2396 compatible in get_scripts.js.php
+
 4.3.6.0 (2015-01-07)
 - bug       Undefined index notices while configuring recent and favorite tables
 - bug #4687 Designer breaks without configuration storage
