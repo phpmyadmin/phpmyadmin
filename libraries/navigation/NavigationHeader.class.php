@@ -32,6 +32,14 @@ class PMA_NavigationHeader
                 'ajax_request' => true
             )
         );
+        $class = ' class="list_container';
+        if ($GLOBALS['cfg']['NavigationLinkWithMainPanel']) {
+            $class .= ' synced';
+        }
+        if ($GLOBALS['cfg']['NavigationTreePointerEnable']) {
+            $class .= ' highlight';
+        }
+        $class .= '"';
         $buffer  = '<div id="pma_navigation">';
         $buffer .= '<div id="pma_navigation_resizer"></div>';
         $buffer .= '<div id="pma_navigation_collapser"></div>';
@@ -53,6 +61,7 @@ class PMA_NavigationHeader
             )
         );
         $buffer .= '</div>'; // pma_navigation_header
+        $buffer .= '<div id="pma_navigation_tree"' . $class . '>';
         return $buffer;
     }
 

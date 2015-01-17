@@ -630,7 +630,7 @@ class PMA_NavigationTree
     {
         if ($node->type != Node::CONTAINER
             || $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
-            || ! $GLOBALS['cfg']['ShowNavigationAsTree']
+            //|| ! $GLOBALS['cfg']['ShowNavigationAsTree']
         ) {
             return;
         }
@@ -775,7 +775,7 @@ class PMA_NavigationTree
         $retval .= '<ul>';
         $retval .= $this->_fastFilterHtml($this->_tree);
         if (! $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
-            || ! $GLOBALS['cfg']['ShowNavigationAsTree']
+            //|| ! $GLOBALS['cfg']['ShowNavigationAsTree']
         ) {
             $retval .= $this->_controls();
         }
@@ -817,6 +817,9 @@ class PMA_NavigationTree
             $retval .= $this->_fastFilterHtml($node);
             $retval .= $this->_getPageSelector($node);
             $children = $node->children;
+            if (! $GLOBALS['cfg']['ShowNavigationAsTree']) {
+                $this->_setVisibility();
+            }
             usort($children, array('PMA_NavigationTree', 'sortNode'));
             for ($i=0, $nbChildren = count($children); $i < $nbChildren; $i++) {
                 if ($i + 1 != $nbChildren) {
@@ -1163,21 +1166,25 @@ class PMA_NavigationTree
         );
         $children = $this->_tree->children;
         $node = $children[0];
-        $retval .= '<form method="post" action="index.php" target="_parent" id="left">';
+        $url_params = array(
+            'token' => $_SESSION[' PMA_token '],
+            'server' => $GLOBALS['server']
+        );
+        $retval .= '<form action="db_structure.php">';
+        $retval .= PMA_getHiddenFields($url_params);
         $retval .= '<select name="db" id="navi_db_select">'
             . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
             . '(' . __('Databases') . ') ...</option>' . "\n";
         $selected = $GLOBALS['db'];
         foreach ($children as $node) {
+            $paths  = $node->getPaths();
             if (isset($node->links['text'])) {
-                $args = array();
-                foreach ($node->parents(true) as $parent) {
-                    $args[] = urlencode($parent->real_name);
-                }
-                $link = vsprintf($node->links['text'], $args);
                 $title = empty($node->links['title']) ? '' : $node->links['title'];
                 $retval .= '<option value="' . htmlspecialchars($node->real_name) . '"'
-                    .' title="' . htmlspecialchars($title) . '"';
+                    .' title="' . htmlspecialchars($title) . '"'
+                    .' apath="' . $paths['aPath'] . '"'
+                    .' vpath="' . $paths['vPath'] . '"'
+                    .' pos="' . $this->_pos . '"';
                 if ($node->real_name == $selected || (PMA_DRIZZLE && strtolower($node->real_name) == strtolower($selected))) {
                     $retval .= ' selected="selected"';
                 }
@@ -1188,7 +1195,8 @@ class PMA_NavigationTree
                 $retval .= '</option>';
             }
         }
-        $retval .= '</select></form></div>';
+        $retval .= '</select></form>';
+        $retval .= '</div><div id="pma_navigation_tree_content"></div>';
         return $retval;
     }
 

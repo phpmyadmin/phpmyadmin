@@ -8,36 +8,49 @@
 /**
  * Loads child items of a node and executes a given callback
  *
+ * @param isNode
  * @param $expandElem expander
  * @param callback    callback function
  *
  * @returns void
  */
-function loadChildNodes($expandElem, callback) {
-    if (!$expandElem.hasClass('expander')) {
-        return;
+function loadChildNodes(isNode, $expandElem, callback) {
+    if (isNode) {
+        if (!$expandElem.hasClass('expander')) {
+            return;
+        }
+        var $destination = $expandElem.closest('li');
+
+        var searchClause = PMA_fastFilter.getSearchClause();
+        var searchClause2 = PMA_fastFilter.getSearchClause2($expandElem);
+
+        var params = {
+            aPath: $expandElem.find('span.aPath').text(),
+            vPath: $expandElem.find('span.vPath').text(),
+            pos: $expandElem.find('span.pos').text(),
+            pos2_name: $expandElem.find('span.pos2_name').text(),
+            pos2_value: $expandElem.find('span.pos2_value').text(),
+            searchClause: searchClause,
+            searchClause2: searchClause2
+        };
+    } else {
+        var $destination = $('#pma_navigation_tree_content');
+        var params = {
+            aPath: $expandElem.attr('aPath'),
+            vPath: $expandElem.attr('vPath'),
+            pos: $expandElem.attr('pos')
+        };
     }
-    var $destination = $expandElem.closest('li');
-
-    var searchClause = PMA_fastFilter.getSearchClause();
-    var searchClause2 = PMA_fastFilter.getSearchClause2($expandElem);
-
-    var params = {
-        aPath: $expandElem.find('span.aPath').text(),
-        vPath: $expandElem.find('span.vPath').text(),
-        pos: $expandElem.find('span.pos').text(),
-        pos2_name: $expandElem.find('span.pos2_name').text(),
-        pos2_value: $expandElem.find('span.pos2_value').text(),
-        searchClause: searchClause,
-        searchClause2: searchClause2
-    };
 
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     $.get(url, params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
-            $expandElem.addClass('loaded');
+            if (isNode) {
+                $expandElem.addClass('loaded');
+            }
             $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
             $destination.append(data.message);
+            $destination.children('div.list_container').first().show();
             if (data._debug){
                 $('#session_debug').replaceWith(data._debug);
             }
@@ -134,6 +147,10 @@ $(function () {
         setTimeout(function () {
             $icon.attr('src', icon_reload_src);
         }, 1000);
+    });
+    
+    $(document).on("change", '#navi_db_select',  function (event) {
+        $(this).closest('form').trigger('submit');
     });
 
     /**
@@ -510,7 +527,7 @@ function expandTreeNode($expandElem, callback) {
         $icon.hide();
         $throbber.insertBefore($icon);
 
-        loadChildNodes($expandElem, function (data) {
+        loadChildNodes(true, $expandElem, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 var $destination = $expandElem.closest('li');
                 $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
@@ -585,6 +602,13 @@ function PMA_showCurrentNavigation() {
                 });
             } else {
                 handleTableOrDb(table, $dbItem);
+            }
+        } else {
+            if (! PMA_commonParams.get('show_navigation_as_tree')) {
+                loadChildNodes(false, $('option:selected', $('#navi_db_select')), function (data) {
+                    return;
+                });
+                return;
             }
         }
     }
@@ -688,7 +712,7 @@ function PMA_showCurrentNavigation() {
     }
 
     function loadAndShowTableOrView($expander, $relatedContainer, itemName) {
-        loadChildNodes($expander, function (data) {
+        loadChildNodes(true, $expander, function (data) {
             var $whichItem = findLoadedItem(
                 $relatedContainer.children('div.list_container'),
                 itemName, null, true
@@ -825,12 +849,17 @@ function PMA_navigationTreePagination($this) {
         if (typeof data !== 'undefined' && data.success) {
             if (isDbSelector) {
                 var val = PMA_fastFilter.getSearchClause();
-                $('#pma_navigation_tree')
+                if (PMA_commonParams.get('show_navigation_as_tree')) {
+                    var $div_elem = $('#pma_navigation_tree');
+                } else {
+                    var $div_elem = $('#pma_navigation_select_database');
+                }
+                $div_elem
                     .html(data.message)
                     .children('div')
                     .show();
                 if (val) {
-                    $('#pma_navigation_tree')
+                    $div_elem
                         .find('li.fast_filter input.searchClause')
                         .val(val);
                 }

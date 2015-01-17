@@ -33,19 +33,11 @@ class PMA_Navigation
         if (! PMA_Response::getInstance()->isAjax()) {
             $header = new PMA_NavigationHeader();
             $retval = $header->getDisplay();
-            $class = ' class="list_container';
-            if ($GLOBALS['cfg']['NavigationLinkWithMainPanel']) {
-                $class .= ' synced';
-            }
-            if ($GLOBALS['cfg']['NavigationTreePointerEnable']) {
-                $class .= ' highlight';
-            }
-            $class .= '"';
-            $retval .= '<div id="pma_navigation_tree"' . $class . '>';
         }
-            $tree = new PMA_NavigationTree();
-        if ($GLOBALS['cfg']['ShowNavigationAsTree']) {
-
+        $tree = new PMA_NavigationTree();
+        if ($GLOBALS['cfg']['ShowNavigationAsTree']
+          //  || $GLOBALS['db'] == ''
+        ) {
             if (! PMA_Response::getInstance()->isAjax()
                 || ! empty($_REQUEST['full'])
                 || ! empty($_REQUEST['reload'])
@@ -64,9 +56,16 @@ class PMA_Navigation
                 $retval .= $treeRender;
             }
         } else {
-            // provide legacy pre-4.0 navigation
-            $retval .= $this->_quickWarp();
-            $retval .= $tree->renderDbSelect();
+            // provide legacy pre-4.0 navigation    
+            if (! PMA_Response::getInstance()->isAjax()
+                || ! empty($_REQUEST['full'])
+                || ! empty($_REQUEST['reload'])
+            ) {
+                $retval .= $this->_quickWarp();
+                $retval .= $tree->renderDbSelect();
+            } else {
+                $retval = $tree->renderPath();
+            }
         }
 
         if (! PMA_Response::getInstance()->isAjax()) {
