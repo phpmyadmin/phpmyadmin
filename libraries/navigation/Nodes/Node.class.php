@@ -366,7 +366,9 @@ class Node
     public function getData($type, $pos, $searchClause = '')
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
-        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
+        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']
+            || !$GLOBALS['cfg']['ShowNavigationAsTree']
+        ) {
             if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $query  = "SELECT `SCHEMA_NAME` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
@@ -544,7 +546,9 @@ class Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
-        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
+        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']
+            || !$GLOBALS['cfg']['ShowNavigationAsTree']
+        ) {
             if (!$GLOBALS['cfg']['Server']['DisableIS']) {
                 $query = "SELECT COUNT(*) ";
                 $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
@@ -711,7 +715,9 @@ class Node
      */
     public function getCssClasses($match)
     {
-        if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
+        if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
+            || ! $GLOBALS['cfg']['ShowNavigationAsTree']
+        ) {
             return '';
         }
 
@@ -736,7 +742,9 @@ class Node
      */
     public function getIcon($match)
     {
-        if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
+        if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
+            || ! $GLOBALS['cfg']['ShowNavigationAsTree']
+        ) {
             return '';
         } elseif ($match && ! $this->is_group) {
             $this->visible = true;

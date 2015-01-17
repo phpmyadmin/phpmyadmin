@@ -33,8 +33,6 @@ class PMA_Navigation
         if (! PMA_Response::getInstance()->isAjax()) {
             $header = new PMA_NavigationHeader();
             $retval = $header->getDisplay();
-        }
-        if ($GLOBALS['cfg']['ShowNavigationAsTree']) {
             $class = ' class="list_container';
             if ($GLOBALS['cfg']['NavigationLinkWithMainPanel']) {
                 $class .= ' synced';
@@ -44,7 +42,10 @@ class PMA_Navigation
             }
             $class .= '"';
             $retval .= '<div id="pma_navigation_tree"' . $class . '>';
+        }
             $tree = new PMA_NavigationTree();
+        if ($GLOBALS['cfg']['ShowNavigationAsTree']) {
+
             if (! PMA_Response::getInstance()->isAjax()
                 || ! empty($_REQUEST['full'])
                 || ! empty($_REQUEST['reload'])
@@ -62,14 +63,15 @@ class PMA_Navigation
             } else {
                 $retval .= $treeRender;
             }
-            $retval .= '</div>'; // pma_navigation_tree
         } else {
             // provide legacy pre-4.0 navigation
-            $retval  .= $this->_quickWarp();
+            $retval .= $this->_quickWarp();
+            $retval .= $tree->renderDbSelect();
         }
 
         if (! PMA_Response::getInstance()->isAjax()) {
             // closes the tags that were opened by the navigation header
+            $retval .= '</div>'; // pma_navigation_tree
             $retval .= '</div>'; // pma_navigation_content
             $retval .= $this->_getDropHandler();
             $retval .= '</div>'; // pma_navigation

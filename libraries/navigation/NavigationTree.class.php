@@ -145,7 +145,9 @@ class PMA_NavigationTree
         // Initialise the tree by creating a root node
         $node = PMA_NodeFactory::getInstance('Node_Database_Container', 'root');
         $this->_tree = $node;
-        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
+        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
+            && $GLOBALS['cfg']['ShowNavigationAsTree']
+        ) {
             $this->_tree->separator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
             $this->_tree->separator_depth = 10000;
         }
@@ -628,6 +630,7 @@ class PMA_NavigationTree
     {
         if ($node->type != Node::CONTAINER
             || $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
+            || ! $GLOBALS['cfg']['ShowNavigationAsTree']
         ) {
             return;
         }
@@ -771,7 +774,9 @@ class PMA_NavigationTree
         $retval = '<div class="clearfloat"></div>';
         $retval .= '<ul>';
         $retval .= $this->_fastFilterHtml($this->_tree);
-        if (! $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
+        if (! $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
+            || ! $GLOBALS['cfg']['ShowNavigationAsTree']
+        ) {
             $retval .= $this->_controls();
         }
         $retval .= '</ul>';
@@ -1131,6 +1136,59 @@ class PMA_NavigationTree
         if ($node->hasSiblings() || isset($_REQUEST['results'])) {
             $retval .= "</li>";
         }
+        return $retval;
+    }
+    
+    
+    /**
+     * Renders a database select box like the pre-4.0 navigation panel
+     *
+     * @return string HTML code
+     */
+    public function renderDbSelect()
+    {
+        $this->_buildPath();
+        $this->_tree->is_group = false;
+        $retval = '<div id="pma_navigation_select_database">';
+        // Provide for pagination in database select
+        $retval .= PMA_Util::getListNavigator(
+            $this->_tree->getPresence('databases', ''),
+            $this->_pos,
+            array('server' => $GLOBALS['server']),
+            'navigation.php',
+            'frame_navigation',
+            $GLOBALS['cfg']['FirstLevelNavigationItems'],
+            'pos',
+            array('dbselector')
+        );
+        $children = $this->_tree->children;
+        $node = $children[0];
+        $retval .= '<form method="post" action="index.php" target="_parent" id="left">';
+        $retval .= '<select name="db" id="navi_db_select">'
+            . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
+            . '(' . __('Databases') . ') ...</option>' . "\n";
+        $selected = $GLOBALS['db'];
+        foreach ($children as $node) {
+            if (isset($node->links['text'])) {
+                $args = array();
+                foreach ($node->parents(true) as $parent) {
+                    $args[] = urlencode($parent->real_name);
+                }
+                $link = vsprintf($node->links['text'], $args);
+                $title = empty($node->links['title']) ? '' : $node->links['title'];
+                $retval .= '<option value="' . htmlspecialchars($node->real_name) . '"'
+                    .' title="' . htmlspecialchars($title) . '"';
+                if ($node->real_name == $selected || (PMA_DRIZZLE && strtolower($node->real_name) == strtolower($selected))) {
+                    $retval .= ' selected="selected"';
+                }
+                $retval .= '>' . htmlspecialchars($node->real_name);
+                //if (! empty($db['num_tables'])) {
+                  //  $return .= ' (' . $db['num_tables'] . ')';
+                //}
+                $retval .= '</option>';
+            }
+        }
+        $retval .= '</select></form></div>';
         return $retval;
     }
 
