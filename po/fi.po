@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2015-01-14 20:53+0200\n"
+"PO-Revision-Date: 2015-01-16 21:30+0200\n"
 "Last-Translator: Juha <jremes@outlook.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
@@ -2204,6 +2204,9 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
+"Paina Shift+Click lisätäksesi sarakkeen ORDER BY - klausuuliin tai "
+"laittaaksesi ASC/DESC - ehdon päälle.<br />- Ctrl+Click tai Alt+Click (Mac: "
+"Shift+Option+Click) poistaaksesi sarakkeen ORDER BY - klausuulista"
 
 #: js/messages.php:428
 msgid "Click to mark/unmark."
@@ -2236,12 +2239,16 @@ msgstr ""
 #: js/messages.php:435
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
+"Ole hyvä ja anna pätevä heksadesimaalinen merkkijono. Pätevät merkit ovat 0-"
+"9, A-F."
 
 #: js/messages.php:436
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Oletko varma että haluat nähdä kaikki rivit? Suuret taulut voivat kaataa "
+"selaimesi."
 
 #: js/messages.php:439
 msgid "cancel"
@@ -2253,7 +2260,7 @@ msgstr "Keskeytetty"
 
 #: js/messages.php:442
 msgid "Success"
-msgstr ""
+msgstr "Onnistui"
 
 #: js/messages.php:443
 msgid "Import status"
@@ -2326,16 +2333,14 @@ msgstr "Näytä piilotetut navigointipuun kohteet."
 
 #: js/messages.php:475 libraries/config/messages.inc.php:419
 #: libraries/navigation/NavigationTree.class.php:1257
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Mukauta pääpaneelia"
+msgstr "Linkitä pääpaneelin kanssa"
 
 #: js/messages.php:476 libraries/navigation/NavigationTree.class.php:1260
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Mukauta pääpaneelia"
+msgstr "Poista pääpaneelin linkki"
 
 #: js/messages.php:479
 msgid "The requested page was not found in the history, it may have expired."
@@ -2391,6 +2396,7 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
+"Vientisi on vaillinainen, koska PHP-tasolla on alhainen suoritusaikaraja!"
 
 #: js/messages.php:503
 #, php-format
@@ -2398,14 +2404,17 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Varoitus: tämän sivun lomakkeella on enemmän kuin %d kenttää. Lähetettäessä "
+"lomake jotkut kentät voidaan jättää huomiotta, PHP:n max_input_vars "
+"konfiguraation vuoksi."
 
 #: js/messages.php:509 js/messages.php:521
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Palvelimella on havaittu joitakin virheitä!"
 
 #: js/messages.php:511
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Ole hyvä ja katso tämän ikkunan alalaitaan."
 
 #: js/messages.php:516 libraries/Error_Handler.class.php:353
 msgid "Ignore All"
@@ -2415,16 +2424,17 @@ msgstr "Sivuuta kaikki"
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"Asetuksiesi mukaisesti niitä ollaan lähettämässä para-aikaa, ole hyvä ja ole "
+"kärsivällinen."
 
 #: js/messages.php:530
 msgid "Execute this query again?"
 msgstr "Suoritetaanko tämä kysely uudelleen?"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Haluatko varmasti poistaa haun ”%s”?"
+msgstr "Haluatko varmasti poistaa tämän kirjanmerkin?"
 
 #: js/messages.php:532
 msgid ""
