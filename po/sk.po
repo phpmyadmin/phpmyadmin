@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2015-01-16 18:56+0200\n"
+"PO-Revision-Date: 2015-01-18 13:43+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
@@ -6224,10 +6224,9 @@ msgid "Target for quick access icon"
 msgstr "Cieľ pre ikonu rýchleho prístupu"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "Cieľ pre ikonu rýchleho prístupu"
+msgstr "Cieľ pre druhú ikonu rýchleho prístupu"
 
 #: libraries/config/messages.inc.php:438
 msgid ""
@@ -6700,7 +6699,6 @@ msgid "Central columns table"
 msgstr "Centrálne stĺpce"
 
 #: libraries/config/messages.inc.php:611
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]"
@@ -6708,8 +6706,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: [kbd]"
 "pma__central_columns[/kbd]."
 msgstr ""
-"Nechajte prázdne pro vypnutie podpory pre PDF schému. Odporúčaná hodnota: "
-"[kbd]pma__table_coords[/kbd]"
+"Nechajte prázdne pre vypnutie podpory centrálnych stĺpcov. Odporúčaná "
+"hodnota: [kbd]pma__central_columns[/kbd]."
 
 #: libraries/config/messages.inc.php:614
 msgid "Try to connect without password."
@@ -7456,11 +7454,10 @@ msgid "New page name"
 msgstr "Názov novej stránky"
 
 #: libraries/db_designer.lib.php:160
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
-"Nebolo možné načítať importovacie pluginy, skontrolujte prosím vašu "
+"Nebolo možné načítať zásuvné moduly schémy, skontrolujte prosím vašu "
 "inštaláciu!"
 
 #: libraries/db_designer.lib.php:168
@@ -8540,7 +8537,7 @@ msgstr "Znaková sada"
 
 #: libraries/mysql_charsets.lib.php:173
 msgid "Bulgarian"
-msgstr "Bulharsky"
+msgstr "Bulharština"
 
 #: libraries/mysql_charsets.lib.php:177 libraries/mysql_charsets.lib.php:304
 msgid "Simplified Chinese"
@@ -8564,11 +8561,11 @@ msgstr "Chorvátsky"
 
 #: libraries/mysql_charsets.lib.php:192
 msgid "Czech"
-msgstr "Česky"
+msgstr "Čeština"
 
 #: libraries/mysql_charsets.lib.php:195
 msgid "Danish"
-msgstr "Dánsky"
+msgstr "Dánština"
 
 #: libraries/mysql_charsets.lib.php:198
 msgid "English"
@@ -8584,7 +8581,7 @@ msgstr "Estónsky"
 
 #: libraries/mysql_charsets.lib.php:207 libraries/mysql_charsets.lib.php:210
 msgid "German"
-msgstr "Nemecky"
+msgstr "Nemčina"
 
 #: libraries/mysql_charsets.lib.php:207
 msgid "dictionary"
@@ -8644,7 +8641,7 @@ msgstr "Slovinčina"
 
 #: libraries/mysql_charsets.lib.php:249
 msgid "Spanish"
-msgstr "Španielsky"
+msgstr "Španielština"
 
 #: libraries/mysql_charsets.lib.php:252
 msgid "Traditional Spanish"
@@ -8652,7 +8649,7 @@ msgstr "Tradičná Španielčina"
 
 #: libraries/mysql_charsets.lib.php:255 libraries/mysql_charsets.lib.php:354
 msgid "Swedish"
-msgstr "Švédsky"
+msgstr "Švédština"
 
 #: libraries/mysql_charsets.lib.php:258 libraries/mysql_charsets.lib.php:357
 msgid "Thai"
@@ -8968,10 +8965,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:194
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add a new primary key column"
-msgstr "Pridať stĺpec"
+msgstr "+ Pridať nový stĺpec s primárnym kľúčom"
 
 #: libraries/normalization.lib.php:212
 #| msgid "Remove column(s)"
@@ -9816,10 +9812,9 @@ msgid "Constraints for table"
 msgstr "Obmedzenie pre tabuľku"
 
 #: libraries/plugins/export/ExportSql.class.php:1337
-#, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
-msgstr "Obmedzenie pre exportované tabuľky"
+msgstr "Kľúče pre exportované tabuľky"
 
 #: libraries/plugins/export/ExportSql.class.php:1338
 #| msgid "Inside tables:"
@@ -9827,10 +9822,9 @@ msgid "Indexes for table"
 msgstr "Indexy pre tabuľku"
 
 #: libraries/plugins/export/ExportSql.class.php:1359
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "Nepoužívať AUTO_INCREMENT pre nulové hodnoty"
+msgstr "AUTO_INCREMENT pre exportované tabuľky"
 
 #: libraries/plugins/export/ExportSql.class.php:1360
 #| msgid "Add AUTO_INCREMENT value"
@@ -9850,10 +9844,10 @@ msgid "It appears your table uses triggers;"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1827
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Štruktúra pre zobrazenie"
+msgstr "Štruktúra pre zobrazenie %s exportovanej ako tabuľka"
 
 #: libraries/plugins/export/ExportSql.class.php:1916
 msgid "Error reading data:"
@@ -9985,10 +9979,9 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Nepoužívať <code>AUTO_INCREMENT</code> pre nulové hodnoty"
 
 #: libraries/plugins/import/ImportSql.class.php:193
-#, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Výpadkov pri čítaní"
+msgstr "Čítať ako multibyty"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -10039,10 +10032,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Schéma databázy %s - Strana %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:252
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "Chybný typ exportu"
+msgstr "Stránka PDF exportu"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:474
 #, php-format
@@ -10239,16 +10231,14 @@ msgid "Error: relation already exists."
 msgstr ""
 
 #: libraries/pmd_common.php:538
-#, fuzzy
 #| msgid "Configuration has been saved."
 msgid "FOREIGN KEY relation has been added."
-msgstr "Nastavenia boli uložené"
+msgstr "Bol pridaný FOREIGN KEY vzťah."
 
 #: libraries/pmd_common.php:543
-#, fuzzy
 #| msgid "File could not be read!"
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr "Súbor sa nedá prečítať!"
+msgstr "Chyba: FOREIGN KEY vzťah nemohol byť pridaný!"
 
 #: libraries/pmd_common.php:548
 msgid "Error: Missing index on column(s)."
@@ -10259,28 +10249,24 @@ msgid "Error: Relational features are disabled!"
 msgstr ""
 
 #: libraries/pmd_common.php:572
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Bol pridaný interný vzťah"
+msgstr "Bol pridaný interný vzťah."
 
 #: libraries/pmd_common.php:577
-#, fuzzy
 #| msgid "File could not be read!"
 msgid "Error: Internal relation could not be added!"
-msgstr "Súbor sa nedá prečítať!"
+msgstr "Chyba: Interný vzťah nemohol byť pridaný!"
 
 #: libraries/pmd_common.php:618
-#, fuzzy
 #| msgid "Configuration has been saved."
 msgid "FOREIGN KEY relation has been removed."
-msgstr "Nastavenia boli uložené"
+msgstr "FOREIGN KEY vzťah bol odstránený."
 
 #: libraries/pmd_common.php:624
-#, fuzzy
 #| msgid "File could not be read!"
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr "Súbor sa nedá prečítať!"
+msgstr "Chyba: FOREIGN KEY vzťah nehomol byť odstránený!"
 
 #: libraries/pmd_common.php:651
 #, fuzzy
