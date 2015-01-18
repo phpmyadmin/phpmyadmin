@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2015-01-16 21:30+0200\n"
+"PO-Revision-Date: 2015-01-18 15:39+0200\n"
 "Last-Translator: Juha <jremes@outlook.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
@@ -2442,6 +2442,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Verkkoselaimesi ei tue asetuksien paikallista varastoimista ja kiintiö on "
+"täynnä. Jotkut ominaisuudet eivät välttämättä toimi oikein. Mikäli käytät "
+"Safari-verkkoselainta, tämä ongelma on yleensä yksityisen selauksen "
+"aiheuttama."
 
 #: js/messages.php:560
 msgctxt "Previous month"
@@ -2780,17 +2784,16 @@ msgstr "Fonttikoko"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:175
 msgid "Collapse"
-msgstr ""
+msgstr "Paina kokoon"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:177
 msgid "Expand"
-msgstr ""
+msgstr "Laajenna"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:178
-#, fuzzy
 #| msgid "in query"
 msgid "Requery"
-msgstr "lauseessa"
+msgstr "Suorita hakulause uudelleen"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3242
@@ -2828,7 +2831,7 @@ msgstr[1] "Yhteensä %d kirjanmerkkiä"
 
 #: libraries/Console.class.php:116
 msgid "private"
-msgstr ""
+msgstr "yksityinen"
 
 #: libraries/Console.class.php:120 libraries/bookmark.lib.php:87
 msgid "shared"
@@ -2836,20 +2839,19 @@ msgstr "jaettu"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "Kirjanmerkki on poistettu."
+msgstr "%1$s, %2$s ja %3$s kirjanmerkit on luettu mukaan"
 
 #: libraries/Console.class.php:130
 msgid "No bookmarks"
 msgstr "Ei kirjanmerkkejä"
 
 #: libraries/Console.class.php:180
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Selitä SQL-kysely"
+msgstr "Selitä"
 
 #: libraries/Console.class.php:181 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:330
@@ -2857,20 +2859,18 @@ msgid "Profiling"
 msgstr "Profilointi"
 
 #: libraries/Console.class.php:183
-#, fuzzy
 #| msgid "Bookmarks"
 msgid "Bookmark"
-msgstr "Kirjanmerkit"
+msgstr "Aseta kirjanmerkki"
 
 #: libraries/Console.class.php:184
 msgid "Query failed"
 msgstr "Kysely epäonnistui"
 
 #: libraries/Console.class.php:188
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Kyselyn suoritusaika"
+msgstr "Hakulauseen suoritusaika"
 
 #: libraries/Console.class.php:195
 msgid "SQL Query Console"
@@ -2878,7 +2878,7 @@ msgstr "SQL-kyselykonsoli"
 
 #: libraries/Console.class.php:196
 msgid "Console"
-msgstr ""
+msgstr "Konsoli"
 
 #: libraries/Console.class.php:199 libraries/sql_query_form.lib.php:233
 #: setup/frames/index.inc.php:298
@@ -2936,20 +2936,18 @@ msgid "Refresh"
 msgstr "Päivitä"
 
 #: libraries/Console.class.php:269
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "Ja"
+msgstr "Lisää"
 
 #: libraries/Console.class.php:278
 msgid "Add bookmark"
 msgstr "Lisää kirjanmerkki"
 
 #: libraries/Console.class.php:282
-#, fuzzy
 #| msgid "Label"
 msgid "Label"
-msgstr "Tunniste"
+msgstr "Nimiö"
 
 #: libraries/Console.class.php:284
 msgid "Target database"
@@ -2964,10 +2962,9 @@ msgid "Set default"
 msgstr "Aseta oletukseksi"
 
 #: libraries/Console.class.php:308
-#, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
-msgstr "Lähetä virheraportteja aina"
+msgstr "Laajenna jokainen hakulauseen viesti"
 
 #: libraries/Console.class.php:310
 msgid "Show query history at start"
@@ -2975,7 +2972,7 @@ msgstr "Näytä kyselyhistoria käynnistyksessä"
 
 #: libraries/Console.class.php:312
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Näytä tämän hetkinen selaushakulause"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1277
 #: libraries/DisplayResults.class.php:2065
@@ -3069,10 +3066,9 @@ msgid "Submit Query"
 msgstr "Suorita kysely"
 
 #: libraries/DBQbe.class.php:1492
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Etsi"
+msgstr "Tallennettu ja kirjanmerkitty haku:"
 
 #: libraries/DBQbe.class.php:1494
 msgid "New bookmark"
@@ -3260,10 +3256,9 @@ msgid "Relational key"
 msgstr "Relaatioavain"
 
 #: libraries/DisplayResults.class.php:1550
-#, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
-msgstr "Relaatio näyttökenttä"
+msgstr "Relatiivinen näyttösarake"
 
 #: libraries/DisplayResults.class.php:1563
 msgid "Show binary contents"
@@ -3324,7 +3319,7 @@ msgstr "Näytetään rivit %1s–%2s"
 #: libraries/DisplayResults.class.php:4452
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d kokonaisuudessaan, %2$d hakulauseessa"
 
 #: libraries/DisplayResults.class.php:4457
 #, php-format
@@ -3403,10 +3398,9 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Liikaa virhesanomia, joitakin ei näytetä."
 
 #: libraries/Error_Handler.class.php:336
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "Tuonti"
+msgstr "Raportoi"
 
 #: libraries/Error_Handler.class.php:341 libraries/error_report.lib.php:373
 msgid "Automatically send report next time"
@@ -3806,7 +3800,7 @@ msgstr "Tarjoa tämän kirjanmerkiksi tallennetun haun nimi."
 
 #: libraries/SavedSearches.class.php:261
 msgid "Missing information to save the bookmarked search."
-msgstr ""
+msgstr "Puutteelliset tiedot kirjanmerkityn haun tallentamiseksi."
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
 msgid "An entry with this name already exists."
@@ -3814,11 +3808,11 @@ msgstr "Tämänniminen merkintä on jo olemassa."
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Puutteelliset tiedot haun poistamiseksi."
 
 #: libraries/SavedSearches.class.php:375
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Puutteelliset tiedot haun lataamiseksi."
 
 #: libraries/SavedSearches.class.php:394
 msgid "Error while loading the search."
@@ -4119,10 +4113,9 @@ msgid "Replace with:"
 msgstr "Korvaa:"
 
 #: libraries/TableSearch.class.php:1370
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "regexp-haku"
+msgstr "Käytä säännöllistä lauseketta"
 
 #: libraries/TableSearch.class.php:1473
 msgid "Find and replace - preview"
