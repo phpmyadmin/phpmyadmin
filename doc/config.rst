@@ -1391,7 +1391,7 @@ Navigation panel setup
 .. config:option:: $cfg['FirstLevelNavigationItems']
 
     :type: integer
-    :default: 25
+    :default: 100
 
     The number of first level databases that can be displayed on each page
     of navigation tree.
