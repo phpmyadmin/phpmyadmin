@@ -24,6 +24,7 @@ phpMyAdmin - ChangeLog
 
 4.3.8.0 (not yet released)
 - bug       Undefined constant PMA_DRIZZLE
+- bug #4712 Wrongly positioned date-picker while Grid-Editing
 
 4.3.7.0 (2015-01-15)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)
