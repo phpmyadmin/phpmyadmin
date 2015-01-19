@@ -517,17 +517,12 @@ function loadChildNodes($expandElem, callback) {
     }
     var $destination = $expandElem.closest('li');
 
-    var searchClause = PMA_fastFilter.getSearchClause();
-    var searchClause2 = PMA_fastFilter.getSearchClause2($expandElem);
-
     var params = {
         aPath: $expandElem.find('span.aPath').text(),
         vPath: $expandElem.find('span.vPath').text(),
         pos: $expandElem.find('span.pos').text(),
         pos2_name: $expandElem.find('span.pos2_name').text(),
-        pos2_value: $expandElem.find('span.pos2_value').text(),
-        searchClause: searchClause,
-        searchClause2: searchClause2
+        pos2_value: $expandElem.find('span.pos2_value').text()
     };
 
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');

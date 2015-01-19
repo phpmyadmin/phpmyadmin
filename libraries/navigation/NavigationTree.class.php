@@ -822,7 +822,7 @@ class PMA_NavigationTree
         if (! empty($this->_searchClause) || ! empty($this->_searchClause2)) {
             $results = 0;
             if (! empty($this->_searchClause2)) {
-                if (is_object($node->realParent())) {
+                if (is_object($node) && is_object($node->realParent())) {
                     $results = $node->realParent()->getPresence(
                         $node->real_name,
                         $this->_searchClause2
