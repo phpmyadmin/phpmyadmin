@@ -179,7 +179,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @dataProvider providerForTestGetTableNavigation
      */
     public function testGetTableNavigation(
-        $pos_next, $pos_prev, $id_for_direction_dropdown, $is_innodb, $output
+        $pos_next, $pos_prev, $is_innodb, $output
     ) {
         $_SESSION['tmpval']['max_rows'] = '20';
         $_SESSION['tmpval']['pos'] = true;
@@ -200,7 +200,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 $this->_callPrivateFunction(
                     '_getTableNavigation',
                     array(
-                        $pos_next, $pos_prev, $id_for_direction_dropdown, $is_innodb
+                        $pos_next, $pos_prev, $is_innodb
                     )
                 )
             )
@@ -220,7 +220,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             array(
                 21,
                 41,
-                '123',
                 false,
                 '310'
             )
