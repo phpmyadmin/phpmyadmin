@@ -1548,7 +1548,7 @@ Navigation panel setup
     * ``tbl_change.php``
     * ``sql.php``
 
-.. config:option:: $cfg['NavigationTreeDefaultTabTable']
+.. config:option:: $cfg['NavigationTreeDefaultTabTable2']
 
     :type: string
     :default: null
@@ -1556,7 +1556,7 @@ Navigation panel setup
     Defines the tab displayed by default when clicking the second small icon next
     to each table name in the navigation panel. Possible values:
 
-    * ````
+    * ``(empty)``
     * ``tbl_structure.php``
     * ``tbl_sql.php``
     * ``tbl_select.php``
