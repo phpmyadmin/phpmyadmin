@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2015-01-18 13:43+0200\n"
-"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
+"PO-Revision-Date: 2015-01-21 15:58+0200\n"
+"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -338,6 +338,8 @@ msgstr "Sledovacie dáta boli úspešne vymazané."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Verzia %1$s bola vytvorená pre vybrané tabuľky, sledovanie je pre nich "
+"aktívne."
 
 #: db_tracking.php:78
 msgid "No tables selected."
@@ -1829,13 +1831,15 @@ msgstr "Zobraziť viac"
 
 #: js/messages.php:311
 msgid "Are you sure?"
-msgstr ""
+msgstr "Ste si istý?"
 
 #: js/messages.php:312
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Táto akcia môže zmeniť niektoré definície stĺpcov. <br/>Naozaj chcete "
+"pokračovať?"
 
 #: js/messages.php:313
 msgid "Continue"
@@ -1844,7 +1848,7 @@ msgstr "Pokračovať"
 #: js/messages.php:316 libraries/structure.lib.php:2162
 #: libraries/structure.lib.php:2165
 msgid "Add primary key"
-msgstr ""
+msgstr "Pridanie primárneho kľúča"
 
 #: js/messages.php:317
 msgid "Primary key added."
@@ -1857,7 +1861,7 @@ msgstr "Vezmeme vás na ďalší krok…"
 #: js/messages.php:319
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Prvý krok normalizácie je kompletný pre tabuľku %s."
 
 #: js/messages.php:320 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
@@ -1867,7 +1871,7 @@ msgstr "Koniec kroku"
 
 #: js/messages.php:321
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Druhý krok normalizácie (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:322 js/messages.php:556 libraries/normalization.lib.php:264
@@ -1876,11 +1880,11 @@ msgstr "Hotovo"
 
 #: js/messages.php:323
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Potvrď čiastočné závislostí"
 
 #: js/messages.php:324
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Vybrané čiastočné závislostí sú nasledovné:"
 
 #: js/messages.php:325
 msgid ""
@@ -1894,30 +1898,32 @@ msgstr "Neboli vybrané žiadne čiastkové závislosti!"
 
 #: js/messages.php:328
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "Ukáž mi možné čiastočné závislosti na základe údajov v tabuľke"
 
 #: js/messages.php:329
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Skryť zoznam čiastočných závislostí"
 
 #: js/messages.php:330
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Posaďte sa! Môže to trvať niekoľko sekúnd v závislosti od veľkosti dát a "
+"počtu stĺpcov tabuľky."
 
 #: js/messages.php:331
 msgid "Step"
-msgstr ""
+msgstr "Krok"
 
 #: js/messages.php:332
 msgid "The following actions will be performed:"
-msgstr ""
+msgstr "Vykonajú sa nasledovné akcie:"
 
 #: js/messages.php:333
-#, php-format
+#, fuzzy, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "DROP stĺpce %s z tabuľky %s"
 
 #: js/messages.php:334
 msgid "Create the following table"
@@ -1925,15 +1931,15 @@ msgstr "Vytvoriť nasledujúcu tabuľku"
 
 #: js/messages.php:337
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Tretí krok normalizácie (3NF)"
 
 #: js/messages.php:338
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Potvrď tranzitívne závislostí"
 
 #: js/messages.php:339
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Vybrané závislostí sú nasledovné:"
 
 #: js/messages.php:340
 msgid "No dependencies selected!"
@@ -2056,7 +2062,7 @@ msgstr "Vonkajší obrys"
 
 #: js/messages.php:392
 msgid "Shift + Click on function name to apply to all rows."
-msgstr ""
+msgstr "Shift + kliknutie na názov funkcie sa vzťahuje na všetky riadky."
 
 #: js/messages.php:394
 msgid "Do you want to copy encryption key?"
@@ -2120,11 +2126,12 @@ msgstr "Prosím zadajte platný názov stránky"
 
 #: js/messages.php:413
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Chcete uložiť zmeny aktuálnej stránky?"
 
 #: js/messages.php:414
+#, fuzzy
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Úspešne odstránená strana"
 
 #: js/messages.php:415
 msgid "Export relational schema"
@@ -2200,7 +2207,7 @@ msgstr ""
 
 #: js/messages.php:435
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
-msgstr ""
+msgstr "Zadajte platný šestnástkový reťazec. Platné znaky sú 0-9, A-F."
 
 #: js/messages.php:436
 msgid ""
@@ -2304,7 +2311,7 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"Je dostupná novšia verzia phpMyAdmina, mali by ste zvážiť aktualizáviu. "
+"Je dostupná novšia verzia phpMyAdmina, mali by ste zvážiť aktualizáciu. "
 "Najnovšia verzia je %s a bola vydaná %s."
 
 #. l10n: Latest available phpMyAdmin version
@@ -6795,7 +6802,6 @@ msgstr ""
 "tabuliek počas sedenia. Odporúčaná hodnota: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:646
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "Obľúbené tabuľky"
@@ -10269,16 +10275,14 @@ msgid "Error: FOREIGN KEY relation could not be removed!"
 msgstr "Chyba: FOREIGN KEY vzťah nehomol byť odstránený!"
 
 #: libraries/pmd_common.php:651
-#, fuzzy
 #| msgid "File could not be read!"
 msgid "Error: Internal relation could not be removed!"
-msgstr "Súbor sa nedá prečítať!"
+msgstr "Chyba: Vnútorný vzťah nemôže byť odstránený!"
 
 #: libraries/pmd_common.php:655
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been removed."
-msgstr "Bol pridaný interný vzťah"
+msgstr "Interný vzťah bol odstránený."
 
 #: libraries/relation.lib.php:86
 msgid "not OK"
@@ -10294,10 +10298,9 @@ msgid "Enabled"
 msgstr "Zapnuté"
 
 #: libraries/relation.lib.php:97
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "Konfigurácia bola uložená."
+msgstr "Konfigurácia pmadb... "
 
 #: libraries/relation.lib.php:101 libraries/relation.lib.php:128
 msgid "General relation features"
@@ -10311,7 +10314,7 @@ msgstr "Zobraziť vlastnosti"
 #, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Vytváranie PDF"
+msgstr "Návrh a vytváranie PDF"
 
 #: libraries/relation.lib.php:167
 msgid "Displaying Column Comments"
@@ -10322,13 +10325,12 @@ msgid "Browser transformation"
 msgstr "Transformácia pri prehliadaní"
 
 #: libraries/relation.lib.php:180
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
 "Prosím prečítajte si dokumentáciu ako aktualizovať tabuľku s informáciami o "
-"stĺpcoch (column_comments tabuľka)."
+"stĺpcoch (column_info tabuľka). "
 
 #: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:355
 msgid "Bookmarked SQL query"
@@ -10343,10 +10345,9 @@ msgid "Persistent recently used tables"
 msgstr "Trvalé naposledy použité tabuľky"
 
 #: libraries/relation.lib.php:226
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Trvalé naposledy použité tabuľky"
+msgstr "Trvalé obľúbené tabuľky"
 
 #: libraries/relation.lib.php:237
 msgid "Persistent tables' UI preferences"
@@ -10473,10 +10474,9 @@ msgid "Slave replication"
 msgstr "Slave replikácia"
 
 #: libraries/replication_gui.lib.php:143
-#, fuzzy
 #| msgid "Master configuration"
 msgid "Master connection:"
-msgstr "Master konfigurácia"
+msgstr "Master pripojenie:"
 
 #: libraries/replication_gui.lib.php:209
 msgid "Slave SQL Thread not running!"
@@ -10701,22 +10701,19 @@ msgid "Replication stopped successfully."
 msgstr "Replikácia bola úspešne zastavená."
 
 #: libraries/replication_gui.lib.php:928
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Master replikácia"
+msgstr "Chyba zastavenia replikácie."
 
 #: libraries/replication_gui.lib.php:931
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Stav replikácie"
+msgstr "Obnovenie replikácie úspešné."
 
 #: libraries/replication_gui.lib.php:932
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Master replikácia"
+msgstr "Chyba obnovenia replikácie."
 
 #: libraries/replication_gui.lib.php:935
 msgid "Success."
@@ -10745,10 +10742,10 @@ msgid "Unable to change master!"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:1024
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Master server changed successfully to %s."
-msgstr "Master server zmenený úspešne na %s"
+msgstr "Master server zmenený úspešne na %s."
 
 #: libraries/rte/rte_events.lib.php:111 libraries/rte/rte_events.lib.php:120
 #: libraries/rte/rte_events.lib.php:151 libraries/rte/rte_routines.lib.php:316
@@ -10777,11 +10774,10 @@ msgstr "Udalosť %1$s bola vytvorená."
 
 #: libraries/rte/rte_events.lib.php:172 libraries/rte/rte_routines.lib.php:379
 #: libraries/rte/rte_triggers.lib.php:144
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "<b>Pri zpracovaní požadavky došlo k niekoľkým chybám:</b>"
+msgstr "Pri spracovaní požiadavky došlo k niekoľkým chybám:"
 
 #: libraries/rte/rte_events.lib.php:231
 msgid "Edit event"
@@ -10840,10 +10836,9 @@ msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:553
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide an event name!"
-msgstr "Musíte zadať platný názov tabuľky"
+msgstr "Musíte zadať názov akcie!"
 
 #: libraries/rte/rte_events.lib.php:568
 msgid "You must provide a valid interval value for the event."
@@ -11004,14 +10999,14 @@ msgid "Execution results of routine %s"
 msgstr "Výsledky spustenia rutiny %s"
 
 #: libraries/rte/rte_routines.lib.php:1474
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "Posledným príkazom v procedúre bol ovplyvnený %d riadok"
-msgstr[1] "Posledným príkazom v procedúre boli ovplyvnené %d riadky"
-msgstr[2] "Posledným príkazom v procedúre bolo ovplyvnených %d riadkov"
+msgstr[0] "Posledným príkazom v procedúre bol ovplyvnený %d riadok."
+msgstr[1] "Posledným príkazom v procedúre boli ovplyvnené %d riadky."
+msgstr[2] "Posledným príkazom v procedúre bolo ovplyvnených %d riadkov."
 
 #: libraries/rte/rte_routines.lib.php:1532
 #: libraries/rte/rte_routines.lib.php:1540
@@ -11051,28 +11046,24 @@ msgid "Time"
 msgstr "Čas"
 
 #: libraries/rte/rte_triggers.lib.php:429
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide a trigger name!"
-msgstr "Musíte zadať platný názov tabuľky"
+msgstr "Musíte zadať platný názov spúšťača!"
 
 #: libraries/rte/rte_triggers.lib.php:436
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Musíte zadať platný názov tabuľky"
+msgstr "Musíte zadať správne časovanie spúšťača!"
 
 #: libraries/rte/rte_triggers.lib.php:443
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide a valid event for the trigger!"
-msgstr "Musíte zadať platný názov tabuľky"
+msgstr "Musíte zadať platnú udalosť pre spúšťač!"
 
 #: libraries/rte/rte_triggers.lib.php:451
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "Musíte zadať platný názov tabuľky"
+msgstr "Musíte zadať platný názov tabuľky!"
 
 #: libraries/rte/rte_triggers.lib.php:457
 msgid "You must provide a trigger definition."
@@ -11401,10 +11392,9 @@ msgstr "Povolí zmaknutie tabuliek pre aktuálne vlákno."
 
 #: libraries/server_privileges.lib.php:390
 #: libraries/server_privileges.lib.php:1163 server_privileges.php:108
-#, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
-msgstr "Povolí vytváranie a mazanie spúšťačov"
+msgstr "Povolí vytváranie a mazanie spúšťačov."
 
 #: libraries/server_privileges.lib.php:401
 #: libraries/server_privileges.lib.php:407
@@ -11489,10 +11479,9 @@ msgstr "Oprávnenia pre jednotlivé tabuľky"
 #: libraries/server_privileges.lib.php:849
 #: libraries/server_privileges.lib.php:1050
 #: libraries/server_privileges.lib.php:2974
-#, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "Poznámka: názvy MySQL oprávnení sú uvádzané po anglicky"
+msgstr "Poznámka: názvy MySQL oprávnení sú uvádzané po anglicky."
 
 #: libraries/server_privileges.lib.php:1014
 msgid "Administration"
@@ -11504,10 +11493,9 @@ msgid "Global privileges"
 msgstr "Globálne práva"
 
 #: libraries/server_privileges.lib.php:1035
-#, fuzzy
 #| msgid "global"
 msgid "Global"
-msgstr "globálny"
+msgstr "Globálny"
 
 #: libraries/server_privileges.lib.php:1037
 #: libraries/server_privileges.lib.php:2789
@@ -11685,10 +11673,9 @@ msgid "Column-specific privileges"
 msgstr "Oprávnenia pre jednotlivé stĺpce"
 
 #: libraries/server_privileges.lib.php:2858
-#, fuzzy
 #| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
-msgstr "Pridať oprávnenia pre nasledujúcu databázu:"
+msgstr "Pridať oprávnenia pre nasledujúcu databázu(y):"
 
 #: libraries/server_privileges.lib.php:2882
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -12040,7 +12027,6 @@ msgid "Reset to default"
 msgstr "Obnoviť predvolené"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
@@ -12048,7 +12034,7 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Poznámka: Aktivovanie štatistík databázy môže spôsobiť značné zvýšenie "
+"Poznámka: Zapnutie automatického obnovenia môže spôsobiť značné zvýšenie "
 "sieťovej prevádzky medzi databázou a web serverom."
 
 #: libraries/server_status_processes.lib.php:69
@@ -12931,10 +12917,9 @@ msgid "Let every user access this bookmark"
 msgstr "Dovoliť používať túto položku všetkým používateľom"
 
 #: libraries/sql.lib.php:885
-#, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
-msgstr "Záložka nebola vytvorená"
+msgstr "Záložka nebola vytvorená!"
 
 #: libraries/sql.lib.php:992
 #, php-format
@@ -12946,7 +12931,6 @@ msgid "Showing as PHP code"
 msgstr "Zobrazujem ako PHP kód"
 
 #: libraries/sql.lib.php:1811
-#, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
 #| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -12954,9 +12938,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
-"Táto tabuľka neobsahuje unikátny stĺpec. Rozšírenia spojené s úpravou gridu, "
-"zaškrtávanie, úprava, kopírovanie a mazanie liniek nemusí fungovať po "
-"uložení."
+"Aktuálny výber neobsahuje unikátny stĺpec. Úprava gridu, zaškrtávanie, "
+"editácia, kopírovanie a mazanie nie sú dostupné."
 
 #: libraries/sql.lib.php:1848
 #, php-format
@@ -13074,16 +13057,16 @@ msgstr "Sledovanie nie je aktívne."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:373
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
-msgstr "Pohľad %s bol odstránený"
+msgstr "Pohľad %s bol odstránený."
 
 #: libraries/structure.lib.php:132 tbl_operations.php:374
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
-msgstr "Tabuľka %s bola odstránená"
+msgstr "Tabuľka %s bola odstránená."
 
 #: libraries/structure.lib.php:178
 msgid "Sum"
@@ -13108,10 +13091,9 @@ msgid "Copy table with prefix"
 msgstr "Skopírovať tabuľku s predponou"
 
 #: libraries/structure.lib.php:345
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add columns to central list"
-msgstr "Stĺpce techtovej oblasti typu CHAR"
+msgstr "Pridať stĺpce do centrálneho zoznamu"
 
 #: libraries/structure.lib.php:347
 msgid "Remove columns from central list"
@@ -13128,12 +13110,13 @@ msgid "Check tables having overhead"
 msgstr "Zvoliť neoptimálne"
 
 #: libraries/structure.lib.php:836
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Môže byť nepresné. Viď [doc@faq3-11]FAQ 3.11[/doc]."
+msgstr ""
+"Môže byť nepresné. Kliknutím na číslo dostanete presný počet. Viď "
+"[doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/structure.lib.php:858 libraries/structure.lib.php:2340
 #: libraries/tbl_printview.lib.php:324
@@ -13197,10 +13180,9 @@ msgid "Propose table structure"
 msgstr "Navrhnúť štruktúru tabuľky"
 
 #: libraries/structure.lib.php:1659
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Navrhnúť štruktúru tabuľky"
+msgstr "Zlepšenie štruktúry tabuľky"
 
 #: libraries/structure.lib.php:1698
 #: libraries/tbl_columns_definition_form.lib.php:171
@@ -13209,16 +13191,14 @@ msgid "Add %s column(s)"
 msgstr "Pridať %s stĺpcov"
 
 #: libraries/structure.lib.php:1707
-#, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Beginning of table"
-msgstr "Na začiatku tabuľky"
+msgstr "Začiatok tabuľky"
 
 #: libraries/structure.lib.php:1717
-#, fuzzy
 #| msgid "after %s"
 msgid "after"
-msgstr "po %s"
+msgstr "po"
 
 #: libraries/structure.lib.php:1807
 msgid "Row statistics"
@@ -13302,20 +13282,18 @@ msgid "The columns have been moved successfully."
 msgstr "Stĺpce boli úspešne presunuté."
 
 #: libraries/structure.lib.php:2885
-#, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
-msgstr "Pridať túto sériu"
+msgstr "Pridať k Obľúbeným"
 
 #: libraries/structure.lib.php:2931
 msgid "Favorite List is full!"
 msgstr "Zoznam obľúbených je plný!"
 
 #: libraries/structure.lib.php:3021
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Showing create queries"
-msgstr "Zobraziť SQL dopyty"
+msgstr "Zobrazovanie SQL dopytov"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -13402,10 +13380,9 @@ msgid "Start row:"
 msgstr "Začiatočný riadok:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Uložiť ako súbor"
+msgstr "Uložiť graf ako obrázok"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -13452,10 +13429,9 @@ msgid "Move column"
 msgstr "Presunúť stĺpce"
 
 #: libraries/tbl_columns_definition_form.lib.php:320
-#, fuzzy
 #| msgid "Available transformations"
 msgid "List of available transformations and their options"
-msgstr "Dostupné transformácie"
+msgstr "Zoznam dostupných transformácií a ich možnosti"
 
 #: libraries/tbl_columns_definition_form.lib.php:325
 msgid ""
@@ -13484,16 +13460,14 @@ msgstr "Transformácia pri prehliadaní"
 
 #: libraries/tbl_columns_definition_form.lib.php:338
 #: transformation_overview.php:42
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "Transformácia pri prehliadaní"
+msgstr "Vstupná transformácia"
 
 #: libraries/tbl_columns_definition_form.lib.php:340
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "Parametre transformácie"
+msgstr "Vstupné parametre transformácie"
 
 #: libraries/tbl_columns_definition_form.lib.php:581
 #, fuzzy, php-format
@@ -13502,10 +13476,9 @@ msgid "Referenced by %s."
 msgstr "Zvoliť odkazovaný kľúč"
 
 #: libraries/tbl_columns_definition_form.lib.php:589
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "Zvoliť cudzí kľúč"
+msgstr "Je to cudzí kľúč."
 
 #: libraries/tbl_columns_definition_form.lib.php:614
 #, fuzzy
@@ -13585,10 +13558,9 @@ msgid "Index type:"
 msgstr "Typ indexu&nbsp;:"
 
 #: libraries/tbl_indexes.lib.php:334 libraries/tbl_indexes.lib.php:371
-#, fuzzy
 #| msgid "Drag to reorder."
 msgid "Drag to reorder"
-msgstr "Usporiadajte pretiahnutím."
+msgstr "Usporiadajte pretiahnutím"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
@@ -13620,7 +13592,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Foreign key limit"
 msgid "Foreign key constraints"
-msgstr "Limit cudzích kľúčov"
+msgstr "Obmedzenie cudzieho kľúča"
 
 #: libraries/tbl_relation.lib.php:374
 msgid "Actions"
@@ -13642,26 +13614,24 @@ msgid "Foreign key constraint"
 msgstr ""
 
 #: libraries/tbl_relation.lib.php:406
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "Pridať obmedzenia"
+msgstr "+ Pridať obmedzenie"
 
 #: libraries/tbl_relation.lib.php:443
-#, fuzzy, php-format
+#, php-format
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Limit cudzích kľúčov"
+msgstr "Obmedzenie cudzieho kľúča %s bolo zrušené"
 
 #: libraries/tbl_relation.lib.php:467
 msgid "Constraint name"
 msgstr "Názov obmedzenia"
 
 #: libraries/tbl_relation.lib.php:530
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
-msgstr "Pridať stĺpec"
+msgstr "+ Pridať stĺpec"
 
 #: libraries/tbl_relation.lib.php:674
 msgid "Choose column to display:"
@@ -13690,10 +13660,10 @@ msgid "Create version %1$s of %2$s"
 msgstr "Vytvoriť verziu %1$s z %2$s"
 
 #: libraries/tracking.lib.php:73
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Create version %1$s"
-msgstr "Vytvoriť verziu"
+msgstr "Vytvoriť verziu %1$s"
 
 #: libraries/tracking.lib.php:78
 msgid "Track these data definition statements:"
@@ -13726,10 +13696,9 @@ msgid "Deactivate now"
 msgstr ""
 
 #: libraries/tracking.lib.php:259 libraries/tracking.lib.php:313
-#, fuzzy
 #| msgid "Create version"
 msgid "Delete version"
-msgstr "Vytvoriť verziu"
+msgstr "Zmazať verziu"
 
 #: libraries/tracking.lib.php:379 libraries/tracking.lib.php:1388
 msgid "active"
@@ -13840,10 +13809,10 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Sledovanie %1$s bolo deaktivované vo verzii %2$s."
 
 #: libraries/tracking.lib.php:1260
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Vytvoriť verziu %1$s z %2$s"
+msgstr "Verzia %1$s z %2$s bola zmazaná."
 
 #: libraries/tracking.lib.php:1291
 #, php-format
@@ -13891,10 +13860,9 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: prefs_forms.php:86
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors!"
-msgstr "Nepodarilo sa uložiť nastavenia, odoslaný formulár obsahuje chyby"
+msgstr "Nepodarilo sa uložiť nastavenia, odoslaný formulár obsahuje chyby!"
 
 #: prefs_manage.php:82
 msgid "Could not import configuration"
@@ -14198,16 +14166,14 @@ msgid "Tracking of %s is activated."
 msgstr "Sledovanie %s je aktívne."
 
 #: tbl_tracking.php:100
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Vybraní používatelia bol úspešne odstránený."
+msgstr "Sledovaná verzia bola úspešne odstránená."
 
 #: tbl_tracking.php:105
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Nebol vybraný žiadny riadok"
+msgstr "Nie je vybraná verzia."
 
 #: tbl_tracking.php:132
 msgid "SQL statements executed."
@@ -14232,10 +14198,9 @@ msgid "Available browser display transformations"
 msgstr "Dostupné transformácie"
 
 #: transformation_overview.php:38
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "Dostupné transformácie"
+msgstr "Dostupné vstupné transformácie"
 
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"
@@ -14246,7 +14211,7 @@ msgstr "Popis"
 #, fuzzy, php-format
 #| msgid "Tracking report"
 msgid "Taking you to %s."
-msgstr "Informácie o monitorovanie"
+msgstr "Beriem ťa k %s."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
