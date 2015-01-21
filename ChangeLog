@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #4714 Forced ORDER BY for own sql statements
 - bug #4721 Undefined property: stdClass::$version
 - bug #4719 'only_db' not working
+- bug #4700 Error text: Internal Server Error
 
 4.3.7.0 (2015-01-15)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)
