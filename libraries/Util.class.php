@@ -4258,8 +4258,8 @@ class PMA_Util
 
         $data = json_decode($response);
         if (is_object($data)
-            && /*overload*/mb_strlen($data->version)
-            && /*overload*/mb_strlen($data->date)
+            && ! empty($data->version)
+            && ! empty($data->date)
             && $save
         ) {
             if (! isset($_SESSION) && ! defined('TESTSUITE')) {
