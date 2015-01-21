@@ -26,6 +26,7 @@ phpMyAdmin - ChangeLog
 - bug       Undefined constant PMA_DRIZZLE
 - bug #4712 Wrongly positioned date-picker while Grid-Editing
 - bug #4714 Forced ORDER BY for own sql statements
+- bug #4721 Undefined property: stdClass::$version
 
 4.3.7.0 (2015-01-15)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)
