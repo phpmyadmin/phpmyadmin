@@ -29,6 +29,7 @@ phpMyAdmin - ChangeLog
 - bug #4721 Undefined property: stdClass::$version
 - bug #4719 'only_db' not working
 - bug #4700 Error text: Internal Server Error
+- bug #4722 Incorrect width table summary when favorite tables is disabled
 
 4.3.7.0 (2015-01-15)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)

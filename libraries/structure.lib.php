@@ -174,7 +174,11 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     if ($server_slave_status) {
         $html_output .= '<th>' . __('Replication') . '</th>' . "\n";
     }
-    $html_output .= '<th colspan="' . ($db_is_system_schema ? 4 : 7) . '">'
+    $sum_colspan = ($db_is_system_schema ? 4 : 7);
+    if ($GLOBALS['cfg']['NumFavoriteTables'] == 0) {
+        $sum_colspan--;
+    }
+    $html_output .= '<th colspan="' . $sum_colspan . '">'
         . __('Sum')
         . '</th>';
 
