@@ -1170,6 +1170,7 @@ class PMA_NavigationTree
             'token' => $_SESSION[' PMA_token '],
             'server' => $GLOBALS['server']
         );
+        $retval .= '<div id="pma_navigation_db_select">';
         $retval .= '<form action="db_structure.php">';
         $retval .= PMA_getHiddenFields($url_params);
         $retval .= '<select name="db" id="navi_db_select">'
@@ -1196,7 +1197,7 @@ class PMA_NavigationTree
             }
         }
         $retval .= '</select></form>';
-        $retval .= '</div><div id="pma_navigation_tree_content"></div>';
+        $retval .= '</div></div><div id="pma_navigation_tree_content"></div>';
         return $retval;
     }
 
