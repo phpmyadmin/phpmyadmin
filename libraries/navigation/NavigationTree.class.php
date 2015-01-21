@@ -840,27 +840,17 @@ class PMA_NavigationTree
                     $this->_searchClause
                 );
             }
-
-            $clientResults = 0;
-            if (! empty($_REQUEST['results'])) {
-                $clientResults = (int)$_REQUEST['results'];
-            }
-            $otherResults = $results - $clientResults;
-            if ($otherResults < 1) {
-                $otherResults = '';
-            } else {
-                $otherResults = sprintf(
-                    _ngettext(
-                        '%s other result found',
-                        '%s other results found',
-                        $otherResults
-                    ),
-                    $otherResults
-                );
-            }
+            $results = sprintf(
+                _ngettext(
+                    '%s result found',
+                    '%s results found',
+                    $results
+                ),
+                $results
+            );
             PMA_Response::getInstance()->addJSON(
                 'results',
-                $otherResults
+                $results
             );
         }
         return $retval;
@@ -937,7 +927,6 @@ class PMA_NavigationTree
         $retval = '';
         $paths  = $node->getPaths();
         if ($node->hasSiblings()
-            || isset($_REQUEST['results'])
             || $node->realParent() === false
         ) {
             if (   $node->type == Node::CONTAINER
@@ -1129,7 +1118,7 @@ class PMA_NavigationTree
                 }
             }
         }
-        if ($node->hasSiblings() || isset($_REQUEST['results'])) {
+        if ($node->hasSiblings()) {
             $retval .= "</li>";
         }
         return $retval;
