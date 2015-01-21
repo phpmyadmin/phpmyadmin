@@ -713,7 +713,7 @@ class Node
     {
         if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
             return '';
-        } elseif ($match && ! $this->is_group) {
+        } elseif ($match) {
             $this->visible = true;
             return PMA_Util::getImage('b_minus.png');
         } else {
