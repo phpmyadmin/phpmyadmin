@@ -21,6 +21,7 @@ phpMyAdmin - ChangeLog
 + rfe #1568 Fold Add Column After / Before into dropdown
 - bug #4705 Table structure: adding primary key doesn't refresh page
 + rfe #1582 SQL formatter
++ rfe #1597 Fast filter improvement: remove "x other results found"
 
 4.3.8.0 (not yet released)
 - bug       Undefined constant PMA_DRIZZLE
