@@ -522,9 +522,14 @@ function loadChildNodes($expandElem, callback) {
         pos: $expandElem.find('span.pos').text(),
         pos2_name: $expandElem.find('span.pos2_name').text(),
         pos2_value: $expandElem.find('span.pos2_value').text(),
-        searchClause: searchClause,
-        searchClause2: searchClause2
+        searchClause: '',
+        searchClause2: ''
     };
+
+    if ($('#pma_navigation_tree').children().first().is('ul')) {
+        params.searchClause = searchClause;
+        params.searchClause2 = searchClause2;
+    }
 
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     $.get(url, params, function (data) {
