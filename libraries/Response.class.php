@@ -303,14 +303,16 @@ class PMA_Response
             // bug, contact Edward Cheng
             $this->addJSON('_title', $this->getHeader()->getTitleTag());
 
-            $menuHash = $this->getHeader()->getMenu()->getHash();
-            $this->addJSON('_menuHash', $menuHash);
-            $hashes = array();
-            if (isset($_REQUEST['menuHashes'])) {
-                $hashes = explode('-', $_REQUEST['menuHashes']);
-            }
-            if (! in_array($menuHash, $hashes)) {
-                $this->addJSON('_menu', $this->getHeader()->getMenu()->getDisplay());
+            if (isset($GLOBALS['dbi'])) {
+                $menuHash = $this->getHeader()->getMenu()->getHash();
+                $this->addJSON('_menuHash', $menuHash);
+                $hashes = array();
+                if (isset($_REQUEST['menuHashes'])) {
+                    $hashes = explode('-', $_REQUEST['menuHashes']);
+                }
+                if (! in_array($menuHash, $hashes)) {
+                    $this->addJSON('_menu', $this->getHeader()->getMenu()->getDisplay());
+                }
             }
 
             $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
