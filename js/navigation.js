@@ -216,6 +216,7 @@ $(function () {
     $(document).on('focus', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.focus);
     $(document).on('blur', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.blur);
     $(document).on('keyup', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.keyup);
+    $(document).on('mouseover', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.mouseover);
 
     /**
      * Ajax handler for pagination
@@ -1084,10 +1085,6 @@ var PMA_fastFilter = {
          */
         this.$clone = $this.clone();
         /**
-         * @var bool swapped Whether the user clicked on the "N other results" link
-         */
-        this.swapped = false;
-        /**
          * @var object xhr A reference to the ajax request that is currently running
          */
         this.xhr = null;
@@ -1169,6 +1166,13 @@ var PMA_fastFilter = {
                 $obj.data('fastFilter').restore();
             }
         },
+        mouseover: function (event) {
+            PMA_tooltip(
+                $(this),
+                'input',
+                PMA_messages.strHoverFastFilter
+            );
+        },
         keyup: function (event) {
             var $obj = $(this).closest('div.list_container');
             var str = '';
@@ -1240,7 +1244,9 @@ var PMA_fastFilter = {
                         new PMA_fastFilter.filter($obj, $(this).val())
                     );
                 } else {
-                    $obj.data('fastFilter').update($(this).val());
+                    if (event.keyCode == 13) {
+                        $obj.data('fastFilter').update($(this).val());
+                    }
                 }
             } else if ($obj.data('fastFilter')) {
                 $obj.data('fastFilter').restore(true);
@@ -1268,7 +1274,6 @@ var PMA_fastFilter = {
 PMA_fastFilter.filter.prototype.update = function (searchClause) {
     if (this.searchClause != searchClause) {
         this.searchClause = searchClause;
-        this.$this.find('.moreResults').remove();
         this.request();
     }
 };
@@ -1280,7 +1285,6 @@ PMA_fastFilter.filter.prototype.update = function (searchClause) {
  */
 PMA_fastFilter.filter.prototype.request = function () {
     var self = this;
-    clearTimeout(self.timeout);
     if (self.$this.find('li.fast_filter').find('img.throbber').length === 0) {
         self.$this.find('li.fast_filter').append(
             $('<div class="throbber"></div>').append(
@@ -1291,43 +1295,32 @@ PMA_fastFilter.filter.prototype.request = function () {
             )
         );
     }
-    self.timeout = setTimeout(function () {
-        if (self.xhr) {
-            self.xhr.abort();
+    if (self.xhr) {
+        self.xhr.abort();
+    }
+    var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+    var params = self.$this.find('> ul > li > form.fast_filter').first().serialize();
+    if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
+        var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
+        if ($input.length && $input.val() != $input[0].defaultValue) {
+            params += '&searchClause=' + encodeURIComponent($input.val());
         }
-        var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-        var results = self.$this.find('li:not(.hidden):not(.fast_filter):not(.navGroup):not(#navigation_controls_outer)').not('[class^=new]').not('[class^=warp_link]').length;
-        var params = self.$this.find('> ul > li > form.fast_filter').first().serialize() + "&results=" + results;
-        if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
-            var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
-            if ($input.length && $input.val() != $input[0].defaultValue) {
-                params += '&searchClause=' + encodeURIComponent($input.val());
-            }
-        }
-        self.xhr = $.ajax({
-            url: url,
-            type: 'post',
-            dataType: 'json',
-            data: params,
-            complete: function (jqXHR, status) {
-                if (status != 'abort') {
-                    var data = $.parseJSON(jqXHR.responseText);
-                    self.$this.find('li.fast_filter').find('div.throbber').remove();
-                    if (data && data.results) {
-                        var $listItem = $('<li />', {'class': 'moreResults'})
-                            .appendTo(self.$this.find('li.fast_filter'));
-                        $('<a />', {href: '#'})
-                            .text(data.results)
-                            .appendTo($listItem)
-                            .click(function (event) {
-                                event.preventDefault();
-                                self.swap.apply(self, [data.message]);
-                            });
-                    }
+    }
+    self.xhr = $.ajax({
+        url: url,
+        type: 'post',
+        dataType: 'json',
+        data: params,
+        complete: function (jqXHR, status) {
+            if (status != 'abort') {
+                var data = $.parseJSON(jqXHR.responseText);
+                self.$this.find('li.fast_filter').find('div.throbber').remove();
+                if (data && data.results) {
+                    self.swap.apply(self, [data.message]);
                 }
             }
-        });
-    }, 250);
+        }
+    });
 };
 /**
  * Replaces the contents of the navigation branch with the search results
@@ -1337,7 +1330,6 @@ PMA_fastFilter.filter.prototype.request = function () {
  * @return void
  */
 PMA_fastFilter.filter.prototype.swap = function (list) {
-    this.swapped = true;
     this.$this
         .html($(list).html())
         .children()
@@ -1355,16 +1347,12 @@ PMA_fastFilter.filter.prototype.swap = function (list) {
  * @return void
  */
 PMA_fastFilter.filter.prototype.restore = function (focus) {
-    if (this.swapped) {
-        this.swapped = false;
-        this.$this.html(this.$clone.html()).children().show();
-        this.$this.data('fastFilter', this);
-        if (focus) {
-            this.$this.find('li.fast_filter input.searchClause').focus();
-        }
+    this.$this.html(this.$clone.html()).children().show();
+    this.$this.data('fastFilter', this);
+    if (focus) {
+        this.$this.find('li.fast_filter input.searchClause').focus();
     }
     this.searchClause = '';
-    this.$this.find('.moreResults').remove();
     this.$this.find('div.pageselector').show();
     this.$this.find('div.throbber').remove();
 };
