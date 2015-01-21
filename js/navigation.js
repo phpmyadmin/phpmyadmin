@@ -435,11 +435,7 @@ $(function () {
         var storage = window.sessionStorage;
         // remove tree from storage if Navi_panel config form is submitted
         $(document).on('submit', 'form.config-form', function(event) {
-            if ($(this).attr('action').indexOf('form=Navi_panel') >= 0 ||
-                $(this).attr('action').indexOf('form=Main_panel') >= 0
-            ) {
-                storage.removeItem('navTree');
-            }
+            storage.removeItem('navTree');
         });
         // Initialize if no previous state is defined
         if (typeof storage.navTree === 'undefined') {
