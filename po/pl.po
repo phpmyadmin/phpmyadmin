@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2014-12-12 16:32+0200\n"
-"Last-Translator: Maciej Gryniuk <maciejka45@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"pl/>\n"
+"PO-Revision-Date: 2015-01-21 02:11+0200\n"
+"Last-Translator: Krystian Biesaga <krystian4842@gmail.com>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
@@ -605,10 +605,9 @@ msgid "Failed"
 msgstr ""
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "zakończone dodania"
+msgstr "Niekompletne parametry"
 
 #: import.php:162
 #, php-format
@@ -891,7 +890,7 @@ msgstr ""
 "konfigurację."
 
 #: index.php:533
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -900,8 +899,7 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Przechowywania konfiguracji phpMyAdmin nie jest w pełni skonfigurowane, "
-"niektóre rozszerzone funkcje zostały wyłączone. Aby dowiedzieć się dlaczego "
-"kliknij %stutaj%s."
+"niektóre rozszerzone funkcje zostały wyłączone. %sDowiedz się dlaczego%s. "
 
 #: index.php:540
 msgid ""
@@ -984,10 +982,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Usuwanie klucza podstawowego/indeksu"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Wybierz klucz zewnętrzny"
+msgstr "Usuwanie klucza zewnętrznego."
 
 #: js/messages.php:47
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1071,10 +1068,9 @@ msgid "Composite with:"
 msgstr "Kolumny dołączyć:"
 
 #: js/messages.php:69
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Dodaj %s kolumny do indeksu"
+msgstr "Wybierz kolumny dla indeksu."
 
 #: js/messages.php:72 libraries/structure.lib.php:1681
 msgid "You have to add at least one column."
@@ -1087,10 +1083,9 @@ msgid "Preview SQL"
 msgstr ""
 
 #: js/messages.php:78
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "Zasymuluj zapytanie"
+msgstr "Symuluj zapytanie"
 
 #: js/messages.php:79
 msgid "Matched rows:"
@@ -1841,10 +1836,9 @@ msgid "Pick"
 msgstr ""
 
 #: js/messages.php:307
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
-msgstr "Selektor kolumn"
+msgstr "Wybieranie kolumn"
 
 #: js/messages.php:308
 msgid "Search this list"
@@ -1885,10 +1879,9 @@ msgid "Primary key added."
 msgstr "Klucz podstawowy dodany."
 
 #: js/messages.php:318 libraries/normalization.lib.php:174
-#, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "Raport śledzenia"
+msgstr "Przenoszenie cię do następnego kroku…"
 
 #: js/messages.php:319
 #, php-format
@@ -1974,10 +1967,9 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: js/messages.php:340
-#, fuzzy
 #| msgid "No partial dependencies selected!"
 msgid "No dependencies selected!"
-msgstr "Żadne częściowe zależności nie zostały wybrane!"
+msgstr "Nie wybrano żadnych zależności!"
 
 #: js/messages.php:343 libraries/insert_edit.lib.php:1452
 #: libraries/server_variables.lib.php:155
@@ -2158,10 +2150,9 @@ msgid "Delete page"
 msgstr "Usuń stronę"
 
 #: js/messages.php:410 libraries/db_designer.lib.php:382
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "Jednostka"
+msgstr "Bez nazwy"
 
 #: js/messages.php:411
 msgid "Please select a page to continue"
@@ -2345,16 +2336,14 @@ msgstr "Pokaż ukryte elementy drzewa nawigacji."
 
 #: js/messages.php:475 libraries/config/messages.inc.php:419
 #: libraries/navigation/NavigationTree.class.php:1257
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Dostosuj panel główny"
+msgstr "Połącz z głównym panelem"
 
 #: js/messages.php:476 libraries/navigation/NavigationTree.class.php:1260
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Dostosuj panel główny"
+msgstr "Odłącz od głównego panelu"
 
 #: js/messages.php:479
 msgid "The requested page was not found in the history, it may have expired."
@@ -2442,10 +2431,9 @@ msgid "Execute this query again?"
 msgstr "Czy wykonać to zapytanie ponownie?"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Czy na pewno chcesz usunąć wyszukiwanie \"%s\"?"
+msgstr "Czy na pewno chcesz usunąć tę zakładkę?"
 
 #: js/messages.php:532
 msgid ""
@@ -2853,10 +2841,9 @@ msgid "No bookmarks"
 msgstr "Brak zakładek"
 
 #: libraries/Console.class.php:180
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Wyjaśnij SQL"
+msgstr "Wyjaśnij"
 
 #: libraries/Console.class.php:181 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:330
@@ -2864,20 +2851,18 @@ msgid "Profiling"
 msgstr "Profilowanie"
 
 #: libraries/Console.class.php:183
-#, fuzzy
 #| msgid "Bookmarks"
 msgid "Bookmark"
-msgstr "Zakładki"
+msgstr "Dodaj do zakładek"
 
 #: libraries/Console.class.php:184
 msgid "Query failed"
 msgstr "Zapytanie nie powiodło się"
 
 #: libraries/Console.class.php:188
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Czas wykonywania zapytania"
+msgstr "Czas zapytania"
 
 #: libraries/Console.class.php:195
 msgid "SQL Query Console"
@@ -2943,10 +2928,9 @@ msgid "Refresh"
 msgstr "Odśwież"
 
 #: libraries/Console.class.php:269
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "I"
+msgstr "Dodaj"
 
 #: libraries/Console.class.php:278
 msgid "Add bookmark"
@@ -2969,10 +2953,9 @@ msgid "Set default"
 msgstr "Ustaw wartość domyślną"
 
 #: libraries/Console.class.php:308
-#, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
-msgstr "Zawsze wysyłaj raporty o błędach"
+msgstr "Zawsze rozwijaj wiadomości o zapytaniach"
 
 #: libraries/Console.class.php:310
 msgid "Show query history at start"
@@ -4124,10 +4107,9 @@ msgid "Replace with:"
 msgstr "Zamień na:"
 
 #: libraries/TableSearch.class.php:1370
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "jako wyrażenie regularne"
+msgstr "Użyj wyrażeń regularnych"
 
 #: libraries/TableSearch.class.php:1473
 msgid "Find and replace - preview"
@@ -5119,7 +5101,7 @@ msgstr ""
 "dostępna w tym systemie."
 
 #: libraries/config/ServerConfigChecks.class.php:399
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than 1440 seconds may cause random "
 #| "session invalidation if %ssession.gc_maxlifetime%s is lower than its "
@@ -5128,8 +5110,8 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"%sWażności ciasteczka logowania%s większa niż %ssession.gc_maxlifetime%s "
-"może spowodować losowe unieważnienie sesji(obecnie session.gc_maxlifetime to "
+"%sWażność ciasteczka logowania%s większa niż %ssession.gc_maxlifetime%s może "
+"powodować losowe wygasanie sesji (aktualnie session.gc_maxlifetime wynosi "
 "%d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
@@ -5218,12 +5200,11 @@ msgid "Could not connect to the database server!"
 msgstr "Nie można połączyć się z serwerem bazy danych!"
 
 #: libraries/config/Validator.class.php:319
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
-"Pomiń nazwę użytkownika podczas używania metody uwierzytelnienia z pliku "
-"konfiguracyjnego"
+"Pomiń nazwę użytkownika podczas używania metody uwierzytelnienia z [kbd]"
+"pliku konfiguracyjnego[/kbd]!"
 
 #: libraries/config/Validator.class.php:326
 #, fuzzy
@@ -5336,17 +5317,15 @@ msgid "Row marker"
 msgstr "Oznaczanie wiersza"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "Podświetla rekord, na który wskazuje kursor myszy"
+msgstr "Podświetla rekord wskazywany przez kursor myszy."
 
 #: libraries/config/messages.inc.php:36
 msgid "Highlight pointer"
 msgstr "Podświetl wskaźnik"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -5355,14 +5334,13 @@ msgid ""
 "import operations."
 msgstr ""
 "Włącza format kompresji [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] dla "
-"operacji importu i eksportu"
+"operacji importu."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -5374,14 +5352,13 @@ msgid ""
 msgstr ""
 "Określa, jaki rodzaj pól edycyjnych powinien zostać użyty do kolumn typu "
 "CHAR i VARCHAR; [kbd]input[/kbd] - umożliwia ograniczenie długości "
-"wejściowych, [kbd]textarea[/kbd] - pozwala nowej linii w kolumnach"
+"wejściowych, [kbd]textarea[/kbd] - pozwala nowej linii w kolumnach."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
 msgstr "Edycja kolumny typu CHAR"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -5389,8 +5366,9 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"Użyj przyjaznego dla użytkownika edytora do edycji zapytań SQL ([a@http://"
-"codemirror.net/]CodeMirror[/a]) z kolorowaniem składni i numerami linii"
+"Użyj przyjaznego użytkownikowi edytora zapytań SQL "
+"([a@http://codemirror.net/]CodeMirror[/a]) z kolorowaniem składni i numerami "
+"wierszy."
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
@@ -5453,7 +5431,6 @@ msgid "Check config file permissions"
 msgstr "Sprawdź uprawnienia pliku konfiguracyjnego"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -5462,9 +5439,9 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Kompresuje eksporty gzip/bzip2 w locie, bez dużego zapotrzebowania na "
-"pamięć; w przypadku wystąpienia problemów z tworzonymi plikami gzip/bzip2 "
-"należy wyłączyć tę funkcję"
+"Kompresuje eksporty gzip w locie, bez dużego zapotrzebowania na pamięć; w "
+"przypadku wystąpienia problemów z tworzonymi plikami gzip należy wyłączyć tę "
+"funkcję."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -5476,7 +5453,6 @@ msgid "Configuration file"
 msgstr "Plik konfiguracyjny"
 
 #: libraries/config/messages.inc.php:76
-#, fuzzy
 #| msgid ""
 #| "Whether a warning (\"Are your really sure…\") should be displayed when "
 #| "you're about to lose data"
@@ -5485,7 +5461,7 @@ msgid ""
 "you're about to lose data."
 msgstr ""
 "Czy w wypadku ryzyka utraty danych ma być pokazywane ostrzeżenie (\"Czy na "
-"pewno wykonać…\")"
+"pewno wykonać…\")."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5615,10 +5591,9 @@ msgstr "Kolumna uciekła z:"
 #: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:146
 #: libraries/config/messages.inc.php:187 libraries/config/messages.inc.php:190
 #: libraries/config/messages.inc.php:192
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace NULL with"
-msgstr "Zamiana NULL na:"
+msgstr "Zamień NULL na"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:118
 msgid "Remove CRLF characters within columns"
@@ -5627,10 +5602,9 @@ msgstr "Usuń znaki nowej lini z kolumn"
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:332
 #: libraries/config/messages.inc.php:343
 #: libraries/plugins/import/ImportCsv.class.php:122
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
-msgstr "Kolumny zakończone przez"
+msgstr "Kolumny zakończone"
 
 #: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:327
 #: libraries/plugins/import/ImportCsv.class.php:153
@@ -5789,10 +5763,9 @@ msgid "Export time in UTC"
 msgstr "Eksportuj czas w UTC"
 
 #: libraries/config/messages.inc.php:193
-#, fuzzy
 #| msgid "Force secured connection while using phpMyAdmin"
 msgid "Force secured connection while using phpMyAdmin."
-msgstr "Wymusza bezpiecznie połącznie podczas używania phpMyAdmina"
+msgstr "Wymusza bezpiecznie połącznie podczas używania phpMyAdmina."
 
 #: libraries/config/messages.inc.php:194
 msgid "Force SSL connection"
@@ -6135,7 +6108,6 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Wyłącz niektóre ostrzeżenia pokazywane przez phpMyAdmin."
 
 #: libraries/config/messages.inc.php:310
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations"
@@ -6144,7 +6116,7 @@ msgid ""
 "and export operations."
 msgstr ""
 "Włącza format kompresji [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] dla "
-"operacji importu i eksportu"
+"operacji importu i eksportu."
 
 #: libraries/config/messages.inc.php:313
 msgid "GZip"
@@ -6571,11 +6543,10 @@ msgid "Table navigation bar"
 msgstr "Pasek nawigacji tabeli"
 
 #: libraries/config/messages.inc.php:477
-#, fuzzy
 #| msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
-"użyj buforowania wyjścia GZip dla zwiększenia szybkości transferów HTTP"
+"Użyj buforowania wyjścia GZip dla zwiększenia szybkości transferów HTTP."
 
 #: libraries/config/messages.inc.php:478
 msgid "GZip output buffering"
