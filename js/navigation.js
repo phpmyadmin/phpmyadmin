@@ -1173,10 +1173,18 @@ var PMA_fastFilter = {
             }
         },
         mouseover: function (event) {
+            if ($(this).closest('li.fast_filter').is('.db_fast_filter')) {
+                var node_type = "databases";
+            } else{
+                var node_type = $(this)
+                    .closest('li.subContainer')
+                    .find('span.pos2_name').first()
+                    .text();
+            }
             PMA_tooltip(
                 $(this),
                 'input',
-                PMA_messages.strHoverFastFilter
+                PMA_sprintf(PMA_messages.strHoverFastFilter, node_type)
             );
         },
         keyup: function (event) {
