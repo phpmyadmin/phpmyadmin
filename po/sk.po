@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2015-01-21 15:58+0200\n"
-"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
+"PO-Revision-Date: 2015-01-22 13:37+0200\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -1831,7 +1831,7 @@ msgstr "Zobraziť viac"
 
 #: js/messages.php:311
 msgid "Are you sure?"
-msgstr "Ste si istý?"
+msgstr "Ste si istí?"
 
 #: js/messages.php:312
 msgid ""
@@ -1848,7 +1848,7 @@ msgstr "Pokračovať"
 #: js/messages.php:316 libraries/structure.lib.php:2162
 #: libraries/structure.lib.php:2165
 msgid "Add primary key"
-msgstr "Pridanie primárneho kľúča"
+msgstr "Pridať primárny kľúč"
 
 #: js/messages.php:317
 msgid "Primary key added."
@@ -1861,7 +1861,7 @@ msgstr "Vezmeme vás na ďalší krok…"
 #: js/messages.php:319
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "Prvý krok normalizácie je kompletný pre tabuľku %s."
+msgstr "Prvý krok normalizácie je kompletný pre tabuľku '%s'."
 
 #: js/messages.php:320 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
@@ -1880,7 +1880,7 @@ msgstr "Hotovo"
 
 #: js/messages.php:323
 msgid "Confirm partial dependencies"
-msgstr "Potvrď čiastočné závislostí"
+msgstr "Potvrdiť čiastočné závislosti"
 
 #: js/messages.php:324
 msgid "Selected partial dependencies are as follows:"
@@ -1921,9 +1921,9 @@ msgid "The following actions will be performed:"
 msgstr "Vykonajú sa nasledovné akcie:"
 
 #: js/messages.php:333
-#, fuzzy, php-format
+#, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "DROP stĺpce %s z tabuľky %s"
+msgstr "Odstrániť stĺpce %s z tabuľky %s"
 
 #: js/messages.php:334
 msgid "Create the following table"
@@ -1935,11 +1935,11 @@ msgstr "Tretí krok normalizácie (3NF)"
 
 #: js/messages.php:338
 msgid "Confirm transitive dependencies"
-msgstr "Potvrď tranzitívne závislostí"
+msgstr "Potvrdiť prechodné závislostí"
 
 #: js/messages.php:339
 msgid "Selected dependencies are as follows:"
-msgstr "Vybrané závislostí sú nasledovné:"
+msgstr "Boli zvolené nasledujúce závislosti:"
 
 #: js/messages.php:340
 msgid "No dependencies selected!"
@@ -2062,7 +2062,7 @@ msgstr "Vonkajší obrys"
 
 #: js/messages.php:392
 msgid "Shift + Click on function name to apply to all rows."
-msgstr "Shift + kliknutie na názov funkcie sa vzťahuje na všetky riadky."
+msgstr "Shift + kliknutie na názov funkcie pre nastavenie všetkých riadkov."
 
 #: js/messages.php:394
 msgid "Do you want to copy encryption key?"
@@ -6802,6 +6802,7 @@ msgstr ""
 "tabuliek počas sedenia. Odporúčaná hodnota: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:646
+#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "Obľúbené tabuľky"
@@ -10476,7 +10477,7 @@ msgstr "Slave replikácia"
 #: libraries/replication_gui.lib.php:143
 #| msgid "Master configuration"
 msgid "Master connection:"
-msgstr "Master pripojenie:"
+msgstr "Master spojenie:"
 
 #: libraries/replication_gui.lib.php:209
 msgid "Slave SQL Thread not running!"
@@ -10703,21 +10704,21 @@ msgstr "Replikácia bola úspešne zastavená."
 #: libraries/replication_gui.lib.php:928
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Chyba zastavenia replikácie."
+msgstr "Chyba pri zastavovaní replikácie."
 
 #: libraries/replication_gui.lib.php:931
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Obnovenie replikácie úspešné."
+msgstr "Replikácie bola úspešne obnovená."
 
 #: libraries/replication_gui.lib.php:932
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Chyba obnovenia replikácie."
+msgstr "Chyba pri obnovovaní replikácie."
 
 #: libraries/replication_gui.lib.php:935
 msgid "Success."
-msgstr ""
+msgstr "Úspech."
 
 #: libraries/replication_gui.lib.php:936
 msgid "Error."
@@ -10777,7 +10778,7 @@ msgstr "Udalosť %1$s bola vytvorená."
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "Pri spracovaní požiadavky došlo k niekoľkým chybám:"
+msgstr "Pri spracovaní požiadavky došlo k jednej alebo viacerým chybám:"
 
 #: libraries/rte/rte_events.lib.php:231
 msgid "Edit event"
@@ -10838,7 +10839,7 @@ msgstr ""
 #: libraries/rte/rte_events.lib.php:553
 #| msgid "You must provide a valid table name"
 msgid "You must provide an event name!"
-msgstr "Musíte zadať názov akcie!"
+msgstr "Musíte zadať názov udalosti!"
 
 #: libraries/rte/rte_events.lib.php:568
 msgid "You must provide a valid interval value for the event."
@@ -11048,12 +11049,12 @@ msgstr "Čas"
 #: libraries/rte/rte_triggers.lib.php:429
 #| msgid "You must provide a valid table name"
 msgid "You must provide a trigger name!"
-msgstr "Musíte zadať platný názov spúšťača!"
+msgstr "Musíte zadať názov spúšťača!"
 
 #: libraries/rte/rte_triggers.lib.php:436
 #| msgid "You must provide a valid table name"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Musíte zadať správne časovanie spúšťača!"
+msgstr "Musíte zadať platné časovanie spúšťača!"
 
 #: libraries/rte/rte_triggers.lib.php:443
 #| msgid "You must provide a valid table name"
@@ -12034,8 +12035,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Poznámka: Zapnutie automatického obnovenia môže spôsobiť značné zvýšenie "
-"sieťovej prevádzky medzi databázou a web serverom."
+"Poznámka: Zapnutie automatického obnovovania môže spôsobiť vysokú sieťovú "
+"prevádzku medzi databázou a web serverom."
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -13182,7 +13183,7 @@ msgstr "Navrhnúť štruktúru tabuľky"
 #: libraries/structure.lib.php:1659
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Zlepšenie štruktúry tabuľky"
+msgstr "Zlepšiť štruktúry tabuľky"
 
 #: libraries/structure.lib.php:1698
 #: libraries/tbl_columns_definition_form.lib.php:171
@@ -13284,7 +13285,7 @@ msgstr "Stĺpce boli úspešne presunuté."
 #: libraries/structure.lib.php:2885
 #| msgid "Add this series"
 msgid "Add to Favorites"
-msgstr "Pridať k Obľúbeným"
+msgstr "Pridať k obľúbeným"
 
 #: libraries/structure.lib.php:2931
 msgid "Favorite List is full!"
@@ -13293,7 +13294,7 @@ msgstr "Zoznam obľúbených je plný!"
 #: libraries/structure.lib.php:3021
 #| msgid "Show SQL queries"
 msgid "Showing create queries"
-msgstr "Zobrazovanie SQL dopytov"
+msgstr "Zobrazovanie SQL dopytov pre vytvorenie"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -13589,10 +13590,9 @@ msgid ""
 msgstr ""
 
 #: libraries/tbl_relation.lib.php:371
-#, fuzzy
 #| msgid "Foreign key limit"
 msgid "Foreign key constraints"
-msgstr "Obmedzenie cudzieho kľúča"
+msgstr "Obmedzenia cudzieho kľúča"
 
 #: libraries/tbl_relation.lib.php:374
 msgid "Actions"
@@ -14168,7 +14168,7 @@ msgstr "Sledovanie %s je aktívne."
 #: tbl_tracking.php:100
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Sledovaná verzia bola úspešne odstránená."
+msgstr "Sledované verzie boli úspešne odstránené."
 
 #: tbl_tracking.php:105
 #| msgid "No rows selected"
