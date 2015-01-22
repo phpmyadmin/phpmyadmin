@@ -33,6 +33,7 @@ phpMyAdmin - ChangeLog
 - bug #4722 Incorrect width table summary when favorite tables is disabled
 - bug #4716 Collapse all in navigation panel is sometimes broken
 - bug #4724 Cannot navigate in filtered table list
+- bug #4717 Database navigation menu broken when resolution/screen is changing
 
 4.3.7.0 (2015-01-15)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)
