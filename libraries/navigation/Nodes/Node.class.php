@@ -405,6 +405,9 @@ class Node
                 }
 
                 while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($this->_isHideDb($arr[0])) {
+                        continue;
+                    }
                     if (in_array($arr[0], $retval)) {
                         continue;
                     }
@@ -491,6 +494,9 @@ class Node
             }
 
             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                if ($this->_isHideDb($arr[0])) {
+                    continue;
+                }
                 $prefix = strstr($arr[0], $dbSeparator, true);
                 if ($prefix === false) {
                     $prefix = $arr[0];
@@ -511,6 +517,9 @@ class Node
             }
 
             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                if ($this->_isHideDb($arr[0])) {
+                    continue;
+                }
                 if (in_array($arr[0], $retval)) {
                     continue;
                 }
@@ -596,6 +605,9 @@ class Node
                 }
 
                 while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($this->_isHideDb($arr[0])) {
+                        continue;
+                    }
                     $prefix = strstr($arr[0], $dbSeparator, true);
                     if ($prefix === false) {
                         $prefix = $arr[0];
@@ -623,6 +635,23 @@ class Node
         $retval = count($prefixMap);
 
         return $retval;
+    }
+
+    /**
+     * Detemines whether a given database should be hidden according to 'hide_db'
+     *
+     * @param string $db
+     *            database name
+     *
+     * @return boolean whether to hide
+     */
+    private function _isHideDb($db) {
+        if (! empty ( $GLOBALS ['cfg'] ['Server'] ['hide_db'] )
+            && preg_match ( '/' . $GLOBALS ['cfg'] ['Server'] ['hide_db'] . '/', $db )
+        ) {
+            return true;
+        }
+        return false;
     }
 
     /**
