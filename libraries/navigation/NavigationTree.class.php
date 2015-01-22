@@ -1292,8 +1292,7 @@ class PMA_NavigationTree
                 'vPath' => $paths['vPath'],
                 'pos' => $this->_pos,
                 'server' => $GLOBALS['server'],
-                'pos2_name' => $paths['aPath_clean'][2],
-                'searchClause2' => $this->_searchClause2
+                'pos2_name' => $paths['aPath_clean'][2]
             );
             if ($level == 3) {
                 $pos = $node->pos3;
