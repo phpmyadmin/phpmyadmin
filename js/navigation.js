@@ -33,7 +33,7 @@ function loadChildNodes($expandElem, callback) {
     };
 
     if ($expandElem.closest('ul').hasClass('search_results')
-    ) {debugger;
+    ) {
         params.searchClause = searchClause;
         params.searchClause2 = searchClause2;
     }
