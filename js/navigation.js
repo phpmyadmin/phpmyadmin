@@ -1136,10 +1136,10 @@ var PMA_fastFilter = {
         var $filterContainer = $this.closest('div.list_container');
         var $filterInput = $([]);
         if ($filterContainer
-            .children('li.fast_filter:not(.db_fast_filter) input.searchClause')
+            .find('li.fast_filter:not(.db_fast_filter) input.searchClause')
             .length !== 0) {
             $filterInput = $filterContainer
-                .children('li.fast_filter:not(.db_fast_filter) input.searchClause');
+                .find('li.fast_filter:not(.db_fast_filter) input.searchClause');
         }
         var searchClause2 = '';
         if ($filterInput.length !== 0 &&
