@@ -982,7 +982,8 @@ var ResizeHandler = function () {
         $.cookie('pma_navi_width', event.data.resize_handler.getPos(event));
         $('#topmenu').menuResizer('resize');
         $(document)
-            .unbind('mousemove');
+            .unbind('mousemove')
+            .unbind('mouseup');
     };
     /**
      * Event handler for updating the panel during a resize operation
