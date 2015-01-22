@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - bug #4722 Incorrect width table summary when favorite tables is disabled
 - bug #4710 Nav tree error after filtering the tables
 - bug #4716 Collapse all in navigation panel is sometimes broken
+- bug #4724 Cannot navigate in filtered table list
 
 4.3.7.0 (2015-01-15)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)
