@@ -809,7 +809,11 @@ class PMA_NavigationTree
         } else {
             $this->groupTree();
             $retval  = "<div class='list_container' style='display: none;'>";
-            $retval .= "<ul>";
+            if (! empty($this->_searchClause) || ! empty($this->_searchClause2)) {
+                $retval .= "<ul class='search_results'>";
+            } else {
+                $retval .= "<ul>";
+            }
             $retval .= $this->_fastFilterHtml($node);
             $retval .= $this->_getPageSelector($node);
             $children = $node->children;
