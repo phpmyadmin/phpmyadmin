@@ -970,8 +970,7 @@ class PMA_NavigationTree
                     $retval .= "<b></b>";
                 }
 
-                $match = $this->_findTreeMatch($this->_aPath, $paths['aPath_clean']);
-                $match |= $this->_findTreeMatch(
+                $match = $this->_findTreeMatch(
                     $this->_vPath,
                     $paths['vPath_clean']
                 );
