@@ -1176,10 +1176,7 @@ var PMA_fastFilter = {
             if ($(this).closest('li.fast_filter').is('.db_fast_filter')) {
                 var node_type = "databases";
             } else{
-                var node_type = $(this)
-                    .closest('li.subContainer')
-                    .find('span.pos2_name').first()
-                    .text();
+                var node_type = $(this).siblings("input[name='pos2_name']").val();
             }
             PMA_tooltip(
                 $(this),
