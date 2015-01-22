@@ -239,7 +239,13 @@ function PMA_fatalError(
         }
 
         // these variables are used in the included file libraries/error.inc.php
-        $error_header = __('Error');
+        //first check if php-mbstring is available
+        if (function_exists('mb_detect_encoding')) {
+            //If present use gettext
+            $error_header = __('Error');
+        } else {
+            $error_header = 'Error';
+        }
         $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
         $dir = $GLOBALS['text_dir'];
 
