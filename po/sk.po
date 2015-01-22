@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2015-01-22 13:37+0200\n"
+"PO-Revision-Date: 2015-01-22 21:26+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
@@ -2129,9 +2129,8 @@ msgid "Do you want to save the changes to the current page?"
 msgstr "Chcete uložiť zmeny aktuálnej stránky?"
 
 #: js/messages.php:414
-#, fuzzy
 msgid "Successfully deleted the page"
-msgstr "Úspešne odstránená strana"
+msgstr "Stránka bola odstránená"
 
 #: js/messages.php:415
 msgid "Export relational schema"
@@ -10312,10 +10311,9 @@ msgid "Display Features"
 msgstr "Zobraziť vlastnosti"
 
 #: libraries/relation.lib.php:156
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Návrh a vytváranie PDF"
+msgstr "Navrhovanie a vytváranie PDF"
 
 #: libraries/relation.lib.php:167
 msgid "Displaying Column Comments"
@@ -10965,10 +10963,9 @@ msgid "SQL data access"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1146
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide a routine name!"
-msgstr "Musíte zadať platný názov tabuľky"
+msgstr "Musíte zadať názov rutiny!"
 
 #: libraries/rte/rte_routines.lib.php:1180
 #, php-format
@@ -11386,10 +11383,9 @@ msgstr "Umožňuje vytvárať nové pohľady."
 
 #: libraries/server_privileges.lib.php:385
 #: libraries/server_privileges.lib.php:1159 server_privileges.php:68
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Allows to set up events for the event scheduler."
-msgstr "Povolí zmaknutie tabuliek pre aktuálne vlákno."
+msgstr "Umožňuje plánovať udalosti pomocou plánovača."
 
 #: libraries/server_privileges.lib.php:390
 #: libraries/server_privileges.lib.php:1163 server_privileges.php:108
@@ -11622,10 +11618,9 @@ msgid "wildcard"
 msgstr "nahradzujúci znak"
 
 #: libraries/server_privileges.lib.php:2149
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "závislé na databáze"
+msgstr "závislé na tabuľke"
 
 #: libraries/server_privileges.lib.php:2274
 msgid "Edit Privileges"
