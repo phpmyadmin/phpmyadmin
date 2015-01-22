@@ -28,9 +28,15 @@ function loadChildNodes($expandElem, callback) {
         pos: $expandElem.find('span.pos').text(),
         pos2_name: $expandElem.find('span.pos2_name').text(),
         pos2_value: $expandElem.find('span.pos2_value').text(),
-        searchClause: searchClause,
-        searchClause2: searchClause2
+        searchClause: '',
+        searchClause2: ''
     };
+
+    if ($expandElem.closest('ul').hasClass('search_results')
+    ) {
+        params.searchClause = searchClause;
+        params.searchClause2 = searchClause2;
+    }
 
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     $.get(url, params, function (data) {
@@ -1167,10 +1173,15 @@ var PMA_fastFilter = {
             }
         },
         mouseover: function (event) {
+            if ($(this).closest('li.fast_filter').is('.db_fast_filter')) {
+                var node_type = "databases";
+            } else{
+                var node_type = $(this).siblings("input[name='pos2_name']").val();
+            }
             PMA_tooltip(
                 $(this),
                 'input',
-                PMA_messages.strHoverFastFilter
+                PMA_sprintf(PMA_messages.strHoverFastFilter, node_type)
             );
         },
         keyup: function (event) {
@@ -1347,10 +1358,12 @@ PMA_fastFilter.filter.prototype.swap = function (list) {
  * @return void
  */
 PMA_fastFilter.filter.prototype.restore = function (focus) {
-    this.$this.html(this.$clone.html()).children().show();
-    this.$this.data('fastFilter', this);
-    if (focus) {
-        this.$this.find('li.fast_filter input.searchClause').focus();
+    if(this.$this.children('ul').first().hasClass('search_results')) {
+        this.$this.html(this.$clone.html()).children().show();
+        this.$this.data('fastFilter', this);
+        if (focus) {
+            this.$this.find('li.fast_filter input.searchClause').focus();
+        }
     }
     this.searchClause = '';
     this.$this.find('div.pageselector').show();
