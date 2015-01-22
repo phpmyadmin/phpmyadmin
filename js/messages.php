@@ -137,7 +137,7 @@ $js_messages['strGiB'] = __('GiB');
 $js_messages['strTiB'] = __('TiB');
 $js_messages['strPiB'] = __('PiB');
 $js_messages['strEiB'] = __('EiB');
-$js_messages['strTables'] = __('%d table(s)');
+$js_messages['strNTables'] = __('%d table(s)');
 
 /* l10n: Questions is the name of a MySQL Status variable */
 $js_messages['strQuestions'] = __('Questions');
@@ -476,7 +476,13 @@ $js_messages['strHidePanel'] = __('Hide Panel');
 $js_messages['strUnhideNavItem'] = __('Show hidden navigation tree items.');
 $js_messages['linkWithMain'] = __('Link with main panel');
 $js_messages['unlinkWithMain'] = __('Unlink from main panel');
-$js_messages['strHoverFastFilter'] = __('To filter all %s on server, press Enter after a search term');
+$js_messages['strHoverDbFastFilter'] = __('To filter all databases on server, press Enter after a search term');
+$js_messages['strHoverFastFilter'] = __('To filter all %s in database, press Enter after a search term');
+$js_messages['strTables'] = __('tables');
+$js_messages['strViews'] = __('views');
+$js_messages['strProcedures'] = __('procedures');
+$js_messages['strEvents'] = __('events');
+$js_messages['strFunctions'] = __('functions');
 
 /* microhistory */
 $js_messages['strInvalidPage'] = __('The requested page was not found in the history, it may have expired.');

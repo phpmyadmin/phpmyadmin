@@ -1173,16 +1173,24 @@ var PMA_fastFilter = {
             }
         },
         mouseover: function (event) {
+            var message = '';
             if ($(this).closest('li.fast_filter').is('.db_fast_filter')) {
-                var node_type = "databases";
-            } else{
+                message = PMA_messages.strHoverDbFastFilter;
+            } else {
                 var node_type = $(this).siblings("input[name='pos2_name']").val();
+                var node_name = PMA_messages.strTables;
+                if (node_type == 'views') {
+                    node_name = PMA_messages.strViews;
+                } else if (node_type == 'procedures') {
+                    node_name = PMA_messages.strProcedures;
+                } else if (node_type == 'functions') {
+                    node_name = PMA_messages.strFunctions;
+                } else if (node_type == 'events') {
+                    node_name = PMA_messages.strEvents;
+                }
+                message = PMA_sprintf(PMA_messages.strHoverFastFilter, node_name);
             }
-            PMA_tooltip(
-                $(this),
-                'input',
-                PMA_sprintf(PMA_messages.strHoverFastFilter, node_type)
-            );
+            PMA_tooltip($(this), 'input', message);
         },
         keyup: function (event) {
             var $obj = $(this).closest('div.list_container');
