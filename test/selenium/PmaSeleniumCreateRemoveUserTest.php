@@ -59,7 +59,7 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
         $this->login();
         $this->waitForElement('byLinkText', "Users")->click();
 
-        $link = $this->waitForElement("byLinkText", "Add user");
+        $link = $this->waitForElement("byId", "add_user_anchor");
         $link->click();
 
         $userField = $this->waitForElement("byName", "username");
