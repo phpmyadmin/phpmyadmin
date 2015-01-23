@@ -93,6 +93,7 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
 
         $this->byId("checkbox_drop_users_db")->click();
         $this->byId("buttonGo")->click();
+        $this->waitForElement("byCssSelector", "button.confirmOK")->click();
         $this->acceptAlert();
 
         $success = $this->waitForElement("byCssSelector", "div.success");
