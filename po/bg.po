@@ -4,29 +4,28 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2014-10-16 10:59+0200\n"
-"Last-Translator: Boyan Kehayov <bkehayov@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bg/>\n"
+"PO-Revision-Date: 2015-01-23 04:37+0200\n"
+"Last-Translator: krasimir <vip@krasio-valia.com>\n"
+"Language-Team: Bulgarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/bg/>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr ""
-"Файлът %s не е наличен в системата, посетете www.phpmyadmin.net за повече "
-"информация."
+msgstr "krasio-valia.com"
 
 #: db_central_columns.php:85
+#, fuzzy
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "The central list of columns for the current database is empty."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
