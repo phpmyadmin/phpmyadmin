@@ -2410,17 +2410,25 @@ jQuery.fn.PMA_confirm = function (question, url, callbackFn) {
      * @var    button_options  Object that stores the options passed to jQueryUI
      *                          dialog
      */
-    var button_options = {};
-    button_options[PMA_messages.strOK] = function () {
-        $(this).dialog("close");
-
-        if ($.isFunction(callbackFn)) {
-            callbackFn.call(this, url);
+    var button_options = [
+        {
+            text: PMA_messages.strOK,
+            'class': 'submitOK',
+            click: function () {
+                $(this).dialog("close");
+                if ($.isFunction(callbackFn)) {
+                    callbackFn.call(this, url);
+                }
+            }
+        },
+        {
+              text: PMA_messages.strCancel,
+              'class': 'submitCancel',
+              click: function () {
+                  $(this).dialog("close");
+            }
         }
-    };
-    button_options[PMA_messages.strCancel] = function () {
-        $(this).dialog("close");
-    };
+    ];
 
     $('<div/>', {'id': 'confirm_dialog'})
     .prepend(question)
