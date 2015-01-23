@@ -193,6 +193,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $this->dbQuery(
             'USE ' . $this->database_name
         );
+
+        // Maximize the window size
+        $this->prepareSession()->currentWindow()->maximize();
     }
 
     /**

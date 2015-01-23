@@ -78,7 +78,7 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
         $this->byId("createdb-1")->click();
         $this->byId("createdb-2")->click();
         $this->byId("addUsersForm_checkall")->click();
-        $this->byName("adduser_submit")->click();
+        $this->byId("adduser_submit")->click();
 
         $success = $this->waitForElement("byCssSelector", "div.success");
         $this->assertContains('You have added a new user', $success->text());
@@ -92,8 +92,11 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
         )->click();
 
         $this->byId("checkbox_drop_users_db")->click();
-        $this->acceptAlert();
         $this->byId("buttonGo")->click();
+        $this->byXPath(
+            "//*[contains(text(), 'OK')]"
+        )->click();
+        $this->acceptAlert();
 
         $success = $this->waitForElement("byCssSelector", "div.success");
         $this->assertContains(
