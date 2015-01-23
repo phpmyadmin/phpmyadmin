@@ -2944,7 +2944,11 @@ function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
 function PMA_addRemoveFavoriteTables($db)
 {
     $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
-    $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
+    if (isset($_REQUEST['favorite_tables'])) {
+        $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
+    } else {
+        $favorite_tables = array();
+    }
     // Required to keep each user's preferences separate.
     $user = sha1($GLOBALS['cfg']['Server']['user']);
 
