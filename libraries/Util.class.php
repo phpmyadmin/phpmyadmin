@@ -2474,9 +2474,9 @@ class PMA_Util
                     . '</a>';
 
                 $_url_params[$name] = $pos - $max_count;
-                $list_navigator_html .= ' <a' . $class . $title2 . ' href="' . $script
-                    . PMA_URL_getCommon($_url_params) . '">' . $caption2
-                    . '</a>';
+                $list_navigator_html .= ' <a' . $class . $title2
+                    . ' href="' . $script . PMA_URL_getCommon($_url_params) . '">'
+                    . $caption2 . '</a>';
             }
 
             $list_navigator_html .= '<form action="' . basename($script)
@@ -2517,9 +2517,9 @@ class PMA_Util
                     $_url_params[$name] = $count - $max_count;
                 }
 
-                $list_navigator_html .= ' <a' . $class . $title4 . ' href="' . $script
-                    . PMA_URL_getCommon($_url_params) . '" >' . $caption4
-                    . '</a>';
+                $list_navigator_html .= ' <a' . $class . $title4
+                    . ' href="' . $script . PMA_URL_getCommon($_url_params) . '" >'
+                    . $caption4 . '</a>';
             }
             $list_navigator_html .= '</div>' . "\n";
         }
@@ -2697,7 +2697,8 @@ class PMA_Util
      *                              case the dropdown is present more than once
      *                              on the page
      * @param string $class         class for the select element
-     * @param string $placeholder   Placeholder for dropdown if nothing else is selected
+     * @param string $placeholder   Placeholder for dropdown if nothing else
+     *                              is selected
      *
      * @return string               html content
      *
@@ -2716,13 +2717,15 @@ class PMA_Util
         $selected = false;
 
         foreach ($choices as $one_choice_value => $one_choice_label) {
-            $resultOptions .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
+            $resultOptions .= '<option value="'
+                . htmlspecialchars($one_choice_value) . '"';
 
             if ($one_choice_value == $active_choice) {
                 $resultOptions .= ' selected="selected"';
                 $selected = true;
             }
-            $resultOptions .= '>' . htmlspecialchars($one_choice_label) . '</option>';
+            $resultOptions .= '>' . htmlspecialchars($one_choice_label)
+                . '</option>';
         }
 
         if (!empty($placeholder)) {
