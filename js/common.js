@@ -31,10 +31,10 @@ var PMA_commonParams = (function () {
             var updateNavigation = false;
             for (var i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
+                    if (i == 'db' || i == 'table') {
+                        updateNavigation = true;
+                    }
                     reload = true;
-                }
-                if (i == 'db' || i == 'table') {
-                    updateNavigation = true;
                 }
                 params[i] = obj[i];
             }
@@ -65,7 +65,9 @@ var PMA_commonParams = (function () {
          */
         set: function (name, value) {
             var updateNavigation = false;
-            if (name == 'db' || name == 'table') {
+            if (name == 'db' || name == 'table'
+                && params[name] !== value
+            ) {
                 updateNavigation = true;
             }
             params[name] = value;

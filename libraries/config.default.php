@@ -811,11 +811,18 @@ $cfg['CaptchaLoginPrivateKey'] = '';
  */
 
 /**
+ * Whether to display navigation panel as tree or as pre-4.0 style
+ *
+ * @global boolean $cfg['ShowNavigationAsTree']
+ */
+$cfg['ShowNavigationAsTree'] = true;
+
+/**
  * maximum number of first level databases displayed in navigation panel
  *
  * @global integer $cfg['FirstLevelNavigationItems']
  */
-$cfg['FirstLevelNavigationItems'] = 25;
+$cfg['FirstLevelNavigationItems'] = 100;
 
 /**
  * maximum number of items displayed in navigation panel

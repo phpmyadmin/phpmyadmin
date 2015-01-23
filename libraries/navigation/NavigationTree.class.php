@@ -145,7 +145,9 @@ class PMA_NavigationTree
         // Initialise the tree by creating a root node
         $node = PMA_NodeFactory::getInstance('Node_Database_Container', 'root');
         $this->_tree = $node;
-        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
+        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
+            && $GLOBALS['cfg']['ShowNavigationAsTree']
+        ) {
             $this->_tree->separator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
             $this->_tree->separator_depth = 10000;
         }
@@ -768,11 +770,11 @@ class PMA_NavigationTree
     public function renderState()
     {
         $this->_buildPath();
-        $retval  = $this->_quickWarp();
-        $retval .= '<div class="clearfloat"></div>';
+        $retval = '<div class="clearfloat"></div>';
         $retval .= '<ul>';
         $retval .= $this->_fastFilterHtml($this->_tree);
-        if (! $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
+        if (! $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
+        ) {
             $retval .= $this->_controls();
         }
         $retval .= '</ul>';
@@ -814,18 +816,30 @@ class PMA_NavigationTree
             } else {
                 $retval .= "<ul>";
             }
-            $retval .= $this->_fastFilterHtml($node);
-            $retval .= $this->_getPageSelector($node);
+            $listContent = $this->_fastFilterHtml($node);
+            $listContent .= $this->_getPageSelector($node);
             $children = $node->children;
             usort($children, array('PMA_NavigationTree', 'sortNode'));
             for ($i=0, $nbChildren = count($children); $i < $nbChildren; $i++) {
                 if ($i + 1 != $nbChildren) {
-                    $retval .= $this->_renderNode($children[$i], true);
+                    $listContent .= $this->_renderNode($children[$i], true);
                 } else {
-                    $retval .= $this->_renderNode($children[$i], true, 'last');
+                    $listContent .= $this->_renderNode($children[$i], true, 'last');
                 }
             }
+            $retval .= $listContent;
             $retval .= "</ul>";
+            if (! $GLOBALS['cfg']['ShowNavigationAsTree']) {
+                $retval .= "<span class='hide loaded_db'>";
+                $parents = $node->parents(true);
+                $retval .= urlencode($parents[0]->real_name);
+                $retval .= "</span>";
+                if (empty($listContent)) {
+                    $retval .= "<div style='margin:0.75em;font-size:1.2em'>";
+                    $retval .= __('No tables found in database.');
+                    $retval .= "</div>";
+                }
+            }
             $retval .= "</div>";
         }
 
@@ -1126,6 +1140,67 @@ class PMA_NavigationTree
         }
         return $retval;
     }
+    
+    
+    /**
+     * Renders a database select box like the pre-4.0 navigation panel
+     *
+     * @return string HTML code
+     */
+    public function renderDbSelect()
+    {
+        $this->_buildPath();
+        $this->_tree->is_group = false;
+        $retval = '<div id="pma_navigation_select_database">';
+        // Provide for pagination in database select
+        $retval .= PMA_Util::getListNavigator(
+            $this->_tree->getPresence('databases', ''),
+            $this->_pos,
+            array('server' => $GLOBALS['server']),
+            'navigation.php',
+            'frame_navigation',
+            $GLOBALS['cfg']['FirstLevelNavigationItems'],
+            'pos',
+            array('dbselector')
+        );
+        $children = $this->_tree->children;
+        array_shift($children);
+        $url_params = array(
+            'token' => $_SESSION[' PMA_token '],
+            'server' => $GLOBALS['server']
+        );
+        $retval .= '<div id="pma_navigation_db_select">';
+        $retval .= '<form action="db_structure.php">';
+        $retval .= PMA_getHiddenFields($url_params);
+        $retval .= '<select name="db" id="navi_db_select">'
+            . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
+            . '(' . __('Databases') . ') ...</option>' . "\n";
+        $selected = $GLOBALS['db'];
+        foreach ($children as $node) {
+            $paths  = $node->getPaths();
+            if (isset($node->links['text'])) {
+                $title = empty($node->links['title']) ? '' : $node->links['title'];
+                $retval .= '<option value="' . htmlspecialchars($node->real_name) . '"'
+                    .' title="' . htmlspecialchars($title) . '"'
+                    .' apath="' . $paths['aPath'] . '"'
+                    .' vpath="' . $paths['vPath'] . '"'
+                    .' pos="' . $this->_pos . '"';
+                if ($node->real_name == $selected || (PMA_DRIZZLE && strtolower($node->real_name) == strtolower($selected))) {
+                    $retval .= ' selected="selected"';
+                }
+                $retval .= '>' . htmlspecialchars($node->real_name);
+                $retval .= '</option>';
+            }
+        }
+        $retval .= '</select></form>';
+        $retval .= '</div></div>';
+        $retval .= '<div id="pma_navigation_tree_content">';
+        $retval .= '<div style="margin:0.75em;font-size:1.2em">';
+        $retval .= __('Please select a database.');
+        $retval .= '</div>';
+        $retval .= '</div>';
+        return $retval;
+    }
 
     /**
      * Makes some nodes visible based on the which node is active
@@ -1343,25 +1418,6 @@ class PMA_NavigationTree
         } else {
             return strcasecmp($a->name, $b->name);
         }
-    }
-
-    /**
-     * Display quick warp links, contain Recents and Favorites
-     *
-     * @return string HTML code
-     */
-    private function _quickWarp()
-    {
-        $retval  = '<div class="pma_quick_warp">';
-        if ($GLOBALS['cfg']['NumRecentTables'] > 0) {
-            $retval .= PMA_RecentFavoriteTable::getInstance('recent')->getHtml();
-        }
-        if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
-            $retval .= PMA_RecentFavoriteTable::getInstance('favorite')->getHtml();
-        }
-        $retval .= '<div class="clearfloat"></div>';
-        $retval .= '</div>';
-        return $retval;
     }
 }
 ?>
