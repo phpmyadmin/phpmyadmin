@@ -2168,7 +2168,7 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
     if (PMA_isRememberSortingOrder($analyzed_sql_results)
         && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])
     ) {
-        if(!isset($_SESSION['sql_from_query_box'])) {
+        if (! isset($_SESSION['sql_from_query_box'])) {
             PMA_handleSortOrder($db, $table, $analyzed_sql_results, $sql_query);
         } else {
             unset($_SESSION['sql_from_query_box']);
