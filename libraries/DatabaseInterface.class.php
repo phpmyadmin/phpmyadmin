@@ -1014,11 +1014,11 @@ class PMA_DatabaseInterface
                 // MySQL 5.0 or higher is required for current PMA version
                 $databases[$database_name]['SCHEMA_NAME']      = $database_name;
 
-                if ($force_stats) {
-                    include_once './libraries/mysql_charsets.inc.php';
+                include_once './libraries/mysql_charsets.inc.php';
+                $databases[$database_name]['DEFAULT_COLLATION_NAME']
+                    = PMA_getDbCollation($database_name);
 
-                    $databases[$database_name]['DEFAULT_COLLATION_NAME']
-                        = PMA_getDbCollation($database_name);
+                if ($force_stats) {
 
                     // get additional info about tables
                     $databases[$database_name]['SCHEMA_TABLES']          = 0;
