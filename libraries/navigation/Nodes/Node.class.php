@@ -640,14 +640,14 @@ class Node
     /**
      * Detemines whether a given database should be hidden according to 'hide_db'
      *
-     * @param string $db
-     *            database name
+     * @param string $db database name
      *
      * @return boolean whether to hide
      */
-    private function _isHideDb($db) {
-        if (! empty ( $GLOBALS ['cfg'] ['Server'] ['hide_db'] )
-            && preg_match ( '/' . $GLOBALS ['cfg'] ['Server'] ['hide_db'] . '/', $db )
+    private function _isHideDb($db)
+    {
+        if (! empty($GLOBALS['cfg']['Server']['hide_db'])
+            && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db)
         ) {
             return true;
         }
