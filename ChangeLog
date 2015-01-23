@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - bug #4716 Collapse all in navigation panel is sometimes broken
 - bug #4724 Cannot navigate in filtered table list
 - bug #4717 Database navigation menu broken when resolution/screen is changing
+- bug #4727 Collation column missing in database list when DisableIS is true
 
 4.3.7.0 (2015-01-15)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)
