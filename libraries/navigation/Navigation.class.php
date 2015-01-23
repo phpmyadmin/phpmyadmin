@@ -36,7 +36,6 @@ class PMA_Navigation
         }
         $tree = new PMA_NavigationTree();
         if ($GLOBALS['cfg']['ShowNavigationAsTree']
-          //  || $GLOBALS['db'] == ''
         ) {
             if (! PMA_Response::getInstance()->isAjax()
                 || ! empty($_REQUEST['full'])

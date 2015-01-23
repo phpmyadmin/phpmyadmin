@@ -716,7 +716,6 @@ class Node
     public function getCssClasses($match)
     {
         if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
-            //|| ! $GLOBALS['cfg']['ShowNavigationAsTree']
         ) {
             return '';
         }
@@ -743,7 +742,6 @@ class Node
     public function getIcon($match)
     {
         if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
-            //|| ! $GLOBALS['cfg']['ShowNavigationAsTree']
         ) {
             return '';
         } elseif ($match && ! $this->is_group) {

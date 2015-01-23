@@ -48,13 +48,18 @@ function loadChildNodes(isNode, $expandElem, callback) {
     $.get(url, params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
-            $destination.append(data.message);
             if (isNode) {
+                $destination.append(data.message);
                 $expandElem.addClass('loaded');
             } else {
+                $destination.html(data.message);
                 $destination.children()
                     .first()
-                    .css({border: '0px', margin: '0em', padding : '0em'})
+                    .css({
+                        border: '0px',
+                        margin: '0em',
+                        padding : '0em'
+                    })
                     .slideDown('slow');
             }
             if (data._debug){
@@ -617,15 +622,23 @@ function PMA_showCurrentNavigation() {
             } else {
                 handleTableOrDb(table, $dbItem);
             }
-        } else {
-            if ($('#navi_db_select').length
+        } else if ($('#navi_db_select').length
                 && $('option:selected', $('#navi_db_select')).length
+        ) {
+            if (! PMA_selectCurrentDb()) {
+                return;
+            }
+            // If loaded database in navigation is not same as current one
+            if ( $('#pma_navigation_tree_content span.loaded_db:first').text()
+                !== $('#navi_db_select').val()
             ) {
                 loadChildNodes(false, $('option:selected', $('#navi_db_select')), function (data) {
-                    navTreeStateUpdate();
-                    return;
+                    handleTableOrDb(table, $('#pma_navigation_tree_content'));
+                    var $children = $('#pma_navigation_tree_content').children('div.list_container');
+                    $children.promise().done(navTreeStateUpdate);
                 });
-                return;
+            } else {
+                handleTableOrDb(table, $('#pma_navigation_tree_content'));
             }
         }
     }
@@ -639,6 +652,7 @@ function PMA_showCurrentNavigation() {
             var $tableContainer = $container.children('ul').children('li.tableContainer');
             if ($tableContainer.length > 0) {
                 var $expander = $tableContainer.children('div:first').children('a.expander');
+                $tableContainer.addClass('selected');
                 expandTreeNode($expander, function () {
                     scrollToView($dbItem, true);
                 });
@@ -772,8 +786,13 @@ function PMA_showCurrentNavigation() {
 function PMA_reloadNavigation(callback) {
     var params = {
         reload: true,
-        pos: $('#pma_navigation_tree').find('a.expander:first > span.pos').text()
+        pos: $('#pma_navigation_tree div.dbselector select').val()
     };
+    if ($('#navi_db_select').length) {
+        params.db = PMA_commonParams.get('db');
+        requestNaviReload(params);
+        return;
+    }
     // Traverse the navigation tree backwards to generate all the actual
     // and virtual paths, as well as the positions in the pagination at
     // various levels, if necessary.
@@ -810,22 +829,36 @@ function PMA_reloadNavigation(callback) {
             count++;
         }
     });
-    var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-    $.post(url, params, function (data) {
-        if (typeof data !== 'undefined' && data.success) {
-            $('#pma_navigation_tree').html(data.message).children('div').show();
-            if ($('#pma_navigation_tree').hasClass('synced')) {
-                PMA_showCurrentNavigation();
+    requestNaviReload(params);
+    function requestNaviReload(params) {
+        var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+        $.post(url, params, function (data) {
+            if (typeof data !== 'undefined' && data.success) {
+                $('#pma_navigation_tree').html(data.message).children('div').show();
+                if ($('#pma_navigation_tree').hasClass('synced')) {
+                    PMA_selectCurrentDb();
+                    PMA_showCurrentNavigation();
+                }
+                // Fire the callback, if any
+                if (typeof callback === 'function') {
+                    callback.call();
+                }
+                navTreeStateUpdate();
+            } else {
+                PMA_ajaxShowMessage(data.error);
             }
-            // Fire the callback, if any
-            if (typeof callback === 'function') {
-                callback.call();
-            }
-            navTreeStateUpdate();
-        } else {
-            PMA_ajaxShowMessage(data.error);
+        });
+    }
+}
+
+function PMA_selectCurrentDb() {
+    if ($('#navi_db_select').length) {
+        $('#navi_db_select').val(PMA_commonParams.get('db'));
+        if ($('#navi_db_select').val() !== PMA_commonParams.get('db')) {
+            return false;
         }
-    });
+        return true;
+    }
 }
 
 /**

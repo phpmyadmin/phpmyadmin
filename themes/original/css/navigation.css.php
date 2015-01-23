@@ -130,7 +130,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 #pma_navigation_db_select {
     margin-top: 0.5em;
-    border-<?php echo $left; ?>: 1px solid #666;
     margin-<?php echo $left; ?>: 0.75em;
 }
 #pma_navigation_db_select select {
@@ -138,11 +137,10 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     -webkit-border-radius: 2px;
     border-radius: 2px;
     border: 1px solid #bbb;
-    border-left: 0px;
     border-top: 1px solid #bbb;
     color: #333;
     padding: 4px 6px;
-    margin: 0px 0px 0.5em;
+    margin: 0px 0px 0px;
     width: 92%;
     font-size: 1.11em;
 }
