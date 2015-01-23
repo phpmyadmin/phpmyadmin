@@ -873,9 +873,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // Check IP-based Allow/Deny rules as soon as possible to reject the
-        // user based on mod_access in Apache:
-        // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
-        // Look at: "static int check_dir_access(request_rec *r)"
+        // user based on mod_access in Apache
         if (isset($cfg['Server']['AllowDeny'])
             && isset($cfg['Server']['AllowDeny']['order'])
         ) {
