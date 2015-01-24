@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.3.8.0 (not yet released)
+4.3.8.0 (2015-01-24)
 - bug       Undefined constant PMA_DRIZZLE
 - bug #4712 Wrongly positioned date-picker while Grid-Editing
 - bug #4714 Forced ORDER BY for own sql statements
