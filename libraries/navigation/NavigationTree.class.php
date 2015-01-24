@@ -146,7 +146,7 @@ class PMA_NavigationTree
         $node = PMA_NodeFactory::getInstance('Node_Database_Container', 'root');
         $this->_tree = $node;
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
-            && $GLOBALS['cfg']['ShowNavigationAsTree']
+            && ! $GLOBALS['cfg']['NavigationDatabasesSelector']
         ) {
             $this->_tree->separator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
             $this->_tree->separator_depth = 10000;
@@ -829,7 +829,7 @@ class PMA_NavigationTree
             }
             $retval .= $listContent;
             $retval .= "</ul>";
-            if (! $GLOBALS['cfg']['ShowNavigationAsTree']) {
+            if ($GLOBALS['cfg']['NavigationDatabasesSelector']) {
                 $retval .= "<span class='hide loaded_db'>";
                 $parents = $node->parents(true);
                 $retval .= urlencode($parents[0]->real_name);

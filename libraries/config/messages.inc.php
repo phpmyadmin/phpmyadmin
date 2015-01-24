@@ -415,8 +415,8 @@ $strConfigMemoryLimit_desc = __(
     . '([kbd]0[/kbd] for no limit).'
 );
 $strConfigMemoryLimit_name = __('Memory limit');
-$strConfigShowNavigationAsTree_desc = __('Whether to display navigation panel in tree style or in pre-4.0 style');
-$strConfigShowNavigationAsTree_name = __('Show Navigation as tree');
+$strConfigNavigationDatabasesSelector_desc = __('In the navigation panel, replaces the database tree with a selector');
+$strConfigNavigationDatabasesSelector_name = __('Navigation databases selector');
 $strConfigNavigationLinkWithMainPanel_desc = __('Link with main panel by highlighting the current database or table.');
 $strConfigNavigationLinkWithMainPanel_name = __('Link with main panel');
 $strConfigNavigationDisplayLogo_desc = __('Show logo in navigation panel.');

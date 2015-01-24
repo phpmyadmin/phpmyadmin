@@ -35,7 +35,7 @@ class PMA_Navigation
             $retval = $header->getDisplay();
         }
         $tree = new PMA_NavigationTree();
-        if ($GLOBALS['cfg']['ShowNavigationAsTree']
+        if (! $GLOBALS['cfg']['NavigationDatabasesSelector']
         ) {
             if (! PMA_Response::getInstance()->isAjax()
                 || ! empty($_REQUEST['full'])
