@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2015-01-24 15:17+0200\n"
-"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
+"PO-Revision-Date: 2015-01-24 18:11+0200\n"
+"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -2224,7 +2224,7 @@ msgstr "Prerušené"
 
 #: js/messages.php:442
 msgid "Success"
-msgstr ""
+msgstr "Úspech"
 
 #: js/messages.php:443
 msgid "Import status"
@@ -2232,7 +2232,7 @@ msgstr "Stav importu"
 
 #: js/messages.php:444 libraries/navigation/Navigation.class.php:102
 msgid "Drop files here"
-msgstr ""
+msgstr "Presuňte súbory sem"
 
 #: js/messages.php:445
 msgid "Select database first"
@@ -2370,7 +2370,7 @@ msgstr ""
 
 #: js/messages.php:511
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Prosím, pozrite sa na spodnú časť okna."
 
 #: js/messages.php:516 libraries/Error_Handler.class.php:353
 msgid "Ignore All"
@@ -2732,11 +2732,11 @@ msgstr "Veľkosť písma"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:175
 msgid "Collapse"
-msgstr ""
+msgstr "Zbaliť"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:177
 msgid "Expand"
-msgstr ""
+msgstr "Rozbaliť"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:178
 msgid "Requery"
@@ -2779,7 +2779,7 @@ msgstr[2] "Spolu %d záložiek"
 
 #: libraries/Console.class.php:116
 msgid "private"
-msgstr ""
+msgstr "súkromne"
 
 #: libraries/Console.class.php:120 libraries/bookmark.lib.php:87
 msgid "shared"
@@ -2822,7 +2822,7 @@ msgstr "Konzola pre SQL dopyty"
 
 #: libraries/Console.class.php:196
 msgid "Console"
-msgstr ""
+msgstr "Konzola"
 
 #: libraries/Console.class.php:199 libraries/sql_query_form.lib.php:233
 #: setup/frames/index.inc.php:298
@@ -2871,7 +2871,7 @@ msgstr "Stlačte Ctrl+Enter pre spustenie dopytu"
 
 #: libraries/Console.class.php:239
 msgid "During current session"
-msgstr ""
+msgstr "Počas aktuálnej relácie"
 
 #: libraries/Console.class.php:266 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:749
@@ -2913,7 +2913,7 @@ msgstr "Zobraziť históriu dopytov na začiatku"
 
 #: libraries/Console.class.php:312
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Zobraziť aktuálne prehliadaný dotaz"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1277
 #: libraries/DisplayResults.class.php:2065
@@ -4647,11 +4647,11 @@ msgstr "Nepodarilo sa odstrániť stĺpce!"
 
 #: libraries/central_columns.lib.php:509
 msgid "YES"
-msgstr ""
+msgstr "ÁNO"
 
 #: libraries/central_columns.lib.php:509
 msgid "NO"
-msgstr ""
+msgstr "NIE"
 
 #: libraries/central_columns.lib.php:629
 #: libraries/display_create_table.lib.php:60
@@ -4697,7 +4697,7 @@ msgstr "auto_increment"
 
 #: libraries/central_columns.lib.php:809 libraries/central_columns.lib.php:919
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "pri zmene CURRENT_TIMESTAMP"
 
 #: libraries/central_columns.lib.php:886
 msgid "Add new column"
@@ -7280,7 +7280,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:777
 msgid "Proxy url"
-msgstr ""
+msgstr "Proxy url"
 
 #: libraries/config/messages.inc.php:778
 msgid ""
@@ -7472,7 +7472,7 @@ msgstr ""
 
 #: libraries/db_designer.lib.php:240
 msgid "Show/Hide left menu"
-msgstr ""
+msgstr "Zobraz/Skry ľavé menu"
 
 #: libraries/db_designer.lib.php:247
 msgid "View in fullscreen"
@@ -7489,7 +7489,7 @@ msgstr "Nová stránka"
 
 #: libraries/db_designer.lib.php:280
 msgid "Save position"
-msgstr ""
+msgstr "Ulož pozíciu"
 
 #: libraries/db_designer.lib.php:287
 #| msgid "Slave replication"
@@ -7809,7 +7809,7 @@ msgstr "Uložiť výstup do suboru"
 
 #: libraries/display_export.lib.php:690
 msgid "Skip tables larger than"
-msgstr ""
+msgstr "Preskočiť tabuľky väčšie ako"
 
 #: libraries/display_export.lib.php:784
 #| msgid "Select Tables"
@@ -7844,15 +7844,15 @@ msgstr "Nový názov stĺpca"
 #: libraries/display_git_revision.lib.php:56
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s z %2$s vetvy"
 
 #: libraries/display_git_revision.lib.php:58
 msgid "no branch"
-msgstr ""
+msgstr "žiadna vetva"
 
 #: libraries/display_git_revision.lib.php:64
 msgid "Git revision:"
-msgstr ""
+msgstr "Git revízia:"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
@@ -7956,7 +7956,7 @@ msgstr ""
 #: libraries/display_import.lib.php:454
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s z %s"
 
 #: libraries/display_import.lib.php:455
 #| msgid "Uploading your import file…"
@@ -7966,7 +7966,7 @@ msgstr "Nahrávam váš súbor s importom…"
 #: libraries/display_import.lib.php:456
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/sek."
 
 #: libraries/display_import.lib.php:457
 msgid "About %MIN min. %SEC sec. remaining."
@@ -8451,7 +8451,7 @@ msgstr "Vložiť ako nový riadok"
 
 #: libraries/insert_edit.lib.php:1458
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Vložiť ako nový riadok a ignorovať chyby"
 
 #: libraries/insert_edit.lib.php:1461
 msgid "Show insert query"
@@ -8502,7 +8502,7 @@ msgstr ""
 
 #: libraries/mult_submits.inc.php:293
 msgid "Success!"
-msgstr ""
+msgstr "Úspech!"
 
 #: libraries/mult_submits.lib.php:338
 msgid "Replace table prefix:"
@@ -8774,9 +8774,9 @@ msgstr ""
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s ďalší výsledok nájdený"
+msgstr[1] "%s ďalšie výsledky nájdené"
+msgstr[2] "%s ďalších výsledkov nájdených"
 
 #: libraries/navigation/NavigationTree.class.php:1190
 msgid "Filter databases by name or regex"
@@ -8793,7 +8793,7 @@ msgstr "Filtrovať podľa mena alebo regulárneho výrazu"
 
 #: libraries/navigation/NavigationTree.class.php:1251
 msgid "Collapse all"
-msgstr ""
+msgstr "Zbaliť všetko"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -8808,7 +8808,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node.class.php:745
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Rozbaliť/Zbaliť"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:27
@@ -8819,7 +8819,7 @@ msgstr "Stĺpce"
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "Vytvoriť nový stĺpec"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:41
 msgid "Database operations"
@@ -8879,7 +8879,7 @@ msgstr "Procedúry"
 #: libraries/rte/rte_footer.lib.php:29
 msgctxt "Create new procedure"
 msgid "New"
-msgstr ""
+msgstr "Vytvoriť novú procedúru"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:45
 msgctxt "Create new table"
@@ -8909,12 +8909,12 @@ msgstr ""
 
 #: libraries/normalization.lib.php:116 libraries/normalization.lib.php:773
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Prvý krok normalizácie (1NF)"
 
 #: libraries/normalization.lib.php:119 libraries/normalization.lib.php:170
 #: libraries/normalization.lib.php:213 libraries/normalization.lib.php:249
 msgid "Step 1."
-msgstr ""
+msgstr "Krok 1."
 
 #: libraries/normalization.lib.php:121
 msgid ""
@@ -9028,11 +9028,11 @@ msgstr ""
 
 #: libraries/normalization.lib.php:291
 msgid "Step 2."
-msgstr ""
+msgstr "Krok 2."
 
 #: libraries/normalization.lib.php:291
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Nájdenie čiastočných závislostí"
 
 #: libraries/normalization.lib.php:313
 #, php-format
@@ -9450,7 +9450,7 @@ msgstr "Voľba servera:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:354
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Vložená captcha je nesprávna, skúste znova!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:364
 msgid "Please enter correct captcha!"
