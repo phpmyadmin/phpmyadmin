@@ -1,6 +1,22 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.8.0 (2015-01-24)
+- bug       Undefined constant PMA_DRIZZLE
+- bug #4712 Wrongly positioned date-picker while Grid-Editing
+- bug #4714 Forced ORDER BY for own sql statements
+- bug #4721 Undefined property: stdClass::$version
+- bug #4719 'only_db' not working
+- bug #4700 Error text: Internal Server Error
+- bug #4722 Incorrect width table summary when favorite tables is disabled
+- bug #4710 Nav tree error after filtering the tables
+- bug #4716 Collapse all in navigation panel is sometimes broken
+- bug #4724 Cannot navigate in filtered table list
+- bug #4717 Database navigation menu broken when resolution/screen is changing
+- bug #4727 Collation column missing in database list when DisableIS is true
+- bug       Undefined index central_columnswork
+- bug       Undefined index favorite_tables 
+
 4.3.7.0 (2015-01-15)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)
 - bug #4695 Changing $cfg['DefaultTabTable'] doesn't update link and title

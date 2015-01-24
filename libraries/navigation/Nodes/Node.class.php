@@ -429,6 +429,9 @@ class Node
                         $handle = $GLOBALS['dbi']->tryQuery($query);
                         if ($handle !== false) {
                             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                                if ($this->_isHideDb($arr[0])) {
+                                    continue;
+                                }
                                 $prefix = strstr($arr[0], $dbSeparator, true);
                                 if ($prefix === false) {
                                     $prefix = $arr[0];
@@ -447,6 +450,9 @@ class Node
                         $handle = $GLOBALS['dbi']->tryQuery($query);
                         if ($handle !== false) {
                             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                                if ($this->_isHideDb($arr[0])) {
+                                    continue;
+                                }
                                 if (! in_array($arr[0], $retval)) {
                                     foreach ($prefixes as $prefix) {
                                         $starts_with = strpos(
@@ -497,6 +503,9 @@ class Node
                         $handle = $GLOBALS['dbi']->tryQuery($query);
                         if ($handle !== false) {
                             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                                if ($this->_isHideDb($arr[0])) {
+                                    continue;
+                                }
                                 if (! in_array($arr[0], $retval)) {
                                     if ($pos <= 0 && $count < $maxItems) {
                                         $retval[] = $arr[0];
@@ -562,6 +571,9 @@ class Node
                         $handle = $GLOBALS['dbi']->tryQuery($query);
                         if ($handle !== false) {
                             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                                if ($this->_isHideDb($arr[0])) {
+                                    continue;
+                                }
                                 $prefix = strstr($arr[0], $dbSeparator, true);
                                 if ($prefix === false) {
                                     $prefix = $arr[0];
@@ -598,6 +610,22 @@ class Node
             }
         }
         return $retval;
+    }
+
+    /**
+     * Detemines whether a given database should be hidden according to 'hide_db'
+     *
+     * @param string $db database name
+     *
+     * @return boolean whether to hide
+     */
+    private function _isHideDb($db) {
+        if (! empty($GLOBALS['cfg']['Server']['hide_db'])
+            && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db)
+        ) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -713,7 +741,7 @@ class Node
     {
         if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
             return '';
-        } elseif ($match && ! $this->is_group) {
+        } elseif ($match) {
             $this->visible = true;
             return PMA_Util::getImage('b_minus.png');
         } else {

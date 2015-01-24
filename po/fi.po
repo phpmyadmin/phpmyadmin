@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-13 22:31+0200\n"
+"PO-Revision-Date: 2015-01-18 15:39+0200\n"
 "Last-Translator: Juha <jremes@outlook.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/fi/>\n"
@@ -33,10 +33,10 @@ msgid "Click to sort."
 msgstr "Järjestä napsauttamalla."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Näytetään rivi(t) %1$s–%2$s"
+msgstr "Näytetään rivi(t) %1$s–%2$s."
 
 #: db_create.php:61
 #, php-format
@@ -889,7 +889,7 @@ msgstr ""
 "luvattoman asetuksien lataamisen takia."
 
 #: index.php:533
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -897,13 +897,16 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Linkitettyihin tauluihin liittyvät lisäominaisuudet eivät ole käytössä. "
-"Katso miksi %slisätietoja%s."
+"phpMyAdmin asetusmuisti ei ole kokonaan konfiguroitu, linkitettyihin "
+"tauluihin liittyvät lisäominaisuudet eivät ole käytössä. Katso miksi "
+"%slisätietoja%s. "
 
 #: index.php:540
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Vaihtoehtoisesti, navigoi minkä tahansa tietokannan \"Toiminnot\" - "
+"välilehdelle."
 
 #: index.php:585
 #, php-format
@@ -957,10 +960,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Pääavaimen tai indeksin poisto"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Valitse liiteavain"
+msgstr "Poistetaan liiteavainta."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -983,10 +985,9 @@ msgstr ""
 "sivulta?"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Haluatko varmasti poistaa haun ”%s”?"
+msgstr "Haluatko varmasti peruuttaa valittujen käyttäjien oikeudet?"
 
 #: js/messages.php:51
 msgid "Save & Close"
@@ -1032,40 +1033,35 @@ msgid "Add %s column(s) to index"
 msgstr "Lisää indeksiin %s kolumni(a)"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Luo relaatio"
+msgstr "Luo yhden sarakkeen avain"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Luo relaatio"
+msgstr "Luo komposiitti-indeksi"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Composite with:"
-msgstr "Sarakkeiden rajausmerkki"
+msgstr "Yhdistä:"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Lisää indeksiin %s kolumni(a)"
+msgstr "Ole hyvä ja valitse sarakkeet avainta varten."
 
 #: js/messages.php:69 libraries/structure.lib.php:1683
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "Vähintään yksi kenttä on lisättävä."
+msgstr "Sinun tulee lisätä vähintään yksi sarake."
 
 #: js/messages.php:72 libraries/insert_edit.lib.php:1541
 #: libraries/tbl_columns_definition_form.lib.php:145
 #: libraries/tbl_relation.lib.php:655
 msgid "Preview SQL"
-msgstr ""
+msgstr "Esikatsele SQL."
 
 #: js/messages.php:75
 msgid "Simulate query"
@@ -1132,10 +1128,9 @@ msgid "Connections / Processes"
 msgstr "Yhteyttä / Prosessi"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "Paikallisen seurannan asetukset yhteensopimattomat"
+msgstr "Paikallisen seurannan asetukset ovat yhteensopimattomat!"
 
 #: js/messages.php:102
 msgid ""
@@ -1317,11 +1312,11 @@ msgstr "Keskeytä seuranta"
 
 #: js/messages.php:149 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Aloita automaattinen päivittäminen"
 
 #: js/messages.php:150
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Lopeta automaattinen päivittäminen"
 
 #: js/messages.php:152
 msgid "general_log and slow_query_log are enabled."
@@ -1440,6 +1435,8 @@ msgstr "Yleisestä lokista"
 #: js/messages.php:185
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
+"Tietokannan nimi ei ole tiedossa palvelimen lokitiedostoissa tätä "
+"hakukyselyä varten."
 
 #: js/messages.php:187
 msgid "Analysing logs"
@@ -1817,7 +1814,7 @@ msgstr "Selaa viitearvoja"
 
 #: js/messages.php:303 libraries/normalization.lib.php:849
 msgid "Pick"
-msgstr ""
+msgstr "Poimi sarake"
 
 #: js/messages.php:304
 msgid "Column selector"
@@ -1833,6 +1830,9 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Keskeisessä listassa ei ole sarakkeita. Ole hyvä ja varmista että keskeinen "
+"sarakelistaus tietokantaa %s varten sisältää sarakkeita jotka eivät ole "
+"tämän hetkisessä taulussa."
 
 #: js/messages.php:307
 msgid "See more"
@@ -1840,13 +1840,15 @@ msgstr "Katso lisää"
 
 #: js/messages.php:308
 msgid "Are you sure?"
-msgstr ""
+msgstr "Oletko varma?"
 
 #: js/messages.php:309
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Tämä toiminto saattaa muuttaa joidenkin sarakkeiden määritelmiä.<br/>Oletko "
+"varma että haluat jatkaa?"
 
 #: js/messages.php:310
 msgid "Continue"
@@ -1868,7 +1870,7 @@ msgstr "Viedään sinut seuraavaan vaiheeseen…"
 #: js/messages.php:316
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Ensimmäinen askel taulun '%s' normalisoinnille on valmis."
 
 #: js/messages.php:317 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
@@ -1878,7 +1880,7 @@ msgstr "Vaiheen loppu"
 
 #: js/messages.php:318
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Normalisaation toinen askel (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:319 js/messages.php:552 libraries/normalization.lib.php:264
@@ -1887,76 +1889,78 @@ msgstr "Valmis"
 
 #: js/messages.php:320
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Vahvista todeksi osittaiset riippuvuudet"
 
 #: js/messages.php:321
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Osittaiset riippuvuudet ovat seuraavat:"
 
 #: js/messages.php:322
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Huomio: a, b -> d, f merkitsee että sarakkeiden a ja b arvot yhdistettynä "
+"voivat määrittää sarakkeiden d ja f arvot."
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Yhtään tietokantaa ei ole valittu."
+msgstr "Osittaisia riippuvuuksia ei ole valittu!"
 
 #: js/messages.php:325
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"Näytä minulle mahdolliset osittaiset riippuvuudet perustuen taulun tietoihin"
 
 #: js/messages.php:326
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Piilota osittaisten riippuvuuksien lista"
 
 #: js/messages.php:327
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Ei hötkyillä, rentoudu hieman ja pidä vaikka kahvitauko! Normalisointi voi "
+"viedä sekunnin tai kaksi riippuen tietojen koosta ja taulun sarakkeiden "
+"määrästä."
 
 #: js/messages.php:328
 msgid "Step"
-msgstr ""
+msgstr "Askel"
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "Seuraavat kyselyt on suoritettu:"
+msgstr "Seuraavat toiminnot tullaan suorittamaan:"
 
 #: js/messages.php:330
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "DROP sarakkeet %s taulusta %s"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
-msgstr "Lisää käyttöoikeudet seuraavaan tauluun"
+msgstr "Luo seuraava taulu"
 
 #: js/messages.php:334
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Normalisaation kolmas askel (3NF)"
 
 #: js/messages.php:335
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Vahvista todeksi transitiiviset riippuvuudet"
 
 #: js/messages.php:336
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Valitut riippuvuudet ovat seuraavat:"
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Yhtään tietokantaa ei ole valittu."
+msgstr "Yhtään riippuvuutta ei ole valittu!"
 
 #: js/messages.php:340 libraries/insert_edit.lib.php:1452
 #: libraries/server_variables.lib.php:157
@@ -1975,10 +1979,9 @@ msgid "Show search criteria"
 msgstr "Näytä hakukriteerit"
 
 #: js/messages.php:345
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "Taulu haku"
+msgstr "Aluehaku"
 
 #: js/messages.php:346
 msgid "Column maximum:"
@@ -2129,10 +2132,9 @@ msgid "Delete page"
 msgstr "Poista sivu"
 
 #: js/messages.php:407 libraries/db_designer.lib.php:382
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "Yksikkö"
+msgstr "Nimetön"
 
 #: js/messages.php:408
 msgid "Please select a page to continue"
@@ -2144,11 +2146,11 @@ msgstr "Annathan kelvollisen sivun nimen"
 
 #: js/messages.php:410
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Haluatko tallentaa nykyisen sivun muutokset?"
 
 #: js/messages.php:411
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Sivu poistettu onnistuneesti"
 
 #: js/messages.php:412
 msgid "Export relational schema"
@@ -2194,6 +2196,9 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
+"Paina Shift+Click lisätäksesi sarakkeen ORDER BY - klausuuliin tai "
+"laittaaksesi ASC/DESC - ehdon päälle.<br />- Ctrl+Click tai Alt+Click (Mac: "
+"Shift+Option+Click) poistaaksesi sarakkeen ORDER BY - klausuulista"
 
 #: js/messages.php:425
 msgid "Click to mark/unmark."
@@ -2226,12 +2231,16 @@ msgstr ""
 #: js/messages.php:432
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
+"Ole hyvä ja anna pätevä heksadesimaalinen merkkijono. Pätevät merkit ovat 0-"
+"9, A-F."
 
 #: js/messages.php:433
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Oletko varma että haluat nähdä kaikki rivit? Suuret taulut voivat kaataa "
+"selaimesi."
 
 #: js/messages.php:436
 msgid "cancel"
@@ -2243,7 +2252,7 @@ msgstr "Keskeytetty"
 
 #: js/messages.php:439
 msgid "Success"
-msgstr ""
+msgstr "Onnistui"
 
 #: js/messages.php:440
 msgid "Import status"
@@ -2316,16 +2325,14 @@ msgstr "Näytä piilotetut navigointipuun kohteet."
 
 #: js/messages.php:472 libraries/config/messages.inc.php:420
 #: libraries/navigation/NavigationTree.class.php:1235
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Mukauta pääpaneelia"
+msgstr "Linkitä pääpaneelin kanssa"
 
 #: js/messages.php:473 libraries/navigation/NavigationTree.class.php:1238
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Mukauta pääpaneelia"
+msgstr "Poista pääpaneelin linkki"
 
 #: js/messages.php:476
 msgid "The requested page was not found in the history, it may have expired."
@@ -2381,6 +2388,7 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
+"Vientisi on vaillinainen, koska PHP-tasolla on alhainen suoritusaikaraja!"
 
 #: js/messages.php:500
 #, php-format
@@ -2388,14 +2396,17 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Varoitus: tämän sivun lomakkeella on enemmän kuin %d kenttää. Lähetettäessä "
+"lomake jotkut kentät voidaan jättää huomiotta, PHP:n max_input_vars "
+"konfiguraation vuoksi."
 
 #: js/messages.php:506 js/messages.php:518
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Palvelimella on havaittu joitakin virheitä!"
 
 #: js/messages.php:508
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Ole hyvä ja katso tämän ikkunan alalaitaan."
 
 #: js/messages.php:513 libraries/Error_Handler.class.php:353
 msgid "Ignore All"
@@ -2405,16 +2416,17 @@ msgstr "Sivuuta kaikki"
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"Asetuksiesi mukaisesti niitä ollaan lähettämässä para-aikaa, ole hyvä ja ole "
+"kärsivällinen."
 
 #: js/messages.php:527
 msgid "Execute this query again?"
 msgstr "Suoritetaanko tämä kysely uudelleen?"
 
 #: js/messages.php:528
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Haluatko varmasti poistaa haun ”%s”?"
+msgstr "Haluatko varmasti poistaa tämän kirjanmerkin?"
 
 #: js/messages.php:556
 msgctxt "Previous month"
@@ -2753,17 +2765,16 @@ msgstr "Fonttikoko"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:175
 msgid "Collapse"
-msgstr ""
+msgstr "Paina kokoon"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:177
 msgid "Expand"
-msgstr ""
+msgstr "Laajenna"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:178
-#, fuzzy
 #| msgid "in query"
 msgid "Requery"
-msgstr "lauseessa"
+msgstr "Suorita hakulause uudelleen"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3521
@@ -2785,7 +2796,7 @@ msgstr[1] "Yhteensä %d kirjanmerkkiä"
 
 #: libraries/Console.class.php:116
 msgid "private"
-msgstr ""
+msgstr "yksityinen"
 
 #: libraries/Console.class.php:120 libraries/bookmark.lib.php:87
 msgid "shared"
@@ -2793,20 +2804,19 @@ msgstr "jaettu"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "Kirjanmerkki on poistettu."
+msgstr "%1$s, %2$s ja %3$s kirjanmerkit on luettu mukaan"
 
 #: libraries/Console.class.php:130
 msgid "No bookmarks"
 msgstr "Ei kirjanmerkkejä"
 
 #: libraries/Console.class.php:180
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Selitä SQL-kysely"
+msgstr "Selitä"
 
 #: libraries/Console.class.php:181 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:487
@@ -2814,20 +2824,18 @@ msgid "Profiling"
 msgstr "Profilointi"
 
 #: libraries/Console.class.php:183
-#, fuzzy
 #| msgid "Bookmarks"
 msgid "Bookmark"
-msgstr "Kirjanmerkit"
+msgstr "Aseta kirjanmerkki"
 
 #: libraries/Console.class.php:184
 msgid "Query failed"
 msgstr "Kysely epäonnistui"
 
 #: libraries/Console.class.php:188
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Kyselyn suoritusaika"
+msgstr "Hakulauseen suoritusaika"
 
 #: libraries/Console.class.php:195
 msgid "SQL Query Console"
@@ -2835,7 +2843,7 @@ msgstr "SQL-kyselykonsoli"
 
 #: libraries/Console.class.php:196
 msgid "Console"
-msgstr ""
+msgstr "Konsoli"
 
 #: libraries/Console.class.php:199 libraries/sql_query_form.lib.php:236
 #: setup/frames/index.inc.php:298
@@ -2893,20 +2901,18 @@ msgid "Refresh"
 msgstr "Päivitä"
 
 #: libraries/Console.class.php:269
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "Ja"
+msgstr "Lisää"
 
 #: libraries/Console.class.php:278
 msgid "Add bookmark"
 msgstr "Lisää kirjanmerkki"
 
 #: libraries/Console.class.php:282
-#, fuzzy
 #| msgid "Label"
 msgid "Label"
-msgstr "Tunniste"
+msgstr "Nimiö"
 
 #: libraries/Console.class.php:284
 msgid "Target database"
@@ -2921,10 +2927,9 @@ msgid "Set default"
 msgstr "Aseta oletukseksi"
 
 #: libraries/Console.class.php:308
-#, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
-msgstr "Lähetä virheraportteja aina"
+msgstr "Laajenna jokainen hakulauseen viesti"
 
 #: libraries/Console.class.php:310
 msgid "Show query history at start"
@@ -2932,7 +2937,7 @@ msgstr "Näytä kyselyhistoria käynnistyksessä"
 
 #: libraries/Console.class.php:312
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Näytä tämän hetkinen selaushakulause"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1338
 #: libraries/DisplayResults.class.php:2170
@@ -3026,10 +3031,9 @@ msgid "Submit Query"
 msgstr "Suorita kysely"
 
 #: libraries/DBQbe.class.php:1495
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Etsi"
+msgstr "Tallennettu ja kirjanmerkitty haku:"
 
 #: libraries/DBQbe.class.php:1497
 msgid "New bookmark"
@@ -3229,10 +3233,9 @@ msgid "Relational key"
 msgstr "Relaatioavain"
 
 #: libraries/DisplayResults.class.php:1660
-#, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
-msgstr "Relaatio näyttökenttä"
+msgstr "Relatiivinen näyttösarake"
 
 #: libraries/DisplayResults.class.php:1672
 msgid "Show binary contents"
@@ -3293,7 +3296,7 @@ msgstr "Näytetään rivit %1s–%2s"
 #: libraries/DisplayResults.class.php:4971
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d kokonaisuudessaan, %2$d hakulauseessa"
 
 #: libraries/DisplayResults.class.php:4976
 #, php-format
@@ -3380,10 +3383,9 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Liikaa virhesanomia, joitakin ei näytetä."
 
 #: libraries/Error_Handler.class.php:336
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "Tuonti"
+msgstr "Raportoi"
 
 #: libraries/Error_Handler.class.php:341 libraries/error_report.lib.php:370
 msgid "Automatically send report next time"
@@ -3771,7 +3773,7 @@ msgstr "Tarjoa tämän kirjanmerkiksi tallennetun haun nimi."
 
 #: libraries/SavedSearches.class.php:261
 msgid "Missing information to save the bookmarked search."
-msgstr ""
+msgstr "Puutteelliset tiedot kirjanmerkityn haun tallentamiseksi."
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
 msgid "An entry with this name already exists."
@@ -3779,11 +3781,11 @@ msgstr "Tämänniminen merkintä on jo olemassa."
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Puutteelliset tiedot haun poistamiseksi."
 
 #: libraries/SavedSearches.class.php:375
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Puutteelliset tiedot haun lataamiseksi."
 
 #: libraries/SavedSearches.class.php:394
 msgid "Error while loading the search."
@@ -4084,10 +4086,9 @@ msgid "Replace with:"
 msgstr "Korvaa:"
 
 #: libraries/TableSearch.class.php:1370
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "regexp-haku"
+msgstr "Käytä säännöllistä lauseketta"
 
 #: libraries/TableSearch.class.php:1472
 msgid "Find and replace - preview"

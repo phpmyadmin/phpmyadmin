@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-08 22:56+0200\n"
+"PO-Revision-Date: 2015-01-14 17:27+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-3/nl/>"
 "\n"
@@ -35,7 +35,7 @@ msgstr "Klik om te sorteren."
 #: db_central_columns.php:125
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Weergave van regels %1$s - %2$s."
+msgstr "Weergeven van regels %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format

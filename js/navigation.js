@@ -359,11 +359,7 @@ $(function () {
         var storage = window.sessionStorage;
         // remove tree from storage if Navi_panel config form is submitted
         $(document).on('submit', 'form.config-form', function(event) {
-            if ($(this).attr('action').indexOf('form=Navi_panel') >= 0 ||
-                $(this).attr('action').indexOf('form=Main_panel') >= 0
-            ) {
-                storage.removeItem('navTree');
-            }
+        	storage.removeItem('navTree');
         });
         // Initialize if no previous state is defined
         if (typeof storage.navTree === 'undefined') {
@@ -526,9 +522,14 @@ function loadChildNodes($expandElem, callback) {
         pos: $expandElem.find('span.pos').text(),
         pos2_name: $expandElem.find('span.pos2_name').text(),
         pos2_value: $expandElem.find('span.pos2_value').text(),
-        searchClause: searchClause,
-        searchClause2: searchClause2
+        searchClause: '',
+        searchClause2: ''
     };
+
+    if ($('#pma_navigation_tree').children().first().is('ul')) {
+        params.searchClause = searchClause;
+        params.searchClause2 = searchClause2;
+    }
 
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     $.get(url, params, function (data) {
@@ -981,7 +982,8 @@ var ResizeHandler = function () {
         $.cookie('pma_navi_width', event.data.resize_handler.getPos(event));
         $('#topmenu').menuResizer('resize');
         $(document)
-            .unbind('mousemove');
+            .unbind('mousemove')
+            .unbind('mouseup');
     };
     /**
      * Event handler for updating the panel during a resize operation
@@ -1135,10 +1137,10 @@ var PMA_fastFilter = {
         var $filterContainer = $this.closest('div.list_container');
         var $filterInput = $([]);
         if ($filterContainer
-            .children('li.fast_filter:not(.db_fast_filter) input.searchClause')
+            .find('li.fast_filter:not(.db_fast_filter) input.searchClause')
             .length !== 0) {
             $filterInput = $filterContainer
-                .children('li.fast_filter:not(.db_fast_filter) input.searchClause');
+                .find('li.fast_filter:not(.db_fast_filter) input.searchClause');
         }
         var searchClause2 = '';
         if ($filterInput.length !== 0 &&
