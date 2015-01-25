@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-14 07:43-0500\n"
-"PO-Revision-Date: 2015-01-24 18:11+0200\n"
-"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
+"PO-Revision-Date: 2015-01-25 21:35+0200\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -2913,7 +2913,7 @@ msgstr "Zobraziť históriu dopytov na začiatku"
 
 #: libraries/Console.class.php:312
 msgid "Show current browsing query"
-msgstr "Zobraziť aktuálne prehliadaný dotaz"
+msgstr "Zobraziť aktuálne prehliadaný dopyt"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1277
 #: libraries/DisplayResults.class.php:2065
@@ -8774,9 +8774,9 @@ msgstr ""
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] "%s ďalší výsledok nájdený"
-msgstr[1] "%s ďalšie výsledky nájdené"
-msgstr[2] "%s ďalších výsledkov nájdených"
+msgstr[0] "nájdený %s ďalší výsledok"
+msgstr[1] "nájdené %s ďalšie výsledky"
+msgstr[2] "nájdených %s ďalších výsledkov"
 
 #: libraries/navigation/NavigationTree.class.php:1190
 msgid "Filter databases by name or regex"
@@ -8819,7 +8819,7 @@ msgstr "Stĺpce"
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
 msgid "New"
-msgstr "Vytvoriť nový stĺpec"
+msgstr "Nový"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:41
 msgid "Database operations"
@@ -8879,7 +8879,7 @@ msgstr "Procedúry"
 #: libraries/rte/rte_footer.lib.php:29
 msgctxt "Create new procedure"
 msgid "New"
-msgstr "Vytvoriť novú procedúru"
+msgstr "Nová"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:45
 msgctxt "Create new table"
