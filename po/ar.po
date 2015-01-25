@@ -27,7 +27,7 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "القائمة المركزية للأعمدة قاعدة البيانات الحالية فارغة."
 
 #: db_central_columns.php:109
 #, fuzzy
