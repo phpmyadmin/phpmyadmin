@@ -2814,38 +2814,6 @@ class PMA_DisplayResults
                 } // end if transformation is set
             } // end if mime/transformation works.
 
-            $_url_params = array(
-                'db'            => $this->__get('db'),
-                'table'         => $this->__get('table'),
-                'where_clause'  => $where_clause,
-                'transform_key' => $meta->name,
-            );
-
-            $unique_conditions = PMA_Util::getUniqueCondition(
-                $dt_result,
-                $this->__get('fields_cnt'),
-                $this->__get('fields_meta'),
-                $row,
-                false,
-                $meta->orgtable
-            );
-
-            $transform_url_params = array(
-                'db'            => $meta->db,
-                'table'         => $meta->orgtable,
-                'where_clause'  => $unique_conditions[0],
-                'transform_key' => $meta->orgname
-            );
-
-            if (! empty($sql_query)) {
-                $_url_params['sql_query'] = $url_sql_query;
-                $transform_url_params['sql_query'] = $url_sql_query;
-            }
-
-            $transform_options['wrapper_link']
-                = PMA_URL_getCommon($transform_url_params);
-
-            $vertical_display = $this->__get('vertical_display');
 
             // Check whether the field needs to display with syntax highlighting
 
@@ -2854,6 +2822,7 @@ class PMA_DisplayResults
             $nameLower = /*overload*/mb_strtolower($meta->orgname);
             if (! empty($this->transformation_info[$dbLower][$tblLower][$nameLower])
                 && (trim($row[$i]) != '')
+                && ! $_SESSION['tmpval']['hide_transformation']
             ) {
                 include_once $this->transformation_info
                     [$dbLower][$tblLower][$nameLower][0];
@@ -2900,6 +2869,39 @@ class PMA_DisplayResults
                 );
 
             }
+
+            $_url_params = array(
+                'db'            => $this->__get('db'),
+                'table'         => $this->__get('table'),
+                'where_clause'  => $where_clause,
+                'transform_key' => $meta->name,
+            );
+
+            $unique_conditions = PMA_Util::getUniqueCondition(
+                $dt_result,
+                $this->__get('fields_cnt'),
+                $this->__get('fields_meta'),
+                $row,
+                false,
+                $meta->orgtable
+            );
+
+            $transform_url_params = array(
+                'db'            => $meta->db,
+                'table'         => $meta->orgtable,
+                'where_clause'  => $unique_conditions[0],
+                'transform_key' => $meta->orgname
+            );
+
+            if (! empty($sql_query)) {
+                $_url_params['sql_query'] = $url_sql_query;
+                $transform_url_params['sql_query'] = $url_sql_query;
+            }
+
+            $transform_options['wrapper_link']
+                = PMA_URL_getCommon($transform_url_params);
+
+            $vertical_display = $this->__get('vertical_display');
 
             if ($meta->numeric == 1) {
                 // n u m e r i c
