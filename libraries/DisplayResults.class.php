@@ -2779,7 +2779,6 @@ class PMA_DisplayResults
             ) {
 
                 if (isset($mime_map[$orgFullColName]['mimetype'])
-                    && isset($mime_map[$orgFullColName]['transformation'])
                     && !empty($mime_map[$orgFullColName]['transformation'])
                 ) {
 
