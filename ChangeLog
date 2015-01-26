@@ -25,7 +25,10 @@ phpMyAdmin - ChangeLog
 - bug #4720 No error message on Missing extension mbstring
 + rfe #801  Builtin transformations and relations
 
-4.3.8.0 (not yet released)
+4.3.9.0 (not yet released)
+- bug #4728 Incorrect headings in routine editor
+
+4.3.8.0 (2015-01-24)
 - bug       Undefined constant PMA_DRIZZLE
 - bug #4712 Wrongly positioned date-picker while Grid-Editing
 - bug #4714 Forced ORDER BY for own sql statements
@@ -37,6 +40,8 @@ phpMyAdmin - ChangeLog
 - bug #4724 Cannot navigate in filtered table list
 - bug #4717 Database navigation menu broken when resolution/screen is changing
 - bug #4727 Collation column missing in database list when DisableIS is true
+- bug       Undefined index central_columnswork
+- bug       Undefined index favorite_tables 
 
 4.3.7.0 (2015-01-15)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)
