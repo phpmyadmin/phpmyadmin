@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-23 19:56+0200\n"
+"PO-Revision-Date: 2015-01-26 06:18+0200\n"
 "Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
 "Language-Team: Bulgarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/bg/>\n"
@@ -33,10 +33,10 @@ msgid "Click to sort."
 msgstr "Кликнете за сортиране."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Показване на редове %1$s - %2$s"
+msgstr "Показване на редове %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -742,7 +742,7 @@ msgstr "Още"
 
 #: index.php:275
 msgid "Database server"
-msgstr "БД сървър"
+msgstr "SQL сървър"
 
 #: index.php:278 libraries/plugins/auth/AuthenticationCookie.class.php:180
 msgid "Server:"
@@ -2171,7 +2171,6 @@ msgid "Click to sort results by this column."
 msgstr "Кликнете за сортиране на резултата по тази колона."
 
 #: js/messages.php:424
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2348,7 +2347,7 @@ msgstr "Изпращане на доклад с грешки"
 
 #: js/messages.php:488
 msgid "Submit Error Report"
-msgstr "Прати рапорт за грешка"
+msgstr "представи доклад за грешка"
 
 #: js/messages.php:490
 msgid ""
@@ -2357,16 +2356,14 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:492
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "Промяна настройки"
+msgstr "Промяна на рапорт настройки"
 
 #: js/messages.php:493
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "Показване отворените таблици"
+msgstr "Показване детайли за рапорта"
 
 #: js/messages.php:496
 msgid ""
@@ -2383,17 +2380,16 @@ msgstr ""
 
 #: js/messages.php:506 js/messages.php:518
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Засечени са някой грешки на сървъра!"
 
 #: js/messages.php:508
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Моля погледнете в края на този прозорец."
 
 #: js/messages.php:513 libraries/Error_Handler.class.php:353
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Игнориране"
+msgstr "Игнориране на всички"
 
 #: js/messages.php:520
 msgid ""
@@ -2401,10 +2397,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:527
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Показване на заявката отново"
+msgstr "Изпълняване на заявката отново?"
 
 #: js/messages.php:528
 #, fuzzy
