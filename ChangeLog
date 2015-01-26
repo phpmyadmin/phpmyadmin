@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 4.3.9.0 (not yet released)
 - bug #4728 Incorrect headings in routine editor
 - bug #4730 Notice while browsing tables when phpmyadmin pma database exists, but not all the tables
+- bug #4729 Display original field when using "Relational display column" option and display column is empty
 
 4.3.8.0 (2015-01-24)
 - bug       Undefined constant PMA_DRIZZLE
