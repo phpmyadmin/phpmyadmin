@@ -23,6 +23,7 @@ phpMyAdmin - ChangeLog
 + rfe #1582 SQL formatter
 + rfe #1597 Fast filter improvement: remove "x other results found"
 - bug #4720 No error message on Missing extension mbstring
++ rfe #801  Builtin transformations and relations
 
 4.3.8.0 (not yet released)
 - bug       Undefined constant PMA_DRIZZLE
