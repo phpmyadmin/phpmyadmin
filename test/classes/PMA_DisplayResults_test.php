@@ -1112,8 +1112,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'routine_type' => 'FUNCTION'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=circumference&amp;db=data&amp;edit_'
-                . 'item=1&amp;item_type=FUNCTION&amp;server=0&amp;lang=en'
+                'db_routines.php?item_name=circumference&amp;db=data'
+                . '&amp;item_type=FUNCTION&amp;server=0&amp;lang=en'
                 . '&amp;collation_connection=utf-8'
                 . '&amp;token=token'
             ),
@@ -1127,7 +1127,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'routine_type' => 'PROCEDURE'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=area&amp;db=data&amp;edit_item=1'
+                'db_routines.php?item_name=area&amp;db=data'
                 . '&amp;item_type=PROCEDURE&amp;server=0&amp;lang=en'
                 . '&amp;collation_connection=utf-8'
                 . '&amp;token=token'
@@ -1509,7 +1509,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="31303031" title="" target="_new">31303031</a>'
+                '<a href="1001" title="" target="_new">1001</a>'
             ),
             array(
                 false,
@@ -1638,7 +1638,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 0,
                 'binary',
                 '<td class="left grid_edit  transformed hex">'
-                . '<a href="31303031" title="" target="_new">31303031</a></td>'
+                . '<a href="1001" title="" target="_new">1001</a></td>'
             ),
             array(
                 'noblob',

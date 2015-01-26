@@ -229,8 +229,18 @@ class PMA_DisplayResults
     private  function _setDefaultTransformations()
     {
         $sql_highlighting_data = array(
-            'libraries/plugins/transformations/output/Text_Plain_Formatted.class.php',
-            'Text_Plain_Formatted',
+            'libraries/plugins/transformations/output/Text_Plain_Sql.class.php',
+            'Text_Plain_Sql',
+            'Text_Plain'
+        );
+        $blob_sql_highlighting_data = array(
+            'libraries/plugins/transformations/output/Text_Octetstream_Sql.class.php',
+            'Text_Octetstream_Sql',
+            'Text_Octetstream'
+        );
+        $link_data = array(
+            'libraries/plugins/transformations/Text_Plain_Link.class.php',
+            'Text_Plain_Link',
             'Text_Plain'
         );
         $this->transformation_info = array(
@@ -249,6 +259,31 @@ class PMA_DisplayResults
                 ),
                 'views' => array(
                     'view_definition' => $sql_highlighting_data
+                )
+            ),
+            'mysql' => array(
+                'event' => array(
+                    'body' => $blob_sql_highlighting_data,
+                    'body_utf8' => $blob_sql_highlighting_data
+                ),
+                'general_log' => array(
+                    'argument' => $sql_highlighting_data
+                ),
+                'help_category' => array(
+                    'url' => $link_data
+                ),
+                'help_topic' => array(
+                    'example' => $sql_highlighting_data,
+                    'url' => $link_data
+                ),
+                'proc' => array(
+                    'param_list' => $blob_sql_highlighting_data,
+                    'returns' => $blob_sql_highlighting_data,
+                    'body' => $blob_sql_highlighting_data,
+                    'body_utf8' => $blob_sql_highlighting_data
+                ),
+                'slow_log' => array(
+                    'sql_text' => $sql_highlighting_data
                 )
             )
         );
@@ -2654,6 +2689,39 @@ class PMA_DisplayResults
             }
         }
 
+        // special browser transformation for some SHOW statements
+        if ($this->__get('is_show')
+            && ! $_SESSION['tmpval']['hide_transformation']
+        ) {
+            preg_match(
+                '@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?'
+                . 'PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS'
+                . ')@i',
+                $this->__get('sql_query'), $which
+            );
+
+            if (isset($which[1])) {
+                $str = ' ' . strtoupper($which[1]);
+                $isShowProcessList = strpos($str, 'PROCESSLIST') > 0;
+                if ($isShowProcessList) {
+                    $mimeMap['..Info'] = array(
+                        'mimetype' => 'Text_Plain',
+                        'transformation' => 'output/Text_Plain_Sql.class.php',
+                    );
+                }
+
+                $isShowCreateTable = preg_match(
+                    '@CREATE[[:space:]]+TABLE@i', $this->__get('sql_query')
+                );
+                if ($isShowCreateTable) {
+                    $mimeMap['..Create Table'] = array(
+                        'mimetype' => 'Text_Plain',
+                        'transformation' => 'output/Text_Plain_Sql.class.php',
+                    );
+                }
+            }
+        }
+
         $this->__set('mime_map', $mimeMap);
     }
 
@@ -2744,7 +2812,6 @@ class PMA_DisplayResults
             ) {
 
                 if (isset($mime_map[$orgFullColName]['mimetype'])
-                    && isset($mime_map[$orgFullColName]['transformation'])
                     && !empty($mime_map[$orgFullColName]['transformation'])
                 ) {
 
@@ -2779,38 +2846,6 @@ class PMA_DisplayResults
                 } // end if transformation is set
             } // end if mime/transformation works.
 
-            $_url_params = array(
-                'db'            => $this->__get('db'),
-                'table'         => $this->__get('table'),
-                'where_clause'  => $where_clause,
-                'transform_key' => $meta->name,
-            );
-
-            $unique_conditions = PMA_Util::getUniqueCondition(
-                $dt_result,
-                $this->__get('fields_cnt'),
-                $this->__get('fields_meta'),
-                $row,
-                false,
-                $meta->orgtable
-            );
-
-            $transform_url_params = array(
-                'db'            => $meta->db,
-                'table'         => $meta->orgtable,
-                'where_clause'  => $unique_conditions[0],
-                'transform_key' => $meta->orgname
-            );
-
-            if (! empty($sql_query)) {
-                $_url_params['sql_query'] = $url_sql_query;
-                $transform_url_params['sql_query'] = $url_sql_query;
-            }
-
-            $transform_options['wrapper_link']
-                = PMA_URL_getCommon($transform_url_params);
-
-            $vertical_display = $this->__get('vertical_display');
 
             // Check whether the field needs to display with syntax highlighting
 
@@ -2819,8 +2854,8 @@ class PMA_DisplayResults
             $nameLower = /*overload*/mb_strtolower($meta->orgname);
             if (! empty($this->transformation_info[$dbLower][$tblLower][$nameLower])
                 && (trim($row[$i]) != '')
+                && ! $_SESSION['tmpval']['hide_transformation']
             ) {
-                $row[$i] = PMA_Util::formatSql($row[$i]);
                 include_once $this->transformation_info
                     [$dbLower][$tblLower][$nameLower][0];
                 $transformation_plugin = new $this->transformation_info
@@ -2866,6 +2901,39 @@ class PMA_DisplayResults
                 );
 
             }
+
+            $_url_params = array(
+                'db'            => $this->__get('db'),
+                'table'         => $this->__get('table'),
+                'where_clause'  => $where_clause,
+                'transform_key' => $meta->name,
+            );
+
+            $unique_conditions = PMA_Util::getUniqueCondition(
+                $dt_result,
+                $this->__get('fields_cnt'),
+                $this->__get('fields_meta'),
+                $row,
+                false,
+                $meta->orgtable
+            );
+
+            $transform_url_params = array(
+                'db'            => $meta->db,
+                'table'         => $meta->orgtable,
+                'where_clause'  => $unique_conditions[0],
+                'transform_key' => $meta->orgname
+            );
+
+            if (! empty($sql_query)) {
+                $_url_params['sql_query'] = $url_sql_query;
+                $transform_url_params['sql_query'] = $url_sql_query;
+            }
+
+            $transform_options['wrapper_link']
+                = PMA_URL_getCommon($transform_url_params);
+
+            $vertical_display = $this->__get('vertical_display');
 
             if ($meta->numeric == 1) {
                 // n u m e r i c
@@ -2953,9 +3021,10 @@ class PMA_DisplayResults
             $linking_url_params[$link_relations['link_param'][0]] = $sql;
         }
 
+        $divider = strpos($link_relations['default_page'], '?') ? '&' : '?';
         if (empty($link_relations['link_dependancy_params'])) {
             return $link_relations['default_page']
-            . PMA_URL_getCommon($linking_url_params);
+                . PMA_URL_getCommon($linking_url_params, 'html', $divider);
         }
 
         foreach ($link_relations['link_dependancy_params'] as $new_param) {
@@ -2976,18 +3045,10 @@ class PMA_DisplayResults
             if (empty($row_info['routine_type'])) {
                 continue;
             }
-
-            $lowerRoutineType = strtolower($row_info['routine_type']);
-            if ($lowerRoutineType == self::ROUTINE_PROCEDURE
-                || $lowerRoutineType == self::ROUTINE_FUNCTION
-            ) {
-                $linking_url_params['edit_item'] = 1;
-            }
-
         }
 
         return $link_relations['default_page']
-            . PMA_URL_getCommon($linking_url_params);
+            . PMA_URL_getCommon($linking_url_params, 'html', $divider);
     }
 
 
@@ -4988,7 +5049,7 @@ class PMA_DisplayResults
             ) {
                 // Applying Transformations on hex string of binary data
                 // seems more appropriate
-                $result = bin2hex($content);
+                $result = pack("H*", bin2hex($content));
             }
         }
 
