@@ -2689,6 +2689,39 @@ class PMA_DisplayResults
             }
         }
 
+        // special browser transformation for some SHOW statements
+        if ($this->__get('is_show')
+            && ! $_SESSION['tmpval']['hide_transformation']
+        ) {
+            preg_match(
+                '@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?'
+                . 'PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS'
+                . ')@i',
+                $this->__get('sql_query'), $which
+            );
+
+            if (isset($which[1])) {
+                $str = ' ' . strtoupper($which[1]);
+                $isShowProcessList = strpos($str, 'PROCESSLIST') > 0;
+                if ($isShowProcessList) {
+                    $mimeMap['..Info'] = array(
+                        'mimetype' => 'Text_Plain',
+                        'transformation' => 'output/Text_Plain_Sql.class.php',
+                    );
+                }
+
+                $isShowCreateTable = preg_match(
+                    '@CREATE[[:space:]]+TABLE@i', $this->__get('sql_query')
+                );
+                if ($isShowCreateTable) {
+                    $mimeMap['..Create Table'] = array(
+                        'mimetype' => 'Text_Plain',
+                        'transformation' => 'output/Text_Plain_Sql.class.php',
+                    );
+                }
+            }
+        }
+
         $this->__set('mime_map', $mimeMap);
     }
 
