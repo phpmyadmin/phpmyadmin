@@ -1592,12 +1592,9 @@ class PMA_Table
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name][$this->name])) {
             // check whether we can get from pmadb
             $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name]
-            [$this->name]
-                = (/*overload*/mb_strlen($cfgRelation['db'])
-                    && /*overload*/mb_strlen($cfgRelation['table_uiprefs'])
-                )
-                    ?  $this->getUiPrefsFromDb()
-                    : array();
+            [$this->name] = $cfgRelation['uiprefswork']
+                ?  $this->getUiPrefsFromDb()
+                : array();
         }
         $this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$server_id]
             [$this->db_name][$this->name];
@@ -1728,9 +1725,7 @@ class PMA_Table
 
         // check if pmadb is set
         $cfgRelation = PMA_getRelationsParam();
-        if (/*overload*/mb_strlen($cfgRelation['db'])
-            && /*overload*/mb_strlen($cfgRelation['table_uiprefs'])
-        ) {
+        if ($cfgRelation['uiprefswork']) {
             return $this->saveUiprefsToDb();
         }
         return true;
