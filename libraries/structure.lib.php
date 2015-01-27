@@ -1708,17 +1708,17 @@ function PMA_getHtmlForAddColumn($columns_list)
 
     $column_selector .= '<option '
             . 'value="first" data-pos = "first">'
-            . __('Beginning of table')
+            . __('beginning of table')
             . '</option>';
     foreach ($columns_list as $one_column_name) {
         $column_selector .= '<option '
             . 'value="' . htmlspecialchars($one_column_name) . '">'
-            . htmlspecialchars($one_column_name)
+            . sprintf(__('after %s'), htmlspecialchars($one_column_name))
             . '</option>';
     }
     $column_selector .= '</select>';
     $html_output .= '<input type="hidden" name="field_where" value="after"/>';
-    $html_output .= ' ' . __('after') . ' ';
+    $html_output .= '&nbsp;';
     $html_output .= $column_selector;
     $html_output .= '<input type="submit" value="' . __('Go') . '" />'
         . '</form>';
