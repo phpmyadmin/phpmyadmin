@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-25 21:35+0200\n"
+"PO-Revision-Date: 2015-01-27 15:38+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/sk/>\n"
@@ -6818,10 +6818,9 @@ msgstr ""
 "[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:607
-#, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Centrálne stĺpce"
+msgstr "Tabuľka centrálnych stĺpcov"
 
 #: libraries/config/messages.inc.php:609
 #, fuzzy
@@ -6937,10 +6936,9 @@ msgstr ""
 "tabuliek počas sedenia. Odporúčaná hodnota: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
-msgstr "Obľúbené tabuľky"
+msgstr "Tabuľka obľúbených"
 
 #: libraries/config/messages.inc.php:646
 #| msgid ""
@@ -14420,10 +14418,10 @@ msgid "Description"
 msgstr "Popis"
 
 #: url.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking report"
 msgid "Taking you to %s."
-msgstr "Beriem ťa k %s."
+msgstr "Smerujem ťa na %s."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
