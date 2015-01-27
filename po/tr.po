@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-27 07:54-0500\n"
-"PO-Revision-Date: 2015-01-16 18:35+0200\n"
+"PO-Revision-Date: 2015-01-27 14:13+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -2338,10 +2338,9 @@ msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 
 #: js/messages.php:481
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Tablolar"
+msgstr "tablo"
 
 #: js/messages.php:482
 #, fuzzy
@@ -2350,22 +2349,19 @@ msgid "views"
 msgstr "Görünümler"
 
 #: js/messages.php:483
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Yordamlar"
+msgstr "yordam"
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "event"
 msgid "events"
 msgstr "olay"
 
 #: js/messages.php:485
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "İşlevler"
+msgstr "işlev"
 
 #: js/messages.php:488
 msgid "The requested page was not found in the history, it may have expired."
@@ -8929,13 +8925,13 @@ msgstr ""
 "panelindeki öğe gruplandırmayı etkisizleştirmeyi düşünün."
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s diğer sonuç bulundu"
-msgstr[1] "%s diğer sonuç bulundu"
+msgstr[0] "%s sonuç bulundu"
+msgstr[1] "%s sonuç bulundu"
 
 #: libraries/navigation/NavigationTree.class.php:1201
 #, fuzzy
@@ -13427,10 +13423,9 @@ msgid "Add %s column(s)"
 msgstr "%s sütun ekle"
 
 #: libraries/structure.lib.php:1712
-#, fuzzy
 #| msgid "Beginning of table"
 msgid "at beginning of table"
-msgstr "Tablonun başı"
+msgstr "tablonun başı"
 
 #: libraries/structure.lib.php:1717
 #: libraries/tbl_columns_definition_form.lib.php:811
