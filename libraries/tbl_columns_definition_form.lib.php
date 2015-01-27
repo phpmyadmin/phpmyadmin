@@ -1120,11 +1120,11 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
         && isset($columnMeta['Default'])
     ) {
         $columnMeta['Default'] = '';
-    }
-
-    if ($type_upper == 'BIT') {
+    } elseif ($type_upper == 'BIT') {
         $columnMeta['DefaultValue']
             = PMA_Util::convertBitDefaultValue($columnMeta['DefaultValue']);
+    } elseif ($type_upper == 'BINARY' || $type_upper == 'VARBINARY') {
+        $columnMeta['DefaultValue'] = bin2hex($columnMeta['DefaultValue']);
     }
 
     $html = '<select name="field_default_type[' . $columnNumber

@@ -493,6 +493,8 @@ class PMA_Table
                     $query .= ' DEFAULT \''
                         . PMA_Util::sqlAddSlashes($default_value) . '\'';
                 }
+            } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
+                $query .= ' DEFAULT 0x' . $default_value;
             } else {
                 $query .= ' DEFAULT \''
                     . PMA_Util::sqlAddSlashes($default_value) . '\'';
