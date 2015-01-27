@@ -4136,7 +4136,7 @@ $(function () {
                 'position': 'fixed',
                 'top': 0,
                 'width': '100%',
-                'z-index': 500
+                'z-index': 99
             })
             .append($('#serverinfo'))
             .append($('#topmenucontainer'));
