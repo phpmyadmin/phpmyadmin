@@ -1695,6 +1695,7 @@ function PMA_getHtmlForAddColumn($columns_list)
             'b_insrow.png',
             __('Add column')
         );
+        $html_output .= '&nbsp;';
     }
     $num_fields = '<input type="number" name="num_fields" '
         . 'value="1" onfocus="this.select()" '
