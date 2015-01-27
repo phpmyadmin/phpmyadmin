@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - bug #4730 Notice while browsing tables when phpmyadmin pma database exists, but not all the tables
 - bug #4729 Display original field when using "Relational display column" option and display column is empty
 - bug #4734 Default values for binary fields do not support binary values
+- bug #4736 Changing display options breaks query highlighting
 
 4.3.8.0 (2015-01-24)
 - bug       Undefined constant PMA_DRIZZLE

@@ -421,11 +421,15 @@ AJAX.registerOnload('sql.js', function () {
 
         $form = $(this);
 
+        var $msgbox = PMA_ajaxShowMessage();
         $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function (data) {
-            $("#sqlqueryresults")
+            PMA_ajaxRemoveMessage($msgbox);
+            var $sqlqueryresults = $("#sqlqueryresults");
+            $sqlqueryresults
              .html(data.message)
              .trigger('makegrid');
             PMA_init_slider();
+            PMA_highlightSQL($sqlqueryresults);
         }); // end $.post()
     }); //end displayOptionsForm handler
 
