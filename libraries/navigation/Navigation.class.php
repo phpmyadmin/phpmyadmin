@@ -41,8 +41,7 @@ class PMA_Navigation
                 || ! empty($_REQUEST['full'])
                 || ! empty($_REQUEST['reload'])
             ) {
-                $treeRender  = $this->_quickWarp();
-                $treeRender .= $tree->renderState();
+                $treeRender = $tree->renderState();
             } else {
                 $treeRender = $tree->renderPath();
             }
@@ -60,10 +59,9 @@ class PMA_Navigation
                 || ! empty($_REQUEST['full'])
                 || ! empty($_REQUEST['reload'])
             ) {
-                $retval .= $this->_quickWarp();
                 $retval .= $tree->renderDbSelect();
             } else {
-                $retval = $tree->renderPath();
+                $retval .= $tree->renderPath();
             }
         }
 
@@ -233,25 +231,6 @@ class PMA_Navigation
         $html .= '</fieldset>';
         $html .= '</form>';
         return $html;
-    }
-
-    /**
-     * Display quick warp links, contain Recents and Favorites
-     *
-     * @return string HTML code
-     */
-    private function _quickWarp()
-    {
-        $retval  = '<div class="pma_quick_warp">';
-        if ($GLOBALS['cfg']['NumRecentTables'] > 0) {
-            $retval .= PMA_RecentFavoriteTable::getInstance('recent')->getHtml();
-        }
-        if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
-            $retval .= PMA_RecentFavoriteTable::getInstance('favorite')->getHtml();
-        }
-        $retval .= '<div class="clearfloat"></div>';
-        $retval .= '</div>';
-        return $retval;
     }
 }
 ?>
