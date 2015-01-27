@@ -2360,7 +2360,6 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
             $html_output .= PMA_getHtmlForSpaceUsageTableRow(
                 $odd_row, __('Total'), $tot_size, $tot_unit
             );
-            $odd_row = !$odd_row;
         }
         // Optimize link if overhead
         if (isset($free_size) && !PMA_DRIZZLE
@@ -2509,7 +2508,6 @@ function PMA_updateColumns($db, $table)
     );
     $regenerate = false;
     $field_cnt = count($_REQUEST['field_name']);
-    $key_fields = array();
     $changes = array();
     $pmatable = new PMA_Table($table, $db);
 

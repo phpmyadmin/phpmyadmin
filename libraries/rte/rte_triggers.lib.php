@@ -279,7 +279,7 @@ function PMA_TRI_getDataFromName($name)
 /**
  * Displays a form used to add/edit a trigger
  *
- * @param string $mode If the editor will be used edit a trigger
+ * @param string $mode If the editor will be used to edit a trigger
  *                     or add a new one: 'edit' or 'add'.
  * @param array  $item Data for the trigger returned by PMA_TRI_getDataFromRequest()
  *                     or PMA_TRI_getDataFromName()
