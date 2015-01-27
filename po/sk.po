@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-27 07:54-0500\n"
-"PO-Revision-Date: 2015-01-25 21:35+0200\n"
+"PO-Revision-Date: 2015-01-27 15:38+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -2315,34 +2315,29 @@ msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 
 #: js/messages.php:481
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Tabuľky"
+msgstr "tabuľky"
 
 #: js/messages.php:482
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Pohľady"
+msgstr "pohľady"
 
 #: js/messages.php:483
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Procedúry"
+msgstr "procedúry"
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "event"
 msgid "events"
-msgstr "udalosť"
+msgstr "udalosti"
 
 #: js/messages.php:485
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "Funkcie"
+msgstr "funkcie"
 
 #: js/messages.php:488
 msgid "The requested page was not found in the history, it may have expired."
@@ -6236,10 +6231,9 @@ msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Zobraziť skryté položky navigácie."
+msgstr "Zobraziť databázovú navigáciu ako strom"
 
 #: libraries/config/messages.inc.php:420
 msgid "Link with main panel by highlighting the current database or table."
@@ -6754,10 +6748,9 @@ msgstr ""
 "[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:611
-#, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Centrálne stĺpce"
+msgstr "Tabuľka centrálnych stĺpcov"
 
 #: libraries/config/messages.inc.php:613
 msgid ""
@@ -6853,10 +6846,9 @@ msgstr ""
 "tabuliek počas sedenia. Odporúčaná hodnota: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:648
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
-msgstr "Obľúbené tabuľky"
+msgstr "Tabuľka obľúbených"
 
 #: libraries/config/messages.inc.php:650
 msgid ""
@@ -8800,20 +8792,19 @@ msgid ""
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "nájdený %s ďalší výsledok"
-msgstr[1] "nájdené %s ďalšie výsledky"
-msgstr[2] "nájdených %s ďalších výsledkov"
+msgstr[0] "nájdený %s výsledok"
+msgstr[1] "nájdené %s výsledky"
+msgstr[2] "nájdených %s výsledkov"
 
 #: libraries/navigation/NavigationTree.class.php:1201
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Prosím vyberte si databázu"
+msgstr "Prosím vyberte databázu."
 
 #: libraries/navigation/NavigationTree.class.php:1259
 msgid "Filter databases by name or regex"
@@ -14141,10 +14132,10 @@ msgid "Description"
 msgstr "Popis"
 
 #: url.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking report"
 msgid "Taking you to %s."
-msgstr "Beriem ťa k %s."
+msgstr "Smerujem ťa na %s."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
