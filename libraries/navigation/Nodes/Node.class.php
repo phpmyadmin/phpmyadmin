@@ -367,7 +367,7 @@ class Node
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']
-            || $GLOBALS['cfg']['NavigationDatabasesSelector']
+            || !$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
         ) {
             if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $query  = "SELECT `SCHEMA_NAME` ";
@@ -556,7 +556,7 @@ class Node
     public function getPresence($type = '', $searchClause = '')
     {
         if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']
-            || $GLOBALS['cfg']['NavigationDatabasesSelector']
+            || !$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
         ) {
             if (!$GLOBALS['cfg']['Server']['DisableIS']) {
                 $query = "SELECT COUNT(*) ";

@@ -1388,10 +1388,10 @@ Cookie authentication options
 Navigation panel setup
 ----------------------
 
-.. config:option:: $cfg['NavigationDatabasesSelector']
+.. config:option:: $cfg['ShowDatabasesNavigationAsTree']
 
     :type: boolean
-    :default: false
+    :default: true
 
     In the navigation panel, replaces the database tree with a selector
 

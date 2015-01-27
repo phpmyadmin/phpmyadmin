@@ -813,9 +813,9 @@ $cfg['CaptchaLoginPrivateKey'] = '';
 /**
  * In the navigation panel, replaces the database tree with a selector
  *
- * @global boolean $cfg['NavigationDatabasesSelector']
+ * @global boolean $cfg['ShowDatabasesNavigationAsTree']
  */
-$cfg['NavigationDatabasesSelector'] = false;
+$cfg['ShowDatabasesNavigationAsTree'] = true;
 
 /**
  * maximum number of first level databases displayed in navigation panel

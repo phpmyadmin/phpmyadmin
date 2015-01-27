@@ -237,7 +237,7 @@ class PMA_Header
             'db'    => $db,
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
-            'navigation_database_selector'=> $GLOBALS['cfg']['NavigationDatabasesSelector'],
+            'show_databases_navigation_as_tree'=> $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
             'pma_absolute_uri' => $GLOBALS['cfg']['PmaAbsoluteUri'],
             'pma_text_default_tab' => PMA_Util::getTitleForTarget(
                 $GLOBALS['cfg']['DefaultTabTable']

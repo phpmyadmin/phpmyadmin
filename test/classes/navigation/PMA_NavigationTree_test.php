@@ -54,7 +54,7 @@ class PMA_NavigationTreeTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['NavigationDatabasesSelector']  = false;
+        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']  = true;
 
         $GLOBALS['pmaThemeImage'] = 'image';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
