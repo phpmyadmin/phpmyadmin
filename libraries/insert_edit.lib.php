@@ -1712,6 +1712,8 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
         || $trueType == 'time'
     ) {
         $special_chars = PMA_Util::addMicroseconds($column['Default']);
+    } elseif ($trueType == 'binary' || $trueType == 'varbinary') {
+        $special_chars = bin2hex($column['Default']);
     } else {
         $special_chars = htmlspecialchars($column['Default']);
     }
