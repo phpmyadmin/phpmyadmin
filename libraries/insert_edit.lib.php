@@ -1738,7 +1738,7 @@ function PMA_getParamsForUpdateOrInsert()
             ? $_REQUEST['where_clause']
             : array($_REQUEST['where_clause']);
         $using_key  = true;
-        $is_insert  = isset($_REQUEST['submit_type']) 
+        $is_insert  = isset($_REQUEST['submit_type'])
                       && ($_REQUEST['submit_type'] == 'insert'
                       || $_REQUEST['submit_type'] == 'showinsert'
                       || $_REQUEST['submit_type'] == 'insertignore');
