@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-27 07:54-0500\n"
-"PO-Revision-Date: 2015-01-14 18:59+0200\n"
+"PO-Revision-Date: 2015-01-27 16:49+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -1651,7 +1651,7 @@ msgstr "Test"
 
 #: js/messages.php:249
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Formatage SQL..."
 
 #: js/messages.php:253 libraries/db_designer.lib.php:823
 #: libraries/db_designer.lib.php:872 libraries/db_designer.lib.php:1016
@@ -2343,41 +2343,40 @@ msgstr "Supprimer la liaison au panneau principal"
 #: js/messages.php:479
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Pour filtrer toutes les bases de données sur le serveur, appuyez sur Entrée "
+"après un terme de recherche"
 
 #: js/messages.php:480
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Pour filtrer tous les %s dans la base de données, appuyez sur Entrée après "
+"un terme de recherche"
 
 #: js/messages.php:481
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Tables"
+msgstr "tables"
 
 #: js/messages.php:482
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Vues"
+msgstr "vues"
 
 #: js/messages.php:483
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Procédures"
+msgstr "procédures"
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "event"
 msgid "events"
-msgstr "événement"
+msgstr "événements"
 
 #: js/messages.php:485
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "Fonctions"
+msgstr "fonctions"
 
 #: js/messages.php:488
 msgid "The requested page was not found in the history, it may have expired."
@@ -6334,12 +6333,13 @@ msgstr "Limite mémoire"
 #: libraries/config/messages.inc.php:418
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
+"Dans le volet de navigation, remplace l'arborescence de bases de données par "
+"un sélecteur"
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Montrer les éléments de navigation cachés."
+msgstr "Afficher la navigation de bases de données en tant qu'arborescence"
 
 #: libraries/config/messages.inc.php:420
 msgid "Link with main panel by highlighting the current database or table."
@@ -8985,19 +8985,18 @@ msgstr ""
 "navigation."
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s autre résultat trouvé"
-msgstr[1] "%s autres résultats trouvés"
+msgstr[0] "%s résultat trouvé"
+msgstr[1] "%s résultats trouvés"
 
 #: libraries/navigation/NavigationTree.class.php:1201
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Choisissez une base de données"
+msgstr "Choisissez une base de données."
 
 #: libraries/navigation/NavigationTree.class.php:1259
 msgid "Filter databases by name or regex"
@@ -13536,10 +13535,9 @@ msgid "Add %s column(s)"
 msgstr "Ajouter %s colonne(s)"
 
 #: libraries/structure.lib.php:1712
-#, fuzzy
 #| msgid "Beginning of table"
 msgid "at beginning of table"
-msgstr "Début de table"
+msgstr "en début de table"
 
 #: libraries/structure.lib.php:1717
 #: libraries/tbl_columns_definition_form.lib.php:811
