@@ -1738,9 +1738,10 @@ function PMA_getParamsForUpdateOrInsert()
             ? $_REQUEST['where_clause']
             : array($_REQUEST['where_clause']);
         $using_key  = true;
-        $is_insert  = $_REQUEST['submit_type'] == 'insert'
+        $is_insert  = isset($_REQUEST['submit_type']) 
+                      && ($_REQUEST['submit_type'] == 'insert'
                       || $_REQUEST['submit_type'] == 'showinsert'
-                      || $_REQUEST['submit_type'] == 'insertignore';
+                      || $_REQUEST['submit_type'] == 'insertignore');
     } else {
         // new row => use indexes
         $loop_array = array();
@@ -1752,7 +1753,8 @@ function PMA_getParamsForUpdateOrInsert()
         $using_key  = false;
         $is_insert  = true;
     }
-    $is_insertignore  = $_REQUEST['submit_type'] == 'insertignore';
+    $is_insertignore  = isset($_REQUEST['submit_type'])
+        && $_REQUEST['submit_type'] == 'insertignore';
     return array($loop_array, $using_key, $is_insert, $is_insertignore);
 }
 
