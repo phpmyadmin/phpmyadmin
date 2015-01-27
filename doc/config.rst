@@ -1388,10 +1388,17 @@ Cookie authentication options
 Navigation panel setup
 ----------------------
 
+.. config:option:: $cfg['ShowDatabasesNavigationAsTree']
+
+    :type: boolean
+    :default: true
+
+    In the navigation panel, replaces the database tree with a selector
+
 .. config:option:: $cfg['FirstLevelNavigationItems']
 
     :type: integer
-    :default: 25
+    :default: 100
 
     The number of first level databases that can be displayed on each page
     of navigation tree.

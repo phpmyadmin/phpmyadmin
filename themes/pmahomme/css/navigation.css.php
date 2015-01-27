@@ -106,6 +106,30 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     height: 74%;
     position: relative;
 }
+#pma_navigation_select_database {
+    text-align: left;
+    padding: 0px 0px 0px;
+    border: 0;
+    margin: 0;
+}
+
+#pma_navigation_db_select {
+    margin-top: 0.5em;
+    margin-<?php echo $left; ?>: 0.75em;
+}
+#pma_navigation_db_select select {
+    background: url("./themes/pmahomme/img/select_bg.png") repeat scroll 0 0;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    border: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+    color: #333;
+    padding: 4px 6px;
+    margin: 0px 0px 0px;
+    width: 92%;
+    font-size: 1.11em;
+}
+
 #pma_navigation_tree_content {
     width: 100%;
     overflow: hidden;

@@ -162,6 +162,7 @@ $forms['Sql_queries']['Sql_box'] = array('SQLQuery' => array(
     'ShowAsPHP',
     'Refresh'));
 $forms['Navi_panel']['Navi_panel'] = array(
+    'ShowDatabasesNavigationAsTree',
     'NavigationLinkWithMainPanel',
     'NavigationDisplayLogo',
     'NavigationLogoLink',
