@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-27 07:49-0500\n"
+"POT-Creation-Date: 2015-01-27 07:54-0500\n"
 "PO-Revision-Date: 2014-10-03 21:14+0200\n"
 "Last-Translator: Peter Dave Hello <xs910203@gmail.com>\n"
 "Language-Team: Traditional Chinese <https://hosted.weblate.org/projects/"
@@ -12932,7 +12932,7 @@ msgstr "增加 %s 個欄位"
 #: libraries/structure.lib.php:1712
 #, fuzzy
 #| msgid "At Beginning of Table"
-msgid "beginning of table"
+msgid "at beginning of table"
 msgstr "於表開頭"
 
 #: libraries/structure.lib.php:1717

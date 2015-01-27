@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-27 07:49-0500\n"
+"POT-Creation-Date: 2015-01-27 07:54-0500\n"
 "PO-Revision-Date: 2015-01-01 17:51+0200\n"
 "Last-Translator: Eliovir <eliovir@gmail.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12455,7 +12455,7 @@ msgid "Add %s column(s)"
 msgstr ""
 
 #: libraries/structure.lib.php:1712
-msgid "beginning of table"
+msgid "at beginning of table"
 msgstr ""
 
 #: libraries/structure.lib.php:1717

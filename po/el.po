@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-27 07:49-0500\n"
+"POT-Creation-Date: 2015-01-27 07:54-0500\n"
 "PO-Revision-Date: 2015-01-14 17:02+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -13579,7 +13579,7 @@ msgstr "Προσθήκη %s στήλης(ών)"
 #: libraries/structure.lib.php:1712
 #, fuzzy
 #| msgid "Beginning of table"
-msgid "beginning of table"
+msgid "at beginning of table"
 msgstr "Αρχή του πίνακα"
 
 #: libraries/structure.lib.php:1717

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-27 07:49-0500\n"
+"POT-Creation-Date: 2015-01-27 07:54-0500\n"
 "PO-Revision-Date: 2015-01-20 22:29+0200\n"
 "Last-Translator: josep constanti <jconstanti@ovi.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -13976,7 +13976,7 @@ msgstr "Afegeix %s columna(es)"
 #: libraries/structure.lib.php:1712
 #, fuzzy
 #| msgid "At Beginning of Table"
-msgid "beginning of table"
+msgid "at beginning of table"
 msgstr "Al principi de la taula"
 
 #: libraries/structure.lib.php:1717

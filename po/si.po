@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-27 07:49-0500\n"
+"POT-Creation-Date: 2015-01-27 07:54-0500\n"
 "PO-Revision-Date: 2014-11-11 12:16+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -13547,7 +13547,7 @@ msgstr "%s ක්ෂේත්‍ර(ය) එක් කරන්න"
 #: libraries/structure.lib.php:1712
 #, fuzzy
 #| msgid "At Beginning of Table"
-msgid "beginning of table"
+msgid "at beginning of table"
 msgstr "වගුව මුලදී"
 
 #: libraries/structure.lib.php:1717

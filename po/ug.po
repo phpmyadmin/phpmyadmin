@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-27 07:49-0500\n"
+"POT-Creation-Date: 2015-01-27 07:54-0500\n"
 "PO-Revision-Date: 2013-11-25 15:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uighur <http://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -13520,7 +13520,7 @@ msgstr ""
 #: libraries/structure.lib.php:1712
 #, fuzzy
 #| msgid "Show dimension of tables"
-msgid "beginning of table"
+msgid "at beginning of table"
 msgstr "جەدېۋەلنىڭ چوڭ-كىچىكلىكىنى كۆرسىتىش"
 
 #: libraries/structure.lib.php:1717

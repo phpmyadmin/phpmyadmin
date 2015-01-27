@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-27 07:49-0500\n"
+"POT-Creation-Date: 2015-01-27 07:54-0500\n"
 "PO-Revision-Date: 2015-01-26 06:18+0200\n"
 "Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -13697,7 +13697,7 @@ msgstr "Добавяне %s колона(и)"
 #: libraries/structure.lib.php:1712
 #, fuzzy
 #| msgid "At Beginning of Table"
-msgid "beginning of table"
+msgid "at beginning of table"
 msgstr "В началото на таблицата"
 
 #: libraries/structure.lib.php:1717

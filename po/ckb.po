@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-27 07:49-0500\n"
+"POT-Creation-Date: 2015-01-27 07:54-0500\n"
 "PO-Revision-Date: 2014-10-29 18:21+0200\n"
 "Last-Translator: Aso Naderi <aso.naderi@gmail.com>\n"
 "Language-Team: Kurdish Sorani <https://hosted.weblate.org/projects/"
@@ -13003,7 +13003,7 @@ msgstr ""
 #: libraries/structure.lib.php:1712
 #, fuzzy
 #| msgid "Number of rows"
-msgid "beginning of table"
+msgid "at beginning of table"
 msgstr "ژمارەی ڕیزەکان"
 
 #: libraries/structure.lib.php:1717

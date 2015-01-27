@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-27 07:49-0500\n"
+"POT-Creation-Date: 2015-01-27 07:54-0500\n"
 "PO-Revision-Date: 2014-12-29 10:51+0200\n"
 "Last-Translator: Rifthy Ahmed <rifthy456@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -12613,8 +12613,10 @@ msgid "Add %s column(s)"
 msgstr "%s நெடுவரிசைகளை சேர்க்க"
 
 #: libraries/structure.lib.php:1712
-msgid "beginning of table"
-msgstr ""
+#, fuzzy
+#| msgid "Rate of table open"
+msgid "at beginning of table"
+msgstr "திறந்தநிலை அட்டவணைகளின் விழுக்காடு"
 
 #: libraries/structure.lib.php:1717
 #: libraries/tbl_columns_definition_form.lib.php:811

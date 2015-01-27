@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-27 07:49-0500\n"
+"POT-Creation-Date: 2015-01-27 07:54-0500\n"
 "PO-Revision-Date: 2015-01-14 18:59+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -13538,7 +13538,7 @@ msgstr "Ajouter %s colonne(s)"
 #: libraries/structure.lib.php:1712
 #, fuzzy
 #| msgid "Beginning of table"
-msgid "beginning of table"
+msgid "at beginning of table"
 msgstr "Début de table"
 
 #: libraries/structure.lib.php:1717

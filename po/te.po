@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-01-27 07:49-0500\n"
+"POT-Creation-Date: 2015-01-27 07:54-0500\n"
 "PO-Revision-Date: 2014-02-27 10:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Telugu <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -13423,9 +13423,13 @@ msgstr "డేటాబేస్"
 msgid "Add %s column(s)"
 msgstr "స్పందనలకు చేర్చు"
 
+# మొదటి అనువాదము
 #: libraries/structure.lib.php:1712
-msgid "beginning of table"
-msgstr ""
+#, fuzzy
+#| msgctxt "short form"
+#| msgid "Create table"
+msgid "at beginning of table"
+msgstr "పట్టికను సృష్టించు"
 
 # మొదటి అనువాదము
 #: libraries/structure.lib.php:1717
