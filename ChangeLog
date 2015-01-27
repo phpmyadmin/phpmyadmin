@@ -31,6 +31,7 @@ phpMyAdmin - ChangeLog
 - bug #4729 Display original field when using "Relational display column" option and display column is empty
 - bug #4734 Default values for binary fields do not support binary values
 - bug #4736 Changing display options breaks query highlighting
+- bug       Undefined index submit_type
 
 4.3.8.0 (2015-01-24)
 - bug       Undefined constant PMA_DRIZZLE
