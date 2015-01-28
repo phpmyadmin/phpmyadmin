@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-27 07:54-0500\n"
-"PO-Revision-Date: 2015-01-12 06:43+0200\n"
+"PO-Revision-Date: 2015-01-28 03:30+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/id/>\n"
+"Language-Team: Indonesian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Basepath: ../../..\n"
@@ -1046,10 +1046,9 @@ msgid "Composite with:"
 msgstr "Gabung dengan:"
 
 #: js/messages.php:69
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Tambahkan %s kolom ke index"
+msgstr "Pilih kolom untuk di index."
 
 #: js/messages.php:72 libraries/structure.lib.php:1685
 msgid "You have to add at least one column."
@@ -1062,10 +1061,9 @@ msgid "Preview SQL"
 msgstr "Pratinjau SQL"
 
 #: js/messages.php:78
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "dalam susunan pemeriksaan"
+msgstr "Simulasikan query"
 
 #: js/messages.php:79
 msgid "Matched rows:"
@@ -1727,7 +1725,7 @@ msgstr "(Tidak aktif)"
 
 #: js/messages.php:278
 msgid "Failed to get real row count."
-msgstr "Gagal mengambil jumlah baris sesungguhnya"
+msgstr "Gagal mengambil jumlah baris sebenarnya."
 
 #: js/messages.php:281
 msgid "Searching"
