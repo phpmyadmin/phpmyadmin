@@ -310,6 +310,10 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         . $index->generateIndexChoiceSelector(isset($_REQUEST['create_edit_table']))
         . '</div>';
 
+    $html .= PMA_Util::getDivForSliderEffect(
+        'indexoptions', __('Options')
+    );
+
     $html .= '<div>'
         . '<div class="label">'
         . '<strong>'
@@ -358,6 +362,8 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         . 'id="input_index_comment" size="30"'
         . 'value="' . htmlspecialchars($index->getComment()) . '" />'
         . '</div>';
+
+    $html .= '</div>'; // end of indexoptions div
 
     $html .= '<div class="clearfloat"></div>';
 

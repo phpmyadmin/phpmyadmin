@@ -3379,6 +3379,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
             });
             $('#index_columns tbody').sortable();
             PMA_showHints($div);
+            PMA_init_slider();
             // Add a slider for selecting how many columns to add to the index
             $div.find('.slider').slider({
                 animate: true,
