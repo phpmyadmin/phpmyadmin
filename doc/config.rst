@@ -1723,6 +1723,14 @@ Browse mode
     Defines which action (``double-click`` or ``click``) triggers grid
     editing. Can be deactived with the ``disabled`` value.
 
+.. config:option:: $cfg['RelationalDisplay']
+
+    :type: string
+    :default: ``'K'``
+
+    Defines the initial behavior for Options > Relational. ``K``, which
+    is the default, displays the key while ``D`` shows the display column.
+
 .. config:option:: $cfg['SaveCellsAtOnce']
 
     :type: boolean

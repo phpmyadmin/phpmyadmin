@@ -94,6 +94,10 @@ $cfg_db['GridEditing'] = array(
     'double-click' => __('Double click'),
     'disabled' => __('Disabled'),
 );
+$cfg_db['RelationalDisplay'] = array(
+    'K' => __('key'),
+    'D' => __('display column')
+);
 $cfg_db['DefaultTabServer'] = array(
     'index.php',               // the welcome page (recommended for multiuser setups)
     'server_databases.php',    // list of databases

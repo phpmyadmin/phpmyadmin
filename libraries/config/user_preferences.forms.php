@@ -120,7 +120,8 @@ $forms['Main_panel']['Browse'] = array(
     'LimitChars',
     'RowActionLinks',
     'TablePrimaryKeyOrder',
-    'RememberSorting');
+    'RememberSorting',
+    'RelationalDisplay');
 $forms['Main_panel']['Edit'] = array(
     'ProtectBinary',
     'ShowFunctionFields',
