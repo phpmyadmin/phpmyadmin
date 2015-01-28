@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-14 17:27+0200\n"
+"PO-Revision-Date: 2015-01-28 17:14+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-3/nl/>"
 "\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr "De centrale lijst van kolommen voor de huidige database is leeg."
+msgstr "De centrale lijst met kolommen voor de huidige database is leeg."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
