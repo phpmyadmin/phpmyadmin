@@ -3219,10 +3219,10 @@ function checkIndexName(form_id)
 
     // Gets the elements pointers
     var $the_idx_name = $("#input_index_name");
-    var $the_idx_type = $("#select_index_type");
+    var $the_idx_choice = $("#select_index_choice");
 
     // Index is a primary key
-    if ($the_idx_type.find("option:selected").val() == 'PRIMARY') {
+    if ($the_idx_choice.find("option:selected").val() == 'PRIMARY') {
         $the_idx_name.val('PRIMARY');
         $the_idx_name.prop("disabled", true);
     }
