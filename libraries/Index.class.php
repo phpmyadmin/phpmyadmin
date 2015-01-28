@@ -720,8 +720,9 @@ class PMA_Index
                     . '</td>';
             }
             $r .= '<td ' . $row_span . '>';
-            if (! empty($index->getType())) {
-                $r .= htmlspecialchars($index->getType());
+            $type = $index->getType();
+            if (! empty($type)) {
+                $r .= htmlspecialchars($type);
             } else {
                 $r .= htmlspecialchars($index->getChoice());
             }
