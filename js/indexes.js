@@ -19,6 +19,10 @@ function checkIndexType()
      */
     $select_index_choice = $('#select_index_choice');
     /**
+     * @var Object Dropdown to select the index type.
+     */
+    $select_index_type = $('#select_index_type');
+    /**
      * @var Object Table header for the size column.
      */
     $size_header = $('#index_columns thead tr th:nth-child(2)');
@@ -77,6 +81,13 @@ function checkIndexType()
 
         // Show controllers to add more columns
         $add_more.show();
+    }
+
+    if ($select_index_choice.val() == 'SPATIAL' ||
+            $select_index_choice.val() == 'FULLTEXT') {
+        $select_index_type.val('').prop('disabled', true);
+    } else {
+        $select_index_type.prop('disabled', false)
     }
 }
 

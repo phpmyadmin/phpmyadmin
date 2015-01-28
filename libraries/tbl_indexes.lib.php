@@ -146,6 +146,14 @@ function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
         $sql_query .= ' (' . implode(', ', $index_fields) . ')';
     }
 
+    // specifying index type is allowed only for primary, unique and index only
+    if ($index->getChoice() != 'SPATIAL'
+        && $index->getChoice() != 'FULLTEXT'
+        && in_array($index->getType(), PMA_Index::getIndexTypes())
+    ) {
+        $sql_query .= ' USING ' . $index->getType();
+    }
+
     $sql_query .= " COMMENT '"
         . PMA_Util::sqlAddSlashes($index->getComment())
         . "'";
@@ -302,6 +310,18 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         . '</strong>'
         . '</div>'
         . $index->generateIndexChoiceSelector(isset($_REQUEST['create_edit_table']))
+        . '</div>';
+
+    $html .= '<div>'
+        . '<div class="label">'
+        . '<strong>'
+        . '<label for="select_index_type">'
+        . __('Index type:')
+        . PMA_Util::showMySQLDocu('ALTER_TABLE')
+        . '</label>'
+        . '</strong>'
+        . '</div>'
+        . $index->generateIndexTypeSelector()
         . '</div>';
 
     $html .= '<div class="clearfloat"></div>';

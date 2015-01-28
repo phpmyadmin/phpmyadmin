@@ -297,8 +297,10 @@ class PMA_Index
                 $this->_choice = 'PRIMARY';
             } elseif ('FULLTEXT' == $this->_type) {
                 $this->_choice = 'FULLTEXT';
+                $this->_type = '';
             } elseif ('SPATIAL' == $this->_type) {
                 $this->_choice = 'SPATIAL';
+                $this->_type = '';
             } elseif ('0' == $this->_non_unique) {
                 $this->_choice = 'UNIQUE';
             } else {
@@ -405,7 +407,7 @@ class PMA_Index
     /**
      * Returns HTML for the index choice selector
      *
-     * @param $edit_table whether this is table editing
+     * @param boolean $edit_table whether this is table editing
      *
      * @return string HTML for the index choice selector
      */
@@ -434,11 +436,21 @@ class PMA_Index
         return $html_options;
     }
 
+    /**
+     * Returns HTML for the index type selector
+     *
+     * @return string HTML for the index type selector
+     */
     public function generateIndexTypeSelector()
     {
+        $types = array("" => "--");
+        foreach (PMA_Index::getIndexTypes() as $type) {
+            $types[$type] = $type;
+        }
+
         return PMA_Util::getDropdown(
-            "index[Index_type]", PMA_Index::getIndexTypes(),
-            $this->_type, "select_index_type", "", "--"
+            "index[Index_type]", $types,
+            $this->_type, "select_index_type"
         );
     }
 
@@ -667,9 +679,13 @@ class PMA_Index
                     . htmlspecialchars($index->getName())
                     . '</td>';
             }
-            $r .= '<td ' . $row_span . '>'
-                . htmlspecialchars($index->getType())
-                . '</td>';
+            $r .= '<td ' . $row_span . '>';
+            if (! empty($index->getType())) {
+                $r .= htmlspecialchars($index->getType());
+            } else {
+                $r .= htmlspecialchars($index->getChoice());
+            }
+            $r .= '</td>';
             $r .= '<td ' . $row_span . '>' . $index->isUnique(true) . '</td>';
             $r .= '<td ' . $row_span . '>' . $index->isPacked(true) . '</td>';
 

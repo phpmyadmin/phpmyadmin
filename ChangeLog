@@ -24,6 +24,7 @@ phpMyAdmin - ChangeLog
 + rfe #1597 Fast filter improvement: remove "x other results found"
 - bug #4720 No error message on Missing extension mbstring
 + rfe #801  Builtin transformations and relations
++ rfe #767 USING BTREE support for HEAP/MEMORY tables
 
 4.3.9.0 (not yet released)
 - bug #4728 Incorrect headings in routine editor
