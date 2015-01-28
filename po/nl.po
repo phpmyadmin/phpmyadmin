@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-28 09:07-0500\n"
-"PO-Revision-Date: 2015-01-14 17:30+0200\n"
+"PO-Revision-Date: 2015-01-28 17:31+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr "De centrale lijst van kolommen voor de huidige database is leeg."
+msgstr "De centrale lijst met kolommen voor de huidige database is leeg."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
@@ -1650,7 +1650,7 @@ msgstr "Test"
 
 #: js/messages.php:249
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Aanmaken SQL..."
 
 #: js/messages.php:253 libraries/db_designer.lib.php:823
 #: libraries/db_designer.lib.php:872 libraries/db_designer.lib.php:1016
@@ -2343,41 +2343,38 @@ msgstr "Loskoppelen van hoofdpaneel"
 #: js/messages.php:479
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Om alle databases op de server te filteren, druk op Enter achter een zoekterm"
 
 #: js/messages.php:480
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Om alle %s in de database te filteren, druk op Enter achter een zoekterm"
 
 #: js/messages.php:481
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
 msgstr "Tabellen"
 
 #: js/messages.php:482
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Views"
+msgstr "views"
 
 #: js/messages.php:483
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
 msgstr "Procedures"
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "event"
 msgid "events"
 msgstr "gebeurtenis"
 
 #: js/messages.php:485
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "Functies"
+msgstr "functies"
 
 #: js/messages.php:488
 msgid "The requested page was not found in the history, it may have expired."
@@ -4919,13 +4916,12 @@ msgstr "Uitgeschakeld"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "sleutelveld"
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Tabel met kolomomschrijvingen"
+msgstr "toon kolom"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -6349,12 +6345,12 @@ msgstr "Geheugenlimiet"
 #: libraries/config/messages.inc.php:418
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
+"In het navigatiepanel, vervang de database boomstructuur door een selectie"
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Verborgen navigatieboom onderdelen weergeven."
+msgstr "Geef databases navigatiescherm weer als boomstructuur"
 
 #: libraries/config/messages.inc.php:420
 msgid "Link with main panel by highlighting the current database or table."
@@ -6657,16 +6653,14 @@ msgid "Grid editing: trigger action"
 msgstr "Rasterbewerken: trigger actie"
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
-msgstr "Relationele weergave-kolom"
+msgstr "Relationele weergave"
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Weergaveopties voor servers."
+msgstr "Voor weergaveopties"
 
 #: libraries/config/messages.inc.php:537
 msgid "Grid editing: save all edited cells at once"
@@ -9013,19 +9007,18 @@ msgstr ""
 "navigatiepaneel."
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s ander resultaat gevonden"
-msgstr[1] "%s andere resultaten gevonden"
+msgstr[0] "%s resultaat gevonden"
+msgstr[1] "%s resultaten gevonden"
 
 #: libraries/navigation/NavigationTree.class.php:1201
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Selecteer a.u.b. een databank"
+msgstr "Selecteer a.u.b. een database."
 
 #: libraries/navigation/NavigationTree.class.php:1259
 msgid "Filter databases by name or regex"
@@ -13566,10 +13559,9 @@ msgid "Add %s column(s)"
 msgstr "%s kolom(men) toevoegen"
 
 #: libraries/structure.lib.php:1712
-#, fuzzy
 #| msgid "Beginning of table"
 msgid "at beginning of table"
-msgstr "Begin van de tabel"
+msgstr "bij begin van de tabel"
 
 #: libraries/structure.lib.php:1717
 #: libraries/tbl_columns_definition_form.lib.php:811
@@ -13909,14 +13901,13 @@ msgstr ""
 "sleutel zijn!"
 
 #: libraries/tbl_indexes.lib.php:307
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Indexcachegrootte"
+msgstr "Index keuze:"
 
 #: libraries/tbl_indexes.lib.php:323
 msgid "Key block size:"
-msgstr ""
+msgstr "Sleutelveld grootte:"
 
 #: libraries/tbl_indexes.lib.php:335
 msgid "Index type:"
@@ -13926,7 +13917,7 @@ msgstr "Indextype:"
 #, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Gebruiker:"
+msgstr "Lezer:"
 
 #: libraries/tbl_indexes.lib.php:359
 msgid "Comment:"
