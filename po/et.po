@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-28 09:07-0500\n"
-"PO-Revision-Date: 2015-01-15 13:43+0200\n"
+"PO-Revision-Date: 2015-01-28 20:44+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -2315,41 +2315,38 @@ msgstr "Kustuta link peapaneeli"
 #: js/messages.php:479
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Kõigi serveris olevate andmebaaside filtreerimiseks vajuta otsingutermini "
+"järel Enterit"
 
 #: js/messages.php:480
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
-msgstr ""
+msgstr "Andmebaasis kõigi %s filtreerimiseks vajuta otsingutermini järel Enter"
 
 #: js/messages.php:481
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Tabelid"
+msgstr "tabelid"
 
 #: js/messages.php:482
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Vaated"
+msgstr "vaated"
 
 #: js/messages.php:483
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Toimingud"
+msgstr "toimingud"
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "event"
 msgid "events"
-msgstr "sündmus"
+msgstr "sündmused"
 
 #: js/messages.php:485
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "Funktsioonid"
+msgstr "funktsioonid"
 
 #: js/messages.php:488
 msgid "The requested page was not found in the history, it may have expired."
@@ -4856,13 +4853,12 @@ msgstr "Keelatud"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "võti"
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Näita veergude tabelit"
+msgstr "näita veergu"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -6266,13 +6262,12 @@ msgstr "Mälu piirang"
 
 #: libraries/config/messages.inc.php:418
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "Asendab navigeerimispaneelil andmebaasi puu valijaga"
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Kuva peidetud navigeerimispaneeli elemendid."
+msgstr "Kuva andmebaaside navigeerimine puuna"
 
 #: libraries/config/messages.inc.php:420
 msgid "Link with main panel by highlighting the current database or table."
@@ -6567,16 +6562,14 @@ msgid "Grid editing: trigger action"
 msgstr "Võrgustikmuutmine: tegevuse päästik"
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
-msgstr "Seose näitamise veerg"
+msgstr "Suhtestuskuva"
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Serverite näitamise valikud."
+msgstr "Kuvamise seaded"
 
 #: libraries/config/messages.inc.php:537
 msgid "Grid editing: save all edited cells at once"
@@ -8867,19 +8860,18 @@ msgstr ""
 "jõudlust. Kaalu navigeerimispaneelil elementide grupeerimise keelamist."
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s muu tulemus leitud"
-msgstr[1] "%s muud tulemust leitud"
+msgstr[0] "%s tulemus leitud"
+msgstr[1] "%s tulemust leitud"
 
 #: libraries/navigation/NavigationTree.class.php:1201
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Palun vali andmebaas"
+msgstr "Palun vali andmebaas."
 
 #: libraries/navigation/NavigationTree.class.php:1259
 msgid "Filter databases by name or regex"
@@ -13333,10 +13325,9 @@ msgid "Add %s column(s)"
 msgstr "Lisa %s veerg(u)"
 
 #: libraries/structure.lib.php:1712
-#, fuzzy
 #| msgid "Beginning of table"
 msgid "at beginning of table"
-msgstr "Tabel algus"
+msgstr "tabeli alguses"
 
 #: libraries/structure.lib.php:1717
 #: libraries/tbl_columns_definition_form.lib.php:811
@@ -13671,24 +13662,22 @@ msgid ""
 msgstr "\"PRIMARY\" <b>peab</b> olema <b>ainult</b> primaarvõtme nimi!"
 
 #: libraries/tbl_indexes.lib.php:307
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Indeksi puhvri maht"
+msgstr "Indeksi valik:"
 
 #: libraries/tbl_indexes.lib.php:323
 msgid "Key block size:"
-msgstr ""
+msgstr "Võtme ploki suurus:"
 
 #: libraries/tbl_indexes.lib.php:335
 msgid "Index type:"
 msgstr "Indeksi tüüp:"
 
 #: libraries/tbl_indexes.lib.php:347
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Kasutaja:"
+msgstr "Parser:"
 
 #: libraries/tbl_indexes.lib.php:359
 msgid "Comment:"
