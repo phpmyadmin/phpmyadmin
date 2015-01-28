@@ -777,7 +777,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
                 'Non_unique' => 0,
                 'Packed' => '',
                 'Key_name' => 'Key_name1',
-                'Index_type' => 'Index_type1',
+                'Index_choice' => 'Index_choice1',
                 'Column_name' => 'Column_name',
                 'Cardinality' => 'Cardinality',
                 'Collation' => 'Collation',
@@ -822,7 +822,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            htmlspecialchars($indexs[0]['Index_type']),
+            htmlspecialchars($indexs[0]['Index_choice']),
             $html
         );
         $this->assertContains(

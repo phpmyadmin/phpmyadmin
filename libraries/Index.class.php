@@ -47,7 +47,7 @@ class PMA_Index
     private $_columns = array();
 
     /**
-     * The index method used (BTREE, SPATIAL, FULLTEXT, HASH, RTREE).
+     * The index method used (BTREE, HASH, RTREE).
      *
      * @var string
      */
@@ -290,16 +290,22 @@ class PMA_Index
         if (isset($params['Packed'])) {
             $this->_packed = $params['Packed'];
         }
-        if ('PRIMARY' == $this->_name) {
-            $this->_choice = 'PRIMARY';
-        } elseif ('FULLTEXT' == $this->_type) {
-            $this->_choice = 'FULLTEXT';
-        } elseif ('SPATIAL' == $this->_type) {
-            $this->_choice = 'SPATIAL';
-        } elseif ('0' == $this->_non_unique) {
-            $this->_choice = 'UNIQUE';
+        if (isset($params['Index_choice'])) {
+            $this->_choice = $params['Index_choice'];
         } else {
-            $this->_choice = 'INDEX';
+            if ('PRIMARY' == $this->_name) {
+                $this->_choice = 'PRIMARY';
+            } elseif ('FULLTEXT' == $this->_type) {
+                $this->_choice = 'FULLTEXT';
+                $this->_type = '';
+            } elseif ('SPATIAL' == $this->_type) {
+                $this->_choice = 'SPATIAL';
+                $this->_type = '';
+            } elseif ('0' == $this->_non_unique) {
+                $this->_choice = 'UNIQUE';
+            } else {
+                $this->_choice = 'INDEX';
+            }
         }
     }
 
@@ -350,7 +356,7 @@ class PMA_Index
     }
 
     /**
-     * Returns index type ((BTREE, SPATIAL, FULLTEXT, HASH, RTREE)
+     * Returns index type (BTREE, HASH, RTREE)
      *
      * @return string index type
      */
@@ -386,13 +392,30 @@ class PMA_Index
     }
 
     /**
+     * Returns a lit of all index types
+     *
+     * @return string[] index types
+     */
+    static public function getIndexTypes()
+    {
+        return array(
+            'BTREE',
+            'HASH'
+        );
+    }
+
+    /**
      * Returns HTML for the index choice selector
+     *
+     * @param boolean $edit_table whether this is table editing
      *
      * @return string HTML for the index choice selector
      */
-    public function generateIndexSelector()
+    public function generateIndexChoiceSelector($edit_table)
     {
-        $html_options = '';
+        $html_options = '<select name="index[Index_choice]"'
+            . ' id="select_index_choice" '
+            . ($edit_table ? 'disabled="disabled"' : '') . '>';
 
         foreach (PMA_Index::getIndexChoices() as $each_index_choice) {
             if ($each_index_choice === 'PRIMARY'
@@ -408,8 +431,27 @@ class PMA_Index
                  : '')
                  . '>' . $each_index_choice . '</option>' . "\n";
         }
+        $html_options .= '</select>';
 
         return $html_options;
+    }
+
+    /**
+     * Returns HTML for the index type selector
+     *
+     * @return string HTML for the index type selector
+     */
+    public function generateIndexTypeSelector()
+    {
+        $types = array("" => "--");
+        foreach (PMA_Index::getIndexTypes() as $type) {
+            $types[$type] = $type;
+        }
+
+        return PMA_Util::getDropdown(
+            "index[Index_type]", $types,
+            $this->_type, "select_index_type"
+        );
     }
 
     /**
@@ -637,9 +679,13 @@ class PMA_Index
                     . htmlspecialchars($index->getName())
                     . '</td>';
             }
-            $r .= '<td ' . $row_span . '>'
-                . htmlspecialchars($index->getType())
-                . '</td>';
+            $r .= '<td ' . $row_span . '>';
+            if (! empty($index->getType())) {
+                $r .= htmlspecialchars($index->getType());
+            } else {
+                $r .= htmlspecialchars($index->getChoice());
+            }
+            $r .= '</td>';
             $r .= '<td ' . $row_span . '>' . $index->isUnique(true) . '</td>';
             $r .= '<td ' . $row_span . '>' . $index->isPacked(true) . '</td>';
 
@@ -691,7 +737,7 @@ class PMA_Index
         $data = array(
             // 'Non_unique'    => $this->_non_unique,
             'Packed'        => $this->_packed,
-            'Index_type'    => $this->_type,
+            'Index_choice'    => $this->_choice,
         );
 
         foreach ($this->_columns as $column) {
