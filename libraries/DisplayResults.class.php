@@ -3912,7 +3912,7 @@ class PMA_DisplayResults
             // The current session value has priority over a
             // change via Settings; this change will be apparent
             // starting from the next session
-            $query['relational_display'] = $GLOBALS['cfg']['RelationalDisplay']; 
+            $query['relational_display'] = $GLOBALS['cfg']['RelationalDisplay'];
         }
 
         if (PMA_isValid(
