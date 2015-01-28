@@ -146,6 +146,11 @@ function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
         $sql_query .= ' (' . implode(', ', $index_fields) . ')';
     }
 
+    if (! empty($index->getKeyBlockSize())) {
+        $sql_query .= " KEY_BLOCK_SIZE = "
+            . PMA_Util::sqlAddSlashes($index->getKeyBlockSize());
+    }
+
     // specifying index type is allowed only for primary, unique and index only
     if ($index->getChoice() != 'SPATIAL'
         && $index->getChoice() != 'FULLTEXT'
@@ -154,9 +159,16 @@ function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
         $sql_query .= ' USING ' . $index->getType();
     }
 
-    $sql_query .= " COMMENT '"
-        . PMA_Util::sqlAddSlashes($index->getComment())
-        . "'";
+    if ($index->getChoice() == 'FULLTEXT' && ! empty($index->getParser())) {
+        $sql_query .= " WITH PARSER "
+            . PMA_Util::sqlAddSlashes($index->getParser());
+    }
+
+    if (! empty($index->getComment())) {
+        $sql_query .= " COMMENT '"
+            . PMA_Util::sqlAddSlashes($index->getComment()) . "'";
+    }
+
     $sql_query .= ';';
 
     return $sql_query;
@@ -289,20 +301,6 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
     $html .= '<div>'
         . '<div class="label">'
         . '<strong>'
-        . '<label for="input_index_comment">'
-        . __('Comment:')
-        . '</label>'
-        . '</strong>'
-        . '</div>'
-        . '<input type="text" name="index[Index_comment]" '
-        . 'id="input_index_comment" size="30"'
-        . 'value="' . htmlspecialchars($index->getComment()) . '"'
-        . 'onfocus="this.select()" />'
-        . '</div>';
-
-    $html .= '<div>'
-        . '<div class="label">'
-        . '<strong>'
         . '<label for="select_index_choice">'
         . __('Index choice:')
         . PMA_Util::showMySQLDocu('ALTER_TABLE')
@@ -315,6 +313,18 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
     $html .= '<div>'
         . '<div class="label">'
         . '<strong>'
+        . '<label for="input_key_block_size">'
+        . __('Key block size:')
+        . '</label>'
+        . '</strong>'
+        . '</div>'
+        . '<input type="text" name="index[Key_block_size]" '
+        . 'id="input_key_block_size" size="30" value="" />'
+        . '</div>';
+
+    $html .= '<div>'
+        . '<div class="label">'
+        . '<strong>'
         . '<label for="select_index_type">'
         . __('Index type:')
         . PMA_Util::showMySQLDocu('ALTER_TABLE')
@@ -322,6 +332,31 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         . '</strong>'
         . '</div>'
         . $index->generateIndexTypeSelector()
+        . '</div>';
+
+    $html .= '<div>'
+        . '<div class="label">'
+        . '<strong>'
+        . '<label for="input_parser">'
+        . __('Parser:')
+        . '</label>'
+        . '</strong>'
+        . '</div>'
+        . '<input type="text" name="index[Parser]" '
+        . 'id="input_parse" size="30" value="" />'
+        . '</div>';
+
+    $html .= '<div>'
+        . '<div class="label">'
+        . '<strong>'
+        . '<label for="input_index_comment">'
+        . __('Comment:')
+        . '</label>'
+        . '</strong>'
+        . '</div>'
+        . '<input type="text" name="index[Index_comment]" '
+        . 'id="input_index_comment" size="30"'
+        . 'value="' . htmlspecialchars($index->getComment()) . '" />'
         . '</div>';
 
     $html .= '<div class="clearfloat"></div>';

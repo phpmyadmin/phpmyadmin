@@ -88,6 +88,20 @@ class PMA_Index
     private $_packed = null;
 
     /**
+     * Block size for the index
+     *
+     * @var int
+     */
+    private $_key_block_size = null;
+
+    /**
+     * Parser option for the index
+     *
+     * @var string
+     */
+    private $_parser = null;
+
+    /**
      * Constructor
      *
      * @param array $params parameters
@@ -307,6 +321,12 @@ class PMA_Index
                 $this->_choice = 'INDEX';
             }
         }
+        if (isset($params['Key_block_size'])) {
+            $this->_key_block_size = $params['Key_block_size'];
+        }
+        if (isset($params['Parser'])) {
+            $this->_parser = $params['Parser'];
+        }
     }
 
     /**
@@ -337,6 +357,26 @@ class PMA_Index
     public function getRemarks()
     {
         return $this->_remarks;
+    }
+
+    /**
+     * Return the key block size
+     *
+     * @return number
+     */
+    public function getKeyBlockSize()
+    {
+        return $this->_key_block_size;
+    }
+
+    /**
+     * Return the parser
+     *
+     * @return string
+     */
+    public function getParser()
+    {
+        return $this->_parser;
     }
 
     /**
