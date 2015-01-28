@@ -92,7 +92,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
             $index->getComments()
         );
         $this->assertEquals(
-            'INDEX',
+            'PMA_Index_choice',
             $index->getChoice()
         );
 
