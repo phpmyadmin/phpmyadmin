@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-27 07:54-0500\n"
-"PO-Revision-Date: 2015-01-14 17:02+0200\n"
+"PO-Revision-Date: 2015-01-28 07:34+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -1655,7 +1655,7 @@ msgstr "Έλεγχος"
 
 #: js/messages.php:249
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Διαμόρφωση SQL…"
 
 #: js/messages.php:253 libraries/db_designer.lib.php:823
 #: libraries/db_designer.lib.php:872 libraries/db_designer.lib.php:1016
@@ -2345,41 +2345,40 @@ msgstr "Αποσύνδεση από τον βασικό πίνακα"
 #: js/messages.php:479
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Για να φιλτράρετε όλες τις βάσεις δεδομένων στον διακομιστή, πατήστε το "
+"Enter μετά τον όρο αναζήτησης"
 
 #: js/messages.php:480
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Για να φιλτράρετε όλα τα %s στη βάση δεδομένων, πατήστε το Enter μετά τον "
+"όρο αναζήτησης"
 
 #: js/messages.php:481
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Πίνακες"
+msgstr "πίνακες"
 
 #: js/messages.php:482
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Προβολές"
+msgstr "προβολές"
 
 #: js/messages.php:483
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Διαδικασίες"
+msgstr "διαδικασίες"
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "event"
 msgid "events"
-msgstr "συμβάν"
+msgstr "συμβάντα"
 
 #: js/messages.php:485
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "Συναρτήσεις"
+msgstr "συναρτήσεις"
 
 #: js/messages.php:488
 msgid "The requested page was not found in the history, it may have expired."
@@ -6342,12 +6341,13 @@ msgstr "Όριο μνήμης"
 #: libraries/config/messages.inc.php:418
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
+"στον πίνακα πλοήγησης, αντικαθιστά το δέντρο της βάσης δεδομένων με έναν "
+"επιλογέα"
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Προβολή κρυφών αντικειμένων δέντρου πλοήγησης."
+msgstr "Προβολή πλοήγησης βάσεων δεδομένων ως δέντρο"
 
 #: libraries/config/messages.inc.php:420
 msgid "Link with main panel by highlighting the current database or table."
@@ -8998,19 +8998,18 @@ msgstr ""
 "αντικειμένων στον πίνακα πλοήγησης."
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s άλλο αποτέλεσμα βρέθηκε"
-msgstr[1] "%s άλλα αποτελέσματα βρέθηκαν"
+msgstr[0] "%s αποτέλεσμα βρέθηκε"
+msgstr[1] "%s αποτελέσματα βρέθηκαν"
 
 #: libraries/navigation/NavigationTree.class.php:1201
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Παρακαλώ επιλέξτε μία βάση δεδομένων"
+msgstr "Παρακαλώ επιλέξτε μία βάση δεδομένων."
 
 #: libraries/navigation/NavigationTree.class.php:1259
 msgid "Filter databases by name or regex"
@@ -13577,10 +13576,9 @@ msgid "Add %s column(s)"
 msgstr "Προσθήκη %s στήλης(ών)"
 
 #: libraries/structure.lib.php:1712
-#, fuzzy
 #| msgid "Beginning of table"
 msgid "at beginning of table"
-msgstr "Αρχή του πίνακα"
+msgstr "στην αρχή του πίνακα"
 
 #: libraries/structure.lib.php:1717
 #: libraries/tbl_columns_definition_form.lib.php:811
