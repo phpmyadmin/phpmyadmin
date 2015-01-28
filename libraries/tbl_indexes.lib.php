@@ -146,27 +146,29 @@ function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
         $sql_query .= ' (' . implode(', ', $index_fields) . ')';
     }
 
-    if (! empty($index->getKeyBlockSize())) {
+    $keyBlockSizes = $index->getKeyBlockSize();
+    if (! empty($keyBlockSizes)) {
         $sql_query .= " KEY_BLOCK_SIZE = "
-            . PMA_Util::sqlAddSlashes($index->getKeyBlockSize());
+             . PMA_Util::sqlAddSlashes($keyBlockSizes);
     }
 
     // specifying index type is allowed only for primary, unique and index only
+    $type = $index->getType();
     if ($index->getChoice() != 'SPATIAL'
         && $index->getChoice() != 'FULLTEXT'
-        && in_array($index->getType(), PMA_Index::getIndexTypes())
+        && in_array($type, PMA_Index::getIndexTypes())
     ) {
-        $sql_query .= ' USING ' . $index->getType();
+        $sql_query .= ' USING ' . $type;
     }
 
-    if ($index->getChoice() == 'FULLTEXT' && ! empty($index->getParser())) {
-        $sql_query .= " WITH PARSER "
-            . PMA_Util::sqlAddSlashes($index->getParser());
+    $parser = $index->getParser();
+    if ($index->getChoice() == 'FULLTEXT' && ! empty($parser)) {
+        $sql_query .= " WITH PARSER " . PMA_Util::sqlAddSlashes($parser);
     }
 
-    if (! empty($index->getComment())) {
-        $sql_query .= " COMMENT '"
-            . PMA_Util::sqlAddSlashes($index->getComment()) . "'";
+    $comment = $index->getComment();
+    if (! empty($comment)) {
+        $sql_query .= " COMMENT '" . PMA_Util::sqlAddSlashes($comment) . "'";
     }
 
     $sql_query .= ';';
