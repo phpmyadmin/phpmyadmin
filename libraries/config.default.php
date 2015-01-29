@@ -1102,6 +1102,19 @@ $cfg['SaveCellsAtOnce'] = false;
  */
 $cfg['GridEditing'] ='double-click';
 
+/**
+ * Options > Relational display
+ *
+ * Possible values:
+ * 'K' for key value
+ * 'D' for display column
+ *
+ * @global string $cfg['RelationalDisplay']
+ *
+ */
+
+$cfg['RelationalDisplay'] = 'K';
+
 
 /*******************************************************************************
  * In edit mode...
