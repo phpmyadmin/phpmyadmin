@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #4734 Default values for binary fields do not support binary values
 - bug #4736 Changing display options breaks query highlighting
 - bug       Undefined index submit_type
+- bug #4738 Header lose align when scrolling in Firefox
 
 4.3.8.0 (2015-01-24)
 - bug       Undefined constant PMA_DRIZZLE
