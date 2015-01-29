@@ -506,12 +506,12 @@ AJAX.registerOnload('indexes.js', function () {
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
-    })
+    });
 
     $(document).on('click', '#preview_index_frm', function (event) {
         event.preventDefault();
         PMA_previewSQL($('#index_frm'));
-    })
+    });
 
     $(document).on('change', '#select_index_choice', function (event) {
         event.preventDefault();
