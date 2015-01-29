@@ -793,7 +793,11 @@ function rearrangeStickyColumns() {
     var $clonedHeader = $originalHeader.clone();
     // clone width per cell
     $clonedHeader.find("tr:first").children().width(function(i,val) {
-        return Math.floor($originalColumns.eq(i).width()) + 1;
+    	var width = $originalColumns.eq(i).width();
+    	if (! $.browser.mozilla) {
+    		width += 1;
+    	}
+    	return width;
     });
     $sticky_columns.empty().append($clonedHeader);
 }
