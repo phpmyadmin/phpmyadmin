@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-28 09:07-0500\n"
-"PO-Revision-Date: 2015-01-28 07:34+0200\n"
+"PO-Revision-Date: 2015-01-29 11:51+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -4910,13 +4910,12 @@ msgstr "Απενεργοποιημένη"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "κλειδί"
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Πίνακας προβολής στηλών"
+msgstr "προβολή στήλης"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -6661,16 +6660,14 @@ msgid "Grid editing: trigger action"
 msgstr "Επεξεργασία καννάβου: πρόκληση δράσης"
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
-msgstr "Στήλη προβολής συσχέτισης"
+msgstr "Σχεσιακή προβολή"
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Επιλογές προβολής διακομιστών."
+msgstr "Για Επιλογές προβολής"
 
 #: libraries/config/messages.inc.php:537
 msgid "Grid editing: save all edited cells at once"
@@ -13928,24 +13925,22 @@ msgstr ""
 "<b>μόνο αυτού</b>!"
 
 #: libraries/tbl_indexes.lib.php:307
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Μέγεθος λανθάνουσας μνήμης ευρετηρίου"
+msgstr "Επιλογή ευρετηρίου:"
 
 #: libraries/tbl_indexes.lib.php:323
 msgid "Key block size:"
-msgstr ""
+msgstr "Μέγεθος μπλοκ κλειδιού:"
 
 #: libraries/tbl_indexes.lib.php:335
 msgid "Index type:"
 msgstr "Τύπος ευρετηρίου:"
 
 #: libraries/tbl_indexes.lib.php:347
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Χρήστης:"
+msgstr "Μεταφραστής:"
 
 #: libraries/tbl_indexes.lib.php:359
 msgid "Comment:"
