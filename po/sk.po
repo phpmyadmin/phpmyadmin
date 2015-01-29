@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-27 15:38+0200\n"
+"PO-Revision-Date: 2015-01-29 21:30+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/sk/>\n"
@@ -13707,10 +13707,10 @@ msgid "Input transformation options"
 msgstr "Vstupné parametre transformácie"
 
 #: libraries/tbl_columns_definition_form.lib.php:583
-#, fuzzy, php-format
+#, php-format
 #| msgid "Select referenced key"
 msgid "Referenced by %s."
-msgstr "Zvoliť odkazovaný kľúč"
+msgstr "Odkazované v %s."
 
 #: libraries/tbl_columns_definition_form.lib.php:591
 #| msgid "Select Foreign Key"
@@ -13853,10 +13853,9 @@ msgid "Actions"
 msgstr "Akcie"
 
 #: libraries/tbl_relation.lib.php:375
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "Obmedzenie pre tabuľku"
+msgstr "Nastavenia obmedzenia"
 
 #: libraries/tbl_relation.lib.php:380
 msgid ""
