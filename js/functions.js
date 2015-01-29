@@ -3363,8 +3363,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
             .dialog({
                 title: title,
                 width: 450,
-                // increase the chance that the footer will be visible:
-                height: 450,
+                height: 350,
                 open: PMA_verifyColumnsProperties,
                 modal: true,
                 buttons: button_options,
@@ -3372,40 +3371,46 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
                     $(this).remove();
                 }
             });
-            checkIndexType();
-            checkIndexName("index_frm");
-            $('#index_columns td').each(function () {
-                $(this).css("width", $(this).width() + 'px');
-            });
-            $('#index_columns tbody').sortable();
-            PMA_showHints($div);
-            PMA_init_slider();
-            // Add a slider for selecting how many columns to add to the index
-            $div.find('.slider').slider({
-                animate: true,
-                value: 1,
-                min: 1,
-                max: 16,
-                slide: function (event, ui) {
-                    $(this).closest('fieldset').find('input[type=submit]').val(
-                        PMA_sprintf(PMA_messages.strAddToIndex, ui.value)
-                    );
-                }
-            });
-            // focus index size input on column picked
-            $div.find('table#index_columns select').change(function () {
-                if ($(this).find("option:selected").val() === '') {
-                    return true;
-                }
-                $(this).closest("tr").find("input").focus();
-            });
-            // Focus the slider, otherwise it looks nearly transparent
-            $('a.ui-slider-handle').addClass('ui-state-focus');
-            // set focus on index name input, if empty
-            var input = $div.find('input#input_index_name');
-            input.val() || input.focus();
+            $div.find('.tblFooters').remove();
+            showIndexEditDialog($div);
         }
     }); // end $.get()
+}
+
+function showIndexEditDialog($outer)
+{
+    checkIndexType();
+    checkIndexName("index_frm");
+    $('#index_columns td').each(function () {
+        $(this).css("width", $(this).width() + 'px');
+    });
+    $('#index_columns tbody').sortable();
+    PMA_showHints($outer);
+    PMA_init_slider();
+    // Add a slider for selecting how many columns to add to the index
+    $outer.find('.slider').slider({
+        animate: true,
+        value: 1,
+        min: 1,
+        max: 16,
+        slide: function (event, ui) {
+            $(this).closest('fieldset').find('input[type=submit]').val(
+                PMA_sprintf(PMA_messages.strAddToIndex, ui.value)
+            );
+        }
+    });
+    // focus index size input on column picked
+    $outer.find('table#index_columns select').change(function () {
+        if ($(this).find("option:selected").val() === '') {
+            return true;
+        }
+        $(this).closest("tr").find("input").focus();
+    });
+    // Focus the slider, otherwise it looks nearly transparent
+    $('a.ui-slider-handle').addClass('ui-state-focus');
+    // set focus on index name input, if empty
+    var input = $outer.find('input#input_index_name');
+    input.val() || input.focus();
 }
 
 /**

@@ -37,7 +37,7 @@ function checkIndexType()
     /**
      * @var Object Footer containg the controllers to add more columns
      */
-    $add_more = $('#index_frm .tblFooters');
+    $add_more = $('#index_frm .add_more');
 
     if ($select_index_choice.val() == 'SPATIAL') {
         // Disable and hide the size column
@@ -469,6 +469,8 @@ function PMA_indexTypeSelectionDialog(source_array, index_choice, col_index)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('indexes.js', function () {
+    $(document).off('click', '#save_index_frm');
+    $(document).off('click', '#preview_index_frm');
     $(document).off('change', '#select_index_choice');
     $(document).off('click', 'a.drop_primary_key_index_anchor.ajax');
     $(document).off('click', "#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax");
@@ -492,8 +494,25 @@ AJAX.registerOnload('indexes.js', function () {
     indexes = [];
     fulltext_indexes = [];
 
-    checkIndexType();
-    checkIndexName("index_frm");
+    var $form = $("#index_frm");
+    if ($form.length > 0) {
+        showIndexEditDialog($form);
+    }
+
+    $(document).on('click', '#save_index_frm', function (event) {
+        event.preventDefault();
+        var $form = $("#index_frm");
+        var submitData = $form.serialize() + '&do_save_data=1&ajax_request=true&ajax_page_request=true';
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+        AJAX.source = $form;
+        $.post($form.attr('action'), submitData, AJAX.responseHandler);
+    })
+
+    $(document).on('click', '#preview_index_frm', function (event) {
+        event.preventDefault();
+        PMA_previewSQL($('#index_frm'));
+    })
+
     $(document).on('change', '#select_index_choice', function (event) {
         event.preventDefault();
         checkIndexType();
