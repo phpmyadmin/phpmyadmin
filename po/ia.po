@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-28 09:07-0500\n"
-"PO-Revision-Date: 2015-01-15 14:35+0200\n"
+"PO-Revision-Date: 2015-01-29 09:00+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -2362,34 +2362,29 @@ msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 
 #: js/messages.php:481
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Tabellas"
+msgstr "tabellas"
 
 #: js/messages.php:482
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Vistas"
+msgstr "vistas"
 
 #: js/messages.php:483
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Proceduras"
+msgstr "proceduras"
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "Events"
 msgid "events"
-msgstr "Eventos"
+msgstr "eventos"
 
 #: js/messages.php:485
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "Functiones"
+msgstr "functiones"
 
 #: js/messages.php:488
 msgid "The requested page was not found in the history, it may have expired."
@@ -4935,10 +4930,9 @@ msgid "key"
 msgstr ""
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Monstra tabella de columnas"
+msgstr "monstra columna"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -6372,10 +6366,9 @@ msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Monstra elementos de arbore de navigation celate."
+msgstr "monstra navigation de base de datos como arbore"
 
 #: libraries/config/messages.inc.php:420
 msgid "Link with main panel by highlighting the current database or table."
@@ -6682,16 +6675,14 @@ msgid "Grid editing: trigger action"
 msgstr "Action discatenante modifica de grillia"
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
-msgstr "Columna de monstra relational"
+msgstr "Monstra de modo relational"
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Optiones pro monstrar servitores."
+msgstr "Optiones pro monstrar"
 
 #: libraries/config/messages.inc.php:537
 msgid "Grid editing: save all edited cells at once"
@@ -9027,23 +9018,22 @@ msgid ""
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] ""
-"One\n"
-"%s il trovava un resultato"
+"Uno\n"
+"%s resultato trovate"
 msgstr[1] ""
-"Other\n"
-"%s il trovava altere resultatos"
+"Altere\n"
+"%s resultatos trovate"
 
 #: libraries/navigation/NavigationTree.class.php:1201
-#, fuzzy
 #| msgid "Select database"
 msgid "Please select a database."
-msgstr "Selige un base de datos"
+msgstr "Pro favor selige un base de datos."
 
 #: libraries/navigation/NavigationTree.class.php:1259
 msgid "Filter databases by name or regex"
@@ -13181,10 +13171,9 @@ msgid "Add %s column(s)"
 msgstr ""
 
 #: libraries/structure.lib.php:1712
-#, fuzzy
 #| msgid "Beginning of table"
 msgid "at beginning of table"
-msgstr "Initio de tabella"
+msgstr "a le nitio de tabella"
 
 #: libraries/structure.lib.php:1717
 #: libraries/tbl_columns_definition_form.lib.php:811
@@ -13509,10 +13498,9 @@ msgid ""
 msgstr ""
 
 #: libraries/tbl_indexes.lib.php:307
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Grandor de cache de indice"
+msgstr "Selection de indice:"
 
 #: libraries/tbl_indexes.lib.php:323
 msgid "Key block size:"
@@ -13523,10 +13511,9 @@ msgid "Index type:"
 msgstr "Typo de indice:"
 
 #: libraries/tbl_indexes.lib.php:347
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Usator:"
+msgstr "Analysator (parser):"
 
 #: libraries/tbl_indexes.lib.php:359
 msgid "Comment:"
