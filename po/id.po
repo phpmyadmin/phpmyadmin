@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-28 09:07-0500\n"
-"PO-Revision-Date: 2015-01-28 03:30+0200\n"
+"PO-Revision-Date: 2015-01-29 02:58+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/id/>\n"
+"Language-Team: Indonesian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Basepath: ../../..\n"
@@ -1636,7 +1636,7 @@ msgstr "Uji"
 
 #: js/messages.php:249
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Memformat SQL..."
 
 #: js/messages.php:253 libraries/db_designer.lib.php:823
 #: libraries/db_designer.lib.php:872 libraries/db_designer.lib.php:1016
@@ -1842,13 +1842,12 @@ msgid "Are you sure?"
 msgstr "Anda yakin?"
 
 #: js/messages.php:314
-#, fuzzy
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
-"Tindakan ini dapat mengubah beberapa definisi kolom. <br/> Yakin ingin "
-"melanjutkan?"
+"Tindakan ini mungkin mengubah beberapa definisi kolom. <br/> Anda yakin "
+"ingin melanjutkan?"
 
 #: js/messages.php:315
 msgid "Continue"
@@ -1870,17 +1869,16 @@ msgid "Taking you to next step…"
 msgstr "Laporan pelacakan"
 
 #: js/messages.php:321
-#, fuzzy, php-format
+#, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "Llangkah pertama normalisasi selesai untuk tabel '%s'."
+msgstr "Langkah pertama normalisasi selesai untuk tabel '%s'."
 
 #: js/messages.php:322 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
 #: libraries/normalization.lib.php:612
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Akhir baris"
+msgstr "Langkah terakhir"
 
 #: js/messages.php:323
 msgid "Second step of normalization (2NF)"
@@ -16530,10 +16528,9 @@ msgid "Threads that are slow to launch"
 msgstr "Thread lambat untuk diluncurkan"
 
 #: libraries/advisory_rules.txt:379
-#, fuzzy
 #| msgid "There are too many joins without indexes."
 msgid "There are too many threads that are slow to launch."
-msgstr "Terlalu banyak thread sehingga lama untuk diluncurkan."
+msgstr "Terlalu banyak thread sehingga lambat untuk diluncurkan."
 
 #: libraries/advisory_rules.txt:380
 msgid ""
