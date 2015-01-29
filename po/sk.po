@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-28 09:07-0500\n"
-"PO-Revision-Date: 2015-01-27 15:38+0200\n"
+"PO-Revision-Date: 2015-01-29 21:30+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -4850,10 +4850,9 @@ msgid "key"
 msgstr ""
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Zobrazenie stĺpcov tabuľky"
+msgstr "zobraziť stĺpec"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -6537,10 +6536,9 @@ msgid "Grid editing: trigger action"
 msgstr "Úprava mriežky: vyvolať akciu"
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
-msgstr "Relačné zobrazenie stĺpcov"
+msgstr "Relačné zobrazenie"
 
 #: libraries/config/messages.inc.php:536
 #, fuzzy
@@ -13150,10 +13148,9 @@ msgid "Add %s column(s)"
 msgstr "Pridať %s stĺpcov"
 
 #: libraries/structure.lib.php:1712
-#, fuzzy
 #| msgid "Beginning of table"
 msgid "at beginning of table"
-msgstr "Začiatok tabuľky"
+msgstr "na začiatku tabuľky"
 
 #: libraries/structure.lib.php:1717
 #: libraries/tbl_columns_definition_form.lib.php:811
@@ -13425,10 +13422,10 @@ msgid "Input transformation options"
 msgstr "Vstupné parametre transformácie"
 
 #: libraries/tbl_columns_definition_form.lib.php:581
-#, fuzzy, php-format
+#, php-format
 #| msgid "Select referenced key"
 msgid "Referenced by %s."
-msgstr "Zvoliť odkazovaný kľúč"
+msgstr "Odkazované v %s."
 
 #: libraries/tbl_columns_definition_form.lib.php:589
 msgid "Is a foreign key."
@@ -13499,10 +13496,9 @@ msgid ""
 msgstr "\"PRIMARY\" <b>musí</b> byť <b>iba</b> meno primárneho kľúča!"
 
 #: libraries/tbl_indexes.lib.php:307
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Veľkosť vyrovnávacej pamäte indexu"
+msgstr "Výber indexu:"
 
 #: libraries/tbl_indexes.lib.php:323
 msgid "Key block size:"
@@ -13561,10 +13557,9 @@ msgid "Actions"
 msgstr "Akcie"
 
 #: libraries/tbl_relation.lib.php:375
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "Obmedzenie pre tabuľku"
+msgstr "Nastavenia obmedzenia"
 
 #: libraries/tbl_relation.lib.php:380
 msgid ""
