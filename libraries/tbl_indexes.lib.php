@@ -459,16 +459,19 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
 
     $html .= '</table>';
 
-    $html .= '</fieldset>';
-
-    $html .= '<fieldset class="tblFooters">';
-
+    $html .= '<div class="add_more">';
     $btn_value = sprintf(__('Add %s column(s) to index'), 1);
     $html .= '<div class="slider"></div>';
     $html .= '<div class="add_fields">';
-    $html .= '<input type="submit" value="' . $btn_value . '" />';
+    $html .= '<input type="submit" id="add_fields" value="' . $btn_value . '" />';
+    $html .= '</div>';
     $html .= '</div>';
 
+    $html .= '</fieldset>';
+
+    $html .= '<fieldset class="tblFooters">';
+    $html .= '<button type="submit" id="preview_index_frm">' . __('Preview SQL') . '</button>';
+    $html .= '<input type="submit" id="save_index_frm" value="' . __('Go') . '" />';
     $html .= '</fieldset>';
 
     $html .= '</form>';
