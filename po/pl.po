@@ -15434,7 +15434,6 @@ msgstr ""
 #: libraries/advisory_rules.txt:240
 msgid "Rate of reading first index entry"
 msgstr ""
-"Tabela dołącza średnią: %s, wartość ta powinna być mniejsza niż 1 na godzinę"
 
 #: libraries/advisory_rules.txt:243
 msgid "The rate of reading the first index entry is high."

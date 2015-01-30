@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - bug #4736 Changing display options breaks query highlighting
 - bug       Undefined index submit_type
 - bug #4738 Header lose align when scrolling in Firefox
+- bug #4741 in ./libraries/Advisor.class.php#184 vsprintf(): Too few arguments
 
 4.3.8.0 (2015-01-24)
 - bug       Undefined constant PMA_DRIZZLE
