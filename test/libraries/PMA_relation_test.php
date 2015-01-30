@@ -299,7 +299,9 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
                   'master_field' => 'value',
                   'foreign_db' => 'GSoC14',
                   'foreign_table' => 'test',
-                  'foreign_field' => 'value'
+                  'foreign_field' => 'value',
+                  'on_update' => 'CASCADE',
+                  'on_delete' => 'CASCADE'
             ),
             'foreign_keys_data' => array(
                 0 => array(
