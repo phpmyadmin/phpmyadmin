@@ -340,8 +340,7 @@ msgstr "Dados de rastreamento apagados com sucesso."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
-"Versão %1$s foi criada para as tabelas selecionadas, rastreamento ativo para "
-"%2$s."
+"Versão %1$s foi criada para as tabelas selecionadas, rastreamento ativo para %2$s."
 
 #: db_tracking.php:78
 #| msgid "No databases selected."
