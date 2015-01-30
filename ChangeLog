@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 + rfe #767 USING BTREE support for HEAP/MEMORY tables
 + rfe #1596 Make "Options > Relational" configurable
 + rfe #719 more details in PDF relation view
++ rfe #1096 cannot enter connection for federated engine table
 
 4.3.9.0 (not yet released)
 - bug #4728 Incorrect headings in routine editor

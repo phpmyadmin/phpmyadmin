@@ -272,6 +272,13 @@ function PMA_getTableCreationQuery($db, $table)
     if (!empty($_REQUEST['tbl_collation'])) {
         $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
     }
+    if (! empty($_REQUEST['connection'])
+        && ! empty($_REQUEST['tbl_storage_engine'])
+        && $_REQUEST['tbl_storage_engine'] == 'FEDERATED'
+    ) {
+        $sql_query .= " CONNECTION = '"
+            . PMA_Util::sqlAddSlashes($_REQUEST['connection']) . "'";
+    }
     if (!empty($_REQUEST['comment'])) {
         $sql_query .= ' COMMENT = \''
             . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';

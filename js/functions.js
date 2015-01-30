@@ -2807,6 +2807,7 @@ AJAX.registerTeardown('functions.js', function () {
     $(document).off('change', "select.column_type");
     $(document).off('change', "select.default_type");
     $(document).off('change', 'input.allow_null');
+    $(document).off('change', '.create_table_form select[name=tbl_storage_engine]');
 });
 /**
  * Toggle the hiding/showing of the "Open in ENUM/SET editor" message when
@@ -2827,7 +2828,33 @@ AJAX.registerOnload('functions.js', function () {
     $(document).on('change', 'input.allow_null', function () {
         PMA_validateDefaultValue($(this));
     });
+    $(document).on('change', '.create_table_form select[name=tbl_storage_engine]', function () {
+        PMA_hideShowConnection($(this));
+    });
 });
+
+/**
+ * If the chosen storage engine is FEDERATED show connection field. Hide otherwise
+ *
+ * @param $engine_selector storage engine selector
+ */
+function PMA_hideShowConnection($engine_selector)
+{
+    var $connection = $('.create_table_form input[name=connection]');
+    var index = $connection.parent('td').index() + 1;
+    var $labelTh = $connection.parents('tr').prev('tr').children('th:nth-child(' + index + ')');
+    if ($engine_selector.val() != 'FEDERATED') {
+        $connection
+            .prop('disabled', true)
+            .parent('td').hide();
+        $labelTh.hide();
+    } else {
+        $connection
+            .prop('disabled', false)
+            .parent('td').show();
+        $labelTh.show();
+    }
+}
 
 /**
  * If the column does not allow NULL values, makes sure that default is not NULL

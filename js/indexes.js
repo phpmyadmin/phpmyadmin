@@ -494,6 +494,12 @@ AJAX.registerOnload('indexes.js', function () {
     indexes = [];
     fulltext_indexes = [];
 
+    // for table creation form
+    var $engine_selector = $('.create_table_form select[name=tbl_storage_engine]');
+    if ($engine_selector.length) {
+        PMA_hideShowConnection($engine_selector);
+    }
+
     var $form = $("#index_frm");
     if ($form.length > 0) {
         showIndexEditDialog($form);

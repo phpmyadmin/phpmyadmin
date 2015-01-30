@@ -66,22 +66,41 @@ function PMA_getFormsParameters(
  */
 function PMA_getHtmlForTableConfigurations()
 {
-    $html = '<table>'
-        . '<tr class="vtop">'
+    $html  = '<table>';
+    $html .= '<tr class="vtop">'
         . '<th>' . __('Table comments:') . '</th>'
         . '<td width="25">&nbsp;</td>'
-        . '<th>' . __('Storage Engine:')
+        . '<th>' . __('Collation:') . '</th>'
+        . '<td width="25">&nbsp;</td>'
+        . '<th>'
+        . __('Storage Engine:')
         . PMA_Util::showMySQLDocu('Storage_engines')
         . '</th>'
         . '<td width="25">&nbsp;</td>'
-        . '<th>' . __('Collation:') . '</th>'
-        . '</tr>'
-        . '<tr><td><input type="text" name="comment" size="40" maxlength="80"'
+        . '<th>'
+        . __('Connection:')
+        . PMA_Util::showMySQLDocu('federated-create-connection')
+        . '</th>'
+        . '</tr>';
+
+    $html .= '<tr>'
+        . '<td><input type="text" name="comment" size="40" maxlength="80"'
         . ' value="'
         . (isset($_REQUEST['comment'])
         ? htmlspecialchars($_REQUEST['comment'])
         : '')
         . '" class="textfield" />'
+        . '</td>'
+        . '<td width="25">&nbsp;</td>'
+        . '<td>'
+        . PMA_generateCharsetDropdownBox(
+            PMA_CSDROPDOWN_COLLATION, 'tbl_collation', null,
+            (isset($_REQUEST['tbl_collation'])
+                ? $_REQUEST['tbl_collation']
+                : null
+            ),
+            false
+        )
         . '</td>'
         . '<td width="25">&nbsp;</td>'
         . '<td>'
@@ -94,15 +113,12 @@ function PMA_getHtmlForTableConfigurations()
         )
         . '</td>'
         . '<td width="25">&nbsp;</td>'
-        . '<td>'
-        . PMA_generateCharsetDropdownBox(
-            PMA_CSDROPDOWN_COLLATION, 'tbl_collation', null,
-            (isset($_REQUEST['tbl_collation'])
-                ? $_REQUEST['tbl_collation']
-                : null
-            ),
-            false
-        )
+        . '<td><input type="text" name="connection" size="40"'
+        . ' value="' . (isset($_REQUEST['connection'])
+            ? htmlspecialchars($_REQUEST['connection'])
+            : '') . '"'
+        . ' placeholder="scheme://user_name[:password]@host_name[:port_num]/db_name/tbl_name"'
+        . ' class="textfield" required="required" />'
         . '</td>'
         . '</tr>';
 
