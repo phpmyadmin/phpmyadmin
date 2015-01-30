@@ -1188,8 +1188,6 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
  * @param array|null $extracted_columnspec             extracted column spec
  * @param string     $submit_attribute                 submit attribute
  * @param array|null $analyzed_sql                     analyzed sql
- * @param string     $submit_default_current_timestamp submit default current
- *                                                     timestamp
  * @param array      $comments_map                     comments map
  * @param array|null $fields_meta                      fields map
  * @param bool       $is_backup                        is backup
@@ -1203,7 +1201,7 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
 function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
     $length_values_input_size, $length, $default_current_timestamp,
     $extracted_columnspec, $submit_attribute, $analyzed_sql,
-    $submit_default_current_timestamp, $comments_map, $fields_meta, $is_backup,
+    $comments_map, $fields_meta, $is_backup,
     $move_columns, $cfgRelation, $available_mime, $mime_map
 ) {
     // Cell index: If certain fields get left out, the counter shouldn't change.

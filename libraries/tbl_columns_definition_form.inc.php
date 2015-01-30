@@ -166,8 +166,6 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         isset($extracted_columnspec) ? $extracted_columnspec : null,
         isset($submit_attribute) ? $submit_attribute : null,
         isset($analyzed_sql) ? $analyzed_sql : null,
-        isset($submit_default_current_timestamp)
-        ? $submit_default_current_timestamp : null,
         $comments_map, isset($fields_meta) ? $fields_meta : null, $is_backup,
         isset($move_columns) ? $move_columns : array(), $cfgRelation,
         isset($available_mime) ? $available_mime : array(),
