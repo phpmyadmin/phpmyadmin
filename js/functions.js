@@ -4049,6 +4049,7 @@ AJAX.registerTeardown('functions.js', function () {
     $('input#print').unbind('click');
     $(document).off('click', 'a.create_view.ajax');
     $(document).off('keydown', '#createViewDialog input, #createViewDialog select');
+    $(document).off('change', '#fkc_checkbox');
 });
 
 AJAX.registerOnload('functions.js', function () {
@@ -4096,6 +4097,14 @@ AJAX.registerOnload('functions.js', function () {
             syntaxHighlighter.on("inputRead", codemirrorAutocompleteOnInputRead);
         }
     }
+
+    $(document).on('change', '#fkc_checkbox', function () {
+        if ($(this).prop("checked")) {
+            $("#fkc_status").html(PMA_messages.strForeignKeyCheckEnabled);
+        } else {
+            $("#fkc_status").html(PMA_messages.strForeignKeyCheckDisabled);
+        }
+    }); // End of event handler for 'Foreign Key Check'
 });
 
 function PMA_createViewDialog($this)
