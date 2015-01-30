@@ -2422,10 +2422,10 @@ jQuery.fn.PMA_confirm = function (question, url, callbackFn) {
             }
         },
         {
-              text: PMA_messages.strCancel,
-              'class': 'submitCancel',
-              click: function () {
-                  $(this).dialog("close");
+            text: PMA_messages.strCancel,
+            'class': 'submitCancel',
+            click: function () {
+                $(this).dialog("close");
             }
         }
     ];
