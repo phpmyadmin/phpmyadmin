@@ -24,10 +24,10 @@ phpMyAdmin - ChangeLog
 + rfe #1597 Fast filter improvement: remove "x other results found"
 - bug #4720 No error message on Missing extension mbstring
 + rfe #801  Builtin transformations and relations
-+ rfe #767 USING BTREE support for HEAP/MEMORY tables
++ rfe #767  USING BTREE support for HEAP/MEMORY tables
 + rfe #1596 Make "Options > Relational" configurable
-+ rfe #719 more details in PDF relation view
-+ rfe #1096 cannot enter connection for federated engine table
++ rfe #719  More details in PDF relation view
++ rfe #1096 Cannot enter connection for federated engine table
 
 4.3.9.0 (not yet released)
 - bug #4728 Incorrect headings in routine editor
