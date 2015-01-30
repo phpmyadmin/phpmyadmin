@@ -1824,6 +1824,12 @@ function PMA_searchColumnInForeigners($foreigners, $column)
                     : $GLOBALS['db'];
                 $foreigner['foreign_table'] = $one_key['ref_table_name'];
                 $foreigner['constraint'] = $one_key['constraint'];
+                $foreigner['on_update'] = isset($one_key['on_update'])
+                    ? $one_key['on_update']
+                    : 'RESTRICT';
+                $foreigner['on_delete'] = isset($one_key['on_delete'])
+                    ? $one_key['on_delete']
+                    : 'RESTRICT';
 
                 return $foreigner;
             }
