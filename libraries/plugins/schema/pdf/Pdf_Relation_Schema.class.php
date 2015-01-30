@@ -1018,19 +1018,32 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 $pdf->Bookmark($field_name, 1, -1);
                 $pdf->SetLink($pdf->PMA_links['doc'][$table][$field_name], -1);
                 $foreigner = PMA_searchColumnInForeigners($res_rel, $field_name);
+
+                $linksTo = '';
+                if ($foreigner) {
+                    $linksTo = '-> ';
+                    if ($foreigner['foreign_db'] != $GLOBALS['db']) {
+                        $linksTo .= $foreigner['foreign_db'] . '.';
+                    }
+                    $linksTo .= $foreigner['foreign_table']
+                        . '.' . $foreigner['foreign_field'];
+
+                    if (isset($foreigner['on_update'])) { // not set for internal
+                        $linksTo .= "\n" . 'ON UPDATE ' . $foreigner['on_update'];
+                        $linksTo .= "\n" . 'ON DELETE ' . $foreigner['on_delete'];
+                    }
+                }
+
                 $pdf_row = array(
                     $field_name,
                     $type,
                     $attribute,
-                    ($row['Null'] == '' || $row['Null'] == 'NO')
-                    ? __('No')
-                    : __('Yes'),
+                    (($row['Null'] == '' || $row['Null'] == 'NO')
+                        ? __('No')
+                        : __('Yes')),
                     (isset($row['Default']) ? $row['Default'] : ''),
                     $row['Extra'],
-                    ($foreigner
-                        ? $foreigner['foreign_table'] . ' -> '
-                            . $foreigner['foreign_field']
-                        : ''),
+                    $linksTo,
                     (isset($comments[$field_name])
                         ? $comments[$field_name]
                         : ''),
