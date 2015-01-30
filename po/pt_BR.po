@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-28 09:07-0500\n"
-"PO-Revision-Date: 2015-01-12 09:48+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2015-01-30 01:11+0200\n"
+"Last-Translator: Douglas Eccker <douglaseccker@hotmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -330,20 +330,20 @@ msgid "Access denied!"
 msgstr "Acesso negado!"
 
 #: db_tracking.php:38 db_tracking.php:63
-#, fuzzy
 #| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "Definição de dados de rastreamento removidos com sucesso"
+msgstr "Dados de rastreamento apagados com sucesso."
 
 #: db_tracking.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Versão %1$s foi criada, rastreamento para %2$s está ativado(a)."
+msgstr ""
+"Versão %1$s foi criada para as tabelas selecionadas, rastreamento ativo para "
+"%2$s."
 
 #: db_tracking.php:78
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
 msgstr "Nenhum banco de dados selecionado."
@@ -952,22 +952,19 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Você está prestes à TRUNCAR uma tabela completamente!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Excluir dados de monitoramento desta tabela"
+msgstr "Deseja excluir os dados de monitoramento desta tabela?"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Excluir dados de monitoramento desta tabela"
+msgstr "Deseja excluir os dados de monitoramento destas tabelas?"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Excluir dados de monitoramento desta tabela"
+msgstr "Deseja excluir os dados de monitoramento desta versão?"
 
 #: js/messages.php:43
 #, fuzzy
@@ -1671,7 +1668,7 @@ msgstr "Teste"
 
 #: js/messages.php:249
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Formatando SQL..."
 
 #: js/messages.php:253 libraries/db_designer.lib.php:823
 #: libraries/db_designer.lib.php:872 libraries/db_designer.lib.php:1016
@@ -2364,6 +2361,8 @@ msgstr "Encerrar ligação com painel principal"
 #: js/messages.php:479
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Para filtrar os banco de dados no servidor, pressione Enter após digitar o "
+"que procura"
 
 #: js/messages.php:480
 #, php-format
@@ -4942,13 +4941,12 @@ msgstr "Desabilitado"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "Chave"
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Exibir tabela de colunas"
+msgstr "Exibir coluna"
 
 #: libraries/config.values.php:122
 msgid "Open"
