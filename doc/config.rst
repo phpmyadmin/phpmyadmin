@@ -1721,7 +1721,7 @@ Browse mode
     :default: ``'double-click'``
 
     Defines which action (``double-click`` or ``click``) triggers grid
-    editing. Can be deactived with the ``disabled`` value.
+    editing. Can be deactivated with the ``disabled`` value.
 
 .. config:option:: $cfg['RelationalDisplay']
 
