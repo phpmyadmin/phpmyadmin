@@ -5285,28 +5285,6 @@ class PMA_DisplayResults
             );
         }
 
-        // create hidden field if results from structure table
-        if (isset($_GET['browse_distinct']) && ($_GET['browse_distinct'] == 1)) {
-
-            $where_comparison = " = '" . $data . "'";
-
-            $_url_params_for_show_data_row = array(
-                'db'    => $this->__get('db'),
-                'table' => $meta->orgtable,
-                'pos'   => '0',
-                'sql_query' => 'SELECT * FROM '
-                    . PMA_Util::backquote($this->__get('db'))
-                    . '.' . PMA_Util::backquote($meta->orgtable)
-                    . ' WHERE '
-                    . PMA_Util::backquote($meta->orgname)
-                    . $where_comparison,
-            );
-
-            $result .= '<input type="hidden" class="data_browse_link" value="'
-                . PMA_URL_getCommon($_url_params_for_show_data_row) . '" />';
-
-        }
-
         $result .= '</td>' . "\n";
 
         return $result;
