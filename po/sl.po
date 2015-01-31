@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-28 09:07-0500\n"
-"PO-Revision-Date: 2015-01-15 12:45+0200\n"
+"PO-Revision-Date: 2015-01-31 14:06+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -1642,7 +1642,7 @@ msgstr "Preizkus"
 
 #: js/messages.php:249
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Oblikovanje SQL ..."
 
 #: js/messages.php:253 libraries/db_designer.lib.php:823
 #: libraries/db_designer.lib.php:872 libraries/db_designer.lib.php:1016
@@ -2331,34 +2331,29 @@ msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 
 #: js/messages.php:481
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Tabele"
+msgstr "tabele"
 
 #: js/messages.php:482
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Pogledi"
+msgstr "poglede"
 
 #: js/messages.php:483
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Procedure"
+msgstr "procedure"
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "event"
 msgid "events"
-msgstr "dogodek"
+msgstr "dogodke"
 
 #: js/messages.php:485
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "Funkcije"
+msgstr "funkcije"
 
 #: js/messages.php:488
 msgid "The requested page was not found in the history, it may have expired."
@@ -4899,13 +4894,12 @@ msgstr "Onemogočeno"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "ključ"
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Tabela prikaznih stolpcev"
+msgstr "prikazni stolpec"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -6315,13 +6309,12 @@ msgstr "Omejitev spomina"
 
 #: libraries/config/messages.inc.php:418
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "Na navigacijski plošči zamenja drevo zbirke podatkov z izbirnikom"
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Prikaži skrite predmete v navigacijskem drevesu."
+msgstr "Prikaži navigacijo po zbirkah podatkov kot drevo"
 
 #: libraries/config/messages.inc.php:420
 msgid "Link with main panel by highlighting the current database or table."
@@ -6619,16 +6612,14 @@ msgid "Grid editing: trigger action"
 msgstr "Urejanje mreže: sproži dejanje"
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
-msgstr "Relacijski prikazni stolpec"
+msgstr "Relacijski prikaz"
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Možnosti prikaza strežnikov."
+msgstr "Za prikaz Možnosti"
 
 #: libraries/config/messages.inc.php:537
 msgid "Grid editing: save all edited cells at once"
@@ -8941,21 +8932,20 @@ msgstr ""
 "plošči."
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "najden %s drug rezultat"
-msgstr[1] "najdena %s druga rezultata"
-msgstr[2] "najdeni %s drugi rezultati"
-msgstr[3] "najdenih %s drugih rezultatov"
+msgstr[0] "najden %s rezultat"
+msgstr[1] "najdena %s rezultata"
+msgstr[2] "najdeni %s rezultati"
+msgstr[3] "najdenih %s rezultatov"
 
 #: libraries/navigation/NavigationTree.class.php:1201
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Prosimo, izberite zbirko podatkov"
+msgstr "Prosimo, izberite zbirko podatkov."
 
 #: libraries/navigation/NavigationTree.class.php:1259
 msgid "Filter databases by name or regex"
@@ -13431,10 +13421,9 @@ msgid "Add %s column(s)"
 msgstr "Dodaj %s stolpec(-cev)"
 
 #: libraries/structure.lib.php:1712
-#, fuzzy
 #| msgid "Beginning of table"
 msgid "at beginning of table"
-msgstr "Začetek tabele"
+msgstr "na začetku tabele"
 
 #: libraries/structure.lib.php:1717
 #: libraries/tbl_columns_definition_form.lib.php:811
@@ -13769,24 +13758,22 @@ msgid ""
 msgstr "\"PRIMARY\" <b>mora</b> biti ime <b>samo</b> primarnega ključa!"
 
 #: libraries/tbl_indexes.lib.php:307
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Velikost predpomnilnika indeksov"
+msgstr "Izbira indeksa:"
 
 #: libraries/tbl_indexes.lib.php:323
 msgid "Key block size:"
-msgstr ""
+msgstr "Velikost bloka ključa:"
 
 #: libraries/tbl_indexes.lib.php:335
 msgid "Index type:"
 msgstr "Vrsta indeksa:"
 
 #: libraries/tbl_indexes.lib.php:347
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Uporabnik:"
+msgstr "Razčlenjevalnik:"
 
 #: libraries/tbl_indexes.lib.php:359
 msgid "Comment:"
