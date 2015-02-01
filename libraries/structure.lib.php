@@ -2401,7 +2401,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
  */
 function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
 {
-    // $selected comes from multi_submits.inc.php
+    // $selected comes from mult_submits.inc.php
     if (empty($selected)) {
         $selected[]   = $_REQUEST['field'];
         $selected_cnt = 1;
