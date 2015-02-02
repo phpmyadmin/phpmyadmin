@@ -271,10 +271,9 @@ class AuthenticationHttp extends AuthenticationPlugin
      *
      * @param string $password New password to set
      *
-     * @return array Additional URL parameters.
+     * @return void 
      */
     public function handlePasswordChange($password)
     {
-        return array('old_usr' => 'relog');
     }
 }
