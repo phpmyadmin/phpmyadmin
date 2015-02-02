@@ -710,15 +710,19 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
     $isInformationSchema = /*overload*/mb_strtolower($db) == 'information_schema';
     $is_data_dictionary = PMA_DRIZZLE
         && /*overload*/mb_strtolower($db) == 'data_dictionary';
-    if (($isInformationSchema || $is_data_dictionary)
+    $isMysql = /*overload*/mb_strtolower($db) == 'mysql';
+    if (($isInformationSchema || $is_data_dictionary || $isMysql)
         && ($source == 'internal' || $source == 'both')
     ) {
         if ($isInformationSchema) {
             $relations_key = 'information_schema_relations';
             include_once './libraries/information_schema_relations.lib.php';
-        } else {
+        } else if ($is_data_dictionary) {
             $relations_key = 'data_dictionary_relations';
             include_once './libraries/data_dictionary_relations.lib.php';
+        } else {
+            $relations_key = 'mysql_relations';
+            include_once './libraries/mysql_relations.lib.php';
         }
         if (isset($GLOBALS[$relations_key][$table])) {
             foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {
@@ -1820,6 +1824,12 @@ function PMA_searchColumnInForeigners($foreigners, $column)
                     : $GLOBALS['db'];
                 $foreigner['foreign_table'] = $one_key['ref_table_name'];
                 $foreigner['constraint'] = $one_key['constraint'];
+                $foreigner['on_update'] = isset($one_key['on_update'])
+                    ? $one_key['on_update']
+                    : 'RESTRICT';
+                $foreigner['on_delete'] = isset($one_key['on_delete'])
+                    ? $one_key['on_delete']
+                    : 'RESTRICT';
 
                 return $foreigner;
             }

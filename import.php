@@ -106,6 +106,7 @@ if (! empty($sql_query)) {
     $import_text = $sql_query;
     $import_type = 'query';
     $format = 'sql';
+    $_SESSION['sql_from_query_box'] = true;
 
     // If there is a request to ROLLBACK when finished.
     if (isset($_REQUEST['rollback_query'])) {

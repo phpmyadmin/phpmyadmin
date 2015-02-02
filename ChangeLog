@@ -21,10 +21,40 @@ phpMyAdmin - ChangeLog
 + rfe #1568 Fold Add Column After / Before into dropdown
 - bug #4705 Table structure: adding primary key doesn't refresh page
 + rfe #1582 SQL formatter
++ rfe #1597 Fast filter improvement: remove "x other results found"
+- bug #4720 No error message on Missing extension mbstring
++ rfe #801  Builtin transformations and relations
++ rfe #767  USING BTREE support for HEAP/MEMORY tables
++ rfe #1596 Make "Options > Relational" configurable
++ rfe #719  More details in PDF relation view
++ rfe #1096 Cannot enter connection for federated engine table
++ rfe #954  Allow SALT in ENCRYPT function
 
-4.3.8.0 (not yet released)
+4.3.9.0 (not yet released)
+- bug #4728 Incorrect headings in routine editor
+- bug #4730 Notice while browsing tables when phpmyadmin pma database exists, but not all the tables
+- bug #4729 Display original field when using "Relational display column" option and display column is empty
+- bug #4734 Default values for binary fields do not support binary values
+- bug #4736 Changing display options breaks query highlighting
+- bug       Undefined index submit_type
+- bug #4738 Header lose align when scrolling in Firefox
+- bug #4741 in ./libraries/Advisor.class.php#184 vsprintf(): Too few arguments
+- bug #4743 Unable to move cursor with keyboard in filter rows box
+
+4.3.8.0 (2015-01-24)
 - bug       Undefined constant PMA_DRIZZLE
 - bug #4712 Wrongly positioned date-picker while Grid-Editing
+- bug #4714 Forced ORDER BY for own sql statements
+- bug #4721 Undefined property: stdClass::$version
+- bug #4719 'only_db' not working
+- bug #4700 Error text: Internal Server Error
+- bug #4722 Incorrect width table summary when favorite tables is disabled
+- bug #4716 Collapse all in navigation panel is sometimes broken
+- bug #4724 Cannot navigate in filtered table list
+- bug #4717 Database navigation menu broken when resolution/screen is changing
+- bug #4727 Collation column missing in database list when DisableIS is true
+- bug       Undefined index central_columnswork
+- bug       Undefined index favorite_tables 
 
 4.3.7.0 (2015-01-15)
 - bug #4694 js error on marking table as favorite in Safari (in private mode)

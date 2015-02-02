@@ -2684,7 +2684,7 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
 ) {
     $html_output = '';
     $found_rows = array();
-    
+
     // display rows
     if (count($db_rights) < 1) {
         $html_output .= '<tr class="odd">' . "\n"
@@ -3813,12 +3813,12 @@ function PMA_getAddUserHtmlFieldset($db = '', $table = '')
 
     return '<fieldset id="fieldset_add_user">' . "\n"
         . '<legend>' . _pgettext('Create new user', 'New') . '</legend>'
-        . '<a href="server_privileges.php'
+        . '<a id="add_user_anchor" href="server_privileges.php'
         . PMA_URL_getCommon($url_params) . '" '
         . (!empty($rel_params)
             ? ('rel="' . PMA_URL_getCommon($rel_params) . '" ')
             : '')
-        . '">' . "\n"
+        . '>' . "\n"
         . PMA_Util::getIcon('b_usradd.png')
         . '            ' . __('Add user') . '</a>' . "\n"
         . '</fieldset>' . "\n";

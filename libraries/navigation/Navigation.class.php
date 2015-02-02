@@ -35,29 +35,41 @@ class PMA_Navigation
             $retval = $header->getDisplay();
         }
         $tree = new PMA_NavigationTree();
-        if (! PMA_Response::getInstance()->isAjax()
-            || ! empty($_REQUEST['full'])
-            || ! empty($_REQUEST['reload'])
-        ) {
-            $treeRender = $tree->renderState();
-        } else {
-            $treeRender = $tree->renderPath();
-        }
+        if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
+            if (! PMA_Response::getInstance()->isAjax()
+                || ! empty($_REQUEST['full'])
+                || ! empty($_REQUEST['reload'])
+            ) {
+                $treeRender = $tree->renderState();
+            } else {
+                $treeRender = $tree->renderPath();
+            }
 
-        if (! $treeRender) {
-            $retval .= PMA_Message::error(
-                __('An error has occurred while loading the navigation tree')
-            )->getDisplay();
+            if (! $treeRender) {
+                $retval .= PMA_Message::error(
+                    __('An error has occurred while loading the navigation tree')
+                )->getDisplay();
+            } else {
+                $retval .= $treeRender;
+            }
         } else {
-            $retval .= $treeRender;
+            // provide legacy pre-4.0 navigation    
+            if (! PMA_Response::getInstance()->isAjax()
+                || ! empty($_REQUEST['full'])
+                || ! empty($_REQUEST['reload'])
+            ) {
+                $retval .= $tree->renderDbSelect();
+            } else {
+                $retval .= $tree->renderPath();
+            }
         }
 
         if (! PMA_Response::getInstance()->isAjax()) {
             // closes the tags that were opened by the navigation header
-            $retval .= '</div>';
-            $retval .= '</div>';
+            $retval .= '</div>'; // pma_navigation_tree
+            $retval .= '</div>'; // pma_navigation_content
             $retval .= $this->_getDropHandler();
-            $retval .= '</div>';
+            $retval .= '</div>'; // pma_navigation
         }
 
         return $retval;

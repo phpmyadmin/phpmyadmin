@@ -174,7 +174,11 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     if ($server_slave_status) {
         $html_output .= '<th>' . __('Replication') . '</th>' . "\n";
     }
-    $html_output .= '<th colspan="' . ($db_is_system_schema ? 4 : 7) . '">'
+    $sum_colspan = ($db_is_system_schema ? 4 : 7);
+    if ($GLOBALS['cfg']['NumFavoriteTables'] == 0) {
+        $sum_colspan--;
+    }
+    $html_output .= '<th colspan="' . $sum_colspan . '">'
         . __('Sum')
         . '</th>';
 
@@ -1691,6 +1695,7 @@ function PMA_getHtmlForAddColumn($columns_list)
             'b_insrow.png',
             __('Add column')
         );
+        $html_output .= '&nbsp;';
     }
     $num_fields = '<input type="number" name="num_fields" '
         . 'value="1" onfocus="this.select()" '
@@ -1704,17 +1709,17 @@ function PMA_getHtmlForAddColumn($columns_list)
 
     $column_selector .= '<option '
             . 'value="first" data-pos = "first">'
-            . __('Beginning of table')
+            . __('at beginning of table')
             . '</option>';
     foreach ($columns_list as $one_column_name) {
         $column_selector .= '<option '
             . 'value="' . htmlspecialchars($one_column_name) . '">'
-            . htmlspecialchars($one_column_name)
+            . sprintf(__('after %s'), htmlspecialchars($one_column_name))
             . '</option>';
     }
     $column_selector .= '</select>';
     $html_output .= '<input type="hidden" name="field_where" value="after"/>';
-    $html_output .= ' ' . __('after') . ' ';
+    $html_output .= '&nbsp;';
     $html_output .= $column_selector;
     $html_output .= '<input type="submit" value="' . __('Go') . '" />'
         . '</form>';
@@ -2356,7 +2361,6 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
             $html_output .= PMA_getHtmlForSpaceUsageTableRow(
                 $odd_row, __('Total'), $tot_size, $tot_unit
             );
-            $odd_row = !$odd_row;
         }
         // Optimize link if overhead
         if (isset($free_size) && !PMA_DRIZZLE
@@ -2397,7 +2401,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
  */
 function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
 {
-    // $selected comes from multi_submits.inc.php
+    // $selected comes from mult_submits.inc.php
     if (empty($selected)) {
         $selected[]   = $_REQUEST['field'];
         $selected_cnt = 1;
@@ -2480,7 +2484,7 @@ function PMA_columnNeedsAlterTable($i)
         || $_REQUEST['field_null'][$i] != $_REQUEST['field_null_orig'][$i]
         || $_REQUEST['field_type'][$i] != $_REQUEST['field_type_orig'][$i]
         || ! empty($_REQUEST['field_move_to'][$i])
-) {
+    ) {
         return true;
     } else {
         return false;
@@ -2505,7 +2509,6 @@ function PMA_updateColumns($db, $table)
     );
     $regenerate = false;
     $field_cnt = count($_REQUEST['field_name']);
-    $key_fields = array();
     $changes = array();
     $pmatable = new PMA_Table($table, $db);
 
@@ -2910,7 +2913,11 @@ function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
 function PMA_addRemoveFavoriteTables($db)
 {
     $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
-    $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
+    if (isset($_REQUEST['favorite_tables'])) {
+        $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
+    } else {
+        $favorite_tables = array();
+    }
     // Required to keep each user's preferences separate.
     $user = sha1($GLOBALS['cfg']['Server']['user']);
 

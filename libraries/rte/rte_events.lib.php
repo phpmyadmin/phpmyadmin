@@ -329,7 +329,7 @@ function PMA_EVN_getDataFromName($name)
 /**
  * Displays a form used to add/edit an event
  *
- * @param string $mode      If the editor will be used edit an event
+ * @param string $mode      If the editor will be used to edit an event
  *                              or add a new one: 'edit' or 'add'.
  * @param string $operation If the editor was previously invoked with
  *                              JS turned off, this will hold the name of

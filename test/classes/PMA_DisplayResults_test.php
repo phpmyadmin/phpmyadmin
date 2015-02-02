@@ -167,19 +167,17 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for table navigation
      *
-     * @param integer $pos_next                  the offset for the "next" page
-     * @param integer $pos_prev                  the offset for the "previous" page
-     * @param string  $id_for_direction_dropdown the id for the direction dropdown
-     * @param boolean $is_innodb                 the table type is innoDb or not
-     * @param string  $output                    output from the _getTableNavigation
-     *                                           method
+     * @param integer $pos_next  the offset for the "next" page
+     * @param integer $pos_prev  the offset for the "previous" page
+     * @param boolean $is_innodb the table type is innoDb or not
+     * @param string  $output    output from the _getTableNavigation method
      *
      * @return void
      *
      * @dataProvider providerForTestGetTableNavigation
      */
     public function testGetTableNavigation(
-        $pos_next, $pos_prev, $id_for_direction_dropdown, $is_innodb, $output
+        $pos_next, $pos_prev, $is_innodb, $output
     ) {
         $_SESSION['tmpval']['max_rows'] = '20';
         $_SESSION['tmpval']['pos'] = true;
@@ -200,7 +198,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 $this->_callPrivateFunction(
                     '_getTableNavigation',
                     array(
-                        $pos_next, $pos_prev, $id_for_direction_dropdown, $is_innodb
+                        $pos_next, $pos_prev, $is_innodb
                     )
                 )
             )
@@ -220,7 +218,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             array(
                 21,
                 41,
-                '123',
                 false,
                 '310'
             )
@@ -1115,8 +1112,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'routine_type' => 'FUNCTION'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=circumference&amp;db=data&amp;edit_'
-                . 'item=1&amp;item_type=FUNCTION&amp;server=0&amp;lang=en'
+                'db_routines.php?item_name=circumference&amp;db=data'
+                . '&amp;item_type=FUNCTION&amp;server=0&amp;lang=en'
                 . '&amp;collation_connection=utf-8'
                 . '&amp;token=token'
             ),
@@ -1130,7 +1127,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'routine_type' => 'PROCEDURE'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=area&amp;db=data&amp;edit_item=1'
+                'db_routines.php?item_name=area&amp;db=data'
                 . '&amp;item_type=PROCEDURE&amp;server=0&amp;lang=en'
                 . '&amp;collation_connection=utf-8'
                 . '&amp;token=token'
@@ -1512,7 +1509,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="31303031" title="" target="_new">31303031</a>'
+                '<a href="1001" title="" target="_new">1001</a>'
             ),
             array(
                 false,
@@ -1641,7 +1638,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 0,
                 'binary',
                 '<td class="left grid_edit  transformed hex">'
-                . '<a href="31303031" title="" target="_new">31303031</a></td>'
+                . '<a href="1001" title="" target="_new">1001</a></td>'
             ),
             array(
                 'noblob',

@@ -1388,10 +1388,17 @@ Cookie authentication options
 Navigation panel setup
 ----------------------
 
+.. config:option:: $cfg['ShowDatabasesNavigationAsTree']
+
+    :type: boolean
+    :default: true
+
+    In the navigation panel, replaces the database tree with a selector
+
 .. config:option:: $cfg['FirstLevelNavigationItems']
 
     :type: integer
-    :default: 25
+    :default: 100
 
     The number of first level databases that can be displayed on each page
     of navigation tree.
@@ -1548,7 +1555,7 @@ Navigation panel setup
     * ``tbl_change.php``
     * ``sql.php``
 
-.. config:option:: $cfg['NavigationTreeDefaultTabTable']
+.. config:option:: $cfg['NavigationTreeDefaultTabTable2']
 
     :type: string
     :default: null
@@ -1556,7 +1563,7 @@ Navigation panel setup
     Defines the tab displayed by default when clicking the second small icon next
     to each table name in the navigation panel. Possible values:
 
-    * ````
+    * ``(empty)``
     * ``tbl_structure.php``
     * ``tbl_sql.php``
     * ``tbl_select.php``
@@ -1714,7 +1721,15 @@ Browse mode
     :default: ``'double-click'``
 
     Defines which action (``double-click`` or ``click``) triggers grid
-    editing. Can be deactived with the ``disabled`` value.
+    editing. Can be deactivated with the ``disabled`` value.
+
+.. config:option:: $cfg['RelationalDisplay']
+
+    :type: string
+    :default: ``'K'``
+
+    Defines the initial behavior for Options > Relational. ``K``, which
+    is the default, displays the key while ``D`` shows the display column.
 
 .. config:option:: $cfg['SaveCellsAtOnce']
 

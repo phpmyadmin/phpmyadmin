@@ -121,14 +121,14 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
  * Create relevant index statements
  *
  * @param array   $index         an array of index columns
- * @param string  $index_type    index type that which represents
+ * @param string  $index_choice  index choice that which represents
  *                               the index type of $indexed_fields
  * @param boolean $is_create_tbl true if requirement is to get the statement
  *                               for table creation
  *
  * @return array an array of sql statements for indexes
  */
-function PMA_buildIndexStatements($index, $index_type,
+function PMA_buildIndexStatements($index, $index_choice,
     $is_create_tbl = true
 ) {
     $statement = array();
@@ -143,7 +143,7 @@ function PMA_buildIndexStatements($index, $index_type,
             . (! empty($field['size']) ? '(' . $field['size'] . ')' : '');
     }
     $statement[] = PMA_getStatementPrefix($is_create_tbl)
-        . ' ' . $index_type
+        . ' ' . $index_choice
         . (! empty($index['Key_name']) && $index['Key_name'] != 'PRIMARY' ?
         PMA_Util::backquote($index['Key_name'])
         : '')
@@ -271,6 +271,13 @@ function PMA_getTableCreationQuery($db, $table)
     }
     if (!empty($_REQUEST['tbl_collation'])) {
         $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
+    }
+    if (! empty($_REQUEST['connection'])
+        && ! empty($_REQUEST['tbl_storage_engine'])
+        && $_REQUEST['tbl_storage_engine'] == 'FEDERATED'
+    ) {
+        $sql_query .= " CONNECTION = '"
+            . PMA_Util::sqlAddSlashes($_REQUEST['connection']) . "'";
     }
     if (!empty($_REQUEST['comment'])) {
         $sql_query .= ' COMMENT = \''

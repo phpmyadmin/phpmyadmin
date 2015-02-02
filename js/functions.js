@@ -2410,17 +2410,25 @@ jQuery.fn.PMA_confirm = function (question, url, callbackFn) {
      * @var    button_options  Object that stores the options passed to jQueryUI
      *                          dialog
      */
-    var button_options = {};
-    button_options[PMA_messages.strOK] = function () {
-        $(this).dialog("close");
-
-        if ($.isFunction(callbackFn)) {
-            callbackFn.call(this, url);
+    var button_options = [
+        {
+            text: PMA_messages.strOK,
+            'class': 'submitOK',
+            click: function () {
+                $(this).dialog("close");
+                if ($.isFunction(callbackFn)) {
+                    callbackFn.call(this, url);
+                }
+            }
+        },
+        {
+            text: PMA_messages.strCancel,
+            'class': 'submitCancel',
+            click: function () {
+                $(this).dialog("close");
+            }
         }
-    };
-    button_options[PMA_messages.strCancel] = function () {
-        $(this).dialog("close");
-    };
+    ];
 
     $('<div/>', {'id': 'confirm_dialog'})
     .prepend(question)
@@ -2799,6 +2807,7 @@ AJAX.registerTeardown('functions.js', function () {
     $(document).off('change', "select.column_type");
     $(document).off('change', "select.default_type");
     $(document).off('change', 'input.allow_null');
+    $(document).off('change', '.create_table_form select[name=tbl_storage_engine]');
 });
 /**
  * Toggle the hiding/showing of the "Open in ENUM/SET editor" message when
@@ -2819,7 +2828,33 @@ AJAX.registerOnload('functions.js', function () {
     $(document).on('change', 'input.allow_null', function () {
         PMA_validateDefaultValue($(this));
     });
+    $(document).on('change', '.create_table_form select[name=tbl_storage_engine]', function () {
+        PMA_hideShowConnection($(this));
+    });
 });
+
+/**
+ * If the chosen storage engine is FEDERATED show connection field. Hide otherwise
+ *
+ * @param $engine_selector storage engine selector
+ */
+function PMA_hideShowConnection($engine_selector)
+{
+    var $connection = $('.create_table_form input[name=connection]');
+    var index = $connection.parent('td').index() + 1;
+    var $labelTh = $connection.parents('tr').prev('tr').children('th:nth-child(' + index + ')');
+    if ($engine_selector.val() != 'FEDERATED') {
+        $connection
+            .prop('disabled', true)
+            .parent('td').hide();
+        $labelTh.hide();
+    } else {
+        $connection
+            .prop('disabled', false)
+            .parent('td').show();
+        $labelTh.show();
+    }
+}
 
 /**
  * If the column does not allow NULL values, makes sure that default is not NULL
@@ -3211,10 +3246,10 @@ function checkIndexName(form_id)
 
     // Gets the elements pointers
     var $the_idx_name = $("#input_index_name");
-    var $the_idx_type = $("#select_index_type");
+    var $the_idx_choice = $("#select_index_choice");
 
     // Index is a primary key
-    if ($the_idx_type.find("option:selected").val() == 'PRIMARY') {
+    if ($the_idx_choice.find("option:selected").val() == 'PRIMARY') {
         $the_idx_name.val('PRIMARY');
         $the_idx_name.prop("disabled", true);
     }
@@ -3355,8 +3390,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
             .dialog({
                 title: title,
                 width: 450,
-                // increase the chance that the footer will be visible:
-                height: 450,
+                height: 350,
                 open: PMA_verifyColumnsProperties,
                 modal: true,
                 buttons: button_options,
@@ -3364,39 +3398,46 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
                     $(this).remove();
                 }
             });
-            checkIndexType();
-            checkIndexName("index_frm");
-            $('#index_columns td').each(function () {
-                $(this).css("width", $(this).width() + 'px');
-            });
-            $('#index_columns tbody').sortable();
-            PMA_showHints($div);
-            // Add a slider for selecting how many columns to add to the index
-            $div.find('.slider').slider({
-                animate: true,
-                value: 1,
-                min: 1,
-                max: 16,
-                slide: function (event, ui) {
-                    $(this).closest('fieldset').find('input[type=submit]').val(
-                        PMA_sprintf(PMA_messages.strAddToIndex, ui.value)
-                    );
-                }
-            });
-            // focus index size input on column picked
-            $div.find('table#index_columns select').change(function () {
-                if ($(this).find("option:selected").val() === '') {
-                    return true;
-                }
-                $(this).closest("tr").find("input").focus();
-            });
-            // Focus the slider, otherwise it looks nearly transparent
-            $('a.ui-slider-handle').addClass('ui-state-focus');
-            // set focus on index name input, if empty
-            var input = $div.find('input#input_index_name');
-            input.val() || input.focus();
+            $div.find('.tblFooters').remove();
+            showIndexEditDialog($div);
         }
     }); // end $.get()
+}
+
+function showIndexEditDialog($outer)
+{
+    checkIndexType();
+    checkIndexName("index_frm");
+    $('#index_columns td').each(function () {
+        $(this).css("width", $(this).width() + 'px');
+    });
+    $('#index_columns tbody').sortable();
+    PMA_showHints($outer);
+    PMA_init_slider();
+    // Add a slider for selecting how many columns to add to the index
+    $outer.find('.slider').slider({
+        animate: true,
+        value: 1,
+        min: 1,
+        max: 16,
+        slide: function (event, ui) {
+            $(this).closest('fieldset').find('input[type=submit]').val(
+                PMA_sprintf(PMA_messages.strAddToIndex, ui.value)
+            );
+        }
+    });
+    // focus index size input on column picked
+    $outer.find('table#index_columns select').change(function () {
+        if ($(this).find("option:selected").val() === '') {
+            return true;
+        }
+        $(this).closest("tr").find("input").focus();
+    });
+    // Focus the slider, otherwise it looks nearly transparent
+    $('a.ui-slider-handle').addClass('ui-state-focus');
+    // set focus on index name input, if empty
+    var input = $outer.find('input#input_index_name');
+    input.val() || input.focus();
 }
 
 /**
@@ -4008,6 +4049,7 @@ AJAX.registerTeardown('functions.js', function () {
     $('input#print').unbind('click');
     $(document).off('click', 'a.create_view.ajax');
     $(document).off('keydown', '#createViewDialog input, #createViewDialog select');
+    $(document).off('change', '#fkc_checkbox');
 });
 
 AJAX.registerOnload('functions.js', function () {
@@ -4055,6 +4097,14 @@ AJAX.registerOnload('functions.js', function () {
             syntaxHighlighter.on("inputRead", codemirrorAutocompleteOnInputRead);
         }
     }
+
+    $(document).on('change', '#fkc_checkbox', function () {
+        if ($(this).prop("checked")) {
+            $("#fkc_status").html(PMA_messages.strForeignKeyCheckEnabled);
+        } else {
+            $("#fkc_status").html(PMA_messages.strForeignKeyCheckDisabled);
+        }
+    }); // End of event handler for 'Foreign Key Check'
 });
 
 function PMA_createViewDialog($this)
@@ -4128,7 +4178,7 @@ $(function () {
                 'position': 'fixed',
                 'top': 0,
                 'width': '100%',
-                'z-index': 500
+                'z-index': 99
             })
             .append($('#serverinfo'))
             .append($('#topmenucontainer'));

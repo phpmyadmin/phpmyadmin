@@ -424,7 +424,7 @@ AJAX.registerOnload('sql.js', function () {
 
         var phrase = $(this).val();
         // Set same value to both Filter rows fields.
-        $(".filter_rows[data-for='" + unique_id + "']").val(phrase);
+        $(".filter_rows[data-for='" + unique_id + "']").not(this).val(phrase);
         // Handle colspan.
         $target_table.find("thead > tr").prepend(dummy_th);
         $.uiTableFilter($target_table, phrase, target_columns);
@@ -767,7 +767,12 @@ function rearrangeStickyColumns($sticky_columns, $table_results) {
     var $clonedHeader = $originalHeader.clone();
     // clone width per cell
     $clonedHeader.find("tr:first").children().width(function(i,val) {
-        return Math.floor($originalColumns.eq(i).width()) + 1;
+        var width = $originalColumns.eq(i).width();
+        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+        if (! is_firefox) {
+            width += 1;
+        }
+        return width;
     });
     $sticky_columns.empty().append($clonedHeader);
 }

@@ -850,7 +850,7 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
 /**
  * Displays a form used to add/edit a routine
  *
- * @param string $mode      If the editor will be used edit a routine
+ * @param string $mode      If the editor will be used to edit a routine
  *                          or add a new one: 'edit' or 'add'.
  * @param string $operation If the editor was previously invoked with
  *                          JS turned off, this will hold the name of

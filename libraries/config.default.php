@@ -811,11 +811,18 @@ $cfg['CaptchaLoginPrivateKey'] = '';
  */
 
 /**
+ * In the navigation panel, replaces the database tree with a selector
+ *
+ * @global boolean $cfg['ShowDatabasesNavigationAsTree']
+ */
+$cfg['ShowDatabasesNavigationAsTree'] = true;
+
+/**
  * maximum number of first level databases displayed in navigation panel
  *
  * @global integer $cfg['FirstLevelNavigationItems']
  */
-$cfg['FirstLevelNavigationItems'] = 25;
+$cfg['FirstLevelNavigationItems'] = 100;
 
 /**
  * maximum number of items displayed in navigation panel
@@ -1094,6 +1101,19 @@ $cfg['SaveCellsAtOnce'] = false;
  * @global string $cfg['GridEditing']
  */
 $cfg['GridEditing'] ='double-click';
+
+/**
+ * Options > Relational display
+ *
+ * Possible values:
+ * 'K' for key value
+ * 'D' for display column
+ *
+ * @global string $cfg['RelationalDisplay']
+ *
+ */
+
+$cfg['RelationalDisplay'] = 'K';
 
 
 /*******************************************************************************

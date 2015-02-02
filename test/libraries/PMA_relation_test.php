@@ -320,6 +320,8 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $expected['foreign_db'] = 'GSoC14';
         $expected['foreign_table'] = 'table_1';
         $expected['constraint'] = 'ad';
+        $expected['on_delete'] = 'CASCADE';
+        $expected['on_update'] = 'CASCADE';
 
         $this->assertEquals(
             $expected,

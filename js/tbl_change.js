@@ -163,11 +163,22 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     var new_salt_box = "<br><input type=text name=salt[multi_edit][" + multi_edit + "][" + urlField + "]" +
         " id=salt_" + target.id + " placeholder='" + PMA_messages.strEncryptionKey + "'>";
 
-    //If AES_ENCRYPT is Selected then append the new textbox for salt
-    if (target.value === 'AES_DECRYPT' || target.value === 'AES_ENCRYPT') {
+    //If encrypting or decrypting functions that take salt as input is selected append the new textbox for salt
+    if (target.value === 'AES_ENCRYPT' ||
+            target.value === 'AES_DECRYPT' ||
+            target.value === 'DES_ENCRYPT' ||
+            target.value === 'DES_DECRYPT' ||
+            target.value === 'ENCRYPT') {
         if (!($("#salt_" + target.id).length)) {
             $this_input.after(new_salt_box);
         }
+    } else {
+        //Remove the textbox for salt
+        $('#salt_' + target.id).prev('br').remove();
+        $("#salt_" + target.id).remove();
+    }
+
+    if (target.value === 'AES_DECRYPT' || target.value === 'AES_ENCRYPT') {
         if ($this_input.data('type') !== 'HEX') {
             $('#' + target.id).addClass('invalid_value');
             return false;
@@ -175,14 +186,11 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     } else if(target.value === 'MD5' &&
         typeof $this_input.data('maxlength') !== 'undefined' &&
         $this_input.data('maxlength') < 32
-    ){
+    ) {
         $('#' + target.id).addClass('invalid_value');
         return false;
     } else {
         $('#' + target.id).removeClass('invalid_value');
-        //The value of the select is no longer AES_ENCRYPT, remove the textbox for salt
-        $('#salt_' + target.id).prev('br').remove();
-        $("#salt_" + target.id).remove();
     }
 
     // Unchecks the corresponding "NULL" control
@@ -297,7 +305,11 @@ function applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows
         }).attr("selected","selected");
 
         // Handle salt field.
-        if (functionName === 'AES_ENCRYPT' || functionName === 'AES_DECRYPT') {
+        if (functionName === 'AES_ENCRYPT' ||
+                functionName === 'AES_DECRYPT' ||
+                functionName === 'DES_ENCRYPT' ||
+                functionName === 'DES_DECRYPT' ||
+                functionName === 'ENCRYPT') {
             if ($("#salt_" + targetSelectList.attr("id")).length === 0) {
                 // Get hash value.
                 var hashed_value = targetSelectList.attr("name").match(/\[multi\_edit\]\[\d\]\[(.*)\]/);
@@ -655,7 +667,11 @@ AJAX.registerOnload('tbl_change.js', function () {
         var salt;
         var copySalt = false;
 
-        if (functionName === 'AES_ENCRYPT' || functionName === 'AES_DECRYPT') {
+        if (functionName === 'AES_ENCRYPT' ||
+                functionName === 'AES_DECRYPT' ||
+                functionName === 'DES_ENCRYPT' ||
+                functionName === 'DES_DECRYPT' ||
+                functionName === 'ENCRYPT') {
             // Dialog title.
             var title = functionName;
             // Dialog buttons functions.

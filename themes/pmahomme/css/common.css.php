@@ -2177,6 +2177,7 @@ input#input_import_file {
 #index_frm .index_info input,
 #index_frm .index_info select {
     width: 14em;
+    margin: 0;
     box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;

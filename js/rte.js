@@ -824,7 +824,7 @@ $(function () {
     $(document).on('change', 'select[name=item_type]', function () {
         $(this)
         .closest('table')
-        .find('tr.recurring_event_row, tr.onetime_event_row, tr.routine_return_row, td.routine_direction_cell')
+        .find('tr.recurring_event_row, tr.onetime_event_row, tr.routine_return_row, .routine_direction_cell')
         .toggle();
     }); // end $(document).on()
 

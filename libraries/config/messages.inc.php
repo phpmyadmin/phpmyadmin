@@ -415,6 +415,8 @@ $strConfigMemoryLimit_desc = __(
     . '([kbd]0[/kbd] for no limit).'
 );
 $strConfigMemoryLimit_name = __('Memory limit');
+$strConfigShowDatabasesNavigationAsTree_desc = __('In the navigation panel, replaces the database tree with a selector');
+$strConfigShowDatabasesNavigationAsTree_name = __('Show databases navigation as tree');
 $strConfigNavigationLinkWithMainPanel_desc = __('Link with main panel by highlighting the current database or table.');
 $strConfigNavigationLinkWithMainPanel_name = __('Link with main panel');
 $strConfigNavigationDisplayLogo_desc = __('Show logo in navigation panel.');
@@ -530,6 +532,8 @@ $strConfigRepeatCells_desc
 $strConfigRepeatCells_name = __('Repeat headers');
 $strConfigRestoreDefaultValue = __('Restore default value');
 $strConfigGridEditing_name = __('Grid editing: trigger action');
+$strConfigRelationalDisplay_name = __('Relational display');
+$strConfigRelationalDisplay_desc = __('For display Options');
 $strConfigSaveCellsAtOnce_name = __('Grid editing: save all edited cells at once');
 $strConfigSaveDir_desc = __('Directory where exports can be saved on server.');
 $strConfigSaveDir_name = __('Save directory');

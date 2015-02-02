@@ -162,6 +162,7 @@ $forms['Sql_queries']['Sql_box'] = array('SQLQuery' => array(
     'ShowAsPHP',
     'Refresh'));
 $forms['Navi_panel']['Navi_panel'] = array(
+    'ShowDatabasesNavigationAsTree',
     'NavigationLinkWithMainPanel',
     'NavigationDisplayLogo',
     'NavigationLogoLink',
@@ -211,7 +212,8 @@ $forms['Main_panel']['Browse'] = array(
     'LimitChars',
     'RowActionLinks',
     'TablePrimaryKeyOrder',
-    'RememberSorting');
+    'RememberSorting',
+    'RelationalDisplay');
 $forms['Main_panel']['Edit'] = array(
     'ProtectBinary',
     'ShowFunctionFields',

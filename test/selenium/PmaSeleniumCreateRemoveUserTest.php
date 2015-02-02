@@ -59,7 +59,7 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
         $this->login();
         $this->waitForElement('byLinkText', "Users")->click();
 
-        $link = $this->waitForElement("byLinkText", "Add user");
+        $link = $this->waitForElement("byId", "add_user_anchor");
         $link->click();
 
         $userField = $this->waitForElement("byName", "username");
@@ -92,8 +92,9 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
         )->click();
 
         $this->byId("checkbox_drop_users_db")->click();
-        $this->acceptAlert();
         $this->byId("buttonGo")->click();
+        $this->waitForElement("byCssSelector", "button.confirmOK")->click();
+        $this->acceptAlert();
 
         $success = $this->waitForElement("byCssSelector", "div.success");
         $this->assertContains(
