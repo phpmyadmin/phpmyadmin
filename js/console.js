@@ -206,6 +206,7 @@ var PMA_console = {
             return;
         }
         PMA_console.$requestForm.children('textarea').val(queryString);
+        PMA_console.$requestForm.children('[name=server]').attr('value', PMA_commonParams.get('server'));
         if(options && options.db) {
             PMA_console.$requestForm.children('[name=db]').val(options.db);
             if(options.table) {
