@@ -82,6 +82,7 @@ var PMA_console = {
             '<input name="is_js_confirmed" value="0">' +
             '<textarea name="sql_query"></textarea>' +
             '<input name="console_message_id" value="0">' +
+            '<input name="server" value="">' +
             '<input name="db" value="">' +
             '<input name="table" value="">' +
             '<input name="token" value="' +
@@ -206,6 +207,7 @@ var PMA_console = {
             return;
         }
         PMA_console.$requestForm.children('textarea').val(queryString);
+        PMA_console.$requestForm.children('[name=server]').attr('value', PMA_commonParams.get('server'));
         if(options && options.db) {
             PMA_console.$requestForm.children('[name=db]').val(options.db);
             if(options.table) {
