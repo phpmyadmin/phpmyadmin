@@ -85,6 +85,16 @@ Basic settings
 
     You can set this parameter to ``true`` to stop this message from appearing.
 
+.. config:option:: $cfg['LoginCookieValidityDisableWarning']
+
+    :type: boolean
+    :default: false
+
+    A warning is displayed on the main page if the PHP parameter
+    session.gc_maxlifetime is lower than cookie validity configured in phpMyAdmin.
+
+    You can set this parameter to ``true`` to stop this message from appearing.
+
 .. config:option:: $cfg['ServerLibraryDifference_DisableWarning']
 
     :type: boolean

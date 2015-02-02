@@ -54,6 +54,14 @@ $cfg['PmaNoRelation_DisableWarning'] = false;
 $cfg['SuhosinDisableWarning'] = false;
 
 /**
+ * Disable the default warning that is displayed if session.gc_maxlifetime
+ * is less than `LoginCookieValidity`
+ *
+ * @global boolean $cfg['LoginCookieValidityDisableWarning']
+ */
+$cfg['LoginCookieValidityDisableWarning'] = false;
+
+/**
  * Disable the default warning that is displayed if a difference between
  * the MySQL library and server is detected.
  *

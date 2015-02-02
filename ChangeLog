@@ -29,6 +29,7 @@ phpMyAdmin - ChangeLog
 + rfe #719  More details in PDF relation view
 + rfe #1096 Cannot enter connection for federated engine table
 + rfe #954  Allow SALT in ENCRYPT function
++ rfe #1260 Setting LoginCookieValidity > session.gc_maxlifetime
 
 4.3.9.0 (not yet released)
 - bug #4728 Incorrect headings in routine editor

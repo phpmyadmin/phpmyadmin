@@ -121,7 +121,8 @@ $forms['Features']['Page_titles'] = array(
 $forms['Features']['Warnings'] = array(
     'ServerLibraryDifference_DisableWarning',
     'PmaNoRelation_DisableWarning',
-    'SuhosinDisableWarning');
+    'SuhosinDisableWarning',
+    'LoginCookieValidityDisableWarning');
 $forms['Features']['Developer'] = array(
     'UserprefsDeveloperTab',
     'DBG/sql');
