@@ -424,7 +424,7 @@ AJAX.registerOnload('sql.js', function () {
 
         var phrase = $(this).val();
         // Set same value to both Filter rows fields.
-        $(".filter_rows[data-for='" + unique_id + "']").val(phrase);
+        $(".filter_rows[data-for='" + unique_id + "']").not(this).val(phrase);
         // Handle colspan.
         $target_table.find("thead > tr").prepend(dummy_th);
         $.uiTableFilter($target_table, phrase, target_columns);

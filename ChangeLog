@@ -38,6 +38,7 @@ phpMyAdmin - ChangeLog
 - bug       Undefined index submit_type
 - bug #4738 Header lose align when scrolling in Firefox
 - bug #4741 in ./libraries/Advisor.class.php#184 vsprintf(): Too few arguments
+- bug #4743 Unable to move cursor with keyboard in filter rows box
 
 4.3.8.0 (2015-01-24)
 - bug       Undefined constant PMA_DRIZZLE
