@@ -1881,9 +1881,9 @@ function PMA_doc_builtin(idx, elm)
 /**
  * Higlights SQL using CodeMirror.
  */
-function PMA_highlightSQL(base)
+function PMA_highlightSQL($base)
 {
-    var $elm = base.find('code.sql');
+    var $elm = $base.find('code.sql');
     $elm.each(function () {
         var $sql = $(this);
         var $pre = $sql.find('pre');
@@ -1896,6 +1896,27 @@ function PMA_highlightSQL(base)
                 $pre.hide();
                 $highlight.find('.cm-keyword').each(PMA_doc_keyword);
                 $highlight.find('.cm-builtin').each(PMA_doc_builtin);
+            }
+        }
+    });
+}
+
+/**
+ * Higlights JSON using CodeMirror.
+ */
+function PMA_highlightJSON($base)
+{
+    var $elm = $base.find('code.json');
+    $elm.each(function () {
+        var $json = $(this);
+        var $pre = $json.find('pre');
+        /* We only care about visible elements to avoid double processing */
+        if ($pre.is(":visible")) {
+            var $highlight = $('<div class="json-highlight cm-s-default"></div>');
+            $json.append($highlight);
+            if (typeof CodeMirror != 'undefined') {
+                CodeMirror.runMode($json.text(), 'application/json', $highlight[0]);
+                $pre.hide();
             }
         }
     });
