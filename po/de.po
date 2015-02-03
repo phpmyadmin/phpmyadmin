@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-28 09:07-0500\n"
-"PO-Revision-Date: 2015-01-26 12:24+0200\n"
-"Last-Translator: Jan Erik Zassenhaus <jan.zassenhaus@jgerman.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"PO-Revision-Date: 2015-02-03 10:43+0200\n"
+"Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -2368,33 +2368,29 @@ msgstr ""
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Um alle %s in Datenbank zu filtern, nach einem Suchbegriff Enter drücken"
 
 #: js/messages.php:481
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
 msgstr "Tabellen"
 
 #: js/messages.php:482
-#, fuzzy
 #| msgid "Views"
 msgid "views"
 msgstr "Ansichten"
 
 #: js/messages.php:483
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
 msgstr "Prozeduren"
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "event"
 msgid "events"
-msgstr "Ereignis"
+msgstr "Ereignisse"
 
 #: js/messages.php:485
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
 msgstr "Funktionen"
@@ -4947,13 +4943,12 @@ msgstr "Deaktiviert"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "Schlüssel"
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Tabelle für Anzeigespalten"
+msgstr "Anzeigespalte"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -6380,13 +6375,12 @@ msgstr "Speicher Limit"
 
 #: libraries/config/messages.inc.php:418
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "Im Navigationsbereich den Datenbankbaum durch ein Auswahlmenü ersetzen"
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Zeige versteckte Navigationselemente."
+msgstr "Datenbanknavigation als Baum anzeigen"
 
 #: libraries/config/messages.inc.php:420
 msgid "Link with main panel by highlighting the current database or table."
@@ -6435,10 +6429,9 @@ msgid "Target for quick access icon"
 msgstr "Ziel für Schnellzugriff-Icon"
 
 #: libraries/config/messages.inc.php:437
-#, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "Ziel für Schnellzugriff-Icon"
+msgstr "Ziel für zweites Schnellzugriff-Icon"
 
 #: libraries/config/messages.inc.php:440
 msgid ""
@@ -6693,16 +6686,14 @@ msgid "Grid editing: trigger action"
 msgstr "Sofort-Bearbeiten: Aktions-Auslöser"
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
-msgstr "Relationale Anzeigespalte"
+msgstr "Relationale Anzeige"
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Anzeigeoptionen für Server."
+msgstr "Für Anzeigeoptionen"
 
 #: libraries/config/messages.inc.php:537
 msgid "Grid editing: save all edited cells at once"
@@ -9041,19 +9032,18 @@ msgstr ""
 "im Navigations-Panel abschalten."
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s weiteres Ergebnis gefunden"
-msgstr[1] "%s weitere Ergebnisse gefunden"
+msgstr[0] "%s Ergebnis gefunden"
+msgstr[1] "%s Ergebnisse gefunden"
 
 #: libraries/navigation/NavigationTree.class.php:1201
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Bitte Datenbank auswählen"
+msgstr "Bitte Datenbank auswählen."
 
 #: libraries/navigation/NavigationTree.class.php:1259
 msgid "Filter databases by name or regex"
@@ -13641,10 +13631,9 @@ msgid "Add %s column(s)"
 msgstr "%s Spalte(n) einfügen"
 
 #: libraries/structure.lib.php:1712
-#, fuzzy
 #| msgid "Beginning of table"
 msgid "at beginning of table"
-msgstr "Tabellenanfang"
+msgstr "am Tabellenanfang"
 
 #: libraries/structure.lib.php:1717
 #: libraries/tbl_columns_definition_form.lib.php:811
@@ -13988,17 +13977,16 @@ msgstr "Index-Zwischenspeicher Größe"
 
 #: libraries/tbl_indexes.lib.php:323
 msgid "Key block size:"
-msgstr ""
+msgstr "Schlüsselblockgröße:"
 
 #: libraries/tbl_indexes.lib.php:335
 msgid "Index type:"
 msgstr "Indextyp:"
 
 #: libraries/tbl_indexes.lib.php:347
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Benutzer:"
+msgstr "Parser:"
 
 #: libraries/tbl_indexes.lib.php:359
 msgid "Comment:"
@@ -14611,12 +14599,12 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Zeile: %1$s, Spalte: %2$s, Fehler: %3$s"
 
 #: tbl_structure.php:60
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name(s) '%s' are MySQL reserved keyword."
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgid_plural "The column names '%s' are MySQL reserved keywords."
-msgstr[0] "Spaltenname(n) '%s' ist/sind reservierte(s) MySQL-Schlüsselwort(e)."
-msgstr[1] "Spaltenname(n) '%s' ist/sind reservierte(s) MySQL-Schlüsselwort(e)."
+msgstr[0] "Der Spaltenname ‚%s‘ ist ein reserviertes MySQL-Schlüsselwort."
+msgstr[1] "Die Spaltennamen ‚%s‘ sind reservierte MySQL-Schlüsselwörter."
 
 #: tbl_structure.php:131
 msgid "No column selected."
