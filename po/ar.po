@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-10-12 15:52+0200\n"
-"Last-Translator: hassan mokhtari <persiste1@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ar/>\n"
+"PO-Revision-Date: 2015-02-03 23:58+0200\n"
+"Last-Translator: Ahmed Saad <egbrave@hotmail.com>\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -255,7 +255,7 @@ msgstr "تمت إعادة تسمية قاعدة البيانات %1$s إلى %2$
 #, fuzzy, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "تم نسخ قاعدة البيانات من %1$s إلى %2$s"
+msgstr "تم نسخ قاعدة البيانات  %1$s  إلى %2$s"
 
 #: db_operations.php:266
 #, fuzzy, php-format
@@ -313,10 +313,9 @@ msgstr "آخر تحديث"
 
 #: db_printview.php:134 libraries/plugins/export/ExportSql.class.php:1170
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1005
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "آخر فحص"
+msgstr "آخر فحص:"
 
 #: db_printview.php:146 libraries/structure.lib.php:169
 #, php-format
