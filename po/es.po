@@ -4,14 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-28 09:07-0500\n"
-"PO-Revision-Date: 2015-01-09 09:34+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"PO-Revision-Date: 2015-02-04 09:52+0200\n"
+"Last-Translator: Jorge Famma Tinoco Gomez "
+"<revistafammatvmusic.oficial@gmail.com>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -1657,8 +1658,9 @@ msgid "Test"
 msgstr "Prueba"
 
 #: js/messages.php:249
+#, fuzzy
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Formatting SQL..."
 
 #: js/messages.php:253 libraries/db_designer.lib.php:823
 #: libraries/db_designer.lib.php:872 libraries/db_designer.lib.php:1016
@@ -2352,13 +2354,14 @@ msgid "Unlink from main panel"
 msgstr "Deshacer enlace en el panel principal"
 
 #: js/messages.php:479
+#, fuzzy
 msgid "To filter all databases on server, press Enter after a search term"
-msgstr ""
+msgstr "To filter all databases on server, press Enter after a search term"
 
 #: js/messages.php:480
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
-msgstr ""
+msgstr "To filter all %s in database, press Enter after a search term"
 
 #: js/messages.php:481
 #, fuzzy
@@ -4944,7 +4947,7 @@ msgstr "Deshabilitado"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "llave"
 
 #: libraries/config.values.php:99
 #, fuzzy
@@ -6386,8 +6389,11 @@ msgid "Memory limit"
 msgstr "Límite de la memoria"
 
 #: libraries/config/messages.inc.php:418
+#, fuzzy
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
+"En el panel de navegación, reemplaza el árbol de base de datos con un "
+"selector"
 
 #: libraries/config/messages.inc.php:419
 #, fuzzy
@@ -6426,7 +6432,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:431
 msgid "Logo link target"
-msgstr "Objetivo para enlace del logo"
+msgstr "Logo destino del enlace"
 
 #: libraries/config/messages.inc.php:433
 msgid "Display server choice at the top of the navigation panel."
@@ -6452,10 +6458,11 @@ msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
-"Número mínimo de elementos (tablas, vistas, rutinas y eventos) para mostrar "
-"una caja de filtro."
+"Define el número mínimo de elementos (tablas, vistas, rutinas y eventos) "
+"para mostrar un cuadro de filtro."
 
 #: libraries/config/messages.inc.php:444
+#, fuzzy
 msgid "Minimum number of items to display the filter box"
 msgstr "Número mínimo de elementos para mostrar la caja de filtro"
 
