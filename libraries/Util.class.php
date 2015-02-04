@@ -1272,7 +1272,7 @@ class PMA_Util
                 $inline_edit_link = ' ['
                     . self::linkOrButton(
                         '#',
-                        _pgettext('Inline edit query', 'Inline'),
+                        _pgettext('Inline edit query', 'Edit inline'),
                         array('class' => 'inline_edit_sql')
                     )
                     . ']';
