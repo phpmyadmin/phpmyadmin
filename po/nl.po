@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-04 11:31-0500\n"
-"PO-Revision-Date: 2015-01-28 19:53+0200\n"
-"Last-Translator: Niko Strijbol <strijbol.niko@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"PO-Revision-Date: 2015-02-04 20:30+0200\n"
+"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -847,7 +847,6 @@ msgstr ""
 "strings niet correct splitsen, wat tot onverwachte resultaten kan leiden."
 
 #: index.php:488
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -859,10 +858,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"De PHP-parameter [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is korter dan de "
-"ingestelde cookiegeldigheid in phpMyAdmin. Hierdoor verloopt uw sessie "
-"eerder dan in phpMyAdmin is ingesteld."
+"De PHP-parameter "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is korter dan de ingestelde "
+"cookie validatie in phpMyAdmin. Hierdoor verloopt uw sessie eerder dan in "
+"phpMyAdmin is ingesteld."
 
 #: index.php:501
 msgid ""
@@ -4577,11 +4577,10 @@ msgid "Create PHP Code"
 msgstr "Genereer PHP-code"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Index bewerken"
+msgstr "Inline bewerken"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1580
@@ -7358,7 +7357,6 @@ msgid "Suhosin warning"
 msgstr "Suhosin-waarschuwing"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
@@ -7366,14 +7364,13 @@ msgid ""
 "Disable the default warning that is displayed on the main page if session."
 "gc_maxlifetime is less than `LoginCookieValidity`."
 msgstr ""
-"De waarschuwing uitschakelen die getoond wordt op de Structuur pagina "
-"wanneer kolomnamen in een tabel gereserveerde MySQL woorden zijn."
+"De waarschuwing uitschakelen die getoond wordt op de hoofdpagina wanneer "
+"session.gc_maxlifetime lager is dan 'LoginCookieValidity'."
 
 #: libraries/config/messages.inc.php:758
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Geldigheid aanmeldingscookie"
+msgstr "Waarschuwing geldigheid inlog-cookie"
 
 #: libraries/config/messages.inc.php:759
 msgid ""
@@ -10578,10 +10575,9 @@ msgstr ""
 "voor de link."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:38
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Maakt de tekst op als een SQL-query met syntaxmarkeringen."
+msgstr "Maakt de tekst op in JSON met syntaxis markeringen."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -13778,10 +13774,9 @@ msgid "Storage Engine:"
 msgstr "Opslag-engine:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Verbindingen"
+msgstr "Verbinding:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
@@ -13936,7 +13931,6 @@ msgid "Index type:"
 msgstr "Indextype:"
 
 #: libraries/tbl_indexes.lib.php:347
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
 msgstr "Lezer:"
