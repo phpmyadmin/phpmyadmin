@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-28 09:07-0500\n"
-"PO-Revision-Date: 2014-10-12 15:52+0200\n"
-"Last-Translator: hassan mokhtari <persiste1@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ar/>\n"
+"PO-Revision-Date: 2015-02-04 00:01+0200\n"
+"Last-Translator: Ahmed Saad <egbrave@hotmail.com>\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -256,7 +256,7 @@ msgstr "تمت إعادة تسمية قاعدة البيانات %1$s إلى %2$
 #, fuzzy, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "تم نسخ قاعدة البيانات من %1$s إلى %2$s"
+msgstr "تم نسخ قاعدة البيانات  %1$s  إلى %2$s"
 
 #: db_operations.php:259
 #, fuzzy, php-format
@@ -313,10 +313,9 @@ msgstr "آخر تحديث"
 
 #: db_printview.php:134 libraries/plugins/export/ExportSql.class.php:1170
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:958
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "آخر فحص"
+msgstr "آخر فحص:"
 
 #: db_printview.php:146 libraries/structure.lib.php:169
 #, php-format
@@ -346,23 +345,21 @@ msgid "Access denied!"
 msgstr "ممنوع الوصول!"
 
 #: db_tracking.php:38 db_tracking.php:63
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Tracking data deleted successfully."
-msgstr "تم إعادة قراءة الصلاحيات بنجاح."
+msgstr "تم مسح بيانات تتبع التغيرات بنجاح ."
 
 #: db_tracking.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "تم إنشاء الإصدار %s , التتبع نشط لـ %s.%s"
+msgstr "الإصدار %1$s  تم إنشاءه للجداول المحدده , التتبع نشط للجداول."
 
 #: db_tracking.php:78
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "لا قواعد بيانات محددة."
+msgstr "لم يتم تحديد أى جداول ."
 
 #: db_tracking.php:113
 msgid "Tracked tables"
@@ -410,10 +407,9 @@ msgid "Delete tracking data for this table"
 msgstr "حذف بيانات التتبع لهذا الجدول"
 
 #: db_tracking.php:146 db_tracking.php:208
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "حذف بيانات التتبع"
+msgstr "حذف بيانات تتبع التغيرات"
 
 #: db_tracking.php:184
 msgid "Versions"
