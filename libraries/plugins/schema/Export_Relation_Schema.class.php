@@ -240,9 +240,9 @@ class PMA_Export_Relation_Schema
     protected function getTablesFromRequest()
     {
         $tables = array();
+        $dbLength = mb_strlen($GLOBALS['db']);
         foreach ($_REQUEST['t_h'] as $key => $value) {
-            list(, $table) = explode(".", $key);
-            $tables[] = $table;
+            $tables[] = mb_substr($key, $dbLength + 1);
         }
         return $tables;
     }
