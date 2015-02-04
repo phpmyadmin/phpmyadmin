@@ -104,7 +104,11 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
                 'DROP TABLE'
             ) !== false ? ' checked="checked"' : '')
             . ' /> DROP TABLE<br/>';
-    } elseif ($type == 'both' || $type == 'view') {
+    }
+    if ($type == 'both') {
+        $html .= '<br/>';
+    }
+    if ($type == 'both' || $type == 'view') {
         $html .= '<input type="checkbox" name="alter_view" value="true"'
             . (/*overload*/mb_stripos(
                 $GLOBALS['cfg']['Server']['tracking_default_statements'],
