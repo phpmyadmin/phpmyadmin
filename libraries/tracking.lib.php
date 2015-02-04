@@ -115,18 +115,18 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
                 'ALTER VIEW'
             ) !== false ? ' checked="checked"' : '')
             . ' /> ALTER VIEW<br/>';
-        $html .= '<input type="checkbox" name="drop_view" value="true"'
-            . (/*overload*/mb_stripos(
-                $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                'DROP VIEW'
-            ) !== false ? ' checked="checked"' : '')
-            . ' /> DROP VIEW<br/>';
         $html .= '<input type="checkbox" name="create_view" value="true"'
             . (/*overload*/mb_stripos(
                 $GLOBALS['cfg']['Server']['tracking_default_statements'],
                 'CREATE VIEW'
             ) !== false ? ' checked="checked"' : '')
             . ' /> CREATE VIEW<br/>';
+        $html .= '<input type="checkbox" name="drop_view" value="true"'
+            . (/*overload*/mb_stripos(
+                $GLOBALS['cfg']['Server']['tracking_default_statements'],
+                'DROP VIEW'
+            ) !== false ? ' checked="checked"' : '')
+            . ' /> DROP VIEW<br/>';
     }
     $html .= '<br/>';
 
