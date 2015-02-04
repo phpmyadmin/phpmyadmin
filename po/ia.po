@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-04 11:31-0500\n"
-"PO-Revision-Date: 2015-01-29 09:00+0200\n"
+"PO-Revision-Date: 2015-02-04 22:14+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -853,7 +853,6 @@ msgstr ""
 "pote divider catenas correctemente e on poterea obtener exitos inexpectate."
 
 #: index.php:488
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -865,10 +864,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Tu parametro PHP [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] es inferior del "
-"validitate de cookie configurate in phpMyAdmin, debite a isto, tu "
-"authentication expirara ante que lo que es configurate in phpMyAdmin."
+"Tu parametro PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] es inferior del validitate de "
+"cookie configurate in phpMyAdmin, debite a isto, tu authentication poterea "
+"expirar ante que lo que es configurate in phpMyAdmin."
 
 #: index.php:501
 msgid ""
@@ -4587,11 +4587,10 @@ msgid "Create PHP Code"
 msgstr "Crea codice PHP"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Edit in window"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Modifica in fenestra"
+msgstr "Modifica in linea (inline)"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1580
@@ -7383,7 +7382,6 @@ msgid "Suhosin warning"
 msgstr "Aviso de Suhosin"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
@@ -7391,14 +7389,13 @@ msgid ""
 "Disable the default warning that is displayed on the main page if session."
 "gc_maxlifetime is less than `LoginCookieValidity`."
 msgstr ""
-"Dishabilita le aviso predefinite que es monstrate sur le pagina de Structura "
-"si le nomines de columna in un tabella es parolas reservate de MySQL."
+"Dishabilita le aviso predefinite que es monstrate sur le pagina principal si "
+"session.gc_maxlifetime es minor que `LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:758
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Validitate de cookie de authentication de accesso"
+msgstr "Avis de validitate de cookie de authentication de accesso"
 
 #: libraries/config/messages.inc.php:759
 msgid ""
@@ -13389,10 +13386,9 @@ msgid "Storage Engine:"
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Connexiones"
+msgstr "Connexion:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
