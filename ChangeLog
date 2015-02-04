@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 - bug #4741 in ./libraries/Advisor.class.php#184 vsprintf(): Too few arguments
 - bug #4743 Unable to move cursor with keyboard in filter rows box
 - bug       Incorrect link in doc
+- bug #4745 Tracking does not handle views properly
 
 4.3.8.0 (2015-01-24)
 - bug       Undefined constant PMA_DRIZZLE
