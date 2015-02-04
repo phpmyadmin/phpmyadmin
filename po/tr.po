@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-04 11:31-0500\n"
-"PO-Revision-Date: 2015-01-28 19:38+0200\n"
+"PO-Revision-Date: 2015-02-04 20:01+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -842,7 +842,6 @@ msgstr ""
 "olarak bölemez ve bu beklenmedik sonuçlar doğurabilir."
 
 #: index.php:488
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -854,11 +853,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"phpMyAdmin içinde yapılandırılmış tanımlama bilgisi geçerliliği, [a@http://"
-"php.net/manual/tr/session.configuration.php#ini.session.gc-"
+"phpMyAdmin içinde yapılandırılmış tanımlama bilgisi geçerliliği, "
+"[a@http://php.net/manual/tr/session.configuration.php#ini.session.gc-"
 "maxlifetime@_blank]session.gc_maxlifetime[/a] PHP parametrenizden düşük, "
 "bundan dolayı phpMyAdmin içinde yapılandırılmadıkça oturum açmanızın süresi "
-"dolacaktır."
+"dolabilir."
 
 #: index.php:501
 msgid ""
@@ -4548,11 +4547,10 @@ msgid "Create PHP Code"
 msgstr "PHP Kodu oluştur"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "İndeksi düzenle"
+msgstr "Satır içi düzenle"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1580
@@ -7317,7 +7315,6 @@ msgid "Suhosin warning"
 msgstr "Suhosin uyarısı"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
@@ -7325,14 +7322,13 @@ msgid ""
 "Disable the default warning that is displayed on the main page if session."
 "gc_maxlifetime is less than `LoginCookieValidity`."
 msgstr ""
-"Eğer bir tablodaki sütun adları MySQL kelimelerine ayrılmışsa, Yapı "
-"sayfasında görüntülenen varsayılan uyarıyı etkisizleştir."
+"Eğer session.gc_maxlifetime değeri `LoginCookieValidity` değerinden az ise, "
+"ana sayfada görüntülenen varsayılan uyarıyı etkisizleştir."
 
 #: libraries/config/messages.inc.php:758
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Oturum açma tanımlama bilgisi geçerliliği"
+msgstr "Oturum açma tanımlama bilgisi geçerlilik uyarısı"
 
 #: libraries/config/messages.inc.php:759
 msgid ""
@@ -10505,10 +10501,9 @@ msgstr ""
 "başlıktır."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:38
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Sözdizimi vurgulamalı SQL sorgusu gibi metni biçimlendirir."
+msgstr "Sözdizimi vurgulamalı JSON gibi metni biçimlendirir."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -13663,10 +13658,9 @@ msgid "Storage Engine:"
 msgstr "Depolama Motoru:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Bağlantılar"
+msgstr "Bağlantı:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
