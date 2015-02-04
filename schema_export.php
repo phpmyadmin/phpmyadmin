@@ -57,7 +57,8 @@ function PMA_processExportSchema($export_type)
     }
 
     // sanitize this parameter which will be used below in a file inclusion
-    $export_type = PMA_securePath($export_type);
+    //$export_type = PMA_securePath($export_type);
+    // sanitizing makes Schema export doesn't handle dots in db/table name
 
     // get the specific plugin
     $export_plugin = PMA_getPlugin(
