@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - bug       Incorrect link in doc
 - bug #4745 Tracking does not handle views properly
 - bug #4706 Schema export doesn't handle dots in db/table name
+- bug #3935 Table Header not displayed correct (Safari 5.0.5 Mac)
 
 4.3.8.0 (2015-01-24)
 - bug       Undefined constant PMA_DRIZZLE
