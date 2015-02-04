@@ -32,6 +32,7 @@ phpMyAdmin - ChangeLog
 + rfe #1260 Setting LoginCookieValidity > session.gc_maxlifetime
 + rfe       Transformation for JSON
 - bug       Fix isCanvasSupported for new window
++ rfe #1600 Clarify the "Inline" link
 
 4.3.9.0 (not yet released)
 - bug #4728 Incorrect headings in routine editor
