@@ -143,8 +143,9 @@ if ($last_version > 0) {
     );
 }
 
+$type = PMA_Table::isView($GLOBALS['db'], $GLOBALS['table']) ? 'view' : 'table';
 $html .= PMA_getHtmlForDataDefinitionAndManipulationStatements(
-    $url_query, $last_version
+    $url_query, $last_version, $type
 );
 
 $html .= '<br class="clearfloat"/>';
