@@ -1141,8 +1141,7 @@ class PMA_NavigationTree
         }
         return $retval;
     }
-    
-    
+
     /**
      * Renders a database select box like the pre-4.0 navigation panel
      *
@@ -1182,12 +1181,15 @@ class PMA_NavigationTree
             $paths  = $node->getPaths();
             if (isset($node->links['text'])) {
                 $title = empty($node->links['title']) ? '' : $node->links['title'];
-                $retval .= '<option value="' . htmlspecialchars($node->real_name) . '"'
-                    .' title="' . htmlspecialchars($title) . '"'
-                    .' apath="' . $paths['aPath'] . '"'
-                    .' vpath="' . $paths['vPath'] . '"'
-                    .' pos="' . $this->_pos . '"';
-                if ($node->real_name == $selected || (PMA_DRIZZLE && strtolower($node->real_name) == strtolower($selected))) {
+                $retval .= '<option value="'
+                    . htmlspecialchars($node->real_name) . '"'
+                    . ' title="' . htmlspecialchars($title) . '"'
+                    . ' apath="' . $paths['aPath'] . '"'
+                    . ' vpath="' . $paths['vPath'] . '"'
+                    . ' pos="' . $this->_pos . '"';
+                if ($node->real_name == $selected
+                    || (PMA_DRIZZLE && strtolower($node->real_name) == strtolower($selected))
+                ) {
                     $retval .= ' selected="selected"';
                 }
                 $retval .= '>' . htmlspecialchars($node->real_name);
