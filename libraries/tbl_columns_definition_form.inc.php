@@ -92,7 +92,12 @@ if (isset($_REQUEST['submit_num_fields'])) {
 }
 
 $foreigners = PMA_getForeigners($db, $table, '', 'foreign');
-$child_references = PMA_getChildReferences($db, $table);
+$child_references = null;
+// From MySQL 5.6.6 onwards columns with foreign keys can be renamed.
+// Hence, no need to get child references
+if (PMA_MYSQL_INT_VERSION < 50606) {
+    $child_references = PMA_getChildReferences($db, $table);
+}
 for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     if (! empty($regenerate)) {
         list($columnMeta, $submit_length, $submit_attribute,
@@ -142,7 +147,11 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     }
 
     // Variable tell if current column is bound in a foreign key constraint or not.
-    if (isset($columnMeta['Field']) && isset($_form_params['table'])) {
+    // MySQL version from 5.6.6 allow renaming columns with foreign keys
+    if (isset($columnMeta['Field'])
+        && isset($_form_params['table'])
+        && PMA_MYSQL_INT_VERSION < 50606
+    ) {
         $columnMeta['column_status'] = PMA_checkChildForeignReferences(
             $_form_params['db'],
             $_form_params['table'],
