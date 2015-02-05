@@ -49,6 +49,7 @@ phpMyAdmin - ChangeLog
 - bug #4706 Schema export doesn't handle dots in db/table name
 - bug #3935 Table Header not displayed correct (Safari 5.0.5 Mac)
 - bug #4750 Disable renaming referenced columns
+- bug #4748 Column name center-aligned instead of left-aligned in Relations
 
 4.3.8.0 (2015-01-24)
 - bug       Undefined constant PMA_DRIZZLE
