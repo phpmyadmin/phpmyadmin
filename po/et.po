@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-04 11:31-0500\n"
-"PO-Revision-Date: 2015-01-28 20:44+0200\n"
+"PO-Revision-Date: 2015-02-05 08:31+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -840,7 +840,6 @@ msgstr ""
 "korralikult poolitada ja see võib viia ettearvamatute tulemusteni."
 
 #: index.php:488
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -852,9 +851,10 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP parameeter [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] väärtus on väiksem, "
-"kui phpMyAdminis seadistatud küpsise kehtivus. Seetõttu aegub sessioon "
+"PHP parameeter "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] väärtus on väiksem, kui "
+"phpMyAdminis seadistatud küpsise kehtivus. Seetõttu võib sessioon aeguda "
 "kiiremini, kui phpMyAdminis seadistatud."
 
 #: index.php:501
@@ -1639,7 +1639,7 @@ msgstr "Testi"
 
 #: js/messages.php:249
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "SQL vormindamine..."
 
 #: js/messages.php:253 libraries/db_designer.lib.php:823
 #: libraries/db_designer.lib.php:872 libraries/db_designer.lib.php:1016
@@ -4518,11 +4518,10 @@ msgid "Create PHP Code"
 msgstr "Loo PHP kood"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Muuda indeksit"
+msgstr "Muuda kohapeal"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1580
@@ -7245,7 +7244,6 @@ msgid "Suhosin warning"
 msgstr "Suhosin'i hoiatus"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
@@ -7253,14 +7251,13 @@ msgid ""
 "Disable the default warning that is displayed on the main page if session."
 "gc_maxlifetime is less than `LoginCookieValidity`."
 msgstr ""
-"Keela vaikimisi hoiatus, mida näidatakse struktuuri lehel siis, kui tabeli "
-"veergude nimed on MySQLi reserveeritud sõnad."
+"Keela vaikimisi hoiatus, mida näidatakse põhilehel siis, kui "
+"session.gc_maxlifetime on väiksem kui `LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:758
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Sisselogimise küpsise kehtivus"
+msgstr "Sisselogimise küpsise kehtivuse hoiatus"
 
 #: libraries/config/messages.inc.php:759
 msgid ""
@@ -10414,10 +10411,9 @@ msgstr ""
 "\"http://www.example.com/\". Teine valik on lingi pealkiri."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:38
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Vormindab teksti SQL päringuks koos süntaksi esiletõstmisega."
+msgstr "Vormindab teksti süntaksi esiletõstuga JSON objektiks."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -13544,10 +13540,9 @@ msgid "Storage Engine:"
 msgstr "Varundusmootor:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Ühendused"
+msgstr "Ühendus:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
