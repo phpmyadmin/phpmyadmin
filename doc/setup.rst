@@ -162,8 +162,8 @@ For a full explanation of possible configuration values, see the
 Using Setup script
 ------------------
 
-Instead of manually editing :file:`config.inc.php`, you can use the `Setup
-Script <setup/>`_. First you must manually create a folder ``config``
+Instead of manually editing :file:`config.inc.php`, you can use phpMyAdmin's 
+setup feature. First you must manually create a folder ``config``
 in the phpMyAdmin directory. This is a security measure. On a
 Linux/Unix system you can use the following commands:
 
@@ -191,7 +191,7 @@ On other platforms, simply create the folder and ensure that your web
 server has read and write access to it. :ref:`faq1_26` can help with
 this.
 
-Next, open ``setup/`` in your browser. If you have an existing configuration,
+Next, open your browser and visit the location where you installed phpMyAdmin, with the ``/setup`` suffix. If you have an existing configuration,
 use the ``Load`` button to bring its content inside the setup panel.
 Note that **changes are not saved to disk until you explicitly choose ``Save``**
 from the *Configuration* area of the screen. Normally the script saves the new
@@ -270,7 +270,7 @@ configured. This is called “Zero Configuration” mode and can be particularly
 useful in shared hosting situations. “Zeroconf” mode is on by default, to
 disable set :config:option:`$cfg['ZeroConf']` to false.
 
-The following three scenarios are convered by the Zero Configuration mode:
+The following three scenarios are covered by the Zero Configuration mode:
 
 * When entering a database where the configuration storage tables are not
   present, phpMyAdmin offers to create them from the Operations tab.

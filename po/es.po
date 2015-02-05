@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-08 20:12+0200\n"
-"Last-Translator: Rodrigo A. <ra4@openmailbox.org>\n"
+"PO-Revision-Date: 2015-02-04 09:52+0200\n"
+"Last-Translator: Jorge Famma Tinoco Gomez "
+"<revistafammatvmusic.oficial@gmail.com>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/es/>\n"
 "Language: es\n"
@@ -6335,7 +6336,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:430
 msgid "Logo link target"
-msgstr "Objetivo para enlace del logo"
+msgstr "Logo destino del enlace"
 
 #: libraries/config/messages.inc.php:432
 msgid "Display server choice at the top of the navigation panel."
@@ -6355,10 +6356,11 @@ msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
-"Número mínimo de elementos (tablas, vistas, rutinas y eventos) para mostrar "
-"una caja de filtro."
+"Define el número mínimo de elementos (tablas, vistas, rutinas y eventos) "
+"para mostrar un cuadro de filtro."
 
 #: libraries/config/messages.inc.php:440
+#, fuzzy
 msgid "Minimum number of items to display the filter box"
 msgstr "Número mínimo de elementos para mostrar la caja de filtro"
 

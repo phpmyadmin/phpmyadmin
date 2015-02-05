@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-23 04:37+0200\n"
-"Last-Translator: krasimir <vip@krasio-valia.com>\n"
+"PO-Revision-Date: 2015-01-26 06:18+0200\n"
+"Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
 "Language-Team: Bulgarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/bg/>\n"
 "Language: bg\n"
@@ -16,31 +16,32 @@ msgstr ""
 "X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr "krasio-valia.com"
+msgstr ""
+"Файлът %s не е наличен на тази система, Моля посети www.phpmyadmin.net за "
+"повече информация."
 
 #: db_central_columns.php:85
-#, fuzzy
 msgid "The central list of columns for the current database is empty."
-msgstr "The central list of columns for the current database is empty."
+msgstr "Централния лист от колони в избраната база данни е празна."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
 msgstr "Кликнете за сортиране."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Показване на редове %1$s - %2$s"
+msgstr "Показване на редове %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "БД %1$s беше създадена."
+msgstr "Базата данни %1$s беше създадена."
 
 #: db_datadict.php:48 libraries/operations.lib.php:32
 msgid "Database comment:"
@@ -741,7 +742,7 @@ msgstr "Още"
 
 #: index.php:275
 msgid "Database server"
-msgstr "БД сървър"
+msgstr "SQL сървър"
 
 #: index.php:278 libraries/plugins/auth/AuthenticationCookie.class.php:180
 msgid "Server:"
@@ -866,6 +867,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Логин бисквитка е по-ниска, отколкото валидност бисквитка конфигурирана в "
+"PhpMyAdmin, защото от това, данните за вход ще изтече по-рано от "
+"конфигурирана в PhpMyAdmin."
 
 #: index.php:511
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -894,15 +898,14 @@ msgstr ""
 "разширени функции са деактивирани. За да разберете защо натиснете %sтук%s. "
 
 #: index.php:540
-#, fuzzy
 #| msgid ""
 #| "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or alternately go to 'Operations' "
 #| "tab of any database to set it up there."
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Или отидете в раздела \"Операции\" "
-"на всяка база данни, за да го настроите там."
+"Или отидете в раздела \"Операции\" на всяка база данни, за да го настроите "
+"там."
 
 #: index.php:585
 #, php-format
@@ -1048,9 +1051,8 @@ msgstr "Трябва да добавите поне една колона."
 #: js/messages.php:72 libraries/insert_edit.lib.php:1541
 #: libraries/tbl_columns_definition_form.lib.php:145
 #: libraries/tbl_relation.lib.php:655
-#, fuzzy
 msgid "Preview SQL"
-msgstr "Визуализация на SQL"
+msgstr "Преглед на SQL"
 
 #: js/messages.php:75
 msgid "Simulate query"
@@ -1853,7 +1855,7 @@ msgstr "Към следващата стъпка…"
 #: js/messages.php:316
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Първата стъпка от нормализирането е завършено за таблиза '%s'."
 
 #: js/messages.php:317 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
@@ -2169,7 +2171,6 @@ msgid "Click to sort results by this column."
 msgstr "Кликнете за сортиране на резултата по тази колона."
 
 #: js/messages.php:424
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2346,7 +2347,7 @@ msgstr "Изпращане на доклад с грешки"
 
 #: js/messages.php:488
 msgid "Submit Error Report"
-msgstr ""
+msgstr "представи доклад за грешка"
 
 #: js/messages.php:490
 msgid ""
@@ -2355,16 +2356,14 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:492
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "Промяна настройки"
+msgstr "Промяна на рапорт настройки"
 
 #: js/messages.php:493
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "Показване отворените таблици"
+msgstr "Показване детайли за рапорта"
 
 #: js/messages.php:496
 msgid ""
@@ -2381,17 +2380,16 @@ msgstr ""
 
 #: js/messages.php:506 js/messages.php:518
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Засечени са някой грешки на сървъра!"
 
 #: js/messages.php:508
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Моля погледнете в края на този прозорец."
 
 #: js/messages.php:513 libraries/Error_Handler.class.php:353
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Игнориране"
+msgstr "Игнориране на всички"
 
 #: js/messages.php:520
 msgid ""
@@ -2399,10 +2397,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:527
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Показване на заявката отново"
+msgstr "Изпълняване на заявката отново?"
 
 #: js/messages.php:528
 #, fuzzy

@@ -254,7 +254,12 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $('table.pma_table').find('thead th:first').removeClass('before-condition');
             for (var n = 0, l = $firstRowCols.length; n < l; n++) {
                 var $col = $($firstRowCols[n]);
-                $($resizeHandles[n]).css('left', $col.position().left + $col.outerWidth(true))
+                if ($.browser.safari) {
+                    var colWidth = $col.outerWidth();
+                } else {
+                    var colWidth = $col.outerWidth(true);
+                }
+                $($resizeHandles[n]).css('left', $col.position().left + colWidth)
                    .show();
                 if ($col.hasClass('condition')) {
                     $($resizeHandles[n]).addClass('condition');

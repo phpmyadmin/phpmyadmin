@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-10-18 07:54+0200\n"
-"Last-Translator: Tor Stokkan <danorse@gmail.com>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/nb/>\n"
+"PO-Revision-Date: 2015-01-29 16:02+0200\n"
+"Last-Translator: Christoffer Haugom <ph3n1x.nobody@gmail.com>\n"
+"Language-Team: Norwegian Bokmål "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/nb/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -29,10 +29,9 @@ msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:109
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Klikk for å sortere"
+msgstr "Klikk for å sortere."
 
 #: db_central_columns.php:125
 #, fuzzy, php-format
@@ -252,10 +251,10 @@ msgid "Database %1$s has been renamed to %2$s."
 msgstr "Databasen %1$s har endret navn til %2$s"
 
 #: db_operations.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Databasen %1$s har blitt kopiert til %2$s"
+msgstr "Databasen %1$s har blitt kopiert til %2$s."
 
 #: db_operations.php:266
 #, fuzzy, php-format
@@ -322,10 +321,9 @@ msgstr[0] "%s tabell"
 msgstr[1] "%s tabeller"
 
 #: db_qbe.php:103
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Du må velge minst en kolonne for visning"
+msgstr "Du må velge minst en kolonne for visning!"
 
 #: db_qbe.php:124
 #, php-format
@@ -613,10 +611,9 @@ msgid "Failed"
 msgstr ""
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "Komplette inserts"
+msgstr "Ufullstendige parametre"
 
 #: import.php:162
 #, php-format
@@ -897,7 +894,7 @@ msgstr ""
 "konfigurasjonen din og endre serveren."
 
 #: index.php:533
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -906,7 +903,7 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Lagring av phpMyAdmin-oppsett er ikke konfigurert riktig i innstillingene, "
-"og noen tilleggsfunksjoner er deaktivert. Finn ut hvorfor %sher%s."
+"og noen tilleggsfunksjoner er deaktivert. %sFinn ut hvorfor%s. "
 
 #: index.php:540
 msgid ""
@@ -965,10 +962,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Slipper primærnøkkel/indeks"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Velg fremmednøkkel"
+msgstr "Slipper fremmednøkkel."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -997,10 +993,9 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Vil du virkelig slette søket \"%s\"?"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "Lagre som fil"
+msgstr "Lagre & Lukk"
 
 #: js/messages.php:52 libraries/config/FormDisplay.tpl.php:395
 #: libraries/insert_edit.lib.php:1543 prefs_manage.php:339
@@ -1009,10 +1004,9 @@ msgid "Reset"
 msgstr "Tilbakestill"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "Marker alle"
+msgstr "Nullstill Alle"
 
 #: js/messages.php:56
 msgid "Missing value in the form!"
@@ -1050,22 +1044,19 @@ msgid "Create single-column index"
 msgstr "Opprett relasjon"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "Opprett relasjon"
+msgstr "Opprett kompositt indeks"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "Kolonner omsluttet av:"
+msgstr "Kompositt med:"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "Legg %s kolonne(r) til index"
+msgstr "Vennligst velg kolonne(r) for indexen."
 
 #: js/messages.php:69 libraries/structure.lib.php:1683
 msgid "You have to add at least one column."
@@ -1078,10 +1069,9 @@ msgid "Preview SQL"
 msgstr "Forhåndsvis SQL"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
-msgstr "i spørring"
+msgstr "Simuler spørring"
 
 #: js/messages.php:76
 #, fuzzy
@@ -1839,16 +1829,14 @@ msgid "Pick"
 msgstr ""
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "No rows selected"
 msgid "Column selector"
-msgstr "Ingen rader valgt"
+msgstr "Kolonnevelger"
 
 #: js/messages.php:305
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
-msgstr "Søk i database"
+msgstr "Søk i denne listen"
 
 #: js/messages.php:306
 #, php-format
@@ -1858,10 +1846,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:307
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "Ledig minne"
+msgstr "Se mer"
 
 #: js/messages.php:308
 msgid "Are you sure?"
@@ -1874,10 +1861,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:310
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "Bidra"
+msgstr "Fortsett"
 
 #: js/messages.php:313 libraries/structure.lib.php:2168
 #: libraries/structure.lib.php:2171
@@ -1885,10 +1871,9 @@ msgid "Add primary key"
 msgstr "Legg til primærnøkkel"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "En primærnøkkel har blitt lagt til %s."
+msgstr "Primærnøkkel lagt til."
 
 #: js/messages.php:315 libraries/normalization.lib.php:174
 #, fuzzy
@@ -1936,7 +1921,7 @@ msgstr ""
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Ingen databaser er valgt."
+msgstr "Ingen delvis avhengigheter er valgt."
 
 #: js/messages.php:325
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -1957,10 +1942,9 @@ msgid "Step"
 msgstr ""
 
 #: js/messages.php:329
-#, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "Følgende spørringer har blitt utført:"
+msgstr "Følgende handlinger vil bli utført:"
 
 #: js/messages.php:330
 #, php-format

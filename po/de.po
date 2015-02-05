@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-04 14:43+0200\n"
-"Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
+"PO-Revision-Date: 2015-01-26 12:20+0200\n"
+"Last-Translator: Jan Erik Zassenhaus <jan.zassenhaus@jgerman.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/de/>\n"
 "Language: de\n"
@@ -7774,7 +7774,7 @@ msgstr "Kein Passwort"
 #: libraries/replication_gui.lib.php:412 libraries/replication_gui.lib.php:853
 #: libraries/server_privileges.lib.php:1493
 msgid "Password:"
-msgstr "Kennwort:"
+msgstr "Passwort:"
 
 #: libraries/display_change_password.lib.php:74
 #: libraries/replication_gui.lib.php:877
@@ -7784,7 +7784,7 @@ msgstr "Wiederholen:"
 
 #: libraries/display_change_password.lib.php:83
 msgid "Password Hashing:"
-msgstr "Password-Verschlüsselung:"
+msgstr "Passwortverschlüsselung:"
 
 #: libraries/display_change_password.lib.php:96
 msgid "MySQL 4.0 compatible"
@@ -10911,7 +10911,7 @@ msgstr "Benutzername"
 #: libraries/server_privileges.lib.php:1525
 #: libraries/server_privileges.lib.php:2964
 msgid "Password"
-msgstr "Kennwort"
+msgstr "Passwort"
 
 #: libraries/replication_gui.lib.php:435
 msgid "Port:"
