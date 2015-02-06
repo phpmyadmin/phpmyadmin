@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-04 11:31-0500\n"
-"PO-Revision-Date: 2015-01-29 11:51+0200\n"
+"PO-Revision-Date: 2015-02-05 21:05+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -850,7 +850,6 @@ msgstr ""
 "αποτελέσματα."
 
 #: index.php:488
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -862,10 +861,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Η παράμετρος PHP [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] είναι μικρότερη από "
-"την ρυθμισμένη εγκυρότητα cookie στο phpMyAdmin. Εξαιτίας αυτού, η σύνδεσή "
-"σας θα λήξει νωρίτερα από ό,τι ρυθμίστηκε στο phpMyAdmin."
+"Η παράμετρος PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] είναι μικρότερη από την "
+"ρυθμισμένη εγκυρότητα cookie στο phpMyAdmin. Εξαιτίας αυτού, η σύνδεσή σας "
+"ίσως λήξει νωρίτερα από ό,τι ρυθμίστηκε στο phpMyAdmin."
 
 #: index.php:501
 msgid ""
@@ -4575,11 +4575,10 @@ msgid "Create PHP Code"
 msgstr "Δημιουργία κώδικα PHP"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Εεπεξεργασία ευρετηρίου"
+msgstr "Επεξεργασία εσωτερικά"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1580
@@ -7374,7 +7373,6 @@ msgid "Suhosin warning"
 msgstr "προειδοποίηση Suhosin"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
@@ -7382,14 +7380,14 @@ msgid ""
 "Disable the default warning that is displayed on the main page if session."
 "gc_maxlifetime is less than `LoginCookieValidity`."
 msgstr ""
-"Απενεργοποiήστε την προεπιλεγμένη προειδοποίηση που εμφανίζεται στη σελίδα "
-"Δομής, αν τα ονόματα στηλών είναι δεσμευμένες λέξεις της MySQL."
+"Απενεργοποiήστε την προεπιλεγμένη προειδοποίηση που εμφανίζεται στη βασική "
+"σελίδα αν το session.gc_maxlifetime είναι λιγότερο από το "
+"«LoginCookieValidity»."
 
 #: libraries/config/messages.inc.php:758
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Εγκυρότητα cookie σύνδεσης"
+msgstr "Προειδοποίηση εγκυρότητας cookie σύνδεσης"
 
 #: libraries/config/messages.inc.php:759
 msgid ""
@@ -10593,10 +10591,9 @@ msgstr ""
 "ένας τίτλος για τον σύνδεσμο."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:38
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Μορφοποιεί το κείμενο ως ερώτημα SQL με συντακτική επισήμανση."
+msgstr "Μορφοποιεί το κείμενο ως JSON με επισήμανση της σύνταξης."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -13817,10 +13814,9 @@ msgid "Storage Engine:"
 msgstr "Μηχανή αποθήκευσης:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Συνδέσεις"
+msgstr "Σύνδεση:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"

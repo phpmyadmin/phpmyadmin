@@ -165,7 +165,7 @@ $(function () {
             $icon.attr('src', icon_reload_src);
         }, 1000);
     });
-    
+
     $(document).on("change", '#navi_db_select',  function (event) {
         $(this).closest('form').trigger('submit');
     });
@@ -1111,8 +1111,7 @@ var ResizeHandler = function () {
             });
         }
         // Set content bottom space beacuse of console
-        $('body').css('margin-bottom',
-                      $(window).height() + $(document).scrollTop() - $('#pma_console').offset().top + 'px');
+        $('body').css('margin-bottom', $('#pma_console').height() + 'px');
     };
     /* Initialisation section begins here */
     if ($.cookie('pma_navi_width')) {

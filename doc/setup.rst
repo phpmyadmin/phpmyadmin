@@ -270,7 +270,7 @@ configured. This is called “Zero Configuration” mode and can be particularly
 useful in shared hosting situations. “Zeroconf” mode is on by default, to
 disable set :config:option:`$cfg['ZeroConf']` to false.
 
-The following three scenarios are convered by the Zero Configuration mode:
+The following three scenarios are covered by the Zero Configuration mode:
 
 * When entering a database where the configuration storage tables are not
   present, phpMyAdmin offers to create them from the Operations tab.
