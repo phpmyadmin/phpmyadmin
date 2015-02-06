@@ -35,6 +35,7 @@ phpMyAdmin - ChangeLog
 + rfe #1600 Clarify the "Inline" link
 + rfe #1179 Speed up slow triggers by using EVENT_OBJECT_SCHEMA
 + rfe #1192 ON DUPLICATE KEY UPDATE for loading CSV
+- bug       Cannot execute command from console (multi-server installation)
 
 4.3.10.0 (not yet released)
 
