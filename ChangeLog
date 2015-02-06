@@ -33,6 +33,7 @@ phpMyAdmin - ChangeLog
 + rfe       Transformation for JSON
 - bug       Fix isCanvasSupported for new window
 + rfe #1600 Clarify the "Inline" link
++ rfe #1179 Speed up slow triggers by using EVENT_OBJECT_SCHEMA
 
 4.3.9.0 (not yet released)
 - bug #4728 Incorrect headings in routine editor
