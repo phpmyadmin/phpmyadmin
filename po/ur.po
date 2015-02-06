@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-04 11:31-0500\n"
+"POT-Creation-Date: 2015-02-06 07:36-0500\n"
 "PO-Revision-Date: 2014-03-27 15:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ur/>\n"
-"Language: ur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ur\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -270,8 +270,8 @@ msgstr "کوائفیہ %1$s نام %2$s میں نقل کیا جاچکا ہے"
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"phpMyAdmin کی تشکیل زخیرہ بند کر دی گئی ہے۔ اس بارے میں جاننے کے لیے %share"
-"%s دبائیں۔"
+"phpMyAdmin کی تشکیل زخیرہ بند کر دی گئی ہے۔ اس بارے میں جاننے کے لیے %share%"
+"s دبائیں۔"
 
 #: db_printview.php:48 db_tracking.php:124 db_tracking.php:264
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:770
@@ -632,14 +632,14 @@ msgstr "داخل کرنا مکمل ہوا"
 #: import.php:163
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to "
-#| "%sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to %"
+#| "sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"آپ نے بڑی مسل اپ لوڈ کرنے کی کوشش کی ہے۔ اس حد کے بارے جاننے کے لیے "
-"%sdocumentation%s دیکھیں۔"
+"آپ نے بڑی مسل اپ لوڈ کرنے کی کوشش کی ہے۔ اس حد کے بارے جاننے کے لیے %"
+"sdocumentation%s دیکھیں۔"
 
 #: import.php:343 import.php:626
 msgid "Showing bookmark"
@@ -680,8 +680,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "درآمد کے لیے کوئی کوائف نہیں ملا۔ ممکن ہے کہ مسل نام بھیجا نہ گیا ہو یا مسل "
-"حجم مقررہ حد سے تجاوز کر گیا ہو جو آپ کی PHP تشکیل میں ہے۔ دیکھیں"
-"[doc@faq1-16]عمومی سوالات 1.16[/doc]."
+"حجم مقررہ حد سے تجاوز کر گیا ہو جو آپ کی PHP تشکیل میں ہے۔ دیکھیں[doc@faq1-"
+"16]عمومی سوالات 1.16[/doc]."
 
 #: import.php:554
 #, fuzzy
@@ -2526,8 +2526,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin کا ایک نیا نسخہ دستیاب ہے اور آپ ضرور تازہ کاری کریں۔ نیا نسخہ "
-"%s, جاری کیا گیا %s."
+"phpMyAdmin کا ایک نیا نسخہ دستیاب ہے اور آپ ضرور تازہ کاری کریں۔ نیا نسخہ %"
+"s, جاری کیا گیا %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:493
@@ -3313,25 +3313,25 @@ msgstr "نشانی دکھاتے ہوئے"
 msgid "Delete bookmark"
 msgstr "تلاش"
 
-#: libraries/DatabaseInterface.class.php:2193
+#: libraries/DatabaseInterface.class.php:2190
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2198
+#: libraries/DatabaseInterface.class.php:2195
 msgid "The server is not responding."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2203
+#: libraries/DatabaseInterface.class.php:2200
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2213
+#: libraries/DatabaseInterface.class.php:2210
 msgid "Details…"
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2436
+#: libraries/DatabaseInterface.class.php:2433
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
@@ -3557,8 +3557,8 @@ msgstr "آپ کی SQL طلب کامیابی سے چلائی جاچکی ہے۔"
 #: libraries/DisplayResults.class.php:4479 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "اس جدول نقل میں اتنے کم از کم صفیں ہیں۔ حوالہ کے لیے %sdocumentation%s."
 
@@ -4522,14 +4522,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -7846,8 +7846,9 @@ msgstr ""
 #| "Structure page if any of the required tables for the phpMyAdmin "
 #| "configuration storage could not be found"
 msgid ""
-"Disable the default warning that is displayed on the main page if session."
-"gc_maxlifetime is less than `LoginCookieValidity`."
+"Disable the default warning that is displayed on the main page if the value "
+"of the PHP setting session.gc_maxlifetime is less than the value of "
+"`LoginCookieValidity`."
 msgstr ""
 "اگر phpMyAdmin تشکیل ذخیرہ میں کوئی درکار جداول نہیں ملا جو کہ کوائفیہ "
 "تفصیلی ساکت صفحہ میں دکھایا جاتا ہے تو طے شدہ انتباہ کو غیر فعال کریں"
@@ -8501,8 +8502,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:526
@@ -9009,8 +9010,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -10179,8 +10180,8 @@ msgstr "%s میں خوش آمدید"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "آپ نے شاید تشکیل مسل نہیں بنایا۔ آپ ہوسکتا ہے کہ  %1$ssetup script%2$s کو "
 "استعمال کرتے ہوئے بنانا چاہتے ہیں۔"
@@ -10712,20 +10713,20 @@ msgstr "آراء-رائے"
 msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
-#: libraries/plugins/import/ImportCsv.class.php:202
+#: libraries/plugins/import/ImportCsv.class.php:198
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: libraries/plugins/import/ImportCsv.class.php:295
-#: libraries/plugins/import/ImportCsv.class.php:626
+#: libraries/plugins/import/ImportCsv.class.php:291
+#: libraries/plugins/import/ImportCsv.class.php:630
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
-#: libraries/plugins/import/ImportCsv.class.php:507
+#: libraries/plugins/import/ImportCsv.class.php:503
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
@@ -11194,14 +11195,14 @@ msgstr ""
 msgid "no description"
 msgstr ""
 
-#: libraries/relation.lib.php:1976
+#: libraries/relation.lib.php:1975
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "phpMyAdmin تشکیل ذخیرہ جداول موجود نہیں ہے"
 
-#: libraries/relation.lib.php:1983
+#: libraries/relation.lib.php:1982
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
@@ -12602,8 +12603,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4060
@@ -15423,8 +15424,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -15557,8 +15558,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218

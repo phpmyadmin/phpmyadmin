@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-04 11:31-0500\n"
+"POT-Creation-Date: 2015-02-06 07:36-0500\n"
 "PO-Revision-Date: 2015-02-04 20:01+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
-"Language: tr\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/tr/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -602,8 +602,8 @@ msgstr "Tamamlanmamış parametreler"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen bu sınır için çözüm "
 "yolu olarak %sbelgeden%s yararlanın."
@@ -842,19 +842,14 @@ msgstr ""
 "olarak bölemez ve bu beklenmedik sonuçlar doğurabilir."
 
 #: index.php:488
-#| msgid ""
-#| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
-#| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-#| "than cookie validity configured in phpMyAdmin, because of this, your "
-#| "login will expire sooner than configured in phpMyAdmin."
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"phpMyAdmin içinde yapılandırılmış tanımlama bilgisi geçerliliği, "
-"[a@http://php.net/manual/tr/session.configuration.php#ini.session.gc-"
+"phpMyAdmin içinde yapılandırılmış tanımlama bilgisi geçerliliği, [a@http://"
+"php.net/manual/tr/session.configuration.php#ini.session.gc-"
 "maxlifetime@_blank]session.gc_maxlifetime[/a] PHP parametrenizden düşük, "
 "bundan dolayı phpMyAdmin içinde yapılandırılmadıkça oturum açmanızın süresi "
 "dolabilir."
@@ -1352,8 +1347,8 @@ msgid ""
 "depending on your system."
 msgstr ""
 "slow_query_log etkinleştirildi ama sunucu sadece %d saniyeden daha uzun "
-"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak "
-"0-2 saniyeye ayarlanması tavsiye edilir."
+"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak 0-"
+"2 saniyeye ayarlanması tavsiye edilir."
 
 #: js/messages.php:162
 #, php-format
@@ -2376,8 +2371,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm "
-"%s, %s tarihinde yayınlandı."
+"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm %"
+"s, %s tarihinde yayınlandı."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:493
@@ -3097,7 +3092,7 @@ msgstr "Yer imini güncelle"
 msgid "Delete bookmark"
 msgstr "Yer imini sil"
 
-#: libraries/DatabaseInterface.class.php:2193
+#: libraries/DatabaseInterface.class.php:2190
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3105,19 +3100,19 @@ msgstr ""
 "Sunucu yanıt vermiyor (ya da yerel MySQL sunucusunun soketi doğru olarak "
 "yapılandırılmadı)."
 
-#: libraries/DatabaseInterface.class.php:2198
+#: libraries/DatabaseInterface.class.php:2195
 msgid "The server is not responding."
 msgstr "Sunucu yanıt vermiyor."
 
-#: libraries/DatabaseInterface.class.php:2203
+#: libraries/DatabaseInterface.class.php:2200
 msgid "Please check privileges of directory containing database."
 msgstr "Lütfen veritabanını içeren dizinin yetkilerini kontrol edin."
 
-#: libraries/DatabaseInterface.class.php:2213
+#: libraries/DatabaseInterface.class.php:2210
 msgid "Details…"
 msgstr "Ayrıntılar…"
 
-#: libraries/DatabaseInterface.class.php:2436
+#: libraries/DatabaseInterface.class.php:2433
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Yapılandırma dosyanız içinde tanımlanmış denetim kullanıcıları için bağlantı "
@@ -3316,8 +3311,8 @@ msgstr "SQL sorgunuz başarılı olarak çalıştırıldı."
 #: libraries/DisplayResults.class.php:4479 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Bu görünüm en az bu satır sayısı kadar olur. Lütfen %sbelgeden%s yararlanın."
 
@@ -4224,20 +4219,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Küçük kayan noktalı bir sayı, izin verilebilir değerler -3.402823466E+38'den "
 "-1.175494351E-38'e, 0 ve 1.175494351E-38'den 3.402823466E+38'e kadardır"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler "
-"-1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
+"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler -"
+"1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
 "2.2250738585072014E-308'den 1.7976931348623157E+308'e kadardır"
 
 #: libraries/Types.class.php:336
@@ -4547,7 +4542,6 @@ msgid "Create PHP Code"
 msgstr "PHP Kodu oluştur"
 
 #: libraries/Util.class.php:1275
-#| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Satır içi düzenle"
@@ -5152,8 +5146,8 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Eğer [kbd]tanımlama bilgisi[/kbd] kimlik doğrulaması kullanılıyorsa ve "
-"%sOturum açma tanımlama bilgisi depolaması%s değeri 0 değilse, %sOturum açma "
+"Eğer [kbd]tanımlama bilgisi[/kbd] kimlik doğrulaması kullanılıyorsa ve %"
+"sOturum açma tanımlama bilgisi depolaması%s değeri 0 değilse, %sOturum açma "
 "tanımlama bilgisi geçerliliği%s eşit ya da daha az değere ayarlanmak "
 "zorundadır."
 
@@ -5166,8 +5160,8 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarlarını kullanın "
-"- %sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi"
-"%s. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
+"- %sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi%"
+"s. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
 "kullanıcıya sahip ve bağlı olduğunuz bir ISS'e ait ise güvenilir olmayabilir."
 
 #: libraries/config/ServerConfigChecks.class.php:431
@@ -5182,8 +5176,8 @@ msgstr ""
 "[kbd]Yapılandırma[/kbd] kimlik doğrulaması türünü ayarladınız ve buna "
 "otomatik oturum açma için kullanıcı adı ve parola dahildir, canlı "
 "anamakineler için istenmeyen bir seçenektir. phpMyAdmin URL'nizi bilen veya "
-"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. "
-"%sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
+"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. %"
+"sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
 "kbd] olarak ayarlayın."
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -7315,18 +7309,19 @@ msgid "Suhosin warning"
 msgstr "Suhosin uyarısı"
 
 #: libraries/config/messages.inc.php:757
+#, fuzzy
 #| msgid ""
-#| "Disable the default warning that is displayed on the Structure page if "
-#| "column names in a table are reserved MySQL words."
+#| "Disable the default warning that is displayed on the main page if session."
+#| "gc_maxlifetime is less than `LoginCookieValidity`."
 msgid ""
-"Disable the default warning that is displayed on the main page if session."
-"gc_maxlifetime is less than `LoginCookieValidity`."
+"Disable the default warning that is displayed on the main page if the value "
+"of the PHP setting session.gc_maxlifetime is less than the value of "
+"`LoginCookieValidity`."
 msgstr ""
 "Eğer session.gc_maxlifetime değeri `LoginCookieValidity` değerinden az ise, "
 "ana sayfada görüntülenen varsayılan uyarıyı etkisizleştir."
 
 #: libraries/config/messages.inc.php:758
-#| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "Oturum açma tanımlama bilgisi geçerlilik uyarısı"
 
@@ -7928,8 +7923,8 @@ msgstr ", @TABLE@ tablo adı olacaktır"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Bu değer %1$sstrftime%2$s kullanılarak yorumlanır, bu yüzden zaman "
 "biçimlendirme dizgisi kullanabilirsiniz. İlave olarak aşağıdaki dönüşümler "
@@ -8478,8 +8473,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "%sPrimeBase XT Ana Sayfasında%s PBXT hakkında belge ve daha fazla bilgi "
 "bulunabilir."
@@ -9633,8 +9628,8 @@ msgstr "%s'e Hoş Geldiniz"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Muhtemelen bunun sebebi yapılandırma dosyasını oluşturmadığınız içindir. Bir "
 "tane oluşturmak için %1$skur programcığı%2$s kullanmak isteyebilirsiniz."
@@ -10152,7 +10147,7 @@ msgstr "Sütun adları: "
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV içe aktarma için geçersiz parametre: %s"
 
-#: libraries/plugins/import/ImportCsv.class.php:202
+#: libraries/plugins/import/ImportCsv.class.php:198
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -10161,13 +10156,13 @@ msgstr ""
 "Geçersiz sütun (%s) belirtilmiş! Sütun adlarının doğru olarak hecelenmesini, "
 "virgüllerle ayrılmasını ve tırnaklarla kapanmamasını sağlayın."
 
-#: libraries/plugins/import/ImportCsv.class.php:295
-#: libraries/plugins/import/ImportCsv.class.php:626
+#: libraries/plugins/import/ImportCsv.class.php:291
+#: libraries/plugins/import/ImportCsv.class.php:630
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "%d. satırda CSV girdisinin geçersiz biçimi."
 
-#: libraries/plugins/import/ImportCsv.class.php:507
+#: libraries/plugins/import/ImportCsv.class.php:503
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV girdisinde %d. satırda geçersiz sütun sayısı."
@@ -10501,7 +10496,6 @@ msgstr ""
 "başlıktır."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:38
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "Sözdizimi vurgulamalı JSON gibi metni biçimlendirir."
 
@@ -10664,14 +10658,14 @@ msgstr ""
 msgid "no description"
 msgstr "Açıklama yok"
 
-#: libraries/relation.lib.php:1976
+#: libraries/relation.lib.php:1975
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 "Şu anki veritabanında phpMyAdmin yapılandırma depolaması %soluşturun%s."
 
-#: libraries/relation.lib.php:1983
+#: libraries/relation.lib.php:1982
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "Eksik phpMyAdmin yapılandırma depolama tablolarını %soluştur%s."
@@ -12021,8 +12015,8 @@ msgstr "Kullanıcılara genel bakış"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Not: phpMyAdmin kullanıcıların yetkilerini doğrudan MySQL'in yetki "
 "tablolarından alır. Bu tabloların içerikleri, eğer elle değiştirildiyse "
@@ -13388,8 +13382,8 @@ msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
-"Yaklaşık olabilir. Tam sayıyı almak için sayının üzerine tıklayın. "
-"[doc@faq3-11]SSS 3.11[/doc]'e bakın."
+"Yaklaşık olabilir. Tam sayıyı almak için sayının üzerine tıklayın. [doc@faq3-"
+"11]SSS 3.11[/doc]'e bakın."
 
 #: libraries/structure.lib.php:862 libraries/structure.lib.php:2353
 #: libraries/tbl_printview.lib.php:324
@@ -13658,7 +13652,6 @@ msgid "Storage Engine:"
 msgstr "Depolama Motoru:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#| msgid "Connections"
 msgid "Connection:"
 msgstr "Bağlantı:"
 
@@ -14170,8 +14163,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. "
-"%sKur programcığı%s kullanarak."
+"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. %"
+"sKur programcığı%s kullanarak."
 
 #: prefs_manage.php:315
 msgid "Save to browser's storage"
@@ -14859,8 +14852,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Boş sorgu önbellek belleğinin, toplam sorgu önbelleği boyutuna şu anki oranı "
 "%%%s. Bu %%80'in üzerinde olmalıdır"
@@ -15011,8 +15004,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "Tüm sıralamaların %%%s'i geçici tablolara sebep olur, bu değer %%10'dan "
 "düşük olmalıdır."
@@ -16809,12 +16802,12 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ "Eğer D işlenirse, varsayılan 0'dır. Eğer M işlenirse, varsayılan 10'dur."
 
 #~ msgid ""
-#~ "A small (single-precision) floating-point number. Allowable values are "
-#~ "-3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
+#~ "A small (single-precision) floating-point number. Allowable values are -"
+#~ "3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
 #~ "3.402823466E+38."
 #~ msgstr ""
-#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler "
-#~ "-3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
+#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler -"
+#~ "3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
 #~ "3.402823466E+38'e."
 
 #~ msgid ""

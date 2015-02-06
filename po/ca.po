@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-04 11:31-0500\n"
+"POT-Creation-Date: 2015-02-06 07:36-0500\n"
 "PO-Revision-Date: 2015-01-20 22:29+0200\n"
 "Last-Translator: josep constanti <jconstanti@ovi.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ca/>\n"
-"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -258,8 +258,8 @@ msgstr "S'ha copiat la base de dades %1$s a %2$s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"S'ha desactivat l'emmagatzemament de la configuració de phpMyAdmin. "
-"%sConsulta el motiu%s."
+"S'ha desactivat l'emmagatzemament de la configuració de phpMyAdmin. %"
+"sConsulta el motiu%s."
 
 #: db_printview.php:48 db_tracking.php:124 db_tracking.php:264
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:770
@@ -604,11 +604,11 @@ msgstr "Paràmetres incomplets"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Probablement has triat d'enviar un arxiu que és massa gran. Consulta la "
-"%sdocumentació%s per trobar formes de modificar aquest límit."
+"Probablement has triat d'enviar un arxiu que és massa gran. Consulta la %"
+"sdocumentació%s per trobar formes de modificar aquest límit."
 
 #: import.php:343 import.php:626
 msgid "Showing bookmark"
@@ -3098,7 +3098,7 @@ msgstr "Actualitzar consulta desada"
 msgid "Delete bookmark"
 msgstr "Esborrar consultab desada"
 
-#: libraries/DatabaseInterface.class.php:2193
+#: libraries/DatabaseInterface.class.php:2190
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3106,19 +3106,19 @@ msgstr ""
 "El servidor no està responent (o el sòcol del servidor local MySQL no està "
 "configurat correctament)."
 
-#: libraries/DatabaseInterface.class.php:2198
+#: libraries/DatabaseInterface.class.php:2195
 msgid "The server is not responding."
 msgstr "El servidor no respon."
 
-#: libraries/DatabaseInterface.class.php:2203
+#: libraries/DatabaseInterface.class.php:2200
 msgid "Please check privileges of directory containing database."
 msgstr "Comprova els permisos del directori que conté la base de dades."
 
-#: libraries/DatabaseInterface.class.php:2213
+#: libraries/DatabaseInterface.class.php:2210
 msgid "Details…"
 msgstr "Detalls…"
 
-#: libraries/DatabaseInterface.class.php:2436
+#: libraries/DatabaseInterface.class.php:2433
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "La connexió de l'usuari de control ha fallat, tal com està definida ara a la "
@@ -3317,8 +3317,8 @@ msgstr "La vostra comanda SQL ha estat executada amb èxit."
 #: libraries/DisplayResults.class.php:4479 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%s."
 
@@ -4228,20 +4228,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Un nombre de coma flotant petit, els valors permesos són de -3.402823466E+38 "
 "a -1.175494351E-38, 0, i de 1.175494351E-38 a 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Un nombre de coma flotant de doble precisió, els valors permesos són de "
-"-1.7976931348623157E+308 a -2.2250738585072014E-308, 0, i de "
+"Un nombre de coma flotant de doble precisió, els valors permesos són de -"
+"1.7976931348623157E+308 a -2.2250738585072014E-308, 0, i de "
 "2.2250738585072014E-308 a 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -5188,8 +5188,8 @@ msgstr ""
 "Has triat el tipus d'autenticació [kbd]config[/kbd] i has inclós el nom "
 "d'usuari i la contrasenya per connexions automàtiques, que es una opció no "
 "recomanable per a servidors actius. Qualsevol que conegui la teva URL de "
-"phpMyAdmin pot accedir al teu panel directament. Estableix el "
-"%sauthentication type%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
+"phpMyAdmin pot accedir al teu panel directament. Estableix el %"
+"sauthentication type%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, php-format
@@ -7528,8 +7528,9 @@ msgstr "avís Suoshin"
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words"
 msgid ""
-"Disable the default warning that is displayed on the main page if session."
-"gc_maxlifetime is less than `LoginCookieValidity`."
+"Disable the default warning that is displayed on the main page if the value "
+"of the PHP setting session.gc_maxlifetime is less than the value of "
+"`LoginCookieValidity`."
 msgstr ""
 "Desactiva l'avís per defecte que es mostra a la pàgina de l'estructura si "
 "els noms de les columnes a la taula són paraules reservades de MySQL"
@@ -8210,12 +8211,12 @@ msgstr ", @TABLE@ serà el nom de la taula"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Aquest valor s'interpreta usant %1$sstrftime%2$s, pel que podeu usar les "
-"cadenes de formateig de temps. A més, es faran aquestes transformacions: "
-"%3$s. Altre text es deixarà sense variació. Consulteu les %4$sPFC -FAQ- %5$s "
+"cadenes de formateig de temps. A més, es faran aquestes transformacions: %3"
+"$s. Altre text es deixarà sense variació. Consulteu les %4$sPFC -FAQ- %5$s "
 "per a més detalls."
 
 #: libraries/display_export.lib.php:526
@@ -8774,8 +8775,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Pots trobar la documentació i més informació sobre PBXT a la pàgina "
 "principal de %sPrimeBase XT%s."
@@ -9958,8 +9959,8 @@ msgstr "Benvingut a %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La raó més probable d'aixó és que no heu creat l'arxiu de configuració. "
 "Podreu voler utilitzar %1$ssetup script%2$s per crear-ne un."
@@ -10510,7 +10511,7 @@ msgstr "Nom de les columnes: "
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Paràmetre incorrecte per importació CSV: %s"
 
-#: libraries/plugins/import/ImportCsv.class.php:202
+#: libraries/plugins/import/ImportCsv.class.php:198
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -10520,13 +10521,13 @@ msgstr ""
 "s'han escrit correctament, separats per comes i sense incloure'ls entre "
 "cometes."
 
-#: libraries/plugins/import/ImportCsv.class.php:295
-#: libraries/plugins/import/ImportCsv.class.php:626
+#: libraries/plugins/import/ImportCsv.class.php:291
+#: libraries/plugins/import/ImportCsv.class.php:630
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Format incorrecte a l'entrada CSV a la línia %d."
 
-#: libraries/plugins/import/ImportCsv.class.php:507
+#: libraries/plugins/import/ImportCsv.class.php:503
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Comptador de columnes incorrecte en l'entrada CSV a la línia %d."
@@ -11075,14 +11076,14 @@ msgstr ""
 msgid "no description"
 msgstr "sense descripció"
 
-#: libraries/relation.lib.php:1976
+#: libraries/relation.lib.php:1975
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "Falten taules de l'infraestructura de taules enllaçades de phpMyAdmin"
 
-#: libraries/relation.lib.php:1983
+#: libraries/relation.lib.php:1982
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
@@ -12502,8 +12503,8 @@ msgstr "Vista global d'usuaris"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obté els permisos de l'usuari directament de les taules de "
 "permisos de MySQL. El contingut d'aquestes taules pot ser diferent dels "
@@ -15529,8 +15530,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "La taxa actual de memòria lluire del cau de consultes respecte la mida total "
 "és de %s%%. Hauria de estar per sobre de 80%%"
@@ -15688,8 +15689,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% de totes les ordenacions causen taules temporals, aquest valor ha de "
 "ser inferior al 10%%."
@@ -16100,8 +16101,8 @@ msgstr ""
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
-"Bloquejos immediats de taula: %s%%, aquest valor ha d'estar per sobre del "
-"95%%"
+"Bloquejos immediats de taula: %s%%, aquest valor ha d'estar per sobre del 95%"
+"%"
 
 #: libraries/advisory_rules.txt:355
 msgid "Table lock wait rate"
@@ -16854,8 +16855,8 @@ msgstr "{concurrent_insert} està establert a 0"
 #~ "%s."
 #~ msgstr ""
 #~ "No s'ha pogut iniciar el validador SQL. Si us plau, comproveu que teniu "
-#~ "instal·lats els mòduls de PHP necessaris tal i com s'indica a la "
-#~ "%sdocumentació%s."
+#~ "instal·lats els mòduls de PHP necessaris tal i com s'indica a la %"
+#~ "sdocumentació%s."
 
 #, fuzzy
 #~| msgid "Error: Relation not added."

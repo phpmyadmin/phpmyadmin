@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-04 11:31-0500\n"
+"POT-Creation-Date: 2015-02-06 07:36-0500\n"
 "PO-Revision-Date: 2015-02-05 13:19+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
-"Language: fr\n"
+"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"fr/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -588,8 +588,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Choisissez «GeomFromText» depuis la colonne «Fonction» et collez la chaîne "
-"ci dessous dans le champ «Valeur»."
+"Choisissez «GeomFromText» depuis la colonne «Fonction» et collez la chaîne ci "
+"dessous dans le champ «Valeur»."
 
 #: import.php:54
 msgid "Succeeded"
@@ -606,8 +606,8 @@ msgstr "Paramètres incomplets"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Vous avez probablement tenté de télécharger un fichier trop volumineux. "
 "Veuillez vous référer à la %sdocumentation%s pour trouver le moyen de "
@@ -849,22 +849,16 @@ msgstr ""
 "résulter des problèmes."
 
 #: index.php:488
-#| msgid ""
-#| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
-#| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-#| "than cookie validity configured in phpMyAdmin, because of this, your "
-#| "login will expire sooner than configured in phpMyAdmin."
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"La valeur du paramètre PHP "
-"[a@http://php.net/manual/fr/session.configuration.php#ini.session.gc-"
-"maxlifetime@_blank]session.gc_maxlifetime[/a] est plus petite que la durée "
-"du cookie configurée dans phpMyAdmin; donc, votre session de travail "
-"pourrait expirer plus tôt."
+"La valeur du paramètre PHP [a@http://php.net/manual/fr/session.configuration."
+"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] est plus "
+"petite que la durée du cookie configurée dans phpMyAdmin; donc, votre "
+"session de travail pourrait expirer plus tôt."
 
 #: index.php:501
 msgid ""
@@ -901,8 +895,8 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Le stockage de configurations phpMyAdmin n'est pas complètement configuré, "
-"certaines fonctionnalités ont été désactivées. %sVoir l'analyse du problème"
-"%s. "
+"certaines fonctionnalités ont été désactivées. %sVoir l'analyse du problème%"
+"s. "
 
 #: index.php:542
 msgid ""
@@ -3117,7 +3111,7 @@ msgstr "Mettre à jour le signet"
 msgid "Delete bookmark"
 msgstr "Effacer le signet"
 
-#: libraries/DatabaseInterface.class.php:2193
+#: libraries/DatabaseInterface.class.php:2190
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3125,20 +3119,20 @@ msgstr ""
 "Le serveur ne répond pas (ou l'interface de connexion vers le serveur MySQL "
 "local n'est pas correctement configurée)."
 
-#: libraries/DatabaseInterface.class.php:2198
+#: libraries/DatabaseInterface.class.php:2195
 msgid "The server is not responding."
 msgstr "Le serveur ne répond pas."
 
-#: libraries/DatabaseInterface.class.php:2203
+#: libraries/DatabaseInterface.class.php:2200
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "Veuillez vérifier les privilèges du répertoire contenant la base de données."
 
-#: libraries/DatabaseInterface.class.php:2213
+#: libraries/DatabaseInterface.class.php:2210
 msgid "Details…"
 msgstr "Détails…"
 
-#: libraries/DatabaseInterface.class.php:2436
+#: libraries/DatabaseInterface.class.php:2433
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "La connexion au controluser tel que défini dans votre configuration a échoué."
@@ -3336,11 +3330,11 @@ msgstr "Votre requête SQL a été exécutée avec succès."
 #: libraries/DisplayResults.class.php:4479 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Cette vue contient au moins ce nombre de lignes. Veuillez référer à "
-"%sdocumentation%s."
+"Cette vue contient au moins ce nombre de lignes. Veuillez référer à %"
+"sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4492
 #, php-format
@@ -4207,16 +4201,16 @@ msgstr "Thème : "
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
-"Un nombre entier de 1 octet. La fourchette des nombres avec signe est de "
-"-128 à 127. Pour les nombres sans signe, c'est de 0 à 255"
+"Un nombre entier de 1 octet. La fourchette des nombres avec signe est de -"
+"128 à 127. Pour les nombres sans signe, c'est de 0 à 255"
 
 #: libraries/Types.class.php:322
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
-"Un nombre entier de 2 octets. La fourchette des nombres avec signe est de "
-"-32 768 à 32 767. Pour les nombres sans signe, c'est de 0 à 65 535"
+"Un nombre entier de 2 octets. La fourchette des nombres avec signe est de -"
+"32 768 à 32 767. Pour les nombres sans signe, c'est de 0 à 65 535"
 
 #: libraries/Types.class.php:324
 msgid ""
@@ -4255,16 +4249,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Un petit nombre en virgule flottante, la fourchette des valeurs est "
-"-3.402823466E+38 à -1.175494351E-38, 0, et 1.175494351E-38 à 3.402823466E+38"
+"Un petit nombre en virgule flottante, la fourchette des valeurs est -"
+"3.402823466E+38 à -1.175494351E-38, 0, et 1.175494351E-38 à 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Un nombre en virgule flottante double-précision, la fourchette des valeurs "
@@ -4314,9 +4308,9 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Un type d'horodatage, la fourchette est de «1970-01-01 00:00:01» UTC à "
-"«2038-01-09 03:14:07» UTC, en nombre de secondes depuis le moment de "
-"référence («1970-01-01 00:00:00» UTC)"
+"Un type d'horodatage, la fourchette est de «1970-01-01 00:00:01» UTC à «2038-"
+"01-09 03:14:07» UTC, en nombre de secondes depuis le moment de référence "
+"(«1970-01-01 00:00:00» UTC)"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:788
 #, php-format
@@ -4584,7 +4578,6 @@ msgid "Create PHP Code"
 msgstr "Créer source PHP"
 
 #: libraries/Util.class.php:1275
-#| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Éditer en ligne"
@@ -5122,8 +5115,8 @@ msgid ""
 msgstr ""
 "Cette %soption%s ne devrait pas être activée car elle permet à un attaquant "
 "de tenter de forcer l'entrée sur tout serveur MySQL. Si vous en avez "
-"réellement besoin, utilisez la %sliste des serveurs mandataires de confiance"
-"%s."
+"réellement besoin, utilisez la %sliste des serveurs mandataires de confiance%"
+"s."
 
 #: libraries/config/ServerConfigChecks.class.php:378
 msgid ""
@@ -5192,8 +5185,8 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Si vous utilisez l'authentification [kbd]cookie[/kbd] et que le paramètre "
-"%sLogin cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie "
+"Si vous utilisez l'authentification [kbd]cookie[/kbd] et que le paramètre %"
+"sLogin cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie "
 "validity%s doit avoir une valeur plus petite ou égale à celui-ci."
 
 #: libraries/config/ServerConfigChecks.class.php:423
@@ -5204,8 +5197,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Si vous l'estimez nécessaire, utilisez des paramètres de protection - "
-"%sauthentification de l'hôte%s et %sserveurs mandataires de confiance%s. "
+"Si vous l'estimez nécessaire, utilisez des paramètres de protection - %"
+"sauthentification de l'hôte%s et %sserveurs mandataires de confiance%s. "
 "Cependant, la protection par adresse IP peut ne pas être fiable si votre IP "
 "appartient à un fournisseur via lequel des milliers d'utilisateurs, vous y "
 "compris, sont connectés."
@@ -7354,18 +7347,19 @@ msgid "Suhosin warning"
 msgstr "Avertissement Suhosin"
 
 #: libraries/config/messages.inc.php:757
+#, fuzzy
 #| msgid ""
-#| "Disable the default warning that is displayed on the Structure page if "
-#| "column names in a table are reserved MySQL words."
+#| "Disable the default warning that is displayed on the main page if session."
+#| "gc_maxlifetime is less than `LoginCookieValidity`."
 msgid ""
-"Disable the default warning that is displayed on the main page if session."
-"gc_maxlifetime is less than `LoginCookieValidity`."
+"Disable the default warning that is displayed on the main page if the value "
+"of the PHP setting session.gc_maxlifetime is less than the value of "
+"`LoginCookieValidity`."
 msgstr ""
-"Désactiver l'avertissement affiché sur la page principale si "
-"session.gc_maxlifetime est moindre que `LoginCookieValidity`."
+"Désactiver l'avertissement affiché sur la page principale si session."
+"gc_maxlifetime est moindre que `LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:758
-#| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "Durée de validité de la connexion en mode cookie"
 
@@ -7972,8 +7966,8 @@ msgstr ", @TABLE@ sera remplacé par le nom de la table"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Cette valeur est interprétée avec %1$sstrftime%2$s, vous pouvez donc "
 "utiliser des chaînes de format d'heure. Ces transformations additionnelles "
@@ -8528,8 +8522,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "La documentation de PBXT et des informations additionnelles sont disponibles "
 "sur %sle site de PrimeBase XT%s."
@@ -9702,8 +9696,8 @@ msgstr "Bienvenue dans %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La raison probable est que vous n'avez pas créé de fichier de configuration. "
 "Vous pouvez utiliser le %1$sscript de configuration%2$s dans ce but."
@@ -10225,7 +10219,7 @@ msgstr "Nom des colonnes : "
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Paramètres invalides pour l'importation CSV: %s"
 
-#: libraries/plugins/import/ImportCsv.class.php:202
+#: libraries/plugins/import/ImportCsv.class.php:198
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -10235,13 +10229,13 @@ msgstr ""
 "orthographiés correctement, séparés par des virgules et non entourés de "
 "guillemets."
 
-#: libraries/plugins/import/ImportCsv.class.php:295
-#: libraries/plugins/import/ImportCsv.class.php:626
+#: libraries/plugins/import/ImportCsv.class.php:291
+#: libraries/plugins/import/ImportCsv.class.php:630
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Format invalide pour les données CSV à la ligne %d."
 
-#: libraries/plugins/import/ImportCsv.class.php:507
+#: libraries/plugins/import/ImportCsv.class.php:503
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Nombre de colonnes invalide dans les données CSV à la ligne %d."
@@ -10581,7 +10575,6 @@ msgstr ""
 "pour le lien."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:38
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "Formate le texte en JSON avec la coloration syntaxique."
 
@@ -10744,7 +10737,7 @@ msgstr ""
 msgid "no description"
 msgstr "pas de description"
 
-#: libraries/relation.lib.php:1976
+#: libraries/relation.lib.php:1975
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
@@ -10752,7 +10745,7 @@ msgstr ""
 "%sCréer%s le stockage de configurations phpMyAdmin dans la base de données "
 "active."
 
-#: libraries/relation.lib.php:1983
+#: libraries/relation.lib.php:1982
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
@@ -12123,8 +12116,8 @@ msgstr "Survol des utilisateurs"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin obtient la liste des privilèges directement à partir des "
 "tables MySQL. Le contenu de ces tables peut être différent des privilèges "
@@ -13770,7 +13763,6 @@ msgid "Storage Engine:"
 msgstr "Moteur de stockage : "
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#| msgid "Connections"
 msgid "Connection:"
 msgstr "Connexion :"
 
@@ -14985,8 +14977,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Le ratio actuel de mémoire libre pour la cache de requêtes par rapport à la "
 "mémoire totale de la cache est de %s%%. Il devrait se situer à plus de 80%%"
@@ -15057,9 +15049,9 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
-"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s"
-"%%. Il est souhaitable que cette valeur soit faible (Limite pour cette "
-"règle: 0.1%%)"
+"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s%"
+"%. Il est souhaitable que cette valeur soit faible (Limite pour cette règle: "
+"0.1%%)"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache max size"
@@ -15138,8 +15130,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% de tous les tris causent la création de tables temporaires, cette "
 "valeur devrait être sous les 10%%."
@@ -15670,8 +15662,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections est à %s%% de max_connections, devrait être sous les "
-"80%%"
+"Max_used_connections est à %s%% de max_connections, devrait être sous les 80%"
+"%"
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
@@ -16260,8 +16252,8 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 #~ "%s."
 #~ msgstr ""
 #~ "Le validateur SQL n'a pas pu être initialisé. Vérifiez que les extensions "
-#~ "PHP nécessaires ont bien été installées tel que décrit dans la "
-#~ "%sdocumentation%s."
+#~ "PHP nécessaires ont bien été installées tel que décrit dans la %"
+#~ "sdocumentation%s."
 
 #, fuzzy
 #~| msgid "Error: Relation not added."
