@@ -165,13 +165,9 @@ class ImportCsv extends AbstractImportCsv
         $required_fields = 0;
 
         if (! $this->_getAnalyze()) {
-            if (isset($_POST['csv_replace'])) {
-                $sql_template = 'REPLACE';
-            } else {
-                $sql_template = 'INSERT';
-                if (isset($_POST['csv_ignore'])) {
-                    $sql_template .= ' IGNORE';
-                }
+            $sql_template = 'INSERT';
+            if (isset($_POST['csv_ignore'])) {
+                $sql_template .= ' IGNORE';
             }
             $sql_template .= ' INTO ' . PMA_Util::backquote($table);
 
@@ -531,6 +527,14 @@ class ImportCsv extends AbstractImportCsv
                             $first = false;
                         }
                         $sql .= ')';
+                        if (isset($_POST['csv_replace'])) {
+                            $sql .= " ON DUPLICATE KEY UPDATE ";
+                            foreach ($fields as $field) {
+                                $fieldName = PMA_Util::backquote($field['Field']);
+                                $sql .= $fieldName . " = VALUES(" . $fieldName . "), ";
+                            }
+                            $sql = rtrim($sql, ', ');
+                        }
 
                         /**
                          * @todo maybe we could add original line to verbose
