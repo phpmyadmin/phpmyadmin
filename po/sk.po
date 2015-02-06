@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-06 07:36-0500\n"
-"PO-Revision-Date: 2015-02-06 09:52+0200\n"
+"PO-Revision-Date: 2015-02-06 15:23+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -7223,7 +7223,6 @@ msgid "Suhosin warning"
 msgstr "Varovanie Suhosin rozšírenia"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the main page if session."
 #| "gc_maxlifetime is less than `LoginCookieValidity`."
@@ -7232,8 +7231,8 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Vypnúť štandardné varovanie na hlavnej stránke, ak má session.gc_maxlifetime "
-"nižšiu hodnotu ako `LoginCookieValidity`."
+"Vypnúť štandardné varovanie na hlavnej stránke, ak je hodnota PHP nastavenia "
+"session.gc_maxlifetime nižšia ako hodnota `LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:758
 msgid "Login cookie validity warning"
@@ -13370,10 +13369,9 @@ msgid "Storage Engine:"
 msgstr "Úložný Systém:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Spojenia"
+msgstr "Spojenie:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
