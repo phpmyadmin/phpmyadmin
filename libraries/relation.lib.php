@@ -1717,8 +1717,7 @@ function PMA_getChildReferences($db, $table, $column = '')
         }
 
         $child_references = $GLOBALS['dbi']->fetchResult(
-            $rel_query, array('referenced_column_name', null),
-            null, $GLOBALS['controllink']
+            $rel_query, array('referenced_column_name', null)
         );
     }
     return $child_references;

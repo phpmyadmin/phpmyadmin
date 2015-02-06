@@ -421,11 +421,15 @@ AJAX.registerOnload('sql.js', function () {
 
         $form = $(this);
 
+        var $msgbox = PMA_ajaxShowMessage();
         $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function (data) {
-            $("#sqlqueryresults")
+            PMA_ajaxRemoveMessage($msgbox);
+            var $sqlqueryresults = $("#sqlqueryresults");
+            $sqlqueryresults
              .html(data.message)
              .trigger('makegrid');
             PMA_init_slider();
+            PMA_highlightSQL($sqlqueryresults);
         }); // end $.post()
     }); //end displayOptionsForm handler
 
@@ -445,7 +449,7 @@ AJAX.registerOnload('sql.js', function () {
 
         var phrase = $(this).val();
         // Set same value to both Filter rows fields.
-        $(".filter_rows").val(phrase);
+        $(".filter_rows").not(this).val(phrase);
         // Handle colspan.
         $target_table.find("thead > tr").prepend(dummy_th);
         $.uiTableFilter($target_table, phrase, target_columns);
@@ -789,7 +793,11 @@ function rearrangeStickyColumns() {
     var $clonedHeader = $originalHeader.clone();
     // clone width per cell
     $clonedHeader.find("tr:first").children().width(function(i,val) {
-        return Math.floor($originalColumns.eq(i).width()) + 1;
+        var width = $originalColumns.eq(i).width();
+        if (! $.browser.mozilla) {
+            width += 1;
+        }
+        return width;
     });
     $sticky_columns.empty().append($clonedHeader);
 }

@@ -1,6 +1,23 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.9.0 (2015-02-05)
+- bug #4728 Incorrect headings in routine editor
+- bug #4730 Notice while browsing tables when phpmyadmin pma database exists, but not all the tables
+- bug #4729 Display original field when using "Relational display column" option and display column is empty
+- bug #4734 Default values for binary fields do not support binary values
+- bug #4736 Changing display options breaks query highlighting
+- bug       Undefined index submit_type
+- bug #4738 Header lose align when scrolling in Firefox
+- bug #4741 in ./libraries/Advisor.class.php#184 vsprintf(): Too few arguments
+- bug #4743 Unable to move cursor with keyboard in filter rows box
+- bug       Incorrect link in doc
+- bug #4745 Tracking does not handle views properly
+- bug #4706 Schema export doesn't handle dots in db/table name
+- bug #3935 Table Header not displayed correct (Safari 5.0.5 Mac)
+- bug #4750 Disable renaming referenced columns
+- bug #4748 Column name center-aligned instead of left-aligned in Relations
+
 4.3.8.0 (2015-01-24)
 - bug       Undefined constant PMA_DRIZZLE
 - bug #4712 Wrongly positioned date-picker while Grid-Editing

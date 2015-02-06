@@ -5733,7 +5733,9 @@ class PMA_DisplayResults
                     );
                 } else {
 
-                    if ($relational_display == self::RELATIONAL_DISPLAY_COLUMN) {
+                    if ($relational_display == self::RELATIONAL_DISPLAY_COLUMN
+                       && ! empty($map[$meta->name][2])
+                    ) {
                         // user chose "relational display field" in the
                         // display options, so show display field in the cell
                         $result .= $default_function($dispval);
