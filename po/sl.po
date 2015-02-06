@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-04 11:31-0500\n"
-"PO-Revision-Date: 2015-02-03 00:29+0200\n"
+"PO-Revision-Date: 2015-02-06 13:20+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -844,7 +844,6 @@ msgstr ""
 "razcepiti nizov, kar lahko vodi v nepričakovane rezultate."
 
 #: index.php:488
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -856,10 +855,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Vaš parameter PHP [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] je nižji od "
-"veljavnosti piškotkov, določene v phpMyAdminu. Zaradi tega se bo vaša "
-"prijava iztekla prej, kot je določeno v phpMyAdminu."
+"Vaš parameter PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] je nižji od veljavnosti "
+"piškotkov, določene v phpMyAdminu. Zaradi tega se bo vaša prijava morda "
+"iztekla prej, kot je določeno v phpMyAdminu."
 
 #: index.php:501
 msgid ""
@@ -4560,11 +4560,10 @@ msgid "Create PHP Code"
 msgstr "Ustvari kodo PHP"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Uredi indeks"
+msgstr "Uredi v vrstici"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1580
@@ -7309,7 +7308,6 @@ msgid "Suhosin warning"
 msgstr "Opozorilo Suhosin"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
@@ -7317,14 +7315,13 @@ msgid ""
 "Disable the default warning that is displayed on the main page if session."
 "gc_maxlifetime is less than `LoginCookieValidity`."
 msgstr ""
-"Onemogoči privzeto opozorilo, ki se prikaže na strani Struktura, če so imena "
-"stolpcev v tabeli rezervirane besede MySQL."
+"Onemogoči privzeto opozorilo, ki se prikaže na glavni strani, če je "
+"session.gc_maxlifetime manjše kot `LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:758
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Veljavnost prijavnega piškotka"
+msgstr "Opozorilo o veljavnost prijavnega piškotka"
 
 #: libraries/config/messages.inc.php:759
 msgid ""
@@ -10485,10 +10482,9 @@ msgstr ""
 "URL, kot je \"http://www.example.com/\". Druga možnost je ime povezave."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:38
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Oblikuje besedilo kot poizvedbo SQL z označevanjem skladnje."
+msgstr "Oblikuje besedilo kot JSON z označevanjem skladnje."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -13644,10 +13640,9 @@ msgid "Storage Engine:"
 msgstr "Pogon skladiščenja:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Povezave"
+msgstr "Povezava:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
