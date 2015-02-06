@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-04 11:31-0500\n"
-"PO-Revision-Date: 2015-01-29 21:30+0200\n"
+"PO-Revision-Date: 2015-02-06 09:52+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -843,7 +843,6 @@ msgstr ""
 "nečakaným výsledkom."
 
 #: index.php:488
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -855,11 +854,12 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Nastavenie v php.ini [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] má nižšiu "
-"hodnotu ako nastavenie životnosti cookie v phpMyAdmin ($cfg"
-"['LoginCookieValidity']). Kvôli tomu vaše prihlásenie vyprší skôr ako je "
-"nastavené v konfigurácii phpMyAdmin."
+"Nastavenie v php.ini "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] má nižšiu hodnotu ako "
+"nastavenie životnosti cookie v phpMyAdmin ($cfg['LoginCookieValidity']). "
+"Kvôli tomu môže vaše prihlásenie vypršať skôr ako je nastavené v "
+"konfigurácii phpMyAdmina."
 
 #: index.php:501
 msgid ""
@@ -4520,11 +4520,10 @@ msgid "Create PHP Code"
 msgstr "Vytvoriť PHP kód"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Upraviť index"
+msgstr "Upraviť v riadku"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1580
@@ -7231,7 +7230,6 @@ msgid "Suhosin warning"
 msgstr "Varovanie Suhosin rozšírenia"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
@@ -7239,14 +7237,13 @@ msgid ""
 "Disable the default warning that is displayed on the main page if session."
 "gc_maxlifetime is less than `LoginCookieValidity`."
 msgstr ""
-"Vypnúť štandardné varovanie na stránke so štruktúou tabuľky, ak názvy "
-"stĺpcov v tabuľke patria k rezervovaným kľúčovým slovám MySQL."
+"Vypnúť štandardné varovanie na hlavnej stránke, ak má session.gc_maxlifetime "
+"nižšiu hodnotu ako `LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:758
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Platnosť prihlasovacej cookie"
+msgstr "Varovanie o platnosti prihlasovacej cookie"
 
 #: libraries/config/messages.inc.php:759
 msgid ""
@@ -10272,10 +10269,9 @@ msgstr ""
 "(napr. \"http://www.example.com/\"), druhý parameter je názov odkazu."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:38
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Formátuje text ako SQL príkaz pomocou syntaxového zvýrazňovania."
+msgstr "Formátuje text ako JSON so zvýrazňovaním syntaxe."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
