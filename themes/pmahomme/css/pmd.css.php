@@ -45,6 +45,8 @@ $resizeImg = $pmaTheme->getImgPath('pmd/resize.png');
 
 #canvas_outer {
     position: relative;
+    width: 100%;
+    display: block;
 }
 
 #canvas {
@@ -71,9 +73,12 @@ canvas.pmd * {
     -moz-user-select: none;
 }
 
-.tab_zag {
+.pmd_tab .header {
     background-image: url(<?php echo $headerImg; ?>);
     background-repeat: repeat-x;
+}
+
+.tab_zag {
     text-align: center;
     cursor: move;
     padding: 1px;
@@ -113,8 +118,6 @@ canvas.pmd * {
     position: absolute;
     background-color: #99FF99;
     color: #000;
-    <?php echo $left; ?>: 200px;
-    top: 50px;
     z-index: 3;
     border: #00CC66 solid 1px;
     display: none;
@@ -285,9 +288,9 @@ canvas.pmd * {
 }
 
 #osn_tab {
+    position: absolute;
     background-color: #fff;
     color: #000;
-    border: #A9A9A9 solid 1px;
 }
 
 .pmd_header {
@@ -349,10 +352,14 @@ a.M_butt:hover {
 
 #layer_menu {
     z-index: 100;
-    position: absolute;
-    <?php echo $left; ?>: 0;
+    position: relative;
+    float: right;
     background-color: #EAEEF0;
     border: #999 solid 1px;
+}
+
+#layer_menu.left {
+    float: left;
 }
 
 #layer_upd_relation {
@@ -381,8 +388,6 @@ a.M_butt:hover {
 #layer_menu_sizer {
     background-image: url(<?php echo $resizeImg; ?>);
     cursor: nw-resize;
-    width: 16px;
-    height: 16px;
 }
 
 .panel {
@@ -546,4 +551,50 @@ h2.active {
     text-align: <?php echo $left; ?>;
     position: absolute;
     cursor: pointer;
+}
+
+.side-menu {
+    float: left;
+    position: relative;
+    width: auto;
+    height: auto;
+    background: #efefef;
+    border: 1px solid grey;
+    overflow: hidden;
+    z-index: 50;
+}
+
+.side-menu.right {
+    float: right;
+}
+
+.side-menu .hide {
+    display: none;
+}
+
+.side-menu a {
+    display: block;
+    float: none;
+    overflow: hidden;
+}
+
+.side-menu img,
+.side-menu .text {
+    float: left;
+}
+
+#name-panel {
+    border-bottom: 1px solid grey;
+    text-align: center;
+    background: #efefef;
+    width: 100%;
+    font-size: 1.2em;
+    padding: 10px;
+    font-weight: bold;
+}
+
+#container-form {
+    width: 100%;
+    position: absolute;
+    left: 0;
 }
