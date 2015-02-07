@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-06 07:36-0500\n"
-"PO-Revision-Date: 2015-02-07 05:00+0200\n"
+"PO-Revision-Date: 2015-02-07 05:30+0200\n"
 "Last-Translator: FAMMA TV NOTICIAS MEDIOS DE CO "
 "<revistafammatvmusic.oficial@gmail.com>\n"
 "Language-Team: Spanish "
@@ -2374,7 +2374,7 @@ msgstr ""
 #: js/messages.php:481
 #| msgid "Tables"
 msgid "tables"
-msgstr "Tablas:"
+msgstr "mesas"
 
 #: js/messages.php:482
 #| msgid "Views"
@@ -6400,7 +6400,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:419
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Mostrar los elementos escondidos del árbol de navegación."
+msgstr "Mostrar las bases de datos navegación como árbol"
 
 #: libraries/config/messages.inc.php:420
 msgid "Link with main panel by highlighting the current database or table."
@@ -6714,7 +6714,7 @@ msgstr "Mostrar columna de relación"
 #: libraries/config/messages.inc.php:536
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Opciones para visualizar las tablas."
+msgstr "Opciones de visualización"
 
 #: libraries/config/messages.inc.php:537
 msgid "Grid editing: save all edited cells at once"
@@ -13876,7 +13876,7 @@ msgstr "Motor de almacenamiento:"
 #: libraries/tbl_columns_definition_form.lib.php:81
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Conexión"
+msgstr "Conexión:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
