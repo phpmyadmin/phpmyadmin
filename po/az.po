@@ -3744,7 +3744,7 @@ msgstr "Açıq cədvəlləri göstər"
 
 #: libraries/ServerStatusData.class.php:229
 msgid "Show slave hosts"
-msgstr ""
+msgstr "Slave hostları göstər"
 
 #: libraries/ServerStatusData.class.php:236
 #: libraries/replication_gui.lib.php:50
