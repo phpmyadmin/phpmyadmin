@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-02-07 14:12+0200\n"
+"PO-Revision-Date: 2015-02-07 14:23+0200\n"
 "Last-Translator: Marco Pozzato <ironpotts@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/it/>\n"
@@ -970,10 +970,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Cancellazione Chiave primaria/index"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Scarta Foreign Key."
+msgstr "Scarta Foreign key."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1049,7 +1048,6 @@ msgid "Add %s column(s) to index"
 msgstr "Aggiungi %s campo/i all'indice"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
 msgstr "Crea indice a colonna singola"
