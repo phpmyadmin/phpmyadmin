@@ -2676,6 +2676,7 @@ table.show_create td {
 #pma_console {
     position: relative;
     margin-<?php echo $left; ?>: 240px;
+    z-index: 100;
 }
 #pma_console>.templates {
     display: none;
