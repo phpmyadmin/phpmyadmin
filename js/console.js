@@ -286,7 +286,6 @@ var PMA_console = {
             'fast', 'easeOutQuart', function() {
                 $(window).trigger('resize');
             });
-
         if(inputFocus) {
             PMA_consoleInput.focus();
         }
