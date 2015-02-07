@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-06 07:36-0500\n"
-"PO-Revision-Date: 2015-02-07 14:19+0200\n"
+"PO-Revision-Date: 2015-02-07 14:21+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
@@ -3837,7 +3837,7 @@ msgstr "Master statusunu göstər"
 
 #: libraries/ServerStatusData.class.php:239
 msgid "Show slave status"
-msgstr ""
+msgstr "Slave statusunu göstər"
 
 #: libraries/ServerStatusData.class.php:244
 msgid "Flush query cache"
@@ -3858,7 +3858,7 @@ msgstr "Bütün status dəyişənləri"
 
 #: libraries/ServerStatusData.class.php:385
 msgid "Monitor"
-msgstr ""
+msgstr "Monitorinq"
 
 #: libraries/ServerStatusData.class.php:389
 msgid "Advisor"
@@ -4055,14 +4055,13 @@ msgid "Replace with:"
 msgstr "Bununla dəyişdir:"
 
 #: libraries/TableSearch.class.php:1370
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "requlyar ifade (regular expression) olaraq"
+msgstr "Requlyar ifadə (regular expression) istifadə et"
 
 #: libraries/TableSearch.class.php:1473
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Tap və dəyişdir - önizləməsi"
 
 #: libraries/TableSearch.class.php:1477
 msgid "Count"
@@ -4087,7 +4086,7 @@ msgstr ""
 
 #: libraries/Theme.class.php:402
 msgid "No preview available."
-msgstr "Görünüş mövcud deyil."
+msgstr "Önizləmə mövcud deyil."
 
 #: libraries/Theme.class.php:404
 msgid "take it"
