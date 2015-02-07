@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-06 07:36-0500\n"
-"PO-Revision-Date: 2015-02-04 09:52+0200\n"
-"Last-Translator: Jorge Famma Tinoco Gomez <revistafammatvmusic.oficial@gmail."
-"com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"PO-Revision-Date: 2015-02-07 05:00+0200\n"
+"Last-Translator: FAMMA TV NOTICIAS MEDIOS DE CO "
+"<revistafammatvmusic.oficial@gmail.com>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -853,7 +853,6 @@ msgstr ""
 "de caracteres sin la extensión mbstring y podría dar resultados inesperados."
 
 #: index.php:488
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -865,10 +864,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"El parámetro [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] es menor que la "
-"validez de la cookie configurada en phpMyAdmin. Por ello, la sesión expirará "
-"antes de lo configurado en phpMyAdmin."
+"El parámetro "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] es menor que la validez de la "
+"cookie configurada en phpMyAdmin. Por ello, la sesión expirará antes de lo "
+"configurado en phpMyAdmin."
 
 #: index.php:501
 msgid ""
@@ -1664,9 +1664,8 @@ msgid "Test"
 msgstr "Prueba"
 
 #: js/messages.php:249
-#, fuzzy
 msgid "Formatting SQL..."
-msgstr "Formatting SQL..."
+msgstr "Formato SQL..."
 
 #: js/messages.php:253 libraries/db_designer.lib.php:823
 #: libraries/db_designer.lib.php:872 libraries/db_designer.lib.php:1016
@@ -1683,7 +1682,7 @@ msgstr "Cargando…"
 
 #: js/messages.php:257
 msgid "Request Aborted!!"
-msgstr "¡Pedido cancelado!"
+msgstr "Petición abortado!!"
 
 #: js/messages.php:258
 msgid "Processing Request"
@@ -2360,41 +2359,39 @@ msgid "Unlink from main panel"
 msgstr "Deshacer enlace en el panel principal"
 
 #: js/messages.php:479
-#, fuzzy
 msgid "To filter all databases on server, press Enter after a search term"
-msgstr "To filter all databases on server, press Enter after a search term"
+msgstr ""
+"Para filtrar todas las bases de datos en servidor, presione Enter después de "
+"un término de búsqueda"
 
 #: js/messages.php:480
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
-msgstr "To filter all %s in database, press Enter after a search term"
+msgstr ""
+"Para filtrar los %s en base de datos, presione Enter después de un término "
+"de búsqueda"
 
 #: js/messages.php:481
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Tablas"
+msgstr "Tablas:"
 
 #: js/messages.php:482
-#, fuzzy
 #| msgid "Views"
 msgid "views"
 msgstr "Vistas"
 
 #: js/messages.php:483
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Procedimientos"
+msgstr "procedimientos"
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "event"
 msgid "events"
-msgstr "evento"
+msgstr "eventos"
 
 #: js/messages.php:485
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
 msgstr "Funciones"
@@ -4610,11 +4607,10 @@ msgid "Create PHP Code"
 msgstr "Crear código PHP"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Editar índice"
+msgstr "Editar en línea"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1580
@@ -4958,7 +4954,6 @@ msgid "key"
 msgstr "llave"
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
 msgstr "Mostrar tabla de columnas"
@@ -6397,14 +6392,12 @@ msgid "Memory limit"
 msgstr "Límite de la memoria"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 "En el panel de navegación, reemplaza el árbol de base de datos con un "
 "selector"
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
 msgstr "Mostrar los elementos escondidos del árbol de navegación."
@@ -6456,10 +6449,9 @@ msgid "Target for quick access icon"
 msgstr "Destino para el icono de acceso rápido"
 
 #: libraries/config/messages.inc.php:437
-#, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "Destino para el icono de acceso rápido"
+msgstr "Objetivo para el segundo icono de acceso rápido"
 
 #: libraries/config/messages.inc.php:440
 msgid ""
@@ -6470,7 +6462,6 @@ msgstr ""
 "para mostrar un cuadro de filtro."
 
 #: libraries/config/messages.inc.php:444
-#, fuzzy
 msgid "Minimum number of items to display the filter box"
 msgstr "Número mínimo de elementos para mostrar la caja de filtro"
 
@@ -6716,16 +6707,14 @@ msgstr "Edición de grilla: disparador de acción"
 # Display option apparently related to
 # http://www.phpmyadmin.net/documentation/#relation
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
 msgstr "Mostrar columna de relación"
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Opciones para visualizar los servidores."
+msgstr "Opciones para visualizar las tablas."
 
 #: libraries/config/messages.inc.php:537
 msgid "Grid editing: save all edited cells at once"
@@ -6951,10 +6940,9 @@ msgstr ""
 "sugerido: [kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:613
-#, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Columnas centrales"
+msgstr "Tabla de columnas centrales"
 
 #: libraries/config/messages.inc.php:615
 msgid ""
@@ -7427,7 +7415,6 @@ msgid "Suhosin warning"
 msgstr "Advertencia Suhosin"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
@@ -7441,10 +7428,9 @@ msgstr ""
 "de MySQL."
 
 #: libraries/config/messages.inc.php:758
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Validez del cookie usado para el inicio de sesión"
+msgstr "ADVERTENCIA de inicio de sesión cookie validez"
 
 #: libraries/config/messages.inc.php:759
 msgid ""
@@ -9098,19 +9084,18 @@ msgstr ""
 "panel de navegación."
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "Se encontró %s resultado adicional"
-msgstr[1] "Se encontraron %s resultados adicionales"
+msgstr[1] "Se encontró %s resultado adicional"
 
 #: libraries/navigation/NavigationTree.class.php:1203
-#, fuzzy
 #| msgid "Please select databases:"
 msgid "Please select a database."
-msgstr "Seleccionar bases de datos:"
+msgstr "Por favor, seleccione una base de datos."
 
 #: libraries/navigation/NavigationTree.class.php:1261
 msgid "Filter databases by name or regex"
@@ -9447,7 +9432,7 @@ msgstr ""
 "$s») sólo contiene una columna."
 
 #: libraries/normalization.lib.php:381
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above partial dependencies, in order to put the original table '%1"
 #| "$s' into Second normal form we need to create the following tables:"
@@ -9456,8 +9441,8 @@ msgid ""
 "create the following tables:"
 msgstr ""
 "Debido a las dependencias parciales anteriores, para poder convertir la "
-"tabla original «%1$s» a segunda forma normal necesitamos crear las siguientes "
-"tablas:"
+"tabla original «%1$s» a segunda forma normal necesitamos crear las "
+"siguientes tablas:"
 
 #: libraries/normalization.lib.php:417
 #, php-format
@@ -9470,7 +9455,7 @@ msgid "Error in processing!"
 msgstr "¡Error durante el procesamiento!"
 
 #: libraries/normalization.lib.php:501
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above dependencies, in order to put the original table '%1$s' into "
 #| "Third normal form we need to create the following tables:"
@@ -10678,7 +10663,6 @@ msgstr ""
 "opción es el título para el enlace."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:38
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "Formatea el texto como una consulta SQL y resalta la sintaxis."
@@ -13690,7 +13674,6 @@ msgid "Add %s column(s)"
 msgstr "Agregar %s columna(s)"
 
 #: libraries/structure.lib.php:1712
-#, fuzzy
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
 msgstr "Al comienzo de la tabla"
@@ -13891,10 +13874,9 @@ msgid "Storage Engine:"
 msgstr "Motor de almacenamiento:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Conexiones"
+msgstr "Conexión"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
@@ -14038,24 +14020,22 @@ msgstr ""
 "primaria!"
 
 #: libraries/tbl_indexes.lib.php:307
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Tamaño del caché del índice"
+msgstr "Opción de índice:"
 
 #: libraries/tbl_indexes.lib.php:323
 msgid "Key block size:"
-msgstr ""
+msgstr "Tamaño del bloque dominante:"
 
 #: libraries/tbl_indexes.lib.php:335
 msgid "Index type:"
 msgstr "Tipo de índice&nbsp;:"
 
 #: libraries/tbl_indexes.lib.php:347
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Usuario:"
+msgstr "Analizador:"
 
 #: libraries/tbl_indexes.lib.php:359
 msgid "Comment:"
@@ -14668,7 +14648,7 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Fila: %1$s, Columna: %2$s, Error: %3$s"
 
 #: tbl_structure.php:60
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgid_plural "The column names '%s' are MySQL reserved keywords."
