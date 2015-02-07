@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-02-03 23:58+0200\n"
-"Last-Translator: Ahmed Saad <egbrave@hotmail.com>\n"
+"PO-Revision-Date: 2015-02-07 04:27+0200\n"
+"Last-Translator: FAMMA TV NOTICIAS MEDIOS DE CO "
+"<revistafammatvmusic.oficial@gmail.com>\n"
 "Language-Team: Arabic "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/ar/>\n"
 "Language: ar\n"
@@ -27,7 +28,7 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "القائمة المركزية للأعمدة قاعدة البيانات الحالية فارغة."
 
 #: db_central_columns.php:109
 #, fuzzy
