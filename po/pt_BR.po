@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-12 09:48+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2015-02-07 04:08+0200\n"
+"Last-Translator: Junior Zancan <jrzancan@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2838,10 +2838,9 @@ msgid "Profiling"
 msgstr "Perfil"
 
 #: libraries/Console.class.php:183
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
-msgstr "Tabela de favoritos"
+msgstr "Marcadores"
 
 #: libraries/Console.class.php:184
 #| msgid "Query cache"
