@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-06 07:36-0500\n"
-"PO-Revision-Date: 2015-02-07 14:17+0200\n"
+"PO-Revision-Date: 2015-02-07 14:23+0200\n"
 "Last-Translator: Marco Pozzato <ironpotts@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -854,7 +854,6 @@ msgstr ""
 "e questo può portare a risultati inaspettati."
 
 #: index.php:488
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -866,10 +865,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Il tuo parametero PHP [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] é inferiore "
-"alla validitá del cookie configurata in phpMyAdmin, per questo motivo, i "
-"dati di login scadranno prima di come configurato in phpMyAdmin."
+"Il parametro "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] di PHP é inferiore alla "
+"validitá del cookie configurata in phpMyAdmin; per questo motivo, il login "
+"potrebbe scadere prima di quanto configurato in phpMyAdmin."
 
 #: index.php:501
 msgid ""
@@ -959,28 +959,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Stai per TRONCARE COMPLETAMENTE il contenuto della tabella!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Cancella dati di tracciamento per questa tabella"
+msgstr "Cancellare dati di monitoraggio per questa tabella?"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Cancella dati di tracciamento per questa tabella"
+msgstr "Cancellare dati di monitoraggio per queste tabelle?"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Cancella dati di tracciamento per questa tabella"
+msgstr "Cancellare il monitoraggio dati per questa versione?"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Cancella dati di tracciamento per questa tabella"
+msgstr "Cancellare il monitoraggio dati per queste versioni?"
 
 #: js/messages.php:44
 msgid "Deleting tracking data"
@@ -991,10 +987,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Cancellazione Chiave primaria/index"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Scarta Foreign Key."
+msgstr "Scarta Foreign key."
 
 #: js/messages.php:47
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1064,7 +1059,6 @@ msgid "Add %s column(s) to index"
 msgstr "Aggiungi %s campo/i all'indice"
 
 #: js/messages.php:66
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
 msgstr "Crea indice a colonna singola"
