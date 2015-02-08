@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-02-08 04:51+0200\n"
-"Last-Translator: Somthanat W. <somthanat@gmail.com>\n"
+"PO-Revision-Date: 2015-02-08 05:01+0200\n"
+"Last-Translator: mrnonz <nontawat39@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-3/th/>"
 "\n"
 "Language: th\n"
@@ -439,7 +439,7 @@ msgstr "ตรวจพบข้อผิดพลาด และรายง�
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "ขอบคุณสำหรับการรายงานครั้งนี้"
 
 #: error_report.php:76
 msgid ""
@@ -450,7 +450,7 @@ msgstr ""
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "หากคุณพบปัญหาในการใช้งานบางอย่าง กรุณารายงานข้อผิดพลาด้วยตัวคุณเอง"
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
@@ -466,7 +466,7 @@ msgstr "พารามิเตอร์ไม่ถูกต้อง!"
 
 #: file_echo.php:22
 msgid "Invalid export type"
-msgstr "ประเภทที่ส่งออกไม่ถูกต้อง!"
+msgstr "ประเภทที่ส่งออกไม่ถูกต้อง"
 
 #: gis_data_editor.php:118
 #, php-format
