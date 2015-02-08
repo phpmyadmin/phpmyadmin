@@ -282,13 +282,10 @@ var PMA_console = {
         }
         PMA_console.$consoleAllContents.height(pmaConsoleHeight);
         PMA_console.$consoleContent.stop();
-        
-        
         PMA_console.$consoleContent.animate({'margin-bottom': 0},
             'fast', 'easeOutQuart', function() {
                 $(window).trigger('resize');
             });
-
         if(inputFocus) {
             PMA_consoleInput.focus();
         }
