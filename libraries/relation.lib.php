@@ -588,7 +588,7 @@ function PMA_checkRelationsParam()
     }
 
     return $cfgRelation;
-} // end of the 'PMA_getRelationsParam()' function
+} // end of the 'PMA_checkRelationsParam()' function
 
 /**
  * Check whether column_info table input transformation
