@@ -53,7 +53,7 @@ function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
  * @param array  &$visualizationSettings Settings used to generate the chart
  * @param string $format                 Format of the visualization
  *
- * @return string|void HTML and JS code for the GIS visualization
+ * @return string|bool HTML and JS code for the GIS visualization or false on failure
  */
 function PMA_GIS_visualizationResults($data, &$visualizationSettings, $format)
 {
@@ -81,6 +81,8 @@ function PMA_GIS_visualizationResults($data, &$visualizationSettings, $format)
     } elseif ($format == 'ol') {
         return $visualization->asOl();
     }
+
+    return false;
 }
 
 /**

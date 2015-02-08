@@ -3934,11 +3934,17 @@ class PMA_Util
      *
      * @param string $limit_clause limit clause
      *
-     * @return array|void Start and length attributes of the limit clause
+     * @return array|bool Start and length attributes of the limit clause or false
+     *                    on failure
      */
     public static function analyzeLimitClause($limit_clause)
     {
-        $start_and_length = explode(',', str_ireplace('LIMIT', '', $limit_clause));
+        $limitParams = trim(str_ireplace('LIMIT', '', $limit_clause));
+        if ('' == $limitParams) {
+            return false;
+        }
+
+        $start_and_length = explode(',', $limitParams);
         $size = count($start_and_length);
         if ($size == 1) {
             return array(
@@ -3951,6 +3957,8 @@ class PMA_Util
                 'length' => trim($start_and_length[1])
             );
         }
+
+        return false;
     }
 
     /**
