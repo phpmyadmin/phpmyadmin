@@ -115,7 +115,7 @@ function ajaxValidate(parent, id, values)
 /**
  * Automatic form submission on change.
  */
-$('.autosubmit').live('change', function (e) {
+$(document).on('change', '.autosubmit', function (e) {
     e.target.form.submit();
 });
 

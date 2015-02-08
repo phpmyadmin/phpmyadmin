@@ -140,6 +140,11 @@ var AJAX = {
      * @return void
      */
     lockPageHandler: function(event) {
+        //Don't lock on enter.
+        if (0 == event.charCode) {
+            return;
+        }
+
         var lockId = $(this).data('lock-id');
         if (typeof lockId === 'undefined') {
             return;
@@ -359,7 +364,7 @@ var AJAX = {
                     $('#selflink > a').attr('href', data._selflink);
                 }
                 if (data._scripts) {
-                    AJAX.scriptHandler.load(data._scripts, data._params.token);
+                    AJAX.scriptHandler.load(data._scripts);
                 }
                 if (data._selflink && data._scripts && data._menuHash && data._params) {
                     AJAX.cache.add(
@@ -501,7 +506,7 @@ var AJAX = {
          *
          * @return void
          */
-        load: function (files, token) {
+        load: function (files) {
             var self = this;
             self._scriptsToBeLoaded = [];
             self._scriptsToBeFired = [];
@@ -520,10 +525,9 @@ var AJAX = {
                 if ($.inArray(script, self._scripts) == -1) {
                     needRequest = true;
                     this.add(script);
-                    request.push("scripts[]=" + script);
+                    request.push("scripts%5B%5D=" + script);
                 }
             }
-            request.push("token=" + token);
             request.push("call_done=1");
             // Download the composite js file, if necessary
             if (needRequest) {
@@ -556,6 +560,7 @@ var AJAX = {
             var script = document.createElement('script');
             script.type = 'text/javascript';
             script.src = url;
+            script.async = false;
             head.appendChild(script);
         },
         /**
@@ -575,8 +580,8 @@ var AJAX = {
              * Re-attach a generic event handler to clicks
              * on pages and submissions of forms
              */
-            $('a').die('click').live('click', AJAX.requestHandler);
-            $('form').die('submit').live('submit', AJAX.requestHandler);
+            $(document).off('click', 'a').on('click', 'a', AJAX.requestHandler);
+            $(document).off('submit', 'form').on('submit', 'form', AJAX.requestHandler);
             AJAX.cache.update();
             callback();
         }
@@ -733,7 +738,7 @@ AJAX.cache = {
                 $('#selflink').html(record.selflink);
                 AJAX.cache.menus.replace(AJAX.cache.menus.get(record.menu));
                 PMA_commonParams.setAll(record.params);
-                AJAX.scriptHandler.load(record.scripts, record.params ? record.params.token : PMA_commonParams.get('token'));
+                AJAX.scriptHandler.load(record.scripts);
                 AJAX.cache.current = ++index;
             });
         }
@@ -879,7 +884,7 @@ AJAX.setUrlHash = (function (jQuery, window) {
 
     // Fix favicon disappearing in Firefox when setting location.hash
     function resetFavicon() {
-        if (jQuery.browser.mozilla) {
+        if (navigator.userAgent.indexOf('Firefox') > -1) {
             // Move the link tags for the favicon to the bottom
             // of the head element to force a reload of the favicon
             $('head > link[href=favicon\\.ico]').appendTo('head');
@@ -994,8 +999,8 @@ $(function () {
  * Attach a generic event handler to clicks
  * on pages and submissions of forms
  */
-$('a').live('click', AJAX.requestHandler);
-$('form').live('submit', AJAX.requestHandler);
+$(document).on('click', 'a', AJAX.requestHandler);
+$(document).on('submit', 'form', AJAX.requestHandler);
 
 /**
  * Gracefully handle fatal server errors

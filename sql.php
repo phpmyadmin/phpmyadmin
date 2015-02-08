@@ -188,7 +188,6 @@ PMA_executeQueryAndSendQueryResponse(
     isset($extra_data) ? $extra_data : null,
     $is_affected,
     isset($message_to_show) ? $message_to_show : null,
-    isset($disp_mode) ? $disp_mode : null,
     isset($message) ? $message : null,
     isset($sql_data) ? $sql_data : null,
     $goto,

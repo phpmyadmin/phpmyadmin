@@ -91,6 +91,11 @@ class Node
     public $links;
 
     /**
+     * @var string HTML title
+     */
+    public $title;
+
+    /**
      * @var string Extra CSS classes for the node
      */
     public $classes = '';
@@ -266,8 +271,9 @@ class Node
     }
 
     /**
-     * Returns true the node has some siblings (other nodes on the same tree level,
-     * in the same branch), false otherwise. The only exception is for nodes on
+     * Returns true if the node has some siblings (other nodes on the same tree
+     * level, in the same branch), false otherwise.
+     * The only exception is for nodes on
      * the third level of the tree (columns and indexes), for which the function
      * always returns true. This is because we want to render the containers
      * for these nodes
@@ -360,7 +366,9 @@ class Node
     public function getData($type, $pos, $searchClause = '')
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
-        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
+        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']
+            || !$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
+        ) {
             if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $query  = "SELECT `SCHEMA_NAME` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
@@ -399,6 +407,9 @@ class Node
                 }
 
                 while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($this->_isHideDb($arr[0])) {
+                        continue;
+                    }
                     if (in_array($arr[0], $retval)) {
                         continue;
                     }
@@ -485,6 +496,9 @@ class Node
             }
 
             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                if ($this->_isHideDb($arr[0])) {
+                    continue;
+                }
                 $prefix = strstr($arr[0], $dbSeparator, true);
                 if ($prefix === false) {
                     $prefix = $arr[0];
@@ -505,6 +519,9 @@ class Node
             }
 
             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                if ($this->_isHideDb($arr[0])) {
+                    continue;
+                }
                 if (in_array($arr[0], $retval)) {
                     continue;
                 }
@@ -538,7 +555,9 @@ class Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
-        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
+        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']
+            || !$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
+        ) {
             if (!$GLOBALS['cfg']['Server']['DisableIS']) {
                 $query = "SELECT COUNT(*) ";
                 $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
@@ -590,6 +609,9 @@ class Node
                 }
 
                 while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($this->_isHideDb($arr[0])) {
+                        continue;
+                    }
                     $prefix = strstr($arr[0], $dbSeparator, true);
                     if ($prefix === false) {
                         $prefix = $arr[0];
@@ -617,6 +639,23 @@ class Node
         $retval = count($prefixMap);
 
         return $retval;
+    }
+
+    /**
+     * Detemines whether a given database should be hidden according to 'hide_db'
+     *
+     * @param string $db database name
+     *
+     * @return boolean whether to hide
+     */
+    private function _isHideDb($db)
+    {
+        if (! empty($GLOBALS['cfg']['Server']['hide_db'])
+            && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db)
+        ) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -705,7 +744,8 @@ class Node
      */
     public function getCssClasses($match)
     {
-        if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
+        if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
+        ) {
             return '';
         }
 
@@ -730,7 +770,8 @@ class Node
      */
     public function getIcon($match)
     {
-        if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
+        if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
+        ) {
             return '';
         } elseif ($match && ! $this->is_group) {
             $this->visible = true;

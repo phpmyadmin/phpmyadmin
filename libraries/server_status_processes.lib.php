@@ -153,16 +153,6 @@ function PMA_getHtmlForServerProcesslist()
             $column['sort_order'] = 'DESC';
         }
 
-        if ($is_sorted) {
-            if ($_REQUEST['sort_order'] == 'ASC') {
-                $asc_display_style = 'inline';
-                $desc_display_style = 'none';
-            } elseif ($_REQUEST['sort_order'] == 'DESC') {
-                $desc_display_style = 'inline';
-                $asc_display_style = 'none';
-            }
-        }
-
         $retval .= '<th>';
         $columnUrl = PMA_URL_getCommon($column);
         $retval .= '<a href="server_status_processes.php' . $columnUrl . '" ';
@@ -175,6 +165,12 @@ function PMA_getHtmlForServerProcesslist()
         $retval .= $column['column_name'];
 
         if ($is_sorted) {
+            $asc_display_style = 'inline';
+            $desc_display_style = 'none';
+            if ($_REQUEST['sort_order'] === 'DESC') {
+                $desc_display_style = 'inline';
+                $asc_display_style = 'none';
+            }
             $retval .= '<img class="icon ic_s_desc soimg" alt="'
                 . __('Descending') . '" title="" src="themes/dot.gif" '
                 . 'style="display: ' . $desc_display_style . '" />';

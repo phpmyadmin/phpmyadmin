@@ -297,10 +297,6 @@ class ImportSql extends ImportPlugin
                     break;
                 }
 
-                if (0 === $this->_firstSearchChar) {
-                    $this->_queryBeginPosition = $this->_delimiterPosition;
-                }
-
                 continue;
             }
 
@@ -354,7 +350,7 @@ class ImportSql extends ImportPlugin
             if (in_array($specialChars, array('\'', '"', '`'))) {
                 $this->_isInString = true;
                 $this->_quote = $specialChars;
-                //Move after quote.
+                //Move before quote.
                 $this->_delimiterPosition = $this->_firstSearchChar + 1;
                 continue;
             }
@@ -363,7 +359,7 @@ class ImportSql extends ImportPlugin
             if (in_array($specialChars, array('#', '-- ', '/*'))) {
                 $this->_isInComment = true;
                 $this->_openingComment = $specialChars;
-                //Move after comment opening.
+                //Move before comment opening.
                 $this->_delimiterPosition = $this->_firstSearchChar
                     + $this->_stringFctToUse['strlen']($specialChars);
                 continue;

@@ -76,27 +76,10 @@ class Table_Stats_Svg extends TableStats
      */
     protected function showMissingTableError()
     {
-        $this->diagram->dieSchema(
+        PMA_Export_Relation_Schema::dieSchema(
             $this->pageNumber,
             "SVG",
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
-        );
-    }
-
-    /**
-     * Displays an error on missing coordinates
-     *
-     * @return void
-     */
-    protected function showMissingCoordinatesError()
-    {
-        $this->diagram->dieSchema(
-            $this->pageNumber,
-            "SVG",
-            sprintf(
-                __('Please configure the coordinates for table %s'),
-                $this->tableName
-            )
         );
     }
 
@@ -125,8 +108,8 @@ class Table_Stats_Svg extends TableStats
 
         /*
          * it is unknown what value must be added, because
-        * table title is affected by the tabe width value
-        */
+         * table title is affected by the table width value
+         */
         while ($this->width
             < PMA_Font::getStringWidth($this->getTitle(), $font, $fontSize)
         ) {

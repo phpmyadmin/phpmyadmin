@@ -37,6 +37,17 @@ define('SETUP_CONFIG_FILE', './config/config.inc.php');
 define('SETUP_DIR_WRITABLE', true);
 
 /**
+ * Directory where examples reside. Useful when you want to include
+ * the examples directory with documentation, eg. /usr/share/doc.
+ */
+define('EXAMPLES_DIR', './examples/');
+
+/**
+ * Directory where SQL scripts to create/upgrade configuration storage reside.
+ */
+define('SQL_DIR', './sql/');
+
+/**
  * Directory where configuration files are stored.
  * It is not used directly in code, just a convenient
  * define used further in this file.

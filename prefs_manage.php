@@ -30,7 +30,7 @@ if (isset($_POST['submit_export'])
     $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.json';
     PMA_downloadHeader($filename, 'application/json');
     $settings = PMA_loadUserprefs();
-    echo json_encode($settings['config_data']);
+    echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
     exit;
 } else if (isset($_POST['submit_get_json'])) {
     $settings = PMA_loadUserprefs();

@@ -2,13 +2,13 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_operations.js', function () {
-    $("#copyTable.ajax").die('submit');
-    $("#moveTableForm").die('submit');
-    $("#tableOptionsForm").die('submit');
-    $("#tbl_maintenance li a.maintain_action.ajax").die('click');
-    $("#drop_tbl_anchor.ajax").die('click');
-    $("#drop_view_anchor.ajax").die('click');
-    $("#truncate_tbl_anchor.ajax").die('click');
+    $(document).off('submit', "#copyTable.ajax");
+    $(document).off('submit', "#moveTableForm");
+    $(document).off('submit', "#tableOptionsForm");
+    $(document).off('click', "#tbl_maintenance li a.maintain_action.ajax");
+    $(document).off('click', "#drop_tbl_anchor.ajax");
+    $(document).off('click', "#drop_view_anchor.ajax");
+    $(document).off('click', "#truncate_tbl_anchor.ajax");
 });
 
 /**
@@ -19,7 +19,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
     /**
      *Ajax action for submitting the "Copy table"
      **/
-    $("#copyTable.ajax").live('submit', function (event) {
+    $(document).on('submit', "#copyTable.ajax", function (event) {
         event.preventDefault();
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
@@ -48,7 +48,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
     /**
      *Ajax action for submitting the "Move table"
      */
-    $("#moveTableForm").live('submit', function (event) {
+    $(document).on('submit', "#moveTableForm", function (event) {
         event.preventDefault();
         var $form = $(this);
         var db = $form.find('select[name=target_db]').val();
@@ -72,7 +72,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
     /**
      * Ajax action for submitting the "Table options"
      */
-    $("#tableOptionsForm").live('submit', function (event) {
+    $(document).on('submit', "#tableOptionsForm", function (event) {
         event.preventDefault();
         event.stopPropagation();
         var $form = $(this);
@@ -100,7 +100,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
     /**
      *Ajax events for actions in the "Table maintenance"
     **/
-    $("#tbl_maintenance li a.maintain_action.ajax").live('click', function (event) {
+    $(document).on('click', "#tbl_maintenance li a.maintain_action.ajax", function (event) {
         event.preventDefault();
         if ($(".sqlqueryresults").length !== 0) {
             $(".sqlqueryresults").remove();
@@ -140,7 +140,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         }); // end $.post()
     });//end of table maintenance ajax click
 
-    $("#drop_tbl_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "#drop_tbl_anchor.ajax", function (event) {
         event.preventDefault();
         /**
          * @var question    String containing the question to be asked for confirmation
@@ -173,7 +173,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         }); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
 
-    $("#drop_view_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "#drop_view_anchor.ajax", function (event) {
         event.preventDefault();
         /**
          * @var question    String containing the question to be asked for confirmation
@@ -206,7 +206,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         }); // end $.PMA_confirm()
     }); //end of Drop View Ajax action
 
-    $("#truncate_tbl_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "#truncate_tbl_anchor.ajax", function (event) {
         event.preventDefault();
         /**
          * @var question    String containing the question to be asked for confirmation

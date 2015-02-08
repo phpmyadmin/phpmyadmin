@@ -638,10 +638,12 @@ class PMA_DatabaseInterface
                         }
                     }
 
-                    if ($sort_order == 'DESC') {
-                        array_multisort($$sort_by, SORT_DESC, $each_tables);
-                    } else {
-                        array_multisort($$sort_by, SORT_ASC, $each_tables);
+                    if (! empty($$sort_by)) {
+                        if ($sort_order == 'DESC') {
+                            array_multisort($$sort_by, SORT_DESC, $each_tables);
+                        } else {
+                            array_multisort($$sort_by, SORT_ASC, $each_tables);
+                        }
                     }
 
                     // cleanup the temporary sort array
@@ -1012,11 +1014,11 @@ class PMA_DatabaseInterface
                 // MySQL 5.0 or higher is required for current PMA version
                 $databases[$database_name]['SCHEMA_NAME']      = $database_name;
 
-                if ($force_stats) {
-                    include_once './libraries/mysql_charsets.inc.php';
+                include_once './libraries/mysql_charsets.inc.php';
+                $databases[$database_name]['DEFAULT_COLLATION_NAME']
+                    = PMA_getDbCollation($database_name);
 
-                    $databases[$database_name]['DEFAULT_COLLATION_NAME']
-                        = PMA_getDbCollation($database_name);
+                if ($force_stats) {
 
                     // get additional info about tables
                     $databases[$database_name]['SCHEMA_TABLES']          = 0;
@@ -2096,14 +2098,11 @@ class PMA_DatabaseInterface
 
         $result = array();
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            // Note: in http://dev.mysql.com/doc/refman/5.0/en/faqs-triggers.html
-            // their example uses WHERE TRIGGER_SCHEMA='dbname' so let's use this
-            // instead of WHERE EVENT_OBJECT_SCHEMA='dbname'
             $query = 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION'
                 . ', EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT'
                 . ', EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER'
                 . ' FROM information_schema.TRIGGERS'
-                . ' WHERE TRIGGER_SCHEMA ' . PMA_Util::getCollateForIS() . '='
+                . ' WHERE EVENT_OBJECT_SCHEMA ' . PMA_Util::getCollateForIS() . '='
                 . ' \'' . PMA_Util::sqlAddSlashes($db) . '\'';
 
             if (! empty($table)) {
@@ -2389,6 +2388,10 @@ class PMA_DatabaseInterface
      */
     public function isSystemSchema($schema_name, $testForMysqlSchema = false)
     {
+        if (!defined("PMA_DRIZZLE")) {
+            define("PMA_DRIZZLE", false);
+        }
+
         return strtolower($schema_name) == 'information_schema'
             || (!PMA_DRIZZLE
                 && strtolower($schema_name) == 'performance_schema')

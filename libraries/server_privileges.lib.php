@@ -526,10 +526,11 @@ function PMA_getHtmlToChooseUserGroup($username)
     $html_output .= '<fieldset id="fieldset_user_group_selection">';
     $html_output .= '<legend>' . __('User group') . '</legend>';
 
-    $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
-    $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+    $cfgRelation = PMA_getRelationsParam();
+    $groupTable = PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['usergroups']);
+    $userTable = PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['users']);
 
     $userGroups = array();
     $sql_query = "SELECT DISTINCT `usergroup` FROM " . $groupTable;
@@ -577,8 +578,9 @@ function PMA_getHtmlToChooseUserGroup($username)
  */
 function PMA_setUserGroup($username, $userGroup)
 {
-    $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+    $cfgRelation = PMA_getRelationsParam();
+    $userTable = PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['users']);
 
     $sql_query = "SELECT `usergroup` FROM " . $userTable
         . " WHERE `username` = '" . PMA_Util::sqlAddSlashes($username) . "'";
@@ -2307,8 +2309,9 @@ function PMA_getUserGroupEditLink($username)
  */
 function PMA_getUserGroupCount()
 {
-    $user_group_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . '.' . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+    $cfgRelation = PMA_getRelationsParam();
+    $user_group_table = PMA_Util::backquote($cfgRelation['db'])
+        . '.' . PMA_Util::backquote($cfgRelation['usergroups']);
     $sql_query = 'SELECT COUNT(*) FROM ' . $user_group_table;
     $user_group_count = $GLOBALS['dbi']->fetchValue(
         $sql_query, 0, 0, $GLOBALS['controllink']
@@ -2681,76 +2684,79 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
 ) {
     $html_output = '';
     $found_rows = array();
+
     // display rows
     if (count($db_rights) < 1) {
         $html_output .= '<tr class="odd">' . "\n"
            . '<td colspan="6"><center><i>' . __('None') . '</i></center></td>' . "\n"
            . '</tr>' . "\n";
-    } else {
-        $odd_row = true;
-        //while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-        foreach ($db_rights as $row) {
-            $dbNameLength = /*overload*/mb_strlen($dbname);
-            $found_rows[] = (!$dbNameLength)
-                ? $row['Db']
-                : $row['Table_name'];
+        return array($found_rows, $html_output);
+    }
 
-            $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
-                . '<td>'
-                . htmlspecialchars(
-                    (!$dbNameLength)
-                    ? $row['Db']
-                    : $row['Table_name']
-                )
-                . '</td>' . "\n"
-                . '<td><code>' . "\n"
-                . '        '
-                . join(
-                    ',' . "\n" . '            ',
-                    PMA_extractPrivInfo($row, true)
-                ) . "\n"
-                . '</code></td>' . "\n"
-                . '<td>'
-                    . ((((!$dbNameLength) && $row['Grant_priv'] == 'Y')
-                        || ($dbNameLength
-                        && in_array('Grant', explode(',', $row['Table_priv']))))
-                    ? __('Yes')
-                    : __('No'))
-                . '</td>' . "\n"
-                . '<td>';
-            if (! empty($row['Table_privs']) || ! empty ($row['Column_priv'])) {
-                $html_output .= __('Yes');
-            } else {
-                $html_output .= __('No');
-            }
-            $html_output .= '</td>' . "\n"
-               . '<td>';
+    $odd_row = true;
+    //while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
+    foreach ($db_rights as $row) {
+        $dbNameLength = /*overload*/mb_strlen($dbname);
+        $found_rows[] = (!$dbNameLength)
+            ? $row['Db']
+            : $row['Table_name'];
+
+        $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
+            . '<td>'
+            . htmlspecialchars(
+                (!$dbNameLength)
+                ? $row['Db']
+                : $row['Table_name']
+            )
+            . '</td>' . "\n"
+            . '<td><code>' . "\n"
+            . '        '
+            . join(
+                ',' . "\n" . '            ',
+                PMA_extractPrivInfo($row, true)
+            ) . "\n"
+            . '</code></td>' . "\n"
+            . '<td>'
+                . ((((!$dbNameLength) && $row['Grant_priv'] == 'Y')
+                    || ($dbNameLength
+                    && in_array('Grant', explode(',', $row['Table_priv']))))
+                ? __('Yes')
+                : __('No'))
+            . '</td>' . "\n"
+            . '<td>';
+        if (! empty($row['Table_privs']) || ! empty ($row['Column_priv'])) {
+            $html_output .= __('Yes');
+        } else {
+            $html_output .= __('No');
+        }
+        $html_output .= '</td>' . "\n"
+           . '<td>';
+        $html_output .= PMA_getUserLink(
+            'edit',
+            $username,
+            $hostname,
+            (!$dbNameLength) ? $row['Db'] : $dbname,
+            (!$dbNameLength) ? '' : $row['Table_name']
+        );
+        $html_output .= '</td>' . "\n"
+           . '    <td>';
+        if (! empty($row['can_delete'])
+            || isset($row['Table_name'])
+            && /*overload*/mb_strlen($row['Table_name'])
+        ) {
             $html_output .= PMA_getUserLink(
-                'edit',
+                'revoke',
                 $username,
                 $hostname,
                 (!$dbNameLength) ? $row['Db'] : $dbname,
                 (!$dbNameLength) ? '' : $row['Table_name']
             );
-            $html_output .= '</td>' . "\n"
-               . '    <td>';
-            if (! empty($row['can_delete'])
-                || isset($row['Table_name'])
-                && /*overload*/mb_strlen($row['Table_name'])
-            ) {
-                $html_output .= PMA_getUserLink(
-                    'revoke',
-                    $username,
-                    $hostname,
-                    (!$dbNameLength) ? $row['Db'] : $dbname,
-                    (!$dbNameLength) ? '' : $row['Table_name']
-                );
-            }
-            $html_output .= '</td>' . "\n"
-               . '</tr>' . "\n";
-            $odd_row = ! $odd_row;
-        } // end while
-    } //end if
+        }
+        $html_output .= '</td>' . "\n"
+           . '</tr>' . "\n";
+        $odd_row = ! $odd_row;
+    } // end while
+
     return array($found_rows, $html_output);
 }
 
@@ -3010,9 +3016,10 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
  */
 function PMA_getHtmlTableBodyForUserRights($db_rights)
 {
-    if ($GLOBALS['cfgRelation']['menuswork']) {
-        $users_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-            . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+    $cfgRelation = PMA_getRelationsParam();
+    if ($cfgRelation['menuswork']) {
+        $users_table = PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['users']);
         $sql_query = 'SELECT * FROM ' . $users_table;
         $result = PMA_queryAsControlUser($sql_query, false);
         $group_assignment = array();
@@ -3806,12 +3813,12 @@ function PMA_getAddUserHtmlFieldset($db = '', $table = '')
 
     return '<fieldset id="fieldset_add_user">' . "\n"
         . '<legend>' . _pgettext('Create new user', 'New') . '</legend>'
-        . '<a href="server_privileges.php'
+        . '<a id="add_user_anchor" href="server_privileges.php'
         . PMA_URL_getCommon($url_params) . '" '
         . (!empty($rel_params)
             ? ('rel="' . PMA_URL_getCommon($rel_params) . '" ')
             : '')
-        . '">' . "\n"
+        . '>' . "\n"
         . PMA_Util::getIcon('b_usradd.png')
         . '            ' . __('Add user') . '</a>' . "\n"
         . '</fieldset>' . "\n";

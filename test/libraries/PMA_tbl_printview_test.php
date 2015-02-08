@@ -460,7 +460,7 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
         $cfgRelation = array('mimework' => true);
 
         $html = PMA_getHtmlForPrintViewColumns(
-            $columns, $analyzed_sql, $have_rel,
+            false, $columns, $analyzed_sql, $have_rel,
             $res_rel, $db, $table, $cfgRelation
         );
 

@@ -433,11 +433,11 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
     $html .= '<form action="' . $action . '" method="post">';
     $html .= PMA_URL_getHiddenInputs($_url_params);
     // Display option to disable foreign key checks while dropping tables
-    if ($what == 'drop_tbl') {
+    if ($what == 'drop_tbl' || $what == 'row_delete') {
         $html .= '<div id="foreignkeychk">';
-        $html .= '<span class="fkc_switch">';
+        $html .= '<label for="fkc_checkbox">';
         $html .= __('Foreign key check:');
-        $html .= '</span>';
+        $html .= '</label>';
         $html .= '<span class="checkbox">';
         $html .= '<input type="checkbox" name="fk_check" value="1" '
             . 'id="fkc_checkbox"';
@@ -448,9 +448,9 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
             $html .= ' checked="checked"';
         }
         $html .= '/></span>';
-        $html .= '<span id="fkc_status" class="fkc_switch">';
+        $html .= '<label id="fkc_status" for="fkc_checkbox">';
         $html .= ($default_fk_check_value) ? __('(Enabled)') : __('(Disabled)');
-        $html .= '</span>';
+        $html .= '</label>';
         $html .= '</div>';
     }
     $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';

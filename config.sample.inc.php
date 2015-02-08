@@ -14,7 +14,7 @@
  * This is needed for cookie based authentication to encrypt password in
  * cookie
  */
-$cfg['blowfish_secret'] = 'a8b7c6d'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+$cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 
 /*
  * Servers configuration
@@ -114,12 +114,6 @@ $cfg['SaveDir'] = '';
  */
 //$cfg['DefaultLang'] = 'en';
 //$cfg['DefaultLang'] = 'de';
-
-/**
- * default display direction (horizontal|vertical|horizontalflipped)
- */
-//$cfg['DefaultDisplay'] = 'vertical';
-
 
 /**
  * How many columns should be used for table display of a database?

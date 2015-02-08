@@ -285,7 +285,7 @@ class Mock_Meta
      */
     public function __construct($type1)
     {
-        $type = $type1;
+        $this->type = $type1;
     }
 }
 

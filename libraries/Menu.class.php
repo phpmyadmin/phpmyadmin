@@ -130,11 +130,11 @@ class PMA_Menu
         $allowedTabs = PMA_Util::getMenuTabList($level);
         $cfgRelation = PMA_getRelationsParam();
         if (isset($cfgRelation['menuswork']) && $cfgRelation['menuswork']) {
-            $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+            $groupTable = PMA_Util::backquote($cfgRelation['db'])
                 . "."
-                . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
-            $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-                . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+                . PMA_Util::backquote($cfgRelation['usergroups']);
+            $userTable = PMA_Util::backquote($cfgRelation['db'])
+                . "." . PMA_Util::backquote($cfgRelation['users']);
 
             $sql_query = "SELECT `tab` FROM " . $groupTable
                 . " WHERE `allowed` = 'N'"
@@ -493,7 +493,10 @@ class PMA_Menu
             $tabs['designer']['id'] = 'designer_tab';
         }
 
-        if (! $db_is_system_schema && $cfgRelation['central_columnswork']) {
+        if (! $db_is_system_schema
+            && isset($cfgRelation['central_columnswork'])
+            && $cfgRelation['central_columnswork']
+        ) {
             $tabs['central_columns']['text'] = __('Central columns');
             $tabs['central_columns']['icon'] = 'centralColumns.png';
             $tabs['central_columns']['link'] = 'db_central_columns.php';
@@ -508,13 +511,11 @@ class PMA_Menu
      */
     private function _getServerTabs()
     {
-        $is_superuser = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isSuperuser();
+        $is_superuser = $GLOBALS['dbi']->isSuperuser();
         $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
             || $GLOBALS['dbi']->isUserType('create');
         $binary_logs = null;
-        $notDrizzle = ! defined('PMA_DRIZZLE')
-            || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE);
-        if (isset($GLOBALS['dbi']) && $notDrizzle) {
+        if (! defined('PMA_DRIZZLE') || ! PMA_DRIZZLE) {
             if (PMA_Util::cacheExists('binary_logs')) {
                 $binary_logs = PMA_Util::cacheGet('binary_logs');
             } else {
@@ -611,6 +612,19 @@ class PMA_Menu
             $tabs['engine']['text'] = __('Engines');
         }
         return $tabs;
+    }
+
+    /**
+     * Set current table
+     *
+     * @param string $table Current table
+     *
+     * @return $this
+     */
+    public function setTable($table)
+    {
+        $this->_table = $table;
+        return $this;
     }
 }
 

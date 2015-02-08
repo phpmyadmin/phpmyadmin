@@ -18,8 +18,6 @@ env:
   matrix:
     - PHPUNIT_ARGS="--exclude-group selenium"
   global:
-    - secure: "TR3s7lHkREN706g+FeNXl1S0R2fpcI1H+n8USIkl5WBd7S2/NpsZlSfkrgnC7/xRBDXzHwuYd8JQQyAZyrqPEeLqIqlKzxIcTHOiJWGeR/YO7JXsr1Slt/nFqygpIyz8yOh3QIvX6FMzPsamBlUNhRvTAkd2wXPMBpXQlhTVmX8="
-    - TESTSUITE_BROWSERSTACK_USER=phpMyAdmin
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
     - TESTSUITE_URL=http://127.0.0.1:8000
@@ -27,7 +25,7 @@ env:
 before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
   - mysql -uroot -e "CREATE DATABASE test"
-  - mysql -uroot < examples/create_tables.sql
+  - mysql -uroot < sql/create_tables.sql
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
   - composer install --dev --no-interaction
   - if [ $TRAVIS_PHP_VERSION != "hhvm" ] ; then ./test/install-runkit ; fi
@@ -38,7 +36,7 @@ before_script:
 script:
   - ant clean
   - ant locales
-  - ant lint
+  - if [ -z "$SELENIUM" ] ; then ant lint ; fi
   - set -e;
     if [ $TRAVIS_PHP_VERSION == "hhvm" ] ; then
     ant phpunit-hhvm ;

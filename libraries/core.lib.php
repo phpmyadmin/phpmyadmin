@@ -239,7 +239,13 @@ function PMA_fatalError(
         }
 
         // these variables are used in the included file libraries/error.inc.php
-        $error_header = __('Error');
+        //first check if php-mbstring is available
+        if (function_exists('mb_detect_encoding')) {
+            //If present use gettext
+            $error_header = __('Error');
+        } else {
+            $error_header = 'Error';
+        }
         $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
         $dir = $GLOBALS['text_dir'];
 
@@ -983,41 +989,6 @@ function PMA_emptyRecursive($value)
         $empty = empty($value);
     }
     return $empty;
-}
-
-/**
- * Checks and fixes configuration storage in current DB.
- *
- * @return void
- */
-function PMA_checkAndFixPMATablesInCurrentDb()
-{
-    if (isset($GLOBALS['db']) && ! empty($GLOBALS['db'])) {
-        if (isset($GLOBALS['cfg']['Server']['pmadb'])
-            && empty($GLOBALS['cfg']['Server']['pmadb'])
-        ) {
-            $default_tables = PMA_getDefaultPMATableNames();
-            if (PMA_searchPMATablesInDb(
-                $GLOBALS['db'],
-                array_keys($default_tables)
-            )
-            ) {
-                PMA_fixPMATables($GLOBALS['db']);
-                // Since configuration storage is updated, we need to
-                // re-initialize the favorite and recent tables stored in the
-                // session from the current configuration storage.
-                include_once 'libraries/RecentFavoriteTable.class.php';
-                $fav_tables = PMA_RecentFavoriteTable::getInstance('favorite');
-                $recent_tables = PMA_RecentFavoriteTable::getInstance('recent');
-                $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']]
-                    = $fav_tables->getFromDb();
-                $_SESSION['tmpval']['recent_tables'][$GLOBALS['server']]
-                    = $recent_tables->getFromDb();
-                // Reload navi panel to update the recent/favorite lists.
-                $GLOBALS['reload'] = true;
-            }
-        }
-    }
 }
 
 /**

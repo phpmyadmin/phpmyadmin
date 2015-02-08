@@ -208,7 +208,7 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
         $html = PMA_getHtmlForVariablesList($this->ServerStatusData);
 
         //validate 1: PMA_getHtmlForVariablesList
-        $table = '<table class="data sortable noclick" '
+        $table = '<table class="data noclick" '
             . 'id="serverstatusvariables">';
         $this->assertContains(
             $table,

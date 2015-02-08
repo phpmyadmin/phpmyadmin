@@ -76,27 +76,10 @@ class Table_Stats_Pdf extends TableStats
      */
     protected function showMissingTableError()
     {
-        $this->diagram->dieSchema(
+        PMA_Export_Relation_Schema::dieSchema(
             $this->pageNumber,
             "PDF",
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
-        );
-    }
-
-    /**
-     * Displays an error on missing coordinates
-     *
-     * @return void
-     */
-    protected function showMissingCoordinatesError()
-    {
-        $this->diagram->dieSchema(
-            $this->pageNumber,
-            "PDF",
-            sprintf(
-                __('Please configure the coordinates for table %s'),
-                $this->tableName
-            )
         );
     }
 

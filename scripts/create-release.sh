@@ -163,7 +163,7 @@ for kit in $KITS ; do
     # Cleanup translations
     cd phpMyAdmin-$version-$kit
     scripts/lang-cleanup.sh $kit
-    if [ -f examples/create_tables.sql ] ; then
+    if [ -f sql/create_tables.sql ] ; then
         # 3.5 and newer
         rm -rf scripts
     else
@@ -283,11 +283,11 @@ Todo now:
  3. upload the files to SF, you can use scripts/upload-release, eg.:
 
         ./scripts/upload-release \$USER $version release
- 4. if this is a stable version, visit https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin, pick the newly created version, expand the directory and use the I icons to mark that
+ 4. if this is the latest stable version, visit https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin, pick the newly created version, expand the directory and use the I icons to mark that
         - the -all-languages.zip file is the default for Windows and Others
         - the -all-languages.tar.gz file is the default for Solaris
         - the -all-languages.tar.bz2 file is the default for Mac OS X, Linux and BSD
- 5. add SF news item to phpMyAdmin project
+ 5. add a SF news item to phpMyAdmin project; a good idea is to include a link to the release notes such as https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.3.7/phpMyAdmin-4.3.7-notes.html/view because this news item gets relayed via RSS to our Facebook page
  6. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net

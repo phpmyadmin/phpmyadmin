@@ -150,9 +150,7 @@ function PMA_formatVariable($name, $value, $variable_doc_links)
 function PMA_getHtmlForLinkTemplates()
 {
     $url = 'server_variables.php' . PMA_URL_getCommon();
-    $output  = '<a style="display: none;" href="#" class="editLink">';
-    $output .= PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
-    $output .= '<a style="display: none;" href="'
+    $output  = '<a style="display: none;" href="'
         . $url . '" class="ajax saveLink">';
     $output .= PMA_Util::getIcon('b_save.png', __('Save')) . '</a> ';
     $output .= '<a style="display: none;" href="#" class="cancelLink">';
@@ -160,12 +158,8 @@ function PMA_getHtmlForLinkTemplates()
     $output .= PMA_Util::getImage(
         'b_help.png',
         __('Documentation'),
-        array(
-            'style' => 'display:none',
-            'id' => 'docImage'
-        )
+        array('style' => 'display:none', 'id' => 'docImage')
     );
-
     return $output;
 }
 
@@ -190,18 +184,19 @@ function PMA_getHtmlForServerVariables($variable_doc_links)
         . '</div>'
         . '</fieldset>';
 
-    $output .= '<div id="serverVariables" class="data filteredData noclick">'
-        . '<div class="var-header var-row">'
-        . '<div class="var-name">' .  __('Variable') . '</div>'
-        . '<div class="var-value valueHeader">'
+    $output .= '<table id="serverVariables" class="data filteredData noclick">'
+        . '<thead><tr class="var-header var-row">'
+        . '<td class="var-action">' . __('Action') . '</td>'
+        . '<td class="var-name">' .  __('Variable') . '</td>'
+        . '<td class="var-value">'
         . __('Session value') . ' / ' . __('Global value')
-        . '</div>'
-        . '<div style="clear:both"></div>'
-        . '</div>';
+        . '</td>'
+        . '</tr>'
+        . '</thead>';
 
     $output .= PMA_getHtmlForServerVariablesItems($variable_doc_links);
 
-    $output .= '</div>';
+    $output .= '</table>';
 
     return $output;
 }
@@ -223,7 +218,7 @@ function PMA_getHtmlForServerVariablesItems($variable_doc_links)
         = $GLOBALS['dbi']->fetchResult('SHOW SESSION VARIABLES;', 0, 1);
     $serverVars = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
 
-    $output = '';
+    $output = '<tbody>';
     $odd_row = true;
     foreach ($serverVars as $name => $value) {
         $has_session_value = isset($serverVarsSession[$name])
@@ -231,9 +226,14 @@ function PMA_getHtmlForServerVariablesItems($variable_doc_links)
         $row_class = ($odd_row ? ' odd' : ' even')
             . ($has_session_value ? ' diffSession' : '');
 
-        $output .= '<div class="var-row' . $row_class . '">'
-            . '<div class="var-name">';
+        $output .= '<tr class="var-row' . $row_class . '">';
 
+        $output .= '<td class="var-action">';
+        $output .=  '<a href="#" class="editLink">'
+            . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
+        $output .= '</td>';
+
+        $output .= '<td class="var-name">';
         // To display variable documentation link
         if (isset($variable_doc_links[$name])) {
             $output .= '<span title="'
@@ -250,29 +250,30 @@ function PMA_getHtmlForServerVariablesItems($variable_doc_links)
         } else {
             $output .= htmlspecialchars(str_replace('_', ' ', $name));
         }
-        $output .= '</div>'
-            . '<div class="var-value value'
+        $output .= '</td>';
+
+        $output .= '<td class="var-value value'
             . ($GLOBALS['dbi']->isSuperuser() ? ' editable' : '') . '">&nbsp;'
             . PMA_formatVariable($name, $value, $variable_doc_links)
-            . '</div>'
-            . '<div style="clear:both"></div>'
-            . '</div>';
+            . '</td>'
+            . '</tr>';
 
         if ($has_session_value) {
-            $output .= '<div class="var-row' . ($odd_row ? ' odd' : ' even') . '">'
-                . '<div class="var-name session">(' . __('Session value') . ')</div>'
-                . '<div class="var-value value">&nbsp;'
+            $output .= '<tr class="var-row' . ($odd_row ? ' odd' : ' even') . '">'
+                . '<td class="var-action"></td>'
+                . '<td class="var-name session">(' . __('Session value') . ')</td>'
+                . '<td class="var-value value">&nbsp;'
                 . PMA_formatVariable(
                     $name,
                     $serverVarsSession[$name],
                     $variable_doc_links
-                ) . '</div>'
-                . '<div style="clear:both"></div>'
-                . '</div>';
+                ) . '</td>'
+                . '</tr>';
         }
 
         $odd_row = ! $odd_row;
     }
+    $output .= '</tbody>';
 
     return $output;
 }

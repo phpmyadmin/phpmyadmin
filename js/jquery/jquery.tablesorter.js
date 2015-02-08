@@ -861,7 +861,7 @@
                 return /^[-+]?\d*$/.test($.trim(s.replace(/[,.']/g, '')));
             };
             this.clearTableBody = function (table) {
-                if ($.browser.msie) {
+                if (window.navigator.userAgent.indexOf("MSIE ") > -1 || !!window.navigator.userAgent.match(/Trident.*rv\:11\./)) {
                     function empty() {
                         while (this.firstChild)
                         this.removeChild(this.firstChild);

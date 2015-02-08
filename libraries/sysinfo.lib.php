@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Library for extracting information about system memory and cpu.
- * Currently supports all Windows and Linux plattforms
+ * Currently supports all Windows and Linux platforms
  *
  * This code is based on the OS Classes from the phpsysinfo project
  * (http://phpsysinfo.sourceforge.net/)
@@ -252,7 +252,7 @@ class PMA_SysInfoLinux extends PMA_SysInfo
      */
     public function supported()
     {
-        return is_readable('/proc/meminfo') && is_readable('/proc/stat');
+        return @is_readable('/proc/meminfo') && @is_readable('/proc/stat');
     }
 
 
@@ -315,7 +315,7 @@ class PMA_SysInfoSunos extends PMA_SysInfo
     private function _kstat($key)
     {
         if ($m = shell_exec('kstat -p d ' . $key)) {
-            list($key, $value) = preg_split("/\t/", trim($m), 2);
+            list(, $value) = preg_split("/\t/", trim($m), 2);
             return $value;
         } else {
             return '';
@@ -341,7 +341,7 @@ class PMA_SysInfoSunos extends PMA_SysInfo
      */
     public function supported()
     {
-        return is_readable('/proc/meminfo');
+        return @is_readable('/proc/meminfo');
     }
 
 

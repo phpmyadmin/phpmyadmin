@@ -850,7 +850,7 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
 /**
  * Displays a form used to add/edit a routine
  *
- * @param string $mode      If the editor will be used edit a routine
+ * @param string $mode      If the editor will be used to edit a routine
  *                          or add a new one: 'edit' or 'add'.
  * @param string $operation If the editor was previously invoked with
  *                          JS turned off, this will hold the name of
@@ -1147,7 +1147,6 @@ function PMA_RTN_getQueryFromRequest()
     }
     $params = '';
     $warned_about_dir    = false;
-    $warned_about_name   = false;
     $warned_about_length = false;
 
     if (   ! empty($_REQUEST['item_param_name'])
@@ -1224,8 +1223,7 @@ function PMA_RTN_getQueryFromRequest()
                 if ($i != (count($item_param_name) - 1)) {
                     $params .= ", ";
                 }
-            } else if (! $warned_about_name) {
-                $warned_about_name = true;
+            } else {
                 $errors[] = __(
                     'You must provide a name and a type for each routine parameter.'
                 );

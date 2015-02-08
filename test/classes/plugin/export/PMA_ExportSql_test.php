@@ -855,7 +855,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     public function testExportDBHeader()
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
-        $GLOBALS['sql_backquotes'] = '';
+        $GLOBALS['sql_backquotes'] = true;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
 
@@ -881,7 +881,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "'testDB'",
+            "testDB",
             $result
         );
     }
@@ -1293,7 +1293,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'ADD CONSTRAINT KEYS ADD FOREIGN  KEY;',
+            '  ADD CONSTRAINT KEYS   ADD FOREIGN  KEY;',
             $GLOBALS['sql_constraints_query']
         );
 
@@ -1694,7 +1694,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "-- Triggers 't&amp;bl'\n",
+            "-- Triggers t&amp;bl\n",
             $result
         );
 
@@ -1718,7 +1718,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "-- Structure for view 't&amp;bl'\n",
+            "-- Structure for view t&amp;bl\n",
             $result
         );
 
@@ -2028,12 +2028,12 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportData('db', 'table', "\n", "err.com", "SELECT")
+            $this->object->exportData('db', 'tbl', "\n", "err.com", "SELECT")
         );
         $result = ob_get_clean();
 
         $this->assertContains(
-            "-- VIEW  'table'\n",
+            "-- VIEW  tbl\n",
             $result
         );
 

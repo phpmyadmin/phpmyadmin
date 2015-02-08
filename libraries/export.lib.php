@@ -111,7 +111,9 @@ function PMA_exportOutputHandler($line)
                 }
                 if ($GLOBALS['save_on_server']) {
                     $write_result = @fwrite($GLOBALS['file_handle'], $dump_buffer);
-                    if ($write_result != /*overload*/mb_strlen($dump_buffer)) {
+                    // Here, use strlen rather than mb_strlen to get the length
+                    // in bytes to compare against the number of bytes written.
+                    if ($write_result != strlen($dump_buffer)) {
                         $GLOBALS['message'] = PMA_Message::error(
                             __('Insufficient space to save the file %s.')
                         );
@@ -142,8 +144,10 @@ function PMA_exportOutputHandler($line)
             }
             if ($GLOBALS['save_on_server'] && /*overload*/mb_strlen($line) > 0) {
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
+                // Here, use strlen rather than mb_strlen to get the length
+                // in bytes to compare against the number of bytes written.
                 if (! $write_result
-                    || $write_result != /*overload*/mb_strlen($line)
+                    || $write_result != strlen($line)
                 ) {
                     $GLOBALS['message'] = PMA_Message::error(
                         __('Insufficient space to save the file %s.')
@@ -364,8 +368,10 @@ function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
 {
     $write_result = @fwrite($file_handle, $dump_buffer);
     fclose($file_handle);
+    // Here, use strlen rather than mb_strlen to get the length
+    // in bytes to compare against the number of bytes written.
     if (/*overload*/mb_strlen($dump_buffer) > 0
-        && (! $write_result || $write_result != /*overload*/mb_strlen($dump_buffer))
+        && (! $write_result || $write_result != strlen($dump_buffer))
     ) {
         $message = new PMA_Message(
             __('Insufficient space to save the file %s.'),

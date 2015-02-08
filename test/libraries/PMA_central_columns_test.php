@@ -40,8 +40,6 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
-        $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
-        $GLOBALS['cfg']['Server']['central_columns'] = 'pma_central_columns';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
@@ -57,8 +55,11 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $_SESSION['relation'][1] = array(
-            'central_columnswork'=>true, 'relwork'=>1,
-            'db'=>'phpmyadmin', 'relation'=>'pma_central_columns'
+            'central_columnswork' => true,
+            'relwork' => 1,
+            'db' => 'phpmyadmin',
+            'relation' => 'relation',
+            'central_columns' => 'pma_central_columns'
         );
                 //mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -176,8 +177,8 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     public function testPMADeleteColumnsFromList()
     {
         $field_select = array("col1");
-        $_POST['db'] = 'PMA_db';
-        $_POST['table'] = 'PMA_table';
+        $_REQUEST['db'] = 'PMA_db';
+        $_REQUEST['table'] = 'PMA_table';
         $this->assertTrue(
             PMA_deleteColumnsFromList($field_select, false)
         );

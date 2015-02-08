@@ -32,7 +32,6 @@ $forms['Features']['General'] = array(
     'DisableMultiTableMaintenance',
     'MaxDbList',
     'MaxTableList',
-    'NumRecentTables',
     'NumFavoriteTables',
     'ShowHint',
     'SendErrorReports'
@@ -55,11 +54,11 @@ $forms['Features']['Warnings'] = array(
     'ServerLibraryDifference_DisableWarning',
     'PmaNoRelation_DisableWarning',
     'SuhosinDisableWarning',
+    'LoginCookieValidityDisableWarning',
     'ReservedWordDisableWarning');
 // settings from this form are treated specially,
 // see prefs_forms.php and user_preferences.lib.php
 $forms['Features']['Developer'] = array(
-    'Error_Handler/display',
     'DBG/sql');
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',
@@ -75,6 +74,7 @@ $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/ShowAsPHP',
     'SQLQuery/Refresh');
 $forms['Navi_panel']['Navi_panel'] = array(
+    'ShowDatabasesNavigationAsTree',
     'NavigationLinkWithMainPanel',
     'NavigationDisplayLogo',
     'NavigationLogoLink',
@@ -84,12 +84,16 @@ $forms['Navi_panel']['Navi_panel'] = array(
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping',
     'NavigationTreeDisableDatabaseExpansion',
-    'NavigationTreeDisplayItemFilterMinimum');
+    'NavigationTreeDisplayItemFilterMinimum',
+    'NumRecentTables',
+    'NumFavoriteTables'
+);
 $forms['Navi_panel']['Navi_databases'] = array(
     'NavigationTreeDisplayDbFilterMinimum',
     'NavigationTreeDbSeparator');
 $forms['Navi_panel']['Navi_tables'] = array(
     'NavigationTreeDefaultTabTable',
+    'NavigationTreeDefaultTabTable2',
     'NavigationTreeTableSeparator',
     'NavigationTreeTableLevel',
 );
@@ -113,13 +117,12 @@ $forms['Main_panel']['Browse'] = array(
     'BrowseMarkerEnable',
     'GridEditing',
     'SaveCellsAtOnce',
-    'ShowDisplayDirection',
     'RepeatCells',
     'LimitChars',
     'RowActionLinks',
     'TablePrimaryKeyOrder',
-    'DefaultDisplay',
-    'RememberSorting');
+    'RememberSorting',
+    'RelationalDisplay');
 $forms['Main_panel']['Edit'] = array(
     'ProtectBinary',
     'ShowFunctionFields',

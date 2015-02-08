@@ -125,7 +125,7 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
 
         //PMA_URL_getHiddenInputs
         $this->assertContains(
-            PMA_URL_getHiddenInputs(),
+            '<input type="hidden" name="token" value="token" />',
             $html
         );
 

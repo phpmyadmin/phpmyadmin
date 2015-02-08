@@ -407,21 +407,19 @@ class PMA_Table
     /**
      * generates column specification for ALTER or CREATE TABLE syntax
      *
-     * @param string      $name           name
-     * @param string      $type           type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string      $index          index
-     * @param string      $length         length ('2', '5,2', '', ...)
-     * @param string      $attribute      attribute
-     * @param string      $collation      collation
-     * @param bool|string $null           with 'NULL' or 'NOT NULL'
-     * @param string      $default_type   whether default is CURRENT_TIMESTAMP,
-     *                                    NULL, NONE, USER_DEFINED
-     * @param string      $default_value  default value for USER_DEFINED
-     *                                    default type
-     * @param string      $extra          'AUTO_INCREMENT'
-     * @param string      $comment        field comment
-     * @param array       &$field_primary list of fields for PRIMARY KEY
-     * @param string      $move_to        new position for column
+     * @param string      $name          name
+     * @param string      $type          type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string      $length        length ('2', '5,2', '', ...)
+     * @param string      $attribute     attribute
+     * @param string      $collation     collation
+     * @param bool|string $null          with 'NULL' or 'NOT NULL'
+     * @param string      $default_type  whether default is CURRENT_TIMESTAMP,
+     *                                   NULL, NONE, USER_DEFINED
+     * @param string      $default_value default value for USER_DEFINED
+     *                                   default type
+     * @param string      $extra         'AUTO_INCREMENT'
+     * @param string      $comment       field comment
+     * @param string      $move_to       new position for column
      *
      * @todo    move into class PMA_Column
      * @todo on the interface, some js to clear the default value when the
@@ -429,10 +427,10 @@ class PMA_Table
      *
      * @return string  field specification
      */
-    static function generateFieldSpec($name, $type, $index, $length = '',
+    static function generateFieldSpec($name, $type, $length = '',
         $attribute = '', $collation = '', $null = false,
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
-        $comment = '', &$field_primary = null, $move_to = ''
+        $comment = '', $move_to = ''
     ) {
         $is_timestamp = /*overload*/mb_strpos(
             /*overload*/mb_strtoupper($type),
@@ -493,6 +491,8 @@ class PMA_Table
                     $query .= ' DEFAULT \''
                         . PMA_Util::sqlAddSlashes($default_value) . '\'';
                 }
+            } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
+                $query .= ' DEFAULT 0x' . $default_value;
             } else {
                 $query .= ' DEFAULT \''
                     . PMA_Util::sqlAddSlashes($default_value) . '\'';
@@ -618,22 +618,20 @@ class PMA_Table
     /**
      * Generates column specification for ALTER syntax
      *
-     * @param string      $oldcol         old column name
-     * @param string      $newcol         new column name
-     * @param string      $type           type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string      $length         length ('2', '5,2', '', ...)
-     * @param string      $attribute      attribute
-     * @param string      $collation      collation
-     * @param bool|string $null           with 'NULL' or 'NOT NULL'
-     * @param string      $default_type   whether default is CURRENT_TIMESTAMP,
-     *                                    NULL, NONE, USER_DEFINED
-     * @param string      $default_value  default value for USER_DEFINED default
-     *                                    type
-     * @param string      $extra          'AUTO_INCREMENT'
-     * @param string      $comment        field comment
-     * @param array       &$field_primary list of fields for PRIMARY KEY
-     * @param string      $index          index
-     * @param string      $move_to        new position for column
+     * @param string      $oldcol        old column name
+     * @param string      $newcol        new column name
+     * @param string      $type          type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string      $length        length ('2', '5,2', '', ...)
+     * @param string      $attribute     attribute
+     * @param string      $collation     collation
+     * @param bool|string $null          with 'NULL' or 'NOT NULL'
+     * @param string      $default_type  whether default is CURRENT_TIMESTAMP,
+     *                                   NULL, NONE, USER_DEFINED
+     * @param string      $default_value default value for USER_DEFINED default
+     *                                   type
+     * @param string      $extra         'AUTO_INCREMENT'
+     * @param string      $comment       field comment
+     * @param string      $move_to       new position for column
      *
      * @see PMA_Table::generateFieldSpec()
      *
@@ -641,13 +639,13 @@ class PMA_Table
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default_type, $default_value,
-        $extra, $comment, &$field_primary, $index, $move_to
+        $extra, $comment, $move_to
     ) {
         return PMA_Util::backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec(
-                $newcol, $type, $index, $length, $attribute,
+                $newcol, $type, $length, $attribute,
                 $collation, $null, $default_type, $default_value, $extra,
-                $comment, $field_primary, $move_to
+                $comment, $move_to
             );
     } // end function
 
@@ -1127,10 +1125,19 @@ class PMA_Table
                             )
                             . '\''
                             . ($GLOBALS['cfgRelation']['mimework']
-                                ? ',\'' . PMA_Util::sqlAddSlashes($comments_copy_row['comment']) . '\','
-                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['mimetype']) . '\','
-                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation']) . '\','
-                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation_options']) . '\''
+                                ? ',\''
+                                . PMA_Util::sqlAddSlashes(
+                                    $comments_copy_row['comment']
+                                ) . '\','
+                                . '\'' . PMA_Util::sqlAddSlashes(
+                                    $comments_copy_row['mimetype']
+                                ) . '\','
+                                . '\'' . PMA_Util::sqlAddSlashes(
+                                    $comments_copy_row['transformation']
+                                ) . '\','
+                                . '\'' . PMA_Util::sqlAddSlashes(
+                                    $comments_copy_row['transformation_options']
+                                ) . '\''
                                 : '')
                             . ')';
                         PMA_queryAsControlUser($new_comment_query);
@@ -1482,8 +1489,9 @@ class PMA_Table
      */
     protected function getUiPrefsFromDb()
     {
-        $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
-            . PMA_Util::backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
+        $cfgRelation = PMA_getRelationsParam();
+        $pma_table = PMA_Util::backquote($cfgRelation['db']) . "."
+            . PMA_Util::backquote($cfgRelation['table_uiprefs']);
 
         // Read from phpMyAdmin database
         $sql_query = " SELECT `prefs` FROM " . $pma_table
@@ -1506,16 +1514,18 @@ class PMA_Table
      */
     protected function saveUiPrefsToDb()
     {
-        $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
-            . PMA_Util::backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
+        $cfgRelation = PMA_getRelationsParam();
+        $pma_table = PMA_Util::backquote($cfgRelation['db']) . "."
+            . PMA_Util::backquote($cfgRelation['table_uiprefs']);
 
         $secureDbName = PMA_Util::sqlAddSlashes($this->db_name);
 
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query = " REPLACE INTO " . $pma_table
-            . " VALUES ('" . $username . "', '" . $secureDbName
+            . " (username, db_name, table_name, prefs) VALUES ('"
+            . $username . "', '" . $secureDbName
             . "', '" . PMA_Util::sqlAddSlashes($this->name) . "', '"
-            . PMA_Util::sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
+            . PMA_Util::sqlAddSlashes(json_encode($this->uiprefs)) . "')";
 
         $success = $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['controllink']);
 
@@ -1577,18 +1587,16 @@ class PMA_Table
      */
     protected function loadUiPrefs()
     {
+        $cfgRelation = PMA_getRelationsParam();
         $server_id = $GLOBALS['server'];
 
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name][$this->name])) {
             // check whether we can get from pmadb
             $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name]
-            [$this->name]
-                = (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
-                    && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
-                )
-                    ?  $this->getUiPrefsFromDb()
-                    : array();
+            [$this->name] = $cfgRelation['uiprefswork']
+                ?  $this->getUiPrefsFromDb()
+                : array();
         }
         $this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$server_id]
             [$this->db_name][$this->name];
@@ -1718,9 +1726,8 @@ class PMA_Table
         $this->uiprefs[$property] = $value;
 
         // check if pmadb is set
-        if (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
-            && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
-        ) {
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['uiprefswork']) {
             return $this->saveUiprefsToDb();
         }
         return true;
@@ -1741,9 +1748,10 @@ class PMA_Table
         if (isset($this->uiprefs[$property])) {
             unset($this->uiprefs[$property]);
 
+            $cfgRelation = PMA_getRelationsParam();
             // check if pmadb is set
-            if (/*overload*/mb_strlen($GLOBALS['cfg']['Server']['pmadb'])
-                && /*overload*/mb_strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
+            if (/*overload*/mb_strlen($cfgRelation['db'])
+                && /*overload*/mb_strlen($cfgRelation['table_uiprefs'])
             ) {
                 return $this->saveUiprefsToDb();
             }

@@ -905,12 +905,12 @@ class PMA_Util
     } // end of the 'backquote()' function
 
     /**
-     * Adds quotes on both sides of a database, table or field name.
+     * Adds backquotes on both sides of a database, table or field name.
      * in compatibility mode
      *
      * example:
      * <code>
-     * echo backquote('owner`s db'); // `owner``s db`
+     * echo backquoteCompat('owner`s db'); // `owner``s db`
      *
      * </code>
      *
@@ -949,7 +949,7 @@ class PMA_Util
             $quote = '"';
             break;
         default:
-            (isset($GLOBALS['sql_backquotes'])) ? $quote = "`" : $quote = '';
+            $quote = "`";
             break;
         }
 
@@ -1272,7 +1272,7 @@ class PMA_Util
                 $inline_edit_link = ' ['
                     . self::linkOrButton(
                         '#',
-                        _pgettext('Inline edit query', 'Inline'),
+                        _pgettext('Inline edit query', 'Edit inline'),
                         array('class' => 'inline_edit_sql')
                     )
                     . ']';
@@ -1820,11 +1820,13 @@ class PMA_Util
             if ($suhosin_get_MaxValueLength) {
                 $query_parts = self::splitURLQuery($url);
                 foreach ($query_parts as $query_pair) {
-                    list(, $eachval) = explode('=', $query_pair);
-                    if (/*overload*/mb_strlen($eachval) > $suhosin_get_MaxValueLength
-                    ) {
-                        $in_suhosin_limits = false;
-                        break;
+                    if (strpos($query_pair, '=') !== false) {
+                        list(, $eachval) = explode('=', $query_pair);
+                        if (/*overload*/mb_strlen($eachval) > $suhosin_get_MaxValueLength
+                        ) {
+                            $in_suhosin_limits = false;
+                            break;
+                        }
                     }
                 }
             }
@@ -1913,7 +1915,11 @@ class PMA_Util
 
         $url_parts = parse_url($url);
 
-        return explode($separator, $url_parts['query']);
+        if (! empty($url_parts['query'])) {
+            return explode($separator, $url_parts['query']);
+        } else {
+            return array();
+        }
     }
 
     /**
@@ -2450,18 +2456,17 @@ class PMA_Util
 
             // Move to the beginning or to the previous page
             if ($pos > 0) {
+                $caption1 = ''; $caption2 = '';
                 if (self::showIcons('TableNavigationLinksMode')) {
-                    $caption1 = '&lt;&lt;';
-                    $caption2 = ' &lt; ';
-                    $title1   = ' title="' . _pgettext('First page', 'Begin') . '"';
-                    $title2   = ' title="'
-                        . _pgettext('Previous page', 'Previous') . '"';
-                } else {
-                    $caption1 = _pgettext('First page', 'Begin') . ' &lt;&lt;';
-                    $caption2 = _pgettext('Previous page', 'Previous') . ' &lt;';
-                    $title1   = '';
-                    $title2   = '';
-                } // end if... else...
+                    $caption1 .= '&lt;&lt; ';
+                    $caption2 .= '&lt; ';
+                }
+                if (self::showText('TableNavigationLinksMode')) {
+                    $caption1 .= _pgettext('First page', 'Begin');
+                    $caption2 .= _pgettext('Previous page', 'Previous');
+                }
+                $title1 = ' title="' . _pgettext('First page', 'Begin') . '"';
+                $title2 = ' title="' . _pgettext('Previous page', 'Previous') . '"';
 
                 $_url_params[$name] = 0;
                 $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
@@ -2469,9 +2474,9 @@ class PMA_Util
                     . '</a>';
 
                 $_url_params[$name] = $pos - $max_count;
-                $list_navigator_html .= '<a' . $class . $title2 . ' href="' . $script
-                    . PMA_URL_getCommon($_url_params) . '">' . $caption2
-                    . '</a>';
+                $list_navigator_html .= ' <a' . $class . $title2
+                    . ' href="' . $script . PMA_URL_getCommon($_url_params) . '">'
+                    . $caption2 . '</a>';
             }
 
             $list_navigator_html .= '<form action="' . basename($script)
@@ -2487,17 +2492,20 @@ class PMA_Util
             $list_navigator_html .= '</form>';
 
             if ($pos + $max_count < $count) {
-                if ( self::showIcons('TableNavigationLinksMode')) {
-                    $caption3 = ' &gt; ';
-                    $caption4 = '&gt;&gt;';
-                    $title3   = ' title="' . _pgettext('Next page', 'Next') . '"';
-                    $title4   = ' title="' . _pgettext('Last page', 'End') . '"';
-                } else {
-                    $caption3 = '&gt; ' . _pgettext('Next page', 'Next');
-                    $caption4 = '&gt;&gt; ' . _pgettext('Last page', 'End');
-                    $title3   = '';
-                    $title4   = '';
-                } // end if... else...
+                $caption3 = ''; $caption4 = '';
+                if (self::showText('TableNavigationLinksMode')) {
+                    $caption3 .= _pgettext('Next page', 'Next');
+                    $caption4 .= _pgettext('Last page', 'End');
+                }
+                if (self::showIcons('TableNavigationLinksMode')) {
+                    $caption3 .= ' &gt;';
+                    $caption4 .= ' &gt;&gt;';
+                    if (! self::showText('TableNavigationLinksMode')) {
+
+                    }
+                }
+                $title3 = ' title="' . _pgettext('Next page', 'Next') . '"';
+                $title4 = ' title="' . _pgettext('Last page', 'End') . '"';
 
                 $_url_params[$name] = $pos + $max_count;
                 $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
@@ -2509,9 +2517,9 @@ class PMA_Util
                     $_url_params[$name] = $count - $max_count;
                 }
 
-                $list_navigator_html .= '<a' . $class . $title4 . ' href="' . $script
-                    . PMA_URL_getCommon($_url_params) . '" >' . $caption4
-                    . '</a>';
+                $list_navigator_html .= ' <a' . $class . $title4
+                    . ' href="' . $script . PMA_URL_getCommon($_url_params) . '" >'
+                    . $caption4 . '</a>';
             }
             $list_navigator_html .= '</div>' . "\n";
         }
@@ -2689,7 +2697,8 @@ class PMA_Util
      *                              case the dropdown is present more than once
      *                              on the page
      * @param string $class         class for the select element
-     * @param string $placeholder   Placeholder for dropdown if nothing else is selected
+     * @param string $placeholder   Placeholder for dropdown if nothing else
+     *                              is selected
      *
      * @return string               html content
      *
@@ -2708,13 +2717,15 @@ class PMA_Util
         $selected = false;
 
         foreach ($choices as $one_choice_value => $one_choice_label) {
-            $resultOptions .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
+            $resultOptions .= '<option value="'
+                . htmlspecialchars($one_choice_value) . '"';
 
             if ($one_choice_value == $active_choice) {
                 $resultOptions .= ' selected="selected"';
                 $selected = true;
             }
-            $resultOptions .= '>' . htmlspecialchars($one_choice_label) . '</option>';
+            $resultOptions .= '>' . htmlspecialchars($one_choice_label)
+                . '</option>';
         }
 
         if (!empty($placeholder)) {
@@ -3170,6 +3181,7 @@ class PMA_Util
      * in order to display it as a title in navigation panel
      *
      * @param string $target a valid value for $cfg['NavigationTreeDefaultTabTable'],
+     *                       $cfg['NavigationTreeDefaultTabTable2'],
      *                       $cfg['DefaultTabTable'] or $cfg['DefaultTabDatabase']
      *
      * @return array
@@ -3190,7 +3202,7 @@ class PMA_Util
             'db_search.php' => __('Search'),
             'db_operations.php' => __('Operations'),
         );
-        return $mapping[$target];
+        return isset($mapping[$target]) ? $mapping[$target] : false;
     }
 
     /**
@@ -4252,6 +4264,9 @@ class PMA_Util
                 );
             } else if (function_exists('curl_init')) {
                 $curl_handle = curl_init($file);
+                if ($curl_handle === false) {
+                    return array();
+                }
                 $curl_handle = PMA_Util::configureCurl($curl_handle);
                 curl_setopt(
                     $curl_handle,
@@ -4277,8 +4292,8 @@ class PMA_Util
 
         $data = json_decode($response);
         if (is_object($data)
-            && /*overload*/mb_strlen($data->version)
-            && /*overload*/mb_strlen($data->date)
+            && ! empty($data->version)
+            && ! empty($data->date)
             && $save
         ) {
             if (! isset($_SESSION) && ! defined('TESTSUITE')) {

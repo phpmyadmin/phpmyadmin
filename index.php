@@ -369,7 +369,7 @@ if ($GLOBALS['cfg']['VersionCheck']
     $class = 'jsversioncheck';
 }
 PMA_printListItem(
-    __('Version information:') . ' ' . PMA_VERSION,
+    __('Version information:') . ' <span class="version">' . PMA_VERSION . '</span>',
     'li_pma_version',
     null,
     null,
@@ -463,7 +463,7 @@ if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
 }
 
 /**
- * mbstring is used for handling multibyte inside parser, so it is good
+ * mbstring is used for handling multibytes inside parser, so it is good
  * to tell user something might be broken without it, see bug #1063149.
  */
 if (! @extension_loaded('mbstring')) {
@@ -478,15 +478,17 @@ if (! @extension_loaded('mbstring')) {
     );
 }
 
-/**
- * Check whether session.gc_maxlifetime limits session validity.
- */
-$gc_time = (int)@ini_get('session.gc_maxlifetime');
-if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
-    trigger_error(
-        __('Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.'),
-        E_USER_WARNING
-    );
+if ($cfg['LoginCookieValidityDisableWarning'] == false) {
+    /**
+     * Check whether session.gc_maxlifetime limits session validity.
+     */
+    $gc_time = (int)@ini_get('session.gc_maxlifetime');
+    if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
+        trigger_error(
+            __('Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity configured in phpMyAdmin, because of this, your login might expire sooner than configured in phpMyAdmin.'),
+            E_USER_WARNING
+        );
+    }
 }
 
 /**

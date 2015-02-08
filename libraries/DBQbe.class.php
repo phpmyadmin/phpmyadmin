@@ -841,11 +841,10 @@ class PMA_DbQbe
      * with AND/OR relationship modification options
      *
      * @param integer $new_row_index New row index if rows are added/deleted
-     * @param integer $row_index     Row index
      *
      * @return string HTML table rows
      */
-    private function _getInputboxRow($new_row_index, $row_index)
+    private function _getInputboxRow($new_row_index)
     {
         $html_output = '';
         $new_column_count = 0;
@@ -921,7 +920,7 @@ class PMA_DbQbe
                     $new_row_count, $checked_options
                 );
                 $html_output .= $this->_getInputboxRow(
-                    $new_row_count, $row_index
+                    $new_row_count
                 );
                 $new_row_count++;
                 $html_output .= '</tr>';
@@ -951,7 +950,7 @@ class PMA_DbQbe
                 $new_row_count, $checked_options
             );
             $html_output .= $this->_getInputboxRow(
-                $new_row_count, $row_index
+                $new_row_count
             );
             $new_row_count++;
             $html_output .= '</tr>';
@@ -1399,11 +1398,9 @@ class PMA_DbQbe
     /**
      * Provides the generated SQL query
      *
-     * @param array $cfgRelation Relation Settings
-     *
      * @return string SQL query
      */
-    private function _getSQLQuery($cfgRelation)
+    private function _getSQLQuery()
     {
         $sql_query = '';
         // get SELECT clause
@@ -1423,11 +1420,9 @@ class PMA_DbQbe
     /**
      * Provides the generated QBE form
      *
-     * @param array $cfgRelation Relation Settings
-     *
      * @return string QBE form
      */
-    public function getSelectionForm($cfgRelation)
+    public function getSelectionForm()
     {
         $html_output = '<form action="db_qbe.php" method="post" id="formQBE">';
         $html_output .= '<fieldset>';
@@ -1472,7 +1467,7 @@ class PMA_DbQbe
         $html_output .= '<textarea cols="80" name="sql_query" id="textSqlquery"'
             . ' rows="' . ((count($this->_criteriaTables) > 30) ? '15' : '7') . '"'
             . ' dir="' . $text_dir . '">';
-        $html_output .= $this->_getSQLQuery($cfgRelation);
+        $html_output .= $this->_getSQLQuery();
         $html_output .= '</textarea>';
         $html_output .= '</fieldset>';
         // displays form's footers

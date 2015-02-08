@@ -2,10 +2,10 @@
  * jqPlot
  * Pure JavaScript plotting plugin using jQuery
  *
- * Version: 1.0.4
- * Revision: 1121
+ * Version: 1.0.8
+ * Revision: 1250
  *
- * Copyright (c) 2009-2012 Chris Leonello
+ * Copyright (c) 2009-2013 Chris Leonello
  * jqPlot is currently available for use in all personal or commercial projects 
  * under both the MIT (http://www.opensource.org/licenses/mit-license.php) and GPL 
  * version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html) licenses. This means that you can 
@@ -44,7 +44,7 @@
      * To disable the tooltip, set "showTooltip" to false.
      * 
      * You can control what data is displayed in the tooltip with various
-     * options.  The "tooltipAxes" option controls wether the x, y or both
+     * options.  The "tooltipAxes" option controls whether the x, y or both
      * data values are displayed.
      * 
      * Some chart types (e.g. hi-low-close) have more than one y value per
@@ -339,12 +339,12 @@
         if (series.markerRenderer.show == true) { 
             ms = (series.markerRenderer.size + opts.sizeAdjust)/2;
         }
-		
-		var loc = locations;
-		if (series.fillToZero && series.fill && neighbor.data[1] < 0) {
-			loc = oppositeLocations;
-		}
-		
+
+        var loc = locations;
+        if (series.fillToZero && series.fill && neighbor.data[1] < 0) {
+          loc = oppositeLocations;
+        }
+
         switch (loc[locationIndicies[opts.tooltipLocation]]) {
             case 'nw':
                 var x = gridpos.x + plot._gridPadding.left - elem.outerWidth(true) - opts.tooltipOffset - fact * ms;
@@ -432,7 +432,7 @@
                 if (hl.showMarker) {
                     draw(plot, neighbor);
                 }
-                if (hl.showTooltip && (!c || !c._zoom.started)) {
+                if (plot.series[neighbor.seriesIndex].show && hl.showTooltip && (!c || !c._zoom.started)) {
                     showTooltip(plot, plot.series[neighbor.seriesIndex], neighbor);
                 }
                 if (hl.bringSeriesToFront) {
@@ -452,7 +452,7 @@
                     if (hl.showMarker) {
                         draw(plot, neighbor);
                     }
-                    if (hl.showTooltip && (!c || !c._zoom.started)) {
+                    if (plot.series[neighbor.seriesIndex].show && hl.showTooltip && (!c || !c._zoom.started)) {
                         showTooltip(plot, plot.series[neighbor.seriesIndex], neighbor);
                     }
                     if (hl.bringSeriesToFront) {

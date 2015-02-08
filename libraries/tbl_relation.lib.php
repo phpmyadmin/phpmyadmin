@@ -282,7 +282,7 @@ function PMA_getHtmlForInternalRelationRow($save_row, $i, $odd_row,
     $myfield_html = htmlspecialchars($myfield);
 
     $html_output = '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
-        . '<td class="center">'
+        . '<td class="vmiddle">'
         . '<strong>' . $myfield_html . '</strong>'
         . '<input type="hidden" name="fields_name[' . $myfield_md5 . ']"'
         . ' value="' . $myfield_html . '"/>'
@@ -722,6 +722,15 @@ function PMA_sendHtmlForColumnDropdownList()
         $columns[] = htmlspecialchars($column);
     }
     $response->addJSON('columns', $columns);
+
+    // @todo should be: $server->db($db)->table($table)->primary()
+    $primary = PMA_Index::getPrimary($foreignTable, $_REQUEST['foreignDb']);
+    if (false === $primary) {
+        return;
+    }
+
+    $primarycols = array_keys($primary->getColumns());
+    $response->addJSON('primary', $primarycols);
 }
 
 /**

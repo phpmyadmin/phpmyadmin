@@ -25,11 +25,13 @@ function PMA_centralColumnsGetParams()
 
     $cfgRelation = PMA_getRelationsParam();
 
-    if ($cfgRelation['central_columnswork']) {
+    if (isset($cfgRelation['central_columnswork'])
+        && $cfgRelation['central_columnswork']
+    ) {
         $cfgCentralColumns = array(
             'user'  => $GLOBALS['cfg']['Server']['user'],
-            'db'    => $GLOBALS['cfg']['Server']['pmadb'],
-            'table' => $GLOBALS['cfg']['Server']['central_columns'],
+            'db'    => $cfgRelation['db'],
+            'table' => $cfgRelation['central_columns'],
         );
     } else {
         $cfgCentralColumns = false;
@@ -39,7 +41,7 @@ function PMA_centralColumnsGetParams()
 }
 
 /**
- * get $num columns of given database from central columnslist
+ * get $num columns of given database from central columns list
  * starting at offset $from
  *
  * @param string $db   selected database
@@ -55,9 +57,9 @@ function PMA_getColumnsList($db, $from=0, $num=25)
     if (empty($cfgCentralColumns)) {
         return array();
     }
-    $pmadb = $GLOBALS['cfg']['Server']['pmadb'];
+    $pmadb = $cfgCentralColumns['db'];
     $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
-    $central_list_table = $GLOBALS['cfg']['Server']['central_columns'];
+    $central_list_table = $cfgCentralColumns['table'];
     //get current values of $db from central column list
     if ($num == 0) {
         $query = 'SELECT * FROM ' . PMA_Util::backquote($central_list_table) . ' '
@@ -265,7 +267,6 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
                 ), htmlspecialchars($existingCols)
             )
         );
-        $message->addMessage('<br /><br />');
         $message->addMessage(
             PMA_Message::notice(
                 "Please remove them first "
@@ -278,7 +279,6 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
         foreach ($insQuery as $query) {
             if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
                 $message = PMA_Message::error(__('Could not add columns!'));
-                $message->addMessage('<br /><br />');
                 $message->addMessage(
                     PMA_Message::rawError(
                         $GLOBALS['dbi']->getError($GLOBALS['controllink'])
@@ -308,7 +308,7 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
     if (empty($cfgCentralColumns)) {
         return PMA_configErrorMessage();
     }
-    $db = $_POST['db'];
+    $db = $_REQUEST['db'];
     $pmadb = $cfgCentralColumns['db'];
     $central_list_table = $cfgCentralColumns['table'];
     $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
@@ -626,19 +626,19 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
         . $action
         . '<th class="" style="display:none"></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="name">'
-        . __('Name') . '</th>'
+        . __('Name') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="type">'
-        . __('Type') . '</th>'
+        . __('Type') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="length">'
-        . __('Length/Values') . '</th>'
+        . __('Length/Values') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="collation"'
-        . '>' . __('Collation') . '</th>'
+        . '>' . __('Collation') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="isnull">'
-        . __('Null') . '</th>'
+        . __('Null') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="extra">'
-        . __('Extra') . '</th>'
+        . __('Extra') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="default">'
-        . __('Default') . '</th>'
+        . __('Default') . '<div class="sorticon"></div></th>'
         . '</tr>';
     $tableheader .= '</thead>';
     return $tableheader;
@@ -846,7 +846,7 @@ function PMA_getCentralColumnsListRaw($db, $table)
 {
     $cfgCentralColumns = PMA_centralColumnsGetParams();
     if (empty($cfgCentralColumns)) {
-        return array();
+        return json_encode(array());
     }
     $centralTable = $cfgCentralColumns['table'];
     if (empty($table) || $table == '') {

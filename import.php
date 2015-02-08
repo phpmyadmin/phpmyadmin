@@ -106,6 +106,7 @@ if (! empty($sql_query)) {
     $import_text = $sql_query;
     $import_type = 'query';
     $format = 'sql';
+    $_SESSION['sql_from_query_box'] = true;
 
     // If there is a request to ROLLBACK when finished.
     if (isset($_REQUEST['rollback_query'])) {
@@ -544,7 +545,7 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_fil
     if ($charset_of_file != 'utf-8') {
         $charset_conversion = true;
     }
-} elseif (isset($charset_of_file) && $charset_of_file != 'utf8') {
+} elseif (isset($charset_of_file) && $charset_of_file != 'utf-8') {
     if (PMA_DRIZZLE) {
         // Drizzle doesn't support other character sets,
         // so we can't fallback to SET NAMES - throw an error
@@ -696,11 +697,6 @@ if (isset($my_die)) {
 
 if ($go_sql) {
 
-    if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
-        $response = PMA_Response::getInstance();
-        $response->addJSON('ajax_reload', $ajax_reload);
-    }
-
     if (! empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
         $_SESSION['is_multi_query'] = true;
         $sql_queries = $sql_data['valid_sql'];
@@ -716,12 +712,19 @@ if ($go_sql) {
         $html_output .= PMA_executeQueryAndGetQueryResponse(
             $analyzed_sql_results, false, $db, $table, null,
             $sql_query, null, $analyzed_sql_results['is_affected'],
-            null, null, null, null, $goto, $pmaThemeImage,
+            null, null, null, $goto, $pmaThemeImage,
             null, null, null, $sql_query, null, null
         );
     }
 
+    if (!isset($ajax_reload)) {
+        $ajax_reload = array();
+    }
+    if (isset($table)) {
+        $ajax_reload['table_name'] = $table;
+    }
     $response = PMA_Response::getInstance();
+    $response->addJSON('ajax_reload', $ajax_reload);
     $response->addHTML($html_output);
     exit();
 

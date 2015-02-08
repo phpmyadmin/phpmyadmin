@@ -28,6 +28,7 @@ require_once 'libraries/plugins/schema/Export_Relation_Schema.class.php';
 require_once 'libraries/plugins/schema/pdf/RelationStatsPdf.class.php';
 require_once 'libraries/plugins/schema/pdf/TableStatsPdf.class.php';
 require_once 'libraries/PDF.class.php';
+require_once 'libraries/transformations.lib.php';
 
 /**
  * Extends the "TCPDF" class and helps
@@ -652,7 +653,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      */
     function showOutput()
     {
-        $this->_showOutput($this->pageNumber);
+        global $pdf;
+        $pdf->Download($this->getFileName('.pdf'));
     }
 
     /**
@@ -824,47 +826,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     }
 
     /**
-     * Outputs the PDF document to a file
-     * or sends the output to browser
-     *
-     * @param integer $pageNumber page number
-     *
-     * @global object  $pdf  The current PDF document
-     * @access private
-     *
-     * @return void
-     *
-     * @see PMA_Schema_PDF
-     */
-    private function _showOutput($pageNumber)
-    {
-        global $pdf;
-
-        // Get the name of this pdfpage to use as filename
-        if ($this->offline) {
-            $filename = $GLOBALS['db'];
-            if ($this->pageNumber != -1) {
-                $filename .= '-' . $this->pageNumber;
-            }
-        } else {
-            $_name_sql = 'SELECT page_descr FROM '
-                . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-                . PMA_Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
-                . ' WHERE page_nr = ' . $pageNumber;
-            $_name_rs = PMA_queryAsControlUser($_name_sql);
-            if ($_name_rs) {
-                $_name_row = $GLOBALS['dbi']->fetchRow($_name_rs);
-                $filename = $_name_row[0] . '.pdf';
-            }
-            if (empty($filename)) {
-                $filename = $pageNumber . '.pdf';
-            }
-        }
-
-        $pdf->Download($filename);
-    }
-
-    /**
      * Generates data dictionary pages.
      *
      * @param array $alltables Tables to document.
@@ -963,13 +924,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 : '';
 
             /**
-             * Gets table keys and retains them
-             */
-            $indexes = $GLOBALS['dbi']->getTableIndexes($GLOBALS['db'], $table);
-            list($primary, $pk_array, $indexes_info, $indexes_data)
-                = PMA_Util::processIndexData($indexes);
-
-            /**
              * Gets fields properties
              */
             $columns = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $table);
@@ -1064,19 +1018,32 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 $pdf->Bookmark($field_name, 1, -1);
                 $pdf->SetLink($pdf->PMA_links['doc'][$table][$field_name], -1);
                 $foreigner = PMA_searchColumnInForeigners($res_rel, $field_name);
+
+                $linksTo = '';
+                if ($foreigner) {
+                    $linksTo = '-> ';
+                    if ($foreigner['foreign_db'] != $GLOBALS['db']) {
+                        $linksTo .= $foreigner['foreign_db'] . '.';
+                    }
+                    $linksTo .= $foreigner['foreign_table']
+                        . '.' . $foreigner['foreign_field'];
+
+                    if (isset($foreigner['on_update'])) { // not set for internal
+                        $linksTo .= "\n" . 'ON UPDATE ' . $foreigner['on_update'];
+                        $linksTo .= "\n" . 'ON DELETE ' . $foreigner['on_delete'];
+                    }
+                }
+
                 $pdf_row = array(
                     $field_name,
                     $type,
                     $attribute,
-                    ($row['Null'] == '' || $row['Null'] == 'NO')
-                    ? __('No')
-                    : __('Yes'),
+                    (($row['Null'] == '' || $row['Null'] == 'NO')
+                        ? __('No')
+                        : __('Yes')),
                     (isset($row['Default']) ? $row['Default'] : ''),
                     $row['Extra'],
-                    ($foreigner
-                        ? $foreigner['foreign_table'] . ' -> '
-                            . $foreigner['foreign_field']
-                        : ''),
+                    $linksTo,
                     (isset($comments[$field_name])
                         ? $comments[$field_name]
                         : ''),

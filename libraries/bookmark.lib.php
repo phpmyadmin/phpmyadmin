@@ -29,8 +29,8 @@ function PMA_Bookmark_getParams()
     if ($cfgRelation['bookmarkwork']) {
         $cfgBookmark = array(
             'user'  => $GLOBALS['cfg']['Server']['user'],
-            'db'    => $GLOBALS['cfg']['Server']['pmadb'],
-            'table' => $GLOBALS['cfg']['Server']['bookmarktable'],
+            'db'    => $cfgRelation['db'],
+            'table' => $cfgRelation['bookmark'],
         );
     } else {
         $cfgBookmark = false;

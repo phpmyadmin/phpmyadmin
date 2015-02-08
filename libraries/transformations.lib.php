@@ -179,15 +179,16 @@ function PMA_getTransformationDescription($file, $html_formatted = true)
 /**
  * Gets the mimetypes for all columns of a table
  *
- * @param string  $db     the name of the db to check for
- * @param string  $table  the name of the table to check for
- * @param boolean $strict whether to include only results having a mimetype set
+ * @param string  $db       the name of the db to check for
+ * @param string  $table    the name of the table to check for
+ * @param boolean $strict   whether to include only results having a mimetype set
+ * @param boolean $fullName whether to use full column names as the key
  *
  * @access public
  *
  * @return array [field_name][field_key] = field_value
  */
-function PMA_getMIME($db, $table, $strict = false)
+function PMA_getMIME($db, $table, $strict = false, $fullName = false)
 {
     $cfgRelation = PMA_getRelationsParam();
 
@@ -195,9 +196,15 @@ function PMA_getMIME($db, $table, $strict = false)
         return false;
     }
 
-    $com_qry  = '
-         SELECT `column_name`,
-                `mimetype`,
+    $com_qry = '';
+    if ($fullName) {
+        $com_qry .= "SELECT CONCAT("
+            . "`db_name`, '.', `table_name`, '.', `column_name`"
+            . ") AS column_name, ";
+    } else {
+        $com_qry  = "SELECT `column_name`, ";
+    }
+    $com_qry .= '`mimetype`,
                 `transformation`,
                 `transformation_options`,
                 `input_transformation`,

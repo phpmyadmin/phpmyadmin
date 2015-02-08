@@ -62,30 +62,12 @@ class Table_Stats_Dia extends TableStats
      */
     protected function showMissingTableError()
     {
-        $this->diagram->dieSchema(
+        PMA_Export_Relation_Schema::dieSchema(
             $this->pageNumber,
             "DIA",
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
         );
     }
-
-    /**
-     * Displays an error on missing coordinates
-     *
-     * @return void
-     */
-    protected function showMissingCoordinatesError()
-    {
-        $this->diagram->dieSchema(
-            $this->pageNumber,
-            "DIA",
-            sprintf(
-                __('Please configure the coordinates for table %s'),
-                $this->tableName
-            )
-        );
-    }
-
 
     /**
      * Do draw the table
@@ -94,7 +76,7 @@ class Table_Stats_Dia extends TableStats
      * primary fields are underlined in tables. Dia object
      * is used to generate the XML of Dia Document. Database Table
      * Object and their attributes are involved in the combination
-     * of displaing Database - Table on Dia Document.
+     * of displaying Database - Table on Dia Document.
      *
      * @param boolean $showColor Whether to show color for tables text or not
      * if showColor is true then an array of $listOfColors will be used to choose

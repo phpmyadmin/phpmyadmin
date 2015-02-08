@@ -67,7 +67,6 @@ require './libraries/Error_Handler.class.php';
  * initialize the error handler
  */
 $GLOBALS['error_handler'] = new PMA_Error_Handler();
-$cfg['Error_Handler']['display'] = true;
 
 /**
  * This setting was removed in PHP 5.4. But at this point PMA_PHP_INT_VERSION
@@ -874,9 +873,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // Check IP-based Allow/Deny rules as soon as possible to reject the
-        // user based on mod_access in Apache:
-        // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
-        // Look at: "static int check_dir_access(request_rec *r)"
+        // user based on mod_access in Apache
         if (isset($cfg['Server']['AllowDeny'])
             && isset($cfg['Server']['AllowDeny']['order'])
         ) {
@@ -1040,7 +1037,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
         $_SESSION['tmpval']['previous_server'] = $GLOBALS['server'];
 
-    } // end server connecting
+    } else { // end server connecting
+        // No need to check for 'PMA_BYPASS_GET_INSTANCE' since this execution path
+        // applies only to initial login
+        $response = PMA_Response::getInstance();
+        $response->getHeader()->disableMenuAndConsole();
+        $response->getFooter()->setMinimal();
+    }
 
     /**
      * check if profiling was requested and remember it
@@ -1146,9 +1149,15 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
 }
 
 // If Zero configuration mode enabled, check PMA tables in current db.
-if (isset($GLOBALS['cfg']['ZeroConf'])
+if (! defined('PMA_MINIMUM_COMMON')
+    && isset($GLOBALS['cfg']['ZeroConf'])
     && $GLOBALS['cfg']['ZeroConf'] == true
 ) {
-    PMA_checkAndFixPMATablesInCurrentDb();
+    if (! empty($GLOBALS['db'])) {
+        $cfgRelation = PMA_getRelationsParam();
+        if (empty($cfgRelation['db'])) {
+            PMA_fixPMATables($GLOBALS['db'], false);
+        }
+    }
 }
 ?>

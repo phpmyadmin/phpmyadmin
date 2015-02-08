@@ -89,10 +89,6 @@ h2 a img {
     width: 100%;
 }
 
-.table_results td.data {
-border-right: 1px solid #bbb;
-}
-
 h3 {
     font-weight: bold;
 }
@@ -200,6 +196,14 @@ input[type=date] {
     border: 1px solid #aaa;
     color: #555;
     padding: 4px;
+}
+
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=date],
+input[type=checkbox],
+select {
     margin: 6px;
 }
 
@@ -242,20 +246,15 @@ input[type=number]:hover,
 input[type=number]:focus,
 input[type=date]:hover,
 input[type=date]:focus,
-select:focus,
-select:hover {
-
+select:focus {
     border: 1px solid #7c7c7c;
-
-
     background: #fff;
 }
 
 input[type=text]:hover,
 input[type=password]:hover,
 input[type=number]:hover,
-input[type=date]:hover,
-select:hover {
+input[type=date]:hover {
     box-shadow: 0 1px 3px #aaa;
     -webkit-box-shadow: 0 1px 3px #aaa;
     -moz-box-shadow: 0 1px 3px #aaa;
@@ -393,8 +392,11 @@ table {
     border-collapse: collapse;
 }
 
-th {
+thead th {
     border-right: 1px solid #fff;
+}
+
+th {
     text-align: left;
 }
 
@@ -1452,9 +1454,10 @@ div#queryAnalyzerDialog table.queryNums {
 
 /* server variables */
 #serverVariables {
-    min-width: 30em;
+    table-layout: fixed;
+    width: 100%;
 }
-#serverVariables .var-row > div {
+#serverVariables .var-row > td {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1466,15 +1469,17 @@ div#queryAnalyzerDialog table.queryNums {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
     font-weight: bold;
 }
-#serverVariables .var-header .var-value {
+#serverVariables .var-header {
     text-align: <?php echo $left; ?>;
 }
 #serverVariables .var-row {
     padding: 0.5em;
     min-height: 18px;
 }
+#serverVariables .var-action {
+    width: 120px;
+}
 #serverVariables .var-name {
-    width: 45%;
     float: <?php echo $left; ?>;
     font-weight: bold;
 }
@@ -1566,29 +1571,6 @@ div#profilingchart {
     left: 11px;
     bottom:24px;
 }
-
-#profilesummarytable th.header, #profiletable th.header{
-    cursor: pointer;
-}
-
-#profilesummarytable th.header .sorticon, #profiletable th.header .sorticon{
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    background-position: right center;
-    display: inline-block;
-    vertical-align: middle;
-    float: right;
-}
-
-#profilesummarytable th.headerSortUp .sorticon, #profiletable th.headerSortUp .sorticon{
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_desc.png');?>);
-}
-
-#profilesummarytable th.headerSortDown .sorticon, #profiletable th.headerSortDown .sorticon{
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
-}
-
 /* end profiling */
 
 /* table charting */
@@ -2195,6 +2177,7 @@ input#input_import_file {
 #index_frm .index_info input,
 #index_frm .index_info select {
     width: 14em;
+    margin: 0;
     box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -2582,10 +2565,6 @@ fieldset .disabled-field td {
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-}
-
-#table_columns select {
-    margin: 0 6px;
 }
 
 #placeholder {
@@ -3410,3 +3389,32 @@ span.drag_icon {
 .topmargin {
     margin-top: 1em;
 }
+
+/* styles for sortable tables created with tablesorter jquery plugin */
+th.header {
+    cursor: pointer;
+    color: #235a81;
+}
+
+th.header:hover {
+    text-decoration: underline;
+}
+
+th.header .sorticon {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    display: inline-table;
+    vertical-align: middle;
+    float: right;
+}
+
+th.headerSortUp .sorticon, th.headerSortDown:hover .sorticon {
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_desc.png');?>);
+}
+
+th.headerSortDown .sorticon, th.headerSortUp:hover .sorticon {
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
+}
+/* end of styles of sortable tables */

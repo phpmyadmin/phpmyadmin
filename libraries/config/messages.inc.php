@@ -78,7 +78,6 @@ $strConfigConfirm_desc = __(
 );
 $strConfigConfirm_name = __('Confirm DROP queries');
 $strConfigDBG_sql_name = __('Debug SQL');
-$strConfigDefaultDisplay_name = __('Default display direction');
 $strConfigDefaultTabDatabase_desc
     = __('Tab that is displayed when entering a database.');
 $strConfigDefaultTabDatabase_name = __('Default database tab');
@@ -97,7 +96,6 @@ $strConfigDisableMultiTableMaintenance_desc = __(
     . 'the selected tables of a database.'
 );
 $strConfigDisableMultiTableMaintenance_name = __('Disable multi table maintenance');
-$strConfigError_Handler_display_name = __('Display errors');
 $strConfigExecTimeLimit_desc = __(
     'Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no '
     . 'limit).'
@@ -417,6 +415,8 @@ $strConfigMemoryLimit_desc = __(
     . '([kbd]0[/kbd] for no limit).'
 );
 $strConfigMemoryLimit_name = __('Memory limit');
+$strConfigShowDatabasesNavigationAsTree_desc = __('In the navigation panel, replaces the database tree with a selector');
+$strConfigShowDatabasesNavigationAsTree_name = __('Show databases navigation as tree');
 $strConfigNavigationLinkWithMainPanel_desc = __('Link with main panel by highlighting the current database or table.');
 $strConfigNavigationLinkWithMainPanel_name = __('Link with main panel');
 $strConfigNavigationDisplayLogo_desc = __('Show logo in navigation panel.');
@@ -433,6 +433,9 @@ $strConfigNavigationDisplayServers_desc
     = __('Display server choice at the top of the navigation panel.');
 $strConfigNavigationDisplayServers_name = __('Display servers selection');
 $strConfigNavigationTreeDefaultTabTable_name = __('Target for quick access icon');
+$strConfigNavigationTreeDefaultTabTable2_name = __(
+    'Target for second quick access icon'
+);
 $strConfigNavigationTreeDisplayItemFilterMinimum_desc = __(
     'Defines the minimum number of items (tables, views, routines and events) to '
     . 'display a filter box.'
@@ -529,6 +532,8 @@ $strConfigRepeatCells_desc
 $strConfigRepeatCells_name = __('Repeat headers');
 $strConfigRestoreDefaultValue = __('Restore default value');
 $strConfigGridEditing_name = __('Grid editing: trigger action');
+$strConfigRelationalDisplay_name = __('Relational display');
+$strConfigRelationalDisplay_desc = __('For display Options');
 $strConfigSaveCellsAtOnce_name = __('Grid editing: save all edited cells at once');
 $strConfigSaveDir_desc = __('Directory where exports can be saved on server.');
 $strConfigSaveDir_name = __('Save directory');
@@ -605,7 +610,11 @@ $strConfigServers_savedsearches_desc = __(
     'Leave blank for no QBE saved searches support, suggested: '
     . '[kbd]pma__savedsearches[/kbd].'
 );
-
+$strConfigServers_central_columns_name = __('Central columns table');
+$strConfigServers_central_columns_desc = __(
+    'Leave blank for no central columns support, suggested: '
+    . '[kbd]pma__central_columns[/kbd].'
+);
 $strConfigServers_nopassword_desc = __('Try to connect without password.');
 $strConfigServers_nopassword_name = __('Connect without password');
 $strConfigServers_only_db_desc = __(
@@ -634,6 +643,11 @@ $strConfigServers_recent_desc = __(
     . 'suggested: [kbd]pma__recent[/kbd].'
 );
 $strConfigServers_recent_name = __('Recently used table');
+$strConfigServers_favorite_desc = __(
+    'Leave blank for no "persistent" favorite tables across sessions, '
+    . 'suggested: [kbd]pma__favorite[/kbd].'
+);
+$strConfigServers_favorite_name = __('Favorites table');
 $strConfigServers_relation_desc = __(
     'Leave blank for no '
     . '[a@http://wiki.phpmyadmin.net/pma/relation]relation-links[/a] support, '
@@ -717,8 +731,6 @@ $strConfigShowDbStructureLastUpdate_desc = __('Show or hide a column displaying 
 $strConfigShowDbStructureLastUpdate_name = __('Show Last update timestamp');
 $strConfigShowDbStructureLastCheck_desc = __('Show or hide a column displaying the Last check timestamp for all tables.');
 $strConfigShowDbStructureLastCheck_name = __('Show Last check timestamp');
-$strConfigShowDisplayDirection_desc = __('Defines whether or not type display direction option is shown when browsing a table.');
-$strConfigShowDisplayDirection_name = __('Show display direction');
 $strConfigShowFieldTypesInDataEditView_desc = __('Defines whether or not type fields should be initially displayed in edit/insert mode.');
 $strConfigShowFieldTypesInDataEditView_name = __('Show field types');
 $strConfigShowFunctionFields_desc = __('Display the function fields in edit/insert mode.');
@@ -742,6 +754,8 @@ $strConfigSQLQuery_Refresh_name = __('Refresh');
 $strConfigSQLQuery_ShowAsPHP_name = __('Create PHP Code');
 $strConfigSuhosinDisableWarning_desc = __('A warning is displayed on the main page if Suhosin is detected.');
 $strConfigSuhosinDisableWarning_name = __('Suhosin warning');
+$strConfigLoginCookieValidityDisableWarning_desc = __('Disable the default warning that is displayed on the main page if the value of the PHP setting session.gc_maxlifetime is less than the value of `LoginCookieValidity`.');
+$strConfigLoginCookieValidityDisableWarning_name = __('Login cookie validity warning');
 $strConfigTextareaCols_desc = __('Textarea size (columns) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25).');
 $strConfigTextareaCols_name = __('Textarea columns');
 $strConfigTextareaRows_desc = __('Textarea size (rows) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25).');

@@ -1712,6 +1712,8 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
         || $trueType == 'time'
     ) {
         $special_chars = PMA_Util::addMicroseconds($column['Default']);
+    } elseif ($trueType == 'binary' || $trueType == 'varbinary') {
+        $special_chars = bin2hex($column['Default']);
     } else {
         $special_chars = htmlspecialchars($column['Default']);
     }
@@ -1736,9 +1738,10 @@ function PMA_getParamsForUpdateOrInsert()
             ? $_REQUEST['where_clause']
             : array($_REQUEST['where_clause']);
         $using_key  = true;
-        $is_insert  = $_REQUEST['submit_type'] == 'insert'
+        $is_insert  = isset($_REQUEST['submit_type'])
+                      && ($_REQUEST['submit_type'] == 'insert'
                       || $_REQUEST['submit_type'] == 'showinsert'
-                      || $_REQUEST['submit_type'] == 'insertignore';
+                      || $_REQUEST['submit_type'] == 'insertignore');
     } else {
         // new row => use indexes
         $loop_array = array();
@@ -1750,7 +1753,8 @@ function PMA_getParamsForUpdateOrInsert()
         $using_key  = false;
         $is_insert  = true;
     }
-    $is_insertignore  = $_REQUEST['submit_type'] == 'insertignore';
+    $is_insertignore  = isset($_REQUEST['submit_type'])
+        && $_REQUEST['submit_type'] == 'insertignore';
     return array($loop_array, $using_key, $is_insert, $is_insertignore);
 }
 
@@ -2156,9 +2160,13 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit( $multi_edit_funcs,
         || ($current_value != "''"
         && in_array($multi_edit_funcs[$key], $func_optional_param))
     ) {
-        if (isset($multi_edit_salt[$key])
+        if ((isset($multi_edit_salt[$key])
             && ($multi_edit_funcs[$key] == "AES_ENCRYPT"
-            || $multi_edit_funcs[$key] == "AES_DECRYPT")
+            || $multi_edit_funcs[$key] == "AES_DECRYPT"))
+            || (! empty($multi_edit_salt[$key])
+            && ($multi_edit_funcs[$key] == "DES_ENCRYPT"
+            || $multi_edit_funcs[$key] == "DES_DECRYPT"
+            || $multi_edit_funcs[$key] == "ENCRYPT"))
         ) {
             return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                    . PMA_Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";
@@ -2367,7 +2375,7 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
     $db, $table, $column_name, &$extra_data
 ) {
 
-    $extra_data['isNeedToRecheck'] = true;
+    $extra_data['isNeedToRecheck'] = false;
 
     $sql_for_real_value = 'SELECT ' . PMA_Util::backquote($table) . '.'
         . PMA_Util::backquote($column_name)
@@ -2378,19 +2386,18 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
     $result = $GLOBALS['dbi']->tryQuery($sql_for_real_value);
     $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
     $meta = $fields_meta[0];
-    $new_value = $GLOBALS['dbi']->fetchValue($result);
-    if ($new_value !== false) {
+    if ($row = $GLOBALS['dbi']->fetchRow($result)) {
+        $new_value = $row[0];
         if ((substr($meta->type, 0, 9) == 'timestamp')
             || ($meta->type == 'datetime')
             || ($meta->type == 'time')
         ) {
             $new_value = PMA_Util::addMicroseconds($new_value);
         }
+        $extra_data['isNeedToRecheck'] = true;
         $extra_data['truncatableFieldValue'] = $new_value;
-    } else {
-        $extra_data['isNeedToRecheck'] = false;
     }
-
+    $GLOBALS['dbi']->freeResult($result);
 }
 
 /**

@@ -33,16 +33,15 @@ function PMA_getIndexedColumns()
  * Initiate the column creation statement according to the table creation or
  * add columns to a existing table
  *
- * @param int     $field_cnt      number of columns
- * @param int     &$field_primary primary index field
- * @param boolean $is_create_tbl  true if requirement is to get the statement
- *                                for table creation
+ * @param int     $field_cnt     number of columns
+ * @param boolean $is_create_tbl true if requirement is to get the statement
+ *                               for table creation
  *
  * @return array  $definitions An array of initial sql statements
  *                             according to the request
  */
 function PMA_buildColumnCreationStatement(
-    $field_cnt, &$field_primary, $is_create_tbl = true
+    $field_cnt, $is_create_tbl = true
 ) {
     $definitions = array();
     for ($i = 0; $i < $field_cnt; ++$i) {
@@ -55,9 +54,8 @@ function PMA_buildColumnCreationStatement(
 
         $definition = PMA_getStatementPrefix($is_create_tbl) .
                 PMA_Table::generateFieldSpec(
-                    $_REQUEST['field_name'][$i],
+                    trim($_REQUEST['field_name'][$i]),
                     $_REQUEST['field_type'][$i],
-                    $i,
                     $_REQUEST['field_length'][$i],
                     $_REQUEST['field_attribute'][$i],
                     isset($_REQUEST['field_collation'][$i])
@@ -73,8 +71,7 @@ function PMA_buildColumnCreationStatement(
                     : false,
                     isset($_REQUEST['field_comments'][$i])
                     ? $_REQUEST['field_comments'][$i]
-                    : '',
-                    $field_primary
+                    : ''
                 );
 
         $definition .= PMA_setColumnCreationStatementSuffix($i, $is_create_tbl);
@@ -102,10 +99,6 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
         return $sql_suffix;
     }
 
-    if ($_REQUEST['field_where'] == 'last') {
-        return $sql_suffix;
-    }
-
     // Only the first field can be added somewhere other than at the end
     if ($current_field_num == 0) {
         if ($_REQUEST['field_where'] == 'first') {
@@ -128,14 +121,14 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
  * Create relevant index statements
  *
  * @param array   $index         an array of index columns
- * @param string  $index_type    index type that which represents
+ * @param string  $index_choice  index choice that which represents
  *                               the index type of $indexed_fields
  * @param boolean $is_create_tbl true if requirement is to get the statement
  *                               for table creation
  *
  * @return array an array of sql statements for indexes
  */
-function PMA_buildIndexStatements($index, $index_type,
+function PMA_buildIndexStatements($index, $index_choice,
     $is_create_tbl = true
 ) {
     $statement = array();
@@ -150,7 +143,7 @@ function PMA_buildIndexStatements($index, $index_type,
             . (! empty($field['size']) ? '(' . $field['size'] . ')' : '');
     }
     $statement[] = PMA_getStatementPrefix($is_create_tbl)
-        . ' ' . $index_type
+        . ' ' . $index_choice
         . (! empty($index['Key_name']) && $index['Key_name'] != 'PRIMARY' ?
         PMA_Util::backquote($index['Key_name'])
         : '')
@@ -180,7 +173,7 @@ function PMA_getStatementPrefix($is_create_tbl = true)
 }
 
 /**
- * Merge index definitions for one type of index 
+ * Merge index definitions for one type of index
  *
  * @param array   $definitions     the index definitions to merge to
  * @param boolean $is_create_tbl   true if requirement is to get the statement
@@ -188,7 +181,7 @@ function PMA_getStatementPrefix($is_create_tbl = true)
  * @param array   $indexed_columns the columns for one type of index
  * @param string  $index_keyword   the index keyword to use in the definition
  *
- * @return array $index_definitions 
+ * @return array $index_definitions
  */
 function PMA_mergeIndexStatements(
     $definitions, $is_create_tbl, $indexed_columns, $index_keyword
@@ -218,7 +211,7 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
             $field_unique, $field_fulltext
             ) = PMA_getIndexedColumns();
     $definitions = PMA_buildColumnCreationStatement(
-        $field_cnt, $field_primary, $is_create_tbl
+        $field_cnt, $is_create_tbl
     );
 
     // Builds the PRIMARY KEY statements
@@ -278,6 +271,13 @@ function PMA_getTableCreationQuery($db, $table)
     }
     if (!empty($_REQUEST['tbl_collation'])) {
         $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
+    }
+    if (! empty($_REQUEST['connection'])
+        && ! empty($_REQUEST['tbl_storage_engine'])
+        && $_REQUEST['tbl_storage_engine'] == 'FEDERATED'
+    ) {
+        $sql_query .= " CONNECTION = '"
+            . PMA_Util::sqlAddSlashes($_REQUEST['connection']) . "'";
     }
     if (!empty($_REQUEST['comment'])) {
         $sql_query .= ' COMMENT = \''

@@ -22,12 +22,10 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('db_structure.js', function () {
-    $("span.fkc_switch").unbind('click');
-    $('#fkc_checkbox').unbind('change');
-    $("a.truncate_table_anchor.ajax").die('click');
-    $("a.drop_table_anchor.ajax").die('click');
-    $('#real_end_input').die('click');
-    $("a.favorite_table_anchor.ajax").die('click');
+    $(document).off('click', "a.truncate_table_anchor.ajax");
+    $(document).off('click', "a.drop_table_anchor.ajax");
+    $(document).off('click', '#real_end_input');
+    $(document).off('click', "a.favorite_table_anchor.ajax");
     $('a.real_row_count').off('click');
     $('a.row_count_sum').off('click');
     $('select[name=submit_mult]').unbind('change');
@@ -127,7 +125,7 @@ function PMA_adjustTotals() {
 
     // Update summary with new data
     var $summary = $("#tbl_summary_row");
-    $summary.find('.tbl_num').text(PMA_sprintf(PMA_messages.strTables, tableSum));
+    $summary.find('.tbl_num').text(PMA_sprintf(PMA_messages.strNTables, tableSum));
     $summary.find('.row_count_sum').text(strRowSum);
     $summary.find('.tbl_size').text(sizeSum + " " + byteUnits[size_magnitude]);
     $summary.find('.tbl_overhead').text(overheadSum + " " + byteUnits[overhead_magnitude]);
@@ -245,32 +243,11 @@ AJAX.registerOnload('db_structure.js', function () {
             return false;
         }
     });
-     /**
-     * Event handler for 'Foreign Key Checks' disabling option
-     * in the drop table confirmation form
-     */
-    $("span.fkc_switch").click(function (event) {
-        if ($("#fkc_checkbox").prop('checked')) {
-            $("#fkc_checkbox").prop('checked', false);
-            $("#fkc_status").html(PMA_messages.strForeignKeyCheckDisabled);
-            return;
-        }
-        $("#fkc_checkbox").prop('checked', true);
-        $("#fkc_status").html(PMA_messages.strForeignKeyCheckEnabled);
-    });
-
-    $('#fkc_checkbox').change(function () {
-        if ($(this).prop("checked")) {
-            $("#fkc_status").html(PMA_messages.strForeignKeyCheckEnabled);
-            return;
-        }
-        $("#fkc_status").html(PMA_messages.strForeignKeyCheckDisabled);
-    }); // End of event handler for 'Foreign Key Check'
 
     /**
      * Ajax Event handler for 'Truncate Table'
      */
-    $("a.truncate_table_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "a.truncate_table_anchor.ajax", function (event) {
         event.preventDefault();
 
         /**
@@ -319,7 +296,7 @@ AJAX.registerOnload('db_structure.js', function () {
     /**
      * Ajax Event handler for 'Drop Table' or 'Drop View'
      */
-    $("a.drop_table_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "a.drop_table_anchor.ajax", function (event) {
         event.preventDefault();
 
         var $this_anchor = $(this);
@@ -373,7 +350,7 @@ AJAX.registerOnload('db_structure.js', function () {
      * Ajax Event handler for calculating the real end for a InnoDB table
      *
      */
-    $('#real_end_input').live('click', function (event) {
+    $(document).on('click', '#real_end_input', function (event) {
         event.preventDefault();
 
         /**

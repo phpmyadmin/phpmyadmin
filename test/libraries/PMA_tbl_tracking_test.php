@@ -44,11 +44,15 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = "PMA_db";
         $GLOBALS['table'] = "PMA_table";
-        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['ServerDefault'] = "server";
-        $GLOBALS['cfg']['Server']['tracking'] = "tracking";
         $GLOBALS['cfg']['ActionLinksMode'] = 'ActionLinksMode';
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
+
+        $_SESSION['relation'][$GLOBALS['server']] = array(
+            'db' => 'pmadb',
+            'tracking' => 'tracking',
+            'trackingwork' => true
+        );
 
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 
@@ -773,7 +777,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
                 'Non_unique' => 0,
                 'Packed' => '',
                 'Key_name' => 'Key_name1',
-                'Index_type' => 'Index_type1',
+                'Index_choice' => 'Index_choice1',
                 'Column_name' => 'Column_name',
                 'Cardinality' => 'Cardinality',
                 'Collation' => 'Collation',
@@ -818,7 +822,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            htmlspecialchars($indexs[0]['Index_type']),
+            htmlspecialchars($indexs[0]['Index_choice']),
             $html
         );
         $this->assertContains(

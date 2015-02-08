@@ -47,11 +47,12 @@ function PMA_filterTracking(
  * @param int    $last_version last version
  * @param string $db           database
  * @param array  $selected     selected tables
+ * @param string $type         type of the table; table, view or both
  *
  * @return string
  */
 function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
-    $last_version, $db, $selected
+    $last_version, $db, $selected, $type = 'both'
 ) {
     $html  = '<div id="div_create_version">';
     $html .= '<form method="post" action="' . $url_query . '">';
@@ -77,31 +78,58 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
         . '" />';
     $html .= '<p>' . __('Track these data definition statements:')
         . '</p>';
-    $html .= '<input type="checkbox" name="alter_table" value="true"'
-        . (/*overload*/mb_stripos(
-            $GLOBALS['cfg']['Server']['tracking_default_statements'],
-            'ALTER TABLE'
-        ) !== false ? ' checked="checked"' : '')
-        . ' /> ALTER TABLE<br/>';
-    $html .= '<input type="checkbox" name="rename_table" value="true"'
-        . (/*overload*/mb_stripos(
-            $GLOBALS['cfg']['Server']['tracking_default_statements'],
-            'RENAME TABLE'
-        ) !== false ? ' checked="checked"' : '')
-        . ' /> RENAME TABLE<br/>';
-    $html .= '<input type="checkbox" name="create_table" value="true"'
-        . (/*overload*/mb_stripos(
-            $GLOBALS['cfg']['Server']['tracking_default_statements'],
-            'CREATE TABLE'
-        ) !== false ? ' checked="checked"' : '')
-        . ' /> CREATE TABLE<br/>';
-    $html .= '<input type="checkbox" name="drop_table" value="true"'
-        . (/*overload*/mb_stripos(
-            $GLOBALS['cfg']['Server']['tracking_default_statements'],
-            'DROP TABLE'
-        ) !== false ? ' checked="checked"' : '')
-        . ' /> DROP TABLE<br/>';
+
+    if ($type == 'both' || $type == 'table') {
+        $html .= '<input type="checkbox" name="alter_table" value="true"'
+            . (/*overload*/mb_stripos(
+                $GLOBALS['cfg']['Server']['tracking_default_statements'],
+                'ALTER TABLE'
+            ) !== false ? ' checked="checked"' : '')
+            . ' /> ALTER TABLE<br/>';
+        $html .= '<input type="checkbox" name="rename_table" value="true"'
+            . (/*overload*/mb_stripos(
+                $GLOBALS['cfg']['Server']['tracking_default_statements'],
+                'RENAME TABLE'
+            ) !== false ? ' checked="checked"' : '')
+            . ' /> RENAME TABLE<br/>';
+        $html .= '<input type="checkbox" name="create_table" value="true"'
+            . (/*overload*/mb_stripos(
+                $GLOBALS['cfg']['Server']['tracking_default_statements'],
+                'CREATE TABLE'
+            ) !== false ? ' checked="checked"' : '')
+            . ' /> CREATE TABLE<br/>';
+        $html .= '<input type="checkbox" name="drop_table" value="true"'
+            . (/*overload*/mb_stripos(
+                $GLOBALS['cfg']['Server']['tracking_default_statements'],
+                'DROP TABLE'
+            ) !== false ? ' checked="checked"' : '')
+            . ' /> DROP TABLE<br/>';
+    }
+    if ($type == 'both') {
+        $html .= '<br/>';
+    }
+    if ($type == 'both' || $type == 'view') {
+        $html .= '<input type="checkbox" name="alter_view" value="true"'
+            . (/*overload*/mb_stripos(
+                $GLOBALS['cfg']['Server']['tracking_default_statements'],
+                'ALTER VIEW'
+            ) !== false ? ' checked="checked"' : '')
+            . ' /> ALTER VIEW<br/>';
+        $html .= '<input type="checkbox" name="create_view" value="true"'
+            . (/*overload*/mb_stripos(
+                $GLOBALS['cfg']['Server']['tracking_default_statements'],
+                'CREATE VIEW'
+            ) !== false ? ' checked="checked"' : '')
+            . ' /> CREATE VIEW<br/>';
+        $html .= '<input type="checkbox" name="drop_view" value="true"'
+            . (/*overload*/mb_stripos(
+                $GLOBALS['cfg']['Server']['tracking_default_statements'],
+                'DROP VIEW'
+            ) !== false ? ' checked="checked"' : '')
+            . ' /> DROP VIEW<br/>';
+    }
     $html .= '<br/>';
+
     $html .= '<input type="checkbox" name="create_index" value="true"'
         . (/*overload*/mb_stripos(
             $GLOBALS['cfg']['Server']['tracking_default_statements'],
@@ -208,9 +236,10 @@ function PMA_getHtmlForActivateDeactivateTracking(
  */
 function PMA_getListOfVersionsOfTable()
 {
+    $cfgRelation = PMA_getRelationsParam();
     $sql_query = " SELECT * FROM " .
-         PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
-         PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
+         PMA_Util::backquote($cfgRelation['db']) . "." .
+         PMA_Util::backquote($cfgRelation['tracking']) .
          " WHERE db_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "' " .
          " AND table_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['table']) . "' " .
          " ORDER BY version DESC ";
@@ -350,10 +379,11 @@ function PMA_getTableLastVersionNumber($sql_result)
 function PMA_getSQLResultForSelectableTables()
 {
     include_once 'libraries/relation.lib.php';
+    $cfgRelation = PMA_getRelationsParam();
 
     $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
-             PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
-             PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
+             PMA_Util::backquote($cfgRelation['db']) . "." .
+             PMA_Util::backquote($cfgRelation['tracking']) .
              " WHERE db_name = '" . PMA_Util::sqlAddSlashes($GLOBALS['db']) . "' " .
              " ORDER BY db_name, table_name";
 
@@ -969,7 +999,7 @@ function PMA_getHtmlForIndex($index, $style)
 
     $html  = '<tr class="noclick ' . $style . '">';
     $html .= '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
-    $html .= '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
+    $html .= '<td>' . htmlspecialchars($index['Index_choice']) . '</td>';
     $html .= '<td>' . $str_unique . '</td>';
     $html .= '<td>' . $str_packed . '</td>';
     $html .= '<td>' . htmlspecialchars($index['Column_name']) . '</td>';
@@ -1213,6 +1243,15 @@ function PMA_getTrackingSet()
     }
     if (isset($_REQUEST['drop_table']) && $_REQUEST['drop_table'] == true) {
         $tracking_set .= 'DROP TABLE,';
+    }
+    if (isset($_REQUEST['alter_view']) && $_REQUEST['alter_view'] == true) {
+        $tracking_set .= 'ALTER VIEW,';
+    }
+    if (isset($_REQUEST['create_view']) && $_REQUEST['create_view'] == true) {
+        $tracking_set .= 'CREATE VIEW,';
+    }
+    if (isset($_REQUEST['drop_view']) && $_REQUEST['drop_view'] == true) {
+        $tracking_set .= 'DROP VIEW,';
     }
     if (isset($_REQUEST['create_index']) && $_REQUEST['create_index'] == true) {
         $tracking_set .= 'CREATE INDEX,';

@@ -163,11 +163,22 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     var new_salt_box = "<br><input type=text name=salt[multi_edit][" + multi_edit + "][" + urlField + "]" +
         " id=salt_" + target.id + " placeholder='" + PMA_messages.strEncryptionKey + "'>";
 
-    //If AES_ENCRYPT is Selected then append the new textbox for salt
-    if (target.value === 'AES_DECRYPT' || target.value === 'AES_ENCRYPT') {
+    //If encrypting or decrypting functions that take salt as input is selected append the new textbox for salt
+    if (target.value === 'AES_ENCRYPT' ||
+            target.value === 'AES_DECRYPT' ||
+            target.value === 'DES_ENCRYPT' ||
+            target.value === 'DES_DECRYPT' ||
+            target.value === 'ENCRYPT') {
         if (!($("#salt_" + target.id).length)) {
             $this_input.after(new_salt_box);
         }
+    } else {
+        //Remove the textbox for salt
+        $('#salt_' + target.id).prev('br').remove();
+        $("#salt_" + target.id).remove();
+    }
+
+    if (target.value === 'AES_DECRYPT' || target.value === 'AES_ENCRYPT') {
         if ($this_input.data('type') !== 'HEX') {
             $('#' + target.id).addClass('invalid_value');
             return false;
@@ -175,14 +186,11 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     } else if(target.value === 'MD5' &&
         typeof $this_input.data('maxlength') !== 'undefined' &&
         $this_input.data('maxlength') < 32
-    ){
+    ) {
         $('#' + target.id).addClass('invalid_value');
         return false;
     } else {
         $('#' + target.id).removeClass('invalid_value');
-        //The value of the select is no longer AES_ENCRYPT, remove the textbox for salt
-        $('#salt_' + target.id).prev('br').remove();
-        $("#salt_" + target.id).remove();
     }
 
     // Unchecks the corresponding "NULL" control
@@ -297,7 +305,11 @@ function applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows
         }).attr("selected","selected");
 
         // Handle salt field.
-        if (functionName === 'AES_ENCRYPT' || functionName === 'AES_DECRYPT') {
+        if (functionName === 'AES_ENCRYPT' ||
+                functionName === 'AES_DECRYPT' ||
+                functionName === 'DES_ENCRYPT' ||
+                functionName === 'DES_DECRYPT' ||
+                functionName === 'ENCRYPT') {
             if ($("#salt_" + targetSelectList.attr("id")).length === 0) {
                 // Get hash value.
                 var hashed_value = targetSelectList.attr("name").match(/\[multi\_edit\]\[\d\]\[(.*)\]/);
@@ -308,7 +320,7 @@ function applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows
             }
 
             if (copySalt) {
-                $("#salt_" + targetSelectList.attr("id")).attr("value", salt);
+                $("#salt_" + targetSelectList.attr("id")).val(salt);
             }
         } else {
             var id = targetSelectList.attr("id");
@@ -324,12 +336,12 @@ function applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_change.js', function () {
-    $('span.open_gis_editor').die('click');
-    $("input[name='gis_data[save]']").die('click');
-    $('input.checkbox_null').die('click');
+    $(document).off('click', 'span.open_gis_editor');
+    $(document).off('click', "input[name='gis_data[save]']");
+    $(document).off('click', 'input.checkbox_null');
     $('select[name="submit_type"]').unbind('change');
-    $("#insert_rows").die('change');
-    $("select[name*='funcs']").die('click');
+    $(document).off('change', "#insert_rows");
+    $(document).off('click', "select[name*='funcs']");
 });
 
 /**
@@ -342,7 +354,7 @@ AJAX.registerTeardown('tbl_change.js', function () {
 AJAX.registerOnload('tbl_change.js', function () {
     $.datepicker.initialized = false;
 
-    $('span.open_gis_editor').live('click', function (event) {
+    $(document).on('click', 'span.open_gis_editor', function (event) {
         event.preventDefault();
 
         var $span = $(this);
@@ -368,7 +380,7 @@ AJAX.registerOnload('tbl_change.js', function () {
     /**
      * Uncheck the null checkbox as geometry data is placed on the input field
      */
-    $("input[name='gis_data[save]']").live('click', function (event) {
+    $(document).on('click', "input[name='gis_data[save]']", function (event) {
         var input_name = $('form#gis_data_editor_form').find("input[name='input_name']").val();
         var $null_checkbox = $("input[name='" + input_name + "']").parents('tr').find('.checkbox_null');
         $null_checkbox.prop('checked', false);
@@ -380,7 +392,7 @@ AJAX.registerOnload('tbl_change.js', function () {
      * "Continue insertion" are handled in the "Continue insertion" code
      *
      */
-    $('input.checkbox_null').live('click', function (e) {
+    $(document).on('click', 'input.checkbox_null', function (e) {
         nullify(
             // use hidden fields populated by tbl_change.php
             $(this).siblings('.nullify_code').val(),
@@ -424,7 +436,7 @@ AJAX.registerOnload('tbl_change.js', function () {
     /**
      * Continue Insertion form
      */
-    $("#insert_rows").live('change', function (event) {
+    $(document).on('change', "#insert_rows", function (event) {
         event.preventDefault();
         /**
          * @var columnCount   Number of number of columns table has.
@@ -621,7 +633,7 @@ AJAX.registerOnload('tbl_change.js', function () {
             while (curr_rows > target_rows) {
                 $("input[id^=insert_ignore]:last")
                 .nextUntil("fieldset")
-                .andSelf()
+                .addBack()
                 .remove();
                 curr_rows--;
             }
@@ -641,7 +653,7 @@ AJAX.registerOnload('tbl_change.js', function () {
         PMA_messages.strFunctionHint
     );
 
-    $("select[name*='funcs']").live('click', function (event) {
+    $(document).on('click', "select[name*='funcs']", function (event) {
         if (! event.shiftKey) {
             return false;
         }
@@ -655,7 +667,11 @@ AJAX.registerOnload('tbl_change.js', function () {
         var salt;
         var copySalt = false;
 
-        if (functionName === 'AES_ENCRYPT' || functionName === 'AES_DECRYPT') {
+        if (functionName === 'AES_ENCRYPT' ||
+                functionName === 'AES_DECRYPT' ||
+                functionName === 'DES_ENCRYPT' ||
+                functionName === 'DES_DECRYPT' ||
+                functionName === 'ENCRYPT') {
             // Dialog title.
             var title = functionName;
             // Dialog buttons functions.

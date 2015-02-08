@@ -137,7 +137,7 @@ $js_messages['strGiB'] = __('GiB');
 $js_messages['strTiB'] = __('TiB');
 $js_messages['strPiB'] = __('PiB');
 $js_messages['strEiB'] = __('EiB');
-$js_messages['strTables'] = __('%d table(s)');
+$js_messages['strNTables'] = __('%d table(s)');
 
 /* l10n: Questions is the name of a MySQL Status variable */
 $js_messages['strQuestions'] = __('Questions');
@@ -245,6 +245,8 @@ $js_messages['strJustification'] = __('Justification');
 $js_messages['strFormula'] = __('Used variable / formula');
 $js_messages['strTest'] = __('Test');
 
+/* For query editor */
+$js_messages['strFormatting'] = __('Formatting SQL...');
 
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
@@ -424,7 +426,7 @@ $js_messages['strCellEditHint'] = __('Press escape to cancel editing.');
 $js_messages['strSaveCellWarning'] = __('You have edited some data and they have not been saved. Are you sure you want to leave this page before saving the data?');
 $js_messages['strColOrderHint'] = __('Drag to reorder.');
 $js_messages['strSortHint'] = __('Click to sort results by this column.');
-$js_messages['strMultiSortHint'] = __('Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br />- Control+Click to remove column from ORDER BY clause');
+$js_messages['strMultiSortHint'] = __('Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from ORDER BY clause');
 $js_messages['strColMarkHint'] = __('Click to mark/unmark.');
 $js_messages['strColNameCopyHint'] = __('Double-click to copy column name.');
 $js_messages['strColVisibHint'] = __(
@@ -474,6 +476,13 @@ $js_messages['strHidePanel'] = __('Hide Panel');
 $js_messages['strUnhideNavItem'] = __('Show hidden navigation tree items.');
 $js_messages['linkWithMain'] = __('Link with main panel');
 $js_messages['unlinkWithMain'] = __('Unlink from main panel');
+$js_messages['strHoverDbFastFilter'] = __('To filter all databases on server, press Enter after a search term');
+$js_messages['strHoverFastFilter'] = __('To filter all %s in database, press Enter after a search term');
+$js_messages['strTables'] = __('tables');
+$js_messages['strViews'] = __('views');
+$js_messages['strProcedures'] = __('procedures');
+$js_messages['strEvents'] = __('events');
+$js_messages['strFunctions'] = __('functions');
 
 /* microhistory */
 $js_messages['strInvalidPage'] = __('The requested page was not found in the history, it may have expired.');
@@ -529,6 +538,7 @@ $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
 
 $js_messages['strConsoleRequeryConfirm'] = __('Execute this query again?');
 $js_messages['strConsoleDeleteBookmarkConfirm'] = __('Do you really want to delete this bookmark?');
+$js_messages['strNoLocalStorage'] = __('Your web browser does not support local storage of settings or the quota limit has been reached, some features may not work properly for you. In Safari, such problem is commonly caused by "Private Mode Browsing".');
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
@@ -541,9 +551,6 @@ echo "var themeCalendarImage = '" . $GLOBALS['pmaThemeImage']
 
 /* Image path */
 echo "var pmaThemeImage = '" . $GLOBALS['pmaThemeImage'] . "';\n";
-
-/* Version */
-echo "var pmaversion = '" . PMA_VERSION . "';\n";
 
 echo "var mysql_doc_template = '" . PMA_Util::getMySQLDocuURL('%s') . "';\n";
 

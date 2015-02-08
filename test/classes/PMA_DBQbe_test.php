@@ -326,7 +326,7 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
             . '12ex" size="20" /></td>',
             $this->_callProtectedFunction(
                 '_getInputboxRow',
-                array(2,3)
+                array(2)
             )
         );
     }
@@ -540,7 +540,7 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
 ',
             $this->_callProtectedFunction(
                 '_getSQLQuery',
-                array(array('relwork' => false))
+                array()
             )
         );
     }

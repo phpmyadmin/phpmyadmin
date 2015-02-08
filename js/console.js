@@ -82,6 +82,7 @@ var PMA_console = {
             '<input name="is_js_confirmed" value="0">' +
             '<textarea name="sql_query"></textarea>' +
             '<input name="console_message_id" value="0">' +
+            '<input name="server" value="">' +
             '<input name="db" value="">' +
             '<input name="table" value="">' +
             '<input name="token" value="' +
@@ -119,8 +120,8 @@ var PMA_console = {
 
             PMA_console.$consoleToolbar.children('.console_switch').click(PMA_console.toggle);
             $(document).keydown(function(event) {
-                // 27 keycode is ESC
-                if(event.keyCode === 27) {
+                // Ctrl + Alt + C
+                if(event.ctrlKey && event.altKey && event.keyCode === 67) {
                     PMA_console.toggle();
                 }
             });
@@ -142,6 +143,12 @@ var PMA_console = {
                 PMA_console.showCard('#pma_console_options');
             });
 
+            PMA_console.$consoleContent.click(function(event) {
+                if (event.target == this) {
+                    PMA_consoleInput.focus();
+                }
+            });
+
             $('#pma_console .mid_layer').click(function() {
                 PMA_console.hideCard($(this).parent().children('.card'));
             });
@@ -161,8 +168,12 @@ var PMA_console = {
             });
 
             $(document).ajaxComplete(function (event, xhr) {
-                var data = $.parseJSON(xhr.responseText);
-                PMA_console.ajaxCallback(data);
+                try {
+                    var data = $.parseJSON(xhr.responseText);
+                    PMA_console.ajaxCallback(data);
+                } catch (e) {
+                    console.log("Invalid JSON!" + e.message);
+                }
             });
 
             PMA_console.isInitialized = true;
@@ -196,15 +207,16 @@ var PMA_console = {
             return;
         }
         PMA_console.$requestForm.children('textarea').val(queryString);
+        PMA_console.$requestForm.children('[name=server]').attr('value', PMA_commonParams.get('server'));
         if(options && options.db) {
-            PMA_console.$requestForm.children('[name=db]').attr('value', options.db);
+            PMA_console.$requestForm.children('[name=db]').val(options.db);
             if(options.table) {
-                PMA_console.$requestForm.children('[name=table]').attr('value', options.table);
+                PMA_console.$requestForm.children('[name=table]').val(options.table);
             } else {
-                PMA_console.$requestForm.children('[name=table]').attr('value', '');
+                PMA_console.$requestForm.children('[name=table]').val('');
             }
         } else {
-            PMA_console.$requestForm.children('[name=db]').attr('value',
+            PMA_console.$requestForm.children('[name=db]').val(
                 (PMA_commonParams.get('db').length > 0 ? PMA_commonParams.get('db') : ''));
         }
         PMA_console.$requestForm.find('[name=profiling]').remove();
@@ -215,7 +227,7 @@ var PMA_console = {
             return;
         }
         PMA_console.$requestForm.children('[name=console_message_id]')
-            .attr('value', PMA_consoleMessages.appendQuery({sql_query: queryString}).message_id);
+            .val(PMA_consoleMessages.appendQuery({sql_query: queryString}).message_id);
         PMA_console.$requestForm.trigger('submit');
         PMA_consoleInput.clear();
     },
@@ -471,6 +483,16 @@ var PMA_consoleInput = {
      */
     _codemirror: false,
     /**
+     * @var int, count for history navigation, 0 for current input
+     * @access private
+     */
+    _historyCount: 0,
+    /**
+     * @var string, current input when navigating through history
+     * @access private
+     */
+    _historyPreserveCurrent: null,
+    /**
      * Used for console input initialize
      *
      * @return void
@@ -493,6 +515,9 @@ var PMA_consoleInput = {
                 hintOptions: {"completeSingle": false, "completeOnSingleClick": true}
             });
             PMA_consoleInput._inputs.console.on("inputRead", codemirrorAutocompleteOnInputRead);
+            PMA_consoleInput._inputs.console.on("keydown", function(instance, event) {
+                PMA_consoleInput._historyNavigate(event);
+            });
             if ($('#pma_bookmarks').length !== 0) {
                 PMA_consoleInput._inputs.bookmark = CodeMirror($('#pma_console .bookmark_add_input')[0], {
                     theme: 'pma',
@@ -505,7 +530,8 @@ var PMA_consoleInput = {
             }
         } else {
             PMA_consoleInput._inputs.console =
-                $('<textarea>').appendTo('#pma_console .console_query_input');
+                $('<textarea>').appendTo('#pma_console .console_query_input')
+                    .on('keydown', PMA_consoleInput._historyNavigate);
             if ($('#pma_bookmarks').length !== 0) {
                 PMA_consoleInput._inputs.bookmark =
                     $('<textarea>').appendTo('#pma_console .bookmark_add_input');
@@ -513,9 +539,62 @@ var PMA_consoleInput = {
         }
         $('#pma_console .console_query_input').keydown(PMA_consoleInput._keydown);
     },
+    _historyNavigate: function(event) {
+        if (event.keyCode == 38 || event.keyCode == 40) {
+            var upPermitted = false;
+            var downPermitted = false;
+            var editor = PMA_consoleInput._inputs.console;
+            var cursorLine;
+            var totalLine;
+            if (PMA_consoleInput._codemirror) {
+                cursorLine = editor.getCursor().line;
+                totalLine = editor.lineCount();
+            } else {
+                // Get cursor position from textarea
+                var text = PMA_consoleInput.getText();
+                cursorLine = text.substr(0, editor.prop("selectionStart")).split("\n").length - 1;
+                totalLine = text.split(/\r*\n/).length;
+            }
+            if (cursorLine === 0) {
+                upPermitted = true;
+            }
+            if (cursorLine == totalLine - 1) {
+                downPermitted = true;
+            }
+            var nextCount;
+            var queryString = false;
+            if (upPermitted && event.keyCode == 38) {
+                // Navigate up in history
+                if (PMA_consoleInput._historyCount === 0) {
+                    PMA_consoleInput._historyPreserveCurrent = PMA_consoleInput.getText();
+                }
+                nextCount = PMA_consoleInput._historyCount + 1;
+                queryString = PMA_consoleMessages.getHistory(nextCount);
+            } else if (downPermitted && event.keyCode == 40) {
+                // Navigate down in history
+                if (PMA_consoleInput._historyCount === 0) {
+                    return;
+                }
+                nextCount = PMA_consoleInput._historyCount - 1;
+                if (nextCount === 0) {
+                    queryString = PMA_consoleInput._historyPreserveCurrent;
+                } else {
+                    queryString = PMA_consoleMessages.getHistory(nextCount);
+                }
+            }
+            if (queryString !== false) {
+                PMA_consoleInput._historyCount = nextCount;
+                PMA_consoleInput.setText(queryString, 'console');
+                if (PMA_consoleInput._codemirror) {
+                    editor.setCursor(editor.lineCount(), 0);
+                }
+                event.preventDefault();
+            }
+        }
+    },
     /**
      * Mousedown event handler for bind to input
-     * Shortcut is ESC key
+     * Shortcut is Ctrl+Enter key
      *
      * @return void
      */
@@ -637,6 +716,22 @@ var PMA_consoleMessages = {
      */
     showHistory: function() {
         $('#pma_console .content .console_message_container .message.hide').removeClass('hide');
+    },
+    /**
+     * Used for getting a perticular history query
+     *
+     * @param int nthLast get nth query message from latest, i.e 1st is last
+     * @return string message
+     */
+    getHistory: function(nthLast) {
+        var $queries = $('#pma_console .content .console_message_container .query');
+        var length = $queries.length;
+        var $query = $queries.eq(length - nthLast);
+        if (!$query || (length - nthLast) < 0) {
+            return false;
+        } else {
+            return $query.text();
+        }
     },
     /**
      * Used for log new message

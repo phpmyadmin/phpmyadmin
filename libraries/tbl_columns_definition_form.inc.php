@@ -52,7 +52,7 @@ $pmaString = $GLOBALS['PMA_String'];
 $length_values_input_size = 8;
 
 $_form_params = PMA_getFormsParameters(
-    $server, $db, $table, $action, isset($num_fields) ? $num_fields : null,
+    $db, $table, $action, isset($num_fields) ? $num_fields : null,
     isset($selected) ? $selected : null
 );
 
@@ -92,7 +92,12 @@ if (isset($_REQUEST['submit_num_fields'])) {
 }
 
 $foreigners = PMA_getForeigners($db, $table, '', 'foreign');
-$child_references = PMA_getChildReferences($db, $table);
+$child_references = null;
+// From MySQL 5.6.6 onwards columns with foreign keys can be renamed.
+// Hence, no need to get child references
+if (PMA_MYSQL_INT_VERSION < 50606) {
+    $child_references = PMA_getChildReferences($db, $table);
+}
 for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     if (! empty($regenerate)) {
         list($columnMeta, $submit_length, $submit_attribute,
@@ -142,7 +147,11 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     }
 
     // Variable tell if current column is bound in a foreign key constraint or not.
-    if (isset($columnMeta['Field']) && isset($_form_params['table'])) {
+    // MySQL version from 5.6.6 allow renaming columns with foreign keys
+    if (isset($columnMeta['Field'])
+        && isset($_form_params['table'])
+        && PMA_MYSQL_INT_VERSION < 50606
+    ) {
         $columnMeta['column_status'] = PMA_checkChildForeignReferences(
             $_form_params['db'],
             $_form_params['table'],
@@ -166,8 +175,6 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         isset($extracted_columnspec) ? $extracted_columnspec : null,
         isset($submit_attribute) ? $submit_attribute : null,
         isset($analyzed_sql) ? $analyzed_sql : null,
-        isset($submit_default_current_timestamp)
-        ? $submit_default_current_timestamp : null,
         $comments_map, isset($fields_meta) ? $fields_meta : null, $is_backup,
         isset($move_columns) ? $move_columns : array(), $cfgRelation,
         isset($available_mime) ? $available_mime : array(),

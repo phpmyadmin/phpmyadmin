@@ -1106,9 +1106,10 @@ div#logTable table {
 
 /* server variables */
 #serverVariables {
-    min-width: 30em;
+    table-layout: fixed;
+    width: 100%;
 }
-#serverVariables .var-row > div {
+#serverVariables .var-row > tr {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1120,15 +1121,17 @@ div#logTable table {
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
-#serverVariables .var-header .var-value {
+#serverVariables .var-header {
     text-align: <?php echo $left; ?>;
 }
 #serverVariables .var-row {
     padding: 0.5em;
     min-height: 18px;
 }
+#serverVariables .var-action {
+    width: 120px;
+}
 #serverVariables .var-name {
-    width: 45%;
     float: <?php echo $left; ?>;
     font-weight: bold;
 }
@@ -1186,29 +1189,6 @@ div#profilingchart {
     left: 11px;
     bottom:24px;
 }
-
-#profilesummarytable th.header, #profiletable th.header{
-    cursor: pointer;
-}
-
-#profilesummarytable th.header .sorticon, #profiletable th.header .sorticon{
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    background-position: right center;
-    display: inline-block;
-    vertical-align: middle;
-    float: right;
-}
-
-#profilesummarytable th.headerSortUp .sorticon, #profiletable th.headerSortUp .sorticon{
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_desc.png');?>);
-}
-
-#profilesummarytable th.headerSortDown .sorticon, #profiletable th.headerSortDown .sorticon{
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
-}
-
 /* end profiling */
 
 /* querybox */
@@ -2049,7 +2029,7 @@ fieldset .disabled-field td {
 #placeholder {
     position: relative;
     border: 1px solid #aaa;
-    float: right;
+    float: <?php echo $right; ?>;
     overflow: hidden;
 }
 
@@ -3090,3 +3070,32 @@ span.drag_icon {
 .topmargin {
     margin-top: 1em;
 }
+
+/* styles for sortable tables created with tablesorter jquery plugin */
+th.header {
+    cursor: pointer;
+    color: #0000FF;
+}
+
+th.header:hover {
+    text-decoration: underline;
+}
+
+th.header .sorticon {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    display: inline-table;
+    vertical-align: middle;
+    float: right;
+}
+
+th.headerSortUp .sorticon, th.headerSortDown:hover .sorticon {
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_desc.png');?>);
+}
+
+th.headerSortDown .sorticon, th.headerSortUp:hover .sorticon {
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
+}
+/* end of styles of sortable tables */

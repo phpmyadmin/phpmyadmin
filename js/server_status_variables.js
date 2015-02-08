@@ -22,7 +22,6 @@ AJAX.registerOnload('server_status_variables.js', function () {
         'th',
         PMA_messages.strSortHint
     );
-    initTableSorter('statustabs_allvars');
 
     // Filters for status variables
     var textFilter = null;
