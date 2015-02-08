@@ -53,7 +53,6 @@ class Text_Plain_Json extends TransformationsPlugin
         return '<code class="json"><pre>' . "\n"
             . htmlspecialchars($buffer) . "\n"
             . '</pre></code>';
-        return $result;
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
