@@ -39,29 +39,38 @@ if (isset($_REQUEST['move_columns'])
 }
 
 /**
- * handle MySQL reserved words columns check
+ * handle MySQL reserved words columns and table check
  */
 if (isset($_REQUEST['reserved_word_check'])) {
     $response = PMA_Response::getInstance();
     if ($GLOBALS['cfg']['ReservedWordDisableWarning'] === false) {
         $columns_names = $_REQUEST['field_name'];
-        $reserved_keywords_columns = array();
+        $reserved_keywords_names = array();
+        $reserved_keywords_fields = array();
         foreach ($columns_names as $column) {
             if (PMA_SQP_isKeyWord($column)) {
-                $reserved_keywords_columns[] = $column;
+                $reserved_keywords_names[] = $column;
             }
         }
-        if (count($reserved_keywords_columns) == 0) {
+        if (count($reserved_keywords_names) > 0) {
+            $reserved_keywords_fields[] = 'Column';
+        }
+        if (PMA_SQP_isKeyWord($table)) {
+            $reserved_keywords_fields[] = 'Table';
+            $reserved_keywords_names[] = $table;
+        }
+        if (count($reserved_keywords_names) == 0) {
             $response->isSuccess(false);
         }
         $response->addJSON(
             'message', sprintf(
                 _ngettext(
-                    'The column name \'%s\' is a MySQL reserved keyword.',
-                    'The column names \'%s\' are MySQL reserved keywords.',
-                    count($reserved_keywords_columns)
+                    'The %s name \'%s\' is a MySQL reserved keyword.',
+                    'The %s names \'%s\' are MySQL reserved keywords.',
+                    count($reserved_keywords_names)
                 ),
-                implode(',', $reserved_keywords_columns)
+                implode(' and ', $reserved_keywords_fields),
+                implode(',', $reserved_keywords_names)
             )
         );
     } else {
