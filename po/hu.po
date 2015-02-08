@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-06 07:36-0500\n"
-"PO-Revision-Date: 2015-01-18 10:27+0200\n"
+"PO-Revision-Date: 2015-02-08 20:27+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -843,7 +843,6 @@ msgstr ""
 "vezethet."
 
 #: index.php:488
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -856,9 +855,9 @@ msgid ""
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
 "A [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
-"maxlifetime@]session.gc_maxlifetime[/a] paraméter alacsonyabb a "
-"phpMyAdminban beállított cookie érvényességénél, Emiatt a bejelentkezése a "
-"phpMyAdminban beállítottnál előbb fog lejárni."
+"maxlifetime@_blank]session.gc_maxlifetime[/a] paraméter alacsonyabb a "
+"phpMyAdminban beállított cookie érvényességénél. Emiatt a bejelentkezése a "
+"phpMyAdminban beállítottnál előbb járhat le."
 
 #: index.php:501
 msgid ""
@@ -1648,7 +1647,7 @@ msgstr "Teszt"
 
 #: js/messages.php:249
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "SQL formázása…"
 
 #: js/messages.php:253 libraries/db_designer.lib.php:823
 #: libraries/db_designer.lib.php:872 libraries/db_designer.lib.php:1016
@@ -2339,41 +2338,40 @@ msgstr "Eltávolítás a fő panelről"
 #: js/messages.php:479
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"A kiszolgálón lévő összes adatbázis szűréséhez nyomja meg azt Entert a "
+"keresési kifejezés után"
 
 #: js/messages.php:480
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Az adatbázisban lévő összes %s szűréséhez nyomja meg azt Entert a keresési "
+"kifejezés után"
 
 #: js/messages.php:481
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Tábla"
+msgstr "táblák"
 
 #: js/messages.php:482
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Nézetek"
+msgstr "nézetek"
 
 #: js/messages.php:483
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Eljárások"
+msgstr "eljárások"
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "event"
 msgid "events"
-msgstr "esemény"
+msgstr "események"
 
 #: js/messages.php:485
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "Függvények"
+msgstr "függvények"
 
 #: js/messages.php:488
 msgid "The requested page was not found in the history, it may have expired."
@@ -4559,11 +4557,10 @@ msgid "Create PHP Code"
 msgstr "PHP-kód létrehozása"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Index szerkesztése"
+msgstr "Szerkesztés helyben"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1580
@@ -4899,13 +4896,12 @@ msgstr "Letiltott"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "kulcs"
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Oszlopok tábla megjelenítése"
+msgstr "oszlop megjelenítése"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -6332,13 +6328,12 @@ msgstr "A memória korlátozása"
 
 #: libraries/config/messages.inc.php:418
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "A navigációs panelen lecseréli az adatbázisfát egy kiválasztóra"
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Rejtett navigációs faszerkezet elemeinek megjelenítése."
+msgstr "Adatbázisok navigációjának megjelenítése faszerkezetként"
 
 #: libraries/config/messages.inc.php:420
 msgid "Link with main panel by highlighting the current database or table."
@@ -6641,16 +6636,14 @@ msgid "Grid editing: trigger action"
 msgstr "Rács szerkesztés: eseményindító művelet"
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
-msgstr "Relációs megjelenítési oszlop"
+msgstr "Relációs megjelenítés"
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "A kiszolgálók megjelenítésének beállításai."
+msgstr "A beállítások megjelenítéséhez"
 
 #: libraries/config/messages.inc.php:537
 msgid "Grid editing: save all edited cells at once"
@@ -7350,7 +7343,6 @@ msgid "Suhosin warning"
 msgstr "Suhosin figyelmeztetés"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
@@ -7359,14 +7351,14 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"A Szerkezet oldalon megjelenített alapértelmezett figyelmeztetés letiltása, "
-"ha a táblában lévő oszlopnevek a MySQL által fenntartott szavak."
+"A főoldalon megjelenített alapértelmezett figyelmeztetés letiltása, ha a "
+"session.gc_maxlifetime PHP beállítás értéke kisebb a „LoginCookieValidity” "
+"értékénél."
 
 #: libraries/config/messages.inc.php:758
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "A bejelentkezési cookie érvényessége"
+msgstr "Bejelentkezési cookie érvényesség figyelmeztetés"
 
 #: libraries/config/messages.inc.php:759
 msgid ""
@@ -9002,19 +8994,18 @@ msgstr ""
 "panelen."
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s további találat"
-msgstr[1] "%s további találat"
+msgstr[0] "%s eredmény található"
+msgstr[1] "%s eredmény található"
 
 #: libraries/navigation/NavigationTree.class.php:1203
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Válasszon adatbázist"
+msgstr "Válasszon egy adatbázist."
 
 #: libraries/navigation/NavigationTree.class.php:1261
 msgid "Filter databases by name or regex"
@@ -10515,7 +10506,7 @@ msgstr "Az ellenőrzés nem sikerült a következő bemeneti karakterláncnál: 
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr "SQL-lekérdezésként, színkódolással formázza a szöveget."
+msgstr "SQL-lekérdezésként formázza a szöveget szintaxis kiemeléssel."
 
 #: libraries/plugins/transformations/abstract/SubstringTransformationsPlugin.class.php:31
 msgid ""
@@ -10560,10 +10551,9 @@ msgstr ""
 "lehetőség a hivatkozás címe."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:38
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "SQL-lekérdezésként, színkódolással formázza a szöveget."
+msgstr "JSON-ként formázza a szöveget szintaxis kiemeléssel."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -13533,10 +13523,9 @@ msgid "Add %s column(s)"
 msgstr "%s oszlop hozzáadása"
 
 #: libraries/structure.lib.php:1712
-#, fuzzy
 #| msgid "Beginning of table"
 msgid "at beginning of table"
-msgstr "A tábla eleje"
+msgstr "a tábla elejénél"
 
 #: libraries/structure.lib.php:1717
 #: libraries/tbl_columns_definition_form.lib.php:827
@@ -13734,10 +13723,9 @@ msgid "Storage Engine:"
 msgstr "Tárolómotor:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Kapcsolatok"
+msgstr "Kapcsolat:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
@@ -13879,24 +13867,22 @@ msgstr ""
 "b> lennie!"
 
 #: libraries/tbl_indexes.lib.php:307
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Indexgyorsítótár mérete"
+msgstr "Index választás:"
 
 #: libraries/tbl_indexes.lib.php:323
 msgid "Key block size:"
-msgstr ""
+msgstr "Kulcs blokkméret:"
 
 #: libraries/tbl_indexes.lib.php:335
 msgid "Index type:"
 msgstr "Index típusa:"
 
 #: libraries/tbl_indexes.lib.php:347
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Felhasználó:"
+msgstr "Feldolgozó:"
 
 #: libraries/tbl_indexes.lib.php:359
 msgid "Comment:"
