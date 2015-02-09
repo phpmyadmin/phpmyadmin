@@ -261,11 +261,6 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            __('Relations'),
-            $html
-        );
-
-        $this->assertContains(
             __('Column'),
             $html
         );
