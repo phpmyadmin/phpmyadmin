@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-04 11:31-0500\n"
+"POT-Creation-Date: 2015-02-06 07:36-0500\n"
 "PO-Revision-Date: 2015-01-07 01:02+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sq/>\n"
-"Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sq\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -607,8 +607,8 @@ msgstr "Parametra jo të plota"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Ndoshta provuat të ngarkoni një fil, që është shumë i madh. Ju lutem, refero "
 "%sdokumentacionin%s për një vështrim të kujdesshëm për këtë kufizim."
@@ -917,8 +917,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
-"Versioni i librarisë së PHP MySQL %s ndryshon nga versioni i MySQL server "
-"%s. Kjo mund të shkaktojë sjellje të paparashikuara."
+"Versioni i librarisë së PHP MySQL %s ndryshon nga versioni i MySQL server %"
+"s. Kjo mund të shkaktojë sjellje të paparashikuara."
 
 #: index.php:611
 #, php-format
@@ -3135,7 +3135,7 @@ msgstr "Aktualizo faqeruajtësin"
 msgid "Delete bookmark"
 msgstr "Fshij faqeruajtësin"
 
-#: libraries/DatabaseInterface.class.php:2193
+#: libraries/DatabaseInterface.class.php:2190
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3143,19 +3143,19 @@ msgstr ""
 "Serveri nuk përgjigjet (ose foleja e serverit lokal nuk është konfiguruar "
 "saktë)."
 
-#: libraries/DatabaseInterface.class.php:2198
+#: libraries/DatabaseInterface.class.php:2195
 msgid "The server is not responding."
 msgstr "Serveri nuk përgjigjet."
 
-#: libraries/DatabaseInterface.class.php:2203
+#: libraries/DatabaseInterface.class.php:2200
 msgid "Please check privileges of directory containing database."
 msgstr "Ju lutem, kontrollo privilegjet e drejtorisë që përmban databazën."
 
-#: libraries/DatabaseInterface.class.php:2213
+#: libraries/DatabaseInterface.class.php:2210
 msgid "Details…"
 msgstr "Detajet…"
 
-#: libraries/DatabaseInterface.class.php:2436
+#: libraries/DatabaseInterface.class.php:2433
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Lidhja për përdoruesin e kontrollit, siç përcaktohet në konfigurimin tuaj "
@@ -3354,11 +3354,11 @@ msgstr "Pyetsori juaj SQL është ekzekutuar me sukses."
 #: libraries/DisplayResults.class.php:4479 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Kjo pamje ka të paktën këtë numër të radhëve. Ju lutem, refero "
-"%sdokumentacionin%s."
+"Kjo pamje ka të paktën këtë numër të radhëve. Ju lutem, refero %"
+"sdokumentacionin%s."
 
 #: libraries/DisplayResults.class.php:4492
 #, php-format
@@ -4266,20 +4266,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Një numër i vogël pikë-lundrues, vlerat e lejuara janë -3.402823466E+38 deri "
 "-1.175494351E-38, 0, dhe 1.175494351E-38 deri 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Një numër precizion-dyfishtë pikë-lundrues, vlerat e lejuara janë "
-"-1.7976931348623157E+308 deri -2.2250738585072014E-308, 0, dhe "
+"Një numër precizion-dyfishtë pikë-lundrues, vlerat e lejuara janë -"
+"1.7976931348623157E+308 deri -2.2250738585072014E-308, 0, dhe "
 "2.2250738585072014E-308 deri 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -5232,8 +5232,8 @@ msgstr ""
 "Vendos tipin e autentifikimit [kbd]config[/kbd] (konfig) dhe përfshij emrin "
 "e përdorimit dhe fjalëkalimin për auto-hyrje, gjë që nuk është një opsion i "
 "dëshiruar për pritësit (hosts) live. Secili që e di ose e merr me mend URL "
-"të phpMyAdmin mund të hyjë direkt në panelin tuaj të phpMyAdmin. Vendos "
-"%stipin e autentifikimit%s tek [kbd]cookie[/kbd] ose [kbd]http[/kbd]."
+"të phpMyAdmin mund të hyjë direkt në panelin tuaj të phpMyAdmin. Vendos %"
+"stipin e autentifikimit%s tek [kbd]cookie[/kbd] ose [kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, php-format
@@ -7381,8 +7381,9 @@ msgstr "Suhosin paralajmërim"
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
 msgid ""
-"Disable the default warning that is displayed on the main page if session."
-"gc_maxlifetime is less than `LoginCookieValidity`."
+"Disable the default warning that is displayed on the main page if the value "
+"of the PHP setting session.gc_maxlifetime is less than the value of "
+"`LoginCookieValidity`."
 msgstr ""
 "Pasivizon paralajmërimin standard që është shfaqur në faqen Struktura, nëse "
 "emrat e kolonës në një tabelë janë fjalë të rezervuara MySQL."
@@ -7995,13 +7996,13 @@ msgstr ", @TABLE@ - do të bëhet emri i tabelës"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Kjo vlerë është interpretuar me anë të %1$sstrftime%2$s, kështu që mund të "
 "përdorni vargjet e formatimit të kohës. Për më tepër, transformimet që "
-"vijojnë mund të ndodhin: %3$s. Teksti tjetër do të mbahet siç është. Shiko "
-"%4$sFAQ%5$s për detaje."
+"vijojnë mund të ndodhin: %3$s. Teksti tjetër do të mbahet siç është. Shiko %4"
+"$sFAQ%5$s për detaje."
 
 #: libraries/display_export.lib.php:526
 msgid "use this for future exports"
@@ -8548,11 +8549,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
-"Dokumentacioni dhe informacioni i mëtejshëm rreth PBXT mund të gjendet në "
-"%sUebfaqen PrimeBase XT%s."
+"Dokumentacioni dhe informacioni i mëtejshëm rreth PBXT mund të gjendet në %"
+"sUebfaqen PrimeBase XT%s."
 
 #: libraries/engines/pbxt.lib.php:138
 msgid "Related Links"
@@ -9714,11 +9715,11 @@ msgstr "Mirësevjen në %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Ndoshta nuk keni krijuar një fil konfigurimi. Mund të doni të përdorni "
-"%1$sskriptin e instalimit%2$s për ta krijuar atë."
+"Ndoshta nuk keni krijuar një fil konfigurimi. Mund të doni të përdorni %1"
+"$sskriptin e instalimit%2$s për ta krijuar atë."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:144
 msgid ""
@@ -10235,7 +10236,7 @@ msgstr "Emrat e kolonës: "
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Parametër i pavlefshëm për importin CSV: %s"
 
-#: libraries/plugins/import/ImportCsv.class.php:202
+#: libraries/plugins/import/ImportCsv.class.php:198
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -10244,13 +10245,13 @@ msgstr ""
 "Kolonë e pavlefshme (%s) e specifikuar! Sigurohu që emrat e kolonave janë "
 "shkruar saktë, ndarë me presje dhe nuk mbyllen me thonjëza."
 
-#: libraries/plugins/import/ImportCsv.class.php:295
-#: libraries/plugins/import/ImportCsv.class.php:626
+#: libraries/plugins/import/ImportCsv.class.php:291
+#: libraries/plugins/import/ImportCsv.class.php:630
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Format i pavlefshëm i hyrjes CSV në linjë %d."
 
-#: libraries/plugins/import/ImportCsv.class.php:507
+#: libraries/plugins/import/ImportCsv.class.php:503
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Numër i pavlefshëm kolone në hyrjen CSV në linjë %d."
@@ -10750,13 +10751,13 @@ msgstr ""
 msgid "no description"
 msgstr "nuk ka përshkrim"
 
-#: libraries/relation.lib.php:1976
+#: libraries/relation.lib.php:1975
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "%sKrijo%s ruajtjen e konfigurimit phpMyAdmin në databazën aktuale."
 
-#: libraries/relation.lib.php:1983
+#: libraries/relation.lib.php:1982
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
@@ -12112,8 +12113,8 @@ msgstr "Pamja e përgjithshme e përdoruesve"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Shënim: phpMyAdmin i merr privilegjet e përdoruesit direkt nga tabelat e "
 "privilegjeve MySQL. Përmbajtja e këtyre tabelave mund të ndryshojë nga "
@@ -14989,8 +14990,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Raporti aktual i kujtesës cache të pyetsorit të lirë në krahasim me "
 "madhësinë e përgjithshme cache të pyetsorit është %s%%. Duhet të jetë më "
@@ -15148,8 +15149,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% prej të gjitha llojeve shkaktojnë tabela të përkohëshme, kjo vlerë "
 "duhet të jetë nën 10%%."
@@ -16591,8 +16592,8 @@ msgstr "concurrent_insert është vendosur në 0"
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
 #~ "the server."
 #~ msgstr ""
-#~ "<b>Statistikat e Query</b>: Që nga nisja e tij, serverit i janë dërguar "
-#~ "%s queries."
+#~ "<b>Statistikat e Query</b>: Që nga nisja e tij, serverit i janë dërguar %"
+#~ "s queries."
 
 #~ msgid "Add a New User"
 #~ msgstr "Shto një përdorues të ri"

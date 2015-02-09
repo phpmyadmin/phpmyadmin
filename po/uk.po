@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-04 11:31-0500\n"
+"POT-Creation-Date: 2015-02-06 07:36-0500\n"
 "PO-Revision-Date: 2015-01-02 17:07+0200\n"
 "Last-Translator: Сергій Педько <nitrotoll@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -604,8 +604,8 @@ msgstr "Неповні параметри"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Імовірно ви намагаєтесь завантажити занадто великий файл. Будь ласка, "
 "зверніться до %sдокументації%s для знаходження шляхів вирішення цієї "
@@ -650,8 +650,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Немає даних для імпорту. Не було вказано назву файлу або його розмір "
-"перевищив допустимий максимум для вашої PHP конфігурації. Дивіться "
-"[doc@faq1-16]FAQ 1.16[/doc]."
+"перевищив допустимий максимум для вашої PHP конфігурації. Дивіться [doc@faq1-"
+"16]FAQ 1.16[/doc]."
 
 #: import.php:554
 msgid ""
@@ -1349,8 +1349,8 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log ввімкнений, але сервер журналює тільки запити що є довші за "
-"%d секунди. Рекомендовано встановити long_query_time 0-2 секунди, в "
+"slow_query_log ввімкнений, але сервер журналює тільки запити що є довші за %"
+"d секунди. Рекомендовано встановити long_query_time 0-2 секунди, в "
 "залежності від вашої системи."
 
 #: js/messages.php:162
@@ -3096,7 +3096,7 @@ msgstr "Оновити закладку"
 msgid "Delete bookmark"
 msgstr "Видалити закладку"
 
-#: libraries/DatabaseInterface.class.php:2193
+#: libraries/DatabaseInterface.class.php:2190
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3104,19 +3104,19 @@ msgstr ""
 "Сервер не відповідає (або локальний сокет сервера MySQL невірно "
 "налаштований)."
 
-#: libraries/DatabaseInterface.class.php:2198
+#: libraries/DatabaseInterface.class.php:2195
 msgid "The server is not responding."
 msgstr "Сервер не відповідає."
 
-#: libraries/DatabaseInterface.class.php:2203
+#: libraries/DatabaseInterface.class.php:2200
 msgid "Please check privileges of directory containing database."
 msgstr "Будь ласка, перевірте привілеї каталогу містить базу даних."
 
-#: libraries/DatabaseInterface.class.php:2213
+#: libraries/DatabaseInterface.class.php:2210
 msgid "Details…"
 msgstr "Деталі…"
 
-#: libraries/DatabaseInterface.class.php:2436
+#: libraries/DatabaseInterface.class.php:2433
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Помилка при вказуванні з'єднання для controluser в конфігурації."
 
@@ -3315,11 +3315,11 @@ msgstr "Ваш SQL запит було виконано вдало."
 #: libraries/DisplayResults.class.php:4479 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Подання має щонайменше цю кількість рядків. Будь-ласка, зверніться до "
-"%sдокументації%s."
+"Подання має щонайменше цю кількість рядків. Будь-ласка, зверніться до %"
+"sдокументації%s."
 
 #: libraries/DisplayResults.class.php:4492
 #, php-format
@@ -4231,20 +4231,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Мале число з плаваючою крапкою, допустимі значення від-3.402823466E+38 "
-"до-1.175494351E-38, 0, і від 1.175494351E-38 до 3.402823466E+38"
+"Мале число з плаваючою крапкою, допустимі значення від-3.402823466E+38 до-"
+"1.175494351E-38, 0, і від 1.175494351E-38 до 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Число з плаваючою крапкою подвійної точності, допустимі значення "
-"від-1.7976931348623157E+308 до-2.2250738585072014E-308, 0, і від "
+"Число з плаваючою крапкою подвійної точності, допустимі значення від-"
+"1.7976931348623157E+308 до-2.2250738585072014E-308, 0, і від "
 "2.2250738585072014E-308 до 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -5136,8 +5136,8 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:416
 #, fuzzy, php-format
 #| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
-#| "%sLogin cookie validity%s must be set to a value less or equal to it."
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, %"
+#| "sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
@@ -5149,10 +5149,10 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:423
 #, fuzzy, php-format
 #| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
+#| "If you feel this is necessary, use additional protection settings - %"
+#| "shost authentication%s settings and %strusted proxies list%s. However, IP-"
+#| "based protection may not be reliable if your IP belongs to an ISP where "
+#| "thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
@@ -7300,8 +7300,9 @@ msgstr "Попередження про Suhosin"
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
 msgid ""
-"Disable the default warning that is displayed on the main page if session."
-"gc_maxlifetime is less than `LoginCookieValidity`."
+"Disable the default warning that is displayed on the main page if the value "
+"of the PHP setting session.gc_maxlifetime is less than the value of "
+"`LoginCookieValidity`."
 msgstr ""
 "Вимкнути сповіщення, що відображається на сторінці структури бази даних за "
 "наявності стовпців таблиці з іменами, які є зарезервованими словами MySQL."
@@ -7903,13 +7904,13 @@ msgstr ", @TABLE@ буде заміщено ім'ям таблиці"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Значення обробляється функцією %1$sstrftime%2$s, завдяки чому можлива "
 "вставка поточної дати і часу. Додатково можуть бути використані наступні "
-"підстановки: %3$s. Решта тексту залишиться без змін. Подробиці дивіться у "
-"%4$sFAQ%5$s."
+"підстановки: %3$s. Решта тексту залишиться без змін. Подробиці дивіться у %4"
+"$sFAQ%5$s."
 
 #: libraries/display_export.lib.php:526
 msgid "use this for future exports"
@@ -8450,8 +8451,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Документацію і додаткову інформацію про PBXT можна знайти на %sДомашній "
 "сторінці PrimeBase XT%s."
@@ -9573,8 +9574,8 @@ msgstr "Ласкаво просимо до %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Ви, напевно, не створили файл конфігурації. Для його створення Ви можете "
 "використати %1$ssetup script%2$s."
@@ -10094,7 +10095,7 @@ msgstr "Назви стовпців: "
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Неправильний параметр імпорту CSV: %s"
 
-#: libraries/plugins/import/ImportCsv.class.php:202
+#: libraries/plugins/import/ImportCsv.class.php:198
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -10103,13 +10104,13 @@ msgstr ""
 "Зазначено помилкове ім'я стовпця (%s)! Переконайтеся, що назви стовпців "
 "вказані вірно, розділені комами, і не вкладені в лапки."
 
-#: libraries/plugins/import/ImportCsv.class.php:295
-#: libraries/plugins/import/ImportCsv.class.php:626
+#: libraries/plugins/import/ImportCsv.class.php:291
+#: libraries/plugins/import/ImportCsv.class.php:630
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Неправильний формат вхідних CSV-даних в рядку %d."
 
-#: libraries/plugins/import/ImportCsv.class.php:507
+#: libraries/plugins/import/ImportCsv.class.php:503
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Невідповідність кількості стовпців в CSV даних на рядку %d."
@@ -10637,14 +10638,14 @@ msgstr ""
 msgid "no description"
 msgstr "без опису"
 
-#: libraries/relation.lib.php:1976
+#: libraries/relation.lib.php:1975
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "Відсутня таблиця для збереження конфігурації phpMyAdmin"
 
-#: libraries/relation.lib.php:1983
+#: libraries/relation.lib.php:1982
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
@@ -12001,8 +12002,8 @@ msgstr "Перегляд користувачів"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Примітка: phpMyAdmin отримує права користувачів безпосередньо з таблиці прав "
 "MySQL. Зміст цієї таблиці може відрізнятися від прав, які використовуються "
@@ -12196,8 +12197,8 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"Увімкнення директиви general_log може збільшити навантаження на сервер на "
-"5-15%. Також пам'ятайте, що генерування статистики з журналів є досить "
+"Увімкнення директиви general_log може збільшити навантаження на сервер на 5-"
+"15%. Також пам'ятайте, що генерування статистики з журналів є досить "
 "інтенсивною задачею, тому бажано вибрати лише невеликий проміжок часу, "
 "вимикати директиву general_log та чистити таблицю щойно в моніторингу більше "
 "немає потреби."
@@ -14898,8 +14899,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Поточне співвідношення вільної пам'яті кешу запитів до загального розміру "
 "кешу запитів складає %s%%. Воно має перевищувати 80%%"
@@ -15056,8 +15057,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% всіх сортувань викликає створення тимчасових таблиць, це значення має "
 "бути нижчим 10%%."
@@ -16274,8 +16275,8 @@ msgstr "concurrent_insert встановлено у 0"
 #~ "For a list of available transformation options and their MIME type "
 #~ "transformations, click on %stransformation descriptions%s"
 #~ msgstr ""
-#~ "Щоб отримати список можливих опцій і їх MIME-type перетворень, натисніть "
-#~ "%sописи перетворень%s"
+#~ "Щоб отримати список можливих опцій і їх MIME-type перетворень, натисніть %"
+#~ "sописи перетворень%s"
 
 #~ msgid "SQL command to fetch available databases"
 #~ msgstr "SQL команда для вибірки доступних баз даних"
@@ -16785,8 +16786,8 @@ msgstr "concurrent_insert встановлено у 0"
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
 #~ "the server."
 #~ msgstr ""
-#~ "<b>Статистика запитів</b>: З моменту запуску, до сервера було надіслано "
-#~ "%s запитів."
+#~ "<b>Статистика запитів</b>: З моменту запуску, до сервера було надіслано %"
+#~ "s запитів."
 
 #~ msgid "Add a New User"
 #~ msgstr "Додати нового користувача"

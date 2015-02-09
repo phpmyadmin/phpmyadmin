@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-04 11:31-0500\n"
-"PO-Revision-Date: 2015-02-03 00:29+0200\n"
+"POT-Creation-Date: 2015-02-06 07:36-0500\n"
+"PO-Revision-Date: 2015-02-06 15:48+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -604,11 +604,11 @@ msgstr "Nepopolni parametri"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v "
-"%sdokumentaciji%s ogledate načine, kako obiti omejitev."
+"Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v %"
+"sdokumentaciji%s ogledate načine, kako obiti omejitev."
 
 #: import.php:343 import.php:626
 msgid "Showing bookmark"
@@ -844,12 +844,6 @@ msgstr ""
 "razcepiti nizov, kar lahko vodi v nepričakovane rezultate."
 
 #: index.php:488
-#, fuzzy
-#| msgid ""
-#| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
-#| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-#| "than cookie validity configured in phpMyAdmin, because of this, your "
-#| "login will expire sooner than configured in phpMyAdmin."
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -859,7 +853,7 @@ msgstr ""
 "Vaš parameter PHP [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] je nižji od "
 "veljavnosti piškotkov, določene v phpMyAdminu. Zaradi tega se bo vaša "
-"prijava iztekla prej, kot je določeno v phpMyAdminu."
+"prijava morda iztekla prej, kot je določeno v phpMyAdminu."
 
 #: index.php:501
 msgid ""
@@ -2764,8 +2758,8 @@ msgstr "Nepričakovani znaki v vrstici %s."
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Nepričakovan znak v vrstici %1$s. Pričakoval sem tabulator, vendar našel "
-"»%2$s«."
+"Nepričakovan znak v vrstici %1$s. Pričakoval sem tabulator, vendar našel »%2"
+"$s«."
 
 #: libraries/Advisor.class.php:475
 msgid "per second"
@@ -3097,7 +3091,7 @@ msgstr "Posodobi zaznamek"
 msgid "Delete bookmark"
 msgstr "Izbriši zaznamek"
 
-#: libraries/DatabaseInterface.class.php:2193
+#: libraries/DatabaseInterface.class.php:2190
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3105,19 +3099,19 @@ msgstr ""
 "Strežnik se ne odziva (ali pa lokalna vtičnica strežnika ni pravilno "
 "konfigurirana)."
 
-#: libraries/DatabaseInterface.class.php:2198
+#: libraries/DatabaseInterface.class.php:2195
 msgid "The server is not responding."
 msgstr "Strežnik se ne odziva."
 
-#: libraries/DatabaseInterface.class.php:2203
+#: libraries/DatabaseInterface.class.php:2200
 msgid "Please check privileges of directory containing database."
 msgstr "Prosimo, preverite pravice mape, v kateri se nahaja zbirka podatkov."
 
-#: libraries/DatabaseInterface.class.php:2213
+#: libraries/DatabaseInterface.class.php:2210
 msgid "Details…"
 msgstr "Podrobnosti …"
 
-#: libraries/DatabaseInterface.class.php:2436
+#: libraries/DatabaseInterface.class.php:2433
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Povezava za controluserja, kot je določena v vaši konfiguraciji, je "
@@ -3320,8 +3314,8 @@ msgstr "Poizvedbo SQL sem uspešno izvedel."
 #: libraries/DisplayResults.class.php:4479 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "Pogled ima vsaj toliko vrstic. Prosimo, oglejte si %sdokumentacijo%s."
 
 #: libraries/DisplayResults.class.php:4492
@@ -4239,20 +4233,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Majhno število z decimalno vejico; dovoljene so vrednosti od -3,402823466E"
 "+38 do -1,175494351E-38, 0 in od 1,175494351E-38 do 3,402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Število z decimalno vejico z natančnostjo double; dovoljene so vrednosti od "
-"-1,7976931348623157E+308 do -2,2250738585072014E-308, 0 in od "
+"Število z decimalno vejico z natančnostjo double; dovoljene so vrednosti od -"
+"1,7976931348623157E+308 do -2,2250738585072014E-308, 0 in od "
 "2,2250738585072014E-308 do 1,7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -4560,11 +4554,9 @@ msgid "Create PHP Code"
 msgstr "Ustvari kodo PHP"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
-#| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Uredi indeks"
+msgstr "Uredi v vrstici"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1580
@@ -5146,8 +5138,8 @@ msgid ""
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
 "%sVeljavnost prijavnega piškotka%s večja od %ssession.gc_maxlifetime%s lahko "
-"povzroči naključno razvrednotenje seje (session.gc_maxlifetime je trenutno "
-"%d)."
+"povzroči naključno razvrednotenje seje (session.gc_maxlifetime je trenutno %"
+"d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
 #, php-format
@@ -7309,22 +7301,21 @@ msgid "Suhosin warning"
 msgstr "Opozorilo Suhosin"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
-#| "Disable the default warning that is displayed on the Structure page if "
-#| "column names in a table are reserved MySQL words."
+#| "Disable the default warning that is displayed on the main page if session."
+#| "gc_maxlifetime is less than `LoginCookieValidity`."
 msgid ""
-"Disable the default warning that is displayed on the main page if session."
-"gc_maxlifetime is less than `LoginCookieValidity`."
+"Disable the default warning that is displayed on the main page if the value "
+"of the PHP setting session.gc_maxlifetime is less than the value of "
+"`LoginCookieValidity`."
 msgstr ""
-"Onemogoči privzeto opozorilo, ki se prikaže na strani Struktura, če so imena "
-"stolpcev v tabeli rezervirane besede MySQL."
+"Onemogoči privzeto opozorilo, ki se prikaže na glavni strani, če je vrednost "
+"nastavitve PHP session.gc_maxlifetime manjša kot vrednost "
+"`LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:758
-#, fuzzy
-#| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Veljavnost prijavnega piškotka"
+msgstr "Opozorilo o veljavnost prijavnega piškotka"
 
 #: libraries/config/messages.inc.php:759
 msgid ""
@@ -7922,8 +7913,8 @@ msgstr ", @TABLE@ bo postalo ime tabele"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Vrednost je prevedena z uporabo %1$sstrftime%2$s, tako da lahko uporabljate "
 "nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb: %3$s. "
@@ -8469,8 +8460,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentacijo in nadaljnje informacije o PBXT lahko najdete na %sDomači "
 "strani PrimeBase XT%s."
@@ -9622,8 +9613,8 @@ msgstr "Dobrodošli v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Najverjetneje niste ustvarili konfiguracijske datoteke. Morda želite "
 "uporabiti %1$snastavitveni skript%2$s, da jo ustvarite."
@@ -10138,7 +10129,7 @@ msgstr "Imena stolpcev: "
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Neveljavni parameter za uvoz CSV: %s"
 
-#: libraries/plugins/import/ImportCsv.class.php:202
+#: libraries/plugins/import/ImportCsv.class.php:198
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -10147,13 +10138,13 @@ msgstr ""
 "Naveden je neveljavni stolpec (%s)! Prepričajte se, da so imena stolpcev "
 "pravilno črkovana, ločena z vejicami in ne obdana z narekovaji."
 
-#: libraries/plugins/import/ImportCsv.class.php:295
-#: libraries/plugins/import/ImportCsv.class.php:626
+#: libraries/plugins/import/ImportCsv.class.php:291
+#: libraries/plugins/import/ImportCsv.class.php:630
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Neveljavna oblika vnosa CSV v vrstici %d."
 
-#: libraries/plugins/import/ImportCsv.class.php:507
+#: libraries/plugins/import/ImportCsv.class.php:503
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Neveljavno število stolpcev v vnosu CSV v vrstici %d."
@@ -10485,10 +10476,8 @@ msgstr ""
 "URL, kot je \"http://www.example.com/\". Druga možnost je ime povezave."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:38
-#, fuzzy
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Oblikuje besedilo kot poizvedbo SQL z označevanjem skladnje."
+msgstr "Oblikuje besedilo kot JSON z označevanjem skladnje."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -10646,7 +10635,7 @@ msgstr ""
 msgid "no description"
 msgstr "brez opisa"
 
-#: libraries/relation.lib.php:1976
+#: libraries/relation.lib.php:1975
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
@@ -10654,7 +10643,7 @@ msgstr ""
 "%sCreate%s tabele hrambe konfiguracije phpMyAdmin in trenutni zbirki "
 "podatkov."
 
-#: libraries/relation.lib.php:1983
+#: libraries/relation.lib.php:1982
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "%sUstvari%s manjkajoče tabele hrambe konfiguracije phpMyAdmin."
@@ -12013,8 +12002,8 @@ msgstr "Pregled uporabnikov"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Obvestilo: phpMyAdmin dobi podatke o uporabnikovih privilegijih iz tabel "
 "privilegijev MySQL. Vsebina teh tabel se lahko razlikuje od privilegijev, ki "
@@ -13644,10 +13633,8 @@ msgid "Storage Engine:"
 msgstr "Pogon skladiščenja:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
-msgstr "Povezave"
+msgstr "Povezava:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
@@ -14846,8 +14833,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Trenutni delež prostega pomnilnika predpomnilnika poizvedb je v primerjavi s "
 "skupnim pomnilnikom predpomnilnima poizvedb %s %%. Moral bi biti nad 80 %%"
@@ -15002,8 +14989,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s %% vseh razvrščanj povzroča začasne tabele; vrednost bi morala biti nižja "
 "od 10 %%."
@@ -16236,8 +16223,8 @@ msgstr "concurrent_insert je nastavljeno na 0"
 #~ "For a list of available transformation options and their MIME type "
 #~ "transformations, click on %stransformation descriptions%s"
 #~ msgstr ""
-#~ "Za seznam razpoložljivih možnosti pretvorbe in vrst MIME kliknite na "
-#~ "%sopise transformacij%s"
+#~ "Za seznam razpoložljivih možnosti pretvorbe in vrst MIME kliknite na %"
+#~ "sopise transformacij%s"
 
 #~ msgid ""
 #~ "Uncheck this to prevent the sending of error reports for javascript errors"

@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-04 11:31-0500\n"
-"PO-Revision-Date: 2015-01-30 01:11+0200\n"
-"Last-Translator: Douglas Eccker <douglaseccker@hotmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"POT-Creation-Date: 2015-02-06 07:36-0500\n"
+"PO-Revision-Date: 2015-02-07 04:08+0200\n"
+"Last-Translator: Junior Zancan <jrzancan@hotmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -607,8 +607,8 @@ msgstr "Parâmetros incompletos"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Você provavelmente tentou carregar um arquivo muito grande. Veja referências "
 "na %sdocumentação%s para resolver esse problema."
@@ -901,8 +901,8 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "O armazenamento de configurações do phpMyAdmin não está completamente "
-"configurado, algumas funções avançadas foram desativadas. %sDescubra porque"
-"%s. "
+"configurado, algumas funções avançadas foram desativadas. %sDescubra porque%"
+"s. "
 
 #: index.php:542
 msgid ""
@@ -2912,10 +2912,9 @@ msgid "Profiling"
 msgstr "Perfil"
 
 #: libraries/Console.class.php:183
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
-msgstr "Tabela de favoritos"
+msgstr "Marcadores"
 
 #: libraries/Console.class.php:184
 msgid "Query failed"
@@ -3136,7 +3135,7 @@ msgstr "Atualizar marcador"
 msgid "Delete bookmark"
 msgstr "Excluir marcador"
 
-#: libraries/DatabaseInterface.class.php:2193
+#: libraries/DatabaseInterface.class.php:2190
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3144,20 +3143,20 @@ msgstr ""
 "O servidor não está respondendo (ou o soquete do servidor local não está "
 "configurado corretamente)."
 
-#: libraries/DatabaseInterface.class.php:2198
+#: libraries/DatabaseInterface.class.php:2195
 msgid "The server is not responding."
 msgstr "O servidor não está respondendo."
 
-#: libraries/DatabaseInterface.class.php:2203
+#: libraries/DatabaseInterface.class.php:2200
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "Por favor verifique os privilégios do diretório que contém o banco de dados."
 
-#: libraries/DatabaseInterface.class.php:2213
+#: libraries/DatabaseInterface.class.php:2210
 msgid "Details…"
 msgstr "Detalhes…"
 
-#: libraries/DatabaseInterface.class.php:2436
+#: libraries/DatabaseInterface.class.php:2433
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "A conexão para o controle do usuário, como definida nas configurações, "
@@ -3356,11 +3355,11 @@ msgstr "Seu comando SQL foi executado com sucesso."
 #: libraries/DisplayResults.class.php:4479 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Esta view tem pelo menos esse número de linhas. Por favor, consulte a "
-"%sdocumentação%s."
+"Esta view tem pelo menos esse número de linhas. Por favor, consulte a %"
+"sdocumentação%s."
 
 #: libraries/DisplayResults.class.php:4492
 #, php-format
@@ -4273,16 +4272,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Um número curto de ponto flutuante, os valores permitidos são: de "
-"-3,402823466E+38 a -1,175494351E-38, 0 e de 1,175494351E-38 a 3,402823466E+38"
+"Um número curto de ponto flutuante, os valores permitidos são: de -"
+"3,402823466E+38 a -1,175494351E-38, 0 e de 1,175494351E-38 a 3,402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Um número de ponto flutuante de dupla precisão (longo), os valores "
@@ -7398,8 +7397,9 @@ msgstr "Aviso do Suhosin"
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
 msgid ""
-"Disable the default warning that is displayed on the main page if session."
-"gc_maxlifetime is less than `LoginCookieValidity`."
+"Disable the default warning that is displayed on the main page if the value "
+"of the PHP setting session.gc_maxlifetime is less than the value of "
+"`LoginCookieValidity`."
 msgstr ""
 "Desabilita o aviso padrão que é exibido na página de Estrutura se os nomes "
 "de colunas em uma tabela forem palavras reservadas do MySQL."
@@ -8029,8 +8029,8 @@ msgstr ", @TABLE@ se tornará o nome da tabela"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Esse valor é interpretado usando %1$sstrftime%2$s, então você pode usar as "
 "strings de formatação de tempo. Adicionalmente a seguinte transformação "
@@ -8591,8 +8591,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Documentação e mais informações sobre PBXT podem ser encontradas na %sPágina "
 "Inicial da PrimeBase XT%s."
@@ -9735,11 +9735,11 @@ msgstr "Bem-vindo ao %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Você provavelmente não criou o arquivo de configuração. Você deve usar o "
-"%1$sscript de setup%2$s para criar um."
+"Você provavelmente não criou o arquivo de configuração. Você deve usar o %1"
+"$sscript de setup%2$s para criar um."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:144
 msgid ""
@@ -10257,7 +10257,7 @@ msgstr "Nome das colunas: "
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Parâmetro inválido para importação CSV: %s"
 
-#: libraries/plugins/import/ImportCsv.class.php:202
+#: libraries/plugins/import/ImportCsv.class.php:198
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -10267,13 +10267,13 @@ msgstr ""
 "estejam escritos corretamente, separados por vírgulas e que não estejam "
 "entre aspas."
 
-#: libraries/plugins/import/ImportCsv.class.php:295
-#: libraries/plugins/import/ImportCsv.class.php:626
+#: libraries/plugins/import/ImportCsv.class.php:291
+#: libraries/plugins/import/ImportCsv.class.php:630
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Formato inválido de input CSV na linha %d."
 
-#: libraries/plugins/import/ImportCsv.class.php:507
+#: libraries/plugins/import/ImportCsv.class.php:503
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Contador de colunas inválido no input CSV na linha %d."
@@ -10805,14 +10805,14 @@ msgstr ""
 msgid "no description"
 msgstr "sem descrição"
 
-#: libraries/relation.lib.php:1976
+#: libraries/relation.lib.php:1975
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "Tabelas do armazenamento de configurações do phpMyAdmin faltando"
 
-#: libraries/relation.lib.php:1983
+#: libraries/relation.lib.php:1982
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
@@ -12165,8 +12165,8 @@ msgstr "Visão geral dos usuários"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Nota: O phpMyAdmin recebe os privilégios dos usuário diretamente da tabela "
 "de privilégios do MySQL. O conteúdo destas tabelas pode divergir dos "
@@ -15089,8 +15089,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "A relação entre a memória livre do cache de consultas e o tamanho total do "
 "cache de consultas é de %s%%. Deveria ser maior do que 80%%"
@@ -15245,8 +15245,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% de todas as ordenações criam tabelas temporárias, este valor deveria "
 "ser menor do que 10%%."
@@ -15417,8 +15417,8 @@ msgstr ""
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
-"Os valores atuais de tmp_table_size são de: %s e de max_heap_table_size de: "
-"%s"
+"Os valores atuais de tmp_table_size são de: %s e de max_heap_table_size de: %"
+"s"
 
 #: libraries/advisory_rules.txt:269
 msgid "Percentage of temp tables on disk"
@@ -16960,8 +16960,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "Suggest a database name on the \"Create Database\" form (if possible) or "
 #~ "keep the text field empty"
 #~ msgstr ""
-#~ "Sugerir um nome do banco de dados no formulário \"Criar Banco de Dados"
-#~ "%quot; (se possível) ou manter o campo texto vazio"
+#~ "Sugerir um nome do banco de dados no formulário \"Criar Banco de Dados%"
+#~ "quot; (se possível) ou manter o campo texto vazio"
 
 #~ msgid "Suggest new database name"
 #~ msgstr "Sugerir nome para o banco de dados"
