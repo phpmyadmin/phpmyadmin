@@ -68,11 +68,7 @@ $GLOBALS['special_schema_links'] = array(
                 'default_page' => $GLOBALS['cfg']['DefaultTabTable']
             ),
             'column_name' => array(
-                'link_param' => array(
-                    'sql_query',
-                    'db',
-                    'table_name'
-                ),
+                'link_param' => 'field',
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
@@ -83,7 +79,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'Table_name'
                     )
                 ),
-                'default_page' => 'sql.php'
+                'default_page' => 'tbl_structure.php?change_column=1'
             ),
         ),
         'db' => array(
@@ -265,11 +261,7 @@ $GLOBALS['special_schema_links'] = array(
                 'default_page' => $GLOBALS['cfg']['DefaultTabTable']
             ),
             'column_name' => array(
-                'link_param' => array(
-                    'sql_query',
-                    'table_schema',
-                    'table_name'
-                ),
+                'link_param' => 'field',
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
@@ -280,7 +272,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_name'
                     )
                 ),
-                'default_page' => 'sql.php'
+                'default_page' => 'tbl_structure.php?change_column=1'
             )
         ),
         'key_column_usage' => array(
@@ -295,11 +287,7 @@ $GLOBALS['special_schema_links'] = array(
                 'default_page' => $GLOBALS['cfg']['DefaultTabTable']
             ),
             'column_name' => array(
-                'link_param' => array(
-                    'sql_query',
-                    'table_schema',
-                    'table_name'
-                ),
+                'link_param' => 'field',
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
@@ -310,7 +298,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_name'
                     )
                 ),
-                'default_page' => 'sql.php'
+                'default_page' => 'tbl_structure.php?change_column=1'
             ),
             'referenced_table_name' => array(
                 'link_param' => 'table',
@@ -323,11 +311,7 @@ $GLOBALS['special_schema_links'] = array(
                 'default_page' => $GLOBALS['cfg']['DefaultTabTable']
             ),
             'referenced_column_name' => array(
-                'link_param' => array(
-                    'sql_query',
-                    'referenced_table_schema',
-                    'referenced_table_name'
-                ),
+                'link_param' => 'field',
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
@@ -338,7 +322,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'referenced_table_name'
                     )
                 ),
-                'default_page' => 'sql.php'
+                'default_page' => 'tbl_structure.php?change_column=1'
             )
         ),
         'partitions' => array(
@@ -421,11 +405,7 @@ $GLOBALS['special_schema_links'] = array(
                 'default_page' => $GLOBALS['cfg']['DefaultTabTable']
             ),
             'column_name' => array(
-                'link_param' => array(
-                    'sql_query',
-                    'table_schema',
-                    'table_name'
-                ),
+                'link_param' => 'field',
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
@@ -436,7 +416,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_name'
                     )
                 ),
-                'default_page' => 'sql.php'
+                'default_page' => 'tbl_structure.php?change_column=1'
             )
         ),
         'tables' => array(
@@ -452,6 +432,18 @@ $GLOBALS['special_schema_links'] = array(
             ),
         ),
         'table_constraints' => array(
+            'table_name' => array(
+                'link_param' => 'table',
+                'link_dependancy_params' => array(
+                    0 => array(
+                        'param_info' => 'db',
+                        'column_name' => 'table_schema'
+                    )
+                ),
+                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+            ),
+        ),
+        'views' => array(
             'table_name' => array(
                 'link_param' => 'table',
                 'link_dependancy_params' => array(
