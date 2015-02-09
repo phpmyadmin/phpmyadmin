@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-06 07:36-0500\n"
-"PO-Revision-Date: 2015-02-04 22:14+0200\n"
+"PO-Revision-Date: 2015-02-09 12:04+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -1659,7 +1659,7 @@ msgstr "Essaya"
 
 #: js/messages.php:249
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Formatante SQL..."
 
 #: js/messages.php:253 libraries/db_designer.lib.php:823
 #: libraries/db_designer.lib.php:872 libraries/db_designer.lib.php:1016
@@ -2260,6 +2260,8 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Vermente tu vole vider omne rangos? Pro un grande tabella isto poterea vader "
+"in crash le navigator."
 
 #: js/messages.php:441
 msgid "cancel"
@@ -2355,11 +2357,14 @@ msgstr "Leva ligamine ex pannello principal"
 #: js/messages.php:479
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Pro filtrar omne base de datos sur le servitor, pressa Enter postea un "
+"termino de cerca"
 
 #: js/messages.php:480
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Pro filtrar omne %s base de datos, pressa Enter postea un termino de cerca"
 
 #: js/messages.php:481
 msgid "tables"
@@ -2485,6 +2490,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Tu navigator web non supporta immagazinage local de preferentias o on ha "
+"attingite le limite de quota, alcun characteristicas poterea non functionar "
+"propriemente pro te. In Safari, tal problema es communmente causate per \""
+"Private Mode Browsing (Modo de navigation private)\"."
 
 #: js/messages.php:569
 msgctxt "Previous month"
@@ -4922,7 +4931,7 @@ msgstr "Dishabilita"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "clave"
 
 #: libraries/config.values.php:99
 msgid "display column"
@@ -6358,6 +6367,8 @@ msgstr "Limite de memoria"
 #: libraries/config/messages.inc.php:418
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
+"In le pannello de navigation, reimplacia le arbore de base de datos con un "
+"selector"
 
 #: libraries/config/messages.inc.php:419
 msgid "Show databases navigation as tree"
@@ -7374,7 +7385,6 @@ msgid "Suhosin warning"
 msgstr "Aviso de Suhosin"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the main page if session."
 #| "gc_maxlifetime is less than `LoginCookieValidity`."
@@ -7384,7 +7394,8 @@ msgid ""
 "`LoginCookieValidity`."
 msgstr ""
 "Dishabilita le aviso predefinite que es monstrate sur le pagina principal si "
-"session.gc_maxlifetime es minor que `LoginCookieValidity`."
+"le valor de le arrangiamento de PHP session.gc_maxlifetime es minor que le "
+"valor de `LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:758
 msgid "Login cookie validity warning"
@@ -8838,7 +8849,7 @@ msgstr "Esperanto"
 
 #: libraries/mysql_charsets.lib.php:204
 msgid "Estonian"
-msgstr ""
+msgstr "Estonian"
 
 #: libraries/mysql_charsets.lib.php:207 libraries/mysql_charsets.lib.php:210
 msgid "German"
@@ -8866,7 +8877,7 @@ msgstr "Japonese"
 
 #: libraries/mysql_charsets.lib.php:222
 msgid "Latvian"
-msgstr ""
+msgstr "Letton"
 
 #: libraries/mysql_charsets.lib.php:225
 msgid "Lithuanian"
@@ -8898,7 +8909,7 @@ msgstr "Slovaco"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovenian"
-msgstr ""
+msgstr "Sloveno"
 
 #: libraries/mysql_charsets.lib.php:249
 msgid "Spanish"
@@ -8944,7 +8955,7 @@ msgstr "Russo"
 
 #: libraries/mysql_charsets.lib.php:316
 msgid "Baltic"
-msgstr ""
+msgstr "Baltic"
 
 #: libraries/mysql_charsets.lib.php:321
 msgid "Armenian"
