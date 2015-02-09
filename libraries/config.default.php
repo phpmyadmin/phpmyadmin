@@ -494,6 +494,20 @@ $cfg['Servers'][$i]['central_columns'] = '';
 $cfg['Servers'][$i]['MaxTableUiprefs'] = 100;
 
 /**
+ * Sets the time zone for the current database session. Leave blank to use the
+ * time zone of your database server.
+ *
+ * Useful when your database server uses a time zone which is different from the
+ * time zone you want to use in PhpMyAdmin.
+ *
+ * For a list with available time zones, please read
+ *   http://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
+ *
+ * @global string $cfg['Servers'][$i]['SessionTimeZone'] = ''
+ */
+$cfg['Servers'][$i]['SessionTimeZone'] = '';
+
+/**
  * whether to allow root login
  *
  * @global boolean $cfg['Servers'][$i]['AllowRoot']
