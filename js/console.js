@@ -185,7 +185,9 @@ var PMA_console = {
                 PMA_console.info();
                 break;
             case 'show':
+                var pmaWindowScrollHead = $(window).scrollTop();
                 PMA_console.show(true);
+                $(window).scrollTop(pmaWindowScrollHead);
                 PMA_console.scrollBottom();
                 break;
         }
@@ -307,7 +309,9 @@ var PMA_console = {
         switch($.cookie('pma_console_mode')) {
             case 'collapse':
             case 'info':
+                var pmaWindowScrollHead = $(window).scrollTop();
                 PMA_console.show(true);
+                $(window).scrollTop(pmaWindowScrollHead);
                 break;
             case 'show':
                 PMA_console.collapse();
