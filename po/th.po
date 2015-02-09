@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-06 07:36-0500\n"
-"PO-Revision-Date: 2015-02-08 05:01+0200\n"
+"PO-Revision-Date: 2015-02-09 16:12+0200\n"
 "Last-Translator: mrnonz <nontawat39@gmail.com>\n"
 "Language-Team: Thai "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/th/>\n"
@@ -451,7 +451,7 @@ msgstr "หากคุณพบปัญหาในการใช้งาน
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "คุณอาจจะต้องการรีเฟรซหน้านี้"
 
 #: export.php:182 schema_export.php:71
 msgid "Bad type!"
@@ -613,7 +613,7 @@ msgstr "ไม่อนุญาตให้ใช้งาน"
 
 #: import.php:58 js/messages.php:443
 msgid "Failed"
-msgstr ""
+msgstr "ผิดพลาด"
 
 #: import.php:62
 #, fuzzy
@@ -647,10 +647,9 @@ msgstr ""
 
 #: import.php:467 import.php:528 libraries/File.class.php:418
 #: libraries/File.class.php:512
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "อ่านไฟล์ไม่ได้"
+msgstr "อ่านไฟล์ไม่ได้!"
 
 #: import.php:477 import.php:488 import.php:509 import.php:520
 #: libraries/File.class.php:578
@@ -672,13 +671,12 @@ msgstr ""
 "กรุณาแก้ไขไฟล์ตั้งค่าของ PHP ดูเอกสารเพิ่มเติมได้ที่ [doc@faq1-16]FAQ 1.16[/doc]"
 
 #: import.php:554
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
-msgstr "ไม่สามารถแปลงไฟล์ข้อมูลชุดอักขระได้ในไลค์บารี"
+msgstr "ไม่สามารถแปลงไฟล์ข้อมูลชุดอักขระได้ในไลค์บารี!"
 
 #: import.php:594 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
