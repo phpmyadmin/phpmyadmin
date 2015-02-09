@@ -37,6 +37,7 @@ phpMyAdmin - ChangeLog
 + rfe #1192 ON DUPLICATE KEY UPDATE for loading CSV
 - bug       Cannot execute command from console (multi-server installation)
 + rfe #1208 linking from information_schema
++ rfe #1235 Relation view: move to main "Structure" page
 
 4.3.10.0 (not yet released)
 - bug       Undefined index navwork

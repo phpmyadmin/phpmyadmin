@@ -129,7 +129,6 @@ AJAX.registerOnload('tbl_structure.js', function () {
                         $("#page_content")
                             .empty()
                             .append(data.message)
-                            .append(data.sql_query)
                             .show();
                         PMA_highlightSQL($('#page_content'));
                         $(".result_query .notice").remove();
@@ -183,7 +182,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     if (data.sql_query) {
                         $('<div class="result_query"></div>')
                             .html(data.sql_query)
-                            .prependTo('#page_content');
+                            .prependTo('#structure_content');
                         PMA_highlightSQL($('#page_content'));
                     }
                     toggleRowColors($curr_row.next());

@@ -182,8 +182,6 @@ function PMA_getHtmlForCommonForm($db, $table, $columns, $cfgRelation,
     $tbl_storage_engine, $existrel, $existrel_foreign, $options_array
 ) {
     $html_output = PMA_getHtmlForCommonFormHeader($db, $table);
-    $html_output .= '<fieldset>'
-        . '<legend>' . __('Relations') . '</legend>';
 
     if ($cfgRelation['relwork']) {
         $html_output .= PMA_getHtmlForInternalRelationForm(
@@ -197,8 +195,6 @@ function PMA_getHtmlForCommonForm($db, $table, $columns, $cfgRelation,
             $db, $tbl_storage_engine, $options_array
         );
     } // end if (InnoDB)
-
-    $html_output .= '</fieldset>';
 
     if ($cfgRelation['displaywork']) {
         $html_output .= PMA_getHtmlForDisplayFieldInfos(
@@ -823,7 +819,7 @@ function PMA_handleUpdateForDisplayField($disp, $display_field, $db, $table,
         PMA_queryAsControlUser($upd_query);
         $html_output = PMA_Util::getMessage(
             __('Display column was successfully updated.'),
-            null, 'success'
+            '', 'success'
         );
     }
     return $html_output;
@@ -907,7 +903,7 @@ function PMA_handleUpdatesForInternalRelations($destination_db,
     if ($updated) {
         $html_output = PMA_Util::getMessage(
             __('Internal relations were successfully updated.'),
-            null, 'success'
+            '', 'success'
         );
     }
     return $html_output;

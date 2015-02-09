@@ -64,12 +64,10 @@ function PMA_handleCreateOrEditIndex($db, $table, $index)
 
         if ($GLOBALS['is_ajax_request'] == true) {
             $response = PMA_Response::getInstance();
-            $response->addJSON('message', $message);
-            $response->addJSON('index_table', PMA_Index::getView($table, $db));
             $response->addJSON(
-                'sql_query',
-                PMA_Util::getMessage(null, $sql_query)
+                'message', PMA_Util::getMessage($message, $sql_query, 'success')
             );
+            $response->addJSON('index_table', PMA_Index::getView($table, $db));
         } else {
             include 'tbl_structure.php';
         }

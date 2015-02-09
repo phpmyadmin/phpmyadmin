@@ -76,26 +76,6 @@ if (isset($_REQUEST['change_column'])) {
     PMA_displayHtmlForColumnChange($db, $table, null, 'tbl_structure.php');
     exit;
 }
-/**
- * Modifications have been submitted -> updates the table
- */
-if (isset($_REQUEST['do_save_data'])) {
-    $regenerate = PMA_updateColumns($db, $table);
-    if ($regenerate) {
-        // This happens when updating failed
-        // @todo: do something appropriate
-    } else {
-        // continue to show the table's structure
-        unset($_REQUEST['selected']);
-    }
-}
-/**
- * Adding indexes
- */
-if (isset($_REQUEST['add_key'])) {
-    include 'sql.php';
-    $GLOBALS['reload'] = true;
-}
 
 /**
  * handle multiple field commands if required
@@ -130,6 +110,33 @@ if (! empty($submit_mult)) {
         $response->isSuccess(false);
         $response->addJSON('message', __('No column selected.'));
     }
+}
+
+// display secondary level tabs if necessary
+$engine = PMA_Table::sGetStatusInfo($db, $table, 'ENGINE');
+$response->addHTML(PMA_getStructureSecondaryTabs($engine));
+$response->addHTML('<div id="structure_content">');
+
+/**
+ * Modifications have been submitted -> updates the table
+ */
+if (isset($_REQUEST['do_save_data'])) {
+    $regenerate = PMA_updateColumns($db, $table);
+    if ($regenerate) {
+        // This happens when updating failed
+        // @todo: do something appropriate
+    } else {
+        // continue to show the table's structure
+        unset($_REQUEST['selected']);
+    }
+}
+
+/**
+ * Adding indexes
+ */
+if (isset($_REQUEST['add_key'])) {
+    include 'sql.php';
+    $GLOBALS['reload'] = true;
 }
 
 /**
@@ -195,4 +202,6 @@ $hidden_titles = PMA_getHiddenTitlesArray();
 
 //display table structure
 require_once 'libraries/display_structure.inc.php';
+
+$response->addHTML('</div>');
 ?>

@@ -1625,18 +1625,6 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
         . '</a>';
 
     if (! $tbl_is_view && ! $db_is_system_schema) {
-        // if internal relations are available, or foreign keys are supported
-        // ($tbl_storage_engine comes from libraries/tbl_info.inc.php
-
-        if ($cfgRelation['relwork']
-            || PMA_Util::isForeignKeySupported($tbl_storage_engine)
-        ) {
-            $html_output .= '<a href="tbl_relation.php' . $url_query . '">'
-                . PMA_Util::getIcon(
-                    'b_relations.png', __('Relation view'), true
-                )
-                . '</a>';
-        }
         if (!PMA_DRIZZLE) {
             $html_output .= '<a href="sql.php' . $url_query
                 . '&amp;session_max_rows=all&amp;sql_query=' . urlencode(
@@ -3226,5 +3214,56 @@ function PMA_possiblyShowCreateTableDialog($db, $db_is_system_schema, $response)
         ob_end_clean();
         $response->addHTML($content);
     } // end if (Create Table dialog)
+}
+
+/**
+ * Returns the HTML for secondary levels tabs of the table structure page
+ *
+ * @return string HTML for secondary levels tabs
+ */
+function PMA_getStructureSecondaryTabs($tbl_storage_engine)
+{
+    $html_output = '';
+
+    $cfgRelation = PMA_getRelationsParam();
+    if ($cfgRelation['relwork']
+        || PMA_Util::isForeignKeySupported(strtoupper($tbl_storage_engine))
+    ) {
+        $url_params = array();
+        $url_params['db'] = $GLOBALS['db'];
+        $url_params['table'] = $GLOBALS['table'];
+
+        $html_output .= '<ul id="topmenu2">';
+        foreach (PMA_getStructureSubTabs() as $tab) {
+            $html_output .= PMA_Util::getHtmlTab($tab, $url_params);
+        }
+        $html_output .= '</ul>';
+        $html_output .= '<div class="clearfloat"></div>';
+    }
+    return $html_output;
+}
+
+/**
+ * Returns an array with necessary configurations to create
+ * sub-tabs in the Structure page at table level
+ *
+ * @return array Array containing configuration (icon, text, link, id)
+ * of sub-tabs
+ */
+function PMA_getStructureSubTabs()
+{
+    $subtabs = array();
+
+    $subtabs['structure']['icon'] = 'b_props';
+    $subtabs['structure']['link'] = 'tbl_structure.php';
+    $subtabs['structure']['text'] = __('Table Structure');
+    $subtabs['structure']['id'] = 'table_strucuture_id';
+
+    $subtabs['relation']['icon'] = 'b_relations';
+    $subtabs['relation']['link'] = 'tbl_relation.php';
+    $subtabs['relation']['text'] = __('Relation View');
+    $subtabs['relation']['id'] = 'table_relation_id';
+
+    return $subtabs;
 }
 ?>
