@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-12 09:29+0200\n"
+"PO-Revision-Date: 2015-02-09 12:04+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/ia/>\n"
@@ -2247,6 +2247,8 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Vermente tu vole vider omne rangos? Pro un grande tabella isto poterea vader "
+"in crash le navigator."
 
 #: js/messages.php:436
 msgid "cancel"
@@ -8761,7 +8763,7 @@ msgstr "Esperanto"
 
 #: libraries/mysql_charsets.lib.php:204
 msgid "Estonian"
-msgstr ""
+msgstr "Estonian"
 
 #: libraries/mysql_charsets.lib.php:207 libraries/mysql_charsets.lib.php:210
 msgid "German"
@@ -8789,7 +8791,7 @@ msgstr "Japonese"
 
 #: libraries/mysql_charsets.lib.php:222
 msgid "Latvian"
-msgstr ""
+msgstr "Letton"
 
 #: libraries/mysql_charsets.lib.php:225
 msgid "Lithuanian"
@@ -8821,7 +8823,7 @@ msgstr "Slovaco"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovenian"
-msgstr ""
+msgstr "Sloveno"
 
 #: libraries/mysql_charsets.lib.php:249
 msgid "Spanish"
@@ -8867,7 +8869,7 @@ msgstr "Russo"
 
 #: libraries/mysql_charsets.lib.php:316
 msgid "Baltic"
-msgstr ""
+msgstr "Baltic"
 
 #: libraries/mysql_charsets.lib.php:321
 msgid "Armenian"
