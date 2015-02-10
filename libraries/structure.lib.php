@@ -1299,9 +1299,8 @@ function PMA_getHtmlForTableStructureHeader(
         . '<th>' . __('Default') . '</th>'
         . '<th>' . __('Extra') . '</th>';
 
-    if ($db_is_system_schema || $tbl_is_view) {
-        $html_output .= '<th>' . __('View') . '</th>';
-    } else { /* see tbl_structure.js, function moreOptsMenuResize() */
+    /* see tbl_structure.js, function moreOptsMenuResize() */
+    if (! $db_is_system_schema && ! $tbl_is_view) {
         $colspan = 9;
         if (PMA_DRIZZLE) {
             $colspan -= 2;
