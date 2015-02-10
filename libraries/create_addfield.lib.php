@@ -261,7 +261,7 @@ function PMA_getTableCreationQuery($db, $table)
 
     // Builds the 'create table' statement
     $sql_query = 'CREATE TABLE ' . PMA_Util::backquote($db) . '.'
-        . PMA_Util::backquote($table) . ' (' . $sql_statement . ')';
+        . PMA_Util::backquote(trim($table)) . ' (' . $sql_statement . ')';
 
     // Adds table type, character set, comments and partition definition
     if (!empty($_REQUEST['tbl_storage_engine'])
