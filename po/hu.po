@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-02-08 19:40+0200\n"
+"PO-Revision-Date: 2015-02-10 20:29+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/hu/>\n"
@@ -13985,7 +13985,7 @@ msgstr "Nézet szerkesztése"
 
 #: libraries/structure.lib.php:1634
 msgid "Relation view"
-msgstr "Reláció nézet"
+msgstr "Kapcsolati nézet"
 
 #: libraries/structure.lib.php:1646
 msgid "Propose table structure"
