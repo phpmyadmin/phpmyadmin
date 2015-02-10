@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2014-11-05 10:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -6404,7 +6404,7 @@ msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 #, fuzzy
 #| msgid "Database for user"
 msgid "Table structure"
@@ -14160,16 +14160,10 @@ msgstr ""
 msgid "Showing create queries"
 msgstr "SQL асуудал харуулах"
 
-#: libraries/structure.lib.php:3258
-#, fuzzy
-#| msgid "Database for user"
-msgid "Table Structure"
-msgstr "Хэрэглэгчийн өгөгдлийн сан"
-
 #: libraries/structure.lib.php:3263
 #, fuzzy
 #| msgid "Relation view"
-msgid "Relation View"
+msgid "Relation view"
 msgstr "Хамаарал харах"
 
 #: libraries/tbl_chart.lib.php:39
@@ -16400,6 +16394,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "ХИ. давхацсан холболтууд"
+
+#, fuzzy
+#~| msgid "Database for user"
+#~ msgid "Table Structure"
+#~ msgstr "Хэрэглэгчийн өгөгдлийн сан"
 
 #, fuzzy
 #~| msgid "Showing rows"

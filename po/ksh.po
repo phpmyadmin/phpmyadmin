@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2014-10-02 15:09+0200\n"
 "Last-Translator: Purodha <publi@web.de>\n"
 "Language-Team: Colognian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5702,7 +5702,7 @@ msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 msgid "Table structure"
 msgstr ""
 
@@ -12632,12 +12632,8 @@ msgstr ""
 msgid "Showing create queries"
 msgstr ""
 
-#: libraries/structure.lib.php:3258
-msgid "Table Structure"
-msgstr ""
-
 #: libraries/structure.lib.php:3263
-msgid "Relation View"
+msgid "Relation view"
 msgstr ""
 
 #: libraries/tbl_chart.lib.php:39

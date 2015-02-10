@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2015-02-08 08:28+0200\n"
 "Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -6414,7 +6414,7 @@ msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr "データベースの構造 (テーブルの一覧) で詳細に表示させるかの選択"
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 msgid "Table structure"
 msgstr "テーブルの構造"
 
@@ -14572,16 +14572,10 @@ msgstr ""
 msgid "Showing create queries"
 msgstr "SQL クエリを表示する"
 
-#: libraries/structure.lib.php:3258
-#, fuzzy
-#| msgid "Table structure"
-msgid "Table Structure"
-msgstr "テーブルの構造"
-
 #: libraries/structure.lib.php:3263
 #, fuzzy
 #| msgid "Relation view"
-msgid "Relation View"
+msgid "Relation view"
 msgstr "リレーションビュー"
 
 #: libraries/tbl_chart.lib.php:39
@@ -16944,6 +16938,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています"
+
+#, fuzzy
+#~| msgid "Table structure"
+#~ msgid "Table Structure"
+#~ msgstr "テーブルの構造"
 
 #, fuzzy
 #~| msgid "Show data row(s)"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2015-01-06 18:52+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
@@ -6111,7 +6111,7 @@ msgid ""
 msgstr ""
 "Choose which details to show in the database structure (list of tables)."
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 msgid "Table structure"
 msgstr "Table structure"
 
@@ -13714,16 +13714,10 @@ msgstr "Favourite List is full!"
 msgid "Showing create queries"
 msgstr "Show SQL queries"
 
-#: libraries/structure.lib.php:3258
-#, fuzzy
-#| msgid "Table structure"
-msgid "Table Structure"
-msgstr "Table structure"
-
 #: libraries/structure.lib.php:3263
 #, fuzzy
 #| msgid "Relation view"
-msgid "Relation View"
+msgid "Relation view"
 msgstr "Relation view"
 
 #: libraries/tbl_chart.lib.php:39
@@ -15954,6 +15948,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is set to 0"
+
+#, fuzzy
+#~| msgid "Table structure"
+#~ msgid "Table Structure"
+#~ msgstr "Table structure"
 
 #~ msgid "Show data row(s)."
 #~ msgstr "Show data row(s)."

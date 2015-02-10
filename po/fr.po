@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2015-02-10 18:34+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
-"Language: fr\n"
+"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"fr/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -6022,7 +6022,7 @@ msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr "Choisissez les détails à afficher dans la liste des tables."
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 msgid "Table structure"
 msgstr "Structure de table"
 
@@ -7755,7 +7755,6 @@ msgid "Move Menu"
 msgstr "Déplacer le menu"
 
 #: libraries/db_designer.lib.php:416 libraries/db_designer.lib.php:419
-#| msgid "Partial texts"
 msgid "Pin text"
 msgstr "Épingler le texte"
 
@@ -13666,16 +13665,10 @@ msgstr "La liste des tables favorites est pleine !"
 msgid "Showing create queries"
 msgstr "Affichage des requêtes de création"
 
-#: libraries/structure.lib.php:3258
-#, fuzzy
-#| msgid "Table structure"
-msgid "Table Structure"
-msgstr "Structure de table"
-
 #: libraries/structure.lib.php:3263
 #, fuzzy
 #| msgid "Relation view"
-msgid "Relation View"
+msgid "Relation view"
 msgstr "Vue relationnelle"
 
 #: libraries/tbl_chart.lib.php:39
@@ -15915,6 +15908,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
+
+#, fuzzy
+#~| msgid "Table structure"
+#~ msgid "Table Structure"
+#~ msgstr "Structure de table"
 
 #~ msgid "Show data row(s)."
 #~ msgstr "Afficher les lignes correspondantes."

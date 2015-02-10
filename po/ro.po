@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2014-10-23 14:29+0200\n"
 "Last-Translator: Ion Adrian-Ionut <john@panevo.ro>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -6027,7 +6027,7 @@ msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 #, fuzzy
 #| msgid "Database for user"
 msgid "Table structure"
@@ -14289,16 +14289,10 @@ msgstr "Lista favoritelor este plină!"
 msgid "Showing create queries"
 msgstr "Afișează interogările SQL"
 
-#: libraries/structure.lib.php:3258
-#, fuzzy
-#| msgid "Database for user"
-msgid "Table Structure"
-msgstr "Bază de date pentru utilizatorul"
-
 #: libraries/structure.lib.php:3263
 #, fuzzy
 #| msgid "Relation view"
-msgid "Relation View"
+msgid "Relation view"
 msgstr "Vizualizare relațională"
 
 #: libraries/tbl_chart.lib.php:39
@@ -16577,6 +16571,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert este setat cu 0"
+
+#, fuzzy
+#~| msgid "Database for user"
+#~ msgid "Table Structure"
+#~ msgstr "Bază de date pentru utilizatorul"
 
 #~ msgid "Show data row(s)."
 #~ msgstr "Afișează înregistrarea(ile)."

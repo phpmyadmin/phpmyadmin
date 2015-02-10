@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2014-06-08 19:34+0200\n"
 "Last-Translator: Nikola Stojaković <nikola.stojakovic@hotmail.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -6435,7 +6435,7 @@ msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 #, fuzzy
 #| msgid "Database for user"
 msgid "Table structure"
@@ -14321,16 +14321,10 @@ msgstr ""
 msgid "Showing create queries"
 msgstr "Прикажи комплетне упите"
 
-#: libraries/structure.lib.php:3258
-#, fuzzy
-#| msgid "Database for user"
-msgid "Table Structure"
-msgstr "База за корисника"
-
 #: libraries/structure.lib.php:3263
 #, fuzzy
 #| msgid "Relation view"
-msgid "Relation View"
+msgid "Relation view"
 msgstr "Релациони поглед"
 
 #: libraries/tbl_chart.lib.php:39
@@ -16567,6 +16561,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "макс. истовремених веза"
+
+#, fuzzy
+#~| msgid "Database for user"
+#~ msgid "Table Structure"
+#~ msgstr "База за корисника"
 
 #, fuzzy
 #~| msgid "Showing rows"

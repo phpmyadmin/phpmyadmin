@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2015-01-04 06:01+0200\n"
 "Last-Translator: Yong Kim <kim@nhn.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5902,7 +5902,7 @@ msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr "데이터베이스 구조(테이블 목록)란에서 어떤 정보를 보여줄 지 선택."
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 msgid "Table structure"
 msgstr "테이블 구조"
 
@@ -13259,16 +13259,10 @@ msgstr "즐겨찾기 목록이 가득 찼습니다!"
 msgid "Showing create queries"
 msgstr "생성 쿼리 보이기"
 
-#: libraries/structure.lib.php:3258
-#, fuzzy
-#| msgid "Table structure"
-msgid "Table Structure"
-msgstr "테이블 구조"
-
 #: libraries/structure.lib.php:3263
 #, fuzzy
 #| msgid "Relation view"
-msgid "Relation View"
+msgid "Relation view"
 msgstr "릴레이션 뷰"
 
 #: libraries/tbl_chart.lib.php:39
@@ -15428,6 +15422,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
+
+#, fuzzy
+#~| msgid "Table structure"
+#~ msgid "Table Structure"
+#~ msgstr "테이블 구조"
 
 #~ msgid "Show data row(s)."
 #~ msgstr "데이터 행 표시."

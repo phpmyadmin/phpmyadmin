@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2015-01-07 01:02+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -6047,7 +6047,7 @@ msgstr ""
 "Zgjedh cilat detaje do të shfaqn në strukturën e databazës (lista e "
 "tabelave)."
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 msgid "Table structure"
 msgstr "Struktura e tabelës"
 
@@ -13672,16 +13672,10 @@ msgstr "Lista e preferencave është e mbushur!"
 msgid "Showing create queries"
 msgstr "Shfaqën krijo pyetsorët"
 
-#: libraries/structure.lib.php:3258
-#, fuzzy
-#| msgid "Table structure"
-msgid "Table Structure"
-msgstr "Struktura e tabelës"
-
 #: libraries/structure.lib.php:3263
 #, fuzzy
 #| msgid "Relation view"
-msgid "Relation View"
+msgid "Relation view"
 msgstr "Pamje e relationit"
 
 #: libraries/tbl_chart.lib.php:39
@@ -15937,6 +15931,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert është vendosur në 0"
+
+#, fuzzy
+#~| msgid "Table structure"
+#~ msgid "Table Structure"
+#~ msgstr "Struktura e tabelës"
 
 #~ msgid "Show data row(s)."
 #~ msgstr "Shfaq radhën(t) e të dhënave."

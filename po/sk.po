@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2015-02-06 15:23+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5921,7 +5921,7 @@ msgstr ""
 "Vyberte, ktoré detaily sa majú zobrazovať v štruktúre databázy (zoznam "
 "tabuliek)."
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 msgid "Table structure"
 msgstr "Štruktúra tabuľky"
 
@@ -13269,16 +13269,10 @@ msgstr "Zoznam obľúbených je plný!"
 msgid "Showing create queries"
 msgstr "Zobrazovanie SQL dopytov pre vytvorenie"
 
-#: libraries/structure.lib.php:3258
-#, fuzzy
-#| msgid "Table structure"
-msgid "Table Structure"
-msgstr "Štruktúra tabuľky"
-
 #: libraries/structure.lib.php:3263
 #, fuzzy
 #| msgid "Relation view"
-msgid "Relation View"
+msgid "Relation view"
 msgstr "Zobraziť prepojenia"
 
 #: libraries/tbl_chart.lib.php:39
@@ -15287,6 +15281,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavené na 0"
+
+#, fuzzy
+#~| msgid "Table structure"
+#~ msgid "Table Structure"
+#~ msgstr "Štruktúra tabuľky"
 
 #~ msgid "Show data row(s)."
 #~ msgstr "Zobraziť riadky."

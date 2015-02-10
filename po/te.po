@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2014-02-27 10:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Telugu <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -6186,7 +6186,7 @@ msgid ""
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 #, fuzzy
 #| msgid "Database"
 msgid "Table structure"
@@ -13581,17 +13581,10 @@ msgstr ""
 msgid "Showing create queries"
 msgstr ""
 
-# మొదటి అనువాదము
-#: libraries/structure.lib.php:3258
-#, fuzzy
-#| msgid "Database"
-msgid "Table Structure"
-msgstr "డేటాబేస్"
-
 #: libraries/structure.lib.php:3263
 #, fuzzy
 #| msgid "Relations"
-msgid "Relation View"
+msgid "Relation view"
 msgstr "సంబంధాలు"
 
 #: libraries/tbl_chart.lib.php:39
@@ -15722,6 +15715,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Table Structure"
+#~ msgstr "డేటాబేస్"
 
 #, fuzzy
 #~| msgid "Start"

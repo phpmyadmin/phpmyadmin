@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2014-12-18 09:39+0200\n"
 "Last-Translator: HM <goodlinuxuser@chmail.ir>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -6203,7 +6203,7 @@ msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 #, fuzzy
 #| msgid "Databases"
 msgid "Table structure"
@@ -13672,16 +13672,10 @@ msgstr ""
 msgid "Showing create queries"
 msgstr "نمایش کامل کوئری"
 
-#: libraries/structure.lib.php:3258
-#, fuzzy
-#| msgid "Databases"
-msgid "Table Structure"
-msgstr "پايگاههاي داده"
-
 #: libraries/structure.lib.php:3263
 #, fuzzy
 #| msgid "Relation table"
-msgid "Relation View"
+msgid "Relation view"
 msgstr "ارتباط جدول"
 
 #: libraries/tbl_chart.lib.php:39
@@ -15839,6 +15833,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "مقدار concurrent_insert صفر شده است"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Table Structure"
+#~ msgstr "پايگاههاي داده"
 
 #, fuzzy
 #~| msgid "Start"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2015-01-18 15:39+0200\n"
 "Last-Translator: Juha <jremes@outlook.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -6133,7 +6133,7 @@ msgstr ""
 "Valitse, mitkä tiedot näytetään tietokannan rakenteessa (taulukoiden "
 "luettelo)"
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 msgid "Table structure"
 msgstr "Taulun rakenne"
 
@@ -14351,16 +14351,10 @@ msgstr "Suosikkilista on täynnä!"
 msgid "Showing create queries"
 msgstr "Näytä SQL-kyselyt"
 
-#: libraries/structure.lib.php:3258
-#, fuzzy
-#| msgid "Table structure"
-msgid "Table Structure"
-msgstr "Taulun rakenne"
-
 #: libraries/structure.lib.php:3263
 #, fuzzy
 #| msgid "Relation view"
-msgid "Relation View"
+msgid "Relation view"
 msgstr "Relaationäkymä"
 
 #: libraries/tbl_chart.lib.php:39
@@ -16659,6 +16653,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert on asetettu arvoon 0"
+
+#, fuzzy
+#~| msgid "Table structure"
+#~ msgid "Table Structure"
+#~ msgstr "Taulun rakenne"
 
 #~ msgid "Show data row(s)."
 #~ msgstr "Näytä tietorivi(t)."

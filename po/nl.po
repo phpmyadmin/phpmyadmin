@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 09:22-0500\n"
+"POT-Creation-Date: 2015-02-10 12:42-0500\n"
 "PO-Revision-Date: 2015-02-09 18:30+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -6022,7 +6022,7 @@ msgstr ""
 "Kies de details die getoond worden in de databasestructuur (lijst met "
 "tabellen)."
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:293 libraries/structure.lib.php:3258
 msgid "Table structure"
 msgstr "Tabelstructuur"
 
@@ -13667,12 +13667,10 @@ msgstr "De lijst met favorieten is vol!"
 msgid "Showing create queries"
 msgstr "Aanmaakquery's worden getoond"
 
-#: libraries/structure.lib.php:3258
-msgid "Table Structure"
-msgstr "Tabel Structuur"
-
 #: libraries/structure.lib.php:3263
-msgid "Relation View"
+#, fuzzy
+#| msgid "Relation View"
+msgid "Relation view"
 msgstr "Relatie Overzicht"
 
 #: libraries/tbl_chart.lib.php:39
@@ -15933,6 +15931,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is ingesteld op 0"
+
+#~ msgid "Table Structure"
+#~ msgstr "Tabel Structuur"
 
 #~ msgid "Show data row(s)."
 #~ msgstr "Regel(s) met gegevens tonen."
