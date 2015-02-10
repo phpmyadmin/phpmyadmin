@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 12:42-0500\n"
+"POT-Creation-Date: 2015-02-10 13:04-0500\n"
 "PO-Revision-Date: 2014-11-11 12:16+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -259,7 +259,7 @@ msgid ""
 msgstr "phpMyAdmin හි configuration storage අක්‍රිය කර ඇත. %sසොයා බලන්න%s."
 
 #: db_printview.php:48 db_tracking.php:124 db_tracking.php:264
-#: libraries/Menu.class.php:241 libraries/config/messages.inc.php:770
+#: libraries/Menu.class.php:241 libraries/config/messages.inc.php:772
 #: libraries/plugins/export/ExportXml.class.php:498
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:331
 #: libraries/server_privileges.lib.php:1041
@@ -1827,7 +1827,7 @@ msgstr "විමසුම් කවුළුව පෙන්වන්න"
 #: libraries/Index.class.php:675 libraries/Util.class.php:665
 #: libraries/Util.class.php:1190 libraries/Util.class.php:3424
 #: libraries/Util.class.php:3425 libraries/central_columns.lib.php:756
-#: libraries/config/messages.inc.php:751
+#: libraries/config/messages.inc.php:753
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:233 setup/frames/index.inc.php:179
 msgid "Edit"
@@ -2900,7 +2900,7 @@ msgid "Delete"
 msgstr "ඉවත් කරන්න"
 
 #: libraries/Console.class.php:99 libraries/Console.class.php:185
-#: libraries/Menu.class.php:214 libraries/config/messages.inc.php:764
+#: libraries/Menu.class.php:214 libraries/config/messages.inc.php:766
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
 #: libraries/plugins/export/ExportTexytext.class.php:133
@@ -3042,7 +3042,7 @@ msgid "During current session"
 msgstr "වත්මන් දෝෂය මගහරින්න"
 
 #: libraries/Console.class.php:266 libraries/Util.class.php:1232
-#: libraries/config/messages.inc.php:753
+#: libraries/config/messages.inc.php:755
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "අලුත් කරන්න"
@@ -3683,7 +3683,7 @@ msgid ""
 msgstr "%1$s හා %2$s සුචි එක සමාන බැවින් එකක් ඉවත් කල හැක."
 
 #: libraries/Menu.class.php:197 libraries/ServerStatusData.class.php:369
-#: libraries/config/messages.inc.php:768
+#: libraries/config/messages.inc.php:770
 msgid "Server"
 msgstr "සේවාදායකය"
 
@@ -3697,8 +3697,8 @@ msgstr "දසුන"
 #: libraries/Menu.class.php:309 libraries/Menu.class.php:417
 #: libraries/Util.class.php:3193 libraries/Util.class.php:3200
 #: libraries/Util.class.php:3419 libraries/Util.class.php:4148
-#: libraries/Util.class.php:4165 libraries/config/setup.forms.php:303
-#: libraries/config/setup.forms.php:343 libraries/config/setup.forms.php:369
+#: libraries/Util.class.php:4165 libraries/config/setup.forms.php:304
+#: libraries/config/setup.forms.php:344 libraries/config/setup.forms.php:370
 #: libraries/config/user_preferences.forms.php:203
 #: libraries/config/user_preferences.forms.php:243
 #: libraries/config/user_preferences.forms.php:269
@@ -4667,7 +4667,7 @@ msgstr "උපරිම: %s%s"
 msgid "MySQL said: "
 msgstr "MySQL පවසන ලදි: "
 
-#: libraries/Util.class.php:1164 libraries/config/messages.inc.php:752
+#: libraries/Util.class.php:1164 libraries/config/messages.inc.php:754
 msgid "Explain SQL"
 msgstr "SQL ය පහදන්න"
 
@@ -4679,7 +4679,7 @@ msgstr "SQL ය පහදා දීමෙන් ඉවත් වන්න"
 msgid "Without PHP Code"
 msgstr "PHP කේත නොමැතිව"
 
-#: libraries/Util.class.php:1206 libraries/config/messages.inc.php:754
+#: libraries/Util.class.php:1206 libraries/config/messages.inc.php:756
 msgid "Create PHP Code"
 msgstr "PHP කේත සාදන්න"
 
@@ -4788,9 +4788,9 @@ msgstr "විස්තරය"
 msgid "Use this value"
 msgstr "මෙම අගය භාවිතා කරන්න"
 
-#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:315
-#: libraries/config/setup.forms.php:351 libraries/config/setup.forms.php:374
-#: libraries/config/setup.forms.php:379
+#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:316
+#: libraries/config/setup.forms.php:352 libraries/config/setup.forms.php:375
+#: libraries/config/setup.forms.php:380
 #: libraries/config/user_preferences.forms.php:215
 #: libraries/config/user_preferences.forms.php:251
 #: libraries/config/user_preferences.forms.php:274
@@ -4965,24 +4965,32 @@ msgstr "%d වන සේවාදායකය"
 msgid "Invalid authentication method set in configuration:"
 msgstr "වින්‍යසයන්හි වලංගු නැති සත්‍යාපන ක්‍රමයක් සිටුවා ඇත:"
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:990
+#, php-format
+msgid ""
+"Unable to use timezone %s for server %d. Please check your configuration "
+"setting for [em]$cfg['Servers'][%d]['SessionTimeZone'][/em]. phpMyAdmin is "
+"currently using the default time zone of the database server."
+msgstr ""
+
+#: libraries/common.inc.php:1020
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "ඔබ %s %s හෝ ඉන්පසු අනුවාදයක් වෙත යාවත්කාලීන කල යුතුය."
 
-#: libraries/common.inc.php:1085
+#: libraries/common.inc.php:1110
 msgid "Error: Token mismatch"
 msgstr "දෝෂය: ටෝකන නොගැලපීම"
 
-#: libraries/common.inc.php:1117
+#: libraries/common.inc.php:1142
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS අගයන් උඩින් ලිවීමේ උත්සාහය"
 
-#: libraries/common.inc.php:1124
+#: libraries/common.inc.php:1149
 msgid "possible exploit"
 msgstr "විය හැකි අයුතු ප්‍රයෝජන ගැනීමක්"
 
-#: libraries/common.inc.php:1133
+#: libraries/common.inc.php:1158
 msgid "numeric key detected"
 msgstr "සංඛ්‍යාත්මක යතුරක් අනාවරණය වුණි"
 
@@ -5853,8 +5861,8 @@ msgstr "පිරික්සුම් ප්‍රකාරය රිසි ස
 msgid "Customize default options."
 msgstr "පෙරනිමි විකල්ප රිසි සේ සකසන්න."
 
-#: libraries/config/messages.inc.php:207 libraries/config/setup.forms.php:249
-#: libraries/config/setup.forms.php:326
+#: libraries/config/messages.inc.php:207 libraries/config/setup.forms.php:250
+#: libraries/config/setup.forms.php:327
 #: libraries/config/user_preferences.forms.php:151
 #: libraries/config/user_preferences.forms.php:226
 msgid "CSV"
@@ -6769,15 +6777,27 @@ msgstr "මුරපදයක් රහිතව ඇතුල් වීමට �
 msgid "Allow root login"
 msgstr "root ලෙස ඇතුල් වීමට ඉඩ දෙන්න"
 
+#: libraries/config/messages.inc.php:546
+#, fuzzy
+#| msgid "Session value"
+msgid "Session timezone"
+msgstr "සැසි අගය"
+
 #: libraries/config/messages.inc.php:547
+msgid ""
+"Sets the effective timezone; possibly different than the one from your "
+"database server"
+msgstr ""
+
+#: libraries/config/messages.inc.php:549
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 
-#: libraries/config/messages.inc.php:548
+#: libraries/config/messages.inc.php:550
 msgid "HTTP Realm"
 msgstr ""
 
-#: libraries/config/messages.inc.php:550
+#: libraries/config/messages.inc.php:552
 #, fuzzy
 #| msgid ""
 #| "The path for the config file for [a@http://swekey.com]SweKey hardware "
@@ -6791,21 +6811,21 @@ msgstr ""
 "[a@http://swekey.com]SweKey දෘඩාංග සත්‍යාපනය[/a] සඳහා අවශ්‍ය වින්‍යාස ගොනුව අඩංගු "
 "ස්ථානය.(ඔබගේ ලියකියවිලි මූලයේ අඩංගු නැත. යෝජිත: /etc/swekey.conf)"
 
-#: libraries/config/messages.inc.php:554
+#: libraries/config/messages.inc.php:556
 msgid "SweKey config file"
 msgstr "SweKey වින්‍යාස ගොනුව"
 
-#: libraries/config/messages.inc.php:555
+#: libraries/config/messages.inc.php:557
 #, fuzzy
 #| msgid "Authentication method to use"
 msgid "Authentication method to use."
 msgstr "භාවිතා කල යුතු සත්‍යාපන ක්‍රමය"
 
-#: libraries/config/messages.inc.php:556 setup/frames/index.inc.php:163
+#: libraries/config/messages.inc.php:558 setup/frames/index.inc.php:163
 msgid "Authentication type"
 msgstr "සත්‍යාපන වර්ගය"
 
-#: libraries/config/messages.inc.php:558
+#: libraries/config/messages.inc.php:560
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -6813,11 +6833,11 @@ msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/bookmark]පොත්සලකුණු[/a] විශේෂාංගය අනවශ්‍ය නම් හිස්ව "
 "තබන්න. යෝජිත: [kbd]pma__bookmark[/kbd]"
 
-#: libraries/config/messages.inc.php:561
+#: libraries/config/messages.inc.php:563
 msgid "Bookmark table"
 msgstr "පොත්සලකුණු ගොනුව"
 
-#: libraries/config/messages.inc.php:563
+#: libraries/config/messages.inc.php:565
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
@@ -6829,35 +6849,35 @@ msgstr ""
 "තීර විස්තර/mime වර්ග විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න. යෝජිත: [kbd]pma__column_info[/"
 "kbd]"
 
-#: libraries/config/messages.inc.php:566
+#: libraries/config/messages.inc.php:568
 msgid "Column information table"
 msgstr "තීර විස්තර ගොනුව"
 
-#: libraries/config/messages.inc.php:567
+#: libraries/config/messages.inc.php:569
 #, fuzzy
 #| msgid "Compress connection to MySQL server"
 msgid "Compress connection to MySQL server."
 msgstr "MySQL සේවාදායකය වෙත සම්බන්දතාව හකුළුවන්න"
 
-#: libraries/config/messages.inc.php:568
+#: libraries/config/messages.inc.php:570
 msgid "Compress connection"
 msgstr "සම්බන්ධතාව හකුළුවන්න"
 
-#: libraries/config/messages.inc.php:570
+#: libraries/config/messages.inc.php:572
 #, fuzzy
 #| msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
 msgstr "සේවාදායකයට කෙසේ සම්බන්ද විය යුතුද යන්න, අනියත නම් [kbd]tcp[/kbd] ලෙස යොදන්න"
 
-#: libraries/config/messages.inc.php:571
+#: libraries/config/messages.inc.php:573
 msgid "Connection type"
 msgstr "සම්බන්ධතා වර්ගය"
 
-#: libraries/config/messages.inc.php:572
+#: libraries/config/messages.inc.php:574
 msgid "Control user password"
 msgstr "පරිපාලක භාවිතා කරන්නාගේ මුරපදය"
 
-#: libraries/config/messages.inc.php:574
+#: libraries/config/messages.inc.php:576
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
@@ -6870,11 +6890,11 @@ msgstr ""
 "සීමිත අවසර සහිතව වින්‍යාස කරන ලද විශේෂ MySQL භාවිතා කරන්නෙක්, වැඩි විස්තර සඳහා [a@http://"
 "wiki.phpmyadmin.net/pma/controluser]විකිය[/a] බලන්න"
 
-#: libraries/config/messages.inc.php:577
+#: libraries/config/messages.inc.php:579
 msgid "Control user"
 msgstr "පරිපාලක භාවිතා කරන්නා"
 
-#: libraries/config/messages.inc.php:579
+#: libraries/config/messages.inc.php:581
 #, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
@@ -6886,11 +6906,11 @@ msgstr ""
 "වින්‍යාස ගබඩාව තබා ගැනීම සඳහා විකල්ප දායකයෙක්; දැනට අර්ථ දක්වා ඇති දායකයා භාවිතා කිරීමට "
 "හිස්ව තබන්න"
 
-#: libraries/config/messages.inc.php:582
+#: libraries/config/messages.inc.php:584
 msgid "Control host"
 msgstr "පාලක දායකයා"
 
-#: libraries/config/messages.inc.php:584
+#: libraries/config/messages.inc.php:586
 #, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
@@ -6903,31 +6923,31 @@ msgstr ""
 "වින්‍යාස ගබඩාව තබා ගැනීම සඳහා විකල්ප දායකයෙක්; දැනට අර්ථ දක්වා ඇති දායකයා භාවිතා කිරීමට "
 "හිස්ව තබන්න"
 
-#: libraries/config/messages.inc.php:588
+#: libraries/config/messages.inc.php:590
 msgid "Control port"
 msgstr "පාලක පෝර්ටය"
 
-#: libraries/config/messages.inc.php:590
+#: libraries/config/messages.inc.php:592
 #, fuzzy
 #| msgid "Hide databases matching regular expression (PCRE)"
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Regular expression (PCRE) හා ගැළපෙන දත්තගබඩා සඟවන්න"
 
-#: libraries/config/messages.inc.php:591
+#: libraries/config/messages.inc.php:593
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:592
+#: libraries/config/messages.inc.php:594
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "INFORMATION_SCHEMA භාවිතය අක්‍රීය කරන්න"
 
-#: libraries/config/messages.inc.php:593
+#: libraries/config/messages.inc.php:595
 msgid "Hide databases"
 msgstr "දත්තගබඩා සඟවන්න"
 
-#: libraries/config/messages.inc.php:595
+#: libraries/config/messages.inc.php:597
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma__history"
@@ -6939,41 +6959,41 @@ msgstr ""
 "SQL විමසුම් ඉතිහාසය රඳවා ගැනීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]"
 "pma__history[/kbd]"
 
-#: libraries/config/messages.inc.php:598
+#: libraries/config/messages.inc.php:600
 msgid "SQL query history table"
 msgstr "SQL විමසුම් ඉතිහාස වගුව"
 
-#: libraries/config/messages.inc.php:599
+#: libraries/config/messages.inc.php:601
 #, fuzzy
 #| msgid "Hostname where MySQL server is running"
 msgid "Hostname where MySQL server is running."
 msgstr "MySQL සේවාදායකය ක්‍රියාත්මක දායකයේ දායක නාමය"
 
-#: libraries/config/messages.inc.php:600
+#: libraries/config/messages.inc.php:602
 msgid "Server hostname"
 msgstr "සේවාදායකයේ දායක නාමය"
 
-#: libraries/config/messages.inc.php:601
+#: libraries/config/messages.inc.php:603
 msgid "Logout URL"
 msgstr "පිටවිය යුතු URLය"
 
-#: libraries/config/messages.inc.php:603
+#: libraries/config/messages.inc.php:605
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
 
-#: libraries/config/messages.inc.php:607
+#: libraries/config/messages.inc.php:609
 msgid "Maximal number of table preferences to store"
 msgstr "ගබඩා කල යුතු උපරිම වගු අභිරුචි ගණන"
 
-#: libraries/config/messages.inc.php:608
+#: libraries/config/messages.inc.php:610
 #, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
 msgstr "අනුගාමි සේවාදායකයේ තත්ත්ව වගුව බලන්න"
 
-#: libraries/config/messages.inc.php:610
+#: libraries/config/messages.inc.php:612
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
@@ -6985,13 +7005,13 @@ msgstr ""
 "ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]"
 "pma__pdf_pages[/kbd]"
 
-#: libraries/config/messages.inc.php:613
+#: libraries/config/messages.inc.php:615
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns table"
 msgstr "පෙළ පෙදෙසේ පළල"
 
-#: libraries/config/messages.inc.php:615
+#: libraries/config/messages.inc.php:617
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
@@ -7003,38 +7023,38 @@ msgstr ""
 "ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]"
 "pma__table_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:618
+#: libraries/config/messages.inc.php:620
 #, fuzzy
 #| msgid "Try to connect without password"
 msgid "Try to connect without password."
 msgstr "මුරපදය නොමැතිව සම්බන්ධ වීමට උත්සාහ කරන්න"
 
-#: libraries/config/messages.inc.php:619
+#: libraries/config/messages.inc.php:621
 msgid "Connect without password"
 msgstr "මුරපදය නොමැතිව සම්බන්ධ වන්න"
 
-#: libraries/config/messages.inc.php:621
+#: libraries/config/messages.inc.php:623
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 
-#: libraries/config/messages.inc.php:625
+#: libraries/config/messages.inc.php:627
 msgid "Show only listed databases"
 msgstr "සඳහන් දත්තගබඩා පමණක් පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:626 libraries/config/messages.inc.php:719
+#: libraries/config/messages.inc.php:628 libraries/config/messages.inc.php:721
 #, fuzzy
 #| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
 msgstr "config සත්‍යාපනය භාවිතා නොකරයි නම් හිස්ව තබන්න"
 
-#: libraries/config/messages.inc.php:627
+#: libraries/config/messages.inc.php:629
 msgid "Password for config auth"
 msgstr "config සත්‍යාපනය සඳහා මුරපදය"
 
-#: libraries/config/messages.inc.php:629
+#: libraries/config/messages.inc.php:631
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
@@ -7045,11 +7065,11 @@ msgstr ""
 "ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]"
 "pma__pdf_pages[/kbd]"
 
-#: libraries/config/messages.inc.php:631
+#: libraries/config/messages.inc.php:633
 msgid "PDF schema: pages table"
 msgstr "PDF ක්‍රමනුරූපයේ පිටු පිලිබඳ විස්තර අඩංගු වගුව"
 
-#: libraries/config/messages.inc.php:633
+#: libraries/config/messages.inc.php:635
 #, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
@@ -7064,22 +7084,22 @@ msgstr ""
 "සඳහා [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] බලන්න. විශේෂාංග අනවශ්‍ය "
 "නම් හිස්ව තබන්න, යෝජිත: [kbd]phpmyadmin[/kbd]"
 
-#: libraries/config/messages.inc.php:637
+#: libraries/config/messages.inc.php:639
 #: libraries/display_create_database.lib.php:31
 msgid "Database name"
 msgstr "දත්තගබඩාවේ නම"
 
-#: libraries/config/messages.inc.php:639
+#: libraries/config/messages.inc.php:641
 #, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr "MySQL සේවාදායකය සවන් දෙන පෝර්ටය, පෙරනිමි අගය සඳහා හිස්ව තබන්න"
 
-#: libraries/config/messages.inc.php:640
+#: libraries/config/messages.inc.php:642
 msgid "Server port"
 msgstr "සර්වරයේ පොර්ට්"
 
-#: libraries/config/messages.inc.php:642
+#: libraries/config/messages.inc.php:644
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
@@ -7091,11 +7111,11 @@ msgstr ""
 "සැසි අතර \"කල් පවත්නා\" ලෙස මෑතදී භාවිතා කල වගු මතක තබාගැනීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව "
 "තබන්න, යෝජිත: [kbd]pma__recent[/kbd]"
 
-#: libraries/config/messages.inc.php:645
+#: libraries/config/messages.inc.php:647
 msgid "Recently used table"
 msgstr "මෑතදී භාවිතා වූ වගුව"
 
-#: libraries/config/messages.inc.php:647
+#: libraries/config/messages.inc.php:649
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
@@ -7107,13 +7127,13 @@ msgstr ""
 "සැසි අතර \"කල් පවත්නා\" ලෙස මෑතදී භාවිතා කල වගු මතක තබාගැනීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව "
 "තබන්න, යෝජිත: [kbd]pma__recent[/kbd]"
 
-#: libraries/config/messages.inc.php:650
+#: libraries/config/messages.inc.php:652
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorites table"
 msgstr "විචල්‍යනයන්"
 
-#: libraries/config/messages.inc.php:652
+#: libraries/config/messages.inc.php:654
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
@@ -7125,11 +7145,11 @@ msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/relation]වගු අතර සම්බන්ධතා දැක්වෙන සබැඳි[/a] "
 "විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma__relation[/kbd]"
 
-#: libraries/config/messages.inc.php:656
+#: libraries/config/messages.inc.php:658
 msgid "Relation table"
 msgstr "සබැඳුම් දත්ත ඇතුලත් වගුව"
 
-#: libraries/config/messages.inc.php:658
+#: libraries/config/messages.inc.php:660
 #, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
@@ -7141,35 +7161,35 @@ msgstr ""
 "උදාහරණයක් ලෙස [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]සත්‍යාපන ක්‍රම[/"
 "a] බලන්න"
 
-#: libraries/config/messages.inc.php:661
+#: libraries/config/messages.inc.php:663
 msgid "Signon session name"
 msgstr "Signon සැසි නාමය"
 
-#: libraries/config/messages.inc.php:662
+#: libraries/config/messages.inc.php:664
 msgid "Signon URL"
 msgstr "Signon URLය"
 
-#: libraries/config/messages.inc.php:664
+#: libraries/config/messages.inc.php:666
 #, fuzzy
 #| msgid "Socket on which MySQL server is listening, leave empty for default"
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr "MySQL සේවාදායකය සවන් දෙන සොකටය, පෙරනිමි අගය සඳහා හිස්ව තබන්න"
 
-#: libraries/config/messages.inc.php:665
+#: libraries/config/messages.inc.php:667
 msgid "Server socket"
 msgstr "සර්වරයේ සොකට්"
 
-#: libraries/config/messages.inc.php:666
+#: libraries/config/messages.inc.php:668
 #, fuzzy
 #| msgid "Enable SSL for connection to MySQL server"
 msgid "Enable SSL for connection to MySQL server."
 msgstr "MySQL සේවාදායකය වෙත සබඳතාවය සඳහා SSL සක්‍රීය කරන්න"
 
-#: libraries/config/messages.inc.php:667
+#: libraries/config/messages.inc.php:669
 msgid "Use SSL"
 msgstr "SSL භාවිතා කරන්න"
 
-#: libraries/config/messages.inc.php:669
+#: libraries/config/messages.inc.php:671
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
@@ -7181,13 +7201,13 @@ msgstr ""
 "ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]"
 "pma__table_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:671
+#: libraries/config/messages.inc.php:673
 #, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
 msgstr "PDF ක්‍රමානුරූපය: වගු ඛණ්ඩාංක"
 
-#: libraries/config/messages.inc.php:673
+#: libraries/config/messages.inc.php:675
 #, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
@@ -7199,11 +7219,11 @@ msgstr ""
 "දර්ෂිත තීර පිලිබඳ දත්ත අඩංගු වගුව. විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න; යෝජිත: [kbd]"
 "pma__table_info[/kbd]"
 
-#: libraries/config/messages.inc.php:676
+#: libraries/config/messages.inc.php:678
 msgid "Display columns table"
 msgstr "පෙන්විය යුතු තීර පිළිබඳ දත්ත ඇතුලත් වගුව"
 
-#: libraries/config/messages.inc.php:678
+#: libraries/config/messages.inc.php:680
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
@@ -7215,11 +7235,11 @@ msgstr ""
 "සැසි අතර \"කල් පවත්නා\" ලෙස වගු අතුරු මුහුණත සම්බන්ධ අභිරුචි තබාගැනීමේ විශේෂාංගය අනවශ්‍ය නම් "
 "හිස්ව තබන්න, යෝජිත: [kbd]pma__table_uiprefs[/kbd]"
 
-#: libraries/config/messages.inc.php:681
+#: libraries/config/messages.inc.php:683
 msgid "UI preferences table"
 msgstr "UI අභිරුචි පිළිබඳ දත්ත ඇතුලත් වගුව"
 
-#: libraries/config/messages.inc.php:683
+#: libraries/config/messages.inc.php:685
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -7227,41 +7247,41 @@ msgstr ""
 "දත්තගබඩාවක් සෑදීමේදී ලොගයේ පළමු පේළිය ලෙස DROP DATABASE IF EXISTS ප්‍රකාශයක් එක් "
 "කරන්නේද යන වග."
 
-#: libraries/config/messages.inc.php:686
+#: libraries/config/messages.inc.php:688
 msgid "Add DROP DATABASE"
 msgstr "DROP DATABASE එක් කරන්න"
 
-#: libraries/config/messages.inc.php:688
+#: libraries/config/messages.inc.php:690
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 "වගුවක් සෑදීමේදී ලොගයේ පළමු පේළිය ලෙස DROP TABLE IF EXISTS ප්‍රකාශයක් එක් කරන්නේද යන වග."
 
-#: libraries/config/messages.inc.php:691
+#: libraries/config/messages.inc.php:693
 msgid "Add DROP TABLE"
 msgstr "DROP TABLE එක් කරන්න"
 
-#: libraries/config/messages.inc.php:693
+#: libraries/config/messages.inc.php:695
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 "දසුනක් සෑදීමේදී ලොගයේ පළමු පේළිය ලෙස DROP VIEW IF EXISTS ප්‍රකාශයක් එක් කරන්නේද යන වග."
 
-#: libraries/config/messages.inc.php:696
+#: libraries/config/messages.inc.php:698
 msgid "Add DROP VIEW"
 msgstr "DROP VIEW එක් කරන්න"
 
-#: libraries/config/messages.inc.php:698
+#: libraries/config/messages.inc.php:700
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr "නව අනුවාදයක් සඳහා ස්වයංක්‍රීය-සැදුම විසින් භාවිතා කලයුතු ප්‍රකාශන ලැයිස්තුව සඳහන් කරයි."
 
-#: libraries/config/messages.inc.php:699
+#: libraries/config/messages.inc.php:701
 msgid "Statements to track"
 msgstr "අවධානය සක්‍රීය කල යුතු ප්‍රකාශ"
 
-#: libraries/config/messages.inc.php:701
+#: libraries/config/messages.inc.php:703
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
@@ -7272,21 +7292,21 @@ msgid ""
 msgstr ""
 "SQL විමසුම් අවධානය විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma__tracking[/kbd]"
 
-#: libraries/config/messages.inc.php:704
+#: libraries/config/messages.inc.php:706
 msgid "SQL query tracking table"
 msgstr "SQL විමසුම් අවධානයට අදාළ වගුව"
 
-#: libraries/config/messages.inc.php:706
+#: libraries/config/messages.inc.php:708
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr "අවධාන ක්‍රියාවලිය විසින් වගු සහ දසුන් සඳහා ස්වයන්ක්‍රීයව අනුවාද සාදන්නේ ද යන වග."
 
-#: libraries/config/messages.inc.php:710
+#: libraries/config/messages.inc.php:712
 msgid "Automatically create versions"
 msgstr "ස්වයංක්‍රියව අනුවාද සාදන්න"
 
-#: libraries/config/messages.inc.php:711
+#: libraries/config/messages.inc.php:713
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
@@ -7298,37 +7318,37 @@ msgstr ""
 "භාවිතා කරන්නාගේ අභිරුචි දත්තගබඩාවේ ගබඩා කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න; යෝජිත: "
 "[kbd]pma__userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:712
+#: libraries/config/messages.inc.php:714
 msgid "User preferences storage table"
 msgstr "භාවිතා කරන්නාගේ අභිරුචි වගුව"
 
-#: libraries/config/messages.inc.php:713
+#: libraries/config/messages.inc.php:715
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 
-#: libraries/config/messages.inc.php:714
+#: libraries/config/messages.inc.php:716
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
 msgstr "වගු භාවිතා කරන්න"
 
-#: libraries/config/messages.inc.php:715
+#: libraries/config/messages.inc.php:717
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 
-#: libraries/config/messages.inc.php:716
+#: libraries/config/messages.inc.php:718
 #, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
 msgstr "දායක වගුව භාවිතා කරන්න"
 
-#: libraries/config/messages.inc.php:717
+#: libraries/config/messages.inc.php:719
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
@@ -7340,61 +7360,61 @@ msgstr ""
 "භාවිතා කරන්නාගේ අභිරුචි දත්තගබඩාවේ ගබඩා කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න; යෝජිත: "
 "[kbd]pma__userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:718
+#: libraries/config/messages.inc.php:720
 msgid "Hidden navigation items table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:720
+#: libraries/config/messages.inc.php:722
 msgid "User for config auth"
 msgstr "config සත්‍යාපනය සඳහා භාවිතා කරන්නා"
 
-#: libraries/config/messages.inc.php:721
+#: libraries/config/messages.inc.php:723
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr "සේවාදායකය සඳහා පරිශ්‍රීලක මිත්‍ර විස්තරයක්. එය වෙනුවට දායක නාමය පෙන්වීමට හිස්ව තබන්න."
 
-#: libraries/config/messages.inc.php:722
+#: libraries/config/messages.inc.php:724
 msgid "Verbose name of this server"
 msgstr ""
 
-#: libraries/config/messages.inc.php:723
+#: libraries/config/messages.inc.php:725
 #, fuzzy
 #| msgid "Whether a user should be displayed a \"show all (rows)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "\"සියලුම පේළි පෙන්වන්න\" සබැඳිය භාවිතා කරන්නාට පෙන්වන්නේද යන වග"
 
-#: libraries/config/messages.inc.php:724
+#: libraries/config/messages.inc.php:726
 msgid "Allow to display all the rows"
 msgstr "සියලුම පේළි දර්ශනය කිරීමට ඉඩ ලබාදෙයි"
 
-#: libraries/config/messages.inc.php:725
+#: libraries/config/messages.inc.php:727
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
 
-#: libraries/config/messages.inc.php:726
+#: libraries/config/messages.inc.php:728
 msgid "Show password change form"
 msgstr "මුරපදය වෙනස් කිරීමේ පෝරමය පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:727
+#: libraries/config/messages.inc.php:729
 msgid "Show create database form"
 msgstr "දත්තගබඩාවක් සෑදීමේ පෝරමය පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:728
+#: libraries/config/messages.inc.php:730
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables"
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr "සියලුම වගු සඳහා වගුව සෑදූ වේලාව දැක්වෙන තීරුව පෙන්වන්න හෝ සඟවන්න"
 
-#: libraries/config/messages.inc.php:729
+#: libraries/config/messages.inc.php:731
 msgid "Show Creation timestamp"
 msgstr "සෑදූ වේලාව පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:730
+#: libraries/config/messages.inc.php:732
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last update timestamp for all tables"
@@ -7402,11 +7422,11 @@ msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr "සියලුම වගු සඳහා අවසන් වරට වගුව යාවත්කාලීන කල වේලාව දැක්වෙන තීරුව පෙන්වන්න හෝ සඟවන්න"
 
-#: libraries/config/messages.inc.php:731
+#: libraries/config/messages.inc.php:733
 msgid "Show Last update timestamp"
 msgstr "අවසන් වරට යාවත්කාලීන කල වේලාව පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:732
+#: libraries/config/messages.inc.php:734
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last check timestamp for all tables"
@@ -7414,11 +7434,11 @@ msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr "සියලුම වගු සඳහා අවසන් වරට වගුව පරීක්ෂා කල වේලාව දැක්වෙන තීරුව පෙන්වන්න හෝ සඟවන්න"
 
-#: libraries/config/messages.inc.php:733
+#: libraries/config/messages.inc.php:735
 msgid "Show Last check timestamp"
 msgstr "අවසන් වරට පරීක්ෂා කල වේලාව පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:734
+#: libraries/config/messages.inc.php:736
 #, fuzzy
 #| msgid ""
 #| "Defines whether or not type fields should be initially displayed in edit/"
@@ -7429,31 +7449,31 @@ msgid ""
 msgstr ""
 "සංස්කරණ/ඇතුළුකිරීම් ප්‍රකාරයේදී තීර වර්ගය දක්වන ක්ෂේත්‍රය ආරම්භයේදී පෙන්විය යුතුද නැතිද යන වග"
 
-#: libraries/config/messages.inc.php:735
+#: libraries/config/messages.inc.php:737
 msgid "Show field types"
 msgstr "ක්ෂේත්‍රයේ වර්ගය පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:736
+#: libraries/config/messages.inc.php:738
 #, fuzzy
 #| msgid "Display the function fields in edit/insert mode"
 msgid "Display the function fields in edit/insert mode."
 msgstr "සංස්කරණ/ඇතුළුකිරීම් ප්‍රකාරයේදී ශ්‍රිතය ක්ෂේත්‍රයන් පෙන්වයි"
 
-#: libraries/config/messages.inc.php:737
+#: libraries/config/messages.inc.php:739
 msgid "Show function fields"
 msgstr "ශ්‍රිතය තීරුව පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:738
+#: libraries/config/messages.inc.php:740
 #, fuzzy
 #| msgid "Whether to show hint or not"
 msgid "Whether to show hint or not."
 msgstr "ඉඟිය පෙන්විය යුතුද නැත්ද යන වග"
 
-#: libraries/config/messages.inc.php:739
+#: libraries/config/messages.inc.php:741
 msgid "Show hint"
 msgstr "ඉඟිය පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:740
+#: libraries/config/messages.inc.php:742
 #, fuzzy
 #| msgid ""
 #| "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
@@ -7465,15 +7485,15 @@ msgstr ""
 "[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] ප්‍රතිදානය වෙත "
 "සබැඳුම පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:741
+#: libraries/config/messages.inc.php:743
 msgid "Show phpinfo() link"
 msgstr "phpinfo() සබැඳුම පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:742
+#: libraries/config/messages.inc.php:744
 msgid "Show detailed MySQL server information"
 msgstr "MySQL සේවාදායකය පිලිබඳ විස්තරාත්මක තොරතුරු පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:743
+#: libraries/config/messages.inc.php:745
 #, fuzzy
 #| msgid ""
 #| "Defines whether SQL queries generated by phpMyAdmin should be displayed"
@@ -7481,11 +7501,11 @@ msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "phpMyAdmin විසින් සාදන ලද විමසුම් පෙන්විය යුතුදැයි සඳහන් කරයි"
 
-#: libraries/config/messages.inc.php:744
+#: libraries/config/messages.inc.php:746
 msgid "Show SQL queries"
 msgstr "SQL විමසුම් පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:745
+#: libraries/config/messages.inc.php:747
 #, fuzzy
 #| msgid ""
 #| "Defines whether the query box should stay on-screen after its submission"
@@ -7493,22 +7513,22 @@ msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "විමසුම ක්‍රියාත්මක කිරීමෙන් පසුව විමසුම් කවුළුව තිරය මත රඳවා ගත යුතුදැයි සඳහන් කරයි"
 
-#: libraries/config/messages.inc.php:746 libraries/sql_query_form.lib.php:326
+#: libraries/config/messages.inc.php:748 libraries/sql_query_form.lib.php:326
 msgid "Retain query box"
 msgstr "විමසුම් කවුළුව රඳවාගන්න"
 
-#: libraries/config/messages.inc.php:747
+#: libraries/config/messages.inc.php:749
 #, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)"
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr ""
 "දත්තගබඩා හා වගු වලට අදාල සංඛ්‍යාලේඛන (උදා. භාවිතා වන ඉඩ ප්‍රමාණය) පෙන්වීමට ඉඩ සලසයි"
 
-#: libraries/config/messages.inc.php:748
+#: libraries/config/messages.inc.php:750
 msgid "Show statistics"
 msgstr "සංඛ්‍ය ලේඛන පෙන්වන්න"
 
-#: libraries/config/messages.inc.php:749
+#: libraries/config/messages.inc.php:751
 #, fuzzy
 #| msgid ""
 #| "Mark used tables and make it possible to show databases with locked tables"
@@ -7516,21 +7536,21 @@ msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr "භාවිතා කරන ලද වගු සලකුණු කර අගුලු ළෑ වගු සහිත දත්තගබඩා පෙන්වීමට ඉඩ සලසන්න"
 
-#: libraries/config/messages.inc.php:750
+#: libraries/config/messages.inc.php:752
 msgid "Skip locked tables"
 msgstr "අගුලු ළෑ දත්තගබඩා මඟහරින්න"
 
-#: libraries/config/messages.inc.php:755
+#: libraries/config/messages.inc.php:757
 #, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected"
 msgid "A warning is displayed on the main page if Suhosin is detected."
 msgstr "Suhosin ඇති බව හඳුනාගතහොත් ප්‍රධාන පිටුවේ අනතුරු ඇඟවීමක් පෙන්වයි"
 
-#: libraries/config/messages.inc.php:756
+#: libraries/config/messages.inc.php:758
 msgid "Suhosin warning"
 msgstr "Suhosin අනතුරු ඇඟවීම"
 
-#: libraries/config/messages.inc.php:757
+#: libraries/config/messages.inc.php:759
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
@@ -7544,13 +7564,13 @@ msgstr ""
 "phpMyAdmin වින්‍යාස ගබඩාවට අවශ්‍ය එක් වගුවක් හෝ සොයාගත නොහැකි අවස්ථාවකදී දත්තගබඩා සැකිල්ල "
 "පිටුවේ පෙන්වන පෙරනිමි අනතුරු ඇඟවීම අක්‍රීය කරන්න"
 
-#: libraries/config/messages.inc.php:758
+#: libraries/config/messages.inc.php:760
 #, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "ලොගින් කුකියේ වලංගුතාවය"
 
-#: libraries/config/messages.inc.php:759
+#: libraries/config/messages.inc.php:761
 #, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
@@ -7562,11 +7582,11 @@ msgstr ""
 "සංස්කරණ ප්‍රකාරයේදී පෙළ පෙදෙසේ පළල (තීරු ගණනින්). මෙම අගය වැඩි කිරීමෙන් SQL විමසුම් පෙළ "
 "පෙදෙසේද (*2) විමසුම් කවුළුවේද (*1.25) පළල ලබා ගැනේ"
 
-#: libraries/config/messages.inc.php:760
+#: libraries/config/messages.inc.php:762
 msgid "Textarea columns"
 msgstr "පෙළ පෙදෙසේ පළල"
 
-#: libraries/config/messages.inc.php:761
+#: libraries/config/messages.inc.php:763
 #, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
@@ -7578,39 +7598,39 @@ msgstr ""
 "සංස්කරණ ප්‍රකාරයේදී පෙළ පෙදෙසේ උස (පේලි ගණනින්). මෙම අගය වැඩි කිරීමෙන් SQL විමසුම් පෙළ "
 "පෙදෙසේද (*2) විමසුම් කවුළුවේද (*1.25) උස ලබා ගැනේ"
 
-#: libraries/config/messages.inc.php:762
+#: libraries/config/messages.inc.php:764
 msgid "Textarea rows"
 msgstr "පෙළ පෙදෙසේ උස"
 
-#: libraries/config/messages.inc.php:763
+#: libraries/config/messages.inc.php:765
 #, fuzzy
 #| msgid "Title of browser window when a database is selected"
 msgid "Title of browser window when a database is selected."
 msgstr "දත්තගබඩාවක් තෝරා ඇති විට බ්‍රව්සර කවුළුවේ මාතෘකාව"
 
-#: libraries/config/messages.inc.php:765
+#: libraries/config/messages.inc.php:767
 #, fuzzy
 #| msgid "Title of browser window when nothing is selected"
 msgid "Title of browser window when nothing is selected."
 msgstr "කිසිවක් තෝරා නැති විට බ්‍රව්සර කවුළුවේ මාතෘකාව"
 
-#: libraries/config/messages.inc.php:766
+#: libraries/config/messages.inc.php:768
 msgid "Default title"
 msgstr "පෙරනිමි නාමය"
 
-#: libraries/config/messages.inc.php:767
+#: libraries/config/messages.inc.php:769
 #, fuzzy
 #| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
 msgstr "සේවාදායකයක් තෝරා ඇති විට බ්‍රව්සර කවුළුවේ මාතෘකාව"
 
-#: libraries/config/messages.inc.php:769
+#: libraries/config/messages.inc.php:771
 #, fuzzy
 #| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
 msgstr "වගුවක් තෝරා ඇති විට බ්‍රව්සර කවුළුවේ මාතෘකාව"
 
-#: libraries/config/messages.inc.php:771
+#: libraries/config/messages.inc.php:773
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -7618,58 +7638,58 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
 
-#: libraries/config/messages.inc.php:772
+#: libraries/config/messages.inc.php:774
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 
-#: libraries/config/messages.inc.php:773
+#: libraries/config/messages.inc.php:775
 #, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
 msgstr "ආනයනය සඳහා ගොනු උඩුගත කල හැකි සේවාදායකයේ ඩිරෙක්ටරිය"
 
-#: libraries/config/messages.inc.php:774
+#: libraries/config/messages.inc.php:776
 msgid "Upload directory"
 msgstr "උඩුගත කිරීමේ ඩිරෙක්ටරිය"
 
-#: libraries/config/messages.inc.php:775
+#: libraries/config/messages.inc.php:777
 #, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
 msgstr "සම්පූර්ණ දත්තගබඩාව තුලම සෙවීම සඳහා ඉඩ ලබා දෙන්න"
 
-#: libraries/config/messages.inc.php:776
+#: libraries/config/messages.inc.php:778
 msgid "Use database search"
 msgstr "දත්තගබඩා සෙවීම භාවිතා කරන්න"
 
-#: libraries/config/messages.inc.php:777
+#: libraries/config/messages.inc.php:779
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
 
-#: libraries/config/messages.inc.php:778
+#: libraries/config/messages.inc.php:780
 msgid "Enable the Developer tab in settings"
 msgstr "සිටුවම් හි ක්‍රමලේඛනය කරන්නන් සදහා වූ ටැබය සක්‍රීය කරන්න"
 
-#: libraries/config/messages.inc.php:779 setup/frames/index.inc.php:313
+#: libraries/config/messages.inc.php:781 setup/frames/index.inc.php:313
 msgid "Check for latest version"
 msgstr "නවතම අනුවාදය සඳහා පරීක්ෂා කරන්න"
 
-#: libraries/config/messages.inc.php:780
+#: libraries/config/messages.inc.php:782
 #, fuzzy
 #| msgid "Enables check for latest version on main phpMyAdmin page"
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "phpMyAdmin ප්‍රධාන පිටුවේ නවතම අනුවාදය සඳහා පරීක්ෂාව සක්‍රීය කරන්න"
 
-#: libraries/config/messages.inc.php:781 setup/lib/index.lib.php:117
+#: libraries/config/messages.inc.php:783 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:134 setup/lib/index.lib.php:147
 #: setup/lib/index.lib.php:159 setup/lib/index.lib.php:167
 #: setup/lib/index.lib.php:174
 msgid "Version check"
 msgstr "අනුවාද පරීක්ෂාව"
 
-#: libraries/config/messages.inc.php:782
+#: libraries/config/messages.inc.php:784
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -7677,34 +7697,34 @@ msgid ""
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 
-#: libraries/config/messages.inc.php:783
+#: libraries/config/messages.inc.php:785
 msgid "Proxy url"
 msgstr ""
 
-#: libraries/config/messages.inc.php:784
+#: libraries/config/messages.inc.php:786
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
 
-#: libraries/config/messages.inc.php:785
+#: libraries/config/messages.inc.php:787
 #, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
 msgstr "භාවිත නාමය"
 
-#: libraries/config/messages.inc.php:786
+#: libraries/config/messages.inc.php:788
 msgid "The password for authenticating with the proxy."
 msgstr ""
 
-#: libraries/config/messages.inc.php:787
+#: libraries/config/messages.inc.php:789
 #, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
 msgstr "මුරපදය"
 
-#: libraries/config/messages.inc.php:789
+#: libraries/config/messages.inc.php:791
 #, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
@@ -7716,43 +7736,43 @@ msgstr ""
 "ආනයන අපනයන මෙහෙයුම් සඳහා [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP"
 "[/a] හැකිළීම යොදාගැනීම සක්‍රීය කරන්න"
 
-#: libraries/config/messages.inc.php:790
+#: libraries/config/messages.inc.php:792
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/config/messages.inc.php:791
+#: libraries/config/messages.inc.php:793
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr ""
 
-#: libraries/config/messages.inc.php:792
+#: libraries/config/messages.inc.php:794
 msgid "Public key for reCaptcha"
 msgstr ""
 
-#: libraries/config/messages.inc.php:793
+#: libraries/config/messages.inc.php:795
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr ""
 
-#: libraries/config/messages.inc.php:794
+#: libraries/config/messages.inc.php:796
 msgid "Private key for reCaptcha"
 msgstr ""
 
-#: libraries/config/messages.inc.php:796
+#: libraries/config/messages.inc.php:798
 msgid "Choose the default action when sending error reports."
 msgstr ""
 
-#: libraries/config/messages.inc.php:797
+#: libraries/config/messages.inc.php:799
 #, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
 msgstr "සර්වරයේ පොර්ට්"
 
-#: libraries/config/messages.inc.php:799
+#: libraries/config/messages.inc.php:801
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
 
-#: libraries/config/messages.inc.php:802
+#: libraries/config/messages.inc.php:804
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
@@ -7774,43 +7794,43 @@ msgstr "HTTP සත්‍යාපනය"
 msgid "Signon authentication"
 msgstr "Signon සත්‍යාපනය"
 
-#: libraries/config/setup.forms.php:257
+#: libraries/config/setup.forms.php:258
 #: libraries/config/user_preferences.forms.php:159
 msgid "CSV using LOAD DATA"
 msgstr "LOAD DATA භාවිතයෙන් CSV"
 
-#: libraries/config/setup.forms.php:266 libraries/config/setup.forms.php:363
+#: libraries/config/setup.forms.php:267 libraries/config/setup.forms.php:364
 #: libraries/config/user_preferences.forms.php:167
 #: libraries/config/user_preferences.forms.php:263
 msgid "OpenDocument Spreadsheet"
 msgstr "OpenDocument පැතුරුම්පත"
 
-#: libraries/config/setup.forms.php:273
+#: libraries/config/setup.forms.php:274
 #: libraries/config/user_preferences.forms.php:174
 msgid "Quick"
 msgstr "කඩිනම්"
 
-#: libraries/config/setup.forms.php:277
+#: libraries/config/setup.forms.php:278
 #: libraries/config/user_preferences.forms.php:178
 msgid "Custom"
 msgstr "අභිමත"
 
-#: libraries/config/setup.forms.php:299
+#: libraries/config/setup.forms.php:300
 #: libraries/config/user_preferences.forms.php:199
 msgid "Database export options"
 msgstr "දත්තගබඩා අපනයන විකල්ප"
 
-#: libraries/config/setup.forms.php:335
+#: libraries/config/setup.forms.php:336
 #: libraries/config/user_preferences.forms.php:235
 msgid "CSV for MS Excel"
 msgstr "MS එක්සෙල් සඳහා CSV"
 
-#: libraries/config/setup.forms.php:358
+#: libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:258
 msgid "Microsoft Word 2000"
 msgstr "මයික්‍රොසොෆ්ට් වර්ඩ් 2000"
 
-#: libraries/config/setup.forms.php:367
+#: libraries/config/setup.forms.php:368
 #: libraries/config/user_preferences.forms.php:267
 msgid "OpenDocument Text"
 msgstr "OpenDocument පෙළ"

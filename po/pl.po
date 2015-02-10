@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-10 12:42-0500\n"
+"POT-Creation-Date: 2015-02-10 13:04-0500\n"
 "PO-Revision-Date: 2015-01-21 02:11+0200\n"
 "Last-Translator: Krystian Biesaga <krystian4842@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -263,7 +263,7 @@ msgstr ""
 "dlaczego, kliknij %stutaj%s."
 
 #: db_printview.php:48 db_tracking.php:124 db_tracking.php:264
-#: libraries/Menu.class.php:241 libraries/config/messages.inc.php:770
+#: libraries/Menu.class.php:241 libraries/config/messages.inc.php:772
 #: libraries/plugins/export/ExportXml.class.php:498
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:331
 #: libraries/server_privileges.lib.php:1041
@@ -1817,7 +1817,7 @@ msgstr "Pokaż okno zapytań"
 #: libraries/Index.class.php:675 libraries/Util.class.php:665
 #: libraries/Util.class.php:1190 libraries/Util.class.php:3424
 #: libraries/Util.class.php:3425 libraries/central_columns.lib.php:756
-#: libraries/config/messages.inc.php:751
+#: libraries/config/messages.inc.php:753
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:233 setup/frames/index.inc.php:179
 msgid "Edit"
@@ -2833,7 +2833,7 @@ msgid "Delete"
 msgstr "Usuń"
 
 #: libraries/Console.class.php:99 libraries/Console.class.php:185
-#: libraries/Menu.class.php:214 libraries/config/messages.inc.php:764
+#: libraries/Menu.class.php:214 libraries/config/messages.inc.php:766
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
 #: libraries/plugins/export/ExportTexytext.class.php:133
@@ -2954,7 +2954,7 @@ msgid "During current session"
 msgstr "Podczas bieżącej sesji"
 
 #: libraries/Console.class.php:266 libraries/Util.class.php:1232
-#: libraries/config/messages.inc.php:753
+#: libraries/config/messages.inc.php:755
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Odśwież"
@@ -3575,7 +3575,7 @@ msgstr ""
 "usunięty."
 
 #: libraries/Menu.class.php:197 libraries/ServerStatusData.class.php:369
-#: libraries/config/messages.inc.php:768
+#: libraries/config/messages.inc.php:770
 msgid "Server"
 msgstr "Serwer"
 
@@ -3589,8 +3589,8 @@ msgstr "Widok"
 #: libraries/Menu.class.php:309 libraries/Menu.class.php:417
 #: libraries/Util.class.php:3193 libraries/Util.class.php:3200
 #: libraries/Util.class.php:3419 libraries/Util.class.php:4148
-#: libraries/Util.class.php:4165 libraries/config/setup.forms.php:303
-#: libraries/config/setup.forms.php:343 libraries/config/setup.forms.php:369
+#: libraries/Util.class.php:4165 libraries/config/setup.forms.php:304
+#: libraries/config/setup.forms.php:344 libraries/config/setup.forms.php:370
 #: libraries/config/user_preferences.forms.php:203
 #: libraries/config/user_preferences.forms.php:243
 #: libraries/config/user_preferences.forms.php:269
@@ -4550,7 +4550,7 @@ msgstr "Maksymalny rozmiar: %s%s"
 msgid "MySQL said: "
 msgstr "MySQL zwrócił komunikat: "
 
-#: libraries/Util.class.php:1164 libraries/config/messages.inc.php:752
+#: libraries/Util.class.php:1164 libraries/config/messages.inc.php:754
 msgid "Explain SQL"
 msgstr "Wyjaśnij SQL"
 
@@ -4562,7 +4562,7 @@ msgstr "Pomiń wyjaśnienie SQL"
 msgid "Without PHP Code"
 msgstr "Bez kodu PHP"
 
-#: libraries/Util.class.php:1206 libraries/config/messages.inc.php:754
+#: libraries/Util.class.php:1206 libraries/config/messages.inc.php:756
 msgid "Create PHP Code"
 msgstr "Utwórz kod PHP"
 
@@ -4671,9 +4671,9 @@ msgstr "Opis"
 msgid "Use this value"
 msgstr "Użyj tej wartości"
 
-#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:315
-#: libraries/config/setup.forms.php:351 libraries/config/setup.forms.php:374
-#: libraries/config/setup.forms.php:379
+#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:316
+#: libraries/config/setup.forms.php:352 libraries/config/setup.forms.php:375
+#: libraries/config/setup.forms.php:380
 #: libraries/config/user_preferences.forms.php:215
 #: libraries/config/user_preferences.forms.php:251
 #: libraries/config/user_preferences.forms.php:274
@@ -4839,24 +4839,32 @@ msgstr "Serwer %d"
 msgid "Invalid authentication method set in configuration:"
 msgstr "W konfiguracji ustawiono błędną metodę uwierzytelniania:"
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:990
+#, php-format
+msgid ""
+"Unable to use timezone %s for server %d. Please check your configuration "
+"setting for [em]$cfg['Servers'][%d]['SessionTimeZone'][/em]. phpMyAdmin is "
+"currently using the default time zone of the database server."
+msgstr ""
+
+#: libraries/common.inc.php:1020
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Należy uaktualnić do %s %s lub nowszej."
 
-#: libraries/common.inc.php:1085
+#: libraries/common.inc.php:1110
 msgid "Error: Token mismatch"
 msgstr "Błąd: Token niedopasowany"
 
-#: libraries/common.inc.php:1117
+#: libraries/common.inc.php:1142
 msgid "GLOBALS overwrite attempt"
 msgstr "Próba nadpisania GLOBALS"
 
-#: libraries/common.inc.php:1124
+#: libraries/common.inc.php:1149
 msgid "possible exploit"
 msgstr "można wykorzystać"
 
-#: libraries/common.inc.php:1133
+#: libraries/common.inc.php:1158
 msgid "numeric key detected"
 msgstr "wykryty klawisz numeryczny"
 
@@ -5825,8 +5833,8 @@ msgstr "Dostosuj tryb przeglądania."
 msgid "Customize default options."
 msgstr "Dostosuj domyślne opcje."
 
-#: libraries/config/messages.inc.php:207 libraries/config/setup.forms.php:249
-#: libraries/config/setup.forms.php:326
+#: libraries/config/messages.inc.php:207 libraries/config/setup.forms.php:250
+#: libraries/config/setup.forms.php:327
 #: libraries/config/user_preferences.forms.php:151
 #: libraries/config/user_preferences.forms.php:226
 msgid "CSV"
@@ -6781,17 +6789,29 @@ msgstr "Pozwól na logowanie bez hasła"
 msgid "Allow root login"
 msgstr "Pozwól na logowanie się roota"
 
+#: libraries/config/messages.inc.php:546
+#, fuzzy
+#| msgid "Session value"
+msgid "Session timezone"
+msgstr "Wartość sesji"
+
 #: libraries/config/messages.inc.php:547
+msgid ""
+"Sets the effective timezone; possibly different than the one from your "
+"database server"
+msgstr ""
+
+#: libraries/config/messages.inc.php:549
 #, fuzzy
 #| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr "Nazwa Auth Realm wyświetlana podczas uwierzytelnienia HTTP Basic"
 
-#: libraries/config/messages.inc.php:548
+#: libraries/config/messages.inc.php:550
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
-#: libraries/config/messages.inc.php:550
+#: libraries/config/messages.inc.php:552
 #, fuzzy
 #| msgid ""
 #| "The path for the config file for [a@http://swekey.com]SweKey hardware "
@@ -6806,19 +6826,19 @@ msgstr ""
 "SweKey[/a]. Relatywna ścieżka do głównego katalogu phpMyAdmin, np. ./swekey."
 "conf"
 
-#: libraries/config/messages.inc.php:554
+#: libraries/config/messages.inc.php:556
 msgid "SweKey config file"
 msgstr "Plik konfiguracyjny SweKey"
 
-#: libraries/config/messages.inc.php:555
+#: libraries/config/messages.inc.php:557
 msgid "Authentication method to use."
 msgstr "Metoda uwierzytelniania w użyciu."
 
-#: libraries/config/messages.inc.php:556 setup/frames/index.inc.php:163
+#: libraries/config/messages.inc.php:558 setup/frames/index.inc.php:163
 msgid "Authentication type"
 msgstr "Typ uwierzytelniania"
 
-#: libraries/config/messages.inc.php:558
+#: libraries/config/messages.inc.php:560
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -6826,11 +6846,11 @@ msgstr ""
 "Pozostaw puste, aby nie obsługiwać [a@http://wiki.phpmyadmin.net/pma/"
 "bookmark]zakładek[/a]. Sugerowana nazwa: [kbd]pma_bookmark[/kbd]"
 
-#: libraries/config/messages.inc.php:561
+#: libraries/config/messages.inc.php:563
 msgid "Bookmark table"
 msgstr "Tabela zakładek"
 
-#: libraries/config/messages.inc.php:563
+#: libraries/config/messages.inc.php:565
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
@@ -6842,19 +6862,19 @@ msgstr ""
 "Pozostaw puste bez uwag typu kolumn/mime, zasugerował: [kbd]pma_column_info[/"
 "kbd]"
 
-#: libraries/config/messages.inc.php:566
+#: libraries/config/messages.inc.php:568
 msgid "Column information table"
 msgstr "Tabela informacji o kolumnach"
 
-#: libraries/config/messages.inc.php:567
+#: libraries/config/messages.inc.php:569
 msgid "Compress connection to MySQL server."
 msgstr "Kompresja połączenia z serwerem MySQL."
 
-#: libraries/config/messages.inc.php:568
+#: libraries/config/messages.inc.php:570
 msgid "Compress connection"
 msgstr "Kompresja połączenia"
 
-#: libraries/config/messages.inc.php:570
+#: libraries/config/messages.inc.php:572
 #, fuzzy
 #| msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
@@ -6862,15 +6882,15 @@ msgstr ""
 "Sposób połączenia z serwerem; w razie niepewności, należy pozostawić [kbd]tcp"
 "[/kbd]"
 
-#: libraries/config/messages.inc.php:571
+#: libraries/config/messages.inc.php:573
 msgid "Connection type"
 msgstr "Typ połączenia"
 
-#: libraries/config/messages.inc.php:572
+#: libraries/config/messages.inc.php:574
 msgid "Control user password"
 msgstr "Hasło użytkownika monitorującego"
 
-#: libraries/config/messages.inc.php:574
+#: libraries/config/messages.inc.php:576
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
@@ -6884,11 +6904,11 @@ msgstr ""
 "jest dostępnych pod adresem: [a@http://wiki.phpmyadmin.net/pma/controluser]"
 "wiki[/a]"
 
-#: libraries/config/messages.inc.php:577
+#: libraries/config/messages.inc.php:579
 msgid "Control user"
 msgstr "Użytkownik monitorujący"
 
-#: libraries/config/messages.inc.php:579
+#: libraries/config/messages.inc.php:581
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -6896,11 +6916,11 @@ msgstr ""
 "Alternatywny host do trzymania konfiguracji phpMyAdmin, pozostaw puste aby "
 "użyć już zdefiniowanego hosta."
 
-#: libraries/config/messages.inc.php:582
+#: libraries/config/messages.inc.php:584
 msgid "Control host"
 msgstr "Kontrola hosta"
 
-#: libraries/config/messages.inc.php:584
+#: libraries/config/messages.inc.php:586
 #, fuzzy
 #| msgid ""
 #| "An alternate port to connect to the host that holds the configuration "
@@ -6914,15 +6934,15 @@ msgstr ""
 "Alternatywny port dla hosta trzymającego konfigurację phpMyAdmin, pozostaw "
 "puste aby użyć ustawienia domyślnego lub z controlhost"
 
-#: libraries/config/messages.inc.php:588
+#: libraries/config/messages.inc.php:590
 msgid "Control port"
 msgstr "Port sterowania"
 
-#: libraries/config/messages.inc.php:590
+#: libraries/config/messages.inc.php:592
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Ukryj bazy danych pasujące do wyrażenia regularnego (PCRE)."
 
-#: libraries/config/messages.inc.php:591
+#: libraries/config/messages.inc.php:593
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -6931,15 +6951,15 @@ msgstr ""
 "phpmyadmin/bugs/2606/]PMA bug tracker[/a] i [a@http://bugs.mysql.com/19588]"
 "MySQL Bugs[/a]"
 
-#: libraries/config/messages.inc.php:592
+#: libraries/config/messages.inc.php:594
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Wyłącz używanie INFORMATION_SCHEMA"
 
-#: libraries/config/messages.inc.php:593
+#: libraries/config/messages.inc.php:595
 msgid "Hide databases"
 msgstr "Ukryj bazy danych"
 
-#: libraries/config/messages.inc.php:595
+#: libraries/config/messages.inc.php:597
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma__history"
@@ -6951,23 +6971,23 @@ msgstr ""
 "Pozostaw puste, bez zapytania poparcie historii SQL, zasugerował: [kbd]"
 "pma_history[/kbd]"
 
-#: libraries/config/messages.inc.php:598
+#: libraries/config/messages.inc.php:600
 msgid "SQL query history table"
 msgstr "Tabela historii zapytań SQL"
 
-#: libraries/config/messages.inc.php:599
+#: libraries/config/messages.inc.php:601
 msgid "Hostname where MySQL server is running."
 msgstr "Nazwa hosta, gdzie serwer MySQL działa."
 
-#: libraries/config/messages.inc.php:600
+#: libraries/config/messages.inc.php:602
 msgid "Server hostname"
 msgstr "Nazwa hosta serwera"
 
-#: libraries/config/messages.inc.php:601
+#: libraries/config/messages.inc.php:603
 msgid "Logout URL"
 msgstr "URL wylogowania"
 
-#: libraries/config/messages.inc.php:603
+#: libraries/config/messages.inc.php:605
 #, fuzzy
 #| msgid ""
 #| "Limits number of table preferences which are stored in database, the "
@@ -6979,17 +6999,17 @@ msgstr ""
 "Ograniczenia Liczby preferencje tabeli, które są przechowywane w bazie "
 "danych, najstarsze rekordy są automatycznie usuwane"
 
-#: libraries/config/messages.inc.php:607
+#: libraries/config/messages.inc.php:609
 msgid "Maximal number of table preferences to store"
 msgstr "Maksymalna ilość preferencji tabeli do przechowywania"
 
-#: libraries/config/messages.inc.php:608
+#: libraries/config/messages.inc.php:610
 #, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
 msgstr "Zobacz status tabeli serwera podrzędnego"
 
-#: libraries/config/messages.inc.php:610
+#: libraries/config/messages.inc.php:612
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
@@ -7001,13 +7021,13 @@ msgstr ""
 "Pozostaw puste, bez żadnego wsparcia PDF schematu, zaproponował: [kbd]"
 "pma_pdf_pages[/kbd]"
 
-#: libraries/config/messages.inc.php:613
+#: libraries/config/messages.inc.php:615
 #, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
 msgstr "Centralne kolumny"
 
-#: libraries/config/messages.inc.php:615
+#: libraries/config/messages.inc.php:617
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
@@ -7019,15 +7039,15 @@ msgstr ""
 "Pozostaw puste, aby nie obsługiwać schematu PDF. Sugerowana nazwa: [kbd]"
 "pma_table_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:618
+#: libraries/config/messages.inc.php:620
 msgid "Try to connect without password."
 msgstr "Spróbuj połączyć się bez hasła."
 
-#: libraries/config/messages.inc.php:619
+#: libraries/config/messages.inc.php:621
 msgid "Connect without password"
 msgstr "Łącz się bez hasła"
 
-#: libraries/config/messages.inc.php:621
+#: libraries/config/messages.inc.php:623
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -7037,19 +7057,19 @@ msgstr ""
 "modyfikacji, jeśli chcesz używać tych znaków w niesymbolicznym znaczeniu, "
 "np. [kbd]'my\\_db'[/kbd], a nie [kbd]'my_db'[/kbd]."
 
-#: libraries/config/messages.inc.php:625
+#: libraries/config/messages.inc.php:627
 msgid "Show only listed databases"
 msgstr "Pokaż tylko wymienione bazy danych"
 
-#: libraries/config/messages.inc.php:626 libraries/config/messages.inc.php:719
+#: libraries/config/messages.inc.php:628 libraries/config/messages.inc.php:721
 msgid "Leave empty if not using config auth."
 msgstr "Pozostaw puste w przypadku innego niż uwierzytelniania konfiguracji."
 
-#: libraries/config/messages.inc.php:627
+#: libraries/config/messages.inc.php:629
 msgid "Password for config auth"
 msgstr "Hasło dla uwierzytelniania konfiguracji"
 
-#: libraries/config/messages.inc.php:629
+#: libraries/config/messages.inc.php:631
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
@@ -7060,11 +7080,11 @@ msgstr ""
 "Pozostaw puste, bez żadnego wsparcia PDF schematu, zaproponował: [kbd]"
 "pma_pdf_pages[/kbd]"
 
-#: libraries/config/messages.inc.php:631
+#: libraries/config/messages.inc.php:633
 msgid "PDF schema: pages table"
 msgstr "Schemat PDF: strony tabeli"
 
-#: libraries/config/messages.inc.php:633
+#: libraries/config/messages.inc.php:635
 #, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
@@ -7080,21 +7100,21 @@ msgstr ""
 "pmadb]pmadb[/a]. Puste pole oznacza brak obsługi. Domyślna wartość: [kbd]"
 "phpmyadmin[/kbd]"
 
-#: libraries/config/messages.inc.php:637
+#: libraries/config/messages.inc.php:639
 #: libraries/display_create_database.lib.php:31
 msgid "Database name"
 msgstr "Nazwa bazy danych"
 
-#: libraries/config/messages.inc.php:639
+#: libraries/config/messages.inc.php:641
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Port, na którym nasłuchuje serwer MySQL, pole puste oznacza wartość domyślną."
 
-#: libraries/config/messages.inc.php:640
+#: libraries/config/messages.inc.php:642
 msgid "Server port"
 msgstr "Port serwera"
 
-#: libraries/config/messages.inc.php:642
+#: libraries/config/messages.inc.php:644
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
@@ -7106,11 +7126,11 @@ msgstr ""
 "Pozostaw puste dla nie \"trwałych\" tabel niedawno używanych w całej sesji, "
 "zasugerował: [kbd]pma_column_info[/kbd]"
 
-#: libraries/config/messages.inc.php:645
+#: libraries/config/messages.inc.php:647
 msgid "Recently used table"
 msgstr "Ostatnio używane tabele"
 
-#: libraries/config/messages.inc.php:647
+#: libraries/config/messages.inc.php:649
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
@@ -7122,13 +7142,13 @@ msgstr ""
 "Pozostaw puste dla nie \"trwałych\" tabel niedawno używanych w całej sesji, "
 "zasugerował: [kbd]pma_column_info[/kbd]"
 
-#: libraries/config/messages.inc.php:650
+#: libraries/config/messages.inc.php:652
 #, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "Tabele Ulubione"
 
-#: libraries/config/messages.inc.php:652
+#: libraries/config/messages.inc.php:654
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
@@ -7140,11 +7160,11 @@ msgstr ""
 "Pozostaw puste, by nie obsługiwać [a@http://wiki.phpmyadmin.net/pma/relation]"
 "relation-links[/a]. Sugerowana nazwa: [kbd]pma_relation[/kbd]"
 
-#: libraries/config/messages.inc.php:656
+#: libraries/config/messages.inc.php:658
 msgid "Relation table"
 msgstr "Tabela relacji"
 
-#: libraries/config/messages.inc.php:658
+#: libraries/config/messages.inc.php:660
 #, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
@@ -7156,33 +7176,33 @@ msgstr ""
 "Zobacz przykład usługi pojedynczego logowania (Signon) [a@http://wiki."
 "phpmyadmin.net/pma/auth_types#signon]authentication types[/a]"
 
-#: libraries/config/messages.inc.php:661
+#: libraries/config/messages.inc.php:663
 msgid "Signon session name"
 msgstr "Nazwa sesji usługi pojedynczego logowania (Signon)"
 
-#: libraries/config/messages.inc.php:662
+#: libraries/config/messages.inc.php:664
 msgid "Signon URL"
 msgstr "URL usługi pojedynczego logowania (Signon)"
 
-#: libraries/config/messages.inc.php:664
+#: libraries/config/messages.inc.php:666
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Gniazdo, na którym nasłuchuje serwer MySQL, pole puste oznacza wartość "
 "domyślną."
 
-#: libraries/config/messages.inc.php:665
+#: libraries/config/messages.inc.php:667
 msgid "Server socket"
 msgstr "Gniazdo serwera"
 
-#: libraries/config/messages.inc.php:666
+#: libraries/config/messages.inc.php:668
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Włącz protokół SSL dla połączenia z serwerem MySQL."
 
-#: libraries/config/messages.inc.php:667
+#: libraries/config/messages.inc.php:669
 msgid "Use SSL"
 msgstr "Użyj SSL"
 
-#: libraries/config/messages.inc.php:669
+#: libraries/config/messages.inc.php:671
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
@@ -7194,13 +7214,13 @@ msgstr ""
 "Pozostaw puste, aby nie obsługiwać schematu PDF. Sugerowana nazwa: [kbd]"
 "pma_table_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:671
+#: libraries/config/messages.inc.php:673
 #, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Schemat PDF: współrzędne tabeli"
 
-#: libraries/config/messages.inc.php:673
+#: libraries/config/messages.inc.php:675
 #, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
@@ -7212,11 +7232,11 @@ msgstr ""
 "Tabela do opisu wyświetlania kolumn, pozostaw puste bez wsparcia; "
 "zasugerował: [kbd]pma_table_info[/kbd]"
 
-#: libraries/config/messages.inc.php:676
+#: libraries/config/messages.inc.php:678
 msgid "Display columns table"
 msgstr "Wyświetlanie tabeli kolumn"
 
-#: libraries/config/messages.inc.php:678
+#: libraries/config/messages.inc.php:680
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
@@ -7228,11 +7248,11 @@ msgstr ""
 "Pozostaw puste, by nie obsługiwać schematu PDF. Sugerowana nazwa: [kbd]"
 "pma_table_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:681
+#: libraries/config/messages.inc.php:683
 msgid "UI preferences table"
 msgstr "Preferencje UI tabeli"
 
-#: libraries/config/messages.inc.php:683
+#: libraries/config/messages.inc.php:685
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -7240,11 +7260,11 @@ msgstr ""
 "Czy podczas tworzenia bazy danych polecenie DROP DATABASE IF EXISTS zostanie "
 "dodane jako pierwsza linia w dzienniku."
 
-#: libraries/config/messages.inc.php:686
+#: libraries/config/messages.inc.php:688
 msgid "Add DROP DATABASE"
 msgstr "Dodaj DROP DATABASE"
 
-#: libraries/config/messages.inc.php:688
+#: libraries/config/messages.inc.php:690
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -7252,11 +7272,11 @@ msgstr ""
 "Czy polecenie DROP TABLE IF EXISTS zostanie dodane jako pierwsza linia w "
 "dzienniku podczas tworzenia tabeli."
 
-#: libraries/config/messages.inc.php:691
+#: libraries/config/messages.inc.php:693
 msgid "Add DROP TABLE"
 msgstr "Dodaj DROP TABLE"
 
-#: libraries/config/messages.inc.php:693
+#: libraries/config/messages.inc.php:695
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -7264,20 +7284,20 @@ msgstr ""
 "Czy polecenie DROP VIEW IF EXISTS zostanie dodane jako pierwsza linia w "
 "dzienniku podczas tworzenia widoku."
 
-#: libraries/config/messages.inc.php:696
+#: libraries/config/messages.inc.php:698
 msgid "Add DROP VIEW"
 msgstr "Dodaj DROP VIEW"
 
-#: libraries/config/messages.inc.php:698
+#: libraries/config/messages.inc.php:700
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Definiuje listę instrukcji automatycznego tworzenia używa dla nowych wersji."
 
-#: libraries/config/messages.inc.php:699
+#: libraries/config/messages.inc.php:701
 msgid "Statements to track"
 msgstr "Instrukcje do śledzenia"
 
-#: libraries/config/messages.inc.php:701
+#: libraries/config/messages.inc.php:703
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
@@ -7289,22 +7309,22 @@ msgstr ""
 "Puste pole oznacza brak wsparcia śledzenia zapytań SQL, zaproponował: [kbd]"
 "pma_tracking[/kbd]"
 
-#: libraries/config/messages.inc.php:704
+#: libraries/config/messages.inc.php:706
 msgid "SQL query tracking table"
 msgstr "Tabela śledzenia zapytań SQL"
 
-#: libraries/config/messages.inc.php:706
+#: libraries/config/messages.inc.php:708
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 "Czy mechanizm śledzenia tworzy wersje dla tabel i widoków automatycznie."
 
-#: libraries/config/messages.inc.php:710
+#: libraries/config/messages.inc.php:712
 msgid "Automatically create versions"
 msgstr "Automatyczne tworzenie wersji"
 
-#: libraries/config/messages.inc.php:711
+#: libraries/config/messages.inc.php:713
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
@@ -7316,33 +7336,33 @@ msgstr ""
 "Pozostaw puste, dla braku preferencji użytkownika magazynu w bazie. "
 "Zasugerowano: [kbd]pma_designer_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:712
+#: libraries/config/messages.inc.php:714
 msgid "User preferences storage table"
 msgstr "Tabela przechowująca preferencje użytkowników"
 
-#: libraries/config/messages.inc.php:713
+#: libraries/config/messages.inc.php:715
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 
-#: libraries/config/messages.inc.php:714
+#: libraries/config/messages.inc.php:716
 msgid "Users table"
 msgstr "Tabela użytkowników"
 
-#: libraries/config/messages.inc.php:715
+#: libraries/config/messages.inc.php:717
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 
-#: libraries/config/messages.inc.php:716
+#: libraries/config/messages.inc.php:718
 msgid "User groups table"
 msgstr "Tabela grupy użytkowników"
 
-#: libraries/config/messages.inc.php:717
+#: libraries/config/messages.inc.php:719
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
@@ -7354,15 +7374,15 @@ msgstr ""
 "Pozostaw puste, dla braku preferencji użytkownika magazynu w bazie. "
 "Zasugerowano: [kbd]pma_designer_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:718
+#: libraries/config/messages.inc.php:720
 msgid "Hidden navigation items table"
 msgstr "Ukryte elementy nawigacji tabeli"
 
-#: libraries/config/messages.inc.php:720
+#: libraries/config/messages.inc.php:722
 msgid "User for config auth"
 msgstr "Użytkownik dla konfiguracji uwierzytelniania"
 
-#: libraries/config/messages.inc.php:721
+#: libraries/config/messages.inc.php:723
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -7370,11 +7390,11 @@ msgstr ""
 "Przyjazny opis serwera dla użytkownika. Pozostaw puste, aby wyświetlić nazwę "
 "hosta."
 
-#: libraries/config/messages.inc.php:722
+#: libraries/config/messages.inc.php:724
 msgid "Verbose name of this server"
 msgstr "Szczegółowa nazwa serwera"
 
-#: libraries/config/messages.inc.php:723
+#: libraries/config/messages.inc.php:725
 #, fuzzy
 #| msgid "Whether a user should be displayed a \"show all (rows)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -7382,11 +7402,11 @@ msgstr ""
 "Czy użytkownik powinien mieć wyświetlony przycisk \"pokaż wszystkie (wiersze)"
 "\";"
 
-#: libraries/config/messages.inc.php:724
+#: libraries/config/messages.inc.php:726
 msgid "Allow to display all the rows"
 msgstr "Pozwól wyświetlać wszystkie wiersze"
 
-#: libraries/config/messages.inc.php:725
+#: libraries/config/messages.inc.php:727
 #, fuzzy
 #| msgid ""
 #| "Please note that enabling this has no effect with [kbd]config[/kbd] "
@@ -7403,15 +7423,15 @@ msgstr ""
 "pliku konfiguracyjnym. To nie ogranicza możliwości wykonania tego samego "
 "polecenia bezpośrednio"
 
-#: libraries/config/messages.inc.php:726
+#: libraries/config/messages.inc.php:728
 msgid "Show password change form"
 msgstr "Pokaż formularz zmiany hasła"
 
-#: libraries/config/messages.inc.php:727
+#: libraries/config/messages.inc.php:729
 msgid "Show create database form"
 msgstr "Pokaż formularz tworzenia bazy danych"
 
-#: libraries/config/messages.inc.php:728
+#: libraries/config/messages.inc.php:730
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables"
@@ -7420,11 +7440,11 @@ msgstr ""
 "Pokaż lub ukryj kolumny wyświetlające 'Znacznik czasu tworzenia' dla "
 "wszystkich tabel"
 
-#: libraries/config/messages.inc.php:729
+#: libraries/config/messages.inc.php:731
 msgid "Show Creation timestamp"
 msgstr "Pokaż Znacznik czasu tworzenia"
 
-#: libraries/config/messages.inc.php:730
+#: libraries/config/messages.inc.php:732
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last update timestamp for all tables"
@@ -7434,11 +7454,11 @@ msgstr ""
 "Pokaż lub ukryj kolumny wyświetlające znaczniki czasu ostatniej aktualizacji "
 "dla wszystkich tabel"
 
-#: libraries/config/messages.inc.php:731
+#: libraries/config/messages.inc.php:733
 msgid "Show Last update timestamp"
 msgstr "Pokaż ostatni znacznik czasu aktualizacji"
 
-#: libraries/config/messages.inc.php:732
+#: libraries/config/messages.inc.php:734
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last check timestamp for all tables"
@@ -7448,11 +7468,11 @@ msgstr ""
 "Pokaż lub ukryj kolumny wyświetlające Ostatni znacznik czasu sprawdzania dla "
 "wszystkich tabel"
 
-#: libraries/config/messages.inc.php:733
+#: libraries/config/messages.inc.php:735
 msgid "Show Last check timestamp"
 msgstr "Pokaż Ostatni znacznik czasu sprawdzania"
 
-#: libraries/config/messages.inc.php:734
+#: libraries/config/messages.inc.php:736
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
@@ -7460,27 +7480,27 @@ msgstr ""
 "Określa, czy typ pola powinny być początkowo wyświetlany w trybie edycji/"
 "wstawiania."
 
-#: libraries/config/messages.inc.php:735
+#: libraries/config/messages.inc.php:737
 msgid "Show field types"
 msgstr "Pokaż typy pól"
 
-#: libraries/config/messages.inc.php:736
+#: libraries/config/messages.inc.php:738
 msgid "Display the function fields in edit/insert mode."
 msgstr "Wyświetla pola z funkcjami w trybie edycji/dodawania."
 
-#: libraries/config/messages.inc.php:737
+#: libraries/config/messages.inc.php:739
 msgid "Show function fields"
 msgstr "Pokaż pola z funkcjami"
 
-#: libraries/config/messages.inc.php:738
+#: libraries/config/messages.inc.php:740
 msgid "Whether to show hint or not."
 msgstr "Czy pokazać wskazówkę, czy nie."
 
-#: libraries/config/messages.inc.php:739
+#: libraries/config/messages.inc.php:741
 msgid "Show hint"
 msgstr "Pokaż podpowiedź"
 
-#: libraries/config/messages.inc.php:740
+#: libraries/config/messages.inc.php:742
 #, fuzzy
 #| msgid ""
 #| "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
@@ -7492,26 +7512,26 @@ msgstr ""
 "Pokazuje odnośnik do [a@http://php.net/manual/function.phpinfo.php]phpinfo()"
 "[/a]"
 
-#: libraries/config/messages.inc.php:741
+#: libraries/config/messages.inc.php:743
 msgid "Show phpinfo() link"
 msgstr "Pokaż odnośnik phpinfo()"
 
-#: libraries/config/messages.inc.php:742
+#: libraries/config/messages.inc.php:744
 msgid "Show detailed MySQL server information"
 msgstr "Pokaż szczegółowe informacje o serwerze MySQL"
 
-#: libraries/config/messages.inc.php:743
+#: libraries/config/messages.inc.php:745
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr ""
 "Określa, czy zapytania SQL generowane przez phpMyAdmina powinny być "
 "wyświetlane."
 
-#: libraries/config/messages.inc.php:744
+#: libraries/config/messages.inc.php:746
 msgid "Show SQL queries"
 msgstr "Pokaż zapytania SQL"
 
-#: libraries/config/messages.inc.php:745
+#: libraries/config/messages.inc.php:747
 #, fuzzy
 #| msgid ""
 #| "Defines whether the query box should stay on-screen after its submission"
@@ -7520,41 +7540,41 @@ msgid ""
 msgstr ""
 "Określa, czy pole zapytania, powinny pozostać na ekranie po jego złożeniu"
 
-#: libraries/config/messages.inc.php:746 libraries/sql_query_form.lib.php:326
+#: libraries/config/messages.inc.php:748 libraries/sql_query_form.lib.php:326
 msgid "Retain query box"
 msgstr "Zachowaj pole zapytania"
 
-#: libraries/config/messages.inc.php:747
+#: libraries/config/messages.inc.php:749
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr ""
 "Pozwala wyświetlać statystyki bazy danych i tabeli (np. wykorzystanie "
 "miejsca)."
 
-#: libraries/config/messages.inc.php:748
+#: libraries/config/messages.inc.php:750
 msgid "Show statistics"
 msgstr "Pokaż statystyki"
 
-#: libraries/config/messages.inc.php:749
+#: libraries/config/messages.inc.php:751
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Oznacz używane tabele i pozwala pokazać bazy danych z zablokowanymi tabelami."
 
-#: libraries/config/messages.inc.php:750
+#: libraries/config/messages.inc.php:752
 msgid "Skip locked tables"
 msgstr "Pomiń zablokowane tabele"
 
-#: libraries/config/messages.inc.php:755
+#: libraries/config/messages.inc.php:757
 msgid "A warning is displayed on the main page if Suhosin is detected."
 msgstr ""
 "Ostrzeżenie jest wyświetlane na stronie głównej, jeśli Suhosin jest "
 "wykrywany."
 
-#: libraries/config/messages.inc.php:756
+#: libraries/config/messages.inc.php:758
 msgid "Suhosin warning"
 msgstr "Ostrzeżenie Suhosin"
 
-#: libraries/config/messages.inc.php:757
+#: libraries/config/messages.inc.php:759
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
@@ -7567,13 +7587,13 @@ msgstr ""
 "Wyłącz domyślne ostrzeżenia na stronie Struktura, które są wyświetlane, "
 "jeśli jakiekolwiek ze słów w nazwach kolumn są zastrzeżone dla MySQL"
 
-#: libraries/config/messages.inc.php:758
+#: libraries/config/messages.inc.php:760
 #, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "Ważność ciasteczka logowania"
 
-#: libraries/config/messages.inc.php:759
+#: libraries/config/messages.inc.php:761
 #, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
@@ -7585,11 +7605,11 @@ msgstr ""
 "Rozmiar pola tekstowego (kolumny) w trybie edycji, wartość ta będzie "
 "eksponowana zapytaniem SQL pola tekstowego (*2) i okna kwerendy (*1,25)"
 
-#: libraries/config/messages.inc.php:760
+#: libraries/config/messages.inc.php:762
 msgid "Textarea columns"
 msgstr "Pole tekstu kolumn"
 
-#: libraries/config/messages.inc.php:761
+#: libraries/config/messages.inc.php:763
 #, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
@@ -7601,31 +7621,31 @@ msgstr ""
 "Wielkość pola textarea (wierszy) w trybie edycji. Wartość będzie powięszkona "
 "dla zapytań SQL (*@) i okna zapytań (*1.25)"
 
-#: libraries/config/messages.inc.php:762
+#: libraries/config/messages.inc.php:764
 msgid "Textarea rows"
 msgstr "Wierszy w polu textarea"
 
-#: libraries/config/messages.inc.php:763
+#: libraries/config/messages.inc.php:765
 msgid "Title of browser window when a database is selected."
 msgstr "Tytuł okna przeglądarki, gdy baza danych jest wybrana."
 
-#: libraries/config/messages.inc.php:765
+#: libraries/config/messages.inc.php:767
 msgid "Title of browser window when nothing is selected."
 msgstr "Tytuł okna przeglądarki, gdy nic nie jest wybrane."
 
-#: libraries/config/messages.inc.php:766
+#: libraries/config/messages.inc.php:768
 msgid "Default title"
 msgstr "Domyślny tytuł"
 
-#: libraries/config/messages.inc.php:767
+#: libraries/config/messages.inc.php:769
 msgid "Title of browser window when a server is selected."
 msgstr "Tytuł okna przeglądarki, gdy serwer jest wybrany."
 
-#: libraries/config/messages.inc.php:769
+#: libraries/config/messages.inc.php:771
 msgid "Title of browser window when a table is selected."
 msgstr "Tytuł okna przeglądarki, gdy tabela jest wybrane."
 
-#: libraries/config/messages.inc.php:771
+#: libraries/config/messages.inc.php:773
 #, fuzzy
 #| msgid ""
 #| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
@@ -7643,31 +7663,31 @@ msgstr ""
 "nagłówku HTTP_X_FORWARDED_FOR (X-Forwarded-For) przesłanym przez serwer "
 "pośredniczący (proxy) 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: libraries/config/messages.inc.php:772
+#: libraries/config/messages.inc.php:774
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 "Lista zaufanych adresów IP serwerów pośredniczących (proxy) dla reguł allow/"
 "deny"
 
-#: libraries/config/messages.inc.php:773
+#: libraries/config/messages.inc.php:775
 msgid "Directory on server where you can upload files for import."
 msgstr "Katalog na serwerze, gdzie można przesyłać pliki do importu."
 
-#: libraries/config/messages.inc.php:774
+#: libraries/config/messages.inc.php:776
 msgid "Upload directory"
 msgstr "Dodaj katalog"
 
-#: libraries/config/messages.inc.php:775
+#: libraries/config/messages.inc.php:777
 #, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
 msgstr "Pozwól na przeszukiwanie całej bazy danych"
 
-#: libraries/config/messages.inc.php:776
+#: libraries/config/messages.inc.php:778
 msgid "Use database search"
 msgstr "Użyj szukania bazy danych"
 
-#: libraries/config/messages.inc.php:777
+#: libraries/config/messages.inc.php:779
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -7675,26 +7695,26 @@ msgstr ""
 "Gdy wyłączone, użytkownicy nie mogą ustawić jeden z poniższych opcji, "
 "niezależnie od wyboru po prawej stronie."
 
-#: libraries/config/messages.inc.php:778
+#: libraries/config/messages.inc.php:780
 msgid "Enable the Developer tab in settings"
 msgstr "Włącz zakładkę deweloperską w ustawieniach"
 
-#: libraries/config/messages.inc.php:779 setup/frames/index.inc.php:313
+#: libraries/config/messages.inc.php:781 setup/frames/index.inc.php:313
 msgid "Check for latest version"
 msgstr "Sprawdź, czy jest nowsza wersja"
 
-#: libraries/config/messages.inc.php:780
+#: libraries/config/messages.inc.php:782
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "Włącza sprawdzanie, czy są aktualizacje na stronie głównej phpMyAdmin."
 
-#: libraries/config/messages.inc.php:781 setup/lib/index.lib.php:117
+#: libraries/config/messages.inc.php:783 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:134 setup/lib/index.lib.php:147
 #: setup/lib/index.lib.php:159 setup/lib/index.lib.php:167
 #: setup/lib/index.lib.php:174
 msgid "Version check"
 msgstr "Sprawdzenie wersji"
 
-#: libraries/config/messages.inc.php:782
+#: libraries/config/messages.inc.php:784
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -7702,30 +7722,30 @@ msgid ""
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 
-#: libraries/config/messages.inc.php:783
+#: libraries/config/messages.inc.php:785
 msgid "Proxy url"
 msgstr "Url Proxy"
 
-#: libraries/config/messages.inc.php:784
+#: libraries/config/messages.inc.php:786
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
 
-#: libraries/config/messages.inc.php:785
+#: libraries/config/messages.inc.php:787
 msgid "Proxy username"
 msgstr "Użytkownik proxy"
 
-#: libraries/config/messages.inc.php:786
+#: libraries/config/messages.inc.php:788
 msgid "The password for authenticating with the proxy."
 msgstr "Hasło do uwierzytelniania z serwerem proxy."
 
-#: libraries/config/messages.inc.php:787
+#: libraries/config/messages.inc.php:789
 msgid "Proxy password"
 msgstr "Hasło proxy"
 
-#: libraries/config/messages.inc.php:789
+#: libraries/config/messages.inc.php:791
 #, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
@@ -7737,41 +7757,41 @@ msgstr ""
 "Włącza format kompresji [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP"
 "[/a] dla operacji importu i eksportu"
 
-#: libraries/config/messages.inc.php:790
+#: libraries/config/messages.inc.php:792
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/config/messages.inc.php:791
+#: libraries/config/messages.inc.php:793
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr "Wpisz swój klucz publiczny do domeny usługi reCAPTCHA."
 
-#: libraries/config/messages.inc.php:792
+#: libraries/config/messages.inc.php:794
 msgid "Public key for reCaptcha"
 msgstr "Klucz publiczny dla reCaptcha"
 
-#: libraries/config/messages.inc.php:793
+#: libraries/config/messages.inc.php:795
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr "Wpisz swój klucz prywatny do domeny usługi reCAPTCHA."
 
-#: libraries/config/messages.inc.php:794
+#: libraries/config/messages.inc.php:796
 msgid "Private key for reCaptcha"
 msgstr "Klucz prywatny dla reCaptcha"
 
-#: libraries/config/messages.inc.php:796
+#: libraries/config/messages.inc.php:798
 msgid "Choose the default action when sending error reports."
 msgstr "Wybierz domyślną akcję wysyłania raportów o błędach."
 
-#: libraries/config/messages.inc.php:797
+#: libraries/config/messages.inc.php:799
 msgid "Send error reports"
 msgstr "Wysyłanie raportów o błędzie"
 
-#: libraries/config/messages.inc.php:799
+#: libraries/config/messages.inc.php:801
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
 
-#: libraries/config/messages.inc.php:802
+#: libraries/config/messages.inc.php:804
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
@@ -7793,12 +7813,12 @@ msgstr "Uwierzytelnianie HTTP"
 msgid "Signon authentication"
 msgstr "Zarejestruj się na uwierzytelnianiu"
 
-#: libraries/config/setup.forms.php:257
+#: libraries/config/setup.forms.php:258
 #: libraries/config/user_preferences.forms.php:159
 msgid "CSV using LOAD DATA"
 msgstr "CSV przy użyciu LOAD DATA"
 
-#: libraries/config/setup.forms.php:266 libraries/config/setup.forms.php:363
+#: libraries/config/setup.forms.php:267 libraries/config/setup.forms.php:364
 #: libraries/config/user_preferences.forms.php:167
 #: libraries/config/user_preferences.forms.php:263
 #, fuzzy
@@ -7806,32 +7826,32 @@ msgstr "CSV przy użyciu LOAD DATA"
 msgid "OpenDocument Spreadsheet"
 msgstr "Otwórz dokument arkusza kalkulacyjnego"
 
-#: libraries/config/setup.forms.php:273
+#: libraries/config/setup.forms.php:274
 #: libraries/config/user_preferences.forms.php:174
 msgid "Quick"
 msgstr "Szybko"
 
-#: libraries/config/setup.forms.php:277
+#: libraries/config/setup.forms.php:278
 #: libraries/config/user_preferences.forms.php:178
 msgid "Custom"
 msgstr "Dostosuj"
 
-#: libraries/config/setup.forms.php:299
+#: libraries/config/setup.forms.php:300
 #: libraries/config/user_preferences.forms.php:199
 msgid "Database export options"
 msgstr "Opcje eksportu bazy danych"
 
-#: libraries/config/setup.forms.php:335
+#: libraries/config/setup.forms.php:336
 #: libraries/config/user_preferences.forms.php:235
 msgid "CSV for MS Excel"
 msgstr "CSV dla MS Excel"
 
-#: libraries/config/setup.forms.php:358
+#: libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:258
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:367
+#: libraries/config/setup.forms.php:368
 #: libraries/config/user_preferences.forms.php:267
 #, fuzzy
 #| msgid "Open Document Text"
