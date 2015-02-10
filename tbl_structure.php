@@ -46,17 +46,12 @@ if (isset($_REQUEST['reserved_word_check'])) {
     if ($GLOBALS['cfg']['ReservedWordDisableWarning'] === false) {
         $columns_names = $_REQUEST['field_name'];
         $reserved_keywords_names = array();
-        $reserved_keywords_fields = array();
         foreach ($columns_names as $column) {
             if (PMA_SQP_isKeyWord(trim($column))) {
                 $reserved_keywords_names[] = trim($column);
             }
         }
-        if (count($reserved_keywords_names) > 0) {
-            $reserved_keywords_fields[] = 'Column';
-        }
         if (PMA_SQP_isKeyWord(trim($table))) {
-            $reserved_keywords_fields[] = 'Table';
             $reserved_keywords_names[] = trim($table);
         }
         if (count($reserved_keywords_names) == 0) {
@@ -65,11 +60,10 @@ if (isset($_REQUEST['reserved_word_check'])) {
         $response->addJSON(
             'message', sprintf(
                 _ngettext(
-                    'The %s name \'%s\' is a MySQL reserved keyword.',
-                    'The %s names \'%s\' are MySQL reserved keywords.',
+                    'The name \'%s\' is a MySQL reserved keyword.',
+                    'The names \'%s\' are MySQL reserved keywords.',
                     count($reserved_keywords_names)
                 ),
-                implode(' and ', $reserved_keywords_fields),
                 implode(',', $reserved_keywords_names)
             )
         );
