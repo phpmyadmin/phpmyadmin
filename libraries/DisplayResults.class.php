@@ -135,6 +135,9 @@ class PMA_DisplayResults
         /** boolean */
         'is_show' => null,
 
+        /** boolean */
+        'is_browse_distinct' => null,
+
         /** array table definitions */
         'showtable' => null,
 
@@ -334,6 +337,7 @@ class PMA_DisplayResults
      * @param string  $printview      print view was requested
      * @param string  $url_query      URL query
      * @param boolean $editable       whether the results set is editable
+     * @param boolean $browse_dist    whether browsing distinct values
      *
      * @return void
      *
@@ -343,7 +347,7 @@ class PMA_DisplayResults
         $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
         $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
         $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query,
-        $editable
+        $editable, $is_browse_dist
     ) {
 
         $this->__set('unlim_num_rows', $unlim_num_rows);
@@ -364,6 +368,7 @@ class PMA_DisplayResults
         $this->__set('printview', $printview);
         $this->__set('url_query', $url_query);
         $this->__set('editable', $editable);
+        $this->__set('is_browse_distinct', $is_browse_dist);
 
     } // end of the 'setProperties()' function
 
@@ -624,6 +629,8 @@ class PMA_DisplayResults
             . '<input type="hidden" name="sql_query" value="'
             . $html_sql_query . '" />'
             . '<input type="hidden" name="pos" value="' . $pos . '" />'
+            . '<input type="hidden" name="is_browse_distinct" value="'
+            . $this->__get('is_browse_distinct') . '" />'
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
             . '" />'
             . $input_for_real_end
@@ -876,6 +883,8 @@ class PMA_DisplayResults
             . '<input type="hidden" name="sql_query" value="'
             . $html_sql_query . '" />'
             . '<input type="hidden" name="pos" value="0" />'
+            . '<input type="hidden" name="is_browse_distinct" value="'
+            . $this->__get('is_browse_distinct') . '" />'
             . '<input type="hidden" name="session_max_rows" value="'
             . (! $showing_all ? 'all' : $GLOBALS['cfg']['MaxRows']) . '" />'
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
@@ -977,7 +986,9 @@ class PMA_DisplayResults
             . '" />'
             . '<input type="hidden" name="pos" size="3" value="'
             // Do not change the position when changing the number of rows
-            . $_SESSION['tmpval']['pos'] . '" />';
+            . $_SESSION['tmpval']['pos'] . '" />'
+            . '<input type="hidden" name="is_browse_distinct" value="'
+            . $this->__get('is_browse_distinct') . '" />'  ;
 
         $numberOfRowsPlaceholder = null;
         if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
@@ -4161,7 +4172,7 @@ class PMA_DisplayResults
 
             // Coming from 'Distinct values' action of structure page
             // We manipulate relations mechanism to show a link to related rows.
-            if (! empty($_GET['browse_distinct'])) {
+            if ($this->__get('is_browse_distinct')) {
                 $map[$fields_meta[1]->name] = array(
                     $this->__get('table'),
                     $fields_meta[1]->name,

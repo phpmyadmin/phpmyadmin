@@ -1756,7 +1756,7 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
             $fields_cnt, $GLOBALS['querytime'], $pmaThemeImage, $GLOBALS['text_dir'],
             $analyzed_sql_results['is_maint'], $analyzed_sql_results['is_explain'],
             $analyzed_sql_results['is_show'], $showtable, $printview, $url_query,
-            $editable
+            $editable, ! empty($_REQUEST['is_browse_distinct'])
         );
 
         $table_html .= $displayResultsObject->getTable(
