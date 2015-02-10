@@ -2040,7 +2040,7 @@ function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
             . ' GROUP BY ' . PMA_Util::backquote($row['Field'])
             . ' ORDER BY ' . PMA_Util::backquote($row['Field'])
         )
-        . '">'
+        . '&amp;browse_distinct=1">'
         . $titles['DistinctValues']
         . '</a>';
     $html_output .= '</li>';
