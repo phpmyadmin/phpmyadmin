@@ -414,8 +414,8 @@ function PMA_getDesignerPageTopMenu($visualBuilder, $selected_page)
 
     $html .= '<a href="#" class="M_butt" target="_self" id="pin_Text">';
     $html .= '<img class="' . $iconClass . '" title="' . __('Pin text') . '" alt=">"';
-    $html .= ' data-right="' . $_SESSION['PMA_Theme']->getImgPath('pmd/2leftarrow_m.png');
-    $html .= '" src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/2rightarrow_m.png') . '" />';
+    $html .= ' data-right="' . $_SESSION['PMA_Theme']->getImgPath('pmd/anchor.png');
+    $html .= '" src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/anchor.png') . '" />';
     $html .= '<span class="' . $textClass . '">' . __('Pin text') . '</span>';
     $html .= '</a>';
 
