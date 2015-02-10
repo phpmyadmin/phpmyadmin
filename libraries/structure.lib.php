@@ -3255,12 +3255,12 @@ function PMA_getStructureSubTabs()
 
     $subtabs['structure']['icon'] = 'b_props';
     $subtabs['structure']['link'] = 'tbl_structure.php';
-    $subtabs['structure']['text'] = __('Table Structure');
+    $subtabs['structure']['text'] = __('Table structure');
     $subtabs['structure']['id'] = 'table_strucuture_id';
 
     $subtabs['relation']['icon'] = 'b_relations';
     $subtabs['relation']['link'] = 'tbl_relation.php';
-    $subtabs['relation']['text'] = __('Relation View');
+    $subtabs['relation']['text'] = __('Relation view');
     $subtabs['relation']['id'] = 'table_relation_id';
 
     return $subtabs;
