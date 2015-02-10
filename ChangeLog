@@ -42,6 +42,7 @@ phpMyAdmin - ChangeLog
 + rfe #937  Relations with views like with tables
 + rfe #1241 Browse Field -> Search
 + rfe #723  Provide sanity check for table/column names (table names)
++ rfe #1312 SessionTimeZone configuration directive
 
 4.3.10.0 (not yet released)
 - bug       Undefined index navwork
