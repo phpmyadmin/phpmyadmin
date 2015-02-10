@@ -4158,6 +4158,17 @@ class PMA_DisplayResults
         if (/*overload*/mb_strlen($this->__get('table'))) {
             // This method set the values for $map array
             $this->_setParamForLinkForeignKeyRelatedTables($map);
+
+            // Coming from 'Distinct values' action of structure page
+            // We manipulate relations mechanism to show a link to related rows.
+            if (! empty($_GET['browse_distinct'])) {
+                $map[$fields_meta[1]->name] = array(
+                    $this->__get('table'),
+                    $fields_meta[1]->name,
+                    '',
+                    $this->__get('db')
+                );
+            }
         } // end if
         // end 2b
 

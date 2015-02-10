@@ -460,7 +460,6 @@ default:
 $js_messages['strGoToLink'] = __('Go to link:');
 $js_messages['strColNameCopyTitle'] = __('Copy column name.');
 $js_messages['strColNameCopyText'] = __('Right-click the column name to copy it to your clipboard.');
-$js_messages['strShowDataRowLink'] = __('Show data row(s).');
 
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');

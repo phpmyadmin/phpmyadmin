@@ -748,14 +748,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 // remember this instead of testing more than once
                 var is_null = $td.is('.null');
 
-                // add show data row link if the data resulted by 'browse distinct values' in table structure
-                if ($td.find('input').hasClass('data_browse_link')) {
-                    var showDataRowLink = document.createElement('div');
-                    showDataRowLink.className = 'goto_link';
-                    $(showDataRowLink).append("<a href='" + $td.find('.data_browse_link').val() + "'>" + g.showDataRowLinkText + "</a>");
-                    $editArea.append(showDataRowLink);
-                }
-
                 // add goto link, if this cell contains a link
                 if ($td.find('a').length > 0) {
                     var gotoLink = document.createElement('div');
@@ -1698,7 +1690,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             g.saveCellWarning = PMA_messages.strSaveCellWarning;
             g.alertNonUnique = PMA_messages.strAlertNonUnique;
             g.gotoLinkText = PMA_messages.strGoToLink;
-            g.showDataRowLinkText = PMA_messages.strShowDataRowLink;
 
             // initialize cell editing configuration
             g.saveCellsAtOnce = $(g.o).find('.save_cells_at_once').val();
