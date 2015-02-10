@@ -223,14 +223,14 @@ function PMA_getHtmlForJSFields(
 }
 
 /**
- * Returns HTML for the top menu bar of the designer page
+ * Returns HTML for the menu bar of the designer page
  *
  * @param boolean $visualBuilder whether this is visual query builder
  * @param string  $selected_page name of the selected page
  *
  * @return string html
  */
-function PMA_getDesignerPageTopMenu($visualBuilder, $selected_page)
+function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
 {
     $iconClass = '';
     $textClass = 'hidable hide';

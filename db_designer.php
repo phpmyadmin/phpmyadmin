@@ -137,7 +137,7 @@ $response->addHTML(
     )
 );
 $response->addHTML(
-    PMA_getDesignerPageTopMenu(isset($_REQUEST['query']), $selected_page)
+    PMA_getDesignerPageMenu(isset($_REQUEST['query']), $selected_page)
 );
 
 $response->addHTML('<div id="canvas_outer">');
