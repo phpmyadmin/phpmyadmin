@@ -39,6 +39,7 @@ phpMyAdmin - ChangeLog
 + rfe #1208 linking from information_schema
 + rfe #1235 Relation view: move to main "Structure" page
 + rfe #1558 Designer menu with explicit text
++ rfe #937  Relations with views like with tables
 
 4.3.10.0 (not yet released)
 - bug       Undefined index navwork

@@ -1465,17 +1465,18 @@ class PMA_Table
      * returns an array with all columns
      *
      * @param bool $backquoted whether to quote name with backticks ``
+     * @param bool $fullName   whether to include full name of the table as a prefix
      *
      * @return array
      */
-    public function getColumns($backquoted = true)
+    public function getColumns($backquoted = true, $fullName = true)
     {
         $sql = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $indexed = $GLOBALS['dbi']->fetchResult($sql, 'Field', 'Field');
 
         $return = array();
         foreach ($indexed as $column) {
-            $return[] = $this->getFullName($backquoted) . '.'
+            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
                 . ($backquoted ? PMA_Util::backquote($column) : $column);
         }
 
