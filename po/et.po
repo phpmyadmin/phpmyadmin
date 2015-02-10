@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-09 10:48-0500\n"
-"PO-Revision-Date: 2015-02-05 08:31+0200\n"
+"PO-Revision-Date: 2015-02-10 08:43+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -7239,7 +7239,6 @@ msgid "Suhosin warning"
 msgstr "Suhosin'i hoiatus"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the main page if session."
 #| "gc_maxlifetime is less than `LoginCookieValidity`."
@@ -7248,8 +7247,8 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Keela vaikimisi hoiatus, mida näidatakse põhilehel siis, kui session."
-"gc_maxlifetime on väiksem kui `LoginCookieValidity`."
+"Keela vaikimisi hoiatus, mida näidatakse põhilehel siis, kui PHP sätte "
+"session.gc_maxlifetime väärtus on väiksem kui `LoginCookieValidity` väärtus."
 
 #: libraries/config/messages.inc.php:758
 msgid "Login cookie validity warning"
@@ -7645,10 +7644,9 @@ msgid "Move Menu"
 msgstr "Liiguta menüü"
 
 #: libraries/db_designer.lib.php:416 libraries/db_designer.lib.php:419
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
-msgstr "Osalised tekstid"
+msgstr "Jäta tekst nähtavaks"
 
 #: libraries/db_designer.lib.php:458
 msgid "Hide/Show all"
@@ -13445,13 +13443,11 @@ msgid "Showing create queries"
 msgstr "Kuvatakse loomise päringuid"
 
 #: libraries/structure.lib.php:3259
-#, fuzzy
 #| msgid "Table structure"
 msgid "Table Structure"
 msgstr "Tabeli struktuur"
 
 #: libraries/structure.lib.php:3264
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation View"
 msgstr "Seoste vaade"
