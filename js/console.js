@@ -192,9 +192,7 @@ var PMA_console = {
                 PMA_console.info();
                 break;
             case 'show':
-                var pmaWindowScrollHead = $(window).scrollTop();
                 PMA_console.show(true);
-                $(window).scrollTop(pmaWindowScrollHead);
                 PMA_console.scrollBottom();
                 break;
         }
@@ -282,7 +280,6 @@ var PMA_console = {
             PMA_console.collapse();
             return;
         }
-        PMA_console.$consoleContent.css({display:'block'});
         if(PMA_console.$consoleToolbar.hasClass('collapsed')) {
             PMA_console.$consoleToolbar.removeClass('collapsed');
         }
@@ -290,6 +287,7 @@ var PMA_console = {
         PMA_console.$consoleContent.stop();
         PMA_console.$consoleContent.animate({'margin-bottom': 0},
             'fast', 'easeOutQuart', function() {
+                PMA_console.$consoleContent.css({display:'block'});
                 $(window).trigger('resize');
             });
         if(inputFocus) {
@@ -317,9 +315,7 @@ var PMA_console = {
         switch($.cookie('pma_console_mode')) {
             case 'collapse':
             case 'info':
-                var pmaWindowScrollHead = $(window).scrollTop();
                 PMA_console.show(true);
-                $(window).scrollTop(pmaWindowScrollHead);
                 break;
             case 'show':
                 PMA_console.collapse();
