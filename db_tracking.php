@@ -173,7 +173,7 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
                     <?php echo htmlspecialchars($version_data['table_name']);?>
                 </label>
             </th>
-            <td><?php echo $version_data['version'];?></td>
+            <td class="right"><?php echo $version_data['version'];?></td>
             <td><?php echo $version_data['date_created'];?></td>
             <td><?php echo $version_data['date_updated'];?></td>
             <td><?php echo PMA_getVersionStatus($version_data);?></td>

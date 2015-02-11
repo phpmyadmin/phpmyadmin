@@ -307,7 +307,7 @@ function PMA_getHtmlForTableVersionDetails(
             . ' class="checkall" id="' . $checkbox_id . '"'
             . ' value="' . htmlspecialchars($version['version']) . '"/>';
         $html .= '</td>';
-        $html .= '<th>';
+        $html .= '<th class="floatright">';
         $html .= '<label for="' . $checkbox_id . '">'
             . htmlspecialchars($version['version']) . '</label>';
         $html .= '</th>';
@@ -714,7 +714,7 @@ function PMA_getHtmlForOneStatement($entry, $filter_users,
         && (in_array('*', $filter_users) || $filtered_user)
     ) {
         $html = '<tr class="noclick ' . $style . '">';
-        $html .= '<td><small>' . $line_number . '</small></td>';
+        $html .= '<td class="right"><small>' . $line_number . '</small></td>';
         $html .= '<td><small>'
             . htmlspecialchars($entry['date']) . '</small></td>';
         $html .= '<td><small>'
