@@ -33,7 +33,13 @@ AJAX.registerTeardown('db_central_columns.js', function () {
 AJAX.registerOnload('db_central_columns.js', function () {
     $('#tableslistcontainer input,#tableslistcontainer select,.default_value,.open_enum_editor').hide();
     if ($('#table_columns tbody tr').length > 0) {
-        $("#table_columns").tablesorter();
+        $("#table_columns").tablesorter({
+            headers: {
+                0: {sorter: false},
+                1: {sorter: false}, // hidden column
+                4: {sorter: "integer"}
+            }
+        });
     }
     $('#add_new td').each(function(){
         if ($(this).attr('name') !== 'undefined') {
