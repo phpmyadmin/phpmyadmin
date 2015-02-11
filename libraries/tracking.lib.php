@@ -998,7 +998,7 @@ function PMA_getHtmlForIndex($index, $style)
 
     $html  = '<tr class="noclick ' . $style . '">';
     $html .= '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
-    $html .= '<td>' . htmlspecialchars($index['Index_choice']) . '</td>';
+    $html .= '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
     $html .= '<td>' . $str_unique . '</td>';
     $html .= '<td>' . $str_packed . '</td>';
     $html .= '<td>' . htmlspecialchars($index['Column_name']) . '</td>';
