@@ -167,11 +167,11 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
                 class="checkall" id="<?php echo $checkbox_id;?>"
                 value="<?php echo htmlspecialchars($version_data['table_name']);?>"/>
             </td>
-            <td>
+            <th>
                 <label for="<?php echo $checkbox_id;?>">
                     <?php echo htmlspecialchars($version_data['table_name']);?>
                 </label>
-            </td>
+            </th>
             <td><?php echo $version_data['version'];?></td>
             <td><?php echo $version_data['date_created'];?></td>
             <td><?php echo $version_data['date_updated'];?></td>
@@ -286,11 +286,11 @@ if (count($my_tables) > 0) {
                     class="checkall" id="<?php echo $checkbox_id;?>"
                     value="<?php echo htmlspecialchars($tablename);?>"/>
             </td>
-            <td>
+            <th>
                 <label for="<?php echo $checkbox_id;?>">
                     <?php echo htmlspecialchars($tablename);?>
                 </label>
-            </td>
+            </th>
             <td><?php echo $my_link;?></td>
             </tr>
             <?php
