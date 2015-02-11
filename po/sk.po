@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-10 13:04-0500\n"
-"PO-Revision-Date: 2015-02-06 15:23+0200\n"
+"PO-Revision-Date: 2015-02-10 21:22+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -1639,7 +1639,7 @@ msgstr "Kontrola"
 
 #: js/messages.php:249
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Formátujem SQL..."
 
 #: js/messages.php:253 libraries/db_designer.lib.php:828
 #: libraries/db_designer.lib.php:877 libraries/db_designer.lib.php:1021
@@ -2220,6 +2220,8 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Skutočne chcete zobraziť všetky riadky? Pri veľkej tabuľke môže dôjsť k pádu "
+"prehliadača."
 
 #: js/messages.php:441
 msgid "cancel"
@@ -2398,7 +2400,7 @@ msgstr ""
 
 #: js/messages.php:517 js/messages.php:529
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Na serveri boli zistené chyby!"
 
 #: js/messages.php:519
 msgid "Please look at the bottom of this window."
@@ -4853,7 +4855,7 @@ msgstr "Vypnuté"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "kľúč"
 
 #: libraries/config.values.php:99
 msgid "display column"
@@ -15176,7 +15178,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:429
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Je InnoDB vypnuté?"
 
 #: libraries/advisory_rules.txt:432
 msgid "You do not have InnoDB enabled."
@@ -15249,7 +15251,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:448
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "Veľkosť záznamov InnoDB je %s MiB"
 
 #: libraries/advisory_rules.txt:450
 msgid "InnoDB buffer pool size"

@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-10 13:04-0500\n"
-"PO-Revision-Date: 2015-02-09 19:50+0200\n"
+"PO-Revision-Date: 2015-02-10 20:37+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -6657,10 +6657,9 @@ msgid "Allow root login"
 msgstr "Root oturumu açmaya izin ver"
 
 #: libraries/config/messages.inc.php:546
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Oturum değeri"
+msgstr "Oturum saat dilimi"
 
 #: libraries/config/messages.inc.php:547
 msgid ""
@@ -13572,10 +13571,9 @@ msgid "Showing create queries"
 msgstr "Sorguları oluşturma gösteriliyor"
 
 #: libraries/structure.lib.php:3263
-#, fuzzy
 #| msgid "Relation View"
 msgid "Relation view"
-msgstr "Bağlantı Görünümü"
+msgstr "Bağlantı görünümü"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -14442,13 +14440,13 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Satır: %1$s, Sütun: %2$s, Hata: %3$s"
 
 #: tbl_structure.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 #| msgid_plural "The column names '%s' are MySQL reserved keywords."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "Sütun adı '%s' MySQL'e ayrılmış anahtar kelimedir."
-msgstr[1] "Sütun adları '%s' MySQL'e ayrılmış anahtar kelimelerdir."
+msgstr[0] "'%s' adı MySQL'e ayrılmış anahtar kelimedir."
+msgstr[1] "'%s' adları MySQL'e ayrılmış anahtar kelimelerdir."
 
 #: tbl_structure.php:114
 msgid "No column selected."
