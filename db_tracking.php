@@ -164,13 +164,20 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
         $delete_link = 'db_tracking.php' . $url_query . '&amp;table='
             . htmlspecialchars($version_data['table_name'])
             . '&amp;delete_tracking=true&amp';
+        $checkbox_id = "selected_tbl_"
+            . htmlspecialchars($version_data['table_name']);
         ?>
         <tr class="noclick <?php echo $style;?>">
             <td class="center">
-                <input type="checkbox" name="selected_tbl[]" class="checkall"
+                <input type="checkbox" name="selected_tbl[]"
+                class="checkall" id="<?php echo $checkbox_id;?>"
                 value="<?php echo htmlspecialchars($version_data['table_name']);?>"/>
             </td>
-            <td><?php echo htmlspecialchars($version_data['table_name']);?></td>
+            <td>
+                <label for="<?php echo $checkbox_id;?>">
+                    <?php echo htmlspecialchars($version_data['table_name']);?>
+                </label>
+            </td>
             <td><?php echo $version_data['version'];?></td>
             <td><?php echo $version_data['date_created'];?></td>
             <td><?php echo $version_data['date_updated'];?></td>
@@ -272,6 +279,8 @@ if (count($my_tables) > 0) {
     $style = 'odd';
 
     foreach ($my_tables as $key => $tablename) {
+        $checkbox_id = "selected_tbl_"
+            . htmlspecialchars($tablename);
         if (PMA_Tracker::getVersion($GLOBALS['db'], $tablename) == -1) {
             $my_link = '<a href="tbl_tracking.php' . $url_query
                 . '&amp;table=' . htmlspecialchars($tablename) . '">';
@@ -280,10 +289,15 @@ if (count($my_tables) > 0) {
             ?>
             <tr class="noclick <?php echo $style;?>">
             <td class="center">
-                <input type="checkbox" name="selected_tbl[]" class="checkall"
+                <input type="checkbox" name="selected_tbl[]"
+                    class="checkall" id="<?php echo $checkbox_id;?>"
                     value="<?php echo htmlspecialchars($tablename);?>"/>
             </td>
-            <td><?php echo htmlspecialchars($tablename);?></td>
+            <td>
+                <label for="<?php echo $checkbox_id;?>">
+                    <?php echo htmlspecialchars($tablename);?>
+                </label>
+            </td>
             <td><?php echo $my_link;?></td>
             </tr>
             <?php
