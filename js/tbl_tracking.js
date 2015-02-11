@@ -14,6 +14,7 @@ AJAX.registerOnload('tbl_tracking.js', function () {
     $('#versions').tablesorter({
         sortList: [[1, 0]],
         headers: {
+            0: {sorter: false},
             1: {sorter: "integer"},
             5: {sorter: false},
             6: {sorter: false}
