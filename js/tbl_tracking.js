@@ -32,6 +32,16 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         }
     });
 
+    $('#dml_versions tr:first th').append($('<div class="sorticon"></div>'));
+    $('#dml_versions').tablesorter({
+        sortList: [[0, 0]],
+        headers: {
+            0: {sorter: "integer"},
+            3: {sorter: false},
+            4: {sorter: false}
+        }
+    });
+
     /**
      * Handles multi submit for tracking versions
      */
