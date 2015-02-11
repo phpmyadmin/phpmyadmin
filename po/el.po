@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-10 13:04-0500\n"
-"PO-Revision-Date: 2015-02-06 14:19+0200\n"
+"PO-Revision-Date: 2015-02-11 08:19+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -6709,16 +6709,16 @@ msgid "Allow root login"
 msgstr "Δικαίωμα ριζικής σύνδεσης"
 
 #: libraries/config/messages.inc.php:546
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Τιμή συνεδρίας"
+msgstr "Ζώνη ώρας συνεδρίας"
 
 #: libraries/config/messages.inc.php:547
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Ορίζει την ενεργή ζώνη ώρας, πιθανά διαφορετική από αυτή του διακομιστή σας"
 
 #: libraries/config/messages.inc.php:549
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -7712,10 +7712,9 @@ msgid "Select Export Relational Type"
 msgstr "Επιλογή Τύπου Συσχέτισης Εξαγωγής"
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:258
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "Εμφάνιση πινάκων:"
+msgstr "Εμφάνιση/Απόκρυψη λίστας πινάκων"
 
 #: libraries/db_designer.lib.php:262 libraries/db_designer.lib.php:266
 msgid "View in fullscreen"
@@ -7796,10 +7795,9 @@ msgid "Move Menu"
 msgstr "Μενου μετακίνησης"
 
 #: libraries/db_designer.lib.php:416 libraries/db_designer.lib.php:419
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
-msgstr "Περιληπτικά κείμενα"
+msgstr "Καρφίτσωμα κειμένου"
 
 #: libraries/db_designer.lib.php:458
 msgid "Hide/Show all"
@@ -13729,7 +13727,6 @@ msgid "Showing create queries"
 msgstr "Εμφάνιση ερωτημάτων δημιουργίας"
 
 #: libraries/structure.lib.php:3263
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
 msgstr "Εμφάνιση συσχετίσεων"
