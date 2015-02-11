@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-10 13:04-0500\n"
-"PO-Revision-Date: 2015-02-11 10:09+0200\n"
+"PO-Revision-Date: 2015-02-11 23:12+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
@@ -8904,7 +8904,7 @@ msgstr "Letton"
 
 #: libraries/mysql_charsets.lib.php:225
 msgid "Lithuanian"
-msgstr ""
+msgstr "Lituano"
 
 #: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:333
 msgid "Korean"
@@ -9006,7 +9006,7 @@ msgstr "Greco"
 
 #: libraries/mysql_charsets.lib.php:345
 msgid "Czech-Slovak"
-msgstr ""
+msgstr "Tcheco-Slovaco"
 
 #: libraries/mysql_charsets.lib.php:360 libraries/mysql_charsets.lib.php:367
 #: libraries/structure.lib.php:1164
