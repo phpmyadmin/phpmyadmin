@@ -4,6 +4,7 @@
 AJAX.registerTeardown('tbl_tracking.js', function () {
     $('body').off('click', '#versionsForm.ajax button[name="submit_mult"], #versionsForm.ajax input[name="submit_mult"]');
     $('body').off('click', 'a.delete_version_anchor.ajax');
+    $('body').off('click', 'a.delete_entry_anchor.ajax');
 });
 
 /**
@@ -74,6 +75,19 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         e.preventDefault();
         var $anchor = $(this);
         var question = PMA_messages.strDeleteTrackingVersion;
+        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
+            PMA_ajaxShowMessage();
+            $.get(url, {'ajax_page_request': true, 'ajax_request': true}, AJAX.responseHandler);
+        });
+    });
+
+    /**
+     * Ajax Event handler for 'Delete tracking report entry'
+     */
+    $('body').on('click', 'a.delete_entry_anchor.ajax', function (e) {
+        e.preventDefault();
+        var $anchor = $(this);
+        var question = PMA_messages.strDeletingTrackingEntry;
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             PMA_ajaxShowMessage();
             $.get(url, {'ajax_page_request': true, 'ajax_request': true}, AJAX.responseHandler);

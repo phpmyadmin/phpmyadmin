@@ -41,6 +41,7 @@ $js_messages['strDeleteTrackingData'] = __('Delete tracking data for this table?
 $js_messages['strDeleteTrackingDataMultiple'] = __('Delete tracking data for these tables?');
 $js_messages['strDeleteTrackingVersion'] = __('Delete tracking data for this version?');
 $js_messages['strDeleteTrackingVersionMultiple'] = __('Delete tracking data for these versions?');
+$js_messages['strDeletingTrackingEntry'] = __('Delete entry from tracking report?');
 $js_messages['strDeletingTrackingData'] = __('Deleting tracking data');
 $js_messages['strDroppingPrimaryKeyIndex'] = __('Dropping Primary Key/Index');
 $js_messages['strDroppingForeignKey'] = __('Dropping Foreign key.');
