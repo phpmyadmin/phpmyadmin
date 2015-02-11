@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug       Undefined index navwork
 - bug #4744 Opening console scroll down the page
 - bug       Remove extra column heading in view structure page
+- bug       Add missing confirmation when deleting central columns
 
 4.3.9.0 (2015-02-05)
 - bug #4728 Incorrect headings in routine editor
