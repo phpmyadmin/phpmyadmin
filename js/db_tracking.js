@@ -12,6 +12,21 @@ AJAX.registerTeardown('db_tracking.js', function () {
  */
 AJAX.registerOnload('db_tracking.js', function () {
 
+    $('#versions').tablesorter({
+        sortList: [[1, 0]],
+        headers: {
+            6: {sorter: false},
+            7: {sorter: false}
+        }
+    });
+
+    $('#noversions').tablesorter({
+        sortList: [[1, 0]],
+        headers: {
+            2: {sorter: false}
+        }
+    });
+
     /**
      * Handles multi submit for tracked tables
      */

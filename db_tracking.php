@@ -17,6 +17,7 @@ require_once './libraries/tracking.lib.php';
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
+$scripts->addFile('jquery/jquery.tablesorter.js');
 $scripts->addFile('db_tracking.js');
 
 /**

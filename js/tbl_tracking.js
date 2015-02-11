@@ -11,6 +11,14 @@ AJAX.registerTeardown('tbl_tracking.js', function () {
  */
 AJAX.registerOnload('tbl_tracking.js', function () {
 
+    $('#versions').tablesorter({
+        sortList: [[1, 0]],
+        headers: {
+            5: {sorter: false},
+            6: {sorter: false}
+        }
+    });
+
     /**
      * Handles multi submit for tracking versions
      */
