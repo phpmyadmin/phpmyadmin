@@ -285,6 +285,9 @@ function PMA_getHtmlForTableVersionDetails(
     $style = 'odd';
     $GLOBALS['dbi']->dataSeek($sql_result, 0);
     $delete = PMA_Util::getIcon('b_drop.png', __('Delete version'));
+    $report = PMA_Util::getIcon('b_report.png', __('Tracking report'));
+    $structure = PMA_Util::getIcon('b_props.png', __('Structure snapshot'));
+
     while ($version = $GLOBALS['dbi']->fetchArray($sql_result)) {
         if ($version['version'] == $last_version) {
             if ($version['tracking_active'] == 1) {
@@ -313,15 +316,15 @@ function PMA_getHtmlForTableVersionDetails(
                 'report' => 'true', 'version' => $version['version']
             )
         );
-        $html .= '">' . __('Tracking report') . '</a>';
-        $html .= '&nbsp;|&nbsp;';
+        $html .= '">' . $report . '</a>';
+        $html .= '&nbsp;&nbsp;';
         $html .= '<a href="tbl_tracking.php';
         $html .= PMA_URL_getCommon(
             $url_params + array(
                 'snapshot' => 'true', 'version' => $version['version']
             )
         );
-        $html .= '">' . __('Structure snapshot') . '</a>';
+        $html .= '">' . $structure . '</a>';
         $html .= '</td>';
         $html .= '</tr>';
 

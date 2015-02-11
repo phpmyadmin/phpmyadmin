@@ -135,16 +135,10 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
 
     // Print out information about versions
 
-    $delete_image_or_text = '';
-    if (PMA_Util::showIcons('ActionLinksMode')) {
-        $delete_image_or_text .= PMA_Util::getImage(
-            'b_drop.png',
-            __('Delete tracking data for this table')
-        );
-    }
-    if (PMA_Util::showText('ActionLinksMode')) {
-        $delete_image_or_text .= __('Delete tracking');
-    }
+    $delete = PMA_Util::getIcon('b_drop.png', __('Delete tracking'));
+    $versions = PMA_Util::getIcon('b_versions.png', __('Versions'));
+    $report = PMA_Util::getIcon('b_report.png', __('Tracking report'));
+    $structure = PMA_Util::getIcon('b_props.png', __('Structure snapshot'));
 
     $style = 'odd';
     while ($one_result = $GLOBALS['dbi']->fetchArray($all_tables_result)) {
@@ -184,18 +178,17 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
             <td><?php echo PMA_getVersionStatus($version_data);?></td>
             <td>
             <a class="delete_tracking_anchor ajax" href="<?php echo $delete_link;?>" >
-            <?php echo $delete_image_or_text; ?></a>
+            <?php echo $delete; ?></a>
         <?php
         echo '</td>'
             . '<td>'
-            . '<a href="' . $tmp_link . '">' . __('Versions') . '</a>'
-            . '&nbsp;|&nbsp;'
+            . '<a href="' . $tmp_link . '">' . $versions . '</a>'
+            . '&nbsp;&nbsp;'
             . '<a href="' . $tmp_link . '&amp;report=true&amp;version='
-            . $version_data['version'] . '">' . __('Tracking report') . '</a>'
-            . '&nbsp;|&nbsp;'
+            . $version_data['version'] . '">' . $report . '</a>'
+            . '&nbsp;&nbsp;'
             . '<a href="' . $tmp_link . '&amp;snapshot=true&amp;version='
-            . $version_data['version'] . '">' . __('Structure snapshot')
-            . '</a>'
+            . $version_data['version'] . '">' . $structure . '</a>'
             . '</td>'
             . '</tr>';
         if ($style == 'even') {
