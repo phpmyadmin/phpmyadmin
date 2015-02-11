@@ -10,7 +10,7 @@
  * Ajax event handlers for this page
  *
  * Actions ajaxified here:
- * Table Search
+ * Table search
  */
 
 /**
@@ -82,7 +82,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         });
 
     /**
-     * Ajax event handler for Table Search
+     * Ajax event handler for Table search
      */
     $(document).on('submit', "#tbl_search_form.ajax", function (event) {
         var unaryFunctions = [
