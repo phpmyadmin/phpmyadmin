@@ -22,25 +22,29 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         }
     });
 
-    $('#ddl_versions tr:first th').append($('<div class="sorticon"></div>'));
-    $('#ddl_versions').tablesorter({
-        sortList: [[0, 0]],
-        headers: {
-            0: {sorter: "integer"},
-            3: {sorter: false},
-            4: {sorter: false}
-        }
-    });
+    if ($('#ddl_versions tbody tr').length > 0) {
+        $('#ddl_versions tr:first th').append($('<div class="sorticon"></div>'));
+        $('#ddl_versions').tablesorter({
+            sortList: [[0, 0]],
+            headers: {
+                0: {sorter: "integer"},
+                3: {sorter: false},
+                4: {sorter: false}
+            }
+        });
+    }
 
-    $('#dml_versions tr:first th').append($('<div class="sorticon"></div>'));
-    $('#dml_versions').tablesorter({
-        sortList: [[0, 0]],
-        headers: {
-            0: {sorter: "integer"},
-            3: {sorter: false},
-            4: {sorter: false}
-        }
-    });
+    if ($('#dml_versions tbody tr').length > 0) {
+        $('#dml_versions tr:first th').append($('<div class="sorticon"></div>'));
+        $('#dml_versions').tablesorter({
+            sortList: [[0, 0]],
+            headers: {
+                0: {sorter: "integer"},
+                3: {sorter: false},
+                4: {sorter: false}
+            }
+        });
+    }
 
     /**
      * Handles multi submit for tracking versions
