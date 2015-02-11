@@ -12,6 +12,7 @@ AJAX.registerTeardown('db_tracking.js', function () {
  */
 AJAX.registerOnload('db_tracking.js', function () {
 
+    $('#versions tr:first th').append($('<div class="sorticon"></div>'));
     $('#versions').tablesorter({
         sortList: [[1, 0]],
         headers: {
@@ -22,6 +23,7 @@ AJAX.registerOnload('db_tracking.js', function () {
         }
     });
 
+    $('#noversions tr:first th').append($('<div class="sorticon"></div>'));
     $('#noversions').tablesorter({
         sortList: [[1, 0]],
         headers: {

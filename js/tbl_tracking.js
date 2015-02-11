@@ -11,6 +11,7 @@ AJAX.registerTeardown('tbl_tracking.js', function () {
  */
 AJAX.registerOnload('tbl_tracking.js', function () {
 
+    $('#versions tr:first th').append($('<div class="sorticon"></div>'));
     $('#versions').tablesorter({
         sortList: [[1, 0]],
         headers: {
@@ -21,6 +22,7 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         }
     });
 
+    $('#ddl_versions tr:first th').append($('<div class="sorticon"></div>'));
     $('#ddl_versions').tablesorter({
         sortList: [[0, 0]],
         headers: {
