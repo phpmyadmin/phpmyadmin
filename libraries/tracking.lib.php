@@ -299,12 +299,18 @@ function PMA_getHtmlForTableVersionDetails(
         $delete_link = 'tbl_tracking.php' . $url_query . '&amp;version='
             . htmlspecialchars($version['version'])
             . '&amp;submit_delete_version=true';
+        $checkbox_id = 'selected_versions_' . htmlspecialchars($version['version']);
+
         $html .= '<tr class="noclick ' . $style . '">';
         $html .= '<td class="center">';
-        $html .= '<input type="checkbox" name="selected_versions[]" class="checkall"'
-            . 'value="' . htmlspecialchars($version['version']) . '"/>';
+        $html .= '<input type="checkbox" name="selected_versions[]"'
+            . ' class="checkall" id="' . $checkbox_id . '"'
+            . ' value="' . htmlspecialchars($version['version']) . '"/>';
         $html .= '</td>';
-        $html .= '<td>' . htmlspecialchars($version['version']) . '</td>';
+        $html .= '<th>';
+        $html .= '<label for="' . $checkbox_id . '">'
+            . htmlspecialchars($version['version']) . '</label>';
+        $html .= '</th>';
         $html .= '<td>' . htmlspecialchars($version['date_created']) . '</td>';
         $html .= '<td>' . htmlspecialchars($version['date_updated']) . '</td>';
         $html .= '<td>' . PMA_getVersionStatus($version) . '</td>';
