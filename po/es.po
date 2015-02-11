@@ -10912,11 +10912,11 @@ msgstr "Conexión maestra:"
 
 #: libraries/replication_gui.lib.php:209
 msgid "Slave SQL Thread not running!"
-msgstr "¡El hilo SQL esclavo no está ejecutando!"
+msgstr "¡El hilo SQL esclavo no se está ejecutando!"
 
 #: libraries/replication_gui.lib.php:214
 msgid "Slave IO Thread not running!"
-msgstr "¡El hilo IO escalvo no está ejecutando!"
+msgstr "¡El hilo IO esclavo no se está ejecutando!"
 
 #: libraries/replication_gui.lib.php:225
 msgid ""
