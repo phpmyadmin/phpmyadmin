@@ -529,10 +529,6 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             htmlspecialchars($fetchArray['db_name']),
             $ret
         );
-        $this->assertContains(
-            __('Show versions'),
-            $ret
-        );
 
         //restore DBI
         $GLOBALS['dbi'] = $dbi_old;

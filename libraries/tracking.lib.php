@@ -401,7 +401,7 @@ function PMA_getSQLResultForSelectableTables()
 function PMA_getHtmlForSelectableTables($selectable_tables_sql_result, $url_query)
 {
     $html = '<form method="post" action="tbl_tracking.php' . $url_query . '">';
-    $html .= '<select name="table">';
+    $html .= '<select name="table" class="autosubmit">';
     while ($entries = $GLOBALS['dbi']->fetchArray($selectable_tables_sql_result)) {
         if (PMA_Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
             $status = ' (' . __('active') . ')';
@@ -420,7 +420,6 @@ function PMA_getHtmlForSelectableTables($selectable_tables_sql_result, $url_quer
     }
     $html .= '</select>';
     $html .= '<input type="hidden" name="show_versions_submit" value="1" />';
-    $html .= '<input type="submit" value="' . __('Show versions') . '" />';
     $html .= '</form>';
 
     return $html;
