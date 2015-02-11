@@ -773,7 +773,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
                 'Non_unique' => 0,
                 'Packed' => '',
                 'Key_name' => 'Key_name1',
-                'Index_choice' => 'Index_choice1',
+                'Index_type' => 'BTREE',
                 'Column_name' => 'Column_name',
                 'Cardinality' => 'Cardinality',
                 'Collation' => 'Collation',
