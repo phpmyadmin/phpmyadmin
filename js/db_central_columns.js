@@ -52,13 +52,6 @@ AJAX.registerOnload('db_central_columns.js', function () {
             'width' : '10em',
             '-moz-box-sizing' : 'border-box'
         });
-    $('.column_heading').mouseenter(function(){
-        PMA_tooltip(
-            $(this),
-            'th',
-            PMA_messages.strSortHint
-        );
-    });
     window.scrollTo(0, 0);
     $(document).on("keyup", ".filter_rows", function () {
         var cols = ["Name", "Type", "Length/Values", "Collation", "Null", "Extra", "Default"];
