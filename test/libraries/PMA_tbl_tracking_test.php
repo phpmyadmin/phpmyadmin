@@ -45,7 +45,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $GLOBALS['db'] = "PMA_db";
         $GLOBALS['table'] = "PMA_table";
         $GLOBALS['cfg']['ServerDefault'] = "server";
-        $GLOBALS['cfg']['ActionLinksMode'] = 'ActionLinksMode';
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
 
         $_SESSION['relation'][$GLOBALS['server']] = array(
