@@ -15,6 +15,7 @@ AJAX.registerOnload('db_tracking.js', function () {
     $('#versions').tablesorter({
         sortList: [[1, 0]],
         headers: {
+            2: {sorter: "integer"},
             6: {sorter: false},
             7: {sorter: false}
         }

@@ -14,8 +14,18 @@ AJAX.registerOnload('tbl_tracking.js', function () {
     $('#versions').tablesorter({
         sortList: [[1, 0]],
         headers: {
+            1: {sorter: "integer"},
             5: {sorter: false},
             6: {sorter: false}
+        }
+    });
+
+    $('#ddl_versions').tablesorter({
+        sortList: [[0, 0]],
+        headers: {
+            0: {sorter: "integer"},
+            3: {sorter: false},
+            4: {sorter: false}
         }
     });
 
