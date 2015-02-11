@@ -782,7 +782,7 @@ function PMA_getHtmlForDataStatements($data, $filter_users,
     $html .= '<th width="100">' . __('Date') . '</th>';
     $html .= '<th width="60">' . __('Username') . '</th>';
     $html .= '<th>' . $header_message . '</th>';
-    $html .= '<th>' . __('Delete') . '</th>';
+    $html .= '<th>' . __('Action') . '</th>';
     $html .= '</tr>';
     $html .= '</thead>';
     $html .= '<tbody>';

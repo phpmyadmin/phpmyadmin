@@ -744,7 +744,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            __('Delete'),
+            __('Action'),
             $html
         );
 
