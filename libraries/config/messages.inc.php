@@ -543,6 +543,8 @@ $strConfigServers_AllowDeny_rules_desc = __('Leave blank for defaults.');
 $strConfigServers_AllowDeny_rules_name = __('Host authorization rules');
 $strConfigServers_AllowNoPassword_name = __('Allow logins without a password');
 $strConfigServers_AllowRoot_name = __('Allow root login');
+$strConfigServers_SessionTimeZone_name = __('Session timezone');
+$strConfigServers_SessionTimeZone_desc = __('Sets the effective timezone; possibly different than the one from your database server');
 $strConfigServers_auth_http_realm_desc
     = __('HTTP Basic Auth Realm name to display when doing HTTP Auth.');
 $strConfigServers_auth_http_realm_name = __('HTTP Realm');

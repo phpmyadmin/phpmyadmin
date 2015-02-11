@@ -981,6 +981,31 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $cfg['Server']['user'], $cfg['Server']['password'], false
         );
 
+        // Set timestamp for the session, if required.
+        if ($cfg['Server']['SessionTimeZone'] != '') {
+            $sql_query_tz = 'SET ' . PMA_Util::backquote('time_zone') . ' = '
+                . '\'' . PMA_Util::sqlAddSlashes($cfg['Server']['SessionTimeZone']) . '\'';
+
+            if(! $userlink->query($sql_query_tz)) {
+                $error_message_tz = sprintf(__('Unable to use timezone %s for server %d. '
+                    . 'Please check your configuration setting for '
+                    . '[em]$cfg[\'Servers\'][%d][\'SessionTimeZone\'][/em]. '
+                    . 'phpMyAdmin is currently using the default time zone of the database server.'),
+                    $cfg['Servers'][$GLOBALS['server']]['SessionTimeZone'],
+                    $GLOBALS['server'],
+                    $GLOBALS['server']
+                );
+
+                $GLOBALS['error_handler']->addError(
+                    $error_message_tz,
+                    E_USER_WARNING,
+                    '',
+                    '',
+                    false
+                );
+            }
+        }
+
         if (! $controllink) {
             $controllink = $userlink;
         }
