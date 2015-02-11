@@ -72,10 +72,16 @@ AJAX.registerOnload('db_central_columns.js', function () {
             $('#f_'+rownum+' .default_type').siblings('.default_value').hide();
         }
     });
-    $(".del_row").click(function() {
-        rownum = $(this).data('rownum');
-        $("#del_col_name").val($('#f_'+rownum +' td[name=col_name] span').html());
-        $("#del_form").submit();
+    $(".del_row").click(function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $td = $(this);
+        var question = PMA_messages.strDeleteCentralColumnWarning;
+        $td.PMA_confirm(question, null, function (url) {
+            rownum = $td.data('rownum');
+            $("#del_col_name").val($('#f_' + rownum +' td[name=col_name] span').html());
+            $("#del_form").submit();
+        });
     });
     $('.edit_cancel_form').click(function(event) {
         event.preventDefault();
