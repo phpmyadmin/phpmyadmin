@@ -818,7 +818,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            htmlspecialchars($indexs[0]['Index_choice']),
+            htmlspecialchars($indexs[0]['Index_type']),
             $html
         );
         $this->assertContains(
