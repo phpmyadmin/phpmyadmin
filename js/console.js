@@ -259,6 +259,7 @@ var PMA_console = {
             'fast', 'easeOutQuart', function() {
                 PMA_console.$consoleContent.css({display:'none'});
                 $(window).trigger('resize');
+                $('body').scrollTop(window.s);
             });
         PMA_console.hideCard();
     },
@@ -268,10 +269,13 @@ var PMA_console = {
      * @param bool inputFocus If true, focus the input line after show()
      * @return void
      */
+
     show: function(inputFocus) {
+        window.s = $('body').scrollTop();
         $.cookie('pma_console_mode', 'show');
 
         var pmaConsoleHeight = $.cookie('pma_console_height');
+        
 
         if(pmaConsoleHeight < 32) {
             $.cookie('pma_console_height', 32);
@@ -279,6 +283,7 @@ var PMA_console = {
             return;
         }
         PMA_console.$consoleContent.css({display:'block'});
+
         if(PMA_console.$consoleToolbar.hasClass('collapsed')) {
             PMA_console.$consoleToolbar.removeClass('collapsed');
         }
@@ -287,6 +292,7 @@ var PMA_console = {
         PMA_console.$consoleContent.animate({'margin-bottom': 0},
             'fast', 'easeOutQuart', function() {
                 $(window).trigger('resize');
+                $('body').scrollTop(window.s);
             });
         if(inputFocus) {
             PMA_consoleInput.focus();
