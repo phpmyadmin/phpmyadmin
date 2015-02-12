@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-10 13:04-0500\n"
-"PO-Revision-Date: 2015-02-10 20:37+0200\n"
+"PO-Revision-Date: 2015-02-12 13:28+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -4821,6 +4821,10 @@ msgid ""
 "setting for [em]$cfg['Servers'][%d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"%s saat dilimi sunucu %d için kullanılamaz. Lütfen "
+"[em]$cfg['Servers'][%d]['SessionTimeZone'][/em] için yapılandırma "
+"ayarlarınızı kontrol edin. phpMyAdmin, veritabanı sunucusunun şu anki "
+"varsayılan saat dilimini kullanıyor."
 
 #: libraries/common.inc.php:1020
 #, php-format
@@ -6666,6 +6670,8 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Etkili saat dilimini ayarlar; muhtemelen veritabanı sunucunuzdakinden "
+"farklıdır"
 
 #: libraries/config/messages.inc.php:549
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
