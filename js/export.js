@@ -79,6 +79,12 @@ AJAX.registerOnload('export.js', function () {
             $("#checkbox_sql_relation").removeProp('disabled').parent().fadeTo('fast', 1);
             $("#checkbox_sql_mime").removeProp('disabled').parent().fadeTo('fast', 1);
         }
+
+        if (show == 'structure') {
+            $('#checkbox_sql_auto_increment').prop('disabled', true).parent().fadeTo('fast', 0.4);
+        } else {
+            $("#checkbox_sql_auto_increment").removeProp('disabled').parent().fadeTo('fast', 1);
+        }
     });
 });
 
