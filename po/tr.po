@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-12 08:52-0500\n"
-"PO-Revision-Date: 2015-02-12 13:28+0200\n"
+"PO-Revision-Date: 2015-02-12 15:17+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -954,10 +954,9 @@ msgid "Delete tracking data for these versions?"
 msgstr "Bu sürümler için izleme verisi silinsin mi?"
 
 #: js/messages.php:44
-#, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Rapordan izlenen veri satırını sil"
+msgstr "İzleme raporundan giriş silinsin mi?"
 
 #: js/messages.php:45
 msgid "Deleting tracking data"
@@ -993,13 +992,12 @@ msgstr ""
 
 #: js/messages.php:52
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Seçilen kullanıcı(ları)yı gerçekten geri almak istiyor musunuz?"
+msgstr "Seçilen kullanıcı(ları)yı geri almak istediğinize emin misiniz?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Bu yer imini silmek istediğinize emin misiniz?"
+msgstr "Bu merkezi sütunu silmek istediğinize emin misiniz?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -4047,22 +4045,19 @@ msgid "Value"
 msgstr "Değer"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
-msgstr "Tablo Arama"
+msgstr "Tablo arama"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
-msgstr "Odaklı Arama"
+msgstr "Odaklı arama"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
-msgstr "Bul ve Değiştir"
+msgstr "Bul ve değiştir"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1342
 msgid "Edit/Insert"
@@ -4829,7 +4824,7 @@ msgid "Invalid authentication method set in configuration:"
 msgstr "Yapılandırma içinde geçersiz kimlik doğrulaması yöntemi ayarı:"
 
 #: libraries/common.inc.php:990
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Unable to use timezone %s for server %d. Please check your configuration "
 #| "setting for [em]$cfg['Servers'][%d]['SessionTimeZone'][/em]. phpMyAdmin "
@@ -4839,10 +4834,10 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
-"%s saat dilimi sunucu %d için kullanılamaz. Lütfen [em]$cfg['Servers'][%d]"
-"['SessionTimeZone'][/em] için yapılandırma ayarlarınızı kontrol edin. "
-"phpMyAdmin, veritabanı sunucusunun şu anki varsayılan saat dilimini "
-"kullanıyor."
+"%1$s saat dilimi sunucu %2$d için kullanılamaz. Lütfen "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em] için yapılandırma "
+"ayarlarınızı kontrol edin. phpMyAdmin, veritabanı sunucusunun şu anki "
+"varsayılan saat dilimini kullanıyor."
 
 #: libraries/common.inc.php:1020
 #, php-format
