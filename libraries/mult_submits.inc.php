@@ -215,7 +215,9 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 
     if (! isset($_REQUEST['fk_check'])
-        && ($query_type == 'drop_tbl' || $query_type == 'row_delete')
+        && ($query_type == 'drop_tbl'
+        || $query_type == 'empty_tbl'
+        || $query_type == 'row_delete')
     ) {
         $default_fk_check_value = $GLOBALS['dbi']->fetchValue(
             'SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1
@@ -273,7 +275,9 @@ if (!empty($submit_mult) && !empty($what)) {
         }
     }
     if (! isset($_REQUEST['fk_check'])
-        && ($query_type == 'drop_tbl' || $query_type == 'row_delete')
+        && ($query_type == 'drop_tbl'
+        || $query_type == 'empty_tbl'
+        || $query_type == 'row_delete')
         && $default_fk_check_value
     ) {
         $GLOBALS['dbi']->query('SET FOREIGN_KEY_CHECKS = 1;');
