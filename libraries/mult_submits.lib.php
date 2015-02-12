@@ -433,7 +433,7 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
     $html .= '<form action="' . $action . '" method="post">';
     $html .= PMA_URL_getHiddenInputs($_url_params);
     // Display option to disable foreign key checks while dropping tables
-    if ($what == 'drop_tbl' || $what == 'row_delete') {
+    if ($what == 'drop_tbl' || $what == 'empty_tbl' || $what == 'row_delete') {
         $html .= '<div id="foreignkeychk">';
         $html .= '<label for="fkc_checkbox">';
         $html .= __('Foreign key check:');
