@@ -44,6 +44,7 @@ phpMyAdmin - ChangeLog
 + rfe #723  Provide sanity check for table/column names (table names)
 + rfe #1312 SessionTimeZone configuration directive
 - bug       Add missing confirmation when deleting tracking report entries
++ rfe       Ability to disable foreign key check when emptying tables
 
 4.3.10.0 (not yet released)
 - bug       Undefined index navwork
