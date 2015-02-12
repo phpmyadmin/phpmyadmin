@@ -367,7 +367,9 @@ class Node
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            if (isset($GLOBALS['cfg']['Server']['DisableIS'])
+                && ! $GLOBALS['cfg']['Server']['DisableIS']
+            ) {
                 $query  = "SELECT `SCHEMA_NAME` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
                 $query .= "(";
@@ -472,7 +474,9 @@ class Node
                 }
             }
         } else {
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            if (isset($GLOBALS['cfg']['Server']['DisableIS'])
+                && ! $GLOBALS['cfg']['Server']['DisableIS']
+            ) {
                 $query  = "SELECT `SCHEMA_NAME` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
                 $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
@@ -538,7 +542,9 @@ class Node
     {
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            if (isset($GLOBALS['cfg']['Server']['DisableIS'])
+                && ! $GLOBALS['cfg']['Server']['DisableIS']
+            ) {
                 $query = "SELECT COUNT(*) ";
                 $query .= "FROM ( ";
                 $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
@@ -586,7 +592,9 @@ class Node
                 }
             }
         } else {
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            if (isset($GLOBALS['cfg']['Server']['DisableIS'])
+                && ! $GLOBALS['cfg']['Server']['DisableIS']
+            ) {
                 $query = "SELECT COUNT(*) ";
                 $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
                 $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
