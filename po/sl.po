@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-12 08:52-0500\n"
-"PO-Revision-Date: 2015-02-10 18:06+0200\n"
+"PO-Revision-Date: 2015-02-12 21:55+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -956,10 +956,9 @@ msgid "Delete tracking data for these versions?"
 msgstr "Izbrišemo podatke sledenja teh različic?"
 
 #: js/messages.php:44
-#, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Izbriši vrstico podatkov sledenja iz poročila"
+msgstr "Izbrišem vnos iz poročila o sledenju?"
 
 #: js/messages.php:45
 msgid "Deleting tracking data"
@@ -997,10 +996,9 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Ali res želite izbrisati izbrane uporabnike?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Ali res želite izbrisati zaznamek?"
+msgstr "Ali res želite izbrisati ta osrednji stolpec?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -4060,19 +4058,16 @@ msgid "Value"
 msgstr "Vrednost"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "Iskanje po tabeli"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "Iskanje s povečevanjem"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "Najdi in zamenjaj"
@@ -4848,6 +4843,10 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"Ne morem uporabiti čaovnega pasu %1$s na strežniku %2$d. Prosimo, preverite "
+"svojo nastavitev konfiguracije za "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin trenutno "
+"uporalja privzeti časovni pas strežnika zbirke podatkov."
 
 #: libraries/common.inc.php:1020
 #, php-format
@@ -6673,16 +6672,17 @@ msgid "Allow root login"
 msgstr "Dovoli prijavo root"
 
 #: libraries/config/messages.inc.php:546
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Vrednost seje"
+msgstr "Časovni pas seje"
 
 #: libraries/config/messages.inc.php:547
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Določi časovni pas v uporabi; lahko se razlikuje od časovnega pasu na "
+"strežniku zbirke podatkov"
 
 #: libraries/config/messages.inc.php:549
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -7733,10 +7733,9 @@ msgid "Move Menu"
 msgstr "Premakni meni"
 
 #: libraries/db_designer.lib.php:416 libraries/db_designer.lib.php:419
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
-msgstr "Delna besedila"
+msgstr "Pripni besedilo"
 
 #: libraries/db_designer.lib.php:458
 msgid "Hide/Show all"
@@ -13570,7 +13569,6 @@ msgid "Showing create queries"
 msgstr "Pokaži poizvedbe create"
 
 #: libraries/structure.lib.php:3263
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
 msgstr "Pogled relacij"
@@ -14429,15 +14427,15 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Vrstica: %1$s, Stolpec: %2$s, Napaka: %3$s"
 
 #: tbl_structure.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 #| msgid_plural "The column names '%s' are MySQL reserved keywords."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "Ime stolpca '%s' je rezervirana beseda MySQL."
-msgstr[1] "Imeni stolpcev '%s' sta rezervirani besedi MySQL."
-msgstr[2] "Imena stolpcev '%s' so rezervirane besede MySQL."
-msgstr[3] "Imena stolpcev '%s' so rezervirane besede MySQL."
+msgstr[0] "Ime '%s' je rezervirana beseda MySQL."
+msgstr[1] "Imeni '%s' sta rezervirani besedi MySQL."
+msgstr[2] "Imena '%s' so rezervirane besede MySQL."
+msgstr[3] "Imena '%s' so rezervirane besede MySQL."
 
 #: tbl_structure.php:114
 msgid "No column selected."
