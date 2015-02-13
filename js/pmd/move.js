@@ -1561,9 +1561,9 @@ function getColorByTarget(target)
 {
     var color = '';  //"rgba(0,100,150,1)";
 
-    for (var i in TargetColors) {
-        if (TargetColors[i][0] == target) {
-            color = TargetColors[i][1];
+    for (var a in TargetColors) {
+        if (TargetColors[a][0] == target) {
+            color = TargetColors[a][1];
             break;
         }
     }
