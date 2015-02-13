@@ -221,8 +221,7 @@ if ($tbl_is_view) {
 }
 $response->addHTML(
     PMA_getHtmlForOptionalActionLinks(
-        $url_query, $tbl_is_view, $db_is_system_schema,
-        $tbl_storage_engine, $cfgRelation
+        $url_query, $tbl_is_view, $db_is_system_schema
     )
 );
 

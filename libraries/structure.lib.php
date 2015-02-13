@@ -1610,13 +1610,11 @@ function PMA_getHtmlForEditView($url_params)
  * @param string  $url_query           url query
  * @param boolean $tbl_is_view         whether table is view or not
  * @param boolean $db_is_system_schema whether db is information schema or not
- * @param string  $tbl_storage_engine  table storage engine
- * @param array   $cfgRelation         current relation parameters
  *
  * @return string $html_output
  */
 function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
-    $db_is_system_schema, $tbl_storage_engine, $cfgRelation
+    $db_is_system_schema
 ) {
     $html_output = '<a href="tbl_printview.php' . $url_query
         . '" target="print_view">'
