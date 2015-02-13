@@ -15,15 +15,16 @@
  * @returns void
  */
 function loadChildNodes(isNode, $expandElem, callback) {
+
+    var $destination = null;
+    var params = null;
+
     if (isNode) {
         if (!$expandElem.hasClass('expander')) {
             return;
         }
-        var $destination = $expandElem.closest('li');
-        var searchClause = PMA_fastFilter.getSearchClause();
-        var searchClause2 = PMA_fastFilter.getSearchClause2($expandElem);
-
-        var params = {
+        $destination = $expandElem.closest('li');
+        params = {
             aPath: $expandElem.find('span.aPath').text(),
             vPath: $expandElem.find('span.vPath').text(),
             pos: $expandElem.find('span.pos').text(),
@@ -32,14 +33,13 @@ function loadChildNodes(isNode, $expandElem, callback) {
             searchClause: '',
             searchClause2: ''
         };
-        if ($expandElem.closest('ul').hasClass('search_results')
-        ) {
-            params.searchClause = searchClause;
-            params.searchClause2 = searchClause2;
+        if ($expandElem.closest('ul').hasClass('search_results')) {
+            params.searchClause = PMA_fastFilter.getSearchClause();
+            params.searchClause2 = PMA_fastFilter.getSearchClause2($expandElem);
         }
     } else {
-        var $destination = $('#pma_navigation_tree_content');
-        var params = {
+        $destination = $('#pma_navigation_tree_content');
+        params = {
             aPath: $expandElem.attr('aPath'),
             vPath: $expandElem.attr('vPath'),
             pos: $expandElem.attr('pos'),
