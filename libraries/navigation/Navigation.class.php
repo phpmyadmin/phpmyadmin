@@ -53,7 +53,7 @@ class PMA_Navigation
                 $retval .= $treeRender;
             }
         } else {
-            // provide legacy pre-4.0 navigation    
+            // provide legacy pre-4.0 navigation
             if (! PMA_Response::getInstance()->isAjax()
                 || ! empty($_REQUEST['full'])
                 || ! empty($_REQUEST['reload'])
