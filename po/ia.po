@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-02-11 23:12+0200\n"
+"PO-Revision-Date: 2015-02-13 10:06+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/ia/>\n"
@@ -13096,7 +13096,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:1634
 msgid "Relation view"
-msgstr ""
+msgstr "Vista relational"
 
 #: libraries/structure.lib.php:1646
 msgid "Propose table structure"
