@@ -135,12 +135,10 @@ function Load_page_objects(page_id, callback)
         for (var i = 0; i < page.tbl_cords.length; i++) {
             DesignerOfflineDB.loadObject('table_coords', page.tbl_cords[i], function (tbl_cord) {
                 tbl_cords.push(tbl_cord);
-                if (tbl_cords.length === page.tbl_cords.length) {
-                    if (typeof callback !== 'undefined') {
-                        callback(page,tbl_cords);
-                    }
-                }
             });
+        }
+        if (typeof callback !== 'undefined') {
+            callback(page, tbl_cords);
         }
     });
 }
