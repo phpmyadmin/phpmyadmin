@@ -185,9 +185,7 @@ var PMA_console = {
                 PMA_console.info();
                 break;
             case 'show':
-                var pmaWindowScrollHead = $(window).scrollTop();
                 PMA_console.show(true);
-                $(window).scrollTop(pmaWindowScrollHead);
                 PMA_console.scrollBottom();
                 break;
         }
@@ -283,10 +281,10 @@ var PMA_console = {
         PMA_console.$consoleContent.animate({'margin-bottom': 0},
             'fast', 'easeOutQuart', function() {
                 $(window).trigger('resize');
+                if(inputFocus) {
+                    PMA_consoleInput.focus();
+                }
             });
-        if(inputFocus) {
-            PMA_consoleInput.focus();
-        }
     },
     /**
      * Change console to SQL information mode
@@ -309,9 +307,7 @@ var PMA_console = {
         switch($.cookie('pma_console_mode')) {
             case 'collapse':
             case 'info':
-                var pmaWindowScrollHead = $(window).scrollTop();
                 PMA_console.show(true);
-                $(window).scrollTop(pmaWindowScrollHead);
                 break;
             case 'show':
                 PMA_console.collapse();
