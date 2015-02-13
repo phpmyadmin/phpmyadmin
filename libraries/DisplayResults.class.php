@@ -2527,7 +2527,7 @@ class PMA_DisplayResults
             case 'click':
                 $grid_edit_class = 'grid_edit click1';
                 break;
-            case 'disabled':
+            default: // 'disabled'
                 $grid_edit_class = '';
                 break;
             }
