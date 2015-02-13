@@ -369,7 +369,9 @@ class Node
         if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']
             || !$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
         ) {
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            if (isset($GLOBALS['cfg']['Server']['DisableIS'])
+                && ! $GLOBALS['cfg']['Server']['DisableIS']
+            ) {
                 $query  = "SELECT `SCHEMA_NAME` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
                 $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
@@ -426,7 +428,9 @@ class Node
         }
 
         $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (isset($GLOBALS['cfg']['Server']['DisableIS'])
+            && ! $GLOBALS['cfg']['Server']['DisableIS']
+        ) {
             $query  = "SELECT `SCHEMA_NAME` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
             $query .= "(";
@@ -558,7 +562,9 @@ class Node
         if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']
             || !$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
         ) {
-            if (!$GLOBALS['cfg']['Server']['DisableIS']) {
+            if (isset($GLOBALS['cfg']['Server']['DisableIS'])
+                && ! $GLOBALS['cfg']['Server']['DisableIS']
+            ) {
                 $query = "SELECT COUNT(*) ";
                 $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
                 $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
