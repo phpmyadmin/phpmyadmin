@@ -3076,7 +3076,7 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
             $html_output .= '<td><code>' . "\n"
                 . '' . implode(',' . "\n" . '            ', $host['privs']) . "\n"
                 . '</code></td>' . "\n";
-            if ($GLOBALS['cfgRelation']['menuswork']) {
+            if ($cfgRelation['menuswork']) {
                 $html_output .= '<td class="usrGroup">' . "\n"
                     . (isset($group_assignment[$host['User']])
                         ? $group_assignment[$host['User']]
@@ -3095,7 +3095,7 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                     $host['Host']
                 )
                 . '</td>';
-            if ($GLOBALS['cfgRelation']['menuswork'] && $user_group_count > 0) {
+            if ($cfgRelation['menuswork'] && $user_group_count > 0) {
                 if (empty($host['User'])) {
                     $html_output .= '<td class="center"></td>';
                 } else {
