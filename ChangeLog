@@ -46,6 +46,7 @@ phpMyAdmin - ChangeLog
 - bug       Add missing confirmation when deleting tracking report entries
 + rfe       Ability to disable foreign key check when emptying tables
 + rfe #1549 Reset auto-increment when exporting structure
++ rfe #1602 Recover query in redaction after session end
 
 4.3.10.0 (not yet released)
 - bug       Undefined index navwork
