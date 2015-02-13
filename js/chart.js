@@ -208,7 +208,7 @@ var DataTable = function () {
 var JQPlotChart = function (elementId) {
     Chart.call(this, elementId);
     this.plot = null;
-    this.validator;
+    this.validator = null;
 };
 JQPlotChart.prototype = new Chart();
 JQPlotChart.prototype.constructor = JQPlotChart;
