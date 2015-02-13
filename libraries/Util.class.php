@@ -757,7 +757,7 @@ class PMA_Util
 
         if ($tables === null) {
             $tables = $GLOBALS['dbi']->getTablesFull(
-                $db, false, false, null, $limit_offset, $limit_count
+                $db, '', false, null, $limit_offset, $limit_count
             );
             if ($GLOBALS['cfg']['NaturalOrder']) {
                 uksort($tables, 'strnatcasecmp');

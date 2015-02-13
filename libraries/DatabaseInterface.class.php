@@ -91,8 +91,8 @@ class PMA_DatabaseInterface
      * Caches table data so PMA_Table does not require to issue
      * SHOW TABLE STATUS again
      *
-     * @param array       $tables information for tables of some databases
-     * @param string|bool $table  table name or false
+     * @param array  $tables information for tables of some databases
+     * @param string $table  table name
      *
      * @return void
      */
@@ -304,16 +304,16 @@ class PMA_DatabaseInterface
     /**
      * returns a segment of the SQL WHERE clause regarding table name and type
      *
-     * @param string|bool $table        table or false
-     * @param boolean     $tbl_is_group $table is a table group
-     * @param string      $table_type   whether table or view
+     * @param string  $table        table
+     * @param boolean $tbl_is_group $table is a table group
+     * @param string  $table_type   whether table or view
      *
      * @return string a segment of the WHERE clause
      */
     private function _getTableCondition($table, $tbl_is_group, $table_type)
     {
         // get table information from information_schema
-        if ($table && is_string($table)) {
+        if ($table) {
             if (true === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
                     . PMA_Util::escapeMysqlWildcards(
@@ -445,7 +445,7 @@ class PMA_DatabaseInterface
      * </code>
      *
      * @param string          $database     database
-     * @param string|bool     $table        table name or false
+     * @param string          $table        table name
      * @param boolean         $tbl_is_group $table is a table group
      * @param mixed           $link         mysql link
      * @param integer         $limit_offset zero-based offset for the count
@@ -458,7 +458,7 @@ class PMA_DatabaseInterface
      *
      * @return array           list of tables in given db(s)
      */
-    public function getTablesFull($database, $table = false,
+    public function getTablesFull($database, $table = '',
         $tbl_is_group = false,  $link = null, $limit_offset = 0,
         $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC',
         $table_type = null
