@@ -713,7 +713,6 @@ function PMA_sendHtmlForColumnDropdownList()
 
     $foreignTable = $_REQUEST['foreignTable'];
     $table_obj = new PMA_Table($foreignTable, $_REQUEST['foreignDb']);
-    $columnList = null;
     // Since views do not have keys defined on them provide the full list of columns
     if (PMA_Table::isView($_REQUEST['foreignDb'], $foreignTable)) {
         $columnList = $table_obj->getColumns(false, false);
