@@ -2653,7 +2653,7 @@ class PMA_DatabaseInterface
      *
      * @param object $link the connection object
      *
-     * @return string|int
+     * @return int|boolean
      */
     public function insertId($link = null)
     {
@@ -2678,7 +2678,7 @@ class PMA_DatabaseInterface
      * @param object $link           the connection object
      * @param bool   $get_from_cache whether to retrieve from cache
      *
-     * @return int
+     * @return int|boolean
      */
     public function affectedRows($link = null, $get_from_cache = true)
     {
@@ -2800,9 +2800,9 @@ class PMA_DatabaseInterface
     /**
      * Gets correct link object.
      *
-     * @param mixed $link optional database link to use
+     * @param object $link optional database link to use
      *
-     * @return object
+     * @return object|boolean
      */
     public function getLink($link = null)
     {
