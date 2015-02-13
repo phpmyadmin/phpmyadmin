@@ -4235,7 +4235,7 @@ class PMA_Util
     /**
      * Returns information with latest version from phpmyadmin.net
      *
-     * @return String JSON decoded object with the data
+     * @return object JSON decoded object with the data
      */
     public static function getLatestVersion()
     {
@@ -4273,7 +4273,7 @@ class PMA_Util
             } else if (function_exists('curl_init')) {
                 $curl_handle = curl_init($file);
                 if ($curl_handle === false) {
-                    return array();
+                    return null;
                 }
                 $curl_handle = PMA_Util::configureCurl($curl_handle);
                 curl_setopt(
