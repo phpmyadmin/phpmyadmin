@@ -285,8 +285,8 @@ JQPlotLineChart.prototype.populateOptions = function (dataTable, options) {
     }
     if (optional.axes.xaxis.ticks.length === 0) {
         var data = dataTable.getData();
-        for (var i = 0; i < data.length; i++) {
-            optional.axes.xaxis.ticks.push(data[i][0].toString());
+        for (var j = 0; j < data.length; j++) {
+            optional.axes.xaxis.ticks.push(data[j][0].toString());
         }
     }
     return optional;
@@ -574,9 +574,9 @@ JQPlotBarChart.prototype.populateOptions = function (dataTable, options) {
         }
     }
     if (optional.series.length === 0) {
-        for (var i = 1; i < columns.length; i++) {
+        for (var j = 1; j < columns.length; j++) {
             optional.series.push({
-                label : columns[i].name.toString()
+                label : columns[j].name.toString()
             });
         }
     }
