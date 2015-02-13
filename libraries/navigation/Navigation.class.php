@@ -35,33 +35,26 @@ class PMA_Navigation
             $retval = $header->getDisplay();
         }
         $tree = new PMA_NavigationTree();
-        if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
-            if (! PMA_Response::getInstance()->isAjax()
-                || ! empty($_REQUEST['full'])
-                || ! empty($_REQUEST['reload'])
-            ) {
-                $treeRender = $tree->renderState();
+        if (! PMA_Response::getInstance()->isAjax()
+            || ! empty($_REQUEST['full'])
+            || ! empty($_REQUEST['reload'])
+        ) {
+            if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
+                // provide database tree in navigation
+                $navRender = $tree->renderState();
             } else {
-                $treeRender = $tree->renderPath();
-            }
-
-            if (! $treeRender) {
-                $retval .= PMA_Message::error(
-                    __('An error has occurred while loading the navigation tree')
-                )->getDisplay();
-            } else {
-                $retval .= $treeRender;
+                // provide legacy pre-4.0 navigation
+                $navRender = $tree->renderDbSelect();
             }
         } else {
-            // provide legacy pre-4.0 navigation
-            if (! PMA_Response::getInstance()->isAjax()
-                || ! empty($_REQUEST['full'])
-                || ! empty($_REQUEST['reload'])
-            ) {
-                $retval .= $tree->renderDbSelect();
-            } else {
-                $retval .= $tree->renderPath();
-            }
+            $navRender = $tree->renderPath();
+        }
+        if (! $navRender) {
+            $retval .= PMA_Message::error(
+                __('An error has occurred while loading the navigation display')
+            )->getDisplay();
+        } else {
+            $retval .= $navRender;
         }
 
         if (! PMA_Response::getInstance()->isAjax()) {
