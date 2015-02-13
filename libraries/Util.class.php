@@ -3371,8 +3371,8 @@ class PMA_Util
             . PMA_supportedDecompressions() . '))?$@';
 
         $active = (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed']
-            && isset($local_import_file))
-            ? $local_import_file
+            && isset($GLOBALS['local_import_file']))
+            ? $GLOBALS['local_import_file']
             : '';
 
         $files = PMA_getFileSelectOptions(
