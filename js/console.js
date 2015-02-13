@@ -280,6 +280,7 @@ var PMA_console = {
             PMA_console.collapse();
             return;
         }
+        PMA_console.$consoleContent.css({display:'block'});
         if(PMA_console.$consoleToolbar.hasClass('collapsed')) {
             PMA_console.$consoleToolbar.removeClass('collapsed');
         }
@@ -287,7 +288,6 @@ var PMA_console = {
         PMA_console.$consoleContent.stop();
         PMA_console.$consoleContent.animate({'margin-bottom': 0},
             'fast', 'easeOutQuart', function() {
-                PMA_console.$consoleContent.css({display:'block'});
                 $(window).trigger('resize');
                 if(inputFocus) {
                     PMA_consoleInput.focus();
