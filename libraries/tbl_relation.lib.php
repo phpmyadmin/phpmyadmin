@@ -1108,24 +1108,24 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
                         $existrel_foreign[$master_field_md5]['on_update'])
                         ? $existrel_foreign[$master_field_md5]['on_update']
                         : 'RESTRICT';
-        }
 
-        if (! isset($existrel_foreign[$master_field_md5])) {
+            if ($ref_db_name != $foreign_db
+                || $existrel_foreign[$master_field_md5]['ref_table_name'] != $foreign_table
+                || $existrel_foreign[$master_field_md5]['ref_index_list'] != $foreign_field
+                || $existrel_foreign[$master_field_md5]['index_list'] != $master_field
+                || $_REQUEST['constraint_name'][$master_field_md5] != $constraint_name
+                || ($_REQUEST['on_delete'][$master_field_md5] != $on_delete)
+                || ($_REQUEST['on_update'][$master_field_md5] != $on_update)
+            ) {
+                // another foreign key is already defined for this field
+                // or an option has been changed for ON DELETE or ON UPDATE
+                $drop = true;
+                $create = true;
+            } // end if... else....
+        } else {
             // no key defined for this field(s)
             $create = true;
-        } elseif ($ref_db_name != $foreign_db
-            || $existrel_foreign[$master_field_md5]['ref_table_name'] != $foreign_table
-            || $existrel_foreign[$master_field_md5]['ref_index_list'] != $foreign_field
-            || $existrel_foreign[$master_field_md5]['index_list'] != $master_field
-            || $_REQUEST['constraint_name'][$master_field_md5] != $constraint_name
-            || ($_REQUEST['on_delete'][$master_field_md5] != $on_delete)
-            || ($_REQUEST['on_update'][$master_field_md5] != $on_update)
-        ) {
-            // another foreign key is already defined for this field
-            // or an option has been changed for ON DELETE or ON UPDATE
-            $drop = true;
-            $create = true;
-        } // end if... else....
+        }
     } elseif (isset($existrel_foreign[$master_field_md5])) {
         $drop = true;
     } // end if... else....
