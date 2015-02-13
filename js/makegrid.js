@@ -250,10 +250,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(g.t).find('table.pma_table').find('thead th:first').removeClass('before-condition');
             for (var n = 0, l = $firstRowCols.length; n < l; n++) {
                 var $col = $($firstRowCols[n]);
+                var colWidth;
                 if (navigator.userAgent.toLowerCase().indexOf("safari") != -1) {
-                    var colWidth = $col.outerWidth();
+                    colWidth = $col.outerWidth();
                 } else {
-                    var colWidth = $col.outerWidth(true);
+                    colWidth = $col.outerWidth(true);
                 }
                 $($resizeHandles[n]).css('left', $col.position().left + colWidth)
                    .show();
