@@ -5122,7 +5122,7 @@ class PMA_DisplayResults
      * @param string        $class                 css classes for the td element
      * @param bool          $condition_field       whether the column is a part of
      *                                             the where clause
-     * @param string        $analyzed_sql          the analyzed query
+     * @param array         $analyzed_sql          the analyzed query
      * @param object        $meta                  the meta-information about the
      *                                             field
      * @param array         $map                   the list of relations
