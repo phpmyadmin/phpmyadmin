@@ -22,11 +22,11 @@ function Save_to_new_page(db, page_name, table_positions, callback)
                     if (table_positions.length === tbl_cords.length) {
                         page.tbl_cords = tbl_cords;
                         DesignerOfflineDB.addObject('pdf_pages', page);
-                        if (typeof callback !== 'undefined') {
-                            callback(page);
-                        }
                     }
                 });
+            }
+            if (typeof callback !== 'undefined') {
+                callback(page);
             }
         }
     });
