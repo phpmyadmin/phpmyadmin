@@ -995,7 +995,7 @@ function PMA_getQueryForInternalRelationUpdate($multi_edit_columns_name,
 /**
  * Function to handle foreign key updates
  *
- * @param string $destination_foreign_db     destination foreign database
+ * @param array  $destination_foreign_db     destination foreign database
  * @param array  $multi_edit_columns_name    multi edit column names
  * @param array  $destination_foreign_table  destination foreign table
  * @param array  $destination_foreign_column destination foreign column
@@ -1044,10 +1044,10 @@ function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
 /**
  * Function to handle update for a foreign key
  *
- * @param array  $multi_edit_columns_name    multi edit columns name
+ * @param array  $multi_edit_columns_name    multi edit columns names
  * @param string $master_field_md5           master field md5
- * @param array  $destination_foreign_table  destination foreign table
- * @param array  $destination_foreign_column destination foreign column
+ * @param array  $destination_foreign_table  destination foreign tables
+ * @param array  $destination_foreign_column destination foreign columns
  * @param array  $options_array              options array
  * @param array  $existrel_foreign           db, table, column
  * @param string $table                      current table
