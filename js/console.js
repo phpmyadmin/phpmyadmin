@@ -289,10 +289,10 @@ var PMA_console = {
             'fast', 'easeOutQuart', function() {
                 PMA_console.$consoleContent.css({display:'block'});
                 $(window).trigger('resize');
+                if(inputFocus) {
+                    PMA_consoleInput.focus();
+                }
             });
-        if(inputFocus) {
-            PMA_consoleInput.focus();
-        }
     },
     /**
      * Change console to SQL information mode
