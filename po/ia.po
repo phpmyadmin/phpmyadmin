@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-12 08:52-0500\n"
-"PO-Revision-Date: 2015-02-13 10:05+0200\n"
+"PO-Revision-Date: 2015-02-13 10:06+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
@@ -4086,19 +4086,16 @@ msgid "Value"
 msgstr "Valor"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "Cerca de tabella"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "Cerca de zoom"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "Trova e reimplacia"
@@ -7742,10 +7739,9 @@ msgid "Select Export Relational Type"
 msgstr "Selige typo de exportation relational"
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:258
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "Monstra tabellas:"
+msgstr "Monstra/Cela lista de tabellas"
 
 #: libraries/db_designer.lib.php:262 libraries/db_designer.lib.php:266
 msgid "View in fullscreen"
@@ -13337,7 +13333,6 @@ msgid "Showing create queries"
 msgstr ""
 
 #: libraries/structure.lib.php:3263
-#, fuzzy
 #| msgid "Relation View"
 msgid "Relation view"
 msgstr "Vista relational"
