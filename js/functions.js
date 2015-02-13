@@ -3365,8 +3365,10 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
                 $(".result_query").prepend(data.message);
                 /*Reload the field form*/
                 $("#table_index").remove();
-                var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
-                $temp_div.find("#table_index").insertAfter("#index_header");
+                $("<div id='temp_div'><div>")
+                    .append(data.index_table)
+                    .find("#table_index")
+                    .insertAfter("#index_header");
                 if ($("#edit_index_dialog").length > 0) {
                     $("#edit_index_dialog").dialog("close");
                 }
