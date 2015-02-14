@@ -91,7 +91,7 @@ AJAX.registerOnload('server_databases.js', function () {
     /**
      * Attach Ajax event handlers for 'Create Database'.
      */
-    $(document).on('submit', '#create_database_form.ajax', function (event) {
+    $(document).on('submit', '#create_database_form.ajax', function (event) {   
         event.preventDefault();
 
         var $form = $(this);
@@ -125,6 +125,11 @@ AJAX.registerOnload('server_databases.js', function () {
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
+            var dbStruct_url = data.url_query;     // make ajax request to load db structure page - taken from ajax.js
+            var dbStruct_url = dbStruct_url.replace(/amp;/ig, '');
+            var params = 'ajax_request=true&ajax_page_request=true';
+            params += AJAX.cache.menus.getRequestParam();
+            $.get(dbStruct_url, params, AJAX.responseHandler);
         }); // end $.post()
     }); // end $(document).on()
 }); // end $()
