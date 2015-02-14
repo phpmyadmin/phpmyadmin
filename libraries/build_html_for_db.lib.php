@@ -1,6 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
  * HTML generator for database listing
  *
@@ -9,7 +8,6 @@
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
 /**
  * Prepares the $column_order array
  *
@@ -52,10 +50,8 @@ function PMA_getColumnOrder()
     // At this point we were preparing the display of Overhead using DATA_FREE
     // but its content does not represent the real overhead in the case
     // of InnoDB
-
     return $column_order;
 }
-
 /**
  * Builds the HTML td elements for one database to display in the list
  * of databases from server_databases.php (which can be modified by
@@ -80,14 +76,13 @@ function PMA_buildHtmlForDb(
         $out .= '<input type="checkbox" name="selected_dbs[]" class="checkall" '
             . 'title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" '
             . 'value="' . htmlspecialchars($current['SCHEMA_NAME']) . '"';
-
         if ($GLOBALS['dbi']->isSystemSchema($current['SCHEMA_NAME'], true)) {
             $out .= ' disabled="disabled"';
         }
         $out .= ' /></td>';
     }
     $out .= '<td class="name">'
-           . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']    
+           . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
            . $url_query . '&amp;db='
            . urlencode($current['SCHEMA_NAME']) . '" title="'
            . sprintf(
@@ -98,7 +93,6 @@ function PMA_buildHtmlForDb(
            . ' ' . htmlspecialchars($current['SCHEMA_NAME'])
            . '</a>'
            . '</td>';
-
     foreach ($column_order as $stat_name => $stat) {
         if (array_key_exists($stat_name, $current)) {
             $unit = '';
@@ -131,11 +125,9 @@ function PMA_buildHtmlForDb(
             }
         }
     }
-
     foreach ($replication_types as $type) {
         if ($replication_info[$type]['status']) {
             $out .= '<td class="tool" style="text-align: center;">';
-
             $key = array_search(
                 $current["SCHEMA_NAME"],
                 $replication_info[$type]['Ignore_DB']
@@ -146,7 +138,6 @@ function PMA_buildHtmlForDb(
                 $key = array_search(
                     $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
                 );
-
                 if (/*overload*/mb_strlen($key) > 0
                     || (isset($replication_info[$type]['Do_DB'][0])
                     && $replication_info[$type]['Do_DB'][0] == ""
@@ -156,11 +147,9 @@ function PMA_buildHtmlForDb(
                     $out .= PMA_Util::getIcon('s_success.png', __('Replicated'));
                 }
             }
-
             $out .= '</td>';
         }
     }
-
     if ($is_superuser && !PMA_DRIZZLE) {
         $out .= '<td class="tool">'
                . '<a onclick="'
