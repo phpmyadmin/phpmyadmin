@@ -87,7 +87,7 @@ function PMA_buildHtmlForDb(
         $out .= ' /></td>';
     }
     $out .= '<td class="name">'
-           . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+           . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']    
            . $url_query . '&amp;db='
            . urlencode($current['SCHEMA_NAME']) . '" title="'
            . sprintf(
