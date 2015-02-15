@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-12 08:52-0500\n"
-"PO-Revision-Date: 2015-02-14 13:17+0200\n"
-"Last-Translator: Dániel Tóth <leedermeister@gmail.com>\n"
+"PO-Revision-Date: 2015-02-15 22:18+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
@@ -993,10 +993,9 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Valóban vissza szeretné vonni a kijelölt felhasználókat?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Valóban törölni szeretné ezt a könyvjelzőt?"
+msgstr "Valóban törölni szeretné ezt a központi oszlopot?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -4055,19 +4054,16 @@ msgid "Value"
 msgstr "Érték"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "Táblakeresés"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "Lépcsőzetes keresés"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "Keresés és csere"
@@ -4833,7 +4829,7 @@ msgid "Invalid authentication method set in configuration:"
 msgstr "Érvénytelen hitelesítési mód került beállításra a konfigurációban:"
 
 #: libraries/common.inc.php:990
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Unable to use timezone %s for server %d. Please check your configuration "
 #| "setting for [em]$cfg['Servers'][%d]['SessionTimeZone'][/em]. phpMyAdmin "
@@ -4843,10 +4839,10 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
-"Nem lehet a(z) %s időzónát használni a következő kiszolgálónál: %d. "
-"Ellenőrizze a [em]$cfg['Servers'][%d]['SessionTimeZone'][/em] beállításait. "
-"A phpMyAdmin jelenleg az adatbázis-kiszolgáló alapértelmezett időzónáját "
-"használja."
+"Nem lehet a(z) %1$s időzónát használni a következő kiszolgálónál: %2$d. "
+"Ellenőrizze a [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em] "
+"beállításait. A phpMyAdmin jelenleg az adatbázis-kiszolgáló alapértelmezett "
+"időzónáját használja."
 
 #: libraries/common.inc.php:1020
 #, php-format
