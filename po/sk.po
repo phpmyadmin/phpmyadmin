@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-12 08:52-0500\n"
-"PO-Revision-Date: 2015-02-10 21:22+0200\n"
+"PO-Revision-Date: 2015-02-15 10:11+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -952,10 +952,9 @@ msgid "Delete tracking data for these versions?"
 msgstr "Odstrániť informácie o sledovaní týchto verzií?"
 
 #: js/messages.php:44
-#, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Odstrániť riadok o sledovaní tabuľky z výpisu"
+msgstr "Odstrániť záznam z reportu o sledovaní?"
 
 #: js/messages.php:45
 msgid "Deleting tracking data"
@@ -993,10 +992,9 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Naozaj chcete zrušiť zvolených užívateľov?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Naozaj chcete odstrániť túto záložku?"
+msgstr "Naozaj chcete odstrániť tento centrálny stĺpec?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -4025,10 +4023,9 @@ msgid "Value"
 msgstr "Hodnota"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
-msgstr "Hľadať v tabuľke"
+msgstr "Vyhľadávanie v tabuľke"
 
 #: libraries/TableSearch.class.php:212
 #, fuzzy
@@ -4037,7 +4034,6 @@ msgid "Zoom search"
 msgstr "Zoomovacie vyhľadávanie"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "Nájsť a nahradiť"
