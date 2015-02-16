@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug       Remove extra column heading in view structure page
 - bug       Add missing confirmation when deleting central columns
 - bug       Undefined index DisableIS
+- bug #4763 Database export with more than 512 tables fails
 
 4.3.9.0 (2015-02-05)
 - bug #4728 Incorrect headings in routine editor
