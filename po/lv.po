@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-11-05 10:37+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/lv/>\n"
+"PO-Revision-Date: 2015-02-16 08:32+0200\n"
+"Last-Translator: Ukko <perkontevs@gmail.com>\n"
+"Language-Team: Latvian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/lv/>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Centrālais kolonnu saraksts pašreizējai datubāzei ir tukšs."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
@@ -320,10 +320,9 @@ msgstr[1] "%s tabulas"
 msgstr[2] "%s tabulu"
 
 #: db_qbe.php:103
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Izvēlieties vismaz vienu kolonnu attēlošanai"
+msgstr "Ir jāizvēlas vismaz viena kolonna, ko attēlot!"
 
 #: db_qbe.php:124
 #, php-format
@@ -339,7 +338,7 @@ msgstr "Pieeja aizliegta!"
 
 #: db_tracking.php:77
 msgid "Tracked tables"
-msgstr ""
+msgstr "Izsekotās tabulas"
 
 #: db_tracking.php:82 libraries/Console.class.php:99
 #: libraries/Console.class.php:185 libraries/Menu.class.php:214
@@ -397,7 +396,7 @@ msgstr "Rādīt"
 
 #: db_tracking.php:101 js/messages.php:40
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Izdzēst sekošanas datus šai tabulai"
 
 #: db_tracking.php:105 libraries/Index.class.php:627
 #: libraries/Util.class.php:3387 libraries/Util.class.php:3388
@@ -422,8 +421,9 @@ msgid "Structure snapshot"
 msgstr "Struktūras apskats"
 
 #: db_tracking.php:202
+#, fuzzy
 msgid "Untracked tables"
-msgstr ""
+msgstr "Tabulas, kas netiek izsekotas"
 
 #: db_tracking.php:221 libraries/structure.lib.php:1654
 msgid "Track table"
@@ -598,22 +598,22 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
+"Izvēlieties \"GeomFromText\" no \"Funkcija\" kolonnas un iekopējiet rindiņu "
+"zemāk \"Vērtība\" laukā."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Pieeja aizliegta!"
+msgstr "Izdevās"
 
 #: import.php:58 js/messages.php:438
 msgid "Failed"
-msgstr ""
+msgstr "Kļūda"
 
 #: import.php:62
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "Pilnas INSERT izteiksmes"
+msgstr "Nepabeigti parametri"
 
 #: import.php:162
 #, php-format
@@ -638,13 +638,14 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Augšupielādētais fails nevar tikt pārvietots, tāpēc, ka serverim ir ieslēgts "
+"open_basedir bez pieejas %s mapei(priekš īslaicīgiem(temporary) failiem)."
 
 #: import.php:466 import.php:527 libraries/File.class.php:418
 #: libraries/File.class.php:512
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Nevar nolasīt failu"
+msgstr "Nevar nolasīt failu!"
 
 #: import.php:476 import.php:487 import.php:508 import.php:519
 #: libraries/File.class.php:578
@@ -662,25 +663,28 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"Netika saņemti dati, ko importēt. Vai nu nebija ievadīts faila nosaukums, "
+"vai arī faila izmērs pārsniedza maksimālo izmēru, ko pieļauj jūsu PHP "
+"configurācija. Skatīt [doc@faq1-16]FAQ[/doc]."
 
 #: import.php:553
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
-msgstr "Nevar pārveidot faila rakstzīmju kodējumu bez tā bibliotēkas"
+msgstr ""
+"Nevar pārveidot faila rakstzīmju kodējumu bez pārveidošanas bibliotēkas!"
 
 #: import.php:593 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nevar ielādēt importētos spraudņus, lūdzu pārbaudi savu instalāciju!"
 
 #: import.php:628 libraries/sql.lib.php:1042 libraries/sql.lib.php:1855
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "Grāmatzīme %s izveidota"
+msgstr "Grāmatzīme %s ir izveidota."
 
 #: import.php:637
 #, php-format
@@ -692,6 +696,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
+"Ir iestājies skripta noilgums, ja jūs vēlaties beigt importu, tad atkal "
+"izvēlieties to pašu failu un importēšana turpināsies."
 
 #: import.php:666
 msgid ""
