@@ -310,8 +310,15 @@ function createAliasModal(event) {
     };
     dlgButtons[PMA_messages.strSaveAndClose] = function() {
         $(this).dialog("close");
+        // do not fillup form submission with empty values
+        $.each($(this).find('input[type="text"]'), function (i, e) {
+            if ($(e).val().trim().length == 0) {
+                $(e).prop('disabled', true);
+            }
+        });
         $('#alias_modal').parent().appendTo($('form[name="dump"]'));
     };
+    $('#alias_modal input[type="text"]').prop('disabled', false);
     $('#alias_modal').dialog({
         width: Math.min($(window).width() - 100, 700),
         modal: true,
