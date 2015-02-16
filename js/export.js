@@ -323,6 +323,7 @@ function createAliasModal(event) {
     $('#alias_modal input[type="text"]').prop('disabled', false);
     $('#alias_modal').dialog({
         width: Math.min($(window).width() - 100, 700),
+        maxHeight: $(window).height(),
         modal: true,
         dialogClass: "alias-dialog",
         buttons: dlgButtons,
@@ -342,7 +343,7 @@ function createAliasModal(event) {
             });
             $('input#btn_alias_config').prop('checked', !isEmpty);
         },
-        position: 'center'
+        position: { my: "center top", at: "center top", of: window }
     });
     // Call change event of .table_alias_select
     $('.table_alias_select:visible').trigger('change');
