@@ -274,12 +274,14 @@ function aliasSelectHandler(event) {
         var outer = $inputWrapper[0].outerHTML;
         // Replace opening tags
         var regex = /<dummy_inp/gi;
-        var newTag = outer.replace(regex, '<input');
-        // Replace closing tags
-        regex = /<\/dummy_inp/gi;
-        newTag = newTag.replace(regex, '</input');
-        // Assign replacement
-        $inputWrapper.replaceWith(newTag);
+        if (outer.match(regex)) {
+            var newTag = outer.replace(regex, '<input');
+            // Replace closing tags
+            regex = /<\/dummy_inp/gi;
+            newTag = newTag.replace(regex, '</input');
+            // Assign replacement
+            $inputWrapper.replaceWith(newTag);
+        }
     } else if (type === '_tables') {
         $('.table_alias_select:visible').change();
     }
