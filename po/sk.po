@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-12 08:52-0500\n"
-"PO-Revision-Date: 2015-02-15 10:11+0200\n"
+"PO-Revision-Date: 2015-02-15 20:32+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
@@ -5038,7 +5038,7 @@ msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:205
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Dovoľujete pripojiť sa k serveru bez hesla."
 
 #: libraries/config/ServerConfigChecks.class.php:343
 msgid "Key is too short, it should have at least 8 characters."
@@ -6533,7 +6533,7 @@ msgstr "Pamätať si triedenie tabuľky"
 
 #: libraries/config/messages.inc.php:528
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "Prednastavený spôsob triedenia pre tabuľky s primárnym kľúčom."
 
 #: libraries/config/messages.inc.php:529
 msgid "Primary key default sort order"
@@ -6599,10 +6599,9 @@ msgid "Allow root login"
 msgstr "Povoliť prihlásenia užívateľa root"
 
 #: libraries/config/messages.inc.php:546
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Hodnota sedenia"
+msgstr "Časová zóna sedenia"
 
 #: libraries/config/messages.inc.php:547
 msgid ""
@@ -7562,10 +7561,9 @@ msgid "Select Export Relational Type"
 msgstr ""
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:258
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "Zobrazenie tabuľiek:"
+msgstr "Zobraziť/skryť zoznam tabuliek"
 
 #: libraries/db_designer.lib.php:262 libraries/db_designer.lib.php:266
 msgid "View in fullscreen"
