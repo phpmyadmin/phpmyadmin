@@ -341,6 +341,13 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
                 $php_ext_string,
                 'li_used_php_extension'
             );
+
+            $php_version_string = __('PHP version:') . ' ' . phpversion();
+
+            PMA_printListItem(
+                $php_version_string,
+                'li_used_php_version'
+            );
         }
     }
 
