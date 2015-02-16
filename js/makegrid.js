@@ -1853,7 +1853,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
     // assign table create time
     // table_create_time will only available if we are in "Browse" tab
-    g.tableCreateTime = $(t).find('.table_create_time').val();
+    g.tableCreateTime = $(g.o).find('.table_create_time').val();
 
     // assign the hints
     g.sortHint = PMA_messages.strSortHint;
