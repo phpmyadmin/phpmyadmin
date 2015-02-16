@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-02-10 21:22+0200\n"
+"PO-Revision-Date: 2015-02-15 20:32+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/sk/>\n"
@@ -4952,7 +4952,7 @@ msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:205
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Dovoľujete pripojiť sa k serveru bez hesla."
 
 #: libraries/config/ServerConfigChecks.class.php:343
 msgid "Key is too short, it should have at least 8 characters."
@@ -6546,7 +6546,7 @@ msgstr "Pamätať si triedenie tabuľky"
 
 #: libraries/config/messages.inc.php:524
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "Prednastavený spôsob triedenia pre tabuľky s primárnym kľúčom."
 
 #: libraries/config/messages.inc.php:525
 #| msgid "Default sorting order"
