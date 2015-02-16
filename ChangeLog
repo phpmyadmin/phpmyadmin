@@ -48,6 +48,7 @@ phpMyAdmin - ChangeLog
 + rfe #1549 Reset auto-increment when exporting structure
 + rfe #1602 Recover query in redaction after session end
 + rfe #1605 After database creation, go to database structure page
++ rfe #1604 Show PHP version
 
 4.3.10.0 (not yet released)
 - bug       Undefined index navwork
