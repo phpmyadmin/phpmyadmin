@@ -334,7 +334,7 @@ span.cm-number {
   margin: 0;
   padding: 0 4px;
   border-radius: 2px;
-  max-width: 19em;
+  /* max-width: 19em; */
   overflow: hidden;
   white-space: pre;
   color: black;
