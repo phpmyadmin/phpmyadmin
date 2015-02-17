@@ -1,13 +1,10 @@
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: http://codemirror.net/LICENSE
 
+// This file is edit from CodeMirror's sql-hint addon
+
 (function(mod) {
-  if (typeof exports == "object" && typeof module == "object") // CommonJS
-    mod(require("../../lib/codemirror"), require("../../mode/sql/sql"));
-  else if (typeof define == "function" && define.amd) // AMD
-    define(["../../lib/codemirror", "../../mode/sql/sql"], mod);
-  else // Plain browser env
-    mod(CodeMirror);
+  mod(CodeMirror);
 })(function(CodeMirror) {
   "use strict";
 
@@ -19,6 +16,10 @@
     ALIAS_KEYWORD: "AS"
   };
   var Pos = CodeMirror.Pos;
+  var keysName = {
+    PRI: 'primary',
+    UNI: 'unique'
+  };
 
   function getKeywords(editor) {
     var mode = editor.doc.modeOption;
@@ -53,7 +54,10 @@
     if (token.string.charAt(0) == "." || prevToken.string == "."){
       //Suggest colunm names
       if (prevToken.string == ".") {
-        var prevToken = editor.getTokenAt(Pos(cur.line, token.start - 1));
+        prevToken = editor.getTokenAt(Pos(cur.line, token.start - 1));
+      }
+      if (prevToken.string == "`") {
+        prevToken = editor.getTokenAt(Pos(cur.line, token.start - 2));
       }
       var table = prevToken.string;
       //Check if backtick is used in table name. If yes, use it for columns too.
@@ -68,15 +72,37 @@
       var columns = tables[table];
       if (!columns) return;
 
-      if (useBacktick) {
-        addMatches(result, string, columns, function(w) {return "`" + w + "`";});
-      }
-      else if(useBacktickTable) {
-        addMatches(result, string, columns, function(w) {return ".`" + w + "`";});
-      }
-      else {
-        addMatches(result, string, columns, function(w) {return "." + w;});
-      }
+      addMatches(result, string, columns, function (w) {
+
+        var displayText;
+        var text;
+
+        if (useBacktick) {
+          displayText = "`" + w + "` | " + columns[w].Type;
+          text = "`" + w + "`";
+        }
+        else if(useBacktickTable) {
+          displayText = ".`" + w + "` | " + columns[w].Type;
+          text = ".`" + w + "`";
+        }
+        else {
+          displayText = "." + w + " | " + columns[w].Type;
+          text = "." + w;
+        }
+
+        if (columns[w].Key) {
+          if (keysName.hasOwnProperty(columns[w].Key)) {
+            displayText += " | " + keysName[columns[w].Key];
+          }
+        }
+        if (columns[w].Null !== 'NO') {
+          displayText += " | " + 'Null';
+        }
+        if (columns[w].Extra) {
+          displayText += " | " + columns[w].Extra;
+        }
+        return { text: text, displayText: displayText };
+      });
     }
     else {
       //Suggest table names or colums in defaultTable
@@ -167,7 +193,7 @@
   CodeMirror.registerHelper("hint", "sql", function(editor, options) {
     tables = (options && options.tables) || {};
     var defaultTableName = options && options.defaultTable;
-    defaultTable = (defaultTableName && tables[defaultTableName] || []);
+    defaultTable = (defaultTableName && tables[defaultTableName] || {});
     keywords = keywords || getKeywords(editor);
 
     var cur = editor.getCursor();
