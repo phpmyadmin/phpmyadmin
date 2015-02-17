@@ -409,31 +409,24 @@ function PMA_getHtmlForAddPrefixTable($action, $_url_params)
  */
 function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
 {
-    $html  = '<fieldset class="confirmation">';
+    $html = '<form action="' . $action . '" method="post">';
+    $html .= PMA_URL_getHiddenInputs($_url_params);
+    $html .= '<fieldset class="confirmation">';
     $html .= '<legend>';
     if ($what == 'drop_db') {
         $html .=  __('You are about to DESTROY a complete database!') . ' ';
     }
     $html .= __('Do you really want to execute the following query?');
-    if ($what == 'row_delete') {
-        $response = array('Yes','No');
-        foreach ($response as $resp) {
-            $html .= '<form action="' . $action . '" method="post">';
-            $html .= PMA_URL_getHiddenInputs($_url_params);
-            $html .= '<input type="hidden" name="mult_btn" value="'
-                . __($resp) . '" />';
-            $html .= '<input type="submit" value="' . __($resp) . '" />';
-            $html .= '</form>';
-        }
-    }
+    $html .= '<input type="submit" name="mult_btn" value="'
+        . __('Yes') . '" />';
+    $html .= '<input type="submit" name="mult_btn" value="'
+        . __('No') . '" />';
     $html .= '</legend>';
     $html .= '<code>' . $full_query . '</code>';
     $html .= '</fieldset>';
     $html .= '<fieldset class="tblFooters">';
-    $html .= '<form action="' . $action . '" method="post">';
-    $html .= PMA_URL_getHiddenInputs($_url_params);
     // Display option to disable foreign key checks while dropping tables
-    if ($what == 'drop_tbl' || $what == 'empty_tbl' || $what == 'row_delete') {
+    if ($what === 'drop_tbl' || $what === 'empty_tbl' || $what === 'row_delete') {
         $html .= '<div id="foreignkeychk">';
         $html .= '<label for="fkc_checkbox">';
         $html .= __('Foreign key check:');
@@ -453,16 +446,12 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
         $html .= '</label>';
         $html .= '</div>';
     }
-    $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
-    $html .= '<input type="submit" value="' . __('Yes') . '" id="buttonYes" />';
-    $html .= '</form>';
-
-    $html .= '<form action="' . $action . '" method="post">';
-    $html .= PMA_URL_getHiddenInputs($_url_params);
-    $html .= '<input type="hidden" name="mult_btn" value="' . __('No') . '" />';
-    $html .= '<input type="submit" value="' . __('No') . '" id="buttonNo" />';
-    $html .= '</form>';
+    $html .= '<input id="buttonYes" type="submit" name="mult_btn" value="'
+        . __('Yes') . '" />';
+    $html .= '<input id="buttonNo" type="submit" name="mult_btn" value="'
+        . __('No') . '" />';
     $html .= '</fieldset>';
+    $html .= '</form>';
 
     return $html;
 }

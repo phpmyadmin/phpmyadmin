@@ -604,6 +604,23 @@ AJAX.registerOnload('functions.js', function () {
             $(this).data('onsubmit', this.onsubmit).attr('onsubmit', '');
         }
     });
+
+    /**
+     * Workaround for passing submit button name,value on ajax form submit
+     * by appending hidden element with submit button name and value.
+     */
+    $("#page_content").on('click', 'form input[type=submit]', function() {
+        var buttonName = $(this).attr('name');
+        if (typeof buttonName === 'undefined') {
+            return;
+        }
+        $(this).closest('form').append($('<input/>', {
+            'type' : 'hidden',
+            'name' : buttonName,
+            'value': $(this).val()
+        }));
+    });
+
     /**
      * Attach event listener to events when user modify visible
      * Input or Textarea fields to make changes in forms
