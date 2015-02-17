@@ -102,7 +102,6 @@ class Node_Database extends Node
      */
     private function _getTableOrViewCount($which, $searchClause, $singleItem)
     {
-        $retval = 0;
         $db     = $this->real_name;
         if ($which == 'tables') {
             $condition = '=';
@@ -188,7 +187,6 @@ class Node_Database extends Node
      */
     private function _getProcedureCount($searchClause, $singleItem)
     {
-        $retval = 0;
         $db     = $this->real_name;
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $db     = PMA_Util::sqlAddSlashes($db);
@@ -230,7 +228,6 @@ class Node_Database extends Node
      */
     private function _getFunctionCount($searchClause, $singleItem)
     {
-        $retval = 0;
         $db     = $this->real_name;
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $db     = PMA_Util::sqlAddSlashes($db);
@@ -272,7 +269,6 @@ class Node_Database extends Node
      */
     private function _getEventCount($searchClause, $singleItem)
     {
-        $retval = 0;
         $db     = $this->real_name;
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $db     = PMA_Util::sqlAddSlashes($db);
