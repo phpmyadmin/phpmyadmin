@@ -42,6 +42,42 @@ function PMA_getHtmlForServerProcesses()
 }
 
 /**
+ * Returns the html for the list filter
+ *
+ * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ *
+ * @return string
+ */
+function PMA_getHtmlForFilter($ServerStatusData)
+{
+    $showExecuting = '';
+    if (! empty($_REQUEST['showExecuting'])) {
+        $showExecuting = ' checked="checked"';
+    }
+    
+    $url_params = array(
+        'showExecuting' => 1,
+        'ajax_request' => true
+    );
+
+    $retval  = '';
+    $retval .= '<fieldset id="tableFilter">';
+    $retval .= '<legend>' . __('Filters') . '</legend>';
+    $retval .= '<form action="server_status_processes.php?' . PMA_URL_getCommon($url_params) . '">';
+    $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
+    $retval .= '<div class="formelement">';
+    $retval .= '<input' . $showExecuting . ' type="checkbox" name="showExecuting" id="showExecuting" />';
+    $retval .= '<label for="showExecuting">';
+    $retval .= __('Show only active');
+    $retval .= '</label>';
+    $retval .= '</div>';
+    $retval .= '</form>';
+    $retval .= '</fieldset>';
+
+    return $retval;
+}
+
+/**
  * Prints Server Process list
  *
  * @return string
@@ -126,12 +162,23 @@ function PMA_getHtmlForServerProcesslist()
         $sql_query = $show_full_sql
             ? 'SHOW FULL PROCESSLIST'
             : 'SHOW PROCESSLIST';
-        if (! empty($_REQUEST['order_by_field'])
-            && ! empty($_REQUEST['sort_order'])
-        ) {
-            $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` '
-                . 'ORDER BY `'
-                . $_REQUEST['order_by_field'] . '` ' . $_REQUEST['sort_order'];
+        if (! empty($_REQUEST['showExecuting'])){
+            $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` WHERE state = "init" ';
+            if (! empty($_REQUEST['order_by_field'])
+                && ! empty($_REQUEST['sort_order'])
+            ) {
+                $sql_query = $sql_query . ' ORDER BY `' .  $_REQUEST['order_by_field'] . '` ' 
+                    . $_REQUEST['sort_order'];
+            }
+        }
+        else {
+            if (! empty($_REQUEST['order_by_field'])
+               && ! empty($_REQUEST['sort_order'])
+            ) {
+                $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` '
+                    . ' ORDER BY `' .  $_REQUEST['order_by_field'] . '` ' 
+                    . $_REQUEST['sort_order'];
+            }
         }
     }
 
