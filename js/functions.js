@@ -2076,11 +2076,13 @@ function PMA_previewSQL($form)
         '&do_save_data=1' +
         '&preview_sql=1' +
         '&ajax_request=1';
+    var $msgbox = PMA_ajaxShowMessage();
     $.ajax({
         type: 'POST',
         url: form_url,
         data: form_data,
         success: function (response) {
+            PMA_ajaxRemoveMessage($msgbox);
             if (response.success) {
                 var $dialog_content = $('<div/>')
                     .append(response.sql_data);
