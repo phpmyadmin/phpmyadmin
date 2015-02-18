@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - bug       Undefined index DisableIS
 - bug #4763 Database export with more than 512 tables fails
 - bug #4769 Previously set column aliases are destroyed if returned to the same table
+- bug #4752 Incorrect page after creating table
 
 4.3.9.0 (2015-02-05)
 - bug #4728 Incorrect headings in routine editor
