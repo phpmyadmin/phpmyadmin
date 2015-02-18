@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-12 08:52-0500\n"
-"PO-Revision-Date: 2015-02-09 03:15+0200\n"
-"Last-Translator: Dadan Setia <dadan.setia@gmail.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/id/>\n"
+"PO-Revision-Date: 2015-02-18 05:23+0200\n"
+"Last-Translator: Yohanes Edwin <edwin@yohanesedwin.com>\n"
+"Language-Team: Indonesian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Basepath: ../../..\n"
@@ -840,7 +840,6 @@ msgstr ""
 "tidak diinginkan."
 
 #: index.php:488
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -852,10 +851,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Parameter PHP [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a]anda lebih kecil "
-"dari dari validitas cookie di  phpMyAdmin, karenanya, login anda akan lebih "
-"berakhir cepat daripada konfigurasi phpMyAdmin."
+"Parameter PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] anda lebih kecil daripada "
+"konfigurasi lama validitas cookie di  phpMyAdmin, oleh karena itu login anda "
+"mungkin dapat berakhir lebih cepat daripada konfigurasi phpMyAdmin."
 
 #: index.php:501
 msgid ""
@@ -958,10 +958,9 @@ msgid "Delete tracking data for these versions?"
 msgstr "Hapus pelacakan data untuk versi ini?"
 
 #: js/messages.php:44
-#, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Hapus baris pelacakan data dari laporan"
+msgstr "Hapus data dari laporan pelacakan?"
 
 #: js/messages.php:45
 msgid "Deleting tracking data"
@@ -1003,7 +1002,7 @@ msgstr "Anda yakin akan menghapus pengguna yang dipilih?"
 #, fuzzy
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete this central column?"
-msgstr "Anda yakin akan menghapus grup pengguna \"%s\"?"
+msgstr "Anda yakin ingin menghapus kolom pusat ini?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -1830,7 +1829,6 @@ msgid "Pick"
 msgstr "Pilih"
 
 #: js/messages.php:311
-#, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
 msgstr "Pilih Kolom"
@@ -1845,8 +1843,8 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
-"Tidak ada kolom dalam daftar pusat. Pastikan daftar kolom Central untuk "
-"database %s memiliki kolom yang tidak hadir dalam tabel saat ini."
+"Tidak ada kolom ditemukan dalam daftar pusat. Pastikan daftar untuk database "
+"%s memiliki kolom yang tidak ada di dalam tabel saat ini."
 
 #: js/messages.php:314
 msgid "See more"
@@ -1878,10 +1876,9 @@ msgid "Primary key added."
 msgstr "Kunci primer telah ditambahkan."
 
 #: js/messages.php:322 libraries/normalization.lib.php:174
-#, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "Laporan pelacakan"
+msgstr "Tunggu sebentar yach…"
 
 #: js/messages.php:323
 #, php-format
@@ -1909,29 +1906,25 @@ msgid "Confirm partial dependencies"
 msgstr "Konfirmasi dependensi parsial"
 
 #: js/messages.php:328
-#, fuzzy
 msgid "Selected partial dependencies are as follows:"
-msgstr "Dipilih dependensi parsial adalah sebagai berikut:"
+msgstr "Dependensi yang dipilih adalah:"
 
 #: js/messages.php:329
-#, fuzzy
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"Catatan: a, b -> d, f menyiratkan nilai-nilai kolom a dan b digabungkan "
-"bersama-sama dapat menentukan nilai dari kolom d dan kolom f."
+"Catatan: a, b -> d, f menyiratkan bahwa nilai gabungan antara kolom a dan b "
+"dapat menentukan nilai dari kolom d dan kolom f."
 
 #: js/messages.php:330
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Basis data belum dipilih."
+msgstr "Tidak ada dependensi parsial yang dipilih!"
 
 #: js/messages.php:332
-#, fuzzy
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr "Tunjukkan dependensi parsial mungkin berdasarkan data dalam tabel"
+msgstr "Tunjukkan dependensi parsial yang ada pada data di dalam tabel"
 
 #: js/messages.php:333
 msgid "Hide partial dependencies list"
