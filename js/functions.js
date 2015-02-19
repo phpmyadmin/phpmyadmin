@@ -3080,6 +3080,7 @@ AJAX.registerOnload('functions.js', function () {
         }
         $enum_editor_dialog = $(dialog).dialog({
             minWidth: width,
+            maxHeight: 450,
             modal: true,
             title: PMA_messages.enum_editor,
             buttons: buttonOptions,
@@ -3186,6 +3187,7 @@ AJAX.registerOnload('functions.js', function () {
         var buttonOptions = {};
         var $central_columns_dialog = $(central_columns_dialog).dialog({
             minWidth: width,
+            maxHeight: 450,
             modal: true,
             title: PMA_messages.pickColumnTitle,
             buttons: buttonOptions,
