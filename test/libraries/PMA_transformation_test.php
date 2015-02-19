@@ -142,7 +142,9 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                 'input_transformation' => array(
                     'Image/JPEG: Upload',
                     'Text/Plain: Fileupload',
+                    'Text/Plain: JsonEditor',
                     'Text/Plain: Regexvalidation',
+                    'Text/Plain: SqlEditor',
                     'Text/Plain: Link',
                     'Text/Plain: Longtoipv4',
                     'Text/Plain: Preappend',
@@ -151,7 +153,9 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                 'input_transformation_file' => array(
                     'input/Image_JPEG_Upload.class.php',
                     'input/Text_Plain_Fileupload.class.php',
+                    'input/Text_Plain_JsonEditor.class.php',
                     'input/Text_Plain_Regexvalidation.class.php',
+                    'input/Text_Plain_SqlEditor.class.php',
                     'Text_Plain_Link.class.php',
                     'Text_Plain_Longtoipv4.class.php',
                     'Text_Plain_Preappend.class.php',
