@@ -312,6 +312,7 @@ CREATE TABLE IF NOT EXISTS `pma__central_columns` (
   `db_name` varchar(64) NOT NULL,
   `col_name` varchar(64) NOT NULL,
   `col_type` varchar(64) NOT NULL,
+  `col_attribute` varchar(64),
   `col_length` text,
   `col_collation` varchar(64) NOT NULL,
   `col_isNull` boolean NOT NULL,
