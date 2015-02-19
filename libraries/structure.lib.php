@@ -2120,8 +2120,8 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         $html_output .= '<li class="browse nowrap">';
         if ($isInCentralColumns) {
             $html_output .=
-                '<a href="#" onclick=$("input:checkbox").removeAttr("checked");'
-                . '$("#checkbox_row_' . $rownum . '").attr("checked","checked");'
+                '<a href="#" onclick=$("input:checkbox").prop("checked",false);'
+                . '$("#checkbox_row_' . $rownum . '").prop("checked",true);'
                 . '$("button[value=remove_from_central_columns]").click();>'
             . PMA_Util::getIcon(
                 'centralColumns_delete.png',
@@ -2130,8 +2130,8 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
             . '</a>';
         } else {
             $html_output .=
-                '<a href="#" onclick=$("input:checkbox").removeAttr("checked");'
-                . '$("#checkbox_row_' . $rownum . '").attr("checked","checked");'
+                '<a href="#" onclick=$("input:checkbox").prop("checked",false);'
+                . '$("#checkbox_row_' . $rownum . '").prop("checked",true);'
                 . '$("button[value=add_to_central_columns]").click();>'
             . PMA_Util::getIcon(
                 'centralColumns_add.png',
