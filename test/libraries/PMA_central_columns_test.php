@@ -349,6 +349,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $row = array(
             'col_name'=>'col_test',
             'col_type'=>'int',
+            'col_attribute'=>'',
             'col_length'=>12,
             'col_collation'=>'utf8_general_ci',
             'col_isNull'=>1,
