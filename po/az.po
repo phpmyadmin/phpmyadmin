@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-12 08:52-0500\n"
-"PO-Revision-Date: 2015-02-07 14:21+0200\n"
+"PO-Revision-Date: 2015-02-19 17:42+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
+"Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: az\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.2\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -4950,15 +4950,15 @@ msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:205
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Serverə parolsuz qoşulmağa icazə verdiniz."
 
 #: libraries/config/ServerConfigChecks.class.php:343
 msgid "Key is too short, it should have at least 8 characters."
-msgstr ""
+msgstr "Açar çox qısadır, ən az 8 simvol uzunluğunda olmalıdır."
 
 #: libraries/config/ServerConfigChecks.class.php:350
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
+msgstr "Açarın tərkibində hərf, rəqəm [em]və[/em] xüsusi simvollar olmalıdır."
 
 #: libraries/config/ServerConfigChecks.class.php:371
 #, php-format
@@ -4992,7 +4992,7 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:386
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr ""
+msgstr "Əgər web serveriniz dəstəkləyirsə bu %sseçimi%s aktivləşdirməlisiniz."
 
 #: libraries/config/ServerConfigChecks.class.php:392
 #, php-format
@@ -8168,7 +8168,7 @@ msgstr "Sxem %s faylına qeyd edildi."
 #: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1498
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL boş netice çoxluğu gönderdi (ye'ni sıfır setir)."
+msgstr "MySQL boş nəticə çoxluğu göndərdi(yəni sıfır sətir)."
 
 #: libraries/import.lib.php:265 libraries/sql.lib.php:1512
 msgid "[ROLLBACK occurred.]"
