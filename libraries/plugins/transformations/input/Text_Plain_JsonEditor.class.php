@@ -58,6 +58,7 @@ class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationsPlugin
     public function getScripts()
     {
         return array(
+            'codemirror/mode/javascript/javascript.js',
             'transformations/json_editor.js'
         );
     }
