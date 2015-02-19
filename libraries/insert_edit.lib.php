@@ -2826,7 +2826,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
             if (method_exists($transformation_plugin, 'getInputHtml')) {
                 $transformed_html = $transformation_plugin->getInputHtml(
                     $column, $row_id, $column_name_appendix,
-                    $transformation_options, $current_value
+                    $transformation_options, $current_value, $text_dir
                 );
             }
             if (method_exists($transformation_plugin, 'getScripts')) {
