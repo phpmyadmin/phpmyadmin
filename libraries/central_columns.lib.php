@@ -95,7 +95,11 @@ function PMA_getCentralColumnsCount($db)
                PMA_Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $db . '\';';
     $res = $GLOBALS['dbi']->fetchResult($query);
-    return $res[0];
+    if (isset($res[0])) {
+        return $res[0];
+    } else {
+        return 0;
+    }
 }
 /**
  * return the existing columns in central list among the given list of columns
