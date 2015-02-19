@@ -2932,14 +2932,14 @@ function autoPopulate(input_id, offset)
     $('#'+input_id+'5').val(central_column_list[db+'_'+table][offset].col_collation);
     $('#'+input_id+'6').val(central_column_list[db+'_'+table][offset].col_extra);
     if(central_column_list[db+'_'+table][offset].col_extra.toUpperCase() === 'AUTO_INCREMENT') {
-        $('#'+input_id+'9').attr("checked","checked").change();
+        $('#'+input_id+'9').prop("checked",true).change();
     } else {
-        $('#'+input_id+'9').removeAttr("checked");
+        $('#'+input_id+'9').prop("checked",false);
     }
     if(central_column_list[db+'_'+table][offset].col_isNull !== '0') {
-        $('#'+input_id+'7').attr("checked","checked");
+        $('#'+input_id+'7').prop("checked",true);
     } else {
-        $('#'+input_id+'7').removeAttr("checked");
+        $('#'+input_id+'7').prop("checked",false);
     }
 }
 
