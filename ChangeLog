@@ -53,6 +53,7 @@ phpMyAdmin - ChangeLog
 + rfe       Use single form instead of separate forms for each submit button
 + rfe       Logic to pass submit button name, value pair when submitting forms via ajax
 + rfe       CodeMirror based SQL editor as an input transformation
++ rfe #1275 CodeMirror based JSON editor as an input transformation
 
 4.3.10.0 (not yet released)
 - bug       Undefined index navwork
