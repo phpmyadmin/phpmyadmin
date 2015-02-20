@@ -344,7 +344,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<input type="text" value="" name="' . $name_attr . '" '
             . 'id="' . $id_attr . '" placeholder="'
-            . 'test_&lt;b&gt;table alias" class=""/>',
+            . 'test_&lt;b&gt;table alias" class="" disabled="disabled"/>',
             $html
         );
     }

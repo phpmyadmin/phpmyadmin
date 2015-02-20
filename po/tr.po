@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-01 19:07+0200\n"
+"PO-Revision-Date: 2015-02-12 15:15+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/tr/>\n"
@@ -980,7 +980,7 @@ msgstr ""
 
 #: js/messages.php:48
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Seçilen kullanıcı(ları)yı gerçekten geri almak istiyor musunuz?"
+msgstr "Seçilen kullanıcı(ları)yı geri almak istediğinize emin misiniz?"
 
 #: js/messages.php:51
 msgid "Save & Close"

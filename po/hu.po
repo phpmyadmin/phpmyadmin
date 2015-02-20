@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-07 23:27+0200\n"
+"PO-Revision-Date: 2015-02-10 20:29+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/hu/>\n"
@@ -10932,7 +10932,7 @@ msgstr "Az ellenőrzés nem sikerült a következő bemeneti karakterláncnál: 
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr "SQL-lekérdezésként, színkódolással formázza a szöveget."
+msgstr "SQL-lekérdezésként formázza a szöveget szintaxis kiemeléssel."
 
 #: libraries/plugins/transformations/abstract/SubstringTransformationsPlugin.class.php:31
 msgid ""
@@ -13985,7 +13985,7 @@ msgstr "Nézet szerkesztése"
 
 #: libraries/structure.lib.php:1634
 msgid "Relation view"
-msgstr "Reláció nézet"
+msgstr "Kapcsolati nézet"
 
 #: libraries/structure.lib.php:1646
 msgid "Propose table structure"

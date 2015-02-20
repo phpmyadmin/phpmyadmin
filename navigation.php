@@ -24,7 +24,7 @@ if (! $response->isAjax()) {
 }
 
 $cfgRelation = PMA_getRelationsParam();
-if ($cfgRelation['navwork']) {
+if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
     if (isset($_REQUEST['hideNavItem'])) {
         if (! empty($_REQUEST['itemName'])
             && ! empty($_REQUEST['itemType'])

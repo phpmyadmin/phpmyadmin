@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-12 09:29+0200\n"
+"PO-Revision-Date: 2015-02-13 10:06+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/ia/>\n"
@@ -2247,6 +2247,8 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Vermente tu vole vider omne rangos? Pro un grande tabella isto poterea vader "
+"in crash le navigator."
 
 #: js/messages.php:436
 msgid "cancel"
@@ -8761,7 +8763,7 @@ msgstr "Esperanto"
 
 #: libraries/mysql_charsets.lib.php:204
 msgid "Estonian"
-msgstr ""
+msgstr "Estonian"
 
 #: libraries/mysql_charsets.lib.php:207 libraries/mysql_charsets.lib.php:210
 msgid "German"
@@ -8789,11 +8791,11 @@ msgstr "Japonese"
 
 #: libraries/mysql_charsets.lib.php:222
 msgid "Latvian"
-msgstr ""
+msgstr "Letton"
 
 #: libraries/mysql_charsets.lib.php:225
 msgid "Lithuanian"
-msgstr ""
+msgstr "Lituano"
 
 #: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:333
 msgid "Korean"
@@ -8821,7 +8823,7 @@ msgstr "Slovaco"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovenian"
-msgstr ""
+msgstr "Sloveno"
 
 #: libraries/mysql_charsets.lib.php:249
 msgid "Spanish"
@@ -8867,7 +8869,7 @@ msgstr "Russo"
 
 #: libraries/mysql_charsets.lib.php:316
 msgid "Baltic"
-msgstr ""
+msgstr "Baltic"
 
 #: libraries/mysql_charsets.lib.php:321
 msgid "Armenian"
@@ -8895,7 +8897,7 @@ msgstr "Greco"
 
 #: libraries/mysql_charsets.lib.php:345
 msgid "Czech-Slovak"
-msgstr ""
+msgstr "Tcheco-Slovaco"
 
 #: libraries/mysql_charsets.lib.php:360 libraries/mysql_charsets.lib.php:367
 #: libraries/structure.lib.php:1157
@@ -8947,6 +8949,9 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Il ha grande gruppos de elementos in le pannello de navigation que pote "
+"influentiar le prestationes. Considera dishabilitar  le gruppamento de "
+"elementos in le pannello de navigation."
 
 #: libraries/navigation/NavigationTree.class.php:851
 #, php-format
@@ -9102,6 +9107,8 @@ msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Tu ha alcun columnas que on pote divider in plus que un columna? Pro exemplo "
+"adresse pote esser dividite in strata, citate, pais e zip."
 
 #: libraries/normalization.lib.php:128
 msgid "Show me the central list of columns that are not already in this table"
@@ -9113,6 +9120,8 @@ msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
+"Selige un  columna que pote esser dividite in plus que un. (si on selige "
+"'necun tal columna', on movera al proxime passo)"
 
 #: libraries/normalization.lib.php:138 normalization.php:19
 msgid "Select one…"
@@ -9124,7 +9133,7 @@ msgstr "Necun tal columna"
 
 #: libraries/normalization.lib.php:146
 msgid "split into "
-msgstr ""
+msgstr "divide in "
 
 #: libraries/normalization.lib.php:167
 msgid "Have a primary key"
@@ -9139,15 +9148,20 @@ msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"Il ha necun clave primari, pro favor tu adde un.<br/> Insinuation: un clave "
+"primari es un columna (o un combination de columnas) que unicamente "
+"identifica omne rangos."
 
 #: libraries/normalization.lib.php:185
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Adde un clave primari sur columna(s) existente"
 
 #: libraries/normalization.lib.php:190
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
+"Il non es possibile facer combinationes de columnas existente como clave "
+"primari"
 
 #: libraries/normalization.lib.php:194
 msgid "+ Add a new primary key column"
@@ -9180,7 +9194,7 @@ msgstr "Necun columna reduntante"
 
 #: libraries/normalization.lib.php:248
 msgid "Move repeating groups"
-msgstr ""
+msgstr "Move gruppos que on repete"
 
 #: libraries/normalization.lib.php:251
 msgid ""
@@ -9199,15 +9213,15 @@ msgstr ""
 
 #: libraries/normalization.lib.php:265
 msgid "No repeating group"
-msgstr ""
+msgstr "Necun gruppo que on repete"
 
 #: libraries/normalization.lib.php:291
 msgid "Step 2."
-msgstr ""
+msgstr "Passo 2."
 
 #: libraries/normalization.lib.php:291
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Trova dependentias partial"
 
 #: libraries/normalization.lib.php:313
 #, php-format
@@ -9218,7 +9232,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "Tabella jam es in le secunde forma normal."
 
 #: libraries/normalization.lib.php:323
 #, php-format
@@ -9247,7 +9261,7 @@ msgstr ""
 #: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' depende de:"
 
 #: libraries/normalization.lib.php:356
 #, php-format
@@ -13082,7 +13096,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:1634
 msgid "Relation view"
-msgstr ""
+msgstr "Vista relational"
 
 #: libraries/structure.lib.php:1646
 msgid "Propose table structure"

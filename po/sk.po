@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-29 21:30+0200\n"
+"PO-Revision-Date: 2015-02-15 20:32+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/sk/>\n"
@@ -2202,6 +2202,8 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Skutočne chcete zobraziť všetky riadky? Pri veľkej tabuľke môže dôjsť k pádu "
+"prehliadača."
 
 #: js/messages.php:436
 msgid "cancel"
@@ -2355,7 +2357,7 @@ msgstr ""
 
 #: js/messages.php:506 js/messages.php:518
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Na serveri boli zistené chyby!"
 
 #: js/messages.php:508
 msgid "Please look at the bottom of this window."
@@ -4950,7 +4952,7 @@ msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:205
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Dovoľujete pripojiť sa k serveru bez hesla."
 
 #: libraries/config/ServerConfigChecks.class.php:343
 msgid "Key is too short, it should have at least 8 characters."
@@ -6544,7 +6546,7 @@ msgstr "Pamätať si triedenie tabuľky"
 
 #: libraries/config/messages.inc.php:524
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "Prednastavený spôsob triedenia pre tabuľky s primárnym kľúčom."
 
 #: libraries/config/messages.inc.php:525
 #| msgid "Default sorting order"
@@ -15394,7 +15396,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:429
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Je InnoDB vypnuté?"
 
 #: libraries/advisory_rules.txt:432
 msgid "You do not have InnoDB enabled."
@@ -15467,7 +15469,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:448
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "Veľkosť záznamov InnoDB je %s MiB"
 
 #: libraries/advisory_rules.txt:450
 msgid "InnoDB buffer pool size"

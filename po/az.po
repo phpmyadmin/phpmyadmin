@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-24 14:32+0200\n"
+"PO-Revision-Date: 2015-02-07 14:21+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/az/>\n"
@@ -3267,7 +3267,7 @@ msgstr "Diaqram göstər"
 
 #: libraries/DisplayResults.class.php:5423
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "GIS verilənini vizuallaşdır"
 
 #: libraries/DisplayResults.class.php:5659
 msgid "Link not found!"
@@ -3275,7 +3275,7 @@ msgstr "Link tapılmadı!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Çoxlu sayda xəta mesajı, bəziləri göstərilə bilmədi."
 
 #: libraries/Error_Handler.class.php:336
 msgid "Report"
@@ -3287,7 +3287,7 @@ msgstr "Hesabatı növbəti dəfə avtomatik olaraq birbaşa göndər"
 
 #: libraries/File.class.php:225
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Fayl yüklənilmiş bir fayl deyil."
 
 #: libraries/File.class.php:264
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -3301,7 +3301,7 @@ msgstr ""
 
 #: libraries/File.class.php:270
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Yüklənən fayl sadəcə qismən yükləndi."
 
 #: libraries/File.class.php:273
 msgid "Missing a temporary folder."
@@ -3325,11 +3325,11 @@ msgstr ""
 
 #: libraries/File.class.php:479
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Yüklənən fayl daşınarkən xəta oldu."
 
 #: libraries/File.class.php:487
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Yüklənən fayl oxuna bilmədi(daşınan)."
 
 #: libraries/Footer.class.php:74
 #, php-format
@@ -3379,7 +3379,7 @@ msgstr "Unikal"
 
 #: libraries/Index.class.php:568 libraries/tracking.lib.php:893
 msgid "Packed"
-msgstr ""
+msgstr "Paketləndi"
 
 #: libraries/Index.class.php:570 libraries/tracking.lib.php:895
 msgid "Cardinality"
@@ -3428,7 +3428,7 @@ msgstr "Server"
 #: libraries/structure.lib.php:736 libraries/structure.lib.php:767
 #: libraries/structure.lib.php:1296 libraries/tbl_info.inc.php:62
 msgid "View"
-msgstr ""
+msgstr "Görünüş"
 
 #: libraries/Menu.class.php:309 libraries/Menu.class.php:413
 #: libraries/Util.class.php:3160 libraries/Util.class.php:3167
@@ -3492,7 +3492,7 @@ msgstr "Əməliyyatlar"
 #: libraries/Util.class.php:4118 libraries/Util.class.php:4132
 #: libraries/relation.lib.php:246
 msgid "Tracking"
-msgstr ""
+msgstr "İzləmə"
 
 #: libraries/Menu.class.php:376 libraries/Menu.class.php:474
 #: libraries/Util.class.php:4117 libraries/Util.class.php:4133
@@ -3509,7 +3509,7 @@ msgstr ""
 #: libraries/Menu.class.php:424 libraries/Menu.class.php:431
 #: libraries/Menu.class.php:438
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "Verilənlər Bazası boş olaraq görsənir!"
 
 #: libraries/Menu.class.php:427 libraries/Util.class.php:4110
 msgid "Query"
@@ -3526,11 +3526,11 @@ msgstr "Rutinlər"
 #: libraries/plugins/export/ExportXml.class.php:107
 #: libraries/rte/rte_words.lib.php:64
 msgid "Events"
-msgstr ""
+msgstr "Hadisələr"
 
 #: libraries/Menu.class.php:486 libraries/Util.class.php:4119
 msgid "Designer"
-msgstr ""
+msgstr "Dizayner"
 
 #: libraries/Menu.class.php:496 libraries/Util.class.php:4120
 msgid "Central columns"
@@ -3570,7 +3570,7 @@ msgstr "kodlaşdırma"
 #: libraries/Menu.class.php:606 libraries/Util.class.php:4103
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
-msgstr ""
+msgstr "Qoşmalar"
 
 #: libraries/Menu.class.php:610 libraries/Util.class.php:4104
 msgid "Engines"
@@ -3587,22 +3587,22 @@ msgstr "Xəta"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d sətir təsirləndi."
+msgstr[1] "%1$d sətir təsirləndi."
 
 #: libraries/Message.class.php:273
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d sətir silindi."
+msgstr[1] "%1$d sətir silindi."
 
 #: libraries/Message.class.php:292
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d sətir əlavə edildi."
+msgstr[1] "%1$d sətir əlavə edildi."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2454
 #: libraries/browse_foreigners.lib.php:290
@@ -3697,7 +3697,7 @@ msgstr ""
 
 #: libraries/ServerStatusData.class.php:195
 msgid "Temporary data"
-msgstr ""
+msgstr "Müvəqqəti verilən"
 
 #: libraries/ServerStatusData.class.php:196
 msgid "Delayed inserts"
@@ -3705,7 +3705,7 @@ msgstr "gecikmiş əlavələr"
 
 #: libraries/ServerStatusData.class.php:197
 msgid "Key cache"
-msgstr ""
+msgstr "Açar keşi"
 
 #: libraries/ServerStatusData.class.php:198
 msgid "Joins"
@@ -3713,7 +3713,7 @@ msgstr ""
 
 #: libraries/ServerStatusData.class.php:200
 msgid "Sorting"
-msgstr ""
+msgstr "Sıralama"
 
 #: libraries/ServerStatusData.class.php:201
 #: libraries/build_html_for_db.lib.php:28
@@ -3744,16 +3744,16 @@ msgstr "Açıq cədvəlləri göstər"
 
 #: libraries/ServerStatusData.class.php:229
 msgid "Show slave hosts"
-msgstr ""
+msgstr "Slave hostları göstər"
 
 #: libraries/ServerStatusData.class.php:236
 #: libraries/replication_gui.lib.php:50
 msgid "Show master status"
-msgstr ""
+msgstr "Master statusunu göstər"
 
 #: libraries/ServerStatusData.class.php:239
 msgid "Show slave status"
-msgstr ""
+msgstr "Slave statusunu göstər"
 
 #: libraries/ServerStatusData.class.php:244
 msgid "Flush query cache"
@@ -3774,7 +3774,7 @@ msgstr "Bütün status dəyişənləri"
 
 #: libraries/ServerStatusData.class.php:385
 msgid "Monitor"
-msgstr ""
+msgstr "Monitorinq"
 
 #: libraries/ServerStatusData.class.php:389
 msgid "Advisor"
@@ -3971,14 +3971,13 @@ msgid "Replace with:"
 msgstr "Bununla dəyişdir:"
 
 #: libraries/TableSearch.class.php:1370
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "requlyar ifade (regular expression) olaraq"
+msgstr "Requlyar ifadə (regular expression) istifadə et"
 
 #: libraries/TableSearch.class.php:1472
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Tap və dəyişdir - önizləməsi"
 
 #: libraries/TableSearch.class.php:1476
 msgid "Count"
@@ -4003,7 +4002,7 @@ msgstr ""
 
 #: libraries/Theme.class.php:402
 msgid "No preview available."
-msgstr "Görünüş mövcud deyil."
+msgstr "Önizləmə mövcud deyil."
 
 #: libraries/Theme.class.php:404
 msgid "take it"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-17 20:36+0200\n"
+"PO-Revision-Date: 2015-02-08 08:28+0200\n"
 "Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
 "Language-Team: Japanese "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/ja/>\n"
@@ -601,13 +601,12 @@ msgstr "成功しました"
 
 #: import.php:58 js/messages.php:438
 msgid "Failed"
-msgstr ""
+msgstr "失敗しました"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "完全な INSERT 文を作成する"
+msgstr "不完全なパラメータ"
 
 #: import.php:162
 #, php-format
@@ -632,13 +631,14 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"アップロードされたファイルは、移動できませんでした。なぜなら、サーバは、open_basedirのディレクトリ%s "
+"(テンポラリファイル)へのアクセス許可がありません。"
 
 #: import.php:466 import.php:527 libraries/File.class.php:418
 #: libraries/File.class.php:512
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "ファイルを読み込めませんでした"
+msgstr "ファイルを読み込めませんでした!"
 
 #: import.php:476 import.php:487 import.php:508 import.php:519
 #: libraries/File.class.php:578
@@ -661,14 +661,12 @@ msgstr ""
 "FAQ 1.16[/doc] をご覧ください。"
 
 #: import.php:553
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
-msgstr ""
-"文字セット変換ライブラリがないので、ファイルの文字セットが変換できません"
+msgstr "文字セット変換ライブラリがないので、ファイルの文字セットが変換できません!"
 
 #: import.php:593 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -677,10 +675,10 @@ msgstr ""
 "ください！"
 
 #: import.php:628 libraries/sql.lib.php:1042 libraries/sql.lib.php:1855
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "ブックマーク %s を作成しました"
+msgstr "ブックマーク %s を作成しました。"
 
 #: import.php:637
 #, php-format
@@ -721,6 +719,8 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"あなたはでもサーバを利用しています。あなたは、ここで何でもできます。しかし、root、debian-sys-"
+"maintとpmaは変更しないで下さい。詳しい情報は、%sを参照ください。"
 
 #: index.php:158
 msgid "General Settings"
@@ -15775,7 +15775,7 @@ msgstr "{query_cache_limit} の増加を検討してください。"
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "現在のクエリキャッシュのヒット率が %s%% と、20%% を下回っています。"
+msgstr "現在のクエリキャッシュのヒット率が %s%% と、20%% を下回っています"
 
 #: libraries/advisory_rules.txt:174
 msgid "Query Cache usage"
@@ -15799,9 +15799,7 @@ msgstr ""
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
-msgstr ""
-"クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は、%s%% で"
-"す。この値は、80%% 以上がいいと言われています。"
+msgstr "クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は、%s%% です。この値は、80%% 以上がいいと言われています"
 
 #: libraries/advisory_rules.txt:181
 msgid "Query cache fragmentation"
@@ -15822,14 +15820,11 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
-"深刻な断片化は Qcache_lowmem_prunes の (大きな) 増加を示唆しています。"
-"{query_cache_size} が小さすぎることが原因で、小さなクエリキャッシュメモリの切"
-"り詰めが多数発生したことにより、このようになったものと思われます。今すぐクエ"
-"リキャッシュのフラッシュを行えば、しばらくは (長期間クエリキャッシュをロック"
-"していたような) 断片化は解消されます。{query_cache_min_res_unit} を小さめな値"
-"に慎重に調整することで、断片化をかなり抑制できるかもしれません。設定例とし"
-"て、クエリキャッシュの 1 つ当たりの平均使用サイズ ( = (query_cache_size - "
-"qcache_free_memory) / qcache_queries_in_cache ) などがあります。"
+"深刻な断片化は Qcache_lowmem_prunes の (大きな) 増加を示唆しています。{query_cache_size} が小さすぎることが原"
+"因で、小さなクエリキャッシュメモリの切り詰めが多数発生したことにより、このようになったものと思われます。今すぐクエリキャッシュのフラッシュを行えば、"
+"しばらくは (長期間クエリキャッシュをロックしていたような) 断片化は解消されます。{query_cache_min_res_unit} "
+"を小さめな値に慎重に調整することで、断片化をかなり抑制できるかもしれません。設定例として、クエリキャッシュの 1 つ当たりの平均使用サイズ ( = ("
+"query_cache_size - qcache_free_memory) / qcache_queries_in_cache ) などがあります"
 
 #: libraries/advisory_rules.txt:186
 #, php-format
@@ -15869,9 +15864,7 @@ msgstr ""
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
-msgstr ""
-"追加クエリに対する削除クエリの割合は、%s%% です。この値は低いほど良いです (こ"
-"こでは 0.1%% を超えたらで判断しています)。"
+msgstr "追加クエリに対する削除クエリの割合は、%s%% です。この値は低いほど良いです (ここでは 0.1%% を超えたらで判断しています)"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache max size"
@@ -15929,7 +15922,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:207
 msgid "query_cache_limit is set to 1 MiB"
-msgstr "query_cache_limit は 1 MiB に設定されています。"
+msgstr "query_cache_limit は 1 MiB に設定されています"
 
 #: libraries/advisory_rules.txt:211
 msgid "Percentage of sorts that cause temporary tables"
@@ -15988,9 +15981,8 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
-"多くの行がソートされていても特に問題ないのであれば、多くのソートを必要とする"
-"クエリに対して、ORDER BY 節にインデックスのあるカラムを使うのを検討する程度で"
-"いいでしょう。そのクエリ結果のソートは、とても速くなるかもしれません。"
+"多くの行がソートされていても特に問題ないのであれば、多くのソートを必要とするクエリに対して、ORDER BY "
+"節にインデックスのあるカラムを使うのを検討する程度でいいでしょう。そのクエリ結果のソートは、とても速くなるかもしれません"
 
 #: libraries/advisory_rules.txt:230
 #, php-format
@@ -16010,15 +16002,13 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
-"これは結合において、テーブルが全スキャンされていることを示しています。結合条"
-"件に合ったカラムにインデックスを追加することで、テーブル結合のスピードは大幅"
-"に上がるでしょう。"
+"これは結合において、テーブルが全スキャンされていることを示しています。結合条件に合ったカラムにインデックスを追加することで、テーブル結合のスピードは大幅に"
+"上がるでしょう"
 
 #: libraries/advisory_rules.txt:238
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr ""
-"テーブル結合の平均：%s。この値は、1 時間当たり 1 未満がいいと言われています。"
+msgstr "テーブル結合の平均：%s。この値は、1 時間当たり 1 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:240
 msgid "Rate of reading first index entry"
@@ -16048,9 +16038,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:245
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr ""
-"インデックススキャンの平均：%s。この値は、1 時間当たり 1 未満がいいと言われて"
-"います。"
+msgstr "インデックススキャンの平均：%s。この値は、1 時間当たり 1 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:247
 msgid "Rate of reading fixed position"
@@ -16075,9 +16063,7 @@ msgstr ""
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
-msgstr ""
-"決まった位置を読み込む割合の平均：%s。この値は、1 時間当たり 1 未満がいいと言"
-"われています。"
+msgstr "決まった位置を読み込む割合の平均：%s。この値は、1 時間当たり 1 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:254
 msgid "Rate of reading next table row"
@@ -16099,9 +16085,7 @@ msgstr ""
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr ""
-"テーブルの次行を読み込む割合：%s。この値は、1 時間当たり 1 未満がいいと言われ"
-"ています。"
+msgstr "テーブルの次行を読み込む割合：%s。この値は、1 時間当たり 1 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:262
 #, fuzzy
@@ -16129,8 +16113,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:267
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
-"両者の現在の値は、tmp_table_size が %s、max_heap_table_size が %s です。"
+msgstr "両者の現在の値は、tmp_table_size が %s、max_heap_table_size が %s です"
 
 #: libraries/advisory_rules.txt:269
 msgid "Percentage of temp tables on disk"
@@ -16152,22 +16135,18 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
-"{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもし"
-"れません。しかしながら、これらの変数値に関わりなく、常にディスクに展開される"
-"一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカ"
-"ラムもしくは 512 バイトを超えるカラムを使わないように、クエリを書き直す必要が"
-"あるでしょう。このことは、<a href=\"http://www.facebook.com/note.php?"
-"note_id=10150111255065841&comments\">The Pythian Group の記事 (英語)</a>に詳"
-"しく記載されています。"
+"{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもしれません。しかしながら、これらの変数値"
+"に関わりなく、常にディスクに展開される一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカラムもしくは 512 "
+"バイトを超えるカラムを使わないように、クエリを書き直す必要があるでしょう。このことは、<a href=\""
+"http://www.facebook.com/note.php?note_id=10150111255065841&comments\">The "
+"Pythian Group の記事 (英語)</a>に詳しく記載されています"
 
 #: libraries/advisory_rules.txt:274
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
-msgstr ""
-"全一時テーブルの内 %s%% がディスク上に展開されています。この値は、25%% 未満が"
-"いいと言われています。"
+msgstr "全一時テーブルの内 %s%% がディスク上に展開されています。この値は、25%% 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:276
 msgid "Temp disk rate"
@@ -16183,22 +16162,18 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもし"
-"れません。しかしながら、これらの変数値に関わりなく、常にディスクに展開される"
-"一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカ"
-"ラムもしくは 512 バイトを超えるカラムを使わないように、クエリを書き直す必要が"
-"あるでしょう。このことは、<a href=\"http://dev.mysql.com/doc/refman/5.5/en/"
-"internal-temporary-tables.html\">MySQL ドキュメント</a>に詳しく記載されていま"
-"す。"
+"{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもしれません。しかしながら、これらの変数値"
+"に関わりなく、常にディスクに展開される一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカラムもしくは 512 "
+"バイトを超えるカラムを使わないように、クエリを書き直す必要があるでしょう。このことは、<a href=\""
+"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html\">"
+"MySQL ドキュメント</a>に詳しく記載されています"
 
 #: libraries/advisory_rules.txt:281
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
-msgstr ""
-"ディスク書き込みを伴う一時テーブル割合：%s。この値は、1 時間当たり 1 未満がい"
-"いと言われています。"
+msgstr "ディスク書き込みを伴う一時テーブル割合：%s。この値は、1 時間当たり 1 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:296
 msgid "MyISAM key buffer size"
@@ -16220,7 +16195,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:301
 msgid "key_buffer_size is 0"
-msgstr "key_buffer_size は 0 です。"
+msgstr "key_buffer_size は 0 です"
 
 #: libraries/advisory_rules.txt:303
 #, php-format
@@ -16246,9 +16221,7 @@ msgstr ""
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr ""
-"使われていた MyISAM キーバッファの最大比率: %s%%。この値は、95%% 以上がいいと"
-"言われています。"
+msgstr "使われていた MyISAM キーバッファの最大比率: %s%%。この値は、95%% 以上がいいと言われています"
 
 #: libraries/advisory_rules.txt:311
 msgid "Percentage of MyISAM key buffer used"
@@ -16257,9 +16230,7 @@ msgstr "MyISAM キーバッファの使用比率"
 #: libraries/advisory_rules.txt:316
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr ""
-"MyISAM キーバッファの使用比率: %s%%。この値は、95%% 以上がいいと言われていま"
-"す。"
+msgstr "MyISAM キーバッファの使用比率: %s%%。この値は、95%% 以上がいいと言われています"
 
 #: libraries/advisory_rules.txt:318
 msgid "Percentage of index reads from memory"
@@ -16277,9 +16248,7 @@ msgstr "{key_buffer_size} を増やす必要があるかもしれません。"
 #: libraries/advisory_rules.txt:323
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
-"メモリから読み込まれるインデックスの比率: %s%%。この値は、95%% 以上がいいと言"
-"われています。"
+msgstr "メモリから読み込まれるインデックスの比率: %s%%。この値は、95%% 以上がいいと言われています"
 
 #: libraries/advisory_rules.txt:327
 msgid "Rate of table open"
@@ -16300,9 +16269,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:332
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr ""
-"テーブルを開く割合：%s。この値は、1 時間当たり 10 未満がいいと言われていま"
-"す。"
+msgstr "テーブルを開く割合：%s。この値は、1 時間当たり 10 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:334
 msgid "Percentage of used open files limit"
@@ -16332,9 +16299,7 @@ msgstr ""
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr ""
-"開いているファイルの数は上限に対して %s%% です。この値は、85%% 未満がいいと言"
-"われています。"
+msgstr "開いているファイルの数は上限に対して %s%% です。この値は、85%% 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:341
 msgid "Rate of open files"
@@ -16347,9 +16312,7 @@ msgstr "開いているファイルの割合が高いです。"
 #: libraries/advisory_rules.txt:346
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
-"開いているファイルの割合：%s。この値は、1 時間当たり 5 未満がいいと言われてい"
-"ます。"
+msgstr "開いているファイルの割合：%s。この値は、1 時間当たり 5 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:348
 #, php-format
@@ -16369,9 +16332,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:353
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
-"速やかに行われたテーブルロック: %s%%。この値は、95%% 以上がいいと言われていま"
-"す。"
+msgstr "速やかに行われたテーブルロック: %s%%。この値は、95%% 以上がいいと言われています"
 
 #: libraries/advisory_rules.txt:355
 msgid "Table lock wait rate"
@@ -16380,9 +16341,7 @@ msgstr "テーブルロックの待つ割合"
 #: libraries/advisory_rules.txt:360
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr ""
-"テーブルロックの待つ割合: %s。この値は、1 時間当たり 1 未満がいいと言われてい"
-"ます。"
+msgstr "テーブルロックの待つ割合: %s。この値は、1 時間当たり 1 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:362
 msgid "Thread cache"
@@ -16404,7 +16363,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:367
 msgid "The thread cache is set to 0"
-msgstr "スレッドキャッシュは 0 に設定されています。"
+msgstr "スレッドキャッシュは 0 に設定されています"
 
 #: libraries/advisory_rules.txt:369
 #, php-format
@@ -16422,9 +16381,7 @@ msgstr "{thread_cache_size} を増やしてください。"
 #: libraries/advisory_rules.txt:374
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr ""
-"スレッドキャッシュのヒット率: %s%%。この値は、80%% 以上がいいと言われていま"
-"す。"
+msgstr "スレッドキャッシュのヒット率: %s%%。この値は、80%% 以上がいいと言われています"
 
 #: libraries/advisory_rules.txt:376
 msgid "Threads that are slow to launch"
@@ -16445,9 +16402,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:381
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
-"%s スレッドの開始に %s 秒以上かかっています。この値は、0 がいいと言われていま"
-"す。"
+msgstr "%s スレッドの開始に %s 秒以上かかっています。この値は、0 がいいと言われています"
 
 #: libraries/advisory_rules.txt:383
 msgid "Slow launch time"
@@ -16455,7 +16410,7 @@ msgstr "遅い起動時間"
 
 #: libraries/advisory_rules.txt:386
 msgid "Slow_launch_threads is above 2s"
-msgstr "Slow_launch_threads が 2 秒を超えています。"
+msgstr "Slow_launch_threads が 2 秒を超えています"
 
 #: libraries/advisory_rules.txt:387
 #, fuzzy
@@ -16472,7 +16427,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:388
 #, php-format
 msgid "slow_launch_time is set to %s"
-msgstr "slow_launch_time は %s に設定されています。"
+msgstr "slow_launch_time は %s に設定されています"
 
 #: libraries/advisory_rules.txt:392
 msgid "Percentage of used connections"
@@ -16511,8 +16466,7 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections は max_connections の %s%% になっています。この値は、"
-"80%% 未満がいいと言われています。"
+"Max_used_connections は max_connections の %s%% になっています。この値は、80%% 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
@@ -16537,9 +16491,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:404
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
-"全接続のうち %s%% が中断されています。この値は、1%% 未満がいいと言われていま"
-"す。"
+msgstr "全接続のうち %s%% が中断されています。この値は、1%% 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:406
 msgid "Rate of aborted connections"
@@ -16549,9 +16501,7 @@ msgstr "中断された接続の割合"
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr ""
-"中断された接続の割合は %s です。この値は、1 時間当たり 1 未満がいいと言われて"
-"います。"
+msgstr "中断された接続の割合は %s です。この値は、1 時間当たり 1 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:413
 msgid "Percentage of aborted clients"
@@ -16575,9 +16525,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:418
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
-"全クライアントの内 %s%% が中断されています。この値は、2%% 未満がいいと言われ"
-"ています。"
+msgstr "全クライアントの内 %s%% が中断されています。この値は、2%% 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:420
 msgid "Rate of aborted clients"
@@ -16586,9 +16534,7 @@ msgstr "中断されたクライアントの割合"
 #: libraries/advisory_rules.txt:425
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr ""
-"中断されたクライアントの割合: %s。この値は、1 時間当たり 1 未満がいいと言われ"
-"ています。"
+msgstr "中断されたクライアントの割合: %s。この値は、1 時間当たり 1 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:429
 msgid "Is InnoDB disabled?"
@@ -16604,7 +16550,7 @@ msgstr "一般的に、InnoDB はテーブル用のエンジンとして適切�
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
-msgstr "have_innodb は 'value' に設定されています。"
+msgstr "have_innodb は 'value' に設定されています"
 
 #: libraries/advisory_rules.txt:436
 msgid "InnoDB log size"
@@ -16631,16 +16577,14 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"特に、InnoDB のテーブルへの書き込みが多いシステムの場合には、"
-"{innodb_log_file_size} は {innodb_buffer_pool_size} の 25%% に設定するといい"
-"でしょう。しかしながら、この値が大きくなると、データベースが壊れたときの修復"
-"に時間がかかるようになります。そのため、この値は 256 MiB を超えないほうがいい"
-"と言われています。なお、この変数は簡単には変更できないので注意してください。"
-"サーバを停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定して、"
-"そうした後にサーバは起動し直す必要があります。そして、全ての設定が正しく設定"
-"できているのかを、エラーログで確認しなければなりません。<a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">こちらのブログ記事 (英語)</a> もご覧になってください。"
+"特に、InnoDB のテーブルへの書き込みが多いシステムの場合には、{innodb_log_file_size} は "
+"{innodb_buffer_pool_size} の 25%% "
+"に設定するといいでしょう。しかしながら、この値が大きくなると、データベースが壊れたときの修復に時間がかかるようになります。そのため、この値は 256 "
+"MiB を超えないほうがいいと言われています。なお、この変数は簡単には変更できないので注意してください。サーバを停止させ、InnoDB "
+"ログファイルを削除し、my.cnf に新しい値を設定して、そうした後にサーバは起動し直す必要があります。そして、全ての設定が正しく設定できているのかを、エ"
+"ラーログで確認しなければなりません。<a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧になってください"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
@@ -16648,9 +16592,8 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
-"ご使用されている InnoDB のログサイズは、関連のある InnoDB バッファプールの大"
-"きさに対して %s%% です。この値は、20%% 未満にしないほうがいいと言われていま"
-"す。"
+"ご使用されている InnoDB のログサイズは、関連のある InnoDB バッファプールの大きさに対して %s%% です。この値は、20%% "
+"未満にしないほうがいいと言われています"
 
 #: libraries/advisory_rules.txt:443
 msgid "Max InnoDB log size"
@@ -16673,22 +16616,19 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
-"一般的には、innodb_log_file_size に {innodb_buffer_pool_size} の 25%% の値を"
-"設定すれば十分です。innodb_log_file_size の値が非常に大きい場合、データベース"
-"が多量に破損した後の修復に時間がかかるようになります。<a href=\"http://www."
-"mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/\">"
-"こちらの記事 (英語)</a> も参照してください。なお、この変数を変更するには、"
-"サーバを停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定してか"
-"ら、サーバを起動し直す必要があります。それから、全ての設定が正しく行えたかを"
-"確認するために、エラーログを確認しなければなりません。設定に関しては、<a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧くだ"
-"さい。"
+"一般的には、innodb_log_file_size に {innodb_buffer_pool_size} の 25%% の値を設定すれば十分です。"
+"innodb_log_file_size の値が非常に大きい場合、データベースが多量に破損した後の修復に時間がかかるようになります。<a href=\""
+"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">こちらの記事 (英語)</a> も参照してください。なお、この変数を変更するには、サーバを停止させ、"
+"InnoDB ログファイルを削除し、my.cnf に新しい値を設定してから、サーバを起動し直す必要があります。それから、全ての設定が正しく行えたかを確認す"
+"るために、エラーログを確認しなければなりません。設定に関しては、<a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧ください"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "使用されている InnoDB のログサイズの総計は、%s MiB です。"
+msgstr "使用されている InnoDB のログサイズの総計は、%s MiB です"
 
 #: libraries/advisory_rules.txt:450
 msgid "InnoDB buffer pool size"
@@ -16712,17 +16652,13 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"InnoDB のバッファプールは、InnoDB テーブルのパフォーマンスに対して強い影響力"
-"を持っています。使用されていないメモリを全てこのバッファに割り当ててくださ"
-"い。ストレージエンジンとして InnoDB のみを使用しており、他のサービス (例え"
-"ば、ウェブサーバ) を稼動していないデータベースサーバに対しては、使用可能なメ"
-"モリの 80%% 以上にあたる大きな値をバッファプール変数に設定するといいでしょ"
-"う。そのような状況以外では、使用されている他のサービスや InnoDB ではないテー"
-"ブルの使用メモリ量を慎重に見極めながら、この変数を設定する必要があります。大"
-"きすぎる値を設定されてしまった場合、システムはメモリスワップをするようにな"
-"り、パフォーマンスは著しく低下するようになります。<a href=\"http://www."
-"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">こち"
-"らの記事 (英語)</a> も参考にしてください。"
+"InnoDB のバッファプールは、InnoDB "
+"テーブルのパフォーマンスに対して強い影響力を持っています。使用されていないメモリを全てこのバッファに割り当ててください。ストレージエンジンとして "
+"InnoDB のみを使用しており、他のサービス (例えば、ウェブサーバ) を稼動していないデータベースサーバに対しては、使用可能なメモリの 80%% "
+"以上にあたる大きな値をバッファプール変数に設定するといいでしょう。そのような状況以外では、使用されている他のサービスや InnoDB ではないテーブルの使"
+"用メモリ量を慎重に見極めながら、この変数を設定する必要があります。大きすぎる値を設定されてしまった場合、システムはメモリスワップをするようになり、パフォー"
+"マンスは著しく低下するようになります。<a href=\"http://www.mysqlperformanceblog.com/2007/11/03"
+"/choosing-innodb_buffer_pool_size/\">こちらの記事 (英語)</a> も参考にしてください"
 
 #: libraries/advisory_rules.txt:455
 #, php-format

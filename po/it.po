@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-09 15:52+0200\n"
+"PO-Revision-Date: 2015-02-07 14:23+0200\n"
 "Last-Translator: Marco Pozzato <ironpotts@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/it/>\n"
@@ -21,8 +21,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Il file %s non è disponibile sul sistema, visita www.phpmyadmin.net per "
-"maggiori informazioni."
+"Il file %s non è disponibile in questo sistema, visita www.phpmyadmin.net "
+"per maggiori informazioni."
 
 #: db_central_columns.php:85
 msgid "The central list of columns for the current database is empty."
@@ -33,10 +33,10 @@ msgid "Click to sort."
 msgstr "Clicca per ordinare."
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Mostro le righe %1$s - %2$s"
+msgstr "Mostro le righe %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -970,10 +970,9 @@ msgid "Dropping Primary Key/Index"
 msgstr "Cancellazione Chiave primaria/index"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Scarta Foreign Key."
+msgstr "Scarta Foreign key."
 
 #: js/messages.php:44
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1049,7 +1048,6 @@ msgid "Add %s column(s) to index"
 msgstr "Aggiungi %s campo/i all'indice"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
 msgstr "Crea indice a colonna singola"
@@ -7660,7 +7658,6 @@ msgid "Textarea columns"
 msgstr "Campi di aree di testo"
 
 #: libraries/config/messages.inc.php:755
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)"
@@ -7668,44 +7665,39 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)."
 msgstr ""
-"La dimensione dell'area di testo (righe) nella modalitá di modifica, questo "
-"valore incrementato per le aree di testo delle query SQL (x2) e per la "
-"finestra di query (x1.25)"
+"Dimensione dell'area di testo (righe) in modalitá di modifica, questo valore "
+"viene incrementato per le aree di testo delle query SQL (×2) e per la "
+"finestra di query (×1.25)."
 
 #: libraries/config/messages.inc.php:756
 msgid "Textarea rows"
-msgstr "Righe con aree di testo"
+msgstr "Righe nelle aree di testo"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid "Title of browser window when a database is selected"
 msgid "Title of browser window when a database is selected."
-msgstr "Titolo della finestra del browser quando un database è selezionato"
+msgstr "Titolo della finestra del browser quando un database è selezionato."
 
 #: libraries/config/messages.inc.php:759
-#, fuzzy
 #| msgid "Title of browser window when nothing is selected"
 msgid "Title of browser window when nothing is selected."
-msgstr "Titolo della finestra del browser quando nessun oggetto è selezionato"
+msgstr "Titolo della finestra del browser quando niente è selezionato."
 
 #: libraries/config/messages.inc.php:760
 msgid "Default title"
 msgstr "Titolo Predefinito"
 
 #: libraries/config/messages.inc.php:761
-#, fuzzy
 #| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
-msgstr "Titolo della finestra del browser quando un server è selezionato"
+msgstr "Titolo della finestra del browser quando un server è selezionato."
 
 #: libraries/config/messages.inc.php:763
-#, fuzzy
 #| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
-msgstr "Titolo della finestra del browser quando una tebella è selezionata"
+msgstr "Titolo della finestra del browser quando una tabella è selezionata."
 
 #: libraries/config/messages.inc.php:765
-#, fuzzy
 #| msgid ""
 #| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
 #| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
@@ -7717,31 +7709,29 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
-"Le proxy di input come [kbd]IP: trusted HTTP header[/kbd]. Il seguente "
-"esempio specifica che phpMyAdmin dovrebbe accettare un intestazione "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente dalla proxy 1.2.3.4[br]"
-"[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"Inserire i proxy secondo lo schema [kbd]IP: trusted HTTP header[/kbd]. Il "
+"seguente esempio specifica che phpMyAdmin dovrebbe accettare un intestazione "
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente dal proxy "
+"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
 #: libraries/config/messages.inc.php:766
 msgid "List of trusted proxies for IP allow/deny"
-msgstr "Lista dei proxy di fiducia per filtarre gli IP, accetta/rifiuta"
+msgstr "Lista dei proxy di fiducia per l'accettazione/rifiuto degli IP"
 
 #: libraries/config/messages.inc.php:767
-#, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
 msgstr ""
-"La cartella sul server dove è possibile caricare i file per l'importazione"
+"La cartella sul server dove è possibile caricare i file per l'importazione."
 
 #: libraries/config/messages.inc.php:768
 msgid "Upload directory"
-msgstr "Cartella di caricamento"
+msgstr "Cartella di upload"
 
 #: libraries/config/messages.inc.php:769
-#, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
-msgstr "Consenti la ricerca all'interno di un intero database"
+msgstr "Consenti la ricerca all'interno di un intero database."
 
 #: libraries/config/messages.inc.php:770
 msgid "Use database search"

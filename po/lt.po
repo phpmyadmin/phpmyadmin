@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-03-28 11:03+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/lt/>\n"
+"PO-Revision-Date: 2015-02-15 18:57+0200\n"
+"Last-Translator: Vytautas Motuzas <v.motuzas@gmail.com>\n"
+"Language-Team: Lithuanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"(n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -36,10 +36,10 @@ msgid "Click to sort."
 msgstr "Spustelėkite, kad surūšiuoti"
 
 #: db_central_columns.php:125
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Rodomi įrašai"
+msgstr "Rodomos eilutės %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -54,10 +54,9 @@ msgstr "Duomenų bazės komentaras:"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:990
 #: libraries/tbl_columns_definition_form.lib.php:73
 #: libraries/tbl_printview.lib.php:581
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Lentelės komentarai"
+msgstr "Lentelės komentarai:"
 
 #: db_datadict.php:103 libraries/Index.class.php:569
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1292
@@ -249,19 +248,19 @@ msgid "The database name is empty!"
 msgstr "Nenurodytas duomenų bazės vardas!"
 
 #: db_operations.php:139
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Duomenų bazė %1$s pervadinta į %2$s"
+msgstr "Duomenų bazė %1$s pervadinta į %2$s."
 
 #: db_operations.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Duomenų bazė %1$s buvo nukopijuota į %2$s"
+msgstr "Duomenų bazė %1$s buvo nukopijuota į %2$s."
 
 #: db_operations.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
@@ -302,24 +301,21 @@ msgstr "šiuo metu naudojama"
 
 #: db_printview.php:120 libraries/plugins/export/ExportSql.class.php:1144
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:995
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Sukurta"
+msgstr "Kūrimas:"
 
 #: db_printview.php:127 libraries/plugins/export/ExportSql.class.php:1157
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1000
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Paskutinis atnaujinimas"
+msgstr "Paskutinis atnaujinimas:"
 
 #: db_printview.php:134 libraries/plugins/export/ExportSql.class.php:1170
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1005
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Paskutinis patikrinimas"
+msgstr "Paskutinis patikrinimas:"
 
 #: db_printview.php:146 libraries/structure.lib.php:169
 #, php-format
@@ -330,10 +326,9 @@ msgstr[1] "%s lentelės"
 msgstr[2] "%s lentelių"
 
 #: db_qbe.php:103
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Pasirinkite bent vieną stulpelį išvedimui"
+msgstr "Pasirinkite bent vieną stulpelį išvedimui!"
 
 #: db_qbe.php:124
 #, php-format
@@ -490,22 +485,20 @@ msgstr "Naudoti OpenStreetMaps kaip pagrindinį sluoksnį"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:168
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:191
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Geometrija"
+msgstr "Geometrija %d:"
 
 #: gis_data_editor.php:213
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Taškas"
+msgstr "Taškas:"
 
 #: gis_data_editor.php:214 gis_data_editor.php:241 gis_data_editor.php:297
 #: gis_data_editor.php:370 js/messages.php:378
@@ -535,16 +528,15 @@ msgid "Linestring %d:"
 msgstr "Atkarpų seka"
 
 #: gis_data_editor.php:272 gis_data_editor.php:349
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Išorinis žiedas"
+msgstr "Išorinis žiedas:"
 
 #: gis_data_editor.php:274 gis_data_editor.php:351
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Vidinis žiedas"
+msgstr "Vidinis žiedas %d:"
 
 #: gis_data_editor.php:311
 msgid "Add a linestring"
@@ -555,10 +547,10 @@ msgid "Add an inner ring"
 msgstr "Sukurti vidinį žiedą"
 
 #: gis_data_editor.php:333
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Daugiakampis"
+msgstr "Daugiakampis %d:"
 
 #: gis_data_editor.php:397
 msgid "Add a polygon"
@@ -616,14 +608,13 @@ msgid ""
 msgstr ""
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Priėjimas uždraustas!"
+msgstr "Pavyko"
 
 #: import.php:58 js/messages.php:438
 msgid "Failed"
-msgstr ""
+msgstr "Nepavyko"
 
 #: import.php:62
 #, fuzzy
@@ -828,10 +819,9 @@ msgid "Show PHP information"
 msgstr "Rodyti PHP informaciją"
 
 #: index.php:372
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Versija"
+msgstr "Versijos informacija:"
 
 #: index.php:381 libraries/Util.class.php:429 libraries/Util.class.php:491
 #: libraries/config/FormDisplay.tpl.php:148
@@ -8739,7 +8729,7 @@ msgstr "Kalba"
 
 #: libraries/engines/bdb.lib.php:28
 msgid "Version information"
-msgstr "Versija"
+msgstr "Versijos informacija"
 
 #: libraries/engines/innodb.lib.php:28
 msgid "Data home directory"

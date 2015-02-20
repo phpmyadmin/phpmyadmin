@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-12 09:48+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2015-02-10 14:42+0200\n"
+"Last-Translator: Douglas Rafael Morais Kollar <douglas.kollar@pg.df.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2817,10 +2817,10 @@ msgstr "compartilhado"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "O marcador foi incluído."
+msgstr "%1$s, %2$s e %3$s favoritos incluídos"
 
 #: libraries/Console.class.php:130
 #| msgid "New bookmark"
@@ -2838,10 +2838,9 @@ msgid "Profiling"
 msgstr "Perfil"
 
 #: libraries/Console.class.php:183
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
-msgstr "Tabela de favoritos"
+msgstr "Marcadores"
 
 #: libraries/Console.class.php:184
 #| msgid "Query cache"
@@ -6312,6 +6311,7 @@ msgstr "Limite de memória"
 #: libraries/config/messages.inc.php:419
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
+"Relação com o painel principal destacando a base de dados ou tabela atual."
 
 #: libraries/config/messages.inc.php:421
 msgid "Show logo in navigation panel."
@@ -6582,13 +6582,12 @@ msgstr "Lembrar a ordenação das tabelas"
 
 #: libraries/config/messages.inc.php:524
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "Ordenação predeterminada para tabelas com uma chave primária."
 
 #: libraries/config/messages.inc.php:525
-#, fuzzy
 #| msgid "Default sorting order"
 msgid "Primary key default sort order"
-msgstr "Ordem de ordenação padrão"
+msgstr "Ordenação predeterminada por chave primária"
 
 #: libraries/config/messages.inc.php:527
 msgid ""
@@ -6823,13 +6822,11 @@ msgstr ""
 "pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:607
-#, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Colunas centrais"
+msgstr "Tabela de colunas centrais"
 
 #: libraries/config/messages.inc.php:609
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]."
@@ -6837,8 +6834,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: [kbd]"
 "pma__central_columns[/kbd]."
 msgstr ""
-"Deixe em branco se não houver suporte a esquema PDF, sugestão: [kbd]"
-"pma__table_coords[/kbd]."
+"Deixe em branco para desativar o suporte a colunas centrais, sugestão: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:612
 msgid "Try to connect without password."
@@ -6929,7 +6926,6 @@ msgstr ""
 "as sessões, sugestão: [kbd]pma_recent[/kbd]."
 
 #: libraries/config/messages.inc.php:644
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "Tabelas favoritas"
@@ -6989,10 +6985,9 @@ msgstr ""
 "pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:665
-#, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
-msgstr "Esquema PDF: coordenadas de tabela"
+msgstr "Desenho e esquema em PDF: tabela de coordenadas"
 
 #: libraries/config/messages.inc.php:667
 msgid ""
@@ -7501,16 +7496,19 @@ msgid "Send error reports"
 msgstr "Enviar relatório de erros"
 
 #: libraries/config/messages.inc.php:793
+#, fuzzy
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
+"Ativar o modo de \"Configuração Zero\" que permite definir as tabelas de "
+"armazenamento de configuração do phpMyAdmin automaticamente."
 
 #: libraries/config/messages.inc.php:796
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "Configuração do servidor"
+msgstr "Ativar o modo de \"Configuração Zero\""
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7602,40 +7600,36 @@ msgid "Select page"
 msgstr "Selecionar página"
 
 #: libraries/db_designer.lib.php:55
-#, fuzzy
 #| msgid "Page titles"
 msgid "Page to open"
-msgstr "Títulos de páginas"
+msgstr "Página para abrir"
 
 #: libraries/db_designer.lib.php:57
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Page to delete"
-msgstr "Relacionamento apagado"
+msgstr "Página para apagar"
 
 #: libraries/db_designer.lib.php:77
-#, fuzzy
 #| msgid "Export to selected page."
 msgid "Save to selected page"
-msgstr "Exportar para a página selecionada."
+msgstr "Exportar para a página selecionada"
 
 #: libraries/db_designer.lib.php:78
-#, fuzzy
 #| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
-msgstr "Criar uma página e exportar para ela."
+msgstr "Criar uma página e exportar para ela"
 
 #: libraries/db_designer.lib.php:102
-#, fuzzy
 #| msgid "New page name: "
 msgid "New page name"
-msgstr "Nome da nova página: "
+msgstr "Novo nome da página"
 
 #: libraries/db_designer.lib.php:160
-#, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
-msgstr "Não foi possível carregar os plugins, verifique sua instalação!"
+msgstr ""
+"Não foi possível carregar os plugins de esquema, por favor, verifique sua "
+"instalação!"
 
 #: libraries/db_designer.lib.php:168
 msgid "Select Export Relational Type"
@@ -7654,10 +7648,9 @@ msgid "Exit fullscreen"
 msgstr "Sair da tela cheia"
 
 #: libraries/db_designer.lib.php:266
-#, fuzzy
 #| msgid "New name"
 msgid "New page"
-msgstr "Novo nome"
+msgstr "Nova página"
 
 #: libraries/db_designer.lib.php:280
 msgid "Save position"
@@ -7712,10 +7705,9 @@ msgid "Toggle relation lines"
 msgstr "Alternar linhas de relação"
 
 #: libraries/db_designer.lib.php:393
-#, fuzzy
 #| msgid "Export all"
 msgid "Export schema"
-msgstr "Exportar"
+msgstr "Exportar estrutura"
 
 #: libraries/db_designer.lib.php:405
 msgid "Build Query"
@@ -7972,7 +7964,7 @@ msgstr "Ver saida como texto"
 
 #: libraries/display_export.lib.php:653 libraries/display_export.lib.php:757
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "Renomear as bases de dados/tabelas/colunas exportadas"
 
 #: libraries/display_export.lib.php:663
 msgid "Save output to a file"
@@ -7983,40 +7975,35 @@ msgid "Skip tables larger than"
 msgstr "Pular tabelas maiores que"
 
 #: libraries/display_export.lib.php:784
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database"
-msgstr "Selecionar tabelas"
+msgstr "Selecionar base de dados"
 
 #: libraries/display_export.lib.php:786
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select table"
-msgstr "Selecionar tabelas"
+msgstr "Selecionar tabela"
 
 #: libraries/display_export.lib.php:802
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "Nome do banco de dados"
+msgstr "Nome da nova base de dados"
 
 #: libraries/display_export.lib.php:826
-#, fuzzy
 #| msgid "New page name: "
 msgid "New table name"
-msgstr "Nome da nova página: "
+msgstr "Nome da nova tabela"
 
 #: libraries/display_export.lib.php:835
-#, fuzzy
 #| msgid "Copy column name."
 msgid "Old column name"
-msgstr "Copiar nome da coluna."
+msgstr "Nome da antiga coluna"
 
 #: libraries/display_export.lib.php:836
-#, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
-msgstr "Copiar nome da coluna."
+msgstr "Novo nome da coluna"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -8082,7 +8069,7 @@ msgstr "Arquivo a importar:"
 
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "Você também pode arrastar um arquivo em qualquer página."
 
 #: libraries/display_import.lib.php:246
 msgid "File uploads are not allowed on this server."
@@ -8563,7 +8550,7 @@ msgstr "O MySQL retornou um conjunto vazio (ex. zero registros)."
 
 #: libraries/import.lib.php:265 libraries/sql.lib.php:1692
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[Ocorreu um ROLLBACK.]"
 
 #: libraries/import.lib.php:1258
 msgid ""
@@ -8611,14 +8598,18 @@ msgid "Go to view: %s"
 msgstr "Ir para a view: %s"
 
 #: libraries/import.lib.php:1385
+#, fuzzy
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
-msgstr ""
+msgstr "Você só pode simular consultas UPDATE e DELETE em apenas uma tabela."
 
 #: libraries/import.lib.php:1802
+#, fuzzy
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Apenas operações INSERT, UPDATE, DELETE e REPLACE contendo motor "
+"transacional de tabelas podem ser revertidas."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -8707,10 +8698,9 @@ msgid "Convert to Kana"
 msgstr "Converter para Katakana"
 
 #: libraries/mult_submits.inc.php:293
-#, fuzzy
 #| msgid "Success."
 msgid "Success!"
-msgstr "Sucesso."
+msgstr "Sucesso!"
 
 #: libraries/mult_submits.lib.php:338
 msgid "Replace table prefix:"
@@ -8977,6 +8967,8 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Há grandes grupos de itens no painel de navegação que podem afetar o "
+"desempenho. Considere desativar agrupamento item no painel de navegação."
 
 #: libraries/navigation/NavigationTree.class.php:851
 #, php-format
@@ -8999,10 +8991,9 @@ msgid "Filter by name or regex"
 msgstr "Filtrar por nome ou expressão regular"
 
 #: libraries/navigation/NavigationTree.class.php:1229
-#, fuzzy
 #| msgid "Expand/Collapse"
 msgid "Collapse all"
-msgstr "Expandir/Recolher"
+msgstr "Reduzir tudo"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9116,122 +9107,131 @@ msgstr "Nova view"
 
 #: libraries/normalization.lib.php:114
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Converter todas as colunas atômicas"
 
 #: libraries/normalization.lib.php:116 libraries/normalization.lib.php:773
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Primeira etapa de normalização (1NF)"
 
 #: libraries/normalization.lib.php:119 libraries/normalization.lib.php:170
 #: libraries/normalization.lib.php:213 libraries/normalization.lib.php:249
 msgid "Step 1."
-msgstr ""
+msgstr "Passo 1."
 
 #: libraries/normalization.lib.php:121
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Você tem alguma coluna que pode ser dividida em mais de uma coluna? Por "
+"exemplo: o endereço pode ser dividido em rua, cidade, país e CEP."
 
 #: libraries/normalization.lib.php:128
 #, fuzzy
 #| msgid ""
 #| "There are no columns in central list to display for the current database."
 msgid "Show me the central list of columns that are not already in this table"
-msgstr ""
-"Não há colunas na lista central para mostrar para o banco de dados atual."
+msgstr "Mostre-me a lista central de colunas que não estão nesta tabela"
 
 #: libraries/normalization.lib.php:131
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
+"Escolha uma coluna que pode ser dividida em mais de uma. (se selecionar "
+"'nenhuma coluna', você passará para o próxima passo)"
 
 #: libraries/normalization.lib.php:138 normalization.php:19
-#, fuzzy
 #| msgid "Select a column."
 msgid "Select one…"
-msgstr "Selecionar coluna."
+msgstr "Selecionar uma…"
 
 #: libraries/normalization.lib.php:139 normalization.php:20
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "Mover coluna(s)"
+msgstr "Nenhuma coluna"
 
 #: libraries/normalization.lib.php:146
 msgid "split into "
-msgstr ""
+msgstr "dividir em "
 
 #: libraries/normalization.lib.php:167
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
-msgstr "Adicionar chave primária"
+msgstr "Ter uma chave primária"
 
 #: libraries/normalization.lib.php:173
-#, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Erro: relacionamento já existe."
+msgstr "Já existe uma chave primária."
 
 #: libraries/normalization.lib.php:178
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"Não existe uma chave primária; por favor, adicione uma. <br/>Dica: A chave "
+"primária é uma coluna (ou combinação de colunas) que identificam unicamente "
+"todas as linhas."
 
 #: libraries/normalization.lib.php:185
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Adicionar uma chave primária na(s) coluna(s) existente(s)"
 
 #: libraries/normalization.lib.php:190
+#, fuzzy
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
+"Você não pode usar a combinação de colunas existentes como chave primária"
 
 #: libraries/normalization.lib.php:194
 #, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "Adicionar chave primária"
+msgstr "+ Adicionar uma nova coluna de chave primária"
 
 #: libraries/normalization.lib.php:212
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove redundant columns"
-msgstr "Remover coluna(s)"
+msgstr "Remover colunas redundantes"
 
 #: libraries/normalization.lib.php:215
+#, fuzzy
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"Você possui um grupo de colunas cuja combinação resulta em uma coluna "
+"existente? Por exemplo, se você possui nome, sobrenome e nome_completo então "
+"a combinação de nome e sobrenome seria nome_completo que é redundante."
 
 #: libraries/normalization.lib.php:221
+#, fuzzy
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"Verifique as colunas redundantes e clique em remover. Se não houver coluna "
+"redundante, clique em 'Nenhuma coluna redundante'"
 
 #: libraries/normalization.lib.php:226
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "Remover os usuários selecionados"
+msgstr "Remover selecionados"
 
 #: libraries/normalization.lib.php:227
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "Adicionar coluna"
+msgstr "Nenhuma coluna redundante"
 
 #: libraries/normalization.lib.php:248
 msgid "Move repeating groups"
-msgstr ""
+msgstr "Mover grupos repetidos"
 
 #: libraries/normalization.lib.php:251
+#, fuzzy
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -9239,31 +9239,42 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"Você tem um grupo de duas ou mais colunas que estão intimamente relacionadas "
+"e estão todas repetindo o mesmo atributo? Por exemplo, uma tabela que contém "
+"dados sobre livros podem ter colunas como id_livro, autor1, autor2, autor3 e "
+"assim por diante, que formam um grupo repetido. Neste caso, uma nova tabela ("
+"id_livro, autor) deve ser criada."
 
 #: libraries/normalization.lib.php:259
+#, fuzzy
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
+"Verifique as colunas que formam um grupo repetido. Se não houver esse grupo, "
+"clique em 'Nenhum grupo de repetição'"
 
 #: libraries/normalization.lib.php:265
+#, fuzzy
 msgid "No repeating group"
-msgstr ""
+msgstr "Nenhum grupo repetido"
 
 #: libraries/normalization.lib.php:291
 msgid "Step 2."
-msgstr ""
+msgstr "Passo 2."
 
 #: libraries/normalization.lib.php:291
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Encontre dependências parciais"
 
 #: libraries/normalization.lib.php:313
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"Dependências parciais não são possíveis, não há colunas não primárias, "
+"porque a chave primária (%1$s) contém todas as colunas da tabela."
 
 #: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."

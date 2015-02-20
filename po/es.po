@@ -4,9 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-02-04 09:52+0200\n"
-"Last-Translator: Jorge Famma Tinoco Gomez "
-"<revistafammatvmusic.oficial@gmail.com>\n"
+"PO-Revision-Date: 2015-02-11 13:51+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/es/>\n"
 "Language: es\n"
@@ -1661,7 +1660,7 @@ msgstr "Cargando…"
 
 #: js/messages.php:252
 msgid "Request Aborted!!"
-msgstr "¡Pedido cancelado!"
+msgstr "Petición abortado!!"
 
 #: js/messages.php:253
 msgid "Processing Request"
@@ -6360,7 +6359,6 @@ msgstr ""
 "para mostrar un cuadro de filtro."
 
 #: libraries/config/messages.inc.php:440
-#, fuzzy
 msgid "Minimum number of items to display the filter box"
 msgstr "Número mínimo de elementos para mostrar la caja de filtro"
 
@@ -6827,10 +6825,9 @@ msgstr ""
 "sugerido: [kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:607
-#, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Columnas centrales"
+msgstr "Tabla de columnas centrales"
 
 #: libraries/config/messages.inc.php:609
 #| msgid ""
@@ -9316,7 +9313,7 @@ msgstr ""
 "(«%1$s») sólo contiene una columna."
 
 #: libraries/normalization.lib.php:381
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "As per above partial dependencies, in order to put the original table "
 #| "'%1$s' into Second normal form we need to create the following tables:"
@@ -10798,11 +10795,11 @@ msgstr "Conexión maestra:"
 
 #: libraries/replication_gui.lib.php:209
 msgid "Slave SQL Thread not running!"
-msgstr "¡El hilo SQL esclavo no está ejecutando!"
+msgstr "¡El hilo SQL esclavo no se está ejecutando!"
 
 #: libraries/replication_gui.lib.php:214
 msgid "Slave IO Thread not running!"
-msgstr "¡El hilo IO escalvo no está ejecutando!"
+msgstr "¡El hilo IO esclavo no se está ejecutando!"
 
 #: libraries/replication_gui.lib.php:225
 msgid ""
