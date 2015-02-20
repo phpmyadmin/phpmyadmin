@@ -2639,6 +2639,10 @@ fieldset .disabled-field td {
     overflow: hidden;
 }
 
+.pma_table tbody td span code span {
+    display: inline;
+}
+
 .pma_table th.draggable span {
     margin-<?php echo $right; ?>: 10px;
 }

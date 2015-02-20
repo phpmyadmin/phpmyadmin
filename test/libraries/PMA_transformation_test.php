@@ -149,6 +149,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                     'Text/Plain: Longtoipv4',
                     'Text/Plain: Preappend',
                     'Text/Plain: Substring',
+                    'Text/Plain: XmlEditor',
                 ),
                 'input_transformation_file' => array(
                     'input/Image_JPEG_Upload.class.php',
@@ -156,6 +157,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                     'input/Text_Plain_JsonEditor.class.php',
                     'input/Text_Plain_Regexvalidation.class.php',
                     'input/Text_Plain_SqlEditor.class.php',
+                    'input/Text_Plain_XmlEditor.class.php',
                     'Text_Plain_Link.class.php',
                     'Text_Plain_Longtoipv4.class.php',
                     'Text_Plain_Preappend.class.php',

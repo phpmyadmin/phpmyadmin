@@ -54,6 +54,7 @@ phpMyAdmin - ChangeLog
 + rfe       Logic to pass submit button name, value pair when submitting forms via ajax
 + rfe       CodeMirror based SQL editor as an input transformation
 + rfe #1275 CodeMirror based JSON editor as an input transformation
++ rfe #685  Editor for HTML content
 
 4.3.10.0 (not yet released)
 - bug       Undefined index navwork
