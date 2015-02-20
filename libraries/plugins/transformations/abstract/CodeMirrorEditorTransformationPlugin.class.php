@@ -3,8 +3,7 @@
 /**
  * Abstract class for syntax highlighted editors using CodeMirror
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage CodeMirrorEditor
+ * @package PhpMyAdmin-Transformations
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -16,7 +15,7 @@ require_once 'libraries/plugins/IOTransformationsPlugin.class.php';
 /**
  * Provides common methods for all the CodeMirror syntax highlighted editors
  *
- * @package PhpMyAdmin
+ * @package PhpMyAdmin-Transformations
  */
 abstract class CodeMirrorEditorTransformationsPlugin extends IOTransformationsPlugin
 {

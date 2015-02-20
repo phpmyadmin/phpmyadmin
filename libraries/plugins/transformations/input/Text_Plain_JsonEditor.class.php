@@ -4,7 +4,7 @@
  * JSON editing with syntax highlighted CodeMirror editor
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage CodeMirrorEditor
+ * @subpackage JSON
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -18,7 +18,7 @@ require_once 'libraries/plugins/transformations/abstract/'
  * JSON editing with syntax highlighted CodeMirror editor
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage CodeMirrorEditor
+ * @subpackage JSON
  */
 class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationsPlugin
 {
