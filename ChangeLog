@@ -1,6 +1,17 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.10.0 (2015-02-20)
+- bug       Undefined index navwork
+- bug #4744 Opening console scroll down the page
+- bug       Remove extra column heading in view structure page
+- bug       Add missing confirmation when deleting central columns
+- bug       Undefined index DisableIS
+- bug #4763 Database export with more than 512 tables fails
+- bug #4769 Previously set column aliases are destroyed if returned to the same table
+- bug #4752 Incorrect page after creating table
+- bug #4771 Central Columns not working, showing error
+
 4.3.9.0 (2015-02-05)
 - bug #4728 Incorrect headings in routine editor
 - bug #4730 Notice while browsing tables when phpmyadmin pma database exists, but not all the tables
