@@ -992,18 +992,35 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                     // remember current datetime value in $input_field, if it is not null
                     var current_datetime_value = !is_null ? $input_field.val() : '';
+                    var datetime_value = current_datetime_value;
 
                     var showMillisec = false;
                     var showMicrosec = false;
                     var timeFormat = 'HH:mm:ss';
                     // check for decimal places of seconds
                     if (($td.attr('data-decimals') > 0) && ($td.attr('data-type').indexOf('time') != -1)){
-                        showMillisec = true;
-                        timeFormat = 'HH:mm:ss.lc';
+                        if (datetime_value && datetime_value.indexOf('.') === false) {
+                            datetime_value += '.';
+                        }
                         if ($td.attr('data-decimals') > 3) {
                             showMicrosec = true;
-                        }
+                            timeFormat = 'HH:mm:ss.lc';
 
+                            if (datetime_value) {
+                                datetime_value += '000000';
+                                var datetime_value = datetime_value.substring(0, datetime_value.indexOf('.') + 7);
+                                $input_field.val(datetime_value);
+                            }
+                        } else {
+                            showMillisec = true;
+                            timeFormat = 'HH:mm:ss.l';
+
+                            if (datetime_value) {
+                                datetime_value += '000';
+                                var datetime_value = datetime_value.substring(0, datetime_value.indexOf('.') + 4);
+                                $input_field.val(datetime_value);
+                            }
+                        }
                     }
 
                     // add datetime picker

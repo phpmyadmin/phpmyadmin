@@ -3762,13 +3762,6 @@ class PMA_DisplayResults
                 $class = str_replace('grid_edit', '', $class);
             }
             $formatted = true;
-
-        } elseif (((substr($meta->type, 0, 9) == self::TIMESTAMP_FIELD)
-            || ($meta->type == self::DATETIME_FIELD)
-            || ($meta->type == self::TIME_FIELD))
-            && (/*overload*/mb_strpos($column, ".") !== false) // micro seconds delimiter
-        ) {
-            $column = PMA_Util::addMicroseconds($column);
         }
 
         if ($formatted) {
