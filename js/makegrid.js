@@ -1003,6 +1003,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             datetime_value += '.';
                         }
                         if ($td.attr('data-decimals') > 3) {
+                            showMillisec = true;
                             showMicrosec = true;
                             timeFormat = 'HH:mm:ss.lc';
 
