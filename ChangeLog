@@ -1,7 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.3.10.0 (not yet released)
+4.3.11.0 (not yet released)
+
+4.3.10.0 (2015-02-20)
 - bug       Undefined index navwork
 - bug #4744 Opening console scroll down the page
 - bug       Remove extra column heading in view structure page
