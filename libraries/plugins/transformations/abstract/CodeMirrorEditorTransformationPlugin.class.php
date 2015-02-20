@@ -53,12 +53,12 @@ abstract class CodeMirrorEditorTransformationsPlugin extends IOTransformationsPl
         $html = '';
         if (! empty($value)) {
             $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
-            . '" value="' . $value . '"/>';
+            . '" value="' . htmlspecialchars($value) . '"/>';
         }
         $class = 'transform_' . strtolower(static::getName()) . '_editor';
         $html .= '<textarea name="fields' . $column_name_appendix . '"'
             . ' dir="' . $text_dir . '" class="' . $class . '">'
-            . $value . '</textarea>';
+            . htmlspecialchars($value) . '</textarea>';
         return $html;
     }
 }
