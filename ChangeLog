@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.3.11.0 (not yet released)
+- bug #4774 SQL links are completely wrong
 
 4.3.10.0 (2015-02-20)
 - bug       Undefined index navwork
