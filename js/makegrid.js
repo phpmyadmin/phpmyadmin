@@ -1935,10 +1935,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         });
     }
 
-    // code highlighting for some transformation plugins
-    PMA_highlightSQL($(g.gDiv));
-    PMA_highlightJSON($(g.gDiv));
-
     // some adjustment
     $(t).removeClass('data');
     $(g.gDiv).addClass('data');

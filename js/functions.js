@@ -1905,27 +1905,6 @@ function PMA_highlightSQL($base)
 }
 
 /**
- * Higlights JSON using CodeMirror.
- */
-function PMA_highlightJSON($base)
-{
-    var $elm = $base.find('code.json');
-    $elm.each(function () {
-        var $json = $(this);
-        var $pre = $json.find('pre');
-        /* We only care about visible elements to avoid double processing */
-        if ($pre.is(":visible")) {
-            var $highlight = $('<div class="json-highlight cm-s-default"></div>');
-            $json.append($highlight);
-            if (typeof CodeMirror != 'undefined') {
-                CodeMirror.runMode($json.text(), 'application/json', $highlight[0]);
-                $pre.hide();
-            }
-        }
-    });
-}
-
-/**
  * Show a message on the top of the page for an Ajax request
  *
  * Sample usage:

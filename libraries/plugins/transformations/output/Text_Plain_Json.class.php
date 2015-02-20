@@ -24,7 +24,9 @@ class Text_Plain_Json extends TransformationsPlugin
     public function __construct()
     {
         $response = PMA_Response::getInstance();
-        $response->getHeader()->getScripts()->addFile('codemirror/mode/javascript/javascript.js');
+        $scripts = $response->getHeader()->getScripts();
+        $scripts->addFile('codemirror/mode/javascript/javascript.js');
+        $scripts->addFile('transformations/json.js');
     }
 
     /**
