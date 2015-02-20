@@ -1649,6 +1649,14 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
             . '</a>';
     }
 
+    if ($tbl_is_view && ! $db_is_system_schema) {
+        if (PMA_Tracker::isActive()) {
+            $html_output .= '<a href="tbl_tracking.php' . $url_query . '">'
+                . PMA_Util::getIcon('eye.png', __('Track view'), true)
+                . '</a>';
+        }
+    }
+
     return $html_output;
 }
 
