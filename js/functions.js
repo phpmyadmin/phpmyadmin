@@ -1776,7 +1776,7 @@ function PMA_doc_add($elm, params)
     }
 
     var url = PMA_sprintf(
-        PMA_urldecode(mysql_doc_template),
+        decodeURIComponent(mysql_doc_template),
         params[0]
     );
     if (params.length > 1) {
