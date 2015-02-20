@@ -23,30 +23,15 @@ require_once 'libraries/plugins/transformations/abstract/'
 class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationsPlugin
 {
     /**
-     * Returns the html for input field to override default textarea.
-     * Note: Return empty string if default textarea is required.
+     * Gets the transformation description of the specific plugin
      *
-     * @param array  $column               column details
-     * @param int    $row_id               row number
-     * @param string $column_name_appendix the name attribute
-     * @param array  $options              transformation options
-     * @param string $value                Current field value
-     * @param string $text_dir             text direction
-     *
-     * @return string the html for input field
+     * @return string
      */
-    public function getInputHtml(
-        $column, $row_id, $column_name_appendix, $options, $value, $text_dir
-    ) {
-        $html = '';
-        if (!empty($value)) {
-            $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
-                . '" value="' . $value . '"/>';
-        }
-        $html .= '<textarea name="fields' . $column_name_appendix . '"'
-            . ' dir="' . $text_dir . '" class="transform_json_editor">'
-            . $value . '</textarea>';
-        return $html;
+    public static function getInfo()
+    {
+        return __(
+            'Syntax highlighted CodeMirror editor for JSON.'
+        );
     }
 
     /**
@@ -64,7 +49,6 @@ class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationsPlugin
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
 
     /**
      * Gets the transformation name of the specific plugin
