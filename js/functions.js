@@ -2934,7 +2934,12 @@ function autoPopulate(input_id, offset)
         $('#'+input_id+'4').next().next().hide();
     }
     $('#'+input_id+'5').val(central_column_list[db+'_'+table][offset].col_collation);
-    $('#'+input_id+'6').val(central_column_list[db+'_'+table][offset].col_extra);
+    $('#'+input_id+'6').val(central_column_list[db+'_'+table][offset].col_attribute);
+    if(central_column_list[db+'_'+table][offset].col_extra === 'on update CURRENT_TIMESTAMP') {
+        //insert col_extra content-'on update CURRENT_TIMESTAMP' into attribute dropdown
+        //as it belongs to attribute
+        $('#'+input_id+'6').val(central_column_list[db+'_'+table][offset].col_extra);
+    }
     if(central_column_list[db+'_'+table][offset].col_extra.toUpperCase() === 'AUTO_INCREMENT') {
         $('#'+input_id+'9').prop("checked",true).change();
     } else {
@@ -3151,6 +3156,10 @@ AJAX.registerOnload('functions.js', function () {
             fields += '<tr><td><div><span style="font-size:14px; font-weight:bold">' +
                 escapeHtml(central_column_list[db + '_' + table][i].col_name) +
                 '</span><br><span style="color:gray">' + central_column_list[db + '_' + table][i].col_type;
+
+            if (central_column_list[db + '_' + table][i].col_attribute !== ' ') {
+                fields += '(' + escapeHtml(central_column_list[db + '_' + table][i].col_attribute) + ') ';
+            }
             if (central_column_list[db + '_' + table][i].col_length !== '') {
                 fields += '(' + escapeHtml(central_column_list[db + '_' + table][i].col_length) +') ';
             }
@@ -3210,6 +3219,10 @@ AJAX.registerOnload('functions.js', function () {
                             central_column_list[db + '_' + table][i].col_name +
                             '</span><br><span style="color:gray">' +
                             central_column_list[db + '_' + table][i].col_type;
+
+                        if (central_column_list[db + '_' + table][i].col_attribute !== ' ') {
+                            fields += '(' + central_column_list[db + '_' + table][i].col_attribute + ') ';
+                        }
                         if (central_column_list[db + '_' + table][i].col_length !== '') {
                             fields += '(' + central_column_list[db + '_' + table][i].col_length + ') ';
                         }

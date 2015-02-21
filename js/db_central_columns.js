@@ -54,7 +54,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         });
     window.scrollTo(0, 0);
     $(document).on("keyup", ".filter_rows", function () {
-        var cols = ["Name", "Type", "Length/Values", "Collation", "Null", "Extra", "Default"];
+        var cols = ["Name", "Type", "Attribute","Length/Values", "Collation", "Null", "Extra", "Default"];
         $.uiTableFilter($("#table_columns"), $(this).val(), cols, null, "td span");
     });
     $('.edit').click(function() {
@@ -126,6 +126,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
                 } else {
                     $('#f_' + rownum + ' td[name=col_name] span').text($('#f_' + rownum + ' input[name=col_name]').val()).html();
                     $('#f_' + rownum + ' td[name=col_type] span').text($('#f_' + rownum + ' select[name=col_type]').val()).html();
+                    $('#f_' + rownum + ' td[name=col_attribute] span').text($('#f_' + rownum + ' select[name=col_attribute]').val()).html();
                     $('#f_' + rownum + ' td[name=col_length] span').text($('#f_' + rownum + ' input[name=col_length]').val()).html();
                     $('#f_' + rownum + ' td[name=collation] span').text($('#f_' + rownum + ' select[name=collation]').val()).html();
                     $('#f_' + rownum + ' td[name=col_isNull] span').text($('#f_' + rownum + ' input[name=col_isNull]').val()).html();
