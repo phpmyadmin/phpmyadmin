@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-12 08:52-0500\n"
-"PO-Revision-Date: 2015-02-08 08:28+0200\n"
-"Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ja/>\n"
+"PO-Revision-Date: 2015-02-21 01:16+0200\n"
+"Last-Translator: Masahiko HISAKAWA <orzkun@ageage.jp>\n"
+"Language-Team: Japanese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.2\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -892,7 +892,7 @@ msgstr ""
 "削除するべきです。"
 
 #: index.php:535
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage is not completely configured, some "
 #| "extended features have been deactivated. To find out why click %shere%s."
@@ -900,8 +900,7 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"phpMyAdmin 環境保管領域が完全に設定されていないため、いくつかの拡張機能が無効"
-"になっています。理由については%sこちら%sをご覧ください。"
+"phpMyAdmin 環境保管領域が完全に設定されていないため、いくつかの拡張機能が無効になっています。理由については%sこちら%sをご覧ください。 "
 
 #: index.php:542
 msgid ""
@@ -1000,10 +999,10 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "この作業には時間がかかることがあります。続行しますか?"
 
 #: js/messages.php:49
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "「%s」を本当に実行しますか？"
+msgstr "本当にユーザーグループ「%s」を削除しますか？"
 
 #: js/messages.php:50
 #, fuzzy, php-format
@@ -1022,10 +1021,9 @@ msgstr ""
 "ら移動してもよろしいですか?"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "「%s」を本当に実行しますか？"
+msgstr "選択されたユーザー「%s」を本当に無効にしますか？"
 
 #: js/messages.php:53
 #, fuzzy
@@ -1034,10 +1032,9 @@ msgid "Do you really want to delete this central column?"
 msgstr "「%s」を本当に実行しますか？"
 
 #: js/messages.php:56
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save & Close"
-msgstr "ファイルに保存する"
+msgstr "保存して閉じる"
 
 #: js/messages.php:57 libraries/config/FormDisplay.tpl.php:395
 #: libraries/insert_edit.lib.php:1543 prefs_manage.php:359
@@ -1046,20 +1043,18 @@ msgid "Reset"
 msgstr "リセット"
 
 #: js/messages.php:58
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "全選択"
+msgstr "全リセット"
 
 #: js/messages.php:61
 msgid "Missing value in the form!"
 msgstr "フォームに入力されていない値があります!"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "いずれかの単語を含む"
+msgstr "オプションを一つ以上選択してください！"
 
 #: js/messages.php:63
 #, fuzzy
@@ -1665,10 +1660,9 @@ msgid "Import monitor configuration"
 msgstr "モニタ環境設定のインポート"
 
 #: js/messages.php:234
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "インポートするファイルを選択してください"
+msgstr "インポートするファイルを選択してください。"
 
 #: js/messages.php:235
 msgid "No files available on server for import!"
@@ -2179,7 +2173,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "残っている設定を読み込みますか?"
+msgstr "暗号化キーをコピーしますか？"
 
 #: js/messages.php:399
 msgid "Encryption key"
@@ -2194,10 +2188,9 @@ msgid "Select Foreign Key"
 msgstr "外部キーを選択してください"
 
 #: js/messages.php:404
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "主キーまたはユニークキーを選択してください"
+msgstr "主キーまたはユニークキーを選択してください！"
 
 #: js/messages.php:405 libraries/db_designer.lib.php:329
 #: libraries/db_designer.lib.php:332
@@ -2262,20 +2255,19 @@ msgid "Successfully deleted the page"
 msgstr ""
 
 #: js/messages.php:419
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "リレーショナルスキーマを編集またはエクスポートする"
+msgstr "リレーショナルスキーマをエクスポートする"
 
 #: js/messages.php:420
 msgid "Modifications have been saved"
 msgstr "修正を保存しました"
 
 #: js/messages.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "カラムに対するオプションを追加する "
+msgstr "カラム「\"%s\"」に対するオプションを追加する。"
 
 #: js/messages.php:424
 #, fuzzy, php-format
@@ -2324,7 +2316,7 @@ msgstr "クリックでカラムを反転/解除"
 #, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "ダブルクリックでカラム名をコピー"
+msgstr "ダブルクリックでカラム名をコピー。"
 
 #: js/messages.php:435
 #, fuzzy
@@ -2359,7 +2351,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:443
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "キャンセル"
@@ -2385,10 +2376,9 @@ msgid "Drop files here"
 msgstr "ログファイルの閾値"
 
 #: js/messages.php:449
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
-msgstr "テーブルを選択してください"
+msgstr "最初にデータベースを選択してください"
 
 #: js/messages.php:454
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2399,16 +2389,15 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "ほとんどの値は、直接クリック<br />することでも、編集できます。"
 
 #: js/messages.php:462
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link:"
-msgstr "リンク先へ移動する"
+msgstr "リンク先へ移動する:"
 
 #: js/messages.php:463
 #, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
-msgstr "カラム名のコピー"
+msgstr "カラム名のコピー。"
 
 #: js/messages.php:464
 msgid "Right-click the column name to copy it to your clipboard."
@@ -2497,10 +2486,9 @@ msgid "functions"
 msgstr "関数"
 
 #: js/messages.php:489
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "特権テーブルには選択したユーザがいません。"
+msgstr "リクエストされたページが履歴にありません。おそらく有効期限切れです。"
 
 #: js/messages.php:492 setup/lib/index.lib.php:160
 #, php-format
@@ -2572,7 +2560,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "無視"
+msgstr "全て無視"
 
 #: js/messages.php:533
 msgid ""
@@ -2583,13 +2571,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "実行したクエリをここに表示する"
+msgstr "このクエリをもう一度実行しますか？"
 
 #: js/messages.php:541
-#, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "「%s」を本当に実行しますか？"
+msgstr "このブックマークを本当に削除しますか？"
 
 #: js/messages.php:542
 msgid ""
@@ -3010,10 +2997,9 @@ msgid "Profiling"
 msgstr "プロファイリング"
 
 #: libraries/Console.class.php:183
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
-msgstr "ブックマークテーブル"
+msgstr "ブックマーク"
 
 #: libraries/Console.class.php:184
 #, fuzzy
@@ -5334,7 +5320,7 @@ msgstr "この値の変更をユーザに許可する"
 
 #: libraries/config/FormDisplay.tpl.php:393
 msgid "Apply"
-msgstr ""
+msgstr "適用"
 
 #: libraries/config/ServerConfigChecks.class.php:168
 msgid "You should use SSL connections if your database server supports it."
@@ -6134,10 +6120,9 @@ msgstr "表示モードの詳細設定"
 #: libraries/config/messages.inc.php:206 libraries/config/messages.inc.php:208
 #: libraries/config/messages.inc.php:226 libraries/config/messages.inc.php:237
 #: libraries/config/messages.inc.php:239 libraries/config/messages.inc.php:285
-#, fuzzy
 #| msgid "Customize default options"
 msgid "Customize default options."
-msgstr "デフォルトオプションの詳細設定"
+msgstr "デフォルトオプションの詳細設定。"
 
 #: libraries/config/messages.inc.php:207 libraries/config/setup.forms.php:250
 #: libraries/config/setup.forms.php:327
@@ -6223,10 +6208,9 @@ msgid "Databases display options."
 msgstr "データベースの表示オプション"
 
 #: libraries/config/messages.inc.php:229 setup/frames/menu.inc.php:24
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "ナビゲーションフレーム"
+msgstr "ナビゲーションパネル"
 
 #: libraries/config/messages.inc.php:230
 #, fuzzy
@@ -6246,10 +6230,9 @@ msgid "Servers display options."
 msgstr "サーバの表示オプション"
 
 #: libraries/config/messages.inc.php:234
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Tables display options."
-msgstr "テーブルの表示オプション"
+msgstr "テーブル表示オプション."
 
 #: libraries/config/messages.inc.php:235 setup/frames/menu.inc.php:25
 #, fuzzy
@@ -6806,10 +6789,9 @@ msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
 #: libraries/config/messages.inc.php:422
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel."
-msgstr "左のフレーム内にロゴを表示します。"
+msgstr "ナビゲーションパネル内にロゴを表示します。"
 
 #: libraries/config/messages.inc.php:423
 msgid "Display logo"
@@ -6826,16 +6808,13 @@ msgid "Logo link URL"
 msgstr "ロゴのリンク URL"
 
 #: libraries/config/messages.inc.php:428
-#, fuzzy
 #| msgid ""
 #| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 #| "([kbd]new[/kbd])"
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
-msgstr ""
-"メインウィンドウ ([kbd]main[/kbd]) もしくは新しいウィンドウ ([kbd]new[/kbd]) "
-"にリンクされたページを開きます。"
+msgstr "リンク先のページをメインウィンドウ ([kbd]main[/kbd]) または新しいウィンドウ ([kbd]new[/kbd]) で開く。"
 
 #: libraries/config/messages.inc.php:431
 msgid "Logo link target"
@@ -6976,10 +6955,9 @@ msgstr "自然順"
 
 #: libraries/config/messages.inc.php:476 libraries/config/messages.inc.php:507
 #: libraries/config/messages.inc.php:509
-#, fuzzy
 #| msgid "Use only icons, only text or both"
 msgid "Use only icons, only text or both."
-msgstr "「アイコンのみ」、「テキストのみ」、「両方」のいずれかが使えます。"
+msgstr "「アイコンのみ表示」または「テキストのみ表示」または「アイコン/テキスト両方表示」。"
 
 #: libraries/config/messages.inc.php:477
 #, fuzzy
@@ -7075,10 +7053,9 @@ msgid "MySQL reserved word warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:508
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "すべての行の表示を許可する"
+msgstr "メニュータブの表示方法"
 
 #: libraries/config/messages.inc.php:510
 msgid "How to display various action links"
@@ -13312,16 +13289,13 @@ msgid "Reset to default"
 msgstr "デフォルトに戻す"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
-msgstr ""
-"注意: データベースの統計を有効にするとウェブサーバと MySQL サーバの間の通信量"
-"が激増することがあります。"
+msgstr "注意: 自動再描画を有効にするとウェブサーバと MySQL サーバの間の通信量が激増することがあります。"
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -14067,7 +14041,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "ユーザ"
+msgstr "ユーザグループ"
 
 #: libraries/server_user_groups.lib.php:79
 #, fuzzy
@@ -14263,10 +14237,9 @@ msgid "Run SQL query/queries on database %s"
 msgstr "データベース %s 上でクエリを実行する"
 
 #: libraries/sql_query_form.lib.php:282
-#, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "この SQL をブックマークする"
+msgstr "この SQL をブックマークする。"
 
 #: libraries/sql_query_form.lib.php:296
 msgid "Replace existing bookmark of same name"
