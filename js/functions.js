@@ -1732,7 +1732,32 @@ function codemirrorAutocompleteOnInputRead(instance) {
                     if (data.success) {
                         sql_autocomplete = $.parseJSON(data.tables);
                         sql_autocomplete_default_table = PMA_commonParams.get('table');
-                        instance.options.hintOptions.tables = sql_autocomplete;
+                        var result = [];
+                        for (var table in sql_autocomplete) {
+                            if (sql_autocomplete.hasOwnProperty(table)) {
+                                var columns = sql_autocomplete[table];
+                                table = {
+                                    text: table,
+                                    columns: []
+                                };
+                                for (var column in columns) {
+                                    if (columns.hasOwnProperty(column)) {
+                                        var displayText = column + ' | ' + columns[column].Type;
+                                        if (columns[column].Key == 'PRI') {
+                                            displayText += ' | Primary';
+                                        } else if (columns[column].Key == 'UNI') {
+                                            displayText += ' | Unique';
+                                        }
+                                        table.columns.push({
+                                            text: column,
+                                            displayText: displayText
+                                        });
+                                    }
+                                }
+                            }
+                            result.push(table);
+                        }
+                        instance.options.hintOptions.tables = result;
                         instance.options.hintOptions.defaultTable = sql_autocomplete_default_table;
                     }
                 }
