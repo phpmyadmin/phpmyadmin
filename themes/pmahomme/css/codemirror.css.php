@@ -176,6 +176,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   *zoom:1;
   *display:inline;
 }
+.CodeMirror-gutter-wrapper {
+  position: relative;
+}
 .CodeMirror-gutter-elt {
   position: absolute;
   cursor: default;
