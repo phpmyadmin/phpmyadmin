@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-12 08:52-0500\n"
-"PO-Revision-Date: 2015-02-21 18:49+0200\n"
-"Last-Translator: Koo Young Min <youngminz.kr@gmail.com>\n"
+"PO-Revision-Date: 2015-02-21 19:46+0200\n"
+"Last-Translator: JongDeok <human.zion@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -10501,7 +10501,7 @@ msgstr "마스터 리플리케이션"
 
 #: libraries/replication_gui.lib.php:47
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "이 서버는 이중화 환경 내의 마스터 서버로 구성되지 않았습니다."
 
 #: libraries/replication_gui.lib.php:55
 msgid "Show connected slaves"
