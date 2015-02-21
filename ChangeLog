@@ -55,6 +55,7 @@ phpMyAdmin - ChangeLog
 + rfe       CodeMirror based SQL editor as an input transformation
 + rfe #1275 CodeMirror based JSON editor as an input transformation
 + rfe #685  Editor for HTML content
++ rfe #1595 make professional code editor suggestion
 
 4.3.11.0 (not yet released)
 
