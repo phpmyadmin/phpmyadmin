@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-04 06:01+0200\n"
-"Last-Translator: Yong Kim <kim@nhn.com>\n"
+"PO-Revision-Date: 2015-02-21 18:49+0200\n"
+"Last-Translator: Koo Young Min <youngminz.kr@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/ko/>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.2\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1859,7 +1859,7 @@ msgstr ""
 
 #: js/messages.php:323
 msgid "No partial dependencies selected!"
-msgstr "부분 의존성이 선택되지 않았습니다."
+msgstr "부분 의존성이 선택되지 않았습니다!"
 
 #: js/messages.php:325
 msgid "Show me the possible partial dependencies based on data in the table"
