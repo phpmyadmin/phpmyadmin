@@ -416,7 +416,9 @@ $strConfigMemoryLimit_desc = __(
 );
 $strConfigMemoryLimit_name = __('Memory limit');
 $strConfigShowDatabasesNavigationAsTree_desc = __('In the navigation panel, replaces the database tree with a selector');
-$strConfigShowDatabasesNavigationAsTree_name = __('Show databases navigation as tree');
+$strConfigShowDatabasesNavigationAsTree_name = __(
+    'Show databases navigation as tree'
+);
 $strConfigNavigationLinkWithMainPanel_desc = __('Link with main panel by highlighting the current database or table.');
 $strConfigNavigationLinkWithMainPanel_name = __('Link with main panel');
 $strConfigNavigationDisplayLogo_desc = __('Show logo in navigation panel.');
@@ -757,7 +759,9 @@ $strConfigSQLQuery_ShowAsPHP_name = __('Create PHP Code');
 $strConfigSuhosinDisableWarning_desc = __('A warning is displayed on the main page if Suhosin is detected.');
 $strConfigSuhosinDisableWarning_name = __('Suhosin warning');
 $strConfigLoginCookieValidityDisableWarning_desc = __('Disable the default warning that is displayed on the main page if the value of the PHP setting session.gc_maxlifetime is less than the value of `LoginCookieValidity`.');
-$strConfigLoginCookieValidityDisableWarning_name = __('Login cookie validity warning');
+$strConfigLoginCookieValidityDisableWarning_name = __(
+    'Login cookie validity warning'
+);
 $strConfigTextareaCols_desc = __('Textarea size (columns) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25).');
 $strConfigTextareaCols_name = __('Textarea columns');
 $strConfigTextareaRows_desc = __('Textarea size (rows) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25).');
