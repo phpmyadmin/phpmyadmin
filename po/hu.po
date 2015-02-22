@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-22 16:03-0500\n"
-"PO-Revision-Date: 2015-02-15 22:18+0200\n"
+"PO-Revision-Date: 2015-02-22 22:50+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.2\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -771,7 +771,6 @@ msgid "PHP extension:"
 msgstr "PHP-kiterjesztés:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "PHP verzió:"
@@ -8965,10 +8964,9 @@ msgid "unknown"
 msgstr "ismeretlen"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "Hiba történt a navigációs faszerkezet betöltése közben"
+msgstr "Hiba történt a navigációs képernyő betöltése közben"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -10571,25 +10569,25 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Szintaxis kiemeléssel ellátott CodeMirror szerkesztő JSON-höz."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Szintaxis kiemeléssel ellátott CodeMirror szerkesztő SQL-hez."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr ""
+"Szintaxis kiemeléssel ellátott CodeMirror szerkesztő XML-hez (és HTML-hez)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "JSON-ként formázza a szöveget szintaxis kiemeléssel."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
-#, fuzzy
 #| msgid "Formats text as JSON with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "JSON-ként formázza a szöveget szintaxis kiemeléssel."
+msgstr "XML-ként formázza a szöveget szintaxis kiemeléssel."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -12433,10 +12431,9 @@ msgid "Filters"
 msgstr "Szűrők"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Csak a figyelmeztető értékek megjelenítése"
+msgstr "Csak az aktívak megjelenítése"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13556,10 +13553,9 @@ msgid "Improve table structure"
 msgstr "Táblaszerkezet javítása"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Tábla nyomon követése"
+msgstr "Nyomkövetés nézet"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
