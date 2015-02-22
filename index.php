@@ -564,6 +564,8 @@ if ($server > 0) {
  * If no default server is set, $GLOBALS['dbi'] is not defined yet.
  * Drizzle can speak MySQL protocol, so don't warn about version mismatch for
  * Drizzle servers.
+ * We also do not warn if MariaDB is detected, as it has its own version
+ * numbering.
  */
 if (isset($GLOBALS['dbi'])
     && !PMA_DRIZZLE
@@ -575,6 +577,7 @@ if (isset($GLOBALS['dbi'])
     $_client_info = $GLOBALS['dbi']->getClientInfo();
     if ($server > 0
         && /*overload*/mb_strpos($_client_info, 'mysqlnd') === false
+        && /*overload*/mb_strpos(PMA_MYSQL_STR_VERSION, 'MariaDB') === false
         && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(
             PMA_MYSQL_INT_VERSION, 0, 3
         )
