@@ -260,25 +260,25 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     /**
      * Splits the GEOMETRYCOLLECTION object and get its constituents.
      *
-     * @param string $goem_col geometry collection string
+     * @param string $geom_col geometry collection string
      *
      * @return array the constituents of the geometry collection object
      * @access private
      */
-    private function _explodeGeomCol($goem_col)
+    private function _explodeGeomCol($geom_col)
     {
         $sub_parts = array();
         $br_count = 0;
         $start = 0;
         $count = 0;
-        foreach (str_split($goem_col) as $char) {
+        foreach (str_split($geom_col) as $char) {
             if ($char == '(') {
                 $br_count++;
             } elseif ($char == ')') {
                 $br_count--;
                 if ($br_count == 0) {
                     $sub_parts[] = /*overload*/mb_substr(
-                        $goem_col,
+                        $geom_col,
                         $start,
                         ($count + 1 - $start)
                     );

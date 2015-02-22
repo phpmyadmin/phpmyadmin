@@ -23,7 +23,7 @@ class PMA_GIS_Visualization
     private $_data;
 
     /**
-     * @var array   Set of default settigs values are here.
+     * @var array   Set of default settings values are here.
      */
     private $_settings = array(
 
@@ -386,7 +386,7 @@ class PMA_GIS_Visualization
                 $row[$this->_settings['spatialColumn']]
             );
 
-            // Update minimum/maximum values for x and y cordinates.
+            // Update minimum/maximum values for x and y coordinates.
             $c_maxX = (float) $scale_data['maxX'];
             if (! isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
                 $min_max['maxX'] = $c_maxX;
@@ -444,7 +444,7 @@ class PMA_GIS_Visualization
      *
      * @param array  $data       Raw data
      * @param array  $scale_data Data related to scaling
-     * @param string $format     Format of the visulaization
+     * @param string $format     Format of the visualization
      * @param object $results    Image object in the case of png
      *                           TCPDF object in the case of pdf
      *

@@ -543,7 +543,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     /**
      * Stores user credentials after successful login.
      *
-     * @return void
+     * @return void|bool
      */
     public function storeUserCredentials()
     {

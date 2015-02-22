@@ -1325,7 +1325,7 @@ class ExportSql extends ExportPlugin
                 }
                 //if there are indexes
                 // (look for KEY followed by whitespace to avoid matching
-                //  keyworks like PACK_KEYS)
+                //  keywords like PACK_KEYS)
                 if ($update_indexes_increments && preg_match(
                     '@KEY[\s]+@',
                     $create_query
@@ -2537,7 +2537,7 @@ class ExportSql extends ExportPlugin
      * @param string $data      the data to be replaced
      * @param string $alias     the replacement
      * @param string $pos       the position of alias
-     * @param string &$offset   the change in pos occured after substitution
+     * @param string &$offset   the change in pos occurred after substitution
      *
      * @return string replaced query with alias
      */
