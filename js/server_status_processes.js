@@ -86,20 +86,20 @@ var processList = {
         // if auto refresh is enabled
         if (processList.autoRefresh) {
             var interval = parseInt(processList.refreshInterval, 10) * 1000;
-            processList.refreshRequest = $.get(processList.refreshUrl, {
-                'ajax_request': true,
-                'refresh': true
-            }, function(data) {
-                if (data.hasOwnProperty('success') && data.success) {
-                    $newTable = $(data.message);
-                    $('#tableprocesslist').html($newTable.html());
-                    PMA_highlightSQL($('#tableprocesslist'));
-                }
-                processList.refreshTimeout = setTimeout(
-                    processList.refresh,
-                    interval
-                );
-            });
+            var urlParams = processList.getUrlParams();
+            processList.refreshRequest = $.get(processList.refreshUrl,
+                urlParams,
+                function(data) {
+                    if (data.hasOwnProperty('success') && data.success) {
+                        $newTable = $(data.message);
+                        $('#tableprocesslist').html($newTable.html());
+                        PMA_highlightSQL($('#tableprocesslist'));
+                    }
+                    processList.refreshTimeout = setTimeout(
+                        processList.refresh,
+                        interval
+                    );
+                });
         }
     },
 
@@ -131,6 +131,22 @@ var processList = {
             processList.refresh();
         }
         $('a#toggleRefresh').html(PMA_getImage(img) + escapeHtml(label));
+    },
+
+    /**
+     * Return the Url Parameters
+     * for autorefresh request,
+     * includes showExecuting if the filter is checked
+     *
+     * @return urlParams - url parameters with autoRefresh request
+     */
+    getUrlParams: function() {
+        var urlParams = { 'ajax_request': true, 'refresh': true };
+        if ($('#showExecuting').is(":checked")) {
+            urlParams['showExecuting'] = true;
+            return urlParams;
+        }
+        return urlParams;
     }
 };
 
