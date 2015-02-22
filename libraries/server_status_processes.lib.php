@@ -133,10 +133,10 @@ function PMA_getHtmlForServerProcesslist()
             $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
         }
         if (! empty($_REQUEST['showExecuting'])) {
-            $sql_query = $sql_query . ' WHERE state = "executing" ';
+            $sql_query .= ' WHERE state = "executing" ';
         }
         if (! empty($_REQUEST['order_by_field']) && ! empty($_REQUEST['sort_order']) ) {
-            $sql_query = $sql_query . ' ORDER BY `' .  $_REQUEST['order_by_field'] . '` '
+            $sql_query .= ' ORDER BY `' .  $_REQUEST['order_by_field'] . '` '
                 . $_REQUEST['sort_order'];
         }
     }
