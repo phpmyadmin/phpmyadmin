@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-22 16:03-0500\n"
-"PO-Revision-Date: 2015-02-13 13:56+0200\n"
+"PO-Revision-Date: 2015-02-23 13:51+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -777,10 +777,9 @@ msgid "PHP extension:"
 msgstr "Extension PHP : "
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
-msgstr "Version de PHP : "
+msgstr "Version de PHP :"
 
 #: index.php:356
 msgid "Show PHP information"
@@ -8999,11 +8998,9 @@ msgid "unknown"
 msgstr "inconnu"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr ""
-"Une erreur s'est produite lors du chargement de l'arborescence de navigation"
+msgstr "Une erreur s'est produite lors du chargement du panneau de navigation"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -10614,25 +10611,24 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Éditeur CodeMirror pour JSON avec coloration syntaxique."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Éditeur CodeMirror pour SQL avec coloration syntaxique."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Éditeur CodeMirror pour XML (et HTML) avec coloration syntaxique."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "Formate le texte en JSON avec la coloration syntaxique."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
-#, fuzzy
 #| msgid "Formats text as JSON with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Formate le texte en JSON avec la coloration syntaxique."
+msgstr "Formate le texte en XML avec la coloration syntaxique."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -12492,10 +12488,9 @@ msgid "Filters"
 msgstr "Filtres"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Afficher uniquement les valeurs d'alerte"
+msgstr "N'afficher que les valeurs actives"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13617,10 +13612,9 @@ msgid "Improve table structure"
 msgstr "Améliorer la structure de la table"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Suivre la table"
+msgstr "Suivre la vue"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
