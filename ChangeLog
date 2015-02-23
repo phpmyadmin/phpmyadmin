@@ -62,6 +62,7 @@ phpMyAdmin - ChangeLog
 4.3.11.0 (not yet released)
 - bug #4774 SQL links are completely wrong
 - bug #4768 MariaDB: version mismatch
+- bug #4777 Some images are missing in Designer for original theme
 
 4.3.10.0 (2015-02-20)
 - bug       Undefined index navwork
