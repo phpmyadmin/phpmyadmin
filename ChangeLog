@@ -64,6 +64,8 @@ phpMyAdmin - ChangeLog
 - bug #4768 MariaDB: version mismatch
 - bug #4777 Some images are missing in Designer for original theme
 - bug #4767 Drizzle: undefined index in mysql_charsets.inc.php
+- bug #4753 Normal field and multi-line field have different margins
+- bug #4760 Cannot re-import settings from local storage
 
 4.3.10.0 (2015-02-20)
 - bug       Undefined index navwork
