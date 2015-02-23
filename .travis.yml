@@ -68,3 +68,7 @@ cache:
     - $HOME/.composer/cache/
     - $HOME/browserstack
     - $HOME/runkit
+# trigger Buildtime Trend Service to parse Travis CI log
+notifications:
+  webhooks:
+    - https://buildtimetrend.herokuapp.com/travis
