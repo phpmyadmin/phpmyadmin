@@ -176,7 +176,29 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
             <td class="right"><?php echo $version_data['version'];?></td>
             <td><?php echo $version_data['date_created'];?></td>
             <td><?php echo $version_data['date_updated'];?></td>
-            <td><?php echo PMA_getVersionStatus($version_data);?></td>
+            <td>
+            <?php
+                $state = PMA_getVersionStatus($version_data);
+                $options = array(
+                    0 => array(
+                        'label' => __('not active'),
+                        'value' => 'deactivate_now',
+                        'selected' => ($state != 'active')
+                    ),
+                    1 => array(
+                        'label' => __('active'),
+                        'value' => 'activate_now',
+                        'selected' => ($state == 'active')
+                    )
+                );
+                echo PMA_Util::toggleButton(
+                    $tmp_link . '&amp;version=' . $version_data['version'],
+                    'toggle_activation',
+                    $options,
+                    null
+                );
+            ?>
+            </td>
             <td>
             <a class="delete_tracking_anchor ajax" href="<?php echo $delete_link;?>" >
             <?php echo $delete; ?></a>
