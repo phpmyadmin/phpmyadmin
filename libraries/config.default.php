@@ -973,11 +973,11 @@ $cfg['NavigationTreeDefaultTabTable'] = 'tbl_structure.php';
  * 'tbl_select.php' = search page
  * 'tbl_change.php' = insert row page
  * 'sql.php' = browse page
- * null = no link
+ * '' = no link
  *
  * @global string $cfg['NavigationTreeDefaultTabTable2']
  */
-$cfg['NavigationTreeDefaultTabTable2'] = null;
+$cfg['NavigationTreeDefaultTabTable2'] = '';
 
 /**
  * Disables the possibility of database expansion
