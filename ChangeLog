@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug #4774 SQL links are completely wrong
 - bug #4768 MariaDB: version mismatch
 - bug #4777 Some images are missing in Designer for original theme
+- bug #4767 Drizzle: undefined index in mysql_charsets.inc.php
 
 4.3.10.0 (2015-02-20)
 - bug       Undefined index navwork
