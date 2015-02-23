@@ -23,7 +23,8 @@ require './libraries/tbl_common.inc.php';
 
 if (PMA_Tracker::isActive()
     && PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])
-    && ! isset($_REQUEST['submit_deactivate_now'])
+    && ! (isset($_REQUEST['toggle_activation'])
+    && $_REQUEST['toggle_activation'] == 'deactivate_now')
     && ! (isset($_REQUEST['report_export'])
     && $_REQUEST['export_type'] == 'sqldumpfile')
 ) {
@@ -118,12 +119,16 @@ if (isset($_REQUEST['submit_create_version'])) {
 }
 
 // Deactivate tracking
-if (isset($_REQUEST['submit_deactivate_now'])) {
+if (isset($_REQUEST['toggle_activation'])
+    && $_REQUEST['toggle_activation'] == 'deactivate_now'
+) {
     $html .= PMA_deactivateTracking();
 }
 
 // Activate tracking
-if (isset($_REQUEST['submit_activate_now'])) {
+if (isset($_REQUEST['toggle_activation'])
+    && $_REQUEST['toggle_activation'] == 'activate_now'
+) {
     $html .= PMA_activateTracking();
 }
 

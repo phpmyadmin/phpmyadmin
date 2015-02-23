@@ -200,17 +200,17 @@ function PMA_getHtmlForActivateDeactivateTracking(
     switch($action) {
     case 'activate':
         $legend = __('Activate tracking for %s');
-        $hidden = "submit_activate_now";
+        $value = "activate_now";
         $button = __('Activate now');
         break;
     case 'deactivate':
         $legend = __('Deactivate tracking for %s');
-        $hidden = "submit_deactivate_now";
+        $value = "deactivate_now";
         $button = __('Deactivate now');
         break;
     default:
         $legend = '';
-        $hidden = '';
+        $value = '';
         $button = '';
     }
 
@@ -220,7 +220,7 @@ function PMA_getHtmlForActivateDeactivateTracking(
     );
     $html .= '</legend>';
     $html .= '<input type="hidden" name="version" value="' . $last_version . '" />';
-    $html .= '<input type="hidden" name="' . $hidden . '" value="1" />';
+    $html .= '<input type="hidden" name="toggle_activation" value="' . $value . '" />';
     $html .= '<input type="submit" value="' . $button . '" />';
     $html .= '</fieldset>';
     $html .= '</form>';
