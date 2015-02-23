@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-22 16:03-0500\n"
-"PO-Revision-Date: 2015-02-12 21:55+0200\n"
+"PO-Revision-Date: 2015-02-23 14:36+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -8931,10 +8931,9 @@ msgid "unknown"
 msgstr "neznano"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "Med nalaganjem navigacijskega drevesa je prišlo do napake"
+msgstr "Med nalaganjem navigacijskega prikaza je prišlo do napake"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -10515,25 +10514,24 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Urejevalnik CodeMirror za JSON z označeno skladnjo."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Urejevalnik CodeMirror za SQL z označeno skladnjo."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Urejevalnik CodeMirror za XML (in HTML) z označeno skladnjo."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "Oblikuje besedilo kot JSON z označevanjem skladnje."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
-#, fuzzy
 #| msgid "Formats text as JSON with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Oblikuje besedilo kot JSON z označevanjem skladnje."
+msgstr "Oblikuje besedilo kot XML z označevanjem skladnje."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -12376,10 +12374,9 @@ msgid "Filters"
 msgstr "Filtri"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Prikaži samo opozorilne vrednosti"
+msgstr "Prikaži samo aktivne"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13487,10 +13484,9 @@ msgid "Improve table structure"
 msgstr "Izboljšaj strukturo tabele"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Sledi tabeli"
+msgstr "Pogled sledenja"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
