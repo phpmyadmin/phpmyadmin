@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-22 16:03-0500\n"
-"PO-Revision-Date: 2015-02-13 10:06+0200\n"
+"PO-Revision-Date: 2015-02-23 09:41+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.2\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -781,7 +781,6 @@ msgid "PHP extension:"
 msgstr "Extension de PHP:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "Version de PHP:"
@@ -9024,10 +9023,9 @@ msgid "unknown"
 msgstr "incognite"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "Un error ha occurrite quando on incargava le arbore de navigation"
+msgstr "Un error ha occurrite quando on incargava le monstrator de navigation"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -12269,10 +12267,9 @@ msgid "Filters"
 msgstr ""
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only active"
-msgstr "Monstra tabellas aperite"
+msgstr "Monstra solmente aperite"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13251,10 +13248,9 @@ msgid "Improve table structure"
 msgstr "Meliora structura de tabella"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Tracia tabula"
+msgstr "Tracia vista"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
