@@ -231,6 +231,11 @@ class PMA_DisplayResults
      */
     private  function _setDefaultTransformations()
     {
+        $json_highlighting_data = array(
+            'libraries/plugins/transformations/output/Text_Plain_Json.class.php',
+            'Text_Plain_Json',
+            'Text_Plain'
+        );
         $sql_highlighting_data = array(
             'libraries/plugins/transformations/output/Text_Plain_Sql.class.php',
             'Text_Plain_Sql',
@@ -309,6 +314,31 @@ class PMA_DisplayResults
                 $relDb[$cfgRelation['tracking']] = array(
                     'schema_sql' => $sql_highlighting_data,
                     'data_sql' => $sql_highlighting_data
+                );
+            }
+            if (! empty($cfgRelation['favorite'])) {
+                $relDb[$cfgRelation['favorite']] = array(
+                    'tables' => $json_highlighting_data
+                );
+            }
+            if (! empty($cfgRelation['recent'])) {
+                $relDb[$cfgRelation['recent']] = array(
+                    'tables' => $json_highlighting_data
+                );
+            }
+            if (! empty($cfgRelation['savedsearches'])) {
+                $relDb[$cfgRelation['savedsearches']] = array(
+                    'search_data' => $json_highlighting_data
+                );
+            }
+            if (! empty($cfgRelation['table_uiprefs'])) {
+                $relDb[$cfgRelation['table_uiprefs']] = array(
+                    'prefs' => $json_highlighting_data
+                );
+            }
+            if (! empty($cfgRelation['userconfig'])) {
+                $relDb[$cfgRelation['userconfig']] = array(
+                    'config_data' => $json_highlighting_data
                 );
             }
         }
