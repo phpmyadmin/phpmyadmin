@@ -2531,6 +2531,7 @@ fieldset .disabled-field td {
 }
 .toggleButton .container td {
     background-image: none;
+    background: none;
 }
 .toggleButton .toggleOn {
     color: #fff;
