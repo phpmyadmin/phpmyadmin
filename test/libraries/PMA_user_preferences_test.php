@@ -199,7 +199,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $query1 = 'SELECT `username` FROM `pmadb`.`testconf` '
             . 'WHERE `username` = \'user\'';
 
-        $query2 = 'UPDATE `pmadb`.`testconf` SET `config_data` = \''
+        $query2 = 'UPDATE `pmadb`.`testconf` SET `timevalue` = NOW(), `config_data` = \''
             . json_encode(array(1)) . '\' WHERE `username` = \'user\'';
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -226,8 +226,8 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $query1 = 'SELECT `username` FROM `pmadb`.`testconf` '
             . 'WHERE `username` = \'user\'';
 
-        $query2 = 'INSERT INTO `pmadb`.`testconf` (`username`, `config_data`) '
-            . 'VALUES (\'user\', \'' . json_encode(array(1)) . '\')';
+        $query2 = 'INSERT INTO `pmadb`.`testconf` (`username`, `timevalue`,`config_data`) '
+            . 'VALUES (\'user\', NOW(), \'' . json_encode(array(1)) . '\')';
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
