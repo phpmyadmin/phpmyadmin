@@ -1988,6 +1988,9 @@ fieldset .disabled-field td {
 .toggleButton .container {
     position: absolute;
 }
+.toggleButton .container td {
+    background-image: none;
+}
 .toggleButton .toggleOn {
     color: #fff;
     padding: 0 1em;
