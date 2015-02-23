@@ -18,6 +18,7 @@ AJAX.registerOnload('db_tracking.js', function () {
         headers: {
             0: {sorter: false},
             2: {sorter: "integer"},
+            5: {sorter: false},
             6: {sorter: false},
             7: {sorter: false}
         }
