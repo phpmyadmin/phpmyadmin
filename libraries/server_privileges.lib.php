@@ -1867,8 +1867,9 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
     $html_output = '';
     if ($GLOBALS['is_superuser']) {
         // check the privileges for a particular database.
-        $html_output = '<form id="usersForm" action="server_privileges.php">'
-            . '<fieldset>' . "\n";
+        $html_output  = '<form id="usersForm" action="server_privileges.php">';
+        $html_output .= PMA_URL_getHiddenInputs($db);
+        $html_output .= '<fieldset>';
         $html_output .= '<legend>' . "\n"
             . PMA_Util::getIcon('b_usrcheck.png')
             . '    '
@@ -1886,9 +1887,19 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         $html_output .= PMA_getHtmlForPrivsTableHead();
         $privMap = PMA_getPrivMap($db);
         $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
-        $html_output .= '</table>'
-            . '</fieldset>'
-            . '</form>' . "\n";
+        $html_output .= '</table>';
+
+        $html_output .= '<div style="float:left;">';
+        $html_output .= PMA_Util::getWithSelected(
+            $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "usersForm"
+        );
+        $html_output .= PMA_Util::getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_export',
+            __('Export'), 'b_tblexport.png', 'export'
+        );
+
+        $html_output .= '</fieldset>';
+        $html_output .= '</form>';
     } else {
         $html_output .= PMA_getHtmlForViewUsersError();
     }
@@ -1922,6 +1933,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
     if ($GLOBALS['is_superuser']) {
         // check the privileges for a particular table.
         $html_output  = '<form id="usersForm" action="server_privileges.php">';
+        $html_output .= PMA_URL_getHiddenInputs($db, $table);
         $html_output .= '<fieldset>';
         $html_output .= '<legend>'
             . PMA_Util::getIcon('b_usrcheck.png')
@@ -1953,6 +1965,16 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         PMA_mergePrivMapFromResult($privMap, $res);
         $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
         $html_output .= '</table>';
+
+        $html_output .= '<div style="float:left;">';
+        $html_output .= PMA_Util::getWithSelected(
+            $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "usersForm"
+        );
+        $html_output .= PMA_Util::getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_export',
+            __('Export'), 'b_tblexport.png', 'export'
+        );
+
         $html_output .= '</fieldset>';
         $html_output .= '</form>';
     } else {
@@ -2025,7 +2047,9 @@ function PMA_mergePrivMapFromResult(&$privMap, $result)
 function PMA_getHtmlForPrivsTableHead()
 {
     return '<thead>'
-        . '<tr><th>' . __('User') . '</th>'
+        . '<tr>'
+        . '<th></th>'
+        . '<th>' . __('User') . '</th>'
         . '<th>' . __('Host') . '</th>'
         . '<th>' . __('Type') . '</th>'
         . '<th>' . __('Privileges') . '</th>'
@@ -2059,6 +2083,7 @@ function PMA_getHtmlForViewUsersError()
 function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
 {
     $html_output = '<tbody>';
+    $index_checkbox = 0;
     $odd_row = true;
     if (empty($privMap)) {
         $html_output .= '<tr class="odd">'
@@ -2075,6 +2100,12 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
             $nbPrivileges = count($current_privileges);
             $html_output .= '<tr class="noclick '
                 . ($odd_row ? 'odd' : 'even') . '">';
+
+            $value = htmlspecialchars($current_user . '&amp;#27;' . $current_host);
+            $html_output .= '<td>'
+                . '<input type="checkbox" class="checkall" name="selected_usr[]" '
+                . 'id="checkbox_sel_users_' . ($index_checkbox++) . '" '
+                . 'value="' . $value . '" /></td>' . "\n";
 
             // user
             $html_output .= '<td';

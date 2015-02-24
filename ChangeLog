@@ -58,6 +58,7 @@ phpMyAdmin - ChangeLog
 + rfe #1595 make professional code editor suggestion
 + rfe #1606 processlist filter
 + rfe       Change tracking activation status from db level tracking page
++ rfe #1207 Export users associated with a specific schema/database
 
 4.3.11.0 (not yet released)
 - bug #4774 SQL links are completely wrong
