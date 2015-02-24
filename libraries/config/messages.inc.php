@@ -460,10 +460,10 @@ $strConfigNavigationTreeTableLevel_name = __('Maximum table tree depth');
 $strConfigNavigationTreePointerEnable_desc
     = __('Highlight server under the mouse cursor.');
 $strConfigNavigationTreePointerEnable_name = __('Enable highlighting');
-$strConfigNavigationTreeDisableDatabaseExpansion_desc
-    = __('Whether to disable the possibility of database expansion or not.');
-$strConfigNavigationTreeDisableDatabaseExpansion_name
-    = __('Disable database expansion');
+$strConfigNavigationTreeEnableExpansion_desc
+    = __('Whether to offer the possibility of tree expansion in the navigation panel.');
+$strConfigNavigationTreeEnableExpansion_name
+    = __('Enable navigation tree expansion');
 $strConfigNumRecentTables_desc
     = __('Maximum number of recently used tables; set 0 to disable.');
 $strConfigNumFavoriteTables_desc

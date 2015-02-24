@@ -629,7 +629,7 @@ class PMA_NavigationTree
     public function groupNode($node)
     {
         if ($node->type != Node::CONTAINER
-            || $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
+            || ! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             return;
         }
@@ -774,7 +774,7 @@ class PMA_NavigationTree
         $retval .= '<div class="clearfloat"></div>';
         $retval .= '<ul>';
         $retval .= $this->_fastFilterHtml($this->_tree);
-        if (! $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
+        if ($GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             $retval .= $this->_controls();
         }
