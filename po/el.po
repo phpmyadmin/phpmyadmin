@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-22 16:03-0500\n"
-"PO-Revision-Date: 2015-02-13 07:29+0200\n"
+"PO-Revision-Date: 2015-02-23 18:47+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -777,7 +777,6 @@ msgid "PHP extension:"
 msgstr "Επέκταση PHP:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "Έκδοση PHP:"
@@ -9014,10 +9013,9 @@ msgid "unknown"
 msgstr "άγνωστο"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "Ένα σφάλμα συμβαίνει κατά τη φόρτωση του δέντρου πλοήγησης"
+msgstr "Ένα σφάλμα συμβαίνει κατά τη φόρτωση της προβολής πλοήγησης"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -10622,25 +10620,24 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Σφάλμα επισήμανσης επεξεργαστή CodeMirror για το JSON."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Σφάλμα σύνταξης επεξεργαστή CodeMirror για την SQL."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Σφάλμα σύνταξης επεξεργαστή CodeMirror για την XML (και την HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "Μορφοποιεί το κείμενο ως JSON με επισήμανση της σύνταξης."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
-#, fuzzy
 #| msgid "Formats text as JSON with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Μορφοποιεί το κείμενο ως JSON με επισήμανση της σύνταξης."
+msgstr "Μορφοποιεί το κείμενο ως XML με επισήμανση της σύνταξης."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -12507,10 +12504,9 @@ msgid "Filters"
 msgstr "Φίλτρα"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Εμφάνιση μόνο τιμών ειδοποίησης"
+msgstr "Εμφάνιση μόνο των ενεργών"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13659,10 +13655,9 @@ msgid "Improve table structure"
 msgstr "Βελτίωση δομής πίνακα"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Παρακολούθηση πίνακα"
+msgstr "Παρακολούθηση προβολής"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
