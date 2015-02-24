@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2014-12-07 03:37+0200\n"
-"Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-3/vi/>\n"
+"PO-Revision-Date: 2015-02-24 15:50+0200\n"
+"Last-Translator: Bao Phan <baophan94@icloud.com>\n"
+"Language-Team: Vietnamese "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-3/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.1\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -296,7 +296,7 @@ msgstr "Thông dụng"
 #: db_printview.php:120 libraries/plugins/export/ExportSql.class.php:1144
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:995
 msgid "Creation:"
-msgstr ""
+msgstr "Khởi tạo:"
 
 #: db_printview.php:127 libraries/plugins/export/ExportSql.class.php:1157
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1000
@@ -332,7 +332,7 @@ msgstr "Truy cập bị từ chối!"
 
 #: db_tracking.php:77
 msgid "Tracked tables"
-msgstr ""
+msgstr "Các bảng đã theo dõi."
 
 #: db_tracking.php:82 libraries/Console.class.php:99
 #: libraries/Console.class.php:185 libraries/Menu.class.php:214
@@ -407,20 +407,20 @@ msgstr "Phiên bản"
 #: db_tracking.php:143 libraries/tracking.lib.php:262
 #: libraries/tracking.lib.php:385
 msgid "Tracking report"
-msgstr ""
+msgstr "Báo cáo theo dõi"
 
 #: db_tracking.php:146 libraries/tracking.lib.php:270
 #: libraries/tracking.lib.php:754
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Cấu trúc ảnh chụp"
 
 #: db_tracking.php:202
 msgid "Untracked tables"
-msgstr ""
+msgstr "Những bảng chưa theo dõi"
 
 #: db_tracking.php:221 libraries/structure.lib.php:1654
 msgid "Track table"
-msgstr ""
+msgstr "Theo dõi bảng"
 
 #: db_tracking.php:248
 msgid "Database Log"
@@ -449,27 +449,29 @@ msgstr ""
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Nếu bạn có kinh nghiệm phát hiện vấn đề nào đó không hoạt động tốt, xin hãy "
+"gửi báo cáo lỗi cho chúng tôi một cách thủ công."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Bạn cần làm mới lại trang."
 
 #: export.php:182 schema_export.php:71
 msgid "Bad type!"
-msgstr ""
+msgstr "Kiểu dữ liệu không phù hợp!"
 
 #: export.php:263
 msgid "Bad parameters!"
-msgstr ""
+msgstr "Tham số không đúng!"
 
 #: file_echo.php:22
 msgid "Invalid export type"
-msgstr ""
+msgstr "Sai kiểu tập tin xuất"
 
 #: gis_data_editor.php:118
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "Giá trị cho cột \"%s\""
 
 #: gis_data_editor.php:146 libraries/tbl_gis_visualization.lib.php:164
 msgid "Use OpenStreetMaps as Base Layer"
@@ -487,7 +489,7 @@ msgstr ""
 
 #: gis_data_editor.php:213
 msgid "Point:"
-msgstr ""
+msgstr "Điểm:"
 
 #: gis_data_editor.php:214 gis_data_editor.php:241 gis_data_editor.php:297
 #: gis_data_editor.php:370 js/messages.php:378
@@ -503,12 +505,12 @@ msgstr ""
 #: js/messages.php:381
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Điểm %d"
 
 #: gis_data_editor.php:252 gis_data_editor.php:308 gis_data_editor.php:386
 #: js/messages.php:387
 msgid "Add a point"
-msgstr ""
+msgstr "Thêm điểm"
 
 #: gis_data_editor.php:269
 #, php-format
@@ -14405,7 +14407,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:462
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr ""
+msgstr "Bật {concurrent_insert} bằng cách đặt giá trị cho nó thành 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
