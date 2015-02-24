@@ -473,8 +473,8 @@ function markField(field)
  */
 function setRestoreDefaultBtn(field, display)
 {
-    var el = $(field).closest('td').find('.restore-default img');
-    el[display ? 'show' : 'hide']();
+    var $el = $(field).closest('td').find('.restore-default img');
+    $el[display ? 'show' : 'hide']();
 }
 
 AJAX.registerOnload('config.js', function () {
@@ -482,29 +482,29 @@ AJAX.registerOnload('config.js', function () {
     var elements = $('input[id], select[id], textarea[id]');
     $('input[id], select[id], textarea[id]').each(function () {
         markField(this);
-        var el = $(this);
-        el.bind('change', function () {
+        var $el = $(this);
+        $el.bind('change', function () {
             validate_field_and_fieldset(this, false);
             markField(this);
         });
-        var tagName = el.attr('tagName');
+        var tagName = $el.attr('tagName');
         // text fields can be validated after each change
-        if (tagName == 'INPUT' && el.attr('type') == 'text') {
-            el.keyup(function () {
-                validate_field_and_fieldset(el, true);
-                markField(el);
+        if (tagName == 'INPUT' && $el.attr('type') == 'text') {
+            $el.keyup(function () {
+                validate_field_and_fieldset($el, true);
+                markField($el);
             });
         }
         // disable textarea spellcheck
         if (tagName == 'TEXTAREA') {
-            el.attr('spellcheck', false);
+            $el.attr('spellcheck', false);
         }
     });
 
     // check whether we've refreshed a page and browser remembered modified
     // form values
-    var check_page_refresh = $('#check_page_refresh');
-    if (check_page_refresh.length === 0 || check_page_refresh.val() == '1') {
+    var $check_page_refresh = $('#check_page_refresh');
+    if ($check_page_refresh.length === 0 || $check_page_refresh.val() == '1') {
         // run all field validators
         var errors = {};
         for (var i = 0; i < elements.length; i++) {
@@ -516,8 +516,8 @@ AJAX.registerOnload('config.js', function () {
         });
 
         displayErrors(errors);
-    } else if (check_page_refresh) {
-        check_page_refresh.val('1');
+    } else if ($check_page_refresh) {
+        $check_page_refresh.val('1');
     }
 });
 
@@ -543,12 +543,12 @@ function setTab(tab_id)
 }
 
 AJAX.registerOnload('config.js', function () {
-    var tabs = $('ul.tabs');
-    if (!tabs.length) {
+    var $tabs = $('ul.tabs');
+    if (!$tabs.length) {
         return;
     }
     // add tabs events and activate one tab (the first one or indicated by location hash)
-    tabs.find('a')
+    $tabs.find('a')
         .click(function (e) {
             e.preventDefault();
             setTab($(this).attr('href').substr(1));
@@ -605,11 +605,11 @@ AJAX.registerOnload('config.js', function () {
  */
 function restoreField(field_id)
 {
-    var field = $('#' + field_id);
-    if (field.length === 0 || defaultValues[field_id] === undefined) {
+    var $field = $('#' + field_id);
+    if ($field.length === 0 || defaultValues[field_id] === undefined) {
         return;
     }
-    setFieldValue(field, getFieldType(field), defaultValues[field_id]);
+    setFieldValue($field, getFieldType($field), defaultValues[field_id]);
 }
 
 AJAX.registerOnload('config.js', function () {
@@ -649,13 +649,13 @@ AJAX.registerOnload('config.js', function () {
 
 AJAX.registerOnload('config.js', function () {
     offerPrefsAutoimport();
-    var radios = $('#import_local_storage, #export_local_storage');
-    if (!radios.length) {
+    var $radios = $('#import_local_storage, #export_local_storage');
+    if (!$radios.length) {
         return;
     }
 
     // enable JavaScript dependent fields
-    radios
+    $radios
         .prop('disabled', false)
         .add('#export_text_file, #import_text_file')
         .click(function () {
