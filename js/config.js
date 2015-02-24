@@ -772,25 +772,25 @@ function updatePrefsDate()
 function offerPrefsAutoimport()
 {
     var has_config = (window.localStorage || false) && (window.localStorage.config || false);
-    var cnt = $('#prefs_autoload');
-    if (!cnt.length || !has_config) {
+    var $cnt = $('#prefs_autoload');
+    if (!$cnt.length || !has_config) {
         return;
     }
-    cnt.find('a').click(function (e) {
+    $cnt.find('a').click(function (e) {
         e.preventDefault();
         var a = $(this);
         if (a.attr('href') == '#no') {
-            cnt.remove();
+            $cnt.remove();
             $.post('index.php', {
-                token: cnt.find('input[name=token]').val(),
+                token: $cnt.find('input[name=token]').val(),
                 prefs_autoload: 'hide'
             });
             return;
         }
-        cnt.find('input[name=json]').val(window.localStorage.config);
-        cnt.find('form').submit();
+        $cnt.find('input[name=json]').val(window.localStorage.config);
+        $cnt.find('form').submit();
     });
-    cnt.show();
+    $cnt.show();
 }
 
 //
