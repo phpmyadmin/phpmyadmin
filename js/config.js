@@ -690,14 +690,14 @@ AJAX.registerOnload('config.js', function () {
         }
         form.find('input[type=submit]').prop('disabled', disabled);
     }).submit(function (e) {
-        var form = $(this);
-        if (form.attr('name') == 'prefs_export' && $('#export_local_storage')[0].checked) {
+        var $form = $(this);
+        if ($form.attr('name') == 'prefs_export' && $('#export_local_storage')[0].checked) {
             e.preventDefault();
             // use AJAX to read JSON settings and save them
-            savePrefsToLocalStorage(form);
-        } else if (form.attr('name') == 'prefs_import' && $('#import_local_storage')[0].checked) {
+            savePrefsToLocalStorage($form);
+        } else if ($form.attr('name') == 'prefs_import' && $('#import_local_storage')[0].checked) {
             // set 'json' input and submit form
-            form.find('input[name=json]').val(window.localStorage.config);
+            $form.find('input[name=json]').val(window.localStorage.config);
         }
     });
 
@@ -718,8 +718,8 @@ AJAX.registerOnload('config.js', function () {
  */
 function savePrefsToLocalStorage(form)
 {
-    form = $(form);
-    var submit = form.find('input[type=submit]');
+    $form = $(form);
+    var submit = $form.find('input[type=submit]');
     submit.prop('disabled', true);
     $.ajax({
         url: 'prefs_manage.php',
@@ -727,8 +727,8 @@ function savePrefsToLocalStorage(form)
         type: 'POST',
         data: {
             ajax_request: true,
-            server: form.find('input[name=server]').val(),
-            token: form.find('input[name=token]').val(),
+            server: $form.find('input[name=server]').val(),
+            token: $form.find('input[name=token]').val(),
             submit_get_json: true
         },
         success: function (data) {
@@ -739,10 +739,10 @@ function savePrefsToLocalStorage(form)
                 updatePrefsDate();
                 $('div.localStorage-empty').hide();
                 $('div.localStorage-exists').show();
-                var group = form.parent('.group');
+                var group = $form.parent('.group');
                 group.css('height', group.height() + 'px');
-                form.hide('fast');
-                form.prev('.click-hide-message').show('fast');
+                $form.hide('fast');
+                $form.prev('.click-hide-message').show('fast');
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
