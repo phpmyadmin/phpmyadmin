@@ -2229,18 +2229,20 @@ function PMA_getHtmlListOfPrivs(
 
         // action
         $html_output .= '<td>';
-        $specific_db = (isset($current['Db']) && $current['Db'] != '*')
-            ? $current['Db'] : '';
-        $specific_table = (isset($current['Table_name'])
-            && $current['Table_name'] != '*')
-            ? $current['Table_name'] : '';
-        $html_output .= PMA_getUserLink(
-            'edit',
-            $current_user,
-            $current_host,
-            $specific_db,
-            $specific_table
-        );
+        if ($GLOBALS['is_grantuser']) {
+            $specific_db = (isset($current['Db']) && $current['Db'] != '*')
+                ? $current['Db'] : '';
+            $specific_table = (isset($current['Table_name'])
+                && $current['Table_name'] != '*')
+                ? $current['Table_name'] : '';
+            $html_output .= PMA_getUserLink(
+                'edit',
+                $current_user,
+                $current_host,
+                $specific_db,
+                $specific_table
+            );
+        }
         $html_output .= '</td>';
 
         $html_output .= '</tr>';
@@ -2423,18 +2425,18 @@ function PMA_getExtraDataForAjaxBehavior(
         }
 
         $new_user_string .= '<td>';
-
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')) {
             $new_user_string .= __('Yes');
         } else {
             $new_user_string .= __('No');
         }
-
         $new_user_string .='</td>';
 
-        $new_user_string .= '<td>'
-            . PMA_getUserLink('edit', $username, $hostname)
-            . '</td>' . "\n";
+        if ($GLOBALS['is_grantuser']) {
+            $new_user_string .= '<td>'
+                . PMA_getUserLink('edit', $username, $hostname)
+                . '</td>' . "\n";
+        }
 
         if (isset($cfgRelation['menuswork']) && $user_group_count > 0) {
             $new_user_string .= '<td>'
@@ -2760,17 +2762,21 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
         } else {
             $html_output .= __('No');
         }
-        $html_output .= '</td>' . "\n"
-           . '<td>';
-        $html_output .= PMA_getUserLink(
-            'edit',
-            $username,
-            $hostname,
-            (!$dbNameLength) ? $row['Db'] : $dbname,
-            (!$dbNameLength) ? '' : $row['Table_name']
-        );
-        $html_output .= '</td>' . "\n"
-           . '    <td>';
+        $html_output .= '</td>';
+
+        $html_output .= '<td>';
+        if ($GLOBALS['is_grantuser']) {
+            $html_output .= PMA_getUserLink(
+                'edit',
+                $username,
+                $hostname,
+                (!$dbNameLength) ? $row['Db'] : $dbname,
+                (!$dbNameLength) ? '' : $row['Table_name']
+            );
+        }
+        $html_output .= '</td>';
+
+        $html_output .= '<td>';
         if (! empty($row['can_delete'])
             || isset($row['Table_name'])
             && /*overload*/mb_strlen($row['Table_name'])
@@ -3119,13 +3125,15 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                 . ($host['Grant_priv'] == 'Y' ? __('Yes') : __('No'))
                 . '</td>' . "\n";
 
-            $html_output .= '<td class="center">'
-                . PMA_getUserLink(
-                    'edit',
-                    $host['User'],
-                    $host['Host']
-                )
-                . '</td>';
+            if ($GLOBALS['is_grantuser']) {
+                $html_output .= '<td class="center">'
+                    . PMA_getUserLink(
+                        'edit',
+                        $host['User'],
+                        $host['Host']
+                    )
+                    . '</td>';
+            }
             if ($cfgRelation['menuswork'] && $user_group_count > 0) {
                 if (empty($host['User'])) {
                     $html_output .= '<td class="center"></td>';
