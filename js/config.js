@@ -31,10 +31,10 @@ var defaultValues = {};
  */
 function getFieldType(field)
 {
-    field = $(field);
-    var tagName = field.prop('tagName');
+    var $field = $(field);
+    var tagName = $field.prop('tagName');
     if (tagName == 'INPUT') {
-        return field.attr('type');
+        return $field.attr('type');
     } else if (tagName == 'SELECT') {
         return 'select';
     } else if (tagName == 'TEXTAREA') {
@@ -58,17 +58,17 @@ function getFieldType(field)
  */
 function setFieldValue(field, field_type, value)
 {
-    field = $(field);
+    var $field = $(field);
     switch (field_type) {
     case 'text':
     case 'number':
-        field.val(value !== undefined ? value : field.attr('defaultValue'));
+        $field.val(value !== undefined ? value : $field.attr('defaultValue'));
         break;
     case 'checkbox':
-        field.prop('checked', (value !== undefined ? value : field.attr('defaultChecked')));
+        $field.prop('checked', (value !== undefined ? value : $field.attr('defaultChecked')));
         break;
     case 'select':
-        var options = field.prop('options');
+        var options = $field.prop('options');
         var i, imax = options.length;
         if (value === undefined) {
             for (i = 0; i < imax; i++) {
@@ -81,7 +81,7 @@ function setFieldValue(field, field_type, value)
         }
         break;
     }
-    markField(field);
+    markField($field);
 }
 
 /**
@@ -98,15 +98,15 @@ function setFieldValue(field, field_type, value)
  */
 function getFieldValue(field, field_type)
 {
-    field = $(field);
+    var $field = $(field);
     switch (field_type) {
     case 'text':
     case 'number':
-        return field.prop('value');
+        return $field.prop('value');
     case 'checkbox':
-        return field.prop('checked');
+        return $field.prop('checked');
     case 'select':
-        var options = field.prop('options');
+        var options = $field.prop('options');
         var i, imax = options.length, items = [];
         for (i = 0; i < imax; i++) {
             if (options[i].selected) {
@@ -149,13 +149,13 @@ function getAllValues()
  */
 function checkFieldDefault(field, type)
 {
-    field = $(field);
-    var field_id = field.attr('id');
+    var $field = $(field);
+    var field_id = $field.attr('id');
     if (typeof defaultValues[field_id] == 'undefined') {
         return true;
     }
     var isDefault = true;
-    var currentValue = getFieldValue(field, type);
+    var currentValue = getFieldValue($field, type);
     if (type != 'select') {
         isDefault = currentValue == defaultValues[field_id];
     } else {
@@ -335,13 +335,13 @@ function displayErrors(error_list)
 
     for (var field_id in error_list) {
         var errors = error_list[field_id];
-        var field = $('#' + field_id);
-        var isFieldset = field.attr('tagName') == 'FIELDSET';
+        var $field = $('#' + field_id);
+        var isFieldset = $field.attr('tagName') == 'FIELDSET';
         var errorCnt;
         if (isFieldset) {
-            errorCnt = field.find('dl.errors');
+            errorCnt = $field.find('dl.errors');
         } else {
-            errorCnt = field.siblings('.inline_errors');
+            errorCnt = $field.siblings('.inline_errors');
         }
 
         // remove empty errors (used to clear error list)
@@ -350,7 +350,7 @@ function displayErrors(error_list)
         // CSS error class
         if (!isFieldset) {
             // checkboxes uses parent <span> for marking
-            var fieldMarker = (field.attr('type') == 'checkbox') ? field.parent() : field;
+            var fieldMarker = ($field.attr('type') == 'checkbox') ? $field.parent() : $field;
             fieldMarker[errors.length ? 'addClass' : 'removeClass']('field-error');
         }
 
@@ -359,10 +359,10 @@ function displayErrors(error_list)
             if (errorCnt.length === 0) {
                 if (isFieldset) {
                     errorCnt = $('<dl class="errors" />');
-                    field.find('table').before(errorCnt);
+                    $field.find('table').before(errorCnt);
                 } else {
                     errorCnt = $('<dl class="inline_errors" />');
-                    field.closest('td').append(errorCnt);
+                    $field.closest('td').append(errorCnt);
                 }
             }
 
@@ -387,9 +387,9 @@ function displayErrors(error_list)
  */
 function validate_fieldset(fieldset, isKeyUp, errors)
 {
-    fieldset = $(fieldset);
-    if (fieldset.length && typeof validators._fieldset[fieldset.attr('id')] != 'undefined') {
-        var fieldset_errors = validators._fieldset[fieldset.attr('id')].apply(fieldset[0], [isKeyUp]);
+    var $fieldset = $(fieldset);
+    if ($fieldset.length && typeof validators._fieldset[$fieldset.attr('id')] != 'undefined') {
+        var fieldset_errors = validators._fieldset[$fieldset.attr('id')].apply($fieldset[0], [isKeyUp]);
         for (var field_id in fieldset_errors) {
             if (typeof errors[field_id] == 'undefined') {
                 errors[field_id] = [];
@@ -412,9 +412,9 @@ function validate_fieldset(fieldset, isKeyUp, errors)
 function validate_field(field, isKeyUp, errors)
 {
     var args, result;
-    field = $(field);
-    var field_id = field.attr('id');
-    errors[field_id] = [];
+    var $field = $(field);
+    var field_id = $field.attr('id');
+    errors[$field_id] = [];
     var functions = getFieldValidators(field_id, isKeyUp);
     for (var i = 0; i < functions.length; i++) {
         if (typeof functions[i][1] !== 'undefined' && functions[i][1] !== null) {
@@ -441,10 +441,10 @@ function validate_field(field, isKeyUp, errors)
  */
 function validate_field_and_fieldset(field, isKeyUp)
 {
-    field = $(field);
+    var $field = $(field);
     var errors = {};
-    validate_field(field, isKeyUp, errors);
-    validate_fieldset(field.closest('fieldset'), isKeyUp, errors);
+    validate_field($field, isKeyUp, errors);
+    validate_fieldset($field.closest('fieldset'), isKeyUp, errors);
     displayErrors(errors);
 }
 
@@ -455,13 +455,13 @@ function validate_field_and_fieldset(field, isKeyUp)
  */
 function markField(field)
 {
-    field = $(field);
-    var type = getFieldType(field);
-    var isDefault = checkFieldDefault(field, type);
+    var $field = $(field);
+    var type = getFieldType($field);
+    var isDefault = checkFieldDefault($field, type);
 
     // checkboxes uses parent <span> for marking
-    var fieldMarker = (type == 'checkbox') ? field.parent() : field;
-    setRestoreDefaultBtn(field, !isDefault);
+    var fieldMarker = (type == 'checkbox') ? $field.parent() : $field;
+    setRestoreDefaultBtn($field, !isDefault);
     fieldMarker[isDefault ? 'removeClass' : 'addClass']('custom');
 }
 
