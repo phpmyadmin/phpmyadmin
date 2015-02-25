@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-24 13:12-0500\n"
-"PO-Revision-Date: 2015-02-11 08:13+0200\n"
+"PO-Revision-Date: 2015-02-25 08:46+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -780,7 +780,6 @@ msgid "PHP extension:"
 msgstr "PHP laiend:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "PHP versioon:"
@@ -965,10 +964,9 @@ msgid "Delete tracking data for these versions?"
 msgstr "Kas kustutada nende versioonide jälgimise andmed?"
 
 #: js/messages.php:44
-#, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Kustuta raportist jälgimise andmete rida"
+msgstr "Kas kustutada kirje jälgimise raportist?"
 
 #: js/messages.php:45
 msgid "Deleting tracking data"
@@ -1007,10 +1005,9 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Kas sa soovid tõesti tühistada valitud kasutajate õigused?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Kas sa soovid tõesti kustutada selle järjehoidja?"
+msgstr "Kas sa soovid tõesti kustutada selle keskse veeru?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -4041,22 +4038,19 @@ msgid "Value"
 msgstr "Väärtus"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "Tabeli otsing"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
-msgstr "Suurenda otsingut"
+msgstr "Laienda otsingut"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
-msgstr "Leia ja asenda"
+msgstr "Otsi ja asenda"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1342
 msgid "Edit/Insert"
@@ -6295,7 +6289,7 @@ msgstr "Mälu piirang"
 
 #: libraries/config/messages.inc.php:418
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr "Asendab navigeerimispaneelil andmebaasi puu valijaga"
+msgstr ""
 
 #: libraries/config/messages.inc.php:420
 msgid "Show databases navigation as tree"
@@ -6405,17 +6399,15 @@ msgid "Enable highlighting"
 msgstr "Luba esiletõstmine"
 
 #: libraries/config/messages.inc.php:464
-#, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "Kas keelata võimalus andmebaasi laiendamiseks või mitte."
+msgstr "Kas navigeerimispaneeli puu laiendamine on võimalik."
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Tabeli navigeerimisriba"
+msgstr "Luba navigeerimispuu laiendamine"
 
 #: libraries/config/messages.inc.php:468
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6643,10 +6635,9 @@ msgid "Allow root login"
 msgstr "Luba sisse logida 'root' kasutajana"
 
 #: libraries/config/messages.inc.php:548
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Seansi väärtus"
+msgstr "Seansi ajatsoon"
 
 #: libraries/config/messages.inc.php:549
 msgid ""
@@ -7612,10 +7603,9 @@ msgid "Select Export Relational Type"
 msgstr "Vali ekspordi seose tüüp"
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:258
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "Tabelite näitamine:"
+msgstr "Näita/peida tabelite loend"
 
 #: libraries/db_designer.lib.php:262 libraries/db_designer.lib.php:266
 msgid "View in fullscreen"
@@ -8881,10 +8871,9 @@ msgid "unknown"
 msgstr "tundmatu"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "Navigeerimispuu laadimisel juhtus viga"
+msgstr "Navigeerimiskuva laadimisel toimus viga"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -10484,10 +10473,9 @@ msgid "Formats text as JSON with syntax highlighting."
 msgstr "Vormindab teksti süntaksi esiletõstuga JSON objektiks."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
-#, fuzzy
 #| msgid "Formats text as JSON with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Vormindab teksti süntaksi esiletõstuga JSON objektiks."
+msgstr "Vormindab teksti süntaksi esiletõstuga XML failiks."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -12305,10 +12293,9 @@ msgid "Filters"
 msgstr "Filtrid"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Näita ainult 'alert' väärtusi"
+msgstr "Näita ainult aktiivseid"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13412,10 +13399,9 @@ msgid "Improve table structure"
 msgstr "Parenda tabeli struktuuri"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Jälgi tabelit"
+msgstr "Jälgi vaadet"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
@@ -13527,7 +13513,6 @@ msgid "Showing create queries"
 msgstr "Kuvatakse loomise päringuid"
 
 #: libraries/structure.lib.php:3269
-#, fuzzy
 #| msgid "Relation View"
 msgid "Relation view"
 msgstr "Seoste vaade"
@@ -14374,13 +14359,13 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rida: %1$s, veerg: %2$s, viga: %3$s"
 
 #: tbl_structure.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 #| msgid_plural "The column names '%s' are MySQL reserved keywords."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "Veeru nimi '%s' on MySQLi reserveeritud võtmesõna."
-msgstr[1] "Veergude nimed '%s' on MySQLi reserveeritud võtmesõnad."
+msgstr[0] "Nimi '%s' on MySQLi reserveeritud võtmesõna."
+msgstr[1] "Nimed '%s' on MySQLi reserveeritud võtmesõnad."
 
 #: tbl_structure.php:114
 msgid "No column selected."
