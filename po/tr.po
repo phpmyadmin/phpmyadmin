@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-24 13:12-0500\n"
-"PO-Revision-Date: 2015-02-23 06:54+0200\n"
+"PO-Revision-Date: 2015-02-25 09:59+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.2\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -6446,18 +6446,15 @@ msgid "Enable highlighting"
 msgstr "Vurgulamaları etkinleştir"
 
 #: libraries/config/messages.inc.php:464
-#, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
-"Veritabanı genişleme olanağının etkisizleştirilip etkisizleştirilmeyeceği."
+msgstr "Gezinti panelinde ağaç genişleme olanağının sunulup sunulmayacağı."
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Tablo gezinti çubuğu"
+msgstr "Gezinti ağacı genişlemesini etkinleştir"
 
 #: libraries/config/messages.inc.php:468
 msgid "Maximum number of recently used tables; set 0 to disable."
