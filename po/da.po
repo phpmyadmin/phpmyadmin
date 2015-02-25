@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-24 13:12-0500\n"
-"PO-Revision-Date: 2015-01-09 23:31+0200\n"
-"Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"da/>\n"
+"PO-Revision-Date: 2015-02-25 06:28+0200\n"
+"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -780,7 +780,6 @@ msgid "PHP extension:"
 msgstr "PHP-udvidelse:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "PHP-version:"
@@ -854,7 +853,6 @@ msgstr ""
 "at opdele strenge korrekt og dette kan forårsage uventede resultater."
 
 #: index.php:495
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -866,10 +864,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Dit PHP-parameter [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] er mindre end "
-"cookie-gyldigheden konfigureret i phpMyAdmin; på grund af dette vil din "
-"logind-session udløbe tidligere end konfigureret i phpMyAdmin."
+"Dit PHP-parameter "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] er mindre end cookie-"
+"gyldigheden konfigureret i phpMyAdmin; på grund af dette kan din logind-"
+"session udløbe tidligere end det som er konfigureret i phpMyAdmin."
 
 #: index.php:508
 msgid ""
@@ -972,10 +971,9 @@ msgid "Delete tracking data for these versions?"
 msgstr "Slet sporingsdata for disse versioner?"
 
 #: js/messages.php:44
-#, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Slet sporingsdatarække fra rapport"
+msgstr "Slet posten fra sporingsrapporten?"
 
 #: js/messages.php:45
 msgid "Deleting tracking data"
@@ -1014,10 +1012,9 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Er du sikker på at du vil tilbagekalde den valgte bruger(e)?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Er du sikker på at du vil slette dette bogmærke?"
+msgstr "Er du sikker på at du vil slette denne centrale kolonne?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -1668,7 +1665,7 @@ msgstr "Test"
 
 #: js/messages.php:251
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Formatterer SQL ..."
 
 #: js/messages.php:255 libraries/db_designer.lib.php:828
 #: libraries/db_designer.lib.php:877 libraries/db_designer.lib.php:1021
@@ -2352,41 +2349,37 @@ msgstr "Fjern link fra hovedpanel"
 #: js/messages.php:480
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"For at filtrere alle databaser på serveren, så tryk Enter efter en søgeterm"
 
 #: js/messages.php:481
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
-msgstr ""
+msgstr "For at filtrere alle %s i databasen, så tryk Enter efter en søgeterm"
 
 #: js/messages.php:482
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Tabeller"
+msgstr "tabeller"
 
 #: js/messages.php:483
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Views"
+msgstr "views"
 
 #: js/messages.php:484
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Procedurer"
+msgstr "procedurer"
 
 #: js/messages.php:485
-#, fuzzy
 #| msgid "event"
 msgid "events"
-msgstr "hændelse"
+msgstr "hændelser"
 
 #: js/messages.php:486
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "Funktioner"
+msgstr "funktioner"
 
 #: js/messages.php:489
 msgid "The requested page was not found in the history, it may have expired."
@@ -2489,6 +2482,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Din webbrowser understøtter ikke lokal lagring af indstillinger, eller også "
+"er kvotegrænsen blevet nået - nogle funktioner vil muligvis ikke fungere "
+"korrekt for dig. I Safari opleves dette typisk under tilstanden \"Private "
+"Mode Browsing\"."
 
 #: js/messages.php:570
 msgctxt "Previous month"
@@ -4070,19 +4067,16 @@ msgid "Value"
 msgstr "Værdi"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "Tabelsøgning"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "Forstør søgning"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "Søg og erstat"
@@ -4576,11 +4570,10 @@ msgid "Create PHP Code"
 msgstr "Fremstil PHP-kode"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Redigér indeks"
+msgstr "Redigér indlejret"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1580
@@ -4859,6 +4852,10 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"Kan ikke benytte tidszonen %1$s for serveren %2$d. Tjek venligst din "
+"konfigurationsindstilling for "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin anvender i "
+"øjeblikket databaseserverens standardtidszone."
 
 #: libraries/common.inc.php:1020
 #, php-format
@@ -4924,13 +4921,12 @@ msgstr "Slået fra"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "nøgle"
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Visningskolonnetabel"
+msgstr "vis kolonne"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -6342,13 +6338,12 @@ msgstr "Hukommelsesgrænse"
 
 #: libraries/config/messages.inc.php:418
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "I navigationspanelet erstattes databasetræet med en valgfunktion"
 
 #: libraries/config/messages.inc.php:420
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Vis skjulte elementer i navigationstræet."
+msgstr "Vis databasenavigationen som en træstruktur"
 
 #: libraries/config/messages.inc.php:422
 msgid "Link with main panel by highlighting the current database or table."
@@ -6396,10 +6391,9 @@ msgid "Target for quick access icon"
 msgstr "Mål for hurtigt valg ikon"
 
 #: libraries/config/messages.inc.php:439
-#, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "Mål for hurtigt valg ikon"
+msgstr "Mål for det andet hurtigvalg-ikon"
 
 #: libraries/config/messages.inc.php:442
 msgid ""
@@ -6457,17 +6451,16 @@ msgid "Enable highlighting"
 msgstr "Aktivér fremhævning"
 
 #: libraries/config/messages.inc.php:464
-#, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "Hvorvidt mulighed for at deaktivere database udvidelse eller ikke."
+msgstr ""
+"Om der skal eller ikke skal tilbydes udvidelse af træ i navigationspanelet."
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Tabelbaseret navigationsbjælke"
+msgstr "Slå udfoldelse af navigationstræ til"
 
 #: libraries/config/messages.inc.php:468
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6650,16 +6643,14 @@ msgid "Grid editing: trigger action"
 msgstr "Gitter-redering: trigger/udløser-handling"
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
-msgstr "Relationel visningskolonne"
+msgstr "Relationel visning"
 
 #: libraries/config/messages.inc.php:538
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Indstillinger for visning af servere."
+msgstr "For visningsindstillinger"
 
 #: libraries/config/messages.inc.php:539
 msgid "Grid editing: save all edited cells at once"
@@ -6698,16 +6689,17 @@ msgid "Allow root login"
 msgstr "Tillad root login"
 
 #: libraries/config/messages.inc.php:548
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Sessionsværdi"
+msgstr "Tidszone for session"
 
 #: libraries/config/messages.inc.php:549
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Angiver den gældende tidszone; denne er muligvis forskellige fra dén som "
+"findes på din databaseserver"
 
 #: libraries/config/messages.inc.php:551
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -7354,7 +7346,6 @@ msgid "Suhosin warning"
 msgstr "Suhosin advarsel"
 
 #: libraries/config/messages.inc.php:761
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
@@ -7363,14 +7354,14 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Deaktiver standardadvarslen, som vises på struktursiden, hvis kolonnenavne i "
-"en tabel er reserverede MySQL-ord."
+"Slå standardadvarslen fra, der vises på hovedsiden, hvis værdien af PHP-"
+"indstillingen session.gc_maxlifetime er mindre end værdien af "
+"`LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:763
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Gyldighed for login cookie"
+msgstr "Advarsel om gyldighed for logincookie"
 
 #: libraries/config/messages.inc.php:765
 msgid ""
@@ -7681,10 +7672,9 @@ msgid "Select Export Relational Type"
 msgstr "Vælg Export Relational Type"
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:258
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "Viser tabeller:"
+msgstr "Vis/skjul tabelliste"
 
 #: libraries/db_designer.lib.php:262 libraries/db_designer.lib.php:266
 msgid "View in fullscreen"
@@ -7765,10 +7755,9 @@ msgid "Move Menu"
 msgstr "Flyt Menu"
 
 #: libraries/db_designer.lib.php:416 libraries/db_designer.lib.php:419
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
-msgstr "Delvise tekster"
+msgstr "Fastgør tekst"
 
 #: libraries/db_designer.lib.php:458
 msgid "Hide/Show all"
@@ -8958,10 +8947,9 @@ msgid "unknown"
 msgstr "ukendt"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "Der opstod en fejl under indlæsning af navigationstræet"
+msgstr "Der opstod en fejl under indlæsning af navigationsvisningen"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -9008,19 +8996,18 @@ msgstr ""
 "ydelsen. Overvej at slå elementgrupperingen fra i navigationspanelet."
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "Fandt %s andet resultat"
-msgstr[1] "Fandt %s andre resultater"
+msgstr[0] "Fandt %s resultat"
+msgstr[1] "Fandt %s resultater"
 
 #: libraries/navigation/NavigationTree.class.php:1203
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Vælg en database"
+msgstr "Vælg en database."
 
 #: libraries/navigation/NavigationTree.class.php:1261
 msgid "Filter databases by name or regex"
@@ -10556,27 +10543,25 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "CodeMirror-redigeringsværktøj med syntaksfremhævning til JSON."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "CodeMirror-redigeringsværktøj med syntaksfremhævning til SQL."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "CodeMirror-redigeringsværktøj med syntaksfremhævning til XML (og HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Formatterer tekst som SQL-forespørgsel med syntaks farvemarkering."
+msgstr "Formatterer teksten som JSON med syntaksfremhævning."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Formatterer tekst som SQL-forespørgsel med syntaks farvemarkering."
+msgstr "Formatterer tekst som XML med syntaksfremhævning."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -10742,10 +10727,10 @@ msgid ""
 msgstr "%sOpret%s phpMyAdmin-konfigurationslageret i den aktuelle database."
 
 #: libraries/relation.lib.php:1982
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Manglende phpMyAdmin configuration storage tabeller"
+msgstr "%sOpret%s manglende tabeller for phpMyAdmin-konfigurationslager."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -12404,10 +12389,9 @@ msgid "Filters"
 msgstr "Filtre"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Vis kun alert-værdier"
+msgstr "Vis kun aktive"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13525,10 +13509,9 @@ msgid "Improve table structure"
 msgstr "Forbedring af tabelstruktur"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Sporingstabel"
+msgstr "Spor visning"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
@@ -13537,10 +13520,9 @@ msgid "Add %s column(s)"
 msgstr "Tilføj %s kolonne(r)"
 
 #: libraries/structure.lib.php:1705
-#, fuzzy
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
-msgstr "I begyndelsen af tabel"
+msgstr "i begyndelsen af tabellen"
 
 #: libraries/structure.lib.php:1710
 #: libraries/tbl_columns_definition_form.lib.php:827
@@ -13642,10 +13624,9 @@ msgid "Showing create queries"
 msgstr "Vis oprettelses SQL-forespørgsler"
 
 #: libraries/structure.lib.php:3269
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
-msgstr "Relations-visning"
+msgstr "Visning af relation"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -13744,10 +13725,9 @@ msgid "Storage Engine:"
 msgstr "Datalager:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Forbindelser"
+msgstr "Forbindelse:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
@@ -13888,24 +13868,22 @@ msgstr ""
 "\"PRIMARY\" <b>skal</b> være navnet på og <b>kun på</b> en primær nøgle!"
 
 #: libraries/tbl_indexes.lib.php:305
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Størrelse af indexcache"
+msgstr "Indeksvalg:"
 
 #: libraries/tbl_indexes.lib.php:321
 msgid "Key block size:"
-msgstr ""
+msgstr "Blokstørrelse på nøgle:"
 
 #: libraries/tbl_indexes.lib.php:333
 msgid "Index type:"
 msgstr "Indekstype:"
 
 #: libraries/tbl_indexes.lib.php:345
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Bruger:"
+msgstr "Fortolker:"
 
 #: libraries/tbl_indexes.lib.php:357
 msgid "Comment:"
@@ -14497,12 +14475,12 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Række: %1$s, kolonne: %2$s, fejl: %3$s"
 
 #: tbl_structure.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "Kolonnenavnet '%s' er et nøgleord, der er reserveret af MySQL."
-msgstr[1] "Kolonnenavnet '%s' er et nøgleord, der er reserveret af MySQL."
+msgstr[0] "Navnet '%s' er et nøgleord, der er reserveret af MySQL."
+msgstr[1] "Navnene '%s' er nøgleord, der er reserveret af MySQL."
 
 #: tbl_structure.php:114
 msgid "No column selected."
