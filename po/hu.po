@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-24 13:12-0500\n"
-"PO-Revision-Date: 2015-02-22 22:50+0200\n"
+"PO-Revision-Date: 2015-02-25 18:16+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -6457,17 +6457,15 @@ msgid "Enable highlighting"
 msgstr "A szövegkiemelés engedélyezése"
 
 #: libraries/config/messages.inc.php:464
-#, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "Letiltsa-e az adatbázis kiterjesztés lehetőségét vagy sem."
+msgstr "Ajánlja-e fel a fa kiterjesztésének lehetőségét a navigációs panelen."
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Navigációs sáv"
+msgstr "Navigációs fa kiterjesztés engedélyezése"
 
 #: libraries/config/messages.inc.php:468
 msgid "Maximum number of recently used tables; set 0 to disable."
