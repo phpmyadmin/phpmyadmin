@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-24 13:12-0500\n"
-"PO-Revision-Date: 2015-02-23 13:51+0200\n"
+"PO-Revision-Date: 2015-02-25 13:48+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -6482,18 +6482,17 @@ msgid "Enable highlighting"
 msgstr "Active la surbrillance"
 
 #: libraries/config/messages.inc.php:464
-#, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
-"S'il faut désactiver la possibilité d'expansion de la base de données ou non."
+"S'il faut offrir la possibilité d'expansion de l'arborescence dans le "
+"panneau de navigation."
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Barre de navigation"
+msgstr "Permettre l'expansion de l'arborescence dans la navigation"
 
 #: libraries/config/messages.inc.php:468
 msgid "Maximum number of recently used tables; set 0 to disable."
