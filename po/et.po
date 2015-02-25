@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-24 13:12-0500\n"
-"PO-Revision-Date: 2015-02-25 08:46+0200\n"
+"PO-Revision-Date: 2015-02-25 11:05+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
@@ -4816,6 +4816,9 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"Ajatsooni %1$s kasutamine serveriga %2$d ei ole võimalik. Palun kontrolli "
+"häälestuses sätet [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
+"phpMyAdmin kasutab hetkel andmebaasi serveri vaikimisi ajatsooni."
 
 #: libraries/common.inc.php:1020
 #, php-format
@@ -6289,7 +6292,7 @@ msgstr "Mälu piirang"
 
 #: libraries/config/messages.inc.php:418
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "Asendab navigeerimispaneelil andmebaasi puu valijaga"
 
 #: libraries/config/messages.inc.php:420
 msgid "Show databases navigation as tree"
@@ -10458,15 +10461,15 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Süntaksi esiletõstuga CodeMirror toimeti JSON vormindusele."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Süntaksi esiletõstuga CodeMirror toimeti SQL vormindusele."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Süntaksi esiletõstuga CodeMirror toimeti XML (ja HTML) vormindusele."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
 msgid "Formats text as JSON with syntax highlighting."
