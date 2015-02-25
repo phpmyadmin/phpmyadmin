@@ -59,6 +59,7 @@ phpMyAdmin - ChangeLog
 + rfe #1207 Export users associated with a specific schema/database
 + rfe #1575 "Disable database expansion" : unclear directive name and
 explanation 
++ rfe #1607 Tool tip for lock icon when making changes to a page
 
 4.3.11.0 (not yet released)
 - bug #4774 SQL links are completely wrong
