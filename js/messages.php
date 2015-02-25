@@ -398,6 +398,12 @@ $js_messages['strYes'] = __('Yes');
 $js_messages['strCopyEncryptionKey'] = __('Do you want to copy encryption key?');
 $js_messages['strEncryptionKey'] = __('Encryption key');
 
+/* For Lock symbol Tooltip */
+$js_messages['strLockToolTip'] = __(
+    'Indicates that you have made changes to this page;'
+    . ' you will be prompted for confirmation before abandoning changes'
+);
+
 /* Designer (js/pmd/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
 $js_messages['strSelectForeignKey'] = __('Select Foreign Key');
