@@ -1384,8 +1384,18 @@ Cookie authentication options
     .. note::
 
         Please use this carefully, as this may allow users access to MySQL servers
-        behind the firewall where your :term:`HTTP`
-        server is placed.
+        behind the firewall where your :term:`HTTP` server is placed.
+        See also :config:option:`$cfg['ArbitraryServerRegexp']`.
+
+.. config:option:: $cfg['ArbitraryServerRegexp']
+
+    :type: string
+    :default: ``''``
+
+    Restricts the MySQL servers to which the user can log in when
+    :config:option:`$cfg['AllowArbitraryServer']` is enabled by
+    matching the :term:`IP` or the hostname of the MySQL server
+    to the given regular expression.
 
 .. config:option:: $cfg['CaptchaLoginPublicKey']
 

@@ -809,6 +809,14 @@ $cfg['IgnoreMultiSubmitErrors'] = false;
 $cfg['AllowArbitraryServer'] = false;
 
 /**
+ * restrict by IP (with regular expression) the MySQL servers the user can enter
+ * when $cfg['AllowArbitraryServer'] = true
+ *
+ * @global string $cfg['ArbitraryServerRegexp']
+ */
+$cfg['ArbitraryServerRegexp'] = '';
+
+/**
  * if reCaptcha is enabled it needs public key to connect with the service
  *
  * @global string $cfg['CaptchaLoginPublicKey']
