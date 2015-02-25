@@ -982,9 +982,9 @@ $cfg['NavigationTreeDefaultTabTable2'] = '';
 /**
  * Disables the possibility of database expansion
  *
- * @global boolean $cfg['DisableDatabaseExpansion']
+ * @global boolean $cfg['NavigationTreeEnableExpansion']
  */
-$cfg['NavigationTreeDisableDatabaseExpansion'] = false;
+$cfg['NavigationTreeEnableExpansion'] = true;
 
 /*******************************************************************************
  * In the main panel, at startup...
