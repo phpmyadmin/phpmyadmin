@@ -123,18 +123,18 @@ function getFieldValue(field, field_type)
  */
 function getAllValues()
 {
-    var elements = $('fieldset input, fieldset select, fieldset textarea');
+    var $elements = $('fieldset input, fieldset select, fieldset textarea');
     var values = {};
     var type, value;
-    for (var i = 0; i < elements.length; i++) {
-        type = getFieldType(elements[i]);
-        value = getFieldValue(elements[i], type);
+    for (var i = 0; i < $elements.length; i++) {
+        type = getFieldType($elements[i]);
+        value = getFieldValue($elements[i], type);
         if (typeof value != 'undefined') {
             // we only have single selects, fatten array
             if (type == 'select') {
                 value = value[0];
             }
-            values[elements[i].name] = value;
+            values[$elements[i].name] = value;
         }
     }
     return values;
@@ -337,11 +337,11 @@ function displayErrors(error_list)
         var errors = error_list[field_id];
         var $field = $('#' + field_id);
         var isFieldset = $field.attr('tagName') == 'FIELDSET';
-        var errorCnt;
+        var $errorCnt;
         if (isFieldset) {
-            errorCnt = $field.find('dl.errors');
+            $errorCnt = $field.find('dl.errors');
         } else {
-            errorCnt = $field.siblings('.inline_errors');
+            $errorCnt = $field.siblings('.inline_errors');
         }
 
         // remove empty errors (used to clear error list)
@@ -350,19 +350,19 @@ function displayErrors(error_list)
         // CSS error class
         if (!isFieldset) {
             // checkboxes uses parent <span> for marking
-            var fieldMarker = ($field.attr('type') == 'checkbox') ? $field.parent() : $field;
-            fieldMarker[errors.length ? 'addClass' : 'removeClass']('field-error');
+            var $fieldMarker = ($field.attr('type') == 'checkbox') ? $field.parent() : $field;
+            $fieldMarker[errors.length ? 'addClass' : 'removeClass']('field-error');
         }
 
         if (errors.length) {
             // if error container doesn't exist, create it
-            if (errorCnt.length === 0) {
+            if ($errorCnt.length === 0) {
                 if (isFieldset) {
-                    errorCnt = $('<dl class="errors" />');
-                    $field.find('table').before(errorCnt);
+                    $errorCnt = $('<dl class="errors" />');
+                    $field.find('table').before($errorCnt);
                 } else {
-                    errorCnt = $('<dl class="inline_errors" />');
-                    $field.closest('td').append(errorCnt);
+                    $errorCnt = $('<dl class="inline_errors" />');
+                    $field.closest('td').append($errorCnt);
                 }
             }
 
@@ -370,10 +370,10 @@ function displayErrors(error_list)
             for (var i = 0, imax = errors.length; i < imax; i++) {
                 html += '<dd>' + errors[i] + '</dd>';
             }
-            errorCnt.html(html);
-        } else if (errorCnt !== null) {
+            $errorCnt.html(html);
+        } else if ($errorCnt !== null) {
             // remove useless error container
-            errorCnt.remove();
+            $errorCnt.remove();
         }
     }
 }
@@ -460,9 +460,9 @@ function markField(field)
     var isDefault = checkFieldDefault($field, type);
 
     // checkboxes uses parent <span> for marking
-    var fieldMarker = (type == 'checkbox') ? $field.parent() : $field;
+    var $fieldMarker = (type == 'checkbox') ? $field.parent() : $field;
     setRestoreDefaultBtn($field, !isDefault);
-    fieldMarker[isDefault ? 'removeClass' : 'addClass']('custom');
+    $fieldMarker[isDefault ? 'removeClass' : 'addClass']('custom');
 }
 
 /**
@@ -479,7 +479,7 @@ function setRestoreDefaultBtn(field, display)
 
 AJAX.registerOnload('config.js', function () {
     // register validators and mark custom values
-    var elements = $('input[id], select[id], textarea[id]');
+    var $elements = $('input[id], select[id], textarea[id]');
     $('input[id], select[id], textarea[id]').each(function () {
         markField(this);
         var $el = $(this);
@@ -507,8 +507,8 @@ AJAX.registerOnload('config.js', function () {
     if ($check_page_refresh.length === 0 || $check_page_refresh.val() == '1') {
         // run all field validators
         var errors = {};
-        for (var i = 0; i < elements.length; i++) {
-            validate_field(elements[i], false, errors);
+        for (var i = 0; i < $elements.length; i++) {
+            validate_field($elements[i], false, errors);
         }
         // run all fieldset validators
         $('fieldset').each(function () {
@@ -679,16 +679,16 @@ AJAX.registerOnload('config.js', function () {
         updatePrefsDate();
     }
     $('form.prefs-form').change(function () {
-        var form = $(this);
+        var $form = $(this);
         var disabled = false;
         if (!ls_supported) {
-            disabled = form.find('input[type=radio][value$=local_storage]').prop('checked');
-        } else if (!ls_exists && form.attr('name') == 'prefs_import' &&
+            disabled = $form.find('input[type=radio][value$=local_storage]').prop('checked');
+        } else if (!ls_exists && $form.attr('name') == 'prefs_import' &&
             $('#import_local_storage')[0].checked
             ) {
             disabled = true;
         }
-        form.find('input[type=submit]').prop('disabled', disabled);
+        $form.find('input[type=submit]').prop('disabled', disabled);
     }).submit(function (e) {
         var $form = $(this);
         if ($form.attr('name') == 'prefs_export' && $('#export_local_storage')[0].checked) {
@@ -778,8 +778,8 @@ function offerPrefsAutoimport()
     }
     $cnt.find('a').click(function (e) {
         e.preventDefault();
-        var a = $(this);
-        if (a.attr('href') == '#no') {
+        var $a = $(this);
+        if ($a.attr('href') == '#no') {
             $cnt.remove();
             $.post('index.php', {
                 token: $cnt.find('input[name=token]').val(),
