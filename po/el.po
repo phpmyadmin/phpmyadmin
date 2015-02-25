@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-24 13:12-0500\n"
-"PO-Revision-Date: 2015-02-23 18:47+0200\n"
+"PO-Revision-Date: 2015-02-25 14:21+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -6491,18 +6491,17 @@ msgid "Enable highlighting"
 msgstr "Ενεργοποίηση επισήμανσης"
 
 #: libraries/config/messages.inc.php:464
-#, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
-"Αν θα απενεργοποιηθεί η πιθανότητα επέκτασης της βάσης δεδομένων ή όχι."
+"Αν θα προσφέρεται η πιθανότητα επέκτασης της επέκτασης του δέντρου στον "
+"πίνακα πλοήγησης."
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Γραμμή πλοήγησης πίνακα"
+msgstr "Ενεργοποίηση επέκτασης δέντρου πλοήγησης"
 
 #: libraries/config/messages.inc.php:468
 msgid "Maximum number of recently used tables; set 0 to disable."
