@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-24 13:12-0500\n"
+"POT-Creation-Date: 2015-02-25 12:32-0500\n"
 "PO-Revision-Date: 2015-02-15 18:57+0200\n"
 "Last-Translator: Vytautas Motuzas <v.motuzas@gmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -600,7 +600,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "Pavyko"
 
-#: import.php:58 js/messages.php:445
+#: import.php:58 js/messages.php:451
 msgid "Failed"
 msgstr "Nepavyko"
 
@@ -1560,7 +1560,7 @@ msgstr "Analizuojama…"
 msgid "Explain output"
 msgstr "Paaiškinti išvestį"
 
-#: js/messages.php:206 js/messages.php:697
+#: js/messages.php:206 js/messages.php:703
 #: libraries/plugins/export/ExportHtmlword.class.php:471
 #: libraries/plugins/export/ExportOdt.class.php:587
 #: libraries/plugins/export/ExportTexytext.class.php:426
@@ -1982,7 +1982,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:326 js/messages.php:566 libraries/normalization.lib.php:264
+#: js/messages.php:326 js/messages.php:572 libraries/normalization.lib.php:264
 msgid "Done"
 msgstr "Atlikta"
 
@@ -2156,7 +2156,7 @@ msgstr "Pasirinkite du skirtingus stulpelius"
 msgid "Data point content"
 msgstr "Duomenų rodyklės dydis"
 
-#: js/messages.php:383 js/messages.php:507 js/messages.php:523
+#: js/messages.php:383 js/messages.php:513 js/messages.php:529
 #: libraries/Error_Handler.class.php:348 libraries/insert_edit.lib.php:2561
 #: libraries/tbl_indexes.lib.php:395 libraries/tbl_indexes.lib.php:432
 msgid "Ignore"
@@ -2202,316 +2202,322 @@ msgstr ""
 msgid "Encryption key"
 msgstr ""
 
-#: js/messages.php:402
+#: js/messages.php:403
+msgid ""
+"Indicates that you have made changes to this page; you will be prompted for "
+"confirmation before abandoning changes"
+msgstr ""
+
+#: js/messages.php:408
 msgid "Select referenced key"
 msgstr "Pasirinkite siejamą raktą"
 
-#: js/messages.php:403
+#: js/messages.php:409
 msgid "Select Foreign Key"
 msgstr "Pasirinkti Foreign Key"
 
-#: js/messages.php:404
+#: js/messages.php:410
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
 msgstr "Prašome pasirinkti pirminį raktą arba unikalųjį raktą"
 
-#: js/messages.php:405 libraries/db_designer.lib.php:329
+#: js/messages.php:411 libraries/db_designer.lib.php:329
 #: libraries/db_designer.lib.php:332
 msgid "Choose column to display"
 msgstr "Pasirinkite laukus peržiūrai"
 
-#: js/messages.php:407
+#: js/messages.php:413
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:410
+#: js/messages.php:416
 msgid "Page name"
 msgstr "Puslapio vardas"
 
-#: js/messages.php:411
+#: js/messages.php:417
 #, fuzzy
 #| msgid "Select page"
 msgid "Save page"
 msgstr "Pasirinkite puslapį"
 
-#: js/messages.php:412 libraries/db_designer.lib.php:281
+#: js/messages.php:418 libraries/db_designer.lib.php:281
 #: libraries/db_designer.lib.php:284
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
 msgstr "Tušti puslapiai"
 
-#: js/messages.php:413
+#: js/messages.php:419
 #, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
 msgstr "Pasirinkite puslapį"
 
-#: js/messages.php:414 libraries/db_designer.lib.php:244
+#: js/messages.php:420 libraries/db_designer.lib.php:244
 #, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
 msgstr "Vienetas"
 
-#: js/messages.php:415
+#: js/messages.php:421
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Pasirinkite puslapį redagavimui"
 
-#: js/messages.php:416
+#: js/messages.php:422
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:417
+#: js/messages.php:423
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: js/messages.php:418
+#: js/messages.php:424
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: js/messages.php:419
+#: js/messages.php:425
 #, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "Keisti arba eksportuoti ryšių schemą"
 
-#: js/messages.php:420
+#: js/messages.php:426
 msgid "Modifications have been saved"
 msgstr "Pakeitimai išsaugoti"
 
-#: js/messages.php:423
+#: js/messages.php:429
 #, fuzzy, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
 msgstr "Pridėti parinktį stulpeliui/skilčiai "
 
-#: js/messages.php:424
+#: js/messages.php:430
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: js/messages.php:427
+#: js/messages.php:433
 #, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
 msgstr "Paspausti escape (klavišas Esc), kad išeiti iš redagavimo"
 
-#: js/messages.php:428
+#: js/messages.php:434
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:429
+#: js/messages.php:435
 #, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
 msgstr "Vilkite, kad pertvarkytumėte"
 
-#: js/messages.php:430
+#: js/messages.php:436
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: js/messages.php:431
+#: js/messages.php:437
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:432
+#: js/messages.php:438
 #, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
 msgstr "Paspauskite, kad (at)pažymėti"
 
-#: js/messages.php:433
+#: js/messages.php:439
 #, fuzzy
 #| msgid "Column names"
 msgid "Double-click to copy column name."
 msgstr "Stulpelių vardai"
 
-#: js/messages.php:435
+#: js/messages.php:441
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:437 libraries/DisplayResults.class.php:926
+#: js/messages.php:443 libraries/DisplayResults.class.php:926
 #: libraries/browse_foreigners.lib.php:253
 #: libraries/browse_foreigners.lib.php:306
 #: libraries/server_privileges.lib.php:3262
 msgid "Show all"
 msgstr "Rodyti viską"
 
-#: js/messages.php:438
+#: js/messages.php:444
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:439
+#: js/messages.php:445
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:440
+#: js/messages.php:446
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: js/messages.php:443
+#: js/messages.php:449
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Atšaukti"
 
-#: js/messages.php:444 libraries/server_status.lib.php:269
+#: js/messages.php:450 libraries/server_status.lib.php:269
 msgid "Aborted"
 msgstr "Nutraukta"
 
-#: js/messages.php:446
+#: js/messages.php:452
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:447
+#: js/messages.php:453
 #, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
 msgstr "Importuoti numatytąsias reikšmes"
 
-#: js/messages.php:448 libraries/navigation/Navigation.class.php:107
+#: js/messages.php:454 libraries/navigation/Navigation.class.php:107
 msgid "Drop files here"
 msgstr ""
 
-#: js/messages.php:449
+#: js/messages.php:455
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "Pasirinkite lenteles"
 
-#: js/messages.php:454
+#: js/messages.php:460
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:457
+#: js/messages.php:463
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:462
+#: js/messages.php:468
 #, fuzzy
 #| msgid "Go to link"
 msgid "Go to link:"
 msgstr "Eiti pagal nuorodą"
 
-#: js/messages.php:463
+#: js/messages.php:469
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name."
 msgstr "Stulpelių vardai"
 
-#: js/messages.php:464
+#: js/messages.php:470
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:467
+#: js/messages.php:473
 msgid "Generate password"
 msgstr "Generuoti slaptažodį"
 
-#: js/messages.php:468 libraries/replication_gui.lib.php:889
+#: js/messages.php:474 libraries/replication_gui.lib.php:889
 msgid "Generate"
 msgstr "Generuoti"
 
-#: js/messages.php:469
+#: js/messages.php:475
 msgid "Change Password"
 msgstr "Pakeisti slaptažodį"
 
-#: js/messages.php:472
+#: js/messages.php:478
 msgid "More"
 msgstr "Daugiau"
 
-#: js/messages.php:475
+#: js/messages.php:481
 #, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
 msgstr "Rodyti viską"
 
-#: js/messages.php:476
+#: js/messages.php:482
 #, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
 msgstr "Nerodyti indeksų"
 
-#: js/messages.php:477
+#: js/messages.php:483
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show hidden navigation tree items."
 msgstr "Logotipą rodyti kairiame rėmelyje"
 
-#: js/messages.php:478 libraries/config/messages.inc.php:423
+#: js/messages.php:484 libraries/config/messages.inc.php:423
 #: libraries/navigation/NavigationTree.class.php:1328
 #, fuzzy
 #| msgid "Customize main frame"
 msgid "Link with main panel"
 msgstr "Adaptuoti pagrindinė rėmelį"
 
-#: js/messages.php:479 libraries/navigation/NavigationTree.class.php:1331
+#: js/messages.php:485 libraries/navigation/NavigationTree.class.php:1331
 #, fuzzy
 #| msgid "Customize main frame"
 msgid "Unlink from main panel"
 msgstr "Adaptuoti pagrindinė rėmelį"
 
-#: js/messages.php:480
+#: js/messages.php:486
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
 
-#: js/messages.php:481
+#: js/messages.php:487
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 
-#: js/messages.php:482
+#: js/messages.php:488
 #, fuzzy
 #| msgid "Tables"
 msgid "tables"
 msgstr "Lentelės"
 
-#: js/messages.php:483
+#: js/messages.php:489
 #, fuzzy
 #| msgid "Views"
 msgid "views"
 msgstr "Rodinys (Views)"
 
-#: js/messages.php:484
+#: js/messages.php:490
 #, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
 msgstr "Procedūros"
 
-#: js/messages.php:485
+#: js/messages.php:491
 #, fuzzy
 #| msgid "event"
 msgid "events"
 msgstr "įvykis"
 
-#: js/messages.php:486
+#: js/messages.php:492
 #, fuzzy
 #| msgid "Functions"
 msgid "functions"
 msgstr "Funkcijos"
 
-#: js/messages.php:489
+#: js/messages.php:495
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Privilegijų lentelėje pasirinktas vartotojas nerastas."
 
-#: js/messages.php:492 setup/lib/index.lib.php:160
+#: js/messages.php:498 setup/lib/index.lib.php:160
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2521,106 +2527,106 @@ msgstr ""
 "atnaujinimą. Naujausia versija yra %s, išleista %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:494
+#: js/messages.php:500
 msgid ", latest stable version:"
 msgstr ", naujausia stabili versija:"
 
-#: js/messages.php:495
+#: js/messages.php:501
 msgid "up to date"
 msgstr "naujausias"
 
-#: js/messages.php:497 libraries/DisplayResults.class.php:4797
+#: js/messages.php:503 libraries/DisplayResults.class.php:4797
 #: view_create.php:182
 msgid "Create view"
 msgstr "Sukurti rodinį"
 
-#: js/messages.php:500
+#: js/messages.php:506
 #, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
 msgstr "Serverio jungtis"
 
-#: js/messages.php:501
+#: js/messages.php:507
 msgid "Submit Error Report"
 msgstr ""
 
-#: js/messages.php:503
+#: js/messages.php:509
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:505
+#: js/messages.php:511
 #, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
 msgstr "Keisti nustatymus"
 
-#: js/messages.php:506
+#: js/messages.php:512
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
 msgstr "Rodyti atidarytas lenteles"
 
-#: js/messages.php:509
+#: js/messages.php:515
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:513
+#: js/messages.php:519
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:519 js/messages.php:531
+#: js/messages.php:525 js/messages.php:537
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:521
+#: js/messages.php:527
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:526 libraries/Error_Handler.class.php:353
+#: js/messages.php:532 libraries/Error_Handler.class.php:353
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Ignoruoti"
 
-#: js/messages.php:533
+#: js/messages.php:539
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:540
+#: js/messages.php:546
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Rodyti šią užklausą vėl"
 
-#: js/messages.php:541
+#: js/messages.php:547
 #, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "Ar tikrai norite vykdyti „%s“?"
 
-#: js/messages.php:542
+#: js/messages.php:548
 msgid ""
 "Your web browser does not support local storage of settings or the quota "
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:570
+#: js/messages.php:576
 #, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Ankstesnis"
 
-#: js/messages.php:575
+#: js/messages.php:581
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2628,149 +2634,149 @@ msgid "Next"
 msgstr "Kitas"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:578
+#: js/messages.php:584
 msgid "Today"
 msgstr "Šiandien"
 
-#: js/messages.php:582
+#: js/messages.php:588
 msgid "January"
 msgstr "sausio"
 
-#: js/messages.php:583
+#: js/messages.php:589
 msgid "February"
 msgstr "vasario"
 
-#: js/messages.php:584
+#: js/messages.php:590
 msgid "March"
 msgstr "kovo"
 
-#: js/messages.php:585
+#: js/messages.php:591
 msgid "April"
 msgstr "balandžio"
 
-#: js/messages.php:586
+#: js/messages.php:592
 msgid "May"
 msgstr "Geg"
 
-#: js/messages.php:587
+#: js/messages.php:593
 msgid "June"
 msgstr "birželio"
 
-#: js/messages.php:588
+#: js/messages.php:594
 msgid "July"
 msgstr "liepos"
 
-#: js/messages.php:589
+#: js/messages.php:595
 msgid "August"
 msgstr "rugpjūčio"
 
-#: js/messages.php:590
+#: js/messages.php:596
 msgid "September"
 msgstr "rugsėjo"
 
-#: js/messages.php:591
+#: js/messages.php:597
 msgid "October"
 msgstr "spalio"
 
-#: js/messages.php:592
+#: js/messages.php:598
 msgid "November"
 msgstr "lapkričio"
 
-#: js/messages.php:593
+#: js/messages.php:599
 msgid "December"
 msgstr "gruodžio"
 
 #. l10n: Short month name
-#: js/messages.php:600 libraries/Util.class.php:1555
+#: js/messages.php:606 libraries/Util.class.php:1555
 msgid "Jan"
 msgstr "Sau"
 
 #. l10n: Short month name
-#: js/messages.php:602 libraries/Util.class.php:1557
+#: js/messages.php:608 libraries/Util.class.php:1557
 msgid "Feb"
 msgstr "Vas"
 
 #. l10n: Short month name
-#: js/messages.php:604 libraries/Util.class.php:1559
+#: js/messages.php:610 libraries/Util.class.php:1559
 msgid "Mar"
 msgstr "Kov"
 
 #. l10n: Short month name
-#: js/messages.php:606 libraries/Util.class.php:1561
+#: js/messages.php:612 libraries/Util.class.php:1561
 msgid "Apr"
 msgstr "Bal"
 
 #. l10n: Short month name
-#: js/messages.php:608 libraries/Util.class.php:1563
+#: js/messages.php:614 libraries/Util.class.php:1563
 msgctxt "Short month name"
 msgid "May"
 msgstr "Geg"
 
 #. l10n: Short month name
-#: js/messages.php:610 libraries/Util.class.php:1565
+#: js/messages.php:616 libraries/Util.class.php:1565
 msgid "Jun"
 msgstr "Bir"
 
 #. l10n: Short month name
-#: js/messages.php:612 libraries/Util.class.php:1567
+#: js/messages.php:618 libraries/Util.class.php:1567
 msgid "Jul"
 msgstr "Lie"
 
 #. l10n: Short month name
-#: js/messages.php:614 libraries/Util.class.php:1569
+#: js/messages.php:620 libraries/Util.class.php:1569
 msgid "Aug"
 msgstr "Rgp"
 
 #. l10n: Short month name
-#: js/messages.php:616 libraries/Util.class.php:1571
+#: js/messages.php:622 libraries/Util.class.php:1571
 msgid "Sep"
 msgstr "Rgs"
 
 #. l10n: Short month name
-#: js/messages.php:618 libraries/Util.class.php:1573
+#: js/messages.php:624 libraries/Util.class.php:1573
 msgid "Oct"
 msgstr "Spa"
 
 #. l10n: Short month name
-#: js/messages.php:620 libraries/Util.class.php:1575
+#: js/messages.php:626 libraries/Util.class.php:1575
 msgid "Nov"
 msgstr "Lap"
 
 #. l10n: Short month name
-#: js/messages.php:622 libraries/Util.class.php:1577
+#: js/messages.php:628 libraries/Util.class.php:1577
 msgid "Dec"
 msgstr "Grd"
 
-#: js/messages.php:628
+#: js/messages.php:634
 msgid "Sunday"
 msgstr "Sekmadienis"
 
-#: js/messages.php:629
+#: js/messages.php:635
 msgid "Monday"
 msgstr "Pirmadienis"
 
-#: js/messages.php:630
+#: js/messages.php:636
 msgid "Tuesday"
 msgstr "Antradienis"
 
-#: js/messages.php:631
+#: js/messages.php:637
 msgid "Wednesday"
 msgstr "Trečiadienis"
 
-#: js/messages.php:632
+#: js/messages.php:638
 msgid "Thursday"
 msgstr "Ketvirtadienis"
 
-#: js/messages.php:633
+#: js/messages.php:639
 msgid "Friday"
 msgstr "Penktadienis"
 
-#: js/messages.php:634
+#: js/messages.php:640
 msgid "Saturday"
 msgstr "Šeštadienis"
 
 #. l10n: Short week day name
-#: js/messages.php:641
+#: js/messages.php:647
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2778,99 +2784,99 @@ msgid "Sun"
 msgstr "Sek"
 
 #. l10n: Short week day name
-#: js/messages.php:643 libraries/Util.class.php:1582
+#: js/messages.php:649 libraries/Util.class.php:1582
 msgid "Mon"
 msgstr "Pir"
 
 #. l10n: Short week day name
-#: js/messages.php:645 libraries/Util.class.php:1584
+#: js/messages.php:651 libraries/Util.class.php:1584
 msgid "Tue"
 msgstr "Ant"
 
 #. l10n: Short week day name
-#: js/messages.php:647 libraries/Util.class.php:1586
+#: js/messages.php:653 libraries/Util.class.php:1586
 msgid "Wed"
 msgstr "Tre"
 
 #. l10n: Short week day name
-#: js/messages.php:649 libraries/Util.class.php:1588
+#: js/messages.php:655 libraries/Util.class.php:1588
 msgid "Thu"
 msgstr "Ket"
 
 #. l10n: Short week day name
-#: js/messages.php:651 libraries/Util.class.php:1590
+#: js/messages.php:657 libraries/Util.class.php:1590
 msgid "Fri"
 msgstr "Pen"
 
 #. l10n: Short week day name
-#: js/messages.php:653 libraries/Util.class.php:1592
+#: js/messages.php:659 libraries/Util.class.php:1592
 msgid "Sat"
 msgstr "Šeš"
 
 #. l10n: Minimal week day name
-#: js/messages.php:660
+#: js/messages.php:666
 msgid "Su"
 msgstr "Sk"
 
 #. l10n: Minimal week day name
-#: js/messages.php:662
+#: js/messages.php:668
 msgid "Mo"
 msgstr "Pr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:664
+#: js/messages.php:670
 msgid "Tu"
 msgstr "An"
 
 #. l10n: Minimal week day name
-#: js/messages.php:666
+#: js/messages.php:672
 msgid "We"
 msgstr "Tr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:668
+#: js/messages.php:674
 msgid "Th"
 msgstr "Kt"
 
 #. l10n: Minimal week day name
-#: js/messages.php:670
+#: js/messages.php:676
 msgid "Fr"
 msgstr "Pn"
 
 #. l10n: Minimal week day name
-#: js/messages.php:672
+#: js/messages.php:678
 msgid "Sa"
 msgstr "Št"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:676
+#: js/messages.php:682
 msgid "Wk"
 msgstr "Sav."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:683
+#: js/messages.php:689
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:686
+#: js/messages.php:692
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Ne"
 
-#: js/messages.php:698
+#: js/messages.php:704
 msgid "Hour"
 msgstr "Valanda"
 
-#: js/messages.php:699
+#: js/messages.php:705
 msgid "Minute"
 msgstr "Minutė"
 
-#: js/messages.php:700
+#: js/messages.php:706
 msgid "Second"
 msgstr "Sekundės"
 
@@ -3312,7 +3318,7 @@ msgstr "Rodomos žymelės"
 msgid "Delete bookmark"
 msgstr "Ištrinti sąryšį"
 
-#: libraries/DatabaseInterface.class.php:2190
+#: libraries/DatabaseInterface.class.php:2196
 #, fuzzy
 #| msgid " the local MySQL server's socket is not correctly configured)"
 msgid ""
@@ -3320,21 +3326,21 @@ msgid ""
 "configured)."
 msgstr "(arba vietiniai MySQL serverio socketai yra blogai sukonfigūruoti)"
 
-#: libraries/DatabaseInterface.class.php:2195
+#: libraries/DatabaseInterface.class.php:2201
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Serveris neatsako"
 
-#: libraries/DatabaseInterface.class.php:2200
+#: libraries/DatabaseInterface.class.php:2206
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2210
+#: libraries/DatabaseInterface.class.php:2216
 msgid "Details…"
 msgstr "Detalės…"
 
-#: libraries/DatabaseInterface.class.php:2433
+#: libraries/DatabaseInterface.class.php:2439
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 

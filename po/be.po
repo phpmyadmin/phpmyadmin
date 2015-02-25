@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-24 13:12-0500\n"
+"POT-Creation-Date: 2015-02-25 12:32-0500\n"
 "PO-Revision-Date: 2015-01-09 18:19+0200\n"
 "Last-Translator: Viktar Palstsiuk <vipals@gmail.com>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -622,7 +622,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "У доступе адмоўлена!"
 
-#: import.php:58 js/messages.php:445
+#: import.php:58 js/messages.php:451
 msgid "Failed"
 msgstr ""
 
@@ -1639,7 +1639,7 @@ msgstr "Прааналізаваць"
 msgid "Explain output"
 msgstr "Тлумачыць SQL"
 
-#: js/messages.php:206 js/messages.php:697
+#: js/messages.php:206 js/messages.php:703
 #: libraries/plugins/export/ExportHtmlword.class.php:471
 #: libraries/plugins/export/ExportOdt.class.php:587
 #: libraries/plugins/export/ExportTexytext.class.php:426
@@ -2086,7 +2086,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:326 js/messages.php:566 libraries/normalization.lib.php:264
+#: js/messages.php:326 js/messages.php:572 libraries/normalization.lib.php:264
 #, fuzzy
 msgid "Done"
 msgstr "Дадзеныя"
@@ -2258,7 +2258,7 @@ msgstr ""
 msgid "Data point content"
 msgstr "Памер указальніка на дадзеныя"
 
-#: js/messages.php:383 js/messages.php:507 js/messages.php:523
+#: js/messages.php:383 js/messages.php:513 js/messages.php:529
 #: libraries/Error_Handler.class.php:348 libraries/insert_edit.lib.php:2561
 #: libraries/tbl_indexes.lib.php:395 libraries/tbl_indexes.lib.php:432
 msgid "Ignore"
@@ -2306,317 +2306,323 @@ msgstr ""
 msgid "Encryption key"
 msgstr ""
 
-#: js/messages.php:402
+#: js/messages.php:403
+msgid ""
+"Indicates that you have made changes to this page; you will be prompted for "
+"confirmation before abandoning changes"
+msgstr ""
+
+#: js/messages.php:408
 msgid "Select referenced key"
 msgstr "Выберыце спасылкавы ключ"
 
-#: js/messages.php:403
+#: js/messages.php:409
 msgid "Select Foreign Key"
 msgstr "Выберыце зьнешні ключ"
 
-#: js/messages.php:404
+#: js/messages.php:410
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
 msgstr "Калі ласка, выберыце першасны (PRIMARY) альбо ўнікальны ключ (UNIQUE)"
 
-#: js/messages.php:405 libraries/db_designer.lib.php:329
+#: js/messages.php:411 libraries/db_designer.lib.php:329
 #: libraries/db_designer.lib.php:332
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Выберыце поле для адлюстраваньня"
 
-#: js/messages.php:407
+#: js/messages.php:413
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:410
+#: js/messages.php:416
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
 msgstr "Старонка:"
 
-#: js/messages.php:411
+#: js/messages.php:417
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page"
 msgstr "Выбраць усё"
 
-#: js/messages.php:412 libraries/db_designer.lib.php:281
+#: js/messages.php:418 libraries/db_designer.lib.php:281
 #: libraries/db_designer.lib.php:284
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
 msgstr "Вольных старонак"
 
-#: js/messages.php:413
+#: js/messages.php:419
 #, fuzzy
 #| msgid "Select All"
 msgid "Delete page"
 msgstr "Выбраць усё"
 
-#: js/messages.php:414 libraries/db_designer.lib.php:244
+#: js/messages.php:420 libraries/db_designer.lib.php:244
 msgid "Untitled"
 msgstr ""
 
-#: js/messages.php:415
+#: js/messages.php:421
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Калі ласка, выберыце старонку для рэдагаваньня"
 
-#: js/messages.php:416
+#: js/messages.php:422
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid page name"
 msgstr "%d не зьяўляецца карэктным нумарам радка."
 
-#: js/messages.php:417
+#: js/messages.php:423
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: js/messages.php:418
+#: js/messages.php:424
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: js/messages.php:419
+#: js/messages.php:425
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Export relational schema"
 msgstr "Рэляцыйная схема"
 
-#: js/messages.php:420
+#: js/messages.php:426
 msgid "Modifications have been saved"
 msgstr "Мадыфікацыі былі захаваныя"
 
-#: js/messages.php:423
+#: js/messages.php:429
 #, fuzzy, php-format
 #| msgid "Number of fields"
 msgid "Add an option for column \"%s\"."
 msgstr "Колькасьць палёў"
 
-#: js/messages.php:424
+#: js/messages.php:430
 #, fuzzy, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%d object(s) created."
 msgstr "Зьменена радкоў: %1$d."
 
-#: js/messages.php:427
+#: js/messages.php:433
 msgid "Press escape to cancel editing."
 msgstr ""
 
-#: js/messages.php:428
+#: js/messages.php:434
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:429
+#: js/messages.php:435
 msgid "Drag to reorder."
 msgstr ""
 
-#: js/messages.php:430
+#: js/messages.php:436
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: js/messages.php:431
+#: js/messages.php:437
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:432
+#: js/messages.php:438
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: js/messages.php:433
+#: js/messages.php:439
 #, fuzzy
 #| msgid "Column names"
 msgid "Double-click to copy column name."
 msgstr "Назвы калёнак"
 
-#: js/messages.php:435
+#: js/messages.php:441
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:437 libraries/DisplayResults.class.php:926
+#: js/messages.php:443 libraries/DisplayResults.class.php:926
 #: libraries/browse_foreigners.lib.php:253
 #: libraries/browse_foreigners.lib.php:306
 #: libraries/server_privileges.lib.php:3262
 msgid "Show all"
 msgstr "Паказаць усе"
 
-#: js/messages.php:438
+#: js/messages.php:444
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:439
+#: js/messages.php:445
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:440
+#: js/messages.php:446
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: js/messages.php:443
+#: js/messages.php:449
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Скасаваць"
 
-#: js/messages.php:444 libraries/server_status.lib.php:269
+#: js/messages.php:450 libraries/server_status.lib.php:269
 msgid "Aborted"
 msgstr "Спынена"
 
-#: js/messages.php:446
+#: js/messages.php:452
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:447
+#: js/messages.php:453
 #, fuzzy
 msgid "Import status"
 msgstr "Імпартаваць файлы"
 
-#: js/messages.php:448 libraries/navigation/Navigation.class.php:107
+#: js/messages.php:454 libraries/navigation/Navigation.class.php:107
 #, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
 msgstr "Парог файла логу"
 
-#: js/messages.php:449
+#: js/messages.php:455
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "Выберыце табліцу(ы)"
 
-#: js/messages.php:454
+#: js/messages.php:460
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:457
+#: js/messages.php:463
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:462
+#: js/messages.php:468
 #, fuzzy
 msgid "Go to link:"
 msgstr "Базы дадзеных адсутнічаюць"
 
-#: js/messages.php:463
+#: js/messages.php:469
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name."
 msgstr "Назвы калёнак"
 
-#: js/messages.php:464
+#: js/messages.php:470
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:467
+#: js/messages.php:473
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Згенэраваць пароль"
 
-#: js/messages.php:468 libraries/replication_gui.lib.php:889
+#: js/messages.php:474 libraries/replication_gui.lib.php:889
 msgid "Generate"
 msgstr "Згенэраваць"
 
-#: js/messages.php:469
+#: js/messages.php:475
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Зьмяніць пароль"
 
-#: js/messages.php:472
+#: js/messages.php:478
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Пан"
 
-#: js/messages.php:475
+#: js/messages.php:481
 #, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
 msgstr "Паказаць усе"
 
-#: js/messages.php:476
+#: js/messages.php:482
 #, fuzzy
 #| msgid "Add new field"
 msgid "Hide Panel"
 msgstr "Дадаць новае поле"
 
-#: js/messages.php:477
+#: js/messages.php:483
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hidden navigation tree items."
 msgstr "Паказаць сетку"
 
-#: js/messages.php:478 libraries/config/messages.inc.php:423
+#: js/messages.php:484 libraries/config/messages.inc.php:423
 #: libraries/navigation/NavigationTree.class.php:1328
 #, fuzzy
 msgid "Link with main panel"
 msgstr "Налады экспарту базы дадзеных"
 
-#: js/messages.php:479 libraries/navigation/NavigationTree.class.php:1331
+#: js/messages.php:485 libraries/navigation/NavigationTree.class.php:1331
 #, fuzzy
 msgid "Unlink from main panel"
 msgstr "Налады экспарту базы дадзеных"
 
-#: js/messages.php:480
+#: js/messages.php:486
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
 
-#: js/messages.php:481
+#: js/messages.php:487
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 
-#: js/messages.php:482
+#: js/messages.php:488
 #, fuzzy
 #| msgid "Tables"
 msgid "tables"
 msgstr "Табліц"
 
-#: js/messages.php:483
+#: js/messages.php:489
 #, fuzzy
 #| msgid "View"
 msgid "views"
 msgstr "Выгляд"
 
-#: js/messages.php:484
+#: js/messages.php:490
 #, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
 msgstr "Працэдуры"
 
-#: js/messages.php:485
+#: js/messages.php:491
 #, fuzzy
 #| msgid "Event"
 msgid "events"
 msgstr "Падзея"
 
-#: js/messages.php:486
+#: js/messages.php:492
 #, fuzzy
 #| msgid "Functions"
 msgid "functions"
 msgstr "Функцыі"
 
-#: js/messages.php:489
+#: js/messages.php:495
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Вылучаны карыстальнік ня знойдзены ў табліцы прывілеяў."
 
-#: js/messages.php:492 setup/lib/index.lib.php:160
+#: js/messages.php:498 setup/lib/index.lib.php:160
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2624,108 +2630,108 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:494
+#: js/messages.php:500
 #, fuzzy
 msgid ", latest stable version:"
 msgstr "Стварыць сувязь"
 
-#: js/messages.php:495
+#: js/messages.php:501
 #, fuzzy
 msgid "up to date"
 msgstr "Базы дадзеных адсутнічаюць"
 
-#: js/messages.php:497 libraries/DisplayResults.class.php:4797
+#: js/messages.php:503 libraries/DisplayResults.class.php:4797
 #: view_create.php:182
 #, fuzzy
 msgid "Create view"
 msgstr "Стварыць сувязь"
 
-#: js/messages.php:500
+#: js/messages.php:506
 #, fuzzy
 msgid "Send Error Report"
 msgstr "ID сэрвэра"
 
-#: js/messages.php:501
+#: js/messages.php:507
 msgid "Submit Error Report"
 msgstr ""
 
-#: js/messages.php:503
+#: js/messages.php:509
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:505
+#: js/messages.php:511
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change Report Settings"
 msgstr "Магчымасьці асноўных сувязяў"
 
-#: js/messages.php:506
+#: js/messages.php:512
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
 msgstr "Паказаць адкрытыя табліцы"
 
-#: js/messages.php:509
+#: js/messages.php:515
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:513
+#: js/messages.php:519
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:519 js/messages.php:531
+#: js/messages.php:525 js/messages.php:537
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:521
+#: js/messages.php:527
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:526 libraries/Error_Handler.class.php:353
+#: js/messages.php:532 libraries/Error_Handler.class.php:353
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Ігнараваць"
 
-#: js/messages.php:533
+#: js/messages.php:539
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:540
+#: js/messages.php:546
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Паказаць гэты запыт зноў"
 
-#: js/messages.php:541
+#: js/messages.php:547
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to delete this bookmark?"
 msgstr "Ці сапраўды вы жадаеце "
 
-#: js/messages.php:542
+#: js/messages.php:548
 msgid ""
 "Your web browser does not support local storage of settings or the quota "
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:570
+#: js/messages.php:576
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Папярэдняя старонка"
 
-#: js/messages.php:575
+#: js/messages.php:581
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2733,96 +2739,96 @@ msgid "Next"
 msgstr "Наступная старонка"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:578
+#: js/messages.php:584
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Агулам"
 
-#: js/messages.php:582
+#: js/messages.php:588
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Двайковы"
 
-#: js/messages.php:583
+#: js/messages.php:589
 msgid "February"
 msgstr ""
 
-#: js/messages.php:584
+#: js/messages.php:590
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Сак"
 
-#: js/messages.php:585
+#: js/messages.php:591
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Кра"
 
-#: js/messages.php:586
+#: js/messages.php:592
 msgid "May"
 msgstr "Тра"
 
-#: js/messages.php:587
+#: js/messages.php:593
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Чэр"
 
-#: js/messages.php:588
+#: js/messages.php:594
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Ліп"
 
-#: js/messages.php:589
+#: js/messages.php:595
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Жні"
 
-#: js/messages.php:590
+#: js/messages.php:596
 msgid "September"
 msgstr ""
 
-#: js/messages.php:591
+#: js/messages.php:597
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Кас"
 
-#: js/messages.php:592
+#: js/messages.php:598
 msgid "November"
 msgstr ""
 
-#: js/messages.php:593
+#: js/messages.php:599
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:600 libraries/Util.class.php:1555
+#: js/messages.php:606 libraries/Util.class.php:1555
 msgid "Jan"
 msgstr "Сту"
 
 #. l10n: Short month name
-#: js/messages.php:602 libraries/Util.class.php:1557
+#: js/messages.php:608 libraries/Util.class.php:1557
 msgid "Feb"
 msgstr "Лют"
 
 #. l10n: Short month name
-#: js/messages.php:604 libraries/Util.class.php:1559
+#: js/messages.php:610 libraries/Util.class.php:1559
 msgid "Mar"
 msgstr "Сак"
 
 #. l10n: Short month name
-#: js/messages.php:606 libraries/Util.class.php:1561
+#: js/messages.php:612 libraries/Util.class.php:1561
 msgid "Apr"
 msgstr "Кра"
 
 #. l10n: Short month name
-#: js/messages.php:608 libraries/Util.class.php:1563
+#: js/messages.php:614 libraries/Util.class.php:1563
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2830,78 +2836,78 @@ msgid "May"
 msgstr "Тра"
 
 #. l10n: Short month name
-#: js/messages.php:610 libraries/Util.class.php:1565
+#: js/messages.php:616 libraries/Util.class.php:1565
 msgid "Jun"
 msgstr "Чэр"
 
 #. l10n: Short month name
-#: js/messages.php:612 libraries/Util.class.php:1567
+#: js/messages.php:618 libraries/Util.class.php:1567
 msgid "Jul"
 msgstr "Ліп"
 
 #. l10n: Short month name
-#: js/messages.php:614 libraries/Util.class.php:1569
+#: js/messages.php:620 libraries/Util.class.php:1569
 msgid "Aug"
 msgstr "Жні"
 
 #. l10n: Short month name
-#: js/messages.php:616 libraries/Util.class.php:1571
+#: js/messages.php:622 libraries/Util.class.php:1571
 msgid "Sep"
 msgstr "Вер"
 
 #. l10n: Short month name
-#: js/messages.php:618 libraries/Util.class.php:1573
+#: js/messages.php:624 libraries/Util.class.php:1573
 msgid "Oct"
 msgstr "Кас"
 
 #. l10n: Short month name
-#: js/messages.php:620 libraries/Util.class.php:1575
+#: js/messages.php:626 libraries/Util.class.php:1575
 msgid "Nov"
 msgstr "Ліс"
 
 #. l10n: Short month name
-#: js/messages.php:622 libraries/Util.class.php:1577
+#: js/messages.php:628 libraries/Util.class.php:1577
 msgid "Dec"
 msgstr "Сьн"
 
-#: js/messages.php:628
+#: js/messages.php:634
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Ндз"
 
-#: js/messages.php:629
+#: js/messages.php:635
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Пан"
 
-#: js/messages.php:630
+#: js/messages.php:636
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Аўт"
 
-#: js/messages.php:631
+#: js/messages.php:637
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:632
+#: js/messages.php:638
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:633
+#: js/messages.php:639
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Пят"
 
-#: js/messages.php:634
+#: js/messages.php:640
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:641
+#: js/messages.php:647
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2909,86 +2915,86 @@ msgid "Sun"
 msgstr "Ндз"
 
 #. l10n: Short week day name
-#: js/messages.php:643 libraries/Util.class.php:1582
+#: js/messages.php:649 libraries/Util.class.php:1582
 msgid "Mon"
 msgstr "Пан"
 
 #. l10n: Short week day name
-#: js/messages.php:645 libraries/Util.class.php:1584
+#: js/messages.php:651 libraries/Util.class.php:1584
 msgid "Tue"
 msgstr "Аўт"
 
 #. l10n: Short week day name
-#: js/messages.php:647 libraries/Util.class.php:1586
+#: js/messages.php:653 libraries/Util.class.php:1586
 msgid "Wed"
 msgstr "Сер"
 
 #. l10n: Short week day name
-#: js/messages.php:649 libraries/Util.class.php:1588
+#: js/messages.php:655 libraries/Util.class.php:1588
 msgid "Thu"
 msgstr "Цач"
 
 #. l10n: Short week day name
-#: js/messages.php:651 libraries/Util.class.php:1590
+#: js/messages.php:657 libraries/Util.class.php:1590
 msgid "Fri"
 msgstr "Пят"
 
 #. l10n: Short week day name
-#: js/messages.php:653 libraries/Util.class.php:1592
+#: js/messages.php:659 libraries/Util.class.php:1592
 msgid "Sat"
 msgstr "Суб"
 
 #. l10n: Minimal week day name
-#: js/messages.php:660
+#: js/messages.php:666
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ндз"
 
 #. l10n: Minimal week day name
-#: js/messages.php:662
+#: js/messages.php:668
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Пан"
 
 #. l10n: Minimal week day name
-#: js/messages.php:664
+#: js/messages.php:670
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Аўт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:666
+#: js/messages.php:672
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Сер"
 
 #. l10n: Minimal week day name
-#: js/messages.php:668
+#: js/messages.php:674
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Цач"
 
 #. l10n: Minimal week day name
-#: js/messages.php:670
+#: js/messages.php:676
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Пят"
 
 #. l10n: Minimal week day name
-#: js/messages.php:672
+#: js/messages.php:678
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Суб"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:676
+#: js/messages.php:682
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
@@ -2997,29 +3003,29 @@ msgstr "Wiki"
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:683
+#: js/messages.php:689
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:686
+#: js/messages.php:692
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Няма"
 
-#: js/messages.php:698
+#: js/messages.php:704
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:699
+#: js/messages.php:705
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "выкарыстоўваецца"
 
-#: js/messages.php:700
+#: js/messages.php:706
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -3458,7 +3464,7 @@ msgstr "Паказваючы закладку"
 msgid "Delete bookmark"
 msgstr "Выдаліць сувязь"
 
-#: libraries/DatabaseInterface.class.php:2190
+#: libraries/DatabaseInterface.class.php:2196
 #, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
@@ -3466,21 +3472,21 @@ msgid ""
 "configured)."
 msgstr "(або сокет лякальнага сэрвэра MySQL не сканфігураваны правільна)"
 
-#: libraries/DatabaseInterface.class.php:2195
+#: libraries/DatabaseInterface.class.php:2201
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Сэрвэр не адказвае"
 
-#: libraries/DatabaseInterface.class.php:2200
+#: libraries/DatabaseInterface.class.php:2206
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2210
+#: libraries/DatabaseInterface.class.php:2216
 msgid "Details…"
 msgstr "Падрабязьней…"
 
-#: libraries/DatabaseInterface.class.php:2433
+#: libraries/DatabaseInterface.class.php:2439
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Не атрымалася ўсталяваць злучэньне для controluser, вызначанае ў вашым "
