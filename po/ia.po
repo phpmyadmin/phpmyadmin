@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-02-25 16:38+0200\n"
+"PO-Revision-Date: 2015-02-26 15:12+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/ia/>\n"
@@ -9525,7 +9525,7 @@ msgstr "Remove partitionemento"
 
 #: libraries/operations.lib.php:1341
 msgid "Check referential integrity:"
-msgstr "Verifica integritate referential"
+msgstr "Verifica le integritate referential:"
 
 #: libraries/operations.lib.php:1626
 msgid "Can't move table to same one!"
