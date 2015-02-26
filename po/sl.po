@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-25 12:32-0500\n"
-"PO-Revision-Date: 2015-02-26 18:29+0200\n"
+"PO-Revision-Date: 2015-02-26 18:30+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
@@ -13504,7 +13504,7 @@ msgstr "Izboljšaj strukturo tabele"
 
 #: libraries/structure.lib.php:1655
 msgid "Track view"
-msgstr "Pogled sledenja"
+msgstr "Sledi pogledu"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
