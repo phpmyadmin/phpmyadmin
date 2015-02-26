@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-25 12:32-0500\n"
-"PO-Revision-Date: 2015-02-26 07:18+0200\n"
+"PO-Revision-Date: 2015-02-26 07:23+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
@@ -421,7 +421,7 @@ msgstr "Μη παρακολουθούμενοι πίνακες"
 
 #: db_tracking.php:303 db_tracking.php:334 libraries/structure.lib.php:1641
 msgid "Track table"
-msgstr "Παρακολούθηση πίνακα"
+msgstr "Πληροφορίες παρακολούθησης πίνακα"
 
 #: db_tracking.php:347
 msgid "Database Log"
@@ -13672,7 +13672,7 @@ msgstr "Βελτίωση δομής πίνακα"
 
 #: libraries/structure.lib.php:1655
 msgid "Track view"
-msgstr "Προβολή παρακολούθησης προβολής"
+msgstr "Πληροφορίες παρακολούθησης προβολής"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
