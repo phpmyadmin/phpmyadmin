@@ -69,6 +69,7 @@ explanation
 - bug #4753 Normal field and multi-line field have different margins
 - bug #4760 Cannot re-import settings from local storage
 - bug #4778 SQL error when database list is sorted by additional columns
+- bug #4780 Notice when timestamp column does not have default value
 
 4.3.10.0 (2015-02-20)
 - bug       Undefined index navwork
