@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-09 07:21+0200\n"
+"PO-Revision-Date: 2015-02-26 07:23+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-3/el/>"
 "\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -419,7 +419,7 @@ msgstr "Μη παρακολουθούμενοι πίνακες"
 
 #: db_tracking.php:221 libraries/structure.lib.php:1654
 msgid "Track table"
-msgstr "Παρακολούθηση πίνακα"
+msgstr "Πληροφορίες παρακολούθησης πίνακα"
 
 #: db_tracking.php:248
 msgid "Database Log"
