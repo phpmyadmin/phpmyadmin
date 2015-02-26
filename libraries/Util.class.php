@@ -3701,7 +3701,8 @@ class PMA_Util
             && empty($field['Default'])
             && empty($data)
             && ! isset($analyzed_sql_field_array['on_update_current_timestamp'])
-            && ($analyzed_sql_field_array['default_value'] != 'NULL')
+            && ! (isset($analyzed_sql_field_array['default_value'])
+            && $analyzed_sql_field_array['default_value'] == 'NULL')
         ) {
             $default_function = $cfg['DefaultFunctions']['first_timestamp'];
         }
