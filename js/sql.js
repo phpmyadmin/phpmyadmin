@@ -100,16 +100,6 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', 'th.column_heading.marker');
     $(window).unbind('scroll');
     $(document).off("keyup", ".filter_rows");
-
-    if (codemirror_editor) {
-        codemirror_editor.off('change', PMA_handleQueryChanges);
-    }
-    $('#sqlquery').off('input propertychange', PMA_handleQueryChanges);
-    if (PMA_consoleInput) {
-        PMA_consoleInput.off('change', PMA_handleConsoleChanges);
-    }
-    $('#pma_console').off('input propertychange', PMA_handleConsoleChanges);
-
     $('body').off('click', '.navigation .showAllRows');
     $('body').off('click','a.browse_foreign');
     $('body').off('click', '#simulate_dml');
@@ -134,21 +124,6 @@ AJAX.registerTeardown('sql.js', function () {
  * @memberOf    jQuery
  */
 AJAX.registerOnload('sql.js', function () {
-
-    $(function () {
-        if (codemirror_editor) {
-            codemirror_editor.on('change', PMA_handleQueryChanges);
-        } else {
-            $('#sqlquery').on('input propertychange', PMA_handleQueryChanges);
-        }
-        if (PMA_consoleInput) {
-            PMA_consoleInput.on('change', PMA_handleConsoleChanges);
-        } else {
-            $('#pma_console').on('input propertychange', PMA_handleConsoleChanges);
-        }
-        PMA_handleConsoleChanges();
-    });
-
     // Delete row from SQL results
     $(document).on('click', 'a.delete_row.ajax', function (e) {
         e.preventDefault();
@@ -574,33 +549,6 @@ AJAX.registerOnload('sql.js', function () {
         $.get($form.attr('action'), submitData, AJAX.responseHandler);
     });
 }); // end $()
-
-function PMA_handleQueryChanges() {
-
-    var query = null;
-
-    if (codemirror_editor) {
-        query = codemirror_editor.getValue();
-    } else {
-        query = $('#sqlquery').val();
-    }
-    if (PMA_consoleInput.getText() !== query) {
-        PMA_consoleInput.setText(query);
-    }
-}
-
-function PMA_handleConsoleChanges() {
-
-    var query = PMA_consoleInput.getText();
-
-    if (codemirror_editor) {
-        if (query !== codemirror_editor.getValue()) {
-            codemirror_editor.setValue(query);
-        }
-    } else if (query !== $('#sqlquery').val()) {
-        $('#sqlquery').val(query);
-    }
-}
 
 /**
  * Starting from some th, change the class of all td under it.
