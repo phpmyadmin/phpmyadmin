@@ -80,7 +80,7 @@ function PMA_RTN_handleExport()
 {
     global $_GET, $db;
 
-    if (   ! empty($_GET['export_item'])
+    if (! empty($_GET['export_item'])
         && ! empty($_GET['item_name'])
         && ! empty($_GET['item_type'])
     ) {
