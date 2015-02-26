@@ -7,8 +7,13 @@
     <exclude name="PEAR.Commenting.FileComment" />
     <exclude name="PEAR.Commenting.ClassComment" />
     <exclude name="PEAR.Commenting.FunctionComment" />
-    <exclude name="PEAR.Commenting.InlineComment" />
-    <exclude name="Generic.Files.LineLength" />
+    <exclude name="Generic.Commenting.DocComment" />
+  </rule>
+  <rule ref="Generic.Files.LineLength">
+    <properties>
+      <property name="lineLimit" value="85"/>
+      <property name="absoluteLineLimit" value="0"/>
+    </properties>
   </rule>
   <rule ref="Generic.Metrics.NestingLevel" />
   <!-- There MUST NOT be trailing whitespace at the end of lines. -->
