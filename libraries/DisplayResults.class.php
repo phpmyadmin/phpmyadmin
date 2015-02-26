@@ -2283,7 +2283,10 @@ class PMA_DisplayResults
         $draggable_html = '<th';
         $th_class = array();
         $th_class[] = 'draggable';
-
+        if(preg_match('@int|decimal|float|double|real|bit|boolean|serial@i',$fields_meta->type)){
+            $th_class[] = 'right';
+            $draggable_html .= ' style="margin-right:0;"'; 
+        }
         if ($col_visib && !$col_visib_j) {
             $th_class[] = 'hide';
         }
@@ -2336,7 +2339,10 @@ class PMA_DisplayResults
         $draggable_html = '<th';
         $th_class = array();
         $th_class[] = 'draggable';
-
+        if(preg_match('@int|decimal|float|double|real|bit|boolean|serial@i',$fields_meta->type)){
+            $th_class[] = 'right';
+            $draggable_html .= ' style="margin-right:0;"'; 
+        }
         if ($col_visib && !$col_visib_j) {
             $th_class[] = 'hide';
         }
