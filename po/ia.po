@@ -9442,15 +9442,15 @@ msgstr "Copia le tabella in (database<b>.</b>table):"
 
 #: libraries/operations.lib.php:1040
 msgid "Switch to copied table"
-msgstr ""
+msgstr "Commuta a tabella copiate"
 
 #: libraries/operations.lib.php:1067
 msgid "Table maintenance"
-msgstr ""
+msgstr "Mentenimento de tabella"
 
 #: libraries/operations.lib.php:1105 libraries/structure.lib.php:326
 msgid "Check table"
-msgstr ""
+msgstr "Verifica tabella"
 
 #: libraries/operations.lib.php:1118
 msgid "Defragment table"
@@ -9458,7 +9458,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1131 libraries/structure.lib.php:334
 msgid "Analyze table"
-msgstr ""
+msgstr "Analysa tabella"
 
 #: libraries/operations.lib.php:1144 libraries/structure.lib.php:331
 msgid "Repair table"
@@ -9467,7 +9467,7 @@ msgstr ""
 #: libraries/operations.lib.php:1159 libraries/structure.lib.php:329
 #: libraries/structure.lib.php:1768
 msgid "Optimize table"
-msgstr ""
+msgstr "Optimiza tabella"
 
 #: libraries/operations.lib.php:1171
 #, php-format
@@ -9480,23 +9480,23 @@ msgstr ""
 
 #: libraries/operations.lib.php:1223 view_operations.php:127
 msgid "Delete data or table"
-msgstr ""
+msgstr "Dele datos o tabella"
 
 #: libraries/operations.lib.php:1231
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Vacua le tabella (TRUNCATE)"
 
 #: libraries/operations.lib.php:1239
 msgid "Delete the table (DROP)"
-msgstr ""
+msgstr "Dele le tabella (DROP)"
 
 #: libraries/operations.lib.php:1279
 msgid "Analyze"
-msgstr ""
+msgstr "Analysa"
 
 #: libraries/operations.lib.php:1280
 msgid "Check"
-msgstr ""
+msgstr "Verifica"
 
 #: libraries/operations.lib.php:1281
 msgid "Optimize"
@@ -9517,15 +9517,15 @@ msgstr ""
 #: libraries/operations.lib.php:1299
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "Partition %s"
 
 #: libraries/operations.lib.php:1315
 msgid "Remove partitioning"
-msgstr ""
+msgstr "Remove partitionemento"
 
 #: libraries/operations.lib.php:1341
 msgid "Check referential integrity:"
-msgstr ""
+msgstr "Verifica integritate referential"
 
 #: libraries/operations.lib.php:1626
 msgid "Can't move table to same one!"
@@ -9612,7 +9612,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:169
 msgid "Log in"
-msgstr ""
+msgstr "Accesso (Log in)"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:177
 #: libraries/plugins/auth/AuthenticationCookie.class.php:187
@@ -9768,7 +9768,7 @@ msgstr ""
 #: libraries/plugins/export/ExportOdt.class.php:96
 #: libraries/plugins/export/ExportSql.class.php:219
 msgid "Object creation options"
-msgstr ""
+msgstr "Optiones de creation de objecto"
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
@@ -9783,7 +9783,7 @@ msgstr ""
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
 msgid "Label key:"
-msgstr ""
+msgstr "Clave de  etiquetta:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:102
@@ -9907,7 +9907,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:332
 msgid "Data creation options"
-msgstr ""
+msgstr "Optiones de creation de datos"
 
 #: libraries/plugins/export/ExportSql.class.php:336
 #: libraries/plugins/export/ExportSql.class.php:2033
@@ -10441,7 +10441,7 @@ msgstr "Relation interne ha essite removite."
 
 #: libraries/relation.lib.php:90
 msgid "not OK"
-msgstr ""
+msgstr "Non OK"
 
 #: libraries/relation.lib.php:94
 msgctxt "Correctly working"
@@ -10462,7 +10462,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:137
 msgid "Display Features"
-msgstr ""
+msgstr "Monstra characteristicas"
 
 #: libraries/relation.lib.php:154
 msgid "Designer and creation of PDFs"
@@ -10486,7 +10486,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:202
 msgid "SQL history"
-msgstr ""
+msgstr "Historia de SQL"
 
 #: libraries/relation.lib.php:213
 msgid "Persistent recently used tables"
@@ -10781,7 +10781,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:744
 #: libraries/server_privileges.lib.php:1431
 msgid "Any host"
-msgstr ""
+msgstr "Omne hospite"
 
 #: libraries/replication_gui.lib.php:749
 #: libraries/server_privileges.lib.php:1439
@@ -10791,12 +10791,12 @@ msgstr "Local"
 #: libraries/replication_gui.lib.php:756
 #: libraries/server_privileges.lib.php:1448
 msgid "This Host"
-msgstr ""
+msgstr "Iste hospite"
 
 #: libraries/replication_gui.lib.php:798
 #: libraries/server_privileges.lib.php:1323
 msgid "Any user"
-msgstr ""
+msgstr "Omne hospite"
 
 #: libraries/replication_gui.lib.php:803 libraries/replication_gui.lib.php:836
 #: libraries/replication_gui.lib.php:869
@@ -10921,11 +10921,11 @@ msgstr "Detalios"
 
 #: libraries/rte/rte_events.lib.php:398
 msgid "Event name"
-msgstr ""
+msgstr "Nomine de evento"
 
 #: libraries/rte/rte_events.lib.php:419 libraries/server_bin_log.lib.php:130
 msgid "Event type"
-msgstr ""
+msgstr "Typo de evento"
 
 #: libraries/rte/rte_events.lib.php:441 libraries/rte/rte_routines.lib.php:976
 #, php-format
