@@ -6,7 +6,7 @@ git clone --depth=1 git://github.com/zenovich/runkit.git
 
 pushd runkit
 
-if [ $TRAVIS_PHP_VERSION = "5.6" ] ; then
+if [ $TRAVIS_PHP_VERSION = "5.6" -o $TRAVIS_PHP_VERSION = "nightly" ] ; then
     wget https://github.com/zenovich/runkit/pull/73.diff
     patch -p1 < 73.diff
 fi
