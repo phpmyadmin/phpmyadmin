@@ -414,7 +414,7 @@ function validate_field(field, isKeyUp, errors)
     var args, result;
     var $field = $(field);
     var field_id = $field.attr('id');
-    errors[$field_id] = [];
+    errors[field_id] = [];
     var functions = getFieldValidators(field_id, isKeyUp);
     for (var i = 0; i < functions.length; i++) {
         if (typeof functions[i][1] !== 'undefined' && functions[i][1] !== null) {
