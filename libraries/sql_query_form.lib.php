@@ -237,6 +237,8 @@ function PMA_getHtmlForSqlQueryFormInsert(
         $html .= '<input type="button" value="' . __('Format') . '" id="format"'
             . ' class="button sqlbutton" />';
     }
+    $html .= '<input type="button" value="' . __('Auto saved') . '" id="saved"'
+        . ' class="button sqlbutton" />';
     $html .= '</div>' . "\n";
 
     if (count($fields_list)) {

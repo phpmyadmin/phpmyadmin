@@ -1000,6 +1000,13 @@ function insertQuery(queryType)
             });
         }
         return;
+    } else if (queryType == "saved") {
+        if ($.cookie('auto_saved_sql')) {
+            setQuery($.cookie('auto_saved_sql'));
+        } else {
+            PMA_ajaxShowMessage(PMA_messages.strNoAutoSavedQuery);
+        }
+        return;
     }
 
     var query = "";

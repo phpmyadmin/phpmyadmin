@@ -100,6 +100,11 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', 'th.column_heading.marker');
     $(window).unbind('scroll');
     $(document).off("keyup", ".filter_rows");
+    if (codemirror_editor) {
+        codemirror_editor.off('change');
+    } else {
+        $('#sqlquery').off('input propertychange');
+    }
     $('body').off('click', '.navigation .showAllRows');
     $('body').off('click','a.browse_foreign');
     $('body').off('click', '#simulate_dml');
@@ -124,6 +129,25 @@ AJAX.registerTeardown('sql.js', function () {
  * @memberOf    jQuery
  */
 AJAX.registerOnload('sql.js', function () {
+
+    $(function () {
+        if (codemirror_editor) {
+            codemirror_editor.on('change', function () {
+                var query = codemirror_editor.getValue();
+                if (query) {
+                    $.cookie('auto_saved_sql', query);
+                }
+            });
+        } else {
+            $('#sqlquery').on('input propertychange', function () {
+                var query = $('#sqlquery').val();
+                if (query) {
+                    $.cookie('auto_saved_sql', query);
+                }
+            });
+        }
+    });
+
     // Delete row from SQL results
     $(document).on('click', 'a.delete_row.ajax', function (e) {
         e.preventDefault();
