@@ -750,7 +750,7 @@ class Node
      */
     public function getCssClasses($match)
     {
-        if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
+        if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             return '';
         }
@@ -776,7 +776,7 @@ class Node
      */
     public function getIcon($match)
     {
-        if ($GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']
+        if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             return '';
         } elseif ($match && ! $this->is_group) {

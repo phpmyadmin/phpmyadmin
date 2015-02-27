@@ -985,7 +985,13 @@ class PMA_DatabaseInterface
                 }
                 $sql .= $sql_where_schema . '
                         GROUP BY BINARY s.SCHEMA_NAME
-                        ORDER BY BINARY ' . PMA_Util::backquote($sort_by)
+                        ORDER BY ';
+                if ($sort_by == 'SCHEMA_NAME'
+                    || $sort_by == 'DEFAULT_COLLATION_NAME'
+                ) {
+                    $sql .= 'BINARY ';
+                }
+                $sql .= PMA_Util::backquote($sort_by)
                     . ' ' . $sort_order
                     . $limit;
             }

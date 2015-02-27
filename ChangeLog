@@ -57,6 +57,9 @@ phpMyAdmin - ChangeLog
 + rfe #1606 processlist filter
 + rfe       Change tracking activation status from db level tracking page
 + rfe #1207 Export users associated with a specific schema/database
++ rfe #1575 "Disable database expansion" : unclear directive name and
+explanation 
++ rfe #1607 Tool tip for lock icon when making changes to a page
 
 4.3.11.0 (not yet released)
 - bug #4774 SQL links are completely wrong
@@ -65,6 +68,8 @@ phpMyAdmin - ChangeLog
 - bug #4767 Drizzle: undefined index in mysql_charsets.inc.php
 - bug #4753 Normal field and multi-line field have different margins
 - bug #4760 Cannot re-import settings from local storage
+- bug #4778 SQL error when database list is sorted by additional columns
+- bug #4780 Notice when timestamp column does not have default value
 
 4.3.10.0 (2015-02-20)
 - bug       Undefined index navwork

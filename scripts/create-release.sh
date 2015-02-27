@@ -306,7 +306,7 @@ Todo now:
 
  8. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones
 
- 9. send a private twitter message to @phpmya, containing a short version of the announcement
+ 9. tweet from @phpmya a link to the release notes (see item 5 above); your account should be added to TweetDeck to ease this posting
 
 10. for a stable version, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
 
