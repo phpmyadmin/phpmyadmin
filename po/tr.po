@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-27 09:40-0500\n"
-"PO-Revision-Date: 2015-02-25 19:52+0200\n"
+"PO-Revision-Date: 2015-02-27 19:49+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -4767,10 +4767,9 @@ msgid "Length/Values"
 msgstr "Uzunluk/Değerler"
 
 #: libraries/central_columns.lib.php:663
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Öznitelikler"
+msgstr "Öznitelik"
 
 #: libraries/central_columns.lib.php:667
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -11770,33 +11769,33 @@ msgstr "Kullanıcı grubu"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Sürekli bağlantılar"
+msgstr "SSL-şifrelenmiş bağlantılar gerektirir."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "SSL gerektirir"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that specific cipher method is used for a connection."
-msgstr ""
+msgstr "Bir bağlantı için kullanılan belirli şifreleme yöntemi gerektirir."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Bu CA tarafından verilen geçerli bir X509 sertifikası sunulmasını gerektirir."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Bu konu ile geçerli bir X509 sertifikası sunulmasını gerektirir."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 cetrificate."
-msgstr ""
+msgstr "Geçerli bir X509 sertifikası gerektirir."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
