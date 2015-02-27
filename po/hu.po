@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-25 12:32-0500\n"
+"POT-Creation-Date: 2015-02-27 09:40-0500\n"
 "PO-Revision-Date: 2015-02-26 00:17+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
-"Language: hu\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/hu/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -24,15 +24,15 @@ msgstr ""
 "A(z) %s fájl nem elérhető ezen a rendszeren, keresse fel a www.phpmyadmin."
 "net oldalt további információkért."
 
-#: db_central_columns.php:85
+#: db_central_columns.php:89
 msgid "The central list of columns for the current database is empty."
 msgstr "A központi oszlopok listája az aktuális adatbázisban üres."
 
-#: db_central_columns.php:109
+#: db_central_columns.php:113
 msgid "Click to sort."
 msgstr "Kattintson a rendezéshez."
 
-#: db_central_columns.php:125
+#: db_central_columns.php:140
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Sorok megjelenítése %1$s - %2$s."
@@ -76,7 +76,7 @@ msgid "Column"
 msgstr "Oszlop"
 
 #: db_datadict.php:104 db_printview.php:50 libraries/Index.class.php:648
-#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:635
+#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:657
 #: libraries/insert_edit.lib.php:245
 #: libraries/plugins/export/ExportHtmlword.class.php:283
 #: libraries/plugins/export/ExportHtmlword.class.php:378
@@ -91,7 +91,7 @@ msgstr "Oszlop"
 #: libraries/rte/rte_routines.lib.php:961
 #: libraries/rte/rte_routines.lib.php:990
 #: libraries/rte/rte_routines.lib.php:1627
-#: libraries/server_privileges.lib.php:2054 libraries/structure.lib.php:847
+#: libraries/server_privileges.lib.php:2245 libraries/structure.lib.php:847
 #: libraries/structure.lib.php:1295
 #: libraries/tbl_columns_definition_form.lib.php:294
 #: libraries/tbl_printview.lib.php:477 libraries/tracking.lib.php:878
@@ -100,7 +100,7 @@ msgid "Type"
 msgstr "Típus"
 
 #: db_datadict.php:105 libraries/Index.class.php:654
-#: libraries/TableSearch.class.php:1293 libraries/central_columns.lib.php:641
+#: libraries/TableSearch.class.php:1293 libraries/central_columns.lib.php:665
 #: libraries/insert_edit.lib.php:1569
 #: libraries/plugins/export/ExportHtmlword.class.php:286
 #: libraries/plugins/export/ExportHtmlword.class.php:381
@@ -118,7 +118,7 @@ msgstr "Típus"
 msgid "Null"
 msgstr "Nulla"
 
-#: db_datadict.php:106 libraries/central_columns.lib.php:645
+#: db_datadict.php:106 libraries/central_columns.lib.php:669
 #: libraries/plugins/export/ExportHtmlword.class.php:289
 #: libraries/plugins/export/ExportHtmlword.class.php:384
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -168,7 +168,7 @@ msgstr "Elsődleges"
 
 #: db_datadict.php:157 js/messages.php:274 libraries/Index.class.php:519
 #: libraries/Index.class.php:558 libraries/Index.class.php:970
-#: libraries/central_columns.lib.php:802
+#: libraries/central_columns.lib.php:836
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.lib.php:423
 #: libraries/mult_submits.lib.php:452
 #: libraries/plugins/export/ExportHtmlword.class.php:630
@@ -176,13 +176,13 @@ msgstr "Elsődleges"
 #: libraries/plugins/export/ExportOdt.class.php:755
 #: libraries/plugins/export/ExportTexytext.class.php:567
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1042
-#: libraries/server_privileges.lib.php:2227
-#: libraries/server_privileges.lib.php:2409
-#: libraries/server_privileges.lib.php:2430
-#: libraries/server_privileges.lib.php:2755
-#: libraries/server_privileges.lib.php:2761
-#: libraries/server_privileges.lib.php:3097
-#: libraries/server_privileges.lib.php:3119 libraries/structure.lib.php:1386
+#: libraries/server_privileges.lib.php:2418
+#: libraries/server_privileges.lib.php:2602
+#: libraries/server_privileges.lib.php:2622
+#: libraries/server_privileges.lib.php:2948
+#: libraries/server_privileges.lib.php:2954
+#: libraries/server_privileges.lib.php:3294
+#: libraries/server_privileges.lib.php:3316 libraries/structure.lib.php:1386
 #: libraries/tbl_printview.lib.php:117 libraries/tracking.lib.php:924
 #: libraries/tracking.lib.php:1001 libraries/tracking.lib.php:1006
 #: libraries/user_preferences.lib.php:295 prefs_manage.php:138
@@ -191,7 +191,7 @@ msgstr "Nem"
 
 #: db_datadict.php:157 js/messages.php:397 libraries/Index.class.php:520
 #: libraries/Index.class.php:557 libraries/Index.class.php:970
-#: libraries/central_columns.lib.php:802
+#: libraries/central_columns.lib.php:836
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:79
 #: libraries/mult_submits.inc.php:190 libraries/mult_submits.lib.php:359
 #: libraries/mult_submits.lib.php:392 libraries/mult_submits.lib.php:421
@@ -205,13 +205,13 @@ msgstr "Nem"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1043
 #: libraries/server_databases.lib.php:465
 #: libraries/server_databases.lib.php:475
-#: libraries/server_privileges.lib.php:2227
-#: libraries/server_privileges.lib.php:2406
-#: libraries/server_privileges.lib.php:2428
-#: libraries/server_privileges.lib.php:2754
-#: libraries/server_privileges.lib.php:2759
-#: libraries/server_privileges.lib.php:3094
-#: libraries/server_privileges.lib.php:3119 libraries/structure.lib.php:1386
+#: libraries/server_privileges.lib.php:2418
+#: libraries/server_privileges.lib.php:2599
+#: libraries/server_privileges.lib.php:2620
+#: libraries/server_privileges.lib.php:2947
+#: libraries/server_privileges.lib.php:2952
+#: libraries/server_privileges.lib.php:3291
+#: libraries/server_privileges.lib.php:3316 libraries/structure.lib.php:1386
 #: libraries/structure.lib.php:2795 libraries/tbl_printview.lib.php:118
 #: libraries/tracking.lib.php:924 libraries/tracking.lib.php:999
 #: libraries/tracking.lib.php:1004 libraries/user_preferences.lib.php:293
@@ -264,11 +264,11 @@ msgstr ""
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:776
 #: libraries/plugins/export/ExportXml.class.php:498
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:331
-#: libraries/server_privileges.lib.php:1041
-#: libraries/server_privileges.lib.php:2585
-#: libraries/server_privileges.lib.php:2816
-#: libraries/server_privileges.lib.php:2827
-#: libraries/server_privileges.lib.php:3910 libraries/structure.lib.php:825
+#: libraries/server_privileges.lib.php:1191
+#: libraries/server_privileges.lib.php:2778
+#: libraries/server_privileges.lib.php:3013
+#: libraries/server_privileges.lib.php:3024
+#: libraries/server_privileges.lib.php:4114 libraries/structure.lib.php:825
 #: libraries/tbl_relation.lib.php:325 libraries/tbl_relation.lib.php:591
 msgid "Table"
 msgstr "Tábla"
@@ -360,19 +360,19 @@ msgid "Updated"
 msgstr "Frissítve"
 
 #: db_tracking.php:129 js/messages.php:205 libraries/Menu.class.php:545
-#: libraries/Util.class.php:4135 libraries/rte/rte_events.lib.php:404
+#: libraries/Util.class.php:4136 libraries/rte/rte_events.lib.php:404
 #: libraries/rte/rte_list.lib.php:78
 #: libraries/server_status_processes.lib.php:93 libraries/tracking.lib.php:278
 msgid "Status"
 msgstr "Állapot"
 
 #: db_tracking.php:130 db_tracking.php:288 libraries/Index.class.php:645
-#: libraries/central_columns.lib.php:626 libraries/rte/rte_list.lib.php:53
+#: libraries/central_columns.lib.php:648 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: libraries/server_databases.lib.php:399
-#: libraries/server_privileges.lib.php:2057
-#: libraries/server_privileges.lib.php:2837
-#: libraries/server_privileges.lib.php:3013
+#: libraries/server_privileges.lib.php:2248
+#: libraries/server_privileges.lib.php:3034
+#: libraries/server_privileges.lib.php:3210
 #: libraries/server_user_groups.lib.php:82
 #: libraries/server_variables.lib.php:189 libraries/structure.lib.php:833
 #: libraries/structure.lib.php:1312 libraries/tracking.lib.php:279
@@ -563,11 +563,11 @@ msgstr "Geometria hozzáadása"
 #: libraries/rte/rte_routines.lib.php:1102
 #: libraries/rte/rte_routines.lib.php:1721
 #: libraries/rte/rte_triggers.lib.php:396 libraries/server_bin_log.lib.php:61
-#: libraries/server_privileges.lib.php:701
-#: libraries/server_privileges.lib.php:1795
-#: libraries/server_privileges.lib.php:2551
-#: libraries/server_privileges.lib.php:3197
-#: libraries/server_privileges.lib.php:4149
+#: libraries/server_privileges.lib.php:705
+#: libraries/server_privileges.lib.php:1986
+#: libraries/server_privileges.lib.php:2744
+#: libraries/server_privileges.lib.php:3396
+#: libraries/server_privileges.lib.php:4353
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:337 libraries/sql_query_form.lib.php:396
 #: libraries/sql_query_form.lib.php:464 libraries/structure.lib.php:1717
@@ -1103,12 +1103,12 @@ msgstr "A gépnév üres!"
 msgid "The user name is empty!"
 msgstr "Üres a felhasználónév!"
 
-#: js/messages.php:91 libraries/server_privileges.lib.php:1623
+#: js/messages.php:91 libraries/server_privileges.lib.php:1774
 #: user_password.php:110
 msgid "The password is empty!"
 msgstr "Üres a jelszó mező!"
 
-#: js/messages.php:92 libraries/server_privileges.lib.php:1621
+#: js/messages.php:92 libraries/server_privileges.lib.php:1772
 #: user_password.php:113
 msgid "The passwords aren't the same!"
 msgstr "Nem egyeznek a jelszavak!"
@@ -1292,7 +1292,7 @@ msgid "Traffic"
 msgstr "Forgalom"
 
 #: js/messages.php:147 libraries/Menu.class.php:579
-#: libraries/Util.class.php:4139 libraries/server_status_monitor.lib.php:257
+#: libraries/Util.class.php:4140 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
 msgstr "Beállítások"
 
@@ -1309,7 +1309,7 @@ msgstr "Legalább egy változót adjon meg a sorozathoz!"
 #: libraries/config.values.php:69 libraries/db_designer.lib.php:981
 #: libraries/display_export.lib.php:587
 #: libraries/plugins/export/ExportSql.class.php:1898
-#: libraries/server_privileges.lib.php:2722
+#: libraries/server_privileges.lib.php:2915
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:301
 #: libraries/tbl_columns_definition_form.lib.php:760
@@ -1603,8 +1603,8 @@ msgstr ""
 
 #: js/messages.php:232 libraries/Menu.class.php:344
 #: libraries/Menu.class.php:447 libraries/Menu.class.php:575
-#: libraries/Util.class.php:4138 libraries/Util.class.php:4153
-#: libraries/Util.class.php:4170 libraries/config/messages.inc.php:219
+#: libraries/Util.class.php:4139 libraries/Util.class.php:4154
+#: libraries/Util.class.php:4171 libraries/config/messages.inc.php:219
 #: libraries/display_import.lib.php:105
 #: libraries/server_status_monitor.lib.php:318 prefs_manage.php:236
 #: setup/frames/menu.inc.php:26
@@ -1815,7 +1815,7 @@ msgstr "Lekérdezési doboz megjelenítése"
 #: libraries/Console.class.php:183 libraries/DisplayResults.class.php:3268
 #: libraries/Index.class.php:675 libraries/Util.class.php:665
 #: libraries/Util.class.php:1190 libraries/Util.class.php:3424
-#: libraries/Util.class.php:3425 libraries/central_columns.lib.php:760
+#: libraries/Util.class.php:3425 libraries/central_columns.lib.php:784
 #: libraries/config/messages.inc.php:755
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:233 setup/frames/index.inc.php:179
@@ -2246,7 +2246,7 @@ msgstr ""
 #: js/messages.php:443 libraries/DisplayResults.class.php:926
 #: libraries/browse_foreigners.lib.php:253
 #: libraries/browse_foreigners.lib.php:306
-#: libraries/server_privileges.lib.php:3262
+#: libraries/server_privileges.lib.php:3461
 msgid "Show all"
 msgstr "Összes megjelenítése"
 
@@ -2840,7 +2840,7 @@ msgstr "Újra lekérdezés"
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3339
 #: libraries/DisplayResults.class.php:4666
-#: libraries/central_columns.lib.php:762 libraries/db_designer.lib.php:875
+#: libraries/central_columns.lib.php:786 libraries/db_designer.lib.php:875
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:388 libraries/tracking.lib.php:476
 #: setup/frames/index.inc.php:183 setup/frames/index.inc.php:291
@@ -2853,11 +2853,11 @@ msgstr "Törlés"
 #: libraries/plugins/export/ExportOdt.class.php:193
 #: libraries/plugins/export/ExportTexytext.class.php:133
 #: libraries/server_databases.lib.php:303
-#: libraries/server_privileges.lib.php:1038
-#: libraries/server_privileges.lib.php:2569
-#: libraries/server_privileges.lib.php:2815
-#: libraries/server_privileges.lib.php:2827
-#: libraries/server_privileges.lib.php:3896
+#: libraries/server_privileges.lib.php:1188
+#: libraries/server_privileges.lib.php:2762
+#: libraries/server_privileges.lib.php:3012
+#: libraries/server_privileges.lib.php:3024
+#: libraries/server_privileges.lib.php:4100
 #: libraries/server_status_processes.lib.php:81
 #: libraries/tbl_relation.lib.php:302 libraries/tbl_relation.lib.php:539
 msgid "Database"
@@ -3185,7 +3185,7 @@ msgstr[1] "%1$s találat ebben: <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:354 libraries/Menu.class.php:303
 #: libraries/Util.class.php:3197 libraries/Util.class.php:3413
-#: libraries/Util.class.php:3414 libraries/Util.class.php:4164
+#: libraries/Util.class.php:3414 libraries/Util.class.php:4165
 #: libraries/navigation/Nodes/Node_Table.class.php:51
 #: libraries/navigation/Nodes/Node_Table.class.php:288
 #: libraries/structure.lib.php:1480
@@ -3230,12 +3230,12 @@ msgid "Restore column order"
 msgstr "Oszlopsorrend visszaállítása"
 
 #: libraries/DisplayResults.class.php:853
-#: libraries/central_columns.lib.php:602
+#: libraries/central_columns.lib.php:624
 msgid "Filter rows"
 msgstr "Sorok szűrése"
 
 #: libraries/DisplayResults.class.php:855
-#: libraries/central_columns.lib.php:604
+#: libraries/central_columns.lib.php:626
 msgid "Search this table"
 msgstr "Keresés a táblában"
 
@@ -3368,17 +3368,17 @@ msgid "Query took %01.4f seconds."
 msgstr "A lekérdezés %01.4f másodpercig tartott."
 
 #: libraries/DisplayResults.class.php:4671
-#: libraries/DisplayResults.class.php:4678 libraries/Util.class.php:4573
-#: libraries/Util.class.php:4579 libraries/mult_submits.inc.php:45
+#: libraries/DisplayResults.class.php:4678 libraries/Util.class.php:4574
+#: libraries/Util.class.php:4580 libraries/mult_submits.inc.php:45
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:312
 #: libraries/structure.lib.php:314
 msgid "With selected:"
 msgstr "A kijelöltekkel végzendő művelet:"
 
 #: libraries/DisplayResults.class.php:4675
-#: libraries/DisplayResults.class.php:4677 libraries/Util.class.php:4575
-#: libraries/Util.class.php:4576 libraries/server_privileges.lib.php:1046
-#: libraries/server_privileges.lib.php:1047
+#: libraries/DisplayResults.class.php:4677 libraries/Util.class.php:4576
+#: libraries/Util.class.php:4577 libraries/server_privileges.lib.php:1196
+#: libraries/server_privileges.lib.php:1197
 #: libraries/server_user_groups.lib.php:231 libraries/structure.lib.php:299
 #: libraries/structure.lib.php:300
 msgid "Check All"
@@ -3393,13 +3393,13 @@ msgstr "Módosítás"
 #: libraries/DisplayResults.class.php:4966 libraries/Menu.class.php:336
 #: libraries/Menu.class.php:438 libraries/Menu.class.php:571
 #: libraries/Util.class.php:3426 libraries/Util.class.php:3427
-#: libraries/Util.class.php:4137 libraries/Util.class.php:4152
-#: libraries/Util.class.php:4169 libraries/config/messages.inc.php:213
+#: libraries/Util.class.php:4138 libraries/Util.class.php:4153
+#: libraries/Util.class.php:4170 libraries/config/messages.inc.php:213
 #: libraries/display_export.lib.php:167
-#: libraries/server_privileges.lib.php:1898
-#: libraries/server_privileges.lib.php:1975
-#: libraries/server_privileges.lib.php:2311
-#: libraries/server_privileges.lib.php:3027
+#: libraries/server_privileges.lib.php:2089
+#: libraries/server_privileges.lib.php:2166
+#: libraries/server_privileges.lib.php:2504
+#: libraries/server_privileges.lib.php:3224
 #: libraries/server_status_monitor.lib.php:322 libraries/structure.lib.php:318
 #: prefs_manage.php:301 setup/frames/menu.inc.php:27
 msgid "Export"
@@ -3551,7 +3551,7 @@ msgstr "Számosság"
 
 #: libraries/Index.class.php:653 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
-#: libraries/central_columns.lib.php:639 libraries/mysql_charsets.lib.php:45
+#: libraries/central_columns.lib.php:661 libraries/mysql_charsets.lib.php:45
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:752
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:851
 #: libraries/structure.lib.php:1296 libraries/structure.lib.php:1836
@@ -3606,8 +3606,8 @@ msgstr "Nézet"
 
 #: libraries/Menu.class.php:309 libraries/Menu.class.php:417
 #: libraries/Util.class.php:3193 libraries/Util.class.php:3200
-#: libraries/Util.class.php:3419 libraries/Util.class.php:4148
-#: libraries/Util.class.php:4165 libraries/config/setup.forms.php:304
+#: libraries/Util.class.php:3419 libraries/Util.class.php:4149
+#: libraries/Util.class.php:4166 libraries/config/setup.forms.php:304
 #: libraries/config/setup.forms.php:344 libraries/config/setup.forms.php:370
 #: libraries/config/user_preferences.forms.php:203
 #: libraries/config/user_preferences.forms.php:243
@@ -3617,7 +3617,7 @@ msgstr "Nézet"
 #: libraries/navigation/Nodes/Node_Database.class.php:49
 #: libraries/navigation/Nodes/Node_Table.class.php:39
 #: libraries/navigation/Nodes/Node_Table.class.php:276
-#: libraries/server_privileges.lib.php:1013
+#: libraries/server_privileges.lib.php:1163
 #: libraries/tbl_columns_definition_form.lib.php:213
 #: libraries/tracking.lib.php:873
 msgid "Structure"
@@ -3625,8 +3625,8 @@ msgstr "Szerkezet"
 
 #: libraries/Menu.class.php:317 libraries/Menu.class.php:421
 #: libraries/Menu.class.php:541 libraries/Util.class.php:3194
-#: libraries/Util.class.php:3201 libraries/Util.class.php:4134
-#: libraries/Util.class.php:4149 libraries/Util.class.php:4166
+#: libraries/Util.class.php:3201 libraries/Util.class.php:4135
+#: libraries/Util.class.php:4150 libraries/Util.class.php:4167
 #: libraries/config/messages.inc.php:282
 #: libraries/navigation/Nodes/Node_Table.class.php:48
 #: libraries/navigation/Nodes/Node_Table.class.php:285
@@ -3636,7 +3636,7 @@ msgstr "SQL"
 #: libraries/Menu.class.php:320 libraries/Menu.class.php:424
 #: libraries/Util.class.php:3195 libraries/Util.class.php:3202
 #: libraries/Util.class.php:3415 libraries/Util.class.php:3416
-#: libraries/Util.class.php:4150 libraries/Util.class.php:4167
+#: libraries/Util.class.php:4151 libraries/Util.class.php:4168
 #: libraries/navigation/Nodes/Node_Table.class.php:42
 #: libraries/navigation/Nodes/Node_Table.class.php:279
 msgid "Search"
@@ -3644,7 +3644,7 @@ msgstr "Keresés"
 
 #: libraries/Menu.class.php:330 libraries/Util.class.php:3196
 #: libraries/Util.class.php:3417 libraries/Util.class.php:3418
-#: libraries/Util.class.php:4168
+#: libraries/Util.class.php:4169
 #: libraries/navigation/Nodes/Node_Table.class.php:45
 #: libraries/navigation/Nodes/Node_Table.class.php:282
 #: libraries/sql_query_form.lib.php:264 libraries/sql_query_form.lib.php:267
@@ -3652,28 +3652,28 @@ msgid "Insert"
 msgstr "Beszúrás"
 
 #: libraries/Menu.class.php:354 libraries/Menu.class.php:459
-#: libraries/Util.class.php:4155 libraries/Util.class.php:4171
-#: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:2055
-#: libraries/server_privileges.lib.php:2829
-#: libraries/server_privileges.lib.php:3785
+#: libraries/Util.class.php:4156 libraries/Util.class.php:4172
+#: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:2246
+#: libraries/server_privileges.lib.php:3026
+#: libraries/server_privileges.lib.php:3989
 msgid "Privileges"
 msgstr "Jogok"
 
 #: libraries/Menu.class.php:363 libraries/Menu.class.php:371
 #: libraries/Menu.class.php:451 libraries/Util.class.php:3203
-#: libraries/Util.class.php:4154 libraries/Util.class.php:4172
+#: libraries/Util.class.php:4155 libraries/Util.class.php:4173
 #: view_operations.php:92
 msgid "Operations"
 msgstr "Műveletek"
 
 #: libraries/Menu.class.php:376 libraries/Menu.class.php:484
-#: libraries/Util.class.php:4159 libraries/Util.class.php:4173
+#: libraries/Util.class.php:4160 libraries/Util.class.php:4174
 #: libraries/relation.lib.php:248
 msgid "Tracking"
 msgstr "Követés"
 
 #: libraries/Menu.class.php:389 libraries/Menu.class.php:478
-#: libraries/Util.class.php:4158 libraries/Util.class.php:4174
+#: libraries/Util.class.php:4159 libraries/Util.class.php:4175
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:557
 #: libraries/plugins/export/ExportOdt.class.php:685
@@ -3689,16 +3689,16 @@ msgstr "Eseményindítók"
 msgid "Database seems to be empty!"
 msgstr "Üresnek tűnik az adatbázis!"
 
-#: libraries/Menu.class.php:431 libraries/Util.class.php:4151
+#: libraries/Menu.class.php:431 libraries/Util.class.php:4152
 msgid "Query"
 msgstr "Lekérdezés"
 
-#: libraries/Menu.class.php:464 libraries/Util.class.php:4156
+#: libraries/Menu.class.php:464 libraries/Util.class.php:4157
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "Eljárások"
 
-#: libraries/Menu.class.php:471 libraries/Util.class.php:4157
+#: libraries/Menu.class.php:471 libraries/Util.class.php:4158
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:907
 #: libraries/plugins/export/ExportXml.class.php:107
@@ -3706,52 +3706,52 @@ msgstr "Eljárások"
 msgid "Events"
 msgstr "Események"
 
-#: libraries/Menu.class.php:490 libraries/Util.class.php:4160
+#: libraries/Menu.class.php:490 libraries/Util.class.php:4161
 msgid "Designer"
 msgstr "Tervező"
 
-#: libraries/Menu.class.php:500 libraries/Util.class.php:4161
+#: libraries/Menu.class.php:500 libraries/Util.class.php:4162
 msgid "Central columns"
 msgstr "Központi oszlopok"
 
-#: libraries/Menu.class.php:537 libraries/Util.class.php:4133
+#: libraries/Menu.class.php:537 libraries/Util.class.php:4134
 #: libraries/config/messages.inc.php:227
 #: libraries/navigation/NavigationTree.class.php:1178
-#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:3896
+#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4100
 msgid "Databases"
 msgstr "Adatbázisok"
 
-#: libraries/Menu.class.php:561 libraries/Util.class.php:4136
+#: libraries/Menu.class.php:561 libraries/Util.class.php:4137
 msgid "Users"
 msgstr "Felhasználók"
 
 #: libraries/Menu.class.php:588 libraries/ServerStatusData.class.php:194
-#: libraries/Util.class.php:4140 libraries/server_common.lib.php:36
+#: libraries/Util.class.php:4141 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "Bináris napló"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:199
-#: libraries/Util.class.php:4141 libraries/server_common.lib.php:42
+#: libraries/Util.class.php:4142 libraries/server_common.lib.php:42
 #: libraries/structure.lib.php:175 libraries/structure.lib.php:829
 msgid "Replication"
 msgstr "Többszörözés"
 
 #: libraries/Menu.class.php:599 libraries/ServerStatusData.class.php:261
-#: libraries/Util.class.php:4142 libraries/server_engines.lib.php:108
+#: libraries/Util.class.php:4143 libraries/server_engines.lib.php:108
 #: libraries/server_engines.lib.php:112
 msgid "Variables"
 msgstr "Változók"
 
-#: libraries/Menu.class.php:603 libraries/Util.class.php:4143
+#: libraries/Menu.class.php:603 libraries/Util.class.php:4144
 msgid "Charsets"
 msgstr "Karakterkészlet"
 
-#: libraries/Menu.class.php:608 libraries/Util.class.php:4144
+#: libraries/Menu.class.php:608 libraries/Util.class.php:4145
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
 msgstr "Bővítmények"
 
-#: libraries/Menu.class.php:612 libraries/Util.class.php:4145
+#: libraries/Menu.class.php:612 libraries/Util.class.php:4146
 msgid "Engines"
 msgstr "Motorok"
 
@@ -4641,21 +4641,21 @@ msgstr "Kiürítés"
 msgid "Execute"
 msgstr "Végrehajtás"
 
-#: libraries/Util.class.php:3973
+#: libraries/Util.class.php:3974
 msgid "Print"
 msgstr "Nyomtatás"
 
-#: libraries/Util.class.php:4078 libraries/structure.lib.php:869
+#: libraries/Util.class.php:4079 libraries/structure.lib.php:869
 #: libraries/structure.lib.php:1889 libraries/tbl_printview.lib.php:243
 msgid "Creation"
 msgstr "Létrehozás"
 
-#: libraries/Util.class.php:4084 libraries/structure.lib.php:876
+#: libraries/Util.class.php:4085 libraries/structure.lib.php:876
 #: libraries/structure.lib.php:1897 libraries/tbl_printview.lib.php:254
 msgid "Last update"
 msgstr "Utolsó frissítés"
 
-#: libraries/Util.class.php:4090 libraries/structure.lib.php:883
+#: libraries/Util.class.php:4091 libraries/structure.lib.php:883
 #: libraries/structure.lib.php:1905 libraries/tbl_printview.lib.php:265
 msgid "Last check"
 msgstr "Utolsó ellenőrzés"
@@ -4683,7 +4683,7 @@ msgstr "Ezen érték használata"
 #: libraries/config/user_preferences.forms.php:251
 #: libraries/config/user_preferences.forms.php:274
 #: libraries/config/user_preferences.forms.php:279
-#: libraries/server_privileges.lib.php:1012 libraries/structure.lib.php:2333
+#: libraries/server_privileges.lib.php:1162 libraries/structure.lib.php:2333
 #: libraries/tbl_printview.lib.php:308
 msgid "Data"
 msgstr "Adatok"
@@ -4724,17 +4724,17 @@ msgstr ""
 "A beállítástároló nem áll készen az oszlopok központi listája "
 "szolgáltatáshoz."
 
-#: libraries/central_columns.lib.php:270
+#: libraries/central_columns.lib.php:275
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 "Nem sikerült a(z) %1$s hozzáadása, mivel már léteznek a központi listában!"
 
-#: libraries/central_columns.lib.php:285
+#: libraries/central_columns.lib.php:290
 msgid "Could not add columns!"
 msgstr "Nem sikerült oszlopokat hozzáadni!"
 
-#: libraries/central_columns.lib.php:360
+#: libraries/central_columns.lib.php:365
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
@@ -4742,19 +4742,19 @@ msgstr ""
 "Nem sikerült a(z) %1$s oszlopok eltávolítása, mivel nem léteznek a központi "
 "oszlopok listájában!"
 
-#: libraries/central_columns.lib.php:372
+#: libraries/central_columns.lib.php:377
 msgid "Could not remove columns!"
 msgstr "Nem sikerült oszlopokat eltávolítani!"
 
-#: libraries/central_columns.lib.php:513
+#: libraries/central_columns.lib.php:529
 msgid "YES"
 msgstr "IGEN"
 
-#: libraries/central_columns.lib.php:513
+#: libraries/central_columns.lib.php:529
 msgid "NO"
 msgstr "NEM"
 
-#: libraries/central_columns.lib.php:633
+#: libraries/central_columns.lib.php:655
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:470
 #: libraries/plugins/export/ExportOdt.class.php:584
@@ -4767,40 +4767,46 @@ msgstr "NEM"
 msgid "Name"
 msgstr "Név"
 
-#: libraries/central_columns.lib.php:637
+#: libraries/central_columns.lib.php:659
 #: libraries/rte/rte_routines.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:296
 msgid "Length/Values"
 msgstr "Hossz/Értékek"
 
-#: libraries/central_columns.lib.php:643
+#: libraries/central_columns.lib.php:663
+#, fuzzy
+#| msgid "Attributes"
+msgid "Attribute"
+msgstr "Tulajdonságok"
+
+#: libraries/central_columns.lib.php:667
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:997
 #: libraries/structure.lib.php:1300 libraries/tracking.lib.php:882
 msgid "Extra"
 msgstr "Extra"
 
-#: libraries/central_columns.lib.php:664
+#: libraries/central_columns.lib.php:688
 msgid "Select a table"
 msgstr "Válasszon egy táblát"
 
-#: libraries/central_columns.lib.php:718 libraries/structure.lib.php:1689
+#: libraries/central_columns.lib.php:742 libraries/structure.lib.php:1689
 msgid "Add column"
 msgstr "Oszlop hozzáadása"
 
-#: libraries/central_columns.lib.php:730
+#: libraries/central_columns.lib.php:754
 msgid "Select a column."
 msgstr "Válasszon egy oszlopot."
 
-#: libraries/central_columns.lib.php:811 libraries/central_columns.lib.php:921
+#: libraries/central_columns.lib.php:845 libraries/central_columns.lib.php:958
 msgid "auto_increment"
 msgstr "automatikus növelés"
 
-#: libraries/central_columns.lib.php:813 libraries/central_columns.lib.php:923
+#: libraries/central_columns.lib.php:847 libraries/central_columns.lib.php:960
 msgid "on update CURRENT_TIMESTAMP"
 msgstr "frissítéskor CURRENT_TIMESTAMP"
 
-#: libraries/central_columns.lib.php:890
+#: libraries/central_columns.lib.php:924
 msgid "Add new column"
 msgstr "Új oszlop hozzáadása"
 
@@ -7847,20 +7853,20 @@ msgstr "Nem lehet a sorokat megszámolni egy nem pufferelt eredményhalmazban"
 
 #: libraries/display_change_password.lib.php:60
 #: libraries/replication_gui.lib.php:866
-#: libraries/server_privileges.lib.php:1519
+#: libraries/server_privileges.lib.php:1670
 msgid "No Password"
 msgstr "Nincs jelszó"
 
 #: libraries/display_change_password.lib.php:68
 #: libraries/plugins/auth/AuthenticationCookie.class.php:199
 #: libraries/replication_gui.lib.php:412 libraries/replication_gui.lib.php:853
-#: libraries/server_privileges.lib.php:1495
+#: libraries/server_privileges.lib.php:1646
 msgid "Password:"
 msgstr "Jelszó:"
 
 #: libraries/display_change_password.lib.php:74
 #: libraries/replication_gui.lib.php:877
-#: libraries/server_privileges.lib.php:1536
+#: libraries/server_privileges.lib.php:1687
 msgid "Re-type:"
 msgstr "Újraírás:"
 
@@ -9940,7 +9946,7 @@ msgstr "A mezőneveket tegye az első sorba:"
 #: libraries/plugins/export/ExportSql.class.php:670
 #: libraries/plugins/export/ExportXml.class.php:182
 #: libraries/replication_gui.lib.php:423 libraries/replication_gui.lib.php:694
-#: libraries/server_privileges.lib.php:1370 libraries/sql.lib.php:289
+#: libraries/server_privileges.lib.php:1521 libraries/sql.lib.php:289
 msgid "Host:"
 msgstr "Gép:"
 
@@ -10960,22 +10966,22 @@ msgstr ""
 "szakaszhoz:"
 
 #: libraries/replication_gui.lib.php:400 libraries/replication_gui.lib.php:787
-#: libraries/server_privileges.lib.php:1304
+#: libraries/server_privileges.lib.php:1455
 msgid "User name:"
 msgstr "Felhasználónév:"
 
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:791
 #: libraries/replication_gui.lib.php:807
-#: libraries/server_privileges.lib.php:1309
-#: libraries/server_privileges.lib.php:1341
+#: libraries/server_privileges.lib.php:1460
+#: libraries/server_privileges.lib.php:1492
 msgid "User name"
 msgstr "Felhasználónév"
 
 #: libraries/replication_gui.lib.php:417 libraries/replication_gui.lib.php:857
 #: libraries/replication_gui.lib.php:873
-#: libraries/server_privileges.lib.php:1499
-#: libraries/server_privileges.lib.php:1527
-#: libraries/server_privileges.lib.php:3002
+#: libraries/server_privileges.lib.php:1650
+#: libraries/server_privileges.lib.php:1678
+#: libraries/server_privileges.lib.php:3199
 msgid "Password"
 msgstr "Jelszó"
 
@@ -11003,10 +11009,10 @@ msgstr "Kiszolgáló azonosító"
 
 #: libraries/replication_gui.lib.php:609 libraries/replication_gui.lib.php:698
 #: libraries/replication_gui.lib.php:842
-#: libraries/server_privileges.lib.php:1375
-#: libraries/server_privileges.lib.php:1477
-#: libraries/server_privileges.lib.php:2053
-#: libraries/server_privileges.lib.php:3001
+#: libraries/server_privileges.lib.php:1526
+#: libraries/server_privileges.lib.php:1628
+#: libraries/server_privileges.lib.php:2244
+#: libraries/server_privileges.lib.php:3198
 #: libraries/server_status_processes.lib.php:77
 msgid "Host"
 msgstr "Gép"
@@ -11019,38 +11025,38 @@ msgstr ""
 "Csak a --report-host=host_name-mel kezdődő szolgák láthatók ebben a listában."
 
 #: libraries/replication_gui.lib.php:744
-#: libraries/server_privileges.lib.php:1433
+#: libraries/server_privileges.lib.php:1584
 msgid "Any host"
 msgstr "Bármilyen gép"
 
 #: libraries/replication_gui.lib.php:749
-#: libraries/server_privileges.lib.php:1441
+#: libraries/server_privileges.lib.php:1592
 msgid "Local"
 msgstr "Helyi"
 
 #: libraries/replication_gui.lib.php:756
-#: libraries/server_privileges.lib.php:1450
+#: libraries/server_privileges.lib.php:1601
 msgid "This Host"
 msgstr "Ez a gép"
 
 #: libraries/replication_gui.lib.php:798
-#: libraries/server_privileges.lib.php:1325
+#: libraries/server_privileges.lib.php:1476
 msgid "Any user"
 msgstr "Bármilyen felhasználó"
 
 #: libraries/replication_gui.lib.php:803 libraries/replication_gui.lib.php:836
 #: libraries/replication_gui.lib.php:869
-#: libraries/server_privileges.lib.php:1469
+#: libraries/server_privileges.lib.php:1620
 msgid "Use text field:"
 msgstr "Szöveges mező használata:"
 
 #: libraries/replication_gui.lib.php:830
-#: libraries/server_privileges.lib.php:1460
+#: libraries/server_privileges.lib.php:1611
 msgid "Use Host Table"
 msgstr "Géptábla használata"
 
 #: libraries/replication_gui.lib.php:846
-#: libraries/server_privileges.lib.php:1487
+#: libraries/server_privileges.lib.php:1638
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -11059,7 +11065,7 @@ msgstr ""
 "értékek kerülnek felhasználásra helyette."
 
 #: libraries/replication_gui.lib.php:881
-#: libraries/server_privileges.lib.php:1540
+#: libraries/server_privileges.lib.php:1691
 msgid "Re-type"
 msgstr "Újraírás"
 
@@ -11636,83 +11642,83 @@ msgid "Includes all privileges except GRANT."
 msgstr "A GRANT kivételével minden jogot tartalmaz."
 
 #: libraries/server_privileges.lib.php:281
-#: libraries/server_privileges.lib.php:881
-#: libraries/server_privileges.lib.php:1078 server_privileges.php:99
+#: libraries/server_privileges.lib.php:1031
+#: libraries/server_privileges.lib.php:1229 server_privileges.php:99
 msgid "Allows reading data."
 msgstr "Engedélyezi az adatok olvasását."
 
 #: libraries/server_privileges.lib.php:286
-#: libraries/server_privileges.lib.php:886
-#: libraries/server_privileges.lib.php:1079 server_privileges.php:75
+#: libraries/server_privileges.lib.php:1036
+#: libraries/server_privileges.lib.php:1230 server_privileges.php:75
 msgid "Allows inserting and replacing data."
 msgstr "Engedélyezi az adatok beírását és megváltoztatását."
 
 #: libraries/server_privileges.lib.php:291
-#: libraries/server_privileges.lib.php:891
-#: libraries/server_privileges.lib.php:1080 server_privileges.php:109
+#: libraries/server_privileges.lib.php:1041
+#: libraries/server_privileges.lib.php:1231 server_privileges.php:109
 msgid "Allows changing data."
 msgstr "Engedélyezi az adatok megváltoztatását."
 
 #: libraries/server_privileges.lib.php:296
-#: libraries/server_privileges.lib.php:1081 server_privileges.php:65
+#: libraries/server_privileges.lib.php:1232 server_privileges.php:65
 msgid "Allows deleting data."
 msgstr "Engedélyezi az adatok törlését."
 
 #: libraries/server_privileges.lib.php:301
-#: libraries/server_privileges.lib.php:1107 server_privileges.php:59
+#: libraries/server_privileges.lib.php:1258 server_privileges.php:59
 msgid "Allows creating new databases and tables."
 msgstr "Engedélyezi új adatbázisok és táblák készítését."
 
 #: libraries/server_privileges.lib.php:306
-#: libraries/server_privileges.lib.php:1119 server_privileges.php:66
+#: libraries/server_privileges.lib.php:1270 server_privileges.php:66
 msgid "Allows dropping databases and tables."
 msgstr "Engedélyezi az adatbázisok és táblák eldobását."
 
 #: libraries/server_privileges.lib.php:311
-#: libraries/server_privileges.lib.php:1203 server_privileges.php:93
+#: libraries/server_privileges.lib.php:1354 server_privileges.php:93
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Engedélyezi a szerver beállításainak újratöltését, és a szerver "
 "gyorsítótárának törlését."
 
 #: libraries/server_privileges.lib.php:316
-#: libraries/server_privileges.lib.php:1207 server_privileges.php:102
+#: libraries/server_privileges.lib.php:1358 server_privileges.php:102
 msgid "Allows shutting down the server."
 msgstr "Engedélyezi a szerver leállítását."
 
 #: libraries/server_privileges.lib.php:321
-#: libraries/server_privileges.lib.php:1199 server_privileges.php:90
+#: libraries/server_privileges.lib.php:1350 server_privileges.php:90
 msgid "Allows viewing processes of all users."
 msgstr "Engedélyezi az összes felhasználó folyamatainak megtekintését."
 
 #: libraries/server_privileges.lib.php:326
-#: libraries/server_privileges.lib.php:1087 server_privileges.php:70
+#: libraries/server_privileges.lib.php:1238 server_privileges.php:70
 msgid "Allows importing data from and exporting data into files."
 msgstr "Engedélyezi az adatok fájlokba történő exportálását/importálását."
 
 #: libraries/server_privileges.lib.php:331
-#: libraries/server_privileges.lib.php:896
-#: libraries/server_privileges.lib.php:1220 server_privileges.php:91
+#: libraries/server_privileges.lib.php:1046
+#: libraries/server_privileges.lib.php:1371 server_privileges.php:91
 msgid "Has no effect in this MySQL version."
 msgstr "Nincs hatása ebben a MySQL verzióban."
 
 #: libraries/server_privileges.lib.php:336
-#: libraries/server_privileges.lib.php:1115 server_privileges.php:74
+#: libraries/server_privileges.lib.php:1266 server_privileges.php:74
 msgid "Allows creating and dropping indexes."
 msgstr "Engedélyezi indexek készítését és törlését."
 
 #: libraries/server_privileges.lib.php:341
-#: libraries/server_privileges.lib.php:1113 server_privileges.php:57
+#: libraries/server_privileges.lib.php:1264 server_privileges.php:57
 msgid "Allows altering the structure of existing tables."
 msgstr "Engedélyezi a létező táblák szerkezetének megváltoztatását."
 
 #: libraries/server_privileges.lib.php:346
-#: libraries/server_privileges.lib.php:1211 server_privileges.php:100
+#: libraries/server_privileges.lib.php:1362 server_privileges.php:100
 msgid "Gives access to the complete list of databases."
 msgstr "Hozzáférést ad az adatbázisok teljes listájához."
 
 #: libraries/server_privileges.lib.php:352
-#: libraries/server_privileges.lib.php:1191 server_privileges.php:104
+#: libraries/server_privileges.lib.php:1342 server_privileges.php:104
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -11724,22 +11730,22 @@ msgstr ""
 "megszüntetése."
 
 #: libraries/server_privileges.lib.php:360
-#: libraries/server_privileges.lib.php:1125 server_privileges.php:62
+#: libraries/server_privileges.lib.php:1276 server_privileges.php:62
 msgid "Allows creating temporary tables."
 msgstr "Engedélyezi ideiglenes táblák készítését."
 
 #: libraries/server_privileges.lib.php:365
-#: libraries/server_privileges.lib.php:1216 server_privileges.php:76
+#: libraries/server_privileges.lib.php:1367 server_privileges.php:76
 msgid "Allows locking tables for the current thread."
 msgstr "A jelenlegi szálon engedélyezi a táblák zárolását."
 
 #: libraries/server_privileges.lib.php:370
-#: libraries/server_privileges.lib.php:1229 server_privileges.php:98
+#: libraries/server_privileges.lib.php:1380 server_privileges.php:98
 msgid "Needed for the replication slaves."
 msgstr "Szükséges a szolgák többszörözéséhez."
 
 #: libraries/server_privileges.lib.php:375
-#: libraries/server_privileges.lib.php:1225 server_privileges.php:96
+#: libraries/server_privileges.lib.php:1376 server_privileges.php:96
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 "Engedélyezi a felhasználónak, hogy megkérdezze, hol találhatók a kisegítő/fő "
@@ -11747,45 +11753,45 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:380
 #: libraries/server_privileges.lib.php:396
-#: libraries/server_privileges.lib.php:1145
-#: libraries/server_privileges.lib.php:1152 server_privileges.php:64
+#: libraries/server_privileges.lib.php:1296
+#: libraries/server_privileges.lib.php:1303 server_privileges.php:64
 msgid "Allows creating new views."
 msgstr "Engedélyezi új nézetek létrehozását."
 
 #: libraries/server_privileges.lib.php:385
-#: libraries/server_privileges.lib.php:1159 server_privileges.php:68
+#: libraries/server_privileges.lib.php:1310 server_privileges.php:68
 msgid "Allows to set up events for the event scheduler."
 msgstr "Az eseményütemező eseményeinek beállítását teszi lehetővé."
 
 #: libraries/server_privileges.lib.php:390
-#: libraries/server_privileges.lib.php:1163 server_privileges.php:108
+#: libraries/server_privileges.lib.php:1314 server_privileges.php:108
 msgid "Allows creating and dropping triggers."
 msgstr "Lehetővé teszi eseményindítók létrehozását és eldobását."
 
 #: libraries/server_privileges.lib.php:401
 #: libraries/server_privileges.lib.php:407
-#: libraries/server_privileges.lib.php:1129 server_privileges.php:101
+#: libraries/server_privileges.lib.php:1280 server_privileges.php:101
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Engedélyezi SHOW CREATE VIEW lekérdezések végrehajtását."
 
 #: libraries/server_privileges.lib.php:412
-#: libraries/server_privileges.lib.php:1133 server_privileges.php:60
+#: libraries/server_privileges.lib.php:1284 server_privileges.php:60
 msgid "Allows creating stored routines."
 msgstr "Engedélyezi tárolt eljárások létrehozását."
 
 #: libraries/server_privileges.lib.php:417
-#: libraries/server_privileges.lib.php:1137 server_privileges.php:58
+#: libraries/server_privileges.lib.php:1288 server_privileges.php:58
 msgid "Allows altering and dropping stored routines."
 msgstr "Engedélyezi a tárolt eljárások módosítását és eldobását."
 
 #: libraries/server_privileges.lib.php:422
-#: libraries/server_privileges.lib.php:1233 server_privileges.php:63
+#: libraries/server_privileges.lib.php:1384 server_privileges.php:63
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 "Engedélyezi a felhasználói fiókok létrehozását, törlését és átnevezését."
 
 #: libraries/server_privileges.lib.php:427
-#: libraries/server_privileges.lib.php:1139 server_privileges.php:69
+#: libraries/server_privileges.lib.php:1290 server_privileges.php:69
 msgid "Allows executing stored routines."
 msgstr "Engedélyezi a tárolt eljárások végrehajtását."
 
@@ -11797,29 +11803,59 @@ msgstr "Nincs"
 
 #: libraries/server_privileges.lib.php:527
 #: libraries/server_privileges.lib.php:554
-#: libraries/server_privileges.lib.php:3009
+#: libraries/server_privileges.lib.php:3206
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
 msgstr "Felhasználói csoport"
 
-#: libraries/server_privileges.lib.php:717
+#: libraries/server_privileges.lib.php:726
+#: libraries/server_privileges.lib.php:837
+#, fuzzy
+#| msgid "Persistent connections"
+msgid "Requires SSL-encrypted connections."
+msgstr "Állandó kapcsolatok"
+
+#: libraries/server_privileges.lib.php:734
+msgid "Require SSL"
+msgstr ""
+
+#: libraries/server_privileges.lib.php:759
+#: libraries/server_privileges.lib.php:768
+msgid "Requires that specific cipher method is used for a connection."
+msgstr ""
+
+#: libraries/server_privileges.lib.php:778
+#: libraries/server_privileges.lib.php:787
+msgid "Requires that a valid X509 certificate issued by this CA be presented."
+msgstr ""
+
+#: libraries/server_privileges.lib.php:797
+#: libraries/server_privileges.lib.php:806
+msgid "Requires that a valid X509 certificate with this subject be presented."
+msgstr ""
+
+#: libraries/server_privileges.lib.php:818
+msgid "Requires a valid X509 cetrificate."
+msgstr ""
+
+#: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
 msgstr "Erőforrás-korlátozások"
 
-#: libraries/server_privileges.lib.php:719
+#: libraries/server_privileges.lib.php:869
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 "Megjegyzés: Ezen beállítások 0-ra (nulla) állítása eltávolítja a korlátozást."
 
-#: libraries/server_privileges.lib.php:726
-#: libraries/server_privileges.lib.php:737 server_privileges.php:81
+#: libraries/server_privileges.lib.php:876
+#: libraries/server_privileges.lib.php:887 server_privileges.php:81
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Korlátozza a felhasználó által a kiszolgálóra óránként küldhető lekérdezések "
 "számát."
 
-#: libraries/server_privileges.lib.php:746
-#: libraries/server_privileges.lib.php:757 server_privileges.php:84
+#: libraries/server_privileges.lib.php:896
+#: libraries/server_privileges.lib.php:907 server_privileges.php:84
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -11827,75 +11863,75 @@ msgstr ""
 "Korlátozza a felhasználó által óránként végrehajtható, bármelyik táblát vagy "
 "adatbázist módosító parancsok számát."
 
-#: libraries/server_privileges.lib.php:767
-#: libraries/server_privileges.lib.php:776 server_privileges.php:78
+#: libraries/server_privileges.lib.php:917
+#: libraries/server_privileges.lib.php:926 server_privileges.php:78
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Korlátozza a felhasználó által óránként megnyitható új kapcsolatok számát."
 
-#: libraries/server_privileges.lib.php:784
-#: libraries/server_privileges.lib.php:794 server_privileges.php:88
+#: libraries/server_privileges.lib.php:934
+#: libraries/server_privileges.lib.php:944 server_privileges.php:88
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Korlátozza a felhasználó egyidejű kapcsolatainak számát."
 
-#: libraries/server_privileges.lib.php:847
-#: libraries/server_privileges.lib.php:1040
-#: libraries/server_privileges.lib.php:2821
-#: libraries/server_privileges.lib.php:2833
+#: libraries/server_privileges.lib.php:997
+#: libraries/server_privileges.lib.php:1190
+#: libraries/server_privileges.lib.php:3018
+#: libraries/server_privileges.lib.php:3030
 msgid "Table-specific privileges"
 msgstr "Táblaspecifikus jogok"
 
-#: libraries/server_privileges.lib.php:849
-#: libraries/server_privileges.lib.php:1050
-#: libraries/server_privileges.lib.php:3005
+#: libraries/server_privileges.lib.php:999
+#: libraries/server_privileges.lib.php:1200
+#: libraries/server_privileges.lib.php:3202
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Megjegyzés: a MySQL jogosultságnevek az angolból származnak."
 
-#: libraries/server_privileges.lib.php:1014
+#: libraries/server_privileges.lib.php:1164
 msgid "Administration"
 msgstr "Adminisztráció"
 
-#: libraries/server_privileges.lib.php:1034
-#: libraries/server_privileges.lib.php:3003
+#: libraries/server_privileges.lib.php:1184
+#: libraries/server_privileges.lib.php:3200
 msgid "Global privileges"
 msgstr "Globális jogok"
 
-#: libraries/server_privileges.lib.php:1035
+#: libraries/server_privileges.lib.php:1185
 msgid "Global"
 msgstr "Globális"
 
-#: libraries/server_privileges.lib.php:1037
-#: libraries/server_privileges.lib.php:2820
+#: libraries/server_privileges.lib.php:1187
+#: libraries/server_privileges.lib.php:3017
 msgid "Database-specific privileges"
 msgstr "Adatbázis-specifikus jogok"
 
-#: libraries/server_privileges.lib.php:1108 server_privileges.php:61
+#: libraries/server_privileges.lib.php:1259 server_privileges.php:61
 msgid "Allows creating new tables."
 msgstr "Engedélyezi új táblák készítését."
 
-#: libraries/server_privileges.lib.php:1120 server_privileges.php:67
+#: libraries/server_privileges.lib.php:1271 server_privileges.php:67
 msgid "Allows dropping tables."
 msgstr "Engedélyezi a táblák eldobását."
 
-#: libraries/server_privileges.lib.php:1182 server_privileges.php:72
+#: libraries/server_privileges.lib.php:1333 server_privileges.php:72
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "A privilégium táblák újratöltése nélkül engedélyezi a felhasználók és jogok "
 "hozzáadását."
 
-#: libraries/server_privileges.lib.php:1301
-#: libraries/server_privileges.lib.php:2533
+#: libraries/server_privileges.lib.php:1452
+#: libraries/server_privileges.lib.php:2726
 msgid "Login Information"
 msgstr "Bejelentkezési adatok"
 
-#: libraries/server_privileges.lib.php:1334
-#: libraries/server_privileges.lib.php:1522
-#: libraries/server_privileges.lib.php:2953
+#: libraries/server_privileges.lib.php:1485
+#: libraries/server_privileges.lib.php:1673
+#: libraries/server_privileges.lib.php:3150
 msgid "Use text field"
 msgstr "Szöveges mező használata"
 
-#: libraries/server_privileges.lib.php:1361
+#: libraries/server_privileges.lib.php:1512
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
@@ -11903,216 +11939,216 @@ msgstr ""
 "Egy fiók már létezik ugyanezzel a felhasználónévvel, de esetleg egy másik "
 "gépnévvel."
 
-#: libraries/server_privileges.lib.php:1512
+#: libraries/server_privileges.lib.php:1663
 msgid "Do not change the password"
 msgstr "Nincs jelszó megváltoztatás"
 
-#: libraries/server_privileges.lib.php:1657
+#: libraries/server_privileges.lib.php:1808
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s jelszavának megváltoztatása sikerült."
 
-#: libraries/server_privileges.lib.php:1698
+#: libraries/server_privileges.lib.php:1849
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s jogainak visszavonása megtörtént."
 
-#: libraries/server_privileges.lib.php:1748
-#: libraries/server_privileges.lib.php:3854
+#: libraries/server_privileges.lib.php:1939
+#: libraries/server_privileges.lib.php:4058
 msgid "Add user"
 msgstr "Felhasználó hozzáadása"
 
-#: libraries/server_privileges.lib.php:1757
+#: libraries/server_privileges.lib.php:1948
 msgid "Database for user"
 msgstr "Adatbázis a felhasználó számára"
 
-#: libraries/server_privileges.lib.php:1761
+#: libraries/server_privileges.lib.php:1952
 msgid "Create database with same name and grant all privileges."
 msgstr "Azonos nevű adatbázis létrehozása, és az összes jog engedélyezése."
 
-#: libraries/server_privileges.lib.php:1767
+#: libraries/server_privileges.lib.php:1958
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 "Az összes jog engedélyezése karakterhelyettesítős néven (username\\_%)."
 
-#: libraries/server_privileges.lib.php:1776
+#: libraries/server_privileges.lib.php:1967
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
 msgstr "Az összes jog engedélyezése a(z) \"%s\" adatbázison."
 
-#: libraries/server_privileges.lib.php:1877
-#: libraries/server_privileges.lib.php:1941
+#: libraries/server_privileges.lib.php:2068
+#: libraries/server_privileges.lib.php:2132
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "A(z) \"%s\" adatbázishoz hozzáférhető felhasználók"
 
-#: libraries/server_privileges.lib.php:1910
+#: libraries/server_privileges.lib.php:2101
 msgid "User has been added."
 msgstr "A felhasználó hozzáadása megtörtént."
 
-#: libraries/server_privileges.lib.php:2052
-#: libraries/server_privileges.lib.php:3000
-#: libraries/server_privileges.lib.php:3805
-#: libraries/server_privileges.lib.php:3876
+#: libraries/server_privileges.lib.php:2243
+#: libraries/server_privileges.lib.php:3197
+#: libraries/server_privileges.lib.php:4009
+#: libraries/server_privileges.lib.php:4080
 #: libraries/server_status_processes.lib.php:73
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
 msgstr "Felhasználó"
 
-#: libraries/server_privileges.lib.php:2056
-#: libraries/server_privileges.lib.php:2830
-#: libraries/server_privileges.lib.php:3011
+#: libraries/server_privileges.lib.php:2247
+#: libraries/server_privileges.lib.php:3027
+#: libraries/server_privileges.lib.php:3208
 msgid "Grant"
 msgstr "Engedélyezés"
 
-#: libraries/server_privileges.lib.php:2071
+#: libraries/server_privileges.lib.php:2262
 msgid "Not enough privilege to view users."
 msgstr "Nincs elegendő jogosultság a felhasználók megtekintéséhez."
 
-#: libraries/server_privileges.lib.php:2091
-#: libraries/server_privileges.lib.php:3451
+#: libraries/server_privileges.lib.php:2282
+#: libraries/server_privileges.lib.php:3655
 msgid "No user found."
 msgstr "Nem található felhasználó."
 
-#: libraries/server_privileges.lib.php:2118
-#: libraries/server_privileges.lib.php:2399
-#: libraries/server_privileges.lib.php:3087
+#: libraries/server_privileges.lib.php:2309
+#: libraries/server_privileges.lib.php:2592
+#: libraries/server_privileges.lib.php:3284
 msgid "Any"
 msgstr "Bármi"
 
-#: libraries/server_privileges.lib.php:2169
+#: libraries/server_privileges.lib.php:2360
 msgid "global"
 msgstr "globális"
 
-#: libraries/server_privileges.lib.php:2172
+#: libraries/server_privileges.lib.php:2363
 msgid "database-specific"
 msgstr "adatbázis-specifikus"
 
-#: libraries/server_privileges.lib.php:2174
+#: libraries/server_privileges.lib.php:2365
 msgid "wildcard"
 msgstr "karakterhelyettesítő"
 
-#: libraries/server_privileges.lib.php:2180
+#: libraries/server_privileges.lib.php:2371
 msgid "table-specific"
 msgstr "tábla-specifikus"
 
-#: libraries/server_privileges.lib.php:2305
+#: libraries/server_privileges.lib.php:2498
 msgid "Edit Privileges"
 msgstr "Jogok szerkesztése"
 
-#: libraries/server_privileges.lib.php:2308
+#: libraries/server_privileges.lib.php:2501
 msgid "Revoke"
 msgstr "Visszavonás"
 
-#: libraries/server_privileges.lib.php:2332
+#: libraries/server_privileges.lib.php:2525
 msgid "Edit user group"
 msgstr "Felhasználói csoport szerkesztése"
 
-#: libraries/server_privileges.lib.php:2512
+#: libraries/server_privileges.lib.php:2705
 msgid "… keep the old one."
 msgstr "… a régiek megőrzése."
 
-#: libraries/server_privileges.lib.php:2513
+#: libraries/server_privileges.lib.php:2706
 msgid "… delete the old one from the user tables."
 msgstr "… a régiek törlése a felhasználói táblákból."
 
-#: libraries/server_privileges.lib.php:2515
+#: libraries/server_privileges.lib.php:2708
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… az összes aktív jog visszaállítása a régiekből, majd törlés."
 
-#: libraries/server_privileges.lib.php:2519
+#: libraries/server_privileges.lib.php:2712
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr "… a régiek törlése a felhasználói táblákból, majd a jogok újratöltése."
 
-#: libraries/server_privileges.lib.php:2534
+#: libraries/server_privileges.lib.php:2727
 msgid "Change Login Information / Copy User"
 msgstr "Bejelentkezési adatok módosítása / Felhasználó másolása"
 
-#: libraries/server_privileges.lib.php:2540
+#: libraries/server_privileges.lib.php:2733
 msgid "Create a new user with the same privileges and …"
 msgstr "Új felhasználó létrehozása ezekkel a jogokkal, és …"
 
-#: libraries/server_privileges.lib.php:2834
+#: libraries/server_privileges.lib.php:3031
 msgid "Column-specific privileges"
 msgstr "Oszlopspecifikus jogok"
 
-#: libraries/server_privileges.lib.php:2889
+#: libraries/server_privileges.lib.php:3086
 msgid "Add privileges on the following database(s):"
 msgstr "Jogosultságok hozzáadása a következő adatbázisokon:"
 
-#: libraries/server_privileges.lib.php:2913
+#: libraries/server_privileges.lib.php:3110
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "A _ és a % karakterhelyettesítőt \\ jellel kell lezárni, hogy "
 "szövegkonstansként lehessen őket használni."
 
-#: libraries/server_privileges.lib.php:2931
+#: libraries/server_privileges.lib.php:3128
 msgid "Add privileges on the following table:"
 msgstr "Jogok hozzáadása a következő táblán:"
 
-#: libraries/server_privileges.lib.php:3166
+#: libraries/server_privileges.lib.php:3365
 msgid "Remove selected users"
 msgstr "A kijelölt felhasználók törlése"
 
-#: libraries/server_privileges.lib.php:3172
+#: libraries/server_privileges.lib.php:3371
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "A felhasználók összes jogának visszavonása, majd törlése."
 
-#: libraries/server_privileges.lib.php:3180
-#: libraries/server_privileges.lib.php:3186
-#: libraries/server_privileges.lib.php:3189
+#: libraries/server_privileges.lib.php:3379
+#: libraries/server_privileges.lib.php:3385
+#: libraries/server_privileges.lib.php:3388
 msgid "Drop the databases that have the same names as the users."
 msgstr "A felhasználókéval azonos nevű adatbázisok eldobása."
 
-#: libraries/server_privileges.lib.php:3330
+#: libraries/server_privileges.lib.php:3529
 msgid "No users selected for deleting!"
 msgstr "Nincs törlésre kijelölt felhasználó!"
 
-#: libraries/server_privileges.lib.php:3333
+#: libraries/server_privileges.lib.php:3532
 msgid "Reloading the privileges"
 msgstr "A jogok újratöltése"
 
-#: libraries/server_privileges.lib.php:3352
+#: libraries/server_privileges.lib.php:3551
 msgid "The selected users have been deleted successfully."
 msgstr "A kiválasztott felhasználók törlése sikerült."
 
-#: libraries/server_privileges.lib.php:3421
+#: libraries/server_privileges.lib.php:3625
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ön frissítette %s jogait."
 
-#: libraries/server_privileges.lib.php:3490
+#: libraries/server_privileges.lib.php:3694
 #, php-format
 msgid "Deleting %s"
 msgstr "%s törlése"
 
-#: libraries/server_privileges.lib.php:3519
+#: libraries/server_privileges.lib.php:3723
 msgid "The privileges were reloaded successfully."
 msgstr "A jogok újratöltése sikerült."
 
-#: libraries/server_privileges.lib.php:3605
+#: libraries/server_privileges.lib.php:3809
 #, php-format
 msgid "The user %s already exists!"
 msgstr "%s felhasználó már létezik!"
 
-#: libraries/server_privileges.lib.php:3796
+#: libraries/server_privileges.lib.php:4000
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s jogosultságai"
 
-#: libraries/server_privileges.lib.php:3846
+#: libraries/server_privileges.lib.php:4050
 msgctxt "Create new user"
 msgid "New"
 msgstr "új"
 
-#: libraries/server_privileges.lib.php:3875
+#: libraries/server_privileges.lib.php:4079
 msgid "Edit Privileges:"
 msgstr "Jogok szerkesztése:"
 
-#: libraries/server_privileges.lib.php:3935
+#: libraries/server_privileges.lib.php:4139
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
@@ -12120,11 +12156,11 @@ msgstr ""
 "Megjegyzés: annak a felhasználónak a jogosultságait próbálja szerkeszteni, "
 "amellyel jelenleg be van lépve."
 
-#: libraries/server_privileges.lib.php:3955 libraries/server_users.lib.php:25
+#: libraries/server_privileges.lib.php:4159 libraries/server_users.lib.php:25
 msgid "Users overview"
 msgstr "Felhasználók áttekintése"
 
-#: libraries/server_privileges.lib.php:4040
+#: libraries/server_privileges.lib.php:4244
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -12137,11 +12173,11 @@ msgstr ""
 "használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben %"
 "stöltse be újra a jogokat%s a folytatás előtt."
 
-#: libraries/server_privileges.lib.php:4091
+#: libraries/server_privileges.lib.php:4295
 msgid "The selected user was not found in the privilege table."
 msgstr "Nem található a kiválasztott felhasználó a privilégium táblában."
 
-#: libraries/server_privileges.lib.php:4323
+#: libraries/server_privileges.lib.php:4527
 msgid "You have added a new user."
 msgstr "Az új felhasználó hozzáadása megtörtént."
 
