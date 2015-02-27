@@ -54,7 +54,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         });
     window.scrollTo(0, 0);
     $(document).on("keyup", ".filter_rows", function () {
-        var cols = ["Name", "Type", "Length/Values", "Collation", "Null", "Extra", "Default"];
+        var cols = ["Name", "Type", "Attribute","Length/Values", "Collation", "Null", "Extra", "Default"];
         $.uiTableFilter($("#table_columns"), $(this).val(), cols, null, "td span");
     });
     $('.edit').click(function() {
@@ -64,6 +64,8 @@ AJAX.registerOnload('db_central_columns.js', function () {
         $('#f_' + rownum + ' td span').hide();
         $('#f_' + rownum + ' input, #f_' + rownum + ' select, #f_' + rownum + ' .open_enum_editor').show();
         var extra_val = $('#f_' + rownum + ' td[name=col_extra] span').html();
+        var attribute_val = $('#f_' + rownum + ' td[name=col_attribute] span').html();
+        $('#f_' + rownum + ' select[name=field_attribute\\['+ rownum +'\\] ] option[value="' + attribute_val + '"]').attr("selected","selected");
         $('#f_' + rownum + ' select[name=col_extra] option[value="' + extra_val + '"]').attr("selected","selected");
         if($('#f_' + rownum + ' .default_type').val() === 'USER_DEFINED') {
             $('#f_' + rownum + ' .default_type').siblings('.default_value').show();
@@ -128,6 +130,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
                     $('#f_' + rownum + ' td[name=col_type] span').text($('#f_' + rownum + ' select[name=col_type]').val()).html();
                     $('#f_' + rownum + ' td[name=col_length] span').text($('#f_' + rownum + ' input[name=col_length]').val()).html();
                     $('#f_' + rownum + ' td[name=collation] span').text($('#f_' + rownum + ' select[name=collation]').val()).html();
+                    $('#f_' + rownum + ' td[name=col_attribute] span').text($('#f_' + rownum + ' select[name=col_attribute]').val()).html();
                     $('#f_' + rownum + ' td[name=col_isNull] span').text($('#f_' + rownum + ' input[name=col_isNull]').val()).html();
                     $('#f_' + rownum + ' td[name=col_extra] span').text($('#f_' + rownum + ' select[name=col_extra]').val()).html();
                     $('#f_' + rownum + ' td[name=col_default] span').text($('#f_' + rownum + ' :input[name=col_default]').val()).html();

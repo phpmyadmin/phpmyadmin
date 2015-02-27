@@ -271,12 +271,12 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertTrue(
             PMA_updateOneColumn(
-                "phpmyadmin", "", "", "", "", "", "", "", ""
+                "phpmyadmin", "", "", "", "","", "", "", "", ""
             )
         );
         $this->assertTrue(
             PMA_updateOneColumn(
-                "phpmyadmin", "col1", "", "", "", "", "", "", ""
+                "phpmyadmin", "col1", "", "", "","", "", "", "", ""
             )
         );
     }
@@ -352,7 +352,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             'col_length'=>12,
             'col_collation'=>'utf8_general_ci',
             'col_isNull'=>1,
-            'col_extra'=>''
+            'col_extra'=>array('col_extra'=>'','col_attribute'=>'')
         );
         $result = PMA_getHTMLforCentralColumnsTableRow($row, false, 1, 'phpmyadmin');
         $this->assertTag(
@@ -371,7 +371,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHtmlForColumnDefault(
-                1, 5, 0, /*overload*/mb_strtoupper($row['col_type']), '',
+                1, 6, 0, /*overload*/mb_strtoupper($row['col_type']), '',
                 array('DefaultType'=>'NONE')
             ),
             $result
@@ -382,7 +382,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHtmlForColumnDefault(
-                1, 5, 0, /*overload*/mb_strtoupper($row['col_type']), '',
+                1, 6, 0, /*overload*/mb_strtoupper($row['col_type']), '',
                 array('DefaultType'=>'USER_DEFINED', 'DefaultValue'=>100)
             ),
             $result_1
@@ -393,7 +393,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             PMA_getHtmlForColumnDefault(
-                1, 5, 0, /*overload*/mb_strtoupper($row['col_type']), '',
+                1, 6, 0, /*overload*/mb_strtoupper($row['col_type']), '',
                 array('DefaultType'=>'CURRENT_TIMESTAMP')
             ),
             $result_2
