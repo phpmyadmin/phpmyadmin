@@ -648,6 +648,10 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
             while ($row1 = $GLOBALS['dbi']->fetchRow($res)) {
                 if (mb_substr($row1[0], 0, 4) == 'max_') {
                     $row[$row1[0]] = 0;
+                } elseif (mb_substr($row1[0], 0, 5) == 'x509_'
+                    || mb_substr($row1[0], 0, 4) == 'ssl_'
+                ) {
+                    $row[$row1[0]] = '';
                 } else {
                     $row[$row1[0]] = 'N';
                 }
@@ -703,6 +707,152 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
     }
     return $html_output;
 } // end of the 'PMA_displayPrivTable()' function
+
+/**
+ * Get HTML for "Require"
+ *
+ * @param array $row privilege array
+ *
+ * @return string html snippet
+ */
+function PMA_getHtmlForRequires($row)
+{
+    $html_output  = '<fieldset>';
+
+    $html_output .= '<legend>';
+    $html_output .= '<input type="checkbox" name="SSL_priv" id="checkbox_SSL_priv"'
+        . ' value="Y" title="'
+        . __(
+            'Requires SSL-encrypted connections.'
+        )
+        . '"'
+        . ((isset($row['ssl_type']) && $row['ssl_type'] != '')
+            ? ' checked="checked"'
+            : ''
+        )
+        . '/>';
+    $html_output .= __('Require SSL') . '</legend>';
+    $html_output .= '<div id="require_ssl_div">';
+
+    // Specified
+    $html_output .= '<div class="item">';
+    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_specified"'
+        . ' value="specified"'
+        . ((isset($row['ssl_type']) && $row['ssl_type'] == 'SPECIFIED')
+            ? ' checked="checked"'
+            : ''
+        )
+        . '/>';
+
+    $html_output .= '<label for="ssl_type_speified"><code>'
+        . 'SPECIFIED'
+        . '</code></label>';
+    $html_output .= '</div>';
+
+    $html_output .= '<div id="specified_div" style="padding-left:20px;">';
+
+    // REQUIRE CIPHER
+    $html_output .= '<div class="item">';
+    $html_output .= '<label for="text_ssl_cipher">'
+        . '<code><dfn title="'
+        . __(
+            'Requires that specific cipher method is used for a connection.'
+        )
+        . '">'
+        . 'REQUIRE CIPHER'
+        . '</dfn></code></label>';
+    $html_output .= '<input type="text" name="ssl_cipher" id="text_ssl_cipher" '
+        . 'value="' . (isset($row['ssl_cipher']) ? $row['ssl_cipher'] : '') . '" '
+        . 'size=80" title="'
+        . __(
+            'Requires that specific cipher method is used for a connection.'
+        )
+        . '" />';
+    $html_output .= '</div>';
+
+    // REQUIRE ISSUER
+    $html_output .= '<div class="item">';
+    $html_output .= '<label for="text_x509_issuer">'
+        . '<code><dfn title="'
+        . __(
+            'Requires that a valid X509 certificate issued by this CA be presented.'
+        )
+        . '">'
+        . 'REQUIRE ISSUER'
+        . '</dfn></code></label>';
+    $html_output .= '<input type="text" name="x509_issuer" id="text_x509_issuer" '
+        . 'value="' . (isset($row['x509_issuer']) ? $row['x509_issuer'] : '') . '" '
+        . 'size=80" title="'
+        . __(
+            'Requires that a valid X509 certificate issued by this CA be presented.'
+        )
+        . '" />';
+    $html_output .= '</div>';
+
+    // REQUIRE SUBJECT
+    $html_output .= '<div class="item">';
+    $html_output .= '<label for="text_x509_subject">'
+        . '<code><dfn title="'
+        . __(
+            'Requires that a valid X509 certificate with this subject be presented.'
+        )
+        . '">'
+        . 'REQUIRE SUBJECT'
+        . '</dfn></code></label>';
+    $html_output .= '<input type="text" name="x509_subject" id="text_x509_subject" '
+        . 'value="' . (isset($row['x509_subject']) ? $row['x509_subject'] : '') . '" '
+        . 'size=80" title="'
+        . __(
+            'Requires that a valid X509 certificate with this subject be presented.'
+        )
+        . '" />';
+    $html_output .= '</div>';
+
+    $html_output .= '</div>';
+
+    // REQUIRE X509
+    $html_output .= '<div class="item">';
+    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_X509"'
+        . ' value="X509" title="'
+        . __(
+            'Requires a valid X509 cetrificate.'
+        )
+        . '"'
+        . ((isset($row['ssl_type']) && $row['ssl_type'] == 'X509')
+            ? ' checked="checked"'
+            : ''
+        )
+        . '/>';
+
+    $html_output .= '<label for="radio_X509_priv"><code>'
+        . 'REQUIRE X509'
+        . '</code></label>';
+    $html_output .= '</div>';
+
+    // REQUIRE SSL
+    $html_output .= '<div class="item">';
+    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_ANY"'
+        . ' value="ANY" title="'
+        . __(
+            'Requires SSL-encrypted connections.'
+        )
+        . '"'
+        . ((isset($row['ssl_type']) && ($row['ssl_type'] == 'ANY' || $row['ssl_type'] == ''))
+            ? ' checked="checked"'
+            : ''
+        )
+        . '/>';
+
+    $html_output .= '<label for="ssl_type_ANY"><code>'
+        . 'REQUIRE SSL'
+        . '</code></label>';
+    $html_output .= '</div>';
+
+    $html_output .= '</div>';
+    $html_output .= '</fieldset>';
+
+    return $html_output;
+}
 
 /**
  * Get HTML for "Resource limits"
@@ -1058,6 +1208,7 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
     // The "Resource limits" box is not displayed for db-specific privs
     if ($db == '*') {
         $html_output .= PMA_getHtmlForResourceLimits($row);
+        $html_output .= PMA_getHtmlForRequires($row);
     }
     // for Safari 2.0.2
     $html_output .= '<div class="clearfloat"></div>';
@@ -1706,6 +1857,46 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($dbname,
 }
 
 /**
+ * Get REQUIRE cluase
+ *
+ * @return stirng REQUIRE clause
+ */
+function PMA_getRequireClause()
+{
+    $require_clause = "";
+    if (isset($_POST['SSL_priv']) && $_POST['SSL_priv'] == 'Y') {
+        if (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'specified') {
+            $require = array();
+            if (! empty($_POST['ssl_cipher'])) {
+                $require[] = "CIPHER '"
+                        . PMA_Util::sqlAddSlashes($_POST['ssl_cipher']) . "'";
+            }
+            if (! empty($_POST['x509_issuer'])) {
+                $require[] = "ISSUER '"
+                        . PMA_Util::sqlAddSlashes($_POST['x509_issuer']) . "'";
+            }
+            if (! empty($_POST['x509_subject'])) {
+                $require[] = "SUBJECT '"
+                        . PMA_Util::sqlAddSlashes($_POST['x509_subject']) . "'";
+            }
+            if (count($require)) {
+                $require_clause = " REQUIRE " . implode(" AND ", $require);
+            } else {
+                $require_clause = " REQUIRE NONE";
+            }
+        } elseif (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'X509') {
+            $require_clause = " REQUIRE X509";
+        } elseif (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'ANY') {
+            $require_clause = " REQUIRE SSL";
+        }
+    } else {
+        $require_clause = " REQUIRE NONE";
+    }
+
+    return $require_clause;
+}
+
+/**
  * Get a WITH clause for 'update privileges' and 'add user'
  *
  * @return string $sql_query
@@ -1732,7 +1923,7 @@ function PMA_getWithClauseForAddUserAndUpdatePrivs()
         $max_user_connections = max(0, (int)$_POST['max_user_connections']);
         $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
     }
-    return ((!empty($sql_query)) ? 'WITH' . $sql_query : '');
+    return ((!empty($sql_query)) ? ' WITH' . $sql_query : '');
 }
 
 /**
@@ -3400,6 +3591,11 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
             . ' TO \'' . PMA_Util::sqlAddSlashes($username) . '\'@\''
             . PMA_Util::sqlAddSlashes($hostname) . '\'';
 
+        if (! /*overload*/mb_strlen($dbname)) {
+            // add REQUIRE clause
+            $sql_query2 .= PMA_getRequireClause();
+        }
+
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
             || (! /*overload*/mb_strlen($dbname)
             && (isset($_POST['max_questions']) || isset($_POST['max_connections'])
@@ -4438,13 +4634,18 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         }
     }
 
+    // add REQUIRE clause
+    $require_clause = PMA_getRequireClause();
+    $real_sql_query .= $require_clause;
+    $sql_query .= $require_clause;
+
     if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
         || (isset($_POST['max_questions']) || isset($_POST['max_connections'])
         || isset($_POST['max_updates']) || isset($_POST['max_user_connections']))
     ) {
         $with_clause = PMA_getWithClauseForAddUserAndUpdatePrivs();
-        $real_sql_query .= ' ' . $with_clause;
-        $sql_query .= ' ' . $with_clause;
+        $real_sql_query .= $with_clause;
+        $sql_query .= $with_clause;
     }
 
     if (isset($create_user_real)) {

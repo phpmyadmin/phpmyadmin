@@ -59,6 +59,8 @@ AJAX.registerTeardown('server_privileges.js', function () {
     $(document).off('click',  "#initials_table a.ajax");
     $('#checkbox_drop_users_db').unbind('click');
     $(document).off("click", ".checkall_box");
+    $(document).off('change', '#checkbox_SSL_priv');
+    $(document).off('change', 'input[name="ssl_type"]');
 });
 
 AJAX.registerOnload('server_privileges.js', function () {
@@ -360,6 +362,27 @@ AJAX.registerOnload('server_privileges.js', function () {
             }
         }); // end $.get
     }); // end of the paginate users table
+
+    $(document).on('change', 'input[name="ssl_type"]', function (e) {
+        var $div = $('#specified_div');
+        if ($('#ssl_type_specified').is(':checked')) {
+            $div.find('input').prop('disabled', false);
+        } else {
+            $div.find('input').prop('disabled', true);
+        }
+    });
+
+    $(document).on('change', '#checkbox_SSL_priv', function (e) {
+        var $div = $('#require_ssl_div');
+        if ($(this).is(':checked')) {
+            $div.find('input').prop('disabled', false);
+            $('#ssl_type_specified').trigger('change');
+        } else {
+            $div.find('input').prop('disabled', true);
+        }
+    });
+
+    $('#checkbox_SSL_priv').trigger('change');
 
     /*
      * Create submenu for simpler interface

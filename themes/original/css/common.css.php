@@ -950,7 +950,7 @@ div#tablestatistics table {
     float: <?php echo $left; ?>;
 }
 
-#fieldset_user_global_rights legend input {
+#fieldset_user_global_rights>legend input {
     margin-<?php echo $left; ?>: 2em;
 }
 /* end user privileges */
