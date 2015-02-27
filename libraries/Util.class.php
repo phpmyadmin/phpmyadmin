@@ -2971,7 +2971,7 @@ class PMA_Util
      */
     public static function convertBitDefaultValue($bit_default_value)
     {
-        return strtr($bit_default_value, array("b" => "", "'" => ""));
+        return rtrim(ltrim($bit_default_value, "b'"), "'");
     }
 
     /**
