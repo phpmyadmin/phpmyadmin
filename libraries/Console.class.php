@@ -167,11 +167,7 @@ class PMA_Console
             }
             $this->_scripts->addFile('console.js');
             $output .= $this->_scripts->getDisplay();
-            $output .= '<div id="pma_console_container" data-unfinished="';
-            if (isset($_SESSION['unfinished'])) {
-                $output .= $_SESSION['unfinished'];
-            }
-            $output .= '"><div id="pma_console">';
+            $output .= '<div id="pma_console_container"><div id="pma_console">';
 
             // The templates, use sprintf() to output them
             // There're white space at the end of every <span>,

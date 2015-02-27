@@ -539,9 +539,6 @@ var PMA_consoleInput = {
         }
         $('#pma_console .console_query_input').keydown(PMA_consoleInput._keydown);
     },
-    getUnfinished: function () {
-        return PMA_consoleInput._unfinished;
-    },
     on: function (event, handler) {
         PMA_consoleInput._inputs.console.on(event, handler);
     },
@@ -1025,9 +1022,20 @@ var PMA_consoleBookmarks = {
  */
 $(function () {
     PMA_console.initialize();
-    PMA_consoleInput.on('change', function () {
-        var query = PMA_consoleInput.getText();
-        PMA_consoleInput._unfinished = query;
-    });
-    PMA_consoleInput.setText($('#pma_console_container').attr('data-unfinished'));
+    if (typeof JSON === 'undefined') {
+        return;
+    }
+    var unfinished = $.cookie('unfinished');
+    if (!unfinished) {
+        return;
+    }
+    unfinished = $.parseJSON(unfinished);
+    var current_user = PMA_commonParams.get('current_user')
+    if (!unfinished.hasOwnProperty(current_user) ||
+        !unfinished[current_user].hasOwnProperty('console')) {
+        return;
+    }
+    PMA_consoleInput.setText(unfinished[current_user].console);
+    delete unfinished[current_user].console;
+    $.cookie('unfinished', JSON.stringify(unfinished));
 });

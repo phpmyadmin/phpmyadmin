@@ -252,7 +252,8 @@ class PMA_Header
             'pftext' => $pftext,
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
-            'logged_in' => isset($GLOBALS['userlink']) ? true : false
+            'logged_in' => isset($GLOBALS['userlink']) ? true : false,
+            'current_user' => $GLOBALS['dbi']->getCurrentUser()
         );
     }
 

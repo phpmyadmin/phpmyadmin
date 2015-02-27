@@ -2229,6 +2229,9 @@ class PMA_DatabaseInterface
      */
     public function getCurrentUser()
     {
+        if (!isset($GLOBALS['server']) || $GLOBALS['server'] <= 0) {
+            return false;
+        }
         if (PMA_Util::cacheExists('mysql_cur_user')) {
             return PMA_Util::cacheGet('mysql_cur_user');
         }

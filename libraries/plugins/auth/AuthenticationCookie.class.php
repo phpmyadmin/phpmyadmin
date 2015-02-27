@@ -450,9 +450,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             PMA_Util::cacheUnset('dbs_where_create_table_allowed');
             PMA_Util::cacheUnset('dbs_to_test');
             $GLOBALS['no_activity'] = true;
-            if (!empty($_REQUEST['unfinished'])) {
-                $_SESSION['unfinished'] = $_REQUEST['unfinished'];
-            }
             $this->authFails();
             if (! defined('TESTSUITE')) {
                 exit;
