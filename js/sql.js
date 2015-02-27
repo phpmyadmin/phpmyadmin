@@ -786,11 +786,12 @@ function initProfilingTables()
 /*
  * Set position, left, top, width of sticky_columns div
  */
-function setStickyColumnsPosition($sticky_columns, $table_results, position, top, left) {
+function setStickyColumnsPosition($sticky_columns, $table_results, position, top, left, margin_left) {
     $sticky_columns
         .css("position", position)
         .css("top", top)
         .css("left", left ? left : "auto")
+        .css("margin-left", margin_left ? margin_left : "0px")
         .css("width", $table_results.width());
 }
 
@@ -850,10 +851,10 @@ function handleStickyColumns($sticky_columns, $table_results) {
         //for horizontal scrolling
         if(prevScrollX != currentScrollX) {
             prevScrollX = currentScrollX;
-            setStickyColumnsPosition($sticky_columns, $table_results, "absolute", fixedTop + windowOffset);
+            setStickyColumnsPosition($sticky_columns, $table_results, "absolute", fixedTop + windowOffset - tableStartOffset);
         //for vertical scrolling
         } else {
-            setStickyColumnsPosition($sticky_columns, $table_results, "fixed", fixedTop, $("#pma_navigation").width() - currentScrollX);
+            setStickyColumnsPosition($sticky_columns, $table_results, "fixed", fixedTop, $("#pma_navigation").width() - currentScrollX, $('#page_content').css("margin-left"));
         }
         $sticky_columns.show();
     } else {
