@@ -19,20 +19,24 @@ if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
         $orig_col_name = $_POST['orig_col_name'];
     }
     $col_default = $_POST['col_default'];
+    if ($col_default == 'NONE' && $_POST['col_default_sel'] != 'USER_DEFINED') {
+        $col_default = "";
+    }
     $col_extra = $_POST['col_extra'];
     $col_isNull = isset($_POST['col_isNull'])?1:0;
     $col_length = $_POST['col_length'];
+    $col_attribute = $_POST['col_attribute'];
     $col_type = $_POST['col_type'];
     $collation = $_POST['collation'];
     if (isset($orig_col_name) && $orig_col_name) {
         echo PMA_updateOneColumn(
-            $db, $orig_col_name, $col_name, $col_type,
+            $db, $orig_col_name, $col_name, $col_type,$col_attribute,
             $col_length, $col_isNull, $collation, $col_extra, $col_default
         );
         exit;
     } else {
         $tmp_msg = PMA_updateOneColumn(
-            $db, "", $col_name, $col_type,
+            $db, "", $col_name, $col_type,$col_attribute,
             $col_length, $col_isNull, $collation, $col_extra, $col_default
         );
     }
@@ -113,6 +117,17 @@ $result = PMA_getColumnsList($db, $pos, $max_rows);
 $odd_row = false;
 $row_num=0;
 foreach ($result as $row) {
+    if (is_object(json_decode($row['col_extra']))) {
+        //Decode the json data of col_extra to col_extra and col_attribute
+        $row['col_extra'] = json_decode($row['col_extra'], true);
+    } else {
+        //it is not json string [FOR the case to handle previous inserted value]
+        //like extra column having only increment value,then to deal with it
+        $row['col_extra'] = array(
+            "col_extra" => $row['col_extra'],
+            "col_attribute" => ""
+        );
+    }
     $tableHtmlRow = PMA_getHTMLforCentralColumnsTableRow(
         $row, $odd_row, $row_num, $db
     );
