@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-28 06:27-0500\n"
-"PO-Revision-Date: 2015-02-27 18:28+0200\n"
+"PO-Revision-Date: 2015-02-28 17:05+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5160,7 +5160,7 @@ msgstr ""
 "Le clave deberea continer litteras, numeros [em]e[/em] characteres special."
 
 #: libraries/config/ServerConfigChecks.class.php:371
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5176,8 +5176,9 @@ msgid ""
 msgstr ""
 "Iste %soption%s deberea esser dishabilitate proque il permitte attaccos de "
 "accesso de fortia brutal a qualcunque servitor MySQL. Si tu crede que illo "
-"es necessari, usa %sle lista de proxy digne de fide%s. Totevia, le "
-"protection basate sur IP poterea non esser digne de confidentia si tu IP "
+"es necessari, usa %slimita accesso de login a servitor MySQL%s o%sle lista "
+"de proxy digne de fide%s. Totevia, le protection basate sur IPcon le lista "
+"de proxi digne de fide  poterea non esser digne de confidentia si tu IP "
 "pertine a un ISP ubi miles de usatores, e te mesme, es connectite."
 
 #: libraries/config/ServerConfigChecks.class.php:381
@@ -5375,10 +5376,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Allow login to any MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Permitte le accesso de authentication a ulle servitor MySQL"
+msgstr "Limita le accesso de authentication a  servitor MySQL"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -9802,10 +9802,10 @@ msgid "Please enter correct captcha!"
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "File uploads are not allowed on this server."
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Il non es permittite incargar files sur iste servitor."
+msgstr ""
+"Tu non ha le permisso de acceder con authentication a iste servitor MySQL!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Wrong username/password. Access denied."
