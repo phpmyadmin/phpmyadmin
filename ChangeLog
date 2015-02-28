@@ -63,6 +63,7 @@ explanation
 + rfe #1327 Hide 'Add user' link if user does not have privileges
 + rfe #501  Support for SSL GRANT option
 + rfe #1608 Central columns allowing setting SIGNED / UNSIGNED attribute for integer
++ rfe #1441 Add regexp match when using AllowArbitraryServer
 
 4.3.11.0 (not yet released)
 - bug #4774 SQL links are completely wrong
