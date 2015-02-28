@@ -714,9 +714,6 @@ AJAX.registerOnload('functions.js', function () {
             'db' : PMA_commonParams.get('db'),
             'access_time':_idleSecondsCounter
         };
-        if (PMA_consoleInput && PMA_consoleInput.getUnfinished()) {
-            params.unfinished = PMA_consoleInput.getUnfinished();
-        }
         $.ajax({
                 type: 'POST',
                 url: href,
@@ -734,6 +731,23 @@ AJAX.registerOnload('functions.js', function () {
                             updateInterval = window.setInterval(UpdateIdleTime, 2000);
                         }
                     } else { //timeout occurred
+                        if (typeof JSON !== 'undefined') {
+                            var unfinished = $.parseJSON($.cookie('unfinished') || '{}');
+                            var current_user = PMA_commonParams.get('current_user');
+                            if (!unfinished.hasOwnProperty(current_user)) {
+                                unfinished[current_user] = {};
+                            }
+                            current_user = unfinished[current_user];
+                            if (PMA_consoleInput && PMA_consoleInput.getText().length > 0) {
+                                current_user.console = PMA_consoleInput.getText();
+                            }
+                            if (codemirror_editor && codemirror_editor.getValue().length > 0) {
+                                current_user.query = codemirror_editor.getValue();
+                            } else if ($('#sqlquery').val() && $('#sqlquery').val().length > 0) {
+                                current_user.query = $('#sqlquery').val();
+                            }
+                            $.cookie('unfinished', JSON.stringify(unfinished));
+                        }
                         window.location.reload(true);
                         clearInterval(IncInterval);
                     }

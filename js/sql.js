@@ -101,15 +101,6 @@ AJAX.registerTeardown('sql.js', function () {
     $(window).unbind('scroll');
     $(document).off("keyup", ".filter_rows");
 
-    if (codemirror_editor) {
-        codemirror_editor.off('change', PMA_handleQueryChanges);
-    }
-    $('#sqlquery').off('input propertychange', PMA_handleQueryChanges);
-    if (PMA_consoleInput) {
-        PMA_consoleInput.off('change', PMA_handleConsoleChanges);
-    }
-    $('#pma_console').off('input propertychange', PMA_handleConsoleChanges);
-
     $('body').off('click', '.navigation .showAllRows');
     $('body').off('click','a.browse_foreign');
     $('body').off('click', '#simulate_dml');
@@ -136,17 +127,7 @@ AJAX.registerTeardown('sql.js', function () {
 AJAX.registerOnload('sql.js', function () {
 
     $(function () {
-        if (codemirror_editor) {
-            codemirror_editor.on('change', PMA_handleQueryChanges);
-        } else {
-            $('#sqlquery').on('input propertychange', PMA_handleQueryChanges);
-        }
-        if (PMA_consoleInput) {
-            PMA_consoleInput.on('change', PMA_handleConsoleChanges);
-        } else {
-            $('#pma_console').on('input propertychange', PMA_handleConsoleChanges);
-        }
-        PMA_handleConsoleChanges();
+        PMA_readUnfinished();
     });
 
     // Delete row from SQL results
@@ -575,29 +556,27 @@ AJAX.registerOnload('sql.js', function () {
     });
 }); // end $()
 
-function PMA_handleQueryChanges() {
+function PMA_readUnfinished() {
 
-    var query = null;
-
+    if (typeof JSON === 'undefined') {
+        return;
+    }
+    var unfinished = $.cookie('unfinished');
+    if (!unfinished) {
+        return;
+    }
+    unfinished = $.parseJSON(unfinished);
+    var current_user = PMA_commonParams.get('current_user')
+    if (!unfinished.hasOwnProperty(current_user) ||
+        !unfinished[current_user].hasOwnProperty('query')) {
+        return;
+    }
+    var query = unfinished[current_user].query;
+    delete unfinished[current_user].query;
+    $.cookie('unfinished', JSON.stringify(unfinished));
     if (codemirror_editor) {
-        query = codemirror_editor.getValue();
+        codemirror_editor.setValue(query);
     } else {
-        query = $('#sqlquery').val();
-    }
-    if (PMA_consoleInput.getText() !== query) {
-        PMA_consoleInput.setText(query);
-    }
-}
-
-function PMA_handleConsoleChanges() {
-
-    var query = PMA_consoleInput.getText();
-
-    if (codemirror_editor) {
-        if (query !== codemirror_editor.getValue()) {
-            codemirror_editor.setValue(query);
-        }
-    } else if (query !== $('#sqlquery').val()) {
         $('#sqlquery').val(query);
     }
 }
