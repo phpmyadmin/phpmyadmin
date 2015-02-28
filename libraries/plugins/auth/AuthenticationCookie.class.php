@@ -406,6 +406,24 @@ class AuthenticationCookie extends AuthenticationPlugin
             if ($GLOBALS['cfg']['AllowArbitraryServer']
                 && isset($_REQUEST['pma_servername'])
             ) {
+                if ($GLOBALS['cfg']['ArbitraryServerRegexp']) {
+                    $parts = explode(' ', $_REQUEST['pma_servername']);
+                    if (count($parts) == 2) {
+                        $tmp_host = $parts[0];
+                    } else {
+                        $tmp_host = $_REQUEST['pma_servername'];
+                    }
+
+                    $match = preg_match(
+                        $GLOBALS['cfg']['ArbitraryServerRegexp'], $tmp_host
+                    );
+                    if (! $match) {
+                        $conn_error = __(
+                            'You are not allowed to log in to this MySQL server!'
+                        );
+                        return false;
+                    }
+                }
                 $GLOBALS['pma_auth_server'] = $_REQUEST['pma_servername'];
             }
             return true;
@@ -847,7 +865,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @param string $password New password to set
      *
-     * @return void 
+     * @return void
      */
     public function handlePasswordChange($password)
     {

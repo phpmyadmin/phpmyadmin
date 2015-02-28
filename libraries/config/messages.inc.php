@@ -17,6 +17,12 @@ if (!function_exists('__')) {
 $strConfigAllowArbitraryServer_desc
     = __('If enabled, user can enter any MySQL server in login form for cookie auth.');
 $strConfigAllowArbitraryServer_name = __('Allow login to any MySQL server');
+$strConfigArbitraryServerRegexp_desc = __(
+    'Restricts the MySQL servers the user can enter when login to an arbitrary '
+    . 'MySQL server is enabled by matching the IP of the MySQL server to the given '
+    . 'regular expression.'
+);
+$strConfigArbitraryServerRegexp_name = __('Restrict login to MySQL server');
 $strConfigAllowThirdPartyFraming_desc = __(
     'Enabling this allows a page located on a different domain to call phpMyAdmin '
     . 'inside a frame, and is a potential [strong]security hole[/strong] allowing '

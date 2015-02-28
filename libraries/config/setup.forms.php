@@ -108,6 +108,7 @@ $forms['Features']['Security'] = array(
     'TrustedProxies',
     'AllowUserDropDatabase',
     'AllowArbitraryServer',
+    'ArbitraryServerRegexp',
     'LoginCookieRecall',
     'LoginCookieValidity',
     'LoginCookieStore',

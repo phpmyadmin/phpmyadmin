@@ -368,11 +368,14 @@ class ServerConfigChecks
      */
     protected static function defineMessages()
     {
-        $sAllowArbitraryServerWarn = __('This %soption%s should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
+        $sAllowArbitraryServerWarn = __('This %soption%s should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use %srestrict login to MySQL server%s or %strusted proxies list%s. However, IP-based protection with trusted proxies list may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
         $sAllowArbitraryServerWarn = sprintf(
             $sAllowArbitraryServerWarn,
             '[a@?page=form&amp;formset=Features#tab_Security]',
-            '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]',
+            '[/a]',
+            '[a@?page=form&amp;formset=Features#tab_Security]',
+            '[/a]',
+            '[a@?page=form&amp;formset=Features#tab_Security]',
             '[/a]'
         );
         $sBlowfishSecretMsg = __('You didn\'t have blowfish secret set and have enabled [kbd]cookie[/kbd] authentication, so a key was automatically generated for you. It is used to encrypt cookies; you don\'t need to remember it.');
