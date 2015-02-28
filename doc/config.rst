@@ -1395,7 +1395,8 @@ Cookie authentication options
     Restricts the MySQL servers to which the user can log in when
     :config:option:`$cfg['AllowArbitraryServer']` is enabled by
     matching the :term:`IP` or the hostname of the MySQL server
-    to the given regular expression.
+    to the given regular expression. The regular expression must be enclosed
+    with a delimiter character.
 
 .. config:option:: $cfg['CaptchaLoginPublicKey']
 
