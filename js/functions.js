@@ -709,14 +709,11 @@ AJAX.registerOnload('functions.js', function () {
     function UpdateIdleTime() {
         var href = 'index.php';
         var params = {
-            'ajax_request' : true,
-            'token' : PMA_commonParams.get('token'),
-            'db' : PMA_commonParams.get('db'),
-            'access_time':_idleSecondsCounter
-        };
-        if (PMA_consoleInput && PMA_consoleInput.getUnfinished()) {
-            params.unfinished = PMA_consoleInput.getUnfinished();
-        }
+                'ajax_request' : true,
+                'token' : PMA_commonParams.get('token'),
+                'db' : PMA_commonParams.get('db'),
+                'access_time':_idleSecondsCounter
+            };
         $.ajax({
                 type: 'POST',
                 url: href,
@@ -1001,6 +998,13 @@ function insertQuery(queryType)
                     $('#querymessage').html('');
                 }
             });
+        }
+        return;
+    } else if (queryType == "saved") {
+        if ($.cookie('auto_saved_sql')) {
+            setQuery($.cookie('auto_saved_sql'));
+        } else {
+            PMA_ajaxShowMessage(PMA_messages.strNoAutoSavedQuery);
         }
         return;
     }

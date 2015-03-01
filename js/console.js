@@ -539,15 +539,6 @@ var PMA_consoleInput = {
         }
         $('#pma_console .console_query_input').keydown(PMA_consoleInput._keydown);
     },
-    getUnfinished: function () {
-        return PMA_consoleInput._unfinished;
-    },
-    on: function (event, handler) {
-        PMA_consoleInput._inputs.console.on(event, handler);
-    },
-    off: function (event, handler) {
-        PMA_consoleInput._inputs.console.off(event, handler);
-    },
     _historyNavigate: function(event) {
         if (event.keyCode == 38 || event.keyCode == 40) {
             var upPermitted = false;
@@ -1025,9 +1016,4 @@ var PMA_consoleBookmarks = {
  */
 $(function () {
     PMA_console.initialize();
-    PMA_consoleInput.on('change', function () {
-        var query = PMA_consoleInput.getText();
-        PMA_consoleInput._unfinished = query;
-    });
-    PMA_consoleInput.setText($('#pma_console_container').attr('data-unfinished'));
 });

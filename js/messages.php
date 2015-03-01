@@ -305,6 +305,7 @@ $js_messages['strShowQueryBox'] = __('Show query box');
 $js_messages['strEdit'] = __('Edit');
 $js_messages['strNotValidRowNumber'] = __('%d is not valid row number.');
 $js_messages['strBrowseForeignValues'] = __('Browse foreign values');
+$js_messages['strNoAutoSavedQuery'] = __('No auto saved query');
 
 /* For Central list of columns */
 $js_messages['pickColumn'] = __('Pick');
