@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-02-28 06:27-0500\n"
-"PO-Revision-Date: 2015-02-27 14:20+0200\n"
+"PO-Revision-Date: 2015-03-01 12:10+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4805,10 +4805,9 @@ msgid "Length/Values"
 msgstr "Taille/Valeurs*"
 
 #: libraries/central_columns.lib.php:663
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Attributs"
+msgstr "Attribut"
 
 #: libraries/central_columns.lib.php:667
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -5151,7 +5150,7 @@ msgstr ""
 "spéciaux."
 
 #: libraries/config/ServerConfigChecks.class.php:371
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5167,8 +5166,11 @@ msgid ""
 msgstr ""
 "Cette %soption%s ne devrait pas être activée car elle permet à un attaquant "
 "de tenter de forcer l'entrée sur tout serveur MySQL. Si vous en avez "
-"réellement besoin, utilisez la %sliste des serveurs mandataires de confiance"
-"%s."
+"réellement besoin, utilisez une %srestriction de connexion à un serveur "
+"MySQL%s ou une %sliste des serveurs mandataires de confiance%s. Cependant, "
+"une protection basée sur l'adresse IP dans les serveurs mandataires de "
+"confiance peut ne pas être fiable si l'adresse IP appartient à un FAI "
+"utilisé par des milliers d'utilisateurs, dont vous-même."
 
 #: libraries/config/ServerConfigChecks.class.php:381
 msgid ""
@@ -5352,12 +5354,14 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Limite les serveurs MySQL que l'utilisateur peut saisir lorsqu'une connexion "
+"à un serveur arbitraire de MySQL est activée, en vérifiant la correspondance "
+"de l'expression régulière à l'adresse IP ou au nom d'hôte du serveur MySQL."
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Connexion au serveur MySQL non permise"
+msgstr "Restreint la connexion au serveur MySQL"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -6402,8 +6406,8 @@ msgstr "Limite mémoire"
 #: libraries/config/messages.inc.php:424
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
-"Dans le volet de navigation, remplace l'arborescence de bases de données par "
-"un sélecteur"
+"Dans le volet de navigation, remplace l'arborescence de la base de données "
+"par un sélecteur"
 
 #: libraries/config/messages.inc.php:426
 msgid "Show databases navigation as tree"
@@ -9831,10 +9835,9 @@ msgid "Please enter correct captcha!"
 msgstr "Veuillez saisir le captcha correct !"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Connexion au serveur MySQL non permise"
+msgstr "Vous n'êtes pas autorisé à vous connecter à ce serveur MySQL !"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Wrong username/password. Access denied."
@@ -11892,29 +11895,32 @@ msgstr "Groupe d'utilisateurs"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Connexions persistantes"
+msgstr "Nécessite des connexions SSL chiffrées."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Exiger SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that specific cipher method is used for a connection."
 msgstr ""
+"Requiert que la méthode de chiffrement spécifique soit utilisée pour une "
+"connexion."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Nécessite qu'un certificat X509 valide émis par cette autorité de "
+"certification soit présenté."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Exige qu'un certificat X509 valide avec ce sujet soit présenté."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 cetrificate."
