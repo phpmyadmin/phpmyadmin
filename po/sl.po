@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-01 06:38-0500\n"
-"PO-Revision-Date: 2015-03-01 13:54+0200\n"
+"PO-Revision-Date: 2015-03-01 18:06+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
@@ -1834,7 +1834,7 @@ msgstr "Prebrskaj tuje vrednosti"
 
 #: js/messages.php:308
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Ni nobene samodejno shranjene poizvedbe"
 
 #: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -11813,7 +11813,7 @@ msgstr "Zahteva prisotnost veljavnega certifikata X509 s to zadevo."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 cetrificate."
-msgstr ""
+msgstr "Zahteva veljaven certifikat X509."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
