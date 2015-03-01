@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-02-28 06:27-0500\n"
+"POT-Creation-Date: 2015-03-01 06:38-0500\n"
 "PO-Revision-Date: 2014-10-23 14:29+0200\n"
 "Last-Translator: Ion Adrian-Ionut <john@panevo.ro>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -191,7 +191,7 @@ msgstr "Primar"
 msgid "No"
 msgstr "Nu"
 
-#: db_datadict.php:157 js/messages.php:397 libraries/Index.class.php:520
+#: db_datadict.php:157 js/messages.php:398 libraries/Index.class.php:520
 #: libraries/Index.class.php:557 libraries/Index.class.php:970
 #: libraries/central_columns.lib.php:836
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:79
@@ -500,23 +500,23 @@ msgid "Point:"
 msgstr "Punct:"
 
 #: gis_data_editor.php:214 gis_data_editor.php:241 gis_data_editor.php:297
-#: gis_data_editor.php:370 js/messages.php:385
+#: gis_data_editor.php:370 js/messages.php:386
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:217 gis_data_editor.php:245 gis_data_editor.php:301
-#: gis_data_editor.php:376 js/messages.php:386
+#: gis_data_editor.php:376 js/messages.php:387
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:239 gis_data_editor.php:295 gis_data_editor.php:368
-#: js/messages.php:388
+#: js/messages.php:389
 #, php-format
 msgid "Point %d"
 msgstr "Punct %d"
 
 #: gis_data_editor.php:252 gis_data_editor.php:308 gis_data_editor.php:386
-#: js/messages.php:394
+#: js/messages.php:395
 msgid "Add a point"
 msgstr "Adaugă un punct"
 
@@ -538,7 +538,7 @@ msgstr "Inelul interior %d:"
 msgid "Add a linestring"
 msgstr "Adaugă un nou rând de caractere"
 
-#: gis_data_editor.php:312 gis_data_editor.php:391 js/messages.php:395
+#: gis_data_editor.php:312 gis_data_editor.php:391 js/messages.php:396
 msgid "Add an inner ring"
 msgstr "Adăugați un inel interior"
 
@@ -582,8 +582,8 @@ msgstr "Adaugă geometrie"
 #: libraries/server_privileges.lib.php:3396
 #: libraries/server_privileges.lib.php:4353
 #: libraries/server_user_groups.lib.php:285
-#: libraries/sql_query_form.lib.php:337 libraries/sql_query_form.lib.php:396
-#: libraries/sql_query_form.lib.php:464 libraries/structure.lib.php:1717
+#: libraries/sql_query_form.lib.php:339 libraries/sql_query_form.lib.php:398
+#: libraries/sql_query_form.lib.php:466 libraries/structure.lib.php:1717
 #: libraries/tbl_chart.lib.php:296
 #: libraries/tbl_columns_definition_form.lib.php:193
 #: libraries/tbl_indexes.lib.php:472 libraries/tracking.lib.php:532
@@ -608,7 +608,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "Reușit"
 
-#: import.php:58 js/messages.php:451
+#: import.php:58 js/messages.php:452
 msgid "Failed"
 msgstr "Eșuat"
 
@@ -710,7 +710,7 @@ msgstr ""
 "înseamnă că phpMyAdmin nu va reuşi să finalizeze importarea datelor decât în "
 "cazul în care se măreşte timpul alocat."
 
-#: import_status.php:97 js/messages.php:331 libraries/Util.class.php:736
+#: import_status.php:97 js/messages.php:332 libraries/Util.class.php:736
 #: libraries/export.lib.php:460
 #: libraries/plugins/schema/Export_Relation_Schema.class.php:294
 #: user_password.php:197
@@ -1543,7 +1543,7 @@ msgstr "Se analizează…"
 msgid "Explain output"
 msgstr "Explică rezultatul"
 
-#: js/messages.php:206 js/messages.php:703
+#: js/messages.php:206 js/messages.php:704
 #: libraries/plugins/export/ExportHtmlword.class.php:471
 #: libraries/plugins/export/ExportOdt.class.php:587
 #: libraries/plugins/export/ExportTexytext.class.php:426
@@ -1847,7 +1847,7 @@ msgid "Show query box"
 msgstr "Arată caseta de interogare"
 
 #: js/messages.php:305 libraries/Console.class.php:96
-#: libraries/Console.class.php:183 libraries/DisplayResults.class.php:3268
+#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3268
 #: libraries/Index.class.php:675 libraries/Util.class.php:665
 #: libraries/Util.class.php:1190 libraries/Util.class.php:3424
 #: libraries/Util.class.php:3425 libraries/central_columns.lib.php:784
@@ -1869,19 +1869,23 @@ msgstr "%d nu este un număr valid de rânduri."
 msgid "Browse foreign values"
 msgstr "Caută printre valori necunoscute"
 
-#: js/messages.php:310 libraries/normalization.lib.php:849
+#: js/messages.php:308
+msgid "No auto-saved query"
+msgstr ""
+
+#: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
 msgstr "Alege"
 
-#: js/messages.php:311
+#: js/messages.php:312
 msgid "Column selector"
 msgstr "Selectorul de coloană"
 
-#: js/messages.php:312
+#: js/messages.php:313
 msgid "Search this list"
 msgstr "Caută în această listă"
 
-#: js/messages.php:313
+#: js/messages.php:314
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -1890,15 +1894,15 @@ msgstr ""
 "Nu sunt coloane în lista centrală. Asiguraţi-vă că lista de coloane centrale "
 "pentru baza de date %s are coloane care nu sunt prezente în tabelul curent."
 
-#: js/messages.php:314
+#: js/messages.php:315
 msgid "See more"
 msgstr "Vezi mai mult"
 
-#: js/messages.php:315
+#: js/messages.php:316
 msgid "Are you sure?"
 msgstr "Sunteți sigur?"
 
-#: js/messages.php:316
+#: js/messages.php:317
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
@@ -1906,52 +1910,52 @@ msgstr ""
 "Această acţiune poate modifica definiţia anumitor coloane.<br/>Sunteţi sigur "
 "că doriţi să continuaţi?"
 
-#: js/messages.php:317
+#: js/messages.php:318
 msgid "Continue"
 msgstr "Continuă"
 
-#: js/messages.php:320 libraries/structure.lib.php:2168
+#: js/messages.php:321 libraries/structure.lib.php:2168
 #: libraries/structure.lib.php:2171
 msgid "Add primary key"
 msgstr "Adaugă cheie primară"
 
-#: js/messages.php:321
+#: js/messages.php:322
 msgid "Primary key added."
 msgstr "Cheia primară a fost adăugată."
 
-#: js/messages.php:322 libraries/normalization.lib.php:174
+#: js/messages.php:323 libraries/normalization.lib.php:174
 msgid "Taking you to next step…"
 msgstr "Continuați cu pasul următor…"
 
-#: js/messages.php:323
+#: js/messages.php:324
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Primul pas de normalizare este complet pentru tabela '%s'."
 
-#: js/messages.php:324 libraries/normalization.lib.php:422
+#: js/messages.php:325 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
 #: libraries/normalization.lib.php:612
 msgid "End of step"
 msgstr "Sfârşitul pasului"
 
-#: js/messages.php:325
+#: js/messages.php:326
 msgid "Second step of normalization (2NF)"
 msgstr "Al doilea pas de normalizare (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:326 js/messages.php:572 libraries/normalization.lib.php:264
+#: js/messages.php:327 js/messages.php:573 libraries/normalization.lib.php:264
 msgid "Done"
 msgstr "Gata"
 
-#: js/messages.php:327
+#: js/messages.php:328
 msgid "Confirm partial dependencies"
 msgstr "Confirmați dependenţele parţiale"
 
-#: js/messages.php:328
+#: js/messages.php:329
 msgid "Selected partial dependencies are as follows:"
 msgstr "Dependenţe parţiale selectate sunt după cum urmează:"
 
-#: js/messages.php:329
+#: js/messages.php:330
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -1959,19 +1963,19 @@ msgstr ""
 "Notă: a, b -> d, f presupune ca valorile coloanelor a şi b combinate "
 "împreună să poată determina valorile din coloana d şi coloana f."
 
-#: js/messages.php:330
+#: js/messages.php:331
 msgid "No partial dependencies selected!"
 msgstr "Nici o dependenţă parţială selectată!"
 
-#: js/messages.php:332
+#: js/messages.php:333
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr "Arată-mi posibile dependenţe parţiale pe baza datelor din tabel"
 
-#: js/messages.php:333
+#: js/messages.php:334
 msgid "Hide partial dependencies list"
 msgstr "Ascunde lista dependenţelor parţiale"
 
-#: js/messages.php:334
+#: js/messages.php:335
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -1979,41 +1983,41 @@ msgstr ""
 "Fiți răbdător! Poate dura câteva secunde în funcţie de dimensiunea datelor "
 "şi numărul coloanelor tabelului."
 
-#: js/messages.php:335
+#: js/messages.php:336
 msgid "Step"
 msgstr "Pas"
 
-#: js/messages.php:336
+#: js/messages.php:337
 msgid "The following actions will be performed:"
 msgstr "Vor fi efectuate următoarele acţiuni:"
 
-#: js/messages.php:337
+#: js/messages.php:338
 #, fuzzy, php-format
 #| msgid "DROP columns %1s from the table %2s"
 msgid "DROP columns %s from the table %s"
 msgstr "Șterge coloanele %1s din tabelul %2s"
 
-#: js/messages.php:338
+#: js/messages.php:339
 msgid "Create the following table"
 msgstr "Creaţi tabelul următor"
 
-#: js/messages.php:341
+#: js/messages.php:342
 msgid "Third step of normalization (3NF)"
 msgstr "Al treilea pas de normalizare (3NF)"
 
-#: js/messages.php:342
+#: js/messages.php:343
 msgid "Confirm transitive dependencies"
 msgstr "Confirmați dependenţele tranzitive"
 
-#: js/messages.php:343
+#: js/messages.php:344
 msgid "Selected dependencies are as follows:"
 msgstr "Dependenţe selectate sunt după cum urmează:"
 
-#: js/messages.php:344
+#: js/messages.php:345
 msgid "No dependencies selected!"
 msgstr "Nici o dependenţă selectată!"
 
-#: js/messages.php:347 libraries/insert_edit.lib.php:1452
+#: js/messages.php:348 libraries/insert_edit.lib.php:1452
 #: libraries/server_variables.lib.php:155
 #: libraries/tbl_columns_definition_form.lib.php:160
 #: libraries/tbl_gis_visualization.lib.php:238
@@ -2022,154 +2026,154 @@ msgstr "Nici o dependenţă selectată!"
 msgid "Save"
 msgstr "Salvează"
 
-#: js/messages.php:350
+#: js/messages.php:351
 msgid "Hide search criteria"
 msgstr "Ascunde criteriile de căutare"
 
-#: js/messages.php:351
+#: js/messages.php:352
 msgid "Show search criteria"
 msgstr "Afișează criteriile de căutare"
 
-#: js/messages.php:352
+#: js/messages.php:353
 msgid "Range search"
 msgstr "Intervalul de căutare"
 
-#: js/messages.php:353
+#: js/messages.php:354
 msgid "Column maximum:"
 msgstr "Maximul coloanei:"
 
-#: js/messages.php:354
+#: js/messages.php:355
 msgid "Column minimum:"
 msgstr "Minimul coloanei:"
 
-#: js/messages.php:355
+#: js/messages.php:356
 msgid "Minimum value:"
 msgstr "Valorea minimă:"
 
-#: js/messages.php:356
+#: js/messages.php:357
 msgid "Maximum value:"
 msgstr "Valorea maximă:"
 
-#: js/messages.php:359
+#: js/messages.php:360
 msgid "Hide find and replace criteria"
 msgstr "Ascunde criteriile de căutare și înlocuire"
 
-#: js/messages.php:360
+#: js/messages.php:361
 msgid "Show find and replace criteria"
 msgstr "Afișează criteriile de căutare și înlocuire"
 
-#: js/messages.php:364
+#: js/messages.php:365
 msgid "Each point represents a data row."
 msgstr "Fiecare punct reprezintă un rând de date."
 
-#: js/messages.php:366
+#: js/messages.php:367
 msgid "Hovering over a point will show its label."
 msgstr "Ducând mouse-ul deasupra unui punct, i se va afișa eticheta."
 
-#: js/messages.php:368
+#: js/messages.php:369
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Pentru a mări, selectaţi o secţiune cu mouse-ul."
 
-#: js/messages.php:370
+#: js/messages.php:371
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Faceţi click pe butonul de resetare zoom pentru a reveni la starea iniţială."
 
-#: js/messages.php:372
+#: js/messages.php:373
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Apăsați pe un punct de date pentru a vedea sau chiar a edita rândul de date."
 
-#: js/messages.php:374
+#: js/messages.php:375
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "Afişarea poate fi modificată trăgând de colțul din dreapta jos."
 
-#: js/messages.php:376
+#: js/messages.php:377
 msgid "Select two columns"
 msgstr "Alege două coloane"
 
-#: js/messages.php:378
+#: js/messages.php:379
 msgid "Select two different columns"
 msgstr "Alege două coloane diferite"
 
-#: js/messages.php:380
+#: js/messages.php:381
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Mărime pointer date"
 
-#: js/messages.php:383 js/messages.php:513 js/messages.php:529
+#: js/messages.php:384 js/messages.php:514 js/messages.php:530
 #: libraries/Error_Handler.class.php:348 libraries/insert_edit.lib.php:2561
 #: libraries/tbl_indexes.lib.php:395 libraries/tbl_indexes.lib.php:432
 msgid "Ignore"
 msgstr "Ignoră"
 
-#: js/messages.php:384 libraries/DisplayResults.class.php:3271
+#: js/messages.php:385 libraries/DisplayResults.class.php:3271
 msgid "Copy"
 msgstr "Copiază"
 
-#: js/messages.php:387
+#: js/messages.php:388
 msgid "Point"
 msgstr "Punct"
 
-#: js/messages.php:389
+#: js/messages.php:390
 msgid "Linestring"
 msgstr "Linii terminate de"
 
-#: js/messages.php:390
+#: js/messages.php:391
 msgid "Polygon"
 msgstr "Poligon"
 
-#: js/messages.php:391 libraries/DisplayResults.class.php:1664
+#: js/messages.php:392 libraries/DisplayResults.class.php:1664
 msgid "Geometry"
 msgstr "Geometrie"
 
-#: js/messages.php:392
+#: js/messages.php:393
 #, fuzzy
 msgid "Inner Ring"
 msgstr "Inel interior"
 
-#: js/messages.php:393
+#: js/messages.php:394
 #, fuzzy
 msgid "Outer Ring"
 msgstr "Inel exterior"
 
-#: js/messages.php:396
+#: js/messages.php:397
 msgid "Shift + Click on function name to apply to all rows."
 msgstr "Shift + Click pe numele funcției pentru a aplica la toate rândurile."
 
-#: js/messages.php:398
+#: js/messages.php:399
 msgid "Do you want to copy encryption key?"
 msgstr "Doriți să copiați cheia de criptare?"
 
-#: js/messages.php:399
+#: js/messages.php:400
 msgid "Encryption key"
 msgstr "Cheie de criptare"
 
-#: js/messages.php:403
+#: js/messages.php:404
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: js/messages.php:408
+#: js/messages.php:409
 msgid "Select referenced key"
 msgstr "Alegere cheie referențiată"
 
-#: js/messages.php:409
+#: js/messages.php:410
 msgid "Select Foreign Key"
 msgstr "Alegeți cheia străină"
 
-#: js/messages.php:410
+#: js/messages.php:411
 msgid "Please select the primary key or a unique key!"
 msgstr "Vă rugăm să alegeți cheia primară sau o cheie unică!"
 
-#: js/messages.php:411 libraries/db_designer.lib.php:329
+#: js/messages.php:412 libraries/db_designer.lib.php:329
 #: libraries/db_designer.lib.php:332
 msgid "Choose column to display"
 msgstr "Selectează coloana pentru afișare"
 
-#: js/messages.php:413
+#: js/messages.php:414
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -2177,68 +2181,68 @@ msgstr ""
 "Nu ați salvat schimbarile în așezare. Ele vor fi pierdute dacă nu le "
 "salvați. Doriți să continuați?"
 
-#: js/messages.php:416
+#: js/messages.php:417
 msgid "Page name"
 msgstr "Numele paginii"
 
-#: js/messages.php:417
+#: js/messages.php:418
 msgid "Save page"
 msgstr "Salvează pagina"
 
-#: js/messages.php:418 libraries/db_designer.lib.php:281
+#: js/messages.php:419 libraries/db_designer.lib.php:281
 #: libraries/db_designer.lib.php:284
 msgid "Open page"
 msgstr "Pagina de deschidere"
 
-#: js/messages.php:419
+#: js/messages.php:420
 msgid "Delete page"
 msgstr "Șterge pagina"
 
-#: js/messages.php:420 libraries/db_designer.lib.php:244
+#: js/messages.php:421 libraries/db_designer.lib.php:244
 #, fuzzy
 #| msgid "*Untitled"
 msgid "Untitled"
 msgstr "*Fără titlu"
 
-#: js/messages.php:421
+#: js/messages.php:422
 msgid "Please select a page to continue"
 msgstr "Selectează o pagină pentru a continua"
 
-#: js/messages.php:422
+#: js/messages.php:423
 msgid "Please enter a valid page name"
 msgstr "Introduceţi un nume valid pentru pagină"
 
-#: js/messages.php:423
+#: js/messages.php:424
 msgid "Do you want to save the changes to the current page?"
 msgstr "Doriţi să salvaţi modificările aduse paginii curente?"
 
-#: js/messages.php:424
+#: js/messages.php:425
 msgid "Successfully deleted the page"
 msgstr "Pagina a fost ștearsă cu succes"
 
-#: js/messages.php:425
+#: js/messages.php:426
 msgid "Export relational schema"
 msgstr "Exportați schema relațională"
 
-#: js/messages.php:426
+#: js/messages.php:427
 msgid "Modifications have been saved"
 msgstr "Modificările au fost salvate"
 
-#: js/messages.php:429
+#: js/messages.php:430
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "Adăugați o opțiune pentru coloana \"%s\"."
 
-#: js/messages.php:430
+#: js/messages.php:431
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d obiect(e) creat(e)."
 
-#: js/messages.php:433
+#: js/messages.php:434
 msgid "Press escape to cancel editing."
 msgstr "Apăsați escape pentru a anula editarea."
 
-#: js/messages.php:434
+#: js/messages.php:435
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -2246,15 +2250,15 @@ msgstr ""
 "Ați editat unele date și acestea nu au fost salvate. Sigur vreți să părăsiți "
 "această pagină fără să salvați datele?"
 
-#: js/messages.php:435
+#: js/messages.php:436
 msgid "Drag to reorder."
 msgstr "Deplasați pentru a reordona."
 
-#: js/messages.php:436
+#: js/messages.php:437
 msgid "Click to sort results by this column."
 msgstr "Click pentru a sorta rezultatele după această coloană."
 
-#: js/messages.php:437
+#: js/messages.php:438
 #, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
@@ -2268,27 +2272,27 @@ msgstr ""
 "pentru a activa ASC/DESC. <br />-Control+Click pentru a îndepărta coloana "
 "din instrucțiunea ORDER BY"
 
-#: js/messages.php:438
+#: js/messages.php:439
 msgid "Click to mark/unmark."
 msgstr "Click pentru a selecta/deselecta."
 
-#: js/messages.php:439
+#: js/messages.php:440
 msgid "Double-click to copy column name."
 msgstr "Dublu click pentru a copia denumirea coloanei."
 
-#: js/messages.php:441
+#: js/messages.php:442
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 "Apăsați pe săgeata verticală<br />pentru a alterna vizibilitatea coloanei."
 
-#: js/messages.php:443 libraries/DisplayResults.class.php:926
+#: js/messages.php:444 libraries/DisplayResults.class.php:926
 #: libraries/browse_foreigners.lib.php:253
 #: libraries/browse_foreigners.lib.php:306
 #: libraries/server_privileges.lib.php:3461
 msgid "Show all"
 msgstr "Arată tot"
 
-#: js/messages.php:444
+#: js/messages.php:445
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -2297,150 +2301,150 @@ msgstr ""
 "checkbox, sau link-urile de Editare, Copiere si Ștergere pot să nu "
 "funcționeze după salvare."
 
-#: js/messages.php:445
+#: js/messages.php:446
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Vă rugăm să introduceţi un şir hexazecimal valid. Caracterele valide sunt "
 "0-9, A-F."
 
-#: js/messages.php:446
+#: js/messages.php:447
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: js/messages.php:449
+#: js/messages.php:450
 msgid "cancel"
 msgstr "anulează"
 
-#: js/messages.php:450 libraries/server_status.lib.php:269
+#: js/messages.php:451 libraries/server_status.lib.php:269
 msgid "Aborted"
 msgstr "Întrerupt"
 
-#: js/messages.php:452
+#: js/messages.php:453
 msgid "Success"
 msgstr "Succes"
 
-#: js/messages.php:453
+#: js/messages.php:454
 msgid "Import status"
 msgstr "Starea importului"
 
-#: js/messages.php:454 libraries/navigation/Navigation.class.php:107
+#: js/messages.php:455 libraries/navigation/Navigation.class.php:107
 msgid "Drop files here"
 msgstr "Dați drumul la fişiere aici"
 
-#: js/messages.php:455
+#: js/messages.php:456
 msgid "Select database first"
 msgstr "Selectaţi mai întâi baza de date"
 
-#: js/messages.php:460
+#: js/messages.php:461
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 "De asemenea puteți edita majoritatea valorilor<br/>făcând dublu-click direct "
 "pe acestea."
 
-#: js/messages.php:463
+#: js/messages.php:464
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 "De asemenea puteți edita majoritatea valorile<br />făcând click direct pe "
 "acestea."
 
-#: js/messages.php:468
+#: js/messages.php:469
 msgid "Go to link:"
 msgstr "Mergi la adresa link-ului:"
 
-#: js/messages.php:469
+#: js/messages.php:470
 msgid "Copy column name."
 msgstr "Copie denumirea coloanei."
 
-#: js/messages.php:470
+#: js/messages.php:471
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "Faceți click dreapta pe numele de coloană pentru a-l copia în clipboard."
 
-#: js/messages.php:473
+#: js/messages.php:474
 msgid "Generate password"
 msgstr "Generează parolă"
 
-#: js/messages.php:474 libraries/replication_gui.lib.php:889
+#: js/messages.php:475 libraries/replication_gui.lib.php:889
 msgid "Generate"
 msgstr "Generează"
 
-#: js/messages.php:475
+#: js/messages.php:476
 msgid "Change Password"
 msgstr "Schimbare parolă"
 
-#: js/messages.php:478
+#: js/messages.php:479
 msgid "More"
 msgstr "Mai mult"
 
-#: js/messages.php:481
+#: js/messages.php:482
 msgid "Show Panel"
 msgstr "Arată panou"
 
-#: js/messages.php:482
+#: js/messages.php:483
 msgid "Hide Panel"
 msgstr "Ascunde panou"
 
-#: js/messages.php:483
+#: js/messages.php:484
 msgid "Show hidden navigation tree items."
 msgstr "Afişează itemii ascunşi din arborele din cadrul din stânga."
 
-#: js/messages.php:484 libraries/config/messages.inc.php:429
+#: js/messages.php:485 libraries/config/messages.inc.php:429
 #: libraries/navigation/NavigationTree.class.php:1328
 msgid "Link with main panel"
 msgstr "Link-ul cu panoul principal"
 
-#: js/messages.php:485 libraries/navigation/NavigationTree.class.php:1331
+#: js/messages.php:486 libraries/navigation/NavigationTree.class.php:1331
 msgid "Unlink from main panel"
 msgstr "Deconectarea de la panoul principal"
 
-#: js/messages.php:486
+#: js/messages.php:487
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
 
-#: js/messages.php:487
+#: js/messages.php:488
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 
-#: js/messages.php:488
+#: js/messages.php:489
 #, fuzzy
 #| msgid "Tables"
 msgid "tables"
 msgstr "Tabele"
 
-#: js/messages.php:489
+#: js/messages.php:490
 #, fuzzy
 #| msgid "View"
 msgid "views"
 msgstr "Vizualizare"
 
-#: js/messages.php:490
+#: js/messages.php:491
 #, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
 msgstr "Proceduri"
 
-#: js/messages.php:491
+#: js/messages.php:492
 #, fuzzy
 #| msgid "Event"
 msgid "events"
 msgstr "Eveniment"
 
-#: js/messages.php:492
+#: js/messages.php:493
 #, fuzzy
 #| msgid "Functions"
 msgid "functions"
 msgstr "Funcții"
 
-#: js/messages.php:495
+#: js/messages.php:496
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 "Pagina solicitată nu a fost găsită în istorie, este posibil ca acesta să fi "
 "expirat."
 
-#: js/messages.php:498 setup/lib/index.lib.php:160
+#: js/messages.php:499 setup/lib/index.lib.php:160
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2450,49 +2454,49 @@ msgstr ""
 "procesul de actualizare. Noua versiune %s a fost publicată în data de %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:500
+#: js/messages.php:501
 msgid ", latest stable version:"
 msgstr ", ultima versiune stabilă:"
 
-#: js/messages.php:501
+#: js/messages.php:502
 msgid "up to date"
 msgstr "la zi"
 
-#: js/messages.php:503 libraries/DisplayResults.class.php:4797
+#: js/messages.php:504 libraries/DisplayResults.class.php:4797
 #: view_create.php:182
 msgid "Create view"
 msgstr "Creare view"
 
-#: js/messages.php:506
+#: js/messages.php:507
 msgid "Send Error Report"
 msgstr "Trimite raport de eroare"
 
-#: js/messages.php:507
+#: js/messages.php:508
 msgid "Submit Error Report"
 msgstr "Trimite raport de eroare"
 
-#: js/messages.php:509
+#: js/messages.php:510
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "A apărut o eroare JavaScript fatală. Doriți să trimiteți un raport de eroare?"
 
-#: js/messages.php:511
+#: js/messages.php:512
 msgid "Change Report Settings"
 msgstr "Modificați setările rapoartelor"
 
-#: js/messages.php:512
+#: js/messages.php:513
 msgid "Show Report Details"
 msgstr "Afișează detaliile raportului"
 
-#: js/messages.php:515
+#: js/messages.php:516
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "Exportul este incomplet din cauza timpului de executie redus al PHP!"
 
-#: js/messages.php:519
+#: js/messages.php:520
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2502,289 +2506,289 @@ msgstr ""
 "trimiterea datelor, unele câmpuri pot fi ignorate datorită configurației "
 "max_input_vars."
 
-#: js/messages.php:525 js/messages.php:537
+#: js/messages.php:526 js/messages.php:538
 msgid "Some errors have been detected on the server!"
 msgstr "Anumite erori au fost detectate pe server!"
 
-#: js/messages.php:527
+#: js/messages.php:528
 msgid "Please look at the bottom of this window."
 msgstr "Vă rugăm să vă uitați la partea de jos a acestei ferestre."
 
-#: js/messages.php:532 libraries/Error_Handler.class.php:353
+#: js/messages.php:533 libraries/Error_Handler.class.php:353
 msgid "Ignore All"
 msgstr "Ignoră tot"
 
-#: js/messages.php:539
+#: js/messages.php:540
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "În ceea ce privește setările dumneavoastră, aceste sunt trimise momentan, vă "
 "rugăm să aveți răbdare."
 
-#: js/messages.php:546
+#: js/messages.php:547
 msgid "Execute this query again?"
 msgstr "Executați această interogare din nou?"
 
-#: js/messages.php:547
+#: js/messages.php:548
 msgid "Do you really want to delete this bookmark?"
 msgstr "Sigur doriți să ştergeţi acest marcaj?"
 
-#: js/messages.php:548
+#: js/messages.php:549
 msgid ""
 "Your web browser does not support local storage of settings or the quota "
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:576
+#: js/messages.php:577
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Anterior"
 
-#: js/messages.php:581
+#: js/messages.php:582
 msgctxt "Next month"
 msgid "Next"
 msgstr "Următoarea"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:584
+#: js/messages.php:585
 msgid "Today"
 msgstr "Astăzi"
 
-#: js/messages.php:588
+#: js/messages.php:589
 msgid "January"
 msgstr "Ianuarie"
 
-#: js/messages.php:589
+#: js/messages.php:590
 msgid "February"
 msgstr "Februarie"
 
-#: js/messages.php:590
+#: js/messages.php:591
 msgid "March"
 msgstr "Martie"
 
-#: js/messages.php:591
+#: js/messages.php:592
 msgid "April"
 msgstr "Aprilie"
 
-#: js/messages.php:592
+#: js/messages.php:593
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:593
+#: js/messages.php:594
 msgid "June"
 msgstr "Iunie"
 
-#: js/messages.php:594
+#: js/messages.php:595
 msgid "July"
 msgstr "Iulie"
 
-#: js/messages.php:595
+#: js/messages.php:596
 msgid "August"
 msgstr "August"
 
-#: js/messages.php:596
+#: js/messages.php:597
 msgid "September"
 msgstr "Septembrie"
 
-#: js/messages.php:597
+#: js/messages.php:598
 msgid "October"
 msgstr "Octombrie"
 
-#: js/messages.php:598
+#: js/messages.php:599
 msgid "November"
 msgstr "Noiembrie"
 
-#: js/messages.php:599
+#: js/messages.php:600
 msgid "December"
 msgstr "Decembrie"
 
 #. l10n: Short month name
-#: js/messages.php:606 libraries/Util.class.php:1555
+#: js/messages.php:607 libraries/Util.class.php:1555
 msgid "Jan"
 msgstr "Ian"
 
 #. l10n: Short month name
-#: js/messages.php:608 libraries/Util.class.php:1557
+#: js/messages.php:609 libraries/Util.class.php:1557
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:610 libraries/Util.class.php:1559
+#: js/messages.php:611 libraries/Util.class.php:1559
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:612 libraries/Util.class.php:1561
+#: js/messages.php:613 libraries/Util.class.php:1561
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:614 libraries/Util.class.php:1563
+#: js/messages.php:615 libraries/Util.class.php:1563
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:616 libraries/Util.class.php:1565
+#: js/messages.php:617 libraries/Util.class.php:1565
 msgid "Jun"
 msgstr "Iun"
 
 #. l10n: Short month name
-#: js/messages.php:618 libraries/Util.class.php:1567
+#: js/messages.php:619 libraries/Util.class.php:1567
 msgid "Jul"
 msgstr "Iul"
 
 #. l10n: Short month name
-#: js/messages.php:620 libraries/Util.class.php:1569
+#: js/messages.php:621 libraries/Util.class.php:1569
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:622 libraries/Util.class.php:1571
+#: js/messages.php:623 libraries/Util.class.php:1571
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:624 libraries/Util.class.php:1573
+#: js/messages.php:625 libraries/Util.class.php:1573
 msgid "Oct"
 msgstr "Oct"
 
 #. l10n: Short month name
-#: js/messages.php:626 libraries/Util.class.php:1575
+#: js/messages.php:627 libraries/Util.class.php:1575
 msgid "Nov"
 msgstr "Noi"
 
 #. l10n: Short month name
-#: js/messages.php:628 libraries/Util.class.php:1577
+#: js/messages.php:629 libraries/Util.class.php:1577
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:634
+#: js/messages.php:635
 msgid "Sunday"
 msgstr "Duminică"
 
-#: js/messages.php:635
+#: js/messages.php:636
 msgid "Monday"
 msgstr "Luni"
 
-#: js/messages.php:636
+#: js/messages.php:637
 msgid "Tuesday"
 msgstr "Marți"
 
-#: js/messages.php:637
+#: js/messages.php:638
 msgid "Wednesday"
 msgstr "Miercuri"
 
-#: js/messages.php:638
+#: js/messages.php:639
 msgid "Thursday"
 msgstr "Joi"
 
-#: js/messages.php:639
+#: js/messages.php:640
 msgid "Friday"
 msgstr "Vineri"
 
-#: js/messages.php:640
+#: js/messages.php:641
 msgid "Saturday"
 msgstr "Sâmbătă"
 
 #. l10n: Short week day name
-#: js/messages.php:647
+#: js/messages.php:648
 msgid "Sun"
 msgstr "Dum"
 
 #. l10n: Short week day name
-#: js/messages.php:649 libraries/Util.class.php:1582
+#: js/messages.php:650 libraries/Util.class.php:1582
 msgid "Mon"
 msgstr "Lun"
 
 #. l10n: Short week day name
-#: js/messages.php:651 libraries/Util.class.php:1584
+#: js/messages.php:652 libraries/Util.class.php:1584
 msgid "Tue"
 msgstr "Mar"
 
 #. l10n: Short week day name
-#: js/messages.php:653 libraries/Util.class.php:1586
+#: js/messages.php:654 libraries/Util.class.php:1586
 msgid "Wed"
 msgstr "Mie"
 
 #. l10n: Short week day name
-#: js/messages.php:655 libraries/Util.class.php:1588
+#: js/messages.php:656 libraries/Util.class.php:1588
 msgid "Thu"
 msgstr "Joi"
 
 #. l10n: Short week day name
-#: js/messages.php:657 libraries/Util.class.php:1590
+#: js/messages.php:658 libraries/Util.class.php:1590
 msgid "Fri"
 msgstr "Vin"
 
 #. l10n: Short week day name
-#: js/messages.php:659 libraries/Util.class.php:1592
+#: js/messages.php:660 libraries/Util.class.php:1592
 msgid "Sat"
 msgstr "Sâm"
 
 #. l10n: Minimal week day name
-#: js/messages.php:666
+#: js/messages.php:667
 msgid "Su"
 msgstr "Du"
 
 #. l10n: Minimal week day name
-#: js/messages.php:668
+#: js/messages.php:669
 msgid "Mo"
 msgstr "Lu"
 
 #. l10n: Minimal week day name
-#: js/messages.php:670
+#: js/messages.php:671
 msgid "Tu"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:672
+#: js/messages.php:673
 msgid "We"
 msgstr "Mi"
 
 #. l10n: Minimal week day name
-#: js/messages.php:674
+#: js/messages.php:675
 msgid "Th"
 msgstr "Jo"
 
 #. l10n: Minimal week day name
-#: js/messages.php:676
+#: js/messages.php:677
 msgid "Fr"
 msgstr "Vi"
 
 #. l10n: Minimal week day name
-#: js/messages.php:678
+#: js/messages.php:679
 msgid "Sa"
 msgstr "Sâ"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:682
+#: js/messages.php:683
 msgid "Wk"
 msgstr "Săpt"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:689
+#: js/messages.php:690
 msgid "calendar-month-year"
 msgstr "calendar-lună-an"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:692
+#: js/messages.php:693
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Nici unul(a)"
 
-#: js/messages.php:704
+#: js/messages.php:705
 msgid "Hour"
 msgstr "Oră"
 
-#: js/messages.php:705
+#: js/messages.php:706
 msgid "Minute"
 msgstr "Minut"
 
-#: js/messages.php:706
+#: js/messages.php:707
 msgid "Second"
 msgstr "Secundă"
 
@@ -2870,15 +2874,15 @@ msgstr ""
 msgid "Font size"
 msgstr "Dimensiune font"
 
-#: libraries/Console.class.php:93 libraries/Console.class.php:179
+#: libraries/Console.class.php:93 libraries/Console.class.php:175
 msgid "Collapse"
 msgstr "Restrânge"
 
-#: libraries/Console.class.php:94 libraries/Console.class.php:181
+#: libraries/Console.class.php:94 libraries/Console.class.php:177
 msgid "Expand"
 msgstr "Extinde"
 
-#: libraries/Console.class.php:95 libraries/Console.class.php:182
+#: libraries/Console.class.php:95 libraries/Console.class.php:178
 msgid "Requery"
 msgstr "Reinterogare"
 
@@ -2887,12 +2891,12 @@ msgstr "Reinterogare"
 #: libraries/DisplayResults.class.php:4666
 #: libraries/central_columns.lib.php:786 libraries/db_designer.lib.php:875
 #: libraries/server_user_groups.lib.php:129
-#: libraries/sql_query_form.lib.php:388 libraries/tracking.lib.php:476
+#: libraries/sql_query_form.lib.php:390 libraries/tracking.lib.php:476
 #: setup/frames/index.inc.php:183 setup/frames/index.inc.php:291
 msgid "Delete"
 msgstr "Șterge"
 
-#: libraries/Console.class.php:99 libraries/Console.class.php:189
+#: libraries/Console.class.php:99 libraries/Console.class.php:185
 #: libraries/Menu.class.php:214 libraries/config/messages.inc.php:776
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
@@ -2934,45 +2938,45 @@ msgstr "Semnele de carte %1$s, %2$s și %3$s au fost incluse"
 msgid "No bookmarks"
 msgstr "Fără semne de carte"
 
-#: libraries/Console.class.php:184
+#: libraries/Console.class.php:180
 msgid "Explain"
 msgstr "Explică"
 
-#: libraries/Console.class.php:185 libraries/Util.class.php:1263
+#: libraries/Console.class.php:181 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:330
 msgid "Profiling"
 msgstr "Creare profil"
 
-#: libraries/Console.class.php:187
+#: libraries/Console.class.php:183
 msgid "Bookmark"
 msgstr "Semn de carte"
 
-#: libraries/Console.class.php:188
+#: libraries/Console.class.php:184
 msgid "Query failed"
 msgstr "Interogare a eşuat"
 
-#: libraries/Console.class.php:192
+#: libraries/Console.class.php:188
 msgid "Queried time"
 msgstr "Durata de execuție a interogării"
 
-#: libraries/Console.class.php:199
+#: libraries/Console.class.php:195
 msgid "SQL Query Console"
 msgstr "Consolă pentru interogare SQL"
 
-#: libraries/Console.class.php:200
+#: libraries/Console.class.php:196
 msgid "Console"
 msgstr "Consolă"
 
-#: libraries/Console.class.php:203 libraries/sql_query_form.lib.php:234
+#: libraries/Console.class.php:199 libraries/sql_query_form.lib.php:234
 #: setup/frames/index.inc.php:298
 msgid "Clear"
 msgstr "Goliți"
 
-#: libraries/Console.class.php:206
+#: libraries/Console.class.php:202
 msgid "History"
 msgstr "Istoric"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:304
+#: libraries/Console.class.php:205 libraries/Console.class.php:300
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -3001,58 +3005,58 @@ msgstr "Istoric"
 msgid "Options"
 msgstr "Opțiuni"
 
-#: libraries/Console.class.php:213 libraries/Console.class.php:266
+#: libraries/Console.class.php:209 libraries/Console.class.php:262
 msgid "Bookmarks"
 msgstr "Semne de carte"
 
-#: libraries/Console.class.php:222
+#: libraries/Console.class.php:218
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Apăsaţi Ctrl+Enter pentru a executa interogarea"
 
-#: libraries/Console.class.php:243
+#: libraries/Console.class.php:239
 msgid "During current session"
 msgstr "În timpul sesiunii curente"
 
-#: libraries/Console.class.php:270 libraries/Util.class.php:1232
+#: libraries/Console.class.php:266 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Reîncarcă"
 
-#: libraries/Console.class.php:273
+#: libraries/Console.class.php:269
 msgid "Add"
 msgstr "Adaugă"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:278
 msgid "Add bookmark"
 msgstr "Adaugă semn de carte"
 
-#: libraries/Console.class.php:286
+#: libraries/Console.class.php:282
 msgid "Label"
 msgstr "Etichetă"
 
-#: libraries/Console.class.php:288
+#: libraries/Console.class.php:284
 msgid "Target database"
 msgstr "Baza de date țintă"
 
-#: libraries/Console.class.php:291
+#: libraries/Console.class.php:287
 msgid "Share this bookmark"
 msgstr "Partajaţi acest semn de carte"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:304
 msgid "Set default"
 msgstr "Setaţi ca implicit"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:308
 msgid "Always expand query messages"
 msgstr "Extinde întotdeauna mesajele de interogare"
 
-#: libraries/Console.class.php:314
+#: libraries/Console.class.php:310
 msgid "Show query history at start"
 msgstr "Arată istoricul interogărilor la pornire"
 
-#: libraries/Console.class.php:316
+#: libraries/Console.class.php:312
 msgid "Show current browsing query"
 msgstr "Arată interogarea curentă de navigare"
 
@@ -3689,7 +3693,7 @@ msgstr "Caută"
 #: libraries/Util.class.php:4169
 #: libraries/navigation/Nodes/Node_Table.class.php:45
 #: libraries/navigation/Nodes/Node_Table.class.php:282
-#: libraries/sql_query_form.lib.php:264 libraries/sql_query_form.lib.php:267
+#: libraries/sql_query_form.lib.php:266 libraries/sql_query_form.lib.php:269
 msgid "Insert"
 msgstr "Inserare"
 
@@ -4650,7 +4654,7 @@ msgstr "Funcționalitatea %s este afectată de o eroare cunoscută, vedeți %s"
 msgid "Click to toggle"
 msgstr "Faceţi click pentru a comuta"
 
-#: libraries/Util.class.php:3332 libraries/sql_query_form.lib.php:433
+#: libraries/Util.class.php:3332 libraries/sql_query_form.lib.php:435
 #: prefs_manage.php:246
 msgid "Browse your computer:"
 msgstr "Caută în calculatorul tău:"
@@ -4661,7 +4665,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Selectați de pe serverul web un director <b>%s</b>: pentru încărcări:"
 
 #: libraries/Util.class.php:3386 libraries/insert_edit.lib.php:1167
-#: libraries/sql_query_form.lib.php:443
+#: libraries/sql_query_form.lib.php:445
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Directorul stabilit pentru încărcare nu poate fi găsit."
 
@@ -7689,7 +7693,7 @@ msgid ""
 msgstr ""
 "Definește dacă după submit, casuța de interogare ar trebui să rămână pe ecran"
 
-#: libraries/config/messages.inc.php:756 libraries/sql_query_form.lib.php:326
+#: libraries/config/messages.inc.php:756 libraries/sql_query_form.lib.php:328
 msgid "Retain query box"
 msgstr "Reține căsuța de interogare"
 
@@ -8468,7 +8472,7 @@ msgid "use this for future exports"
 msgstr "folosiți pentru viitoare exportări"
 
 #: libraries/display_export.lib.php:541 libraries/display_import.lib.php:179
-#: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:459
+#: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:461
 msgid "Character set of the file:"
 msgstr "Setul de caractere al fișierului:"
 
@@ -9161,7 +9165,7 @@ msgstr ""
 msgid "Binary - do not edit"
 msgstr "Binar - a nu se edita"
 
-#: libraries/insert_edit.lib.php:1171 libraries/sql_query_form.lib.php:447
+#: libraries/insert_edit.lib.php:1171 libraries/sql_query_form.lib.php:449
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
@@ -9262,7 +9266,7 @@ msgid "To"
 msgstr ""
 
 #: libraries/mult_submits.lib.php:360 libraries/mult_submits.lib.php:393
-#: libraries/sql_query_form.lib.php:380
+#: libraries/sql_query_form.lib.php:382
 msgid "Submit"
 msgstr "Trimite"
 
@@ -9580,7 +9584,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:27
-#: libraries/sql_query_form.lib.php:244
+#: libraries/sql_query_form.lib.php:246
 #, fuzzy
 #| msgid "Column names"
 msgid "Columns"
@@ -11309,7 +11313,7 @@ msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
 "Parcurgeti documentatia pentru modul de updatare a Column_comments Table."
 
-#: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:360
+#: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:362
 msgid "Bookmarked SQL query"
 msgstr "Comandă SQL salvată"
 
@@ -11618,7 +11622,7 @@ msgstr "Stare sclav"
 
 #: libraries/replication_gui.lib.php:531
 #: libraries/server_status_variables.lib.php:219
-#: libraries/server_variables.lib.php:190 libraries/sql_query_form.lib.php:372
+#: libraries/server_variables.lib.php:190 libraries/sql_query_form.lib.php:374
 msgid "Variable"
 msgstr "Variabil"
 
@@ -12547,7 +12551,7 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 certificate."
+msgid "Requires a valid X509 cetrificate."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:867
@@ -14021,7 +14025,7 @@ msgstr "Pune semn de carte la această comandă SQL"
 msgid "Label:"
 msgstr "Etichetă"
 
-#: libraries/sql.lib.php:644 libraries/sql_query_form.lib.php:290
+#: libraries/sql.lib.php:644 libraries/sql_query_form.lib.php:292
 msgid "Let every user access this bookmark"
 msgstr "Permite tuturor utilizatorilor să acceseze acest semn de carte"
 
@@ -14068,29 +14072,33 @@ msgstr "Execută interogare/interogări SQL pe serverul %s"
 msgid "Run SQL query/queries on database %s"
 msgstr "Execută interogare SQL asupra bazei de date %s"
 
-#: libraries/sql_query_form.lib.php:282
+#: libraries/sql_query_form.lib.php:240
+msgid "Get auto-saved query"
+msgstr ""
+
+#: libraries/sql_query_form.lib.php:284
 #, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
 msgstr "Pune semn de carte la această comandă SQL"
 
-#: libraries/sql_query_form.lib.php:296
+#: libraries/sql_query_form.lib.php:298
 msgid "Replace existing bookmark of same name"
 msgstr "Înlocuiește semnul de carte cu același nume"
 
-#: libraries/sql_query_form.lib.php:310
+#: libraries/sql_query_form.lib.php:312
 msgid "Delimiter"
 msgstr "Delimitator"
 
-#: libraries/sql_query_form.lib.php:318
+#: libraries/sql_query_form.lib.php:320
 msgid "Show this query here again"
 msgstr "Afișează această interogare din nou aici"
 
-#: libraries/sql_query_form.lib.php:331
+#: libraries/sql_query_form.lib.php:333
 msgid "Rollback when finished"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:384
+#: libraries/sql_query_form.lib.php:386
 msgid "View only"
 msgstr "Numai vizualizare"
 
