@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-01 06:38-0500\n"
-"PO-Revision-Date: 2015-02-28 01:14+0200\n"
+"PO-Revision-Date: 2015-03-01 19:16+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1836,7 +1836,7 @@ msgstr "Az idegen kulcsok böngészése"
 
 #: js/messages.php:308
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Nincs automatikusan mentett lekérdezés"
 
 #: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -5119,7 +5119,7 @@ msgstr ""
 "tartalmaznia."
 
 #: libraries/config/ServerConfigChecks.class.php:371
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5134,11 +5134,12 @@ msgid ""
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
 "Ezt a %slehetőséget%s le kell tiltani, ugyanis a támadóknak bármilyen MySQL "
-"kiszolgálóra lehetővé teszi az egyszerű bejelentkezést. Ha úgy érzi, hogy "
-"erre szükség van, akkor használja a %smegbízható proxylistákat%s. Az IP-"
-"alapú védelem azonban lehet, hogy nem megbízható, ha az Ön IP-címe olyan "
-"internetszolgáltatóhoz tartozik, ahol több ezer felhasználó, köztük Ön is, "
-"csatlakozik az internethez."
+"kiszolgálóra lehetővé teszi a nyers erővel történő bejelentkezést. Ha úgy "
+"érzi, hogy erre szükség van, akkor használja a %sbejelentkezés korlátozását "
+"a MySQL kiszolgálóra%s vagy a %smegbízható proxylistákat%s. Az IP-alapú "
+"védelem megbízható proxylistákkal azonban lehet, hogy nem megbízható, ha az "
+"Ön IP-címe olyan internetszolgáltatóhoz tartozik, ahol több ezer "
+"felhasználó, köztük Ön is, csatlakozik az internethez."
 
 #: libraries/config/ServerConfigChecks.class.php:381
 msgid ""
@@ -5334,10 +5335,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Nem lehet bejelentkezni a MySQL szerverre"
+msgstr "Bejelentkezés korlátozása a MySQL kiszolgálóra"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -9794,10 +9794,9 @@ msgid "Please enter correct captcha!"
 msgstr "Adja meg a helyes captchat!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Nem lehet bejelentkezni a MySQL szerverre"
+msgstr "Önnek nem engedélyezett a bejelentkezés erre a MySQL kiszolgálóra!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Wrong username/password. Access denied."
@@ -11849,20 +11848,26 @@ msgstr "SSL szükséges"
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
+"Megköveteli, hogy egy adott titkosító módszer használatban legyen a "
+"kapcsolatnál."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Megköveteli, hogy ettől a CA-tól kibocsátott érvényes X509 tanúsítvány "
+"legyen bemutatva."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
+"Megköveteli, hogy ezzel a tárggyal rendelkező érvényes X509 tanúsítvány "
+"legyen bemutatva."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 cetrificate."
-msgstr ""
+msgstr "Egy érvényes X509 tanúsítványt igényel."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
@@ -13421,7 +13426,7 @@ msgstr "SQL lekérdezés(ek) futtatása a(z) %s adatbázison"
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Automatikusan mentett lekérdezés beszerzése"
 
 #: libraries/sql_query_form.lib.php:284
 msgid "Bookmark this SQL query:"
