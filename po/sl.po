@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-01 06:38-0500\n"
-"PO-Revision-Date: 2015-02-26 18:30+0200\n"
+"PO-Revision-Date: 2015-03-01 13:54+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -4784,10 +4784,9 @@ msgid "Length/Values"
 msgstr "Dolžina/Vrednosti"
 
 #: libraries/central_columns.lib.php:663
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Atributi"
+msgstr "Atribut"
 
 #: libraries/central_columns.lib.php:667
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -5126,7 +5125,7 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Ključ naj vsebuje črke, številke [em]in[/em] posebne znake."
 
 #: libraries/config/ServerConfigChecks.class.php:371
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5142,7 +5141,8 @@ msgid ""
 msgstr ""
 "Ta %smožnost%s naj bo onemogočena, saj omogoča napadalcem, da se z načinom "
 "bruteforce prijavijo v kateri koli strežnik MySQL. Če menite, da je to "
-"potrebno, uporabite %sseznam zaupanih proxyjev%s. Kakor koli, zaščita, "
+"potrebno, uporabite %somejeno prjavo v strežnik MySQL%s ali %sseznam "
+"zaupanih proxyjev%s. Kakor koli, zaščita s seznamom zaupanih proxyjev, "
 "temelječa na IP, ni zanesljiva, če vaš IP pripada ISP-ju, na katerega je "
 "povezanih tisoče uporabnikov, vključno z vami."
 
@@ -5329,12 +5329,14 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Omeji strežnike MySQL, na katere lahko uporabnik vstopi, ko je prijava na "
+"določen strežnik MySQL omogočena z ujemanjem IP-naslova ali gostiteljevega "
+"imena strežnika MySQL z danim regularnim izrazom."
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Ne morem se prijaviti v strežnik MySQL"
+msgstr "Omeji prijavo na strežnik MySQL"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -9749,10 +9751,9 @@ msgid "Please enter correct captcha!"
 msgstr "Prosimo, vnesite pravilno captcho!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Ne morem se prijaviti v strežnik MySQL"
+msgstr "Nimate dovoljenja za prijavo na ta strežnik MySQL!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Wrong username/password. Access denied."
@@ -11785,29 +11786,30 @@ msgstr "Uporabniška skupina"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Vztrajne povezave"
+msgstr "Zahteva povezave, šifrirane s SSL."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Zahteva SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that specific cipher method is used for a connection."
-msgstr ""
+msgstr "Zahteva, da se za povezavo uporablja določena šifrirna metoda."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Zahteva prisotnost veljavnega certifikata X509, ki ga je izdal ta overitelj "
+"(CA)."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Zahteva prisotnost veljavnega certifikata X509 s to zadevo."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 cetrificate."
@@ -13356,7 +13358,7 @@ msgstr "Izvedi poizvedbo/poizvedbe SQL na zbirki podatkov %s"
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Dobi samodejno shranjeno poizvedbo"
 
 #: libraries/sql_query_form.lib.php:284
 msgid "Bookmark this SQL query:"
