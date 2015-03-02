@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.3.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-01-01 08:24-0500\n"
-"PO-Revision-Date: 2015-01-04 06:01+0200\n"
-"Last-Translator: Yong Kim <kim@nhn.com>\n"
+"PO-Revision-Date: 2015-02-26 20:09+0200\n"
+"Last-Translator: Yoon Bum-Jong <virusyoon@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-3/ko/>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,9 +25,8 @@ msgstr ""
 "보를 확인하시기 바랍니다."
 
 #: db_central_columns.php:85
-#, fuzzy
 msgid "The central list of columns for the current database is empty."
-msgstr "현재 데이터베이스의 central list of columns가 비어있습니다."
+msgstr "현재 데이터베이스의 컬럼의 중앙목록이 비어있습니다."
 
 #: db_central_columns.php:109
 msgid "Click to sort."
@@ -1009,7 +1008,7 @@ msgstr "인덱스에 %s 열 추가"
 
 #: js/messages.php:63
 msgid "Create single-column index"
-msgstr ""
+msgstr "단일 컬럼 인덱스 생성"
 
 #: js/messages.php:64
 msgid "Create composite index"
@@ -1280,11 +1279,11 @@ msgstr "모니터링 정지"
 
 #: js/messages.php:149 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "자동 새로 고침 시작"
 
 #: js/messages.php:150
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "자동 새로 고침 멈춤"
 
 #: js/messages.php:152
 msgid "general_log and slow_query_log are enabled."
@@ -1859,7 +1858,7 @@ msgstr ""
 
 #: js/messages.php:323
 msgid "No partial dependencies selected!"
-msgstr "부분 의존성이 선택되지 않았습니다."
+msgstr "부분 의존성이 선택되지 않았습니다!"
 
 #: js/messages.php:325
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -3184,7 +3183,7 @@ msgstr "행을 삭제 하였습니다."
 #: libraries/DisplayResults.class.php:5085
 #: libraries/server_status_processes.lib.php:256
 msgid "Kill"
-msgstr "Kill"
+msgstr "강제로 끝냄"
 
 #: libraries/DisplayResults.class.php:4506
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
@@ -7112,7 +7111,7 @@ msgstr "데이터베이스가 선택되었을 때 브라우저 창의 제목."
 
 #: libraries/config/messages.inc.php:759
 msgid "Title of browser window when nothing is selected."
-msgstr "아무것도 선택되지 않았을 때의 브라우저 윈도우의 제목"
+msgstr "브라우저 윈도우 제목이 아무것도 선택되지 않았을때."
 
 #: libraries/config/messages.inc.php:760
 msgid "Default title"
@@ -7120,7 +7119,7 @@ msgstr "기본 제목"
 
 #: libraries/config/messages.inc.php:761
 msgid "Title of browser window when a server is selected."
-msgstr "서버가 선택되었을 때의 브라우저 윈도우의 제목"
+msgstr "서버가 선택되었을 때의 브라우저 윈도우의 제목."
 
 #: libraries/config/messages.inc.php:763
 #, fuzzy
@@ -7142,7 +7141,7 @@ msgstr "IP 허용/거부를 위한 신뢰할만한 프록시 목록"
 
 #: libraries/config/messages.inc.php:767
 msgid "Directory on server where you can upload files for import."
-msgstr "가져오기 파일을 업로드할 서버 상의 디렉토리"
+msgstr "가져오기 파일을 업로드할 서버 상의 디렉토리."
 
 #: libraries/config/messages.inc.php:768
 msgid "Upload directory"
@@ -7150,7 +7149,7 @@ msgstr "업로드 디렉토리"
 
 #: libraries/config/messages.inc.php:769
 msgid "Allow for searching inside the entire database."
-msgstr "전체 데이터베이스 내에서의 검색 허용"
+msgstr "전체 데이터베이스 내에서의 검색 허용."
 
 #: libraries/config/messages.inc.php:770
 msgid "Use database search"
@@ -7174,7 +7173,7 @@ msgstr "최신 버전 확인"
 
 #: libraries/config/messages.inc.php:774
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr "phpMyAdmin 메인 화면에서 최근 버전 확인을 활성화함"
+msgstr "phpMyAdmin 메인 화면에서 최근 버전 확인을 활성화함."
 
 #: libraries/config/messages.inc.php:775 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:134 setup/lib/index.lib.php:147
@@ -7248,7 +7247,7 @@ msgstr "reCaptcha용 개인 키(Private key)"
 
 #: libraries/config/messages.inc.php:790
 msgid "Choose the default action when sending error reports."
-msgstr "오류 보고를 전송하기 전 물어보기"
+msgstr "오류 보고를 전송하기 전 물어보기."
 
 #: libraries/config/messages.inc.php:791
 msgid "Send error reports"
@@ -7730,7 +7729,7 @@ msgstr "새로운 데이터베이스명"
 
 #: libraries/display_export.lib.php:826
 msgid "New table name"
-msgstr "새 테이블 이름:"
+msgstr "새 테이블 이름"
 
 #: libraries/display_export.lib.php:835
 msgid "Old column name"
@@ -8833,7 +8832,7 @@ msgstr "컬럼 선택."
 
 #: libraries/normalization.lib.php:139 normalization.php:20
 msgid "No such column"
-msgstr "그런 컬럼이 없습니다."
+msgstr "그런 컬럼이 없습니다"
 
 #: libraries/normalization.lib.php:146
 msgid "split into "
@@ -9038,7 +9037,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:770
 msgid "Improve table structure (Normalization):"
-msgstr "테이블 구조 개선 (표준화)"
+msgstr "테이블 구조 개선 (표준화):"
 
 #: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
@@ -10319,7 +10318,7 @@ msgstr "마스터 리플리케이션"
 
 #: libraries/replication_gui.lib.php:47
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "이 서버는 이중화 환경 내의 마스터 서버로 구성되지 않았습니다."
 
 #: libraries/replication_gui.lib.php:55
 msgid "Show connected slaves"
@@ -14194,7 +14193,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:96
 msgid "slow_query_log is set to 'OFF'"
-msgstr "slow_query_log가 OFF로 설정되었습니다."
+msgstr "slow_query_log가 OFF로 설정되었습니다"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
@@ -14991,7 +14990,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:388
 #, php-format
 msgid "slow_launch_time is set to %s"
-msgstr "slow_launch_time이 %s로 설정되어 있습니다."
+msgstr "slow_launch_time이 %s로 설정되어 있습니다"
 
 #: libraries/advisory_rules.txt:392
 msgid "Percentage of used connections"

@@ -1,6 +1,16 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.11.0 (2015-03-02)
+- bug #4774 SQL links are completely wrong
+- bug #4768 MariaDB: version mismatch
+- bug #4777 Some images are missing in Designer for original theme
+- bug #4767 Drizzle: undefined index in mysql_charsets.inc.php
+- bug #4753 Normal field and multi-line field have different margins
+- bug #4760 Cannot re-import settings from local storage
+- bug #4778 SQL error when database list is sorted by additional columns
+- bug #4780 Notice when timestamp column does not have default value
+
 4.3.10.0 (2015-02-20)
 - bug       Undefined index navwork
 - bug #4744 Opening console scroll down the page

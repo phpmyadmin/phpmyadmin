@@ -701,32 +701,32 @@ function PMA_getDatabaseTables(
 
             if (isset($tables_pk_or_unique_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]])) {
 
-                $html .= '<img src="' . $_SESSION['PMA_Theme']->getImgPath()
-                    . 'pmd/FieldKey_small.png" alt="*" />';
-
+                $html .= '<img src="'
+                    . $_SESSION['PMA_Theme']->getImgPath('pmd/FieldKey_small.png')
+                    . '" alt="*" />';
             } else {
 
-                $html .= '<img src="' . $_SESSION['PMA_Theme']->getImgPath()
-                    . 'pmd/Field_small';
-
+                $image = 'pmd/Field_small';
                 if (strstr($tab_column[$t_n]["TYPE"][$j], 'char')
                     || strstr($tab_column[$t_n]["TYPE"][$j], 'text')
                 ) {
-                    $html .= '_char';
+                    $image .= '_char';
                 } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'int')
                     || strstr($tab_column[$t_n]["TYPE"][$j], 'float')
                     || strstr($tab_column[$t_n]["TYPE"][$j], 'double')
                     || strstr($tab_column[$t_n]["TYPE"][$j], 'decimal')
                 ) {
-                    $html .= '_int';
+                    $image .= '_int';
                 } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'date')
                     || strstr($tab_column[$t_n]["TYPE"][$j], 'time')
                     || strstr($tab_column[$t_n]["TYPE"][$j], 'year')
                 ) {
-                    $html .= '_date';
+                    $image .= '_date';
                 }
+                $image .= '.png';
 
-                $html .= '.png" alt="*" />';
+                $html .= '<img src="'
+                    . $_SESSION['PMA_Theme']->getImgPath($image) . '" alt="*" />';
             }
 
             $html .= htmlspecialchars(

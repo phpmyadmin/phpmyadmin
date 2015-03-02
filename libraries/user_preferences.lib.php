@@ -110,17 +110,18 @@ function PMA_saveUserprefs(array $config_array)
     $config_data = json_encode($config_array);
     if ($has_config) {
         $query = 'UPDATE ' . $query_table
-            . ' SET `config_data` = \''
+            . ' SET `timevalue` = NOW(), `config_data` = \''
             . PMA_Util::sqlAddSlashes($config_data)
             . '\''
             . ' WHERE `username` = \''
             . PMA_Util::sqlAddSlashes($cfgRelation['user'])
             . '\'';
     } else {
-        $query = 'INSERT INTO ' . $query_table . ' (`username`, `config_data`) '
+        $query = 'INSERT INTO ' . $query_table
+            . ' (`username`, `timevalue`,`config_data`) '
             . 'VALUES (\''
-            . PMA_Util::sqlAddSlashes($cfgRelation['user']) . '\', \''
-            . PMA_Util::sqlAddSlashes($config_data) . '\')';
+            . PMA_Util::sqlAddSlashes($cfgRelation['user']) . '\', NOW(), '
+            . '\'' . PMA_Util::sqlAddSlashes($config_data) . '\')';
     }
     if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
         unset($_SESSION['cache'][$cache_key]['userprefs']);
