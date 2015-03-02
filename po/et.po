@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-01 06:38-0500\n"
-"PO-Revision-Date: 2015-03-02 15:54+0200\n"
+"PO-Revision-Date: 2015-03-02 15:58+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
@@ -11713,7 +11713,8 @@ msgstr "Nõuab ühenduse krüpteerimist kindla meetodiga."
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
-"Nõuab, et esitataks kehtiv selle sertifitseerija väljastatud X509 setifikaat."
+"Nõuab, et esitataks kehtiv selle sertifitseerija väljastatud X509 "
+"sertifikaat."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
