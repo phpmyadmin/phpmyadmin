@@ -1,7 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.3.11.0 (not yet released)
+4.3.12.0 (not yet released)
+
+4.3.11.0 (2015-03-02)
 - bug #4774 SQL links are completely wrong
 - bug #4768 MariaDB: version mismatch
 - bug #4777 Some images are missing in Designer for original theme
