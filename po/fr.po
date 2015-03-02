@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-01 06:38-0500\n"
-"PO-Revision-Date: 2015-03-01 12:10+0200\n"
+"PO-Revision-Date: 2015-03-02 13:47+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1844,7 +1844,7 @@ msgstr "Afficher les valeurs de la table liée"
 
 #: js/messages.php:308
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Aucune requête sauvegardée automatiquement"
 
 #: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -11917,13 +11917,10 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "Exige qu'un certificat X509 valide avec ce sujet soit présenté."
 
 #: libraries/server_privileges.lib.php:818
-#, fuzzy
 #| msgid ""
 #| "Requires that a valid X509 certificate issued by this CA be presented."
 msgid "Requires a valid X509 cetrificate."
-msgstr ""
-"Nécessite qu'un certificat X509 valide émis par cette autorité de "
-"certification soit présenté."
+msgstr "Nécessite un certificat X509 valide."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
@@ -13487,7 +13484,7 @@ msgstr "Exécuter une ou des requêtes SQL sur la base %s"
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Récupérer la requête auto-sauvegardée"
 
 #: libraries/sql_query_form.lib.php:284
 msgid "Bookmark this SQL query:"
