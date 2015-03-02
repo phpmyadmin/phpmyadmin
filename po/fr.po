@@ -11919,7 +11919,7 @@ msgstr "Exige qu'un certificat X509 valide avec ce sujet soit présenté."
 #: libraries/server_privileges.lib.php:818
 #| msgid ""
 #| "Requires that a valid X509 certificate issued by this CA be presented."
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr "Nécessite un certificat X509 valide."
 
 #: libraries/server_privileges.lib.php:867

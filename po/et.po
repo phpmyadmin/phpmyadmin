@@ -11722,7 +11722,7 @@ msgstr ""
 "Nõuab, et esitataks kehtiv konkreetsele isikule väljastatud sertifikaat."
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr "Nõuab kehtivat X509 sertifikaati."
 
 #: libraries/server_privileges.lib.php:867

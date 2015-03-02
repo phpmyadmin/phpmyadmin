@@ -11866,7 +11866,7 @@ msgstr ""
 "legyen bemutatva."
 
 #: libraries/server_privileges.lib.php:818
-msgid "Requires a valid X509 cetrificate."
+msgid "Requires a valid X509 certificate."
 msgstr "Egy érvényes X509 tanúsítványt igényel."
 
 #: libraries/server_privileges.lib.php:867
