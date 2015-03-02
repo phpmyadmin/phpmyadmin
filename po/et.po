@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-01 06:38-0500\n"
-"PO-Revision-Date: 2015-02-26 08:28+0200\n"
+"PO-Revision-Date: 2015-03-02 16:00+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1825,7 +1825,7 @@ msgstr "Sirvi võõrvõtme väärtusi"
 
 #: js/messages.php:308
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Automaatselt salvestatud päringuid ei ole"
 
 #: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -4741,10 +4741,9 @@ msgid "Length/Values"
 msgstr "Pikkus/Väärtused"
 
 #: libraries/central_columns.lib.php:663
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Atribuudid"
+msgstr "Atribuut"
 
 #: libraries/central_columns.lib.php:667
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -5080,7 +5079,7 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Võti peaks sisaldama tähti, numbreid [em]ja[/em] erilisi sümboleid."
 
 #: libraries/config/ServerConfigChecks.class.php:371
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5096,9 +5095,10 @@ msgid ""
 msgstr ""
 "See %svalik%s peaks olema keelatud, kuna see võimaldab ründajatel sooritada "
 "suurel hulgal logimisi kõikidesse MySQL serveritesse. Kui tunned, et sul on "
-"seda vaja, siis kasuta %susaldusväärsete prokside nimekirja%s. Siiski ei "
-"pruugi IP-põhine kaitse olla usaldusväärne, kui sinu IP kuulub ISP'le, "
-"kellega on ühendatud koos sinuga tuhandeid kasutajaid."
+"seda vaja, siis kasuta kas %spiira meldimist MySQL serverisse%s või %"
+"susaldusväärsete prokside nimekirja%s. Siiski ei pruugi IP-põhine kaitse "
+"usaldatavate prokside loendiga olla usaldusväärne, kui sinu IP kuulub "
+"ISP'le, kellega on ühendatud koos sinuga tuhandeid kasutajaid."
 
 #: libraries/config/ServerConfigChecks.class.php:381
 msgid ""
@@ -5283,12 +5283,14 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Piirab regulaaravaldisega kasutaja sisestavate MySQL serveri(te) IP "
+"aadressid või hosti nimed, et kasutaja saaks sisse logida ainult "
+"konkreetsetesse MySQL serveritesse."
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Ei saa MySQL serverisse sisse logida"
+msgstr "Piira meldimist MySQL serverisse"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -6436,7 +6438,7 @@ msgstr "Luba esiletõstmine"
 #: libraries/config/messages.inc.php:470
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "Kas navigeerimispaneeli puu laiendamine on võimalik."
+msgstr "Kas lubada navigeerimispaneelil puu laiendamist või mitte."
 
 #: libraries/config/messages.inc.php:472
 msgid "Enable navigation tree expansion"
@@ -9676,10 +9678,9 @@ msgid "Please enter correct captcha!"
 msgstr "Palun sisesta korrektne tekst!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Ei saa MySQL serverisse sisse logida"
+msgstr "Sul ei ole lubatud sellesse MySQL serverisse meldida!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Wrong username/password. Access denied."
@@ -11695,33 +11696,35 @@ msgstr "Kasutaja grupp"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Püsiühendused"
+msgstr "Nõuab SSL krüpteeringuga ühendusi."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "SSL on kohustuslik"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "Nõuab ühenduse krüpteerimist kindla meetodiga."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Nõuab, et esitataks kehtiv selle sertifitseerija väljastatud X509 "
+"sertifikaat."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
+"Nõuab, et esitataks kehtiv konkreetsele isikule väljastatud sertifikaat."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 cetrificate."
-msgstr ""
+msgstr "Nõuab kehtivat X509 sertifikaati."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
@@ -13253,7 +13256,7 @@ msgstr "Teosta SQL päring(ud) %s andmebaasis"
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Hangi automaatselt salvestatud päring"
 
 #: libraries/sql_query_form.lib.php:284
 msgid "Bookmark this SQL query:"
