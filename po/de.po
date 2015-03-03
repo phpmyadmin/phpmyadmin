@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-01 06:38-0500\n"
-"PO-Revision-Date: 2015-02-03 10:43+0200\n"
-"Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"PO-Revision-Date: 2015-03-03 12:41+0200\n"
+"Last-Translator: cybot <pma@sebastianmendel.de>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -865,7 +865,6 @@ msgstr ""
 "Ergebnissen führen kann."
 
 #: index.php:495
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -877,10 +876,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Ihre PHP Einstellung [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] ist "
-"niedriger als die in phpMyAdmin konfigurierte Cookiegültigkeit, deshalb wird "
-"Ihre Anmeldung eher ablaufen als in phpMyAdmin konfiguriert."
+"Ihre PHP Einstellung "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] ist niedriger als die in "
+"phpMyAdmin konfigurierte Cookiegültigkeit, deshalb kann Ihre Anmeldung eher "
+"ablaufen als in phpMyAdmin konfiguriert."
 
 #: index.php:508
 msgid ""
@@ -986,10 +986,9 @@ msgid "Delete tracking data for these versions?"
 msgstr "Verlaufsdaten dieser Versionen löschen?"
 
 #: js/messages.php:44
-#, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Lösche die Verlaufsdaten des Datensatzes"
+msgstr "Eintrag aus Verlauf löschen?"
 
 #: js/messages.php:45
 msgid "Deleting tracking data"
@@ -1005,7 +1004,7 @@ msgstr "Fremdschlüssel entfernt."
 
 #: js/messages.php:48
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Diese Operation könnte einige Zeit beanspruchen. Trotzdem fortfahren ?"
+msgstr "Diese Operation könnte einige Zeit beanspruchen. Trotzdem fortfahren?"
 
 #: js/messages.php:49
 #, php-format
@@ -1689,7 +1688,7 @@ msgstr "Test"
 
 #: js/messages.php:251
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "SQL wird formatiert ...."
 
 #: js/messages.php:255 libraries/db_designer.lib.php:828
 #: libraries/db_designer.lib.php:877 libraries/db_designer.lib.php:1021
