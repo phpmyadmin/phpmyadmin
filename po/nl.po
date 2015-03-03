@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-01 06:38-0500\n"
-"PO-Revision-Date: 2015-02-28 01:36+0200\n"
-"Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"PO-Revision-Date: 2015-03-03 17:43+0200\n"
+"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-4/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -786,7 +786,6 @@ msgid "PHP extension:"
 msgstr "PHP-uitbreiding:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "PHP-versie:"
@@ -4801,10 +4800,9 @@ msgid "Length/Values"
 msgstr "Lengte/Waarden"
 
 #: libraries/central_columns.lib.php:663
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Attributen"
+msgstr "Attribuut"
 
 #: libraries/central_columns.lib.php:667
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -5144,7 +5142,7 @@ msgstr ""
 "Sleutel hoort letters, cijfers [em]en[/em] speciale tekens te bevatten."
 
 #: libraries/config/ServerConfigChecks.class.php:371
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5160,10 +5158,11 @@ msgid ""
 msgstr ""
 "Deze %soptie%s zou uitgeschakeld moeten zijn omdat het de mogelijkheid geeft "
 "aan kwaadwillenden om op grote schaal aanmeldingspogingen uit te voeren op "
-"willekeurige MySQL-servers. Indien toch noodzakelijk gebruik dan %strusted "
-"proxies list%s. IP-adres gebaseerde beveiliging is echter mogelijk niet "
-"betrouwbaar wanneer uw IP-adres uit het netwerk van uw provider komt waar "
-"ook vele andere klanten gebruik van maken."
+"willekeurige MySQL-servers. Indien toch noodzakelijk gebruik dan %sbeperk "
+"inloggen op MySQL server%s of %slijst met betrouwbare proxy's%s. IP-adres "
+"gebaseerde beveiliging met een lijst van betrouwbare proxy's is echter "
+"mogelijk niet betrouwbaar wanneer uw IP-adres uit het netwerk van uw "
+"provider komt waar ook vele andere klanten gebruik van maken."
 
 #: libraries/config/ServerConfigChecks.class.php:381
 msgid ""
@@ -5357,10 +5356,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Kan niet aanmelden op de MySQL-server"
+msgstr "Aanmelden op de MySQL-server beperken"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -6518,17 +6516,17 @@ msgid "Enable highlighting"
 msgstr "Markeren inschakelen"
 
 #: libraries/config/messages.inc.php:470
-#, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "Of databaseuitbreiding uitgeschakeld mag worden of niet."
+msgstr ""
+"Of uitklappen van de boomstructuur aangeboden mag worden in het "
+"navigatiepaneel."
 
 #: libraries/config/messages.inc.php:472
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Navigatiebalk voor tabellen"
+msgstr "Uitklappen van de navigatiestructuur inschakelen"
 
 #: libraries/config/messages.inc.php:474
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -9839,10 +9837,9 @@ msgid "Please enter correct captcha!"
 msgstr "Vul een correcte captcha in!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Kan niet aanmelden op de MySQL-server"
+msgstr "Aanmelden op de MySQL-server niet toegestaan!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Wrong username/password. Access denied."
@@ -11887,10 +11884,9 @@ msgstr "Gebruikersgroep"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Persistente verbindingen"
+msgstr "Verbinding met SSL encryptie vereist."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
@@ -13706,10 +13702,9 @@ msgid "Improve table structure"
 msgstr "Tabelstructuur verbeteren"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Tabel tracken"
+msgstr "View volgen"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
