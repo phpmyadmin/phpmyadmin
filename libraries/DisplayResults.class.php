@@ -2195,6 +2195,20 @@ class PMA_DisplayResults
 
     } // end of the '_getSortOrderLink()' function
 
+    /**
+     * Check if the column contains numeric data . If yes, then set the column header's alignment right
+     *
+     * @param         $fields_meta                set of field properties
+     *
+     * @return string $value                      class that has to be added to th_class
+     * @see  _getDraggableClassForSortableColumns()
+     */
+    private function getClassForNumericColumnType($fields_meta,&$th_class){
+
+        if(preg_match('@int|decimal|float|double|real|bit|boolean|serial@i',$fields_meta->type)){
+            $th_class[] = 'right';
+        }
+    }
 
     /**
      * Prepare columns to draggable effect for sortable columns
@@ -2220,7 +2234,7 @@ class PMA_DisplayResults
         $draggable_html = '<th';
         $th_class = array();
         $th_class[] = 'draggable';
-
+        $this->getClassForNumericColumnType($fields_meta,$th_class);
         if ($col_visib && !$col_visib_j) {
             $th_class[] = 'hide';
         }
@@ -2268,7 +2282,7 @@ class PMA_DisplayResults
         $draggable_html = '<th';
         $th_class = array();
         $th_class[] = 'draggable';
-
+        $this->getClassForNumericColumnType($fields_meta,$th_class);
         if ($col_visib && !$col_visib_j) {
             $th_class[] = 'hide';
         }
