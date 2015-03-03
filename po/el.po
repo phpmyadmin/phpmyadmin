@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-01 06:38-0500\n"
-"PO-Revision-Date: 2015-02-28 08:50+0200\n"
+"PO-Revision-Date: 2015-03-03 07:22+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-4/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1848,7 +1848,7 @@ msgstr "Αναζήτηση μη διακριτών τιμών"
 
 #: js/messages.php:308
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Κανένα αυτόματα αποθηκευμένο ερώτημα"
 
 #: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -4801,10 +4801,9 @@ msgid "Length/Values"
 msgstr "Μήκος/Τιμές*"
 
 #: libraries/central_columns.lib.php:663
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Χαρακτηριστικά"
+msgstr "Χαρακτηριστικό"
 
 #: libraries/central_columns.lib.php:667
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -5151,7 +5150,7 @@ msgstr ""
 "χαρακτήρες."
 
 #: libraries/config/ServerConfigChecks.class.php:371
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5167,9 +5166,10 @@ msgid ""
 msgstr ""
 "Αυτή η %sεπιλογή%s πρέπει να απενεργοποιηθεί καθώς επιτρέπει σε εισβολείς να "
 "συνδεθούν σε οποιοδήποτε διακομιστή MySQL. Αν νομίζετε ότι αυτό είναι "
-"απαραίτητο, χρησιμοποιήστε %sλίστα αξιόπιστων διακομιστών%s. Ωστόσο, η "
-"προστασία με βάση την IP ίσως να μην είναι αξιόπιστη γιατί μπορεί η IP σας "
-"να ανήκει σε πάροχο με χιλιάδες χρήστες."
+"απαραίτητο, χρησιμοποιήστε την %sπεριορισμένη σύνδεση στον διακομιστή MySQL%"
+"s ή %sλίστα αξιόπιστων διακομιστών%s. Ωστόσο, η προστασία με βάση την IP από "
+"λίστα προστατευμένων διακομιστών ίσως να μην είναι αξιόπιστη γιατί μπορεί η "
+"IP σας να ανήκει σε πάροχο με χιλιάδες χρήστες."
 
 #: libraries/config/ServerConfigChecks.class.php:381
 msgid ""
@@ -5363,12 +5363,15 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Περιορίζει τους διακομιστές MySQL που μπορεί ο χρήστης να εισέλθει όταν μια "
+"σύνδεση σε έναν τυχαίο διακομιστή MySQL είναι ενεργοποιημένη ταιριάζοντας "
+"την IP ή το όνομα φιλοξενητή του διακομιστή MySQL στην δοθείσα κανονική "
+"έκφραση."
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Δεν ήταν δυνατή η σύνδεση με τον διακομιστή MySQL"
+msgstr "Περιορισμένη σύνδεση στον διακομιστή MySQL"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -9848,10 +9851,9 @@ msgid "Please enter correct captcha!"
 msgstr "Εισάγετε το σωστό captcha!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Δεν ήταν δυνατή η σύνδεση με τον διακομιστή MySQL"
+msgstr "Δεν επιτρέπεται να συνδεθείτε στον διακομιστή MySQL!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Wrong username/password. Access denied."
@@ -11902,33 +11904,37 @@ msgstr "Ομάδας χρηστών"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Επιμένουσες συνδέσεις"
+msgstr "Απαιτούνται κρυπτογραφημένες συνδέσεις SSL."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Απαιτείται SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
+"Απαιτεί ότι μια συγκεκριμένη κρυπτογραφημένη μέθοδος χρησιμοποιείται για μια "
+"σύνδεση."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Απαιτεί ότι ένα έγκυρο πιστοποιητικό X509 που εκδόθηκε από αυτό το CA "
+"παρουσιάζεται."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
+"Απαιτεί ότι ένα έγκυρο πιστοποιητικό X509 με αυτό το θέμα παρουσιάζεται."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 cetrificate."
-msgstr ""
+msgstr "Απαιτεί ότι ένα έγκυρο πιστοποιητικό X509."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
@@ -13527,7 +13533,7 @@ msgstr "Εκτέλεση εντολής/εντολών SQL στη βάση δε�
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Λήψη αυτόματου αποθηκευμένου ερωτήματος"
 
 #: libraries/sql_query_form.lib.php:284
 msgid "Bookmark this SQL query:"
