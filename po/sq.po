@@ -1,17 +1,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-01 06:38-0500\n"
+"POT-Creation-Date: 2015-03-04 12:50-0500\n"
 "PO-Revision-Date: 2015-01-07 01:02+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sq/>\n"
-"Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sq\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -614,8 +614,8 @@ msgstr "Parametra jo të plota"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Ndoshta provuat të ngarkoni një fil, që është shumë i madh. Ju lutem, refero "
 "%sdokumentacionin%s për një vështrim të kujdesshëm për këtë kufizim."
@@ -930,8 +930,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
-"Versioni i librarisë së PHP MySQL %s ndryshon nga versioni i MySQL server "
-"%s. Kjo mund të shkaktojë sjellje të paparashikuara."
+"Versioni i librarisë së PHP MySQL %s ndryshon nga versioni i MySQL server %"
+"s. Kjo mund të shkaktojë sjellje të paparashikuara."
 
 #: index.php:621
 #, php-format
@@ -1847,7 +1847,7 @@ msgid "Show query box"
 msgstr "Shfaq kutinë e pyetsorit"
 
 #: js/messages.php:305 libraries/Console.class.php:96
-#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3268
+#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3288
 #: libraries/Index.class.php:675 libraries/Util.class.php:665
 #: libraries/Util.class.php:1190 libraries/Util.class.php:3424
 #: libraries/Util.class.php:3425 libraries/central_columns.lib.php:784
@@ -2110,7 +2110,7 @@ msgstr "Përmbajtja e pikës së të dhënave"
 msgid "Ignore"
 msgstr "Injoro"
 
-#: js/messages.php:385 libraries/DisplayResults.class.php:3271
+#: js/messages.php:385 libraries/DisplayResults.class.php:3291
 msgid "Copy"
 msgstr "Kopjo"
 
@@ -2457,7 +2457,7 @@ msgstr ", versioni i fundit stabil:"
 msgid "up to date"
 msgstr "aktual"
 
-#: js/messages.php:504 libraries/DisplayResults.class.php:4797
+#: js/messages.php:504 libraries/DisplayResults.class.php:4817
 #: view_create.php:182
 msgid "Create view"
 msgstr "Krijo pamje"
@@ -2885,8 +2885,8 @@ msgid "Requery"
 msgstr "Requery (kërkesë)"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
-#: libraries/DisplayResults.class.php:3339
-#: libraries/DisplayResults.class.php:4666
+#: libraries/DisplayResults.class.php:3359
+#: libraries/DisplayResults.class.php:4686
 #: libraries/central_columns.lib.php:786 libraries/db_designer.lib.php:875
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:390 libraries/tracking.lib.php:476
@@ -3362,67 +3362,67 @@ msgstr "Tekst i mirënjohur"
 msgid "Well Known Binary"
 msgstr "Binare e mirënjohur"
 
-#: libraries/DisplayResults.class.php:3313
-#: libraries/DisplayResults.class.php:3329
+#: libraries/DisplayResults.class.php:3333
+#: libraries/DisplayResults.class.php:3349
 msgid "The row has been deleted."
 msgstr "Radha është fshirë."
 
-#: libraries/DisplayResults.class.php:3366
-#: libraries/DisplayResults.class.php:4666
+#: libraries/DisplayResults.class.php:3386
+#: libraries/DisplayResults.class.php:4686
 #: libraries/server_status_processes.lib.php:295
 msgid "Kill"
 msgstr "Vrit"
 
-#: libraries/DisplayResults.class.php:4081
+#: libraries/DisplayResults.class.php:4101
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Mund të jetë me afërsi. Shiko [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/DisplayResults.class.php:4138 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4158 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql_query_form.lib.php:89
 #: libraries/tbl_relation.lib.php:1036 tbl_find_replace.php:51
 #: tbl_operations.php:200 tbl_row_action.php:121 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "Pyetsori juaj SQL është ekzekutuar me sukses."
 
-#: libraries/DisplayResults.class.php:4524 libraries/structure.lib.php:692
+#: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Kjo pamje ka të paktën këtë numër të radhëve. Ju lutem, refero "
-"%sdokumentacionin%s."
+"Kjo pamje ka të paktën këtë numër të radhëve. Ju lutem, refero %"
+"sdokumentacionin%s."
 
-#: libraries/DisplayResults.class.php:4537
+#: libraries/DisplayResults.class.php:4557
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Shfaqën radhët %1s - %2s"
 
-#: libraries/DisplayResults.class.php:4552
+#: libraries/DisplayResults.class.php:4572
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d gjithsejt, %2$d në pyetsor"
 
-#: libraries/DisplayResults.class.php:4557
+#: libraries/DisplayResults.class.php:4577
 #, php-format
 msgid "%d total"
 msgstr "%d gjithsejt"
 
-#: libraries/DisplayResults.class.php:4569 libraries/sql.lib.php:1504
+#: libraries/DisplayResults.class.php:4589 libraries/sql.lib.php:1504
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Pyetsori mori %01.4f sekonda."
 
-#: libraries/DisplayResults.class.php:4671
-#: libraries/DisplayResults.class.php:4678 libraries/Util.class.php:4574
+#: libraries/DisplayResults.class.php:4691
+#: libraries/DisplayResults.class.php:4698 libraries/Util.class.php:4574
 #: libraries/Util.class.php:4580 libraries/mult_submits.inc.php:45
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:312
 #: libraries/structure.lib.php:314
 msgid "With selected:"
 msgstr "Me të zgjedhur:"
 
-#: libraries/DisplayResults.class.php:4675
-#: libraries/DisplayResults.class.php:4677 libraries/Util.class.php:4576
+#: libraries/DisplayResults.class.php:4695
+#: libraries/DisplayResults.class.php:4697 libraries/Util.class.php:4576
 #: libraries/Util.class.php:4577 libraries/server_privileges.lib.php:1196
 #: libraries/server_privileges.lib.php:1197
 #: libraries/server_user_groups.lib.php:231 libraries/structure.lib.php:299
@@ -3430,13 +3430,13 @@ msgstr "Me të zgjedhur:"
 msgid "Check All"
 msgstr "Shënjo të gjitha"
 
-#: libraries/DisplayResults.class.php:4682 libraries/structure.lib.php:1486
+#: libraries/DisplayResults.class.php:4702 libraries/structure.lib.php:1486
 #: libraries/structure.lib.php:2210
 msgid "Change"
 msgstr "Ndrysho"
 
-#: libraries/DisplayResults.class.php:4695
-#: libraries/DisplayResults.class.php:4966 libraries/Menu.class.php:336
+#: libraries/DisplayResults.class.php:4715
+#: libraries/DisplayResults.class.php:4986 libraries/Menu.class.php:336
 #: libraries/Menu.class.php:438 libraries/Menu.class.php:571
 #: libraries/Util.class.php:3426 libraries/Util.class.php:3427
 #: libraries/Util.class.php:4138 libraries/Util.class.php:4153
@@ -3451,29 +3451,29 @@ msgstr "Ndrysho"
 msgid "Export"
 msgstr "Eksporti"
 
-#: libraries/DisplayResults.class.php:4852
+#: libraries/DisplayResults.class.php:4872
 msgid "Query results operations"
 msgstr "Veprimet e rezultatit të pyetsorit"
 
-#: libraries/DisplayResults.class.php:4890 libraries/Header.class.php:371
+#: libraries/DisplayResults.class.php:4910 libraries/Header.class.php:371
 #: libraries/structure.lib.php:320 libraries/structure.lib.php:393
 #: libraries/structure.lib.php:1621
 msgid "Print view"
 msgstr "Shfaq printimin"
 
-#: libraries/DisplayResults.class.php:4908
+#: libraries/DisplayResults.class.php:4928
 msgid "Print view (with full texts)"
 msgstr "Shfaq printimin (me tekste të plota)"
 
-#: libraries/DisplayResults.class.php:4979 libraries/tbl_chart.lib.php:351
+#: libraries/DisplayResults.class.php:4999 libraries/tbl_chart.lib.php:351
 msgid "Display chart"
 msgstr "Shfaq grafikun"
 
-#: libraries/DisplayResults.class.php:5004
+#: libraries/DisplayResults.class.php:5024
 msgid "Visualize GIS data"
 msgstr "Vizualizo të dhënat GIS"
 
-#: libraries/DisplayResults.class.php:5240
+#: libraries/DisplayResults.class.php:5260
 msgid "Link not found!"
 msgstr "Lidhja nuk gjendet!"
 
@@ -4307,20 +4307,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Një numër i vogël pikë-lundrues, vlerat e lejuara janë -3.402823466E+38 deri "
 "-1.175494351E-38, 0, dhe 1.175494351E-38 deri 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Një numër precizion-dyfishtë pikë-lundrues, vlerat e lejuara janë "
-"-1.7976931348623157E+308 deri -2.2250738585072014E-308, 0, dhe "
+"Një numër precizion-dyfishtë pikë-lundrues, vlerat e lejuara janë -"
+"1.7976931348623157E+308 deri -2.2250738585072014E-308, 0, dhe "
 "2.2250738585072014E-308 deri 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -5294,8 +5294,8 @@ msgstr ""
 "Vendos tipin e autentifikimit [kbd]config[/kbd] (konfig) dhe përfshij emrin "
 "e përdorimit dhe fjalëkalimin për auto-hyrje, gjë që nuk është një opsion i "
 "dëshiruar për pritësit (hosts) live. Secili që e di ose e merr me mend URL "
-"të phpMyAdmin mund të hyjë direkt në panelin tuaj të phpMyAdmin. Vendos "
-"%stipin e autentifikimit%s tek [kbd]cookie[/kbd] ose [kbd]http[/kbd]."
+"të phpMyAdmin mund të hyjë direkt në panelin tuaj të phpMyAdmin. Vendos %"
+"stipin e autentifikimit%s tek [kbd]cookie[/kbd] ose [kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.class.php:440
 #, php-format
@@ -8098,13 +8098,13 @@ msgstr ", @TABLE@ - do të bëhet emri i tabelës"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Kjo vlerë është interpretuar me anë të %1$sstrftime%2$s, kështu që mund të "
 "përdorni vargjet e formatimit të kohës. Për më tepër, transformimet që "
-"vijojnë mund të ndodhin: %3$s. Teksti tjetër do të mbahet siç është. Shiko "
-"%4$sFAQ%5$s për detaje."
+"vijojnë mund të ndodhin: %3$s. Teksti tjetër do të mbahet siç është. Shiko %4"
+"$sFAQ%5$s për detaje."
 
 #: libraries/display_export.lib.php:526
 msgid "use this for future exports"
@@ -8651,11 +8651,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
-"Dokumentacioni dhe informacioni i mëtejshëm rreth PBXT mund të gjendet në "
-"%sUebfaqen PrimeBase XT%s."
+"Dokumentacioni dhe informacioni i mëtejshëm rreth PBXT mund të gjendet në %"
+"sUebfaqen PrimeBase XT%s."
 
 #: libraries/engines/pbxt.lib.php:138
 msgid "Related Links"
@@ -9819,11 +9819,11 @@ msgstr "Mirësevjen në %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Ndoshta nuk keni krijuar një fil konfigurimi. Mund të doni të përdorni "
-"%1$sskriptin e instalimit%2$s për ta krijuar atë."
+"Ndoshta nuk keni krijuar një fil konfigurimi. Mund të doni të përdorni %1"
+"$sskriptin e instalimit%2$s për ta krijuar atë."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:144
 msgid ""
@@ -11628,11 +11628,9 @@ msgstr "Nuk ka ngjarje me emrin %1$s që gjendet në databazë %2$s"
 msgid "There are no events to display."
 msgstr "Nuk ka ngjarje për t'u shfaqur."
 
-#: libraries/select_lang.lib.php:612 libraries/select_lang.lib.php:621
-#: libraries/select_lang.lib.php:630
-#, php-format
-msgid "Unknown language: %1$s."
-msgstr "Gjuhë e panjohur: %1$s."
+#: libraries/select_lang.lib.php:613
+msgid "Ignoring unsupported language code."
+msgstr ""
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
@@ -11925,7 +11923,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-msgid "Requires that a specific cipher method be used for a connection."
+msgid "Requires that specific cipher method is used for a connection."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:778
@@ -12271,8 +12269,8 @@ msgstr "Pamja e përgjithshme e përdoruesve"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Shënim: phpMyAdmin i merr privilegjet e përdoruesit direkt nga tabelat e "
 "privilegjeve MySQL. Përmbajtja e këtyre tabelave mund të ndryshojë nga "
@@ -15155,8 +15153,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Raporti aktual i kujtesës cache të pyetsorit të lirë në krahasim me "
 "madhësinë e përgjithshme cache të pyetsorit është %s%%. Duhet të jetë më "
@@ -15314,8 +15312,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% prej të gjitha llojeve shkaktojnë tabela të përkohëshme, kjo vlerë "
 "duhet të jetë nën 10%%."
@@ -16087,6 +16085,9 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert është vendosur në 0"
 
+#~ msgid "Unknown language: %1$s."
+#~ msgstr "Gjuhë e panjohur: %1$s."
+
 #~ msgid "Disable database expansion"
 #~ msgstr "Pasivizo zgjerimin e databazës"
 
@@ -16777,8 +16778,8 @@ msgstr "concurrent_insert është vendosur në 0"
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
 #~ "the server."
 #~ msgstr ""
-#~ "<b>Statistikat e Query</b>: Që nga nisja e tij, serverit i janë dërguar "
-#~ "%s queries."
+#~ "<b>Statistikat e Query</b>: Që nga nisja e tij, serverit i janë dërguar %"
+#~ "s queries."
 
 #~ msgid "Add a New User"
 #~ msgstr "Shto një përdorues të ri"

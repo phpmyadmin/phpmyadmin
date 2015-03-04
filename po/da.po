@@ -1,17 +1,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-01 06:38-0500\n"
+"POT-Creation-Date: 2015-03-04 12:50-0500\n"
 "PO-Revision-Date: 2015-02-25 06:28+0200\n"
 "Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "da/>\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -609,8 +609,8 @@ msgstr "Ukomplette parametre"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Du har sandsynligvis forsøgt at overføre en fil som er for stor. Se venligst "
 "%sdokumentationen%s for måder at omgå denne begrænsning."
@@ -1808,7 +1808,7 @@ msgid "Show query box"
 msgstr "Vis forespørgselsbox"
 
 #: js/messages.php:305 libraries/Console.class.php:96
-#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3268
+#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3288
 #: libraries/Index.class.php:675 libraries/Util.class.php:665
 #: libraries/Util.class.php:1190 libraries/Util.class.php:3424
 #: libraries/Util.class.php:3425 libraries/central_columns.lib.php:784
@@ -1852,8 +1852,8 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
-"Ingen kolonner i centerlisten. Vær sikker på at centerlisten for databasen "
-"%s har kolonner der ikke er i aktuel tabel."
+"Ingen kolonner i centerlisten. Vær sikker på at centerlisten for databasen %"
+"s har kolonner der ikke er i aktuel tabel."
 
 #: js/messages.php:315
 msgid "See more"
@@ -2067,7 +2067,7 @@ msgstr "Datapunkt-indhold"
 msgid "Ignore"
 msgstr "Ignorer"
 
-#: js/messages.php:385 libraries/DisplayResults.class.php:3271
+#: js/messages.php:385 libraries/DisplayResults.class.php:3291
 msgid "Copy"
 msgstr "Kopi"
 
@@ -2400,7 +2400,7 @@ msgstr ", seneste stabile version:"
 msgid "up to date"
 msgstr "up-to-date"
 
-#: js/messages.php:504 libraries/DisplayResults.class.php:4797
+#: js/messages.php:504 libraries/DisplayResults.class.php:4817
 #: view_create.php:182
 msgid "Create view"
 msgstr "Opret view"
@@ -2828,8 +2828,8 @@ msgid "Requery"
 msgstr "Genforespørg"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
-#: libraries/DisplayResults.class.php:3339
-#: libraries/DisplayResults.class.php:4666
+#: libraries/DisplayResults.class.php:3359
+#: libraries/DisplayResults.class.php:4686
 #: libraries/central_columns.lib.php:786 libraries/db_designer.lib.php:875
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:390 libraries/tracking.lib.php:476
@@ -3304,66 +3304,66 @@ msgstr "Velkendt tekst"
 msgid "Well Known Binary"
 msgstr "Velkendt binær"
 
-#: libraries/DisplayResults.class.php:3313
-#: libraries/DisplayResults.class.php:3329
+#: libraries/DisplayResults.class.php:3333
+#: libraries/DisplayResults.class.php:3349
 msgid "The row has been deleted."
 msgstr "Rækken er slettet."
 
-#: libraries/DisplayResults.class.php:3366
-#: libraries/DisplayResults.class.php:4666
+#: libraries/DisplayResults.class.php:3386
+#: libraries/DisplayResults.class.php:4686
 #: libraries/server_status_processes.lib.php:295
 msgid "Kill"
 msgstr "Dræb (Kill)"
 
-#: libraries/DisplayResults.class.php:4081
+#: libraries/DisplayResults.class.php:4101
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Kan være anslået. Se [doc@faq3-11] FAQ 3.11[/doc]."
 
-#: libraries/DisplayResults.class.php:4138 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4158 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql_query_form.lib.php:89
 #: libraries/tbl_relation.lib.php:1036 tbl_find_replace.php:51
 #: tbl_operations.php:200 tbl_row_action.php:121 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "Din SQL-forespørgsel blev udført korrekt."
 
-#: libraries/DisplayResults.class.php:4524 libraries/structure.lib.php:692
+#: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Viewet har som minimum dette antal rækker. Se venligst %sdokumentationen%s."
 
-#: libraries/DisplayResults.class.php:4537
+#: libraries/DisplayResults.class.php:4557
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Viser rækkerne %1s - %2s"
 
-#: libraries/DisplayResults.class.php:4552
+#: libraries/DisplayResults.class.php:4572
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d i alt, %2$d i forespørgsel"
 
-#: libraries/DisplayResults.class.php:4557
+#: libraries/DisplayResults.class.php:4577
 #, php-format
 msgid "%d total"
 msgstr "%d i alt"
 
-#: libraries/DisplayResults.class.php:4569 libraries/sql.lib.php:1504
+#: libraries/DisplayResults.class.php:4589 libraries/sql.lib.php:1504
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Forespørgsel tog %01.4f sekunder."
 
-#: libraries/DisplayResults.class.php:4671
-#: libraries/DisplayResults.class.php:4678 libraries/Util.class.php:4574
+#: libraries/DisplayResults.class.php:4691
+#: libraries/DisplayResults.class.php:4698 libraries/Util.class.php:4574
 #: libraries/Util.class.php:4580 libraries/mult_submits.inc.php:45
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:312
 #: libraries/structure.lib.php:314
 msgid "With selected:"
 msgstr "Med det markerede:"
 
-#: libraries/DisplayResults.class.php:4675
-#: libraries/DisplayResults.class.php:4677 libraries/Util.class.php:4576
+#: libraries/DisplayResults.class.php:4695
+#: libraries/DisplayResults.class.php:4697 libraries/Util.class.php:4576
 #: libraries/Util.class.php:4577 libraries/server_privileges.lib.php:1196
 #: libraries/server_privileges.lib.php:1197
 #: libraries/server_user_groups.lib.php:231 libraries/structure.lib.php:299
@@ -3371,13 +3371,13 @@ msgstr "Med det markerede:"
 msgid "Check All"
 msgstr "Vælg alle"
 
-#: libraries/DisplayResults.class.php:4682 libraries/structure.lib.php:1486
+#: libraries/DisplayResults.class.php:4702 libraries/structure.lib.php:1486
 #: libraries/structure.lib.php:2210
 msgid "Change"
 msgstr "Ret"
 
-#: libraries/DisplayResults.class.php:4695
-#: libraries/DisplayResults.class.php:4966 libraries/Menu.class.php:336
+#: libraries/DisplayResults.class.php:4715
+#: libraries/DisplayResults.class.php:4986 libraries/Menu.class.php:336
 #: libraries/Menu.class.php:438 libraries/Menu.class.php:571
 #: libraries/Util.class.php:3426 libraries/Util.class.php:3427
 #: libraries/Util.class.php:4138 libraries/Util.class.php:4153
@@ -3392,29 +3392,29 @@ msgstr "Ret"
 msgid "Export"
 msgstr "Eksportér"
 
-#: libraries/DisplayResults.class.php:4852
+#: libraries/DisplayResults.class.php:4872
 msgid "Query results operations"
 msgstr "Forespørgselsresultat operationer"
 
-#: libraries/DisplayResults.class.php:4890 libraries/Header.class.php:371
+#: libraries/DisplayResults.class.php:4910 libraries/Header.class.php:371
 #: libraries/structure.lib.php:320 libraries/structure.lib.php:393
 #: libraries/structure.lib.php:1621
 msgid "Print view"
 msgstr "Udskriv"
 
-#: libraries/DisplayResults.class.php:4908
+#: libraries/DisplayResults.class.php:4928
 msgid "Print view (with full texts)"
 msgstr "Udskriv (med fulde tekster)"
 
-#: libraries/DisplayResults.class.php:4979 libraries/tbl_chart.lib.php:351
+#: libraries/DisplayResults.class.php:4999 libraries/tbl_chart.lib.php:351
 msgid "Display chart"
 msgstr "Vis diagram"
 
-#: libraries/DisplayResults.class.php:5004
+#: libraries/DisplayResults.class.php:5024
 msgid "Visualize GIS data"
 msgstr "Visualiser GIS data"
 
-#: libraries/DisplayResults.class.php:5240
+#: libraries/DisplayResults.class.php:5260
 msgid "Link not found!"
 msgstr "Link ikke fundet!"
 
@@ -4243,20 +4243,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Et lille, flydende decimaltal. Tilladte værdier er -3.402823466E+38 til "
-"-1.175494351E-38, 0, samt 1.175494351E-38 til 3.402823466E+38"
+"Et lille, flydende decimaltal. Tilladte værdier er -3.402823466E+38 til -"
+"1.175494351E-38, 0, samt 1.175494351E-38 til 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Et dobbeltpræcisions, flydende decimaltal. Tilladte værdier er "
-"-1.7976931348623157E+308 til -2.2250738585072014E-308, 0, samt "
+"Et dobbeltpræcisions, flydende decimaltal. Tilladte værdier er -"
+"1.7976931348623157E+308 til -2.2250738585072014E-308, 0, samt "
 "2.2250738585072014E-308 til 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -5206,10 +5206,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Hvis du føler at det er nødvendigt, benyt da yderligere sikring - "
-"%sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-"
-"baseret beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en "
-"udbyder med mange tusinde brugere."
+"Hvis du føler at det er nødvendigt, benyt da yderligere sikring - %"
+"sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-baseret "
+"beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en udbyder med "
+"mange tusinde brugere."
 
 #: libraries/config/ServerConfigChecks.class.php:434
 #, php-format
@@ -5223,8 +5223,8 @@ msgstr ""
 "Du har sat  [kbd]config[/kbd] autentifikation og inkluderet brugernavn og "
 "adgangskode for auto-login, hvilket er ikke en ønskværdig konfiguration for "
 "produktionssystemer. Enhver som kender eller gætter din phpMyAdmin URL kan "
-"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt "
-"%sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
+"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt %"
+"sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.class.php:440
 #, php-format
@@ -7973,8 +7973,8 @@ msgstr ", @TABLE@ vil blive tabelnavnet"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne værdi fortolkes via %1$sstrftime%2$s, så du kan bruge tidsformatterede "
 "strenge. Ydermere vil følgende transformationer foregå: %3$s. Anden tekst "
@@ -8515,8 +8515,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentation og yderligere information om PBXT kan findes på %sPrimeBase XT "
 "hjemmeside%s."
@@ -9675,8 +9675,8 @@ msgstr "Velkommen til %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Sandsynlig årsag til dette er at du ikke har oprettet en konfigurationsfil. "
 "Du kan bruge %1$sopsætningsscriptet%2$s til at oprette en."
@@ -11466,11 +11466,9 @@ msgstr "Ingen hændelse med navnet %1$s fundet i database %2$s"
 msgid "There are no events to display."
 msgstr "Der er ingen hændelser at vise."
 
-#: libraries/select_lang.lib.php:612 libraries/select_lang.lib.php:621
-#: libraries/select_lang.lib.php:630
-#, php-format
-msgid "Unknown language: %1$s."
-msgstr "Ukendt sprog: %1$s."
+#: libraries/select_lang.lib.php:613
+msgid "Ignoring unsupported language code."
+msgstr ""
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
@@ -11761,7 +11759,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-msgid "Requires that a specific cipher method be used for a connection."
+msgid "Requires that specific cipher method is used for a connection."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:778
@@ -12106,14 +12104,14 @@ msgstr "Oversigt over brugere"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Bemærk: phpMyAdmin henter brugernes privilegier direkte fra MySQLs "
 "privilegietabeller. Indholdet af disse tabeller kan være forskelligt fra "
 "privilegierne serveren i øjeblikket bruger hvis der er lavet manuelle "
-"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne"
-"%s før du fortsætter."
+"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne%"
+"s før du fortsætter."
 
 #: libraries/server_privileges.lib.php:4295
 msgid "The selected user was not found in the privilege table."
@@ -14945,8 +14943,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Det aktuelle forhold mellem ledig og total forespørgselsmellemlager er %s%%. "
 "Det bør være over 80%%"
@@ -15100,8 +15098,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% af alle sorteringer bruger midlertidige tabeller. Denne værdi bør være "
 "mindre end 10%%."
@@ -15850,6 +15848,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
+
+#~ msgid "Unknown language: %1$s."
+#~ msgstr "Ukendt sprog: %1$s."
 
 #~ msgid "Disable database expansion"
 #~ msgstr "Deaktiver database udvidelse"

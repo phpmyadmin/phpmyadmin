@@ -1,17 +1,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-01 06:38-0500\n"
+"POT-Creation-Date: 2015-03-04 12:50-0500\n"
 "PO-Revision-Date: 2015-03-02 04:43+0200\n"
 "Last-Translator: zz <tczzjin@gmail.com>\n"
-"Language-Team: Chinese (China) "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_CN/>\n"
-"Language: zh_CN\n"
+"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
+"phpmyadmin/master/zh_CN/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -32,7 +32,6 @@ msgstr "点击以排序。"
 
 #: db_central_columns.php:140
 #, php-format
-#| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
 msgstr "正在显示第 %1$s - %2$s 行"
 
@@ -254,9 +253,6 @@ msgstr "已将数据库 %1$s 复制至 %2$s。"
 
 #: db_operations.php:259
 #, php-format
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. To find out "
-#| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr "phpMyAdmin 高级功能尚未激活。请点击%s这里%s查看原因。"
@@ -329,7 +325,6 @@ msgid "Access denied!"
 msgstr "访问被拒绝！"
 
 #: db_tracking.php:39 db_tracking.php:64
-#| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
 msgstr "追踪数据定义删除成功"
 
@@ -611,8 +606,8 @@ msgstr "完整插入"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr "您想要上传的文件可能太大了，请参考%s文档%s来寻找解决方法。"
 
 #: import.php:343 import.php:626
@@ -1807,7 +1802,7 @@ msgid "Show query box"
 msgstr "显示查询框"
 
 #: js/messages.php:305 libraries/Console.class.php:96
-#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3268
+#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3288
 #: libraries/Index.class.php:675 libraries/Util.class.php:665
 #: libraries/Util.class.php:1190 libraries/Util.class.php:3424
 #: libraries/Util.class.php:3425 libraries/central_columns.lib.php:784
@@ -2064,7 +2059,7 @@ msgstr "数据点内容"
 msgid "Ignore"
 msgstr "忽略"
 
-#: js/messages.php:385 libraries/DisplayResults.class.php:3271
+#: js/messages.php:385 libraries/DisplayResults.class.php:3291
 msgid "Copy"
 msgstr "复制"
 
@@ -2404,7 +2399,7 @@ msgstr "，最新稳定版本："
 msgid "up to date"
 msgstr "已更新"
 
-#: js/messages.php:504 libraries/DisplayResults.class.php:4797
+#: js/messages.php:504 libraries/DisplayResults.class.php:4817
 #: view_create.php:182
 msgid "Create view"
 msgstr "新建视图"
@@ -2826,8 +2821,8 @@ msgid "Requery"
 msgstr "子查询"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
-#: libraries/DisplayResults.class.php:3339
-#: libraries/DisplayResults.class.php:4666
+#: libraries/DisplayResults.class.php:3359
+#: libraries/DisplayResults.class.php:4686
 #: libraries/central_columns.lib.php:786 libraries/db_designer.lib.php:875
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:390 libraries/tracking.lib.php:476
@@ -3332,65 +3327,65 @@ msgstr "WKT 文本表达"
 msgid "Well Known Binary"
 msgstr "WKB 二进制表达"
 
-#: libraries/DisplayResults.class.php:3313
-#: libraries/DisplayResults.class.php:3329
+#: libraries/DisplayResults.class.php:3333
+#: libraries/DisplayResults.class.php:3349
 msgid "The row has been deleted."
 msgstr "已删除该行。"
 
-#: libraries/DisplayResults.class.php:3366
-#: libraries/DisplayResults.class.php:4666
+#: libraries/DisplayResults.class.php:3386
+#: libraries/DisplayResults.class.php:4686
 #: libraries/server_status_processes.lib.php:295
 msgid "Kill"
 msgstr "杀死"
 
-#: libraries/DisplayResults.class.php:4081
+#: libraries/DisplayResults.class.php:4101
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "可能是近似值。参见[doc@faq3-11]常见问题 3.11[/doc]。"
 
-#: libraries/DisplayResults.class.php:4138 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4158 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql_query_form.lib.php:89
 #: libraries/tbl_relation.lib.php:1036 tbl_find_replace.php:51
 #: tbl_operations.php:200 tbl_row_action.php:121 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "您的 SQL 语句已成功运行。"
 
-#: libraries/DisplayResults.class.php:4524 libraries/structure.lib.php:692
+#: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "此视图的行数最少有这么多。请参阅%s档案%s。"
 
-#: libraries/DisplayResults.class.php:4537
+#: libraries/DisplayResults.class.php:4557
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "正在显示第 %1s - %2s 行"
 
-#: libraries/DisplayResults.class.php:4552
+#: libraries/DisplayResults.class.php:4572
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "总数为 %1$d，查询包含 %2$d"
 
-#: libraries/DisplayResults.class.php:4557
+#: libraries/DisplayResults.class.php:4577
 #, php-format
 msgid "%d total"
 msgstr "共 %d 行"
 
-#: libraries/DisplayResults.class.php:4569 libraries/sql.lib.php:1504
+#: libraries/DisplayResults.class.php:4589 libraries/sql.lib.php:1504
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查询花费 %01.4f 秒。"
 
-#: libraries/DisplayResults.class.php:4671
-#: libraries/DisplayResults.class.php:4678 libraries/Util.class.php:4574
+#: libraries/DisplayResults.class.php:4691
+#: libraries/DisplayResults.class.php:4698 libraries/Util.class.php:4574
 #: libraries/Util.class.php:4580 libraries/mult_submits.inc.php:45
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:312
 #: libraries/structure.lib.php:314
 msgid "With selected:"
 msgstr "选中项："
 
-#: libraries/DisplayResults.class.php:4675
-#: libraries/DisplayResults.class.php:4677 libraries/Util.class.php:4576
+#: libraries/DisplayResults.class.php:4695
+#: libraries/DisplayResults.class.php:4697 libraries/Util.class.php:4576
 #: libraries/Util.class.php:4577 libraries/server_privileges.lib.php:1196
 #: libraries/server_privileges.lib.php:1197
 #: libraries/server_user_groups.lib.php:231 libraries/structure.lib.php:299
@@ -3398,13 +3393,13 @@ msgstr "选中项："
 msgid "Check All"
 msgstr "全选"
 
-#: libraries/DisplayResults.class.php:4682 libraries/structure.lib.php:1486
+#: libraries/DisplayResults.class.php:4702 libraries/structure.lib.php:1486
 #: libraries/structure.lib.php:2210
 msgid "Change"
 msgstr "修改"
 
-#: libraries/DisplayResults.class.php:4695
-#: libraries/DisplayResults.class.php:4966 libraries/Menu.class.php:336
+#: libraries/DisplayResults.class.php:4715
+#: libraries/DisplayResults.class.php:4986 libraries/Menu.class.php:336
 #: libraries/Menu.class.php:438 libraries/Menu.class.php:571
 #: libraries/Util.class.php:3426 libraries/Util.class.php:3427
 #: libraries/Util.class.php:4138 libraries/Util.class.php:4153
@@ -3419,29 +3414,29 @@ msgstr "修改"
 msgid "Export"
 msgstr "导出"
 
-#: libraries/DisplayResults.class.php:4852
+#: libraries/DisplayResults.class.php:4872
 msgid "Query results operations"
 msgstr "查询结果操作"
 
-#: libraries/DisplayResults.class.php:4890 libraries/Header.class.php:371
+#: libraries/DisplayResults.class.php:4910 libraries/Header.class.php:371
 #: libraries/structure.lib.php:320 libraries/structure.lib.php:393
 #: libraries/structure.lib.php:1621
 msgid "Print view"
 msgstr "打印预览"
 
-#: libraries/DisplayResults.class.php:4908
+#: libraries/DisplayResults.class.php:4928
 msgid "Print view (with full texts)"
 msgstr "打印预览（全文显示）"
 
-#: libraries/DisplayResults.class.php:4979 libraries/tbl_chart.lib.php:351
+#: libraries/DisplayResults.class.php:4999 libraries/tbl_chart.lib.php:351
 msgid "Display chart"
 msgstr "显示图表"
 
-#: libraries/DisplayResults.class.php:5004
+#: libraries/DisplayResults.class.php:5024
 msgid "Visualize GIS data"
 msgstr "可视化 GIS 数据"
 
-#: libraries/DisplayResults.class.php:5240
+#: libraries/DisplayResults.class.php:5260
 msgid "Link not found!"
 msgstr "找不到链接！"
 
@@ -4258,21 +4253,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "单精度浮点数，取值范围从 -3.402823466E+38 到 -1.175494351E-38、0 以及从 "
 "1.175494351E-38 到 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"双精度浮点数，取值范围从 -1.7976931348623157E+308 到 "
-"-2.2250738585072014E-308、0 以及从 2.2250738585072014E-308 到 "
-"1.7976931348623157E+308"
+"双精度浮点数，取值范围从 -1.7976931348623157E+308 到 -2.2250738585072014E-"
+"308、0 以及从 2.2250738585072014E-308 到 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
 msgid ""
@@ -8199,8 +8193,8 @@ msgstr "，@TABLE@ 将变成数据表名"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
 "列内容也将被转换：%3$s。其他文本将保持原样。参见%4$s常见问题 (FAQ)%5$s。"
@@ -8719,8 +8713,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr "关于 PBXT 的文档和更多信息请参见 %sPrimeBase XT 主页%s。"
 
 #: libraries/engines/pbxt.lib.php:138
@@ -9883,8 +9877,8 @@ msgstr "欢迎使用 %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "你可能还没有创建配置文件。你可以使用 %1$s设置脚本%2$s 来创建一个配置文件。"
 
@@ -11749,11 +11743,9 @@ msgstr "在数据库 %2$s 中找不到名为 %1$s 的事件"
 msgid "There are no events to display."
 msgstr "没有事件。"
 
-#: libraries/select_lang.lib.php:612 libraries/select_lang.lib.php:621
-#: libraries/select_lang.lib.php:630
-#, php-format
-msgid "Unknown language: %1$s."
-msgstr "未知的语言：%1$s."
+#: libraries/select_lang.lib.php:613
+msgid "Ignoring unsupported language code."
+msgstr ""
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
@@ -12047,7 +12039,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-msgid "Requires that a specific cipher method be used for a connection."
+msgid "Requires that specific cipher method is used for a connection."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:778
@@ -12390,12 +12382,12 @@ msgstr "用户概况"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容"
-"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
-"限%s。"
+"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%"
+"s。"
 
 #: libraries/server_privileges.lib.php:4295
 msgid "The selected user was not found in the privilege table."
@@ -15240,8 +15232,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr "当前空闲查询缓存内存为总查询缓存大小的 %s%%。此值应高于 80%%"
 
 #: libraries/advisory_rules.txt:181
@@ -15372,8 +15364,8 @@ msgstr "根据系统内存，考虑增加 {sort_buffer_siz}e 和/或 {read_rnd_b
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr "%s%% 的排序引发临时表创建，该值应低于 10%%。"
 
 #: libraries/advisory_rules.txt:218
@@ -16044,6 +16036,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 被设为 0"
+
+#~ msgid "Unknown language: %1$s."
+#~ msgstr "未知的语言：%1$s."
 
 #, fuzzy
 #~| msgid "Display databases as a list"
@@ -17415,8 +17410,8 @@ msgstr "concurrent_insert 被设为 0"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation."
-#~ "html#faq6-29\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
+#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation.html#faq6-29"
+#~ "\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "添加新用户"

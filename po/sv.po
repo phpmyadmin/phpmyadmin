@@ -1,17 +1,17 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-01 06:38-0500\n"
+"POT-Creation-Date: 2015-03-04 12:50-0500\n"
 "PO-Revision-Date: 2014-12-29 15:37+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sv/>\n"
-"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -620,8 +620,8 @@ msgstr "kompletta infogningar"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Du försökte ladda upp en fil som är för stor. Se %sdocumentation%s för att "
 "gå runt denna begränsning."
@@ -932,8 +932,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
-"Din PHP MySQL bibliotekversion %s skiljer sig från din MySQL server version "
-"%s. Detta kan orsaka oförutsägbara beteenden."
+"Din PHP MySQL bibliotekversion %s skiljer sig från din MySQL server version %"
+"s. Detta kan orsaka oförutsägbara beteenden."
 
 #: index.php:621
 #, php-format
@@ -1857,7 +1857,7 @@ msgid "Show query box"
 msgstr "Visa frågerutan"
 
 #: js/messages.php:305 libraries/Console.class.php:96
-#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3268
+#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3288
 #: libraries/Index.class.php:675 libraries/Util.class.php:665
 #: libraries/Util.class.php:1190 libraries/Util.class.php:3424
 #: libraries/Util.class.php:3425 libraries/central_columns.lib.php:784
@@ -2134,7 +2134,7 @@ msgstr "Innehåll för datapunkt"
 msgid "Ignore"
 msgstr "Ignorera"
 
-#: js/messages.php:385 libraries/DisplayResults.class.php:3271
+#: js/messages.php:385 libraries/DisplayResults.class.php:3291
 msgid "Copy"
 msgstr "Kopiera"
 
@@ -2498,7 +2498,7 @@ msgstr ", senaste stabila version:"
 msgid "up to date"
 msgstr "aktuell"
 
-#: js/messages.php:504 libraries/DisplayResults.class.php:4797
+#: js/messages.php:504 libraries/DisplayResults.class.php:4817
 #: view_create.php:182
 msgid "Create view"
 msgstr "Skapa vy"
@@ -2930,8 +2930,8 @@ msgid "Requery"
 msgstr "underfråga"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
-#: libraries/DisplayResults.class.php:3339
-#: libraries/DisplayResults.class.php:4666
+#: libraries/DisplayResults.class.php:3359
+#: libraries/DisplayResults.class.php:4686
 #: libraries/central_columns.lib.php:786 libraries/db_designer.lib.php:875
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:390 libraries/tracking.lib.php:476
@@ -3444,65 +3444,65 @@ msgstr "Välkänd text"
 msgid "Well Known Binary"
 msgstr "Välkänd binär"
 
-#: libraries/DisplayResults.class.php:3313
-#: libraries/DisplayResults.class.php:3329
+#: libraries/DisplayResults.class.php:3333
+#: libraries/DisplayResults.class.php:3349
 msgid "The row has been deleted."
 msgstr "Raden har raderats."
 
-#: libraries/DisplayResults.class.php:3366
-#: libraries/DisplayResults.class.php:4666
+#: libraries/DisplayResults.class.php:3386
+#: libraries/DisplayResults.class.php:4686
 #: libraries/server_status_processes.lib.php:295
 msgid "Kill"
 msgstr "Döda"
 
-#: libraries/DisplayResults.class.php:4081
+#: libraries/DisplayResults.class.php:4101
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Kan vara ungefärligt. Se [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/DisplayResults.class.php:4138 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4158 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql_query_form.lib.php:89
 #: libraries/tbl_relation.lib.php:1036 tbl_find_replace.php:51
 #: tbl_operations.php:200 tbl_row_action.php:121 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "Din SQL-fråga utfördes korrekt."
 
-#: libraries/DisplayResults.class.php:4524 libraries/structure.lib.php:692
+#: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "Denna vy har åtminstone detta antal rader. Se %sdokumentationen%s."
 
-#: libraries/DisplayResults.class.php:4537
+#: libraries/DisplayResults.class.php:4557
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Visar raderna %1s - %2s"
 
-#: libraries/DisplayResults.class.php:4552
+#: libraries/DisplayResults.class.php:4572
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d totalt, %2$d i fråga"
 
-#: libraries/DisplayResults.class.php:4557
+#: libraries/DisplayResults.class.php:4577
 #, php-format
 msgid "%d total"
 msgstr "%d totalt"
 
-#: libraries/DisplayResults.class.php:4569 libraries/sql.lib.php:1504
+#: libraries/DisplayResults.class.php:4589 libraries/sql.lib.php:1504
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Frågan tog %01.4f sekunder."
 
-#: libraries/DisplayResults.class.php:4671
-#: libraries/DisplayResults.class.php:4678 libraries/Util.class.php:4574
+#: libraries/DisplayResults.class.php:4691
+#: libraries/DisplayResults.class.php:4698 libraries/Util.class.php:4574
 #: libraries/Util.class.php:4580 libraries/mult_submits.inc.php:45
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:312
 #: libraries/structure.lib.php:314
 msgid "With selected:"
 msgstr "Med markerade:"
 
-#: libraries/DisplayResults.class.php:4675
-#: libraries/DisplayResults.class.php:4677 libraries/Util.class.php:4576
+#: libraries/DisplayResults.class.php:4695
+#: libraries/DisplayResults.class.php:4697 libraries/Util.class.php:4576
 #: libraries/Util.class.php:4577 libraries/server_privileges.lib.php:1196
 #: libraries/server_privileges.lib.php:1197
 #: libraries/server_user_groups.lib.php:231 libraries/structure.lib.php:299
@@ -3510,13 +3510,13 @@ msgstr "Med markerade:"
 msgid "Check All"
 msgstr "Markera alla"
 
-#: libraries/DisplayResults.class.php:4682 libraries/structure.lib.php:1486
+#: libraries/DisplayResults.class.php:4702 libraries/structure.lib.php:1486
 #: libraries/structure.lib.php:2210
 msgid "Change"
 msgstr "Ändra"
 
-#: libraries/DisplayResults.class.php:4695
-#: libraries/DisplayResults.class.php:4966 libraries/Menu.class.php:336
+#: libraries/DisplayResults.class.php:4715
+#: libraries/DisplayResults.class.php:4986 libraries/Menu.class.php:336
 #: libraries/Menu.class.php:438 libraries/Menu.class.php:571
 #: libraries/Util.class.php:3426 libraries/Util.class.php:3427
 #: libraries/Util.class.php:4138 libraries/Util.class.php:4153
@@ -3531,29 +3531,29 @@ msgstr "Ändra"
 msgid "Export"
 msgstr "Exportera"
 
-#: libraries/DisplayResults.class.php:4852
+#: libraries/DisplayResults.class.php:4872
 msgid "Query results operations"
 msgstr "Operationer för frågeresultat"
 
-#: libraries/DisplayResults.class.php:4890 libraries/Header.class.php:371
+#: libraries/DisplayResults.class.php:4910 libraries/Header.class.php:371
 #: libraries/structure.lib.php:320 libraries/structure.lib.php:393
 #: libraries/structure.lib.php:1621
 msgid "Print view"
 msgstr "Utskriftsvänlig visning"
 
-#: libraries/DisplayResults.class.php:4908
+#: libraries/DisplayResults.class.php:4928
 msgid "Print view (with full texts)"
 msgstr "Utskriftsvänlig version (med fullständiga texter)"
 
-#: libraries/DisplayResults.class.php:4979 libraries/tbl_chart.lib.php:351
+#: libraries/DisplayResults.class.php:4999 libraries/tbl_chart.lib.php:351
 msgid "Display chart"
 msgstr "Visa diagram"
 
-#: libraries/DisplayResults.class.php:5004
+#: libraries/DisplayResults.class.php:5024
 msgid "Visualize GIS data"
 msgstr "Visualisera GIS-data"
 
-#: libraries/DisplayResults.class.php:5240
+#: libraries/DisplayResults.class.php:5260
 msgid "Link not found!"
 msgstr "Länken hittades inte!"
 
@@ -4393,16 +4393,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Ett litet flyttal. Tillåtna värden är: 3.402823466E+38 till-1.175494351E-38, "
 "0, och 1.175494351E-38 till 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Ett dubbel-precision flyttal. Tillåtna värden är: 1.7976931348623157E+308 "
@@ -5353,9 +5353,9 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Om du känner att det är nödvändigt, använd extra skyddsinställningar - "
-"%shost authentication%s-inställningar  och %strusted proxies list%s. Dock "
-"kan IP-baserat skydd inte vara tillförlitligt om din IP tillhör en ISP som "
+"Om du känner att det är nödvändigt, använd extra skyddsinställningar - %"
+"shost authentication%s-inställningar  och %strusted proxies list%s. Dock kan "
+"IP-baserat skydd inte vara tillförlitligt om din IP tillhör en ISP som "
 "tusentals användare, inklusive dig, är anslutna till."
 
 #: libraries/config/ServerConfigChecks.class.php:434
@@ -8180,8 +8180,8 @@ msgstr ", @TABLE@ kommer bli tabellnamnet"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Detta värde tolkas med %1$sstrftime%2$s, så du kan använda strängar med "
 "tidsformatering. Dessutom kommer följande omvandlingar att ske: %3$s. Övrig "
@@ -8735,11 +8735,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
-"Dokumentation och ytterligare information finns på %sPrimeBase XT Home Page"
-"%s."
+"Dokumentation och ytterligare information finns på %sPrimeBase XT Home Page%"
+"s."
 
 #: libraries/engines/pbxt.lib.php:138
 msgid "Related Links"
@@ -9873,11 +9873,11 @@ msgstr "Välkommen till %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Du har troligen inte skapat en konfigurationsfil. Du vill kanske använda "
-"%1$suppsättningsskript%2$s för att skapa denna."
+"Du har troligen inte skapat en konfigurationsfil. Du vill kanske använda %1"
+"$suppsättningsskript%2$s för att skapa denna."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:144
 msgid ""
@@ -11711,11 +11711,9 @@ msgstr "Ingen händelse med namnet %1$s hittades i databasen %2$s"
 msgid "There are no events to display."
 msgstr "Det finns inga händelser att visa."
 
-#: libraries/select_lang.lib.php:612 libraries/select_lang.lib.php:621
-#: libraries/select_lang.lib.php:630
-#, php-format
-msgid "Unknown language: %1$s."
-msgstr "Okänt språk: %1$s."
+#: libraries/select_lang.lib.php:613
+msgid "Ignoring unsupported language code."
+msgstr ""
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
@@ -12007,7 +12005,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-msgid "Requires that a specific cipher method be used for a connection."
+msgid "Requires that specific cipher method is used for a connection."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:778
@@ -12349,8 +12347,8 @@ msgstr "Användaröversikt"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Anm: phpMyAdmin hämtar användarnas behörigheter direkt från MySQL's "
 "behörighetstabeller. Innehållet i dessa tabeller kan skilja sig från de "
@@ -15247,8 +15245,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Det nuvarande förhållandet mellan ledigt frågecacheminne den totala fråge "
 "cache-storlek är %s%%. Det bör vara över 80%%"
@@ -15399,8 +15397,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% av alla sorteringar orsakar tillfälliga tabeller, detta värde bör vara "
 "lägre än 10%%."
@@ -16142,6 +16140,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert är satt till 0"
+
+#~ msgid "Unknown language: %1$s."
+#~ msgstr "Okänt språk: %1$s."
 
 #~ msgid "Disable database expansion"
 #~ msgstr "Inaktivera databasexpansion"
@@ -17504,8 +17505,8 @@ msgstr "concurrent_insert är satt till 0"
 #~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
-#~ "Resultatet av denna fråga kan inte användas för ett diagram. Se "
-#~ "[doc@faq6-29]FAQ 6.29[/doc]"
+#~ "Resultatet av denna fråga kan inte användas för ett diagram. Se [doc@faq6-"
+#~ "29]FAQ 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Titel"

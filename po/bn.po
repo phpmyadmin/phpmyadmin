@@ -1,17 +1,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-01 06:38-0500\n"
+"POT-Creation-Date: 2015-03-04 12:50-0500\n"
 "PO-Revision-Date: 2014-11-05 10:27+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bn/>\n"
-"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bn\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.0-dev\n"
 
@@ -264,8 +264,8 @@ msgstr "ডাটাবেইজ %1$s টি  %2$s এ অনুলিপি হ
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"phpMyAdmin কনফিগারেশন সংরক্ষন ব্যবস্থা কার্যকর নয়। কেন জানার জন্য ক্লীক করুন %shere"
-"%s।"
+"phpMyAdmin কনফিগারেশন সংরক্ষন ব্যবস্থা কার্যকর নয়। কেন জানার জন্য ক্লীক করুন %shere%"
+"s।"
 
 #: db_printview.php:48 db_tracking.php:125 db_tracking.php:287
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:782
@@ -630,8 +630,8 @@ msgstr "সম্পুর্ন ইনর্সাট"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "সম্ভবত আপনি একটি বিশাল ফাইল আপলোড করতে চাচ্ছেন। অনুগ্র্রহ করে %sdocumentation%s "
 "দেখে এই সমস্যা সমাধানের চেষ্টা করুন।"
@@ -1862,7 +1862,7 @@ msgid "Show query box"
 msgstr "অনুসন্ধান বক্সটি দেখাও"
 
 #: js/messages.php:305 libraries/Console.class.php:96
-#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3268
+#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3288
 #: libraries/Index.class.php:675 libraries/Util.class.php:665
 #: libraries/Util.class.php:1190 libraries/Util.class.php:3424
 #: libraries/Util.class.php:3425 libraries/central_columns.lib.php:784
@@ -2141,7 +2141,7 @@ msgstr "প্রতিটি পয়েন্টের বিষয়"
 msgid "Ignore"
 msgstr "উপেক্ষা"
 
-#: js/messages.php:385 libraries/DisplayResults.class.php:3271
+#: js/messages.php:385 libraries/DisplayResults.class.php:3291
 msgid "Copy"
 msgstr "প্রতিলিপি"
 
@@ -2521,7 +2521,7 @@ msgstr ", সর্বশেষ সুস্থিত সংস্করন:"
 msgid "up to date"
 msgstr "তারিখ পর্যন্ত"
 
-#: js/messages.php:504 libraries/DisplayResults.class.php:4797
+#: js/messages.php:504 libraries/DisplayResults.class.php:4817
 #: view_create.php:182
 msgid "Create view"
 msgstr "ভিউ তৈরী"
@@ -2943,8 +2943,8 @@ msgid "Requery"
 msgstr "সহ-অনুসন্ধান"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
-#: libraries/DisplayResults.class.php:3339
-#: libraries/DisplayResults.class.php:4666
+#: libraries/DisplayResults.class.php:3359
+#: libraries/DisplayResults.class.php:4686
 #: libraries/central_columns.lib.php:786 libraries/db_designer.lib.php:875
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:390 libraries/tracking.lib.php:476
@@ -3468,66 +3468,66 @@ msgstr "ভালভাবে জানা লেখা"
 msgid "Well Known Binary"
 msgstr "ভালভাবে জানা বাইনারী"
 
-#: libraries/DisplayResults.class.php:3313
-#: libraries/DisplayResults.class.php:3329
+#: libraries/DisplayResults.class.php:3333
+#: libraries/DisplayResults.class.php:3349
 msgid "The row has been deleted."
 msgstr "রো টি মুছা হয়েছে।"
 
-#: libraries/DisplayResults.class.php:3366
-#: libraries/DisplayResults.class.php:4666
+#: libraries/DisplayResults.class.php:3386
+#: libraries/DisplayResults.class.php:4686
 #: libraries/server_status_processes.lib.php:295
 msgid "Kill"
 msgstr "হত্যা"
 
-#: libraries/DisplayResults.class.php:4081
+#: libraries/DisplayResults.class.php:4101
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "সম্ভবত আনুমানিক। [doc@faq3-11]FAQ 3.11[/doc] দেখুন।"
 
-#: libraries/DisplayResults.class.php:4138 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4158 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql_query_form.lib.php:89
 #: libraries/tbl_relation.lib.php:1036 tbl_find_replace.php:51
 #: tbl_operations.php:200 tbl_row_action.php:121 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে."
 
-#: libraries/DisplayResults.class.php:4524 libraries/structure.lib.php:692
+#: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "এই ভিউটির অন্তত পক্ষে এক সারি তথ্য রয়েছে। অনুগ্রহ করে %sdocumentation%s দেখুন।"
 
-#: libraries/DisplayResults.class.php:4537
+#: libraries/DisplayResults.class.php:4557
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "রো দেখাচ্ছে %1s - %2s"
 
-#: libraries/DisplayResults.class.php:4552
+#: libraries/DisplayResults.class.php:4572
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "মোট %1$d, অনুসন্ধানে %2$d"
 
-#: libraries/DisplayResults.class.php:4557
+#: libraries/DisplayResults.class.php:4577
 #, php-format
 msgid "%d total"
 msgstr "%d মোট"
 
-#: libraries/DisplayResults.class.php:4569 libraries/sql.lib.php:1504
+#: libraries/DisplayResults.class.php:4589 libraries/sql.lib.php:1504
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "অনুসন্ধানে %01.4f সেঃ লেগেছ."
 
-#: libraries/DisplayResults.class.php:4671
-#: libraries/DisplayResults.class.php:4678 libraries/Util.class.php:4574
+#: libraries/DisplayResults.class.php:4691
+#: libraries/DisplayResults.class.php:4698 libraries/Util.class.php:4574
 #: libraries/Util.class.php:4580 libraries/mult_submits.inc.php:45
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:312
 #: libraries/structure.lib.php:314
 msgid "With selected:"
 msgstr "নিবার্চিত গুলো নিয়ে:"
 
-#: libraries/DisplayResults.class.php:4675
-#: libraries/DisplayResults.class.php:4677 libraries/Util.class.php:4576
+#: libraries/DisplayResults.class.php:4695
+#: libraries/DisplayResults.class.php:4697 libraries/Util.class.php:4576
 #: libraries/Util.class.php:4577 libraries/server_privileges.lib.php:1196
 #: libraries/server_privileges.lib.php:1197
 #: libraries/server_user_groups.lib.php:231 libraries/structure.lib.php:299
@@ -3535,13 +3535,13 @@ msgstr "নিবার্চিত গুলো নিয়ে:"
 msgid "Check All"
 msgstr "সবগুলোতে টিক দাও"
 
-#: libraries/DisplayResults.class.php:4682 libraries/structure.lib.php:1486
+#: libraries/DisplayResults.class.php:4702 libraries/structure.lib.php:1486
 #: libraries/structure.lib.php:2210
 msgid "Change"
 msgstr "পরিবর্তন"
 
-#: libraries/DisplayResults.class.php:4695
-#: libraries/DisplayResults.class.php:4966 libraries/Menu.class.php:336
+#: libraries/DisplayResults.class.php:4715
+#: libraries/DisplayResults.class.php:4986 libraries/Menu.class.php:336
 #: libraries/Menu.class.php:438 libraries/Menu.class.php:571
 #: libraries/Util.class.php:3426 libraries/Util.class.php:3427
 #: libraries/Util.class.php:4138 libraries/Util.class.php:4153
@@ -3556,29 +3556,29 @@ msgstr "পরিবর্তন"
 msgid "Export"
 msgstr "রফতানী"
 
-#: libraries/DisplayResults.class.php:4852
+#: libraries/DisplayResults.class.php:4872
 msgid "Query results operations"
 msgstr "অনুসন্ধান ফল"
 
-#: libraries/DisplayResults.class.php:4890 libraries/Header.class.php:371
+#: libraries/DisplayResults.class.php:4910 libraries/Header.class.php:371
 #: libraries/structure.lib.php:320 libraries/structure.lib.php:393
 #: libraries/structure.lib.php:1621
 msgid "Print view"
 msgstr "মুদ্রনের দেখা"
 
-#: libraries/DisplayResults.class.php:4908
+#: libraries/DisplayResults.class.php:4928
 msgid "Print view (with full texts)"
 msgstr "প্রিন্টের দেখা (with full texts)"
 
-#: libraries/DisplayResults.class.php:4979 libraries/tbl_chart.lib.php:351
+#: libraries/DisplayResults.class.php:4999 libraries/tbl_chart.lib.php:351
 msgid "Display chart"
 msgstr "চিত্র দেখাও"
 
-#: libraries/DisplayResults.class.php:5004
+#: libraries/DisplayResults.class.php:5024
 msgid "Visualize GIS data"
 msgstr "জিআইএস তথ্য দেখা"
 
-#: libraries/DisplayResults.class.php:5240
+#: libraries/DisplayResults.class.php:5260
 msgid "Link not found!"
 msgstr "সংযোগটি পাওয়া যায়নি!"
 
@@ -4433,16 +4433,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"একটি ছোট দশমিক-পয়েন্টের অনুমোদিত মান হল -৩.৪০২৮২৬৪৬৬E+৩৮ থেকে "
-"-১.১৭৫৪৯৪৩৫১E-৩৮, ০ এবং ১.১৭৫৪৯৪৩৫১E-৩৮ থেকে ৩.৪০২৮২৬৪৬৬E+৩৮"
+"একটি ছোট দশমিক-পয়েন্টের অনুমোদিত মান হল -৩.৪০২৮২৬৪৬৬E+৩৮ থেকে -১.১৭৫৪৯৪৩৫১E-"
+"৩৮, ০ এবং ১.১৭৫৪৯৪৩৫১E-৩৮ থেকে ৩.৪০২৮২৬৪৬৬E+৩৮"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "একটি double-precision দশমিক পয়েন্ট হল -১.৭৯৭৬৯৩১৩৪৮৬২৩১৫৭E+৩০৮ থেকে - "
@@ -5379,22 +5379,22 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:419
 #, fuzzy, php-format
 #| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
-#| "%sLogin cookie validity%s must be set to a value less or equal to it."
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, %"
+#| "sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"যদি কুকি প্রমাণীকরন ব্যবহার করেন এবং %sLogin cookie store%s যদি ০ না হয়, "
-"%sLogin cookie validity%s 'র মান অবশ্যই এর থেকে কম বা সমান এ সেট করতে হবে।"
+"যদি কুকি প্রমাণীকরন ব্যবহার করেন এবং %sLogin cookie store%s যদি ০ না হয়, %"
+"sLogin cookie validity%s 'র মান অবশ্যই এর থেকে কম বা সমান এ সেট করতে হবে।"
 
 #: libraries/config/ServerConfigChecks.class.php:426
 #, fuzzy, php-format
 #| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
+#| "If you feel this is necessary, use additional protection settings - %"
+#| "shost authentication%s settings and %strusted proxies list%s. However, IP-"
+#| "based protection may not be reliable if your IP belongs to an ISP where "
+#| "thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
@@ -8190,8 +8190,8 @@ msgstr "@TABLE@ হবে টেবলের নাম"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "এই মানটি %1$sstrftime%2$s ভাবে অনুবাদিত হবে, আপনি সময় গঠনের স্ট্রিং ব্যবহার করতে "
 "পারেন। এখন এই রুপান্তরটি হবে:%3$s। অন্যান্য লেখা ঠিকই থাকবে।  %4$sFAQ%5$s এ বিশদ "
@@ -8730,8 +8730,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "নথিপত্রাদি এবং PBXT'র  অন্যান্য তথ্য %sPrimeBase XT Home Page%s এ পাওয়া যাবে।"
 
@@ -9868,8 +9868,8 @@ msgstr "%s এ স্বাগতম"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "সম্ভবত আপনি কোন কনফিগারেশন ফাইল তৈরী করেন নাই। আপনি %1$ssetup script%2$s "
 "ব্যবহার করে একটি তৈরী করতে পারেন।"
@@ -11700,11 +11700,9 @@ msgstr "ডাটাবেইজ %2$s এ %1$s নামের কোন ইভ�
 msgid "There are no events to display."
 msgstr "প্রদর্শনের জন্য কোন ইভেন্ট নাই।"
 
-#: libraries/select_lang.lib.php:612 libraries/select_lang.lib.php:621
-#: libraries/select_lang.lib.php:630
-#, php-format
-msgid "Unknown language: %1$s."
-msgstr "অজ্ঞাত ভাষা: %1$s।"
+#: libraries/select_lang.lib.php:613
+msgid "Ignoring unsupported language code."
+msgstr ""
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
@@ -12000,7 +11998,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-msgid "Requires that a specific cipher method be used for a connection."
+msgid "Requires that specific cipher method is used for a connection."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:778
@@ -12336,8 +12334,8 @@ msgstr "একনজরে ব্যবহারকারীগণ"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "টিকা: phpMyAdmin সরাসরি মাইএসকিউএল অধিকার টেবিল থেকে ব্যবহারকারীর অধিকার "
 "সংক্রান্ত তথ্য সমূহ নেয়। টেবিলে থাকা অধিকার সম্পর্কিত তথ্য এবং সার্ভারের মধ্য পার্থক্য "
@@ -14410,8 +14408,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
-"আপনার কনফিগারেশন শুধু এই সেশনের জন্য সংরক্ষন হবে। স্থায়ীভাবে সংরক্ষনের জন্য "
-"%sphpMyAdmin configuration storage%s প্রয়োজন।"
+"আপনার কনফিগারেশন শুধু এই সেশনের জন্য সংরক্ষন হবে। স্থায়ীভাবে সংরক্ষনের জন্য %"
+"sphpMyAdmin configuration storage%s প্রয়োজন।"
 
 #: libraries/user_preferences.lib.php:130
 msgid "Could not save configuration"
@@ -15179,11 +15177,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
-"বর্তমান মুক্ত ক্যাশ মেমোরীর হার হল মোট অনুসন্ধান ক্যাশের আকারের %s%%। ইহা অবশ্যই "
-"80%% বেশী থাকবে"
+"বর্তমান মুক্ত ক্যাশ মেমোরীর হার হল মোট অনুসন্ধান ক্যাশের আকারের %s%%। ইহা অবশ্যই 80%"
+"% বেশী থাকবে"
 
 #: libraries/advisory_rules.txt:181
 msgid "Query cache fragmentation"
@@ -15238,8 +15236,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
-"ইনসার্টেড অনুসন্ধানে অনুসন্ধান সরানোর হার %s%%। এর মান যত কম হবে তত ভাল, ভাল "
-"(০.১%%)"
+"ইনসার্টেড অনুসন্ধানে অনুসন্ধান সরানোর হার %s%%। এর মান যত কম হবে তত ভাল, ভাল (০.১%"
+"%)"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache max size"
@@ -15307,8 +15305,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr "সমস্ত সর্টের %s%% সাময়িক টেবল তৈরী করছে, এই মানটি 10%% এর কম হবে।"
 
 #: libraries/advisory_rules.txt:218
@@ -16013,6 +16011,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
+
+#~ msgid "Unknown language: %1$s."
+#~ msgstr "অজ্ঞাত ভাষা: %1$s।"
 
 #, fuzzy
 #~| msgid "Use database search"
