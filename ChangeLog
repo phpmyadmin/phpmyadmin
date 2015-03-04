@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.13.2 (2015-03-04)
+- bug       [security] Risk of BREACH attack, see PMASA-2015-1
+
 4.2.13.1 (2014-12-03)
 - bug #4612 [security] XSS vulnerability in redirection mechanism
 - bug #4611 [security] DOS attack with long passwords
