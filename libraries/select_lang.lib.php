@@ -521,34 +521,14 @@ $GLOBALS['l']['w_page'] = __('Page number:');
 
 
 // now, that we have loaded the language strings we can send the errors
-if ($GLOBALS['lang_failed_cfg']) {
+if ($GLOBALS['lang_failed_cfg']
+    || $GLOBALS['lang_failed_cookie']
+    || $GLOBALS['lang_failed_request']) {
     trigger_error(
-        sprintf(
-            __('Unknown language: %1$s.'),
-            htmlspecialchars($GLOBALS['lang_failed_cfg'])
-        ),
+        __('Ignoring unsupported language code'),
         E_USER_ERROR
     );
 }
-if ($GLOBALS['lang_failed_cookie']) {
-    trigger_error(
-        sprintf(
-            __('Unknown language: %1$s.'),
-            htmlspecialchars($GLOBALS['lang_failed_cookie'])
-        ),
-        E_USER_ERROR
-    );
-}
-if ($GLOBALS['lang_failed_request']) {
-    trigger_error(
-        sprintf(
-            __('Unknown language: %1$s.'),
-            htmlspecialchars($GLOBALS['lang_failed_request'])
-        ),
-        E_USER_ERROR
-    );
-}
-
 unset(
     $line, $fall_back_lang, $GLOBALS['lang_failed_cfg'],
     $GLOBALS['lang_failed_cookie'], $GLOBALS['lang_failed_request']
