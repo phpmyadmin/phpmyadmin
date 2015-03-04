@@ -93,10 +93,10 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
         $server_socket, $client_flags = null, $persistent = false
     ) {
         global $cfg;
-        
+
         // fix compatibility with HHVM
         $server_port = (int)$server_port;
-        
+
         // mysqli persistent connections
         if ($cfg['PersistentConnections'] || $persistent) {
             $host = 'p:' . $host;
