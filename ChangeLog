@@ -70,6 +70,9 @@ explanation
 4.3.12.0 (not yet released)
 - bug #4746 Right-aligned columns have left-aligned header
 
+4.3.11.1 (not yet released)
+- bug       [security] Risk of BREACH attack, see PMASA-2015-1
+
 4.3.11.0 (2015-03-02)
 - bug #4774 SQL links are completely wrong
 - bug #4768 MariaDB: version mismatch
