@@ -26,8 +26,7 @@ function PMA_getHtmlForDatabaseComment($db)
         . '<fieldset>'
         . '<legend>';
     if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html_output .= '<img class="icon ic_b_comment" '
-            . 'src="themes/dot.gif" alt="" />';
+        $html_output .= PMA_Util::getImage('b_comment.png') . '&nbsp;';
     }
     $html_output .=  __('Database comment:');
     $html_output .= '</legend>';
@@ -70,7 +69,7 @@ function PMA_getHtmlForRenameDatabase($db)
         . '<legend>';
 
     if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA_Util::getImage('b_edit.png');
+        $html_output .= PMA_Util::getImage('b_edit.png') . '&nbsp;';
     }
     $html_output .= __('Rename database to:')
         . '</legend>';
@@ -114,7 +113,7 @@ function PMA_getHtmlForDropDatabaseLink($db)
         . '<fieldset class="caution">';
     $html_output .= '<legend>';
     if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA_Util::getImage('b_deltbl.png');
+        $html_output .= PMA_Util::getImage('b_deltbl.png') . '&nbsp';
     }
     $html_output .= __('Remove database')
         . '</legend>';
@@ -170,7 +169,7 @@ function PMA_getHtmlForCopyDatabase($db)
         . '<legend>';
 
     if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA_Util::getImage('b_edit.png');
+        $html_output .= PMA_Util::getImage('b_edit.png') . '&nbsp';
     }
     $html_output .= __('Copy database to:')
         . '</legend>'
@@ -235,7 +234,7 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
     $html_output .= '<fieldset>' . "\n"
        . '    <legend>';
     if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html_output .= PMA_Util::getImage('s_asci.png');
+        $html_output .= PMA_Util::getImage('s_asci.png') . '&nbsp';
     }
     $html_output .= '<label for="select_db_collation">' . __('Collation')
         . ':</label>' . "\n"
