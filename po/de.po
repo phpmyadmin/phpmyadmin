@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-04 12:50-0500\n"
-"PO-Revision-Date: 2015-03-03 12:41+0200\n"
-"Last-Translator: cybot <pma@sebastianmendel.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"PO-Revision-Date: 2015-03-04 22:19+0200\n"
+"Last-Translator: Lasse Goericke <lasse@mydom.de>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -789,7 +789,6 @@ msgid "PHP extension:"
 msgstr "PHP-Erweiterung:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "PHP-Version:"
@@ -1022,10 +1021,9 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Möchten Sie die wirklich die ausgewählten Benutzer löschen?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Möchten Sie dieses Lesezeichen wirklich löschen?"
+msgstr "Wollen Sie diese zentrale Spalte wirklich löschen?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -1858,7 +1856,7 @@ msgstr "Fremdschlüsselwerte ansehen"
 
 #: js/messages.php:308
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Keine automatisch gespeicherte Abfrage"
 
 #: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -2150,6 +2148,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Zeigt an, dass Sie Änderungen an dieser Seite vorgenommen haben; Sie werden "
+"um Bestätigung gebeten, bevor die Änderungen verworfen werden"
 
 #: js/messages.php:409
 msgid "Select referenced key"
@@ -2394,6 +2394,8 @@ msgstr "Verknüpfung mit Hauptpanel aufheben"
 #: js/messages.php:487
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Enter nach dem Suchbegriff drücken, um alle Datenbanken auf dem Server zu "
+"filtern"
 
 #: js/messages.php:488
 #, php-format
@@ -4122,19 +4124,16 @@ msgid "Value"
 msgstr "Wert"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "Tabellensuche"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
-msgstr "Suche"
+msgstr "Suche zoomen"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "Suchen und Ersetzen"
@@ -4635,11 +4634,10 @@ msgid "Create PHP Code"
 msgstr "PHP-Code erzeugen"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Index bearbeiten"
+msgstr "Inline bearbeiten"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1580
@@ -4839,10 +4837,9 @@ msgid "Length/Values"
 msgstr "Länge/Werte"
 
 #: libraries/central_columns.lib.php:663
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Attribute"
+msgstr "Attribut"
 
 #: libraries/central_columns.lib.php:667
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -4928,6 +4925,10 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"Es ist nicht möglich, die Zeitzone %1$s für den Server %2$d zu benutzen. "
+"Bitte überprüfen Sie die Konfigurationseinstellung für "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin verwendet "
+"aktuell die Standard-Zeitzone des Datenbankservers."
 
 #: libraries/common.inc.php:1020
 #, php-format
@@ -5181,7 +5182,7 @@ msgstr ""
 "Schlüssel sollte Buchstaben, Ziffern [em]und[/em] Sonderzeichen enthalten."
 
 #: libraries/config/ServerConfigChecks.class.php:371
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5198,10 +5199,11 @@ msgstr ""
 "Diese %sOption%s sollte deaktiviert sein, weil sie Angreifern erlaubt, "
 "Bruteforce-Attacken auf beliebige (auch fremde) MySQL-Server durchzuführen. "
 "Wenn Sie der Meinung sind, dass diese Option unbedingt notwendig ist, "
-"sollten Sie die %sListe für vertrauenswürdige Proxies%s verwenden. IP-"
-"basierte Regeln sind aber nie wirklich ausreichend, besonders wenn Ihre IP "
-"zu einem Internetdienstanbieter gehört, mit dem tausende Kunden, Sie "
-"eingeschlossen, verbunden sind."
+"sollten Sie %sLogin auf den MySQL-Server beschränken%s oder die %sListe für "
+"vertrauenswürdige Proxies%s verwenden. IP-basierte Regeln mit einer Liste "
+"von vertrauenswürdigen Proxies sind aber nie wirklich ausreichend, besonders "
+"wenn Ihre IP zu einem Internetdienstanbieter gehört, mit dem tausende "
+"Kunden, Sie eingeschlossen, verbunden sind."
 
 #: libraries/config/ServerConfigChecks.class.php:381
 msgid ""
@@ -5397,12 +5399,14 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Beschränkt die MySQL-Server, auf denen der Benutzer sich anmelden kann wenn "
+"die Anmeldung auf beliebige MySQL-Server aktiviert ist durch Prüfung von IP "
+"oder Hostname des MySQL-Servers gegen den angegebenen regulären Ausdruck."
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Die Anmeldung am MySQL-Server ist fehlgeschlagen"
+msgstr "Die Anmeldung auf den MySQL-Server einschränken"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -6560,17 +6564,17 @@ msgid "Enable highlighting"
 msgstr "Hervorhebung ermöglichen"
 
 #: libraries/config/messages.inc.php:470
-#, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "Ist die Möglichkeit der Datenbankerweiterung aktiviert oder nicht."
+msgstr ""
+"Wird die Möglichkeit der Baumerweiterung im Navigationsbereich angeboten "
+"oder nicht."
 
 #: libraries/config/messages.inc.php:472
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Tabellen-Navigationsleiste"
+msgstr "Erweiterung des Navigationsbaumes aktivieren"
 
 #: libraries/config/messages.inc.php:474
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6802,16 +6806,17 @@ msgid "Allow root login"
 msgstr "Erlaube root Login"
 
 #: libraries/config/messages.inc.php:554
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Wert für diese Sitzung"
+msgstr "Zeitzone der Sitzung"
 
 #: libraries/config/messages.inc.php:555
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Setzt die effektive Zeitzone; möglicherweise von der Ihres Datenbankservers "
+"abweichend"
 
 #: libraries/config/messages.inc.php:557
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -7469,7 +7474,6 @@ msgid "Suhosin warning"
 msgstr "Suhosin Warnhinweis"
 
 #: libraries/config/messages.inc.php:767
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
@@ -7478,14 +7482,14 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Standardhinweis der Struktur-Seite unterdrücken, wenn Spaltennamen in einer "
-"Tabelle reservierte MySQL-Wörter sind."
+"Standardwarnung auf der Hauptseite unterdrücken, die angezeigt wird, wenn "
+"der Wert der PHP-Einstellung session.gc_maxlifetime kleiner als der Wert von "
+"`LoginCookieValidity` ist."
 
 #: libraries/config/messages.inc.php:769
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Login Cookie Gültigkeit"
+msgstr "Login-Cookie Gültigkeitswarnung"
 
 #: libraries/config/messages.inc.php:771
 msgid ""
@@ -7802,10 +7806,9 @@ msgid "Select Export Relational Type"
 msgstr "Beziehungsschema exportieren auswählen"
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:258
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "Tabellen anzeigen:"
+msgstr "Tabellen-Liste anzeigen/ausblenden"
 
 #: libraries/db_designer.lib.php:262 libraries/db_designer.lib.php:266
 msgid "View in fullscreen"
@@ -7886,10 +7889,9 @@ msgid "Move Menu"
 msgstr "Verschiebe Menü"
 
 #: libraries/db_designer.lib.php:416 libraries/db_designer.lib.php:419
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
-msgstr "Gekürzte Texte"
+msgstr "Text anheften"
 
 #: libraries/db_designer.lib.php:458
 msgid "Hide/Show all"
@@ -9094,10 +9096,9 @@ msgid "unknown"
 msgstr "unbekannt"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "Beim Laden des Navigationsbaums ist ein Fehler aufgetreten"
+msgstr "Beim Laden des Navigationsansicht ist ein Fehler aufgetreten"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -9889,10 +9890,9 @@ msgid "Please enter correct captcha!"
 msgstr "Bitte korrektes Captcha eingeben!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Die Anmeldung am MySQL-Server ist fehlgeschlagen"
+msgstr "Sie sind nicht berechtigt, sich an diesem MySQL-Server anzumelden!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Wrong username/password. Access denied."
@@ -10728,27 +10728,25 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Syntax highlighted CodeMirror Editor für JSON."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Syntax highlighted CodeMirror Editor für SQL."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Syntax highlighted CodeMirror Editor für XML (und HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Formatiert den Text als SQL mit Syntaxhervorhebung."
+msgstr "Formatiert den Text als JSON mit Syntaxhervorhebung."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Formatiert den Text als SQL mit Syntaxhervorhebung."
+msgstr "Formatiert den Text als XML mit Syntaxhervorhebung."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -11676,7 +11674,7 @@ msgstr "Es sind keine Ereignisse vorhanden, die angezeigt werden könnten."
 
 #: libraries/select_lang.lib.php:613
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Ignoriere nicht unterstützten Sprach-Code."
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
@@ -11961,33 +11959,38 @@ msgstr "Benutzergruppe"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Persistente Verbindung"
+msgstr "Benötigt SSL-verschlüsselte Verbindungen."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Verlange SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that specific cipher method is used for a connection."
 msgstr ""
+"Erfordert, dass ein bestimmtes Verschlüsselungsverfahren für eine Verbindung "
+"verwendet wird."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Setzt voraus, dass ein gültiges X509-Zertifikat, ausgestellt durch diese "
+"Zertifizierungsinstanz, präsentiert wird."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
+"Setzt voraus, dass ein gültiges X509-Zertifikat mit diesem Betreff "
+"präsentiert wird."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "Setzt ein gültiges X509-Zertifikat voraus."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
@@ -12644,10 +12647,9 @@ msgid "Filters"
 msgstr "Filter"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Zeige nur Warn-Werte"
+msgstr "Zeige nur aktive"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13582,7 +13584,7 @@ msgstr "SQL-Befehl(e) in Datenbank %s ausführen"
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Automatisch gespeicherte Abfrage holen"
 
 #: libraries/sql_query_form.lib.php:284
 msgid "Bookmark this SQL query:"
@@ -13800,10 +13802,9 @@ msgid "Improve table structure"
 msgstr "Tabellenstruktur verbessern"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Tabelle verfolgen"
+msgstr "Verfolgungsansicht"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
@@ -13915,10 +13916,9 @@ msgid "Showing create queries"
 msgstr "Zeige Erzeugungsabfrage"
 
 #: libraries/structure.lib.php:3269
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
-msgstr "Beziehungsübersicht"
+msgstr "Beziehungsansicht"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -14017,10 +14017,9 @@ msgid "Storage Engine:"
 msgstr "Tabellenformat:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Verbindungen"
+msgstr "Verbindung:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
@@ -14162,10 +14161,9 @@ msgstr ""
 "lauten!"
 
 #: libraries/tbl_indexes.lib.php:305
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Index-Zwischenspeicher Größe"
+msgstr "Index Auswahl:"
 
 #: libraries/tbl_indexes.lib.php:321
 msgid "Key block size:"
@@ -14778,13 +14776,13 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Zeile: %1$s, Spalte: %2$s, Fehler: %3$s"
 
 #: tbl_structure.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 #| msgid_plural "The column names '%s' are MySQL reserved keywords."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "Der Spaltenname ‚%s‘ ist ein reserviertes MySQL-Schlüsselwort."
-msgstr[1] "Die Spaltennamen ‚%s‘ sind reservierte MySQL-Schlüsselwörter."
+msgstr[0] "Der Name '%s' ist ein reserviertes MySQL-Schlüsselwort."
+msgstr[1] "Die Namen '%s' sind reservierte MySQL-Schlüsselwörter."
 
 #: tbl_structure.php:114
 msgid "No column selected."
