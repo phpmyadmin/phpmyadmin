@@ -11696,7 +11696,7 @@ msgstr "SSL on kohustuslik"
 #: libraries/server_privileges.lib.php:768
 #, fuzzy
 #| msgid "Requires that a specific cipher method be used for a connection."
-msgid "Requires that specific cipher method is used for a connection."
+msgid "Requires that a specific cipher method be used for a connection."
 msgstr "Nõuab ühenduse krüpteerimist kindla meetodiga."
 
 #: libraries/server_privileges.lib.php:778
