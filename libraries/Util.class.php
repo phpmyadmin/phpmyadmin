@@ -3994,12 +3994,12 @@ class PMA_Util
         $in_string = false;
         $buffer = '';
 
-        for ($i=0, $length = /*overload*/mb_strlen($values_string);
+        for ($i = 0, $length = /*overload*/mb_strlen($values_string);
              $i < $length;
              $i++
         ) {
             $curr = /*overload*/mb_substr($values_string, $i, 1);
-            $next = ($i == /*overload*/mb_strlen($values_string)-1)
+            $next = ($i == /*overload*/mb_strlen($values_string) - 1)
                 ? ''
                 : /*overload*/mb_substr($values_string, $i + 1, 1);
 
