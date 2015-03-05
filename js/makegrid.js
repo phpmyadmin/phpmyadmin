@@ -1025,13 +1025,19 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     }
 
                     // add datetime picker
-                    PMA_addDatepicker($input_field, $td.attr('data-type'), {
+                    PMA_addDatepicker($editArea, $td.attr('data-type'), {
                         showMillisec: showMillisec,
                         showMicrosec: showMicrosec,
-                        timeFormat: timeFormat
+                        timeFormat: timeFormat,
+                        onSelect: function (dateText, inst) {
+                            $input_field.val(dateText);
+                            $editArea.data('comes_from', 'datepicker');
+                        },
+                        onClose: function (dateText, dp_inst) {
+                            // The value is no more from the date picker
+                            $input_field.data('comes_from', '');
+                        }
                     });
-
-                    $input_field.datepicker("show");
 
                     if (is_null){
                         $(g.cEdit).find('.edit_area').hide();
