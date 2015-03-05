@@ -11998,7 +11998,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-msgid "Requires that specific cipher method is used for a connection."
+msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:778
