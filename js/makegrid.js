@@ -1033,6 +1033,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                     $input_field.datepicker("show");
 
+                    var datepicker_top = parseInt(document.getElementById("ui-datepicker-div").style.getPropertyValue("top"), 10);
+                    if (datepicker_top > 370 && !is_null) {
+                        document.getElementById("ui-datepicker-div").style.marginTop = "30px";
+                    }
+                    Signed-off-by: Daniyal Shahid <daniyal36@gmail.com>
                     if (is_null){
                         $(g.cEdit).find('.edit_area').hide();
                     }
