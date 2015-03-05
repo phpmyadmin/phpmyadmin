@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-04 12:50-0500\n"
-"PO-Revision-Date: 2015-03-05 14:38+0200\n"
+"PO-Revision-Date: 2015-03-05 15:32+0200\n"
 "Last-Translator: Douglas Rafael Morais Kollar <douglas.kollar@pg.df.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
@@ -6414,10 +6414,9 @@ msgstr ""
 "No painel de navegação, substitui a base de dados em árvore com um seletor"
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Mostrar itens ocultos da árvore de navegação."
+msgstr "Mostrar a navegação por bases de dados como árvore"
 
 #: libraries/config/messages.inc.php:428
 msgid "Link with main panel by highlighting the current database or table."
@@ -6527,17 +6526,17 @@ msgid "Enable highlighting"
 msgstr "Habilita destaque"
 
 #: libraries/config/messages.inc.php:470
-#, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "Desativar a possibilidade de expansão do banco de dados ou não."
+msgstr ""
+"Se deseja oferecer a possibilidade de expansão de árvore no painel de "
+"navegação."
 
 #: libraries/config/messages.inc.php:472
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Barra de navegação com ícones"
+msgstr "Permitir a expansão da árvore de navegação"
 
 #: libraries/config/messages.inc.php:474
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6729,10 +6728,9 @@ msgid "Relational display"
 msgstr "Exibição relacional"
 
 #: libraries/config/messages.inc.php:544
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Opções de exibição de servidores."
+msgstr "Para exibir as Opções"
 
 #: libraries/config/messages.inc.php:545
 msgid "Grid editing: save all edited cells at once"
@@ -6771,10 +6769,9 @@ msgid "Allow root login"
 msgstr "Permitir login como root"
 
 #: libraries/config/messages.inc.php:554
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Valor da sessão"
+msgstr "Fuso horário da sessão"
 
 #: libraries/config/messages.inc.php:555
 msgid ""
@@ -7060,8 +7057,8 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Deixe em branco se não houver tabelas persistentes recentemente usadas entre "
-"as sessões, sugestão: [kbd]pma_recent[/kbd]."
+"Deixe em branco se não houver tabela(s) persistente(s) recentemente usada(s) "
+"entre as sessões, sugestão: [kbd]pma_recent[/kbd]."
 
 #: libraries/config/messages.inc.php:660
 msgid "Favorites table"
@@ -7447,14 +7444,15 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Desabilita o aviso padrão que é exibido na página de Estrutura se os nomes "
-"de colunas em uma tabela forem palavras reservadas do MySQL."
+"Desabilitar o aviso padrão que é exibido na página principal se o valor da "
+"configuração do PHP 'session.gc_maxlifetime' é menor que o valor de "
+"`LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:769
 #, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Validade do cookie de login"
+msgstr "Alerta de validade do cookie de login"
 
 #: libraries/config/messages.inc.php:771
 msgid ""
@@ -7771,10 +7769,9 @@ msgid "Select Export Relational Type"
 msgstr "Selecione o tipo de exportação relacional"
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:258
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "Exibindo tabelas:"
+msgstr "Mostrar/ocultar lista de tabelas"
 
 #: libraries/db_designer.lib.php:262 libraries/db_designer.lib.php:266
 msgid "View in fullscreen"
@@ -7858,7 +7855,7 @@ msgstr "Mover Menu"
 #, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
-msgstr "Textos parciais"
+msgstr "Fixar texto"
 
 #: libraries/db_designer.lib.php:458
 msgid "Hide/Show all"
@@ -8122,7 +8119,6 @@ msgid "Select database"
 msgstr "Selecionar base de dados"
 
 #: libraries/display_export.lib.php:786
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select table"
 msgstr "Selecionar tabela"
@@ -8738,7 +8734,7 @@ msgstr "Ir para a view: %s"
 #: libraries/import.lib.php:1382
 #, fuzzy
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
-msgstr "Você só pode simular consultas UPDATE e DELETE em apenas uma tabela."
+msgstr "Você pode simular consultas UPDATE e DELETE em apenas uma tabela."
 
 #: libraries/import.lib.php:1799
 #, fuzzy
@@ -8747,7 +8743,7 @@ msgid ""
 "engine tables can be rolled back."
 msgstr ""
 "Apenas operações INSERT, UPDATE, DELETE e REPLACE contendo motor "
-"transacional de tabelas podem ser revertidas."
+"transacional de tabela(s) pode(m) ser revertida(s)."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -9063,7 +9059,7 @@ msgstr "desconhecido"
 #, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "Um erro ocorreu ao carregar a árvore de navegação"
+msgstr "Ocorreu um erro ao carregar a tela de navegação"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -9110,19 +9106,19 @@ msgstr ""
 "desempenho. Considere desativar agrupamento item no painel de navegação."
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s outro resultado encontrado"
-msgstr[1] "%s outros resultados encontrados"
+msgstr[0] "%s resultado encontrado"
+msgstr[1] "%s resultados encontrados"
 
 #: libraries/navigation/NavigationTree.class.php:1203
 #, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Selecionar um Banco de Dados"
+msgstr "Por favor, selecione um banco de dados."
 
 #: libraries/navigation/NavigationTree.class.php:1261
 msgid "Filter databases by name or regex"
@@ -9273,11 +9269,12 @@ msgstr ""
 "exemplo: o endereço pode ser dividido em rua, cidade, país e CEP."
 
 #: libraries/normalization.lib.php:128
-#, fuzzy
 #| msgid ""
 #| "There are no columns in central list to display for the current database."
 msgid "Show me the central list of columns that are not already in this table"
-msgstr "Mostre-me a lista central de colunas que não estão nesta tabela"
+msgstr ""
+"Mostre-me a lista central de coluna(s) que ainda não esteja(m) na(s) "
+"tabela(s)"
 
 #: libraries/normalization.lib.php:131
 msgid ""
@@ -9321,17 +9318,16 @@ msgid "Add a primary key on existing column(s)"
 msgstr "Adicionar uma chave primária na(s) coluna(s) existente(s)"
 
 #: libraries/normalization.lib.php:190
-#, fuzzy
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
-"Você não pode usar a combinação de colunas existentes como chave primária"
+"Se não for possível fazer combinações de coluna(s) existente(s) como chave "
+"primária"
 
 #: libraries/normalization.lib.php:194
-#, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "+ Adicionar uma nova coluna de chave primária"
+msgstr "+ Adicionar uma nova coluna como chave primária"
 
 #: libraries/normalization.lib.php:212
 msgid "Remove redundant columns"
@@ -9346,16 +9342,15 @@ msgid ""
 msgstr ""
 "Você possui um grupo de colunas cuja combinação resulta em uma coluna "
 "existente? Por exemplo, se você possui nome, sobrenome e nome_completo então "
-"a combinação de nome e sobrenome seria nome_completo que é redundante."
+"a combinação de nome e sobrenome seria nome_completo, o que é redundante."
 
 #: libraries/normalization.lib.php:221
-#, fuzzy
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
-"Verifique as colunas redundantes e clique em remover. Se não houver coluna "
-"redundante, clique em 'Nenhuma coluna redundante'"
+"Verifique as colunas redundantes e clique em remover. Se não houver coluna(s)"
+" redundante(s), clique em 'Nenhuma coluna redundante'"
 
 #: libraries/normalization.lib.php:226
 msgid "Remove selected"
@@ -9391,7 +9386,7 @@ msgid ""
 "'No repeating group'"
 msgstr ""
 "Verifique as colunas que formam um grupo repetido. Se não houver esse grupo, "
-"clique em 'Nenhum grupo de repetição'"
+"clique em 'Nenhum grupo repetido'"
 
 #: libraries/normalization.lib.php:265
 #, fuzzy
@@ -9472,7 +9467,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing!"
-msgstr "Erro no processamento do request:"
+msgstr "Erro no processamento!"
 
 #: libraries/normalization.lib.php:501
 #, php-format
@@ -9489,13 +9484,12 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "As tabelas do alvo selecionado foram sincronizadas às tabelas fonte."
+msgstr "Grupo(s) repetido(s) selecionado(s) foi(ram) movidos para a tabela '%s'"
 
 #: libraries/normalization.lib.php:689
-#, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
-msgstr "Set"
+msgstr "Passo 3."
 
 #: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
@@ -9520,10 +9514,9 @@ msgid "Table is already in Third normal form!"
 msgstr ""
 
 #: libraries/normalization.lib.php:770
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Esconder as ações de estrutura da tabela"
+msgstr "Melhore a estrutura da tabela (Normalização):"
 
 #: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
@@ -9840,10 +9833,9 @@ msgid "Please enter correct captcha!"
 msgstr "Por favor, digite o valor correto da imagem de verificação!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Não foi possível fazer login no servidor MySQL"
+msgstr "Você não tem permissão para fazer logon no servidor MySQL!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Wrong username/password. Access denied."
@@ -10178,8 +10170,8 @@ msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"ambos acima<br/> Exemplo: <code>INSERT INTO tbl_name (col_A,col_B) VALUES "
-"(1,2,3), (4,5,6), (7,8,9)</code>"
+"ambos acima<br/> &nbsp; &nbsp; &nbsp;  Exemplo: <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:408
 msgid ""
@@ -10408,7 +10400,7 @@ msgstr "Não use <code>AUTO_INCREMENT</code> para valores zerados"
 #, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Falhas de leitura"
+msgstr "Leia como multibytes"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -10459,16 +10451,15 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Esquema do banco de dados \"%s\" - Página %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:252
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "Formato de exportação inválido"
+msgstr "Página de exportação PDF"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:474
 #, fuzzy, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "Esquema do banco de dados \"%s\" - Página %s"
+msgstr "Esquema de banco de dados %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:497
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:877
@@ -10552,16 +10543,17 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"APENAS PARA LINUX: Roda uma aplicação externa e alimenta os campos de dados "
-"pela entrada padrão. Retorna a saída padrão da aplicação. O padrão é Limpo, "
-"para um código HTML bem escrito. Por razões de segurança, você deve editar "
-"manualmente o arquivo libraries/plugins/transformations/Text_Plain_External."
-"class.php e listar as ferramentas que deseja ter disponíveis. A primeira "
-"opção é o número do programa que você quer usar e a segunda opção são os "
-"parâmetros para o programa. A terceira opção, se definida como 1, converterá "
-"a saída padrão usando htmlspecialchars() (O padrão é 1). A quarta opção, se "
-"definida como 1, evitará o wrap do conteúdo da célula e garantirá que a toda "
-"a saída seja mostrada em uma só linha (O padrão é 1)."
+"SOMENTE LINUX: Executa um aplicativo externo e alimenta os dados da coluna "
+"através de entrada padrão. Retorna a saída padrão do aplicativo. O padrão é "
+"organizado para mostrar código HTML otimizado para impressão. Por razões de "
+"segurança, você tem que editar manualmente o arquivo "
+"libraries/plugins/transformations/output/Text_Plain_External.class.php e "
+"listar as ferramentas que você deseja disponibilizar. A primeira opção é o "
+"número do programa que você deseja usar e a segunda opção são os parâmetros "
+"para o programa. A terceira opção, se definido como 1, irá converter a saída "
+"usando htmlspecialchars() (Default 1). A quarta opção, se definido como 1, "
+"vai evitar a quebra verificar se a saída aparece em uma única linha (Default "
+"1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -10690,13 +10682,13 @@ msgstr ""
 #, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Formatar texto como consulta SQL com destaque de sintaxe."
+msgstr "Formata o texto como JSON com destaque de sintaxe."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
 #, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Formatar texto como consulta SQL com destaque de sintaxe."
+msgstr "Formata o texto como XML com destaque de sintaxe."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -10707,10 +10699,9 @@ msgid "FOREIGN KEY relation has been added."
 msgstr "Modelo FOREIGN KEY foi adicionado."
 
 #: libraries/pmd_common.php:543
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr "Erro: Modelo não pôde ser adicionado!"
+msgstr "Erro: Relação de FOREIGN KEY não pôde ser adicionada!"
 
 #: libraries/pmd_common.php:548
 msgid "Error: Missing index on column(s)."
@@ -10725,34 +10716,29 @@ msgid "Internal relation has been added."
 msgstr "Adicionado modelo interno."
 
 #: libraries/pmd_common.php:577
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be added!"
-msgstr "Erro: Modelo não pôde ser adicionado!"
+msgstr "Erro: Não foi possível adicionar relação interna!"
 
 #: libraries/pmd_common.php:618
-#, fuzzy
 #| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relation has been removed."
-msgstr "Modelo FOREIGN KEY foi adicionado."
+msgstr "Relação de FOREIGN KEY foi removida."
 
 #: libraries/pmd_common.php:624
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr "Erro: Modelo não pôde ser adicionado!"
+msgstr "Erro: Relação de FOREIGN KEY não pode ser removida!"
 
 #: libraries/pmd_common.php:651
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be removed!"
-msgstr "Erro: Modelo não pôde ser adicionado!"
+msgstr "Erro: Relação interna não pode ser removida!"
 
 #: libraries/pmd_common.php:655
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relation has been removed."
-msgstr "Adicionado modelo interno."
+msgstr "Relação interna foi removida."
 
 #: libraries/relation.lib.php:86
 msgid "not OK"
@@ -10768,10 +10754,9 @@ msgid "Enabled"
 msgstr "Habilitado"
 
 #: libraries/relation.lib.php:97
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "Configuração salva."
+msgstr "Configuração de pmadb… "
 
 #: libraries/relation.lib.php:101 libraries/relation.lib.php:128
 msgid "General relation features"
