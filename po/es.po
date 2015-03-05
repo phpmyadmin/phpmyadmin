@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-01 06:38-0500\n"
-"PO-Revision-Date: 2015-03-02 14:11+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2015-03-05 21:07+0200\n"
+"Last-Translator: Macofe <macofe.languagetool@gmail.com>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
@@ -1022,10 +1022,9 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "¿Realmente desea eliminar el/los usuario/s seleccionado/s?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "¿Realmente desea eliminar este favorito?"
+msgstr "¿Realmente desea eliminar esta columna central?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -4836,10 +4835,9 @@ msgid "Length/Values"
 msgstr "Longitud/Valores"
 
 #: libraries/central_columns.lib.php:663
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Atributos"
+msgstr "Atributo"
 
 #: libraries/central_columns.lib.php:667
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -5397,10 +5395,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "El servidor MySQL no autorizó su acceso"
+msgstr "Restringir el acceso al servidor MySQL"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -6815,10 +6812,9 @@ msgid "Allow root login"
 msgstr "Permitir el inicio de sesión como root"
 
 #: libraries/config/messages.inc.php:554
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Valor de la sesión"
+msgstr "Huso horario de la sesión"
 
 #: libraries/config/messages.inc.php:555
 msgid ""
@@ -7815,10 +7811,9 @@ msgid "Select Export Relational Type"
 msgstr "Seleccionar tipo de exportación relacional"
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:258
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "Tablas mostradas:"
+msgstr "Mostrar/Ocultar lista de tablas"
 
 #: libraries/db_designer.lib.php:262 libraries/db_designer.lib.php:266
 msgid "View in fullscreen"
@@ -9113,10 +9108,9 @@ msgid "unknown"
 msgstr "desconocido"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "Ocurrió un error al cargar el árbol de navegación"
+msgstr "Ocurrió un error al cargar la vista de navegación"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -10756,10 +10750,9 @@ msgid "Formats text as JSON with syntax highlighting."
 msgstr "Formatea el texto como una consulta SQL y resalta la sintaxis."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
-#, fuzzy
 #| msgid "Formats text as JSON with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Formatea el texto como una consulta SQL y resalta la sintaxis."
+msgstr "Formatea el texto como XML y resalta la sintaxis."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -11962,24 +11955,25 @@ msgstr "Grupo de usuario"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Conexiones persistentes"
+msgstr "Requiere conexiones encriptadas con SSL."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Requiere SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "Requiere que se use un método específico de cifrado para una conexión."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Requiere que esté presente un certificado X509 válido emitido por esta CA ("
+"Autoridad certificante)."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
@@ -13800,10 +13794,9 @@ msgid "Improve table structure"
 msgstr "Mejorar la estructura de tabla"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Hacer seguimiento a la tabla"
+msgstr "Vista de seguimiento"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
