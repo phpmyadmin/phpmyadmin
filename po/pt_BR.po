@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-04 12:50-0500\n"
-"PO-Revision-Date: 2015-02-23 01:15+0200\n"
-"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2015-03-05 14:38+0200\n"
+"Last-Translator: Douglas Rafael Morais Kollar <douglas.kollar@pg.df.gov.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -4612,7 +4612,6 @@ msgid "Create PHP Code"
 msgstr "Criar código PHP"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
@@ -4814,7 +4813,6 @@ msgid "Length/Values"
 msgstr "Tamanho/Valores"
 
 #: libraries/central_columns.lib.php:663
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
 msgstr "Atributos"
@@ -5153,7 +5151,7 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "A chave deve conter letras, números, [em]e[/em] caracteres especiais."
 
 #: libraries/config/ServerConfigChecks.class.php:371
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5167,12 +5165,12 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Esta %sopção%s deveria ser desabilitada pois ela permite que invasores fazer "
-"login por força bruta em qualquer servidor MySQL. Se você acha que ela é "
-"necessária, use a %slista de proxies confiáveis%s. Entretanto, proteções "
-"baseadas no protocolo IP podem não ser confiáveis se seu endereço IP "
-"pertence a um ISP onde centenas de usuários, incluindo você, estão "
-"conectados."
+"Esta %soption%s deveria ser desabilitada pois ela permite que invasores "
+"fazer login por força bruta em qualquer servidor MySQL. Se você acha que ela "
+"é necessária, use %srestrict login to MySQL server%s ou %strusted proxies "
+"list%s. Entretanto, proteções baseadas no protocolo IP podem não ser "
+"confiáveis se seu endereço IP pertence a um PROVEDOR onde centenas de "
+"usuários, incluindo você, estão conectados."
 
 #: libraries/config/ServerConfigChecks.class.php:381
 msgid ""
@@ -5366,10 +5364,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Não foi possível fazer login no servidor MySQL"
+msgstr "Restringir o logon para o servidor MySQL"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -6425,7 +6422,8 @@ msgstr "Mostrar itens ocultos da árvore de navegação."
 #: libraries/config/messages.inc.php:428
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
-"Relação com o painel principal destacando a base de dados ou tabela atual."
+"Vincule com o painel principal selecionando a tabela ou o banco de dados "
+"atual."
 
 #: libraries/config/messages.inc.php:430
 msgid "Show logo in navigation panel."
@@ -7641,19 +7639,17 @@ msgid "Send error reports"
 msgstr "Enviar relatório de erros"
 
 #: libraries/config/messages.inc.php:811
-#, fuzzy
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
-"Ativar o modo de \"Configuração Zero\" que permite definir as tabelas de "
-"armazenamento de configuração do phpMyAdmin automaticamente."
+"Ative o Modo de Configuração Zero, que possibilitará que você configure as "
+"tabelas de armazenamento do phpMyAdmin automaticamente."
 
 #: libraries/config/messages.inc.php:814
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "Ativar o modo de \"Configuração Zero\""
+msgstr "Ativar Modo de Configuração Zero"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7746,15 +7742,15 @@ msgstr "Selecionar página"
 
 #: libraries/db_designer.lib.php:55
 msgid "Page to open"
-msgstr "Página para abrir"
+msgstr "Páginas para abrir"
 
 #: libraries/db_designer.lib.php:57
 msgid "Page to delete"
-msgstr "Página para apagar"
+msgstr "Páginas para remover"
 
 #: libraries/db_designer.lib.php:77
 msgid "Save to selected page"
-msgstr "Exportar para a página selecionada"
+msgstr "Salvar para a página selecionada"
 
 #: libraries/db_designer.lib.php:78
 msgid "Create a page and save to it"
@@ -13730,16 +13726,14 @@ msgid "Propose table structure"
 msgstr "Propor estrutura de tabela"
 
 #: libraries/structure.lib.php:1648
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Propor estrutura de tabela"
+msgstr "Melhorar a estrutura da tabela"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Monitorar tabela"
+msgstr "Monitorar visão"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
@@ -13748,7 +13742,6 @@ msgid "Add %s column(s)"
 msgstr "Adicionar campo(s) %s"
 
 #: libraries/structure.lib.php:1705
-#, fuzzy
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
 msgstr "No início da tabela"
@@ -13757,7 +13750,7 @@ msgstr "No início da tabela"
 #: libraries/tbl_columns_definition_form.lib.php:827
 #, php-format
 msgid "after %s"
-msgstr "depois %s"
+msgstr "depois de %s"
 
 #: libraries/structure.lib.php:1805
 msgid "Row statistics"
