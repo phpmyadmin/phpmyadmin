@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-01 06:38-0500\n"
-"PO-Revision-Date: 2015-03-03 17:43+0200\n"
+"PO-Revision-Date: 2015-03-05 21:48+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
@@ -1846,7 +1846,7 @@ msgstr "Bekijk vreemde waarden"
 
 #: js/messages.php:308
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Geen automatisch opgeslagen query"
 
 #: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -2132,6 +2132,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Geeft aan dat je wijzigingen in deze pagina hebt aangebracht; je zal om "
+"bevestiging gevraagd worden voordat deze wijzigingen verworpen worden"
 
 #: js/messages.php:409
 msgid "Select referenced key"
@@ -5354,6 +5356,9 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Beperkt de MySQL servers waar de gebruiker toegang krijgt wanneer inloggen "
+"op een willekeurige MySQL server is toegestaan door een overeenkomende IP of "
+"servernaam van de MySQL server met een reguliere expressie."
 
 #: libraries/config/messages.inc.php:25
 #| msgid "Cannot log in to the MySQL server"
@@ -10662,23 +10667,23 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Syntaxiskleurende CodeMirror bewerker voor JSON."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Syntaxiskleurende CodeMirror bewerker voor SQL."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Syntaxiskleurende CodeMirror bewerker voor XML (en HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Maakt de tekst op in JSON met syntaxis markeringen."
+msgstr "Maakt de tekst op in JSON met syntaxiskleuring."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Maakt de tekst op in XML met syntaxis markeringen."
+msgstr "Maakt de tekst op in XML met syntaxiskleuring."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -11890,26 +11895,31 @@ msgstr "Verbinding met SSL encryptie vereist."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Vereist SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
+"Vereist dat een specifieke versleutel methode wordt gebruikt voor een "
+"connectie."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Vereist dat een geldig X509 certificaat uitgegeven door deze CA wordt "
+"aangeboden."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
+"Vereist dat een geldig X509 certificaat met dit onderwerp wordt aangeboden."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "Vereist een geldig X509 certificaat."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
@@ -13487,7 +13497,7 @@ msgstr "Voer SQL-query/query's uit op database %s"
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Neem automatisch opgeslagen query"
 
 #: libraries/sql_query_form.lib.php:284
 msgid "Bookmark this SQL query:"
