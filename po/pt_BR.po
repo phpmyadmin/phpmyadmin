@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-04 12:50-0500\n"
-"PO-Revision-Date: 2015-03-05 15:32+0200\n"
+"PO-Revision-Date: 2015-03-05 17:28+0200\n"
 "Last-Translator: Douglas Rafael Morais Kollar <douglas.kollar@pg.df.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
@@ -1852,7 +1852,7 @@ msgstr "Visualizar valores estrangeiros"
 
 #: js/messages.php:308
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Nenhuma consulta salva automaticamente"
 
 #: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -2130,10 +2130,13 @@ msgid "Encryption key"
 msgstr "Chave de encriptação"
 
 #: js/messages.php:404
+#, fuzzy
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Indica que você fez alterações nesta página; Você será questionado antes de "
+"abandonar as alterações"
 
 #: js/messages.php:409
 msgid "Select referenced key"
@@ -4900,6 +4903,10 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"Não é possível usar o fuso horário de %1$s para o servidor %2$d. Por favor, "
+"verifique sua configuração em "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. O phpMyAdmin está "
+"atualmente usando o fuso horário padrão do servidor de banco de dados."
 
 #: libraries/common.inc.php:1020
 #, php-format
@@ -5357,11 +5364,15 @@ msgid "Allow login to any MySQL server"
 msgstr "Permitir login para qualquer servidor MySQL"
 
 #: libraries/config/messages.inc.php:21
+#, fuzzy
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Restringe os servidores MySQL que o usuário pode entrar quando o login em um "
+"servidor MySQL arbitrário é habilitado pela correspondência entre o IP ou "
+"nome do host do servidor MySQL para a expressão regular especificada."
 
 #: libraries/config/messages.inc.php:25
 #| msgid "Cannot log in to the MySQL server"
@@ -6778,6 +6789,8 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Define o fuso horário efetivo; possivelmente diferente do fuso horário do "
+"servidor de banco de dados"
 
 #: libraries/config/messages.inc.php:557
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -9412,43 +9425,54 @@ msgstr ""
 
 #: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "A tabela já está na segunda forma normal."
 
 #: libraries/normalization.lib.php:323
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"A chave primária ( %1$s ) consiste em mais de uma coluna, então precisamos "
+"encontrar as dependências parciais."
 
 #: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
+"Por favor, responda as seguintes questões cuidadosamente para obter uma "
+"normalização correta."
 
 #: libraries/normalization.lib.php:331
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"+ Mostre-me as possíveis dependências parciais com base nos dados da tabela"
 
 #: libraries/normalization.lib.php:335
+#, fuzzy
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"Para cada coluna abaixo, por favor, selecione o <b>conjunto mínimo</b> de "
+"colunas entre elas cujos valores combinados são suficientes para determinar "
+"o valor da coluna."
 
 #: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' depende de:"
 
 #: libraries/normalization.lib.php:356
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"Nenhuma dependência parcial possível como a chave primária  ( %1$s ) tem "
+"apenas uma coluna."
 
 #: libraries/normalization.lib.php:381
 #, php-format
@@ -9456,15 +9480,16 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
+"Para colocar a tabela original '%1$s' na segunda forma normal, precisamos "
+"criar as tabelas a seguir:"
 
 #: libraries/normalization.lib.php:417
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "A segunda etapa da normalização está completa para a tabela '%1$s'."
 
 #: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
 #: libraries/normalization.lib.php:663
-#, fuzzy
 #| msgid "Error in processing request:"
 msgid "Error in processing!"
 msgstr "Erro no processamento!"
@@ -9475,10 +9500,12 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
+"Para colocar a tabela original '%1$s' na terceira forma normal, precisamos "
+"criar as tabelas a seguir:"
 
 #: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "A terceira etapa da normalização está completa."
 
 #: libraries/normalization.lib.php:642
 #, fuzzy, php-format
@@ -9493,25 +9520,33 @@ msgstr "Passo 3."
 
 #: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "Localizar dependências transitivas"
 
 #: libraries/normalization.lib.php:696
+#, fuzzy
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
+"Para cada coluna abaixo, por favor, selecione o <b>conjunto mínimo</b> de "
+"colunas entre elas cujos valores combinados são suficientes para determinar "
+"o valor da coluna. <br />Nota: uma coluna não pode ter nenhuma dependência "
+"transitiva, nesse caso não é obrigatório selecionar uma."
 
 #: libraries/normalization.lib.php:743
+#, fuzzy
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"Não há dependências transitivas possíveis devido a tabela não possuir "
+"quaisquer colunas de chave primária."
 
 #: libraries/normalization.lib.php:747
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "A tabela já está na terceira forma normal!"
 
 #: libraries/normalization.lib.php:770
 #| msgid "Hide table structure actions"
@@ -9519,32 +9554,37 @@ msgid "Improve table structure (Normalization):"
 msgstr "Melhore a estrutura da tabela (Normalização):"
 
 #: libraries/normalization.lib.php:771
+#, fuzzy
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Selecione até o passo você deseja normalizar"
 
 #: libraries/normalization.lib.php:774
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Segundo passo de normalização (1NF+2NF)"
 
 #: libraries/normalization.lib.php:775
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Terceiro passo de normalização (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:782
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"Dica: Por favor, siga o procedimento cuidadosamente para obter a "
+"normalização correta"
 
 #: libraries/normalization.lib.php:843
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"Esta lista é baseada em um subconjunto dos dados da tabela e não é "
+"necessariamente exata. "
 
 #: libraries/normalization.lib.php:859
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "Nenhuma dependência parcial encontrada!"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
@@ -10199,22 +10239,24 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:511
 msgid "It appears your database uses procedures;"
-msgstr ""
+msgstr "Parece que seu banco de dados utiliza procedimentos;"
 
 #: libraries/plugins/export/ExportSql.class.php:515
 #: libraries/plugins/export/ExportSql.class.php:551
 #: libraries/plugins/export/ExportSql.class.php:1260
 #: libraries/plugins/export/ExportSql.class.php:1798
+#, fuzzy
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "exportação de alias pode não funcionar corretamente em todos os casos."
 
 #: libraries/plugins/export/ExportSql.class.php:548
 msgid "It appears your database uses functions;"
-msgstr ""
+msgstr "Parece que seu banco de dados utiliza funções;"
 
 #: libraries/plugins/export/ExportSql.class.php:1257
+#, fuzzy
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "Parece que seu banco de dados utiliza visões;"
 
 #: libraries/plugins/export/ExportSql.class.php:1302
 msgid "Constraints for dumped tables"
@@ -10249,8 +10291,9 @@ msgid "RELATIONS FOR TABLE"
 msgstr "RELACIONAMENTOS PARA TABELAS"
 
 #: libraries/plugins/export/ExportSql.class.php:1795
+#, fuzzy
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Parece que sua tabela utiliza gatilhos;"
 
 #: libraries/plugins/export/ExportSql.class.php:1827
 #, php-format
@@ -10397,10 +10440,9 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Não use <code>AUTO_INCREMENT</code> para valores zerados"
 
 #: libraries/plugins/import/ImportSql.class.php:193
-#, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Leia como multibytes"
+msgstr "Ler como multibytes"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -10577,14 +10619,18 @@ msgid "Displays a link to download this image."
 msgstr "Mostrar um link para download desta imagem."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:31
+#, fuzzy
 msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Funcionalidade de upload de imagem que também exibe miniatura. As opções são "
+"largura e altura da miniatura em pixels. O padrão é 100 X 100."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:79
+#, fuzzy
 msgid "Image preview here"
-msgstr ""
+msgstr "Pré-visualização da imagem"
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
@@ -10612,15 +10658,19 @@ msgstr ""
 "segunda é sufixado (envolvido por aspas simples, string vazia por padrão)."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:33
+#, fuzzy
 msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Valida a cadeia de caracteres utilizando expressões regulares e só insere o "
+"valor se a seqüência de caracteres corresponder. A primeira opção é a "
+"Expressão Regular."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Falha na validação da cadeia %s."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10641,10 +10691,13 @@ msgstr ""
 "(Padrão: \"...\")."
 
 #: libraries/plugins/transformations/abstract/TextFileUploadTransformationsPlugin.class.php:33
+#, fuzzy
 msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Funcionalidade de upload de arquivos para colunas tipo TEXT. Não provê uma "
+"área de texto para a entrada."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -10667,16 +10720,19 @@ msgstr ""
 "para o link."
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
+#, fuzzy
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Editor CodeMirror de sintaxe destacada para JSON."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
+#, fuzzy
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Editor CodeMirror de sintaxe destacada para SQL."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
+#, fuzzy
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Editor CodeMirror de sintaxe destacada para XML (e HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
 #, fuzzy
@@ -10704,8 +10760,9 @@ msgid "Error: FOREIGN KEY relation could not be added!"
 msgstr "Erro: Relação de FOREIGN KEY não pôde ser adicionada!"
 
 #: libraries/pmd_common.php:548
+#, fuzzy
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Erro: Índice(s) de coluna(s) não encontrado(s)."
 
 #: libraries/pmd_common.php:552
 msgid "Error: Relational features are disabled!"
@@ -10767,10 +10824,9 @@ msgid "Display Features"
 msgstr "Exibir funcionalidades"
 
 #: libraries/relation.lib.php:156
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Criação de PDFs"
+msgstr "Desenho e criação de PDFs"
 
 #: libraries/relation.lib.php:167
 msgid "Displaying Column Comments"
@@ -10786,7 +10842,8 @@ msgstr "Transformações do navegador"
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
-"Consulte a documentação sobre como atualizar sua tabela Column_comments."
+"Por favor, consulte a documentação sobre como atualizar a sua tabela "
+"column_info. "
 
 #: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:362
 msgid "Bookmarked SQL query"
@@ -10804,7 +10861,7 @@ msgstr "Tabelas persistentes recentemente usadas"
 #, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Tabelas persistentes recentemente usadas"
+msgstr "Tabelas persistentes favoritas"
 
 #: libraries/relation.lib.php:237
 msgid "Persistent tables' UI preferences"
@@ -10827,20 +10884,20 @@ msgid "Saving Query-By-Example searches"
 msgstr "Salvando pesquisas Query-By-Example"
 
 #: libraries/relation.lib.php:309
+#, fuzzy
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Gerenciamento Central da lista de colunas"
 
 #: libraries/relation.lib.php:317
 msgid "Quick steps to setup advanced features:"
 msgstr "Passos rápidos para a instalação de funcionalidades avançadas:"
 
 #: libraries/relation.lib.php:323
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
-"Criar tabelas necessárias com o <code>examples/create_tables.sql</code>."
+msgstr "Criar tabelas necessárias com <code>%screate_tables.sql</code>."
 
 #: libraries/relation.lib.php:331
 msgid "Create a pma user and give access to these tables."
@@ -10869,13 +10926,17 @@ msgstr "sem descrição"
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Tabelas do armazenamento de configurações do phpMyAdmin faltando"
+msgstr ""
+"%sCreate%s o armazenamento de configuração do phpMyAdmin no banco de dados "
+"atual."
 
 #: libraries/relation.lib.php:1982
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Tabelas do armazenamento de configurações do phpMyAdmin faltando"
+msgstr ""
+"%sCreate%s as tabelas de armazenamento de configuração do phpMyAdmin "
+"faltantes."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -10948,10 +11009,9 @@ msgid "Slave replication"
 msgstr "Replicação de slave"
 
 #: libraries/replication_gui.lib.php:143
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "Conexão insegura"
+msgstr "Conexão mestre:"
 
 #: libraries/replication_gui.lib.php:209
 msgid "Slave SQL Thread not running!"
@@ -11617,8 +11677,9 @@ msgid "There are no events to display."
 msgstr "Não existem eventos para serem mostrados."
 
 #: libraries/select_lang.lib.php:613
+#, fuzzy
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Ignorando o código de idioma sem suporte."
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
@@ -11899,29 +11960,32 @@ msgstr "Grupo de usuários"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Conexões persistentes"
+msgstr "Requer conexões criptografadas SSL."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Requer SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
+"Exige-se que um método de codificação específico seja usado para uma conexão."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
+#, fuzzy
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Requer a apresentação de um certificado X509 válido emitido por esta AC."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
+#, fuzzy
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Requer a apresentação de um certificado X509 válido com este assunto."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 certificate."
@@ -12088,7 +12152,7 @@ msgstr "Conceder/Grant"
 
 #: libraries/server_privileges.lib.php:2262
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Privilégio insuficiente para exibir o(s) usuário(s)."
 
 #: libraries/server_privileges.lib.php:2282
 #: libraries/server_privileges.lib.php:3655
@@ -12166,7 +12230,7 @@ msgstr "Privilégios específicos de coluna"
 #, fuzzy
 #| msgid "Add privileges on the following database:"
 msgid "Add privileges on the following database(s):"
-msgstr "Adicionar privilégios no seguinte banco de dados:"
+msgstr "Adicionar privilégio(s) no(s) seguinte(s) banco(s) de dado(s):"
 
 #: libraries/server_privileges.lib.php:3110
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -12242,6 +12306,7 @@ msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
+"Nota: Você está tentando editar os privilégios do usuário da sessão atual."
 
 #: libraries/server_privileges.lib.php:4159 libraries/server_users.lib.php:25
 msgid "Users overview"
@@ -12561,8 +12626,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Nota: Ativar as estatísticas pode causar um grande volume de tráfego de "
-"dados entre o servidor web e o servidor MySQL."
+"Nota: Permitir a atualização automática pode causar tráfego intenso entre o "
+"servidor web e o servidor MySQL."
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -12579,10 +12644,9 @@ msgid "Filters"
 msgstr "Filtros"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Exibir somente valores de alerta"
+msgstr "Mostrar somente ativo(s)"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13492,7 +13556,7 @@ msgstr "Rodar consulta(s) SQL no banco de dados %s"
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Obter consulta auto-salva"
 
 #: libraries/sql_query_form.lib.php:284
 msgid "Bookmark this SQL query:"
@@ -13511,8 +13575,9 @@ msgid "Show this query here again"
 msgstr "Mostrar esta consulta SQL aqui novamente"
 
 #: libraries/sql_query_form.lib.php:333
+#, fuzzy
 msgid "Rollback when finished"
-msgstr ""
+msgstr "Desfazer («rollback») quando finalizar"
 
 #: libraries/sql_query_form.lib.php:386
 msgid "View only"
@@ -13626,20 +13691,18 @@ msgid "Copy table with prefix"
 msgstr "Copiar tabelas com prefixo"
 
 #: libraries/structure.lib.php:349
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add columns to central list"
-msgstr "Colunas de textarea CHAR"
+msgstr "Adicionar colunas a lista central"
 
 #: libraries/structure.lib.php:351
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "Remover colunas da lista central"
 
 #: libraries/structure.lib.php:353
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Make consistent with central list"
-msgstr "Colunas de textarea CHAR"
+msgstr "Tornar consistente com a lista central"
 
 #: libraries/structure.lib.php:375
 msgid "Check tables having overhead"
@@ -13683,16 +13746,14 @@ msgid "Fulltext"
 msgstr "Texto completo"
 
 #: libraries/structure.lib.php:1528 libraries/structure.lib.php:2146
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "Colunas de textarea CHAR"
+msgstr "Adicionar coluna(s) central(is)"
 
 #: libraries/structure.lib.php:1533 libraries/structure.lib.php:2136
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove from central columns"
-msgstr "Remover coluna(s)"
+msgstr "Remover da(s) coluna(s) central(is)"
 
 #: libraries/structure.lib.php:1549 libraries/structure.lib.php:1645
 msgid "Move columns"
@@ -13831,10 +13892,9 @@ msgid "Showing create queries"
 msgstr "Mostrar consultas create"
 
 #: libraries/structure.lib.php:3269
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
-msgstr "Tela de relacionamentos"
+msgstr "Visão de relação(ões)"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -13902,29 +13962,28 @@ msgstr "Rótulo do Eixo Y:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Nomes em série estão em uma coluna"
 
 #: libraries/tbl_chart.lib.php:240
 #, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "Dentro do campo:"
+msgstr "Série(s) de coluna(s):"
 
 #: libraries/tbl_chart.lib.php:253
 #, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "Valores para coluna %s"
+msgstr "Valor(es) de coluna(s):"
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
 msgstr "Linha inicial:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Salvar como arquivo"
+msgstr "Salvar gráfico como imagem"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
@@ -13939,10 +13998,9 @@ msgid "Storage Engine:"
 msgstr "Mecanismo de armazenamento:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Conexões"
+msgstr "Conexão(ões):"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
@@ -13997,26 +14055,26 @@ msgstr ""
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Transformações do navegador"
+msgstr "Transformação de visualização no navegador"
 
 #: libraries/tbl_columns_definition_form.lib.php:351
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Transformações do navegador"
+msgstr "Opções de transformação de visualização no navegador"
 
 #: libraries/tbl_columns_definition_form.lib.php:354
 #: transformation_overview.php:42
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "Transformações do navegador"
+msgstr "Transformação de entrada"
 
 #: libraries/tbl_columns_definition_form.lib.php:356
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "Opções de transformação"
+msgstr "Opções de transformação de entrada"
 
 #: libraries/tbl_columns_definition_form.lib.php:597
 #, php-format
@@ -14031,7 +14089,7 @@ msgstr "É uma chave estrangeira."
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Pick from Central Columns"
-msgstr "Remover coluna(s)"
+msgstr "Escolher das colunas centrais"
 
 #: libraries/tbl_columns_definition_form.lib.php:818
 msgid "first"
@@ -14096,11 +14154,11 @@ msgstr ""
 #, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Tamanho do cache de índices"
+msgstr "Opção de índice:"
 
 #: libraries/tbl_indexes.lib.php:321
 msgid "Key block size:"
-msgstr ""
+msgstr "Tamanho do bloco chave:"
 
 #: libraries/tbl_indexes.lib.php:333
 msgid "Index type:"
@@ -14110,7 +14168,7 @@ msgstr "Tipo de índice:"
 #, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Usuário:"
+msgstr "Analisador:"
 
 #: libraries/tbl_indexes.lib.php:357
 msgid "Comment:"
@@ -14120,7 +14178,7 @@ msgstr "Cometário:"
 #, fuzzy
 #| msgid "Drag to reorder."
 msgid "Drag to reorder"
-msgstr "Arraste para reordenar."
+msgstr "Arrastar para reordenar"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
@@ -14151,69 +14209,64 @@ msgstr ""
 "correspondente existe."
 
 #: libraries/tbl_relation.lib.php:367
-#, fuzzy
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
-msgstr "Restrição de chave estrangeira"
+msgstr "Restrições de chave estrangeira"
 
 #: libraries/tbl_relation.lib.php:370
-#, fuzzy
 #| msgid "Action"
 msgid "Actions"
-msgstr "Ação"
+msgstr "Ações"
 
 #: libraries/tbl_relation.lib.php:371
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "Restrições para tabelas"
+msgstr "Propriedades da restrição"
 
 #: libraries/tbl_relation.lib.php:376
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
+"Somente colunas com índice serão exibidas. Você pode definir um índice "
+"abaixo."
 
 #: libraries/tbl_relation.lib.php:381
 msgid "Foreign key constraint"
 msgstr "Restrição de chave estrangeira"
 
 #: libraries/tbl_relation.lib.php:402
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "Adicionar restrições"
+msgstr "+ Adicionar restrição"
 
 #: libraries/tbl_relation.lib.php:439
-#, fuzzy, php-format
+#, php-format
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Restrição de chave estrangeira"
+msgstr "Restrição de chave estrangeira %s foi eliminada"
 
 #: libraries/tbl_relation.lib.php:463
 msgid "Constraint name"
 msgstr "Nome da restrição"
 
 #: libraries/tbl_relation.lib.php:526
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
-msgstr "Adicionar coluna"
+msgstr "+ Adicionar coluna"
 
 #: libraries/tbl_relation.lib.php:670
 msgid "Choose column to display:"
 msgstr "Marque a coluna para exibir:"
 
 #: libraries/tbl_relation.lib.php:827
-#, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "O processo %s foi finalizado com sucesso."
+msgstr "A coluna de exibição foi atualizada com sucesso."
 
 #: libraries/tbl_relation.lib.php:911
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
-msgstr "Adicionado modelo interno."
+msgstr "As relações internas foram atualizadas com êxito."
 
 #: libraries/tbl_relation.lib.php:1176
 #, php-format
@@ -14226,10 +14279,10 @@ msgid "Create version %1$s of %2$s"
 msgstr "Criar versão %1$s de %2$s"
 
 #: libraries/tracking.lib.php:74
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Create version %1$s"
-msgstr "Criar versão"
+msgstr "Criar versão %1$s"
 
 #: libraries/tracking.lib.php:79
 msgid "Track these data definition statements:"
@@ -14262,10 +14315,9 @@ msgid "Deactivate now"
 msgstr "Desativar agora"
 
 #: libraries/tracking.lib.php:287 libraries/tracking.lib.php:350
-#, fuzzy
 #| msgid "Create version"
 msgid "Delete version"
-msgstr "Criar versão"
+msgstr "Excluir versão"
 
 #: libraries/tracking.lib.php:460
 msgid "Tracking statements"
@@ -14366,10 +14418,10 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Rastreamento para %1$s foi desativado na versão %2$s."
 
 #: libraries/tracking.lib.php:1306
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Criar versão %1$s de %2$s"
+msgstr "Versão %1$s de %2$s foi excluída."
 
 #: libraries/tracking.lib.php:1337
 #, php-format
@@ -14724,15 +14776,15 @@ msgstr "Nome de tabela inválido"
 #: tbl_replace.php:236
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Linha: %1$s, Coluna: %2$s, Erro: %3$s"
 
 #: tbl_structure.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "O nome da coluna '%s' é uma palavra reservada do MySQL."
-msgstr[1] "O nome da coluna '%s' é uma palavra reservada do MySQL."
+msgstr[0] "O nome '%s' é uma palavra-chave reservada do MySQL."
+msgstr[1] "Os nomes '%s' são palavras-chaves reservadas do MySQL."
 
 #: tbl_structure.php:114
 msgid "No column selected."
@@ -14744,16 +14796,15 @@ msgid "Tracking of %s is activated."
 msgstr "Rastreamento de %s está ativo."
 
 #: tbl_tracking.php:102
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Os usuários selecionados foram apagados com sucesso."
+msgstr "Controle(s) de versão(ões) excluída(s) com sucesso."
 
 #: tbl_tracking.php:107
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Nenhum registro selecionado"
+msgstr "Não há versão(ões) selecionada(as)."
 
 #: tbl_tracking.php:138
 msgid "SQL statements executed."
@@ -14775,13 +14826,12 @@ msgstr "Tipos de MIME disponíveis"
 #, fuzzy
 #| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Transformações disponíveis"
+msgstr "Transformações de visualização no navegador disponíveis"
 
 #: transformation_overview.php:38
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "Transformações disponíveis"
+msgstr "Transformações de entrada disponíveis"
 
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"
