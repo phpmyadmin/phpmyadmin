@@ -1039,8 +1039,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         }
                     });
 
-                   
-
                     if (is_null){
                         $(g.cEdit).find('.edit_area').hide();
                     }
