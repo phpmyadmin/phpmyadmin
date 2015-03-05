@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-04 12:49-0500\n"
-"PO-Revision-Date: 2015-03-05 21:37+0200\n"
+"PO-Revision-Date: 2015-03-05 21:47+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-4/nl/>"
 "\n"
@@ -10655,23 +10655,23 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr "Syntaxis gemarkeerde CodeMirror bewerker voor JSON."
+msgstr "Syntaxiskleurende CodeMirror bewerker voor JSON."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr "Syntaxis gemarkeerde CodeMirror bewerker voor SQL."
+msgstr "Syntaxiskleurende CodeMirror bewerker voor SQL."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr "Syntaxis gemarkeerde CodeMirror bewerker voor XML (en HTML)."
+msgstr "Syntaxiskleurende CodeMirror bewerker voor XML (en HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Maakt de tekst op in JSON met syntaxis markeringen."
+msgstr "Maakt de tekst op in JSON met syntaxiskleuring."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Maakt de tekst op in XML met syntaxis markeringen."
+msgstr "Maakt de tekst op in XML met syntaxiskleuring."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
