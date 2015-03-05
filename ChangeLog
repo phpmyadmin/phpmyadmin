@@ -71,6 +71,7 @@ explanation
 - bug #4746 Right-aligned columns have left-aligned header
 - bug #4779 PMA_Util::parseEnumSetValues fails on enums with UTF-8 values
 - bug       Undefined index savedsearcheswork 
+- bug #4788 Inline edit of DATE fields with NULL, NULL checkbox is under datepicker 
 
 4.3.11.1 (2015-03-04)
 - bug       [security] Risk of BREACH attack, see PMASA-2015-1
