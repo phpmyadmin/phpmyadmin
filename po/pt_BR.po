@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-04 12:49-0500\n"
-"PO-Revision-Date: 2015-02-23 01:15+0200\n"
-"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2015-03-05 14:27+0200\n"
+"Last-Translator: Junior Zancan <jrzancan@hotmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -6425,7 +6425,8 @@ msgstr "Mostrar itens ocultos da árvore de navegação."
 #: libraries/config/messages.inc.php:428
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
-"Relação com o painel principal destacando a base de dados ou tabela atual."
+"Vincule com o painel principal selecionando a tabela ou o banco de dados "
+"atual."
 
 #: libraries/config/messages.inc.php:430
 msgid "Show logo in navigation panel."
@@ -7641,19 +7642,17 @@ msgid "Send error reports"
 msgstr "Enviar relatório de erros"
 
 #: libraries/config/messages.inc.php:811
-#, fuzzy
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
-"Ativar o modo de \"Configuração Zero\" que permite definir as tabelas de "
-"armazenamento de configuração do phpMyAdmin automaticamente."
+"Ative o Modo de Configuração Zero, que possibilitará que você configure as "
+"tabelas de armazenamento do phpMyAdmin automaticamente."
 
 #: libraries/config/messages.inc.php:814
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "Ativar o modo de \"Configuração Zero\""
+msgstr "Ativar Modo de Configuração Zero"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7746,11 +7745,11 @@ msgstr "Selecionar página"
 
 #: libraries/db_designer.lib.php:55
 msgid "Page to open"
-msgstr "Página para abrir"
+msgstr "Páginas para abrir"
 
 #: libraries/db_designer.lib.php:57
 msgid "Page to delete"
-msgstr "Página para apagar"
+msgstr "Página para remover"
 
 #: libraries/db_designer.lib.php:77
 msgid "Save to selected page"
