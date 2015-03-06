@@ -4581,6 +4581,47 @@ class PMA_Util
 
         return $html;
     }
+
+    /**
+     * Function to get html for the start row and number of rows panel
+     *
+     * @param string $sql_query sql query
+     *
+     * @return string html
+     */
+    public static function getStartAndNumberOfRowsPanel($sql_query)
+    {
+        $html = '<fieldset><div>';
+
+        $pos = isset($_REQUEST['pos']) ? $_REQUEST['pos'] : $_SESSION['tmpval']['pos'];
+        $html .= '<label for="pos">' . __('Start row:') . '</label>'
+            . '<input type="number" name="pos" min="0" required="required"'
+            . ' value="' . htmlspecialchars($pos) . '" />';
+
+        if (isset($_REQUEST['session_max_rows'])) {
+            $rows = $_REQUEST['session_max_rows'];
+        } else {
+            if ($_SESSION['tmpval']['max_rows'] != 'all') {
+                $rows = $_SESSION['tmpval']['max_rows'];
+            } else {
+                $rows = $GLOBALS['cfg']['MaxRows'];
+            }
+        }
+        $html .= '<label for="session_max_rows">'
+            . __('Number of rows:')
+            . '</label>'
+            . '<input type="number" name="session_max_rows" min="1"'
+            . ' value="' . htmlspecialchars($rows) . '" required="required" />';
+
+        $html .= '<input type="submit" name="submit" class="Go"'
+            . ' value="' . __('Go') . '" />'
+            . '<input type="hidden" name="sql_query"'
+            . ' value="' . htmlspecialchars($sql_query) . '" />';
+
+        $html .= '</div></fieldset>';
+
+        return $html;
+    }
 }
 
 ?>

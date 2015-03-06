@@ -39,9 +39,20 @@ function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
         . PMA_Util::backquote($visualizationSettings['spatialColumn'])
         . ') AS ' . PMA_Util::backquote('srid') . ' ';
 
+    $pos = isset($_REQUEST['pos']) ? $_REQUEST['pos'] : $_SESSION['tmpval']['pos'];
+    if (isset($_REQUEST['session_max_rows'])) {
+        $rows = $_REQUEST['session_max_rows'];
+    } else {
+        if ($_SESSION['tmpval']['max_rows'] != 'all') {
+            $rows = $_SESSION['tmpval']['max_rows'];
+        } else {
+            $rows = $GLOBALS['cfg']['MaxRows'];
+        }
+    }
     // Append the original query as the inner query
     $modified_query .= 'FROM (' . $sql_query . ') AS '
-        . PMA_Util::backquote('temp_gis');
+        . PMA_Util::backquote('temp_gis') . ' LIMIT '
+        . $pos . ', ' . $rows;
 
     return $modified_query;
 }
@@ -222,14 +233,12 @@ function PMA_getHtmlForGisVisualization(
     );
 
     $html .= '<input type="hidden" name="displayVisualization" value="redraw">';
-    $html .= '<input type="hidden" name="sql_query" value="';
-    $html .= htmlspecialchars($sql_query) . '" />';
-    $html .= '</form>';
-
     if (! $GLOBALS['PMA_Config']->isHttps()) {
         $isSelected = isset($visualizationSettings['choice']) ? true : false;
         $html .= PMA_getHtmlForUseOpenStreetMaps($isSelected);
     }
+    $html .= PMA_Util::getStartAndNumberOfRowsPanel($sql_query);
+    $html .= '</form>';
 
     $html .= '<div class="pma_quick_warp" style="width: 50px; position: absolute;'
         . ' right: 0; top: 0; cursor: pointer;">';

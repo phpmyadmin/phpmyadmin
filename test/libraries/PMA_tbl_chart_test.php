@@ -259,7 +259,7 @@ class PMA_TblChartTest extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            PMA_getHtmlForStartAndNumberOfRowsOptions($sql_query),
+            PMA_Util::getStartAndNumberOfRowsPanel($sql_query),
             $html
         );
         $this->assertContains(

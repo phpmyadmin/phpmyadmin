@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.5.0.0 (not yet released)
++ rfe       Pagination for GIS visualization
 
 4.4.0.0 (not yet released)
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
