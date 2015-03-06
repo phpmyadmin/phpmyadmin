@@ -1028,8 +1028,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                     var datepicker_top = parseInt(document.getElementById("ui-datepicker-div").style.getPropertyValue("top"), 10);
 
-                    if (datepicker_top > 370 && !is_null) {
+                    if (datepicker_top > 370 && is_null==false) {
                         document.getElementById("ui-datepicker-div").style.marginTop = "30px";
+                    } else {
+                        document.getElementById("ui-datepicker-div").style.marginTop = "0px";
                     }
 
                     if (is_null){
