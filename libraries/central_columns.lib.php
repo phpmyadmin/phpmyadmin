@@ -188,7 +188,7 @@ function PMA_getInsertQuery($column, $def, $db, $central_list_table)
     . '\'' . PMA_Util::sqlAddSlashes($length) . '\',\''
     . PMA_Util::sqlAddSlashes($collation) . '\','
     . '\'' . PMA_Util::sqlAddSlashes($isNull) . '\','
-    . '\'' . json_encode(array('col_extra' => $extra, 'col_attribute' => $attribute))
+    . '\'' . implode(',', array($extra, $attribute))
     . '\',\'' . PMA_Util::sqlAddSlashes($default) . '\');';
     return $insQuery;
 }
@@ -413,22 +413,34 @@ function PMA_makeConsistentWithList($db, $selected_tables)
                 if ($column['col_length']) {
                     $query .= '(' . $column['col_length'] . ')';
                 }
-                if (is_object(json_decode($column['col_extra']))) {
-                    $column['col_extra'] = json_decode($column['col_extra'], true);
+
+                $vals = explode(',', $column['col_extra']);
+                if (in_array('BINARY', $vals)) {
+                    $column['col_attribute'] = 'BINARY';
+                } elseif (in_array('UNSIGNED', $vals)) {
+                    $column['col_attribute'] = 'UNSIGNED';
+                } elseif (in_array('UNSIGNED ZEROFILL', $vals)) {
+                    $column['col_attribute'] = 'UNSIGNED ZEROFILL';
+                } elseif (in_array('on update CURRENT_TIMESTAMP', $vals)) {
+                    $column['col_attribute'] = 'on update CURRENT_TIMESTAMP';
                 } else {
-                    $column['col_extra'] = array(
-                        "col_extra" => $column['col_extra'],
-                        "col_attribute" => ""
-                    );
+                    $column['col_attribute'] = '';
                 }
-                $query .= ' ' . $column['col_extra']['col_attribute'];
+
+                if (in_array('auto_increment', $vals)) {
+                    $column['col_extra'] = 'auto_increment';
+                } else {
+                    $column['col_extra'] = '';
+                }
+
+                $query .= ' ' . $column['col_attribute'];
                 if ($column['col_isNull']) {
                     $query .= ' NULL';
                 } else {
                     $query .= ' NOT NULL';
                 }
 
-                $query .= ' ' . $column['col_extra']['col_extra'];
+                $query .= ' ' . $column['col_extra'];
                 if ($column['col_default']) {
                     if ($column['col_default'] != 'CURRENT_TIMESTAMP') {
                         $query .= ' DEFAULT \'' . PMA_Util::sqlAddSlashes(
@@ -538,12 +550,7 @@ function PMA_updateOneColumn($db, $orig_col_name, $col_name, $col_type,
                 . ', col_length = \'' . PMA_Util::sqlAddSlashes($col_length) . '\''
                 . ', col_isNull = ' . $col_isNull
                 . ', col_collation = \'' . PMA_Util::sqlAddSlashes($collation) . '\''
-                . ', col_extra = \'' . json_encode(
-                    array(
-                        "col_extra" => $col_extra,
-                        "col_attribute" => $col_attribute
-                        )
-                ) . '\''
+                . ', col_extra = \'' . implode(',', array($col_extra, $col_attribute)) . '\''
                 . ', col_default = \'' . PMA_Util::sqlAddSlashes($col_default) . '\''
                 . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\' '
                 . 'AND col_name = \'' . PMA_Util::sqlAddSlashes($orig_col_name)
@@ -824,11 +831,11 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
     $tableHtml .=
         '<td class="nowrap" name="col_attribute">'
         . '<span>' .
-        ($row['col_extra']['col_attribute']
-        ? htmlspecialchars($row['col_extra']['col_attribute']) : "" )
+        ($row['col_attribute']
+        ? htmlspecialchars($row['col_attribute']) : "" )
         . '</span>'
         . PMA_getHtmlForColumnAttribute(
-            $row_num, 4, 0, array(), $row['col_extra']['col_attribute'], false, null
+            $row_num, 4, 0, array(), $row['col_attribute'], false, null
         )
         . '</td>';
     $tableHtml .=
@@ -840,11 +847,10 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
 
     $tableHtml .=
         '<td class="nowrap" name="col_extra"><span>'
-        . htmlspecialchars($row['col_extra']['col_extra']) . '</span>'
+        . htmlspecialchars($row['col_extra']) . '</span>'
         . '<select name="col_extra"><option value=""></option>'
         . '<option value="auto_increment">' . __('auto_increment') . '</option>'
-        . '<option value="on update CURRENT_TIMESTAMP">'
-        . __('on update CURRENT_TIMESTAMP') . '</option></select>'
+        . '</select>'
         . '</td>';
     $meta = array();
     if (!isset($row['col_default']) || $row['col_default'] == '') {
