@@ -4595,8 +4595,11 @@ class PMA_Util
 
         $pos = isset($_REQUEST['pos']) ? $_REQUEST['pos'] : $_SESSION['tmpval']['pos'];
         $html .= '<label for="pos">' . __('Start row:') . '</label>'
-            . '<input type="number" name="pos" min="0" required="required"'
-            . ' value="' . htmlspecialchars($pos) . '" />';
+            . '<input type="number" name="pos" min="0" required="required"';
+        if ($_REQUEST['unlim_num_rows'] > 0) {
+            $html .= ' max="' . ($_REQUEST['unlim_num_rows'] - 1) . '"';
+        }
+        $html .= ' value="' . htmlspecialchars($pos) . '" />';
 
         if (isset($_REQUEST['session_max_rows'])) {
             $rows = $_REQUEST['session_max_rows'];
@@ -4616,7 +4619,9 @@ class PMA_Util
         $html .= '<input type="submit" name="submit" class="Go"'
             . ' value="' . __('Go') . '" />'
             . '<input type="hidden" name="sql_query"'
-            . ' value="' . htmlspecialchars($sql_query) . '" />';
+            . ' value="' . htmlspecialchars($sql_query) . '" />'
+            . '<input type="hidden" name="unlim_num_rows"'
+            . ' value="' . htmlspecialchars($_REQUEST['unlim_num_rows']) . '" />';
 
         $html .= '</div></fieldset>';
 
