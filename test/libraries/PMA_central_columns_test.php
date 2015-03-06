@@ -352,7 +352,8 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             'col_length'=>12,
             'col_collation'=>'utf8_general_ci',
             'col_isNull'=>1,
-            'col_extra'=>array('col_extra'=>'','col_attribute'=>'')
+            'col_extra'=> '',
+            'col_attribute'=>''
         );
         $result = PMA_getHTMLforCentralColumnsTableRow($row, false, 1, 'phpmyadmin');
         $this->assertTag(
