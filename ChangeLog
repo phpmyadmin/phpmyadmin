@@ -4,6 +4,8 @@ phpMyAdmin - ChangeLog
 4.3.12.0 (not yet released)
 - bug #4746 Right-aligned columns have left-aligned header
 - bug #4779 PMA_Util::parseEnumSetValues fails on enums with UTF-8 values
+- bug       Undefined index savedsearcheswork
+- bug #4788 Inline edit of DATE fields with NULL, NULL checkbox is under datepicker
 - bug #4790 DROP TABLE/VIEW IF EXISTS are not tracked
 
 4.3.11.1 (2015-03-04)
