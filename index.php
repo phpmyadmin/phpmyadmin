@@ -444,8 +444,8 @@ if ($server != 0
 ) {
     trigger_error(
         __(
-            'Your configuration file contains settings (root with no password)'
-            . ' that correspond to the default MySQL privileged account.'
+            'You are connected as \'root\' with no password, which'
+            . ' corresponds to the default MySQL privileged account.'
             . ' Your MySQL server is running with this default, is open to'
             . ' intrusion, and you really should fix this security hole by'
             . ' setting a password for user \'root\'.'
