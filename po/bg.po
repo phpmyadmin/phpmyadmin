@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-04 12:49-0500\n"
-"PO-Revision-Date: 2015-01-26 06:18+0200\n"
+"PO-Revision-Date: 2015-03-06 10:58+0200\n"
 "Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bg/>\n"
+"Language-Team: Bulgarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/bg/>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -330,10 +330,9 @@ msgid "Access denied!"
 msgstr "Отказан достъп!"
 
 #: db_tracking.php:39 db_tracking.php:64
-#, fuzzy
 #| msgid "Replication status"
 msgid "Tracking data deleted successfully."
-msgstr "Състояние на репликацията"
+msgstr "Следената дата е изтрита усрешно."
 
 #: db_tracking.php:48
 #, php-format
@@ -785,10 +784,9 @@ msgid "PHP extension:"
 msgstr "PHP разширение:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "Версия на PHP"
+msgstr "PHP Версия:"
 
 #: index.php:356
 msgid "Show PHP information"
@@ -859,7 +857,6 @@ msgstr ""
 "низове и това може да доведе до неочаквани резултати."
 
 #: index.php:495
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -871,10 +868,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Вашата настройка на PHP [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] е по-ниска, "
-"отколкото валидността на бисквитката в phpMyAdmin. Поради това, Вашата сесия "
-"ще изтече по-бързо, отколкото е настройката в phpMyAdmin."
+"Вашата настройка на PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] е по-ниска, отколкото "
+"валидността на бисквитката в phpMyAdmin. Поради това, Вашата сесия ще изтече "
+"по-бързо, отколкото е настройката в phpMyAdmin."
 
 #: index.php:508
 msgid ""
@@ -978,10 +976,9 @@ msgid "Delete tracking data for these versions?"
 msgstr "Изтриване на проследената информация за тази версии?"
 
 #: js/messages.php:44
-#, fuzzy
 #| msgid "Delete tracking"
 msgid "Delete entry from tracking report?"
-msgstr "Изтриване информацията за следене"
+msgstr "Изтриване на информационен запис за следене?"
 
 #: js/messages.php:45
 msgid "Deleting tracking data"
@@ -1019,10 +1016,9 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Наистина ли искате да възстановите избраните потребители?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this central column?"
-msgstr "Наистина ли искате да изтриете записаното търсене: \"%s\"?"
+msgstr "Наистина ли искате да изтриете централната колона: \"%s\"?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -2371,31 +2367,26 @@ msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 
 #: js/messages.php:489
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
 msgstr "Таблици"
 
 #: js/messages.php:490
-#, fuzzy
 #| msgid "Views"
 msgid "views"
 msgstr "Изглед"
 
 #: js/messages.php:491
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
 msgstr "Процедури"
 
 #: js/messages.php:492
-#, fuzzy
 #| msgid "event"
 msgid "events"
-msgstr "събитие"
+msgstr "събития"
 
 #: js/messages.php:493
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
 msgstr "Функции"
@@ -2486,10 +2477,9 @@ msgid "Execute this query again?"
 msgstr "Изпълняване на заявката отново?"
 
 #: js/messages.php:548
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Наистина ли искате да изтриете записаното търсене: \"%s\"?"
+msgstr "Наистина ли искате да изтриете отметката: \"%s\"?"
 
 #: js/messages.php:549
 msgid ""
@@ -2794,10 +2784,10 @@ msgid "Unexpected characters on line %s."
 msgstr "Неочаквани знаци на ред %s."
 
 #: libraries/Advisor.class.php:438
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr "Неочакван знак на ред %1$s. Очакван табулатор, но намерен \"%2$s\""
+msgstr "Неочакван знак на ред %1$s. Очакван табулатор, но намерен \"%2$s\"."
 
 #: libraries/Advisor.class.php:475
 msgid "per second"
@@ -2841,10 +2831,9 @@ msgid "Expand"
 msgstr ""
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:178
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "подзаявка"
+msgstr "Подзаявка"
 
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3359
@@ -2870,19 +2859,19 @@ msgstr "Изтриване"
 #: libraries/server_status_processes.lib.php:81
 #: libraries/tbl_relation.lib.php:302 libraries/tbl_relation.lib.php:539
 msgid "Database"
-msgstr "БД"
+msgstr "DB"
 
 #: libraries/Console.class.php:108
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete relation"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Изтриване релация"
-msgstr[1] "Изтриване релация"
+msgstr[0] "Изтриване на %d отметка"
+msgstr[1] "Изтриване на %d отметки"
 
 #: libraries/Console.class.php:116
 msgid "private"
-msgstr ""
+msgstr "частен"
 
 #: libraries/Console.class.php:120 libraries/bookmark.lib.php:87
 msgid "shared"
@@ -2890,22 +2879,20 @@ msgstr "споделен"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "Белязката беше изтрита."
+msgstr "%1$s, %2$s и %3$s бележките бяха включени"
 
 #: libraries/Console.class.php:130
-#, fuzzy
 #| msgid "Delete relation"
 msgid "No bookmarks"
-msgstr "Изтриване релация"
+msgstr "Няма бележки"
 
 #: libraries/Console.class.php:180
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Обяснение на SQL"
+msgstr "Обяснение"
 
 #: libraries/Console.class.php:181 libraries/Util.class.php:1263
 #: libraries/sql.lib.php:330
@@ -2913,32 +2900,28 @@ msgid "Profiling"
 msgstr "Профилиране"
 
 #: libraries/Console.class.php:183
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
-msgstr "Таблица за белязки"
+msgstr "Бележки"
 
 #: libraries/Console.class.php:184
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Буфер за заявки"
+msgstr "Заявката е не успешна"
 
 #: libraries/Console.class.php:188
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
 msgstr "Време за изпълнение на заявката"
 
 #: libraries/Console.class.php:195
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL прозорец за заявки"
+msgstr "SQL конзола"
 
 #: libraries/Console.class.php:196
 msgid "Console"
-msgstr ""
+msgstr "Конзола"
 
 #: libraries/Console.class.php:199 libraries/sql_query_form.lib.php:234
 #: setup/frames/index.inc.php:298
@@ -2946,10 +2929,9 @@ msgid "Clear"
 msgstr "Изчистване"
 
 #: libraries/Console.class.php:202
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL-хронология"
+msgstr "SQL изтория"
 
 #: libraries/Console.class.php:205 libraries/Console.class.php:300
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
@@ -2981,22 +2963,19 @@ msgid "Options"
 msgstr "Настройки"
 
 #: libraries/Console.class.php:209 libraries/Console.class.php:262
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Таблица за белязки"
+msgstr "Бележки"
 
 #: libraries/Console.class.php:218
-#, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Изпълнение на всеки"
+msgstr "Натисни Ctrl+Enter за изпълнение на заявката"
 
 #: libraries/Console.class.php:239
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Прескачане на текущата"
+msgstr "По време на текущата сесия"
 
 #: libraries/Console.class.php:266 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
@@ -3006,19 +2985,16 @@ msgid "Refresh"
 msgstr "Опресняване"
 
 #: libraries/Console.class.php:269
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "И"
+msgstr "Добави"
 
 #: libraries/Console.class.php:278
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
-msgstr "Изтриване релация"
+msgstr "Добави бележка"
 
 #: libraries/Console.class.php:282
-#, fuzzy
 #| msgid "Label"
 msgid "Label"
 msgstr "Етикет"
@@ -3028,16 +3004,14 @@ msgid "Target database"
 msgstr "Целева БД"
 
 #: libraries/Console.class.php:287
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
-msgstr "Изтриване релация"
+msgstr "Сподели тази бележка"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
-msgstr "Стойност по подразбиране"
+msgstr "Сложи по подразбиране"
 
 #: libraries/Console.class.php:308
 msgid "Always expand query messages"
@@ -13895,10 +13869,9 @@ msgid "Improve table structure"
 msgstr "Анализ на таблицата"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Следене на таблица"
+msgstr "Изглед за следене"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
