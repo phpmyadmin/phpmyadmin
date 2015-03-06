@@ -2919,38 +2919,38 @@ function autoPopulate(input_id, offset)
     var db = PMA_commonParams.get('db');
     var table = PMA_commonParams.get('table');
     input_id = input_id.substring(0, input_id.length - 1);
-    $('#'+input_id+'1').val(central_column_list[db+'_'+table][offset].col_name);
-    var col_type = central_column_list[db+'_'+table][offset].col_type.toUpperCase();
-    $('#'+input_id+'2').val(col_type);
-    $('#'+input_id+'3').val(central_column_list[db+'_'+table][offset].col_length);
+    $('#' + input_id + '1').val(central_column_list[db + '_' + table][offset].col_name);
+    var col_type = central_column_list[db + '_' + table][offset].col_type.toUpperCase();
+    $('#' + input_id + '2').val(col_type);
+    $('#' + input_id + '3').val(central_column_list[db + '_' + table][offset].col_length);
     if(col_type === 'ENUM' || col_type === 'SET') {
-        $('#'+input_id+'3').next().show();
+        $('#' + input_id + '3').next().show();
     } else {
-        $('#'+input_id+'3').next().hide();
+        $('#' + input_id + '3').next().hide();
     }
-    var col_default = central_column_list[db+'_'+table][offset].col_default.toUpperCase();
+    var col_default = central_column_list[db + '_' + table][offset].col_default.toUpperCase();
     if (col_default !== '' && col_default !== 'NULL' && col_default !== 'CURRENT_TIMESTAMP') {
-        $('#'+input_id+'4').val("USER_DEFINED");
-        $('#'+input_id+'4').next().next().show();
-        $('#'+input_id+'4').next().next().val(central_column_list[db+'_'+table][offset].col_default);
+        $('#' + input_id + '4').val("USER_DEFINED");
+        $('#' + input_id + '4').next().next().show();
+        $('#' + input_id + '4').next().next().val(central_column_list[db + '_' + table][offset].col_default);
     } else {
-        $('#'+input_id+'4').val(central_column_list[db+'_'+table][offset].col_default);
-        $('#'+input_id+'4').next().next().hide();
+        $('#' + input_id + '4').val(central_column_list[db + '_' + table][offset].col_default);
+        $('#' + input_id + '4').next().next().hide();
     }
-    $('#'+input_id+'5').val(central_column_list[db+'_'+table][offset].col_collation);
-    $('#'+input_id+'6').val(central_column_list[db+'_'+table][offset].col_attribute);
-    if(central_column_list[db+'_'+table][offset].col_extra === 'on update CURRENT_TIMESTAMP') {
-        $('#'+input_id+'6').val(central_column_list[db+'_'+table][offset].col_extra);
+    $('#' + input_id + '5').val(central_column_list[db + '_' + table][offset].col_collation);
+    $('#' + input_id + '6').val(central_column_list[db + '_' + table][offset].col_attribute);
+    if(central_column_list[db + '_' + table][offset].col_extra === 'on update CURRENT_TIMESTAMP') {
+        $('#' + input_id + '6').val(central_column_list[db + '_' + table][offset].col_extra);
     }
-    if(central_column_list[db+'_'+table][offset].col_extra.toUpperCase() === 'AUTO_INCREMENT') {
-        $('#'+input_id+'9').prop("checked",true).change();
+    if(central_column_list[db + '_' + table][offset].col_extra.toUpperCase() === 'AUTO_INCREMENT') {
+        $('#' + input_id + '9').prop("checked",true).change();
     } else {
-        $('#'+input_id+'9').prop("checked",false);
+        $('#' + input_id + '9').prop("checked",false);
     }
-    if(central_column_list[db+'_'+table][offset].col_isNull !== '0') {
-        $('#'+input_id+'7').prop("checked",true);
+    if(central_column_list[db + '_' + table][offset].col_isNull !== '0') {
+        $('#' + input_id + '7').prop("checked",true);
     } else {
-        $('#'+input_id+'7').prop("checked",false);
+        $('#' + input_id + '7').prop("checked",false);
     }
 }
 
