@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-05 14:39+0200\n"
+"PO-Revision-Date: 2015-03-06 19:52+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-4/el/"
-">\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-4/el/>"
+"\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -827,7 +827,6 @@ msgid "List of changes"
 msgstr "Λίστα αλλαγών"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -839,11 +838,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"Το αρχείο ρυθμίσεών σας περιέχει ρυθμίσεις (χρήστης root χωρίς κωδικό "
-"πρόσβασης) που αντιστοιχούν στον προεπιλεγμένο λογαριασμό χρήστη MySQL. Ο "
-"διακομιστής MySQL σας που τρέχει με αυτή τη ρύθμιση, είναι ανοιχτός σε "
-"επιθέσεις και θα πρέπει να διορθώσετε το πρόβλημα εισάγωντας κωδικό "
-"πρόσβασης για το χρήστη «root»."
+"Είστε συνδεδεμένοι ως «root» χωρίς κωδικό πρόσβασης που αφορά τον "
+"προεπιλεγμένο λογαριασμό χρήστη MySQL. Ο διακομιστής MySQL σας που τρέχει με "
+"αυτή τη ρύθμιση, είναι ανοιχτός σε επιθέσεις και θα πρέπει να διορθώσετε το "
+"πρόβλημα εισάγωντας κωδικό πρόσβασης για το χρήστη «root»."
 
 #: index.php:464
 msgid ""
@@ -11906,11 +11904,10 @@ msgstr "Απαιτείται SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-#, fuzzy
 #| msgid "Requires that a specific cipher method be used for a connection."
 msgid "Requires that specific cipher method is used for a connection."
 msgstr ""
-"Απαιτεί ότι μια συγκεκριμένη κρυπτογραφημένη μέθοδος χρησιμοποιείται για μια "
+"Απαιτεί ότι συγκεκριμένη κρυπτογραφημένη μέθοδος θα χρησιμοποιείται για μια "
 "σύνδεση."
 
 #: libraries/server_privileges.lib.php:778
