@@ -1025,13 +1025,17 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     }
 
                     // add datetime picker
-                    PMA_addDatepicker($input_field, $td.attr('data-type'), {
+                    PMA_addDatepicker($editArea, $td.attr('data-type'), {
                         showMillisec: showMillisec,
                         showMicrosec: showMicrosec,
-                        timeFormat: timeFormat
+                        timeFormat: timeFormat,
+                        altField: $input_field, 
+                        onSelect: function (dateText, inst) {
+                            $input_field.data('comes_from', 'datepicker');
+                            $(g.cEdit).find('.null_div input[type=checkbox]').prop('checked', false);
+                        }
                     });
-
-                    $input_field.datepicker("show");
+                    $editArea.datetimepicker('setDate',datetime_value);
 
                     var datepicker_top = parseInt(document.getElementById("ui-datepicker-div").style.getPropertyValue("top"), 10);
 
@@ -1060,7 +1064,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     $editArea.addClass('edit_area_right');
                     $editArea.css('top','');
                 }
-                if ($editArea.children().length > 0 && !is_null) {
+                if ($editArea.children().length > 0) {
                     $editArea.show();
                 }
             }
