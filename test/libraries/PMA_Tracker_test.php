@@ -875,6 +875,12 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             "v"
         );
         $query[] = array(
+            "- DROP VIEW IF EXISTS db1.v;",
+            "DDL",
+            "DROP VIEW",
+            "v"
+        );
+        $query[] = array(
             "- CREATE DATABASE db1; -",
             "DDL",
             "CREATE DATABASE",
@@ -908,6 +914,12 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         );
         $query[] =  array(
             "- DROP TABLE db1.t1",
+            "DDL",
+            "DROP TABLE",
+            "t1"
+        );
+        $query[] =  array(
+            "- DROP TABLE IF EXISTS db1.t1",
             "DDL",
             "DROP TABLE",
             "t1"
