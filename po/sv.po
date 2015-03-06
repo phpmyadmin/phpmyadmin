@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-04 12:49-0500\n"
+"POT-Creation-Date: 2015-03-06 08:15-0500\n"
 "PO-Revision-Date: 2014-12-29 15:37+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Click to sort."
 msgstr "Klicka för att sortera."
 
-#: db_central_columns.php:140
+#: db_central_columns.php:149
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Visar raderna %1$s - %2$s."
@@ -76,7 +76,7 @@ msgid "Column"
 msgstr "Kolumn"
 
 #: db_datadict.php:104 db_printview.php:50 libraries/Index.class.php:648
-#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:657
+#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:664
 #: libraries/insert_edit.lib.php:245
 #: libraries/plugins/export/ExportHtmlword.class.php:283
 #: libraries/plugins/export/ExportHtmlword.class.php:378
@@ -100,7 +100,7 @@ msgid "Type"
 msgstr "Typ"
 
 #: db_datadict.php:105 libraries/Index.class.php:654
-#: libraries/TableSearch.class.php:1293 libraries/central_columns.lib.php:665
+#: libraries/TableSearch.class.php:1293 libraries/central_columns.lib.php:672
 #: libraries/insert_edit.lib.php:1569
 #: libraries/plugins/export/ExportHtmlword.class.php:286
 #: libraries/plugins/export/ExportHtmlword.class.php:381
@@ -118,7 +118,7 @@ msgstr "Typ"
 msgid "Null"
 msgstr "Null"
 
-#: db_datadict.php:106 libraries/central_columns.lib.php:669
+#: db_datadict.php:106 libraries/central_columns.lib.php:676
 #: libraries/plugins/export/ExportHtmlword.class.php:289
 #: libraries/plugins/export/ExportHtmlword.class.php:384
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -168,7 +168,7 @@ msgstr "Primär"
 
 #: db_datadict.php:157 js/messages.php:274 libraries/Index.class.php:519
 #: libraries/Index.class.php:558 libraries/Index.class.php:970
-#: libraries/central_columns.lib.php:836
+#: libraries/central_columns.lib.php:843
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.lib.php:423
 #: libraries/mult_submits.lib.php:452
 #: libraries/plugins/export/ExportHtmlword.class.php:630
@@ -191,7 +191,7 @@ msgstr "Nej"
 
 #: db_datadict.php:157 js/messages.php:398 libraries/Index.class.php:520
 #: libraries/Index.class.php:557 libraries/Index.class.php:970
-#: libraries/central_columns.lib.php:836
+#: libraries/central_columns.lib.php:843
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:79
 #: libraries/mult_submits.inc.php:190 libraries/mult_submits.lib.php:359
 #: libraries/mult_submits.lib.php:392 libraries/mult_submits.lib.php:421
@@ -374,7 +374,7 @@ msgid "Status"
 msgstr "Status"
 
 #: db_tracking.php:130 db_tracking.php:288 libraries/Index.class.php:645
-#: libraries/central_columns.lib.php:648 libraries/rte/rte_list.lib.php:53
+#: libraries/central_columns.lib.php:655 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: libraries/server_databases.lib.php:399
 #: libraries/server_privileges.lib.php:2248
@@ -835,11 +835,17 @@ msgid "List of changes"
 msgstr "Lista över ändringar"
 
 #: index.php:447
+#, fuzzy
+#| msgid ""
+#| "Your configuration file contains settings (root with no password) that "
+#| "correspond to the default MySQL privileged account. Your MySQL server is "
+#| "running with this default, is open to intrusion, and you really should "
+#| "fix this security hole by setting a password for user 'root'."
 msgid ""
-"Your configuration file contains settings (root with no password) that "
-"correspond to the default MySQL privileged account. Your MySQL server is "
-"running with this default, is open to intrusion, and you really should fix "
-"this security hole by setting a password for user 'root'."
+"You are connected as 'root' with no password, which corresponds to the "
+"default MySQL privileged account. Your MySQL server is running with this "
+"default, is open to intrusion, and you really should fix this security hole "
+"by setting a password for user 'root'."
 msgstr ""
 "Din konfigurationsfil innehåller inställningar (root-konto utan lösenord) "
 "som motsvarar MySQL:s privilegierade standardkonto.Din MySQL-server körs med "
@@ -1860,7 +1866,7 @@ msgstr "Visa frågerutan"
 #: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3288
 #: libraries/Index.class.php:675 libraries/Util.class.php:665
 #: libraries/Util.class.php:1190 libraries/Util.class.php:3424
-#: libraries/Util.class.php:3425 libraries/central_columns.lib.php:784
+#: libraries/Util.class.php:3425 libraries/central_columns.lib.php:791
 #: libraries/config/messages.inc.php:761
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:233 setup/frames/index.inc.php:179
@@ -2932,7 +2938,7 @@ msgstr "underfråga"
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3359
 #: libraries/DisplayResults.class.php:4686
-#: libraries/central_columns.lib.php:786 libraries/db_designer.lib.php:875
+#: libraries/central_columns.lib.php:793 libraries/db_designer.lib.php:875
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:390 libraries/tracking.lib.php:476
 #: setup/frames/index.inc.php:183 setup/frames/index.inc.php:291
@@ -3356,14 +3362,14 @@ msgid "Restore column order"
 msgstr "Återställ ordningen på kolumner"
 
 #: libraries/DisplayResults.class.php:853
-#: libraries/central_columns.lib.php:624
+#: libraries/central_columns.lib.php:631
 #, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
 msgstr "Filter"
 
 #: libraries/DisplayResults.class.php:855
-#: libraries/central_columns.lib.php:626
+#: libraries/central_columns.lib.php:633
 msgid "Search this table"
 msgstr "Sök i denna tabell"
 
@@ -3676,7 +3682,7 @@ msgstr "Kardinalitet"
 
 #: libraries/Index.class.php:653 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
-#: libraries/central_columns.lib.php:661 libraries/mysql_charsets.lib.php:45
+#: libraries/central_columns.lib.php:668 libraries/mysql_charsets.lib.php:45
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:752
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:851
 #: libraries/structure.lib.php:1296 libraries/structure.lib.php:1836
@@ -4881,15 +4887,15 @@ msgstr ""
 msgid "Could not remove columns!"
 msgstr "Kunde inte ta bort kolumner!"
 
-#: libraries/central_columns.lib.php:529
+#: libraries/central_columns.lib.php:541
 msgid "YES"
 msgstr ""
 
-#: libraries/central_columns.lib.php:529
+#: libraries/central_columns.lib.php:541
 msgid "NO"
 msgstr ""
 
-#: libraries/central_columns.lib.php:655
+#: libraries/central_columns.lib.php:662
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:470
 #: libraries/plugins/export/ExportOdt.class.php:584
@@ -4902,54 +4908,54 @@ msgstr ""
 msgid "Name"
 msgstr "Namn"
 
-#: libraries/central_columns.lib.php:659
+#: libraries/central_columns.lib.php:666
 #: libraries/rte/rte_routines.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:296
 msgid "Length/Values"
 msgstr "Längd/Värden"
 
-#: libraries/central_columns.lib.php:663
+#: libraries/central_columns.lib.php:670
 #, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
 msgstr "Attribut"
 
-#: libraries/central_columns.lib.php:667
+#: libraries/central_columns.lib.php:674
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:997
 #: libraries/structure.lib.php:1300 libraries/tracking.lib.php:882
 msgid "Extra"
 msgstr "Extra"
 
-#: libraries/central_columns.lib.php:688
+#: libraries/central_columns.lib.php:695
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
 msgstr "Välj tabeller"
 
-#: libraries/central_columns.lib.php:742 libraries/structure.lib.php:1689
+#: libraries/central_columns.lib.php:749 libraries/structure.lib.php:1689
 msgid "Add column"
 msgstr "Lägg till kolumn"
 
-#: libraries/central_columns.lib.php:754
+#: libraries/central_columns.lib.php:761
 msgid "Select a column."
 msgstr "Välj en kolumn."
 
-#: libraries/central_columns.lib.php:845 libraries/central_columns.lib.php:958
+#: libraries/central_columns.lib.php:852 libraries/central_columns.lib.php:964
 #, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
 msgstr "Automatisk utökningsstorlek"
 
-#: libraries/central_columns.lib.php:847 libraries/central_columns.lib.php:960
-msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
-
-#: libraries/central_columns.lib.php:924
+#: libraries/central_columns.lib.php:930
 #, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
 msgstr "Lägg till kolumn"
+
+#: libraries/central_columns.lib.php:966
+msgid "on update CURRENT_TIMESTAMP"
+msgstr ""
 
 #: libraries/common.inc.php:579
 msgid "Failed to read configuration file!"
@@ -12005,7 +12011,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-msgid "Requires that a specific cipher method be used for a connection."
+msgid "Requires that specific cipher method is used for a connection."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:778

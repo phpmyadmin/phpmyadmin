@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-04 12:49-0500\n"
+"POT-Creation-Date: 2015-03-06 08:15-0500\n"
 "PO-Revision-Date: 2015-02-21 01:16+0200\n"
 "Last-Translator: Masahiko HISAKAWA <orzkun@ageage.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -32,7 +32,7 @@ msgstr "現在のデータベースのカラムのセントラルリストは空
 msgid "Click to sort."
 msgstr "クリックでソート。"
 
-#: db_central_columns.php:140
+#: db_central_columns.php:149
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "%1$s から %2$s の行の表示。"
@@ -76,7 +76,7 @@ msgid "Column"
 msgstr "カラム"
 
 #: db_datadict.php:104 db_printview.php:50 libraries/Index.class.php:648
-#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:657
+#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:664
 #: libraries/insert_edit.lib.php:245
 #: libraries/plugins/export/ExportHtmlword.class.php:283
 #: libraries/plugins/export/ExportHtmlword.class.php:378
@@ -100,7 +100,7 @@ msgid "Type"
 msgstr "データ型"
 
 #: db_datadict.php:105 libraries/Index.class.php:654
-#: libraries/TableSearch.class.php:1293 libraries/central_columns.lib.php:665
+#: libraries/TableSearch.class.php:1293 libraries/central_columns.lib.php:672
 #: libraries/insert_edit.lib.php:1569
 #: libraries/plugins/export/ExportHtmlword.class.php:286
 #: libraries/plugins/export/ExportHtmlword.class.php:381
@@ -118,7 +118,7 @@ msgstr "データ型"
 msgid "Null"
 msgstr "NULL"
 
-#: db_datadict.php:106 libraries/central_columns.lib.php:669
+#: db_datadict.php:106 libraries/central_columns.lib.php:676
 #: libraries/plugins/export/ExportHtmlword.class.php:289
 #: libraries/plugins/export/ExportHtmlword.class.php:384
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -168,7 +168,7 @@ msgstr "主"
 
 #: db_datadict.php:157 js/messages.php:274 libraries/Index.class.php:519
 #: libraries/Index.class.php:558 libraries/Index.class.php:970
-#: libraries/central_columns.lib.php:836
+#: libraries/central_columns.lib.php:843
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.lib.php:423
 #: libraries/mult_submits.lib.php:452
 #: libraries/plugins/export/ExportHtmlword.class.php:630
@@ -191,7 +191,7 @@ msgstr "いいえ"
 
 #: db_datadict.php:157 js/messages.php:398 libraries/Index.class.php:520
 #: libraries/Index.class.php:557 libraries/Index.class.php:970
-#: libraries/central_columns.lib.php:836
+#: libraries/central_columns.lib.php:843
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:79
 #: libraries/mult_submits.inc.php:190 libraries/mult_submits.lib.php:359
 #: libraries/mult_submits.lib.php:392 libraries/mult_submits.lib.php:421
@@ -372,7 +372,7 @@ msgid "Status"
 msgstr "状態"
 
 #: db_tracking.php:130 db_tracking.php:288 libraries/Index.class.php:645
-#: libraries/central_columns.lib.php:648 libraries/rte/rte_list.lib.php:53
+#: libraries/central_columns.lib.php:655 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: libraries/server_databases.lib.php:399
 #: libraries/server_privileges.lib.php:2248
@@ -828,11 +828,17 @@ msgid "List of changes"
 msgstr "更新履歴"
 
 #: index.php:447
+#, fuzzy
+#| msgid ""
+#| "Your configuration file contains settings (root with no password) that "
+#| "correspond to the default MySQL privileged account. Your MySQL server is "
+#| "running with this default, is open to intrusion, and you really should "
+#| "fix this security hole by setting a password for user 'root'."
 msgid ""
-"Your configuration file contains settings (root with no password) that "
-"correspond to the default MySQL privileged account. Your MySQL server is "
-"running with this default, is open to intrusion, and you really should fix "
-"this security hole by setting a password for user 'root'."
+"You are connected as 'root' with no password, which corresponds to the "
+"default MySQL privileged account. Your MySQL server is running with this "
+"default, is open to intrusion, and you really should fix this security hole "
+"by setting a password for user 'root'."
 msgstr ""
 "お使いの設定ファイルに MySQL のデフォルト特権アカウントに相当する設定 (root "
 "ユーザでパスワード無し) が含まれています。お使いの MySQL サーバはこのデフォル"
@@ -1872,7 +1878,7 @@ msgstr "クエリボックスを表示"
 #: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3288
 #: libraries/Index.class.php:675 libraries/Util.class.php:665
 #: libraries/Util.class.php:1190 libraries/Util.class.php:3424
-#: libraries/Util.class.php:3425 libraries/central_columns.lib.php:784
+#: libraries/Util.class.php:3425 libraries/central_columns.lib.php:791
 #: libraries/config/messages.inc.php:761
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:233 setup/frames/index.inc.php:179
@@ -2944,7 +2950,7 @@ msgstr "サブクエリ"
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3359
 #: libraries/DisplayResults.class.php:4686
-#: libraries/central_columns.lib.php:786 libraries/db_designer.lib.php:875
+#: libraries/central_columns.lib.php:793 libraries/db_designer.lib.php:875
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:390 libraries/tracking.lib.php:476
 #: setup/frames/index.inc.php:183 setup/frames/index.inc.php:291
@@ -3386,14 +3392,14 @@ msgid "Restore column order"
 msgstr "カラムの順番を元に戻す"
 
 #: libraries/DisplayResults.class.php:853
-#: libraries/central_columns.lib.php:624
+#: libraries/central_columns.lib.php:631
 #, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
 msgstr "フィルタ"
 
 #: libraries/DisplayResults.class.php:855
-#: libraries/central_columns.lib.php:626
+#: libraries/central_columns.lib.php:633
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
@@ -3730,7 +3736,7 @@ msgstr "一意な値の数"
 
 #: libraries/Index.class.php:653 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
-#: libraries/central_columns.lib.php:661 libraries/mysql_charsets.lib.php:45
+#: libraries/central_columns.lib.php:668 libraries/mysql_charsets.lib.php:45
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:752
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:851
 #: libraries/structure.lib.php:1296 libraries/structure.lib.php:1836
@@ -4966,15 +4972,15 @@ msgstr ""
 msgid "Could not remove columns!"
 msgstr "最近使用したテーブルが保存できません"
 
-#: libraries/central_columns.lib.php:529
+#: libraries/central_columns.lib.php:541
 msgid "YES"
 msgstr ""
 
-#: libraries/central_columns.lib.php:529
+#: libraries/central_columns.lib.php:541
 msgid "NO"
 msgstr ""
 
-#: libraries/central_columns.lib.php:655
+#: libraries/central_columns.lib.php:662
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:470
 #: libraries/plugins/export/ExportOdt.class.php:584
@@ -4987,56 +4993,56 @@ msgstr ""
 msgid "Name"
 msgstr "名前"
 
-#: libraries/central_columns.lib.php:659
+#: libraries/central_columns.lib.php:666
 #: libraries/rte/rte_routines.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:296
 msgid "Length/Values"
 msgstr "長さ/値"
 
-#: libraries/central_columns.lib.php:663
+#: libraries/central_columns.lib.php:670
 #, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
 msgstr "属性"
 
-#: libraries/central_columns.lib.php:667
+#: libraries/central_columns.lib.php:674
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:997
 #: libraries/structure.lib.php:1300 libraries/tracking.lib.php:882
 msgid "Extra"
 msgstr "その他"
 
-#: libraries/central_columns.lib.php:688
+#: libraries/central_columns.lib.php:695
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
 msgstr "テーブルを選択してください"
 
-#: libraries/central_columns.lib.php:742 libraries/structure.lib.php:1689
+#: libraries/central_columns.lib.php:749 libraries/structure.lib.php:1689
 msgid "Add column"
 msgstr "カラムを追加する"
 
-#: libraries/central_columns.lib.php:754
+#: libraries/central_columns.lib.php:761
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
 msgstr "カラムを 2 つ選択してください"
 
-#: libraries/central_columns.lib.php:845 libraries/central_columns.lib.php:958
+#: libraries/central_columns.lib.php:852 libraries/central_columns.lib.php:964
 #, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
 msgstr "自動拡張時に追加されるテーブルの大きさ"
 
-#: libraries/central_columns.lib.php:847 libraries/central_columns.lib.php:960
-msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
-
-#: libraries/central_columns.lib.php:924
+#: libraries/central_columns.lib.php:930
 #, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
 msgstr "カラムを追加する"
+
+#: libraries/central_columns.lib.php:966
+msgid "on update CURRENT_TIMESTAMP"
+msgstr ""
 
 #: libraries/common.inc.php:579
 #, fuzzy
@@ -12726,7 +12732,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-msgid "Requires that a specific cipher method be used for a connection."
+msgid "Requires that specific cipher method is used for a connection."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:778
