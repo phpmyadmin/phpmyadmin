@@ -1029,15 +1029,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         showMillisec: showMillisec,
                         showMicrosec: showMicrosec,
                         timeFormat: timeFormat,
+                        altField: $input_field, 
                         onSelect: function (dateText, inst) {
-                            $input_field.val(dateText);
                             $input_field.data('comes_from', 'datepicker');
-                        },
-                        onClose: function (dateText, dp_inst) {
-                            // The value is no more from the date picker
-                            $input_field.data('comes_from', '');
+                            $(g.cEdit).find('.null_div input[type=checkbox]').prop('checked', false);
                         }
                     });
+                    $editArea.datetimepicker('setDate',datetime_value);
 
                     if (is_null){
                         $(g.cEdit).find('.edit_area').hide();
@@ -1060,7 +1058,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     $editArea.addClass('edit_area_right');
                     $editArea.css('top','');
                 }
-                if ($editArea.children().length > 0 && !is_null) {
+                if ($editArea.children().length > 0) {
                     $editArea.show();
                 }
             }
