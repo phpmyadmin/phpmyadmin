@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-04 12:50-0500\n"
+"POT-Creation-Date: 2015-03-06 08:15-0500\n"
 "PO-Revision-Date: 2015-01-07 01:02+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Click to sort."
 msgstr "Kliko për të klasifikuar."
 
-#: db_central_columns.php:140
+#: db_central_columns.php:149
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Shfaqën radhët %1$s - %2$s."
@@ -43,7 +43,7 @@ msgstr "Shfaqën radhët %1$s - %2$s."
 msgid "Database %1$s has been created."
 msgstr "Databaza %1$s është krijuar."
 
-#: db_datadict.php:48 libraries/operations.lib.php:32
+#: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment:"
 msgstr "Komenti i databazës:"
 
@@ -77,7 +77,7 @@ msgid "Column"
 msgstr "Kolona"
 
 #: db_datadict.php:104 db_printview.php:50 libraries/Index.class.php:648
-#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:657
+#: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:664
 #: libraries/insert_edit.lib.php:245
 #: libraries/plugins/export/ExportHtmlword.class.php:283
 #: libraries/plugins/export/ExportHtmlword.class.php:378
@@ -101,7 +101,7 @@ msgid "Type"
 msgstr "Tipi"
 
 #: db_datadict.php:105 libraries/Index.class.php:654
-#: libraries/TableSearch.class.php:1293 libraries/central_columns.lib.php:665
+#: libraries/TableSearch.class.php:1293 libraries/central_columns.lib.php:672
 #: libraries/insert_edit.lib.php:1569
 #: libraries/plugins/export/ExportHtmlword.class.php:286
 #: libraries/plugins/export/ExportHtmlword.class.php:381
@@ -119,7 +119,7 @@ msgstr "Tipi"
 msgid "Null"
 msgstr "Null"
 
-#: db_datadict.php:106 libraries/central_columns.lib.php:669
+#: db_datadict.php:106 libraries/central_columns.lib.php:676
 #: libraries/plugins/export/ExportHtmlword.class.php:289
 #: libraries/plugins/export/ExportHtmlword.class.php:384
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -169,7 +169,7 @@ msgstr "Primar"
 
 #: db_datadict.php:157 js/messages.php:274 libraries/Index.class.php:519
 #: libraries/Index.class.php:558 libraries/Index.class.php:970
-#: libraries/central_columns.lib.php:836
+#: libraries/central_columns.lib.php:843
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.lib.php:423
 #: libraries/mult_submits.lib.php:452
 #: libraries/plugins/export/ExportHtmlword.class.php:630
@@ -192,7 +192,7 @@ msgstr "Jo"
 
 #: db_datadict.php:157 js/messages.php:398 libraries/Index.class.php:520
 #: libraries/Index.class.php:557 libraries/Index.class.php:970
-#: libraries/central_columns.lib.php:836
+#: libraries/central_columns.lib.php:843
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:79
 #: libraries/mult_submits.inc.php:190 libraries/mult_submits.lib.php:359
 #: libraries/mult_submits.lib.php:392 libraries/mult_submits.lib.php:421
@@ -369,7 +369,7 @@ msgid "Status"
 msgstr "Statusi"
 
 #: db_tracking.php:130 db_tracking.php:288 libraries/Index.class.php:645
-#: libraries/central_columns.lib.php:648 libraries/rte/rte_list.lib.php:53
+#: libraries/central_columns.lib.php:655 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: libraries/server_databases.lib.php:399
 #: libraries/server_privileges.lib.php:2248
@@ -476,7 +476,7 @@ msgstr "Tip eksporti i pavlefshëm"
 msgid "Value for the column \"%s\""
 msgstr "Vlera për kolonën \"%s\""
 
-#: gis_data_editor.php:146 libraries/tbl_gis_visualization.lib.php:165
+#: gis_data_editor.php:146 libraries/tbl_gis_visualization.lib.php:178
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Përdor OpenStreetMaps si Shtresë Bazë"
 
@@ -552,18 +552,19 @@ msgstr "Shto gjeometri"
 
 #: gis_data_editor.php:409 js/messages.php:254
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1681
-#: libraries/TableSearch.class.php:1238 libraries/browse_foreigners.lib.php:54
-#: libraries/core.lib.php:610 libraries/display_change_password.lib.php:109
+#: libraries/TableSearch.class.php:1238 libraries/Util.class.php:4620
+#: libraries/browse_foreigners.lib.php:54 libraries/core.lib.php:610
+#: libraries/display_change_password.lib.php:109
 #: libraries/display_create_table.lib.php:72
 #: libraries/display_export.lib.php:303 libraries/display_export.lib.php:309
 #: libraries/display_import.lib.php:369 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1539 libraries/insert_edit.lib.php:1576
 #: libraries/normalization.lib.php:148 libraries/normalization.lib.php:785
-#: libraries/operations.lib.php:39 libraries/operations.lib.php:82
-#: libraries/operations.lib.php:210 libraries/operations.lib.php:253
-#: libraries/operations.lib.php:583 libraries/operations.lib.php:636
-#: libraries/operations.lib.php:685 libraries/operations.lib.php:1001
-#: libraries/operations.lib.php:1277
+#: libraries/operations.lib.php:38 libraries/operations.lib.php:81
+#: libraries/operations.lib.php:209 libraries/operations.lib.php:252
+#: libraries/operations.lib.php:582 libraries/operations.lib.php:635
+#: libraries/operations.lib.php:684 libraries/operations.lib.php:1000
+#: libraries/operations.lib.php:1276
 #: libraries/plugins/auth/AuthenticationCookie.class.php:244
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:154
 #: libraries/replication_gui.lib.php:314 libraries/replication_gui.lib.php:451
@@ -579,7 +580,6 @@ msgstr "Shto gjeometri"
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:339 libraries/sql_query_form.lib.php:398
 #: libraries/sql_query_form.lib.php:466 libraries/structure.lib.php:1717
-#: libraries/tbl_chart.lib.php:296
 #: libraries/tbl_columns_definition_form.lib.php:193
 #: libraries/tbl_indexes.lib.php:472 libraries/tracking.lib.php:532
 #: libraries/tracking.lib.php:652 prefs_manage.php:275 prefs_manage.php:353
@@ -829,11 +829,17 @@ msgid "List of changes"
 msgstr "Lista e ndryshimeve"
 
 #: index.php:447
+#, fuzzy
+#| msgid ""
+#| "Your configuration file contains settings (root with no password) that "
+#| "correspond to the default MySQL privileged account. Your MySQL server is "
+#| "running with this default, is open to intrusion, and you really should "
+#| "fix this security hole by setting a password for user 'root'."
 msgid ""
-"Your configuration file contains settings (root with no password) that "
-"correspond to the default MySQL privileged account. Your MySQL server is "
-"running with this default, is open to intrusion, and you really should fix "
-"this security hole by setting a password for user 'root'."
+"You are connected as 'root' with no password, which corresponds to the "
+"default MySQL privileged account. Your MySQL server is running with this "
+"default, is open to intrusion, and you really should fix this security hole "
+"by setting a password for user 'root'."
 msgstr ""
 "Fili i konfigurimit përmban rregullimet (rrënjë - root - pa fjalëkalim), që "
 "korrespondon me llogarinë e parazgjedhur të privilegjeve MySQL. MySQL server "
@@ -1850,7 +1856,7 @@ msgstr "Shfaq kutinë e pyetsorit"
 #: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3288
 #: libraries/Index.class.php:675 libraries/Util.class.php:665
 #: libraries/Util.class.php:1190 libraries/Util.class.php:3424
-#: libraries/Util.class.php:3425 libraries/central_columns.lib.php:784
+#: libraries/Util.class.php:3425 libraries/central_columns.lib.php:791
 #: libraries/config/messages.inc.php:761
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:233 setup/frames/index.inc.php:179
@@ -2019,7 +2025,7 @@ msgstr "Nuk janë zgjedhur varësi!"
 #: js/messages.php:348 libraries/insert_edit.lib.php:1452
 #: libraries/server_variables.lib.php:155
 #: libraries/tbl_columns_definition_form.lib.php:160
-#: libraries/tbl_gis_visualization.lib.php:238
+#: libraries/tbl_gis_visualization.lib.php:249
 #: libraries/tbl_relation.lib.php:652 setup/frames/config.inc.php:42
 #: setup/frames/index.inc.php:279
 msgid "Save"
@@ -2887,7 +2893,7 @@ msgstr "Requery (kërkesë)"
 #: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3359
 #: libraries/DisplayResults.class.php:4686
-#: libraries/central_columns.lib.php:786 libraries/db_designer.lib.php:875
+#: libraries/central_columns.lib.php:793 libraries/db_designer.lib.php:875
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:390 libraries/tracking.lib.php:476
 #: setup/frames/index.inc.php:183 setup/frames/index.inc.php:291
@@ -3060,7 +3066,7 @@ msgstr "Shfaq pyetsorin aktual të shfletimit"
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
 #: libraries/DisplayResults.class.php:2139
 #: libraries/DisplayResults.class.php:2145 libraries/TableSearch.class.php:847
-#: libraries/config.values.php:70 libraries/operations.lib.php:576
+#: libraries/config.values.php:70 libraries/operations.lib.php:575
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
 #: libraries/server_status_processes.lib.php:185
@@ -3071,7 +3077,7 @@ msgstr "Ngritëse"
 #: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1364
 #: libraries/DisplayResults.class.php:2135
 #: libraries/DisplayResults.class.php:2149 libraries/TableSearch.class.php:848
-#: libraries/config.values.php:71 libraries/operations.lib.php:579
+#: libraries/config.values.php:71 libraries/operations.lib.php:578
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
 #: libraries/server_status_processes.lib.php:182
@@ -3276,12 +3282,12 @@ msgid "Restore column order"
 msgstr "Rivendos renditjen e kolonës"
 
 #: libraries/DisplayResults.class.php:853
-#: libraries/central_columns.lib.php:624
+#: libraries/central_columns.lib.php:631
 msgid "Filter rows"
 msgstr "Radhët e filterit"
 
 #: libraries/DisplayResults.class.php:855
-#: libraries/central_columns.lib.php:626
+#: libraries/central_columns.lib.php:633
 msgid "Search this table"
 msgstr "Kërko këtë tabelë"
 
@@ -3315,8 +3321,8 @@ msgstr "Fund"
 msgid "All"
 msgstr "Të gjithë"
 
-#: libraries/DisplayResults.class.php:1035
-#: libraries/display_export.lib.php:338 libraries/tbl_chart.lib.php:290
+#: libraries/DisplayResults.class.php:1035 libraries/Util.class.php:4614
+#: libraries/display_export.lib.php:338
 msgid "Number of rows:"
 msgstr "Numri i radhëve:"
 
@@ -3465,7 +3471,7 @@ msgstr "Shfaq printimin"
 msgid "Print view (with full texts)"
 msgstr "Shfaq printimin (me tekste të plota)"
 
-#: libraries/DisplayResults.class.php:4999 libraries/tbl_chart.lib.php:351
+#: libraries/DisplayResults.class.php:4999 libraries/tbl_chart.lib.php:319
 msgid "Display chart"
 msgstr "Shfaq grafikun"
 
@@ -3594,8 +3600,8 @@ msgstr "Kardinaliteti"
 
 #: libraries/Index.class.php:653 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:22
-#: libraries/central_columns.lib.php:661 libraries/mysql_charsets.lib.php:45
-#: libraries/operations.lib.php:240 libraries/operations.lib.php:752
+#: libraries/central_columns.lib.php:668 libraries/mysql_charsets.lib.php:45
+#: libraries/operations.lib.php:239 libraries/operations.lib.php:751
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:851
 #: libraries/structure.lib.php:1296 libraries/structure.lib.php:1836
 #: libraries/tbl_columns_definition_form.lib.php:313
@@ -4717,6 +4723,10 @@ msgstr "Aktualizimi i fundit"
 msgid "Last check"
 msgstr "Kontrolli i fundi"
 
+#: libraries/Util.class.php:4597
+msgid "Start row:"
+msgstr "Radha e fillimit:"
+
 #: libraries/browse_foreigners.lib.php:48
 msgid "Search:"
 msgstr "Kërko:"
@@ -4802,15 +4812,15 @@ msgstr ""
 msgid "Could not remove columns!"
 msgstr "Nuk mund të largojë kolonat!"
 
-#: libraries/central_columns.lib.php:529
+#: libraries/central_columns.lib.php:541
 msgid "YES"
 msgstr "PO"
 
-#: libraries/central_columns.lib.php:529
+#: libraries/central_columns.lib.php:541
 msgid "NO"
 msgstr "JO"
 
-#: libraries/central_columns.lib.php:655
+#: libraries/central_columns.lib.php:662
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:470
 #: libraries/plugins/export/ExportOdt.class.php:584
@@ -4823,48 +4833,48 @@ msgstr "JO"
 msgid "Name"
 msgstr "Emri"
 
-#: libraries/central_columns.lib.php:659
+#: libraries/central_columns.lib.php:666
 #: libraries/rte/rte_routines.lib.php:991
 #: libraries/tbl_columns_definition_form.lib.php:296
 msgid "Length/Values"
 msgstr "Gjatësia/Vlerat"
 
-#: libraries/central_columns.lib.php:663
+#: libraries/central_columns.lib.php:670
 #, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
 msgstr "Atributet"
 
-#: libraries/central_columns.lib.php:667
+#: libraries/central_columns.lib.php:674
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:997
 #: libraries/structure.lib.php:1300 libraries/tracking.lib.php:882
 msgid "Extra"
 msgstr "Ekstra"
 
-#: libraries/central_columns.lib.php:688
+#: libraries/central_columns.lib.php:695
 msgid "Select a table"
 msgstr "Zgjedh një tabelë"
 
-#: libraries/central_columns.lib.php:742 libraries/structure.lib.php:1689
+#: libraries/central_columns.lib.php:749 libraries/structure.lib.php:1689
 msgid "Add column"
 msgstr "Shto kolonë"
 
-#: libraries/central_columns.lib.php:754
+#: libraries/central_columns.lib.php:761
 msgid "Select a column."
 msgstr "Zgjedh një kolonë."
 
-#: libraries/central_columns.lib.php:845 libraries/central_columns.lib.php:958
+#: libraries/central_columns.lib.php:852 libraries/central_columns.lib.php:964
 msgid "auto_increment"
 msgstr "auto_increment"
 
-#: libraries/central_columns.lib.php:847 libraries/central_columns.lib.php:960
-msgid "on update CURRENT_TIMESTAMP"
-msgstr "në aktualizim CURRENT_TIMESTAMP"
-
-#: libraries/central_columns.lib.php:924
+#: libraries/central_columns.lib.php:930
 msgid "Add new column"
 msgstr "Shto kolonë të re"
+
+#: libraries/central_columns.lib.php:966
+msgid "on update CURRENT_TIMESTAMP"
+msgstr "në aktualizim CURRENT_TIMESTAMP"
 
 #: libraries/common.inc.php:579
 msgid "Failed to read configuration file!"
@@ -5760,8 +5770,8 @@ msgstr "Mbishkruaj filin(et) ekzistues"
 msgid "Remember file name template"
 msgstr "Kujto modelin e emrit të filit"
 
-#: libraries/config/messages.inc.php:161 libraries/operations.lib.php:195
-#: libraries/operations.lib.php:631 libraries/operations.lib.php:974
+#: libraries/config/messages.inc.php:161 libraries/operations.lib.php:194
+#: libraries/operations.lib.php:630 libraries/operations.lib.php:973
 msgid "Add AUTO_INCREMENT value"
 msgstr "Shto vlerën AUTO_INCREMENT"
 
@@ -5801,8 +5811,8 @@ msgstr "Eksporto pamjet si tabela"
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:173
 #: libraries/config/messages.inc.php:174 libraries/config/messages.inc.php:175
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:179
-#: libraries/config/messages.inc.php:186 libraries/operations.lib.php:190
-#: libraries/operations.lib.php:970
+#: libraries/config/messages.inc.php:186 libraries/operations.lib.php:189
+#: libraries/operations.lib.php:969
 #, php-format
 msgid "Add %s"
 msgstr "Shto %s"
@@ -9589,192 +9599,192 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr "Nuk gjenden varësi të pjesëshme!"
 
-#: libraries/operations.lib.php:75
+#: libraries/operations.lib.php:74
 msgid "Rename database to:"
 msgstr "Riemëro databazën në:"
 
-#: libraries/operations.lib.php:107
+#: libraries/operations.lib.php:106
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "Databaza %s është fshirë."
 
-#: libraries/operations.lib.php:119
+#: libraries/operations.lib.php:118
 msgid "Remove database"
 msgstr "Largo databazën"
 
-#: libraries/operations.lib.php:125
+#: libraries/operations.lib.php:124
 msgid "Drop the database (DROP)"
 msgstr "Fshij databazën (DROP)"
 
-#: libraries/operations.lib.php:145 libraries/operations.lib.php:959
+#: libraries/operations.lib.php:144 libraries/operations.lib.php:958
 #: libraries/tracking.lib.php:517
 msgid "Structure only"
 msgstr "Struktura vetëm"
 
-#: libraries/operations.lib.php:146 libraries/operations.lib.php:960
+#: libraries/operations.lib.php:145 libraries/operations.lib.php:959
 #: libraries/tracking.lib.php:523
 msgid "Structure and data"
 msgstr "Struktura dhe të dhënat"
 
-#: libraries/operations.lib.php:147 libraries/operations.lib.php:961
+#: libraries/operations.lib.php:146 libraries/operations.lib.php:960
 #: libraries/tracking.lib.php:520
 msgid "Data only"
 msgstr "Vetëm të dhënat"
 
-#: libraries/operations.lib.php:175
+#: libraries/operations.lib.php:174
 msgid "Copy database to:"
 msgstr "Kopjo databazën në:"
 
-#: libraries/operations.lib.php:186
+#: libraries/operations.lib.php:185
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE para kopjimit"
 
-#: libraries/operations.lib.php:199 libraries/operations.lib.php:982
+#: libraries/operations.lib.php:198 libraries/operations.lib.php:981
 msgid "Add constraints"
 msgstr "Shto detyrime"
 
-#: libraries/operations.lib.php:207
+#: libraries/operations.lib.php:206
 msgid "Switch to copied database"
 msgstr "Kalo në databazën e kopjuar"
 
-#: libraries/operations.lib.php:564
+#: libraries/operations.lib.php:563
 msgid "Alter table order by"
 msgstr "Alternon renditjen e tabelës sipas"
 
-#: libraries/operations.lib.php:572
+#: libraries/operations.lib.php:571
 msgid "(singly)"
 msgstr "(vetëm)"
 
-#: libraries/operations.lib.php:608
+#: libraries/operations.lib.php:607
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Lëviz tabelën tek (databaza<b>.</b>tabela):"
 
-#: libraries/operations.lib.php:719
+#: libraries/operations.lib.php:718
 msgid "Table options"
 msgstr "Opsionet e tabelës"
 
-#: libraries/operations.lib.php:723
+#: libraries/operations.lib.php:722
 msgid "Rename table to"
 msgstr "Riemëro tabelën në"
 
-#: libraries/operations.lib.php:732
+#: libraries/operations.lib.php:731
 msgid "Table comments"
 msgstr "Komentet e tabelës"
 
-#: libraries/operations.lib.php:741 libraries/server_engines.lib.php:49
+#: libraries/operations.lib.php:740 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
 msgstr "Makinat e ruajtjes"
 
-#: libraries/operations.lib.php:942
+#: libraries/operations.lib.php:941
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Kopjo tabelën tek (databaza<b>.</b>tabela):"
 
-#: libraries/operations.lib.php:997
+#: libraries/operations.lib.php:996
 msgid "Switch to copied table"
 msgstr "Kalo tek tabela e kopjuar"
 
-#: libraries/operations.lib.php:1024
+#: libraries/operations.lib.php:1023
 msgid "Table maintenance"
 msgstr "Mirëmbajta e tabelës"
 
-#: libraries/operations.lib.php:1062 libraries/structure.lib.php:330
+#: libraries/operations.lib.php:1061 libraries/structure.lib.php:330
 msgid "Check table"
 msgstr "Kontrollo tabelën"
 
-#: libraries/operations.lib.php:1075
+#: libraries/operations.lib.php:1074
 msgid "Defragment table"
 msgstr "Tabela e defragmentimit"
 
-#: libraries/operations.lib.php:1088 libraries/structure.lib.php:338
+#: libraries/operations.lib.php:1087 libraries/structure.lib.php:338
 msgid "Analyze table"
 msgstr "Tabela e analizës"
 
-#: libraries/operations.lib.php:1101 libraries/structure.lib.php:335
+#: libraries/operations.lib.php:1100 libraries/structure.lib.php:335
 msgid "Repair table"
 msgstr "Riparo tabelën"
 
-#: libraries/operations.lib.php:1116 libraries/structure.lib.php:333
+#: libraries/operations.lib.php:1115 libraries/structure.lib.php:333
 #: libraries/structure.lib.php:1760
 msgid "Optimize table"
 msgstr "Optimizo tabelë"
 
-#: libraries/operations.lib.php:1128
+#: libraries/operations.lib.php:1127
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "Tabela %s është pastruar."
 
-#: libraries/operations.lib.php:1135
+#: libraries/operations.lib.php:1134
 msgid "Flush the table (FLUSH)"
 msgstr "Zbraz tabelën (FLUSH)"
 
-#: libraries/operations.lib.php:1180 view_operations.php:127
+#: libraries/operations.lib.php:1179 view_operations.php:127
 msgid "Delete data or table"
 msgstr "Fshij të dhënat ose tabelat"
 
-#: libraries/operations.lib.php:1188
+#: libraries/operations.lib.php:1187
 msgid "Empty the table (TRUNCATE)"
 msgstr "Zbraz tabelën (TRUNCATE)"
 
-#: libraries/operations.lib.php:1196
+#: libraries/operations.lib.php:1195
 msgid "Delete the table (DROP)"
 msgstr "Fshij tabelën (DROP)"
 
-#: libraries/operations.lib.php:1236
+#: libraries/operations.lib.php:1235
 msgid "Analyze"
 msgstr "Analizë"
 
-#: libraries/operations.lib.php:1237
+#: libraries/operations.lib.php:1236
 msgid "Check"
 msgstr "Kontrollo"
 
-#: libraries/operations.lib.php:1238
+#: libraries/operations.lib.php:1237
 msgid "Optimize"
 msgstr "Optimizo"
 
-#: libraries/operations.lib.php:1239
+#: libraries/operations.lib.php:1238
 msgid "Rebuild"
 msgstr "Rindërto"
 
-#: libraries/operations.lib.php:1240
+#: libraries/operations.lib.php:1239
 msgid "Repair"
 msgstr "Riparo"
 
-#: libraries/operations.lib.php:1247
+#: libraries/operations.lib.php:1246
 msgid "Partition maintenance"
 msgstr "Mirëmbajtja e pjesës"
 
-#: libraries/operations.lib.php:1256
+#: libraries/operations.lib.php:1255
 #, php-format
 msgid "Partition %s"
 msgstr "Pjesa %s"
 
-#: libraries/operations.lib.php:1272
+#: libraries/operations.lib.php:1271
 msgid "Remove partitioning"
 msgstr "Largo particionimin"
 
-#: libraries/operations.lib.php:1298
+#: libraries/operations.lib.php:1297
 msgid "Check referential integrity:"
 msgstr "Kontrollo integritetin referencial:"
 
-#: libraries/operations.lib.php:1583
+#: libraries/operations.lib.php:1582
 msgid "Can't move table to same one!"
 msgstr "Nuk mund t'i lëvizë tabelat tek vetvetja!"
 
-#: libraries/operations.lib.php:1585
+#: libraries/operations.lib.php:1584
 msgid "Can't copy table to same one!"
 msgstr "Nuk mund ta kopjojë tabelën tek vetvetja!"
 
-#: libraries/operations.lib.php:1595
+#: libraries/operations.lib.php:1594
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabela %s ka lëvizur tek %s."
 
-#: libraries/operations.lib.php:1599
+#: libraries/operations.lib.php:1598
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabela %s është kopjuar tek %s."
 
-#: libraries/operations.lib.php:1619
+#: libraries/operations.lib.php:1618
 msgid "The table name is empty!"
 msgstr "Emri i tabelës është i zbrazët!"
 
@@ -11628,7 +11638,7 @@ msgstr "Nuk ka ngjarje me emrin %1$s që gjendet në databazë %2$s"
 msgid "There are no events to display."
 msgstr "Nuk ka ngjarje për t'u shfaqur."
 
-#: libraries/select_lang.lib.php:613
+#: libraries/select_lang.lib.php:614
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -11923,7 +11933,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-msgid "Requires that a specific cipher method be used for a connection."
+msgid "Requires that specific cipher method is used for a connection."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:778
@@ -13920,14 +13930,10 @@ msgid "Value column:"
 msgstr "Vlerëso kolonën:"
 
 #: libraries/tbl_chart.lib.php:286
-msgid "Start row:"
-msgstr "Radha e fillimit:"
-
-#: libraries/tbl_chart.lib.php:318
 msgid "Save chart as image"
 msgstr "Ruaj grafikun si imazh"
 
-#: libraries/tbl_chart.lib.php:357
+#: libraries/tbl_chart.lib.php:325
 msgid "Chart title"
 msgstr "Titull grafiku"
 
@@ -14042,23 +14048,23 @@ msgstr "Asnjë"
 msgid "As defined:"
 msgstr "Si e përcaktuar:"
 
-#: libraries/tbl_gis_visualization.lib.php:65
+#: libraries/tbl_gis_visualization.lib.php:78
 msgid "No data found for GIS visualization."
 msgstr "Nuk gjenden të dhëna për vizualizimin GIS."
 
-#: libraries/tbl_gis_visualization.lib.php:129
+#: libraries/tbl_gis_visualization.lib.php:142
 msgid "Label column"
 msgstr "Kolona e etiketës"
 
-#: libraries/tbl_gis_visualization.lib.php:129
+#: libraries/tbl_gis_visualization.lib.php:142
 msgid "Spatial column"
 msgstr "Kolonë spaciale"
 
-#: libraries/tbl_gis_visualization.lib.php:136
+#: libraries/tbl_gis_visualization.lib.php:149
 msgid "-- None --"
 msgstr "-- Asnjë --"
 
-#: libraries/tbl_gis_visualization.lib.php:211
+#: libraries/tbl_gis_visualization.lib.php:224
 msgid "Display GIS Visualization"
 msgstr "Shfaq vizualizimin GIS"
 
