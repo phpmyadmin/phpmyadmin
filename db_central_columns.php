@@ -117,17 +117,26 @@ $result = PMA_getColumnsList($db, $pos, $max_rows);
 $odd_row = false;
 $row_num=0;
 foreach ($result as $row) {
-    if (is_object(json_decode($row['col_extra']))) {
-        //Decode the json data of col_extra to col_extra and col_attribute
-        $row['col_extra'] = json_decode($row['col_extra'], true);
+    $vals = explode(',', $row['col_extra']);
+
+    if (in_array('BINARY', $vals)) {
+        $row['col_attribute'] = 'BINARY';
+    } elseif (in_array('UNSIGNED', $vals)) {
+        $row['col_attribute'] = 'UNSIGNED';
+    } elseif (in_array('UNSIGNED ZEROFILL', $vals)) {
+        $row['col_attribute'] = 'UNSIGNED ZEROFILL';
+    } elseif (in_array('on update CURRENT_TIMESTAMP', $vals)) {
+        $row['col_attribute'] = 'on update CURRENT_TIMESTAMP';
     } else {
-        //it is not json string [FOR the case to handle previous inserted value]
-        //like extra column having only increment value,then to deal with it
-        $row['col_extra'] = array(
-            "col_extra" => $row['col_extra'],
-            "col_attribute" => ""
-        );
+        $row['col_attribute'] = '';
     }
+
+    if (in_array('auto_increment', $vals)) {
+        $row['col_extra'] = 'auto_increment';
+    } else {
+        $row['col_extra'] = '';
+    }
+
     $tableHtmlRow = PMA_getHTMLforCentralColumnsTableRow(
         $row, $odd_row, $row_num, $db
     );
