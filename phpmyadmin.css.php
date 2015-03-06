@@ -29,4 +29,3 @@ header('Content-Type: text/css; charset=UTF-8');
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
 $_SESSION['PMA_Theme_Manager']->printCss();
-?>

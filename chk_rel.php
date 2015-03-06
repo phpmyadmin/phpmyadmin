@@ -23,5 +23,3 @@ $response = PMA_Response::getInstance();
 $response->addHTML(
     PMA_getRelationsParamDiagnostic($cfgRelation)
 );
-
-?>

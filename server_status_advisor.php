@@ -35,5 +35,3 @@ $response->addHTML(PMA_getHtmlForAdvisor());
 $response->addHTML('</div>');
 
 exit;
-
-?>

@@ -346,5 +346,3 @@ if (count($data['ddlog']) > 0) {
     }
     echo PMA_Util::getMessage(__('Database Log'), $log);
 }
-
-?>

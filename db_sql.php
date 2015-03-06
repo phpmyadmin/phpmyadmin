@@ -41,5 +41,3 @@ $response->addHTML(
         : ';'
     )
 );
-
-?>

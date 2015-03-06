@@ -759,4 +759,3 @@ if ($go_sql) {
 if (isset($_REQUEST['rollback_query'])) {
     $GLOBALS['dbi']->query('ROLLBACK');
 }
-?>

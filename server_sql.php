@@ -28,5 +28,3 @@ require_once 'libraries/sql_query_form.lib.php';
  * Query box, bookmark, insert data from textfile
  */
 $response->addHTML(PMA_getHtmlForSqlQueryForm());
-
-?>

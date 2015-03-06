@@ -111,5 +111,3 @@ $html = PMA_getHtmlForGisVisualization(
 );
 
 $response->addHTML($html);
-
-?>

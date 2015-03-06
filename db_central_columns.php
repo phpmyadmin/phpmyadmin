@@ -142,4 +142,3 @@ $message = PMA_Message::success(
 if (isset($tmp_msg) && $tmp_msg !== true) {
     $message = $tmp_msg;
 }
-?>

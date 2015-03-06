@@ -287,5 +287,3 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
         PMA_DatabaseInterface::QUERY_STORE
     );
 } // end if
-
-?>

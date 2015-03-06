@@ -121,4 +121,3 @@ if ($abort == false) {
     $action = 'tbl_addfield.php';
     include_once 'libraries/tbl_columns_definition_form.inc.php';
 }
-?>

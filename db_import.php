@@ -21,5 +21,3 @@ require 'libraries/db_info.inc.php';
 
 $import_type = 'database';
 require 'libraries/display_import.inc.php';
-
-?>

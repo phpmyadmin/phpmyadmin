@@ -52,4 +52,3 @@ PMA_downloadHeader(
     /*overload*/mb_strlen($result)
 );
 echo $result;
-?>

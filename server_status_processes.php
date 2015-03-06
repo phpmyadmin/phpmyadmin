@@ -61,4 +61,3 @@ if ($response->isAjax() && !empty($_REQUEST['kill'])) {
     $response->addHTML('</div>');
 }
 exit;
-?>
