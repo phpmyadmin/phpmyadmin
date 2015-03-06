@@ -639,7 +639,7 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
  */
 function PMA_getHtmlForCommonFormHeader($db, $table)
 {
-    return '<form method="post" action="tbl_relation.php">' . "\n"
+    return '<form method="post" action="tbl_relation.php" class="lock-page">' . "\n"
     . PMA_URL_getHiddenInputs($db, $table);
 }
 
