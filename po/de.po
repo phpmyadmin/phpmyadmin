@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-01 06:38-0500\n"
-"PO-Revision-Date: 2015-03-03 12:41+0200\n"
-"Last-Translator: cybot <pma@sebastianmendel.de>\n"
+"PO-Revision-Date: 2015-03-06 10:19+0200\n"
+"Last-Translator: Matthias Bluthardt <matthias@bluthardt.org>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
@@ -1029,10 +1029,9 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Möchten Sie die wirklich die ausgewählten Benutzer löschen?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Möchten Sie dieses Lesezeichen wirklich löschen?"
+msgstr "Wollen Sie diese zentrale Spalte wirklich löschen?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -1865,7 +1864,7 @@ msgstr "Fremdschlüsselwerte ansehen"
 
 #: js/messages.php:308
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Keine automatisch gespeicherte Abfrage"
 
 #: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -2157,6 +2156,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Zeigt an, dass Sie Änderungen an dieser Seite vorgenommen haben; Sie werden "
+"um Bestätigung gebeten, bevor die Änderungen verworfen werden"
 
 #: js/messages.php:409
 msgid "Select referenced key"
@@ -2401,6 +2402,8 @@ msgstr "Verknüpfung mit Hauptpanel aufheben"
 #: js/messages.php:487
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Enter nach dem Suchbegriff drücken, um alle Datenbanken auf dem Server zu "
+"filtern"
 
 #: js/messages.php:488
 #, php-format
@@ -4135,10 +4138,9 @@ msgid "Table search"
 msgstr "Tabellensuche"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
-msgstr "Suche"
+msgstr "Suche zoomen"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
 #, fuzzy
@@ -13809,10 +13811,9 @@ msgid "Improve table structure"
 msgstr "Tabellenstruktur verbessern"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Tabelle verfolgen"
+msgstr "Verfolge Ansicht"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
