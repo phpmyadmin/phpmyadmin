@@ -45,6 +45,10 @@ class PMA_TblChartTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['ShowHint'] = true;
 
+        $_REQUEST['unlim_num_rows'] = 100;
+        $_REQUEST['pos'] = 0;
+        $_REQUEST['session_max_rows'] = 25;
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
