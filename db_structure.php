@@ -235,11 +235,12 @@ foreach ($tables as $keyname => $current_table) {
      * I could have used the PHP ternary conditional operator but I find
      * the code easier to read without this operator.
      */
-    list($browse_table, $search_table, $browse_table_label, $empty_table,
-        $tracking_icon) = PMA_getHtmlForActionLinks(
-            $current_table, $table_is_view, $tbl_url_query,
-            $titles, $truename, $db_is_system_schema, $url_query
-        );
+    list($browse_table, $search_table, $browse_table_label,
+        $empty_table, $tracking_icon
+    ) = PMA_getHtmlForActionLinks(
+        $current_table, $table_is_view, $tbl_url_query,
+        $titles, $truename, $db_is_system_schema, $url_query
+    );
 
     if (! $db_is_system_schema) {
         list($drop_query, $drop_message)

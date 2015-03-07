@@ -102,7 +102,7 @@ if (! isset($goto)) {
 $err_url   = $goto . PMA_URL_getCommon(array('db' => $db, 'table' => $table));
 
 //Set default datalabel if not selected
-if ( !isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
+if (!isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
     $dataLabel = PMA_getDisplayField($db, $table);
 } else {
     $dataLabel = $_POST['dataLabel'];
