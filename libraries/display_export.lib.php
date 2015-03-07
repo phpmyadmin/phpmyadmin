@@ -601,6 +601,17 @@ function PMA_getHtmlForExportOptionsOutputCompression()
         }
         $html .= '</select>';
         $html .= '</li>';
+        if ($is_zip) {
+            $html .= '<li><input type="checkbox" ';
+            $html .= 'id="btn_multiple_files" name="multiple_files" value="yes" ';
+            if ($selected_compression != "zip") {
+                $html .= 'disabled="disabled"';
+            }
+            $html .= '/>';
+            $html .= '<label for="btn_multiple_files">';
+            $html .= __('Export each table in different files (zip support only)');
+            $html .= '</label></li>';
+        }
     } else {
         $html .= '<input type="hidden" name="compression" value="'
             . htmlspecialchars($selected_compression) . '" />';

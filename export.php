@@ -58,6 +58,7 @@ if (!defined('TESTSUITE')) {
             'remember_template',
             'charset_of_file',
             'compression',
+            'multiple_files',
             'knjenc',
             'xkana',
             'htmlword_structure_or_data',
@@ -202,6 +203,7 @@ if (!defined('TESTSUITE')) {
     $onserver = false;
     $save_on_server = false;
     $buffer_needed = false;
+    $multiple_files = false;
     $back_button = '';
     $save_filename = '';
     $file_handle = '';
@@ -222,6 +224,12 @@ if (!defined('TESTSUITE')) {
         if (in_array($_REQUEST['compression'], $compression_methods)) {
             $compression = $_REQUEST['compression'];
             $buffer_needed = true;
+            if ($compression == 'zip') {
+                // only 'zip' supports export as multiple files
+                if ($_REQUEST['multiple_files'] == 'yes') {
+                    $multiple_files = true;
+                }
+            }
         }
         if (($quick_export && ! empty($_REQUEST['quick_export_onserver']))
             || (! $quick_export && ! empty($_REQUEST['onserver']))
@@ -284,9 +292,13 @@ if (!defined('TESTSUITE')) {
         @ini_set('memory_limit', $cfg['MemoryLimit']);
     }
     register_shutdown_function('PMA_shutdownDuringExport');
+
     // Start with empty buffer
     $dump_buffer = '';
     $dump_buffer_len = 0;
+
+    // We also start with an empty list of buffers (used in multi-file exports).
+    $dump_buffers_list = array();
 
     // We send fake headers to avoid browser timeout when buffering
     $time_start = time();
@@ -377,8 +389,10 @@ if (!defined('TESTSUITE')) {
     do {
 
         // Add possibly some comments to export
-        if (! $export_plugin->exportHeader($db)) {
-            break;
+        if (! $multiple_files) {
+            if (! $export_plugin->exportHeader($db)) {
+                break;
+            }
         }
 
         // Will we need relation & co. setup?
@@ -408,13 +422,13 @@ if (!defined('TESTSUITE')) {
             PMA_exportServer(
                 $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
                 $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                $aliases
+                $aliases, $multiple_files
             );
         } elseif ($export_type == 'database') {
             PMA_exportDatabase(
                 $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
                 $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                $aliases
+                $aliases, $multiple_files
             );
         } else {
             // We export just one table
@@ -460,8 +474,13 @@ if (!defined('TESTSUITE')) {
 
         // Compression needed?
         if ($compression) {
-            $dump_buffer
-                = PMA_compressExport($dump_buffer, $compression, $filename);
+            if ($multiple_files) {
+                $dump_buffer
+                   = PMA_compressExport($dump_buffers_list, $compression, $filename);
+            } else {
+                $dump_buffer
+                   = PMA_compressExport($dump_buffer, $compression, $filename);
+            }
         }
 
         /* If we saved on server, we have to close file now */
