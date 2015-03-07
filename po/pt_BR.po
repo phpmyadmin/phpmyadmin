@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-05 17:28+0200\n"
-"Last-Translator: Douglas Rafael Morais Kollar <douglas.kollar@pg.df.gov.br>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2015-03-07 15:36+0200\n"
+"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -14132,10 +14132,9 @@ msgid "Comment:"
 msgstr "Cometário:"
 
 #: libraries/tbl_indexes.lib.php:392 libraries/tbl_indexes.lib.php:429
-#, fuzzy
 #| msgid "Drag to reorder."
 msgid "Drag to reorder"
-msgstr "Arrastar para reordenar"
+msgstr "Arraste para reordenar"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
