@@ -756,7 +756,7 @@ function PMA_getHtmlForRequires($row)
     $html_output .= '<label for="text_ssl_cipher">'
         . '<code><dfn title="'
         . __(
-            'Requires that specific cipher method is used for a connection.'
+            'Requires that a specific cipher method be used for a connection.'
         )
         . '">'
         . 'REQUIRE CIPHER'
@@ -765,7 +765,7 @@ function PMA_getHtmlForRequires($row)
         . 'value="' . (isset($row['ssl_cipher']) ? $row['ssl_cipher'] : '') . '" '
         . 'size=80" title="'
         . __(
-            'Requires that specific cipher method is used for a connection.'
+            'Requires that a specific cipher method be used for a connection.'
         )
         . '" />';
     $html_output .= '</div>';
