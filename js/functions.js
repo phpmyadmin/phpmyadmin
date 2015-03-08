@@ -2938,11 +2938,11 @@ function autoPopulate(input_id, offset)
         $('#' + input_id + '4').next().next().hide();
     }
     $('#' + input_id + '5').val(central_column_list[db + '_' + table][offset].col_collation);
-    $('#' + input_id + '6').val(central_column_list[db + '_' + table][offset].col_attribute);
-    if(central_column_list[db + '_' + table][offset].col_extra === 'on update CURRENT_TIMESTAMP') {
-        $('#' + input_id + '6').val(central_column_list[db + '_' + table][offset].col_extra);
+    $('#' + input_id + '6').val(central_column_list[db + '_' + table][offset].attribute);
+    if(central_column_list[db + '_' + table][offset].extra === 'on update CURRENT_TIMESTAMP') {
+        $('#' + input_id + '6').val(central_column_list[db + '_' + table][offset].extra);
     }
-    if(central_column_list[db + '_' + table][offset].col_extra.toUpperCase() === 'AUTO_INCREMENT') {
+    if(central_column_list[db + '_' + table][offset].extra.toUpperCase() === 'AUTO_INCREMENT') {
         $('#' + input_id + '9').prop("checked",true).change();
     } else {
         $('#' + input_id + '9').prop("checked",false);
@@ -3155,18 +3155,20 @@ AJAX.registerOnload('functions.js', function () {
         var list_size = central_column_list[db + '_' + table].length;
         var min = (list_size <= maxRows) ? list_size : maxRows;
         for (i = 0; i < min; i++) {
-
+            var splitExtraColumn = central_column_list[db + '_' + table][i].col_extra.split(',');
+            central_column_list[db + '_' + table][i].extra = splitExtraColumn[0];
+            central_column_list[db + '_' + table][i].attribute = splitExtraColumn[1];
             fields += '<tr><td><div><span style="font-size:14px; font-weight:bold">' +
                 escapeHtml(central_column_list[db + '_' + table][i].col_name) +
                 '</span><br><span style="color:gray">' + central_column_list[db + '_' + table][i].col_type;
 
-            if (central_column_list[db + '_' + table][i].col_attribute !== '') {
-                fields += '(' + escapeHtml(central_column_list[db + '_' + table][i].col_attribute) + ') ';
+            if (central_column_list[db + '_' + table][i].attribute !== '' && central_column_list[db + '_' + table][i].attribute) {
+                fields += '(' + escapeHtml(central_column_list[db + '_' + table][i].attribute) + ') ';
             }
             if (central_column_list[db + '_' + table][i].col_length !== '') {
                 fields += '(' + escapeHtml(central_column_list[db + '_' + table][i].col_length) +') ';
             }
-            fields += escapeHtml(central_column_list[db + '_' + table][i].col_extra) + '</span>' +
+            fields += escapeHtml(central_column_list[db + '_' + table][i].extra) + '</span>' +
                 '</div></td>';
             if (pick) {
                 fields += '<td><input class="pick" style="width:100%" type="submit" value="' +
@@ -3218,19 +3220,21 @@ AJAX.registerOnload('functions.js', function () {
                     fields = '';
                     min = (list_size <= maxRows + result_pointer) ? list_size : maxRows + result_pointer;
                     for (i = result_pointer; i < min; i++) {
-
+                        var splitExtraCol = central_column_list[db + '_' + table][i].col_extra.split(',');
+                        central_column_list[db + '_' + table][i].extra = splitExtraCol[0];
+                        central_column_list[db + '_' + table][i].attribute = splitExtraCol[1];
                         fields += '<tr><td><div><span style="font-size:14px; font-weight:bold">' +
                             central_column_list[db + '_' + table][i].col_name +
                             '</span><br><span style="color:gray">' +
                             central_column_list[db + '_' + table][i].col_type;
 
-                        if (central_column_list[db + '_' + table][i].col_attribute !== '') {
-                            fields += '(' + central_column_list[db + '_' + table][i].col_attribute + ') ';
+                        if (central_column_list[db + '_' + table][i].attribute !== '' && central_column_list[db + '_' + table][i].attribute) {
+                            fields += '(' + central_column_list[db + '_' + table][i].attribute + ') ';
                         }
                         if (central_column_list[db + '_' + table][i].col_length !== '') {
                             fields += '(' + central_column_list[db + '_' + table][i].col_length + ') ';
                         }
-                        fields += central_column_list[db + '_' + table][i].col_extra + '</span>' +
+                        fields += central_column_list[db + '_' + table][i].extra + '</span>' +
                             '</div></td>';
                         if (pick) {
                             fields += '<td><input class="pick" style="width:100%" type="submit" value="' +
