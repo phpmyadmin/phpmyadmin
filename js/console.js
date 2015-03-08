@@ -107,7 +107,7 @@ var PMA_console = {
                 if(tempConfig.currentQuery === true) {
                     $('#pma_console_options input[name=current_query]').prop('checked', true);
                 }
-                if(tempConfig.enterExecutes === true) {
+                if(ConsoleEnterExecutes === true) {
                     $('#pma_console_options input[name=enter_executes]').prop('checked', true);
                 }
             } else {
