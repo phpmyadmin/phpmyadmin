@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-08 09:11-0400\n"
-"PO-Revision-Date: 2015-03-06 17:05+0200\n"
+"PO-Revision-Date: 2015-03-08 19:44+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1855,7 +1855,7 @@ msgstr "Naviga inter valores externe"
 
 #: js/messages.php:308
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Nulle query auto-salveguardate"
 
 #: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -2139,6 +2139,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Indicante que tu ha facite modificationes a iste pagina; tu essera demandate "
+"de confirmar ante abandonar modificationes"
 
 #: js/messages.php:409
 msgid "Select referenced key"
@@ -2996,10 +2998,9 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Pressa Ctrl+Enter pro executar query"
 
 #: libraries/Console.class.php:221
-#, fuzzy
 #| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
-msgstr "Pressa Ctrl+Enter pro executar query"
+msgstr "Pressa Enter pro executar query"
 
 #: libraries/Console.class.php:242
 msgid "During current session"
@@ -3051,6 +3052,7 @@ msgstr "Monstra query currente que on naviga"
 #: libraries/Console.class.php:317
 msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
 msgstr ""
+"Executa queries si on pressa ENTER e on inserta nove rango con SHIFT+ENTER."
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
 #: libraries/DisplayResults.class.php:2139
@@ -4720,7 +4722,7 @@ msgstr "Ultime controlo"
 
 #: libraries/Util.class.php:4597
 msgid "Start row:"
-msgstr ""
+msgstr "Initia rango:"
 
 #: libraries/browse_foreigners.lib.php:48
 msgid "Search:"
