@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-06 08:15-0500\n"
+"POT-Creation-Date: 2015-03-08 09:11-0400\n"
 "PO-Revision-Date: 2015-02-26 20:09+0200\n"
 "Last-Translator: Yoon Bum-Jong <virusyoon@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -607,11 +607,11 @@ msgstr "불완전한 인자"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 %"
-"sdocumentation%s를 참조하여 주십시오."
+"너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 "
+"%sdocumentation%s를 참조하여 주십시오."
 
 #: import.php:343 import.php:626
 msgid "Showing bookmark"
@@ -922,8 +922,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Server 가 Suhosin 으로 운영중입니다. 이로 인해 발생할 수 있는 문제는 %"
-"sdocumentation%s 에서 확인이 가능합니다."
+"Server 가 Suhosin 으로 운영중입니다. 이로 인해 발생할 수 있는 문제는 "
+"%sdocumentation%s 에서 확인이 가능합니다."
 
 #: js/messages.php:29 libraries/import.lib.php:125 sql.php:143
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -2909,7 +2909,7 @@ msgstr ""
 msgid "History"
 msgstr "최근 기록"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:300
+#: libraries/Console.class.php:205 libraries/Console.class.php:303
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2938,59 +2938,69 @@ msgstr "최근 기록"
 msgid "Options"
 msgstr "옵션"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:262
+#: libraries/Console.class.php:209 libraries/Console.class.php:265
 msgid "Bookmarks"
 msgstr "북마크"
 
-#: libraries/Console.class.php:218
+#: libraries/Console.class.php:219
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Ctrl+Enter를 눌러 쿼리를 실행"
 
-#: libraries/Console.class.php:239
+#: libraries/Console.class.php:221
+#, fuzzy
+#| msgid "Press Ctrl+Enter to execute query"
+msgid "Press Enter to execute query"
+msgstr "Ctrl+Enter를 눌러 쿼리를 실행"
+
+#: libraries/Console.class.php:242
 msgid "During current session"
 msgstr ""
 
-#: libraries/Console.class.php:266 libraries/Util.class.php:1232
+#: libraries/Console.class.php:269 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "다시 보기"
 
-#: libraries/Console.class.php:269
+#: libraries/Console.class.php:272
 msgid "Add"
 msgstr "추가"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:281
 msgid "Add bookmark"
 msgstr "북마크 추가"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:285
 msgid "Label"
 msgstr "레이블"
 
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:287
 msgid "Target database"
 msgstr "대상 데이터베이스"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:290
 msgid "Share this bookmark"
 msgstr "이 북마크를 공유"
 
-#: libraries/Console.class.php:304
+#: libraries/Console.class.php:307
 msgid "Set default"
 msgstr "기본값으로 초기화"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:311
 msgid "Always expand query messages"
 msgstr "항상 질의 메시지를 확장"
 
-#: libraries/Console.class.php:310
+#: libraries/Console.class.php:313
 msgid "Show query history at start"
 msgstr "시작할 때 질의 기록을 보여주기"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:315
 msgid "Show current browsing query"
+msgstr ""
+
+#: libraries/Console.class.php:317
+msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
 msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
@@ -3319,8 +3329,8 @@ msgstr "쿼리가 성공적으로 실행되었습니다."
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "이 뷰는 최소 이 숫자 이상의 열을 가지고 있습니다. %s문서%s를 참조해 주십시오."
 
@@ -4229,20 +4239,21 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"작은 부동소수점 숫자, 허용 가능한 값은 -3.402823466E+38 에서 -1.175494351E-"
-"38 까지, 0, 그리고 1.175494351E-38 에서 3.402823466E+38 까지입니다"
+"작은 부동소수점 숫자, 허용 가능한 값은 -3.402823466E+38 에서 "
+"-1.175494351E-38 까지, 0, 그리고 1.175494351E-38 에서 3.402823466E+38 까지입"
+"니다"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"배정밀도 부동소수점 숫자, 허용 가능한 값은 -1.7976931348623157E+308 에서 -"
-"2.2250738585072014E-308 까지, 0, 그리고 2.2250738585072014E-308 에서 "
+"배정밀도 부동소수점 숫자, 허용 가능한 값은 -1.7976931348623157E+308 에서 "
+"-2.2250738585072014E-308 까지, 0, 그리고 2.2250738585072014E-308 에서 "
 "1.7976931348623157E+308 까지입니다"
 
 #: libraries/Types.class.php:336
@@ -5159,8 +5170,8 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"[kbd]쿠키[/kbd] 인증을 사용하면서 %sLogin cookie store%s가 0이 아니라면, %"
-"sLogin cookie validity%s은 그 값 이하의 값을 가져야합니다."
+"[kbd]쿠키[/kbd] 인증을 사용하면서 %sLogin cookie store%s가 0이 아니라면, "
+"%sLogin cookie validity%s은 그 값 이하의 값을 가져야합니다."
 
 #: libraries/config/ServerConfigChecks.class.php:426
 #, php-format
@@ -5185,8 +5196,8 @@ msgid ""
 msgstr ""
 "[kbd]config[/kbd] 권한 타입 설정에 자동 로그인을 위해 사용자명과 암호를 포함"
 "했습니다. 이 설정은 실서비스용으로는 권장하지 않습니다. 누군가가 phpMyAdmin"
-"이 설치된 주소를 추측하고 접속하여 phpMyAdmin 패널을 건드릴 수 있습니다. %"
-"sauthentication type%s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세요."
+"이 설치된 주소를 추측하고 접속하여 phpMyAdmin 패널을 건드릴 수 있습니다. "
+"%sauthentication type%s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세요."
 
 #: libraries/config/ServerConfigChecks.class.php:440
 #, php-format
@@ -7912,8 +7923,8 @@ msgstr ", @TABLE@은 테이블 이름이 됨"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "이 값은 %1$sstrftime%2$s에 의해 생성되었습니다. 따라서, 시간 포맷 문자열을 써"
 "서 변경할 수 있습니다. 또한, 다음과 같은 변환도 일어납니다: %3$s. 그 외의 문"
@@ -8432,8 +8443,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr "PBXT에 관한 문서나 추가 정보는 %sPrimeBase XT 홈페이지%s에 있습니다."
 
 #: libraries/engines/pbxt.lib.php:138
@@ -9550,8 +9561,8 @@ msgstr "%s에 오셨습니다"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "설정 파일을 생성하지 않은 것 같습니다. %1$ssetup script%2$s 를 사용해 설정 파"
 "일을 생성할 수 있습니다."
@@ -11961,8 +11972,8 @@ msgstr "사용자 개요"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "주의: phpMyAdmin은 사용자의 권한 정보를 MySQL의 privilege 테이블에서 가져옵니"
 "다. 만약 수동으로 서버의 권한 정보를 수정하였다면, 서버의 정보와 맞지 않을 "
@@ -14745,8 +14756,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "전체 쿼리 캐시 크기(Size)에서 남은 쿼리 캐시 메모리의 현재 비율은 %s%% 입니"
 "다. 80%%보다 높아야 됩니다"
@@ -14876,8 +14887,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "정렬 연산의 %s%%가 임시 테이블을 생성합니다. 이 값은 10%% 미만인 것이 좋습니"
 "다."

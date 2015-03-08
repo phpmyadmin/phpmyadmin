@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-06 08:15-0500\n"
+"POT-Creation-Date: 2015-03-08 09:11-0400\n"
 "PO-Revision-Date: 2015-01-21 02:11+0200\n"
 "Last-Translator: Krystian Biesaga <krystian4842@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
@@ -619,8 +619,8 @@ msgstr "Niekompletne parametry"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Prawdopodobnie nastąpiła próba załadowania zbyt dużego pliku. Proszę "
 "zapoznać się %sdokumentacją%s, aby obejść to ograniczenie."
@@ -943,8 +943,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja%"
-"s."
+"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja"
+"%s."
 
 #: js/messages.php:29 libraries/import.lib.php:125 sql.php:143
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -2952,7 +2952,7 @@ msgstr "Wyczyść"
 msgid "History"
 msgstr "Historia"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:300
+#: libraries/Console.class.php:205 libraries/Console.class.php:303
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2981,59 +2981,69 @@ msgstr "Historia"
 msgid "Options"
 msgstr "Opcje"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:262
+#: libraries/Console.class.php:209 libraries/Console.class.php:265
 msgid "Bookmarks"
 msgstr "Zakładki"
 
-#: libraries/Console.class.php:218
+#: libraries/Console.class.php:219
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Wciśnij Ctrl+Enter aby wykonać zapytanie"
 
-#: libraries/Console.class.php:239
+#: libraries/Console.class.php:221
+#, fuzzy
+#| msgid "Press Ctrl+Enter to execute query"
+msgid "Press Enter to execute query"
+msgstr "Wciśnij Ctrl+Enter aby wykonać zapytanie"
+
+#: libraries/Console.class.php:242
 msgid "During current session"
 msgstr "Podczas bieżącej sesji"
 
-#: libraries/Console.class.php:266 libraries/Util.class.php:1232
+#: libraries/Console.class.php:269 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Odśwież"
 
-#: libraries/Console.class.php:269
+#: libraries/Console.class.php:272
 msgid "Add"
 msgstr "Dodaj"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:281
 msgid "Add bookmark"
 msgstr "Dodaj zakładkę"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:285
 msgid "Label"
 msgstr "Etykieta"
 
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:287
 msgid "Target database"
 msgstr "Docelowa baza danych"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:290
 msgid "Share this bookmark"
 msgstr "Podziel się tą zakładką"
 
-#: libraries/Console.class.php:304
+#: libraries/Console.class.php:307
 msgid "Set default"
 msgstr "Ustaw wartość domyślną"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:311
 msgid "Always expand query messages"
 msgstr "Zawsze rozwijaj wiadomości o zapytaniach"
 
-#: libraries/Console.class.php:310
+#: libraries/Console.class.php:313
 msgid "Show query history at start"
 msgstr "Pokaż historie zapytań na starcie"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:315
 msgid "Show current browsing query"
+msgstr ""
+
+#: libraries/Console.class.php:317
+msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
 msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
@@ -3368,8 +3378,8 @@ msgstr "Zapytanie SQL zostało wykonane pomyślnie."
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Ten widok ma przynajmniej taką liczbę wierszy (rekordów). Proszę odnieść się "
 "do %sdokumentacji%s."
@@ -4295,16 +4305,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Małe wartości zmiennoprzecinkowych numer, dopuszczalne są - 3.402823466E 38 "
 "do - 1.175494351E-38, 0 i 1.175494351E-38 do 3.402823466E 38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Podwójnej precyzji numer, dopuszczalne wartości zmiennoprzecinkowych są - "
@@ -5223,8 +5233,8 @@ msgid ""
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
 "%sWażność ciasteczka logowania%s większa niż %ssession.gc_maxlifetime%s może "
-"powodować losowe wygasanie sesji (aktualnie session.gc_maxlifetime wynosi %"
-"d)."
+"powodować losowe wygasanie sesji (aktualnie session.gc_maxlifetime wynosi "
+"%d)."
 
 #: libraries/config/ServerConfigChecks.class.php:413
 #, php-format
@@ -5239,23 +5249,23 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:419
 #, fuzzy, php-format
 #| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, %"
-#| "sLogin cookie validity%s must be set to a value less or equal to it."
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
+#| "%sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"W przypadku korzystania z uwierzytelniania [kbd]cookie[/kbd] i %"
-"Przechowalnia sciasteczek logowania%s nie jest 0, %sWażności plików cookie%s "
-"musi być ustawiona na wartość mniejsza lub równą jej."
+"W przypadku korzystania z uwierzytelniania [kbd]cookie[/kbd] i "
+"%Przechowalnia sciasteczek logowania%s nie jest 0, %sWażności plików cookie"
+"%s musi być ustawiona na wartość mniejsza lub równą jej."
 
 #: libraries/config/ServerConfigChecks.class.php:426
 #, fuzzy, php-format
 #| msgid ""
-#| "If you feel this is necessary, use additional protection settings - %"
-#| "shost authentication%s settings and %strusted proxies list%s. However, IP-"
-#| "based protection may not be reliable if your IP belongs to an ISP where "
-#| "thousands of users, including you, are connected to."
+#| "If you feel this is necessary, use additional protection settings - "
+#| "%shost authentication%s settings and %strusted proxies list%s. However, "
+#| "IP-based protection may not be reliable if your IP belongs to an ISP "
+#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
@@ -7483,8 +7493,8 @@ msgstr "Szczegółowa nazwa serwera"
 #| msgid "Whether a user should be displayed a \"show all (rows)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
-"Czy użytkownik powinien mieć wyświetlony przycisk \"pokaż wszystkie (wiersze)"
-"\";"
+"Czy użytkownik powinien mieć wyświetlony przycisk \"pokaż wszystkie "
+"(wiersze)\";"
 
 #: libraries/config/messages.inc.php:734
 msgid "Allow to display all the rows"
@@ -8322,8 +8332,8 @@ msgstr ", @TABLE@ zostanie zastąpione nazwą wybranej tabeli"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Wartość ta jest interpretowana za pomocą %1$sstrftime%2$s, dzięki czemu "
 "można używać wartości czasu formatowania. Dodatkowo po transformacji stanie "
@@ -8884,8 +8894,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentacja i dodatkowe informacje o PBXT można znaleźć na %sStronie "
 "domowej PrimeBase XT%s."
@@ -10036,8 +10046,8 @@ msgstr "Witamy w %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Prawdopodobnie powodem jest brak utworzonego pliku konfiguracyjnego. Możesz "
 "użyć %1$s skryptu instalacyjnego %2$s, aby utworzyć jedną."
@@ -12562,8 +12572,8 @@ msgstr "Omówienie użytkowników"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Uwaga: phpMyAdmin pobiera uprawnienia użytkowników wprost z tabeli uprawnień "
 "MySQL-a. Zawartość tej tabeli, jeśli zostały w niej dokonane ręczne zmiany, "
@@ -15510,8 +15520,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Bieżący współczynnik wolnej pamięci pamięci podręcznej zapytań do "
 "całkowitego zapytania wielkości cache to %s%%. Powinno być powyżej 80%%"
@@ -15667,8 +15677,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% wszelkiego rodzaju spowodować tabel tymczasowych, ta wartość ta powinna "
 "być niższa niż 10%%."
@@ -16222,8 +16232,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
-"%s%% wszystkich połączeń jest przerwana. Ta wartość ta powinna być poniżej 1%"
-"%"
+"%s%% wszystkich połączeń jest przerwana. Ta wartość ta powinna być poniżej "
+"1%%"
 
 #: libraries/advisory_rules.txt:406
 msgid "Rate of aborted connections"
@@ -17742,8 +17752,8 @@ msgstr "concurrent_insert jest ustawiony na 0"
 #~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
-#~ "W wyniku tej kwerendy nie może być używany dla wykresu. Zobacz [doc@faq6-"
-#~ "29]FAQ 6.29[/doc]"
+#~ "W wyniku tej kwerendy nie może być używany dla wykresu. Zobacz "
+#~ "[doc@faq6-29]FAQ 6.29[/doc]"
 
 #~ msgid "Theme / Style"
 #~ msgstr "Motyw / Styl"

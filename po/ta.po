@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-06 08:15-0500\n"
+"POT-Creation-Date: 2015-03-08 09:11-0400\n"
 "PO-Revision-Date: 2015-03-02 19:02+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
+"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ta\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -613,8 +613,8 @@ msgstr "முழுமையடையா மதிப்புருபுக�
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "நீங்கள் பதிவேற்ற முயன்ற கோப்பு மிகப்பெரியதாக இருக்கலாம். இவ்வரம்பின் மாற்ற தயவுசெய்து %s "
 "ஆவணஉரையை %s பார்வையிடவும்."
@@ -935,8 +935,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"வழங்கி SUSHOSIN உடன் இயங்குகிறது. நிகழக்கூடிய பிழைமுறைகளுக்கு தயவுசெய்து %"
-"sஆவணச்சான்றை%s காண்க."
+"வழங்கி SUSHOSIN உடன் இயங்குகிறது. நிகழக்கூடிய பிழைமுறைகளுக்கு தயவுசெய்து "
+"%sஆவணச்சான்றை%s காண்க."
 
 #: js/messages.php:29 libraries/import.lib.php:125 sql.php:143
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -2925,7 +2925,7 @@ msgstr "அகற்று"
 msgid "History"
 msgstr "வரலாறு"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:300
+#: libraries/Console.class.php:205 libraries/Console.class.php:303
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2954,60 +2954,70 @@ msgstr "வரலாறு"
 msgid "Options"
 msgstr "விருப்பத்தேர்வுகள்"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:262
+#: libraries/Console.class.php:209 libraries/Console.class.php:265
 msgid "Bookmarks"
 msgstr "புத்தகக்குறிகள்"
 
-#: libraries/Console.class.php:218
+#: libraries/Console.class.php:219
 msgid "Press Ctrl+Enter to execute query"
 msgstr "வினவலை செயல்படுத்த Ctrl+Enter அழுத்துக"
 
-#: libraries/Console.class.php:239
+#: libraries/Console.class.php:221
+#, fuzzy
+#| msgid "Press Ctrl+Enter to execute query"
+msgid "Press Enter to execute query"
+msgstr "வினவலை செயல்படுத்த Ctrl+Enter அழுத்துக"
+
+#: libraries/Console.class.php:242
 msgid "During current session"
 msgstr "அமர்வின் போது"
 
-#: libraries/Console.class.php:266 libraries/Util.class.php:1232
+#: libraries/Console.class.php:269 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "புதுப்பி"
 
-#: libraries/Console.class.php:269
+#: libraries/Console.class.php:272
 msgid "Add"
 msgstr "சேர்க்க"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:281
 msgid "Add bookmark"
 msgstr "புத்தகக்குறி சேர்க்க"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:285
 msgid "Label"
 msgstr "சிட்டை"
 
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:287
 msgid "Target database"
 msgstr "இலக்கு தரவுத்தளம்"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:290
 msgid "Share this bookmark"
 msgstr "இப்புத்தகக்குறியை பகிர்க"
 
-#: libraries/Console.class.php:304
+#: libraries/Console.class.php:307
 msgid "Set default"
 msgstr "இயல்நிலையை அமைக்க"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:311
 msgid "Always expand query messages"
 msgstr "எப்போதும் வினவல் தகவல்களை விரிக்க"
 
-#: libraries/Console.class.php:310
+#: libraries/Console.class.php:313
 msgid "Show query history at start"
 msgstr "துவக்கத்தின் போது வினவல் வரலாற்றை காண்பி"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:315
 msgid "Show current browsing query"
 msgstr "தற்போது உலவும் வினவலை காண்பிக்க"
+
+#: libraries/Console.class.php:317
+msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
+msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
 #: libraries/DisplayResults.class.php:2139
@@ -3336,8 +3346,8 @@ msgstr "உங்கள் SQL வினவல் வெற்றிகரமா
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "இவ்விவரபார்வை குறைந்தளவு இத்தனை நிரைவரிசைகள் கொண்டிருக்கலாம். %sஆவணச்சான்றை%s காண்க."
 
@@ -4229,14 +4239,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -7674,8 +7684,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:526
@@ -8157,8 +8167,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -9255,8 +9265,8 @@ msgstr "%sக்கு வருக"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "நீங்கள் அமைப்பாக்க கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் %1$sநிரல்கோவையை%2$s "
 "பயன்படுத்த வேண்டும்."
@@ -11557,8 +11567,8 @@ msgstr "பயனர்கள் கண்ணோட்டம்"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4295
@@ -13439,8 +13449,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
-"உங்கள் முன்னுரிமைகள் இந்த அமர்வுக்காக மட்டும் சேமிக்கப்படும். அவற்றை நிலையாக சேமிப்க்க %"
-"sphpMyAdmin அமைப்பாக்க நினைவகம்%s தேவை."
+"உங்கள் முன்னுரிமைகள் இந்த அமர்வுக்காக மட்டும் சேமிக்கப்படும். அவற்றை நிலையாக சேமிப்க்க "
+"%sphpMyAdmin அமைப்பாக்க நினைவகம்%s தேவை."
 
 #: libraries/user_preferences.lib.php:130
 msgid "Could not save configuration"
@@ -13515,8 +13525,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"நீங்கள் config.inc.phpஐ மாற்றுவதன் மூலம் மேலும் அதிக அமைவுகளை அமைக்கலாம், எகா. %"
-"sநிறுவல்கோவை%s மூலம்."
+"நீங்கள் config.inc.phpஐ மாற்றுவதன் மூலம் மேலும் அதிக அமைவுகளை அமைக்கலாம், எகா. "
+"%sநிறுவல்கோவை%s மூலம்."
 
 #: prefs_manage.php:321
 msgid "Save to browser's storage"
@@ -14144,8 +14154,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14263,8 +14273,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218

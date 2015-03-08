@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-06 08:15-0500\n"
+"POT-Creation-Date: 2015-03-08 09:11-0400\n"
 "PO-Revision-Date: 2015-03-05 21:48+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -611,11 +611,11 @@ msgstr "Onvolledige parameters"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"U probeerde waarschijnlijk een bestand te uploaden dat te groot is. Zie %"
-"sdocumentatie%s om deze limiet te omzeilen."
+"U probeerde waarschijnlijk een bestand te uploaden dat te groot is. Zie "
+"%sdocumentatie%s om deze limiet te omzeilen."
 
 #: import.php:343 import.php:626
 msgid "Showing bookmark"
@@ -2949,7 +2949,7 @@ msgstr "Leegmaken"
 msgid "History"
 msgstr "Geschiedenis"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:300
+#: libraries/Console.class.php:205 libraries/Console.class.php:303
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2978,60 +2978,70 @@ msgstr "Geschiedenis"
 msgid "Options"
 msgstr "Opties"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:262
+#: libraries/Console.class.php:209 libraries/Console.class.php:265
 msgid "Bookmarks"
 msgstr "Bladwijzers"
 
-#: libraries/Console.class.php:218
+#: libraries/Console.class.php:219
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Druk Ctrl+Enter om de query uit te voeren"
 
-#: libraries/Console.class.php:239
+#: libraries/Console.class.php:221
+#, fuzzy
+#| msgid "Press Ctrl+Enter to execute query"
+msgid "Press Enter to execute query"
+msgstr "Druk Ctrl+Enter om de query uit te voeren"
+
+#: libraries/Console.class.php:242
 msgid "During current session"
 msgstr "Tijdens de huidige sessie"
 
-#: libraries/Console.class.php:266 libraries/Util.class.php:1232
+#: libraries/Console.class.php:269 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Ververs"
 
-#: libraries/Console.class.php:269
+#: libraries/Console.class.php:272
 msgid "Add"
 msgstr "Toevoegen"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:281
 msgid "Add bookmark"
 msgstr "Bladwijzer toevoegen"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:285
 msgid "Label"
 msgstr "Label"
 
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:287
 msgid "Target database"
 msgstr "Doeldatabase"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:290
 msgid "Share this bookmark"
 msgstr "Deze bladwijzer delen"
 
-#: libraries/Console.class.php:304
+#: libraries/Console.class.php:307
 msgid "Set default"
 msgstr "Standaardwaarde instellen"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:311
 msgid "Always expand query messages"
 msgstr "Queryberichten altijd volledig weergeven"
 
-#: libraries/Console.class.php:310
+#: libraries/Console.class.php:313
 msgid "Show query history at start"
 msgstr "Query geschiedenis aan begin weergeven"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:315
 msgid "Show current browsing query"
 msgstr "Toon huidige blader query"
+
+#: libraries/Console.class.php:317
+msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
+msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
 #: libraries/DisplayResults.class.php:2139
@@ -3362,8 +3372,8 @@ msgstr "Uw SQL-query is succesvol uitgevoerd."
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Deze view heeft minimaal deze hoeveelheid aan rijen. Zie de %sdocumentatie%s."
 
@@ -4279,17 +4289,17 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Een klein getal met variabele kommapositie, toegelaten waarden zijn -"
-"3,402823466E+38 tot -1,175494351E-38, 0, en 1,175494351E-38 tot 3.402823466E"
+"Een klein getal met variabele kommapositie, toegelaten waarden zijn "
+"-3,402823466E+38 tot -1,175494351E-38, 0, en 1,175494351E-38 tot 3.402823466E"
 "+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Een getal met variabele kommapositie met dubbel nauwkeurigheid, toegelaten "
@@ -5266,8 +5276,8 @@ msgstr ""
 "U gebruikt het [kbd]config[/kbd]-authenticatietype en heeft de te gebruiken "
 "gebruikersnaam en wachtwoord hierbij opgegeven voor automatisch aanmelden. "
 "Dit is niet aanbevolen voor productiesystemen gezien iemand die het URL van "
-"phpMyAdmin achterhaald direct toegang heeft. Gebruik het %sauthenticatietype%"
-"s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
+"phpMyAdmin achterhaald direct toegang heeft. Gebruik het %sauthenticatietype"
+"%s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.class.php:440
 #, php-format
@@ -8063,13 +8073,13 @@ msgstr ", @TABLE@ wordt vervangen door de tabelnaam"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Deze waarde wordt geïnterpreteerd met behulp van %1$sstrftime%2$s, het "
 "gebruik van opmaakcodes is dan ook toegestaan. Daarnaast worden de volgende "
-"vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven. Zie %4$sFAQ%5"
-"$s voor meer details."
+"vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven. Zie %4$sFAQ"
+"%5$s voor meer details."
 
 #: libraries/display_export.lib.php:526
 msgid "use this for future exports"
@@ -8617,11 +8627,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
-"Documentatie en meer informatie over PBXT kan gevonden worden op de %"
-"sPrimeBase XT home pagina%s."
+"Documentatie en meer informatie over PBXT kan gevonden worden op de "
+"%sPrimeBase XT home pagina%s."
 
 #: libraries/engines/pbxt.lib.php:138
 msgid "Related Links"
@@ -9787,8 +9797,8 @@ msgstr "Welkom bij %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "U heeft waarschijnlijk geen configuratiebestand aangemaakt. Het beste kunt u "
 "%1$ssetup script%2$s gebruiken om een te maken."
@@ -12250,8 +12260,8 @@ msgstr "Gebruikers overzicht"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Opmerking: phpMyAdmin krijgt de rechten voor de gebruikers uit de MySQL-"
 "privilegestabel. De inhoud van deze tabel kan verschillen met de rechten van "
@@ -12456,8 +12466,8 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"Het inschakelen van de general_log kan de serverbelasting verhogen met 5-"
-"15%. Wees er ook bewust van dat het genereren van statistieken uit de "
+"Het inschakelen van de general_log kan de serverbelasting verhogen met "
+"5-15%. Wees er ook bewust van dat het genereren van statistieken uit de "
 "logboeken een belastende taak is, daarom is het aan te raden om alleen een "
 "kleine periode te selecteren, en de general_log uit te schakelen en de tabel "
 "te legen zodra het monitoren niet meer nodig is."
@@ -13648,8 +13658,8 @@ msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
-"Bij benadering. Klik op het getal voor de exacte hoeveelheid. Zie [doc@faq3-"
-"11]FAQ 3.11[/doc]."
+"Bij benadering. Klik op het getal voor de exacte hoeveelheid. Zie "
+"[doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/structure.lib.php:862 libraries/structure.lib.php:2346
 #: libraries/tbl_printview.lib.php:324
@@ -15125,8 +15135,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "De huidige verhouding van vrij querycachegeheugen tot de totale "
 "querycachegrootte is %s%%. Dit zou meer dan 80%% moeten zijn"
@@ -15283,8 +15293,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% van alle sorteeracties veroorzaken tijdelijke tabellen, deze waarde zou "
 "lager moeten zijn dan 10%%."
@@ -16438,8 +16448,8 @@ msgstr "concurrent_insert is ingesteld op 0"
 #~ "%s."
 #~ msgstr ""
 #~ "De SQL-validatie kon niet worden geïnitialiseerd. Controleer of u de "
-#~ "nodige PHP-uitbreidingen heeft geïnstalleerd, zoals beschreven in de %"
-#~ "sdocumentatie%s."
+#~ "nodige PHP-uitbreidingen heeft geïnstalleerd, zoals beschreven in de "
+#~ "%sdocumentatie%s."
 
 #, fuzzy
 #~| msgid "Error: Relation not added."

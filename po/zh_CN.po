@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-06 08:15-0500\n"
+"POT-Creation-Date: 2015-03-08 09:11-0400\n"
 "PO-Revision-Date: 2015-03-02 04:43+0200\n"
 "Last-Translator: zz <tczzjin@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -606,8 +606,8 @@ msgstr "完整插入"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr "您想要上传的文件可能太大了，请参考%s文档%s来寻找解决方法。"
 
 #: import.php:343 import.php:626
@@ -2930,7 +2930,7 @@ msgstr "清除"
 msgid "History"
 msgstr "SQL 历史"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:300
+#: libraries/Console.class.php:205 libraries/Console.class.php:303
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2959,79 +2959,89 @@ msgstr "SQL 历史"
 msgid "Options"
 msgstr "选项"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:262
+#: libraries/Console.class.php:209 libraries/Console.class.php:265
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "书签表"
 
-#: libraries/Console.class.php:218
+#: libraries/Console.class.php:219
 #, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "运行周期"
 
-#: libraries/Console.class.php:239
+#: libraries/Console.class.php:221
+#, fuzzy
+#| msgid "Execute every"
+msgid "Press Enter to execute query"
+msgstr "运行周期"
+
+#: libraries/Console.class.php:242
 #, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
 msgstr "忽略当前错误"
 
-#: libraries/Console.class.php:266 libraries/Util.class.php:1232
+#: libraries/Console.class.php:269 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "刷新"
 
-#: libraries/Console.class.php:269
+#: libraries/Console.class.php:272
 #, fuzzy
 #| msgid "And"
 msgid "Add"
 msgstr "与"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:281
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "删除关系"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:285
 #, fuzzy
 #| msgid "Label"
 msgid "Label"
 msgstr "标签"
 
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:287
 msgid "Target database"
 msgstr "目标数据库"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:290
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "删除关系"
 
-#: libraries/Console.class.php:304
+#: libraries/Console.class.php:307
 #, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
 msgstr "恢复默认"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:311
 #, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
 msgstr "总是发送错误报告"
 
-#: libraries/Console.class.php:310
+#: libraries/Console.class.php:313
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL 查询历史表"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:315
 msgid "Show current browsing query"
+msgstr ""
+
+#: libraries/Console.class.php:317
+msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
 msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
@@ -3358,8 +3368,8 @@ msgstr "您的 SQL 语句已成功运行。"
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "此视图的行数最少有这么多。请参阅%s档案%s。"
 
 #: libraries/DisplayResults.class.php:4557
@@ -4259,20 +4269,21 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "单精度浮点数，取值范围从 -3.402823466E+38 到 -1.175494351E-38、0 以及从 "
 "1.175494351E-38 到 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"双精度浮点数，取值范围从 -1.7976931348623157E+308 到 -2.2250738585072014E-"
-"308、0 以及从 2.2250738585072014E-308 到 1.7976931348623157E+308"
+"双精度浮点数，取值范围从 -1.7976931348623157E+308 到 "
+"-2.2250738585072014E-308、0 以及从 2.2250738585072014E-308 到 "
+"1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
 msgid ""
@@ -8205,8 +8216,8 @@ msgstr "，@TABLE@ 将变成数据表名"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
 "列内容也将被转换：%3$s。其他文本将保持原样。参见%4$s常见问题 (FAQ)%5$s。"
@@ -8725,8 +8736,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr "关于 PBXT 的文档和更多信息请参见 %sPrimeBase XT 主页%s。"
 
 #: libraries/engines/pbxt.lib.php:138
@@ -9889,8 +9900,8 @@ msgstr "欢迎使用 %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "你可能还没有创建配置文件。你可以使用 %1$s设置脚本%2$s 来创建一个配置文件。"
 
@@ -12394,12 +12405,12 @@ msgstr "用户概况"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容"
-"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%"
-"s。"
+"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
+"限%s。"
 
 #: libraries/server_privileges.lib.php:4295
 msgid "The selected user was not found in the privilege table."
@@ -15238,8 +15249,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr "当前空闲查询缓存内存为总查询缓存大小的 %s%%。此值应高于 80%%"
 
 #: libraries/advisory_rules.txt:181
@@ -15370,8 +15381,8 @@ msgstr "根据系统内存，考虑增加 {sort_buffer_siz}e 和/或 {read_rnd_b
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr "%s%% 的排序引发临时表创建，该值应低于 10%%。"
 
 #: libraries/advisory_rules.txt:218
@@ -17416,8 +17427,8 @@ msgstr "concurrent_insert 被设为 0"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation.html#faq6-29"
-#~ "\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
+#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation."
+#~ "html#faq6-29\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "添加新用户"

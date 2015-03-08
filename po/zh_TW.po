@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-06 08:15-0500\n"
+"POT-Creation-Date: 2015-03-08 09:11-0400\n"
 "PO-Revision-Date: 2014-10-03 21:14+0200\n"
 "Last-Translator: Peter Dave Hello <xs910203@gmail.com>\n"
 "Language-Team: Traditional Chinese <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_TW/>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -606,8 +606,8 @@ msgstr "參數不完整"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr "您上傳的檔案過大，請參考 %s說明文件%s 了解如何解決此問題。"
 
 #: import.php:343 import.php:626
@@ -2878,7 +2878,7 @@ msgstr "清除"
 msgid "History"
 msgstr "歷史記錄"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:300
+#: libraries/Console.class.php:205 libraries/Console.class.php:303
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2907,60 +2907,70 @@ msgstr "歷史記錄"
 msgid "Options"
 msgstr "選項"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:262
+#: libraries/Console.class.php:209 libraries/Console.class.php:265
 msgid "Bookmarks"
 msgstr "書籤"
 
-#: libraries/Console.class.php:218
+#: libraries/Console.class.php:219
 msgid "Press Ctrl+Enter to execute query"
 msgstr "請按 Ctrl+Enter 執行查詢"
 
-#: libraries/Console.class.php:239
+#: libraries/Console.class.php:221
+#, fuzzy
+#| msgid "Press Ctrl+Enter to execute query"
+msgid "Press Enter to execute query"
+msgstr "請按 Ctrl+Enter 執行查詢"
+
+#: libraries/Console.class.php:242
 msgid "During current session"
 msgstr "於目前連線階段"
 
-#: libraries/Console.class.php:266 libraries/Util.class.php:1232
+#: libraries/Console.class.php:269 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "重新整理"
 
-#: libraries/Console.class.php:269
+#: libraries/Console.class.php:272
 msgid "Add"
 msgstr "新增"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:281
 msgid "Add bookmark"
 msgstr "新增書籤"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:285
 msgid "Label"
 msgstr "標籤"
 
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:287
 msgid "Target database"
 msgstr "目標資料庫"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:290
 msgid "Share this bookmark"
 msgstr "分享此書籤"
 
-#: libraries/Console.class.php:304
+#: libraries/Console.class.php:307
 msgid "Set default"
 msgstr "設定預設值"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:311
 msgid "Always expand query messages"
 msgstr "總是展開查詢訊息"
 
-#: libraries/Console.class.php:310
+#: libraries/Console.class.php:313
 msgid "Show query history at start"
 msgstr "顯示查詢記錄於一開始"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:315
 msgid "Show current browsing query"
 msgstr "顯示目前畫面使用的查詢"
+
+#: libraries/Console.class.php:317
+msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
+msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
 #: libraries/DisplayResults.class.php:2139
@@ -3287,8 +3297,8 @@ msgstr "您的 SQL 語法已順利執行。"
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "這個檢視表至少需有此數量的資料列，請參考%sdocumentation%s。"
 
 #: libraries/DisplayResults.class.php:4557
@@ -4185,16 +4195,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "浮點數，範圍為 -3.402823466E+38 至 -1.175494351E-38、0 及 1.175494351E-38 至 "
 "3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "倍準浮點數，範圍為 -1.7976931348623157E+308 至 -2.2250738585072014E-308、0 "
@@ -7781,8 +7791,8 @@ msgstr "，@TABLE@ 會替換為資料表名稱"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "此數值會使用 %1$sstrftime%2$s 來解析，所以您可以使用時間格式的字串。除此之"
 "外，以下資料格式也會被轉換: %3$s。其他的文字則會保持原樣。請參考 %4$s常見問"
@@ -8295,8 +8305,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr "有關 PBXT 的更相關資訊請可以 %sPrimeBase XT 首頁%s 中找到。"
 
 #: libraries/engines/pbxt.lib.php:138
@@ -9404,8 +9414,8 @@ msgstr "歡迎使用 %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr "您可能還沒有建立設定檔案。您可以使用 %1$s 設定指令 %2$s 來建立。"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:144
@@ -11801,8 +11811,8 @@ msgstr "檢視使用者"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin 直接由 MySQL 權限表取得使用者權限。若有使用者中途手動更改權"
 "限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應"
@@ -13860,8 +13870,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"透過修改 config.inc.php 設定檔您可以調整更多的設定項目，如: 使用 %s安裝程式%"
-"s 。"
+"透過修改 config.inc.php 設定檔您可以調整更多的設定項目，如: 使用 %s安裝程"
+"式%s 。"
 
 #: prefs_manage.php:321
 msgid "Save to browser's storage"
@@ -14518,8 +14528,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr "目前閒置查詢快取記憶體為全部查詢快取的大小的 %s%%，這個值應高於 80%%"
 
 #: libraries/advisory_rules.txt:181
@@ -14655,8 +14665,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr "有 %s%% 的排序會產生暫存表，這個值應低於 10%%。"
 
 #: libraries/advisory_rules.txt:218
@@ -16657,8 +16667,8 @@ msgstr "concurrent_insert 目前設定為 0"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation.html#faq6-29"
-#~ "\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
+#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation."
+#~ "html#faq6-29\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "新增新使用者"

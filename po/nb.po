@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-06 08:15-0500\n"
+"POT-Creation-Date: 2015-03-08 09:11-0400\n"
 "PO-Revision-Date: 2015-01-29 16:02+0200\n"
 "Last-Translator: Christoffer Haugom <ph3n1x.nobody@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb/>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -621,11 +621,11 @@ msgstr "Ufullstendige parametre"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Du forsøkte sannsynligvis å laste opp en fil som var for stor. Sjekk %"
-"sdokumentasjonen%s for måter å omgå denne begrensningen på."
+"Du forsøkte sannsynligvis å laste opp en fil som var for stor. Sjekk "
+"%sdokumentasjonen%s for måter å omgå denne begrensningen på."
 
 #: import.php:343 import.php:626
 msgid "Showing bookmark"
@@ -3022,7 +3022,7 @@ msgstr "Fjern"
 msgid "History"
 msgstr "SQL-historie"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:300
+#: libraries/Console.class.php:205 libraries/Console.class.php:303
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -3051,76 +3051,85 @@ msgstr "SQL-historie"
 msgid "Options"
 msgstr "Innstillinger"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:262
+#: libraries/Console.class.php:209 libraries/Console.class.php:265
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "Bokmerketabell"
 
-#: libraries/Console.class.php:218
+#: libraries/Console.class.php:219
 #, fuzzy
 msgid "Press Ctrl+Enter to execute query"
 msgstr "SQL spørringer"
 
-#: libraries/Console.class.php:239
+#: libraries/Console.class.php:221
+#, fuzzy
+msgid "Press Enter to execute query"
+msgstr "SQL spørringer"
+
+#: libraries/Console.class.php:242
 #, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
 msgstr "Hopp over nåværende feil"
 
-#: libraries/Console.class.php:266 libraries/Util.class.php:1232
+#: libraries/Console.class.php:269 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Oppdater"
 
-#: libraries/Console.class.php:269
+#: libraries/Console.class.php:272
 #, fuzzy
 #| msgid "And"
 msgid "Add"
 msgstr "og"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:281
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "Slett relasjon"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:285
 #, fuzzy
 #| msgid "Label"
 msgid "Label"
 msgstr "Navn"
 
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:287
 msgid "Target database"
 msgstr "Måldatabase"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:290
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "Slett relasjon"
 
-#: libraries/Console.class.php:304
+#: libraries/Console.class.php:307
 #, fuzzy
 #| msgid "Restore default value"
 msgid "Set default"
 msgstr "Gjennopprett standard verdi"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:311
 msgid "Always expand query messages"
 msgstr ""
 
-#: libraries/Console.class.php:310
+#: libraries/Console.class.php:313
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL spørringshistorietabell"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:315
 msgid "Show current browsing query"
+msgstr ""
+
+#: libraries/Console.class.php:317
+msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
 msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
@@ -3454,8 +3463,8 @@ msgstr "Kommandoen/spørringen er utført."
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Denne visningen har minst dette antall rader. Sjekk %sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4557
@@ -3599,8 +3608,8 @@ msgstr "Ukjent feil oppstod under filopplastingen."
 #: libraries/File.class.php:461
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
-"Feil oppstod under forsøk på flytting av den opplastede filen, se [doc@faq1-"
-"11]FAQ 1.11[/doc]."
+"Feil oppstod under forsøk på flytting av den opplastede filen, se "
+"[doc@faq1-11]FAQ 1.11[/doc]."
 
 #: libraries/File.class.php:479
 msgid "Error while moving uploaded file."
@@ -4385,16 +4394,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Et lite flyttall, tillatte verdier er fra -3,402823466E+38 til -1,175494351E-"
-"38, 0, og fra 1,175494351E-38 til 3,402823466E+38"
+"Et lite flyttall, tillatte verdier er fra -3,402823466E+38 til "
+"-1,175494351E-38, 0, og fra 1,175494351E-38 til 3,402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Et dobbelt presisjons flyttall, tillatte verdier er fra -1,7976931348623157E"
@@ -5393,8 +5402,8 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Hvis du føler at dette er nødvending, så bruk ekstra "
-"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
+"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
 "page=form&amp;formset=features#tab_Security]godkjente mellomlagerliste[/a]. "
 "Merk at IP-basert beskyttelse ikke er så god hvis din IP tilhører en "
 "Internettilbyder som har tusenvis av brukere, inkludert deg, tilknyttet."
@@ -8641,8 +8650,8 @@ msgstr ", @TABLE@ vil bli tabellnavnet"
 #| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne verdien blir tolket slik som %1$sstrftime%2$s, så du kan bruke "
 "tidformateringsstrenger. I tillegg vil følgende transformasjoner skje: %3$s. "
@@ -9204,8 +9213,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -10396,8 +10405,8 @@ msgstr "Velkommen til %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "En mulig årsak for dette er at du ikke opprettet konfigurasjonsfila. Du bør "
 "kanskje bruke %1$ssetup script%2$s for å opprette en."
@@ -13064,8 +13073,8 @@ msgstr "Brukeroversikt"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Merk: phpMyAdmin får brukerprivilegiene direkte fra MySQL "
 "privilegietabeller. Innholdet i disse tabellene kan være forskjellig fra de "
@@ -16129,8 +16138,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -16265,8 +16274,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -17481,8 +17490,8 @@ msgstr "concurrent_insert er satt til 0"
 #~ "For a list of available transformation options and their MIME type "
 #~ "transformations, click on %stransformation descriptions%s"
 #~ msgstr ""
-#~ "For en liste over tilgjengelige transformasjonsvalg, klikk på %"
-#~ "stransformasjonsbeskrivelser%s"
+#~ "For en liste over tilgjengelige transformasjonsvalg, klikk på "
+#~ "%stransformasjonsbeskrivelser%s"
 
 #~ msgid "SQL command to fetch available databases"
 #~ msgstr "SQL kommando for å hente liste over databaser"
@@ -17967,8 +17976,8 @@ msgstr "concurrent_insert er satt til 0"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Er du sikker på at du ønsker å slå av alle BLOB referanser for databasen %"
-#~ "s?"
+#~ "Er du sikker på at du ønsker å slå av alle BLOB referanser for databasen "
+#~ "%s?"
 
 #, fuzzy
 #~ msgid "Unknown error while uploading."

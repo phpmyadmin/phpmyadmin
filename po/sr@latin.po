@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-06 08:15-0500\n"
+"POT-Creation-Date: 2015-03-08 09:11-0400\n"
 "PO-Revision-Date: 2014-03-31 14:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Serbian (latin) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/sr%40latin/>\n"
+"Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sr@latin\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -648,14 +648,14 @@ msgstr "Kompletan INSERT"
 #: import.php:163
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Verovatno ste pokušali da uvezete preveliku datoteku. Molimo pogledajte %"
-"sdokumentaciju%s za načine prevazilaženja ovog ograničenja."
+"Verovatno ste pokušali da uvezete preveliku datoteku. Molimo pogledajte "
+"%sdokumentaciju%s za načine prevazilaženja ovog ograničenja."
 
 #: import.php:343 import.php:626
 msgid "Showing bookmark"
@@ -957,8 +957,8 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Skladište konfiguracije za phpMyAdmin nije kompletno konfigurisano, neke "
-"dodatne mogućnosti su deaktivirane. Da bi ste saznali zašto kliknite %sovde%"
-"s."
+"dodatne mogućnosti su deaktivirane. Da bi ste saznali zašto kliknite %sovde"
+"%s."
 
 #: index.php:549
 msgid ""
@@ -3136,7 +3136,7 @@ msgstr "Obriši"
 msgid "History"
 msgstr "SQL istorijat"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:300
+#: libraries/Console.class.php:205 libraries/Console.class.php:303
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -3165,75 +3165,85 @@ msgstr "SQL istorijat"
 msgid "Options"
 msgstr "Opcije"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:262
+#: libraries/Console.class.php:209 libraries/Console.class.php:265
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Bookmarks"
 msgstr "Obriši relaciju"
 
-#: libraries/Console.class.php:218
+#: libraries/Console.class.php:219
 #, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Izvrrši svaki"
 
-#: libraries/Console.class.php:239
+#: libraries/Console.class.php:221
+#, fuzzy
+#| msgid "Execute every"
+msgid "Press Enter to execute query"
+msgstr "Izvrrši svaki"
+
+#: libraries/Console.class.php:242
 msgid "During current session"
 msgstr ""
 
-#: libraries/Console.class.php:266 libraries/Util.class.php:1232
+#: libraries/Console.class.php:269 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Osveži"
 
-#: libraries/Console.class.php:269
+#: libraries/Console.class.php:272
 #, fuzzy
 #| msgid "And"
 msgid "Add"
 msgstr "i"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:281
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "Obriši relaciju"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:285
 #, fuzzy
 #| msgid "Label"
 msgid "Label"
 msgstr "Naziv"
 
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:287
 msgid "Target database"
 msgstr "Ciljna baza"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:290
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "Obriši relaciju"
 
-#: libraries/Console.class.php:304
+#: libraries/Console.class.php:307
 #, fuzzy
 #| msgid "Export defaults"
 msgid "Set default"
 msgstr "Podrazumevane opcije izvoza"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:311
 msgid "Always expand query messages"
 msgstr ""
 
-#: libraries/Console.class.php:310
+#: libraries/Console.class.php:313
 #, fuzzy
 #| msgid "Slow query rate"
 msgid "Show query history at start"
 msgstr "Stopa sporih upita"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:315
 msgid "Show current browsing query"
+msgstr ""
+
+#: libraries/Console.class.php:317
+msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
 msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
@@ -3601,11 +3611,11 @@ msgstr "Vaš SQL upit je uspešno izvršen"
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Ovaj pogled ima najmanje ovaj broj redova. Molimo vas pogledajte %"
-"sdokumentaciju%s."
+"Ovaj pogled ima najmanje ovaj broj redova. Molimo vas pogledajte "
+"%sdokumentaciju%s."
 
 #: libraries/DisplayResults.class.php:4557
 #, fuzzy, php-format
@@ -4577,14 +4587,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -8469,13 +8479,13 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Ova vrednost se interpretira korišćenjem %1$sstrftime%2$s, tako da možete da "
 "koristite stringove za formatiranje vremena. Takođe će se desiti i sledeće "
-"transformacije: %3$s. Preostali tekst će ostati kako jeste. Čogledaj %4$sFAQ%"
-"5$s za detalje."
+"transformacije: %3$s. Preostali tekst će ostati kako jeste. Čogledaj %4$sFAQ"
+"%5$s za detalje."
 
 #: libraries/display_export.lib.php:526
 msgid "use this for future exports"
@@ -8999,8 +9009,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -10163,8 +10173,8 @@ msgstr "Dobrodošli na %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Verovatan razlog za ovo je da niste napravili konfiguracionu datoteku. "
 "Možete koristiti %1$sskript za instalaciju%2$s da biste je napravili."
@@ -12652,8 +12662,8 @@ msgstr "Pregled korisnika"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Napomena: phpMyAdmin uzima privilegije korisnika direktno iz MySQL tabela "
 "privilegija. Sadržaj ove tabele može se razlikovati od privilegija koje "
@@ -15546,8 +15556,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -15669,8 +15679,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218

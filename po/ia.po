@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-06 08:15-0500\n"
+"POT-Creation-Date: 2015-03-08 09:11-0400\n"
 "PO-Revision-Date: 2015-03-06 17:05+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
+"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -262,8 +262,8 @@ msgstr "Le base de datos %1$s ha essite copiate como %2$s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Le immagazinage de configuration de phpMyAdmin ha essite deactivate. %"
-"sDiscoperi perque%s."
+"Le immagazinage de configuration de phpMyAdmin ha essite deactivate. "
+"%sDiscoperi perque%s."
 
 #: db_printview.php:48 db_tracking.php:125 db_tracking.php:287
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:782
@@ -616,8 +616,8 @@ msgstr "Parametros incomplete"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Probabilemente tu es essayante incargar un file troppo grande. Pro favor tu "
 "refere al %sdocumentation%s pro eluder iste limite."
@@ -831,11 +831,6 @@ msgid "List of changes"
 msgstr "Lista de modificationes"
 
 #: index.php:447
-#| msgid ""
-#| "Your configuration file contains settings (root with no password) that "
-#| "correspond to the default MySQL privileged account. Your MySQL server is "
-#| "running with this default, is open to intrusion, and you really should "
-#| "fix this security hole by setting a password for user 'root'."
 msgid ""
 "You are connected as 'root' with no password, which corresponds to the "
 "default MySQL privileged account. Your MySQL server is running with this "
@@ -939,8 +934,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Sur le servitor es executante Suhosin. Controla le documentation: %"
-"sdocumentation%s pro possibile problema."
+"Sur le servitor es executante Suhosin. Controla le documentation: "
+"%sdocumentation%s pro possibile problema."
 
 #: js/messages.php:29 libraries/import.lib.php:125 sql.php:143
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -2288,8 +2283,8 @@ msgstr ""
 #: js/messages.php:446
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
-"Pro favor, tu inserta in valide catena hexadecimal. Characteres valide es 0-"
-"9, A-F."
+"Pro favor, tu inserta in valide catena hexadecimal. Characteres valide es "
+"0-9, A-F."
 
 #: js/messages.php:447
 msgid ""
@@ -2963,7 +2958,7 @@ msgstr "Netta"
 msgid "History"
 msgstr "Chronologia"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:300
+#: libraries/Console.class.php:205 libraries/Console.class.php:303
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2992,60 +2987,70 @@ msgstr "Chronologia"
 msgid "Options"
 msgstr "Optiones"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:262
+#: libraries/Console.class.php:209 libraries/Console.class.php:265
 msgid "Bookmarks"
 msgstr "Marcatores de libro"
 
-#: libraries/Console.class.php:218
+#: libraries/Console.class.php:219
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Pressa Ctrl+Enter pro executar query"
 
-#: libraries/Console.class.php:239
+#: libraries/Console.class.php:221
+#, fuzzy
+#| msgid "Press Ctrl+Enter to execute query"
+msgid "Press Enter to execute query"
+msgstr "Pressa Ctrl+Enter pro executar query"
+
+#: libraries/Console.class.php:242
 msgid "During current session"
 msgstr "Durante session currente"
 
-#: libraries/Console.class.php:266 libraries/Util.class.php:1232
+#: libraries/Console.class.php:269 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Refresca"
 
-#: libraries/Console.class.php:269
+#: libraries/Console.class.php:272
 msgid "Add"
 msgstr "Adde"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:281
 msgid "Add bookmark"
 msgstr "Adde marcator de libro o favorito"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:285
 msgid "Label"
 msgstr "Etiquetta"
 
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:287
 msgid "Target database"
 msgstr "Base de datos objectivo"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:290
 msgid "Share this bookmark"
 msgstr "Comparti iste marcator de libro o favorito"
 
-#: libraries/Console.class.php:304
+#: libraries/Console.class.php:307
 msgid "Set default"
 msgstr "Fixa le valores predefinite"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:311
 msgid "Always expand query messages"
 msgstr "Expande sempre messages de query"
 
-#: libraries/Console.class.php:310
+#: libraries/Console.class.php:313
 msgid "Show query history at start"
 msgstr "Monstra chronologia de query al initio"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:315
 msgid "Show current browsing query"
 msgstr "Monstra query currente que on naviga"
+
+#: libraries/Console.class.php:317
+msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
+msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
 #: libraries/DisplayResults.class.php:2139
@@ -3379,11 +3384,11 @@ msgstr "Le demanda (query) SQL ha essite executate con successo."
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Iste vista ha al minus iste numero de rangos. Pro favor refere a %"
-"sdocumentation%s."
+"Iste vista ha al minus iste numero de rangos. Pro favor refere a "
+"%sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4557
 #, php-format
@@ -4282,9 +4287,9 @@ msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
-"Le extension de un integer de 8 bytes signate es ex --"
-"9,223,372,036,854,775,808 a 9,223,372,036,854,775,807, si non signate es ex "
-"0 a 18,446,744,073,709,551,615"
+"Le extension de un integer de 8 bytes signate es ex "
+"--9,223,372,036,854,775,808 a 9,223,372,036,854,775,807, si non signate es "
+"ex 0 a 18,446,744,073,709,551,615"
 
 #: libraries/Types.class.php:330 libraries/Types.class.php:772
 msgid ""
@@ -4297,16 +4302,17 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Pro un parve numero a virgula/puncto mobile, valores disponibile es ex -"
-"3.402823466E+38 a -1.175494351E-38, 0, e ex 1.175494351E-38 a 3.402823466E+38"
+"Pro un parve numero a virgula/puncto mobile, valores disponibile es ex "
+"-3.402823466E+38 a -1.175494351E-38, 0, e ex 1.175494351E-38 a 3.402823466E"
+"+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Pro un numero a virgula/puncto mobile de duple precision, valores "
@@ -4358,8 +4364,8 @@ msgid ""
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "Un marca de tempore, extension es 1970-01-01 00:00:01 UTC to 2038-01-09 "
-"03:14:07 UTC, immagazinate como le numero de secundas ex le epocha (1970-01-"
-"01 00:00:00 UTC)"
+"03:14:07 UTC, immagazinate como le numero de secundas ex le epocha "
+"(1970-01-01 00:00:00 UTC)"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:788
 #, php-format
@@ -8086,8 +8092,8 @@ msgstr ", @TABLE@ devenira le nomine de tabella"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Iste valor es interpretate per usar %1$sstrftime%2$s, assi que tu pote usar "
 "catenas de formatation per le datas/tempore. Anque on potera adder le "
@@ -8637,11 +8643,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
-"Documentation e ulterior information re PBXT pote esser trovate a %"
-"sPrimeBase XT Home Page%s."
+"Documentation e ulterior information re PBXT pote esser trovate a "
+"%sPrimeBase XT Home Page%s."
 
 #: libraries/engines/pbxt.lib.php:138
 msgid "Related Links"
@@ -9761,8 +9767,8 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:144
@@ -12071,8 +12077,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4295
@@ -14635,8 +14641,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14754,8 +14760,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218

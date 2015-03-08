@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-06 08:15-0500\n"
+"POT-Creation-Date: 2015-03-08 09:11-0400\n"
 "PO-Revision-Date: 2015-02-15 20:32+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -611,8 +611,8 @@ msgstr "Nekompletné parametre"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Pravdepodobne ste sa pokúsili uploadnuť príliš veľký súbor. Prečítajte si "
 "prosím %sdokumentáciu%s, ako sa dá toto obmedzenie obísť."
@@ -929,8 +929,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Webový server beží so Suhosin-patchom. Možné dôsledky konzultujte s %"
-"sdokumentáciou%s."
+"Webový server beží so Suhosin-patchom. Možné dôsledky konzultujte s "
+"%sdokumentáciou%s."
 
 #: js/messages.php:29 libraries/import.lib.php:125 sql.php:143
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -2903,7 +2903,7 @@ msgstr "Vyčistiť"
 msgid "History"
 msgstr "História"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:300
+#: libraries/Console.class.php:205 libraries/Console.class.php:303
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -2932,60 +2932,70 @@ msgstr "História"
 msgid "Options"
 msgstr "Nastavenia"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:262
+#: libraries/Console.class.php:209 libraries/Console.class.php:265
 msgid "Bookmarks"
 msgstr "Záložky"
 
-#: libraries/Console.class.php:218
+#: libraries/Console.class.php:219
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Stlačte Ctrl+Enter pre spustenie dopytu"
 
-#: libraries/Console.class.php:239
+#: libraries/Console.class.php:221
+#, fuzzy
+#| msgid "Press Ctrl+Enter to execute query"
+msgid "Press Enter to execute query"
+msgstr "Stlačte Ctrl+Enter pre spustenie dopytu"
+
+#: libraries/Console.class.php:242
 msgid "During current session"
 msgstr "Počas aktuálnej relácie"
 
-#: libraries/Console.class.php:266 libraries/Util.class.php:1232
+#: libraries/Console.class.php:269 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Obnoviť"
 
-#: libraries/Console.class.php:269
+#: libraries/Console.class.php:272
 msgid "Add"
 msgstr "Pridať"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:281
 msgid "Add bookmark"
 msgstr "Pridať záložku"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:285
 msgid "Label"
 msgstr "Názov"
 
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:287
 msgid "Target database"
 msgstr "Cieľová databáza"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:290
 msgid "Share this bookmark"
 msgstr "Zdieľať túto záložku"
 
-#: libraries/Console.class.php:304
+#: libraries/Console.class.php:307
 msgid "Set default"
 msgstr "Nastaviť predvolené"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:311
 msgid "Always expand query messages"
 msgstr "Vždy rozbaliť správy dopytu"
 
-#: libraries/Console.class.php:310
+#: libraries/Console.class.php:313
 msgid "Show query history at start"
 msgstr "Zobraziť históriu dopytov na začiatku"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:315
 msgid "Show current browsing query"
 msgstr "Zobraziť aktuálne prehliadaný dopyt"
+
+#: libraries/Console.class.php:317
+msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
+msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
 #: libraries/DisplayResults.class.php:2139
@@ -3317,8 +3327,8 @@ msgstr "SQL dopyt bol úspešne vykonaný."
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohľad má aspoň toľko riadok. Podrobnosti nájdete v %sdokumentaci%s."
 
@@ -4237,20 +4247,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Číslo s plávajúcou desatinnou čiarkou, rozsahy: od -3,402823466E+38 do -"
-"1,175494351E-38; 0; od 1,175494351E-38 do 3,402823466E+38"
+"Číslo s plávajúcou desatinnou čiarkou, rozsahy: od -3,402823466E+38 do "
+"-1,175494351E-38; 0; od 1,175494351E-38 do 3,402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Číslo s dvojitou presnosťou a plávajúcou desatinnou čiarkou, rozsah: od -"
-"1,7976931348623157E+308 do -2,2250738585072014E-308; 0; od "
+"Číslo s dvojitou presnosťou a plávajúcou desatinnou čiarkou, rozsah: od "
+"-1,7976931348623157E+308 do -2,2250738585072014E-308; 0; od "
 "2,2250738585072014E-308 do 1,7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -7917,8 +7927,8 @@ msgstr ", meno tabuľky bude zmenené na @TABLE@"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Táto hodnota je interpretovaná pomocou %1$sstrftime%2$s, takže môžete použiť "
 "reťazec pre formátovanie dátumu a času. Naviac budú vykonané tieto "
@@ -8439,8 +8449,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -9539,8 +9549,8 @@ msgstr "Vitajte v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravdepodobná príčina je, že neexistuje konfiguračný súbor. Na jeho "
 "vytvorenie môžete použiť %1$skonfiguračný skript%2$s."
@@ -11900,13 +11910,13 @@ msgstr "Zoznam používatelov"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získava práva používateľov priamo z tabuliek MySQL. "
 "Obsah týchto tabuliek sa môže líšiť od práv, ktoré používa server, ak boli "
-"tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať %"
-"sznovunačítanie práv%s predtým ako budete pokračovať."
+"tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať "
+"%sznovunačítanie práv%s predtým ako budete pokračovať."
 
 #: libraries/server_privileges.lib.php:4295
 msgid "The selected user was not found in the privilege table."
@@ -13249,8 +13259,8 @@ msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
-"Môže byť nepresné. Kliknutím na číslo dostanete presný počet. Viď [doc@faq3-"
-"11]FAQ 3.11[/doc]."
+"Môže byť nepresné. Kliknutím na číslo dostanete presný počet. Viď "
+"[doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/structure.lib.php:862 libraries/structure.lib.php:2346
 #: libraries/tbl_printview.lib.php:324
@@ -14024,8 +14034,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Ďalšie nastavenia môžete urobiť úpravou config.inc.php, napr. použitím %"
-"sNastavovacieho skriptu%s."
+"Ďalšie nastavenia môžete urobiť úpravou config.inc.php, napr. použitím "
+"%sNastavovacieho skriptu%s."
 
 #: prefs_manage.php:321
 msgid "Save to browser's storage"
@@ -14654,8 +14664,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14773,8 +14783,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -15792,8 +15802,8 @@ msgstr "concurrent_insert je nastavené na 0"
 #~ "%s."
 #~ msgstr ""
 #~ "SQL validator nemohol byť inicializovaný. Prosím skontrolujte, či sú "
-#~ "nainštalované všetky potrebné rozšírenia php, tak ako sú popísané v %"
-#~ "sdocumentation%s."
+#~ "nainštalované všetky potrebné rozšírenia php, tak ako sú popísané v "
+#~ "%sdocumentation%s."
 
 #, fuzzy
 #~| msgid "Copy"
@@ -16626,8 +16636,8 @@ msgstr "concurrent_insert je nastavené na 0"
 
 #~ msgid "Imported file compression will be automatically detected from: %s"
 #~ msgstr ""
-#~ "Kompresia importovaného súboru bude rozpoznaná automaticky. Podporované: %"
-#~ "s"
+#~ "Kompresia importovaného súboru bude rozpoznaná automaticky. Podporované: "
+#~ "%s"
 
 #~ msgid "Add into comments"
 #~ msgstr "Pridať do komentárov"

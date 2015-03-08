@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-06 08:15-0500\n"
+"POT-Creation-Date: 2015-03-08 09:11-0400\n"
 "PO-Revision-Date: 2014-11-14 19:09+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "uz/>\n"
+"Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uz\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 2.1-dev\n"
 
@@ -639,14 +639,14 @@ msgstr "Тўла қўйиш"
 #: import.php:163
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Эҳтимол, юкланаётган файл ҳажми жуда катта. Бу муаммони ечишнинг усуллари %"
-"sдокументацияда%s келтирилган."
+"Эҳтимол, юкланаётган файл ҳажми жуда катта. Бу муаммони ечишнинг усуллари "
+"%sдокументацияда%s келтирилган."
 
 #: import.php:343 import.php:626
 msgid "Showing bookmark"
@@ -3315,7 +3315,7 @@ msgstr "Тозалаш"
 msgid "History"
 msgstr "SQL-сўровлар тарихи"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:300
+#: libraries/Console.class.php:205 libraries/Console.class.php:303
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -3344,77 +3344,87 @@ msgstr "SQL-сўровлар тарихи"
 msgid "Options"
 msgstr "Параметрлар"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:262
+#: libraries/Console.class.php:209 libraries/Console.class.php:265
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "Хатчўплар жадвали"
 
-#: libraries/Console.class.php:218
+#: libraries/Console.class.php:219
 #, fuzzy
 #| msgid "Execute bookmarked query"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Белгиланган сўровни бажариш"
 
-#: libraries/Console.class.php:239
+#: libraries/Console.class.php:221
+#, fuzzy
+#| msgid "Execute bookmarked query"
+msgid "Press Enter to execute query"
+msgstr "Белгиланган сўровни бажариш"
+
+#: libraries/Console.class.php:242
 #, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
 msgstr "Жорий хатоликларни ташлаб кетиш"
 
-#: libraries/Console.class.php:266 libraries/Util.class.php:1232
+#: libraries/Console.class.php:269 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Янгилаш"
 
-#: libraries/Console.class.php:269
+#: libraries/Console.class.php:272
 #, fuzzy
 #| msgid "And"
 msgid "Add"
 msgstr "Ва"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:281
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "Боғлиқликни ўчириш"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:285
 #, fuzzy
 #| msgid "Label"
 msgid "Label"
 msgstr "Хатчўп белгиси"
 
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:287
 msgid "Target database"
 msgstr "Нишон база"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:290
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "Боғлиқликни ўчириш"
 
-#: libraries/Console.class.php:304
+#: libraries/Console.class.php:307
 #, fuzzy
 #| msgid "Restore default value"
 msgid "Set default"
 msgstr "Асл қийматларни тиклаш"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:311
 msgid "Always expand query messages"
 msgstr ""
 
-#: libraries/Console.class.php:310
+#: libraries/Console.class.php:313
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL сўровлари тарихи жадвали"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:315
 msgid "Show current browsing query"
+msgstr ""
+
+#: libraries/Console.class.php:317
+msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
 msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
@@ -3803,8 +3813,8 @@ msgstr "SQL сўрови муваффақиятли бажарилди"
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Ушбу намойиш камида кўрсатилган миқдорда қаторларга эга. Батафсил маълумот "
 "учун %sдокументацияга%s қаранг."
@@ -4792,14 +4802,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -7779,9 +7789,9 @@ msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Кўпроқ маълумот учун [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-"\"PMA bug tracker\"[/a] ва [a@http://bugs.mysql.com/19588]\"MySQL Bugs\"[/a]"
-"ларга қаранг"
+"Кўпроқ маълумот учун [a@https://sourceforge.net/p/phpmyadmin/"
+"bugs/2606/]\"PMA bug tracker\"[/a] ва [a@http://bugs.mysql.com/19588]\"MySQL "
+"Bugs\"[/a]ларга қаранг"
 
 #: libraries/config/messages.inc.php:602
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -7847,8 +7857,8 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: [kbd]"
 "pma__savedsearches[/kbd]."
 msgstr ""
-"Агар PDF-схема ишлатмасангиз, бўш қолдиринг, асл қиймати: [kbd]"
-"\"pma_pdf_pages\"[/kbd]"
+"Агар PDF-схема ишлатмасангиз, бўш қолдиринг, асл қиймати: "
+"[kbd]\"pma_pdf_pages\"[/kbd]"
 
 #: libraries/config/messages.inc.php:623
 #, fuzzy
@@ -7865,8 +7875,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: [kbd]"
 "pma__central_columns[/kbd]."
 msgstr ""
-"PDF-схемадан фойдаланмаслик учун бўш қолдиринг, асл қиймати: [kbd]"
-"\"pma_table_coords\"[/kbd]"
+"PDF-схемадан фойдаланмаслик учун бўш қолдиринг, асл қиймати: "
+"[kbd]\"pma_table_coords\"[/kbd]"
 
 #: libraries/config/messages.inc.php:628
 #, fuzzy
@@ -7914,8 +7924,8 @@ msgstr "\"config\" аутентификация усули пароли"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Агар PDF-схема ишлатмасангиз, бўш қолдиринг, асл қиймати: [kbd]"
-"\"pma_pdf_pages\"[/kbd]"
+"Агар PDF-схема ишлатмасангиз, бўш қолдиринг, асл қиймати: "
+"[kbd]\"pma_pdf_pages\"[/kbd]"
 
 #: libraries/config/messages.inc.php:641
 msgid "PDF schema: pages table"
@@ -8056,8 +8066,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"PDF-схемадан фойдаланмаслик учун бўш қолдиринг, асл қиймати: [kbd]"
-"\"pma_table_coords\"[/kbd]"
+"PDF-схемадан фойдаланмаслик учун бўш қолдиринг, асл қиймати: "
+"[kbd]\"pma_table_coords\"[/kbd]"
 
 #: libraries/config/messages.inc.php:681
 #, fuzzy
@@ -9143,16 +9153,16 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid ""
 #| "s value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "matting strings. Additionally the following transformations will pen: %3"
-#| "$s. Other text will be kept as is."
+#| "matting strings. Additionally the following transformations will pen: "
+#| "%3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Қиймат %1$sstrftime%2$s функцияси билан қайта ишланган, шунинг учун ҳозирги "
-"вақт ва санани қўйиш мумкин. Қўшимча равишда қуйидагилар ишлатилиши мумкин: %"
-"3$s. Матннинг бошқа қисмлари ўзгаришсиз қолади."
+"вақт ва санани қўйиш мумкин. Қўшимча равишда қуйидагилар ишлатилиши мумкин: "
+"%3$s. Матннинг бошқа қисмлари ўзгаришсиз қолади."
 
 #: libraries/display_export.lib.php:526
 msgid "use this for future exports"
@@ -9730,8 +9740,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:138
@@ -10930,8 +10940,8 @@ msgstr "\"%s\" дастурига хуш келибсиз"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Эҳтимол, конфигурация файли тузилмаган. Уни тузиш учун %1$ssўрнатиш "
 "сценарийсидан%2$s фойдаланишингиз мумкин."
@@ -13685,8 +13695,8 @@ msgstr "Фойдаланувчилар ҳисобини кўриб чиқиш"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "ИЗОҲ: phpMyAdmin фойдаланувчилар привилегиялари ҳақидаги маълумотларни "
 "тўғридан-тўғри MySQL привилегиялари жадвалидан олади. Ушбу жадвалдаги "
@@ -14572,8 +14582,8 @@ msgstr "Очиқ файллар сони."
 #: libraries/server_status_variables.lib.php:641
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
-"Очиқ оқимлар сони (журнал файлларида кўлланилади). <b>Оқим</b> деб \"fopen()"
-"\" функцияси ёрдамида очилган файлга айтилади."
+"Очиқ оқимлар сони (журнал файлларида кўлланилади). <b>Оқим</b> деб \"fopen"
+"()\" функцияси ёрдамида очилган файлга айтилади."
 
 #: libraries/server_status_variables.lib.php:644
 msgid "The number of tables that are open."
@@ -16769,8 +16779,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -16905,8 +16915,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218

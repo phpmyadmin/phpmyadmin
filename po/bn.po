@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-06 08:15-0500\n"
+"POT-Creation-Date: 2015-03-08 09:11-0400\n"
 "PO-Revision-Date: 2014-11-05 10:27+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bn/>\n"
+"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bn\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.0-dev\n"
 
@@ -264,8 +264,8 @@ msgstr "ডাটাবেইজ %1$s টি  %2$s এ অনুলিপি হ
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"phpMyAdmin কনফিগারেশন সংরক্ষন ব্যবস্থা কার্যকর নয়। কেন জানার জন্য ক্লীক করুন %shere%"
-"s।"
+"phpMyAdmin কনফিগারেশন সংরক্ষন ব্যবস্থা কার্যকর নয়। কেন জানার জন্য ক্লীক করুন %shere"
+"%s।"
 
 #: db_printview.php:48 db_tracking.php:125 db_tracking.php:287
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:782
@@ -630,8 +630,8 @@ msgstr "সম্পুর্ন ইনর্সাট"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "সম্ভবত আপনি একটি বিশাল ফাইল আপলোড করতে চাচ্ছেন। অনুগ্র্রহ করে %sdocumentation%s "
 "দেখে এই সমস্যা সমাধানের চেষ্টা করুন।"
@@ -3053,7 +3053,7 @@ msgstr "পরিস্কার"
 msgid "History"
 msgstr "এসকিউএল ইতিহাস"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:300
+#: libraries/Console.class.php:205 libraries/Console.class.php:303
 #: libraries/DisplayResults.class.php:1600 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -3082,80 +3082,90 @@ msgstr "এসকিউএল ইতিহাস"
 msgid "Options"
 msgstr "অপশনস"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:262
+#: libraries/Console.class.php:209 libraries/Console.class.php:265
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "বুকর্মাক টেবল"
 
-#: libraries/Console.class.php:218
+#: libraries/Console.class.php:219
 #, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "সবগুলো নির্বাহ কর"
 
-#: libraries/Console.class.php:239
+#: libraries/Console.class.php:221
+#, fuzzy
+#| msgid "Execute every"
+msgid "Press Enter to execute query"
+msgstr "সবগুলো নির্বাহ কর"
+
+#: libraries/Console.class.php:242
 #, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
 msgstr "বর্তমান ভুলটি এড়িয়ে যাও"
 
-#: libraries/Console.class.php:266 libraries/Util.class.php:1232
+#: libraries/Console.class.php:269 libraries/Util.class.php:1232
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "রিফ্রেশ"
 
-#: libraries/Console.class.php:269
+#: libraries/Console.class.php:272
 #, fuzzy
 #| msgid "And"
 msgid "Add"
 msgstr "এবং"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:281
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "সর্ম্পক মুছা"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:285
 #, fuzzy
 #| msgid "Label:"
 msgid "Label"
 msgstr "লেবেল:"
 
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:287
 #, fuzzy
 msgid "Target database"
 msgstr "ডাটাবে এ খুজুঁনSearch in database"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:290
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "সর্ম্পক মুছা"
 
-#: libraries/Console.class.php:304
+#: libraries/Console.class.php:307
 #, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
 msgstr "স্বাভাবিকে রিসেট কর"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:311
 #, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
 msgstr "সবসময় ভুলের প্রতিবেদন পাঠাবে"
 
-#: libraries/Console.class.php:310
+#: libraries/Console.class.php:313
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL অনুসন্ধানের হিস্টোরী টেবল"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:315
 msgid "Show current browsing query"
+msgstr ""
+
+#: libraries/Console.class.php:317
+msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
 msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
@@ -3499,8 +3509,8 @@ msgstr "আপনার SQL অনুসন্ধানটি সফলভাব
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "এই ভিউটির অন্তত পক্ষে এক সারি তথ্য রয়েছে। অনুগ্রহ করে %sdocumentation%s দেখুন।"
 
@@ -4439,16 +4449,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"একটি ছোট দশমিক-পয়েন্টের অনুমোদিত মান হল -৩.৪০২৮২৬৪৬৬E+৩৮ থেকে -১.১৭৫৪৯৪৩৫১E-"
-"৩৮, ০ এবং ১.১৭৫৪৯৪৩৫১E-৩৮ থেকে ৩.৪০২৮২৬৪৬৬E+৩৮"
+"একটি ছোট দশমিক-পয়েন্টের অনুমোদিত মান হল -৩.৪০২৮২৬৪৬৬E+৩৮ থেকে "
+"-১.১৭৫৪৯৪৩৫১E-৩৮, ০ এবং ১.১৭৫৪৯৪৩৫১E-৩৮ থেকে ৩.৪০২৮২৬৪৬৬E+৩৮"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "একটি double-precision দশমিক পয়েন্ট হল -১.৭৯৭৬৯৩১৩৪৮৬২৩১৫৭E+৩০৮ থেকে - "
@@ -5389,22 +5399,22 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:419
 #, fuzzy, php-format
 #| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, %"
-#| "sLogin cookie validity%s must be set to a value less or equal to it."
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
+#| "%sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"যদি কুকি প্রমাণীকরন ব্যবহার করেন এবং %sLogin cookie store%s যদি ০ না হয়, %"
-"sLogin cookie validity%s 'র মান অবশ্যই এর থেকে কম বা সমান এ সেট করতে হবে।"
+"যদি কুকি প্রমাণীকরন ব্যবহার করেন এবং %sLogin cookie store%s যদি ০ না হয়, "
+"%sLogin cookie validity%s 'র মান অবশ্যই এর থেকে কম বা সমান এ সেট করতে হবে।"
 
 #: libraries/config/ServerConfigChecks.class.php:426
 #, fuzzy, php-format
 #| msgid ""
-#| "If you feel this is necessary, use additional protection settings - %"
-#| "shost authentication%s settings and %strusted proxies list%s. However, IP-"
-#| "based protection may not be reliable if your IP belongs to an ISP where "
-#| "thousands of users, including you, are connected to."
+#| "If you feel this is necessary, use additional protection settings - "
+#| "%shost authentication%s settings and %strusted proxies list%s. However, "
+#| "IP-based protection may not be reliable if your IP belongs to an ISP "
+#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
@@ -8200,8 +8210,8 @@ msgstr "@TABLE@ হবে টেবলের নাম"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "এই মানটি %1$sstrftime%2$s ভাবে অনুবাদিত হবে, আপনি সময় গঠনের স্ট্রিং ব্যবহার করতে "
 "পারেন। এখন এই রুপান্তরটি হবে:%3$s। অন্যান্য লেখা ঠিকই থাকবে।  %4$sFAQ%5$s এ বিশদ "
@@ -8740,8 +8750,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "নথিপত্রাদি এবং PBXT'র  অন্যান্য তথ্য %sPrimeBase XT Home Page%s এ পাওয়া যাবে।"
 
@@ -9878,8 +9888,8 @@ msgstr "%s এ স্বাগতম"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "সম্ভবত আপনি কোন কনফিগারেশন ফাইল তৈরী করেন নাই। আপনি %1$ssetup script%2$s "
 "ব্যবহার করে একটি তৈরী করতে পারেন।"
@@ -12344,8 +12354,8 @@ msgstr "একনজরে ব্যবহারকারীগণ"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "টিকা: phpMyAdmin সরাসরি মাইএসকিউএল অধিকার টেবিল থেকে ব্যবহারকারীর অধিকার "
 "সংক্রান্ত তথ্য সমূহ নেয়। টেবিলে থাকা অধিকার সম্পর্কিত তথ্য এবং সার্ভারের মধ্য পার্থক্য "
@@ -14414,8 +14424,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
-"আপনার কনফিগারেশন শুধু এই সেশনের জন্য সংরক্ষন হবে। স্থায়ীভাবে সংরক্ষনের জন্য %"
-"sphpMyAdmin configuration storage%s প্রয়োজন।"
+"আপনার কনফিগারেশন শুধু এই সেশনের জন্য সংরক্ষন হবে। স্থায়ীভাবে সংরক্ষনের জন্য "
+"%sphpMyAdmin configuration storage%s প্রয়োজন।"
 
 #: libraries/user_preferences.lib.php:130
 msgid "Could not save configuration"
@@ -15183,11 +15193,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
-"বর্তমান মুক্ত ক্যাশ মেমোরীর হার হল মোট অনুসন্ধান ক্যাশের আকারের %s%%। ইহা অবশ্যই 80%"
-"% বেশী থাকবে"
+"বর্তমান মুক্ত ক্যাশ মেমোরীর হার হল মোট অনুসন্ধান ক্যাশের আকারের %s%%। ইহা অবশ্যই "
+"80%% বেশী থাকবে"
 
 #: libraries/advisory_rules.txt:181
 msgid "Query cache fragmentation"
@@ -15242,8 +15252,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
-"ইনসার্টেড অনুসন্ধানে অনুসন্ধান সরানোর হার %s%%। এর মান যত কম হবে তত ভাল, ভাল (০.১%"
-"%)"
+"ইনসার্টেড অনুসন্ধানে অনুসন্ধান সরানোর হার %s%%। এর মান যত কম হবে তত ভাল, ভাল "
+"(০.১%%)"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache max size"
@@ -15311,8 +15321,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr "সমস্ত সর্টের %s%% সাময়িক টেবল তৈরী করছে, এই মানটি 10%% এর কম হবে।"
 
 #: libraries/advisory_rules.txt:218
