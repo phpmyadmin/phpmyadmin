@@ -66,12 +66,13 @@ function PMA_getColumnsList($db, $from=0, $num=25)
             . 'WHERE db_name = \'' . $db . '\';';
     } else {
         $query = 'SELECT * FROM ' . PMA_Util::backquote($central_list_table) . ' '
-            . 'WHERE db_name = \'' . $db . '\''
+            . 'WHERE db_name = \'' . $db . '\' '
             . 'LIMIT ' . $from . ', ' . $num . ';';
     }
     $has_list = (array) $GLOBALS['dbi']->fetchResult(
         $query, null, null, $GLOBALS['controllink']
     );
+    PMA_handleColumnExtra($has_list);
     return $has_list;
 }
 
@@ -94,7 +95,9 @@ function PMA_getCentralColumnsCount($db)
     $query = 'SELECT count(db_name) FROM ' .
                PMA_Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $db . '\';';
-    $res = $GLOBALS['dbi']->fetchResult($query);
+    $res = $GLOBALS['dbi']->fetchResult(
+        $query, null, null, $GLOBALS['controllink']
+    );
     if (isset($res[0])) {
         return $res[0];
     } else {
@@ -123,14 +126,19 @@ function PMA_findExistingColNames($db, $cols, $allFields=false)
     if ($allFields) {
         $query = 'SELECT * FROM ' . PMA_Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $db . '\' AND col_name IN (' . $cols . ');';
+        $has_list = (array) $GLOBALS['dbi']->fetchResult(
+            $query, null, null, $GLOBALS['controllink']
+        );
+        PMA_handleColumnExtra($has_list);
     } else {
         $query = 'SELECT col_name FROM '
             . PMA_Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $db . '\' AND col_name IN (' . $cols . ');';
+        $has_list = (array) $GLOBALS['dbi']->fetchResult(
+            $query, null, null, $GLOBALS['controllink']
+        );
     }
-    $has_list = (array) $GLOBALS['dbi']->fetchResult(
-        $query, null, null, $GLOBALS['controllink']
-    );
+
     return $has_list;
 }
 
@@ -412,25 +420,6 @@ function PMA_makeConsistentWithList($db, $selected_tables)
                     . PMA_Util::sqlAddSlashes($column['col_type']);
                 if ($column['col_length']) {
                     $query .= '(' . $column['col_length'] . ')';
-                }
-
-                $vals = explode(',', $column['col_extra']);
-                if (in_array('BINARY', $vals)) {
-                    $column['col_attribute'] = 'BINARY';
-                } elseif (in_array('UNSIGNED', $vals)) {
-                    $column['col_attribute'] = 'UNSIGNED';
-                } elseif (in_array('UNSIGNED ZEROFILL', $vals)) {
-                    $column['col_attribute'] = 'UNSIGNED ZEROFILL';
-                } elseif (in_array('on update CURRENT_TIMESTAMP', $vals)) {
-                    $column['col_attribute'] = 'on update CURRENT_TIMESTAMP';
-                } else {
-                    $column['col_attribute'] = '';
-                }
-
-                if (in_array('auto_increment', $vals)) {
-                    $column['col_extra'] = 'auto_increment';
-                } else {
-                    $column['col_extra'] = '';
                 }
 
                 $query .= ' ' . $column['col_attribute'];
@@ -907,14 +896,49 @@ function PMA_getCentralColumnsListRaw($db, $table)
         }
         $cols = trim($cols, ',');
         $query = 'SELECT * FROM ' . PMA_Util::backquote($centralTable) . ' '
-                . 'WHERE db_name = \'' . $db . '\' '
-                . 'AND col_name NOT IN (' . $cols . ');';
+            . 'WHERE db_name = \'' . $db . '\'';
+        if ($cols) {
+            $query .= ' AND col_name NOT IN (' . $cols . ')';
+        }
+        $query .= ';';
     }
     $GLOBALS['dbi']->selectDb($cfgCentralColumns['db'], $GLOBALS['controllink']);
     $columns_list = (array)$GLOBALS['dbi']->fetchResult(
         $query, null, null, $GLOBALS['controllink']
     );
+    PMA_handleColumnExtra($columns_list);
     return json_encode($columns_list);
+}
+
+/**
+ * Column `col_extra` is used to store both extra and attributes for a column.
+ * This method separates them.
+ *
+ * @param array columns_list columns list
+ */
+function PMA_handleColumnExtra(&$columns_list)
+{
+    foreach ($columns_list as &$row) {
+        $vals = explode(',', $row['col_extra']);
+
+        if (in_array('BINARY', $vals)) {
+            $row['col_attribute'] = 'BINARY';
+        } elseif (in_array('UNSIGNED', $vals)) {
+            $row['col_attribute'] = 'UNSIGNED';
+        } elseif (in_array('UNSIGNED ZEROFILL', $vals)) {
+            $row['col_attribute'] = 'UNSIGNED ZEROFILL';
+        } elseif (in_array('on update CURRENT_TIMESTAMP', $vals)) {
+            $row['col_attribute'] = 'on update CURRENT_TIMESTAMP';
+        } else {
+            $row['col_attribute'] = '';
+        }
+
+        if (in_array('auto_increment', $vals)) {
+            $row['col_extra'] = 'auto_increment';
+        } else {
+            $row['col_extra'] = '';
+        }
+    }
 }
 
 /**
