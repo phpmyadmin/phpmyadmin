@@ -227,15 +227,33 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMADeleteColumnsFromList()
     {
-        $field_select = array("col1");
         $_REQUEST['db'] = 'PMA_db';
         $_REQUEST['table'] = 'PMA_table';
+
+        // when column exists in the central column list
+        $GLOBALS['dbi']->expects($this->at(2))
+            ->method('fetchResult')
+            ->with("SELECT col_name FROM `pma_central_columns` WHERE db_name = 'PMA_db' AND col_name IN ('col1');", null, null, $GLOBALS['controllink'])
+            ->will(
+                $this->returnValue(array('col1'))
+            );
+
+        $GLOBALS['dbi']->expects($this->at(4))
+            ->method('tryQuery')
+            ->with("DELETE FROM `pma_central_columns` WHERE db_name = 'PMA_db' AND col_name IN ('col1');", $GLOBALS['controllink'])
+            ->will(
+                $this->returnValue(array('col1'))
+            );
+
         $this->assertTrue(
-            PMA_deleteColumnsFromList($field_select, false)
+            PMA_deleteColumnsFromList(array("col1"), false)
         );
+
+        // when column does not exist in the central column list
         $this->assertInstanceOf(
             'PMA_Message', PMA_deleteColumnsFromList(array('column1'), false)
         );
+
         $this->assertInstanceOf(
             'PMA_Message', PMA_deleteColumnsFromList(array('PMA_table'))
         );
