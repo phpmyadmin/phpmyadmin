@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-09 08:17-0400\n"
-"PO-Revision-Date: 2015-03-09 08:24+0200\n"
+"PO-Revision-Date: 2015-03-09 15:22+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -2995,13 +2995,12 @@ msgid "Show current browsing query"
 msgstr "Kuva valitud lehitsemise päring"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
-"Käivita päringud klahviga ENTER ja sisesta reavahetused SHIFT + ENTER "
+"Käivita päringud klahviga Enter ja sisesta reavahetused Shift + Enter "
 "kombinatsiooniga."
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
@@ -7523,12 +7522,13 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter"
 msgstr ""
+"Päringud käivitatakse klahvi Enter vajutamisel (Ctrl+Enter asemel). "
+"Reavahetus sisesta Shift+Enter kombinatsiooniga"
 
 #: libraries/config/messages.inc.php:812
-#, fuzzy
 #| msgid "Executed queries"
 msgid "Enter executes queries in console"
-msgstr "Teostatud päringud"
+msgstr "Enter käivitab päringud konsoolil"
 
 #: libraries/config/messages.inc.php:815
 msgid ""
