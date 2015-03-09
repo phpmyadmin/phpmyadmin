@@ -894,8 +894,11 @@ function PMA_getCentralColumnsListRaw($db, $table)
         }
         $cols = trim($cols, ',');
         $query = 'SELECT * FROM ' . PMA_Util::backquote($centralTable) . ' '
-                . 'WHERE db_name = \'' . $db . '\' '
-                . 'AND col_name NOT IN (' . $cols . ');';
+            . 'WHERE db_name = \'' . $db . '\'';
+        if ($cols) {
+            $query .= ' AND col_name NOT IN (' . $cols . ')';
+        }
+        $query .= ';';
     }
     $GLOBALS['dbi']->selectDb($cfgCentralColumns['db'], $GLOBALS['controllink']);
     $columns_list = (array)$GLOBALS['dbi']->fetchResult(
