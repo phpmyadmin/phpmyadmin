@@ -452,12 +452,13 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
         $this->object = $this->getMockBuilder('AuthenticationHttp')
             ->disableOriginalConstructor()
-            ->setMethods(array('auth'))
+            ->setMethods(array('authForm'))
             ->getMock();
 
         $this->object->expects($this->exactly(2))
-            ->method('auth');
+            ->method('authForm');
         // case 2
+        $GLOBALS['cfg']['Server']['host'] = 'host';
         $GLOBALS['errno'] = 1045;
 
         $this->assertTrue(
