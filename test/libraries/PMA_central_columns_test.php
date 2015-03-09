@@ -290,15 +290,41 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
+
+        $GLOBALS['dbi']->expects($this->at(3))
+            ->method('fetchResult')
+            ->with("SELECT col_name FROM `pma_central_columns` WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');", null, null, $GLOBALS['controllink'])
+            ->will(
+                $this->returnValue(array('id','col1'))
+            );
         $this->assertEquals(
             array("id", "col1"),
             PMA_getCentralColumnsFromTable($db, $table)
         );
+    }
+
+    /**
+     * Test for PMA_getCentralColumnsFromTable with $allFields = true
+     *
+     * @return void
+     */
+    public function testPMAGetCentralColumnsFromTableWithAllFields()
+    {
+        $db = 'PMA_db';
+        $table = 'PMA_table';
+
+        $GLOBALS['dbi']->expects($this->at(3))
+            ->method('fetchResult')
+            ->with("SELECT * FROM `pma_central_columns` WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');", null, null, $GLOBALS['controllink'])
+            ->will(
+                $this->returnValue(array_slice($this->_columnData, 0, 2))
+            );
         $this->assertEquals(
-            array("id", "col1"),
+            array_slice($this->_modifiedColumnData, 0, 2),
             PMA_getCentralColumnsFromTable($db, $table, true)
         );
     }
+
     /**
      * Test for PMA_updateOneColumn
      *
