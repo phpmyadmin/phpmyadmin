@@ -188,8 +188,15 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     function testPMAGetCentralColumnsCount()
     {
+        $GLOBALS['dbi']->expects($this->at(1))
+            ->method('fetchResult')
+            ->with("SELECT count(db_name) FROM `pma_central_columns` WHERE db_name = 'phpmyadmin';", null, null, $GLOBALS['controllink'])
+            ->will(
+                $this->returnValue(array(3))
+            );
+
         $this->assertEquals(
-            'id',
+            3,
             PMA_getCentralColumnsCount('phpmyadmin')
         );
     }

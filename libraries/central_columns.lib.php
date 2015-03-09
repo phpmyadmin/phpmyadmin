@@ -95,7 +95,9 @@ function PMA_getCentralColumnsCount($db)
     $query = 'SELECT count(db_name) FROM ' .
                PMA_Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $db . '\';';
-    $res = $GLOBALS['dbi']->fetchResult($query);
+    $res = $GLOBALS['dbi']->fetchResult(
+        $query, null, null, $GLOBALS['controllink']
+    );
     if (isset($res[0])) {
         return $res[0];
     } else {
