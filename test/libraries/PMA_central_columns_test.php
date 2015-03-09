@@ -96,13 +96,13 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             'central_columns' => 'pma_central_columns'
         );
 
-        //mock DBI
+        // mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
 
-        // set expectations
+        // set some common expectations
         $dbi->expects($this->any())
             ->method('selectDb')
             ->will($this->returnValue(true));
@@ -266,43 +266,12 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAMakeConsistentWithList()
     {
-        $dbi = $GLOBALS['dbi'];
-        $dbitmp = $this->getMockBuilder('PMA_DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbitmp;
-        $dbitmp->expects($this->any())
-            ->method('selectDb')
-            ->will($this->returnValue(true));
-        $dbitmp->expects($this->any())
-            ->method('getColumnNames')
-            ->will($this->returnValue(array("id", "col1", "col2")));
-        $dbitmp->expects($this->any())
-            ->method('tryQuery')
-            ->will($this->returnValue(true));
-        $dbitmp->expects($this->any())
+        $GLOBALS['dbi']->expects($this->any())
             ->method('fetchResult')
             ->will(
-                $this->returnValue(
-                    array(
-                        array(
-                            'col_name'=>"id", "col_type"=>'integer',
-                            'col_length'=>0, 'col_isNull'=>0, 'col_extra'=>'',
-                            'col_default'=>1
-                        ),
-                        array('col_name'=>"col1", 'col_type'=>'varchar',
-                            'col_length'=>100, 'col_isNull'=>1, 'col_extra'=>'',
-                            'col_default'=>1
-                        ),
-                        array(
-                            'col_name'=>"col2", 'col_type'=>'DATETIME',
-                            'col_length'=>0, 'col_isNull'=>1, 'col_extra'=>'',
-                            'col_default'=>'CURRENT_TIMESTAMP'
-                        )
-                    )
-                )
+                $this->returnValue($this->_columnData)
             );
-        $dbitmp->expects($this->any())
+        $GLOBALS['dbi']->expects($this->any())
             ->method('fetchValue')
             ->will(
                 $this->returnValue('PMA_table=CREATE table `PMA_table` (id integer)')
@@ -310,7 +279,6 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(
             PMA_makeConsistentWithList("phpmyadmin", array('PMA_table'))
         );
-        $GLOBALS['dbi'] = $dbi;
     }
 
     /**
