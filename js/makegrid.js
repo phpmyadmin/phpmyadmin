@@ -1033,11 +1033,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                     $input_field.datepicker("show");
 
-                    var datepicker_top = parseInt(document.getElementById("ui-datepicker-div").style.getPropertyValue("top"), 10);
+                    //move ui-datepicker-div inside cEdit div
+                    var datepicker_div = $('#ui-datepicker-div');
+                    datepicker_div.css({'top': 0, 'left': 0, 'position': 'relative'});
+                    $('.cEdit').append(datepicker_div);
 
-                    if (datepicker_top > 370 && !is_null) {
-                        document.getElementById("ui-datepicker-div").style.marginTop = "30px";
-                    }
+                    var edit_area_top = $('#ui-datepicker-div').height()+32;
+                    $('.edit_area').css({'top' : edit_area_top+'px', 'position': 'absolute'});
 
                     if (is_null){
                         $(g.cEdit).find('.edit_area').hide();
