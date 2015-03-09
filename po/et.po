@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-08 09:11-0400\n"
-"PO-Revision-Date: 2015-03-06 16:30+0200\n"
+"PO-Revision-Date: 2015-03-09 08:24+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2944,10 +2944,9 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Vajuta päringu käivitamiseks Ctrl+Enter"
 
 #: libraries/Console.class.php:221
-#, fuzzy
 #| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
-msgstr "Vajuta päringu käivitamiseks Ctrl+Enter"
+msgstr "Vajuta päringu käivitamiseks Enter"
 
 #: libraries/Console.class.php:242
 msgid "During current session"
@@ -2999,6 +2998,8 @@ msgstr "Kuva valitud lehitsemise päring"
 #: libraries/Console.class.php:317
 msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
 msgstr ""
+"Käivita päringud klahviga ENTER ja sisesta reavahetused SHIFT + ENTER "
+"kombinatsiooniga."
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
 #: libraries/DisplayResults.class.php:2139
