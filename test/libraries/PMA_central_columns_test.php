@@ -31,6 +31,40 @@ require_once 'libraries/sqlparser.lib.php';
  */
 class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
 {
+    private $_columnData = array(
+        array(
+            'col_name' => "id", "col_type" => 'integer',
+            'col_length' => 0, 'col_isNull' => 0, 'col_extra' => 'UNSIGNED,auto_increment',
+            'col_default' => 1
+        ),
+        array('col_name' => "col1", 'col_type' => 'varchar',
+            'col_length' => 100, 'col_isNull' => 1, 'col_extra' => 'BINARY',
+            'col_default' => 1
+        ),
+        array(
+            'col_name' => "col2", 'col_type' => 'DATETIME',
+            'col_length' => 0, 'col_isNull' => 1, 'col_extra' => 'on update CURRENT_TIMESTAMP',
+            'col_default' => 'CURRENT_TIMESTAMP'
+        )
+    );
+
+    private $_modifiedColumnData = array(
+        array(
+            'col_name' => "id", "col_type" => 'integer',
+            'col_length' => 0, 'col_isNull' => 0, 'col_extra' => 'auto_increment',
+            'col_default' => 1, 'col_attribute' => 'UNSIGNED'
+        ),
+        array('col_name' => "col1", 'col_type' => 'varchar',
+            'col_length' => 100, 'col_isNull' => 1, 'col_extra' => '',
+            'col_default' => 1, 'col_attribute' => 'BINARY'
+        ),
+        array(
+            'col_name' => "col2", 'col_type' => 'DATETIME',
+            'col_length' => 0, 'col_isNull' => 1, 'col_extra' => '',
+            'col_default' => 'CURRENT_TIMESTAMP', 'col_attribute' => 'on update CURRENT_TIMESTAMP'
+        )
+    );
+
     /**
      * prepares environment for tests
      *
@@ -61,11 +95,13 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             'relation' => 'relation',
             'central_columns' => 'pma_central_columns'
         );
-                //mock DBI
+
+        //mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
+
         // set expectations
         $dbi->expects($this->any())
             ->method('selectDb')
@@ -123,24 +159,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             ->method('fetchResult')
             ->with("SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin' LIMIT 0, 25;", null, null, $GLOBALS['controllink'])
             ->will(
-                $this->returnValue(
-                    array(
-                        array(
-                            'col_name' => "id", "col_type" => 'integer',
-                            'col_length' => 0, 'col_isNull' => 0, 'col_extra' => '',
-                            'col_default' => 1
-                        ),
-                        array('col_name' => "col1", 'col_type' => 'varchar',
-                            'col_length' => 100, 'col_isNull' => 1, 'col_extra' => '',
-                            'col_default' => 1
-                        ),
-                        array(
-                            'col_name' => "col2", 'col_type' => 'DATETIME',
-                            'col_length' => 0, 'col_isNull' => 1, 'col_extra' => '',
-                            'col_default' => 'CURRENT_TIMESTAMP'
-                        )
-                    )
-                )
+                $this->returnValue($this->_columnData)
             );
 
         $GLOBALS['dbi']->expects($this->at(3))
@@ -148,51 +167,16 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             ->with("SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin' LIMIT 1, 2;", null, null, $GLOBALS['controllink'])
             ->will(
                 $this->returnValue(
-                    array(
-                        array('col_name' => "col1", 'col_type' => 'varchar',
-                            'col_length' => 100, 'col_isNull' => 1, 'col_extra' => '',
-                            'col_default' => 1
-                        ),
-                        array(
-                            'col_name' => "col2", 'col_type' => 'DATETIME',
-                            'col_length' => 0, 'col_isNull' => 1, 'col_extra' => '',
-                            'col_default' => 'CURRENT_TIMESTAMP'
-                        )
-                    )
+                    array_slice($this->_columnData, 1, 2)
                 )
             );
 
         $this->assertEquals(
-            array(
-                array(
-                    'col_name' => "id", "col_type" => 'integer',
-                    'col_length' => 0, 'col_isNull' => 0, 'col_extra' => '',
-                    'col_default' => 1, 'col_attribute' => ''
-                ),
-                array('col_name' => "col1", 'col_type' => 'varchar',
-                    'col_length' => 100, 'col_isNull' => 1, 'col_extra' => '',
-                    'col_default' => 1, 'col_attribute' => ''
-                ),
-                array(
-                    'col_name' => "col2", 'col_type' => 'DATETIME',
-                    'col_length' => 0, 'col_isNull' => 1, 'col_extra' => '',
-                    'col_default' => 'CURRENT_TIMESTAMP', 'col_attribute' => ''
-                )
-            ),
+            $this->_modifiedColumnData,
             PMA_getColumnsList('phpmyadmin')
         );
         $this->assertEquals(
-            array(
-                array('col_name' => "col1", 'col_type' => 'varchar',
-                    'col_length' => 100, 'col_isNull' => 1, 'col_extra' => '',
-                    'col_default' => 1, 'col_attribute' => ''
-                ),
-                array(
-                    'col_name' => "col2", 'col_type' => 'DATETIME',
-                    'col_length' => 0, 'col_isNull' => 1, 'col_extra' => '',
-                    'col_default' => 'CURRENT_TIMESTAMP', 'col_attribute' => ''
-                )
-            ),
+            array_slice($this->_modifiedColumnData, 1, 2),
             PMA_getColumnsList('phpmyadmin', 1, 2)
         );
     }
