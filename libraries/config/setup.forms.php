@@ -144,6 +144,7 @@ $forms['Features']['Other_core_settings'] = array(
     'UseDbSearch',
     'VersionCheck',
     'SendErrorReports',
+    'ConsoleEnterExecutes',
     'ProxyUrl',
     'ProxyUser',
     'ProxyPass',
