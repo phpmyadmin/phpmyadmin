@@ -471,14 +471,36 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetCentralColumnsListRaw()
     {
+        $GLOBALS['dbi']->expects($this->at(1))
+            ->method('fetchResult')
+            ->with("SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin';", null, null, $GLOBALS['controllink'])
+            ->will(
+                $this->returnValue($this->_columnData)
+            );
         $this->assertEquals(
-            json_encode(array("id", "col1")),
-            PMA_getCentralColumnsListRaw('phpmyadmin', 'pma_central_columns')
-        );
-        $this->assertEquals(
-            json_encode(array("id", "col1")),
+            json_encode($this->_modifiedColumnData),
             PMA_getCentralColumnsListRaw('phpmyadmin', '')
         );
+    }
+
+    /**
+     * Test for PMA_getCentralColumnsListRaw with a table name
+     *
+     * @return void
+     */
+    public function testPMAGetCentralColumnsListRawWithTable()
+    {
+        $GLOBALS['dbi']->expects($this->at(3))
+            ->method('fetchResult')
+            ->with("SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin' AND col_name NOT IN ('id','col1','col2');", null, null, $GLOBALS['controllink'])
+            ->will(
+                $this->returnValue($this->_columnData)
+            );
+        $this->assertEquals(
+            json_encode($this->_modifiedColumnData),
+            PMA_getCentralColumnsListRaw('phpmyadmin', 'table1')
+        );
+
     }
 
     /**
