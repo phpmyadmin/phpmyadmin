@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-08 09:11-0400\n"
-"PO-Revision-Date: 2015-03-06 19:53+0200\n"
+"PO-Revision-Date: 2015-03-09 09:21+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2980,10 +2980,9 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Πατήστε Ctrl+Enter για εκτέλεση του ερωτήματος"
 
 #: libraries/Console.class.php:221
-#, fuzzy
 #| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
-msgstr "Πατήστε Ctrl+Enter για εκτέλεση του ερωτήματος"
+msgstr "Πατήστε Enter για εκτέλεση του ερωτήματος"
 
 #: libraries/Console.class.php:242
 msgid "During current session"
@@ -3035,6 +3034,8 @@ msgstr "Προβολή τρέχοντος ερωτημάτος φυλλομετ�
 #: libraries/Console.class.php:317
 msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
 msgstr ""
+"Εκτέλεση ερωτημάτων με το πάτημα του ENTER και εισαγωγή νέας γραμμής με "
+"SHIFT + ENTER."
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
 #: libraries/DisplayResults.class.php:2139
