@@ -1103,6 +1103,8 @@ function PMA_storeTheQueryAsBookmark($db, $bkm_user, $sql_query_for_bookmark,
  */
 function PMA_executeQueryAndStoreResults($full_sql_query)
 {
+    session_write_close();
+
     // Measure query time.
     $querytime_before = array_sum(explode(' ', microtime()));
 
@@ -1110,6 +1112,8 @@ function PMA_executeQueryAndStoreResults($full_sql_query)
         $full_sql_query, null, PMA_DatabaseInterface::QUERY_STORE
     );
     $querytime_after = array_sum(explode(' ', microtime()));
+
+    PMA_Util::sessionRestart();
 
     $GLOBALS['querytime'] = $querytime_after - $querytime_before;
 
