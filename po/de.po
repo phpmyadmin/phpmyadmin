@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-08 09:11-0400\n"
-"PO-Revision-Date: 2015-03-06 10:19+0200\n"
-"Last-Translator: Matthias Bluthardt <matthias@bluthardt.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"PO-Revision-Date: 2015-03-09 09:49+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4651,11 +4651,10 @@ msgid "Create PHP Code"
 msgstr "PHP-Code erzeugen"
 
 #: libraries/Util.class.php:1275
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Index bearbeiten"
+msgstr "Inline bearbeiten"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1580
@@ -4859,10 +4858,9 @@ msgid "Length/Values"
 msgstr "Länge/Werte"
 
 #: libraries/central_columns.lib.php:670
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Attribute"
+msgstr "Attribut"
 
 #: libraries/central_columns.lib.php:674
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -6580,11 +6578,12 @@ msgid "Enable highlighting"
 msgstr "Hervorhebung ermöglichen"
 
 #: libraries/config/messages.inc.php:470
-#, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "Ist die Möglichkeit der Datenbankerweiterung aktiviert oder nicht."
+msgstr ""
+"Wird die Möglichkeit der Baumerweiterung im Navigationsbereich angeboten "
+"oder nicht."
 
 #: libraries/config/messages.inc.php:472
 #, fuzzy
@@ -13933,10 +13932,9 @@ msgid "Showing create queries"
 msgstr "Zeige Erzeugungsabfrage"
 
 #: libraries/structure.lib.php:3269
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
-msgstr "Beziehungsübersicht"
+msgstr "Beziehungsansicht"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
