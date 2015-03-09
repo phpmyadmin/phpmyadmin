@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-07 15:36+0200\n"
+"PO-Revision-Date: 2015-03-09 11:25+0200\n"
 "Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/pt_BR/>\n"
@@ -826,7 +826,6 @@ msgid "List of changes"
 msgstr "Lista de mudanças"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -838,10 +837,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"O seu arquivo de configuração contém configurações (root sem senha) que "
-"correspondem à conta privilegiada padrão do MySQL. O servidor MySQL rodando "
-"com esse padrão estará aberto a invasões, você realmente deveria corrigir "
-"esta brecha de segurança."
+"Você está conectado como 'root' sem senha, o que corresponde à conta padrão "
+"privilegiada do MySQL. Seu servidor MySQL está sendo executado com este "
+"padrão, está aberto a intrusões e você realmente deve corrigir esta falha de "
+"segurança definindo uma senha para o usuário 'root'."
 
 #: index.php:464
 msgid ""
@@ -2136,13 +2135,12 @@ msgid "Encryption key"
 msgstr "Chave de encriptação"
 
 #: js/messages.php:404
-#, fuzzy
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
-"Indica que você fez alterações nesta página; Você será questionado antes de "
-"abandonar as alterações"
+"Indica que você fez alterações nesta página; Você será questionado por uma "
+"confirmação antes de abandonar as alterações"
 
 #: js/messages.php:409
 msgid "Select referenced key"
