@@ -585,7 +585,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $selected_tbl = 'PMA_table';
         $result = PMA_getHTMLforColumnDropdown($db, $selected_tbl);
         $this->assertEquals(
-            '<option value="col2">col2</option>',
+            '<option value="id">id</option><option value="col1">col1</option><option value="col2">col2</option>',
             $result
         );
     }
