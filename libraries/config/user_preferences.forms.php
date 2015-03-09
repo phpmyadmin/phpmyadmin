@@ -34,7 +34,8 @@ $forms['Features']['General'] = array(
     'MaxTableList',
     'NumFavoriteTables',
     'ShowHint',
-    'SendErrorReports'
+    'SendErrorReports',
+    'ConsoleEnterExecutes'
 );
 $forms['Features']['Text_fields'] = array(
     'CharEditing',

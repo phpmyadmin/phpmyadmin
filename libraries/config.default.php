@@ -2959,6 +2959,13 @@ $cfg['DisableMultiTableMaintenance'] = false;
 $cfg['SendErrorReports'] = 'ask';
 
 /**
+ * Whether Enter or Ctrl+Enter executes queries in the console.
+ *
+ * @global boolean $cfg['ConsoleEnterExecutes']
+ */
+$cfg['ConsoleEnterExecutes'] = false;
+
+/**
  * Zero Configuration mode.
  *
  * @global boolean $cfg['ZeroConf']
