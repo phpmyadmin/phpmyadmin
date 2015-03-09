@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-08 09:11-0400\n"
-"PO-Revision-Date: 2015-03-07 00:33+0200\n"
+"PO-Revision-Date: 2015-03-09 01:38+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -2963,10 +2963,9 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Pritisnite ctrl+enter, da izvedete poizvedbo"
 
 #: libraries/Console.class.php:221
-#, fuzzy
 #| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
-msgstr "Pritisnite ctrl+enter, da izvedete poizvedbo"
+msgstr "Pritisnite enter, da izvedete poizvedbo"
 
 #: libraries/Console.class.php:242
 msgid "During current session"
@@ -3017,7 +3016,7 @@ msgstr "Prikaži trenutno poizvedbo brskanja"
 
 #: libraries/Console.class.php:317
 msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
-msgstr ""
+msgstr "Izvedi poizvedbe z ENTER in vstavi novo vrstico s SHIFT + ENTER."
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
 #: libraries/DisplayResults.class.php:2139
