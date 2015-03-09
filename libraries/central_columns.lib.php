@@ -66,7 +66,7 @@ function PMA_getColumnsList($db, $from=0, $num=25)
             . 'WHERE db_name = \'' . $db . '\';';
     } else {
         $query = 'SELECT * FROM ' . PMA_Util::backquote($central_list_table) . ' '
-            . 'WHERE db_name = \'' . $db . '\''
+            . 'WHERE db_name = \'' . $db . '\' '
             . 'LIMIT ' . $from . ', ' . $num . ';';
     }
     $has_list = (array) $GLOBALS['dbi']->fetchResult(
