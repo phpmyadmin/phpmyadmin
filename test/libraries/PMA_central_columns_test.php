@@ -85,16 +85,8 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             ->method('getColumnNames')
             ->will($this->returnValue(array("id", "col1", "col2")));
         $dbi->expects($this->any())
-            ->method('fetchResult')
-            ->will($this->returnValue(array("id", "col1")));
-        $dbi->expects($this->any())
             ->method('tryQuery')
             ->will($this->returnValue(true));
-        $dbi->expects($this->any())
-            ->method('fetchValue')
-            ->will(
-                $this->returnValue('PMA_table=CREATE table `PMA_table` (id integer)')
-            );
         $dbi->expects($this->any())
             ->method('getTables')
             ->will(
