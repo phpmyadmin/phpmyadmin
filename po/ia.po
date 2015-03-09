@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-08 19:44+0200\n"
+"PO-Revision-Date: 2015-03-09 15:46+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/ia/>\n"
@@ -4851,7 +4851,7 @@ msgstr "Selige un columna."
 
 #: libraries/central_columns.lib.php:852 libraries/central_columns.lib.php:964
 msgid "auto_increment"
-msgstr "auto_increment"
+msgstr "auto_incremento"
 
 #: libraries/central_columns.lib.php:930
 msgid "Add new column"
