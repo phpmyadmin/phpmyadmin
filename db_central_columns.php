@@ -117,26 +117,6 @@ $result = PMA_getColumnsList($db, $pos, $max_rows);
 $odd_row = false;
 $row_num=0;
 foreach ($result as $row) {
-    $vals = explode(',', $row['col_extra']);
-
-    if (in_array('BINARY', $vals)) {
-        $row['col_attribute'] = 'BINARY';
-    } elseif (in_array('UNSIGNED', $vals)) {
-        $row['col_attribute'] = 'UNSIGNED';
-    } elseif (in_array('UNSIGNED ZEROFILL', $vals)) {
-        $row['col_attribute'] = 'UNSIGNED ZEROFILL';
-    } elseif (in_array('on update CURRENT_TIMESTAMP', $vals)) {
-        $row['col_attribute'] = 'on update CURRENT_TIMESTAMP';
-    } else {
-        $row['col_attribute'] = '';
-    }
-
-    if (in_array('auto_increment', $vals)) {
-        $row['col_extra'] = 'auto_increment';
-    } else {
-        $row['col_extra'] = '';
-    }
-
     $tableHtmlRow = PMA_getHTMLforCentralColumnsTableRow(
         $row, $odd_row, $row_num, $db
     );
