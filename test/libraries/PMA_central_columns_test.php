@@ -544,9 +544,15 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAFindExistingColNames()
     {
+        $GLOBALS['dbi']->expects($this->at(1))
+            ->method('fetchResult')
+            ->with("SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin' AND col_name IN ('col1');", null, null, $GLOBALS['controllink'])
+            ->will(
+                $this->returnValue(array_slice($this->_columnData, 1, 1))
+            );
         $this->assertEquals(
-            array('id', 'col1'),
-            PMA_findExistingColNames('phpmyadmin', 'col1', true)
+            array_slice($this->_modifiedColumnData, 1, 1),
+            PMA_findExistingColNames('phpmyadmin', "'col1'", true)
         );
     }
 
