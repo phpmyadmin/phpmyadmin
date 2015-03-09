@@ -52,7 +52,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      *
      * @return boolean
      */
-    private function authForm()
+    public function authForm()
     {
         /* Perform logout to custom URL */
         if (! empty($_REQUEST['old_usr'])
