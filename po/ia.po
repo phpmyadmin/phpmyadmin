@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-06 17:05+0200\n"
+"PO-Revision-Date: 2015-03-08 19:44+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/ia/>\n"
@@ -1860,7 +1860,7 @@ msgstr "Naviga inter valores externe"
 
 #: js/messages.php:308
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Nulle query auto-salveguardate"
 
 #: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -2144,6 +2144,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Indicante que tu ha facite modificationes a iste pagina; tu essera demandate "
+"de confirmar ante abandonar modificationes"
 
 #: js/messages.php:409
 msgid "Select referenced key"
@@ -13519,7 +13521,7 @@ msgstr "Columna de valor:"
 
 #: libraries/tbl_chart.lib.php:286
 msgid "Start row:"
-msgstr ""
+msgstr "Initia rango:"
 
 #: libraries/tbl_chart.lib.php:318
 msgid "Save chart as image"
