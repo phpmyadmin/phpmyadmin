@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-08 09:11-0400\n"
+"POT-Creation-Date: 2015-03-09 08:17-0400\n"
 "PO-Revision-Date: 2014-10-10 23:59+0200\n"
 "Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/gl/>\n"
-"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
@@ -612,11 +612,11 @@ msgstr "Hai parámetros incompletos"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a "
-"%sdocumentación%s para averiguar como evitar este límite."
+"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a %"
+"sdocumentación%s para averiguar como evitar este límite."
 
 #: import.php:343 import.php:626
 msgid "Showing bookmark"
@@ -938,8 +938,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"O servidor estáse a executar con Suhosin. Consulte os posíbeis problemas na "
-"%sdocumentación%s."
+"O servidor estáse a executar con Suhosin. Consulte os posíbeis problemas na %"
+"sdocumentación%s."
 
 #: js/messages.php:29 libraries/import.lib.php:125 sql.php:143
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -3200,7 +3200,9 @@ msgid "Show current browsing query"
 msgstr ""
 
 #: libraries/Console.class.php:317
-msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
+msgid ""
+"Execute queries on Enter and insert new line with Shift + Enter. To make "
+"this permanent, view settings."
 msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
@@ -3554,11 +3556,11 @@ msgstr "A consulta de SQL executouse sen problemas"
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Esta vista ten, cando menos, este número de fileiras. Vexa a %sdocumentation"
-"%s."
+"Esta vista ten, cando menos, este número de fileiras. Vexa a %sdocumentation%"
+"s."
 
 #: libraries/DisplayResults.class.php:4557
 #, fuzzy, php-format
@@ -3735,11 +3737,11 @@ msgstr "Información sobre a versión"
 msgid "Open new phpMyAdmin window"
 msgstr "Abrir unha xanela nova co phpMyAdmin"
 
-#: libraries/Header.class.php:437
+#: libraries/Header.class.php:439
 msgid "Click on the bar to scroll to top of page"
 msgstr "Prema a barra para desprazarse até a parte superior da páxina"
 
-#: libraries/Header.class.php:708
+#: libraries/Header.class.php:710
 #: libraries/plugins/auth/AuthenticationCookie.class.php:152
 #, fuzzy
 #| msgid "Javascript must be enabled past this point"
@@ -3835,11 +3837,11 @@ msgstr "Vista"
 #: libraries/Menu.class.php:309 libraries/Menu.class.php:417
 #: libraries/Util.class.php:3193 libraries/Util.class.php:3200
 #: libraries/Util.class.php:3419 libraries/Util.class.php:4149
-#: libraries/Util.class.php:4166 libraries/config/setup.forms.php:305
-#: libraries/config/setup.forms.php:345 libraries/config/setup.forms.php:371
-#: libraries/config/user_preferences.forms.php:203
-#: libraries/config/user_preferences.forms.php:243
-#: libraries/config/user_preferences.forms.php:269
+#: libraries/Util.class.php:4166 libraries/config/setup.forms.php:306
+#: libraries/config/setup.forms.php:346 libraries/config/setup.forms.php:372
+#: libraries/config/user_preferences.forms.php:204
+#: libraries/config/user_preferences.forms.php:244
+#: libraries/config/user_preferences.forms.php:270
 #: libraries/db_designer.lib.php:482 libraries/import.lib.php:1293
 #: libraries/navigation/Nodes/Node_Column.class.php:42
 #: libraries/navigation/Nodes/Node_Database.class.php:49
@@ -4510,8 +4512,8 @@ msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
-"Un enteiro de dous bytes; o intervalo asinado é desde "
-"-9.223.372.036.854.775.808 até 9.223.372.036.854.775.807; o intervalo sen "
+"Un enteiro de dous bytes; o intervalo asinado é desde -"
+"9.223.372.036.854.775.808 até 9.223.372.036.854.775.807; o intervalo sen "
 "asinar é desde 0 até 18.446.744.073.709.551.615"
 
 #: libraries/Types.class.php:330 libraries/Types.class.php:772
@@ -4524,22 +4526,21 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Un número de vírgula flutuante pequeno; os valores permitidos son "
-"-3,402823466E+38 até -1,175494351E-38, 0 e 1,175494351E-38 até 3,402823466E"
-"+38"
+"Un número de vírgula flutuante pequeno; os valores permitidos son -"
+"3,402823466E+38 até -1,175494351E-38, 0 e 1,175494351E-38 até 3,402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Un número de vírgula flutuante de precisión dobre; os valores permitidos "
-"son-1,7976931348623157E+308 até -2,2250738585072014E-308, 0 "
-"e2,2250738585072014E-308 até 1,7976931348623157E+308"
+"Un número de vírgula flutuante de precisión dobre; os valores permitidos son-"
+"1,7976931348623157E+308 até -2,2250738585072014E-308, 0 e2,2250738585072014E-"
+"308 até 1,7976931348623157E+308"
 
 #: libraries/Types.class.php:336
 msgid ""
@@ -4585,9 +4586,9 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Unha marca temporal; o intervalo é desde 1970-01-01 00:00:01 UTC até "
-"2038-01-09 03:14:07 UTC, almacenado como o número de segundos desde a época "
-"(1970-01-01 00:00:00 UTC)"
+"Unha marca temporal; o intervalo é desde 1970-01-01 00:00:01 UTC até 2038-01-"
+"09 03:14:07 UTC, almacenado como o número de segundos desde a época (1970-01-"
+"01 00:00:00 UTC)"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:788
 #, php-format
@@ -4805,8 +4806,8 @@ msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
-"Unha marca temporal; o intervalo é desde «0000-01-01 00:00:01» UTC até "
-"«9999-12-31 23:59:59» UTC; TIMESTAMP(6) pode almacenar microsegundos"
+"Unha marca temporal; o intervalo é desde «0000-01-01 00:00:01» UTC até «9999-"
+"12-31 23:59:59» UTC; TIMESTAMP(6) pode almacenar microsegundos"
 
 #: libraries/Types.class.php:794
 msgid ""
@@ -4963,13 +4964,13 @@ msgstr "Descrición"
 msgid "Use this value"
 msgstr "Usar este valor"
 
-#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:317
-#: libraries/config/setup.forms.php:353 libraries/config/setup.forms.php:376
-#: libraries/config/setup.forms.php:381
-#: libraries/config/user_preferences.forms.php:215
-#: libraries/config/user_preferences.forms.php:251
-#: libraries/config/user_preferences.forms.php:274
-#: libraries/config/user_preferences.forms.php:279
+#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:318
+#: libraries/config/setup.forms.php:354 libraries/config/setup.forms.php:377
+#: libraries/config/setup.forms.php:382
+#: libraries/config/user_preferences.forms.php:216
+#: libraries/config/user_preferences.forms.php:252
+#: libraries/config/user_preferences.forms.php:275
+#: libraries/config/user_preferences.forms.php:280
 #: libraries/server_privileges.lib.php:1162 libraries/structure.lib.php:2333
 #: libraries/tbl_printview.lib.php:308
 msgid "Data"
@@ -5514,8 +5515,8 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:419
 #, fuzzy, php-format
 #| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
-#| "%sLogin cookie validity%s must be set to a value less or equal to it."
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, %"
+#| "sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
@@ -5527,18 +5528,18 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:426
 #, fuzzy, php-format
 #| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
+#| "If you feel this is necessary, use additional protection settings - %"
+#| "shost authentication%s settings and %strusted proxies list%s. However, IP-"
+#| "based protection may not be reliable if your IP belongs to an ISP where "
+#| "thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Se pensa que é preciso, empregue opcións de protección adicionais - "
-"%sautenticación do servidor%s e %slista de proxies de confianza%s. Porén, a "
+"Se pensa que é preciso, empregue opcións de protección adicionais - %"
+"sautenticación do servidor%s e %slista de proxies de confianza%s. Porén, a "
 "protección baseada no IP pode non ser de fiar se o IP pertence a un ISP ao "
 "que estean ligados miles de usuarios, incluído vostede."
 
@@ -6230,10 +6231,10 @@ msgstr "Personalizar o modo de navegación"
 msgid "Customize default options."
 msgstr "Personalizar as opcións por omisión"
 
-#: libraries/config/messages.inc.php:213 libraries/config/setup.forms.php:251
-#: libraries/config/setup.forms.php:328
-#: libraries/config/user_preferences.forms.php:151
-#: libraries/config/user_preferences.forms.php:226
+#: libraries/config/messages.inc.php:213 libraries/config/setup.forms.php:252
+#: libraries/config/setup.forms.php:329
+#: libraries/config/user_preferences.forms.php:152
+#: libraries/config/user_preferences.forms.php:227
 msgid "CSV"
 msgstr "CSV"
 
@@ -8406,11 +8407,23 @@ msgstr "Porto do servidor"
 
 #: libraries/config/messages.inc.php:811
 msgid ""
+"Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
+"will be inserted with Shift+Enter"
+msgstr ""
+
+#: libraries/config/messages.inc.php:812
+#, fuzzy
+#| msgid "Executed queries"
+msgid "Enter executes queries in console"
+msgstr "Consultas executadas"
+
+#: libraries/config/messages.inc.php:815
+msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
 
-#: libraries/config/messages.inc.php:814
+#: libraries/config/messages.inc.php:818
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
@@ -8432,44 +8445,44 @@ msgstr "Autenticación mediante HTTP"
 msgid "Signon authentication"
 msgstr "Autenticación mediante Signon"
 
-#: libraries/config/setup.forms.php:259
-#: libraries/config/user_preferences.forms.php:159
+#: libraries/config/setup.forms.php:260
+#: libraries/config/user_preferences.forms.php:160
 msgid "CSV using LOAD DATA"
 msgstr "CSV empregando LOAD DATA"
 
-#: libraries/config/setup.forms.php:268 libraries/config/setup.forms.php:365
-#: libraries/config/user_preferences.forms.php:167
-#: libraries/config/user_preferences.forms.php:263
+#: libraries/config/setup.forms.php:269 libraries/config/setup.forms.php:366
+#: libraries/config/user_preferences.forms.php:168
+#: libraries/config/user_preferences.forms.php:264
 msgid "OpenDocument Spreadsheet"
 msgstr "Folla de cálculo de OpenDocument"
 
-#: libraries/config/setup.forms.php:275
-#: libraries/config/user_preferences.forms.php:174
+#: libraries/config/setup.forms.php:276
+#: libraries/config/user_preferences.forms.php:175
 msgid "Quick"
 msgstr "Rápido"
 
-#: libraries/config/setup.forms.php:279
-#: libraries/config/user_preferences.forms.php:178
+#: libraries/config/setup.forms.php:280
+#: libraries/config/user_preferences.forms.php:179
 msgid "Custom"
 msgstr "Personalizada"
 
-#: libraries/config/setup.forms.php:301
-#: libraries/config/user_preferences.forms.php:199
+#: libraries/config/setup.forms.php:302
+#: libraries/config/user_preferences.forms.php:200
 msgid "Database export options"
 msgstr "Opcións de exportación da base de datos"
 
-#: libraries/config/setup.forms.php:337
-#: libraries/config/user_preferences.forms.php:235
+#: libraries/config/setup.forms.php:338
+#: libraries/config/user_preferences.forms.php:236
 msgid "CSV for MS Excel"
 msgstr "CSV (para datos de MS Excel)"
 
-#: libraries/config/setup.forms.php:360
-#: libraries/config/user_preferences.forms.php:258
+#: libraries/config/setup.forms.php:361
+#: libraries/config/user_preferences.forms.php:259
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:369
-#: libraries/config/user_preferences.forms.php:267
+#: libraries/config/setup.forms.php:370
+#: libraries/config/user_preferences.forms.php:268
 msgid "OpenDocument Text"
 msgstr "Texto de OpenDocument"
 
@@ -8854,8 +8867,8 @@ msgstr ", @TABLE@ será o nome da táboa"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor interprétase utilizando %1$sstrftime%2$s, de maneira que pode "
 "empregar cadeas de formato de tempo. Produciranse transformacións en "
@@ -9418,8 +9431,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Pódese atopar documentación e información adicional sobre PBXT na %sPáxina "
 "de PrimeBase XT %s."
@@ -9962,8 +9975,8 @@ msgstr "O nome de clase «%1$s» é incorrecto; emprégase o predefinido «Nodo�
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr ""
-"Non foi imposíbel incluír a clase «%1$s»; non foi posíbel atopar o ficheiro "
-"«%2$s»"
+"Non foi imposíbel incluír a clase «%1$s»; non foi posíbel atopar o ficheiro «%2"
+"$s»"
 
 #: libraries/navigation/Nodes/Node.class.php:786
 msgid "Expand/Collapse"
@@ -10590,8 +10603,8 @@ msgstr "Reciba a benvida a %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Isto débese, posibelmente, a que non se creou un ficheiro de configuración. "
 "Tal vez queira utilizar %1$ssetup script%2$s para crear un."
@@ -12240,8 +12253,7 @@ msgid ""
 msgstr ""
 "Está a empregar a extensión obsoleta de PHP «mysql», que non pode xestionar "
 "consultas múltiples. [strong]A execución de varias rutinas almacenadas pode "
-"fallar![/strong] Empregue a extensión mellorada «mysqli para evitar "
-"problemas."
+"fallar![/strong] Empregue a extensión mellorada «mysqli para evitar problemas."
 
 #: libraries/rte/rte_routines.lib.php:301
 #: libraries/rte/rte_routines.lib.php:1139
@@ -13157,8 +13169,8 @@ msgstr "Vista xeral dos usuarios"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin recolle os privilexios dos usuarios directamente das táboas "
 "de privilexios do MySQL. O contido destas táboas pode diferir dos "
@@ -13754,9 +13766,9 @@ msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
-"Número de pre-lecturas «aleatorias» iniciadas por InnoDB. Isto acontece "
-"cando unha consulta vai examinar unha porción grande dunha táboa mais en "
-"orde aleatoria."
+"Número de pre-lecturas «aleatorias» iniciadas por InnoDB. Isto acontece cando "
+"unha consulta vai examinar unha porción grande dunha táboa mais en orde "
+"aleatoria."
 
 #: libraries/server_status_variables.lib.php:465
 msgid ""
@@ -15423,8 +15435,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Pode configurar máis opcións modificando config.inc.php, p.ex. usando o "
-"%sScript de configuración%s."
+"Pode configurar máis opcións modificando config.inc.php, p.ex. usando o %"
+"sScript de configuración%s."
 
 #: prefs_manage.php:321
 msgid "Save to browser's storage"
@@ -15846,8 +15858,8 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
-"A taxa de consultas lentas deberían estar por debaixo do 5%% e o valor é %s"
-"%%."
+"A taxa de consultas lentas deberían estar por debaixo do 5%% e o valor é %s%"
+"%."
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -16064,8 +16076,8 @@ msgid ""
 msgstr ""
 "Sábese que a caché de consultas mellora moito o desempeño se se configura "
 "axeitadamente. Actívea configurando {query_cache_size} a un valor de MiB de "
-"dous díxitos e configurando {query_cache_type) como «ON». <b>Nota:</b> Se "
-"vai empregar memcached, ignore esta recomendación."
+"dous díxitos e configurando {query_cache_type) como «ON». <b>Nota:</b> Se vai "
+"empregar memcached, ignore esta recomendación."
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -16143,8 +16155,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "A relación actual da memoria da caché de consultas e o tamaño total da caché "
 "de consultas é de %s%%. Debería superar o 80%%"
@@ -16299,8 +16311,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% de todos os ordenamentos causan táboas temporais; este valor debería "
 "estar por debaixo do 10%%."
@@ -17847,9 +17859,6 @@ msgstr "concurrent_insert está definido como 0"
 
 #~ msgid "Target database has been synchronized with source database."
 #~ msgstr "Sincronizouse a base de datos de destino coa base de datos de orixe"
-
-#~ msgid "Executed queries"
-#~ msgstr "Consultas executadas"
 
 #~ msgid "Enter manually"
 #~ msgstr "Introducir manualmente"

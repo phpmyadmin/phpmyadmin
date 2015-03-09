@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-08 09:11-0400\n"
+"POT-Creation-Date: 2015-03-09 08:17-0400\n"
 "PO-Revision-Date: 2015-02-21 01:16+0200\n"
 "Last-Translator: Masahiko HISAKAWA <orzkun@ageage.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2\n"
 
@@ -613,8 +613,8 @@ msgstr "不完全なパラメータ"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。この制限に関する対策に"
 "ついては %sドキュメント%s をご覧ください。"
@@ -3158,7 +3158,9 @@ msgid "Show current browsing query"
 msgstr ""
 
 #: libraries/Console.class.php:317
-msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
+msgid ""
+"Execute queries on Enter and insert new line with Shift + Enter. To make "
+"this permanent, view settings."
 msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
@@ -3523,8 +3525,8 @@ msgstr "SQL は正常に実行されました"
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: libraries/DisplayResults.class.php:4557
@@ -3702,11 +3704,11 @@ msgstr "バージョン情報"
 msgid "Open new phpMyAdmin window"
 msgstr "別ウィンドウで開く"
 
-#: libraries/Header.class.php:437
+#: libraries/Header.class.php:439
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:708
+#: libraries/Header.class.php:710
 #: libraries/plugins/auth/AuthenticationCookie.class.php:152
 #, fuzzy
 #| msgid "Javascript must be enabled past this point"
@@ -3802,11 +3804,11 @@ msgstr "ビュー"
 #: libraries/Menu.class.php:309 libraries/Menu.class.php:417
 #: libraries/Util.class.php:3193 libraries/Util.class.php:3200
 #: libraries/Util.class.php:3419 libraries/Util.class.php:4149
-#: libraries/Util.class.php:4166 libraries/config/setup.forms.php:305
-#: libraries/config/setup.forms.php:345 libraries/config/setup.forms.php:371
-#: libraries/config/user_preferences.forms.php:203
-#: libraries/config/user_preferences.forms.php:243
-#: libraries/config/user_preferences.forms.php:269
+#: libraries/Util.class.php:4166 libraries/config/setup.forms.php:306
+#: libraries/config/setup.forms.php:346 libraries/config/setup.forms.php:372
+#: libraries/config/user_preferences.forms.php:204
+#: libraries/config/user_preferences.forms.php:244
+#: libraries/config/user_preferences.forms.php:270
 #: libraries/db_designer.lib.php:482 libraries/import.lib.php:1293
 #: libraries/navigation/Nodes/Node_Column.class.php:42
 #: libraries/navigation/Nodes/Node_Database.class.php:49
@@ -4492,20 +4494,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "単精度浮動小数、有効範囲は -3.402823466E+38 から -1.175494351E-38、0、"
 "1.175494351E-38 から 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"倍精度浮動小数、有効範囲は -1.7976931348623157E+308 から "
-"-2.2250738585072014E-308、0、2.2250738585072014E-308 から 1.7976931348623157E"
+"倍精度浮動小数、有効範囲は -1.7976931348623157E+308 から -"
+"2.2250738585072014E-308、0、2.2250738585072014E-308 から 1.7976931348623157E"
 "+308"
 
 #: libraries/Types.class.php:336
@@ -4919,13 +4921,13 @@ msgstr "説明"
 msgid "Use this value"
 msgstr "この値を利用する"
 
-#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:317
-#: libraries/config/setup.forms.php:353 libraries/config/setup.forms.php:376
-#: libraries/config/setup.forms.php:381
-#: libraries/config/user_preferences.forms.php:215
-#: libraries/config/user_preferences.forms.php:251
-#: libraries/config/user_preferences.forms.php:274
-#: libraries/config/user_preferences.forms.php:279
+#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:318
+#: libraries/config/setup.forms.php:354 libraries/config/setup.forms.php:377
+#: libraries/config/setup.forms.php:382
+#: libraries/config/user_preferences.forms.php:216
+#: libraries/config/user_preferences.forms.php:252
+#: libraries/config/user_preferences.forms.php:275
+#: libraries/config/user_preferences.forms.php:280
 #: libraries/server_privileges.lib.php:1162 libraries/structure.lib.php:2333
 #: libraries/tbl_printview.lib.php:308
 msgid "Data"
@@ -5475,8 +5477,8 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:419
 #, fuzzy, php-format
 #| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
-#| "%sLogin cookie validity%s must be set to a value less or equal to it."
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, %"
+#| "sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
@@ -5488,21 +5490,20 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:426
 #, fuzzy, php-format
 #| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
+#| "If you feel this is necessary, use additional protection settings - %"
+#| "shost authentication%s settings and %strusted proxies list%s. However, IP-"
+#| "based protection may not be reliable if your IP belongs to an ISP where "
+#| "thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定"
-"（%sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してくださ"
-"い。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれてい"
-"る、接続されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえま"
-"せん。"
+"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定（%"
+"sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してください。し"
+"かしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続"
+"されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
 
 #: libraries/config/ServerConfigChecks.class.php:434
 #, php-format
@@ -6184,10 +6185,10 @@ msgstr "表示モードの詳細設定"
 msgid "Customize default options."
 msgstr "デフォルトオプションの詳細設定。"
 
-#: libraries/config/messages.inc.php:213 libraries/config/setup.forms.php:251
-#: libraries/config/setup.forms.php:328
-#: libraries/config/user_preferences.forms.php:151
-#: libraries/config/user_preferences.forms.php:226
+#: libraries/config/messages.inc.php:213 libraries/config/setup.forms.php:252
+#: libraries/config/setup.forms.php:329
+#: libraries/config/user_preferences.forms.php:152
+#: libraries/config/user_preferences.forms.php:227
 msgid "CSV"
 msgstr "CSV"
 
@@ -8280,8 +8281,8 @@ msgid ""
 "for import and export operations."
 msgstr ""
 "インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/"
-"ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC"
-"%E3%83%9E%E3%83%83%E3%83%88%29]ZIP[/a] 圧縮を有効にします。"
+"ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%83%"
+"9E%E3%83%83%E3%83%88%29]ZIP[/a] 圧縮を有効にします。"
 
 #: libraries/config/messages.inc.php:802
 msgid "ZIP"
@@ -8315,11 +8316,23 @@ msgstr "サーバのポート"
 
 #: libraries/config/messages.inc.php:811
 msgid ""
+"Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
+"will be inserted with Shift+Enter"
+msgstr ""
+
+#: libraries/config/messages.inc.php:812
+#, fuzzy
+#| msgid "Executed queries"
+msgid "Enter executes queries in console"
+msgstr "実行されたクエリ"
+
+#: libraries/config/messages.inc.php:815
+msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
 
-#: libraries/config/messages.inc.php:814
+#: libraries/config/messages.inc.php:818
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
@@ -8341,46 +8354,46 @@ msgstr "HTTP 認証"
 msgid "Signon authentication"
 msgstr "サインオン認証"
 
-#: libraries/config/setup.forms.php:259
-#: libraries/config/user_preferences.forms.php:159
+#: libraries/config/setup.forms.php:260
+#: libraries/config/user_preferences.forms.php:160
 msgid "CSV using LOAD DATA"
 msgstr "LOAD DATA 文を使用した CSV の読み込み"
 
-#: libraries/config/setup.forms.php:268 libraries/config/setup.forms.php:365
-#: libraries/config/user_preferences.forms.php:167
-#: libraries/config/user_preferences.forms.php:263
+#: libraries/config/setup.forms.php:269 libraries/config/setup.forms.php:366
+#: libraries/config/user_preferences.forms.php:168
+#: libraries/config/user_preferences.forms.php:264
 #, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "Open Document スプレッドシート"
 
-#: libraries/config/setup.forms.php:275
-#: libraries/config/user_preferences.forms.php:174
+#: libraries/config/setup.forms.php:276
+#: libraries/config/user_preferences.forms.php:175
 msgid "Quick"
 msgstr "簡易"
 
-#: libraries/config/setup.forms.php:279
-#: libraries/config/user_preferences.forms.php:178
+#: libraries/config/setup.forms.php:280
+#: libraries/config/user_preferences.forms.php:179
 msgid "Custom"
 msgstr "詳細"
 
-#: libraries/config/setup.forms.php:301
-#: libraries/config/user_preferences.forms.php:199
+#: libraries/config/setup.forms.php:302
+#: libraries/config/user_preferences.forms.php:200
 msgid "Database export options"
 msgstr "データベースエクスポートオプション"
 
-#: libraries/config/setup.forms.php:337
-#: libraries/config/user_preferences.forms.php:235
+#: libraries/config/setup.forms.php:338
+#: libraries/config/user_preferences.forms.php:236
 msgid "CSV for MS Excel"
 msgstr "MS Excel 用の CSV"
 
-#: libraries/config/setup.forms.php:360
-#: libraries/config/user_preferences.forms.php:258
+#: libraries/config/setup.forms.php:361
+#: libraries/config/user_preferences.forms.php:259
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:369
-#: libraries/config/user_preferences.forms.php:267
+#: libraries/config/setup.forms.php:370
+#: libraries/config/user_preferences.forms.php:268
 #, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
@@ -8776,8 +8789,8 @@ msgstr "、@TABLE@ はテーブル名に"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用"
 "することができます。また、埋め込み変数変換も行われます（%3$s変換されま"
@@ -9338,8 +9351,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
 "ト%sにあります。"
@@ -10528,11 +10541,11 @@ msgstr "%s へようこそ"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
-"ト%2$s を利用して設定ファイルを作成してください。"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
+"$s を利用して設定ファイルを作成してください。"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:144
 msgid ""
@@ -13098,8 +13111,8 @@ msgstr "ユーザ概略"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
@@ -16094,8 +16107,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は、%s%% で"
 "す。この値は、80%% 以上がいいと言われています"
@@ -16252,8 +16265,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "全ソートの内 %s%% が一時テーブルを使用しています。この値は、10%% 未満がいいと"
 "言われています。"
@@ -16805,8 +16818,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections は max_connections の %s%% になっています。この値は、"
-"80%% 未満がいいと言われています"
+"Max_used_connections は max_connections の %s%% になっています。この値は、80%"
+"% 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
@@ -17025,10 +17038,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが "
-"60%% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブルを"
-"使用していない、もしくは同マシン上で他のサービスを稼動させていないのであれ"
-"ば、ご使用のシステムではこの設定で十分かもしれません。"
+"現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが 60%"
+"% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブルを使"
+"用していない、もしくは同マシン上で他のサービスを稼動させていないのであれば、"
+"ご使用のシステムではこの設定で十分かもしれません。"
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
@@ -17841,9 +17854,6 @@ msgstr "concurrent_insert は 0 に設定されています"
 
 #~ msgid "Target database has been synchronized with source database."
 #~ msgstr "対象先のデータベースが、元のデータベースと同期されています。"
-
-#~ msgid "Executed queries"
-#~ msgstr "実行されたクエリ"
 
 #~ msgid "Enter manually"
 #~ msgstr "手動で入力する"

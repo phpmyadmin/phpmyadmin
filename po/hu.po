@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-08 09:11-0400\n"
+"POT-Creation-Date: 2015-03-09 08:17-0400\n"
 "PO-Revision-Date: 2015-03-09 09:49+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hungarian "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
-"Language: hu\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/hu/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -606,11 +606,11 @@ msgstr "Hiányos paraméterek"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Ön bizonyára túl nagy fájlt próbált meg feltölteni. Kérjük, nézzen utána a "
-"%sdokumentációban%s a korlátozás feloldása végett."
+"Ön bizonyára túl nagy fájlt próbált meg feltölteni. Kérjük, nézzen utána a %"
+"sdokumentációban%s a korlátozás feloldása végett."
 
 #: import.php:343 import.php:626
 msgid "Showing bookmark"
@@ -3027,7 +3027,9 @@ msgid "Show current browsing query"
 msgstr "Az aktuális böngészés lekérdezéseinek megjelenítése"
 
 #: libraries/Console.class.php:317
-msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
+msgid ""
+"Execute queries on Enter and insert new line with Shift + Enter. To make "
+"this permanent, view settings."
 msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
@@ -3361,11 +3363,11 @@ msgstr "Az SQL-lekérdezés végrehajtása sikerült."
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a "
-"%sdokumentációban%s."
+"Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a %"
+"sdokumentációban%s."
 
 #: libraries/DisplayResults.class.php:4557
 #, php-format
@@ -3529,11 +3531,11 @@ msgstr "Git információ hiányzik!"
 msgid "Open new phpMyAdmin window"
 msgstr "Új phpMyAdmin ablak nyitása"
 
-#: libraries/Header.class.php:437
+#: libraries/Header.class.php:439
 msgid "Click on the bar to scroll to top of page"
 msgstr "Kattintson a sávra az oldal tetejére való görgetéshez"
 
-#: libraries/Header.class.php:708
+#: libraries/Header.class.php:710
 #: libraries/plugins/auth/AuthenticationCookie.class.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "Ettől a ponttól engedélyeznie kell a JavaScriptet!"
@@ -3627,11 +3629,11 @@ msgstr "Nézet"
 #: libraries/Menu.class.php:309 libraries/Menu.class.php:417
 #: libraries/Util.class.php:3193 libraries/Util.class.php:3200
 #: libraries/Util.class.php:3419 libraries/Util.class.php:4149
-#: libraries/Util.class.php:4166 libraries/config/setup.forms.php:305
-#: libraries/config/setup.forms.php:345 libraries/config/setup.forms.php:371
-#: libraries/config/user_preferences.forms.php:203
-#: libraries/config/user_preferences.forms.php:243
-#: libraries/config/user_preferences.forms.php:269
+#: libraries/Util.class.php:4166 libraries/config/setup.forms.php:306
+#: libraries/config/setup.forms.php:346 libraries/config/setup.forms.php:372
+#: libraries/config/user_preferences.forms.php:204
+#: libraries/config/user_preferences.forms.php:244
+#: libraries/config/user_preferences.forms.php:270
 #: libraries/db_designer.lib.php:482 libraries/import.lib.php:1293
 #: libraries/navigation/Nodes/Node_Column.class.php:42
 #: libraries/navigation/Nodes/Node_Database.class.php:49
@@ -4278,16 +4280,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Small floating-point szám, értéktartománya -3.402823466E+38 és "
-"-1.175494351E-38 között, 0, 1.175494351E-38 és 3.402823466E+38 között"
+"Small floating-point szám, értéktartománya -3.402823466E+38 és -1.175494351E-"
+"38 között, 0, 1.175494351E-38 és 3.402823466E+38 között"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Double-precision floating-point szám, értéktartománya -1.7976931348623157E"
@@ -4700,13 +4702,13 @@ msgstr "Leírás"
 msgid "Use this value"
 msgstr "Ezen érték használata"
 
-#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:317
-#: libraries/config/setup.forms.php:353 libraries/config/setup.forms.php:376
-#: libraries/config/setup.forms.php:381
-#: libraries/config/user_preferences.forms.php:215
-#: libraries/config/user_preferences.forms.php:251
-#: libraries/config/user_preferences.forms.php:274
-#: libraries/config/user_preferences.forms.php:279
+#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:318
+#: libraries/config/setup.forms.php:354 libraries/config/setup.forms.php:377
+#: libraries/config/setup.forms.php:382
+#: libraries/config/user_preferences.forms.php:216
+#: libraries/config/user_preferences.forms.php:252
+#: libraries/config/user_preferences.forms.php:275
+#: libraries/config/user_preferences.forms.php:280
 #: libraries/server_privileges.lib.php:1162 libraries/structure.lib.php:2333
 #: libraries/tbl_printview.lib.php:308
 msgid "Data"
@@ -5205,8 +5207,8 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"A %sLogin cookie validity%s, amely nagyobb, mint a %ssession.gc_maxlifetime"
-"%s, véletlenszerű munkamenet érvénytelenítést okozhat (a session."
+"A %sLogin cookie validity%s, amely nagyobb, mint a %ssession.gc_maxlifetime%"
+"s, véletlenszerű munkamenet érvénytelenítést okozhat (a session."
 "gc_maxlifetime értéke jelenleg: %d)."
 
 #: libraries/config/ServerConfigChecks.class.php:413
@@ -5237,8 +5239,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Ha szükségesnek érzi, használjon további védelmi beállításokat: "
-"%sgéphitelesítés%s beállítások és %smegbízható proxyk listája%s. Az IP-alapú "
+"Ha szükségesnek érzi, használjon további védelmi beállításokat: %"
+"sgéphitelesítés%s beállítások és %smegbízható proxyk listája%s. Az IP-alapú "
 "védelem azonban lehet, hogy nem megbízható, ha az Ön IP-címe olyan "
 "internetszolgáltatóhoz tartozik, ahol több ezer felhasználó, köztük Ön is, "
 "csatlakozik az internethez."
@@ -5837,10 +5839,10 @@ msgstr "A böngésző mód testreszabása."
 msgid "Customize default options."
 msgstr "Alapértelmezett beállítások testreszabása."
 
-#: libraries/config/messages.inc.php:213 libraries/config/setup.forms.php:251
-#: libraries/config/setup.forms.php:328
-#: libraries/config/user_preferences.forms.php:151
-#: libraries/config/user_preferences.forms.php:226
+#: libraries/config/messages.inc.php:213 libraries/config/setup.forms.php:252
+#: libraries/config/setup.forms.php:329
+#: libraries/config/user_preferences.forms.php:152
+#: libraries/config/user_preferences.forms.php:227
 msgid "CSV"
 msgstr "CSV"
 
@@ -7615,13 +7617,25 @@ msgstr "Hibajelentések küldése"
 
 #: libraries/config/messages.inc.php:811
 msgid ""
+"Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
+"will be inserted with Shift+Enter"
+msgstr ""
+
+#: libraries/config/messages.inc.php:812
+#, fuzzy
+#| msgid "Executed queries"
+msgid "Enter executes queries in console"
+msgstr "Végrehajtott lekérdezések"
+
+#: libraries/config/messages.inc.php:815
+msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
 "Zéró beállítási mód engedélyezése, amely lehetővé teszi a phpMyAdmin "
 "beállítástároló táblák automatikus beállítását."
 
-#: libraries/config/messages.inc.php:814
+#: libraries/config/messages.inc.php:818
 msgid "Enable Zero Configuration mode"
 msgstr "Zéró beállítási mód engedélyezése"
 
@@ -7641,44 +7655,44 @@ msgstr "HTTP hitelesítés"
 msgid "Signon authentication"
 msgstr "Signon hitelesítés"
 
-#: libraries/config/setup.forms.php:259
-#: libraries/config/user_preferences.forms.php:159
+#: libraries/config/setup.forms.php:260
+#: libraries/config/user_preferences.forms.php:160
 msgid "CSV using LOAD DATA"
 msgstr "CSV a LOAD DATA használatával"
 
-#: libraries/config/setup.forms.php:268 libraries/config/setup.forms.php:365
-#: libraries/config/user_preferences.forms.php:167
-#: libraries/config/user_preferences.forms.php:263
+#: libraries/config/setup.forms.php:269 libraries/config/setup.forms.php:366
+#: libraries/config/user_preferences.forms.php:168
+#: libraries/config/user_preferences.forms.php:264
 msgid "OpenDocument Spreadsheet"
 msgstr "Open Document munkafüzet"
 
-#: libraries/config/setup.forms.php:275
-#: libraries/config/user_preferences.forms.php:174
+#: libraries/config/setup.forms.php:276
+#: libraries/config/user_preferences.forms.php:175
 msgid "Quick"
 msgstr "Gyors"
 
-#: libraries/config/setup.forms.php:279
-#: libraries/config/user_preferences.forms.php:178
+#: libraries/config/setup.forms.php:280
+#: libraries/config/user_preferences.forms.php:179
 msgid "Custom"
 msgstr "Egyedi"
 
-#: libraries/config/setup.forms.php:301
-#: libraries/config/user_preferences.forms.php:199
+#: libraries/config/setup.forms.php:302
+#: libraries/config/user_preferences.forms.php:200
 msgid "Database export options"
 msgstr "Adatbázis exportálási beállításai"
 
-#: libraries/config/setup.forms.php:337
-#: libraries/config/user_preferences.forms.php:235
+#: libraries/config/setup.forms.php:338
+#: libraries/config/user_preferences.forms.php:236
 msgid "CSV for MS Excel"
 msgstr "MS Excel CSV adat"
 
-#: libraries/config/setup.forms.php:360
-#: libraries/config/user_preferences.forms.php:258
+#: libraries/config/setup.forms.php:361
+#: libraries/config/user_preferences.forms.php:259
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:369
-#: libraries/config/user_preferences.forms.php:267
+#: libraries/config/setup.forms.php:370
+#: libraries/config/user_preferences.forms.php:268
 msgid "OpenDocument Text"
 msgstr "Open Document szöveges dokumentum"
 
@@ -8040,8 +8054,8 @@ msgstr ", @TABLE@ lesz a tábla neve"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Ennek az értéknek az értelmezése a(z) %1$sstrftime%2$s használatával "
 "történik, vagyis időformázó karakterláncokat használhat. Továbbá a következő "
@@ -8588,11 +8602,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
-"Dokumentáció és további információ a PBXT honlapján: %sPrimeBase XT Honlap:"
-"%s."
+"Dokumentáció és további információ a PBXT honlapján: %sPrimeBase XT Honlap:%"
+"s."
 
 #: libraries/engines/pbxt.lib.php:138
 msgid "Related Links"
@@ -9754,11 +9768,11 @@ msgstr "Üdvözli a %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Ön valószínűleg nem hozta létre a konfigurációs fájlt. A "
-"%1$stelepítőszkripttel%2$s el tudja készíteni."
+"Ön valószínűleg nem hozta létre a konfigurációs fájlt. A %1"
+"$stelepítőszkripttel%2$s el tudja készíteni."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:144
 msgid ""
@@ -12208,13 +12222,13 @@ msgstr "Felhasználók áttekintése"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Megjegyzés: a phpMyAdmin a felhasználók jogait közvetlenül a MySQL "
 "privilégium táblákból veszi. Ezen táblák tartalma eltérhet a szerver által "
-"használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben "
-"%stöltse be újra a jogokat%s a folytatás előtt."
+"használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben %"
+"stöltse be újra a jogokat%s a folytatás előtt."
 
 #: libraries/server_privileges.lib.php:4295
 msgid "The selected user was not found in the privilege table."
@@ -14359,8 +14373,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"További beállításokat állíthat be a config.inc.php modosításával, pl. "
-"%sBeállító parancsfájl%s használatával."
+"További beállításokat állíthat be a config.inc.php modosításával, pl. %"
+"sBeállító parancsfájl%s használatával."
 
 #: prefs_manage.php:321
 msgid "Save to browser's storage"
@@ -14764,8 +14778,8 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
-"A lassú lekérdezések mértékének kisebbnek kellene 5%%nál lennie, az érték %s"
-"%%."
+"A lassú lekérdezések mértékének kisebbnek kellene 5%%nál lennie, az érték %s%"
+"%."
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -14784,8 +14798,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"A lassú lekérdezések mértéke %s óránként, kevesebbnek kellene lennie, mint "
-"1%% óránként."
+"A lassú lekérdezések mértéke %s óránként, kevesebbnek kellene lennie, mint 1%"
+"% óránként."
 
 #: libraries/advisory_rules.txt:77
 msgid "Long query time"
@@ -15056,8 +15070,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "A szabad lekérdezési gyorsítótár-memória jelenlegi aránya a teljes "
 "lekérdezési gyorsítótár méretéhez %s%%. 80%% felett kellene lennie"
@@ -15214,8 +15228,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "A rendezések %s%%-a átmeneti táblákat hoz létre, ennek az értéknek "
 "alacsonyabbnak kell lennie, mint 10%%."
@@ -16374,8 +16388,8 @@ msgstr "A concurrent_insert 0-ra van állítva"
 #~ "installed the necessary PHP extensions as described in the %sdocumentation"
 #~ "%s."
 #~ msgstr ""
-#~ "Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a "
-#~ "%sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-"
+#~ "Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a %"
+#~ "sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-"
 #~ "kiterjesztést."
 
 #, fuzzy
@@ -16745,9 +16759,6 @@ msgstr "A concurrent_insert 0-ra van állítva"
 
 #~ msgid "Synchronize Databases"
 #~ msgstr "Adatbázisok szinkronizálása"
-
-#~ msgid "Executed queries"
-#~ msgstr "Végrehajtott lekérdezések"
 
 #~ msgid "Enter manually"
 #~ msgstr "Kézi megadás"
@@ -17140,8 +17151,8 @@ msgstr "A concurrent_insert 0-ra van állítva"
 #~ "No themes support; please check your configuration and/or your themes in "
 #~ "directory %s."
 #~ msgstr ""
-#~ "Nincs téma támogatás, ellenőrizze a beállításokat és/vagy a témákat a(z) "
-#~ "%s könyvtárban."
+#~ "Nincs téma támogatás, ellenőrizze a beállításokat és/vagy a témákat a(z) %"
+#~ "s könyvtárban."
 
 #~ msgid "Switch to"
 #~ msgstr "Váltás"

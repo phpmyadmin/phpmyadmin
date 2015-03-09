@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-08 09:11-0400\n"
+"POT-Creation-Date: 2015-03-09 08:17-0400\n"
 "PO-Revision-Date: 2015-03-09 09:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: German "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
-"Language: de\n"
+"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"de/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -612,11 +612,11 @@ msgstr "Unvollständige Parameter"
 #: import.php:163
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die "
-"%sDokumentation%s zur Lösung diese Problems."
+"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die %"
+"sDokumentation%s zur Lösung diese Problems."
 
 #: import.php:343 import.php:626
 msgid "Showing bookmark"
@@ -789,7 +789,6 @@ msgid "PHP extension:"
 msgstr "PHP-Erweiterung:"
 
 #: index.php:345
-#| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "PHP-Version:"
 
@@ -915,8 +914,8 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Der phpMyAdmin-Konfigurationsspeicher ist nicht vollständig konfiguriert, "
-"einige erweiterte Funktionen wurden deaktiviert. %sFinden Sie heraus warum"
-"%s. "
+"einige erweiterte Funktionen wurden deaktiviert. %sFinden Sie heraus warum%"
+"s. "
 
 #: index.php:549
 msgid ""
@@ -3063,7 +3062,9 @@ msgid "Show current browsing query"
 msgstr "Aktuelle Abfrage anzeigen"
 
 #: libraries/Console.class.php:317
-msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
+msgid ""
+"Execute queries on Enter and insert new line with Shift + Enter. To make "
+"this permanent, view settings."
 msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
@@ -3400,8 +3401,8 @@ msgstr "Ihr SQL-Befehl wurde erfolgreich ausgeführt."
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Dieser Ansicht hat mindestens diese Anzahl von Datensätzen. Bitte lesen Sie "
 "die %sDokumentation%s."
@@ -3570,11 +3571,11 @@ msgstr "Versionsinformationen fehlt!"
 msgid "Open new phpMyAdmin window"
 msgstr "Neues phpMyAdmin-Fenster"
 
-#: libraries/Header.class.php:437
+#: libraries/Header.class.php:439
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klicken Sie auf die Leiste, um zum Anfang der Seite zu scrollen"
 
-#: libraries/Header.class.php:708
+#: libraries/Header.class.php:710
 #: libraries/plugins/auth/AuthenticationCookie.class.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript muss ab hier aktiviert sein!"
@@ -3668,11 +3669,11 @@ msgstr "Ansicht"
 #: libraries/Menu.class.php:309 libraries/Menu.class.php:417
 #: libraries/Util.class.php:3193 libraries/Util.class.php:3200
 #: libraries/Util.class.php:3419 libraries/Util.class.php:4149
-#: libraries/Util.class.php:4166 libraries/config/setup.forms.php:305
-#: libraries/config/setup.forms.php:345 libraries/config/setup.forms.php:371
-#: libraries/config/user_preferences.forms.php:203
-#: libraries/config/user_preferences.forms.php:243
-#: libraries/config/user_preferences.forms.php:269
+#: libraries/Util.class.php:4166 libraries/config/setup.forms.php:306
+#: libraries/config/setup.forms.php:346 libraries/config/setup.forms.php:372
+#: libraries/config/user_preferences.forms.php:204
+#: libraries/config/user_preferences.forms.php:244
+#: libraries/config/user_preferences.forms.php:270
 #: libraries/db_designer.lib.php:482 libraries/import.lib.php:1293
 #: libraries/navigation/Nodes/Node_Column.class.php:42
 #: libraries/navigation/Nodes/Node_Database.class.php:49
@@ -4139,7 +4140,6 @@ msgid "Value"
 msgstr "Wert"
 
 #: libraries/TableSearch.class.php:205
-#| msgid "Table Search"
 msgid "Table search"
 msgstr "Tabellensuche"
 
@@ -4148,7 +4148,6 @@ msgid "Zoom search"
 msgstr "Suche zoomen"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "Suchen und Ersetzen"
 
@@ -4321,20 +4320,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Eine kleine Fließkommazahl, erlaubte Werte sind -3,402823466E+38 bis "
-"-1,175494351E-38, 0, und 1,175494351E-38 bis 3,402823466E+38"
+"Eine kleine Fließkommazahl, erlaubte Werte sind -3,402823466E+38 bis -"
+"1,175494351E-38, 0, und 1,175494351E-38 bis 3,402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Eine Fließkommazahl mit doppelter Genauigkeit, erlaubte Werte sind "
-"-1,7976931348623157E+308 bis -2,2250738585072014E-308, 0, und "
+"Eine Fließkommazahl mit doppelter Genauigkeit, erlaubte Werte sind -"
+"1,7976931348623157E+308 bis -2,2250738585072014E-308, 0, und "
 "2,2250738585072014E-308 bis 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -4374,8 +4373,8 @@ msgstr "Ein Datum, unterstützter Bereich ist %1$s bis %2$s"
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
-"Eine Kombination aus Datum und Uhrzeit, unterstützter Bereich ist %1$s bis "
-"%2$s"
+"Eine Kombination aus Datum und Uhrzeit, unterstützter Bereich ist %1$s bis %2"
+"$s"
 
 #: libraries/Types.class.php:348
 msgid ""
@@ -4648,7 +4647,6 @@ msgid "Create PHP Code"
 msgstr "PHP-Code erzeugen"
 
 #: libraries/Util.class.php:1275
-#| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Inline bearbeiten"
@@ -4756,13 +4754,13 @@ msgstr "Beschreibung"
 msgid "Use this value"
 msgstr "Diesen Wert verwenden"
 
-#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:317
-#: libraries/config/setup.forms.php:353 libraries/config/setup.forms.php:376
-#: libraries/config/setup.forms.php:381
-#: libraries/config/user_preferences.forms.php:215
-#: libraries/config/user_preferences.forms.php:251
-#: libraries/config/user_preferences.forms.php:274
-#: libraries/config/user_preferences.forms.php:279
+#: libraries/build_html_for_db.lib.php:38 libraries/config/setup.forms.php:318
+#: libraries/config/setup.forms.php:354 libraries/config/setup.forms.php:377
+#: libraries/config/setup.forms.php:382
+#: libraries/config/user_preferences.forms.php:216
+#: libraries/config/user_preferences.forms.php:252
+#: libraries/config/user_preferences.forms.php:275
+#: libraries/config/user_preferences.forms.php:280
 #: libraries/server_privileges.lib.php:1162 libraries/structure.lib.php:2333
 #: libraries/tbl_printview.lib.php:308
 msgid "Data"
@@ -4855,7 +4853,6 @@ msgid "Length/Values"
 msgstr "Länge/Werte"
 
 #: libraries/central_columns.lib.php:670
-#| msgid "Attributes"
 msgid "Attribute"
 msgstr "Attribut"
 
@@ -4944,9 +4941,9 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 "Es ist nicht möglich, die Zeitzone %1$s für den Server %2$d zu benutzen. "
-"Bitte überprüfen Sie die Konfigurationseinstellung für "
-"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin verwendet "
-"aktuell die Standard-Zeitzone des Datenbankservers."
+"Bitte überprüfen Sie die Konfigurationseinstellung für [em]$cfg['Servers'][%3"
+"$d]['SessionTimeZone'][/em]. phpMyAdmin verwendet aktuell die Standard-"
+"Zeitzone des Datenbankservers."
 
 #: libraries/common.inc.php:1020
 #, php-format
@@ -5201,12 +5198,6 @@ msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:371
 #, php-format
-#| msgid ""
-#| "This %soption%s should be disabled as it allows attackers to bruteforce "
-#| "login to any MySQL server. If you feel this is necessary, use %strusted "
-#| "proxies list%s. However, IP-based protection may not be reliable if your "
-#| "IP belongs to an ISP where thousands of users, including you, are "
-#| "connected to."
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %srestrict "
@@ -5294,8 +5285,8 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Falls Sie die [kbd]Cookie[/kbd]-Authentifizierung verwenden und der "
-"%sLogincookiespeicher%s ungleich 0 ist, muss die %sLogincookie-Gültigkeit%s "
+"Falls Sie die [kbd]Cookie[/kbd]-Authentifizierung verwenden und der %"
+"sLogincookiespeicher%s ungleich 0 ist, muss die %sLogincookie-Gültigkeit%s "
 "auf den gleichen oder einen niedrigeren Wert gesetzt sein."
 
 #: libraries/config/ServerConfigChecks.class.php:426
@@ -5324,8 +5315,8 @@ msgstr ""
 "Sie haben die [kbd]config[/kbd] Authentifizierung gewählt und einen "
 "Benutzernamen und Passwort für Auto-Login eingegeben, was für Server im "
 "Internet nicht wünschenswert ist. Jeder, der Ihre phpMyAdmin-URL kennt oder "
-"errät, kann direkt auf Ihre phpMyAdmin-Oberfläche zugreifen. Setzen Sie den "
-"%sAuthentifizierungstyp%s auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
+"errät, kann direkt auf Ihre phpMyAdmin-Oberfläche zugreifen. Setzen Sie den %"
+"sAuthentifizierungstyp%s auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.class.php:440
 #, php-format
@@ -5422,7 +5413,6 @@ msgstr ""
 "oder Hostname des MySQL-Servers gegen den angegebenen regulären Ausdruck."
 
 #: libraries/config/messages.inc.php:25
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
 msgstr "Die Anmeldung auf den MySQL-Server einschränken"
 
@@ -5913,10 +5903,10 @@ msgstr "Anzeigemodus anpassen."
 msgid "Customize default options."
 msgstr "Standard-Einstellungen anpassen."
 
-#: libraries/config/messages.inc.php:213 libraries/config/setup.forms.php:251
-#: libraries/config/setup.forms.php:328
-#: libraries/config/user_preferences.forms.php:151
-#: libraries/config/user_preferences.forms.php:226
+#: libraries/config/messages.inc.php:213 libraries/config/setup.forms.php:252
+#: libraries/config/setup.forms.php:329
+#: libraries/config/user_preferences.forms.php:152
+#: libraries/config/user_preferences.forms.php:227
 msgid "CSV"
 msgstr "CSV"
 
@@ -6582,7 +6572,6 @@ msgid "Enable highlighting"
 msgstr "Hervorhebung ermöglichen"
 
 #: libraries/config/messages.inc.php:470
-#| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
@@ -6590,7 +6579,6 @@ msgstr ""
 "oder nicht."
 
 #: libraries/config/messages.inc.php:472
-#| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
 msgstr "Erweiterung des Navigationsbaumes aktivieren"
 
@@ -6824,7 +6812,6 @@ msgid "Allow root login"
 msgstr "Erlaube root Login"
 
 #: libraries/config/messages.inc.php:554
-#| msgid "Session value"
 msgid "Session timezone"
 msgstr "Zeitzone der Sitzung"
 
@@ -7492,9 +7479,6 @@ msgid "Suhosin warning"
 msgstr "Suhosin Warnhinweis"
 
 #: libraries/config/messages.inc.php:767
-#| msgid ""
-#| "Disable the default warning that is displayed on the Structure page if "
-#| "column names in a table are reserved MySQL words."
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -7505,7 +7489,6 @@ msgstr ""
 "`LoginCookieValidity` ist."
 
 #: libraries/config/messages.inc.php:769
-#| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "Login-Cookie Gültigkeitswarnung"
 
@@ -7695,13 +7678,25 @@ msgstr "Fehlerberichte senden"
 
 #: libraries/config/messages.inc.php:811
 msgid ""
+"Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
+"will be inserted with Shift+Enter"
+msgstr ""
+
+#: libraries/config/messages.inc.php:812
+#, fuzzy
+#| msgid "Executed queries"
+msgid "Enter executes queries in console"
+msgstr "Ausgeführte SQL-Anfragen"
+
+#: libraries/config/messages.inc.php:815
+msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
 "Aktivieren Sie den Keine-Konfiguration-Modus um phpMyAdmin die "
 "Konfigurationsspeichertabellen automatisch zu erzeugen."
 
-#: libraries/config/messages.inc.php:814
+#: libraries/config/messages.inc.php:818
 msgid "Enable Zero Configuration mode"
 msgstr "Keine-Konfiguration-Modus aktivieren"
 
@@ -7721,44 +7716,44 @@ msgstr "HTTP-Authentifizierung"
 msgid "Signon authentication"
 msgstr "Signon-Authentifizierung"
 
-#: libraries/config/setup.forms.php:259
-#: libraries/config/user_preferences.forms.php:159
+#: libraries/config/setup.forms.php:260
+#: libraries/config/user_preferences.forms.php:160
 msgid "CSV using LOAD DATA"
 msgstr "CSV mit LOAD DATA"
 
-#: libraries/config/setup.forms.php:268 libraries/config/setup.forms.php:365
-#: libraries/config/user_preferences.forms.php:167
-#: libraries/config/user_preferences.forms.php:263
+#: libraries/config/setup.forms.php:269 libraries/config/setup.forms.php:366
+#: libraries/config/user_preferences.forms.php:168
+#: libraries/config/user_preferences.forms.php:264
 msgid "OpenDocument Spreadsheet"
 msgstr "OpenDocument Kalkulationstabelle"
 
-#: libraries/config/setup.forms.php:275
-#: libraries/config/user_preferences.forms.php:174
+#: libraries/config/setup.forms.php:276
+#: libraries/config/user_preferences.forms.php:175
 msgid "Quick"
 msgstr "Schnell"
 
-#: libraries/config/setup.forms.php:279
-#: libraries/config/user_preferences.forms.php:178
+#: libraries/config/setup.forms.php:280
+#: libraries/config/user_preferences.forms.php:179
 msgid "Custom"
 msgstr "Benutzerdefiniert"
 
-#: libraries/config/setup.forms.php:301
-#: libraries/config/user_preferences.forms.php:199
+#: libraries/config/setup.forms.php:302
+#: libraries/config/user_preferences.forms.php:200
 msgid "Database export options"
 msgstr "Export-Optionen der Datenbank"
 
-#: libraries/config/setup.forms.php:337
-#: libraries/config/user_preferences.forms.php:235
+#: libraries/config/setup.forms.php:338
+#: libraries/config/user_preferences.forms.php:236
 msgid "CSV for MS Excel"
 msgstr "CSV-Daten für MS Excel"
 
-#: libraries/config/setup.forms.php:360
-#: libraries/config/user_preferences.forms.php:258
+#: libraries/config/setup.forms.php:361
+#: libraries/config/user_preferences.forms.php:259
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:369
-#: libraries/config/user_preferences.forms.php:267
+#: libraries/config/setup.forms.php:370
+#: libraries/config/user_preferences.forms.php:268
 msgid "OpenDocument Text"
 msgstr "OpenDocument-Text"
 
@@ -7824,7 +7819,6 @@ msgid "Select Export Relational Type"
 msgstr "Beziehungsschema exportieren auswählen"
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:258
-#| msgid "Showing tables:"
 msgid "Show/Hide tables list"
 msgstr "Tabellen-Liste anzeigen/ausblenden"
 
@@ -7907,7 +7901,6 @@ msgid "Move Menu"
 msgstr "Verschiebe Menü"
 
 #: libraries/db_designer.lib.php:416 libraries/db_designer.lib.php:419
-#| msgid "Partial texts"
 msgid "Pin text"
 msgstr "Text anheften"
 
@@ -8125,8 +8118,8 @@ msgstr ", @TABLE@ wird durch den Tabellennamen ersetzt"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Dieser Wert wird mit %1$sstrftime%2$s geparst. Sie können also Platzhalter "
 "für Datum und Uhrzeit verwenden. Darüber hinaus werden folgende Umformungen "
@@ -8675,8 +8668,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentation und weitere Informationen über PBXT sind auf der %sPrimeBase "
 "XT-Website%s verfügbar."
@@ -9114,7 +9107,6 @@ msgid "unknown"
 msgstr "unbekannt"
 
 #: libraries/navigation/Navigation.class.php:54
-#| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
 msgstr "Beim Laden des Navigationsansicht ist ein Fehler aufgetreten"
 
@@ -9853,8 +9845,8 @@ msgstr "Willkommen bei %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Sie haben möglicherweise noch keine Konfigurationsdatei erstellt. Sei können "
 "das %1$sSetup-Skript%2$s verwenden, um eine zu erstellen."
@@ -9908,7 +9900,6 @@ msgid "Please enter correct captcha!"
 msgstr "Bitte korrektes Captcha eingeben!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Sie sind nicht berechtigt, sich an diesem MySQL-Server anzumelden!"
 
@@ -10757,12 +10748,10 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr "Syntax highlighted CodeMirror Editor für XML (und HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "Formatiert den Text als JSON mit Syntaxhervorhebung."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
 msgstr "Formatiert den Text als XML mit Syntaxhervorhebung."
 
@@ -11977,7 +11966,6 @@ msgstr "Benutzergruppe"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
 msgstr "Benötigt SSL-verschlüsselte Verbindungen."
 
@@ -12338,8 +12326,8 @@ msgstr "Benutzerübersicht"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Hinweis: phpMyAdmin liest die Benutzerprofile direkt aus den entsprechenden "
 "MySQL-Tabellen aus. Der Inhalt dieser Tabellen kann sich von den "
@@ -12663,7 +12651,6 @@ msgid "Filters"
 msgstr "Filter"
 
 #: libraries/server_status_processes.lib.php:253
-#| msgid "Show only alert values"
 msgid "Show only active"
 msgstr "Zeige nur aktive"
 
@@ -13931,7 +13918,6 @@ msgid "Showing create queries"
 msgstr "Zeige Erzeugungsabfrage"
 
 #: libraries/structure.lib.php:3269
-#| msgid "Relation view"
 msgid "Relation view"
 msgstr "Beziehungsansicht"
 
@@ -14028,7 +14014,6 @@ msgid "Storage Engine:"
 msgstr "Tabellenformat:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#| msgid "Connections"
 msgid "Connection:"
 msgstr "Verbindung:"
 
@@ -14172,7 +14157,6 @@ msgstr ""
 "lauten!"
 
 #: libraries/tbl_indexes.lib.php:305
-#| msgid "Index cache size"
 msgid "Index choice:"
 msgstr "Index Auswahl:"
 
@@ -14788,8 +14772,6 @@ msgstr "Zeile: %1$s, Spalte: %2$s, Fehler: %3$s"
 
 #: tbl_structure.php:63
 #, php-format
-#| msgid "The column name '%s' is a MySQL reserved keyword."
-#| msgid_plural "The column names '%s' are MySQL reserved keywords."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "Der Name '%s' ist ein reserviertes MySQL-Schlüsselwort."
@@ -15230,8 +15212,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Das aktuelle Verhältnis von freiem Abfrage-Zwischenspeicher zur Größe des "
 "gesamten Abfrage-Zwischenspeichers ist %s%%. Es sollte über 80%% betragen"
@@ -15388,8 +15370,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% aller Sortierungen verursachen temporäre Tabellen, dieser Wert sollte "
 "kleiner als 10%% sein."
@@ -16967,9 +16949,6 @@ msgstr "concurrent_insert ist auf 0 gesetzt"
 #~ msgid "Target database has been synchronized with source database."
 #~ msgstr "Ziel-Tabelle wurde mit Quell-Tabelle abgeglichen"
 
-#~ msgid "Executed queries"
-#~ msgstr "Ausgeführte SQL-Anfragen"
-
 #~ msgid "Enter manually"
 #~ msgstr "Manuell eingeben"
 
@@ -17490,8 +17469,8 @@ msgstr "concurrent_insert ist auf 0 gesetzt"
 #~ "directory %s."
 #~ msgstr ""
 #~ "Die Unterstützung für Oberflächendesigns ist deaktiviert. Bitte "
-#~ "überprüfen Sie Ihre Konfiguration und / oder Ihre Designs im Verzeichnis "
-#~ "%s."
+#~ "überprüfen Sie Ihre Konfiguration und / oder Ihre Designs im Verzeichnis %"
+#~ "s."
 
 #~ msgid "Switch to"
 #~ msgstr "Wechseln zu"
