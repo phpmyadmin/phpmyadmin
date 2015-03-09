@@ -44,7 +44,7 @@ class AuthenticationHttp extends AuthenticationPlugin
             }
         }
 
-        $this->authForm();
+        return $this->authForm();
     }
 
     /**
