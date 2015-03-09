@@ -314,7 +314,8 @@ class PMA_Console
                     .  '<label><input type="checkbox" name="current_query">'
                     .  __('Show current browsing query') . '</label><br>'
                     .  '<label><input type="checkbox" name="enter_executes">'
-                    .  __('Execute queries on ENTER and insert new line with SHIFT + ENTER.') . '</label><br>'
+                    .  __('Execute queries on Enter and insert new line with Shift + Enter. '
+                    .     'To make this permanent, view settings.') . '</label><br>'
                     .  '</div>';
             $output .= '</div>'; // Options card
 
