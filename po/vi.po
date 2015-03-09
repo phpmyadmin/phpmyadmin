@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-02-24 15:50+0200\n"
-"Last-Translator: Bao Phan <baophan94@icloud.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/vi/>\n"
+"PO-Revision-Date: 2015-03-09 10:33+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Vietnamese "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -30,7 +30,7 @@ msgstr ""
 
 #: db_central_columns.php:89
 msgid "The central list of columns for the current database is empty."
-msgstr "Danh sách các cột trong CSDL hiện thời trống"
+msgstr "Danh sách các cột trong CSDL hiện thời trống."
 
 #: db_central_columns.php:113
 msgid "Click to sort."
