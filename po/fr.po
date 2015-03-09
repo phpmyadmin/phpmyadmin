@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-08 09:11-0400\n"
-"PO-Revision-Date: 2015-03-07 12:38+0200\n"
+"PO-Revision-Date: 2015-03-09 12:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2983,10 +2983,9 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Faites Ctrl+Entrée pour exécuter la requête"
 
 #: libraries/Console.class.php:221
-#, fuzzy
 #| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
-msgstr "Faites Ctrl+Entrée pour exécuter la requête"
+msgstr "Faites Entrée pour exécuter la requête"
 
 #: libraries/Console.class.php:242
 msgid "During current session"
@@ -3038,6 +3037,8 @@ msgstr "Montrer la requête courante"
 #: libraries/Console.class.php:317
 msgid "Execute queries on ENTER and insert new line with SHIFT + ENTER."
 msgstr ""
+"Exécuter les requêtes avec Entrée et insérer une nouvelle ligne avec Maj + "
+"Entrée."
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
 #: libraries/DisplayResults.class.php:2139
