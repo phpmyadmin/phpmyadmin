@@ -1273,7 +1273,7 @@ function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
     if ($column['Extra'] == 'auto_increment') {
 
         //Get default value for auto increment value
-         $local_query = 'SELECT '.$column["Field_title"].' FROM ' 
+         $local_query = 'SELECT '.$column["Field_title"].' FROM '
                 . PMA_Util::backquote($GLOBALS['db'])
              . '.' . PMA_Util::backquote($GLOBALS['table']) . ';';
 
