@@ -1269,9 +1269,23 @@ function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
             $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data_type
         );
 
-        if ($column['Extra'] == 'auto_increment') {
+
+    if ($column['Extra'] == 'auto_increment') {
+
+        //Get default value for auto increment value
+         $local_query = 'SELECT '.$column["Field_title"].' FROM ' 
+                . PMA_Util::backquote($GLOBALS['db'])
+             . '.' . PMA_Util::backquote($GLOBALS['table']) . ';';
+
+        $dispresult = $GLOBALS['dbi']->tryQuery(
+                 $local_query,
+                 null,
+                PMA_DatabaseInterface::QUERY_STORE
+            );
+        $NumberOfRows=$GLOBALS['dbi']->numRows($dispresult);
+
             $html_output .= '<input type="hidden" name="auto_increment'
-                . $column_name_appendix . '" value="1" />';
+                . $column_name_appendix . '" value="'.$NumberOfRows.'" />';
         }
         if (substr($column['pma_type'], 0, 9) == 'timestamp') {
             $html_output .= '<input type="hidden" name="fields_type'
@@ -2603,7 +2617,24 @@ function PMA_getHtmlForInsertEditColumnType($column)
         . '</td>';
 
 }
+//function to get Get random button at top
+function PMA_getRandomButton()
+{
+     $html_output= '<input type="button" id="get_random" value="' . __('Get Random') . '" />';
+    $html_output.= '<select name="random_row" id="random_row">' . "\n";
+    $option_values = array(1, 2, 5, 10, 15, 20, 30, 40);
 
+    foreach ($option_values as $value) {
+        $html_output .= '<option value="' . $value . '"';
+        if ($value == $GLOBALS['cfg']['InsertRows']) {
+            $html_output.= ' selected="selected"';
+        }
+        $html_output .= '>' . $value . '</option>' . "\n";
+    }
+
+    $html_output .= '</select>' . "\n";
+    return $html_output;
+}
 /**
  * Function to get html for the insert edit form header
  *
@@ -2613,8 +2644,11 @@ function PMA_getHtmlForInsertEditColumnType($column)
  * @return string
  */
 function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
-{
-    $html_output ='<form id="insertForm" class="lock-page ';
+{  
+    //Get random button
+    $html_output=PMA_getRandomButton();
+
+    $html_output.='<form id="insertForm" class="lock-page ';
     if ($has_blob_field && $is_upload) {
         $html_output .='disableAjax';
     }
@@ -2826,7 +2860,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
             if (method_exists($transformation_plugin, 'getInputHtml')) {
                 $transformed_html = $transformation_plugin->getInputHtml(
                     $column, $row_id, $column_name_appendix,
-                    $transformation_options, $current_value, $text_dir
+                    $transformation_options, $current_value,$text_dir
                 );
             }
             if (method_exists($transformation_plugin, 'getScripts')) {
@@ -2909,6 +2943,7 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
         $column_mime = array();
         if (isset($mime_map[$table_columns[$i]['Field']])) {
             $column_mime = $mime_map[$table_columns[$i]['Field']];
+
         }
         $html_output .= PMA_getHtmlForInsertEditFormColumn(
             $table_columns, $i, $column, $comments_map, $timestamp_seen,
