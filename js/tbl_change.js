@@ -677,7 +677,7 @@ AJAX.registerOnload('tbl_change.js', function () {
             $('.textfield, .char, textarea')
             .each(function () {
 
-        //uncheked ignore option as user wants to fill random value 
+        //uncheked ignore option as user wants to fill random value
         $("input[id^=insert_ignore_"+Math.floor((tabindex-1)/columnCount)+"]")
             .each(function(){
                 $(this).prop('checked',false);
