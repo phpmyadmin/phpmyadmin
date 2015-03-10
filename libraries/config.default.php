@@ -1345,6 +1345,13 @@ $cfg['Export']['method'] = 'quick';
 $cfg['Export']['compression'] = 'none';
 
 /**
+ * Whether to LOCK TABLES before exporting
+ *
+ * @global boolean $cfg['Export']['lock_tables']
+ */
+$cfg['Export']['lock_tables'] = false;
+
+/**
  *
  *
  * @global boolean $cfg['Export']['asfile']

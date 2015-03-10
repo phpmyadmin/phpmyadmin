@@ -855,4 +855,35 @@ function PMA_mergeAliases($aliases1, $aliases2)
     }
     return $aliases;
 }
+
+/**
+ * Locks tables
+ *
+ * @param string $db       database name
+ * @param array  $tables   list of table names
+ * @param string $lockType lock type; "[LOW_PRIORITY] WRITE" or "READ [LOCAL]"
+ *
+ * @return mixed result of the query
+ */
+function PMA_lockTables($db, $tables, $lockType = "WRITE")
+{
+    $locks = array();
+    foreach($tables as $table) {
+        $locks[] = PMA_Util::backquote($db) . "." . PMA_Util::backquote($table)
+            . " " . $lockType;
+    }
+
+    $sql = "LOCK TABLES " . implode(", ", $locks);
+    return $GLOBALS['dbi']->tryQuery($sql);
+}
+
+/**
+ * Releases table locks
+ *
+ * @return mixed result of the query
+ */
+function PMA_unlockTables()
+{
+    return $GLOBALS['dbi']->tryQuery("UNLOCK TABLES");
+}
 ?>

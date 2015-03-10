@@ -180,6 +180,7 @@ $forms['Export']['Export_defaults'] = array(
         'Export/format',
         'Export/compression',
         'Export/charset',
+        'Export/lock_tables',
         'Export/asfile' => ':group',
             'Export/onserver',
             'Export/onserver_overwrite',

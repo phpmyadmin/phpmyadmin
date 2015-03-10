@@ -107,6 +107,9 @@ $strConfigExecTimeLimit_desc = __(
     . 'limit).'
 );
 $strConfigExecTimeLimit_name = __('Maximum execution time');
+$strConfigExport_lock_tables_name = sprintf(
+    __('Use %s statement'), '<code>LOCK TABLES</code>'
+);
 $strConfigExport_asfile_name = __('Save as file');
 $strConfigExport_charset_name = __('Character set of the file');
 $strConfigExport_codegen_format_name = __('Format');
