@@ -395,6 +395,7 @@ $js_messages['strOuterRing'] = __('Outer Ring');
 $js_messages['strAddPoint'] = __('Add a point');
 $js_messages['strAddInnerRing'] = __('Add an inner ring');
 $js_messages['strFunctionHint'] = __('Shift + Click on function name to apply to all rows.');
+$js_messages['strRandomHint']=__('No of rows to filled from top');
 $js_messages['strYes'] = __('Yes');
 $js_messages['strCopyEncryptionKey'] = __('Do you want to copy encryption key?');
 $js_messages['strEncryptionKey'] = __('Encryption key');
