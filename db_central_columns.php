@@ -66,10 +66,25 @@ $cfgCentralColumns = PMA_centralColumnsGetParams();
 $pmadb = $cfgCentralColumns['db'];
 $pmatable = $cfgCentralColumns['table'];
 $max_rows = $GLOBALS['cfg']['MaxRows'];
+
+if (isset($_REQUEST['edit_central_columns_page'])) {
+    $selected_fld = $_REQUEST['selected_fld'];
+    $selected_db = $_REQUEST['db'];
+    $edit_central_column_page = PMA_getHTMLforEditingPage($selected_fld, $selected_db);
+    $response->addHTML($edit_central_column_page);
+    exit;
+}
+if (isset($_POST['multi_edit_central_column_save'])) {
+    $message = PMA_updateMultipleColumn();
+    if (!is_bool($message)) {
+        $response->isSuccess(false);
+        $response->addJSON('message', $message);
+    }
+}
 if (isset($_POST['delete_save'])) {
     $col_name = array();
-    $col_name[] = $_REQUEST['col_name'];
-    $tmp_msg = PMA_deleteColumnsFromList($col_name, false);
+    parse_str($_POST['col_name'], $col_name);
+    $tmp_msg = PMA_deleteColumnsFromList($col_name['selected_fld'], false);
 }
 if (isset($_REQUEST['total_rows']) && $_REQUEST['total_rows']) {
     $total_rows = $_REQUEST['total_rows'];
@@ -106,6 +121,7 @@ $deleteRowForm = '<form method="post" id="del_form" action="db_central_columns.p
         . '<input type="hidden" name="delete_save" value="delete"></form>';
 $response->addHTML($deleteRowForm);
 $table_struct = '<div id="tableslistcontainer">'
+        . '<form name="tableslistcontainer">'
         . '<table id="table_columns" class="tablesorter" '
         . 'style="min-width:100%" class="data">';
 $response->addHTML($table_struct);
@@ -124,7 +140,10 @@ foreach ($result as $row) {
     $odd_row = !$odd_row;
     $row_num++;
 }
-$response->addHTML('</table></div>');
+$response->addHTML('</table>');
+$tablefooter = PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir);
+$response->addHTML($tablefooter);
+$response->addHTML('</form></div>');
 $message = PMA_Message::success(
     sprintf(__('Showing rows %1$s - %2$s.'), ($pos + 1), ($pos + count($result)))
 );

@@ -12,6 +12,7 @@
  * Actions ajaxified here:
  * Inline Edit and save of a result row
  * Delete a row
+ * Multiple edit and delete option
  *
  */
 
@@ -27,11 +28,16 @@ AJAX.registerTeardown('db_central_columns.js', function () {
     $('#column-select').unbind('change');
     $("#add_col_div>a").unbind('click');
     $('#add_new').unbind('submit');
+    $('#multi_edit_central_columns').unbind('submit');
     $("select.default_type").unbind('change');
+    $("button[name='delete_central_columns']").unbind('click');
+    $("button[name='edit_central_columns']").unbind('click');
 });
 
 AJAX.registerOnload('db_central_columns.js', function () {
-    $('#tableslistcontainer input,#tableslistcontainer select,.default_value,.open_enum_editor').hide();
+    $('#tableslistcontainer input,#tableslistcontainer select,#tableslistcontainer .default_value,#tableslistcontainer .open_enum_editor').hide();
+    $('#tableslistcontainer .checkall').show();
+    $('#tableslistcontainer .checkall_box').show();
     if ($('#table_columns tbody tr').length > 0) {
         $("#table_columns").tablesorter({
             headers: {
@@ -41,6 +47,41 @@ AJAX.registerOnload('db_central_columns.js', function () {
             }
         });
     }
+    $('#tableslistcontainer button[name="delete_central_columns"]').click(function(event){
+        event.preventDefault();
+        var multi_delete_columns = $('.checkall:checkbox:checked').serialize();
+        if(multi_delete_columns === ''){
+            PMA_ajaxShowMessage(PMA_messages.strRadioUnchecked);
+            return false;
+        }
+        PMA_ajaxShowMessage();
+        $("#del_col_name").val(multi_delete_columns);
+        $("#del_form").submit();
+    });
+    $('#tableslistcontainer button[name="edit_central_columns"]').click(function(event){
+        event.preventDefault();
+        var editColumnList = $('.checkall:checkbox:checked').serialize();
+        if(editColumnList === ''){
+            PMA_ajaxShowMessage(PMA_messages.strRadioUnchecked);
+            return false;
+        }
+        var editColumnData = editColumnList+ '&edit_central_columns_page=true&ajax_request=true&ajax_page_request=true&token='+PMA_commonParams.get('token')+'&db='+PMA_commonParams.get('db');
+        PMA_ajaxShowMessage();
+        $.get('db_central_columns.php', editColumnData, AJAX.responseHandler);
+    });
+    $('#multi_edit_central_columns').submit(function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        var multi_column_edit_data = $("#multi_edit_central_columns").serialize()+'&multi_edit_central_column_save=true&ajax_request=true&ajax_page_request=true&token='+PMA_commonParams.get('token')+'&db='+PMA_commonParams.get('db');
+        PMA_ajaxShowMessage();
+        $.post('db_central_columns.php', multi_column_edit_data, AJAX.responseHandler);
+    });
+    $('#multi_edit_central_columns #cancel_multi_edit').click(function(event){
+        event.preventDefault();
+        var cancel_edit = 'ajax_request=true&ajax_page_request=true&token='+PMA_commonParams.get('token')+'&db='+PMA_commonParams.get('db');
+        PMA_ajaxShowMessage();
+        $.get('db_central_columns.php', cancel_edit, AJAX.responseHandler);
+    });
     $('#add_new td').each(function(){
         if ($(this).attr('name') !== 'undefined') {
             $(this).find('input,select:first').attr('name', $(this).attr('name'));
@@ -80,7 +121,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         var question = PMA_messages.strDeleteCentralColumnWarning;
         $td.PMA_confirm(question, null, function (url) {
             rownum = $td.data('rownum');
-            $("#del_col_name").val($('#f_' + rownum + ' td[name=col_name] span').html());
+            $("#del_col_name").val("selected_fld%5B%5D="+$('#checkbox_row_' + rownum ).val());
             $("#del_form").submit();
         });
     });
@@ -92,6 +133,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         $('#edit_' + rownum).show();
         $('#f_' + rownum + ' td span').show();
         $('#f_' + rownum + ' input, #f_' + rownum + ' select,#f_'+rownum+' .default_value, #f_' + rownum + ' .open_enum_editor').hide();
+        $('#tableslistcontainer .checkall').show();
     });
     $('.edit_save_form').click(function(event) {
         //alert(1);
@@ -131,7 +173,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
                     $('#f_' + rownum + ' td[name=col_length] span').text($('#f_' + rownum + ' input[name=col_length]').val()).html();
                     $('#f_' + rownum + ' td[name=collation] span').text($('#f_' + rownum + ' select[name=collation]').val()).html();
                     $('#f_' + rownum + ' td[name=col_attribute] span').text($('#f_' + rownum + ' select[name=col_attribute]').val()).html();
-                    $('#f_' + rownum + ' td[name=col_isNull] span').text($('#f_' + rownum + ' input[name=col_isNull]').val()).html();
+                    $('#f_' + rownum + ' td[name=col_isNull] span').text($('#f_' + rownum +' input[name=col_isNull]').is(":checked")?"Yes":"No").html();
                     $('#f_' + rownum + ' td[name=col_extra] span').text($('#f_' + rownum + ' select[name=col_extra]').val()).html();
                     $('#f_' + rownum + ' td[name=col_default] span').text($('#f_' + rownum + ' :input[name=col_default]').val()).html();
                 }
@@ -139,6 +181,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
                 $('#edit_' + rownum).show();
                 $('#f_' + rownum + ' td span').show();
                 $('#f_' + rownum + ' input, #f_' + rownum + ' select,#f_' + rownum + ' .default_value, #f_' + rownum + ' .open_enum_editor').hide();
+                $('#tableslistcontainer .checkall').show();
             },
             error: function() {
                     PMA_ajaxShowMessage(
@@ -186,7 +229,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
     $('#add_new').submit(function(event){
         $('#add_new').toggle();
     });
-    $("select.default_type").change(function () {
+    $("#tableslistcontainer select.default_type").change(function () {
         if ($(this).val() === 'USER_DEFINED') {
             $(this).siblings('.default_value').attr('name','col_default');
             $(this).attr('name','col_default_sel');
