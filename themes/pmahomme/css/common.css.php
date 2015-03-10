@@ -973,6 +973,13 @@ ul#topmenu2 li {
     border-top: 1px solid #aaa;
 }
 
+.menucontainer#table_name_col_no {
+    position:fixed;
+    top:58px;
+    z-index:500;
+    width:100%;
+}
+
 /* default tab styles */
 .tabactive {
     background: #fff !important;
@@ -2554,6 +2561,10 @@ fieldset .disabled-field td {
 }
 .doubleFieldset div.wrap {
     padding: 1.5em;
+}
+
+#table_columns.noclick {
+    margin-top:50px;
 }
 
 #table_columns input[type="text"],
