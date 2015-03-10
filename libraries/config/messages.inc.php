@@ -332,6 +332,10 @@ $strConfigImport_allow_interrupt_desc = __(
     . 'transactions.'
 );
 $strConfigImport_allow_interrupt_name = __('Partial import: allow interrupt');
+$strConfigImport_disable_foreign_keys_desc = __(
+    'Temporarily disable foreign key checks while importing'
+);
+$strConfigImport_disable_foreign_keys_name = __('Disable foreign key checks');
 $strConfigImport_charset_name = __('Character set of the file');
 $strConfigImport_csv_col_names_name = __('Lines terminated with');
 $strConfigImport_csv_enclosed_name = __('Columns enclosed with');

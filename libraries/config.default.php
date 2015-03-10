@@ -2122,6 +2122,13 @@ $cfg['Import']['allow_interrupt'] = true;
 $cfg['Import']['skip_queries'] = 0;
 
 /**
+ * Whether to disable foreign key checks while importing
+ *
+ * @global boolean $cfg['Import']['disable_foreign_keys']
+ */
+$cfg['Import']['disable_foreign_keys'] = false;
+
+/**
  *
  *
  * @global string $cfg['Import']['sql_compatibility']

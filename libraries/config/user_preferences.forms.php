@@ -143,7 +143,9 @@ $forms['Import']['Import_defaults'] = array(
     'Import/format',
     'Import/charset',
     'Import/allow_interrupt',
-    'Import/skip_queries');
+    'Import/skip_queries',
+    'Import/disable_foreign_keys'
+);
 $forms['Import']['Sql'] = array(
     'Import/sql_compatibility',
     'Import/sql_no_auto_value_on_zero',
