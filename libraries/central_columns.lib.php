@@ -90,7 +90,7 @@ function PMA_getCentralColumnsCount($db)
         return 0;
     }
     $pmadb = $cfgCentralColumns['db'];
-    $GLOBALS['dbi']->selectDb($pmadb);
+    $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
     $central_list_table = $cfgCentralColumns['table'];
     $query = 'SELECT count(db_name) FROM ' .
                PMA_Util::backquote($central_list_table) . ' '
