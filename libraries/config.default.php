@@ -1345,6 +1345,13 @@ $cfg['Export']['method'] = 'quick';
 $cfg['Export']['compression'] = 'none';
 
 /**
+ * Whether to LOCK TABLES before exporting
+ *
+ * @global boolean $cfg['Export']['lock_tables']
+ */
+$cfg['Export']['lock_tables'] = false;
+
+/**
  *
  *
  * @global boolean $cfg['Export']['asfile']
@@ -2113,6 +2120,13 @@ $cfg['Import']['allow_interrupt'] = true;
  * @global integer $cfg['Import']['skip_queries']
  */
 $cfg['Import']['skip_queries'] = 0;
+
+/**
+ * Whether to disable foreign key checks while importing
+ *
+ * @global boolean $cfg['Import']['disable_foreign_keys']
+ */
+$cfg['Import']['disable_foreign_keys'] = false;
 
 /**
  *
