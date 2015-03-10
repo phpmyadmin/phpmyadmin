@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2014-10-23 14:29+0200\n"
-"Last-Translator: Ion Adrian-Ionut <john@panevo.ro>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ro/>\n"
+"PO-Revision-Date: 2015-03-10 20:09+0200\n"
+"Last-Translator: Raul Molnar <molnar.raul@wservices.eu>\n"
+"Language-Team: Romanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/ro/>\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -336,21 +336,21 @@ msgid "Access denied!"
 msgstr "Acces refuzat!"
 
 #: db_tracking.php:39 db_tracking.php:64
-#, fuzzy
 msgid "Tracking data deleted successfully."
-msgstr "Replicare"
+msgstr "Înregistrările de monitorizare au fost șterse."
 
 #: db_tracking.php:48
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Versiunea %1$s pentru tabelele selectate a fost creată, monitorizarea este "
+"activă."
 
 #: db_tracking.php:79
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Nu a fost aleasă nici o bază de date."
+msgstr "Nici o bază de date selectată."
 
 #: db_tracking.php:114
 msgid "Tracked tables"
@@ -395,10 +395,9 @@ msgid "Show"
 msgstr "Arată"
 
 #: db_tracking.php:139 db_tracking.php:231
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "Se șterg datele de urmărire"
+msgstr "Se șterg datele monitorizare"
 
 #: db_tracking.php:140
 msgid "Versions"
@@ -458,7 +457,9 @@ msgstr ""
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
-msgstr "Dacă întâmpunaţi probleme vă rugăm să raportaţi un bug manual."
+msgstr ""
+"Dacă întâmpinaţi probleme vă rugăm să trimiteți un raport de eroare în mod "
+"manual."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
@@ -470,7 +471,7 @@ msgstr "Tipul este greșit!"
 
 #: export.php:263
 msgid "Bad parameters!"
-msgstr "Parametri greșiți!"
+msgstr "Parametrii greșiți!"
 
 #: file_echo.php:22
 msgid "Invalid export type"
@@ -523,7 +524,7 @@ msgstr "Adaugă un punct"
 #: gis_data_editor.php:269
 #, php-format
 msgid "Linestring %d:"
-msgstr "Rând de caractere %d:"
+msgstr "Șir de caractere %d:"
 
 #: gis_data_editor.php:272 gis_data_editor.php:349
 msgid "Outer ring:"
