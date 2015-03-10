@@ -144,7 +144,7 @@ foreach ($table_columns as $column) {
     }
 }
 
-//Insert/Edit form
+//Insert/Edit form having option of filling random values
 //If table has blob fields we have to disable ajax.
 $html_output .= PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload);
 

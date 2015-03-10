@@ -369,6 +369,13 @@ AJAX.registerOnload('db_structure.js', function () {
         'select',
         PMA_messages.strFunctionHint
     );
+
+    //hint for hovering on random row
+    PMA_tooltip(
+        $("select[name*='random_row']"),
+        'select',
+        PMA_messages.strRandomHint
+    );
     // Add tooltip to favorite icons.
     $(".favorite_table_anchor").each(function () {
         PMA_tooltip(

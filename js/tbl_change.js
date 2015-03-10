@@ -64,6 +64,23 @@ function nullify(theType, urlField, md5Field, multi_edit)
     return true;
 } // end of the 'nullify()' function
 
+/*
+Return random date between two given date*/
+function getRandomDate(from, to) {
+
+    from = from.getTime();
+    to = to.getTime();
+    var randomDate= new Date(from + Math.random() * (to - from));
+    return  (randomDate.getFullYear().toString()) + '-' + ("0" + (randomDate.getMonth() + 1).toString()).substr(-2) + "-" + ("0" + randomDate.getDate().toString()).substr(-2);
+
+ }
+//end of getRandomDate() function
+
+function getRandomTime(){
+  return CURRENT_TIMESTAMP;
+}
+
+
 
 /**
  * javascript DateTime format validation.
@@ -436,7 +453,8 @@ AJAX.registerOnload('tbl_change.js', function () {
     /**
      * Continue Insertion form
      */
-    $(document).on('change', "#insert_rows", function (event) {
+    function getInsertionForm(event,target_rows){
+        alert('function get called');
         event.preventDefault();
         /**
          * @var columnCount   Number of number of columns table has.
@@ -449,7 +467,6 @@ AJAX.registerOnload('tbl_change.js', function () {
         /**
          * @var target_rows Number of rows the user wants
          */
-        var target_rows = $("#insert_rows").val();
 
         // remove all datepickers
         $('input.datefield, input.datetimefield').each(function () {
@@ -638,7 +655,152 @@ AJAX.registerOnload('tbl_change.js', function () {
                 curr_rows--;
             }
         }
-    });
+    }
+
+    
+        //if no of row selected is changed
+    $(document).on('change', "#insert_rows", function (event){
+        var target_rows=$("#insert_rows").val();
+        getInsertionForm(event,target_rows);
+        });
+
+        //If get random button is pressed
+    $(document).on('click', "#get_random", function (event) 
+        {
+            var curr_rows = $("table.insertRowTable").length;
+            var target_rows=$("#random_row").val();
+            var columnCount = $("table.insertRowTable:first").find("tr").has("input[name*='fields_name']").length;
+            //if no of random row user want is more than current then firstly increment total no of row
+            if(target_rows>curr_rows)
+            getInsertionForm(event,target_rows);
+            var tabindex = 0;
+            $('.textfield, .char, textarea')
+            .each(function () {
+
+        //uncheked ignore option as user wants to fill random value
+        $("input[id^=insert_ignore_"+Math.floor((tabindex-1)/columnCount)+"]")
+            .each(function(){
+                $(this).prop('checked',false);
+            });
+                tabindex++;
+
+
+                if(tabindex==1)
+                    return true;
+                var datatype=$(this).parent().data('type');
+
+              
+                var next_name=$(this).next('input').attr('name');
+                // Check whether field is auto incremented
+                if(next_name != undefined  && next_name.indexOf('auto_increment')==0)
+                {
+                    $(this).val(parseInt($(this).next('input').val())+Math.floor(tabindex/columnCount)+1);
+                }
+                //Field is enum or set
+                else if($(this).is('select'))
+                {
+                    var id_foreignKey = $(this).attr('id');
+
+                    options = $("#" + id_foreignKey + " > option");
+
+                    var randomValue=Math.floor(Math.random() * (options.length-1)+1);
+    
+                options[randomValue].selected = true;
+
+                }
+
+                else if(datatype.substr(datatype.length-3) =='int' || datatype =='bit' || datatype=='binary' || datatype =='varbinary') 
+                {
+                        var Max_Value=Math.pow(10,$(this).parent().data('decimals'));
+                        if(Max_Value>Math.pow(10,8)) Max_Value=Math.pow(10,8);
+                        $(this).val(Math.floor(Math.random()*Max_Value));
+                }
+                else if(datatype=='float' || datatype == 'double' || datatype =='real')
+                {
+                        var Max_Value=Math.pow(10,8);
+                        $(this).val(Math.random()*Max_Value);   
+                }
+                else if(datatype.substr(datatype.length-4)=='text' || datatype=='varchar'  )
+                {
+                var text = "";
+                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var max_length=$(this).parent().data('decimals');
+                if(!max_length || max_length >8)
+                    max_length=8;
+                for( var i=0; i < max_length ; i++ )
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+                $(this).val(text);
+                }
+                else if(datatype=='decimal')
+                {
+                    //Setting Max_Limit
+                    var Max_Limit=$(this).parent().data('decimals').split(',');
+
+                    if(Max_Limit[0]>5)
+                        Max_Limit[0]=5;
+                    if(Max_Limit[1]>5)
+                        Max_Limit[1]=5;
+
+                    var mantissa=Math.pow(10,Max_Limit[0]);
+                    $(this).val((Math.random()*mantissa).toFixed(Max_Limit[1]));
+
+                }
+                else if(datatype=='date')
+                {
+
+                    $(this).val(getRandomDate(new Date(2000, 0, 1), new Date()));
+                }
+
+                else if(datatype =='timestamp' || datatype =='datetime')
+                    $(this).val((getRandomDate(new Date(2000, 0, 1), new Date())   + ' 09:00:00'));
+
+                else if(datatype=='time')
+                    $(this).val(' 09:00:00');
+
+                else if(datatype=='year')
+                {
+                        var max_length=$(this).parent().data('decimals');
+                        var year=2000+Math.floor(Math.random()*((new Date).getFullYear()-2000));
+                        year=year.toString();
+                        $(this).val(year.substr(-max_length))
+
+                }
+
+        
+                if(tabindex>columnCount*target_rows)
+                    return false;
+
+
+                });
+
+        });
+
+
+//set all Auto increment value to default
+
+$( document ).ready(function() {
+
+    var tabindex=0;
+    var target_rows=$("#random_row").val();
+
+    var columnCount = $("table.insertRowTable:first").find("tr").has("input[name*='fields_name']").length;
+
+       $('.textfield, .char, textarea')
+            .each(function () {
+
+                tabindex++;
+                //if next field is input field and its name start with auto_increment then the field is auto increment
+                var next_name=$(this).next('input').attr('name');
+                if(next_name != undefined)
+                    if(next_name.indexOf('auto_increment')==0)
+                        $(this).val(parseInt($(this).next('input').val())+Math.floor(tabindex/columnCount)+1);
+                                   
+            //to verify all fields are traversed
+    if(tabindex>columnCount*target_rows)
+        return false;
+});
+}); 
+
     // Add all the required datepickers back
     addDateTimePicker();
 
@@ -651,6 +813,13 @@ AJAX.registerOnload('tbl_change.js', function () {
         $("select[name*='funcs']"),
         'select',
         PMA_messages.strFunctionHint
+    );
+
+    //get hint for filling random values
+    PMA_tooltip(
+        $("select[name*='random_row']"),
+        'select',
+        PMA_messages.strRandomHint
     );
 
     $(document).on('click', "select[name*='funcs']", function (event) {
