@@ -554,6 +554,43 @@ function PMA_updateOneColumn($db, $orig_col_name, $col_name, $col_type,
 }
 
 /**
+ * Update Multiple column in central columns list if a chnage is requested
+ *
+ * @return true|PMA_Message
+ */
+function PMA_updateMultipleColumn()
+{
+    $db = $_POST['db'];
+    $col_name = $_POST['field_name'];
+    $orig_col_name = $_POST['orig_col_name'];
+    $col_default = $_POST['field_default_type'];
+    $col_extra = $_POST['col_extra'];
+    $col_length = $_POST['field_length'];
+    $col_attribute = $_POST['field_attribute'];
+    $col_type = $_POST['field_type'];
+    $collation = $_POST['field_collation'];
+    $col_isNull = array();
+    $num_central_fields = count($orig_col_name);
+    for ($i = 0; $i < $num_central_fields ; $i++) {
+        $col_isNull[$i] = isset($_POST['field_null'][$i])?1:0;
+        if ($col_default[$i] == 'NONE') {
+            $col_default[$i] = "";
+        } else if ($col_default[$i] == 'USER_DEFINED') {
+            $col_default[$i] = $_POST['field_default_value'][$i];
+        }
+        $message = PMA_updateOneColumn(
+            $db, $orig_col_name[$i], $col_name[$i], $col_type[$i],
+            $col_attribute[$i],$col_length[$i], $col_isNull[$i], $collation[$i],
+            $col_extra[$i], $col_default[$i]
+        );
+        if (!is_bool($message)) {
+            return $message;
+        }
+    }
+     return true;
+}
+
+/**
  * get the html for table navigation in Central columns page
  *
  * @param int    $total_rows total number of rows in complete result set
@@ -645,6 +682,7 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
     }
     $tableheader = '<thead>';
     $tableheader .= '<tr>'
+        . '<th class="' . $class . '"></th>'
         . $action
         . '<th class="" style="display:none"></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="name">'
@@ -666,6 +704,26 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
         . '</tr>';
     $tableheader .= '</thead>';
     return $tableheader;
+}
+
+/**
+ * Function generate and return the table header for
+ * multiple edit central columns page
+ *
+ * @param array $header_cells headers list
+ *
+ * @return string html for table header in central columns multi edit page
+ */
+function PMA_getCentralColumnsEditTableHeader($header_cells)
+{
+    $html = '<table id="table_columns" class="noclick">';
+    $html .= '<caption class="tblHeaders">' . __('Structure');
+    $html .= '<tr>';
+    foreach ($header_cells as $header_val) {
+        $html .= '<th>' . $header_val . '</th>';
+    }
+    $html .= '</tr>';
+    return $html;
 }
 
 /**
@@ -776,6 +834,11 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
             $db
         )
         . '<input type="hidden" name="edit_save" value="save">'
+        . '<td class="nowrap">'
+        . '<input type="checkbox" class="checkall" name="selected_fld[]" '
+        . 'value="' . htmlspecialchars($row['col_name']) . '" '
+        . 'id="checkbox_row_' . $row_num . '"/>'
+        . '</td>'
         . '<td id="edit_' . $row_num . '" class="edit center">'
         . '<a href="#">' . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a></td>'
         . '<td class="del_row" data-rownum = "' . $row_num . '">'
@@ -867,6 +930,87 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
 }
 
 /**
+ * build html for editing a row in central columns table
+ *
+ * @param array   $row     array contains complete information of
+ * a particular row of central list table
+ * @param boolean $odd_row set true if the row is at odd number position
+ * @param int     $row_num position the row in the table
+ *
+ * @return html of a particular row in the central columns table.
+ */
+function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
+{
+    $tableHtml = '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
+        . '<input name="orig_col_name[' . $row_num . ']" type="hidden" '
+        . 'value="' . htmlspecialchars($row['col_name']) . '">'
+        . '<td name="col_name" class="nowrap">'
+        . PMA_getHtmlForColumnName(
+            $row_num, 0, 0, array('Field'=>$row['col_name']),
+            array('central_columnswork'=>false)
+        )
+        . '</td>';
+    $tableHtml .=
+        '<td name = "col_type" class="nowrap">'
+        . PMA_getHtmlForColumnType(
+            $row_num, 1, 0, /*overload*/mb_strtoupper($row['col_type']), array()
+        )
+        . '</td>';
+    $tableHtml .=
+        '<td class="nowrap" name="col_length">'
+        . PMA_getHtmlForColumnLength($row_num, 2, 0, 8, $row['col_length'])
+        . '</td>';
+
+    $tableHtml .=
+        '<td name="collation" class="nowrap">'
+        . PMA_getHtmlForColumnCollation(
+            $row_num, 3, 0, array('Collation'=>$row['col_collation'])
+        )
+        . '</td>';
+    $tableHtml .=
+        '<td class="nowrap" name="col_attribute">'
+        . PMA_getHtmlForColumnAttribute(
+            $row_num, 4, 0, array("attribute"=>$row['col_attribute']),
+            array(), false, null
+        )
+        . '</td>';
+    $tableHtml .=
+        '<td class="nowrap" name="col_isNull">'
+        . PMA_getHtmlForColumnNull($row_num, 5, 0, array('Null'=>$row['col_isNull']))
+        . '</td>';
+    $extra_val = $row['col_extra'];
+    $tableHtml .=
+        '<td class="nowrap" name="col_extra">'
+        . '<select name="col_extra[' . $row_num . ']">'
+        . '<option value="" ' . ($extra_val==""?'selected="selected"':'') . '></option>'
+        . '<option ' . ($extra_val=="auto_increment"?'selected="selected"':'') . ''
+        . ' value="auto_increment">' . __('auto_increment') . '</option>'
+        . '</select>'
+        . '</td>';
+    $meta = array();
+    if (!isset($row['col_default']) || $row['col_default'] == '') {
+        $meta['DefaultType'] = 'NONE';
+    } else {
+        if ($row['col_default'] == 'CURRENT_TIMESTAMP'
+            || $row['col_default'] == 'NULL'
+        ) {
+            $meta['DefaultType'] = $row['col_default'];
+        } else {
+            $meta['DefaultType'] = 'USER_DEFINED';
+            $meta['DefaultValue'] = $row['col_default'];
+        }
+    }
+    $tableHtml .=
+        '<td class="nowrap" name="col_default">'
+        . PMA_getHtmlForColumnDefault(
+            $row_num, 6, 0, /*overload*/mb_strtoupper($row['col_type']), '', $meta
+        )
+        . '</td>';
+    $tableHtml .= '</tr>';
+    return $tableHtml;
+}
+
+/**
  * get the list of columns in given database excluding
  * the columns present in current table
  *
@@ -910,6 +1054,47 @@ function PMA_getCentralColumnsListRaw($db, $table)
     return json_encode($columns_list);
 }
 
+/**
+ * Get HTML for "check all" check box with "with selected" dropdown
+ *
+ * @param string $pmaThemeImage pma theme image url
+ * @param string $text_dir      url for text directory
+ *
+ * @return string $html_output
+ */
+function PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir)
+{
+    $html_output = PMA_Util::getWithSelected(
+        $pmaThemeImage, $text_dir, "tableslistcontainer"
+    );
+    $html_output .= PMA_Util::getButtonOrImage(
+        'edit_central_columns', 'mult_submit change_central_columns',
+        'submit_mult_change', __('Edit'), 'b_edit.png', 'edit central columns'
+    );
+    $html_output .= PMA_Util::getButtonOrImage(
+        'delete_central_columns', 'mult_submit', 'submit_mult_central_columns_remove',
+        __('Delete'), 'centralColumns_delete.png',
+        'remove_from_central_columns'
+    );
+    return $html_output;
+}
+
+/**
+ * function generate and return the table footer for
+ * multiple edit central columns page
+ *
+ * @return html for table footer in central columns multi edit page
+ */
+function PMA_getCentralColumnsEditTableFooter()
+{
+    $html_output = '<fieldset>'
+        . '<input type="submit" '
+        . 'name="save_multi_central_column_edit" value="' . __('Save') . '" />'
+        . '<input type="button" '
+        . 'id="cancel_multi_edit" value="' . __('Cancel') . '" />'
+        . '</fieldset>';
+    return $html_output;
+}
 /**
  * Column `col_extra` is used to store both extra and attributes for a column.
  * This method separates them.
@@ -961,6 +1146,7 @@ function PMA_getHTMLforAddNewColumn($db)
         . '<table>';
     $addNewColumn .= PMA_getCentralColumnsTableHeader();
     $addNewColumn .= '<tr>'
+        . '<td></td>'
         . '<td name="col_name" class="nowrap">'
         .  PMA_getHtmlForColumnName(
             0, 0, 0, array(), array('central_columnswork'=>false)
@@ -998,5 +1184,44 @@ function PMA_getHTMLforAddNewColumn($db)
         . '</tr>';
     $addNewColumn .= '</table></form></div>';
     return $addNewColumn;
+}
+
+/**
+ * Get HTML for editing page central columns
+ *
+ * @param array  $selected_fld Array containing the selected fields
+ * @param string $selected_db  String containing the name of database
+ *
+ * @return string HTML for complete editing page for central columns
+ */
+function PMA_getHTMLforEditingPage($selected_fld,$selected_db)
+{
+    $html = '<form id="multi_edit_central_columns">';
+    $header_cells = array(
+        __('Name'), __('Type'), __('Length/Values'), __('Collation'),
+        __('Attributes'), __('Null'), __('Extra'), __('Default')
+    );
+    $html .= PMA_getCentralColumnsEditTableHeader($header_cells);
+    $selected_fld_safe = array();
+    foreach ($selected_fld as $key) {
+        $selected_fld_safe[] = PMA_Util::sqlAddSlashes($key);
+    }
+    $columns_list = implode("','", $selected_fld_safe);
+    $columns_list = "'" . $columns_list . "'";
+    $list_detail_cols = PMA_findExistingColNames($selected_db, $columns_list, true);
+    $odd_row = false;
+    $row_num = 0;
+    foreach ($list_detail_cols as $row) {
+        $tableHtmlRow = PMA_getHTMLforCentralColumnsEditTableRow(
+            $row, $odd_row, $row_num
+        );
+        $html .= $tableHtmlRow;
+        $odd_row = !$odd_row;
+        $row_num++;
+    }
+    $html .= '</table>';
+    $html .= PMA_getCentralColumnsEditTableFooter();
+    $html .= '</form>';
+    return $html;
 }
 ?>
