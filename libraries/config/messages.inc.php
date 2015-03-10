@@ -808,7 +808,7 @@ $strConfigCaptchaLoginPrivateKey_name = __('Private key for reCaptcha');
 $strConfigSendErrorReports_desc = __('Choose the default action when sending error reports.');
 $strConfigSendErrorReports_name = __('Send error reports');
 
-$strConfigConsoleEnterExecutes_desc = __('Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines will be inserted with Shift+Enter');
+$strConfigConsoleEnterExecutes_desc = __('Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines will be inserted with Shift+Enter.');
 $strConfigConsoleEnterExecutes_name = __('Enter executes queries in console');
 
 $strConfigZeroConf_desc = __(

@@ -7503,7 +7503,7 @@ msgstr "Poslať chybové hlásenia"
 #: libraries/config/messages.inc.php:811
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
-"will be inserted with Shift+Enter"
+"will be inserted with Shift+Enter."
 msgstr ""
 
 #: libraries/config/messages.inc.php:812
