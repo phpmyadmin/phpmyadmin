@@ -20,23 +20,23 @@ require_once './libraries/dbi/DBIExtension.int.php';
  * Array of queries this "driver" supports
  */
 $GLOBALS['dummy_queries'] = array(
-    array('query' => 'SELECT 1', 'result' => array(array('1'))),
+    array('query' => 'SELECT "1"', 'result' => array(array('1'))),
     array(
         'query' => 'SELECT CURRENT_USER();',
         'result' => array(array('pma_test@localhost')),
     ),
     array(
-        'query' => 'SELECT 1 FROM mysql.user LIMIT 1',
+        'query' => 'SELECT "1" FROM mysql.user LIMIT 1',
         'result' => array(array('1')),
     ),
     array(
-        'query' => "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`"
+        'query' => "SELECT '1' FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`"
             . " WHERE `PRIVILEGE_TYPE` = 'CREATE USER'"
             . " AND '''pma_test''@''localhost''' LIKE `GRANTEE` LIMIT 1",
         'result' => array(array('1')),
     ),
     array(
-        'query' => "SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE`"
+        'query' => "SELECT '1' FROM (SELECT `GRANTEE`, `IS_GRANTABLE`"
             . " FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES`"
             . " UNION SELECT `GRANTEE`, `IS_GRANTABLE`"
             . " FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`"
