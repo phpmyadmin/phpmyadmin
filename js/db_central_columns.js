@@ -76,12 +76,6 @@ AJAX.registerOnload('db_central_columns.js', function () {
         PMA_ajaxShowMessage();
         $.post('db_central_columns.php', multi_column_edit_data, AJAX.responseHandler);
     });
-    $('#multi_edit_central_columns #cancel_multi_edit').click(function(event){
-        event.preventDefault();
-        var cancel_edit = 'ajax_request=true&ajax_page_request=true&token='+PMA_commonParams.get('token')+'&db='+PMA_commonParams.get('db');
-        PMA_ajaxShowMessage();
-        $.get('db_central_columns.php', cancel_edit, AJAX.responseHandler);
-    });
     $('#add_new td').each(function(){
         if ($(this).attr('name') !== 'undefined') {
             $(this).find('input,select:first').attr('name', $(this).attr('name'));

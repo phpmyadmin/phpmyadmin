@@ -721,7 +721,8 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
  */
 function PMA_getCentralColumnsEditTableHeader($header_cells)
 {
-    $html = '<table id="table_columns" class="noclick">';
+    $html = '<table id="table_columns" class="noclick"'
+        . ' style="min-width: 100%;">';
     $html .= '<caption class="tblHeaders">' . __('Structure');
     $html .= '<tr>';
     foreach ($header_cells as $header_val) {
@@ -1093,11 +1094,9 @@ function PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir)
  */
 function PMA_getCentralColumnsEditTableFooter()
 {
-    $html_output = '<fieldset>'
+    $html_output = '<fieldset class="tblFooters">'
         . '<input type="submit" '
         . 'name="save_multi_central_column_edit" value="' . __('Save') . '" />'
-        . '<input type="button" '
-        . 'id="cancel_multi_edit" value="' . __('Cancel') . '" />'
         . '</fieldset>';
     return $html_output;
 }
