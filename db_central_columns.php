@@ -22,7 +22,7 @@ if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
     if ($col_default == 'NONE' && $_POST['col_default_sel'] != 'USER_DEFINED') {
         $col_default = "";
     }
-    $col_extra = $_POST['col_extra'];
+    $col_extra = isset($_POST['col_extra']) ? $_POST['col_extra'] : '';
     $col_isNull = isset($_POST['col_isNull'])?1:0;
     $col_length = $_POST['col_length'];
     $col_attribute = $_POST['col_attribute'];

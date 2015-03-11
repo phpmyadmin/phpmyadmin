@@ -982,6 +982,31 @@ function PMA_getHtmlForColumnNull($columnNumber, $ci, $ci_offset, $columnMeta)
 }
 
 /**
+ * Function to get html for column A_I
+ *
+ * @param int   $columnNumber column number
+ * @param int   $ci           cell index
+ * @param int   $ci_offset    cell index offset
+ * @param array $columnMeta   column meta
+ *
+ * @return string
+ */
+function PMA_getHtmlForColumnExtra($columnNumber, $ci, $ci_offset, $columnMeta)
+{
+    $html = '<input name="col_extra[' . $columnNumber . ']"'
+            . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"';
+    if (! empty($columnMeta['Extra'])
+        && $columnMeta['Extra'] == 'auto_increment'
+    ) {
+        $html .= ' checked="checked"';
+    }
+
+    $html .= ' type="checkbox" value="auto_increment" />';
+
+    return $html;
+}
+
+/**
  * Function to get html for column attribute
  *
  * @param int   $columnNumber         column number
