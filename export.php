@@ -52,6 +52,7 @@ if (!defined('TESTSUITE')) {
             'limit_to',
             'limit_from',
             'allrows',
+            'lock_tables',
             'output_format',
             'filename_template',
             'maxsize',
@@ -411,11 +412,26 @@ if (!defined('TESTSUITE')) {
                 $aliases
             );
         } elseif ($export_type == 'database') {
-            PMA_exportDatabase(
-                $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                $aliases
-            );
+            if (isset($lock_tables)) {
+                PMA_lockTables($db, $tables, "READ");
+                try {
+                    PMA_exportDatabase(
+                        $db, $tables, $whatStrucOrData, $export_plugin, $crlf,
+                        $err_url, $export_type, $do_relation, $do_comments,
+                        $do_mime, $do_dates, $aliases
+                    );
+                    PMA_unlockTables();
+                } catch (Exception $e) { // TODO use finally when PHP version is 5.5
+                    PMA_unlockTables();
+                    throw $e;
+                }
+            } else {
+                PMA_exportDatabase(
+                    $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
+                    $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
+                    $aliases
+                );
+            }
         } else {
             // We export just one table
             // $allrows comes from the form when "Dump all rows" has been selected
@@ -428,11 +444,27 @@ if (!defined('TESTSUITE')) {
             if (! isset($limit_from)) {
                 $limit_from = 0;
             }
-            PMA_exportTable(
-                $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                $allrows, $limit_to, $limit_from, $sql_query, $aliases
-            );
+            if (isset($lock_tables)) {
+                try {
+                    PMA_lockTables($db, array($table), "READ");
+                    PMA_exportTable(
+                        $db, $table, $whatStrucOrData, $export_plugin, $crlf,
+                        $err_url, $export_type, $do_relation, $do_comments,
+                        $do_mime, $do_dates, $allrows, $limit_to, $limit_from,
+                        $sql_query, $aliases
+                    );
+                    PMA_unlockTables();
+                } catch (Exception $e) { // TODO use finally when PHP version is 5.5
+                    PMA_unlockTables();
+                    throw $e;
+                }
+            } else {
+                PMA_exportTable(
+                    $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
+                    $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
+                    $allrows, $limit_to, $limit_from, $sql_query, $aliases
+                );
+            }
         }
         if (! $export_plugin->exportFooter()) {
             break;
