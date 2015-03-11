@@ -76,12 +76,6 @@ AJAX.registerOnload('db_central_columns.js', function () {
         PMA_ajaxShowMessage();
         $.post('db_central_columns.php', multi_column_edit_data, AJAX.responseHandler);
     });
-    $('#multi_edit_central_columns #cancel_multi_edit').click(function(event){
-        event.preventDefault();
-        var cancel_edit = 'ajax_request=true&ajax_page_request=true&token='+PMA_commonParams.get('token')+'&db='+PMA_commonParams.get('db');
-        PMA_ajaxShowMessage();
-        $.get('db_central_columns.php', cancel_edit, AJAX.responseHandler);
-    });
     $('#add_new td').each(function(){
         if ($(this).attr('name') !== 'undefined') {
             $(this).find('input,select:first').attr('name', $(this).attr('name'));
@@ -104,10 +98,8 @@ AJAX.registerOnload('db_central_columns.js', function () {
         $(this).hide();
         $('#f_' + rownum + ' td span').hide();
         $('#f_' + rownum + ' input, #f_' + rownum + ' select, #f_' + rownum + ' .open_enum_editor').show();
-        var extra_val = $('#f_' + rownum + ' td[name=col_extra] span').html();
         var attribute_val = $('#f_' + rownum + ' td[name=col_attribute] span').html();
         $('#f_' + rownum + ' select[name=field_attribute\\['+ rownum +'\\] ] option[value="' + attribute_val + '"]').attr("selected","selected");
-        $('#f_' + rownum + ' select[name=col_extra] option[value="' + extra_val + '"]').attr("selected","selected");
         if($('#f_' + rownum + ' .default_type').val() === 'USER_DEFINED') {
             $('#f_' + rownum + ' .default_type').siblings('.default_value').show();
         } else {
@@ -174,7 +166,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
                     $('#f_' + rownum + ' td[name=collation] span').text($('#f_' + rownum + ' select[name=collation]').val()).html();
                     $('#f_' + rownum + ' td[name=col_attribute] span').text($('#f_' + rownum + ' select[name=col_attribute]').val()).html();
                     $('#f_' + rownum + ' td[name=col_isNull] span').text($('#f_' + rownum +' input[name=col_isNull]').is(":checked")?"Yes":"No").html();
-                    $('#f_' + rownum + ' td[name=col_extra] span').text($('#f_' + rownum + ' select[name=col_extra]').val()).html();
+                    $('#f_' + rownum + ' td[name=col_extra] span').text($('#f_' + rownum + ' input[name=col_extra]').is(":checked") ? "auto_increment" : "").html();
                     $('#f_' + rownum + ' td[name=col_default] span').text($('#f_' + rownum + ' :input[name=col_default]').val()).html();
                 }
                 $('#save_' + rownum).hide();

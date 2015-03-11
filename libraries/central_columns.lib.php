@@ -579,6 +579,9 @@ function PMA_updateMultipleColumn()
         } else if ($col_default[$i] == 'USER_DEFINED') {
             $col_default[$i] = $_POST['field_default_value'][$i];
         }
+        if (! isset($_POST['col_extra'][$i])) {
+            $col_extra[$i] =  '';
+        }
         $message = PMA_updateOneColumn(
             $db, $orig_col_name[$i], $col_name[$i], $col_type[$i],
             $col_attribute[$i], $col_length[$i], $col_isNull[$i], $collation[$i],
@@ -692,6 +695,8 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
         . __('Type') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="length">'
         . __('Length/Values') . '<div class="sorticon"></div></th>'
+        . '<th class="' . $class . '" title="' . $title . '" data-column="default">'
+        . __('Default') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="collation"'
         . '>' . __('Collation') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title
@@ -700,9 +705,7 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
         . '<th class="' . $class . '" title="' . $title . '" data-column="isnull">'
         . __('Null') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="extra">'
-        . __('Extra') . '<div class="sorticon"></div></th>'
-        . '<th class="' . $class . '" title="' . $title . '" data-column="default">'
-        . __('Default') . '<div class="sorticon"></div></th>'
+        . __('A_I') . '<div class="sorticon"></div></th>'
         . '</tr>';
     $tableheader .= '</thead>';
     return $tableheader;
@@ -718,7 +721,8 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
  */
 function PMA_getCentralColumnsEditTableHeader($header_cells)
 {
-    $html = '<table id="table_columns" class="noclick">';
+    $html = '<table id="table_columns" class="noclick"'
+        . ' style="min-width: 100%;">';
     $html .= '<caption class="tblHeaders">' . __('Structure');
     $html .= '<tr>';
     foreach ($header_cells as $header_val) {
@@ -875,37 +879,6 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         . PMA_getHtmlForColumnLength($row_num, 2, 0, 8, $row['col_length'])
         . '</td>';
 
-    $tableHtml .=
-        '<td name="collation" class="nowrap">'
-        . '<span>' . htmlspecialchars($row['col_collation']) . '</span>'
-        . PMA_getHtmlForColumnCollation(
-            $row_num, 3, 0, array('Collation'=>$row['col_collation'])
-        )
-        . '</td>';
-    $tableHtml .=
-        '<td class="nowrap" name="col_attribute">'
-        . '<span>' .
-        ($row['col_attribute']
-        ? htmlspecialchars($row['col_attribute']) : "" )
-        . '</span>'
-        . PMA_getHtmlForColumnAttribute(
-            $row_num, 4, 0, array(), $row['col_attribute'], false, null
-        )
-        . '</td>';
-    $tableHtml .=
-        '<td class="nowrap" name="col_isNull">'
-        . '<span>' . ($row['col_isNull'] ? __('Yes') : __('No'))
-        . '</span>'
-        . PMA_getHtmlForColumnNull($row_num, 5, 0, array('Null'=>$row['col_isNull']))
-        . '</td>';
-
-    $tableHtml .=
-        '<td class="nowrap" name="col_extra"><span>'
-        . htmlspecialchars($row['col_extra']) . '</span>'
-        . '<select name="col_extra"><option value=""></option>'
-        . '<option value="auto_increment">' . __('auto_increment') . '</option>'
-        . '</select>'
-        . '</td>';
     $meta = array();
     if (!isset($row['col_default']) || $row['col_default'] == '') {
         $meta['DefaultType'] = 'NONE';
@@ -924,10 +897,44 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         ? htmlspecialchars($row['col_default']) : 'None')
         . '</span>'
         . PMA_getHtmlForColumnDefault(
-            $row_num, 6, 0, /*overload*/mb_strtoupper($row['col_type']), '', $meta
+            $row_num, 3, 0, /*overload*/mb_strtoupper($row['col_type']), '', $meta
         )
         . '</td>';
+
+    $tableHtml .=
+        '<td name="collation" class="nowrap">'
+        . '<span>' . htmlspecialchars($row['col_collation']) . '</span>'
+        . PMA_getHtmlForColumnCollation(
+            $row_num, 4, 0, array('Collation'=>$row['col_collation'])
+        )
+        . '</td>';
+    $tableHtml .=
+        '<td class="nowrap" name="col_attribute">'
+        . '<span>' .
+        ($row['col_attribute']
+        ? htmlspecialchars($row['col_attribute']) : "" )
+        . '</span>'
+        . PMA_getHtmlForColumnAttribute(
+            $row_num, 5, 0, array(), $row['col_attribute'], false, null
+        )
+        . '</td>';
+    $tableHtml .=
+        '<td class="nowrap" name="col_isNull">'
+        . '<span>' . ($row['col_isNull'] ? __('Yes') : __('No'))
+        . '</span>'
+        . PMA_getHtmlForColumnNull($row_num, 6, 0, array('Null'=>$row['col_isNull']))
+        . '</td>';
+
+    $tableHtml .=
+        '<td class="nowrap" name="col_extra"><span>'
+        . htmlspecialchars($row['col_extra']) . '</span>'
+        . PMA_getHtmlForColumnExtra(
+            $row_num, 7, 0, array('Extra'=>$row['col_extra'])
+        )
+        . '</td>';
+
     $tableHtml .= '</tr>';
+
     return $tableHtml;
 }
 
@@ -962,40 +969,12 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
         '<td class="nowrap" name="col_length">'
         . PMA_getHtmlForColumnLength($row_num, 2, 0, 8, $row['col_length'])
         . '</td>';
-
-    $tableHtml .=
-        '<td name="collation" class="nowrap">'
-        . PMA_getHtmlForColumnCollation(
-            $row_num, 3, 0, array('Collation'=>$row['col_collation'])
-        )
-        . '</td>';
-    $tableHtml .=
-        '<td class="nowrap" name="col_attribute">'
-        . PMA_getHtmlForColumnAttribute(
-            $row_num, 4, 0, array("attribute"=>$row['col_attribute']),
-            array(), false, null
-        )
-        . '</td>';
-    $tableHtml .=
-        '<td class="nowrap" name="col_isNull">'
-        . PMA_getHtmlForColumnNull($row_num, 5, 0, array('Null'=>$row['col_isNull']))
-        . '</td>';
-    $extra_val = $row['col_extra'];
-    $tableHtml .=
-        '<td class="nowrap" name="col_extra">'
-        . '<select name="col_extra[' . $row_num . ']">'
-        . '<option value="" ' . ($extra_val==""?'selected="selected"':'')
-        . '></option>'
-        . '<option ' . ($extra_val=="auto_increment"?'selected="selected"':'') . ''
-        . ' value="auto_increment">' . __('auto_increment') . '</option>'
-        . '</select>'
-        . '</td>';
     $meta = array();
     if (!isset($row['col_default']) || $row['col_default'] == '') {
         $meta['DefaultType'] = 'NONE';
     } else {
         if ($row['col_default'] == 'CURRENT_TIMESTAMP'
-            || $row['col_default'] == 'NULL'
+                || $row['col_default'] == 'NULL'
         ) {
             $meta['DefaultType'] = $row['col_default'];
         } else {
@@ -1006,7 +985,31 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
     $tableHtml .=
         '<td class="nowrap" name="col_default">'
         . PMA_getHtmlForColumnDefault(
-            $row_num, 6, 0, /*overload*/mb_strtoupper($row['col_type']), '', $meta
+                $row_num, 3, 0, /*overload*/mb_strtoupper($row['col_default']), '', $meta
+        )
+        . '</td>';
+    $tableHtml .=
+        '<td name="collation" class="nowrap">'
+        . PMA_getHtmlForColumnCollation(
+            $row_num, 4, 0, array('Collation'=>$row['col_collation'])
+        )
+        . '</td>';
+    $tableHtml .=
+        '<td class="nowrap" name="col_attribute">'
+        . PMA_getHtmlForColumnAttribute(
+            $row_num, 5, 0, array("attribute"=>$row['col_attribute']),
+            array(), false, null
+        )
+        . '</td>';
+    $tableHtml .=
+        '<td class="nowrap" name="col_isNull">'
+        . PMA_getHtmlForColumnNull($row_num, 6, 0, array('Null'=>$row['col_isNull']))
+        . '</td>';
+    $extra_val = $row['col_extra'];
+    $tableHtml .=
+        '<td class="nowrap" name="col_extra">'
+        . PMA_getHtmlForColumnExtra(
+            $row_num, 7, 0, array('Extra' => $row['col_extra'])
         )
         . '</td>';
     $tableHtml .= '</tr>';
@@ -1077,7 +1080,7 @@ function PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir)
     $html_output .= PMA_Util::getButtonOrImage(
         'delete_central_columns', 'mult_submit',
         'submit_mult_central_columns_remove',
-        __('Delete'), 'centralColumns_delete.png',
+        __('Delete'), 'b_drop.png',
         'remove_from_central_columns'
     );
     return $html_output;
@@ -1091,11 +1094,9 @@ function PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir)
  */
 function PMA_getCentralColumnsEditTableFooter()
 {
-    $html_output = '<fieldset>'
+    $html_output = '<fieldset class="tblFooters">'
         . '<input type="submit" '
         . 'name="save_multi_central_column_edit" value="' . __('Save') . '" />'
-        . '<input type="button" '
-        . 'id="cancel_multi_edit" value="' . __('Cancel') . '" />'
         . '</fieldset>';
     return $html_output;
 }
@@ -1164,25 +1165,22 @@ function PMA_getHTMLforAddNewColumn($db)
         . '<td class="nowrap" name="col_length">'
         . PMA_getHtmlForColumnLength(0, 2, 0, 8, '')
         . '</td>'
+        . '<td class="nowrap" name="col_default">'
+        . PMA_getHtmlForColumnDefault(0, 3, 0, '', '', array())
+        . '</td>'
         . '<td name="collation" class="nowrap">'
         . PMA_getHtmlForColumnCollation(
-            0, 3, 0, array()
+            0, 4, 0, array()
         )
         . '</td>'
         . '<td class="nowrap" name="col_attribute">'
-        . PMA_getHtmlForColumnAttribute(0, 4, 0, array(), array(), false, null)
+        . PMA_getHtmlForColumnAttribute(0, 5, 0, array(), array(), false, null)
         . '</td>'
         . '<td class="nowrap" name="col_isNull">'
-        . PMA_getHtmlForColumnNull(0, 5, 0, array())
+        . PMA_getHtmlForColumnNull(0, 6, 0, array())
         . '</td>'
         . '<td class="nowrap" name="col_extra">'
-        . '<select name="col_extra"><option value="">'
-        . '<option value="auto_increment">' . __('auto_increment') . '</option>'
-        . '<option value="on update CURRENT_TIMESTAMP">'
-        . __('on update CURRENT_TIMESTAMP') . '</option></select>'
-        . '</td>'
-        . '<td class="nowrap" name="col_default">'
-        . PMA_getHtmlForColumnDefault(0, 6, 0, '', '', array())
+        . PMA_getHtmlForColumnExtra(0, 7, 0, array())
         . '</td>'
         . ' <td>'
         . '<input id="add_column_save" type="submit" '
@@ -1204,8 +1202,8 @@ function PMA_getHTMLforEditingPage($selected_fld,$selected_db)
 {
     $html = '<form id="multi_edit_central_columns">';
     $header_cells = array(
-        __('Name'), __('Type'), __('Length/Values'), __('Collation'),
-        __('Attributes'), __('Null'), __('Extra'), __('Default')
+        __('Name'), __('Type'), __('Length/Values'), __('Default'),
+        __('Collation'), __('Attributes'), __('Null'), __('A_I')
     );
     $html .= PMA_getCentralColumnsEditTableHeader($header_cells);
     $selected_fld_safe = array();
