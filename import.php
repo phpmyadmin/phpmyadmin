@@ -596,7 +596,29 @@ if (! $error) {
         PMA_stopImport($message);
     } else {
         // Do the real import
-        $import_plugin->doImport($sql_data);
+        if (isset($_REQUEST['disable_foreign_keys'])) {
+
+            $default_fk_check_value = $GLOBALS['dbi']->fetchValue(
+                "SHOW VARIABLES LIKE 'foreign_key_checks';", 0, 1
+            ) == 'ON';
+
+            try {
+                if ($default_fk_check_value) {
+                    $GLOBALS['dbi']->tryQuery("SET FOREIGN_KEY_CHECKS = 0;");
+                }
+                $import_plugin->doImport($sql_data);
+                if ($default_fk_check_value) {
+                    $GLOBALS['dbi']->tryQuery('SET FOREIGN_KEY_CHECKS = 1;');
+                }
+            } catch (Exception $e) {
+                if ($default_fk_check_value) {
+                    $GLOBALS['dbi']->tryQuery('SET FOREIGN_KEY_CHECKS = 1;');
+                }
+                throw $e;
+            }
+        } else {
+            $import_plugin->doImport($sql_data);
+        }
     }
 }
 
