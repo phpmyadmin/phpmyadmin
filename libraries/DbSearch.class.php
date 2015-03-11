@@ -380,7 +380,7 @@ class PMA_DbSearch
     {
         $html_output = '<a id="db_search"></a>';
         $html_output .= '<form id="db_search_form"'
-            . ' class="ajax"'
+            . ' class="ajax lock-page"'
             . ' method="post" action="db_search.php" name="db_search">';
         $html_output .= PMA_URL_getHiddenInputs($GLOBALS['db']);
         $html_output .= '<fieldset>';
