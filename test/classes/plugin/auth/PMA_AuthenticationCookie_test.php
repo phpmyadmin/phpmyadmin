@@ -544,7 +544,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = '';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09testiv09');
+        $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
 
         $this->assertFalse(
             $this->object->authCheck()
@@ -560,7 +560,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09testiv09');
+        $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $_COOKIE['pmaPass-1'] = '';
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = time() - 1000;
@@ -635,7 +635,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09testiv09');
+        $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = '';
         $_SESSION['last_valid_captcha'] = true;
@@ -674,7 +674,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pmaPass-1'] = 'pmaPass1';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09testiv09');
+        $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_valid_captcha'] = true;
         $_SESSION['last_access_time'] = time() - 1000;
@@ -718,7 +718,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09testiv09');
+        $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = 1;
         $_SESSION['last_valid_captcha'] = true;
