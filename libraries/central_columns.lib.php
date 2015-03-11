@@ -965,7 +965,25 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
         '<td class="nowrap" name="col_length">'
         . PMA_getHtmlForColumnLength($row_num, 2, 0, 8, $row['col_length'])
         . '</td>';
-
+    $meta = array();
+    if (!isset($row['col_default']) || $row['col_default'] == '') {
+        $meta['DefaultType'] = 'NONE';
+    } else {
+        if ($row['col_default'] == 'CURRENT_TIMESTAMP'
+                || $row['col_default'] == 'NULL'
+        ) {
+            $meta['DefaultType'] = $row['col_default'];
+        } else {
+            $meta['DefaultType'] = 'USER_DEFINED';
+            $meta['DefaultValue'] = $row['col_default'];
+        }
+    }
+    $tableHtml .=
+        '<td class="nowrap" name="col_default">'
+        . PMA_getHtmlForColumnDefault(
+                $row_num, 6, 0, /*overload*/mb_strtoupper($row['col_default']), '', $meta
+        )
+        . '</td>';
     $tableHtml .=
         '<td name="collation" class="nowrap">'
         . PMA_getHtmlForColumnCollation(
@@ -992,25 +1010,6 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
         . '<option ' . ($extra_val=="auto_increment"?'selected="selected"':'') . ''
         . ' value="auto_increment">' . __('auto_increment') . '</option>'
         . '</select>'
-        . '</td>';
-    $meta = array();
-    if (!isset($row['col_default']) || $row['col_default'] == '') {
-        $meta['DefaultType'] = 'NONE';
-    } else {
-        if ($row['col_default'] == 'CURRENT_TIMESTAMP'
-            || $row['col_default'] == 'NULL'
-        ) {
-            $meta['DefaultType'] = $row['col_default'];
-        } else {
-            $meta['DefaultType'] = 'USER_DEFINED';
-            $meta['DefaultValue'] = $row['col_default'];
-        }
-    }
-    $tableHtml .=
-        '<td class="nowrap" name="col_default">'
-        . PMA_getHtmlForColumnDefault(
-            $row_num, 6, 0, /*overload*/mb_strtoupper($row['col_type']), '', $meta
-        )
         . '</td>';
     $tableHtml .= '</tr>';
     return $tableHtml;
@@ -1207,8 +1206,8 @@ function PMA_getHTMLforEditingPage($selected_fld,$selected_db)
 {
     $html = '<form id="multi_edit_central_columns">';
     $header_cells = array(
-        __('Name'), __('Type'), __('Length/Values'), __('Collation'),
-        __('Attributes'), __('Null'), __('Extra'), __('Default')
+        __('Name'), __('Type'), __('Length/Values'), __('Default'),
+        __('Collation'), __('Attributes'), __('Null'), __('Extra')
     );
     $html .= PMA_getCentralColumnsEditTableHeader($header_cells);
     $selected_fld_safe = array();
