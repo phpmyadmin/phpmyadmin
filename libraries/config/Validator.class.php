@@ -261,7 +261,7 @@ class PMA_Validator
                 }
                 // connection object is set up but we have to send some query
                 // to actually connect
-                $res = @drizzle_query($conn, 'SELECT 1');
+                $res = @drizzle_query($conn, 'SELECT "1"');
                 if (! $res) {
                     $error = __('Could not connect to the database server!');
                 } else {
