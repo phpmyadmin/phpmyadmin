@@ -781,20 +781,25 @@ class PMA_NavigationTree
         $retval .= '</ul>';
         $retval .= $this->_getPageSelector($this->_tree);
         $this->groupTree();
-        $retval .= "<div id='pma_navigation_tree_content'><ul>";
+        $retval .= "<div id='pma_navigation_tree_content'>";
+        $treeContent = "<ul>";
         $children = $this->_tree->children;
         usort($children, array('PMA_NavigationTree', 'sortNode'));
         $this->_setVisibility();
         for ($i=0, $nbChildren = count($children); $i < $nbChildren; $i++) {
             if ($i == 0) {
-                $retval .= $this->_renderNode($children[0], true, 'first');
+                $treeContent .= $this->_renderNode($children[0], true, 'first');
             } else if ($i + 1 != $nbChildren) {
-                $retval .= $this->_renderNode($children[$i], true);
+                $treeContent .= $this->_renderNode($children[$i], true);
             } else {
-                $retval .= $this->_renderNode($children[$i], true, 'last');
+                $treeContent .= $this->_renderNode($children[$i], true, 'last');
             }
         }
-        $retval .= "</ul></div>";
+        $treeContent .= "</ul>";
+        $retval .= $treeContent;
+        $retval .= "</div>";
+        $retval .= "<div class='hide' id='pma_navigation_tree_hash'>"
+            . md5($treeContent) . "</div>";
         return $retval;
     }
 
