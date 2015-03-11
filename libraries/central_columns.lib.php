@@ -1077,7 +1077,7 @@ function PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir)
     $html_output .= PMA_Util::getButtonOrImage(
         'delete_central_columns', 'mult_submit',
         'submit_mult_central_columns_remove',
-        __('Delete'), 'centralColumns_delete.png',
+        __('Delete'), 'b_drop.png',
         'remove_from_central_columns'
     );
     return $html_output;
