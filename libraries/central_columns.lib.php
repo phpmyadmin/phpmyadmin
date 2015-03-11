@@ -692,6 +692,8 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
         . __('Type') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="length">'
         . __('Length/Values') . '<div class="sorticon"></div></th>'
+        . '<th class="' . $class . '" title="' . $title . '" data-column="default">'
+        . __('Default') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="collation"'
         . '>' . __('Collation') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title
@@ -701,8 +703,6 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
         . __('Null') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="extra">'
         . __('Extra') . '<div class="sorticon"></div></th>'
-        . '<th class="' . $class . '" title="' . $title . '" data-column="default">'
-        . __('Default') . '<div class="sorticon"></div></th>'
         . '</tr>';
     $tableheader .= '</thead>';
     return $tableheader;
@@ -875,6 +875,28 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         . PMA_getHtmlForColumnLength($row_num, 2, 0, 8, $row['col_length'])
         . '</td>';
 
+    $meta = array();
+    if (!isset($row['col_default']) || $row['col_default'] == '') {
+        $meta['DefaultType'] = 'NONE';
+    } else {
+        if ($row['col_default'] == 'CURRENT_TIMESTAMP'
+            || $row['col_default'] == 'NULL'
+        ) {
+            $meta['DefaultType'] = $row['col_default'];
+        } else {
+            $meta['DefaultType'] = 'USER_DEFINED';
+            $meta['DefaultValue'] = $row['col_default'];
+        }
+    }
+    $tableHtml .=
+        '<td class="nowrap" name="col_default"><span>' . (isset($row['col_default'])
+        ? htmlspecialchars($row['col_default']) : 'None')
+        . '</span>'
+        . PMA_getHtmlForColumnDefault(
+            $row_num, 6, 0, /*overload*/mb_strtoupper($row['col_type']), '', $meta
+        )
+        . '</td>';
+
     $tableHtml .=
         '<td name="collation" class="nowrap">'
         . '<span>' . htmlspecialchars($row['col_collation']) . '</span>'
@@ -906,28 +928,9 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         . '<option value="auto_increment">' . __('auto_increment') . '</option>'
         . '</select>'
         . '</td>';
-    $meta = array();
-    if (!isset($row['col_default']) || $row['col_default'] == '') {
-        $meta['DefaultType'] = 'NONE';
-    } else {
-        if ($row['col_default'] == 'CURRENT_TIMESTAMP'
-            || $row['col_default'] == 'NULL'
-        ) {
-            $meta['DefaultType'] = $row['col_default'];
-        } else {
-            $meta['DefaultType'] = 'USER_DEFINED';
-            $meta['DefaultValue'] = $row['col_default'];
-        }
-    }
-    $tableHtml .=
-        '<td class="nowrap" name="col_default"><span>' . (isset($row['col_default'])
-        ? htmlspecialchars($row['col_default']) : 'None')
-        . '</span>'
-        . PMA_getHtmlForColumnDefault(
-            $row_num, 6, 0, /*overload*/mb_strtoupper($row['col_type']), '', $meta
-        )
-        . '</td>';
+
     $tableHtml .= '</tr>';
+
     return $tableHtml;
 }
 
@@ -1164,6 +1167,9 @@ function PMA_getHTMLforAddNewColumn($db)
         . '<td class="nowrap" name="col_length">'
         . PMA_getHtmlForColumnLength(0, 2, 0, 8, '')
         . '</td>'
+        . '<td class="nowrap" name="col_default">'
+        . PMA_getHtmlForColumnDefault(0, 6, 0, '', '', array())
+        . '</td>'
         . '<td name="collation" class="nowrap">'
         . PMA_getHtmlForColumnCollation(
             0, 3, 0, array()
@@ -1180,9 +1186,6 @@ function PMA_getHTMLforAddNewColumn($db)
         . '<option value="auto_increment">' . __('auto_increment') . '</option>'
         . '<option value="on update CURRENT_TIMESTAMP">'
         . __('on update CURRENT_TIMESTAMP') . '</option></select>'
-        . '</td>'
-        . '<td class="nowrap" name="col_default">'
-        . PMA_getHtmlForColumnDefault(0, 6, 0, '', '', array())
         . '</td>'
         . ' <td>'
         . '<input id="add_column_save" type="submit" '
