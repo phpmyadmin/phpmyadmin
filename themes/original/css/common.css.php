@@ -821,14 +821,6 @@ div#tablestatistics table {
     width: 100%;
 }
 
-.menucontainer#table_name_col_no {
-    position:fixed;
-    top:48px;
-    z-index:500;
-    width:100%;
-    background: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
-}
-
 #serverinfo {
     background: white;
     font-weight:        bold;
@@ -2026,8 +2018,16 @@ fieldset .disabled-field td {
     padding: 0.5em;
 }
 
-#table_columns.noclick {
-    margin-top:40px;
+#table_name_col_no_outer {
+    margin-top: 30px;
+}
+
+#table_name_col_no {
+    position: fixed;
+    top: 44px;
+    z-index: 500;
+    width: 100%;
+    background: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
 #table_columns input[type="text"],

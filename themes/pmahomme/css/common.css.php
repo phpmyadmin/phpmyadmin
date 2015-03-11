@@ -975,13 +975,6 @@ ul#topmenu2 li {
     border-top: 1px solid #aaa;
 }
 
-.menucontainer#table_name_col_no {
-    position:fixed;
-    top:58px;
-    z-index:500;
-    width:100%;
-}
-
 /* default tab styles */
 .tabactive {
     background: #fff !important;
@@ -2569,8 +2562,16 @@ fieldset .disabled-field td {
     padding: 1.5em;
 }
 
-#table_columns.noclick {
-    margin-top:50px;
+#table_name_col_no_outer {
+    margin-top: 45px;
+}
+
+#table_name_col_no {
+    position: fixed;
+    top: 55px;
+    z-index: 500;
+    width: 100%;
+    background: '#ffffff';
 }
 
 #table_columns input[type="text"],
