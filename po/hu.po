@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-05 07:56+0200\n"
+"PO-Revision-Date: 2015-03-11 22:35+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/4-4/"
-"hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -821,7 +821,6 @@ msgid "List of changes"
 msgstr "Változások listája"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -833,11 +832,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"A konfigurációs fájl olyan beállításokat tartalmaz (jelszó nélküli root "
-"hozzáférés), amelyek megegyeznek az alapértelmezett MySQL jogosultsági "
-"fiókkal. A MySQL kiszolgáló most ezzel az alapbeállítással fut, behatolásra "
-"nyitott, ezért javítsa ki ezt a biztonsági rést úgy, hogy a „root” "
-"felhasználóhoz jelszót rendel."
+"A „root” felhasználóval kapcsolódott jelszó nélkül, amely megegyezik az "
+"alapértelmezett MySQL jogosultsági fiókkal. A MySQL kiszolgáló most ezzel az "
+"alapbeállítással fut, behatolásra nyitott, ezért javítsa ki ezt a biztonsági "
+"rést úgy, hogy a „root” felhasználóhoz jelszót rendel."
 
 #: index.php:464
 msgid ""
@@ -11842,7 +11840,6 @@ msgstr "SSL szükséges"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-#, fuzzy
 #| msgid "Requires that a specific cipher method be used for a connection."
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
