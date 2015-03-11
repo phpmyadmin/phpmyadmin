@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-09 08:17-0400\n"
-"PO-Revision-Date: 2015-03-09 09:49+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"PO-Revision-Date: 2015-03-11 22:35+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -821,7 +821,6 @@ msgid "List of changes"
 msgstr "Változások listája"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -833,11 +832,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"A konfigurációs fájl olyan beállításokat tartalmaz (jelszó nélküli root "
-"hozzáférés), amelyek megegyeznek az alapértelmezett MySQL jogosultsági "
-"fiókkal. A MySQL kiszolgáló most ezzel az alapbeállítással fut, behatolásra "
-"nyitott, ezért javítsa ki ezt a biztonsági rést úgy, hogy a „root” "
-"felhasználóhoz jelszót rendel."
+"A „root” felhasználóval kapcsolódott jelszó nélkül, amely megegyezik az "
+"alapértelmezett MySQL jogosultsági fiókkal. A MySQL kiszolgáló most ezzel az "
+"alapbeállítással fut, behatolásra nyitott, ezért javítsa ki ezt a biztonsági "
+"rést úgy, hogy a „root” felhasználóhoz jelszót rendel."
 
 #: index.php:464
 msgid ""
@@ -2974,10 +2972,9 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Nyomja meg a Ctrl+Enter billentyűket a lekérdezés végrehajtásához"
 
 #: libraries/Console.class.php:221
-#, fuzzy
 #| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
-msgstr "Nyomja meg a Ctrl+Enter billentyűket a lekérdezés végrehajtásához"
+msgstr "Nyomja meg az Entert a lekérdezés végrehajtásához"
 
 #: libraries/Console.class.php:242
 msgid "During current session"
@@ -3031,6 +3028,8 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"Lekérdezések végrehajtása az Enter lenyomásakor, és új sor beszúrása a Shift "
+"+ Enter használatával. Ennek állandóvá tételéhez nézze meg a beállításokat."
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
 #: libraries/DisplayResults.class.php:2139
@@ -7620,12 +7619,13 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"A lekérdezések az Enter lenyomásával (a Ctrl+Enter helyett) lesznek "
+"végrehajtva. Új sorok a Shift+Enter használatával kerülnek beszúrásra."
 
 #: libraries/config/messages.inc.php:812
-#, fuzzy
 #| msgid "Executed queries"
 msgid "Enter executes queries in console"
-msgstr "Végrehajtott lekérdezések"
+msgstr "Az Enter a parancssorban hajtja végre a lekérdezéseket"
 
 #: libraries/config/messages.inc.php:815
 msgid ""
@@ -11870,7 +11870,6 @@ msgstr "SSL szükséges"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-#, fuzzy
 #| msgid "Requires that a specific cipher method be used for a connection."
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
