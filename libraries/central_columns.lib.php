@@ -539,7 +539,8 @@ function PMA_updateOneColumn($db, $orig_col_name, $col_name, $col_type,
                 . ', col_length = \'' . PMA_Util::sqlAddSlashes($col_length) . '\''
                 . ', col_isNull = ' . $col_isNull
                 . ', col_collation = \'' . PMA_Util::sqlAddSlashes($collation) . '\''
-                . ', col_extra = \'' . implode(',', array($col_extra, $col_attribute)) . '\''
+                . ', col_extra = \''
+                . implode(',', array($col_extra, $col_attribute)) . '\''
                 . ', col_default = \'' . PMA_Util::sqlAddSlashes($col_default) . '\''
                 . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\' '
                 . 'AND col_name = \'' . PMA_Util::sqlAddSlashes($orig_col_name)
@@ -580,7 +581,7 @@ function PMA_updateMultipleColumn()
         }
         $message = PMA_updateOneColumn(
             $db, $orig_col_name[$i], $col_name[$i], $col_type[$i],
-            $col_attribute[$i],$col_length[$i], $col_isNull[$i], $collation[$i],
+            $col_attribute[$i], $col_length[$i], $col_isNull[$i], $collation[$i],
             $col_extra[$i], $col_default[$i]
         );
         if (!is_bool($message)) {
@@ -693,7 +694,8 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
         . __('Length/Values') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="collation"'
         . '>' . __('Collation') . '<div class="sorticon"></div></th>'
-        . '<th class="' . $class . '" title="' . $title . '" data-column="attribute">'
+        . '<th class="' . $class . '" title="' . $title
+        . '" data-column="attribute">'
         . __('Attribute') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="isnull">'
         . __('Null') . '<div class="sorticon"></div></th>'
@@ -982,7 +984,8 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
     $tableHtml .=
         '<td class="nowrap" name="col_extra">'
         . '<select name="col_extra[' . $row_num . ']">'
-        . '<option value="" ' . ($extra_val==""?'selected="selected"':'') . '></option>'
+        . '<option value="" ' . ($extra_val==""?'selected="selected"':'')
+        . '></option>'
         . '<option ' . ($extra_val=="auto_increment"?'selected="selected"':'') . ''
         . ' value="auto_increment">' . __('auto_increment') . '</option>'
         . '</select>'
@@ -1072,7 +1075,8 @@ function PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir)
         'submit_mult_change', __('Edit'), 'b_edit.png', 'edit central columns'
     );
     $html_output .= PMA_Util::getButtonOrImage(
-        'delete_central_columns', 'mult_submit', 'submit_mult_central_columns_remove',
+        'delete_central_columns', 'mult_submit',
+        'submit_mult_central_columns_remove',
         __('Delete'), 'centralColumns_delete.png',
         'remove_from_central_columns'
     );
@@ -1099,7 +1103,9 @@ function PMA_getCentralColumnsEditTableFooter()
  * Column `col_extra` is used to store both extra and attributes for a column.
  * This method separates them.
  *
- * @param array columns_list columns list
+ * @param array &$columns_list columns list
+ *
+ * @return void
  */
 function PMA_handleColumnExtra(&$columns_list)
 {

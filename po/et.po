@@ -7520,7 +7520,7 @@ msgstr "Saada vearaport"
 #: libraries/config/messages.inc.php:811
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
-"will be inserted with Shift+Enter"
+"will be inserted with Shift+Enter."
 msgstr ""
 "Päringud käivitatakse klahvi Enter vajutamisel (Ctrl+Enter asemel). "
 "Reavahetus sisesta Shift+Enter kombinatsiooniga"

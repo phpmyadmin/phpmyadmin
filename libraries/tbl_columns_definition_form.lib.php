@@ -174,7 +174,7 @@ function PMA_getHtmlForFooter()
  */
 function PMA_getHtmlForTableNameAndNoOfColumns()
 {
-    $html = '<table>'
+    $html = '<table class="menucontainer" id="table_name_col_no">'
         . '<tr class="vmiddle">'
         . '<td>' . __('Table name')
         . ':&nbsp;<input type="text" name="table" size="40" maxlength="80"'
