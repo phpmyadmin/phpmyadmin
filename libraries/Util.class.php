@@ -3833,12 +3833,16 @@ class PMA_Util
             return false;
         }
 
-        $user = explode('@', $user);
-        $username  = "''";
-        $username .= str_replace("'", "''", $user[0]);
-        $username .= "''@''";
-        $username .= str_replace("'", "''", $user[1]);
-        $username .= "''";
+        if(strpos($user, '@') !== false) {
+            $user = explode('@', $user);
+            $username  = "''";
+            $username .= str_replace("'", "''", $user[0]);
+            $username .= "''@''";
+            $username .= str_replace("'", "''", $user[1]);
+            $username .= "''";
+        } else {
+            $username = $user;
+        }
 
         // Prepare the query
         $query = "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`%s` "
