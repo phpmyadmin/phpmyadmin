@@ -2286,15 +2286,15 @@ class PMA_DatabaseInterface
             // Prepare query for each user type check
             $query = '';
             if ($type === 'super') {
-                $query = 'SELECT 1 FROM mysql.user LIMIT 1';
+                $query = 'SELECT "1" FROM mysql.user LIMIT 1';
             } elseif ($type === 'create') {
                 list($user, $host) = $this->_getCurrentUserAndHost();
-                $query = "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` "
+                $query = "SELECT '1' FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` "
                     . "WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND "
                     . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
             } elseif ($type === 'grant') {
                 list($user, $host) = $this->_getCurrentUserAndHost();
-                $query = "SELECT 1 FROM ("
+                $query = "SELECT '1' FROM ("
                     . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
                     . "`INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION "
                     . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
