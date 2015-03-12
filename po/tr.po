@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-06 19:05+0200\n"
+"PO-Revision-Date: 2015-03-12 08:47+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/tr/>\n"
@@ -3440,11 +3440,11 @@ msgstr "Çok fazla hata mesajı, bazıları görüntülenmedi."
 
 #: libraries/Error_Handler.class.php:336
 msgid "Report"
-msgstr "Rapor"
+msgstr "Raporla"
 
 #: libraries/Error_Handler.class.php:341 libraries/error_report.lib.php:373
 msgid "Automatically send report next time"
-msgstr "Raporu bir dahaki sefere otomatik olarak gönder"
+msgstr "Raporu gelecek sefer otomatik olarak gönder"
 
 #: libraries/File.class.php:225
 msgid "File was not an uploaded file."
