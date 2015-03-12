@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-09 08:17-0400\n"
-"PO-Revision-Date: 2015-03-12 07:15+0200\n"
+"PO-Revision-Date: 2015-03-12 18:47+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -9271,38 +9271,34 @@ msgid ""
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:864
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "S'ha trobat %s altre resultat"
-msgstr[1] "S'han trobat %s altres resultats"
+msgstr[0] "%s resultat trobat"
+msgstr[1] "%s resultats trobats"
 
 #: libraries/navigation/NavigationTree.class.php:1203
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Tria una base de dades"
+msgstr "Tria una base de dades."
 
 #: libraries/navigation/NavigationTree.class.php:1261
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
-msgstr "filtrar bases de dades pel nom"
+msgstr "filtrar bases de dades pel nom o expresió regular"
 
 #: libraries/navigation/NavigationTree.class.php:1263
 #: libraries/navigation/NavigationTree.class.php:1297
-#, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
 msgstr "Buidar filtre ràpid"
 
 #: libraries/navigation/NavigationTree.class.php:1296
-#, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"
-msgstr "filtrar ítems pel nom"
+msgstr "Filtrar pel nom o expresió regular"
 
 #: libraries/navigation/NavigationTree.class.php:1322
 msgid "Collapse all"
@@ -9336,19 +9332,16 @@ msgid "New"
 msgstr "Nou"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:41
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Opcions d'exportació de bases de dades"
+msgstr "Operacions de base de dades"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:632
-#, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "Mostra ajudes"
+msgstr "Mostra elements ocults"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:36
-#, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
 msgctxt "Create new database"
@@ -9386,10 +9379,9 @@ msgid "New"
 msgstr "Nou"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Procediments"
+msgstr "Procediment"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
@@ -9456,32 +9448,28 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:138 normalization.php:19
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select one…"
-msgstr "selecciona dues columnes"
+msgstr "Selecciona una…"
 
 #: libraries/normalization.lib.php:139 normalization.php:20
-#, fuzzy
 #| msgid "Move column"
 msgid "No such column"
-msgstr "Moure columna"
+msgstr "Cap columna"
 
 #: libraries/normalization.lib.php:146
 msgid "split into "
 msgstr ""
 
 #: libraries/normalization.lib.php:167
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
-msgstr "Afegir clau principal"
+msgstr "Tenir una clau principal"
 
 #: libraries/normalization.lib.php:173
-#, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Error: la relació ja existeix."
+msgstr "Ja existeix la clau primària."
 
 #: libraries/normalization.lib.php:178
 msgid ""
@@ -9499,16 +9487,14 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:194
-#, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "Afegir clau principal"
+msgstr "+ Afegir una nova columna de clau primària"
 
 #: libraries/normalization.lib.php:212
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove redundant columns"
-msgstr "Treu columna(es)"
+msgstr "Treure columnes redundants"
 
 #: libraries/normalization.lib.php:215
 msgid ""
@@ -9524,16 +9510,14 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:226
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "Treu els usuaris triats"
+msgstr "Treure seleccionat"
 
 #: libraries/normalization.lib.php:227
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "Afegeix columna(es)"
+msgstr "Cap columna redundant"
 
 #: libraries/normalization.lib.php:248
 msgid "Move repeating groups"
@@ -9627,10 +9611,9 @@ msgstr ""
 
 #: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
 #: libraries/normalization.lib.php:663
-#, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing!"
-msgstr "Error processant a la petició"
+msgstr "Error al procés!"
 
 #: libraries/normalization.lib.php:501
 #, php-format
@@ -9644,18 +9627,15 @@ msgid "The third step of normalization is complete."
 msgstr ""
 
 #: libraries/normalization.lib.php:642
-#, fuzzy, php-format
+#, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr ""
-"Les taules de destinació seleccionades s'han sincronitzat amb les taules "
-"d'origen."
+msgstr "El grup repetitiu seleccionat s'ha mogut a la taula '%s'"
 
 #: libraries/normalization.lib.php:689
-#, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
-msgstr "Set"
+msgstr "Pas 3."
 
 #: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
@@ -9680,10 +9660,9 @@ msgid "Table is already in Third normal form!"
 msgstr ""
 
 #: libraries/normalization.lib.php:770
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Amaga accions d'estructura de taula"
+msgstr "Millorar l'estructura de taula (Normalització):"
 
 #: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
@@ -9714,10 +9693,9 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:74
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to:"
-msgstr "Reanomena base de dades a"
+msgstr "Reanomena base de dades a:"
 
 #: libraries/operations.lib.php:106
 #, php-format
@@ -9748,10 +9726,9 @@ msgid "Data only"
 msgstr "Només dades"
 
 #: libraries/operations.lib.php:174
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to:"
-msgstr "Còpia base de dades a"
+msgstr "Còpia base de dades a:"
 
 #: libraries/operations.lib.php:185
 msgid "CREATE DATABASE before copying"
@@ -9989,10 +9966,9 @@ msgid "Username:"
 msgstr "Nom d'usuari:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:205
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Elecció de Servidor"
+msgstr "Elecció de Servidor:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:354
 msgid "Entered captcha is wrong, try again!"
@@ -10003,10 +9979,9 @@ msgid "Please enter correct captcha!"
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "No podem connectar amb el servidor MySQL"
+msgstr "No tens permés connectar amb aquest servidor MySQL!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Wrong username/password. Access denied."
@@ -10145,24 +10120,21 @@ msgstr "Opcions de creació d'objectes"
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Títol de taula"
+msgstr "Subtítol de taula:"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
-#, fuzzy
 #| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "Títol de taula (continuació)"
+msgstr "Subtítol de taula (continuació):"
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
-#, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Etiqueta de clau"
+msgstr "Etiqueta de clau:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:102
@@ -10182,59 +10154,52 @@ msgid "Display MIME types"
 msgstr "Mostra tipus MIME"
 
 #: libraries/plugins/export/ExportLatex.class.php:162
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Posa els noms de columnes a la primera fila"
+msgstr "Posa els noms de columnes a la primera fila:"
 
 #: libraries/plugins/export/ExportLatex.class.php:205
 #: libraries/plugins/export/ExportSql.class.php:670
 #: libraries/plugins/export/ExportXml.class.php:182
 #: libraries/replication_gui.lib.php:423 libraries/replication_gui.lib.php:694
 #: libraries/server_privileges.lib.php:1521 libraries/sql.lib.php:289
-#, fuzzy
 #| msgid "Host"
 msgid "Host:"
-msgstr "Servidor"
+msgstr "Servidor:"
 
 #: libraries/plugins/export/ExportLatex.class.php:210
 #: libraries/plugins/export/ExportSql.class.php:677
 #: libraries/plugins/export/ExportXml.class.php:187 libraries/sql.lib.php:293
-#, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Temps de generació"
+msgstr "Temps de generació:"
 
 #: libraries/plugins/export/ExportLatex.class.php:213
 #: libraries/plugins/export/ExportSql.class.php:683
 #: libraries/plugins/export/ExportXml.class.php:190
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "Versió de PHP"
+msgstr "Versió de PHP:"
 
 #: libraries/plugins/export/ExportLatex.class.php:242
 #: libraries/plugins/export/ExportSql.class.php:849
 #: libraries/plugins/export/ExportXml.class.php:422
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:291
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "Base de dades"
+msgstr "Base de dades:"
 
 #: libraries/plugins/export/ExportLatex.class.php:306
 #: libraries/plugins/export/ExportSql.class.php:1898
-#, fuzzy
 #| msgid "Data"
 msgid "Data:"
-msgstr "Dades"
+msgstr "Dades:"
 
 #: libraries/plugins/export/ExportLatex.class.php:488
-#, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
-msgstr "Estructura"
+msgstr "Estructura:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
@@ -10353,7 +10318,6 @@ msgstr ""
 "(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
-#, fuzzy
 #| msgid ""
 #| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 #| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -10362,7 +10326,7 @@ msgid ""
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "Ambdós anteriors<br /> &nbsp; &nbsp; &nbsp; Exemple: <code>INSERT INTO "
-"tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:408
 msgid ""
@@ -10416,28 +10380,24 @@ msgid "Constraints for table"
 msgstr "Restriccions per la taula"
 
 #: libraries/plugins/export/ExportSql.class.php:1337
-#, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
-msgstr "Restriccions per taules bolcades"
+msgstr "Indexos per taules bolcades"
 
 #: libraries/plugins/export/ExportSql.class.php:1338
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "Dins les taules:"
+msgstr "Index de la taula"
 
 #: libraries/plugins/export/ExportSql.class.php:1359
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "No feu servir AUTO_INCREMENT per a valors zero"
+msgstr "AUTO_INCREMENT per les taules bolcades"
 
 #: libraries/plugins/export/ExportSql.class.php:1360
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "Afegeix valor AUTO_INCREMENT"
+msgstr "AUTO_INCREMENT per la taula"
 
 #: libraries/plugins/export/ExportSql.class.php:1607
 msgid "MIME TYPES FOR TABLE"
@@ -10452,10 +10412,10 @@ msgid "It appears your table uses triggers;"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1827
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Estructura per a vista"
+msgstr "Estructura per a vista %s exportada com a taula"
 
 #: libraries/plugins/export/ExportSql.class.php:1916
 msgid "Error reading data:"
@@ -10470,10 +10430,9 @@ msgid "Export contents"
 msgstr "Exporta contingut"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:117
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
-msgstr "Taula"
+msgstr "Taula:"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -10561,10 +10520,9 @@ msgstr ""
 "lo i torna a intentar-ho."
 
 #: libraries/plugins/import/ImportOds.class.php:170
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Full de càlcul Open Document"
+msgstr "No es pot interpretar el full de càlcul OpenDocument!"
 
 #: libraries/plugins/import/ImportShp.class.php:54
 msgid "ESRI Shape File"
@@ -10576,14 +10534,13 @@ msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Hi va haver un error en importar el fitxer de tipus ESRI: \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:196
-#, fuzzy
 #| msgid ""
 #| "You tried to import an invalid file or the imported file contains invalid "
 #| "data"
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
-msgstr "Has intentat importar un arxiu no vàlid o conté dades no vàlides"
+msgstr "Has intentat importar un arxiu no vàlid o conté dades no vàlides!"
 
 #: libraries/plugins/import/ImportShp.class.php:202
 #, php-format
@@ -10591,10 +10548,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "La extensió espacial MySQL no és compatible amb el tipus ESRI \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:250
-#, fuzzy
 #| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "L'arxiu importat no té dades"
+msgstr "L'arxiu importat no té dades!"
 
 #: libraries/plugins/import/ImportSql.class.php:167
 msgid "SQL compatibility mode:"
@@ -10605,10 +10561,9 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "No feu servir <code>AUTO_INCREMENT</code> per a valors zero"
 
 #: libraries/plugins/import/ImportSql.class.php:193
-#, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Lectures omeses"
+msgstr "Llegir com a multibytes"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -10659,16 +10614,15 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Esquema de la base de dades %s - Pàgina %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:252
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "Tipus d'exportació incorrecte"
+msgstr "Pàgina d'exportació PDF"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:474
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "Esquema de la base de dades %s - Pàgina %s"
+msgstr "Esquema de la base de dades %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:497
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:877
@@ -10725,7 +10679,6 @@ msgstr ""
 "necessari tenir la primera dada buida."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -10752,13 +10705,14 @@ msgstr ""
 "NOMÉS LINUX: Llença una aplicació externa i facilita el camp de dades via "
 "standard input. Retorna per la sortida estàndard de l'aplicació. El defecte "
 "és Tidy, per interpretar codi HTML. Per raons de seguretat, has d' editar "
-"manualment l'arxiu libraries/plugins/transformations/Text_Plain_External."
-"class.php i afegir les eines que vulguis fer servir. La primera opció és, "
-"llavors, el numero del programa que vols fer servir i la segona opció són "
-"els paràmetres per el programa. El tercer paràmetre, si es posa a 1, "
-"convertirà la sortida fent servir htmlspecialchars() (El defecte és 1). El "
-"quart paràmetre, si val 1, posarà un NOWRAP al contingut de les cel.les de "
-"forma que la sortida sencera es mostrarà sense reformatejar (Per defecte 1)."
+"manualment l'arxiu libraries/plugins/transformations/output/"
+"Text_Plain_External.class.php i afegir les eines que vulguis fer servir. La "
+"primera opció és, llavors, el numero del programa que vols fer servir i la "
+"segona opció són els paràmetres per el programa. El tercer paràmetre, si es "
+"posa a 1, convertirà la sortida fent servir htmlspecialchars() (El defecte "
+"és 1). El quart paràmetre, si val 1, posarà un NOWRAP al contingut de les "
+"cel.les de forma que la sortida sencera es mostrarà sense reformatejar (Per "
+"defecte 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -10808,7 +10762,6 @@ msgstr ""
 "d'Internet amb punts."
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Appends text to a string. The only option is the text to be appended "
 #| "(enclosed in single quotes, default empty string)."
@@ -10817,7 +10770,8 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
-"Afegeix text a una cadena. L'única opció és afegir el text al final (entre "
+"Afegeix text a una cadena, abans o després d'ella mateixa. La primera opció "
+"és afegir el text al inici, la segona opció és afegir-lo al final (entre "
 "cometes simples, per defecte és una cadena buida)."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:33
@@ -10887,78 +10841,67 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr ""
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Formateig del text com a consulta SQL amb resaltat de sintaxi."
+msgstr "Formateig del text com a JSON amb resaltat de sintaxi."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Formateig del text com a consulta SQL amb resaltat de sintaxi."
+msgstr "Formateig del text com a XML amb resaltat de sintaxi."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
 msgstr "Error: la relació ja existeix."
 
 #: libraries/pmd_common.php:538
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "Afegida relació de FOREIGN KEY"
+msgstr "S'ha afegit una relació de CLAU EXTERNA."
 
 #: libraries/pmd_common.php:543
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr "Error: La relació no s'ha afegit."
+msgstr "Error: La relació  de CLAU EXTERNA no s'ha afegit!"
 
 #: libraries/pmd_common.php:548
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
 #: libraries/pmd_common.php:552
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Error: La relació no s'ha afegit."
+msgstr "Error: Funcionalitats relacionals desactivades!"
 
 #: libraries/pmd_common.php:572
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Afegida relació interna"
+msgstr "Afegida relació interna."
 
 #: libraries/pmd_common.php:577
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relation could not be added!"
-msgstr "Error: La relació no s'ha afegit."
+msgstr "Error: La relació interna no s'ha pogut afegir!"
 
 #: libraries/pmd_common.php:618
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been removed."
-msgstr "Afegida relació de FOREIGN KEY"
+msgstr "Eliminada la relació de CLAU EXTERNA."
 
 #: libraries/pmd_common.php:624
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr "Error: La relació no s'ha afegit."
+msgstr "Error: La relació de CLAU EXTERNA no es pot eliminar!"
 
 #: libraries/pmd_common.php:651
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relation could not be removed!"
-msgstr "Error: La relació no s'ha afegit."
+msgstr "Error: La relació interna no es pot eliminar!"
 
 #: libraries/pmd_common.php:655
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been removed."
-msgstr "Afegida relació interna"
+msgstr "Relació interna eliminada."
 
 #: libraries/relation.lib.php:86
 msgid "not OK"
