@@ -480,6 +480,7 @@ $cfg['Servers'][$i]['savedsearches'] = '';
  * @global string $cfg['Servers'][$i]['central_columns']
  */
 $cfg['Servers'][$i]['central_columns'] = '';
+
 /**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
  *
@@ -544,7 +545,6 @@ $cfg['Servers'][$i]['DisableIS'] = false;
  *
  * @global bool $cfg['Servers'][$i]['tracking_version_auto_create']
  */
-
 $cfg['Servers'][$i]['tracking_version_auto_create'] = false;
 
 /**
@@ -553,7 +553,6 @@ $cfg['Servers'][$i]['tracking_version_auto_create'] = false;
  *
  * @global string $cfg['Servers'][$i]['tracking_default_statements']
  */
-
 $cfg['Servers'][$i]['tracking_default_statements']
     = 'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,CREATE INDEX,' .
       'DROP INDEX,INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,CREATE VIEW,' .
@@ -565,7 +564,6 @@ $cfg['Servers'][$i]['tracking_default_statements']
  *
  * @global bool $cfg['Servers'][$i]['tracking_add_drop_view']
  */
-
 $cfg['Servers'][$i]['tracking_add_drop_view'] = true;
 
 /**
@@ -574,7 +572,6 @@ $cfg['Servers'][$i]['tracking_add_drop_view'] = true;
  *
  * @global bool $cfg['Servers'][$i]['tracking_add_drop_table']
  */
-
 $cfg['Servers'][$i]['tracking_add_drop_table'] = true;
 
 /**
@@ -583,7 +580,6 @@ $cfg['Servers'][$i]['tracking_add_drop_table'] = true;
  *
  * @global bool $cfg['Servers'][$i]['tracking_add_drop_database']
  */
-
 $cfg['Servers'][$i]['tracking_add_drop_database'] = true;
 
 /**
@@ -1111,7 +1107,6 @@ $cfg['Order'] = 'SMART';
  *
  * @global boolean $cfg['SaveCellsAtOnce']
  */
-
 $cfg['SaveCellsAtOnce'] = false;
 
 /**
@@ -1136,7 +1131,6 @@ $cfg['GridEditing'] ='double-click';
  * @global string $cfg['RelationalDisplay']
  *
  */
-
 $cfg['RelationalDisplay'] = 'K';
 
 
@@ -1770,8 +1764,8 @@ $cfg['Export']['mediawiki_structure_or_data'] = 'data';
  *
  * @global boolean $cfg['Export']['mediawiki_caption']
  */
-
 $cfg['Export']['mediawiki_caption'] = true;
+
 /**
  *
  *
@@ -1834,6 +1828,7 @@ $cfg['Export']['sql_include_comments'] = true;
  * @global boolean $cfg['Export']['sql_disable_fk']
  */
 $cfg['Export']['sql_disable_fk'] = false;
+
 /**
  *
  *
