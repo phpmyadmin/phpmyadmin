@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-09 08:17-0400\n"
-"PO-Revision-Date: 2015-03-11 19:11+0200\n"
+"PO-Revision-Date: 2015-03-12 06:48+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -6710,13 +6710,12 @@ msgid "Primary key default sort order"
 msgstr "Ordre de clasificació de la clau principal"
 
 #: libraries/config/messages.inc.php:539
-#, fuzzy
 #| msgid ""
 #| "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
-"Repeteix les capçeleres cada X cel.les, [kbd]0[/kbd] desactiva la funció"
+"Repeteix les capçeleres cada X cel.les, [kbd]0[/kbd] desactiva la funció."
 
 #: libraries/config/messages.inc.php:540
 msgid "Repeat headers"
@@ -7181,7 +7180,6 @@ msgid "Use SSL"
 msgstr "Usa SSL"
 
 #: libraries/config/messages.inc.php:679
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]"
@@ -7189,17 +7187,15 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: [kbd]"
-"pma__table_coords[/kbd]"
+"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:681
-#, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
-msgstr "Esquema PDF: taula de coordinades"
+msgstr "Dissenyador i esquema PDF: taula de coordinades"
 
 #: libraries/config/messages.inc.php:683
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma__table_info[/kbd]"
@@ -7208,14 +7204,13 @@ msgid ""
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
 "Taula per descriure les columnes a mostrar, deixa en blanc per desactivar; "
-"suggerit: [kbd]pma__table_info[/kbd]"
+"suggerit: [kbd]pma__table_info[/kbd]."
 
 #: libraries/config/messages.inc.php:686
 msgid "Display columns table"
 msgstr "Taula de descripció de columnes"
 
 #: libraries/config/messages.inc.php:688
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -7224,7 +7219,8 @@ msgid ""
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
 "Deixa en blanc per desactivar la \"persistència\" de preferències "
-"d'interfase de taules entre sessions, suggerit: [kbd]pma__table_uiprefs[/kbd]"
+"d'interfase de taules entre sessions, suggerit: "
+"[kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/config/messages.inc.php:691
 msgid "UI preferences table"
@@ -7277,7 +7273,6 @@ msgid "Statements to track"
 msgstr "Instruccions a seguir"
 
 #: libraries/config/messages.inc.php:711
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma__tracking[/kbd]"
@@ -7286,7 +7281,7 @@ msgid ""
 "[/kbd]."
 msgstr ""
 "Deixa en blanc per desactivar el suport de seguiment de consultes SQL, "
-"suggerit: [kbd]pma__tracking[/kbd]"
+"suggerit: [kbd]pma__tracking[/kbd]."
 
 #: libraries/config/messages.inc.php:714
 msgid "SQL query tracking table"
@@ -7305,7 +7300,6 @@ msgid "Automatically create versions"
 msgstr "Crear versions automàticament"
 
 #: libraries/config/messages.inc.php:721
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -7314,7 +7308,7 @@ msgid ""
 "pma__userconfig[/kbd]."
 msgstr ""
 "Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
-"suggerit: [kbd]pma__userconfig[/kbd]"
+"suggerit: [kbd]pma__userconfig[/kbd]."
 
 #: libraries/config/messages.inc.php:722
 msgid "User preferences storage table"
@@ -7328,10 +7322,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:724
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Usa Taules"
+msgstr "Taula d'usuaris"
 
 #: libraries/config/messages.inc.php:725
 msgid ""
@@ -7341,13 +7334,11 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:726
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Utilitza la Taula de Hosts"
+msgstr "Taula de grups d'usuaris"
 
 #: libraries/config/messages.inc.php:727
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -7355,8 +7346,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
-"suggerit: [kbd]pma__userconfig[/kbd]"
+"Deixa en blanc per desactivar la funcionalitat d'amagar i mostrar elements "
+"de navegació, suggerit: [kbd]pma__navigationhiding[/kbd]."
 
 #: libraries/config/messages.inc.php:728
 msgid "Hidden navigation items table"
@@ -7379,18 +7370,16 @@ msgid "Verbose name of this server"
 msgstr "Nom explicatiu d'aquest servidor"
 
 #: libraries/config/messages.inc.php:733
-#, fuzzy
 #| msgid "Whether a user should be displayed a \"show all (rows)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
-"Si a un usuari se l'hauria de mostrar el botó \"mostrar totes (les files)\""
+"Si a un usuari se l'hauria de mostrar el botó \"mostrar totes (les files)\"."
 
 #: libraries/config/messages.inc.php:734
 msgid "Allow to display all the rows"
 msgstr "Permet mostrar totes les files"
 
 #: libraries/config/messages.inc.php:735
-#, fuzzy
 #| msgid ""
 #| "Please note that enabling this has no effect with [kbd]config[/kbd] "
 #| "authentication mode because the password is hard coded in the "
@@ -7403,7 +7392,7 @@ msgid ""
 msgstr ""
 "Activar aixó no té efecte amb el mode d'autenticació [kbd]config[/kbd] degut "
 "a que la contrasenya està inclosa al arxiu de configuració; aixó no limita "
-"la posibilitat d'executar la mateixa ordre directament"
+"la posibilitat d'executar la mateixa ordre directament."
 
 #: libraries/config/messages.inc.php:736
 msgid "Show password change form"
@@ -7414,48 +7403,44 @@ msgid "Show create database form"
 msgstr "Mostra el formulari de creació de base de dades"
 
 #: libraries/config/messages.inc.php:738
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables"
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 "Mostrar o amagar una columna amb la data i hora de creació per a totes les "
-"taules"
+"taules."
 
 #: libraries/config/messages.inc.php:739
 msgid "Show Creation timestamp"
 msgstr "Mostra el temps de creació"
 
 #: libraries/config/messages.inc.php:740
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last update timestamp for all tables"
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 "Mostrar o amagar una columna que mostra la data i hora de la darrera "
-"actualització per a totes les taules"
+"actualització per a totes les taules."
 
 #: libraries/config/messages.inc.php:741
 msgid "Show Last update timestamp"
 msgstr "Mostra data i hora de la darrera actualització"
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last check timestamp for all tables"
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Mostrar o amagar una columna que mostra la data i hora de la darrera "
-"comprovació per a totes les taules"
+"comprovació per a totes les taules."
 
 #: libraries/config/messages.inc.php:743
 msgid "Show Last check timestamp"
 msgstr "Mostra el temps de la darrera comprovació"
 
 #: libraries/config/messages.inc.php:744
-#, fuzzy
 #| msgid ""
 #| "Defines whether or not type fields should be initially displayed in edit/"
 #| "insert mode"
@@ -7464,34 +7449,31 @@ msgid ""
 "insert mode."
 msgstr ""
 "Defineix si els tipus de camps han d'aparèixer en un principi en el mode "
-"d'edició/inserció"
+"d'edició/inserció."
 
 #: libraries/config/messages.inc.php:745
 msgid "Show field types"
 msgstr "Mostra tipus de camps"
 
 #: libraries/config/messages.inc.php:746
-#, fuzzy
 #| msgid "Display the function fields in edit/insert mode"
 msgid "Display the function fields in edit/insert mode."
-msgstr "Mostra els camps de funció en modes edició/inserció"
+msgstr "Mostra els camps de funció en modes edició/inserció."
 
 #: libraries/config/messages.inc.php:747
 msgid "Show function fields"
 msgstr "Mostra els camps de funció"
 
 #: libraries/config/messages.inc.php:748
-#, fuzzy
 #| msgid "Whether to show hint or not"
 msgid "Whether to show hint or not."
-msgstr "Mostrar o no ajudes"
+msgstr "Mostrar o no ajudes."
 
 #: libraries/config/messages.inc.php:749
 msgid "Show hint"
 msgstr "Mostra ajudes"
 
 #: libraries/config/messages.inc.php:750
-#, fuzzy
 #| msgid ""
 #| "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 #| "output"
@@ -7499,8 +7481,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Mostra l'enllaç a la sortida de [a@http://php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]"
+"Mostra l'enllaç a la sortida de "
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:751
 msgid "Show phpinfo() link"
@@ -7511,68 +7493,62 @@ msgid "Show detailed MySQL server information"
 msgstr "Mostra informació detallada del servidor MySQL"
 
 #: libraries/config/messages.inc.php:753
-#, fuzzy
 #| msgid ""
 #| "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
-msgstr "Defineix si s'han de mostrar les consultes SQL creades per phpMyAdmin"
+msgstr "Defineix si s'han de mostrar les consultes SQL creades per phpMyAdmin."
 
 #: libraries/config/messages.inc.php:754
 msgid "Show SQL queries"
 msgstr "Mostra consultes SQL"
 
 #: libraries/config/messages.inc.php:755
-#, fuzzy
 #| msgid ""
 #| "Defines whether the query box should stay on-screen after its submission"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 "Defineix si el quadre de consulta ha de romandre a la pantalla després de la "
-"seva presentació"
+"seva presentació."
 
 #: libraries/config/messages.inc.php:756 libraries/sql_query_form.lib.php:328
 msgid "Retain query box"
 msgstr "Mantenir el quadre de consultes"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)"
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr ""
-"Permet mostrar estadístiques de base de dades i de taula (ex. espai usat)"
+"Permet mostrar estadístiques de base de dades i de taula (ex. espai usat)."
 
 #: libraries/config/messages.inc.php:758
 msgid "Show statistics"
 msgstr "Mostra estadístiques"
 
 #: libraries/config/messages.inc.php:759
-#, fuzzy
 #| msgid ""
 #| "Mark used tables and make it possible to show databases with locked tables"
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Marca les taules en ús i permet mostrar les bases de dades amb taules "
-"bloquejades"
+"bloquejades."
 
 #: libraries/config/messages.inc.php:760
 msgid "Skip locked tables"
 msgstr "Salta taules bloquejades"
 
 #: libraries/config/messages.inc.php:765
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected"
 msgid "A warning is displayed on the main page if Suhosin is detected."
-msgstr "Si es detecta Suoshin, es mostra un avís a la pàgina principal"
+msgstr "Si es detecta Suoshin, es mostra un avís a la pàgina principal."
 
 #: libraries/config/messages.inc.php:766
 msgid "Suhosin warning"
 msgstr "avís Suoshin"
 
 #: libraries/config/messages.inc.php:767
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words"
@@ -7581,17 +7557,16 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Desactiva l'avís per defecte que es mostra a la pàgina de l'estructura si "
-"els noms de les columnes a la taula són paraules reservades de MySQL"
+"Desactiva l'avís per defecte que es mostra a la pàgina principal si el valor "
+"establert de la variable de PHP session.gc_maxlifetime és menor que el de "
+"`LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:769
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Validesa de l'autenticació per galetes"
+msgstr "Avís de validesa de la cookie d'autenticació"
 
 #: libraries/config/messages.inc.php:771
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)"
@@ -7600,14 +7575,13 @@ msgid ""
 "query textareas (*2) and for query window (*1.25)."
 msgstr ""
 "Tamany de textarea (columnes) en mode d'edició, aquest valor s'augmentarà "
-"per a textareas de consultes SQL (*2) i per finestres de consultes (*1.25)"
+"per a textareas de consultes SQL (*2) i per finestres de consultes (*1.25)."
 
 #: libraries/config/messages.inc.php:772
 msgid "Textarea columns"
 msgstr "Columnes per a textareas"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)"
@@ -7616,43 +7590,38 @@ msgid ""
 "query textareas (*2) and for query window (*1.25)."
 msgstr ""
 "Tamany de textarea (files) en mode d'edició, aquest valor s'augmentarà per a "
-"textareas de consultes SQL (*2) i per finestres de consultes (*1.25)"
+"textareas de consultes SQL (*2) i per finestres de consultes (*1.25)."
 
 #: libraries/config/messages.inc.php:774
 msgid "Textarea rows"
 msgstr "Files per a textareas"
 
 #: libraries/config/messages.inc.php:775
-#, fuzzy
 #| msgid "Title of browser window when a database is selected"
 msgid "Title of browser window when a database is selected."
 msgstr ""
-"Títol de la finestra del navegador quan es selecciona una base de dades"
+"Títol de la finestra del navegador quan es selecciona una base de dades."
 
 #: libraries/config/messages.inc.php:777
-#, fuzzy
 #| msgid "Title of browser window when nothing is selected"
 msgid "Title of browser window when nothing is selected."
-msgstr "Títol de la finestra del navegador quan no hi ha res seleccionat"
+msgstr "Títol de la finestra del navegador quan no hi ha res seleccionat."
 
 #: libraries/config/messages.inc.php:778
 msgid "Default title"
 msgstr "Títol per defecte"
 
 #: libraries/config/messages.inc.php:779
-#, fuzzy
 #| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
-msgstr "Títol de la finestra del navegador quan es selecciona un servidor"
+msgstr "Títol de la finestra del navegador quan es selecciona un servidor."
 
 #: libraries/config/messages.inc.php:781
-#, fuzzy
 #| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
-msgstr "Títol de la finestra del navegador quan es selecciona una taula"
+msgstr "Títol de la finestra del navegador quan es selecciona una taula."
 
 #: libraries/config/messages.inc.php:783
-#, fuzzy
 #| msgid ""
 #| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
 #| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
@@ -7664,37 +7633,34 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
-"Entra els proxies com [kbd]IP: capçaleta HTTP confiable[/kbd]. El següent "
+"Entra els proxies com [kbd]IP: capçalera HTTP confiable[/kbd]. El següent "
 "exemple mostra cóm phpMyAdmin hauria de validar la capçalera "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) procedent del proxy 1.2.3.4:[br][kbd]"
-"1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) procedent del proxy "
+"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
 #: libraries/config/messages.inc.php:784
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Llista de proxies confiables per autoritzar/prohibir IP"
 
 #: libraries/config/messages.inc.php:785
-#, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
-msgstr "Directori al servidor ón pots pujar arxius per importar"
+msgstr "Directori al servidor ón pots pujar arxius per importar."
 
 #: libraries/config/messages.inc.php:786
 msgid "Upload directory"
 msgstr "Directori de pujades"
 
 #: libraries/config/messages.inc.php:787
-#, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
-msgstr "Permet cercar dins de tota la base de dades"
+msgstr "Permet cercar dins de tota la base de dades."
 
 #: libraries/config/messages.inc.php:788
 msgid "Use database search"
 msgstr "Usa cerca de base de dades"
 
 #: libraries/config/messages.inc.php:789
-#, fuzzy
 #| msgid ""
 #| "When disabled, users cannot set any of the options below, regardless of "
 #| "the checkbox on the right"
@@ -7703,7 +7669,7 @@ msgid ""
 "checkbox on the right."
 msgstr ""
 "Quan està desactivada, els usuaris no poden configurar qualsevol de les "
-"següents opcions, independentment de la casella de selecció a la dreta"
+"següents opcions, independentment de la casella de selecció a la dreta."
 
 #: libraries/config/messages.inc.php:790
 msgid "Enable the Developer tab in settings"
@@ -7714,12 +7680,11 @@ msgid "Check for latest version"
 msgstr "Comprova la darrera versió"
 
 #: libraries/config/messages.inc.php:792
-#, fuzzy
 #| msgid "Enables check for latest version on main phpMyAdmin page"
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
 "Activa la comprovació de la darrera versió a la pàgina principal de "
-"phpMyAdmin"
+"phpMyAdmin."
 
 #: libraries/config/messages.inc.php:793 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:134 setup/lib/index.lib.php:147
@@ -7748,20 +7713,18 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:797
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
-msgstr "Nom d'usuari"
+msgstr "Nom d'usuari del proxy"
 
 #: libraries/config/messages.inc.php:798
 msgid "The password for authenticating with the proxy."
 msgstr ""
 
 #: libraries/config/messages.inc.php:799
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "Contrasenya"
+msgstr "Contrasenya del proxy"
 
 #: libraries/config/messages.inc.php:801
 #, fuzzy
