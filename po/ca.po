@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-13 18:16+0200\n"
+"PO-Revision-Date: 2015-03-13 18:19+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/ca/>\n"
@@ -14136,22 +14136,19 @@ msgid "Collation:"
 msgstr "Ordenació:"
 
 #: libraries/tbl_columns_definition_form.lib.php:76
-#, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Motor d'emmagatzematge"
+msgstr "Motor d'emmagatzematge:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Connexions"
+msgstr "Connexió:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
-#, fuzzy
 #| msgid "PARTITION definition"
 msgid "PARTITION definition:"
-msgstr "Definició de PARTICIÓ"
+msgstr "Definició de PARTICIÓ:"
 
 #: libraries/tbl_columns_definition_form.lib.php:179
 msgid "Table name"
@@ -14182,10 +14179,9 @@ msgid "Move column"
 msgstr "Moure columna"
 
 #: libraries/tbl_columns_definition_form.lib.php:336
-#, fuzzy
 #| msgid "Available transformations"
 msgid "List of available transformations and their options"
-msgstr "Transformacions disponibles"
+msgstr "Llista de transformacions disponibles i les seves opcions"
 
 #: libraries/tbl_columns_definition_form.lib.php:341
 msgid ""
@@ -14201,16 +14197,14 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:349
 #: transformation_overview.php:41
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Transformació del navegador"
+msgstr "Transformació de visualització del navegador"
 
 #: libraries/tbl_columns_definition_form.lib.php:351
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Transformació del navegador"
+msgstr "Opcions de transformació de visualització al navegador"
 
 #: libraries/tbl_columns_definition_form.lib.php:354
 #: transformation_overview.php:42
