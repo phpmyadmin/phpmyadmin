@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-09 08:17-0400\n"
-"PO-Revision-Date: 2015-03-13 18:51+0200\n"
+"PO-Revision-Date: 2015-03-13 18:57+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -15709,10 +15709,9 @@ msgstr ""
 "inferior a 1 per hora"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "\"tmp_table_size\" vs. \"max_heap_table_size\""
+msgstr "\"tmp_table_size\" i \"max_heap_table_size\" són diferents"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
