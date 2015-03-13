@@ -373,7 +373,6 @@ function PMA_addDatepicker($this_element, type, options)
         onClose: function (dateText, dp_inst) {
             // The value is no more from the date picker
             $this_element.data('comes_from', '');
-            $this_element.data('datepicker').inline = false;
         }
     };
     if (type == "datetime" || type == "timestamp") {
