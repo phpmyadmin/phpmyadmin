@@ -286,18 +286,18 @@ function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
 
         $html .= '<a href="#" id="savePos" ';
         $html .= 'class="M_butt" target="_self">';
-        $html .= '<img class="' . $iconClass . '" title="' . __('Save position') . '" alt="" ';
+        $html .= '<img class="' . $iconClass . '" title="' . __('Save page') . '" alt="" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/save.png')
             . '" />';
-        $html .= '<span class="' . $textClass . '">' . __('Save position') . '</span>';
+        $html .= '<span class="' . $textClass . '">' . __('Save page') . '</span>';
         $html .= '</a>';
 
         $html .= '<a href="#" id="SaveAs" ';
         $html .= 'class="M_butt ajax" target="_self">';
-        $html .= '<img class="' . $iconClass . '" title="' . __('Save positions as') . '" alt="" ';
+        $html .= '<img class="' . $iconClass . '" title="' . __('Save page as') . '" alt="" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/save_as.png')
             . '" />';
-        $html .= '<span class="' . $textClass . '">' . __('Save positions as') . '</span>';
+        $html .= '<span class="' . $textClass . '">' . __('Save page as') . '</span>';
         $html .= '</a>';
 
         $html .= '<a href="#" id="delPages" ';
