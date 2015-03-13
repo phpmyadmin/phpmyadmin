@@ -594,7 +594,7 @@ class PMA_Table
                         // Use try_query because it can fail (when a VIEW is
                         // based on a table that no longer exists)
                         $result = $GLOBALS['dbi']->tryQuery(
-                            'SELECT 1 FROM ' . PMA_Util::backquote($db) . '.'
+                            'SELECT "1" FROM ' . PMA_Util::backquote($db) . '.'
                             . PMA_Util::backquote($table) . ' LIMIT '
                             . $GLOBALS['cfg']['MaxExactCountViews'],
                             null,
