@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-13 07:15+0200\n"
+"PO-Revision-Date: 2015-03-13 18:16+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/ca/>\n"
@@ -13663,7 +13663,6 @@ msgid "Showing as PHP code"
 msgstr "Mostrant com a codi PHP"
 
 #: libraries/sql.lib.php:1813
-#, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Grid edit, checkbox, Edit, "
 #| "Copy and Delete features are not available."
@@ -13671,8 +13670,9 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
-"Aquesta taula no conté una columna única. Els enllaços d'edició de graella, "
-"checkbox, Editar, Copiar i Esborrar enllaços no estàn disponibles."
+"AquestLa selecció actual no conté una columna única. Els enllaços d'edició "
+"de graella, checkbox, Editar, Copiar i Esborrar enllaços no estàn "
+"disponibles."
 
 #: libraries/sql.lib.php:1850
 #, php-format
@@ -13694,10 +13694,9 @@ msgid "Get auto-saved query"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:284
-#, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "Desa aquesta consulta SQL"
+msgstr "Desa aquesta consulta SQL:"
 
 #: libraries/sql_query_form.lib.php:298
 msgid "Replace existing bookmark of same name"
@@ -13797,26 +13796,25 @@ msgstr "El seguiment no està actiu."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:373
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
-msgstr "Vista %s esborrada"
+msgstr "Vista %s esborrada."
 
 #: libraries/structure.lib.php:132 tbl_operations.php:374
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
-msgstr "S'ha esborrat la taula %s"
+msgstr "S'ha esborrat la taula %s."
 
 #: libraries/structure.lib.php:182
 msgid "Sum"
 msgstr "Suma"
 
 #: libraries/structure.lib.php:316
-#, fuzzy
 #| msgid "Show color"
 msgid "Show create"
-msgstr "Mostra color"
+msgstr "Mostra creació"
 
 #: libraries/structure.lib.php:340
 msgid "Add prefix to table"
@@ -13831,32 +13829,31 @@ msgid "Copy table with prefix"
 msgstr "Copia la taula amb prefix"
 
 #: libraries/structure.lib.php:349
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add columns to central list"
-msgstr "Columnes per àrea de text CHAR"
+msgstr "Afegir columnes a la llista central"
 
 #: libraries/structure.lib.php:351
 msgid "Remove columns from central list"
 msgstr ""
 
 #: libraries/structure.lib.php:353
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Make consistent with central list"
-msgstr "Columnes per àrea de text CHAR"
+msgstr "Fer consistent amb la llista central"
 
 #: libraries/structure.lib.php:375
 msgid "Check tables having overhead"
 msgstr "Comprova taules desfragmentades"
 
 #: libraries/structure.lib.php:840
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Pot ser aproximat. Veieu [doc@faq3-11]PCF -FAQ- 3.11[/doc]"
+msgstr ""
+"Pot ser aproximat. Premeu en el numero per obtenir la quantitat exacta. "
+"Veieu [doc@faq3-11]PCF -FAQ- 3.11[/doc]."
 
 #: libraries/structure.lib.php:862 libraries/structure.lib.php:2346
 #: libraries/tbl_printview.lib.php:324
@@ -13888,16 +13885,14 @@ msgid "Fulltext"
 msgstr "Text sencer"
 
 #: libraries/structure.lib.php:1528 libraries/structure.lib.php:2146
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "Columnes per àrea de text CHAR"
+msgstr "Afegir a les columnes centrals"
 
 #: libraries/structure.lib.php:1533 libraries/structure.lib.php:2136
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove from central columns"
-msgstr "Treu columna(es)"
+msgstr "Treure de les columnes centrals"
 
 #: libraries/structure.lib.php:1549 libraries/structure.lib.php:1645
 msgid "Move columns"
@@ -13916,10 +13911,9 @@ msgid "Propose table structure"
 msgstr "Proposa una estructura de taula"
 
 #: libraries/structure.lib.php:1648
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Proposa una estructura de taula"
+msgstr "Millorar l'estructura de taula"
 
 #: libraries/structure.lib.php:1655
 #| msgid "Track table"
@@ -13933,10 +13927,9 @@ msgid "Add %s column(s)"
 msgstr "Afegeix %s columna(es)"
 
 #: libraries/structure.lib.php:1705
-#, fuzzy
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
-msgstr "Al principi de la taula"
+msgstr "a l'inici de la taula"
 
 #: libraries/structure.lib.php:1710
 #: libraries/tbl_columns_definition_form.lib.php:827
@@ -13945,10 +13938,9 @@ msgid "after %s"
 msgstr "Després de %s"
 
 #: libraries/structure.lib.php:1805
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
-msgstr "Estadística de files"
+msgstr "Estadística de la fila"
 
 #: libraries/structure.lib.php:1810 libraries/tbl_printview.lib.php:186
 msgid "static"
@@ -14028,23 +14020,20 @@ msgid "The columns have been moved successfully."
 msgstr "Les columnes s'han mogut correctament."
 
 #: libraries/structure.lib.php:2889
-#, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
-msgstr "Afegir aquesta serie"
+msgstr "Afegir a marcadors"
 
 #: libraries/structure.lib.php:2939
 msgid "Favorite List is full!"
 msgstr "La llista de preferits és plena!"
 
 #: libraries/structure.lib.php:3029
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Showing create queries"
-msgstr "Mostra consultes SQL"
+msgstr "Mostrant consultes de creació"
 
 #: libraries/structure.lib.php:3269
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
 msgstr "Vista de relacions"
@@ -14118,16 +14107,14 @@ msgid "Series names are in a column"
 msgstr ""
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "Dins la columna:"
+msgstr "Columna de series:"
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "Valors per la columna %s"
+msgstr "Columna de valors:"
 
 #: libraries/tbl_chart.lib.php:286
 #| msgid "Start row"
@@ -14135,20 +14122,18 @@ msgid "Start row:"
 msgstr "Fila d'inici:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Desa com a arxiu"
+msgstr "Desa el gràfic com a imatge"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
 msgstr "Títol del gràfic"
 
 #: libraries/tbl_columns_definition_form.lib.php:73
-#, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
-msgstr "Ordenació"
+msgstr "Ordenació:"
 
 #: libraries/tbl_columns_definition_form.lib.php:76
 #, fuzzy
