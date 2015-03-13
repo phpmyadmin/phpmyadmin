@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-09 08:17-0400\n"
-"PO-Revision-Date: 2015-03-12 18:47+0200\n"
+"PO-Revision-Date: 2015-03-13 07:15+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -10917,10 +10917,9 @@ msgid "Enabled"
 msgstr "Activat"
 
 #: libraries/relation.lib.php:97
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "Configuració desada."
+msgstr "Configuració de pmadb... "
 
 #: libraries/relation.lib.php:101 libraries/relation.lib.php:128
 msgid "General relation features"
@@ -10931,10 +10930,9 @@ msgid "Display Features"
 msgstr "Mostra les característiques"
 
 #: libraries/relation.lib.php:156
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Creació de PDFs"
+msgstr "Disseny i creació de PDFs"
 
 #: libraries/relation.lib.php:167
 msgid "Displaying Column Comments"
@@ -10945,13 +10943,10 @@ msgid "Browser transformation"
 msgstr "Transformació del navegador"
 
 #: libraries/relation.lib.php:180
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
-msgstr ""
-"Mira a la documentació cóm actualitzar la teva taula de comentaris de les "
-"columnes."
+msgstr "Mira a la documentació cóm actualitzar la teva taula column_info. "
 
 #: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:362
 msgid "Bookmarked SQL query"
@@ -10966,10 +10961,9 @@ msgid "Persistent recently used tables"
 msgstr "Taules persistents usades recentment"
 
 #: libraries/relation.lib.php:226
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Taules persistents usades recentment"
+msgstr "Taules persistents favorites"
 
 #: libraries/relation.lib.php:237
 msgid "Persistent tables' UI preferences"
@@ -10980,16 +10974,14 @@ msgid "User preferences"
 msgstr "Preferències d'usuari"
 
 #: libraries/relation.lib.php:276
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Configuració: %s"
+msgstr "Menus configurables"
 
 #: libraries/relation.lib.php:287
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Recarrega el marc de navegació"
+msgstr "Amaga/mostra els elements de navegació"
 
 #: libraries/relation.lib.php:298
 msgid "Saving Query-By-Example searches"
@@ -11004,12 +10996,11 @@ msgid "Quick steps to setup advanced features:"
 msgstr "Passos ràpids per a activar les característiques avançades:"
 
 #: libraries/relation.lib.php:323
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
-"Crea les taules necessàries amb <code>examples/create_tables.sql</code>."
+msgstr "Crea les taules necessàries amb <code>%screate_tables.sql</code>."
 
 #: libraries/relation.lib.php:331
 msgid "Create a pma user and give access to these tables."
@@ -11034,17 +11025,21 @@ msgid "no description"
 msgstr "sense descripció"
 
 #: libraries/relation.lib.php:1975
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Falten taules de l'infraestructura de taules enllaçades de phpMyAdmin"
+msgstr ""
+"%sCrea%s la configuració d'enmagatzemamant de phpMyAdmin a la base de dades "
+"actual."
 
 #: libraries/relation.lib.php:1982
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Falten taules de l'infraestructura de taules enllaçades de phpMyAdmin"
+msgstr ""
+"%sCrea%s les taules d'enmagatzemament de configuració de phpMyAdmin que "
+"falten."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -11118,10 +11113,9 @@ msgid "Slave replication"
 msgstr "Replicació de l'esclau"
 
 #: libraries/replication_gui.lib.php:143
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "Connexió insegura"
+msgstr "Connexió mestre:"
 
 #: libraries/replication_gui.lib.php:209
 msgid "Slave SQL Thread not running!"
@@ -11200,10 +11194,10 @@ msgid "Skip current error"
 msgstr "Salta l'error actual"
 
 #: libraries/replication_gui.lib.php:309
-#, fuzzy, php-format
+#, php-format
 #| msgid "Skip current error"
 msgid "Skip next %s errors."
-msgstr "Salta l'error actual"
+msgstr "Salta els següents %s 'errors."
 
 #: libraries/replication_gui.lib.php:336
 #, php-format
@@ -11232,10 +11226,9 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:400 libraries/replication_gui.lib.php:787
 #: libraries/server_privileges.lib.php:1455
-#, fuzzy
 #| msgid "User name"
 msgid "User name:"
-msgstr "Nom d'usuari"
+msgstr "Nom d'usuari:"
 
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:791
 #: libraries/replication_gui.lib.php:807
@@ -11253,10 +11246,9 @@ msgid "Password"
 msgstr "Contrasenya"
 
 #: libraries/replication_gui.lib.php:435
-#, fuzzy
 #| msgid "Port"
 msgid "Port:"
-msgstr "Port"
+msgstr "Port:"
 
 #: libraries/replication_gui.lib.php:519
 msgid "Master status"
@@ -11317,10 +11309,9 @@ msgstr "Qualsevol usuari"
 #: libraries/replication_gui.lib.php:803 libraries/replication_gui.lib.php:836
 #: libraries/replication_gui.lib.php:869
 #: libraries/server_privileges.lib.php:1620
-#, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Usa camp de text"
+msgstr "Usa camp de text:"
 
 #: libraries/replication_gui.lib.php:830
 #: libraries/server_privileges.lib.php:1611
@@ -11342,56 +11333,48 @@ msgid "Re-type"
 msgstr "Reescriu"
 
 #: libraries/replication_gui.lib.php:885
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate Password:"
-msgstr "Genera una Contrasenya"
+msgstr "Genera una Contrasenya:"
 
 #: libraries/replication_gui.lib.php:923
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Estat de la replicació"
+msgstr "Replicació iniciada correctament."
 
 #: libraries/replication_gui.lib.php:924
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Replicació del mestre"
+msgstr "Error iniciant la replicació."
 
 #: libraries/replication_gui.lib.php:927
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Gràfic generat correctament."
+msgstr "Replicació detinguda correctament."
 
 #: libraries/replication_gui.lib.php:928
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Replicació del mestre"
+msgstr "Error en detenir la replicació."
 
 #: libraries/replication_gui.lib.php:931
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Estat de la replicació"
+msgstr "Replicació reiniciada correctament."
 
 #: libraries/replication_gui.lib.php:932
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Replicació del mestre"
+msgstr "Error en reiniciar la replicació."
 
 #: libraries/replication_gui.lib.php:935
 msgid "Success."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:936
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Error"
+msgstr "Error."
 
 #: libraries/replication_gui.lib.php:981
 msgid "Unknown error"
@@ -11410,16 +11393,15 @@ msgstr ""
 "permissos en el mestre."
 
 #: libraries/replication_gui.lib.php:1020
-#, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "No es pot canviar el mestre"
+msgstr "No es pot canviar el mestre!"
 
 #: libraries/replication_gui.lib.php:1024
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Master server changed successfully to %s."
-msgstr "S'ha canviat correctament el servidor mestre a %s"
+msgstr "S'ha canviat correctament el servidor mestre a %s."
 
 #: libraries/rte/rte_events.lib.php:111 libraries/rte/rte_events.lib.php:120
 #: libraries/rte/rte_events.lib.php:151 libraries/rte/rte_routines.lib.php:316
@@ -11448,11 +11430,10 @@ msgstr "S'ha creat l'esdeveniment %1$s."
 
 #: libraries/rte/rte_events.lib.php:172 libraries/rte/rte_routines.lib.php:379
 #: libraries/rte/rte_triggers.lib.php:144
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "<b>S'han produït un o més errors al processar la teva sol.licitud:</b>"
+msgstr "S'han produït un o més errors al processar la teva sol.licitud:"
 
 #: libraries/rte/rte_events.lib.php:231
 msgid "Edit event"
@@ -11507,16 +11488,14 @@ msgstr "Definidor"
 #: libraries/rte/rte_events.lib.php:546
 #: libraries/rte/rte_routines.lib.php:1130
 #: libraries/rte/rte_triggers.lib.php:422
-#, fuzzy
 #| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "El definidor ha d'estar en el format \"usuari@servidor\""
+msgstr "El definidor ha d'estar en el format \"usuari@servidor\"!"
 
 #: libraries/rte/rte_events.lib.php:553
-#, fuzzy
 #| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "Has de proporcionar un nom d'esdeveniment"
+msgstr "Has de proporcionar un nom d'esdeveniment!"
 
 #: libraries/rte/rte_events.lib.php:568
 msgid "You must provide a valid interval value for the event."
@@ -11538,10 +11517,9 @@ msgstr "Has de proporcionar una definició d'esdeveniment."
 #: libraries/rte/rte_routines.lib.php:481
 #: libraries/rte/rte_routines.lib.php:1332
 #: libraries/rte/rte_routines.lib.php:1545
-#, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "Error processant a la petició"
+msgstr "Error processant a la petició:"
 
 #: libraries/rte/rte_footer.lib.php:94
 msgid "OFF"
@@ -11644,10 +11622,9 @@ msgid "SQL data access"
 msgstr "Accés de dades SQL"
 
 #: libraries/rte/rte_routines.lib.php:1146
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "Has de proporcionar un nom de rutina"
+msgstr "Has de proporcionar un nom de rutina!"
 
 #: libraries/rte/rte_routines.lib.php:1180
 #, php-format
@@ -11682,13 +11659,13 @@ msgid "Execution results of routine %s"
 msgstr "Resultats de l'execució de la rutina %s"
 
 #: libraries/rte/rte_routines.lib.php:1474
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "%d fila afectada per l'última sentència dins el procediment"
-msgstr[1] "%d files afectades per l'última sentència dins el procediment"
+msgstr[0] "%d fila afectada per l'última sentència dins el procediment."
+msgstr[1] "%d files afectades per l'última sentència dins el procediment."
 
 #: libraries/rte/rte_routines.lib.php:1532
 #: libraries/rte/rte_routines.lib.php:1540
@@ -11728,28 +11705,24 @@ msgid "Time"
 msgstr "Temps"
 
 #: libraries/rte/rte_triggers.lib.php:429
-#, fuzzy
 #| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "Has de proveïr un nom de disparador"
+msgstr "Has de proveïr un nom de disparador!"
 
 #: libraries/rte/rte_triggers.lib.php:436
-#, fuzzy
 #| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Has de proveïr una sincronització vàlida pel disparador"
+msgstr "Has de proveïr una sincronització vàlida pel disparador!"
 
 #: libraries/rte/rte_triggers.lib.php:443
-#, fuzzy
 #| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "Has de proveïr un event vàlid pel disparador"
+msgstr "Has de proveïr un event vàlid pel disparador!"
 
 #: libraries/rte/rte_triggers.lib.php:451
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "Has de donar un nom de taula vàlid"
+msgstr "Has de donar un nom de taula vàlid!"
 
 #: libraries/rte/rte_triggers.lib.php:457
 msgid "You must provide a trigger definition."
@@ -11838,10 +11811,9 @@ msgid "Ignoring unsupported language code."
 msgstr ""
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
-#, fuzzy
 #| msgid "Current Server"
 msgid "Current Server:"
-msgstr "Servidor actual"
+msgstr "Servidor actual:"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
@@ -12001,10 +11973,9 @@ msgstr "Permet parar el servidor."
 
 #: libraries/server_privileges.lib.php:321
 #: libraries/server_privileges.lib.php:1350 server_privileges.php:90
-#, fuzzy
 #| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
-msgstr "Permet veure processos de tots els usuaris"
+msgstr "Permet veure processos de tots els usuaris."
 
 #: libraries/server_privileges.lib.php:326
 #: libraries/server_privileges.lib.php:1238 server_privileges.php:70
@@ -12073,17 +12044,15 @@ msgstr "Permet crear noves vistes."
 
 #: libraries/server_privileges.lib.php:385
 #: libraries/server_privileges.lib.php:1310 server_privileges.php:68
-#, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
-msgstr "Permet establir events per al planificador d'events"
+msgstr "Permet establir events per al planificador d'events."
 
 #: libraries/server_privileges.lib.php:390
 #: libraries/server_privileges.lib.php:1314 server_privileges.php:108
-#, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
-msgstr "Permet crear i eliminar disparadors -triggers-"
+msgstr "Permet crear i eliminar disparadors -triggers-."
 
 #: libraries/server_privileges.lib.php:401
 #: libraries/server_privileges.lib.php:407
@@ -12126,10 +12095,9 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Connexions persistents"
+msgstr "Requereix de connexions xifrades amb SSL."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
@@ -12197,10 +12165,9 @@ msgstr "Permisos especifics de taula"
 #: libraries/server_privileges.lib.php:999
 #: libraries/server_privileges.lib.php:1200
 #: libraries/server_privileges.lib.php:3202
-#, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "Nota: Els noms dels privilegis del MySQL són en idioma anglès"
+msgstr "Nota: Els noms dels privilegis del MySQL són en idioma anglès."
 
 #: libraries/server_privileges.lib.php:1164
 msgid "Administration"
@@ -12212,10 +12179,9 @@ msgid "Global privileges"
 msgstr "Permisos generals"
 
 #: libraries/server_privileges.lib.php:1185
-#, fuzzy
 #| msgid "global"
 msgid "Global"
-msgstr "global"
+msgstr "Global"
 
 #: libraries/server_privileges.lib.php:1187
 #: libraries/server_privileges.lib.php:3017
@@ -12343,10 +12309,9 @@ msgid "wildcard"
 msgstr "comodins"
 
 #: libraries/server_privileges.lib.php:2371
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "específic de la base de dades"
+msgstr "específic de la taula"
 
 #: libraries/server_privileges.lib.php:2498
 msgid "Edit Privileges"
@@ -12357,10 +12322,9 @@ msgid "Revoke"
 msgstr "Treu"
 
 #: libraries/server_privileges.lib.php:2525
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Editar servidor"
+msgstr "Editar grup d'usuari"
 
 #: libraries/server_privileges.lib.php:2705
 msgid "… keep the old one."
@@ -12395,10 +12359,9 @@ msgid "Column-specific privileges"
 msgstr "Permisos específics de columna"
 
 #: libraries/server_privileges.lib.php:3086
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database(s):"
-msgstr "Afegeix permisos a la següent base de dades"
+msgstr "Afegeix permisos a la/les següent(s) base(s) de dades:"
 
 #: libraries/server_privileges.lib.php:3110
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -12406,10 +12369,9 @@ msgstr ""
 "Els comodins _ i % han de marcar-se amb una \\ per usar-los literalment."
 
 #: libraries/server_privileges.lib.php:3128
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "Afegeix permisos a la següent taula"
+msgstr "Afegeix permisos a la següent taula:"
 
 #: libraries/server_privileges.lib.php:3365
 msgid "Remove selected users"
@@ -12468,10 +12430,9 @@ msgid "New"
 msgstr "Nou"
 
 #: libraries/server_privileges.lib.php:4079
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
-msgstr "Edita permisos"
+msgstr "Edita permisos:"
 
 #: libraries/server_privileges.lib.php:4139
 msgid ""
@@ -12756,16 +12717,14 @@ msgid "Instructions/Setup"
 msgstr "Instruccions/configuració"
 
 #: libraries/server_status_monitor.lib.php:265
-#, fuzzy
 #| msgid "Done rearranging/editing charts"
 msgid "Done dragging (rearranging) charts"
-msgstr "Reorganització acabada/edició de gràfics"
+msgstr "Arrosegament (reorganització) de gràfics acabada"
 
 #: libraries/server_status_monitor.lib.php:284
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Activa resaltat"
+msgstr "Activa l'arrosegament de gràfics"
 
 #: libraries/server_status_monitor.lib.php:288
 #: libraries/server_status_processes.lib.php:29
@@ -12793,7 +12752,6 @@ msgid "Reset to default"
 msgstr "Restaura el valor per defecte"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
@@ -12801,8 +12759,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Nota: Activant les estadístiques de Base de Dades aqui pot provocar elevat "
-"tràfic entre el servidor Web i el de MySQL."
+"Nota: Activant el refresc automàtic aqui pot provocar elevat tràfic entre el "
+"servidor web i el de MySQL."
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -12819,10 +12777,9 @@ msgid "Filters"
 msgstr "Filtres"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Mostra només valors d'alerta"
+msgstr "Mostra només els actius"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -12830,22 +12787,19 @@ msgid "Questions since startup: %s"
 msgstr "Consultes des de l'inici: %s"
 
 #: libraries/server_status_queries.lib.php:44
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "per hora"
+msgstr "per hora:"
 
 #: libraries/server_status_queries.lib.php:47
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "per minut"
+msgstr "per minut:"
 
 #: libraries/server_status_queries.lib.php:54
-#, fuzzy
 #| msgid "per second"
 msgid "per second:"
-msgstr "per segon"
+msgstr "per segon:"
 
 #: libraries/server_status_queries.lib.php:93
 msgid "Statements"
@@ -13586,41 +13540,35 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:64 libraries/server_users.lib.php:33
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "Usuaris"
+msgstr "Grups d'usuaris"
 
 #: libraries/server_user_groups.lib.php:79
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Versió del servidor"
+msgstr "Pestanyes a nivell de servidor"
 
 #: libraries/server_user_groups.lib.php:80
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Servidor de base de dades"
+msgstr "Pestanyes a nivell de base de dades"
 
 #: libraries/server_user_groups.lib.php:81
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Comentaris de la taula"
+msgstr "Pestanyes a nivell de taula"
 
 #: libraries/server_user_groups.lib.php:110
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Vistes"
+msgstr "Veure usuaris"
 
 #: libraries/server_user_groups.lib.php:147
 #: libraries/server_user_groups.lib.php:209
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Afegirl usuari"
+msgstr "Afegir grup d'usuaris"
 
 #: libraries/server_user_groups.lib.php:212
 #, php-format
@@ -13628,34 +13576,29 @@ msgid "Edit user group: '%s'"
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:228
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Sense permisos."
+msgstr "Menu d'assignacions de grup d'usuaris"
 
 #: libraries/server_user_groups.lib.php:235
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Nom de les columnes: "
+msgstr "Nom de grup:"
 
 #: libraries/server_user_groups.lib.php:272
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Versió del servidor"
+msgstr "Pestanyes a nivell de servidor"
 
 #: libraries/server_user_groups.lib.php:275
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Servidor de base de dades"
+msgstr "Pestanyes a nivell de base de dades"
 
 #: libraries/server_user_groups.lib.php:278
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Comentaris de la taula"
+msgstr "Pestanyes a nivell de taula"
 
 #: libraries/server_variables.lib.php:114
 msgid "Setting variable failed"
@@ -13675,77 +13618,67 @@ msgid "SQL result"
 msgstr "Resultat SQL"
 
 #: libraries/sql.lib.php:295
-#, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
-msgstr "Generat per"
+msgstr "Generat per:"
 
 #: libraries/sql.lib.php:333
-#, fuzzy
 #| msgid "Data file grow size"
 msgid "Detailed profile"
-msgstr "Tamany de creixement de l'arxiu de dades"
+msgstr "Perfil detallat"
 
 #: libraries/sql.lib.php:336
-#, fuzzy
 #| msgid "Other"
 msgid "Order"
-msgstr "Altre"
+msgstr "Ordre"
 
 #: libraries/sql.lib.php:338 libraries/sql.lib.php:354
-#, fuzzy
 #| msgctxt "Start of recurring event"
 #| msgid "Start"
 msgid "State"
-msgstr "Inici"
+msgstr "Estat"
 
 #: libraries/sql.lib.php:351
 msgid "Summary by state"
 msgstr ""
 
 #: libraries/sql.lib.php:357
-#, fuzzy
 #| msgid "Total time:"
 msgid "Total Time"
-msgstr "Temps total:"
+msgstr "Temps total"
 
 #: libraries/sql.lib.php:359
-#, fuzzy
 #| msgid "Time"
 msgid "% Time"
-msgstr "Temps"
+msgstr "% de Temps"
 
 #: libraries/sql.lib.php:361
-#, fuzzy
 #| msgid "Close"
 msgid "Calls"
-msgstr "Tanca"
+msgstr "Crides"
 
 #: libraries/sql.lib.php:363
-#, fuzzy
 #| msgid "Time"
 msgid "ø Time"
-msgstr "Temps"
+msgstr "ø de Temps"
 
 #: libraries/sql.lib.php:635 libraries/sql.lib.php:651
 msgid "Bookmark this SQL query"
 msgstr "Desa aquesta consulta SQL"
 
 #: libraries/sql.lib.php:639
-#, fuzzy
 #| msgid "Label"
 msgid "Label:"
-msgstr "Etiqueta"
+msgstr "Etiqueta:"
 
 #: libraries/sql.lib.php:644 libraries/sql_query_form.lib.php:292
 msgid "Let every user access this bookmark"
 msgstr "Deixa accedir a cada usuari a aquesta consulta desada"
 
 #: libraries/sql.lib.php:885
-#, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
-msgstr "No s'ha creat el marcador"
+msgstr "No s'ha creat el marcador!"
 
 #: libraries/sql.lib.php:992
 #, php-format
