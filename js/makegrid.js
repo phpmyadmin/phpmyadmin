@@ -700,6 +700,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             // destroy datepicker in edit area, if exist
             var $dp = $(g.cEdit).find('.hasDatepicker');
             if ($dp.length > 0) {
+                $(document).bind('mousedown', $.datepicker._checkExternalClick);
                 $dp.datepicker('destroy');
                 // change the cursor in edit box back to normal
                 // (the cursor become a hand pointer when we add datepicker)
@@ -1025,6 +1026,15 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     });
 
                     $input_field.datepicker("show");
+                    // unbind the mousedown event to prevent the problem of
+                    // datepicker getting closed, needs to be checked for any
+                    // change in names when updating
+                    $(document).unbind('mousedown', $.datepicker._checkExternalClick);
+
+                    //move ui-datepicker-div inside cEdit div
+                    var datepicker_div = $('#ui-datepicker-div');
+                    datepicker_div.css({'top': 0, 'left': 0, 'position': 'relative'});
+                    $(g.cEdit).append(datepicker_div);
 
                     if (is_null){
                         $(g.cEdit).find('.edit_area').hide();

@@ -397,6 +397,20 @@ function PMA_getViewsAndCreateSqlViewStandIn(
         // first all the views are collected and a stand-in is created
         // the real views are created after the tables
         if (PMA_Table::isView($db, $each_table)) {
+
+            // If view exists, and 'add drop view' is selected: Drop it!
+            if ($_REQUEST['what'] != 'nocopy'
+                && isset($_REQUEST['drop_if_exists'])
+                && $_REQUEST['drop_if_exists'] == 'true'
+            ) {
+                $drop_query = 'DROP VIEW IF EXISTS '
+                    . PMA_Util::backquote($_REQUEST['newname']) . '.'
+                    . PMA_Util::backquote($each_table);
+                $GLOBALS['dbi']->query($drop_query);
+
+                $GLOBALS['sql_query'] .= "\n" . $drop_query . ';';
+            }
+
             $views[] = $each_table;
             // Create stand-in definition to resolve view dependencies
             $sql_view_standin = $export_sql_plugin->getTableDefStandIn(
