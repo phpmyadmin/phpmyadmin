@@ -71,7 +71,9 @@ explanation
 + rfe #1608 Central columns allowing setting SIGNED / UNSIGNED attribute for integer
 + rfe #1441 Add regexp match when using AllowArbitraryServer
 
-4.3.12.0 (not yet released)
+4.3.13.0 (not yet released)
+
+4.3.12.0 (2015-03-14)
 - bug #4746 Right-aligned columns have left-aligned header
 - bug #4779 PMA_Util::parseEnumSetValues fails on enums with UTF-8 values
 - bug       Undefined index savedsearcheswork
@@ -84,9 +86,6 @@ explanation
 - bug #4786 SELECT width on relations page
 
 4.3.11.1 (2015-03-04)
-- bug       [security] Risk of BREACH attack, see PMASA-2015-1
-
-4.3.11.1 (not yet released)
 - bug       [security] Risk of BREACH attack, see PMASA-2015-1
 
 4.3.11.0 (2015-03-02)
