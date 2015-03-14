@@ -474,7 +474,8 @@ $(function () {
         ) {
             navTreeStateUpdate();
         } else if (PMA_commonParams.get('server') === storage.server &&
-            PMA_commonParams.get('token') === storage.token
+            PMA_commonParams.get('token') === storage.token &&
+            $('#pma_navigation_tree_hash').html() === storage.navHash
         ) {
             // Restore the tree from storage
             $('#pma_navigation_tree_content').html(storage.navTree);
@@ -504,6 +505,7 @@ function navTreeStateUpdate() {
         // content to be stored exceeds storage capacity
         try {
             storage.setItem('navTree', $('#pma_navigation_tree_content').html());
+            storage.setItem('navHash', $('#pma_navigation_tree_hash').html());
             storage.setItem('navSelect', $('#pma_navigation_db_select').html());
             storage.setItem('server', PMA_commonParams.get('server'));
             storage.setItem('token', PMA_commonParams.get('token'));
@@ -512,6 +514,7 @@ function navTreeStateUpdate() {
             // storage capacity exceeded & old navigation tree
             // state is no more valid, so remove it
             storage.removeItem('navTree');
+            storage.removeItem('navHash');
             storage.removeItem('server');
             storage.removeItem('navSelect');
             storage.removeItem('token');
