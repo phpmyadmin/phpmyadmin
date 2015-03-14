@@ -148,6 +148,9 @@ var PMA_console = {
             $('#pma_bookmarks .switch_button').click(function() {
                 PMA_console.hideCard($(this).closest('.card'));
             });
+            $('#pma_console_options .switch_button').click(function() {
+                PMA_console.hideCard($(this).closest('.card'));
+            });
 
             $('#pma_console_options input[type=checkbox]').change(function() {
                 PMA_console.updateConfig();

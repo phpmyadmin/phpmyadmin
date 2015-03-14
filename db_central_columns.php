@@ -113,6 +113,14 @@ $result = PMA_getColumnsList($db, $pos, $max_rows);
 $odd_row = false;
 $row_num=0;
 foreach ($result as $row) {
+    $vals = explode(',', $row['col_extra']);
+    if (in_array('auto_increment', $vals)) {
+        $row['col_extra'] = 'auto_increment';
+    } elseif (in_array('on update CURRENT_TIMESTAMP', $vals)) {
+        $row['col_extra'] = 'on update CURRENT_TIMESTAMP';
+    } else {
+        $row['col_extra'] = '';
+    }
     $tableHtmlRow = PMA_getHTMLforCentralColumnsTableRow(
         $row, $odd_row, $row_num, $db
     );

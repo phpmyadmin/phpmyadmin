@@ -720,7 +720,7 @@ if ($go_sql) {
         $cfgBookmark = PMA_Bookmark_getParams();
         PMA_storeTheQueryAsBookmark(
             $db, $cfgBookmark['user'],
-            $import_text, $_POST['bkm_label'],
+            $_REQUEST['sql_query'], $_POST['bkm_label'],
             isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
         );
     }

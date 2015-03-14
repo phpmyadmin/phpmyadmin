@@ -22,7 +22,7 @@ $cfgRelation = PMA_getRelationsParam();
 $savedSearchList = array();
 $savedSearch = null;
 $currentSearchId = null;
-if ($cfgRelation['savedsearcheswork']) {
+if (isset($cfgRelation['savedsearcheswork']) && $cfgRelation['savedsearcheswork']) {
     include 'libraries/SavedSearches.class.php';
     $header = $response->getHeader();
     $scripts = $header->getScripts();

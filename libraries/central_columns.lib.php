@@ -408,6 +408,14 @@ function PMA_makeConsistentWithList($db, $selected_tables)
                 if ($column['col_length']) {
                     $query .= '(' . $column['col_length'] . ')';
                 }
+                $vals = explode(',', $column['col_extra']);
+                if (in_array('auto_increment', $vals)) {
+                    $column['col_extra'] = 'auto_increment';
+                } elseif (in_array('on update CURRENT_TIMESTAMP', $vals)) {
+                    $column['col_extra'] = 'on update CURRENT_TIMESTAMP';
+                } else {
+                    $column['col_extra'] = '';
+                }
                 if ($column['col_isNull']) {
                     $query .= ' NULL';
                 } else {

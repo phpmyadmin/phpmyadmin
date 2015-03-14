@@ -3959,10 +3959,10 @@ class PMA_Util
              $i < $length;
              $i++
         ) {
-            $curr = $values_string[$i];
+            $curr = /*overload*/mb_substr($values_string, $i, 1);
             $next = ($i == /*overload*/mb_strlen($values_string)-1)
                 ? ''
-                : $values_string[$i+1];
+                : /*overload*/mb_substr($values_string, $i + 1, 1);
 
             if (! $in_string && $curr == "'") {
                 $in_string = true;
