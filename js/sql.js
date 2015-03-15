@@ -8,7 +8,7 @@
  */
 
 var $data_a;
-var prevScrollX = 0, fixedTop;
+var prevScrollX = 0;
 
 /**
  * decode a string URL_encoded
@@ -771,14 +771,13 @@ function setStickyColumnsPosition($sticky_columns, $table_results, position, top
  * Initialize sticky columns
  */
 function initStickyColumns($table_results) {
-    fixedTop = $('#floating_menubar').height();
     var $sticky_columns = $('<table class="sticky_columns"></table>')
             .insertBefore($table_results)
             .css("position", "fixed")
             .css("z-index", "99")
             .css("width", $table_results.width())
             .css("margin-left", $('#page_content').css("margin-left"))
-            .css("top", fixedTop)
+            .css("top", $('#floating_menubar').height())
             .css("display", "none");
     return $sticky_columns;
 }
@@ -823,10 +822,10 @@ function handleStickyColumns($sticky_columns, $table_results) {
         //for horizontal scrolling
         if(prevScrollX != currentScrollX) {
             prevScrollX = currentScrollX;
-            setStickyColumnsPosition($sticky_columns, $table_results, "absolute", fixedTop + windowOffset - tableStartOffset);
+            setStickyColumnsPosition($sticky_columns, $table_results, "absolute", $('#floating_menubar').height() + windowOffset - tableStartOffset);
         //for vertical scrolling
         } else {
-            setStickyColumnsPosition($sticky_columns, $table_results, "fixed", fixedTop, $("#pma_navigation").width() - currentScrollX, $('#page_content').css("margin-left"));
+            setStickyColumnsPosition($sticky_columns, $table_results, "fixed", $('#floating_menubar').height(), $("#pma_navigation").width() - currentScrollX, $('#page_content').css("margin-left"));
         }
         $sticky_columns.show();
     } else {
