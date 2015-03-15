@@ -733,6 +733,13 @@ class PMA_NavigationTree
                                 $keySeparatorLength
                             )
                         );
+
+                        if ($new_child instanceof Node_Database
+                            && $child->getHiddenCount() > 0
+                        ) {
+                            $new_child->setHiddenCount($child->getHiddenCount());
+                        }
+
                         $new_child->real_name = $child->real_name;
                         $new_child->icon = $child->icon;
                         $new_child->links = $child->links;
