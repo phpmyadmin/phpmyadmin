@@ -1424,7 +1424,7 @@ class PMA_DbQbe
      */
     public function getSelectionForm()
     {
-        $html_output = '<form action="db_qbe.php" method="post" id="formQBE">';
+        $html_output = '<form action="db_qbe.php" method="post" id="formQBE" class="lock-page">';
         $html_output .= '<fieldset>';
 
         if ($GLOBALS['cfgRelation']['savedsearcheswork']) {
@@ -1452,7 +1452,7 @@ class PMA_DbQbe
         // get tables select list
         $html_output .= $this->_getTablesList();
         $html_output .= '</form>';
-        $html_output .= '<form action="db_qbe.php" method="post">';
+        $html_output .= '<form action="db_qbe.php" method="post" class="lock-page">';
         $html_output .= PMA_URL_getHiddenInputs(array('db' => $this->_db));
         // get SQL query
         $html_output .= '<div class="floatleft">';
