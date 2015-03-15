@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 + rfe #1570 Usability improvements for console
 + rfe #1614 Access to Add columns text-box and Go button when creating table
 + rfe #1306 Add lock tables, disable keys options
++ rfe #1609 Additional page locking
 
 4.4.0.0 (not yet released)
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
