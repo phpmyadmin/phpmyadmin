@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-09 08:17-0400\n"
-"PO-Revision-Date: 2015-03-09 15:46+0200\n"
+"PO-Revision-Date: 2015-03-15 22:09+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
@@ -4926,6 +4926,10 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"Incapace a usar fuso horari %1$s pro servitor %2$d. Pro verifica tu "
+"preferentias de configuration per "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin es "
+"currentemente usante le fuso horari predefinite de servitor de base de datos."
 
 #: libraries/common.inc.php:1020
 #, php-format
@@ -5390,6 +5394,9 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Il restringe le servitores de MySQL que le usator pote insertar quando un "
+"accesso a un servitor MySQL arbitrari es habilitate per equalar le IP o le "
+"nomine de hospite del servitor MySQL a le date expression regular."
 
 #: libraries/config/messages.inc.php:25
 msgid "Restrict login to MySQL server"
@@ -7672,10 +7679,12 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Queries es executate per pressar Enter (in loco de Ctrl+Enter). Nove lineas "
+"essera insertate con Shift+Enter."
 
 #: libraries/config/messages.inc.php:812
 msgid "Enter executes queries in console"
-msgstr ""
+msgstr "Inserta queries de executar in console"
 
 #: libraries/config/messages.inc.php:815
 msgid ""
