@@ -45,7 +45,7 @@ $is_create_table_priv = true;
 function PMA_getHtmlForCreateTable($db)
 {
     $html  = '<form id="create_table_form_minimal" method="post" '
-        . 'action="tbl_create.php">';
+        . 'action="tbl_create.php" class="lock-page">';
     $html .= '<fieldset>';
     $html .= '<legend>';
 
