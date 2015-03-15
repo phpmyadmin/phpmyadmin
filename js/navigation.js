@@ -114,6 +114,56 @@ function collapseTreeNode($expandElem) {
 }
 
 /**
+ * Traverse the navigation tree backwards to generate all the actual
+ * and virtual paths, as well as the positions in the pagination at
+ * various levels, if necessary.
+ *
+ * @return Object
+ */
+function traverseNavigationForPaths() {
+    var params = {
+        pos: $('#pma_navigation_tree div.dbselector select').val()
+    };
+    if ($('#navi_db_select').length) {
+        return params;
+    }
+    var count = 0;
+    $('#pma_navigation_tree').find('a.expander:visible').each(function () {
+        if ($(this).find('img').is('.ic_b_minus') &&
+            $(this).closest('li').find('div.list_container .ic_b_minus').length === 0
+        ) {
+            params['n' + count + '_aPath'] = $(this).find('span.aPath').text();
+            params['n' + count + '_vPath'] = $(this).find('span.vPath').text();
+
+            var pos2_name = $(this).find('span.pos2_name').text();
+            if (! pos2_name) {
+                pos2_name = $(this)
+                    .parent()
+                    .parent()
+                    .find('span.pos2_name:last')
+                    .text();
+            }
+            var pos2_value = $(this).find('span.pos2_value').text();
+            if (! pos2_value) {
+                pos2_value = $(this)
+                    .parent()
+                    .parent()
+                    .find('span.pos2_value:last')
+                    .text();
+            }
+
+            params['n' + count + '_pos2_name'] = pos2_name;
+            params['n' + count + '_pos2_value'] = pos2_value;
+
+            params['n' + count + '_pos3_name'] = $(this).find('span.pos3_name').text();
+            params['n' + count + '_pos3_value'] = $(this).find('span.pos3_value').text();
+            count++;
+        }
+    });
+    return params;
+}
+
+/**
  * Executed on page load
  */
 $(function () {
@@ -466,28 +516,19 @@ $(function () {
         var storage = window.sessionStorage;
         // remove tree from storage if Navi_panel config form is submitted
         $(document).on('submit', 'form.config-form', function(event) {
-            storage.removeItem('navTree');
+            storage.removeItem('navTreePaths');
         });
         // Initialize if no previous state is defined
-        if ( ($('#pma_navigation_tree_content').length && typeof storage.navTree === 'undefined')
-            || ($('#pma_navigation_db_select').length && typeof storage.navSelect === 'undefined')
+        if ($('#pma_navigation_tree_content').length
+            && typeof storage.navTreePaths === 'undefined'
         ) {
             navTreeStateUpdate();
         } else if (PMA_commonParams.get('server') === storage.server &&
             PMA_commonParams.get('token') === storage.token
         ) {
-            // Restore the tree from storage
-            $('#pma_navigation_tree_content').html(storage.navTree);
-            $('div.pageselector.dbselector').html(storage.page);
-            $('#pma_navigation_db_select').html(storage.navSelect);
+            // Reload the tree to the state before page refresh
+            PMA_reloadNavigation(null, JSON.parse(storage.navTreePaths));
         }
-    }
-
-    if ($('#pma_navigation_tree').hasClass('synced')) {
-        if ($("#navi_db_select").length) {
-            $("#navi_db_select").val(PMA_commonParams.get('db'));
-        }
-        PMA_showCurrentNavigation();
     }
 });
 
@@ -503,19 +544,15 @@ function navTreeStateUpdate() {
         // try catch necessary here to detect whether
         // content to be stored exceeds storage capacity
         try {
-            storage.setItem('navTree', $('#pma_navigation_tree_content').html());
-            storage.setItem('navSelect', $('#pma_navigation_db_select').html());
+            storage.setItem('navTreePaths', JSON.stringify(traverseNavigationForPaths()));
             storage.setItem('server', PMA_commonParams.get('server'));
             storage.setItem('token', PMA_commonParams.get('token'));
-            storage.setItem('page', $('div.pageselector.dbselector').html());
         } catch(error) {
             // storage capacity exceeded & old navigation tree
             // state is no more valid, so remove it
-            storage.removeItem('navTree');
+            storage.removeItem('navTreePaths');
             storage.removeItem('server');
-            storage.removeItem('navSelect');
             storage.removeItem('token');
-            storage.removeItem('page');
         }
     }
 }
@@ -784,55 +821,23 @@ function PMA_showCurrentNavigation() {
  * Reloads the whole navigation tree while preserving its state
  *
  * @param  function     the callback function
+ * @param  Object       stored navigation paths
+ *
  * @return void
  */
-function PMA_reloadNavigation(callback) {
+function PMA_reloadNavigation(callback, paths) {
     var params = {
-        reload: true,
-        pos: $('#pma_navigation_tree div.dbselector select').val()
+        reload: true
     };
+    paths = paths || traverseNavigationForPaths();
+    $.extend(params, paths);
     if ($('#navi_db_select').length) {
         params.db = PMA_commonParams.get('db');
         requestNaviReload(params);
         return;
     }
-    // Traverse the navigation tree backwards to generate all the actual
-    // and virtual paths, as well as the positions in the pagination at
-    // various levels, if necessary.
-    var count = 0;
-    $('#pma_navigation_tree').find('a.expander:visible').each(function () {
-        if ($(this).find('img').is('.ic_b_minus') &&
-            $(this).closest('li').find('div.list_container .ic_b_minus').length === 0
-        ) {
-            params['n' + count + '_aPath'] = $(this).find('span.aPath').text();
-            params['n' + count + '_vPath'] = $(this).find('span.vPath').text();
-
-            var pos2_name = $(this).find('span.pos2_name').text();
-            if (! pos2_name) {
-                pos2_name = $(this)
-                    .parent()
-                    .parent()
-                    .find('span.pos2_name:last')
-                    .text();
-            }
-            var pos2_value = $(this).find('span.pos2_value').text();
-            if (! pos2_value) {
-                pos2_value = $(this)
-                    .parent()
-                    .parent()
-                    .find('span.pos2_value:last')
-                    .text();
-            }
-
-            params['n' + count + '_pos2_name'] = pos2_name;
-            params['n' + count + '_pos2_value'] = pos2_value;
-
-            params['n' + count + '_pos3_name'] = $(this).find('span.pos3_name').text();
-            params['n' + count + '_pos3_value'] = $(this).find('span.pos3_value').text();
-            count++;
-        }
-    });
     requestNaviReload(params);
+
     function requestNaviReload(params) {
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
         $.post(url, params, function (data) {
