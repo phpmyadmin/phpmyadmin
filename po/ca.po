@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-09 08:17-0400\n"
-"PO-Revision-Date: 2015-03-13 18:57+0200\n"
+"PO-Revision-Date: 2015-03-16 07:13+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -1877,6 +1877,9 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"No hi ha columnes a la llista central. Assegura't que la llista central de  "
+"columnes per a la base de dades %s tingui columnes que no estiguin a la "
+"taula actual."
 
 #: js/messages.php:315
 msgid "See more"
@@ -1884,13 +1887,15 @@ msgstr "Veure més"
 
 #: js/messages.php:316
 msgid "Are you sure?"
-msgstr ""
+msgstr "Estàs segur?"
 
 #: js/messages.php:317
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Aquesta acció pot canviar la definició d'algunes columnes.<br />Estàs segur "
+"de voler continuar?"
 
 #: js/messages.php:318
 msgid "Continue"
@@ -1912,7 +1917,7 @@ msgstr "Portant-te al següent pas…"
 #: js/messages.php:324
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "S'ha completat el primer pas de la normalització per a la taula '%s'."
 
 #: js/messages.php:325 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
@@ -1922,7 +1927,7 @@ msgstr "Fi de pas"
 
 #: js/messages.php:326
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Segon pas de normalització (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:327 js/messages.php:573 libraries/normalization.lib.php:264
@@ -1931,17 +1936,19 @@ msgstr "Fet"
 
 #: js/messages.php:328
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Confirmar dependències parcials"
 
 #: js/messages.php:329
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Les dependències parcials seleccionades són:"
 
 #: js/messages.php:330
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Nota: a, b -> d, f implica que els valors combinats de les columnes a i b "
+"poden determinar el valor de les columnes d i f."
 
 #: js/messages.php:331
 msgid "No partial dependencies selected!"
@@ -1950,20 +1957,23 @@ msgstr "No s'han triat dependències parcials!"
 #: js/messages.php:333
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"Mostra'm les possibles dependències parcials basades en les dades de la taula"
 
 #: js/messages.php:334
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Amaga la llista de dependències parcials"
 
 #: js/messages.php:335
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Paciència! Pot tardar uns segons, depenent de la mida de les dades i de la "
+"quantitat de columnes de la taula."
 
 #: js/messages.php:336
 msgid "Step"
-msgstr ""
+msgstr "Pas"
 
 #: js/messages.php:337
 msgid "The following actions will be performed:"
@@ -1972,7 +1982,7 @@ msgstr "Les següents accions es faràn:"
 #: js/messages.php:338
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "Eliminar columnes %s de la taula %s"
 
 #: js/messages.php:339
 msgid "Create the following table"
@@ -1980,15 +1990,15 @@ msgstr "Crea la següent taula"
 
 #: js/messages.php:342
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Tercer pas de la normalització (3NF)"
 
 #: js/messages.php:343
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Confirmar dependències transitives"
 
 #: js/messages.php:344
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Les dependències seleccionades són:"
 
 #: js/messages.php:345
 msgid "No dependencies selected!"
@@ -2130,6 +2140,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Indica que has fet canvis en aquesta pàgina; se't preguntarà per la teva "
+"confirmació abans d'abandonar els canvis"
 
 #: js/messages.php:409
 msgid "Select referenced key"
@@ -2187,11 +2199,11 @@ msgstr "Entra un nom de pàgina vàlid"
 
 #: js/messages.php:424
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Vols desar els canvis a la pàgina actual?"
 
 #: js/messages.php:425
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Pàgina esborrada correctament"
 
 #: js/messages.php:426
 msgid "Export relational schema"
@@ -2275,12 +2287,16 @@ msgstr ""
 #: js/messages.php:446
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
+"Introdueix una cadena hexadecimal correcta. Els caracters vàlids són 0-9 i "
+"A-F."
 
 #: js/messages.php:447
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"De veritat vols veure totes les files? Una taula gran pot fer fallar el "
+"navegador."
 
 #: js/messages.php:450
 msgid "cancel"
@@ -2292,7 +2308,7 @@ msgstr "Avortat"
 
 #: js/messages.php:453
 msgid "Success"
-msgstr ""
+msgstr "Correcte"
 
 #: js/messages.php:454
 msgid "Import status"
@@ -2369,11 +2385,14 @@ msgstr "Desenllaça amb el panell principal"
 #: js/messages.php:487
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Per a filtrar totes les bases de dades al servidor, prem Enter després d'un "
+"terme de la cerca"
 
 #: js/messages.php:488
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Per a filtrar %s a la base de dades, prem Enter després d'un terme de cerca"
 
 #: js/messages.php:489
 #| msgid "Tables"
@@ -2469,11 +2488,11 @@ msgstr ""
 
 #: js/messages.php:526 js/messages.php:538
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Detectats alguns errors al servidor!"
 
 #: js/messages.php:528
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Mira al peu d'aquesta finestra."
 
 #: js/messages.php:533 libraries/Error_Handler.class.php:353
 msgid "Ignore All"
@@ -2483,6 +2502,7 @@ msgstr "Ignora tot"
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"Un moment, s'estan enviant en aquest moment degut a la teva configuració."
 
 #: js/messages.php:547
 msgid "Execute this query again?"
@@ -2498,6 +2518,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"El teu navegador no soporta el desat local de preferències o bé s'ha assolit "
+"el límit de la quota, algunes característiques no et funcionaràn "
+"correctament. En Safari, aixó pot estar causat pel \"Mode de Navegació "
+"Privada\"."
 
 #: js/messages.php:577
 msgctxt "Previous month"
@@ -2836,11 +2860,11 @@ msgstr "Tamany de lletra"
 
 #: libraries/Console.class.php:93 libraries/Console.class.php:175
 msgid "Collapse"
-msgstr ""
+msgstr "Col·lapsar"
 
 #: libraries/Console.class.php:94 libraries/Console.class.php:177
 msgid "Expand"
-msgstr ""
+msgstr "Expandir"
 
 #: libraries/Console.class.php:95 libraries/Console.class.php:178
 msgid "Requery"
@@ -2881,7 +2905,7 @@ msgstr[1] "Total %d desats"
 
 #: libraries/Console.class.php:116
 msgid "private"
-msgstr ""
+msgstr "privat"
 
 #: libraries/Console.class.php:120 libraries/bookmark.lib.php:87
 msgid "shared"
@@ -2924,7 +2948,7 @@ msgstr "Consola de consultes SQL"
 
 #: libraries/Console.class.php:196
 msgid "Console"
-msgstr ""
+msgstr "Consola"
 
 #: libraries/Console.class.php:199 libraries/sql_query_form.lib.php:234
 #: setup/frames/index.inc.php:298
@@ -3014,7 +3038,7 @@ msgstr "Establir el valor per defecte"
 
 #: libraries/Console.class.php:311
 msgid "Always expand query messages"
-msgstr ""
+msgstr "Sempre expandir missatges de consultes"
 
 #: libraries/Console.class.php:313
 msgid "Show query history at start"
@@ -3022,13 +3046,15 @@ msgstr "Mostrar l'historial de consultes a l'inici"
 
 #: libraries/Console.class.php:315
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Mostrar la consulta actual"
 
 #: libraries/Console.class.php:317
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"Executa consultes amb Enter i afegeix nova línia amb Majuscules + Enter. Per "
+"fer aixó permanent, mira a les preferències."
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1352
 #: libraries/DisplayResults.class.php:2139
@@ -4756,11 +4782,13 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
+"L'emmagatzematge de configuració no està preparat per a la funcionalitat de "
+"la llista central de columnes."
 
 #: libraries/central_columns.lib.php:275
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "No s'ha pogut afegir %1$s perqué ja existeix a la llista central!"
 
 #: libraries/central_columns.lib.php:290
 msgid "Could not add columns!"
@@ -4771,6 +4799,8 @@ msgstr "No es poden afegir columnes!"
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"No s'ha(n) pogut treure la/les columna(es) %1$s perqué no existeix(en) a la "
+"llista central de columnes!"
 
 #: libraries/central_columns.lib.php:377
 msgid "Could not remove columns!"
@@ -4778,11 +4808,11 @@ msgstr "No es poden treure columnes!"
 
 #: libraries/central_columns.lib.php:541
 msgid "YES"
-msgstr ""
+msgstr "SI"
 
 #: libraries/central_columns.lib.php:541
 msgid "NO"
-msgstr ""
+msgstr "NO"
 
 #: libraries/central_columns.lib.php:662
 #: libraries/display_create_table.lib.php:60
@@ -4837,7 +4867,7 @@ msgstr "Afegir una nova columna"
 
 #: libraries/central_columns.lib.php:966
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "a l'actualitzar usa CURRENT_TIMESTAMP"
 
 #: libraries/common.inc.php:579
 msgid "Failed to read configuration file!"
