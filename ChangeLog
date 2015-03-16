@@ -73,6 +73,7 @@ explanation
 + rfe #1441 Add regexp match when using AllowArbitraryServer
 
 4.3.13.0 (not yet released)
+- bug #4803 "Show hidden items" is sometimes hidden
 
 4.3.12.0 (2015-03-14)
 - bug #4746 Right-aligned columns have left-aligned header
