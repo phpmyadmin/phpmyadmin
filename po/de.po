@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-06 10:13+0200\n"
-"Last-Translator: Matthias Bluthardt <matthias@bluthardt.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/4-4/de/"
-">\n"
+"PO-Revision-Date: 2015-03-16 02:11+0200\n"
+"Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -829,7 +829,6 @@ msgid "List of changes"
 msgstr "Liste der Änderungen"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -841,11 +840,11 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"Ihre Konfigurationsdatei enthält Einstellungen (Benutzer root ohne "
-"Passwort), welche denen des MySQL-Standardbenutzers entsprechen. Wird Ihr "
-"MySQL-Server mit diesen Einstellungen betrieben, so können Unbefugte leicht "
-"von außen auf ihn zugreifen. Sie sollten diese Sicherheitslücke unbedingt "
-"durch das Setze eines Passworts für den Benutzer 'root' schließen."
+"Sie sind als „root“ ohne Passwort verbunden, was dem MySQL-Standardbenutzer "
+"entspricht. Wird Ihr MySQL-Server mit diesen Einstellungen betrieben, so "
+"können Unbefugte leicht von außen auf ihn zugreifen. Sie sollten diese "
+"Sicherheitslücke unbedingt durch das Setze eines Passworts für den Benutzer "
+"'root' schließen."
 
 #: index.php:464
 msgid ""
@@ -11947,11 +11946,10 @@ msgstr "Verlange SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-#, fuzzy
 #| msgid "Requires that a specific cipher method be used for a connection."
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
-"Erfordert, dass ein bestimmtes Verschlüsselungsverfahren für eine Verbindung "
+"Erfordert, dass eine bestimmte Verschlüsselungsmethode für zum Verbinden "
 "verwendet wird."
 
 #: libraries/server_privileges.lib.php:778
