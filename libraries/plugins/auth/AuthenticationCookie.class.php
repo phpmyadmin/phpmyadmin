@@ -442,7 +442,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // check cookies
         if (empty($_COOKIE['pmaUser-' . $GLOBALS['server']])
-            || empty($_COOKIE['pma_iv'])
+            || empty($_COOKIE['pma_iv-' . $GLOBALS['server']])
         ) {
             return false;
         }
@@ -784,7 +784,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function cookieDecrypt($encdata, $secret)
     {
         if (is_null($this->_cookie_iv)) {
-            $this->_cookie_iv = base64_decode($_COOKIE['pma_iv'], true);
+            $this->_cookie_iv = base64_decode($_COOKIE['pma_iv-' . $GLOBALS['server']], true);
         }
         if (strlen($this->_cookie_iv) < $this->getIVSize()) {
                 $this->createIV();
@@ -840,7 +840,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             );
         }
         $GLOBALS['PMA_Config']->setCookie(
-            'pma_iv',
+            'pma_iv-' . $GLOBALS['server'],
             base64_encode($this->_cookie_iv)
         );
     }
