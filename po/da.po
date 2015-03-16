@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-09 08:17-0400\n"
-"PO-Revision-Date: 2015-02-25 06:28+0200\n"
-"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"da/>\n"
+"PO-Revision-Date: 2015-03-16 19:34+0200\n"
+"Last-Translator: Jonas <jonas.den.smarte@gmail.com>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -820,7 +820,6 @@ msgid "List of changes"
 msgstr "Liste over ændringer"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -832,10 +831,11 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"Din konfigurationsfil indeholder indstillinger (root og ingen adgangskode) "
-"som svarer til en standard MySQL-priviligeret brugerkonto. Din MySQL server "
-"kører med denne standardindstilling, <u>er åben for indtrængen</u>, og du "
-"opfordres stærkt til at gøre noget ved dette sikkerhedshul."
+"Du er tilsluttet som \"root\" med intet kodeord, som svarer til en standard "
+"MySQL-priviligeret brugerkonto. Din MySQL server kører med denne "
+"standardindstilling, er åben for indtrængen, og du opfordres stærkt til at "
+"gøre noget ved dette sikkerhedshul, ved at sætte et kodeord til brugeren \""
+"root\"."
 
 #: index.php:464
 msgid ""
@@ -1838,7 +1838,7 @@ msgstr "Bladre i fremmedværdier"
 
 #: js/messages.php:308
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Ingen automatisk gemt forespørgsel"
 
 #: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -2118,6 +2118,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Indikerer at du har lavet ændringer ved denne side, du vil blive spurgt om "
+"godkendelse før ændringerne frafalder"
 
 #: js/messages.php:409
 msgid "Select referenced key"
@@ -2960,10 +2962,9 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Tast Ctrl+Enter for at udføre forespørgsel"
 
 #: libraries/Console.class.php:221
-#, fuzzy
 #| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
-msgstr "Tast Ctrl+Enter for at udføre forespørgsel"
+msgstr "Tast Enter for at udføre forespørgsel"
 
 #: libraries/Console.class.php:242
 msgid "During current session"
@@ -4784,10 +4785,9 @@ msgid "Length/Values"
 msgstr "Længde/Værdi*"
 
 #: libraries/central_columns.lib.php:670
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Attributter"
+msgstr "Attribut"
 
 #: libraries/central_columns.lib.php:674
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -5128,7 +5128,7 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Nøglen bør indeholde bogstaver, numre [em]og[/em] specialtegn."
 
 #: libraries/config/ServerConfigChecks.class.php:371
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5144,7 +5144,8 @@ msgid ""
 msgstr ""
 "Denne %soption%s bør deaktiveres, da den tillader angribere at lave et "
 "bruteforce login til en vilkårlig MySQL server. Hvis du føler, at dette er "
-"nødvendigt, brug %strusted proxies list%s. IP-baseret beskyttelse er næppe "
+"nødvendigt, brug %srestrict login to MySQL server%s eller %strusted proxies "
+"list%s. IP-baseret beskyttelse med en tiltroet proxyliste er næppe "
 "pålidelig, hvis din IP-adresse hører til en udbyder med mange tusinde "
 "brugere."
 
@@ -5334,10 +5335,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Kan ikke logge ind på MySQL-serveren"
+msgstr "Begræns login på MySQL-serveren"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -7577,10 +7577,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:812
-#, fuzzy
 #| msgid "Executed queries"
 msgid "Enter executes queries in console"
-msgstr "Udførte forespørgsler"
+msgstr "Enter udfører forespørgsler i konsollen"
 
 #: libraries/config/messages.inc.php:815
 msgid ""
@@ -9763,10 +9762,9 @@ msgid "Please enter correct captcha!"
 msgstr "Angiv venligst korrekt captcha!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Kan ikke logge ind på MySQL-serveren"
+msgstr "Du har ikke tilladelse til at logge ind på denne MySQL server!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Wrong username/password. Access denied."
@@ -11782,10 +11780,9 @@ msgstr "Brugergruppe"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Vedvarende forbindelser"
+msgstr "Kræver SSL-krypterede forbindelser."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
