@@ -41,6 +41,7 @@ class ExportJson extends ExportPlugin
         include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
         include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
         include_once "$props/options/items/HiddenPropertyItem.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('JSON');
@@ -61,6 +62,15 @@ class ExportJson extends ExportPlugin
         $leaf = new HiddenPropertyItem();
         $leaf->setName("structure_or_data");
         $generalOptions->addProperty($leaf);
+        
+        // JSON_PRETTY_PRINT is available since 5.4.0
+        if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
+            $leaf = new BoolPropertyItem();
+            $leaf->setName('pretty_print');
+            $leaf->setText(__('Output pretty-printed JSON (Use human-readable formatting)'));
+            $generalOptions->addProperty($leaf);
+        }
+        
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
 
@@ -196,8 +206,14 @@ class ExportJson extends ExportPlugin
             for ($i = 0; $i < $columns_cnt; $i++) {
                 $data[$columns[$i]] = $record[$i];
             }
+            
+            if (isset($GLOBALS['json_pretty_print']) && $GLOBALS['json_pretty_print']) {
+                $encoded = json_encode($data, JSON_PRETTY_PRINT);
+            } else {
+                $encoded = json_encode($data);
+            }
 
-            if (! PMA_exportOutputHandler(json_encode($data))) {
+            if (! PMA_exportOutputHandler($encoded)) {
                 return false;
             }
         }

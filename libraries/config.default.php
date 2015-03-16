@@ -1802,6 +1802,13 @@ $cfg['Export']['phparray_structure_or_data'] = 'data';
 $cfg['Export']['json_structure_or_data'] = 'data';
 
 /**
+ * Export functions
+ *
+ * @global string $cfg['Export']['json_pretty_print']
+ */
+$cfg['Export']['json_pretty_print'] = false;
+
+/**
  *
  *
  * @global string $cfg['Export']['sql_structure_or_data']
