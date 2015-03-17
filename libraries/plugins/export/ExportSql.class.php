@@ -1374,9 +1374,10 @@ class ExportSql extends ExportPlugin
                 // lets find first line with constraints
                 $first_occur = -1;
                 for ($i = 0; $i < $sql_count; $i++) {
+                    $sql_line = current(explode(' COMMENT ', $sql_lines[$i], 2));
                     if (preg_match(
                         '@[\s]+(CONSTRAINT|KEY)@',
-                        $sql_lines[$i]
+                        $sql_line
                     ) && $first_occur == -1) {
                         $first_occur = $i;
                     }
