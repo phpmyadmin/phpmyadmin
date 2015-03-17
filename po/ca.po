@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-09 08:17-0400\n"
-"PO-Revision-Date: 2015-03-16 07:13+0200\n"
+"PO-Revision-Date: 2015-03-17 07:12+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -4921,6 +4921,10 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"No és possible usar el fus horari %1$s per al servidor %2$d. Comprova la "
+"teva configuració per a [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
+"phpMyAdmin fa servir actualment el fus horari per defecte del servidor de "
+"base de dades."
 
 #: libraries/common.inc.php:1020
 #, php-format
@@ -4986,7 +4990,7 @@ msgstr "Desactivat"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "clau"
 
 #: libraries/config.values.php:99
 #| msgid "Display columns table"
@@ -5377,6 +5381,9 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Restringeix els servidors MySQL als que l'usuari pot entrar quan s'activa "
+"una connexió a un servidor MySQL arbitrari fent coincidir l'adreça IP o el "
+"nom de l'equip del servidor MySQL mitjançant una expressió regular."
 
 #: libraries/config/messages.inc.php:25
 #| msgid "Cannot log in to the MySQL server"
@@ -6427,6 +6434,7 @@ msgstr "Límit de memoria"
 #: libraries/config/messages.inc.php:424
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
+"Al panell de navegació, substitueix l'arbre de bases de dades amb un selector"
 
 #: libraries/config/messages.inc.php:426
 #| msgid "Show hidden navigation tree items."
@@ -6436,6 +6444,7 @@ msgstr "Mostra a navegació de les bases de dades com un arbre"
 #: libraries/config/messages.inc.php:428
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
+"Enllaç amb el panell principal destacant l'actual base de dades o taula."
 
 #: libraries/config/messages.inc.php:430
 msgid "Show logo in navigation panel."
@@ -6542,6 +6551,7 @@ msgstr "Activa resaltat"
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
+"Quan s'ofereix la possibilitat d'expandir l'arbre al panell de navegació."
 
 #: libraries/config/messages.inc.php:472
 #| msgid "Iconic navigation bar"
@@ -6676,7 +6686,7 @@ msgstr "Còm mostrar les pestanyes del menù"
 
 #: libraries/config/messages.inc.php:518
 msgid "How to display various action links"
-msgstr ""
+msgstr "Cóm mostrar diversos enllaços d'accions"
 
 #: libraries/config/messages.inc.php:519
 #| msgid "Disallow BLOB and BINARY columns from editing"
@@ -6732,7 +6742,7 @@ msgstr "Recordar l'ordenació de les taules"
 
 #: libraries/config/messages.inc.php:536
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "Ordenació per defecte per a taules amb clau principal."
 
 #: libraries/config/messages.inc.php:537
 #| msgid "Default sorting order"
@@ -6814,6 +6824,8 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Estableix el fus horari efectiu; possiblement diferent del del teu servidor "
+"de base de dades"
 
 #: libraries/config/messages.inc.php:557
 #| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
@@ -7350,6 +7362,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Tant aquesta taula com la taula de grups d'usuari es necessiten per activar "
+"la funcionalitat de menús configurables; deixant una d'ambdues en blanc "
+"desactivarà aquesta funcionalitat, suggerit: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:724
 #| msgid "Use Tables"
@@ -7362,6 +7377,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Tant aquesta taula com la taula d'usuaris es necessiten per activar la "
+"funcionalitat de menús configurables; deixant una d'ambdues en blanc "
+"desactivarà aquesta funcionalitat, suggerit: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:726
 #| msgid "Use Host Table"
@@ -7381,7 +7399,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:728
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Taula d'elements de navegació amagada"
 
 #: libraries/config/messages.inc.php:730
 msgid "User for config auth"
@@ -7730,10 +7748,14 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"La URL del proxy a utilitzar per a  obtenir informació sobre la darrera "
+"versió de phpMyAdmin o al enviar informes d'errors. Es necessitarà si el "
+"servidor òn està instal.lat phpMyAdmin no té accés directe a internet. El "
+"formato es: \"servidor:port\"."
 
 #: libraries/config/messages.inc.php:795
 msgid "Proxy url"
-msgstr ""
+msgstr "URL del proxy"
 
 #: libraries/config/messages.inc.php:796
 msgid ""
@@ -7741,6 +7763,9 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"El nom d'usuari per a autenticar amb el proxy. Per defecte, no es fa "
+"autenticació. Si es dona un nom d'usuari, es farà una autenticació bàsica. "
+"Actualment no hi ha compatibilitat amb altres tipus d'autenticació."
 
 #: libraries/config/messages.inc.php:797
 #| msgid "Username"
@@ -7749,7 +7774,7 @@ msgstr "Nom d'usuari del proxy"
 
 #: libraries/config/messages.inc.php:798
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "La contrasenya per autenticar amb el proxy."
 
 #: libraries/config/messages.inc.php:799
 #| msgid "Password"
@@ -7774,23 +7799,23 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:803
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "Entra la teva clau pública pel teu domini del servei reCaptcha."
 
 #: libraries/config/messages.inc.php:804
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Clau pùblica per a reCaptcha"
 
 #: libraries/config/messages.inc.php:805
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
+msgstr "Entra la teva clau privada pel teu domini del servei reCaptcha."
 
 #: libraries/config/messages.inc.php:806
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Clau privada per a reCaptcha"
 
 #: libraries/config/messages.inc.php:808
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "Tria l'acció per defecte quan s'enviin informes d'error."
 
 #: libraries/config/messages.inc.php:809
 #| msgid "Server port"
@@ -7802,6 +7827,8 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Les consultes s'executen prement Enter (en lloc de Ctrl+Enter). Les noves "
+"línies s'afegiran amb Majúscules+Enter."
 
 #: libraries/config/messages.inc.php:812
 #| msgid "Executed queries"
@@ -7813,6 +7840,8 @@ msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
+"Activar el mode de «Configuració Zero» que et permet definir les taules "
+"d'emmagatzemament de configuració de phpMyAdmin automàticament."
 
 #: libraries/config/messages.inc.php:818
 #| msgid "Server configuration"
@@ -7895,13 +7924,15 @@ msgstr "Sense canvis"
 #: libraries/database_interface.inc.php:32
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Consulta %sla nostra documentació%s per a més informació."
 
 #: libraries/database_interface.inc.php:48
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
+"Estàs fent servir l'extensió -mysql- ja obsoleta per a phpMyAdmin. Considera "
+"instal.lar l'extensió -mysqli-."
 
 #: libraries/db_designer.lib.php:25
 msgid "Select page"
@@ -8288,7 +8319,7 @@ msgstr "Veure la sortida com a texte"
 
 #: libraries/display_export.lib.php:653 libraries/display_export.lib.php:757
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "Reanomenar les bases de dades/taules/columnes exportades"
 
 #: libraries/display_export.lib.php:663
 msgid "Save output to a file"
@@ -8296,7 +8327,7 @@ msgstr "Desa la sortida com a arxiu"
 
 #: libraries/display_export.lib.php:690
 msgid "Skip tables larger than"
-msgstr ""
+msgstr "Ometre taules més grans que"
 
 #: libraries/display_export.lib.php:784
 #| msgid "Select Tables"
@@ -8393,7 +8424,7 @@ msgstr "Arxiu a importar:"
 
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "També pots arrossegar un arxiu en qualsevol pàgina."
 
 #: libraries/display_import.lib.php:246
 msgid "File uploads are not allowed on this server."
@@ -8426,6 +8457,8 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Saltar aquesta quantitat de consultes (en SQL) or línies (en altres formats)"
+", contant des de la primera:"
 
 #: libraries/display_import.lib.php:340
 msgid "Format-Specific Options:"
@@ -8829,14 +8862,17 @@ msgid ""
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
+"phpMyAdmin ha trobat un error. Hem reunit dades sobre aquest error així com "
+"informació relevant de configuració per a enviar al equip de phpMyAdmin per "
+"a ajudar-nos a investigar el problema."
 
 #: libraries/error_report.lib.php:358
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "Pots examinar les dades a l'informe d'error:"
 
 #: libraries/error_report.lib.php:365
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "Explica les passes que porten a l'error:"
 
 #: libraries/export.lib.php:118 libraries/export.lib.php:153
 #: libraries/export.lib.php:377
@@ -8870,7 +8906,7 @@ msgstr "MySQL ha retornat un conjunt buit (p.e. cap fila)."
 
 #: libraries/import.lib.php:265 libraries/sql.lib.php:1512
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[S'ha produït un ROLLBACK.]"
 
 #: libraries/import.lib.php:1255
 msgid ""
@@ -8923,13 +8959,15 @@ msgstr "Anar a la vista: %s"
 
 #: libraries/import.lib.php:1382
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
-msgstr ""
+msgstr "Només es poden simular consultes UPDATE i DELETE sobre una sola taula."
 
 #: libraries/import.lib.php:1799
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Només es poden desfer (-rollback-) consultes SQL INSERT, UPDATE, DELETE i "
+"REPLACE que continguin taules de motors transaccionals."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -9022,7 +9060,7 @@ msgstr "Converteix a Kana"
 
 #: libraries/mult_submits.inc.php:301
 msgid "Success!"
-msgstr ""
+msgstr "Correcte!"
 
 #: libraries/mult_submits.lib.php:338
 #| msgid "Replace table prefix"
@@ -9299,6 +9337,9 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Hi ha grans grups d'elements al panell de navegació que poden afectar el "
+"rendiment. Considera desactivar l'agrupació d'elements al panell de "
+"navegació."
 
 #: libraries/navigation/NavigationTree.class.php:864
 #, php-format
@@ -9332,7 +9373,7 @@ msgstr "Filtrar pel nom o expresió regular"
 
 #: libraries/navigation/NavigationTree.class.php:1322
 msgid "Collapse all"
-msgstr ""
+msgstr "Col.lapsar tots"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9348,7 +9389,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node.class.php:786
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Expandir/Col.lapsar"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:27
@@ -9450,32 +9491,37 @@ msgstr "Nova"
 
 #: libraries/normalization.lib.php:114
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Convertir totes les columnes a atómiques"
 
 #: libraries/normalization.lib.php:116 libraries/normalization.lib.php:773
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Primer pas de la normalització (1NF)"
 
 #: libraries/normalization.lib.php:119 libraries/normalization.lib.php:170
 #: libraries/normalization.lib.php:213 libraries/normalization.lib.php:249
 msgid "Step 1."
-msgstr ""
+msgstr "Pas 1."
 
 #: libraries/normalization.lib.php:121
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Tens alguna columna que es pugui dividir en més? Per exemple, l'adreça es "
+"pot dividir en carrer, ciutat, país i codi postal."
 
 #: libraries/normalization.lib.php:128
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
+"Mostra la llista central de columnes que encara no estiguin en aquesta taula"
 
 #: libraries/normalization.lib.php:131
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
+"Selecciona una columna que es pugui dividir en més d'una. (seleccionant 'cap "
+"columna' anem al següent pas)"
 
 #: libraries/normalization.lib.php:138 normalization.php:19
 #| msgid "Select two columns"
@@ -9489,7 +9535,7 @@ msgstr "Cap columna"
 
 #: libraries/normalization.lib.php:146
 msgid "split into "
-msgstr ""
+msgstr "dividir en "
 
 #: libraries/normalization.lib.php:167
 #| msgid "Add primary key"
@@ -9506,15 +9552,20 @@ msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"No existeix una clau principal; afegeix una.<br />Suggeriment: una clau "
+"principal és una columna (o combinació de columnes) que identifiquen "
+"unívocament a totes les files."
 
 #: libraries/normalization.lib.php:185
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Afegir una clau principal en columna(es) existent(s)"
 
 #: libraries/normalization.lib.php:190
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
+"No és possible utilitzar la combinació de columnes existents com a clau "
+"principal"
 
 #: libraries/normalization.lib.php:194
 #| msgid "Add primary key"
@@ -9532,12 +9583,17 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"Tens un grup de columnes que amb la seva combinació s'obtingui un altre "
+"columna existent? Per exemple, si tens cognom, nom i nom_complet, llavors "
+"combinant cognom i nom s'obté nom_complet, el que es redundant."
 
 #: libraries/normalization.lib.php:221
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"Revisa les columnes que siguin redundants i prem en eliminar. Si no hi ha, "
+"prem en 'Cap columna redundant'"
 
 #: libraries/normalization.lib.php:226
 #| msgid "Remove selected users"
@@ -9551,7 +9607,7 @@ msgstr "Cap columna redundant"
 
 #: libraries/normalization.lib.php:248
 msgid "Move repeating groups"
-msgstr ""
+msgstr "Moure grups repetits"
 
 #: libraries/normalization.lib.php:251
 msgid ""
@@ -9561,24 +9617,31 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"Tens un grup de dues o més columnes estretament relacionades i que "
+"repeteixen el mateix atribut? Per exemple, una taula que té dades sobre "
+"llibres pot tenir columnes com id_llibre, autor1, autor2, autor3, etc. que "
+"formen un grup repetit. En aquest cas hauries de crear una nova taula amb "
+"id_llibre, autor."
 
 #: libraries/normalization.lib.php:259
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
+"Revisa les columnes que formin un grup repetitiu. Si no hi ha, prem en 'Cap "
+"grup repetitiu'"
 
 #: libraries/normalization.lib.php:265
 msgid "No repeating group"
-msgstr ""
+msgstr "Cap grup repetitiu"
 
 #: libraries/normalization.lib.php:291
 msgid "Step 2."
-msgstr ""
+msgstr "Pas 2."
 
 #: libraries/normalization.lib.php:291
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Cercar dependències parcials"
 
 #: libraries/normalization.lib.php:313
 #, php-format
@@ -9586,10 +9649,12 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"No hi ha dependències parcials possibles degut a que la clau principal (%1$s)"
+" està composta per totes les columnes de la taula."
 
 #: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "La taula ja hi és en segona forma normal."
 
 #: libraries/normalization.lib.php:323
 #, php-format
@@ -9597,16 +9662,21 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"La clau principal (%1$s) conté més d'una columna, pel que necessitem trobar "
+"les dependències parcials."
 
 #: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
+"Respón a la /les pregunta(es) següent(s) acuradament per a obtenir una "
+"normalització correcta."
 
 #: libraries/normalization.lib.php:331
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"+ Mostrar les dependències parcials possibles segons les dades de la taula"
 
 #: libraries/normalization.lib.php:335
 msgid ""
