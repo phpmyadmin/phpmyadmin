@@ -294,6 +294,71 @@ function aliasSelectHandler(event) {
     $("#alias_modal").dialog("option", "position", "center");
 }
 
+function getProgress()
+{
+    $.ajax({
+        type: 'GET',
+        url: 'progress_sess.php',
+        success: function(data){
+            $("#progress_message").html(data);
+            if(data!="Done!")
+            {
+                if(data=="Initializing Parameters")
+                {
+                    $( "#progressbar" ).progressbar({
+                        value: 30
+                    });
+                }
+                else if(data == "Building File")
+                {
+                    $( "#progressbar" ).progressbar({
+                        value: 60
+                    });
+                }
+                else
+                {
+                    $( "#progressbar" ).progressbar({
+                        value: 0
+                    });
+                }
+                getProgress();
+            }
+            else
+            {
+                $( "#progressbar" ).progressbar({
+                    value: 100
+                });
+            }
+        }
+    });
+}
+
+/**
+ * Handler for Progress dialog box
+ *
+ * @param event object the event object
+ *
+ * @return void
+ */
+function createProgressModal(event)
+{
+    var dlgButtons = {};
+    $( "#progressbar" ).progressbar({
+        value: 0
+    });
+    $('#progress_modal').dialog({
+        width: Math.min($(window).width() - 100, 700),
+        maxHeight: $(window).height(),
+        modal: true,
+        dialogClass: "progress-dialog",
+        create: function() {
+            $(this).css('maxHeight', $(window).height() - 100);
+        },
+        position: { my: "center", at: "center", of: window }
+    });
+    getProgress();
+}
+
 /**
  * Handler for Alias dialog box
  *
@@ -397,5 +462,12 @@ AJAX.registerOnload('export.js', function () {
         'change',
         {sel: 'table', type: '_cols'},
         aliasSelectHandler
+    );
+
+    //Submit button on click event
+    $('.exportoptions > #buttonGo').on(
+        'click',
+        {},
+        createProgressModal
     );
 });
