@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-17 07:12+0200\n"
+"PO-Revision-Date: 2015-03-17 18:45+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/ca/>\n"
@@ -9653,11 +9653,14 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"Per a cada una de les columnes a sota, selecciona el <b>conjunt mínim</b> de "
+"columnes entre les que els seus valors combinats són suficients per a "
+"determinar el valor de la columna."
 
 #: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' depèn de:"
 
 #: libraries/normalization.lib.php:356
 #, php-format
@@ -9665,6 +9668,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"No hi ha dependències parcials possibles ja que la clau principal ( %1$s ) "
+"només té una columna."
 
 #: libraries/normalization.lib.php:381
 #, php-format
@@ -9672,11 +9677,13 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
+"Per tal de convertir la taula original '%1$s' a la segona forma normal "
+"necessitem crear les següents taules:"
 
 #: libraries/normalization.lib.php:417
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "S'ha completat el segon pas de normalització per a la taula '%1$s'."
 
 #: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
 #: libraries/normalization.lib.php:663
@@ -9690,10 +9697,12 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
+"Per tal de convertir la taula original '%1$s' a la tercera forma normal "
+"necessitem crear les següents taules:"
 
 #: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "S'ha completat el tercer pas de normalització."
 
 #: libraries/normalization.lib.php:642
 #, php-format
@@ -9708,7 +9717,7 @@ msgstr "Pas 3."
 
 #: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "Cercar dependències transitives"
 
 #: libraries/normalization.lib.php:696
 msgid ""
@@ -9717,16 +9726,22 @@ msgid ""
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
+"Per a cada una de les columnes a sota, selecciona el <b>conjunt mínim</b> de "
+"columnes entre les que els seus valors combinats junts són suficients per a "
+"determinar el valor de la columna. <br />Nota: Una columna pot no tenir "
+"dependències transitives, en aquest cas no tens que seleccionar cap."
 
 #: libraries/normalization.lib.php:743
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"No hi ha dependències transitives possibles ja que la taula no té cap "
+"columna que no pertany a una clau principal"
 
 #: libraries/normalization.lib.php:747
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "La taula ja es troba en tercera forma normal!"
 
 #: libraries/normalization.lib.php:770
 #| msgid "Hide table structure actions"
@@ -9735,31 +9750,35 @@ msgstr "Millorar l'estructura de taula (Normalització):"
 
 #: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Selecciona fins a quin pas vols normalitzar"
 
 #: libraries/normalization.lib.php:774
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Segon pas de normalització (1NF+2NF)"
 
 #: libraries/normalization.lib.php:775
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Tercer pas de normalització (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:782
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"Consell: Segueix el procediment amb molta cura per obtenir una normalització "
+"correcta"
 
 #: libraries/normalization.lib.php:843
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"Aquesta llista està basada en un subconjunt de les dades de la taula i no és "
+"necessàriament acurada. "
 
 #: libraries/normalization.lib.php:859
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "No s'han trobat dependències parcials!"
 
 #: libraries/operations.lib.php:75
 #| msgid "Rename database to"
@@ -10015,7 +10034,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:164
 msgid "Retry to connect"
-msgstr ""
+msgstr "Reintentar connexió"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:146
 msgid "Your session has expired. Please log in again."
@@ -10041,11 +10060,11 @@ msgstr "Elecció de Servidor:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:354
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "El captcha entrat és incorrecte, intenta de nou!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:364
 msgid "Please enter correct captcha!"
-msgstr ""
+msgstr "Entra el captcha correcte!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
 #| msgid "Cannot log in to the MySQL server"
@@ -10423,22 +10442,22 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:511
 msgid "It appears your database uses procedures;"
-msgstr ""
+msgstr "Sembla que la teva base de dades fa servir procediments;"
 
 #: libraries/plugins/export/ExportSql.class.php:515
 #: libraries/plugins/export/ExportSql.class.php:551
 #: libraries/plugins/export/ExportSql.class.php:1260
 #: libraries/plugins/export/ExportSql.class.php:1798
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "exportar els àlies podria no funcionar correctament en tots els casos."
 
 #: libraries/plugins/export/ExportSql.class.php:548
 msgid "It appears your database uses functions;"
-msgstr ""
+msgstr "Sembla que la teva base de dades fa servir funcions;"
 
 #: libraries/plugins/export/ExportSql.class.php:1257
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "Sembla que la teva base de dades fa servir vistes;"
 
 #: libraries/plugins/export/ExportSql.class.php:1302
 msgid "Constraints for dumped tables"
@@ -10478,7 +10497,7 @@ msgstr "RELACIONS DE LA TAULA"
 
 #: libraries/plugins/export/ExportSql.class.php:1795
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Sembla que la teva base de dades fa servir disparadors (-triggers-);"
 
 #: libraries/plugins/export/ExportSql.class.php:1827
 #, php-format
@@ -10657,7 +10676,7 @@ msgstr "Orientació"
 #: libraries/plugins/schema/SchemaPdf.class.php:67
 #: libraries/plugins/schema/SchemaSvg.class.php:66
 msgid "Same width for all tables"
-msgstr ""
+msgstr "El mateix ample per a totes les taules"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:89
 msgid "Show grid"
@@ -10714,6 +10733,9 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Converteix els valors booleans a text (per defecte 'T' i 'F'). La primera "
+"opció es per a -TRUE- (cert) i la segona per a -FALSE- (fals). Diferent de "
+"zero = cert."
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -10809,10 +10831,13 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Funcionalitat per a pujar imatges que també mostra miniatures. Les opcions "
+"són l'amplada i l'alçada de la miniatura en píxels. El valor per defecte és "
+"de 100 X 100."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:79
 msgid "Image preview here"
-msgstr ""
+msgstr "Previsualització de l'imatge"
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
@@ -10848,11 +10873,13 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Valida la cadena usant expressions regulars i només insereix si el valor "
+"coincideix. La primera opció és l'expressió regular."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Ha fallat la validació de la cadena d'entrada %s."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10877,6 +10904,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Funcionalitat per a pujar arxius a columnes TEXT. No té un àrea de text per "
+"entrar o editar."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -10899,15 +10928,15 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Ressaltat de sintaxi de l'editor CodeMirror per a JSON."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Ressaltat de sintaxi de l'editor CodeMirror per a SQL."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Ressaltat de sintaxi de l'editor CodeMirror per a XML (i HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
 #| msgid "Formats text as SQL query with syntax highlighting."
