@@ -155,7 +155,8 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'IgnoreMultiSubmitErrors',
     'MaxCharactersInDisplayedSQL',
     'RetainQueryBox',
-    'CodemirrorEnable');
+    'CodemirrorEnable',
+    'EnableAutocompleteForTables');
 $forms['Sql_queries']['Sql_box'] = array('SQLQuery' => array(
     'Edit',
     'Explain',
