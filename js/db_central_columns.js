@@ -23,7 +23,6 @@ AJAX.registerTeardown('db_central_columns.js', function () {
     $(".del_row").unbind('click');
     $(document).off("keyup", ".filter_rows");
     $('.edit_cancel_form').unbind('click');
-    $('.column_heading').unbind('mouseenter');
     $('#table-select').unbind('change');
     $('#column-select').unbind('change');
     $("#add_col_div>a").unbind('click');

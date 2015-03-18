@@ -682,7 +682,8 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
 {
     $action = '';
     if ($actionCount > 0) {
-        $action .= '<th colspan="' . $actionCount . '">' . __('Action') . '</th>';
+        $action .= '<th class="column_action" colspan="' . $actionCount . '">'
+            . __('Action') . '</th>';
     }
     $tableheader = '<thead>';
     $tableheader .= '<tr>'

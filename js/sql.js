@@ -582,7 +582,7 @@ function PMA_changeClassForColumn($this_th, newclass, isAddClass)
 {
     // index 0 is the th containing the big T
     var th_index = $this_th.index();
-    var has_big_t = !$this_th.closest('tr').children(':first').hasClass('column_heading');
+    var has_big_t = $this_th.closest('tr').children(':first').hasClass('column_action');
     // .eq() is zero-based
     if (has_big_t) {
         th_index--;
