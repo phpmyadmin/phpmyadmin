@@ -8,7 +8,7 @@
 
 require_once 'libraries/common.inc.php';
 
-if ($GLOBALS['cfg']['EnableAutocompleteForTables']) {
+if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
     $db = isset($_POST['db']) ? $_POST['db'] : $GLOBALS['db'];
     $sql_autocomplete = array();
 
