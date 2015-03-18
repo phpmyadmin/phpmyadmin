@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-18 14:15-0400\n"
-"PO-Revision-Date: 2015-03-18 15:36+0200\n"
+"PO-Revision-Date: 2015-03-18 20:00+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -4801,7 +4801,7 @@ msgstr "Öznitelik"
 #: libraries/central_columns.lib.php:709
 #: libraries/central_columns.lib.php:1207
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -5575,10 +5575,10 @@ msgid "Maximum execution time"
 msgstr "En fazla yürütme süresi"
 
 #: libraries/config/messages.inc.php:111 libraries/display_export.lib.php:662
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
-msgstr "%s ifadesi ekle"
+msgstr "%s ifadesi kullan"
 
 #: libraries/config/messages.inc.php:113 prefs_manage.php:316
 msgid "Save as file"
@@ -6175,10 +6175,9 @@ msgid "Partial import: allow interrupt"
 msgstr "Kısmi içe aktarma: yarıda kesmeye izin ver"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Temporarily disable foreign key checks while importing"
-msgstr "Dış anahtar kontrolünü etkisizleştir"
+msgstr "İçe aktarırken dış anahtar kontrollerini geçici olarak etkisizleştir"
 
 #: libraries/config/messages.inc.php:343 libraries/config/messages.inc.php:353
 #: libraries/plugins/import/ImportCsv.class.php:89
@@ -7766,10 +7765,9 @@ msgid "New page"
 msgstr "Yeni sayfa"
 
 #: libraries/db_designer.lib.php:297 libraries/db_designer.lib.php:300
-#, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "Sayfayı kaydet"
+msgstr "Sayfayı farklı kaydet"
 
 #: libraries/db_designer.lib.php:305 libraries/db_designer.lib.php:308
 msgid "Delete pages"
@@ -8216,13 +8214,11 @@ msgstr ""
 "başlayarak atla:"
 
 #: libraries/display_import.lib.php:332
-#, fuzzy
 #| msgid "Options"
 msgid "Other Options:"
-msgstr "Seçenekler"
+msgstr "Diğer Seçenekler:"
 
 #: libraries/display_import.lib.php:338
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable foreign key check"
 msgstr "Dış anahtar kontrolünü etkisizleştir"
