@@ -67,6 +67,8 @@ if (!defined('TESTSUITE')) {
             'mediawiki_structure_or_data',
             'mediawiki_caption',
             'pdf_structure_or_data',
+            'pdf_null',
+            'pdf_columns',
             'odt_structure_or_data',
             'odt_relation',
             'odt_comments',
