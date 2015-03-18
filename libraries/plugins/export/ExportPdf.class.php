@@ -293,7 +293,7 @@ class ExportPdf extends ExportPlugin
         switch($export_mode) {
         case 'create_table':
             $pdf->getTableDef(
-                $db, $table, $crlf, $error_url, true, true, true,
+                $db, $table, $crlf, $error_url, true, true, true, //$do_relation, $do_comments, $do_mime,
                 $dates
             );
             break;
@@ -302,7 +302,7 @@ class ExportPdf extends ExportPlugin
             break;
         case 'create_view':
             $pdf->getTableDef(
-                $db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime,
+                $db, $table, $crlf, $error_url, true, true, true, //$do_relation, $do_comments, $do_mime,
                 $dates, true, true
             );
             break;
