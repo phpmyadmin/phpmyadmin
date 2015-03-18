@@ -286,7 +286,7 @@ class ExportPdf extends ExportPlugin
         $attr = array(
             'currentDb' => $db, 'currentTable' => $table,
             'dbAlias' => $db_alias, 'tableAlias' => $table_alias,
-            'aliases' => $aliases, 'purpose' => '$purpose'
+            'aliases' => $aliases, 'purpose' => $purpose
         );
         $pdf->setAttributes($attr);
 		
