@@ -1517,18 +1517,18 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
                     $extra_where_clause .= ' OR ';
                 } else if ($term['type'] == 'punct') {
                     $extra_where_clause .= ' <> ';
-                } else if($term['type'] == 'alpha_functionName'){
+                } else if($term['type'] == 'alpha_functionName') {
                     array_pop($extra_where_clause);
                     array_pop($extra_where_clause);
                 } else {
                     $extra_where_clause .= $term['data'];
                 }
             }
-            else if($term['type'] == 'punct_bracket_close_round'){
+            else if($term['type'] == 'punct_bracket_close_round') {
                 $in_function--;
             }
 
-            if($term['type'] == 'alpha_functionName'){
+            if($term['type'] == 'alpha_functionName') {
                 $in_function++;
             }
 
@@ -1563,7 +1563,7 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
     // Get WHERE clause.
     $where_clause .= $analyzed_sql_results['analyzed_sql'][0]['where_clause'];
     if (empty($where_clause)) {
-        $where_clause = (!empty($extra_where_clause) && $extra_where_clause[0]) ? implode(' ',$extra_where_clause) : 1;
+        $where_clause = (!empty($extra_where_clause) && $extra_where_clause[0]) ? implode(' ',$extra_where_clause) : '1';
     }
 
     $matched_row_query = 'SELECT '
