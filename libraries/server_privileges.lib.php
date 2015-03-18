@@ -2293,8 +2293,12 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
                 . ($odd_row ? 'odd' : 'even') . '">';
 
             $value = htmlspecialchars($current_user . '&amp;#27;' . $current_host);
-            $html_output .= '<td>'
-                . '<input type="checkbox" class="checkall" name="selected_usr[]" '
+            $html_output .= '<td';
+            if ($nbPrivileges > 1) {
+                $html_output .= ' rowspan="' . $nbPrivileges . '"';
+            }
+            $html_output .= '>';
+            $html_output .= '<input type="checkbox" class="checkall" name="selected_usr[]" '
                 . 'id="checkbox_sel_users_' . ($index_checkbox++) . '" '
                 . 'value="' . $value . '" /></td>' . "\n";
 
