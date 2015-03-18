@@ -151,13 +151,6 @@ $cfg['SaveDir'] = '';
  */
 //$cfg['SendErrorReports'] = 'ask';
 
-/**
- * Enables autocomplete for table names in SQL queries
- *
- * default = 'true'
- */
-$cfg['EnableAutocompleteForTables'] = true;
-
 /*
  * You can find more configuration options in the documentation
  * in the doc/ folder or at <http://docs.phpmyadmin.net/>.

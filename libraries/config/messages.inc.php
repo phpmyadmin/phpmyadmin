@@ -86,8 +86,6 @@ $strConfigDefaultTabServer_desc = __('Tab that is displayed when entering a serv
 $strConfigDefaultTabServer_name = __('Default server tab');
 $strConfigDefaultTabTable_desc = __('Tab that is displayed when entering a table.');
 $strConfigDefaultTabTable_name = __('Default table tab');
-$strConfigEnableAutocompleteForTables_desc = __('Auto-Complete of the table names in the SQL queries.');
-$strConfigEnableAutocompleteForTables_name = __('Enable AutoComplete for Table ');
 $strConfigHideStructureActions_desc
     = __('Whether the table structure actions should be hidden.');
 $strConfigHideStructureActions_name = __('Hide table structure actions');
