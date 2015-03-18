@@ -1981,7 +1981,10 @@ class PMA_DisplayResults
             if (/*overload*/mb_strpos($name_to_use_in_sort, '(') !== false) {
                 $sort_order .=  $query_head  . $name_to_use_in_sort . ' ' ;
             } else {
-                $sort_order .=  $query_head  . $sort_tbl_new . "."
+                if (/*overload*/mb_strlen($sort_tbl_new) > 0) {
+                    $sort_tbl_new .= ".";
+                }
+                $sort_order .=  $query_head  . $sort_tbl_new
                   . PMA_Util::backquote(
                       $name_to_use_in_sort
                   ) .  ' ' ;
