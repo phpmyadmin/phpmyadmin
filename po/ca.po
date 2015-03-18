@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-17 18:45+0200\n"
+"PO-Revision-Date: 2015-03-18 06:47+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/ca/>\n"
@@ -10964,7 +10964,7 @@ msgstr "Error: La relació  de CLAU EXTERNA no s'ha afegit!"
 
 #: libraries/pmd_common.php:548
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Error. Índex no trobat en columna (es)."
 
 #: libraries/pmd_common.php:552
 #| msgid "Error: Relation not added."
@@ -11083,11 +11083,11 @@ msgstr "Amaga/mostra els elements de navegació"
 
 #: libraries/relation.lib.php:298
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "Desant cerques de Consulta-Per-Exemple"
 
 #: libraries/relation.lib.php:309
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Gestió de la llista central de columnes"
 
 #: libraries/relation.lib.php:317
 msgid "Quick steps to setup advanced features:"
@@ -11467,7 +11467,7 @@ msgstr "Error en reiniciar la replicació."
 
 #: libraries/replication_gui.lib.php:935
 msgid "Success."
-msgstr ""
+msgstr "Correcte."
 
 #: libraries/replication_gui.lib.php:936
 #| msgid "Error"
@@ -11906,7 +11906,7 @@ msgstr "No hi ha esdeveniments per mostrar."
 
 #: libraries/select_lang.lib.php:613
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Ignorant codi d'idioma no suportat."
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 #| msgid "Current Server"
@@ -12189,7 +12189,7 @@ msgstr "Cap"
 #: libraries/server_privileges.lib.php:3206
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
-msgstr ""
+msgstr "Grup d'usuari"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
@@ -12199,26 +12199,29 @@ msgstr "Requereix de connexions xifrades amb SSL."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Es requereix SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "Es requereix l'ús d'un mètode de xifratge específic per a la connexió."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Es requereix l'ús d'un certificat X509 vàlid emés per aquesta CA (Autoritat "
+"de Certificació)."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
+"Es requereix que es presenti un certificat X509 vàlid amb aquest subjecte."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 cetrificate."
-msgstr ""
+msgstr "Requereix un certificat X509 vàlid."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
@@ -12317,6 +12320,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
+"Ja existeix un compte amb el mateix nom d'usuari però possiblement amb nom "
+"de servidor diferent."
 
 #: libraries/server_privileges.lib.php:1663
 msgid "Do not change the password"
@@ -12381,7 +12386,7 @@ msgstr "Atorga"
 
 #: libraries/server_privileges.lib.php:2262
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Permisos insuficients per veure usuaris."
 
 #: libraries/server_privileges.lib.php:2282
 #: libraries/server_privileges.lib.php:3655
@@ -12537,6 +12542,8 @@ msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
+"Nota: estàs intentant editar els permisos de l'usuari amb el que has iniciat "
+"la sessió actual."
 
 #: libraries/server_privileges.lib.php:4159 libraries/server_users.lib.php:25
 msgid "Users overview"
@@ -13631,11 +13638,11 @@ msgstr "El nombre de fils que no estàn dormint."
 #: libraries/server_user_groups.lib.php:23
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Usuaris del grup d'usuaris '%s'"
 
 #: libraries/server_user_groups.lib.php:35
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "No s'han trobat usuaris que pertanyin a aquest grup."
 
 #: libraries/server_user_groups.lib.php:64 libraries/server_users.lib.php:33
 #| msgid "Users"
@@ -13671,7 +13678,7 @@ msgstr "Afegir grup d'usuaris"
 #: libraries/server_user_groups.lib.php:212
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Editar grup d'usuaris: '%s'"
 
 #: libraries/server_user_groups.lib.php:228
 #| msgid "No privileges."
@@ -13738,7 +13745,7 @@ msgstr "Estat"
 
 #: libraries/sql.lib.php:351
 msgid "Summary by state"
-msgstr ""
+msgstr "Resum per estat"
 
 #: libraries/sql.lib.php:357
 #| msgid "Total time:"
@@ -13816,7 +13823,7 @@ msgstr "Executa consulta/s SQL a la Base de Dades %s"
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Obtenir consulta auto desada"
 
 #: libraries/sql_query_form.lib.php:284
 #| msgid "Bookmark this SQL query"
@@ -13837,7 +13844,7 @@ msgstr "Mostra aquesta consulta de nou"
 
 #: libraries/sql_query_form.lib.php:333
 msgid "Rollback when finished"
-msgstr ""
+msgstr "Desfer (-rollback-) al acabar"
 
 #: libraries/sql_query_form.lib.php:386
 msgid "View only"
@@ -13960,7 +13967,7 @@ msgstr "Afegir columnes a la llista central"
 
 #: libraries/structure.lib.php:351
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "Eliminar columnes de la llista central"
 
 #: libraries/structure.lib.php:353
 #| msgid "CHAR textarea columns"
@@ -14201,7 +14208,7 @@ msgstr "Línia temporal"
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "Dispersió"
 
 #: libraries/tbl_chart.lib.php:82
 msgid "Stacked"
@@ -14229,7 +14236,7 @@ msgstr "Etiqueta de l'eix Y:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Els noms de les series hi són en una columna"
 
 #: libraries/tbl_chart.lib.php:240
 #| msgid "Inside column:"
@@ -14364,7 +14371,7 @@ msgstr "primer"
 
 #: libraries/tbl_columns_definition_form.lib.php:1099
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Editar valors ENUM/SET"
 
 #: libraries/tbl_columns_definition_form.lib.php:1124
 msgctxt "for default"
@@ -14425,7 +14432,7 @@ msgstr "Tria de l'índex:"
 
 #: libraries/tbl_indexes.lib.php:321
 msgid "Key block size:"
-msgstr ""
+msgstr "Mida del bloc de clau:"
 
 #: libraries/tbl_indexes.lib.php:333
 msgid "Index type:"
@@ -14494,7 +14501,7 @@ msgstr "Propietats de la restricció"
 #: libraries/tbl_relation.lib.php:376
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr ""
+msgstr "Només es mostraran columnes amb índex. Pots definir un índex a sota."
 
 #: libraries/tbl_relation.lib.php:381
 msgid "Foreign key constraint"
@@ -14820,7 +14827,7 @@ msgstr "Veure volcat (esquema) de les bases de dades"
 
 #: server_privileges.php:141
 msgid "Username and hostname didn't change."
-msgstr ""
+msgstr "El nom d'usuari i de servidor no s'han canviat."
 
 #: server_status_processes.php:36
 #, php-format
@@ -15044,7 +15051,7 @@ msgstr "Nom de taula incorrecte"
 #: tbl_replace.php:236
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Fila: %1$s, Columna: %2$s, Error: %3$s"
 
 #: tbl_structure.php:63
 #, php-format
