@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-09 22:59+0200\n"
+"PO-Revision-Date: 2015-03-18 23:25+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/sl/>\n"
@@ -11807,7 +11807,7 @@ msgstr "Zahteva prisotnost veljavnega certifikata X509 s to zadevo."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 cetrificate."
-msgstr ""
+msgstr "Zahteva veljaven certifikat X509."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
