@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-12 08:47+0200\n"
+"PO-Revision-Date: 2015-03-18 20:02+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/tr/>\n"
@@ -4620,7 +4620,7 @@ msgstr "Değiştirmek için tıklayın"
 #: libraries/Util.class.php:3332 libraries/sql_query_form.lib.php:435
 #: prefs_manage.php:246
 msgid "Browse your computer:"
-msgstr "Bilgisayarınıza gözat:"
+msgstr "Bilgisayara gözat:"
 
 #: libraries/Util.class.php:3357
 #, php-format
@@ -5727,7 +5727,7 @@ msgstr "Gecikmiş eklemeleri kullan"
 #: libraries/config/messages.inc.php:169
 #: libraries/plugins/export/ExportSql.class.php:142
 msgid "Disable foreign key checks"
-msgstr "Dış anahtar kontrolünü etkisizleştir"
+msgstr "Dış anahtar kontrollerini etkisizleştir"
 
 #: libraries/config/messages.inc.php:170
 #: libraries/plugins/export/ExportSql.class.php:155
