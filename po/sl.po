@@ -7605,7 +7605,7 @@ msgid ""
 "will be inserted with Shift+Enter."
 msgstr ""
 "Poizvedbe izvede pritisk na Enter (namesto Ctrl+Enter). Nove vrstice lahko "
-"vstavite s Shift+Enter"
+"vstavite s Shift+Enter."
 
 #: libraries/config/messages.inc.php:819
 msgid "Enter executes queries in console"
