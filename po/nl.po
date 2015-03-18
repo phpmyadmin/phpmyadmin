@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-18 14:15-0400\n"
-"PO-Revision-Date: 2015-03-16 17:37+0200\n"
+"PO-Revision-Date: 2015-03-18 22:33+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -4831,7 +4831,7 @@ msgstr "Attribuut"
 #: libraries/central_columns.lib.php:709
 #: libraries/central_columns.lib.php:1207
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -5607,10 +5607,10 @@ msgid "Maximum execution time"
 msgstr "Maximale uitvoertijd"
 
 #: libraries/config/messages.inc.php:111 libraries/display_export.lib.php:662
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
-msgstr "%s statement toevoegen"
+msgstr "Gebruik %s statement"
 
 #: libraries/config/messages.inc.php:113 prefs_manage.php:316
 msgid "Save as file"
@@ -6208,10 +6208,10 @@ msgid "Partial import: allow interrupt"
 msgstr "Gedeeltelijke import: onderbreken toestaan"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Temporarily disable foreign key checks while importing"
-msgstr "Controle op vreemde sleutels uitschakelen"
+msgstr ""
+"Tijdelijk de controle op externe sleutels uitschakelen tijdens importeren"
 
 #: libraries/config/messages.inc.php:343 libraries/config/messages.inc.php:353
 #: libraries/plugins/import/ImportCsv.class.php:89
@@ -7815,10 +7815,9 @@ msgid "New page"
 msgstr "Nieuwe pagina"
 
 #: libraries/db_designer.lib.php:297 libraries/db_designer.lib.php:300
-#, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "Pagina opslaan"
+msgstr "Pagina opslaan als"
 
 #: libraries/db_designer.lib.php:305 libraries/db_designer.lib.php:308
 msgid "Delete pages"
@@ -8267,16 +8266,14 @@ msgstr ""
 "beginnend bij de eerste :"
 
 #: libraries/display_import.lib.php:332
-#, fuzzy
 #| msgid "Options"
 msgid "Other Options:"
-msgstr "Opties"
+msgstr "Andere opties:"
 
 #: libraries/display_import.lib.php:338
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable foreign key check"
-msgstr "Controle op vreemde sleutels uitschakelen"
+msgstr "Controle op externe sleutel uitschakelen"
 
 #: libraries/display_import.lib.php:362
 msgid "Format-Specific Options:"
