@@ -1429,7 +1429,7 @@ class PMA_DisplayResults
                 = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
 
-            $button_html .= '<th ' . $colspan . '>'
+            $button_html .= '<th class="column_action" ' . $colspan . '>'
                 . $full_or_partial_text_link . '</th>';
 
         } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
@@ -1448,7 +1448,7 @@ class PMA_DisplayResults
         } elseif (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE)) {
             // ... elseif display an empty column if the actions links are
             //  disabled to match the rest of the table
-            $button_html .= '<th></th>';
+            $button_html .= '<th class="column_action"></th>';
         }
 
         $this->__set('vertical_display', $vertical_display);
@@ -2203,7 +2203,7 @@ class PMA_DisplayResults
      * column header's alignment right
      *
      * @param array $fields_meta set of field properties
-     * @param array &$th_class   array containing classes 
+     * @param array &$th_class   array containing classes
      *
      * @return void
      *
@@ -2348,7 +2348,7 @@ class PMA_DisplayResults
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
 
             $right_column_html .= "\n"
-                . '<th ' . $colspan . '>' . $full_or_partial_text_link
+                . '<th class="column_action" ' . $colspan . '>' . $full_or_partial_text_link
                 . '</th>';
 
         } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
