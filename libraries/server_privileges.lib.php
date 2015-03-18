@@ -1786,7 +1786,7 @@ function PMA_updatePassword($err_url, $username, $hostname)
             . 'PASSWORD';
 
         // in $sql_query which will be displayed, hide the password
-        if (PMA_MYSQL_INT_VERSION >= 50706) {
+        if (PMA_Util::getServerType() === 'MySQL' && PMA_MYSQL_INT_VERSION >= 50706) {
             $sql_query = 'ALTER USER \''
                 . PMA_Util::sqlAddSlashes($username)
                 . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' IDENTIFIED BY \''
@@ -1803,7 +1803,7 @@ function PMA_updatePassword($err_url, $username, $hostname)
                     . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
         }
 
-        if (PMA_MYSQL_INT_VERSION >= 50706) {
+        if (PMA_Util::getServerType() === 'MySQL' && PMA_MYSQL_INT_VERSION >= 50706) {
             $local_query = 'ALTER USER \''
                 . PMA_Util::sqlAddSlashes($username)
                 . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' IDENTIFIED BY \''
