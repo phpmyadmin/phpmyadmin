@@ -1527,11 +1527,11 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
             else if($term['type'] == 'punct_bracket_close_round'){
                 $in_function--;
             }
-			
+
             if($term['type'] == 'alpha_functionName'){
                 $in_function++;
             }
-			
+
             // Get columns in SET expression.
             if ($prev_term != 'punct') {
                 if ($term['type'] != 'punct_listsep'
