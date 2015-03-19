@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-18 14:15-0400\n"
-"PO-Revision-Date: 2015-03-11 14:23+0200\n"
-"Last-Translator: k725 <alexalex.kobayashi@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ja/>\n"
+"PO-Revision-Date: 2015-03-19 08:13+0200\n"
+"Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
+"Language-Team: Japanese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -334,12 +334,11 @@ msgid "Tracking data deleted successfully."
 msgstr "追跡データは正常に削除されました。"
 
 #: db_tracking.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr ""
-"世代 %1$s を作成しました。%2$s の SQL コマンド追跡機能はアクティブです。"
+msgstr "世代 %1$s を作成しました。SQL コマンド追跡機能はアクティブです。"
 
 #: db_tracking.php:79
 msgid "No tables selected."
@@ -14599,10 +14598,9 @@ msgid "Improve table structure"
 msgstr "テーブル構造を確認する"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "テーブルを追跡する"
+msgstr "追跡の閲覧"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:188
