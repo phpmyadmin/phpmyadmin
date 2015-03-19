@@ -107,6 +107,9 @@ $strConfigExecTimeLimit_desc = __(
     . 'limit).'
 );
 $strConfigExecTimeLimit_name = __('Maximum execution time');
+$strConfigExport_lock_tables_name = sprintf(
+    __('Use %s statement'), '<code>LOCK TABLES</code>'
+);
 $strConfigExport_asfile_name = __('Save as file');
 $strConfigExport_charset_name = __('Character set of the file');
 $strConfigExport_codegen_format_name = __('Format');
@@ -329,6 +332,10 @@ $strConfigImport_allow_interrupt_desc = __(
     . 'transactions.'
 );
 $strConfigImport_allow_interrupt_name = __('Partial import: allow interrupt');
+$strConfigImport_disable_foreign_keys_desc = __(
+    'Temporarily disable foreign key checks while importing'
+);
+$strConfigImport_disable_foreign_keys_name = __('Disable foreign key checks');
 $strConfigImport_charset_name = __('Character set of the file');
 $strConfigImport_csv_col_names_name = __('Lines terminated with');
 $strConfigImport_csv_enclosed_name = __('Columns enclosed with');
@@ -807,6 +814,10 @@ $strConfigCaptchaLoginPrivateKey_name = __('Private key for reCaptcha');
 
 $strConfigSendErrorReports_desc = __('Choose the default action when sending error reports.');
 $strConfigSendErrorReports_name = __('Send error reports');
+
+$strConfigConsoleEnterExecutes_desc = __('Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines will be inserted with Shift+Enter.');
+$strConfigConsoleEnterExecutes_name = __('Enter executes queries in console');
+
 $strConfigZeroConf_desc = __(
     'Enable Zero Configuration mode which lets you setup phpMyAdmin '
     . 'configuration storage tables automatically.'

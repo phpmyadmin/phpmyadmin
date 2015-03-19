@@ -174,8 +174,9 @@ function PMA_getHtmlForFooter()
  */
 function PMA_getHtmlForTableNameAndNoOfColumns()
 {
-    $html = '<table>'
-        . '<tr class="vmiddle">'
+    $html = '<div id="table_name_col_no_outer">'
+        . '<table id="table_name_col_no">'
+        . '<tr class="vmiddle floatleft">'
         . '<td>' . __('Table name')
         . ':&nbsp;<input type="text" name="table" size="40" maxlength="80"'
         . ' value="'
@@ -194,7 +195,8 @@ function PMA_getHtmlForTableNameAndNoOfColumns()
 
     $html .= '</td>'
         . '</tr>'
-        . '</table>';
+        . '</table>'
+        . '</div>';
 
     return $html;
 }
@@ -977,6 +979,31 @@ function PMA_getHtmlForColumnNull($columnNumber, $ci, $ci_offset, $columnMeta)
     }
 
     $html .= ' type="checkbox" value="NULL" class="allow_null"/>';
+
+    return $html;
+}
+
+/**
+ * Function to get html for column A_I
+ *
+ * @param int   $columnNumber column number
+ * @param int   $ci           cell index
+ * @param int   $ci_offset    cell index offset
+ * @param array $columnMeta   column meta
+ *
+ * @return string
+ */
+function PMA_getHtmlForColumnExtra($columnNumber, $ci, $ci_offset, $columnMeta)
+{
+    $html = '<input name="col_extra[' . $columnNumber . ']"'
+            . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"';
+    if (! empty($columnMeta['Extra'])
+        && $columnMeta['Extra'] == 'auto_increment'
+    ) {
+        $html .= ' checked="checked"';
+    }
+
+    $html .= ' type="checkbox" value="auto_increment" />';
 
     return $html;
 }

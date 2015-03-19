@@ -107,6 +107,9 @@ var PMA_console = {
                 if(tempConfig.currentQuery === true) {
                     $('#pma_console_options input[name=current_query]').prop('checked', true);
                 }
+                if(ConsoleEnterExecutes === true) {
+                    $('#pma_console_options input[name=enter_executes]').prop('checked', true);
+                }
             } else {
                 $('#pma_console_options input[name=current_query]').prop('checked', true);
             }
@@ -155,6 +158,9 @@ var PMA_console = {
             $('#pma_bookmarks .switch_button').click(function() {
                 PMA_console.hideCard($(this).closest('.card'));
             });
+            $('#pma_console_options .switch_button').click(function() {
+                PMA_console.hideCard($(this).closest('.card'));
+            });
 
             $('#pma_console_options input[type=checkbox]').change(function() {
                 PMA_console.updateConfig();
@@ -164,7 +170,12 @@ var PMA_console = {
                 $('#pma_console_options input[name=always_expand]').prop('checked', false);
                 $('#pma_console_options input[name=start_history]').prop('checked', false);
                 $('#pma_console_options input[name=current_query]').prop('checked', true);
+                $('#pma_console_options input[name=enter_executes]').prop('checked', false);
                 PMA_console.updateConfig();
+            });
+
+            $('#pma_console_options input[name=enter_executes]').change(function() {
+                PMA_consoleMessages.showInstructions(PMA_console.config.enterExecutes);
             });
 
             $(document).ajaxComplete(function (event, xhr) {
@@ -386,7 +397,8 @@ var PMA_console = {
         PMA_console.config = {
             alwaysExpand: $('#pma_console_options input[name=always_expand]').prop('checked'),
             startHistory: $('#pma_console_options input[name=start_history]').prop('checked'),
-            currentQuery: $('#pma_console_options input[name=current_query]').prop('checked')
+            currentQuery: $('#pma_console_options input[name=current_query]').prop('checked'),
+            enterExecutes: $('#pma_console_options input[name=enter_executes]').prop('checked')
         };
         $.cookie('pma_console_config', JSON.stringify(PMA_console.config));
     },
@@ -594,13 +606,22 @@ var PMA_consoleInput = {
     },
     /**
      * Mousedown event handler for bind to input
-     * Shortcut is Ctrl+Enter key
+     * Shortcut is Ctrl+Enter key or just ENTER, depending on console's
+     * configuration.
      *
      * @return void
      */
     _keydown: function(event) {
-        if(event.ctrlKey && event.keyCode === 13) {
-            PMA_consoleInput.execute();
+        if (PMA_console.config.enterExecutes) {
+            // Enter, but not in combination with Shift (which writes a new line).
+            if (!event.shiftKey && event.keyCode === 13) {
+                PMA_consoleInput.execute();
+            }
+        } else {
+            // Ctrl+Enter
+            if (event.ctrlKey && event.keyCode === 13) {
+                PMA_consoleInput.execute();
+            }
         }
     },
     /**
@@ -732,6 +753,19 @@ var PMA_consoleMessages = {
         } else {
             return $query.text();
         }
+    },
+    /**
+     * Used to show the correct message depending on which key
+     * combination executes the query (Ctrl+Enter or Enter).
+     *
+     * @param bool enterExecutes Only Enter has to be pressed to execute query.
+     * @return void
+     */
+    showInstructions: function(enterExecutes) {
+        enterExecutes = +enterExecutes || 0; // conversion to int
+        var $welcomeMsg = $('#pma_console .content .console_message_container .message.welcome span');
+        $welcomeMsg.children('[id^=instructions]').hide();
+        $welcomeMsg.children('#instructions-' + enterExecutes).show();
     },
     /**
      * Used for log new message
@@ -928,6 +962,7 @@ var PMA_consoleMessages = {
         if(PMA_console.config.startHistory) {
             PMA_consoleMessages.showHistory();
         }
+        PMA_consoleMessages.showInstructions(PMA_console.config.enterExecutes);
     }
 };
 

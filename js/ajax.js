@@ -153,7 +153,11 @@ var AJAX = {
          * @todo Fix Code mirror does not give correct full value (query)
          * in textarea, it returns only the change in content.
          */
-        var newHash = AJAX.hash($(this).val());
+        if (event.data.value == 1) {
+            var newHash = AJAX.hash($(this).val());
+        } else {
+            var newHash = AJAX.hash($(this).is(":checked"));
+        }
         var oldHash = $(this).data('val-hash');
         // Set lock if old value != new value
         // otherwise release lock
@@ -432,15 +436,24 @@ var AJAX = {
                 }
                 AJAX._callback = function () {};
             });
-            // initializes all lock-page elements lock-id and
-            // val-hash data property
+            // initializes lock-page elements (textarea, input types text and number,
+            // and select) lock-id and val-hash data property
             $('#page_content form.lock-page textarea, ' +
-            '#page_content form.lock-page input[type="text"]').each(function(i){
+            '#page_content form.lock-page input[type="text"], '+
+            '#page_content form.lock-page input[type="number"], '+
+            '#page_content form.lock-page select').each(function(i){
                 $(this).data('lock-id', i);
                 // val-hash is the hash of default value of the field
                 // so that it can be compared with new value hash
                 // to check whether field was modified or not.
                 $(this).data('val-hash', AJAX.hash($(this).val()));
+            });
+            // initializes lock-page elements (input types checkbox and radio buttons)
+            // lock-id and val-hash data property
+            $('#page_content form.lock-page input[type="checkbox"], ' +
+            '#page_content form.lock-page input[type="radio"]').each(function(i){
+                $(this).data('lock-id', i);
+                $(this).data('val-hash', AJAX.hash($(this).is(":checked")));
             });
         } else {
             PMA_ajaxShowMessage(data.error, false);
@@ -623,12 +636,22 @@ AJAX.registerOnload('functions.js', function () {
 
     /**
      * Attach event listener to events when user modify visible
-     * Input or Textarea fields to make changes in forms
+     * Input,Textarea and select fields to make changes in forms
      */
     $('#page_content').on(
         'keyup change',
         'form.lock-page textarea, ' +
-        'form.lock-page input[type="text"]',
+        'form.lock-page input[type="text"], ' +
+        'form.lock-page input[type="number"], ' +
+        'form.lock-page select',
+        {value:1},
+        AJAX.lockPageHandler
+    );
+    $('#page_content').on(
+        'change',
+        'form.lock-page input[type="checkbox"], ' +
+        'form.lock-page input[type="radio"]',
+        {value:2},
         AJAX.lockPageHandler
     );
     /**
@@ -647,7 +670,11 @@ AJAX.registerOnload('functions.js', function () {
 AJAX.registerTeardown('functions.js', function () {
     $('#page_content').off('keyup change',
         'form.lock-page textarea, ' +
-        'form.lock-page input[type="text"]'
+        'form.lock-page input[type="text"], ' +
+        'form.lock-page input[type="number"], ' +
+        'form.lock-page select, ' +
+        'form.lock-page input[type="checkbox"], ' +
+        'form.lock-page input[type="radio"]'
     );
     $('form.lock-page').off('reset');
 });

@@ -92,7 +92,7 @@ class Node_Database extends Node
     /**
      * Returns the number of tables or views present inside this database
      *
-     * @param string  $which        tables|views 
+     * @param string  $which        tables|views
      * @param string  $searchClause A string used to filter the results of
      *                              the query
      * @param boolean $singleItem   Whether to get presence of a single known
@@ -385,7 +385,7 @@ class Node_Database extends Node
     /**
      * Returns the list of tables or views inside this database
      *
-     * @param string $which        tables|views 
+     * @param string $which        tables|views
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
@@ -478,7 +478,7 @@ class Node_Database extends Node
     /**
      * Returns the list of procedures or functions inside this database
      *
-     * @param string $routineType  PROCEDURE|FUNCTION 
+     * @param string $routineType  PROCEDURE|FUNCTION
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
@@ -621,7 +621,7 @@ class Node_Database extends Node
         $ret = '';
         $cfgRelation = PMA_getRelationsParam();
         if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
-            if ( $this->_hiddenCount > 0) {
+            if ($this->_hiddenCount > 0) {
                 $ret = '<span class="dbItemControls">'
                     . '<a href="navigation.php'
                     . PMA_URL_getCommon()

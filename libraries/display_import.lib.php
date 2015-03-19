@@ -322,6 +322,28 @@ function PMA_getHtmlForImportOptionsPartialImport($timeout_passed, $offset)
 }
 
 /**
+ * Prints Html For Display Import options : Other
+ *
+ * @return string
+ */
+function PMA_getHtmlForImportOptionsOther()
+{
+    $html  = '   <div class="importoptions">';
+    $html .= '       <h3>' . __('Other Options:') . '</h3>';
+    $html .= '       <div class="formelementrow">';
+    $html .= '           <input type="checkbox" name="disable_foreign_keys"';
+    $html .= '               value="yes" id="checkbox_disable_foreign_keys" ';
+    $html .= PMA_pluginCheckboxCheck('Import', 'disable_foreign_keys') . '/>';
+    $html .= '           <label for="checkbox_disable_foreign_keys">';
+    $html .= __('Disable foreign key check');
+    $html .= '           </label>';
+    $html .= '       </div>';
+    $html .= '   </div>';
+
+    return $html;
+}
+
+/**
  * Prints Html For Display Import options : Format
  *
  * @param Array $import_list import list
@@ -420,6 +442,8 @@ function PMA_getHtmlForImport(
     $html .= PMA_getHtmlForImportOptionsFile($max_upload_size, $import_list);
 
     $html .= PMA_getHtmlForImportOptionsPartialImport($timeout_passed, $offset);
+
+    $html .= PMA_getHtmlForImportOptionsOther();
 
     $html .= PMA_getHtmlForImportOptionsFormat($import_list);
 

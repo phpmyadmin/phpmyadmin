@@ -144,6 +144,7 @@ $forms['Features']['Other_core_settings'] = array(
     'UseDbSearch',
     'VersionCheck',
     'SendErrorReports',
+    'ConsoleEnterExecutes',
     'ProxyUrl',
     'ProxyUser',
     'ProxyPass',
@@ -243,7 +244,8 @@ $forms['Import']['Import_defaults'] = array('Import' => array(
     'format',
     'charset',
     'allow_interrupt',
-    'skip_queries'));
+    'skip_queries',
+    'disable_foreign_keys'));
 $forms['Import']['Sql'] = array('Import' => array(
     'sql_compatibility',
     'sql_no_auto_value_on_zero'));
@@ -280,6 +282,7 @@ $forms['Export']['Export_defaults'] = array('Export' => array(
         'format',
         'compression',
         'charset',
+        'lock_tables',
         'asfile' => ':group',
             'onserver',
             'onserver_overwrite',

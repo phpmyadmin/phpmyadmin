@@ -201,7 +201,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $this->assertEquals(
-            '<a id="db_search"></a><form id="db_search_form" class="ajax" '
+            '<a id="db_search"></a><form id="db_search_form" class="ajax lock-page" '
             . 'method="post" action="db_search.php" name="db_search">'
             . '<input type="hidden" name="db" value="pma" />'
             . '<input type="hidden" name="lang" value="en" />'

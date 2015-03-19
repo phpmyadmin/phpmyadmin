@@ -2018,6 +2018,18 @@ fieldset .disabled-field td {
     padding: 0.5em;
 }
 
+#table_name_col_no_outer {
+    margin-top: 30px;
+}
+
+#table_name_col_no {
+    position: fixed;
+    top: 44px;
+    z-index: 500;
+    width: 100%;
+    background: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
+}
+
 #table_columns input[type="text"],
 #table_columns input[type="password"],
 #table_columns input[type="number"],

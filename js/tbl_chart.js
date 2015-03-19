@@ -395,11 +395,6 @@ AJAX.registerOnload('tbl_chart.js', function () {
  *
  */
 $(document).on('submit', "#tblchartform", function (event) {
-    if (!checkFormElementInRange(this, 'session_max_rows', PMA_messages.strNotValidRowNumber, 1) ||
-        !checkFormElementInRange(this, 'pos', PMA_messages.strNotValidRowNumber, 0 - 1)
-    ) {
-        return false;
-    }
 
     var $form = $(this);
     if (codemirror_editor) {

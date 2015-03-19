@@ -652,6 +652,17 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
     $html .= '<label for="btn_alias_config">';
     $html .= __('Rename exported databases/tables/columns');
     $html .= '</label></li>';
+
+    if ($export_type != 'server') {
+        $html .= '<li>';
+        $html .= '<input type="checkbox" name="lock_tables"';
+        $html .= ' value="something" id="checkbox_lock_tables"';
+        $html .= ' ' . PMA_exportCheckboxCheck('lock_tables') . '/>';
+        $html .= '<label for="checkbox_lock_tables">';
+        $html .= sprintf(__('Use %s statement'), '<code>LOCK TABLES</code>');
+        $html .= '</label></li>';
+    }
+
     $html .= '<li>';
     $html .= '<input type="radio" name="output_format" value="sendit" ';
     $html .= 'id="radio_dump_asfile" ';

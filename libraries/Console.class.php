@@ -215,7 +215,10 @@ class PMA_Console
             $output .= '<div class="content">';
             $output .= '<div class="console_message_container">'
                     .  '<div class="message welcome"><span>'
-                    .  __('Press Ctrl+Enter to execute query')
+                    .  '<span id="instructions-0">'
+                    .  __('Press Ctrl+Enter to execute query') . '</span>'
+                    .  '<span class="hide" id="instructions-1">'
+                    .  __('Press Enter to execute query') . '</span>'
                     .  '</span></div>';
 
             // History support
@@ -310,6 +313,9 @@ class PMA_Console
                     .  __('Show query history at start') . '</label><br>'
                     .  '<label><input type="checkbox" name="current_query">'
                     .  __('Show current browsing query') . '</label><br>'
+                    .  '<label><input type="checkbox" name="enter_executes">'
+                    .  __('Execute queries on Enter and insert new line with Shift + Enter. '
+                    .     'To make this permanent, view settings.') . '</label><br>'
                     .  '</div>';
             $output .= '</div>'; // Options card
 

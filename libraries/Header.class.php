@@ -397,6 +397,8 @@ class PMA_Header
                     $this->_scripts->addFile('codemirror/addon/hint/show-hint.js');
                     $this->_scripts->addFile('codemirror/addon/hint/sql-hint.js');
                 }
+                $this->_scripts->addCode('ConsoleEnterExecutes='
+                    . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false'));
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');
                 }
