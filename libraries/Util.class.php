@@ -483,12 +483,12 @@ class PMA_Util
         $link, $big_icon = false, $anchor = '', $just_open = false
     ) {
         $url = self::getMySQLDocuURL($link, $anchor);
-        $open_link = '<a href="' . $url . '" target="mysql_doc">';
+        $open_link = '<a href="' . $url . '" target="mysql_doc" title="'.__('MySQL Documentation').'">';
         if ($just_open) {
             return $open_link;
         } elseif ($big_icon) {
             return $open_link
-                . self::getImage('b_sqlhelp.png', __('Documentation')) . '</a>';
+                . self::getImage('b_sqlhelp.png', __('MySQL Documentation')) . '</a>';
         } else {
             return self::showDocLink($url, 'mysql_doc');
         }
