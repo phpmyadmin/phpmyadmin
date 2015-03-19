@@ -71,6 +71,7 @@ explanation
 - bug #4807 Breaks when sorting by multiple columns while using UNION
 - bug #4798 Missing column when exporting in sql
 - bug #4810 Broken find and replace
+- bug #4804 Undefined Index after export schema
 
 4.3.12.0 (2015-03-14)
 - bug #4746 Right-aligned columns have left-aligned header
