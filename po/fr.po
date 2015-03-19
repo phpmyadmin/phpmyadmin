@@ -7661,8 +7661,8 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
-"Les requêtes sont exécutées en appuyant sur entrée (au lieu de Ctrl + "
-"Entrée). De nouvelles lignes seront insérées avec Maj + Entrée"
+"Les requêtes sont exécutées en appuyant sur Entrée (au lieu de Ctrl + Entrée)"
+". De nouvelles lignes seront insérées avec Maj + Entrée."
 
 #: libraries/config/messages.inc.php:819
 msgid "Enter executes queries in console"
