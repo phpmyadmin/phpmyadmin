@@ -344,6 +344,7 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
                 open: function () {
                     checkIndexName("index_frm");
                     PMA_showHints($div);
+                    PMA_init_slider();
                     $('#index_columns td').each(function () {
                         $(this).css("width", $(this).width() + 'px');
                     });

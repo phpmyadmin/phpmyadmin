@@ -368,7 +368,7 @@ function PMA_addDatepicker($this_element, type, options)
             }, 0);
         },
         onSelect: function() {
-            $this_element.data('datepicker').inline = true;                               
+            $this_element.data('datepicker').inline = true;
         },
         onClose: function (dateText, dp_inst) {
             // The value is no more from the date picker
@@ -3493,6 +3493,7 @@ function showIndexEditDialog($outer)
             );
         }
     });
+    $('div.add_fields').removeClass('hide');
     // focus index size input on column picked
     $outer.find('table#index_columns select').change(function () {
         if ($(this).find("option:selected").val() === '') {
