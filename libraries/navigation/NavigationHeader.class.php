@@ -184,7 +184,7 @@ class PMA_NavigationHeader
             // we just replace it with some perl regexp.
             $link = preg_replace(
                 '/<img[^>]+>/i',
-                __('Documentation'),
+                __('MySQL Documentation'),
                 PMA_Util::showMySQLDocu('', true)
             );
             $retval .= $link;
