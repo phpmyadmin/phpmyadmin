@@ -584,7 +584,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                             $one_table,
                             $one_field,
                             $one_key['ref_table_name'],
-                            $rel['foreign_field'][$index]
+                            $one_key['ref_index_list'][$index]
                         );
                     }
                 }
