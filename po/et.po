@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-18 14:15-0400\n"
-"PO-Revision-Date: 2015-03-09 15:22+0200\n"
+"PO-Revision-Date: 2015-03-19 08:57+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -4771,7 +4771,7 @@ msgstr "Atribuut"
 #: libraries/central_columns.lib.php:709
 #: libraries/central_columns.lib.php:1207
 msgid "A_I"
-msgstr ""
+msgstr "T_I"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -5531,10 +5531,10 @@ msgid "Maximum execution time"
 msgstr "Suurim teostamise aeg"
 
 #: libraries/config/messages.inc.php:111 libraries/display_export.lib.php:662
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
-msgstr "Lisa %s käsk"
+msgstr "Kasuta käsku %s"
 
 #: libraries/config/messages.inc.php:113 prefs_manage.php:316
 msgid "Save as file"
@@ -6131,10 +6131,9 @@ msgid "Partial import: allow interrupt"
 msgstr "Osaline importimine: luba katkestamine"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Temporarily disable foreign key checks while importing"
-msgstr "Keela võõrvõtme kontrollid"
+msgstr "Keela importimise ajaks ajutiselt võõrvõtme kontrollid"
 
 #: libraries/config/messages.inc.php:343 libraries/config/messages.inc.php:353
 #: libraries/plugins/import/ImportCsv.class.php:89
@@ -7540,7 +7539,7 @@ msgid ""
 "will be inserted with Shift+Enter."
 msgstr ""
 "Päringud käivitatakse klahvi Enter vajutamisel (Ctrl+Enter asemel). "
-"Reavahetus sisesta Shift+Enter kombinatsiooniga"
+"Reavahetuseks kasuta kombinatsiooni Shift+Enter."
 
 #: libraries/config/messages.inc.php:819
 msgid "Enter executes queries in console"
@@ -7691,10 +7690,9 @@ msgid "New page"
 msgstr "Uus leht"
 
 #: libraries/db_designer.lib.php:297 libraries/db_designer.lib.php:300
-#, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "Salvesta leht"
+msgstr "Salvesta leht nimega"
 
 #: libraries/db_designer.lib.php:305 libraries/db_designer.lib.php:308
 msgid "Delete pages"
@@ -8135,16 +8133,14 @@ msgid ""
 msgstr "Jäta vahele nii palju SQL päringuid või ridu, alates esimesest:"
 
 #: libraries/display_import.lib.php:332
-#, fuzzy
 #| msgid "Options"
 msgid "Other Options:"
-msgstr "Valikud"
+msgstr "Muud valikud:"
 
 #: libraries/display_import.lib.php:338
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable foreign key check"
-msgstr "Keela võõrvõtme kontrollid"
+msgstr "Keela võõrvõtme kontroll"
 
 #: libraries/display_import.lib.php:362
 msgid "Format-Specific Options:"
