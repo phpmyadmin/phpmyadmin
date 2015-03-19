@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-18 14:15-0400\n"
-"PO-Revision-Date: 2015-03-10 12:42+0200\n"
+"PO-Revision-Date: 2015-03-19 13:07+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -4839,7 +4839,7 @@ msgstr "Attribut"
 #: libraries/central_columns.lib.php:709
 #: libraries/central_columns.lib.php:1207
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -5608,10 +5608,10 @@ msgid "Maximum execution time"
 msgstr "Durée maximum d'exécution"
 
 #: libraries/config/messages.inc.php:111 libraries/display_export.lib.php:662
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
-msgstr "Ajouter un énoncé %s"
+msgstr "Utiliser l'énoncé %s"
 
 #: libraries/config/messages.inc.php:113 prefs_manage.php:316
 msgid "Save as file"
@@ -6210,10 +6210,11 @@ msgid "Partial import: allow interrupt"
 msgstr "Permettre l'interruption lors de l'importation"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Temporarily disable foreign key checks while importing"
-msgstr "Désactiver la vérification des clés étrangères"
+msgstr ""
+"Désactiver temporairement les contrôles de clés étrangères lors de "
+"l'importation"
 
 #: libraries/config/messages.inc.php:343 libraries/config/messages.inc.php:353
 #: libraries/plugins/import/ImportCsv.class.php:89
@@ -7814,10 +7815,9 @@ msgid "New page"
 msgstr "Nouvelle page"
 
 #: libraries/db_designer.lib.php:297 libraries/db_designer.lib.php:300
-#, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "Sauvegarder la page"
+msgstr "Sauvegarder la page en tant que"
 
 #: libraries/db_designer.lib.php:305 libraries/db_designer.lib.php:308
 msgid "Delete pages"
@@ -8265,13 +8265,11 @@ msgstr ""
 "partir du début :"
 
 #: libraries/display_import.lib.php:332
-#, fuzzy
 #| msgid "Options"
 msgid "Other Options:"
-msgstr "Options"
+msgstr "Autres options :"
 
 #: libraries/display_import.lib.php:338
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable foreign key check"
 msgstr "Désactiver la vérification des clés étrangères"
