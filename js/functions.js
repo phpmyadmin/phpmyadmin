@@ -4301,6 +4301,35 @@ $(document).on("change", "input.checkall_box", function () {
 });
 
 /**
+ * Watches checkboxes in a sub form to set the sub checkall box accordingly
+ */
+var sub_checkboxes_changed = function () {
+    var $form = $(this).parent().parent();
+    // total number of checkboxes in current sub form
+    var total_boxes = $form.find(checkboxes_sel).length;
+    // number of checkboxes checked in current sub form
+    var checked_boxes = $form.find(checkboxes_sel + ":checked").length;
+    var $checkall = $form.find("input.sub_checkall_box");
+    if (total_boxes == checked_boxes) {
+        $checkall.prop({checked: true, indeterminate: false});
+    }
+    else if (checked_boxes > 0) {
+        $checkall.prop({checked: true, indeterminate: true});
+    }
+    else {
+        $checkall.prop({checked: false, indeterminate: false});
+    }
+};
+$(document).on("change", checkboxes_sel + ", input.checkall_box:checkbox:enabled", sub_checkboxes_changed);
+
+$(document).on("change", "input.sub_checkall_box", function () {
+    var is_checked = $(this).is(":checked");
+    var $form = $(this).parent().parent();
+    $form.find(checkboxes_sel).prop("checked", is_checked)
+    .parents("tr").toggleClass("marked", is_checked);
+});
+
+/**
  * Toggles row colors of a set of 'tr' elements starting from a given element
  *
  * @param $start Starting element
