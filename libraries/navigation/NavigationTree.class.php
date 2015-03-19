@@ -843,7 +843,7 @@ class PMA_NavigationTree
                 $retval .= urlencode($parents[0]->real_name);
                 $retval .= "</span>";
                 if (empty($listContent)) {
-                    $retval .= "<div style='margin:0.75em;font-size:1.2em'>";
+                    $retval .= "<div style='margin:0.75em'>";
                     $retval .= __('No tables found in database.');
                     $retval .= "</div>";
                 }
@@ -1206,7 +1206,7 @@ class PMA_NavigationTree
         $retval .= '</select></form>';
         $retval .= '</div></div>';
         $retval .= '<div id="pma_navigation_tree_content">';
-        $retval .= '<div style="margin:0.75em;font-size:1.2em">';
+        $retval .= '<div style="margin:0.75em">';
         $retval .= __('Please select a database.');
         $retval .= '</div>';
         $retval .= '</div>';
