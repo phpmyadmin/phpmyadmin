@@ -176,20 +176,16 @@ class PMA_NavigationHeader
             false,
             'documentation'
         );
-        if ($showIcon) {
-            $retval .= PMA_Util::showMySQLDocu('', true);
-        }
-        if ($showText) {
-            // PMA_showMySQLDocu always spits out an icon,
-            // we just replace it with some perl regexp.
-            $link = preg_replace(
-                '/<img[^>]+>/i',
-                __('Documentation'),
-                PMA_Util::showMySQLDocu('', true)
-            );
-            $retval .= $link;
-            $retval .= '<br />';
-        }
+        $retval .= PMA_Util::getNavigationLink(
+            PMA_Util::getMySQLDocuURL('', ''),
+            $showText,
+            __('Documentation'),
+            $showIcon,
+            'b_sqlhelp.png',
+            '',
+            false,
+            'mysql_doc'
+        );
         $retval .= PMA_Util::getNavigationLink(
             '#',
             $showText,
