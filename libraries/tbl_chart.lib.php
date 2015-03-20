@@ -272,38 +272,6 @@ function PMA_getHtmlForAlternativeDataFormat($keys, $fields_meta, $numeric_types
 }
 
 /**
- * Function to get html for the start row and number of rows options
- *
- * @param string $sql_query sql query
- *
- * @return string
- */
-function PMA_getHtmlForStartAndNumberOfRowsOptions($sql_query)
-{
-    $htmlString = '<p style="clear:both;">&nbsp;</p>'
-        . '<fieldset>'
-        . '<div>'
-        . '<label for="pos">' . __('Start row:') . '</label>'
-        . '<input type="text" name="pos" size="3" value="'
-        . $_SESSION['tmpval']['pos'] . '" />'
-        . '<label for="session_max_rows">'
-        . __('Number of rows:') . '</label>'
-        . '<input type="text" name="session_max_rows" size="3" value="'
-        . (($_SESSION['tmpval']['max_rows'] != 'all')
-            ? $_SESSION['tmpval']['max_rows']
-            : $GLOBALS['cfg']['MaxRows'])
-        . '" />'
-        . '<input type="submit" name="submit" class="Go" value="' . __('Go')
-        . '" />'
-        . '<input type="hidden" name="sql_query" value="'
-        . htmlspecialchars($sql_query) . '" />'
-        . '</div>'
-        . '</fieldset>';
-
-    return $htmlString;
-}
-
-/**
  * Function to get html for the chart area div
  *
  * @return string
@@ -370,7 +338,7 @@ function PMA_getHtmlForTableChartDisplay($url_query, $url_params, $keys,
     $htmlString .= PMA_getHtmlForAlternativeDataFormat(
         $keys, $fields_meta, $numeric_types, $xaxis
     );
-    $htmlString .= PMA_getHtmlForStartAndNumberOfRowsOptions($sql_query);
+    $htmlString .= PMA_Util::getStartAndNumberOfRowsPanel($sql_query);
 
     $htmlString .= PMA_getHtmlForChartAreaDiv();
 

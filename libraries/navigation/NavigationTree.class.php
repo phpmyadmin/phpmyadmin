@@ -955,7 +955,7 @@ class PMA_NavigationTree
         if ($node->hasSiblings()
             || $node->realParent() === false
         ) {
-            if (   $node->type == Node::CONTAINER
+            if ($node->type == Node::CONTAINER
                 && count($node->children) == 0
                 && $GLOBALS['is_ajax_request'] != true
             ) {

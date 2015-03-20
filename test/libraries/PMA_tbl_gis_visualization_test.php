@@ -39,6 +39,9 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['cfg']['ServerDefault'] = "server";
+        $_REQUEST['unlim_num_rows'] = 100;
+        $_REQUEST['pos'] = 0;
+        $_REQUEST['session_max_rows'] = 25;
 
         $GLOBALS['PMA_Config'] = new PMA_MockConfig();
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')

@@ -38,9 +38,9 @@ unset($drops, $each_drop);
  * Such scripts must not be loaded on home page.
  *
  */
- $target_blacklist = array (
+$target_blacklist = array (
     'import.php', 'export.php'
-    );
+);
 
 // If we have a valid target, let's load that script instead
 if (! empty($_REQUEST['target'])

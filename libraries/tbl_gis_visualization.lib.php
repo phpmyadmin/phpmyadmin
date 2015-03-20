@@ -15,13 +15,16 @@ require_once 'libraries/sql.lib.php';
  * Returns a modified sql query with only the label column
  * and spatial column(wrapped with 'ASTEXT()' function).
  *
- * @param string $sql_query             original sql query
- * @param array  $visualizationSettings settings for the visualization
+ * @param string  $sql_query             original sql query
+ * @param array   $visualizationSettings settings for the visualization
+ * @param integer $rows                  number of rows
+ * @param integer $pos                   start position
  *
  * @return string the modified sql query.
  */
-function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
-{
+function PMA_GIS_modifyQuery(
+    $sql_query, $visualizationSettings, $rows = null, $pos = null
+) {
     $modified_query = 'SELECT ';
     // If label column is chosen add it to the query
     if (! empty($visualizationSettings['labelColumn'])) {
@@ -42,6 +45,16 @@ function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
     // Append the original query as the inner query
     $modified_query .= 'FROM (' . $sql_query . ') AS '
         . PMA_Util::backquote('temp_gis');
+
+    // LIMIT clause
+    if (is_numeric($rows) && $rows > 0) {
+        $modified_query .= ' LIMIT ';
+        if (is_numeric($pos) && $pos >= 0) {
+            $modified_query .= $pos . ', ' . $rows;
+        } else {
+            $modified_query .= $rows;
+        }
+    }
 
     return $modified_query;
 }
@@ -222,14 +235,12 @@ function PMA_getHtmlForGisVisualization(
     );
 
     $html .= '<input type="hidden" name="displayVisualization" value="redraw">';
-    $html .= '<input type="hidden" name="sql_query" value="';
-    $html .= htmlspecialchars($sql_query) . '" />';
-    $html .= '</form>';
-
     if (! $GLOBALS['PMA_Config']->isHttps()) {
         $isSelected = isset($visualizationSettings['choice']) ? true : false;
         $html .= PMA_getHtmlForUseOpenStreetMaps($isSelected);
     }
+    $html .= PMA_Util::getStartAndNumberOfRowsPanel($sql_query);
+    $html .= '</form>';
 
     $html .= '<div class="pma_quick_warp" style="width: 50px; position: absolute;'
         . ' right: 0; top: 0; cursor: pointer;">';

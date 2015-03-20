@@ -3994,12 +3994,12 @@ class PMA_Util
         $in_string = false;
         $buffer = '';
 
-        for ($i=0, $length = /*overload*/mb_strlen($values_string);
+        for ($i = 0, $length = /*overload*/mb_strlen($values_string);
              $i < $length;
              $i++
         ) {
             $curr = /*overload*/mb_substr($values_string, $i, 1);
-            $next = ($i == /*overload*/mb_strlen($values_string)-1)
+            $next = ($i == /*overload*/mb_strlen($values_string) - 1)
                 ? ''
                 : /*overload*/mb_substr($values_string, $i + 1, 1);
 
@@ -4578,6 +4578,52 @@ class PMA_Util
             . '</label>';
         $html .= '<i style="margin-left: 2em">'
             . __('With selected:') . '</i>';
+
+        return $html;
+    }
+
+    /**
+     * Function to get html for the start row and number of rows panel
+     *
+     * @param string $sql_query sql query
+     *
+     * @return string html
+     */
+    public static function getStartAndNumberOfRowsPanel($sql_query)
+    {
+        $html = '<fieldset><div>';
+
+        $pos = isset($_REQUEST['pos']) ? $_REQUEST['pos'] : $_SESSION['tmpval']['pos'];
+        $html .= '<label for="pos">' . __('Start row:') . '</label>'
+            . '<input type="number" name="pos" min="0" required="required"';
+        if ($_REQUEST['unlim_num_rows'] > 0) {
+            $html .= ' max="' . ($_REQUEST['unlim_num_rows'] - 1) . '"';
+        }
+        $html .= ' value="' . htmlspecialchars($pos) . '" />';
+
+        if (isset($_REQUEST['session_max_rows'])) {
+            $rows = $_REQUEST['session_max_rows'];
+        } else {
+            if ($_SESSION['tmpval']['max_rows'] != 'all') {
+                $rows = $_SESSION['tmpval']['max_rows'];
+            } else {
+                $rows = $GLOBALS['cfg']['MaxRows'];
+            }
+        }
+        $html .= '<label for="session_max_rows">'
+            . __('Number of rows:')
+            . '</label>'
+            . '<input type="number" name="session_max_rows" min="1"'
+            . ' value="' . htmlspecialchars($rows) . '" required="required" />';
+
+        $html .= '<input type="submit" name="submit" class="Go"'
+            . ' value="' . __('Go') . '" />'
+            . '<input type="hidden" name="sql_query"'
+            . ' value="' . htmlspecialchars($sql_query) . '" />'
+            . '<input type="hidden" name="unlim_num_rows"'
+            . ' value="' . htmlspecialchars($_REQUEST['unlim_num_rows']) . '" />';
+
+        $html .= '</div></fieldset>';
 
         return $html;
     }

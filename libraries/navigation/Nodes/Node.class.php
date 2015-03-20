@@ -217,7 +217,7 @@ class Node
         }
         $parent = $this->parent;
         while (isset($parent)) {
-            if (   ($parent->type != Node::CONTAINER || $containers)
+            if (($parent->type != Node::CONTAINER || $containers)
                 && ($parent->is_group != true || $groups)
             ) {
                 $parents[] = $parent;

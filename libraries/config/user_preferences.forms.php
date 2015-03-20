@@ -34,7 +34,8 @@ $forms['Features']['General'] = array(
     'MaxTableList',
     'NumFavoriteTables',
     'ShowHint',
-    'SendErrorReports'
+    'SendErrorReports',
+    'ConsoleEnterExecutes'
 );
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
@@ -142,7 +143,9 @@ $forms['Import']['Import_defaults'] = array(
     'Import/format',
     'Import/charset',
     'Import/allow_interrupt',
-    'Import/skip_queries');
+    'Import/skip_queries',
+    'Import/disable_foreign_keys'
+);
 $forms['Import']['Sql'] = array(
     'Import/sql_compatibility',
     'Import/sql_no_auto_value_on_zero',
@@ -179,6 +182,7 @@ $forms['Export']['Export_defaults'] = array(
         'Export/format',
         'Export/compression',
         'Export/charset',
+        'Export/lock_tables',
         'Export/asfile' => ':group',
             'Export/onserver',
             'Export/onserver_overwrite',

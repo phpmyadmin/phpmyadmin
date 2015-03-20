@@ -45,12 +45,12 @@ $is_create_table_priv = true;
 function PMA_getHtmlForCreateTable($db)
 {
     $html  = '<form id="create_table_form_minimal" method="post" '
-        . 'action="tbl_create.php">';
+        . 'action="tbl_create.php" class="lock-page">';
     $html .= '<fieldset>';
     $html .= '<legend>';
 
     if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html .= PMA_Util::getImage('b_newtbl.png');
+        $html .= PMA_Util::getImage('b_newtbl.png') . '&nbsp';
     }
     $html .= __('Create table');
 

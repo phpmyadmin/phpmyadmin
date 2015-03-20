@@ -540,7 +540,7 @@ function PMA_RTN_getDataFromRequest()
     $retval['item_param_length']    = array();
     $retval['item_param_opts_num']  = array();
     $retval['item_param_opts_text'] = array();
-    if (   isset($_REQUEST['item_param_name'])
+    if (isset($_REQUEST['item_param_name'])
         && isset($_REQUEST['item_param_type'])
         && isset($_REQUEST['item_param_length'])
         && isset($_REQUEST['item_param_opts_num'])
@@ -1149,7 +1149,7 @@ function PMA_RTN_getQueryFromRequest()
     $warned_about_dir    = false;
     $warned_about_length = false;
 
-    if (   ! empty($_REQUEST['item_param_name'])
+    if (! empty($_REQUEST['item_param_name'])
         && ! empty($_REQUEST['item_param_type'])
         && ! empty($_REQUEST['item_param_length'])
         && is_array($_REQUEST['item_param_name'])

@@ -57,7 +57,17 @@ if (! isset($visualizationSettings['spatialColumn'])) {
 }
 
 // Convert geometric columns from bytes to text.
-$modified_query = PMA_GIS_modifyQuery($sql_query, $visualizationSettings);
+$pos = isset($_REQUEST['pos']) ? $_REQUEST['pos'] : $_SESSION['tmpval']['pos'];
+if (isset($_REQUEST['session_max_rows'])) {
+    $rows = $_REQUEST['session_max_rows'];
+} else {
+    if ($_SESSION['tmpval']['max_rows'] != 'all') {
+        $rows = $_SESSION['tmpval']['max_rows'];
+    } else {
+        $rows = $GLOBALS['cfg']['MaxRows'];
+    }
+}
+$modified_query = PMA_GIS_modifyQuery($sql_query, $visualizationSettings, $rows, $pos);
 $modified_result = $GLOBALS['dbi']->tryQuery($modified_query);
 
 $data = array();
