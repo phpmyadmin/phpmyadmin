@@ -323,7 +323,8 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         . '</strong>'
         . '</div>'
         . '<input type="text" name="index[Key_block_size]" '
-        . 'id="input_key_block_size" size="30" value="" />'
+        . 'id="input_key_block_size" size="30" value="'
+        . htmlspecialchars($index->getKeyBlockSize()) . '" />'
         . '</div>';
 
     $html .= '<div>'
@@ -347,7 +348,7 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         . '</strong>'
         . '</div>'
         . '<input type="text" name="index[Parser]" '
-        . 'id="input_parse" size="30" value="" />'
+        . 'id="input_parse" size="30" value="' . htmlspecialchars($index->getParser()) . '" />'
         . '</div>';
 
     $html .= '<div>'
