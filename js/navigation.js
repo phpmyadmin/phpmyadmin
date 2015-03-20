@@ -487,7 +487,7 @@ $(function () {
             cache: false,
             type: 'POST',
             data: {
-                favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables != 'undefined')
+                favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
                     ? window.localStorage.favorite_tables
                     : ''
             },
