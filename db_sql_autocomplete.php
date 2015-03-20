@@ -19,6 +19,6 @@ if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
             );
         }
     }
-    $response = PMA_Response::getInstance();
-    $response->addJSON("tables", json_encode($sql_autocomplete));
 }
+$response = PMA_Response::getInstance();
+$response->addJSON("tables", json_encode($sql_autocomplete));
