@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-18 14:15-0400\n"
-"PO-Revision-Date: 2015-03-11 13:31+0200\n"
-"Last-Translator: Kristian Løining <kristian@checkin.no>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/nb/>\n"
+"PO-Revision-Date: 2015-03-20 14:41+0200\n"
+"Last-Translator: Tomas <tomas@tomasruud.com>\n"
+"Language-Team: Norwegian Bokmål "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nb/>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -26,17 +26,17 @@ msgstr ""
 
 #: db_central_columns.php:104
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Den sentrale listen med kolonner for denne databasen er tom."
 
 #: db_central_columns.php:129
 msgid "Click to sort."
 msgstr "Klikk for å sortere."
 
 #: db_central_columns.php:148
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Viser radene %1s - %2s"
+msgstr "Viser radene %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -246,10 +246,10 @@ msgid "The database name is empty!"
 msgstr "Databasenavnet er tomt!"
 
 #: db_operations.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Databasen %1$s har endret navn til %2$s"
+msgstr "Databasen %1$s endret navn til %2$s."
 
 #: db_operations.php:138
 #, php-format
@@ -257,15 +257,13 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Databasen %1$s har blitt kopiert til %2$s."
 
 #: db_operations.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"phpMyAdmin konfigurasjonslager har blitt deaktivert. Klikk %sher%s for å se "
-"hvorfor."
+msgstr "phpMyAdmin konfigurasjonslager har blitt deaktivert. %sSe hvorfor%s."
 
 #: db_printview.php:48 db_tracking.php:125 db_tracking.php:287
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:789
@@ -336,23 +334,23 @@ msgid "Access denied!"
 msgstr "Ingen tilgang!"
 
 #: db_tracking.php:39 db_tracking.php:64
-#, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data deleted successfully."
-msgstr "Spor disse datadefinisjonsspørringene:"
+msgstr "Sporingsdata ble slettet."
 
 #: db_tracking.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Versjon %s er opprettet, overvåking av %s.%s er aktivert."
+msgstr ""
+"Versjon %1$s ble opprettet for de valgte tabellene, og overvåking er "
+"aktivert."
 
 #: db_tracking.php:79
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Ingen databaser er valgt."
+msgstr "Ingen tabeller er valgt."
 
 #: db_tracking.php:114
 msgid "Tracked tables"
@@ -397,10 +395,9 @@ msgid "Show"
 msgstr "Vis"
 
 #: db_tracking.php:139 db_tracking.php:231
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "Slett overvåkningsdata"
+msgstr "Fjern overvåkning"
 
 #: db_tracking.php:140
 msgid "Versions"
@@ -606,14 +603,13 @@ msgstr ""
 "i feltet \"Verdi\"."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Ingen tilgang!"
+msgstr "Vellykket"
 
 #: import.php:58 js/messages.php:452
 msgid "Failed"
-msgstr ""
+msgstr "Feilet"
 
 #: import.php:62
 msgid "Incomplete params"
@@ -793,10 +789,9 @@ msgid "PHP extension:"
 msgstr "PHP tillegg:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "PHP-Versjon"
+msgstr "PHP-versjon:"
 
 #: index.php:356
 msgid "Show PHP information"
@@ -835,7 +830,6 @@ msgid "List of changes"
 msgstr "Endringsliste"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -847,10 +841,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"Konfigurasjonsfilen inneholder innstillinger (root uten passord) som er "
-"identiske med MySQLs standard priviligerte brukerkonto. MySQL-tjeneren er "
-"åpen for alle, du bør fikse dette sikkerhetshullet ved å sette passord for "
-"brukeren 'root'."
+"Du er koblet til som 'root' uten passord, noe som er identisk med MySQLs "
+"standard priviligerte brukerkonto. MySQL-tjeneren din kjører med dette som "
+"standardoppsett, og er dermed sårbar for angrep. Du bør fikse dette "
+"sikkerhetshullet ved å sette passord for brukeren 'root'."
 
 #: index.php:464
 msgid ""
@@ -928,6 +922,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Alternativt kan du gå til 'Operasjoner'-fanen for en database og sette det "
+"opp der."
 
 #: index.php:597
 #, php-format
@@ -973,34 +969,29 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Du er i ferd med å AVKORTE en hel database!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Slett overvåkningsdata for denne tabellen"
+msgstr "Slette overvåkningsdata for denne tabellen?"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Slett overvåkningsdata for denne tabellen"
+msgstr "Slette overvåkningsdata for disse tabellene?"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Slett overvåkningsdata for denne tabellen"
+msgstr "Slette overvåkningsdata for denne versjonen?"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Slett overvåkningsdata for denne tabellen"
+msgstr "Slette overvåkningsdata for disse versjonene?"
 
 #: js/messages.php:44
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete entry from tracking report?"
-msgstr "Slett overvåkningsdata for denne tabellen"
+msgstr "Slette innlegget fra overvåkningsrapporten?"
 
 #: js/messages.php:45
 msgid "Deleting tracking data"
@@ -1035,16 +1026,14 @@ msgstr ""
 "denne siden?"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Vil du virkelig slette søket \"%s\"?"
+msgstr "Vil du virkelig tilbakekalle valgt(e) bruker(e)?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this central column?"
-msgstr "Vil du virkelig slette søket \"%s\"?"
+msgstr "Vil du virkelig slette denne sentrale kolonnen?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -1090,10 +1079,9 @@ msgid "Add %s column(s) to index"
 msgstr "Legg %s kolonne(r) til index"
 
 #: js/messages.php:68
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Opprett relasjon"
+msgstr "Opprett en enkeltkolonneindeks"
 
 #: js/messages.php:69
 msgid "Create composite index"
@@ -1122,10 +1110,9 @@ msgid "Simulate query"
 msgstr "Simuler spørring"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "Berørte rader:"
+msgstr "Matchede rader:"
 
 #: js/messages.php:82 libraries/Util.class.php:639 libraries/sql.lib.php:297
 msgid "SQL query:"
@@ -1368,11 +1355,11 @@ msgstr "Pause overvåkning"
 
 #: js/messages.php:154 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Start automatisk oppdatering"
 
 #: js/messages.php:155
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Stopp automatisk oppdatering"
 
 #: js/messages.php:157
 msgid "general_log and slow_query_log are enabled."
@@ -1701,7 +1688,7 @@ msgstr "Test"
 
 #: js/messages.php:251
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Formaterer SQL..."
 
 #: js/messages.php:255 libraries/db_designer.lib.php:828
 #: libraries/db_designer.lib.php:877 libraries/db_designer.lib.php:1021
@@ -1787,10 +1774,9 @@ msgid "(Disabled)"
 msgstr "(Deaktivert)"
 
 #: js/messages.php:280
-#, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "Klarte ikke å hente headers"
+msgstr "Klarte ikke å hente antall rader."
 
 #: js/messages.php:283
 msgid "Searching"
@@ -1879,11 +1865,11 @@ msgstr "Se de eksterne verdiene"
 
 #: js/messages.php:308
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Ingen autolagret spørring"
 
 #: js/messages.php:311 libraries/normalization.lib.php:849
 msgid "Pick"
-msgstr ""
+msgstr "Velg"
 
 #: js/messages.php:312
 msgid "Column selector"
@@ -1906,13 +1892,15 @@ msgstr "Se mer"
 
 #: js/messages.php:316
 msgid "Are you sure?"
-msgstr ""
+msgstr "Er du sikker?"
 
 #: js/messages.php:317
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Denne handlingen kan endre definisjonen av enkelte kolonner.<br/>Er du "
+"sikker på at du vil fortsette?"
 
 #: js/messages.php:318
 msgid "Continue"
@@ -1928,27 +1916,25 @@ msgid "Primary key added."
 msgstr "Primærnøkkel lagt til."
 
 #: js/messages.php:323 libraries/normalization.lib.php:174
-#, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "Overvåkningsrapport"
+msgstr "Tar deg videre til neste trinn…"
 
 #: js/messages.php:324
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "Første trinn av normaliseringen er ferdig for tabellen '%s'."
 
 #: js/messages.php:325 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
 #: libraries/normalization.lib.php:612
-#, fuzzy
 #| msgid "End of line"
 msgid "End of step"
-msgstr "Linjeslutt"
+msgstr "Slutten på dette trinnet"
 
 #: js/messages.php:326
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Andre trinn for normaliseringen (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:327 js/messages.php:573 libraries/normalization.lib.php:264
@@ -1957,41 +1943,44 @@ msgstr "Utført"
 
 #: js/messages.php:328
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Bekreft delvise avhengigheter"
 
 #: js/messages.php:329
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Valgte delvise avhengigheter er følgende:"
 
 #: js/messages.php:330
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Merk: a, b -> d, f forutsetter at verdiene i kolonnene a og b, sammen kan "
+"bestemme verdiene for kolonne d og kolonne f."
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Ingen delvis avhengigheter er valgt."
+msgstr "Ingen delvise avhengigheter er valgt!"
 
 #: js/messages.php:333
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "Vis meg mulige delvise avhengigheter basert på dataene i tabellen"
 
 #: js/messages.php:334
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Skjul listen over delvise avhengigheter"
 
 #: js/messages.php:335
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Slapp av! Dette kan ta noen sekunder, basert på datamengden og antall "
+"kolonner i tabellen."
 
 #: js/messages.php:336
 msgid "Step"
-msgstr ""
+msgstr "Trinn"
 
 #: js/messages.php:337
 msgid "The following actions will be performed:"
@@ -2000,31 +1989,29 @@ msgstr "Følgende handlinger vil bli utført:"
 #: js/messages.php:338
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "SLETT kolonnene %s fra tabellen %s"
 
 #: js/messages.php:339
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
-msgstr "Legg til privilegier til følgende tabell"
+msgstr "Lag følgende tabell"
 
 #: js/messages.php:342
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Tredje trinn av normaliseringen (3NF)"
 
 #: js/messages.php:343
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Bekreft transitive avhengigheter"
 
 #: js/messages.php:344
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Følgende er valgte avhengigheter:"
 
 #: js/messages.php:345
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Ingen databaser er valgt."
+msgstr "Ingen avhengigheter er valgt!"
 
 #: js/messages.php:348 libraries/central_columns.lib.php:1100
 #: libraries/insert_edit.lib.php:1452 libraries/server_variables.lib.php:155
@@ -2062,16 +2049,14 @@ msgid "Column minimum:"
 msgstr "Kolonnenavn: "
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Maks antall tabeller"
+msgstr "Minimumsverdi:"
 
 #: js/messages.php:357
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Maks antall tabeller"
+msgstr "Maksimumsverdi:"
 
 #: js/messages.php:360
 msgid "Hide find and replace criteria"
