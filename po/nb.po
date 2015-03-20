@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-11 13:31+0200\n"
-"Last-Translator: Kristian Løining <kristian@checkin.no>\n"
+"PO-Revision-Date: 2015-03-20 13:45+0200\n"
+"Last-Translator: Tomas <tomas@tomasruud.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/nb/>\n"
 "Language: nb\n"
@@ -26,17 +26,17 @@ msgstr ""
 
 #: db_central_columns.php:89
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Den sentrale listen med kolonner for denne databasen er tom."
 
 #: db_central_columns.php:113
 msgid "Click to sort."
 msgstr "Klikk for å sortere."
 
 #: db_central_columns.php:149
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows %1s - %2s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Viser radene %1s - %2s"
+msgstr "Viser radene %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -245,10 +245,10 @@ msgid "The database name is empty!"
 msgstr "Databasenavnet er tomt!"
 
 #: db_operations.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Databasen %1$s har endret navn til %2$s"
+msgstr "Databasen %1$s endret navn til %2$s."
 
 #: db_operations.php:138
 #, php-format
