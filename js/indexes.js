@@ -122,22 +122,7 @@ function PMA_removeColumnFromIndex(col_index)
         .attr('data-index');
     if (previous_index.length) {
         previous_index = previous_index.split(',');
-        switch (previous_index[0].toLowerCase()) {
-        case 'primary':
-            source_array =  primary_indexes;
-            break;
-        case 'unique':
-            source_array = unique_indexes;
-            break;
-        case 'index':
-            source_array = indexes;
-            break;
-        case 'fulltext':
-            source_array = fulltext_indexes;
-            break;
-        default:
-            return;
-        }
+        var source_array = PMA_getIndexArray(previous_index[0]);
 
         // Remove column from index array.
         var source_length = source_array[previous_index[1]].columns.length;
@@ -493,6 +478,35 @@ function PMA_indexTypeSelectionDialog(source_array, index_choice, col_index)
 }
 
 /**
+ * Returns the array of indexes based on the index choice
+ *
+ * @param index_choice index choice
+ */
+function PMA_getIndexArray(index_choice)
+{
+    var source_array = null;
+
+    switch (index_choice.toLowerCase()) {
+    case 'primary':
+        source_array = primary_indexes;
+        break;
+    case 'unique':
+        source_array = unique_indexes;
+        break;
+    case 'index':
+        source_array = indexes;
+        break;
+    case 'fulltext':
+        source_array = fulltext_indexes;
+        break;
+    default:
+        return null;
+    }
+    return source_array;
+}
+
+
+/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('indexes.js', function () {
@@ -672,20 +686,7 @@ AJAX.registerOnload('indexes.js', function () {
         }
 
         // Select a source array.
-        switch (index_choice) {
-        case 'primary':
-            source_array =  primary_indexes;
-            break;
-        case 'unique':
-            source_array = unique_indexes;
-            break;
-        case 'index':
-            source_array = indexes;
-            break;
-        case 'fulltext':
-            source_array = fulltext_indexes;
-            break;
-        }
+        var source_array = PMA_getIndexArray(index_choice);
 
         if (source_array.length === 0) {
             var index = {
@@ -723,24 +724,9 @@ AJAX.registerOnload('indexes.js', function () {
         var index_choice = previous_index[0];
         var array_index  = previous_index[1];
 
-        switch (index_choice.toLowerCase()) {
-        case 'primary':
-            source_array =  primary_indexes;
-            break;
-        case 'unique':
-            source_array = unique_indexes;
-            break;
-        case 'index':
-            source_array = indexes;
-            break;
-        case 'fulltext':
-            source_array = fulltext_indexes;
-            break;
-        default:
-            return;
-        }
-
+        var source_array = PMA_getIndexArray(index_choice);
         var source_length = source_array[array_index].columns.length;
+
         var target_columns = [];
         for (var i = 0; i < source_length; i++) {
             target_columns.push(source_array[array_index].columns[i].col_index);
