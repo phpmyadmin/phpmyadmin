@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-20 13:45+0200\n"
-"Last-Translator: Tomas <tomas@tomasruud.com>\n"
+"PO-Revision-Date: 2015-03-20 13:48+0200\n"
+"Last-Translator: Christoffer Haugom <ph3n1x.nobody@gmail.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/nb/>\n"
 "Language: nb\n"
@@ -256,15 +256,13 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Databasen %1$s har blitt kopiert til %2$s."
 
 #: db_operations.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"phpMyAdmin konfigurasjonslager har blitt deaktivert. Klikk %sher%s for å se "
-"hvorfor."
+msgstr "phpMyAdmin konfigurasjonslager har blitt deaktivert. %sSe hvorfor%s."
 
 #: db_printview.php:48 db_tracking.php:125 db_tracking.php:287
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:782
