@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-20 13:57+0200\n"
-"Last-Translator: Christoffer Haugom <ph3n1x.nobody@gmail.com>\n"
+"PO-Revision-Date: 2015-03-20 14:17+0200\n"
+"Last-Translator: Tomas <tomas@tomasruud.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/nb/>\n"
 "Language: nb\n"
@@ -608,7 +608,7 @@ msgstr "Vellykket"
 
 #: import.php:58 js/messages.php:452
 msgid "Failed"
-msgstr ""
+msgstr "Feilet"
 
 #: import.php:62
 msgid "Incomplete params"
@@ -788,10 +788,9 @@ msgid "PHP extension:"
 msgstr "PHP tillegg:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "PHP-Versjon"
+msgstr "PHP-versjon:"
 
 #: index.php:356
 msgid "Show PHP information"
@@ -830,7 +829,6 @@ msgid "List of changes"
 msgstr "Endringsliste"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -842,10 +840,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"Konfigurasjonsfilen inneholder innstillinger (root uten passord) som er "
-"identiske med MySQLs standard priviligerte brukerkonto. MySQL-tjeneren er "
-"åpen for alle, du bør fikse dette sikkerhetshullet ved å sette passord for "
-"brukeren 'root'."
+"Du er koblet til som 'root' uten passord, noe som er identisk med MySQLs "
+"standard priviligerte brukerkonto. MySQL-tjeneren din kjører med dette som "
+"standardoppsett, og er dermed sårbar for angrep. Du bør fikse dette "
+"sikkerhetshullet ved å sette passord for brukeren 'root'."
 
 #: index.php:464
 msgid ""
@@ -923,6 +921,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Alternativt kan du gå til 'Operasjoner'-fanen for en database og sette det "
+"opp der."
 
 #: index.php:597
 #, php-format
@@ -968,34 +968,29 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Du er i ferd med å AVKORTE en hel database!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Slett overvåkningsdata for denne tabellen"
+msgstr "Slette overvåkningsdata for denne tabellen?"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Slett overvåkningsdata for denne tabellen"
+msgstr "Slette overvåkningsdata for disse tabellene?"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Slett overvåkningsdata for denne tabellen"
+msgstr "Slette overvåkningsdata for denne versjonen?"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Slett overvåkningsdata for denne tabellen"
+msgstr "Slette overvåkningsdata for disse versjonene?"
 
 #: js/messages.php:44
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete entry from tracking report?"
-msgstr "Slett overvåkningsdata for denne tabellen"
+msgstr "Slette innlegget fra overvåkningsrapporten?"
 
 #: js/messages.php:45
 msgid "Deleting tracking data"
@@ -1030,16 +1025,14 @@ msgstr ""
 "denne siden?"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Vil du virkelig slette søket \"%s\"?"
+msgstr "Vil du virkelig tilbakekalle valgt(e) bruker(e)?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this central column?"
-msgstr "Vil du virkelig slette søket \"%s\"?"
+msgstr "Vil du virkelig slette denne sentrale kolonnen?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -1085,10 +1078,9 @@ msgid "Add %s column(s) to index"
 msgstr "Legg %s kolonne(r) til index"
 
 #: js/messages.php:68
-#, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "Opprett relasjon"
+msgstr "Opprett en enkeltkolonneindeks"
 
 #: js/messages.php:69
 msgid "Create composite index"
