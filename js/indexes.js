@@ -637,7 +637,7 @@ AJAX.registerOnload('indexes.js', function () {
      */
     $('body').on('change', 'select[name*="field_key"]', function () {
         // Index of column on Table edit and create page.
-        var col_index = /\d/.exec($(this).attr('name'));
+        var col_index = /\d+/.exec($(this).attr('name'));
         col_index = col_index[0];
         // Choice of selected index.
         var index_choice = /[a-z]+/.exec($(this).val());
