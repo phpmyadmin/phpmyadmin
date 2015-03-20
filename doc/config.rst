@@ -2421,6 +2421,15 @@ SQL query box settings
 
     Whether to display a link to refresh a query in any SQL Query box.
 
+.. config:option:: $cfg['EnableAutocompleteForTablesAndColumns']
+
+    :type: boolean
+    :default: true
+
+    Whether to Enable Autocomplete for table and Column names in any
+    SQL Query box.
+
+
 Web server upload/save/import directories
 -----------------------------------------
 
