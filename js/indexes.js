@@ -122,22 +122,7 @@ function PMA_removeColumnFromIndex(col_index)
         .attr('data-index');
     if (previous_index.length) {
         previous_index = previous_index.split(',');
-        switch (previous_index[0].toLowerCase()) {
-        case 'primary':
-            source_array =  primary_indexes;
-            break;
-        case 'unique':
-            source_array = unique_indexes;
-            break;
-        case 'index':
-            source_array = indexes;
-            break;
-        case 'fulltext':
-            source_array = fulltext_indexes;
-            break;
-        default:
-            return;
-        }
+        var source_array = PMA_getIndexArray(previous_index[0]);
 
         // Remove column from index array.
         var source_length = source_array[previous_index[1]].columns.length;
@@ -171,8 +156,10 @@ function PMA_removeColumnFromIndex(col_index)
  */
 function PMA_addColumnToIndex(source_array, array_index, index_choice, col_index)
 {
-    // Remove column from other indexes (if any).
-    PMA_removeColumnFromIndex(col_index);
+    if (col_index >= 0) {
+        // Remove column from other indexes (if any).
+        PMA_removeColumnFromIndex(col_index);
+    }
     var index_name = $('input[name="index[Key_name]"]').val();
     var index_comment = $('input[name="index[Index_comment]"]').val();
     var columns = [];
@@ -194,9 +181,31 @@ function PMA_addColumnToIndex(source_array, array_index, index_choice, col_index
         'columns': columns
     };
 
-    // Update index details on form.
-    $('select[name="field_key[' + col_index + ']"]')
-        .attr('data-index', index_choice + ',' + array_index);
+    // Display index name (or column list)
+    var displayName = index_name;
+    if (displayName == '') {
+        var columnNames = [];
+        $.each(columns, function () {
+            columnNames.push($('input[name="field_name[' +  this.col_index + ']"]').val());
+        });
+        displayName = '[' + columnNames.join(', ') + ']';
+    }
+    $.each(columns, function () {
+        var id = 'index_name_' + this.col_index + '_8';
+        var $name = $('#' + id);
+        if ($name.length == 0) {
+            $name = $('<a id="' + id + '" href="#" class="ajax show_index_dialog"></a>');
+            $name.insertAfter($('select[name="field_key[' + this.col_index + ']"]'));
+        }
+        var $text = $('<small>').text(displayName);
+        $name.html($text);
+    });
+
+    if (col_index >= 0) {
+        // Update index details on form.
+        $('select[name="field_key[' + col_index + ']"]')
+            .attr('data-index', index_choice + ',' + array_index);
+    }
     PMA_setIndexFormParameters(source_array, index_choice.toLowerCase());
 }
 
@@ -315,14 +324,16 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
         $(this).dialog('close');
     };
     button_options[PMA_messages.strCancel] = function () {
-        // Handle state on 'Cancel'.
-        var $select_list = $('select[name="field_key[' + col_index + ']"]');
-        if (! $select_list.attr('data-index').length) {
-            $select_list.find('option[value*="none"]').attr('selected', 'selected');
-        } else {
-            var previous_index = $select_list.attr('data-index').split(',');
-            $select_list.find('option[value*="' + previous_index[0].toLowerCase() + '"]')
-                .attr('selected', 'selected');
+        if (col_index >= 0) {
+            // Handle state on 'Cancel'.
+            var $select_list = $('select[name="field_key[' + col_index + ']"]');
+            if (! $select_list.attr('data-index').length) {
+                $select_list.find('option[value*="none"]').attr('selected', 'selected');
+            } else {
+                var previous_index = $select_list.attr('data-index').split(',');
+                $select_list.find('option[value*="' + previous_index[0].toLowerCase() + '"]')
+                    .attr('selected', 'selected');
+            }
         }
         $(this).dialog('close');
     };
@@ -467,6 +478,35 @@ function PMA_indexTypeSelectionDialog(source_array, index_choice, col_index)
 }
 
 /**
+ * Returns the array of indexes based on the index choice
+ *
+ * @param index_choice index choice
+ */
+function PMA_getIndexArray(index_choice)
+{
+    var source_array = null;
+
+    switch (index_choice.toLowerCase()) {
+    case 'primary':
+        source_array = primary_indexes;
+        break;
+    case 'unique':
+        source_array = unique_indexes;
+        break;
+    case 'index':
+        source_array = indexes;
+        break;
+    case 'fulltext':
+        source_array = fulltext_indexes;
+        break;
+    default:
+        return null;
+    }
+    return source_array;
+}
+
+
+/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('indexes.js', function () {
@@ -477,6 +517,7 @@ AJAX.registerTeardown('indexes.js', function () {
     $(document).off('click', "#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax");
     $(document).off('click', '#index_frm input[type=submit]');
     $('body').off('change', 'select[name*="field_key"]');
+    $(document).off('click', '.show_index_dialog');
 });
 
 /**
@@ -645,20 +686,7 @@ AJAX.registerOnload('indexes.js', function () {
         }
 
         // Select a source array.
-        switch (index_choice) {
-        case 'primary':
-            source_array =  primary_indexes;
-            break;
-        case 'unique':
-            source_array = unique_indexes;
-            break;
-        case 'index':
-            source_array = indexes;
-            break;
-        case 'fulltext':
-            source_array = fulltext_indexes;
-            break;
-        }
+        var source_array = PMA_getIndexArray(index_choice);
 
         if (source_array.length === 0) {
             var index = {
@@ -684,4 +712,26 @@ AJAX.registerOnload('indexes.js', function () {
             }
         }
     });
+
+    $(document).on('click', '.show_index_dialog', function (e) {
+        e.preventDefault();
+
+        // Get index details.
+        var previous_index = $(this).prev('select')
+            .attr('data-index')
+            .split(',');
+
+        var index_choice = previous_index[0];
+        var array_index  = previous_index[1];
+
+        var source_array = PMA_getIndexArray(index_choice);
+        var source_length = source_array[array_index].columns.length;
+
+        var target_columns = [];
+        for (var i = 0; i < source_length; i++) {
+            target_columns.push(source_array[array_index].columns[i].col_index);
+        }
+
+        PMA_showAddIndexDialog(source_array, array_index, target_columns, -1, source_array[array_index]);
+    })
 });
