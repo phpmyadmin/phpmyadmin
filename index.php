@@ -424,7 +424,7 @@ PMA_printListItem(
 PMA_printListItem(
     __('List of changes'),
     'li_pma_changes',
-    PMA_linkURL('changelog.php'),
+    'changelog.php' . PMA_URL_getCommon(),
     null,
     '_blank'
 );

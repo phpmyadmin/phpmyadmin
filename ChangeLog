@@ -72,6 +72,7 @@ explanation
 - bug #4798 Missing column when exporting in sql
 - bug #4810 Broken find and replace
 - bug #4804 Undefined Index after export schema
+- bug #4802 Changelog page is not working
 
 4.3.12.0 (2015-03-14)
 - bug #4746 Right-aligned columns have left-aligned header
