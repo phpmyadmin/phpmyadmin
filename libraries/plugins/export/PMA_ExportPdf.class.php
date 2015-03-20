@@ -114,7 +114,8 @@ class PMA_ExportPdf extends PMA_PDF
                 0,
                 $this->FontSizePt,
                 __('Database:') . ' ' . $this->dbAlias . ',  '
-                . __('Table:') . ' ' . $this->tableAlias,
+                . __('Table:') . ' ' . $this->tableAlias . ',  '
+                . __('Purpose:') . ' ' . $this->purpose,
                 0, 1, 'L'
             );
             $l = ($this->lMargin);
@@ -271,6 +272,375 @@ class PMA_ExportPdf extends PMA_PDF
     function setTopMargin($topMargin)
     {
         $this->tMargin = $topMargin;
+    }
+
+    /**
+     * Outputs triggers
+     *
+     * @param string $db    database name
+     * @param string $table table name
+     *
+     * @return string Formatted triggers list
+     */
+    public function getTriggers($db, $table)
+    {
+        $i=0;
+	    $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+        foreach ($triggers as $trigger) {
+            $i++; break;
+        }
+        if ($i==0) return;
+
+        unset($this->tablewidths);
+        unset($this->colTitles);
+        unset($this->titleWidth);
+        unset($this->colFits);
+        unset($this->display_column);
+        unset($this->colAlign);
+
+        /**
+         * Making table heading
+         * Keeping column width constant
+         */
+        $this->colTitles[0] = "Name";
+        $this->tablewidths[0] = 90;
+        $this->colTitles[1] = "Time";
+        $this->tablewidths[1] = 80;
+        $this->colTitles[2] = "Event";
+        $this->tablewidths[2] = 40;
+        $this->colTitles[3] = "Definition";
+        $this->tablewidths[3] = 240;
+
+        for ($columns_cnt = 0; $columns_cnt < 4; $columns_cnt++) {
+            $this->colAlign[$columns_cnt] = 'L';
+            $this->display_column[$columns_cnt] = true;
+        }
+
+        // Writing table data
+
+        $this->setY($this->tMargin);
+        $this->AddPage();
+        $this->SetFont(PMA_PDF_FONT, '', 9);
+
+        $l = $this->lMargin;
+        $startheight = $h = $this->dataY;
+        $startpage = $currpage = $this->page;
+
+        // calculate the whole width
+        $fullwidth = 0;
+        foreach ($this->tablewidths as $width) {
+            $fullwidth += $width;
+        }
+
+        $row = 0;
+        $tmpheight = array();
+        $maxpage = $this->page;
+
+        $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+
+        foreach ($triggers as $trigger) {
+            $data [] = $trigger['name'];
+            $data [] = $trigger['action_timing'];
+            $data [] = $trigger['event_manipulation'];
+            $data [] = $trigger['definition'];
+            $this->page = $currpage;
+            // write the horizontal borders
+            $this->Line($l, $h, $fullwidth+$l, $h);
+            // write the content and remember the height of the highest col
+            foreach ($data as $col => $txt) {
+                $this->page = $currpage;
+                $this->SetXY($l, $h);
+                if ($this->tablewidths[$col] > 0) {
+                    $this->MultiCell(
+                        $this->tablewidths[$col],
+                        $this->FontSizePt,
+                        $txt,
+                        0,
+                        $this->colAlign[$col]
+                    );
+                    $l += $this->tablewidths[$col];
+                }
+
+                if (! isset($tmpheight[$row . '-' . $this->page])) {
+                    $tmpheight[$row . '-' . $this->page] = 0;
+                }
+                if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
+                    $tmpheight[$row . '-' . $this->page] = $this->GetY();
+                }
+                if ($this->page > $maxpage) {
+                    $maxpage = $this->page;
+                }
+            }
+
+            // get the height we were in the last used page
+            $h = $tmpheight[$row . '-' . $maxpage];
+            // set the "pointer" to the left margin
+            $l = $this->lMargin;
+            // set the $currpage to the last page
+            $currpage = $maxpage;
+            unset($data);
+            $row++;
+        }
+        // draw the borders
+        // we start adding a horizontal line on the last page
+        $this->page = $maxpage;
+        $this->Line($l, $h, $fullwidth+$l, $h);
+        // now we start at the top of the document and walk down
+        for ($i = $startpage; $i <= $maxpage; $i++) {
+            $this->page = $i;
+            $l = $this->lMargin;
+            $t = ($i == $startpage) ? $startheight : $this->tMargin;
+            $lh = ($i == $maxpage) ? $h : $this->h-$this->bMargin;
+            $this->Line($l, $t, $l, $lh);
+            foreach ($this->tablewidths as $width) {
+                $l += $width;
+                $this->Line($l, $t, $l, $lh);
+            }
+        }
+        // set it to the last page, if not it'll cause some problems
+        $this->page = $maxpage;
+    }
+
+    /**
+     * Returns $table's CREATE definition
+     *
+     * @param string $db            the database name
+     * @param string $table         the table name
+     * @param string $crlf          the end of line sequence
+     * @param string $error_url     the url to go back in case of error
+     * @param bool   $do_relation   whether to include relation comments
+     * @param bool   $do_comments   whether to include the pmadb-style column
+     *                                comments as comments in the structure;
+     *                                this is deprecated but the parameter is
+     *                                left here because export.php calls
+     *                                PMA_exportStructure() also for other
+     *                                export types which use this parameter
+     * @param bool   $do_mime       whether to include mime comments
+     * @param bool   $show_dates    whether to include creation/update/check dates
+     * @param bool   $add_semicolon whether to add semicolon and end-of-line
+     *                                at the end
+     * @param bool   $view          whether we're handling a view
+     *
+     * @return string resulting schema
+     */
+    public function getTableDef(
+        $db,
+        $table,
+        $crlf,
+        $error_url,
+        $do_relation,
+        $do_comments,
+        $do_mime,
+        $show_dates = false,
+        $add_semicolon = true,
+        $view = false
+    ) {
+        unset($this->tablewidths);
+        unset($this->colTitles);
+        unset($this->titleWidth);
+        unset($this->colFits);
+        unset($this->display_column);
+        unset($this->colAlign);
+
+        /**
+         * Gets fields properties
+         */
+        $GLOBALS['dbi']->selectDb($db);
+
+        // Check if we can use Relations
+        if ($do_relation) {
+            // Find which tables are related with the current one and write it in
+            // an array
+            $res_rel = PMA_getForeigners($db, $table);
+
+            if ($res_rel && count($res_rel) > 0) {
+                $have_rel = true;
+            } else {
+                $have_rel = false;
+            }
+        } else {
+               $have_rel = false;
+        } // end if
+
+        //column count and table heading
+
+        $this->colTitles[0] = "Column";
+        $this->tablewidths[0] = 90;
+        $this->colTitles[1] = "Type";
+        $this->tablewidths[1] = 80;
+        $this->colTitles[2] = "Null";
+        $this->tablewidths[2] = 40;
+        $this->colTitles[3] = "Default";
+        $this->tablewidths[3] = 120;
+
+        for ($columns_cnt = 0; $columns_cnt < 4; $columns_cnt++) {
+            $this->colAlign[$columns_cnt] = 'L';
+            $this->display_column[$columns_cnt] = true;
+        }
+
+        if ($do_relation && $have_rel) {
+            $this->colTitles[$columns_cnt] = "Links to";
+            $this->display_column[$columns_cnt] = true;
+            $this->colAlign[$columns_cnt] = 'L';
+            $this->tablewidths[$columns_cnt] = 120;
+            $columns_cnt++;
+        }
+        if ($do_comments) {
+            $this->colTitles[$columns_cnt] = "Comments";
+            $this->display_column[$columns_cnt] = true;
+            $this->colAlign[$columns_cnt] = 'L';
+            $this->tablewidths[$columns_cnt] = 120;
+            $columns_cnt++;
+        }
+        if ($do_mime) {
+            $this->colTitles[$columns_cnt] = "MIME";
+            $this->display_column[$columns_cnt] = true;
+            $this->colAlign[$columns_cnt] = 'L';
+            $this->tablewidths[$columns_cnt] = 120;
+            $columns_cnt++;
+        }
+
+		// Pass 2
+
+        $this->setY($this->tMargin);
+        $this->AddPage();
+        $this->SetFont(PMA_PDF_FONT, '', 9);
+
+		// Now let's start to write the table structure
+
+        if ($do_comments) {
+            $comments = PMA_getComments($db, $table);
+        }
+        if ($do_mime) {
+            $mime_map = PMA_getMIME($db, $table, true);
+        }
+
+        $columns = $GLOBALS['dbi']->getColumns($db, $table);
+        /**
+         * Get the unique keys in the table
+         */
+        $unique_keys = array();
+        $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
+        foreach ($keys as $key) {
+            if ($key['Non_unique'] == 0) {
+                $unique_keys[] = $key['Column_name'];
+            }
+        }
+	
+        // some things to set and 'remember'
+        $l = $this->lMargin;
+        $startheight = $h = $this->dataY;
+        $startpage = $currpage = $this->page;
+
+        // calculate the whole width
+        $fullwidth = 0;
+        foreach ($this->tablewidths as $width) {
+            $fullwidth += $width;
+        }
+
+        $row = 0;
+        $tmpheight = array();
+        $maxpage = $this->page;
+
+        // fun begin
+        foreach ($columns as $column) {
+            $extracted_columnspec
+                = PMA_Util::extractColumnSpec($column['Type']);
+
+            $type = $extracted_columnspec['print_type'];
+            if (empty($type)) {
+                $type = ' ';
+            }
+
+            if (! isset($column['Default'])) {
+                if ($column['Null'] != 'NO') {
+                    $column['Default'] = 'NULL';
+                }
+            }
+            $data [] = $column['Field'];
+            $data [] = $type;
+            $data [] = ($column['Null'] == '' || $column['Null'] == 'NO')
+                ? 'No'
+                : 'Yes';
+            $data [] = isset($column['Default']) ? $column['Default'] : '';
+
+            $field_name = $column['Field'];
+
+            if ($do_relation && $have_rel) {
+                $data [] = isset($res_rel[$field_name])
+                        ? $res_rel[$field_name]['foreign_table']
+                            . ' (' . $res_rel[$field_name]['foreign_field']
+                            . ')'
+                        : '';
+            }
+            if ($do_comments) {
+                $data [] = isset($comments[$field_name])
+                        ? $comments[$field_name]
+                        : '';
+            }
+            if ($do_mime) {
+                $data [] = isset($mime_map[$field_name]) ?
+                    $mime_map[$field_name]['mimetype']
+                    : '';
+            }
+
+            $this->page = $currpage;
+            // write the horizontal borders
+            $this->Line($l, $h, $fullwidth+$l, $h);
+            // write the content and remember the height of the highest col
+            foreach ($data as $col => $txt) {
+                $this->page = $currpage;
+                $this->SetXY($l, $h);
+                if ($this->tablewidths[$col] > 0) {
+                    $this->MultiCell(
+                        $this->tablewidths[$col],
+                        $this->FontSizePt,
+                        $txt,
+                        0,
+                        $this->colAlign[$col]
+                    );
+                    $l += $this->tablewidths[$col];
+                }
+
+                if (! isset($tmpheight[$row . '-' . $this->page])) {
+                    $tmpheight[$row . '-' . $this->page] = 0;
+                }
+                if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
+                    $tmpheight[$row . '-' . $this->page] = $this->GetY();
+                }
+                if ($this->page > $maxpage) {
+                    $maxpage = $this->page;
+                }
+            }
+		
+            // get the height we were in the last used page
+            $h = $tmpheight[$row . '-' . $maxpage];
+            // set the "pointer" to the left margin
+            $l = $this->lMargin;
+            // set the $currpage to the last page
+            $currpage = $maxpage;
+            unset($data);
+            $row++;
+
+        }
+        // draw the borders
+        // we start adding a horizontal line on the last page
+        $this->page = $maxpage;
+        $this->Line($l, $h, $fullwidth+$l, $h);
+        // now we start at the top of the document and walk down
+        for ($i = $startpage; $i <= $maxpage; $i++) {
+            $this->page = $i;
+            $l = $this->lMargin;
+            $t = ($i == $startpage) ? $startheight : $this->tMargin;
+            $lh = ($i == $maxpage) ? $h : $this->h-$this->bMargin;
+            $this->Line($l, $t, $l, $lh);
+            foreach ($this->tablewidths as $width) {
+                $l += $width;
+                $this->Line($l, $t, $l, $lh);
+            }
+        }
+        // set it to the last page, if not it'll cause some problems
+        $this->page = $maxpage;
     }
 
     /**
