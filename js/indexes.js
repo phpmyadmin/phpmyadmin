@@ -123,6 +123,9 @@ function PMA_removeColumnFromIndex(col_index)
     if (previous_index.length) {
         previous_index = previous_index.split(',');
         var source_array = PMA_getIndexArray(previous_index[0]);
+        if (source_array == null) {
+            return;
+        }
 
         // Remove column from index array.
         var source_length = source_array[previous_index[1]].columns.length;
@@ -687,6 +690,9 @@ AJAX.registerOnload('indexes.js', function () {
 
         // Select a source array.
         var source_array = PMA_getIndexArray(index_choice);
+        if (source_array == null) {
+            return;
+        }
 
         if (source_array.length === 0) {
             var index = {
