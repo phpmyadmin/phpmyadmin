@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-20 13:48+0200\n"
-"Last-Translator: Christoffer Haugom <ph3n1x.nobody@gmail.com>\n"
+"PO-Revision-Date: 2015-03-20 13:57+0200\n"
+"Last-Translator: Tomas <tomas@tomasruud.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/nb/>\n"
 "Language: nb\n"
@@ -333,23 +333,23 @@ msgid "Access denied!"
 msgstr "Ingen tilgang!"
 
 #: db_tracking.php:39 db_tracking.php:64
-#, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data deleted successfully."
-msgstr "Spor disse datadefinisjonsspørringene:"
+msgstr "Sporingsdata ble slettet."
 
 #: db_tracking.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Versjon %s er opprettet, overvåking av %s.%s er aktivert."
+msgstr ""
+"Versjon %1$s ble opprettet for de valgte tabellene, og overvåking er "
+"aktivert."
 
 #: db_tracking.php:79
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Ingen databaser er valgt."
+msgstr "Ingen tabeller er valgt."
 
 #: db_tracking.php:114
 msgid "Tracked tables"
@@ -394,10 +394,9 @@ msgid "Show"
 msgstr "Vis"
 
 #: db_tracking.php:139 db_tracking.php:231
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "Slett overvåkningsdata"
+msgstr "Fjern overvåkning"
 
 #: db_tracking.php:140
 msgid "Versions"
