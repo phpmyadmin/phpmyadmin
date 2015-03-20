@@ -136,21 +136,51 @@ function PMA_buildIndexStatements($index, $index_choice,
         return $statement;
     }
 
-    $fields = array();
-    foreach ($index['columns'] as $field) {
-        $fields[]
-            = PMA_Util::backquote($_REQUEST['field_name'][$field['col_index']])
-            . (! empty($field['size']) ? '(' . $field['size'] . ')' : '');
+    $sql_query = PMA_getStatementPrefix($is_create_tbl)
+        . ' ' . $index_choice;
+
+    if (! empty($index['Key_name']) && $index['Key_name'] != 'PRIMARY') {
+        $sql_query .= ' ' . PMA_Util::backquote($index['Key_name']);
     }
-    $statement[] = PMA_getStatementPrefix($is_create_tbl)
-        . ' ' . $index_choice
-        . (! empty($index['Key_name']) && $index['Key_name'] != 'PRIMARY' ?
-        PMA_Util::backquote($index['Key_name'])
-        : '')
-        . ' (' . implode(', ', $fields) . ') '
-        . (! empty($index['Index_comment']) ? 'COMMENT '
-        . "'" . $index['Index_comment'] . "' " : '');
-    unset($fields);
+
+    $index_fields = array();
+    foreach ($index['columns'] as $key => $column) {
+        $index_fields[$key] = PMA_Util::backquote(
+            $_REQUEST['field_name'][$column['col_index']]
+        );
+        if ($column['size']) {
+            $index_fields[$key] .= '(' . $column['size'] . ')';
+        }
+    } // end while
+
+    $sql_query .= ' (' . implode(', ', $index_fields) . ')';
+
+    $keyBlockSizes = $index['Key_block_size'];
+    if (! empty($keyBlockSizes)) {
+        $sql_query .= " KEY_BLOCK_SIZE = "
+             . PMA_Util::sqlAddSlashes($keyBlockSizes);
+    }
+
+    // specifying index type is allowed only for primary, unique and index only
+    $type = $index['Index_type'];
+    if ($index['Index_choice'] != 'SPATIAL'
+        && $index['Index_choice'] != 'FULLTEXT'
+        && in_array($type, PMA_Index::getIndexTypes())
+    ) {
+        $sql_query .= ' USING ' . $type;
+    }
+
+    $parser = $index['Parser'];
+    if ($index['Index_choice'] == 'FULLTEXT' && ! empty($parser)) {
+        $sql_query .= " WITH PARSER " . PMA_Util::sqlAddSlashes($parser);
+    }
+
+    $comment = $index['Index_comment'];
+    if (! empty($comment)) {
+        $sql_query .= " COMMENT '" . PMA_Util::sqlAddSlashes($comment) . "'";
+    }
+
+    $statement[] = $sql_query;
 
     return $statement;
 }
