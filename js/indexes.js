@@ -165,6 +165,9 @@ function PMA_addColumnToIndex(source_array, array_index, index_choice, col_index
     }
     var index_name = $('input[name="index[Key_name]"]').val();
     var index_comment = $('input[name="index[Index_comment]"]').val();
+    var key_block_size = $('input[name="index[Key_block_size]"]').val();
+    var parser = $('input[name="index[Parser]"]').val();
+    var index_type = $('select[name="index[Index_type]"]').val();
     var columns = [];
     $('#index_columns tbody').find('tr').each(function () {
         // Get columns in particular order.
@@ -181,6 +184,9 @@ function PMA_addColumnToIndex(source_array, array_index, index_choice, col_index
         'Key_name': index_name,
         'Index_comment': index_comment,
         'Index_choice': index_choice.toUpperCase(),
+        'Key_block_size': key_block_size,
+        'Parser': parser,
+        'Index_type': index_type,
         'columns': columns
     };
 
@@ -675,7 +681,7 @@ AJAX.registerOnload('indexes.js', function () {
      */
     $('body').on('change', 'select[name*="field_key"]', function () {
         // Index of column on Table edit and create page.
-        var col_index = /\d/.exec($(this).attr('name'));
+        var col_index = /\d+/.exec($(this).attr('name'));
         col_index = col_index[0];
         // Choice of selected index.
         var index_choice = /[a-z]+/.exec($(this).val());
