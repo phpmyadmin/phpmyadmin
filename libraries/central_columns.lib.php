@@ -1006,7 +1006,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
         '<td class="nowrap" name="col_isNull">'
         . PMA_getHtmlForColumnNull($row_num, 6, 0, array('Null'=>$row['col_isNull']))
         . '</td>';
-    $extra_val = $row['col_extra'];
+    
     $tableHtml .=
         '<td class="nowrap" name="col_extra">'
         . PMA_getHtmlForColumnExtra(
