@@ -2147,7 +2147,7 @@ function PMA_sendQueryResponseForResultsReturned($result,
 
     $just_one_table = PMA_resultSetHasJustOneTable($fields_meta);
 
-    $editable = ($has_unique || $updatableView) && $just_one_table;
+    $editable = ($has_unique || $updatableView) && $just_one_table && !strpos($sele_exp_cls, '(');
 
     // Displays the results in a table
     if (empty($disp_mode)) {
