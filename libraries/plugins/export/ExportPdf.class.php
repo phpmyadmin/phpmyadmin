@@ -290,7 +290,7 @@ class ExportPdf extends ExportPlugin
         );
         $pdf->setAttributes($attr);
         /**
-         * relation, comment and mime display set true as presently 
+         * relation, comment and mime display set true as presently
          * in pdf format, no option is present to take user input.
          */
         switch($export_mode) {

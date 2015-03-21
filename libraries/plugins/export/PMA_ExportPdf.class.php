@@ -273,7 +273,7 @@ class PMA_ExportPdf extends PMA_PDF
     {
         $this->tMargin = $topMargin;
     }
-    
+
     /**
      * Prints triggers
      *
