@@ -2876,7 +2876,7 @@ $cfg['SQLQuery']['ShowAsPHP'] = true;
 $cfg['SQLQuery']['Refresh'] = true;
 
 /**
- * Enables AutoComplete for table & Column names in SQL queries
+ * Enables autoComplete for table & column names in SQL queries
  *
  * default = 'true'
  */

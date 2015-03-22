@@ -2440,8 +2440,8 @@ Text fields
     :type: boolean
     :default: true
 
-    Whether to Enable Autocomplete for table and Column names in any
-    SQL Query box.
+    Whether to enable autocomplete for table and column names in any
+    SQL query box.
 
 
 SQL query box settings
