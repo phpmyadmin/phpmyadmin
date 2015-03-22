@@ -2875,6 +2875,13 @@ $cfg['SQLQuery']['ShowAsPHP'] = true;
  */
 $cfg['SQLQuery']['Refresh'] = true;
 
+/**
+ * Enables AutoComplete for table & Column names in SQL queries
+ *
+ * default = 'true'
+ */
+$cfg['EnableAutocompleteForTablesAndColumns'] = true;
+
 
 /*******************************************************************************
  * Web server upload/save/import directories
