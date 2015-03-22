@@ -342,6 +342,9 @@ function PMA_resultSetContainsUniqueKey($db, $table, $fields_meta)
 {
     $resultSetColumnNames = array();
     foreach ($fields_meta as $oneMeta) {
+        if ($oneMeta->table != $table) {
+            return false;
+        }
         $resultSetColumnNames[] = $oneMeta->name;
     }
     foreach (PMA_Index::getFromTable($table, $db) as $index) {
@@ -2147,7 +2150,7 @@ function PMA_sendQueryResponseForResultsReturned($result,
 
     $just_one_table = PMA_resultSetHasJustOneTable($fields_meta);
 
-    $editable = ($has_unique || $updatableView) && $just_one_table && !strpos($sele_exp_cls, '(');
+    $editable = ($has_unique || $updatableView) && $just_one_table;
 
     // Displays the results in a table
     if (empty($disp_mode)) {
