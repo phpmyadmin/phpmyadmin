@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-18 14:15-0400\n"
-"PO-Revision-Date: 2015-03-10 18:00+0200\n"
-"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2015-03-22 04:25+0200\n"
+"Last-Translator: Thiago Casotti <thiago.casotti@uol.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -5377,15 +5377,14 @@ msgid "Allow login to any MySQL server"
 msgstr "Permitir login para qualquer servidor MySQL"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
-"Restringe os servidores MySQL que o usuário pode entrar quando o login em um "
-"servidor MySQL arbitrário é habilitado pela correspondência entre o IP ou "
-"nome do host do servidor MySQL para a expressão regular especificada."
+"Restringe os servidores MySQL que o usuário pode entrar quando o login para "
+"um servidor MySQL arbitrário está habilitado por correspondência de IP ou "
+"nome de host do servidor MySQL para a expressão regular dada."
 
 #: libraries/config/messages.inc.php:25
 msgid "Restrict login to MySQL server"
@@ -7081,7 +7080,6 @@ msgid "Recently used table"
 msgstr "Tabelas recentemente usadas"
 
 #: libraries/config/messages.inc.php:664
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]."
@@ -7089,8 +7087,8 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Deixe em branco se não houver tabela(s) persistente(s) recentemente usada(s) "
-"entre as sessões, sugestão: [kbd]pma_recent[/kbd]."
+"Deixe em branco se não houver tabela(s) favorita(s) \"persistente\" através "
+"de sessões, sugerido: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:667
 msgid "Favorites table"
@@ -7467,7 +7465,6 @@ msgid "Suhosin warning"
 msgstr "Aviso do Suhosin"
 
 #: libraries/config/messages.inc.php:774
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
@@ -7481,10 +7478,9 @@ msgstr ""
 "`LoginCookieValidity`."
 
 #: libraries/config/messages.inc.php:776
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Alerta de validade do cookie de login"
+msgstr "Aviso de validade do cookie de login"
 
 #: libraries/config/messages.inc.php:778
 msgid ""
@@ -7892,10 +7888,9 @@ msgid "Move Menu"
 msgstr "Mover Menu"
 
 #: libraries/db_designer.lib.php:416 libraries/db_designer.lib.php:419
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
-msgstr "Fixar texto"
+msgstr "Texto fixado"
 
 #: libraries/db_designer.lib.php:458
 msgid "Hide/Show all"
@@ -8783,18 +8778,17 @@ msgid "Go to view: %s"
 msgstr "Ir para a view: %s"
 
 #: libraries/import.lib.php:1382
-#, fuzzy
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
-msgstr "Você pode simular consultas UPDATE e DELETE em apenas uma tabela."
+msgstr ""
+"Somente pesquisas de UPDATE e DELETE em tabela-simples podem ser simuladas."
 
 #: libraries/import.lib.php:1799
-#, fuzzy
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
-"Apenas operações INSERT, UPDATE, DELETE e REPLACE contendo motor "
-"transacional de tabela(s) pode(m) ser revertida(s)."
+"Apenas operações SQL de INSERT, UPDATE, DELETE e REPLACE contendo tabela(s) "
+"de motor transacional  podem ser repetidas."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -9107,10 +9101,9 @@ msgid "unknown"
 msgstr "desconhecido"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "Ocorreu um erro ao carregar a tela de navegação"
+msgstr "Ocorreu um erro enquanto carrega-se a exibição de navegação"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -9164,7 +9157,6 @@ msgstr[0] "%s resultado encontrado"
 msgstr[1] "%s resultados encontrados"
 
 #: libraries/navigation/NavigationTree.class.php:1210
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
 msgstr "Por favor, selecione um banco de dados."
@@ -9380,7 +9372,6 @@ msgid "Remove redundant columns"
 msgstr "Remover colunas redundantes"
 
 #: libraries/normalization.lib.php:215
-#, fuzzy
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -9388,7 +9379,7 @@ msgid ""
 msgstr ""
 "Você possui um grupo de colunas cuja combinação resulta em uma coluna "
 "existente? Por exemplo, se você possui nome, sobrenome e nome_completo então "
-"a combinação de nome e sobrenome seria nome_completo, o que é redundante."
+"combinar nome e sobrenome resulta em nome_completo, que é redundante."
 
 #: libraries/normalization.lib.php:221
 msgid ""
@@ -9411,7 +9402,6 @@ msgid "Move repeating groups"
 msgstr "Mover grupos repetidos"
 
 #: libraries/normalization.lib.php:251
-#, fuzzy
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -9420,24 +9410,22 @@ msgid ""
 "should be created."
 msgstr ""
 "Você tem um grupo de duas ou mais colunas que estão intimamente relacionadas "
-"e estão todas repetindo o mesmo atributo? Por exemplo, uma tabela que contém "
-"dados sobre livros podem ter colunas como id_livro, autor1, autor2, autor3 e "
-"assim por diante, que formam um grupo repetido. Neste caso, uma nova tabela "
-"(id_livro, autor) deve ser criada."
+"e estão todas repetindo o mesmo atributo? Por exemplo, uma tabela que "
+"armazena dados sobre livros podem ter colunas como id_livro, autor1, autor2, "
+"autor3 e assim por diante, que formam um grupo repetido. Neste caso, uma "
+"nova tabela (id_livro, autor) deveria ser criada."
 
 #: libraries/normalization.lib.php:259
-#, fuzzy
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
-"Verifique as colunas que formam um grupo repetido. Se não houver esse grupo, "
+"Selecione as colunas que formam um grupo repetido. Se não houver mais grupo, "
 "clique em 'Nenhum grupo repetido'"
 
 #: libraries/normalization.lib.php:265
-#, fuzzy
 msgid "No repeating group"
-msgstr "Nenhum grupo repetido"
+msgstr "Não há grupo repetido"
 
 #: libraries/normalization.lib.php:291
 msgid "Step 2."
@@ -9448,26 +9436,27 @@ msgid "Find partial dependencies"
 msgstr "Encontre dependências parciais"
 
 #: libraries/normalization.lib.php:313
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
-"Dependências parciais não são possíveis, não há colunas não primárias, "
-"porque a chave primária (%1$s) contém todas as colunas da tabela."
+"Não há dependências parciais possíveis quando nenhuma coluna não-primária "
+"existe desde que a chave primária ( %1$s ) seja composta por todas as "
+"colunas da tabela.."
 
 #: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
 msgstr "A tabela já está na segunda forma normal."
 
 #: libraries/normalization.lib.php:323
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
-"A chave primária ( %1$s ) consiste em mais de uma coluna, então precisamos "
-"encontrar as dependências parciais."
+"A chave primária ( %1$s ) consiste em mais de uma coluna, então nós "
+"precisamos encontrar as dependências parciais."
 
 #: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 msgid ""
@@ -9483,15 +9472,14 @@ msgstr ""
 "+ Mostre-me as possíveis dependências parciais com base nos dados da tabela"
 
 #: libraries/normalization.lib.php:335
-#, fuzzy
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
-"Para cada coluna abaixo, por favor, selecione o <b>conjunto mínimo</b> de "
-"colunas entre elas cujos valores combinados são suficientes para determinar "
-"o valor da coluna."
+"Para cada coluna abaixo, por favor, selecione a <b>configuração mínima</b> "
+"de colunas dadas entre configurações cujos valores combinados são "
+"suficientes para determinar o valor da coluna."
 
 #: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
@@ -9499,12 +9487,12 @@ msgid "'%1$s' depends on:"
 msgstr "'%1$s' depende de:"
 
 #: libraries/normalization.lib.php:356
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
-"Nenhuma dependência parcial possível como a chave primária  ( %1$s ) tem "
+"Nenhuma dependência parcial possível quando a chave primária  ( %1$s ) tem "
 "apenas uma coluna."
 
 #: libraries/normalization.lib.php:381
@@ -9540,11 +9528,10 @@ msgid "The third step of normalization is complete."
 msgstr "A terceira etapa da normalização está completa."
 
 #: libraries/normalization.lib.php:642
-#, fuzzy, php-format
+#, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr ""
-"Grupo(s) repetido(s) selecionado(s) foi(ram) movidos para a tabela '%s'"
+msgstr "Grupo repetido selecionado tem sido movido para a tabela '%s'"
 
 #: libraries/normalization.lib.php:689
 msgid "Step 3."
@@ -9555,26 +9542,25 @@ msgid "Find transitive dependencies"
 msgstr "Localizar dependências transitivas"
 
 #: libraries/normalization.lib.php:696
-#, fuzzy
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
-"Para cada coluna abaixo, por favor, selecione o <b>conjunto mínimo</b> de "
-"colunas entre elas cujos valores combinados são suficientes para determinar "
-"o valor da coluna. <br />Nota: uma coluna não pode ter nenhuma dependência "
-"transitiva, nesse caso não é obrigatório selecionar uma."
+"Para cada coluna abaixo, por favor selecione a <b>configuração mínima</b> de "
+"colunas dadas entre configurações cujos valores combinados são suficientes "
+"para determinar o valor da coluna. <br />Nota: uma coluna pode não ter "
+"nenhuma dependência transitiva, nesse caso você não terá que selecionar "
+"qualquer uma."
 
 #: libraries/normalization.lib.php:743
-#, fuzzy
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
-"Não há dependências transitivas possíveis devido a tabela não possuir "
-"quaisquer colunas de chave primária."
+"Não há dependências transitivas possíveis quando a tabela não possui nenhuma "
+"coluna de chave não primária"
 
 #: libraries/normalization.lib.php:747
 msgid "Table is already in Third normal form!"
@@ -9585,9 +9571,8 @@ msgid "Improve table structure (Normalization):"
 msgstr "Melhore a estrutura da tabela (Normalização):"
 
 #: libraries/normalization.lib.php:771
-#, fuzzy
 msgid "Select up to what step you want to normalize"
-msgstr "Selecione até o passo você deseja normalizar"
+msgstr "Selecione até qual passo você quiser normalizar"
 
 #: libraries/normalization.lib.php:774
 msgid "Second step of normalization (1NF+2NF)"
@@ -10232,7 +10217,6 @@ msgstr ""
 "Exemplo: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
-#, fuzzy
 #| msgid ""
 #| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 #| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -10275,16 +10259,14 @@ msgstr "Parece que seu banco de dados utiliza procedimentos;"
 #: libraries/plugins/export/ExportSql.class.php:551
 #: libraries/plugins/export/ExportSql.class.php:1260
 #: libraries/plugins/export/ExportSql.class.php:1799
-#, fuzzy
 msgid "alias export may not work reliably in all cases."
-msgstr "exportação de alias pode não funcionar corretamente em todos os casos."
+msgstr "exportar alias pode não funcionar confiantemente em todos os casos."
 
 #: libraries/plugins/export/ExportSql.class.php:548
 msgid "It appears your database uses functions;"
 msgstr "Parece que seu banco de dados utiliza funções;"
 
 #: libraries/plugins/export/ExportSql.class.php:1257
-#, fuzzy
 msgid "It appears your database uses views;"
 msgstr "Parece que seu banco de dados utiliza visões;"
 
@@ -10321,9 +10303,8 @@ msgid "RELATIONS FOR TABLE"
 msgstr "RELACIONAMENTOS PARA TABELAS"
 
 #: libraries/plugins/export/ExportSql.class.php:1796
-#, fuzzy
 msgid "It appears your table uses triggers;"
-msgstr "Parece que sua tabela utiliza gatilhos;"
+msgstr "Isso demonstra que sua tabela utiliza gatilhos;"
 
 #: libraries/plugins/export/ExportSql.class.php:1828
 #, php-format
@@ -10526,7 +10507,7 @@ msgid "PDF export page"
 msgstr "Página de exportação PDF"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:474
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
 msgstr "Esquema de banco de dados %s"
