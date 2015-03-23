@@ -310,10 +310,8 @@ if (! empty($_REQUEST['id_bookmark'])) {
             isset($_REQUEST['action_bookmark_all'])
         );
         if (! empty($_REQUEST['bookmark_variable'])) {
-            $import_text = preg_replace(
-                '|/\*(.*)\[VARIABLE\](.*)\*/|imsU',
-                '${1}' . PMA_Util::sqlAddSlashes($_REQUEST['bookmark_variable']) . '${2}',
-                $import_text
+            $import_text = PMA_Bookmark_applyVariables(
+                $import_text, $_REQUEST['bookmark_variable']
             );
         }
 

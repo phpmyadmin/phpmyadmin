@@ -91,6 +91,7 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('stickycolumns', ".sqlqueryresults");
     $("#togglequerybox").unbind('click');
     $(document).off('click', "#button_submit_query");
+    $(document).off('change', '#id_bookmark')
     $("input[name=bookmark_variable]").unbind("keypress");
     $(document).off('submit', "#sqlqueryform.ajax");
     $(document).off('click', "input[name=navig].ajax");
@@ -265,6 +266,31 @@ AJAX.registerOnload('sql.js', function () {
         // import.php about what needs to be done
         $form.find("select[name=id_bookmark]").val("");
         // let normal event propagation happen
+    });
+
+    /**
+     * Event handler to show appropiate number of variable boxes
+     * based on the bookmarked query
+     */
+    $(document).on('change', '#id_bookmark', function (event) {
+
+        var varCount = $(this).find('option:selected').data('varcount');
+        if (typeof varCount == 'undefined') {
+            varCount = 0;
+        }
+
+        var $varDiv = $('#bookmark_variables');
+        $varDiv.empty();
+        for (var i = 1; i <= varCount; i++) {
+            $varDiv.append($('<label for="bookmark_variable_' + i + '">' + PMA_sprintf(PMA_messages.strBookmarkVariable, i) + '</label>'));
+            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '"></input>'));
+        }
+
+        if (varCount == 0) {
+            $varDiv.parent('.formelement').hide();
+        } else {
+            $varDiv.parent('.formelement').show();
+        }
     });
 
     /**
