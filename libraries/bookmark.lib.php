@@ -91,62 +91,20 @@ function PMA_Bookmark_getList($db = false)
 
         asort($ret);
     } else {
-        $query  = 'SELECT label, id, query, dbase FROM '
-            . PMA_Util::backquote($cfgBookmark['db'])
-            . '.' . PMA_Util::backquote($cfgBookmark['table'])
-            . ' WHERE user = \''
-            . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
-            . ' ORDER BY label';
-        $per_user = $GLOBALS['dbi']->fetchResult(
+        $query = "SELECT `label`, `id`, `query`, `dbase` AS `db`,"
+            . " IF (`user` = '', true, false) AS `shared`"
+            . " FROM ". PMA_Util::backquote($cfgBookmark['db'])
+            . "." . PMA_Util::backquote($cfgBookmark['table'])
+            . " WHERE `user` = '' OR"
+            . " `user` = '" . PMA_Util::sqlAddSlashes($cfgBookmark['user'])  . "'";
+
+        $ret = $GLOBALS['dbi']->fetchResult(
             $query,
-            Array('id', 'label', 'dbase'),
-            'query',
+            null,
+            null,
             $controllink,
             PMA_DatabaseInterface::QUERY_STORE
         );
-
-        $query  = 'SELECT label, id, query, dbase FROM '
-            . PMA_Util::backquote($cfgBookmark['db'])
-            . '.' . PMA_Util::backquote($cfgBookmark['table'])
-            . ' WHERE user = \'\''
-            . ' ORDER BY label';
-        $global = $GLOBALS['dbi']->fetchResult(
-            $query,
-            Array('id', 'label', 'dbase'),
-            'query',
-            $controllink,
-            PMA_DatabaseInterface::QUERY_STORE
-        );
-
-        $ret = Array();
-
-        foreach ($global as $id => $val) {
-            foreach ($val as $label => $val2) {
-                foreach ($val2 as $dbase => $query) {
-                    $ret[] = Array(
-                        'db' => $dbase,
-                        'id' => $id,
-                        'label' => $label,
-                        'query' => $query,
-                        'shared' => true
-                        );
-                }
-            }
-        }
-
-        foreach ($per_user as $id => $val) {
-            foreach ($val as $label => $val2) {
-                foreach ($val2 as $dbase => $query) {
-                    $ret[] = Array(
-                        'db' => $dbase,
-                        'id' => $id,
-                        'label' => $label,
-                        'query' => $query,
-                        'shared' => false
-                        );
-                }
-            }
-        }
     }
 
     return $ret;
