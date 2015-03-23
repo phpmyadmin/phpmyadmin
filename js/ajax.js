@@ -21,6 +21,11 @@ var AJAX = {
      */
     lockedTargets: {},
     /**
+     * @var integer cancellingRequest to know if a request is being nullified
+     *              Used for handling failed requests
+     */
+    cancellingRequest: 0,
+    /**
      * @var function Callback to execute after a successful request
      *               Used by PMA_commonFunctions from common.js
      */
@@ -231,7 +236,7 @@ var AJAX = {
         }
         AJAX.resetLock();
 
-        if (AJAX.active === true) {
+        if (AJAX.cancellingRequest++ == 0 && AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
             // something else. Otherwise silently bail out, as there is already
             // a request well in progress.
@@ -251,6 +256,7 @@ var AJAX = {
                 //In case submitting a form, don't attempt aborting
                 return false;
             }
+            AJAX.cancellingRequest = 0;
         }
 
         AJAX.source = $(this);

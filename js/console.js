@@ -184,6 +184,12 @@ var PMA_console = {
                     PMA_console.ajaxCallback(data);
                 } catch (e) {
                     console.log("Invalid JSON!" + e.message);
+                    if(AJAX.cancellingRequest++ > 0) {
+                        PMA_ajaxShowMessage($('<div />',{class:'error',html:PMA_messages.strRequestFailed}));
+                        AJAX.active = false;
+                        AJAX.xhr = null;
+                        AJAX.cancellingRequest = 0;
+                    }
                 }
             });
 
