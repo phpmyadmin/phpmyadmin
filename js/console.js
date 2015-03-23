@@ -173,6 +173,11 @@ var PMA_console = {
                     PMA_console.ajaxCallback(data);
                 } catch (e) {
                     console.log("Invalid JSON!" + e.message);
+                    if(AJAX.xhr.status === 0 && AJAX.xhr.statusText !== 'abort') {
+                        PMA_ajaxShowMessage($('<div />',{class:'error',html:PMA_messages.strRequestFailed+' ( '+AJAX.xhr.statusText+' )'}));
+                        AJAX.active = false;
+                        AJAX.xhr = null;
+                    }
                 }
             });
 
