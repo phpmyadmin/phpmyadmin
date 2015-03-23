@@ -34,17 +34,19 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     private $_columnData = array(
         array(
             'col_name' => "id", "col_type" => 'integer',
-            'col_length' => 0, 'col_isNull' => 0, 'col_extra' => 'UNSIGNED,auto_increment',
-            'col_default' => 1
+            'col_length' => 0, 'col_isNull' => 0,
+            'col_extra' => 'UNSIGNED,auto_increment',
+            'col_default' => 1, 'col_collation' => ''
         ),
         array('col_name' => "col1", 'col_type' => 'varchar',
             'col_length' => 100, 'col_isNull' => 1, 'col_extra' => 'BINARY',
-            'col_default' => 1
+            'col_default' => 1, 'col_collation' => ''
         ),
         array(
             'col_name' => "col2", 'col_type' => 'DATETIME',
-            'col_length' => 0, 'col_isNull' => 1, 'col_extra' => 'on update CURRENT_TIMESTAMP',
-            'col_default' => 'CURRENT_TIMESTAMP'
+            'col_length' => 0, 'col_isNull' => 1,
+            'col_extra' => 'on update CURRENT_TIMESTAMP',
+            'col_default' => 'CURRENT_TIMESTAMP', 'col_collation' => ''
         )
     );
 
@@ -52,16 +54,17 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         array(
             'col_name' => "id", "col_type" => 'integer',
             'col_length' => 0, 'col_isNull' => 0, 'col_extra' => 'auto_increment',
-            'col_default' => 1, 'col_attribute' => 'UNSIGNED'
+            'col_default' => 1, 'col_collation' => '', 'col_attribute' => 'UNSIGNED'
         ),
         array('col_name' => "col1", 'col_type' => 'varchar',
             'col_length' => 100, 'col_isNull' => 1, 'col_extra' => '',
-            'col_default' => 1, 'col_attribute' => 'BINARY'
+            'col_default' => 1, 'col_collation' => '', 'col_attribute' => 'BINARY'
         ),
         array(
             'col_name' => "col2", 'col_type' => 'DATETIME',
             'col_length' => 0, 'col_isNull' => 1, 'col_extra' => '',
-            'col_default' => 'CURRENT_TIMESTAMP', 'col_attribute' => 'on update CURRENT_TIMESTAMP'
+            'col_default' => 'CURRENT_TIMESTAMP', 'col_collation' => '',
+            'col_attribute' => 'on update CURRENT_TIMESTAMP'
         )
     );
 
@@ -157,14 +160,22 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['dbi']->expects($this->at(1))
             ->method('fetchResult')
-            ->with("SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin' LIMIT 0, 25;", null, null, $GLOBALS['controllink'])
+            ->with(
+                "SELECT * FROM `pma_central_columns` "
+                . "WHERE db_name = 'phpmyadmin' LIMIT 0, 25;",
+                null, null, $GLOBALS['controllink']
+            )
             ->will(
                 $this->returnValue($this->_columnData)
             );
 
         $GLOBALS['dbi']->expects($this->at(3))
             ->method('fetchResult')
-            ->with("SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin' LIMIT 1, 2;", null, null, $GLOBALS['controllink'])
+            ->with(
+                "SELECT * FROM `pma_central_columns` "
+                . "WHERE db_name = 'phpmyadmin' LIMIT 1, 2;",
+                null, null, $GLOBALS['controllink']
+            )
             ->will(
                 $this->returnValue(
                     array_slice($this->_columnData, 1, 2)
@@ -190,7 +201,11 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['dbi']->expects($this->at(1))
             ->method('fetchResult')
-            ->with("SELECT count(db_name) FROM `pma_central_columns` WHERE db_name = 'phpmyadmin';", null, null, $GLOBALS['controllink'])
+            ->with(
+                "SELECT count(db_name) FROM `pma_central_columns` "
+                . "WHERE db_name = 'phpmyadmin';",
+                null, null, $GLOBALS['controllink']
+            )
             ->will(
                 $this->returnValue(array(3))
             );
@@ -229,14 +244,22 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         // when column exists in the central column list
         $GLOBALS['dbi']->expects($this->at(2))
             ->method('fetchResult')
-            ->with("SELECT col_name FROM `pma_central_columns` WHERE db_name = 'PMA_db' AND col_name IN ('col1');", null, null, $GLOBALS['controllink'])
+            ->with(
+                "SELECT col_name FROM `pma_central_columns` "
+                . "WHERE db_name = 'PMA_db' AND col_name IN ('col1');",
+                null, null, $GLOBALS['controllink']
+            )
             ->will(
                 $this->returnValue(array('col1'))
             );
 
         $GLOBALS['dbi']->expects($this->at(4))
             ->method('tryQuery')
-            ->with("DELETE FROM `pma_central_columns` WHERE db_name = 'PMA_db' AND col_name IN ('col1');", $GLOBALS['controllink'])
+            ->with(
+                "DELETE FROM `pma_central_columns` "
+                . "WHERE db_name = 'PMA_db' AND col_name IN ('col1');",
+                $GLOBALS['controllink']
+            )
             ->will(
                 $this->returnValue(array('col1'))
             );
@@ -289,7 +312,11 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi']->expects($this->at(3))
             ->method('fetchResult')
-            ->with("SELECT col_name FROM `pma_central_columns` WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');", null, null, $GLOBALS['controllink'])
+            ->with(
+                "SELECT col_name FROM `pma_central_columns` "
+                . "WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');",
+                null, null, $GLOBALS['controllink']
+            )
             ->will(
                 $this->returnValue(array('id','col1'))
             );
@@ -311,7 +338,11 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi']->expects($this->at(3))
             ->method('fetchResult')
-            ->with("SELECT * FROM `pma_central_columns` WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');", null, null, $GLOBALS['controllink'])
+            ->with(
+                "SELECT * FROM `pma_central_columns` "
+                . "WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');",
+                null, null, $GLOBALS['controllink']
+            )
             ->will(
                 $this->returnValue(array_slice($this->_columnData, 0, 2))
             );
@@ -330,14 +361,81 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertTrue(
             PMA_updateOneColumn(
-                "phpmyadmin", "", "", "", "","", "", "", "", ""
+                "phpmyadmin", "", "", "", "", "", "", "", "", ""
             )
         );
         $this->assertTrue(
             PMA_updateOneColumn(
-                "phpmyadmin", "col1", "", "", "","", "", "", "", ""
+                "phpmyadmin", "col1", "", "", "", "", "", "", "", ""
             )
         );
+    }
+
+    /**
+     * Test for PMA_updateMultipleColumn
+     *
+     * @return void
+     */
+    public function testPMAUpdateMultipleColumn()
+    {
+        $_POST['db'] = 'phpmyadmin';
+        $_POST['orig_col_name'] = array("col1","col2");
+        $_POST['field_name'] = array("col1","col2");
+        $_POST['field_default_type'] = array("","");
+        $_POST['col_extra'] = array("","");
+        $_POST['field_length'] = array("","");
+        $_POST['field_attribute'] = array("","");
+        $_POST['field_type'] = array("","");
+        $_POST['field_collation'] = array("","");
+        $this->assertTrue(
+            PMA_updateMultipleColumn()
+        );
+
+    }
+
+    /**
+     * Test for PMA_getHTMLforEditingPage
+     *
+     * @return void
+     */
+    public function testPMAGetHTMLforEditingPage()
+    {
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('fetchResult')
+            ->with(
+                "SELECT * FROM `pma_central_columns` "
+                . "WHERE db_name = 'phpmyadmin' AND col_name IN ('col1','col2');",
+                null, null, $GLOBALS['controllink']
+            )
+            ->will(
+                $this->returnValue($this->_columnData)
+            );
+        $result = PMA_getHTMLforEditingPage(
+            array("col1", "col2"), 'phpmyadmin'
+        );
+        $this->assertTag(
+            array('tag' => 'form'),
+            $result
+        );
+        $header_cells = array(
+        __('Name'), __('Type'), __('Length/Values'), __('Default'),
+        __('Collation'), __('Attributes'), __('Null'), __('A_I')
+        );
+        $this->assertContains(
+            PMA_getCentralColumnsEditTableHeader($header_cells), $result
+        );
+        $list_detail_cols = PMA_findExistingColNames(
+            'phpmyadmin', "'col1','col2'", true
+        );
+        $this->assertContains(
+            PMA_getHTMLforCentralColumnsEditTableRow(
+                $list_detail_cols[0], false, 0
+            ), $result
+        );
+        $this->assertContains(
+            PMA_getCentralColumnsEditTableFooter(), $result
+        );
+
     }
 
     /**
@@ -469,7 +567,11 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['dbi']->expects($this->at(1))
             ->method('fetchResult')
-            ->with("SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin';", null, null, $GLOBALS['controllink'])
+            ->with(
+                "SELECT * FROM `pma_central_columns` "
+                . "WHERE db_name = 'phpmyadmin';",
+                null, null, $GLOBALS['controllink']
+            )
             ->will(
                 $this->returnValue($this->_columnData)
             );
@@ -488,7 +590,12 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['dbi']->expects($this->at(3))
             ->method('fetchResult')
-            ->with("SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin' AND col_name NOT IN ('id','col1','col2');", null, null, $GLOBALS['controllink'])
+            ->with(
+                "SELECT * FROM `pma_central_columns` "
+                . "WHERE db_name = 'phpmyadmin' AND col_name "
+                . "NOT IN ('id','col1','col2');",
+                null, null, $GLOBALS['controllink']
+            )
             ->will(
                 $this->returnValue($this->_columnData)
             );
@@ -542,7 +649,11 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['dbi']->expects($this->at(1))
             ->method('fetchResult')
-            ->with("SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin' AND col_name IN ('col1');", null, null, $GLOBALS['controllink'])
+            ->with(
+                "SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin'"
+                . " AND col_name IN ('col1');",
+                null, null, $GLOBALS['controllink']
+            )
             ->will(
                 $this->returnValue(array_slice($this->_columnData, 1, 1))
             );
@@ -581,7 +692,8 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $selected_tbl = 'PMA_table';
         $result = PMA_getHTMLforColumnDropdown($db, $selected_tbl);
         $this->assertEquals(
-            '<option value="id">id</option><option value="col1">col1</option><option value="col2">col2</option>',
+            '<option value="id">id</option><option value="col1">col1</option>'
+            . '<option value="col2">col2</option>',
             $result
         );
     }
@@ -600,6 +712,27 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             . '<input type="hidden" name="add_column" value="add">'
             . '<input type="hidden" name="pos" value="0" />'
             . '<input type="hidden" name="total_rows" value="20"/>',
+            $result
+        );
+    }
+
+    /**
+     * Test for PMA_getCentralColumnsTableFooter
+     *
+     * @return void
+     */
+    public function testPMAGetCentralColumnsTableFooter()
+    {
+        $pmaThemeImage = "pmaThemeImage";
+        $text_dir = "text_dir";
+        if (!defined("PMA_USR_BROWSER_AGENT")) {
+            define("PMA_USR_BROWSER_AGENT", "other");
+        }
+        $result = PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir);
+        $this->assertTag(array('tag'=>"input", "class"=>"checkall_box"), $result);
+        $this->assertContains("With selected:", $result);
+        $this->assertTag(
+            array('tag'=>"button", "class"=>"change_central_columns"),
             $result
         );
     }
