@@ -12,6 +12,8 @@ phpMyAdmin - ChangeLog
 + rfe #1625 Toggle autocomplete of table and column names
 + rfe #933  Manage multiple variable in bookmarked query
 
+4.4.1.0 (not yet released)
+
 4.4.0.0 (not yet released)
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
 + rfe #1562 Allow tracking multiple table at once from database level tracking page
