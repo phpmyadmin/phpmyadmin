@@ -1403,7 +1403,13 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
     $html_output = '';
     foreach ($privTable as $i => $table) {
         $html_output .= '<fieldset>' . "\n"
-            . '<legend>' . $privTable_names[$i] . '</legend>' . "\n";
+            . '<legend>' . "\n"
+            . '<input type="checkbox" class="sub_checkall_box"'
+            . ' id="checkall_' . $privTable_names[$i] . '_priv"'
+            . ' title="' . __('Check All') . '"/>'
+            . '<label for="checkall_' . $privTable_names[$i] . '_priv">'
+            . $privTable_names[$i] . '</label>' . "\n"
+            . '</legend>' . "\n";
         foreach ($table as $priv) {
             $html_output .= '<div class="item">' . "\n"
                 . '<input type="checkbox" class="checkall"'

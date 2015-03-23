@@ -2435,6 +2435,14 @@ Text fields
     Defines if the whole textarea of the query box will be selected on
     click.
 
+.. config:option:: $cfg['EnableAutocompleteForTablesAndColumns']
+
+    :type: boolean
+    :default: true
+
+    Whether to enable autocomplete for table and column names in any
+    SQL query box.
+
 
 SQL query box settings
 ----------------------
