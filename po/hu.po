@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-22 07:35-0400\n"
-"PO-Revision-Date: 2015-03-19 22:12+0200\n"
+"PO-Revision-Date: 2015-03-22 21:19+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5349,6 +5349,10 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Korlátozza azokat a MySQL kiszolgálókat, amelyekre a felhasználó be tud "
+"lépni, amikor egy önkényes MySQL kiszolgálóra való bejelentkezés "
+"engedélyezve van a megadott reguláris kifejezésre illeszkedő MySQL "
+"kiszolgáló IP-címével vagy gépnevével."
 
 #: libraries/config/messages.inc.php:25
 msgid "Restrict login to MySQL server"
@@ -5542,16 +5546,14 @@ msgid "Default table tab"
 msgstr "Alapértelmezett tábla fül"
 
 #: libraries/config/messages.inc.php:94
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Idézőjelek használata a tábla- és mezőneveknél"
+msgstr "Tábla- és oszlopnevek automatikus kiegészítése az SQL lekérdezésekben."
 
 #: libraries/config/messages.inc.php:95
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Idézőjelek használata a tábla- és mezőneveknél"
+msgstr "Automatikus kiegészítés engedélyezése a tábla- és mezőneveknél"
 
 #: libraries/config/messages.inc.php:97
 msgid "Whether the table structure actions should be hidden."

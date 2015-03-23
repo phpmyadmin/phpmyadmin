@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-22 07:35-0400\n"
-"PO-Revision-Date: 2015-03-19 08:57+0200\n"
+"PO-Revision-Date: 2015-03-23 08:17+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5493,16 +5493,14 @@ msgid "Default table tab"
 msgstr "Vaikimisi tabeli vaheleht"
 
 #: libraries/config/messages.inc.php:94
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Aseta tabeli ja veeru nimed alumise ja ülemise jutumärgi vahele"
+msgstr "Automaatne tabelite ja veergude nimede lõpetamine SQL päringutes."
 
 #: libraries/config/messages.inc.php:95
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Aseta tabeli ja veeru nimed alumise ja ülemise jutumärgi vahele"
+msgstr "Luba tabelite ja veergude nimede automaatne lõpetamine"
 
 #: libraries/config/messages.inc.php:97
 msgid "Whether the table structure actions should be hidden."
