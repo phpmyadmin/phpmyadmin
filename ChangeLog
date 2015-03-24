@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 + rfe #1626 Display/edit index name
 + rfe #1625 Toggle autocomplete of table and column names
 + rfe #933  Manage multiple variable in bookmarked query
++ rfe #947  Show edit/delete also when there is calculated column
 
 4.4.1.0 (not yet released)
 
