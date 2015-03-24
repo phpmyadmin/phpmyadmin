@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.4.1.0 (not yet released)
 - bug #4813 MySQL 5.7.6 and the Users menu tab
+- bug #4818 MySQL 5.7.6 and changing the password for another user
 
 4.4.0.0 (not yet released)
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
