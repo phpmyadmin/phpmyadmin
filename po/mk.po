@@ -42,7 +42,7 @@ msgid "Database %1$s has been created."
 msgstr "Базата на податоци %1$s е креирана."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Коментар на базата на податоци:"
 
 #: db_datadict.php:94
@@ -815,7 +815,7 @@ msgstr ""
 
 #: index.php:327
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database client version:"
 msgstr "Коментар на базата на податоци:"
 
@@ -9913,7 +9913,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Преименувај ја базата на податоци во"
 
 #: libraries/operations.lib.php:106
@@ -9948,7 +9948,7 @@ msgstr "Само податоци"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Копирај ја базата на податоци во"
 
 #: libraries/operations.lib.php:185
@@ -9972,7 +9972,7 @@ msgid "(singly)"
 msgstr "(по едно поле)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Премести ја табелата во (база<b>.</b>табела):"
 
 #: libraries/operations.lib.php:732
@@ -9992,7 +9992,7 @@ msgid "Storage Engine"
 msgstr "Вид на складиште"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Копирај ја табелата во (база<b>.</b>табела):"
 
 #: libraries/operations.lib.php:1010

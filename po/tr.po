@@ -43,7 +43,7 @@ msgid "Database %1$s has been created."
 msgstr "Veritabanı %1$s oluşturuldu."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Veritabanı yorumu:"
 
 #: db_datadict.php:94
@@ -9533,7 +9533,7 @@ msgid "No partial dependencies found!"
 msgstr "Bulunan kısmi bağımlılıklar yok!"
 
 #: libraries/operations.lib.php:74
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Veritabanını şuna yeniden adlandır:"
 
 #: libraries/operations.lib.php:106
@@ -9565,7 +9565,7 @@ msgid "Data only"
 msgstr "Sadece veri"
 
 #: libraries/operations.lib.php:174
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Veritabanını şuraya kopyala:"
 
 #: libraries/operations.lib.php:185
@@ -9589,7 +9589,7 @@ msgid "(singly)"
 msgstr "(birer birer)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Tabloyu şuna (veritabanı<b>.</b>tablo) taşı:"
 
 #: libraries/operations.lib.php:732
@@ -9609,7 +9609,7 @@ msgid "Storage Engine"
 msgstr "Depolama Motoru"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Tabloyu şuna (veritabanı<b>.</b>tablo) kopyala:"
 
 #: libraries/operations.lib.php:1010

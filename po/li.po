@@ -43,7 +43,7 @@ msgid "Database %1$s has been created."
 msgstr ""
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr ""
 
 #: db_datadict.php:94
@@ -8888,7 +8888,7 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:74
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr ""
 
 #: libraries/operations.lib.php:106
@@ -8920,7 +8920,7 @@ msgid "Data only"
 msgstr ""
 
 #: libraries/operations.lib.php:174
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr ""
 
 #: libraries/operations.lib.php:185
@@ -8944,7 +8944,7 @@ msgid "(singly)"
 msgstr ""
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr ""
 
 #: libraries/operations.lib.php:732
@@ -8964,7 +8964,7 @@ msgid "Storage Engine"
 msgstr ""
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr ""
 
 #: libraries/operations.lib.php:1010

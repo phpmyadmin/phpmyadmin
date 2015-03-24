@@ -47,7 +47,7 @@ msgid "Database %1$s has been created."
 msgstr "%1$s ساندان غەلبىلىك قۇرۇلدى."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "ساندان ئىزاھاتى:"
 
 #: db_datadict.php:94
@@ -814,7 +814,7 @@ msgstr ""
 
 #: index.php:327
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database client version:"
 msgstr "ساندان ئىزاھاتى:"
 
@@ -6156,7 +6156,7 @@ msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:239
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Databases display options."
 msgstr "ساندان ئىزاھاتى:"
 
@@ -9332,7 +9332,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Database.class.php:41
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database operations"
 msgstr "ساندان ئىزاھاتى:"
 
@@ -9701,7 +9701,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
 
 #: libraries/operations.lib.php:106
@@ -9735,7 +9735,7 @@ msgstr "ئۇچۇرنىلا"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "كۆچۈرۈلگەن ساندان"
 
 #: libraries/operations.lib.php:185
@@ -9759,7 +9759,7 @@ msgid "(singly)"
 msgstr ""
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr ""
 
 #: libraries/operations.lib.php:732
@@ -9779,7 +9779,7 @@ msgid "Storage Engine"
 msgstr ""
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr ""
 
 #: libraries/operations.lib.php:1010
@@ -16021,7 +16021,7 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Database comment:"
+#~| msgid "Database comment"
 #~ msgid "Disable database expansion"
 #~ msgstr "ساندان ئىزاھاتى:"
 

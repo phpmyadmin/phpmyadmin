@@ -44,7 +44,7 @@ msgid "Database %1$s has been created."
 msgstr "ডাটাবেইজ %1$s তৈরী করা হয়েছে।"
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "ডাটাবেইজের মন্তব্য:"
 
 #: db_datadict.php:94
@@ -9709,7 +9709,7 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:74
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "ডাটাবেজ পুনঃনামকরন:"
 
 #: libraries/operations.lib.php:106
@@ -9741,7 +9741,7 @@ msgid "Data only"
 msgstr "শুধুমাত্র তথ্য"
 
 #: libraries/operations.lib.php:174
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "ডাটাবেজ কপি কর:"
 
 #: libraries/operations.lib.php:185
@@ -9765,7 +9765,7 @@ msgid "(singly)"
 msgstr "(একক ভাবে)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "টেবিলটি (ডাটাবেইজ<b>.</b>টেবল)এ সরানো হয়েছে:"
 
 #: libraries/operations.lib.php:732
@@ -9785,7 +9785,7 @@ msgid "Storage Engine"
 msgstr "মজুদ ব্যবস্থা"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "(ডাটাবেইজ<b>.</b>টেবল)এ টেবিলটির প্রতিলিপ কর:"
 
 #: libraries/operations.lib.php:1010

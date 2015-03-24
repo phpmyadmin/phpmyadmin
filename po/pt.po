@@ -43,7 +43,7 @@ msgid "Database %1$s has been created."
 msgstr "A base de dados %1$s foi criada."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Comentário da base de dados:"
 
 #: db_datadict.php:94
@@ -9690,7 +9690,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Alterar o nome da base de dados para"
 
 #: libraries/operations.lib.php:106
@@ -9724,7 +9724,7 @@ msgstr "Apenas dados"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Copiar a Base de Dados para"
 
 #: libraries/operations.lib.php:185
@@ -9748,7 +9748,7 @@ msgid "(singly)"
 msgstr "(A refazer após inserir/eliminar)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Move tabela para (base de dados<b>.</b>tabela):"
 
 #: libraries/operations.lib.php:732
@@ -9768,7 +9768,7 @@ msgid "Storage Engine"
 msgstr "Motor de armazenamento"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Copia tabela para (base-de-dados<b>.</b>tabela):"
 
 #: libraries/operations.lib.php:1010

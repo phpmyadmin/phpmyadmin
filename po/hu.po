@@ -43,7 +43,7 @@ msgid "Database %1$s has been created."
 msgstr "A(z) %1$s adatbázis elkészült."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Megjegyzés az adatbázishoz:"
 
 #: db_datadict.php:94
@@ -9565,7 +9565,7 @@ msgid "No partial dependencies found!"
 msgstr "Nem található részleges függőség!"
 
 #: libraries/operations.lib.php:74
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Adatbázis átnevezése:"
 
 #: libraries/operations.lib.php:106
@@ -9597,7 +9597,7 @@ msgid "Data only"
 msgstr "Csak az adatok"
 
 #: libraries/operations.lib.php:174
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Adatbázis másolása:"
 
 #: libraries/operations.lib.php:185
@@ -9621,7 +9621,7 @@ msgid "(singly)"
 msgstr "(egyenként)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Tábla áthelyezése (adatbázis<b>.</b>tábla):"
 
 #: libraries/operations.lib.php:732
@@ -9641,7 +9641,7 @@ msgid "Storage Engine"
 msgstr "Tárolómotor"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Tábla másolása (adatbázis<b>.</b>tábla):"
 
 #: libraries/operations.lib.php:1010

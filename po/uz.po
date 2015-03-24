@@ -46,7 +46,7 @@ msgid "Database %1$s has been created."
 msgstr "%1$s маълумотлар базаси тузилди."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Маълумотлар базасига изоҳ:"
 
 #: db_datadict.php:94
@@ -10747,7 +10747,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Маълумотлар базаси номини қуйидагига ўзгартириш"
 
 #: libraries/operations.lib.php:106
@@ -10781,7 +10781,7 @@ msgstr "Фақат маълумотлар"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Маълумотлар базасидан қуйидагига нусха олиш"
 
 #: libraries/operations.lib.php:185
@@ -10805,7 +10805,7 @@ msgid "(singly)"
 msgstr "(устун)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Жадвални (маълумотлар базаси<b>.</b>жадвал) га кўчириш:"
 
 #: libraries/operations.lib.php:732
@@ -10825,7 +10825,7 @@ msgid "Storage Engine"
 msgstr "Жадвал тури"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Жадвалдан (маълумотлар омбори<b>.</b>жадвал) га нусха кўчириш:"
 
 #: libraries/operations.lib.php:1010

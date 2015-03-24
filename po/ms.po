@@ -44,7 +44,7 @@ msgid "Database %1$s has been created."
 msgstr "Pengkalan data %1$s telah dijana."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Komen pangkalan data:"
 
 #: db_datadict.php:94
@@ -9733,7 +9733,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Tukar nama pangkalan data ke"
 
 #: libraries/operations.lib.php:106
@@ -9767,7 +9767,7 @@ msgstr "Data sahaja"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Salin pangkalan data ke"
 
 #: libraries/operations.lib.php:185
@@ -9791,7 +9791,7 @@ msgid "(singly)"
 msgstr "(persatu)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Pindahkan jadual ke (pangkalandata<b>.</b>jadual):"
 
 #: libraries/operations.lib.php:732
@@ -9811,7 +9811,7 @@ msgid "Storage Engine"
 msgstr ""
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Salin jadual ke (pangkalandata<b>.</b>jadual):"
 
 #: libraries/operations.lib.php:1010

@@ -45,7 +45,7 @@ msgid "Database %1$s has been created."
 msgstr "Byla vytvořena databáze %1$s."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Komentář k databázi:"
 
 #: db_datadict.php:94
@@ -9525,7 +9525,7 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:74
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Přejmenovat databázi na:"
 
 #: libraries/operations.lib.php:106
@@ -9557,7 +9557,7 @@ msgid "Data only"
 msgstr "Jen data"
 
 #: libraries/operations.lib.php:174
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Zkopírovat databázi na:"
 
 #: libraries/operations.lib.php:185
@@ -9581,7 +9581,7 @@ msgid "(singly)"
 msgstr "(po jednom)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Přesunout tabulku do (databáze<b>.</b>tabulka):"
 
 #: libraries/operations.lib.php:732
@@ -9601,7 +9601,7 @@ msgid "Storage Engine"
 msgstr "Úložiště"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Kopírovat tabulku do (databáze<b>.</b>tabulka):"
 
 #: libraries/operations.lib.php:1010

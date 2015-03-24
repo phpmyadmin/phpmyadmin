@@ -44,7 +44,7 @@ msgid "Database %1$s has been created."
 msgstr "Databasis %1$s is geskep."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Databasis kommentaar:"
 
 #: db_datadict.php:94
@@ -9684,7 +9684,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:74
 #, fuzzy
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Hernoem tabel na"
 
 #: libraries/operations.lib.php:106
@@ -9719,7 +9719,7 @@ msgstr "Slegs Data"
 
 #: libraries/operations.lib.php:174
 #, fuzzy
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Geen databasisse"
 
 #: libraries/operations.lib.php:185
@@ -9743,7 +9743,7 @@ msgid "(singly)"
 msgstr "(afsonderlik)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Skuif tabel na (databasis<b>.</b>tabel):"
 
 #: libraries/operations.lib.php:732
@@ -9763,7 +9763,7 @@ msgid "Storage Engine"
 msgstr ""
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Kopieer tabel na (databasis<b>.</b>tabel):"
 
 #: libraries/operations.lib.php:1010

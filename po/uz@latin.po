@@ -44,7 +44,7 @@ msgid "Database %1$s has been created."
 msgstr "%1$s ma`lumotlar bazasi tuzildi."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Ma`lumotlar bazasiga izoh:"
 
 #: db_datadict.php:94
@@ -10796,7 +10796,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Ma`lumotlar bazasi nomini quyidagiga o‘zgartirish"
 
 #: libraries/operations.lib.php:106
@@ -10834,7 +10834,7 @@ msgstr "Faqat ma`lumotlar"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Ma`lumotlar bazasidan quyidagiga nusxa olish"
 
 #: libraries/operations.lib.php:185
@@ -10858,7 +10858,7 @@ msgid "(singly)"
 msgstr "(ustun)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Jadvalni (ma`lumotlar bazasi<b>.</b>jadval) ga ko‘chirish:"
 
 #: libraries/operations.lib.php:732
@@ -10878,7 +10878,7 @@ msgid "Storage Engine"
 msgstr "Jadval turi"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Jadvaldan (ma`lumotlar ombori<b>.</b>jadval) ga nusxa ko‘chirish:"
 
 #: libraries/operations.lib.php:1010

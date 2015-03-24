@@ -42,7 +42,7 @@ msgid "Database %1$s has been created."
 msgstr "%s biremlege beterelde."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Biremlek açıqlaması:"
 
 #: db_datadict.php:94
@@ -9939,7 +9939,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Biremlekne bolay atap quy"
 
 #: libraries/operations.lib.php:106
@@ -9976,7 +9976,7 @@ msgstr "Eçtälegen genä"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Biremlekne boña kübäyt"
 
 #: libraries/operations.lib.php:185
@@ -10000,7 +10000,7 @@ msgid "(singly)"
 msgstr "(sıñar)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Boña küçerü (biremlek<b>.</b>tüşämä):"
 
 #: libraries/operations.lib.php:732
@@ -10020,7 +10020,7 @@ msgid "Storage Engine"
 msgstr "Saqlaw Isulı"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Boña kübäyt (biremlek<b>.</b>tüşämä):"
 
 #: libraries/operations.lib.php:1010

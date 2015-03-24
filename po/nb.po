@@ -43,7 +43,7 @@ msgid "Database %1$s has been created."
 msgstr "Databasen %1$s er opprettet."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Databasekommentar:"
 
 #: db_datadict.php:94
@@ -10168,7 +10168,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Endre databasens navn til"
 
 #: libraries/operations.lib.php:106
@@ -10202,7 +10202,7 @@ msgstr "Bare data"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Kopier databasen til"
 
 #: libraries/operations.lib.php:185
@@ -10226,7 +10226,7 @@ msgid "(singly)"
 msgstr "(enkeltvis)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Flytt tabell til (database<b>.</b>tabell):"
 
 #: libraries/operations.lib.php:732
@@ -10246,7 +10246,7 @@ msgid "Storage Engine"
 msgstr "Lagringsmotor"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Kopier tabell til (database<b>.</b>tabell):"
 
 #: libraries/operations.lib.php:1010
