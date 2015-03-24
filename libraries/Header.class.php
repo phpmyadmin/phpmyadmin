@@ -251,7 +251,7 @@ class PMA_Header
             'logged_in' => isset($GLOBALS['userlink']) ? true : false
         );
         if (isset($GLOBALS['cfg']['Server'])
-            && $GLOBALS['cfg']['Server']['auth_type']
+            && isset($GLOBALS['cfg']['Server']['auth_type'])
         ) {
             $params['auth_type'] = $GLOBALS['cfg']['Server']['auth_type'];
         }
