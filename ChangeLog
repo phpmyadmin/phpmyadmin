@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - bug       Use 'server' parameter in console to work in multi server environments
 - bug       Missing tooltip in monitor
 - bug       Missing sort icons in monitor
+- bug #4805 Inline edit broken when using functions in query
 
 4.4.0.0 (not yet released)
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
