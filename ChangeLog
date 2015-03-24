@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 + rfe #947  Show edit/delete also when there is calculated column
 
 4.4.1.0 (not yet released)
+- bug #4813 MySQL 5.7.6 and the Users menu tab
 
 4.4.0.0 (not yet released)
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time

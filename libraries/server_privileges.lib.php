@@ -4187,12 +4187,18 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
        . __('Users overview') . "\n"
        . '</h2>' . "\n";
 
+    $password_column = 'Password';
+    if (PMA_Util::getServerType() == 'MySQL' 
+        && PMA_MYSQL_INT_VERSION >= 50706
+    ) {
+        $password_column = 'authentication_string';
+    }
     // $sql_query is for the initial-filtered,
     // $sql_query_all is for counting the total no. of users
 
     $sql_query = $sql_query_all = 'SELECT *,' .
-        "       IF(`Password` = _latin1 '', 'N', 'Y') AS 'Password'" .
-        '  FROM `mysql`.`user`';
+        " IF(`" . $password_column . "` = _latin1 '', 'N', 'Y') AS 'Password'" .
+        ' FROM `mysql`.`user`';
 
     $sql_query .= (isset($_REQUEST['initial'])
         ? PMA_rangeOfUsers($_REQUEST['initial'])
