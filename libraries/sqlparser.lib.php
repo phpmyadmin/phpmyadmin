@@ -715,9 +715,9 @@ function PMA_SQP_parse($sql)
                     );
                 } else {
                 	//Unrecognised punctuation strings
-	                PMA_SQP_arrayAdd(
-	                    $sql_array, 'punct', $punct_data, $arraysize, $count2
-	                );
+                    PMA_SQP_arrayAdd(
+                        $sql_array, 'punct', $punct_data, $arraysize, $count2
+                    );
                 }
                 continue;
             } // end if... elseif... else
