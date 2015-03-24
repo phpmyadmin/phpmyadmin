@@ -237,7 +237,7 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
         $html_output .= PMA_Util::getImage('s_asci.png') . '&nbsp';
     }
     $html_output .= '<label for="select_db_collation">' . __('Collation')
-        . ':</label>' . "\n"
+        . '</label>' . "\n"
         . '</legend>' . "\n"
         . PMA_generateCharsetDropdownBox(
             PMA_CSDROPDOWN_COLLATION,
