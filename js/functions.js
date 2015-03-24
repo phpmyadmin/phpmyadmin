@@ -696,9 +696,9 @@ var last_shift_clicked_row = -1;
 
 var _idleSecondsCounter = 0;
 var IncInterval;
-var updateInterval;
+var updateTimeout;
 AJAX.registerTeardown('functions.js', function () {
-    clearInterval(updateInterval);
+    clearTimeout(updateTimeout);
     clearInterval(IncInterval);
     $(document).off('mousemove');
 });
@@ -731,16 +731,15 @@ AJAX.registerOnload('functions.js', function () {
                 url: href,
                 data: params,
                 success: function (data) {
-                    clearInterval(updateInterval);
                     if (data.success) {
                         if (PMA_commonParams.get('LoginCookieValidity')-_idleSecondsCounter > 5) {
                             var interval = (PMA_commonParams.get('LoginCookieValidity') - _idleSecondsCounter - 5) * 1000;
                             if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
                                 interval = Math.pow(2, 31) - 1;
                             }
-                            updateInterval = window.setInterval(UpdateIdleTime, interval);
+                            updateTimeout = window.setTimeout(UpdateIdleTime, interval);
                         } else {
-                            updateInterval = window.setInterval(UpdateIdleTime, 2000);
+                            updateTimeout = window.setTimeout(UpdateIdleTime, 2000);
                         }
                     } else { //timeout occurred
                         window.location.reload(true);
@@ -755,7 +754,7 @@ AJAX.registerOnload('functions.js', function () {
         if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
             interval = Math.pow(2, 31) - 1;
         }
-        updateInterval = window.setInterval(UpdateIdleTime, interval);
+        updateTimeout = window.setTimeout(UpdateIdleTime, interval);
     }
 });
 /**
