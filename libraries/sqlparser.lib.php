@@ -714,7 +714,7 @@ function PMA_SQP_parse($sql)
                         $sql, $count1, $count2 - $count1
                     );
                 } else {
-                	//Unrecognised punctuation strings
+                    //Unrecognised punctuation strings
 	                PMA_SQP_arrayAdd(
 	                    $sql_array, 'punct', $punct_data, $arraysize, $count2
 	                );
