@@ -28,7 +28,7 @@ function PMA_getHtmlForDatabaseComment($db)
     if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= PMA_Util::getImage('b_comment.png') . '&nbsp;';
     }
-    $html_output .=  __('Database comment:');
+    $html_output .=  __('Database comment');
     $html_output .= '</legend>';
     $html_output .= '<input type="text" name="comment" '
         . 'class="textfield" size="30"'
@@ -71,7 +71,7 @@ function PMA_getHtmlForRenameDatabase($db)
     if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= PMA_Util::getImage('b_edit.png') . '&nbsp;';
     }
-    $html_output .= __('Rename database to:')
+    $html_output .= __('Rename database to')
         . '</legend>';
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
@@ -171,7 +171,7 @@ function PMA_getHtmlForCopyDatabase($db)
     if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= PMA_Util::getImage('b_edit.png') . '&nbsp';
     }
-    $html_output .= __('Copy database to:')
+    $html_output .= __('Copy database to')
         . '</legend>'
         . '<input type="text" name="newname" size="30" '
         . 'class="textfield" value="" required="required" /><br />'
@@ -618,7 +618,7 @@ function PMA_getHtmlForMoveTable()
         . '<input type="hidden" name="what" value="data" />'
         . '<fieldset id="fieldset_table_rename">';
 
-    $html_output .= '<legend>' . __('Move table to (database<b>.</b>table):')
+    $html_output .= '<legend>' . __('Move table to (database<b>.</b>table)')
         . '</legend>';
 
     if (count($GLOBALS['pma']->databases) > $GLOBALS['cfg']['MaxDbList']) {
@@ -952,7 +952,7 @@ function PMA_getHtmlForCopytable()
 
     $html_output .= '<fieldset>';
     $html_output .= '<legend>'
-        . __('Copy table to (database<b>.</b>table):') . '</legend>';
+        . __('Copy table to (database<b>.</b>table)') . '</legend>';
 
     if (count($GLOBALS['pma']->databases) > $GLOBALS['cfg']['MaxDbList']) {
         $html_output .= '<input class="halfWidth" type="text" maxlength="100" '
