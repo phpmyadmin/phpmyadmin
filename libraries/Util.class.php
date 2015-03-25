@@ -4627,6 +4627,26 @@ class PMA_Util
 
         return $html;
     }
+
+    /*
+     * Restarts the session.
+     *
+     * @return boolean Whether the session restarted.
+     */
+    public static function sessionRestart()
+    {
+        // Prevents a second call of `php_session_send_cookie()`.
+        static $setup = false;
+        if (!$setup) {
+            ini_set('session.use_only_cookies', false);
+            ini_set('session.use_cookies', false);
+            ini_set('session.use_trans_sid', false);
+            ini_set('session.cache_limiter', null);
+            $setup = true;
+        }
+        return session_start();
+    }
+
 }
 
 ?>
