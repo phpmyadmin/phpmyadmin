@@ -86,6 +86,7 @@ if (!defined('TESTSUITE')) {
             'ods_structure_or_data',
             'ods_columns',
             'json_structure_or_data',
+            'json_pretty_print',
             'xml_structure_or_data',
             'xml_export_events',
             'xml_export_functions',
