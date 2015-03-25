@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-25 07:41-0400\n"
+"POT-Creation-Date: 2015-03-25 14:30-0400\n"
 "PO-Revision-Date: 2015-01-01 17:51+0200\n"
 "Last-Translator: Eliovir <eliovir@gmail.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2895,6 +2895,10 @@ msgstr ""
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
+msgstr ""
+
+#: libraries/Console.class.php:320
+msgid "Switch to dark theme"
 msgstr ""
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355

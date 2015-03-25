@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-25 07:41-0400\n"
+"POT-Creation-Date: 2015-03-25 14:30-0400\n"
 "PO-Revision-Date: 2015-03-23 08:17+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3017,6 +3017,12 @@ msgid ""
 msgstr ""
 "Käivita päringud klahviga Enter ja sisesta reavahetused Shift + Enter "
 "kombinatsiooniga."
+
+#: libraries/Console.class.php:320
+#, fuzzy
+#| msgid "Switch to copied table"
+msgid "Switch to dark theme"
+msgstr "Mine kopeeritud tabelisse"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
 #: libraries/DisplayResults.class.php:2145

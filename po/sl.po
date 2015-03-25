@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-25 07:41-0400\n"
+"POT-Creation-Date: 2015-03-25 14:30-0400\n"
 "PO-Revision-Date: 2015-03-24 02:29+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3036,6 +3036,12 @@ msgid ""
 msgstr ""
 "Izvedi poizvedbe z Enter in vstavi novo vrstico s Shift + Enter. Da to "
 "nastavite za stalno, si oglejte nastavitve."
+
+#: libraries/Console.class.php:320
+#, fuzzy
+#| msgid "Switch to copied table"
+msgid "Switch to dark theme"
+msgstr "Preklopi na kopirano tabelo"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
 #: libraries/DisplayResults.class.php:2145

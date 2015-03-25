@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-25 07:41-0400\n"
+"POT-Creation-Date: 2015-03-25 14:30-0400\n"
 "PO-Revision-Date: 2014-11-05 10:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3268,6 +3268,12 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+
+#: libraries/Console.class.php:320
+#, fuzzy
+#| msgid "Switch to copied database"
+msgid "Switch to dark theme"
+msgstr "Tukar kepada pengkalan data yang di salin"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
 #: libraries/DisplayResults.class.php:2145

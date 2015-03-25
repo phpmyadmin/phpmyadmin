@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-25 07:41-0400\n"
+"POT-Creation-Date: 2015-03-25 14:30-0400\n"
 "PO-Revision-Date: 2015-03-16 02:12+0200\n"
 "Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3076,6 +3076,12 @@ msgid ""
 msgstr ""
 "Abfragen mit Enter ausgeführen und neue Zeilen mit Shift + Enter eingefügen. "
 "Um dies dauerhaft zu speichern, siehe Einstellungen."
+
+#: libraries/Console.class.php:320
+#, fuzzy
+#| msgid "Switch to copied table"
+msgid "Switch to dark theme"
+msgstr "Zur kopierten Tabelle wechseln"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
 #: libraries/DisplayResults.class.php:2145

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-25 07:41-0400\n"
+"POT-Creation-Date: 2015-03-25 14:30-0400\n"
 "PO-Revision-Date: 2015-03-18 06:45+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3051,6 +3051,12 @@ msgid ""
 msgstr ""
 "Executa consultes amb Enter i afegeix nova línia amb Majuscules + Enter. Per "
 "fer aixó permanent, mira a les preferències."
+
+#: libraries/Console.class.php:320
+#, fuzzy
+#| msgid "Switch to copied table"
+msgid "Switch to dark theme"
+msgstr "Canvia a una taula copiada"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
 #: libraries/DisplayResults.class.php:2145

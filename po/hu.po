@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-25 07:41-0400\n"
+"POT-Creation-Date: 2015-03-25 14:30-0400\n"
 "PO-Revision-Date: 2015-03-25 15:07+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
-"Language: hu\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/hu/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -1685,7 +1685,6 @@ msgid "Processing Request"
 msgstr "Kérés feldolgozása"
 
 #: js/messages.php:261
-#| msgid "Request Aborted!!"
 msgid "Request Failed!!"
 msgstr "A kérés sikertelen!"
 
@@ -1846,7 +1845,6 @@ msgstr "Nincs automatikusan mentett lekérdezés"
 
 #: js/messages.php:310
 #, php-format
-#| msgid "Variable"
 msgid "Variable %d:"
 msgstr "%d. változó:"
 
@@ -3039,6 +3037,12 @@ msgid ""
 msgstr ""
 "Lekérdezések végrehajtása az Enter lenyomásakor, és új sor beszúrása a Shift "
 "+ Enter használatával. Ennek állandóvá tételéhez nézze meg a beállításokat."
+
+#: libraries/Console.class.php:320
+#, fuzzy
+#| msgid "Switch to copied table"
+msgid "Switch to dark theme"
+msgstr "A másolt táblára váltás"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
 #: libraries/DisplayResults.class.php:2145
