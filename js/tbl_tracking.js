@@ -60,11 +60,11 @@ AJAX.registerOnload('tbl_tracking.js', function () {
             var question = PMA_messages.strDeleteTrackingVersionMultiple;
             $button.PMA_confirm(question, $form.attr('action'), function (url) {
                 PMA_ajaxShowMessage();
-                $.get(url, submitData, AJAX.responseHandler);
+                $.post(url, submitData, AJAX.responseHandler);
             });
         } else {
             PMA_ajaxShowMessage();
-            $.get($form.attr('action'), submitData, AJAX.responseHandler);
+            $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
     });
 
