@@ -43,7 +43,7 @@ msgid "Database %1$s has been created."
 msgstr "Databáza %1$s bola vytvorená."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Komentár k databáze:"
 
 #: db_datadict.php:94
@@ -9368,7 +9368,7 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:74
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Premenovať databázu na:"
 
 #: libraries/operations.lib.php:106
@@ -9400,7 +9400,7 @@ msgid "Data only"
 msgstr "Iba dáta"
 
 #: libraries/operations.lib.php:174
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Skopírovať databázu do:"
 
 #: libraries/operations.lib.php:185
@@ -9424,7 +9424,7 @@ msgid "(singly)"
 msgstr "(po jednom)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Presunúť tabuľku do (databáza<b>.</b>tabuľka):"
 
 #: libraries/operations.lib.php:732
@@ -9444,7 +9444,7 @@ msgid "Storage Engine"
 msgstr "Úložný Systém"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Skopírovať tabuľku do (databáza<b>.</b>tabuľka):"
 
 #: libraries/operations.lib.php:1010

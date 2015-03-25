@@ -43,7 +43,7 @@ msgid "Database %1$s has been created."
 msgstr "데이터베이스 %1$s가 생성되었습니다."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "데이터베이스 설명:"
 
 #: db_datadict.php:94
@@ -9377,7 +9377,7 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:74
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "데이터베이스 이름을 변경합니다:"
 
 #: libraries/operations.lib.php:106
@@ -9409,7 +9409,7 @@ msgid "Data only"
 msgstr "데이터만"
 
 #: libraries/operations.lib.php:174
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "데이터베이스를 복사합니다:"
 
 #: libraries/operations.lib.php:185
@@ -9433,7 +9433,7 @@ msgid "(singly)"
 msgstr "(단독으로)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "테이블 이동 (데이터베이스명<b>.</b>테이블명):"
 
 #: libraries/operations.lib.php:732
@@ -9453,7 +9453,7 @@ msgid "Storage Engine"
 msgstr "스토리지 엔진"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "테이블 복사 (데이터베이스명<b>.</b>테이블명):"
 
 #: libraries/operations.lib.php:1010

@@ -45,7 +45,7 @@ msgid "Database %1$s has been created."
 msgstr "Baza de date %1$s a fost creată."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Comentarii referitoare la baza de date:"
 
 #: db_datadict.php:94
@@ -10061,7 +10061,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Redenumire bază de date în"
 
 #: libraries/operations.lib.php:106
@@ -10095,7 +10095,7 @@ msgstr "Numai date"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Copiază baza de date"
 
 #: libraries/operations.lib.php:185
@@ -10119,7 +10119,7 @@ msgid "(singly)"
 msgstr "(individual)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Mută tabelul la (bază_de_date<b>.</b>tabel):"
 
 #: libraries/operations.lib.php:732
@@ -10139,7 +10139,7 @@ msgid "Storage Engine"
 msgstr "Motor de stocare"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Copiază tabelul la (bază_de_date<b>.</b>tabel):"
 
 #: libraries/operations.lib.php:1010

@@ -49,7 +49,7 @@ msgid "Database %1$s has been created."
 msgstr "%1$s дерекқоры құрылды."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Дерекқорына түсініктеме:"
 
 #: db_datadict.php:94
@@ -806,7 +806,7 @@ msgstr ""
 
 #: index.php:327
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database client version:"
 msgstr "Дерекқорына түсініктеме: "
 
@@ -5902,7 +5902,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:239
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Databases display options."
 msgstr "Дерекқорына түсініктеме: "
 
@@ -8948,7 +8948,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Database.class.php:41
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database operations"
 msgstr "Дерекқорына түсініктеме: "
 
@@ -9314,7 +9314,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Дерекқорының атауын қайта қою."
 
 #: libraries/operations.lib.php:106
@@ -9348,7 +9348,7 @@ msgstr "Тек мәліметтер ғана"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Дерекқорының көшірілуі"
 
 #: libraries/operations.lib.php:185
@@ -9372,7 +9372,7 @@ msgid "(singly)"
 msgstr ""
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr ""
 
 #: libraries/operations.lib.php:732
@@ -9392,7 +9392,7 @@ msgid "Storage Engine"
 msgstr ""
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr ""
 
 #: libraries/operations.lib.php:1010
@@ -12803,7 +12803,7 @@ msgstr "Ағымдағы баптау"
 
 #: libraries/server_user_groups.lib.php:80
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database level tabs"
 msgstr "Дерекқорына түсініктеме: "
 
@@ -12849,7 +12849,7 @@ msgstr "Ағымдағы баптау"
 
 #: libraries/server_user_groups.lib.php:275
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database-level tabs"
 msgstr "Дерекқорына түсініктеме: "
 
@@ -15367,7 +15367,7 @@ msgid "concurrent_insert is set to 0"
 msgstr "Паралельді_кірістірмелерді анықтау"
 
 #, fuzzy
-#~| msgid "Database comment:"
+#~| msgid "Database comment"
 #~ msgid "Disable database expansion"
 #~ msgstr "Дерекқорына түсініктеме: "
 

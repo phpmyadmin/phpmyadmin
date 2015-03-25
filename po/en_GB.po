@@ -45,8 +45,8 @@ msgid "Database %1$s has been created."
 msgstr "Database %1$s has been created."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
-msgstr "Database comment:"
+msgid "Database comment"
+msgstr "Database comment"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:943
@@ -9692,8 +9692,8 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:74
-msgid "Rename database to:"
-msgstr "Rename database to:"
+msgid "Rename database to"
+msgstr "Rename database to"
 
 #: libraries/operations.lib.php:106
 #, php-format
@@ -9724,8 +9724,8 @@ msgid "Data only"
 msgstr "Data only"
 
 #: libraries/operations.lib.php:174
-msgid "Copy database to:"
-msgstr "Copy database to:"
+msgid "Copy database to"
+msgstr "Copy database to"
 
 #: libraries/operations.lib.php:185
 msgid "CREATE DATABASE before copying"
@@ -9748,8 +9748,8 @@ msgid "(singly)"
 msgstr "(singly)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
-msgstr "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
+msgstr "Move table to (database<b>.</b>table)"
 
 #: libraries/operations.lib.php:732
 msgid "Table options"
@@ -9768,8 +9768,8 @@ msgid "Storage Engine"
 msgstr "Storage Engine"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
-msgstr "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
+msgstr "Copy table to (database<b>.</b>table)"
 
 #: libraries/operations.lib.php:1010
 msgid "Switch to copied table"

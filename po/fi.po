@@ -43,7 +43,7 @@ msgid "Database %1$s has been created."
 msgstr "Tietokanta %1$s on luotu."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Tietokannan kommentti:"
 
 #: db_datadict.php:94
@@ -9976,7 +9976,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Muuta tietokannan nimeksi"
 
 #: libraries/operations.lib.php:106
@@ -10010,7 +10010,7 @@ msgstr "Vain tiedot"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Luo tietokannasta toinen tietokanta nimellä"
 
 #: libraries/operations.lib.php:185
@@ -10034,7 +10034,7 @@ msgid "(singly)"
 msgstr "(yksitellen)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Siirrä taulu toiseen tauluun (tietokanta<b>.</b>taulu):"
 
 #: libraries/operations.lib.php:732
@@ -10054,7 +10054,7 @@ msgid "Storage Engine"
 msgstr "Tallennusmoottori"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Kopioi taulu toiseen tauluun nimellä (tietokanta<b>.</b>taulu):"
 
 #: libraries/operations.lib.php:1010

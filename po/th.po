@@ -42,7 +42,7 @@ msgid "Database %1$s has been created."
 msgstr "ฐานข้อมูล %1$s ถูกสร้างเรียบร้อยแล้ว"
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "หมายเหตุของฐานข้อมูล:"
 
 #: db_datadict.php:94
@@ -9753,7 +9753,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "เปลี่ยนชื่อฐานข้อมูลเป็น"
 
 #: libraries/operations.lib.php:106
@@ -9787,7 +9787,7 @@ msgstr "เฉพาะข้อมูล"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "คัดลอกฐานข้อมูลเป็น"
 
 #: libraries/operations.lib.php:185
@@ -9811,8 +9811,8 @@ msgid "(singly)"
 msgstr "(เดี่ยว)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
-msgstr "ย้ายตารางไป (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
+msgstr "ย้ายตารางไป (database<b>.</b>table)"
 
 #: libraries/operations.lib.php:732
 msgid "Table options"
@@ -9831,7 +9831,7 @@ msgid "Storage Engine"
 msgstr "เครื่องมือที่เก็บข้อมูล"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "คัดลอกตารางไปยัง (ฐานข้อมูล<b>.</b>ตาราง):"
 
 #: libraries/operations.lib.php:1010

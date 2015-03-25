@@ -45,7 +45,7 @@ msgid "Database %1$s has been created."
 msgstr "%1$s డేటాబేసు సృష్టించబడింది."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "డేటాబేస్ వ్యాఖ్య:"
 
 #: db_datadict.php:94
@@ -804,7 +804,7 @@ msgstr ""
 
 #: index.php:327
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database client version:"
 msgstr "డేటాబేస్ వ్యాఖ్య:"
 
@@ -9619,7 +9619,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "డేటాబేసుకు ఈ పేరు పెట్టండి"
 
 #: libraries/operations.lib.php:106
@@ -9654,7 +9654,7 @@ msgstr "డేటా మాత్రమే"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
 
 #: libraries/operations.lib.php:185
@@ -9678,7 +9678,7 @@ msgid "(singly)"
 msgstr ""
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr ""
 
 #: libraries/operations.lib.php:732
@@ -9698,7 +9698,7 @@ msgid "Storage Engine"
 msgstr ""
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr ""
 
 #: libraries/operations.lib.php:1010

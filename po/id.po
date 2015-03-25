@@ -44,7 +44,7 @@ msgid "Database %1$s has been created."
 msgstr "Database %1$s telah dibuat."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Komentar database:"
 
 #: db_datadict.php:94
@@ -10040,7 +10040,7 @@ msgid "No partial dependencies found!"
 msgstr "Tidak ada dependensi parsial ditemukan!"
 
 #: libraries/operations.lib.php:74
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Ubah nama basis data menjadi:"
 
 #: libraries/operations.lib.php:106
@@ -10074,7 +10074,7 @@ msgstr "Data saja"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Salin basis data ke"
 
 #: libraries/operations.lib.php:185
@@ -10098,7 +10098,7 @@ msgid "(singly)"
 msgstr "(unik)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Pindahkan tabel ke (basis data<b>.</b>tabel):"
 
 #: libraries/operations.lib.php:732
@@ -10118,7 +10118,7 @@ msgid "Storage Engine"
 msgstr "Mesin Penyimpanan"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Salin tabel ke (basis data<b>.</b>nama tabel):"
 
 #: libraries/operations.lib.php:1010

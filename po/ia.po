@@ -47,7 +47,7 @@ msgid "Database %1$s has been created."
 msgstr "Le base de datos %1$s ha essite create."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Commento del base de datos:"
 
 #: db_datadict.php:94
@@ -9593,7 +9593,7 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:74
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr ""
 
 #: libraries/operations.lib.php:106
@@ -9625,7 +9625,7 @@ msgid "Data only"
 msgstr ""
 
 #: libraries/operations.lib.php:174
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Copia base de datos in:"
 
 #: libraries/operations.lib.php:185
@@ -9649,8 +9649,8 @@ msgid "(singly)"
 msgstr ""
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
-msgstr "Move le tabella in (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
+msgstr "Move le tabella in (database<b>.</b>table)"
 
 #: libraries/operations.lib.php:732
 msgid "Table options"
@@ -9669,8 +9669,8 @@ msgid "Storage Engine"
 msgstr ""
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
-msgstr "Copia le tabella in (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
+msgstr "Copia le tabella in (database<b>.</b>table)"
 
 #: libraries/operations.lib.php:1010
 msgid "Switch to copied table"

@@ -42,7 +42,7 @@ msgid "Database %1$s has been created."
 msgstr "己建立資料庫 %1$s。"
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "資料庫備註："
 
 #: db_datadict.php:94
@@ -9238,7 +9238,7 @@ msgid "No partial dependencies found!"
 msgstr "查無部份相依！"
 
 #: libraries/operations.lib.php:74
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "重新命名資料庫為："
 
 #: libraries/operations.lib.php:106
@@ -9270,7 +9270,7 @@ msgid "Data only"
 msgstr "僅資料"
 
 #: libraries/operations.lib.php:174
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "複製資料庫到："
 
 #: libraries/operations.lib.php:185
@@ -9294,7 +9294,7 @@ msgid "(singly)"
 msgstr "(單一)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "移動資料表到 (資料庫名<b>.</b>資料表名稱):"
 
 #: libraries/operations.lib.php:732
@@ -9314,7 +9314,7 @@ msgid "Storage Engine"
 msgstr "儲存引擎"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "複製資料表到 (資料庫名稱<b>.</b>資料表名稱):"
 
 #: libraries/operations.lib.php:1010

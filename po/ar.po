@@ -47,7 +47,7 @@ msgid "Database %1$s has been created."
 msgstr "تم إنشاء قاعدة البيانات %1$s."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "ملاحظة قاعدة البيانات:"
 
 #: db_datadict.php:94
@@ -9810,7 +9810,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "أعد تسمية قاعدة البيانات ﺇﻠﻰ"
 
 #: libraries/operations.lib.php:106
@@ -9844,7 +9844,7 @@ msgstr "بيانات فقط"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "نسخ قاعدة البيانات إلى"
 
 #: libraries/operations.lib.php:185
@@ -9868,7 +9868,7 @@ msgid "(singly)"
 msgstr "(فردي)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "نقل جدول إلى (قاعدة بيانات<b>.</b>جدول):"
 
 #: libraries/operations.lib.php:732
@@ -9888,8 +9888,8 @@ msgid "Storage Engine"
 msgstr ""
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
-msgstr "أنسخ الجدول إلى (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
+msgstr "أنسخ الجدول إلى (database<b>.</b>table)"
 
 #: libraries/operations.lib.php:1010
 msgid "Switch to copied table"

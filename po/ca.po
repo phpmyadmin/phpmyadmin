@@ -43,7 +43,7 @@ msgid "Database %1$s has been created."
 msgstr "S'ha creat la base de dades %1$s."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Comentaris de la base de dades:"
 
 #: db_datadict.php:94
@@ -9576,7 +9576,7 @@ msgid "No partial dependencies found!"
 msgstr "No s'han trobat dependències parcials!"
 
 #: libraries/operations.lib.php:74
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Reanomena base de dades a:"
 
 #: libraries/operations.lib.php:106
@@ -9608,7 +9608,7 @@ msgid "Data only"
 msgstr "Només dades"
 
 #: libraries/operations.lib.php:174
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Còpia base de dades a:"
 
 #: libraries/operations.lib.php:185
@@ -9632,7 +9632,7 @@ msgid "(singly)"
 msgstr "(només)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "Mou la taula a (base-de-dades<b>.</b>taula):"
 
 #: libraries/operations.lib.php:732
@@ -9652,7 +9652,7 @@ msgid "Storage Engine"
 msgstr "Motor d'emmagatzematge"
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "Còpia taula a (base-de-dades<b>.</b>taula):"
 
 #: libraries/operations.lib.php:1010

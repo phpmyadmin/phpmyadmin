@@ -43,7 +43,7 @@ msgid "Database %1$s has been created."
 msgstr "വിവരശേഖരം(ങ്ങൾ) %1$s സൃഷ്ടിച്ചിരിക്കുന്നു."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "വിവരശേഖര അഭിപ്രായം:"
 
 #: db_datadict.php:94
@@ -762,7 +762,7 @@ msgstr ""
 
 #: index.php:327
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database client version:"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -772,7 +772,7 @@ msgstr ""
 
 #: index.php:345
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "PHP version:"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -4027,7 +4027,7 @@ msgstr ""
 
 #: libraries/TableSearch.class.php:205
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Table search"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -5344,13 +5344,13 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:97
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Whether the table structure actions should be hidden."
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
 #: libraries/config/messages.inc.php:98
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Hide table structure actions"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -5709,7 +5709,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:239
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Databases display options."
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -5870,7 +5870,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:301
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database structure"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -5881,7 +5881,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:304 libraries/structure.lib.php:3264
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Table structure"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -8708,7 +8708,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Database.class.php:41
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database operations"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -9036,7 +9036,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:770
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Improve table structure (Normalization):"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -9071,7 +9071,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "വിവരശേഖരത്തിന്റ്റ പേര് മാറ്റുക"
 
 #: libraries/operations.lib.php:106
@@ -9105,7 +9105,7 @@ msgstr "വിവരം മാത്രം"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "വിവരശേഖരം പകർത്തുക"
 
 #: libraries/operations.lib.php:185
@@ -9129,7 +9129,7 @@ msgid "(singly)"
 msgstr ""
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr ""
 
 #: libraries/operations.lib.php:732
@@ -9149,7 +9149,7 @@ msgid "Storage Engine"
 msgstr ""
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr ""
 
 #: libraries/operations.lib.php:1010
@@ -9550,7 +9550,7 @@ msgstr ""
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:291
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database:"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -12516,7 +12516,7 @@ msgstr "പട്ടിക അഭിപ്രയങ്ങൾ"
 
 #: libraries/server_user_groups.lib.php:80
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database level tabs"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -12558,7 +12558,7 @@ msgstr "പട്ടിക അഭിപ്രയങ്ങൾ"
 
 #: libraries/server_user_groups.lib.php:275
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database-level tabs"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -12879,7 +12879,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:1648
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Improve table structure"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -13399,7 +13399,7 @@ msgstr ""
 
 #: libraries/tracking.lib.php:287 libraries/tracking.lib.php:350
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Delete version"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -14973,12 +14973,12 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Database comment:"
+#~| msgid "Database comment"
 #~ msgid "Disable database expansion"
 #~ msgstr "വിവരശേഖര അഭിപ്രായം: "
 
 #, fuzzy
-#~| msgid "Database comment:"
+#~| msgid "Database comment"
 #~ msgid "Table Structure"
 #~ msgstr "വിവരശേഖര അഭിപ്രായം: "
 

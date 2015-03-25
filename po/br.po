@@ -50,7 +50,7 @@ msgid "Database %1$s has been created."
 msgstr "Krouet eo bet an diaz roadennoù %1$s."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "Evezhiadenn diwar-benn an diaz roadennoù :"
 
 #: db_datadict.php:94
@@ -826,7 +826,7 @@ msgstr ""
 
 #: index.php:327
 #, fuzzy
-#| msgid "Database comment:"
+#| msgid "Database comment"
 msgid "Database client version:"
 msgstr "Evezhiadenn diwar-benn an diaz roadennoù : "
 
@@ -9797,7 +9797,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "Cheñch anv an diaz roadennoù hag e envel"
 
 #: libraries/operations.lib.php:106
@@ -9831,7 +9831,7 @@ msgstr "Ar roadennoù hepken"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "Eilañ an diaz roadennoù war"
 
 #: libraries/operations.lib.php:185
@@ -9855,7 +9855,7 @@ msgid "(singly)"
 msgstr ""
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr ""
 
 #: libraries/operations.lib.php:732
@@ -9875,7 +9875,7 @@ msgid "Storage Engine"
 msgstr ""
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr ""
 
 #: libraries/operations.lib.php:1010

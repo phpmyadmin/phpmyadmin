@@ -45,7 +45,7 @@ msgid "Database %1$s has been created."
 msgstr "پایگاه داده %1$s ایجاد شد."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
-msgid "Database comment:"
+msgid "Database comment"
 msgstr "توضيحات پایگاه داده:"
 
 #: db_datadict.php:94
@@ -9693,7 +9693,7 @@ msgstr ""
 #: libraries/operations.lib.php:74
 #, fuzzy
 #| msgid "Rename database to"
-msgid "Rename database to:"
+msgid "Rename database to"
 msgstr "تغییر نام پایگاه داده به"
 
 #: libraries/operations.lib.php:106
@@ -9727,7 +9727,7 @@ msgstr "فقط داده‌ها"
 #: libraries/operations.lib.php:174
 #, fuzzy
 #| msgid "Copy database to"
-msgid "Copy database to:"
+msgid "Copy database to"
 msgstr "کپی کردن پابگاه داده به"
 
 #: libraries/operations.lib.php:185
@@ -9751,7 +9751,7 @@ msgid "(singly)"
 msgstr "(تنها)"
 
 #: libraries/operations.lib.php:621
-msgid "Move table to (database<b>.</b>table):"
+msgid "Move table to (database<b>.</b>table)"
 msgstr "انتقال جدول به (پايگاه داده<b>.</b>جدول):"
 
 #: libraries/operations.lib.php:732
@@ -9771,7 +9771,7 @@ msgid "Storage Engine"
 msgstr ""
 
 #: libraries/operations.lib.php:955
-msgid "Copy table to (database<b>.</b>table):"
+msgid "Copy table to (database<b>.</b>table)"
 msgstr "كپي كردن جدول به (پايگاه داده<b>.</b>جدول):"
 
 #: libraries/operations.lib.php:1010
