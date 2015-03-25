@@ -217,6 +217,10 @@ $(function () {
     });
 
     $(document).on("change", '#navi_db_select',  function (event) {
+        if (! $(this).val()) {
+            PMA_commonParams.set('db', '');
+            PMA_reloadNavigation();
+        }
         $(this).closest('form').trigger('submit');
     });
 
@@ -650,20 +654,8 @@ function PMA_showCurrentNavigation() {
         var $dbItem = findLoadedItem(
             $('#pma_navigation_tree > div'), db, 'database', !table
         );
-        if ($dbItem) {
-            var $expander = $dbItem.children('div:first').children('a.expander');
-            // if not loaded or loaded but collapsed
-            if (! $expander.hasClass('loaded') ||
-                $expander.find('img').is('.ic_b_plus')
-            ) {
-                expandTreeNode($expander, function () {
-                    handleTableOrDb(table, $dbItem);
-                });
-            } else {
-                handleTableOrDb(table, $dbItem);
-            }
-        } else if ($('#navi_db_select').length
-                && $('option:selected', $('#navi_db_select')).length
+        if ($('#navi_db_select').length
+            && $('option:selected', $('#navi_db_select')).length
         ) {
             if (! PMA_selectCurrentDb()) {
                 return;
@@ -680,7 +672,21 @@ function PMA_showCurrentNavigation() {
             } else {
                 handleTableOrDb(table, $('#pma_navigation_tree_content'));
             }
+        } else if ($dbItem) {
+            var $expander = $dbItem.children('div:first').children('a.expander');
+            // if not loaded or loaded but collapsed
+            if (! $expander.hasClass('loaded') ||
+                $expander.find('img').is('.ic_b_plus')
+            ) {
+                expandTreeNode($expander, function () {
+                    handleTableOrDb(table, $dbItem);
+                });
+            } else {
+                handleTableOrDb(table, $dbItem);
+            }
         }
+    } else if ($('#navi_db_select').length && $('#navi_db_select').val()) {
+        $('#navi_db_select').val('').trigger('change');
     }
     PMA_showFullName($('#pma_navigation_tree'));
 

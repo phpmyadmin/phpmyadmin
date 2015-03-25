@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 + rfe #1625 Toggle autocomplete of table and column names
 + rfe #933  Manage multiple variable in bookmarked query
 + rfe #947  Show edit/delete also when there is calculated column
++ rfe #1619 Show databases as list instead of as dropdown when no database is selected
 
 4.4.1.0 (not yet released)
 
