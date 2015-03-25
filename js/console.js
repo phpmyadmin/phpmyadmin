@@ -110,6 +110,10 @@ var PMA_console = {
                 if(ConsoleEnterExecutes === true) {
                     $('#pma_console_options input[name=enter_executes]').prop('checked', true);
                 }
+                if(tempConfig.darkTheme === true) {
+                    $('#pma_console_options input[name=dark_theme]').prop('checked', true);
+                    $('#pma_console>.content').addClass('console_dark_theme');
+                }
             } else {
                 $('#pma_console_options input[name=current_query]').prop('checked', true);
             }
@@ -171,6 +175,7 @@ var PMA_console = {
                 $('#pma_console_options input[name=start_history]').prop('checked', false);
                 $('#pma_console_options input[name=current_query]').prop('checked', true);
                 $('#pma_console_options input[name=enter_executes]').prop('checked', false);
+                $('#pma_console_options input[name=dark_theme]').prop('checked', false);
                 PMA_console.updateConfig();
             });
 
@@ -403,9 +408,16 @@ var PMA_console = {
             alwaysExpand: $('#pma_console_options input[name=always_expand]').prop('checked'),
             startHistory: $('#pma_console_options input[name=start_history]').prop('checked'),
             currentQuery: $('#pma_console_options input[name=current_query]').prop('checked'),
-            enterExecutes: $('#pma_console_options input[name=enter_executes]').prop('checked')
+            enterExecutes: $('#pma_console_options input[name=enter_executes]').prop('checked'),
+            darkTheme: $('#pma_console_options input[name=dark_theme]').prop('checked')
         };
         $.cookie('pma_console_config', JSON.stringify(PMA_console.config));
+        /*Setting the dark theme of the console*/
+        if(PMA_console.config.darkTheme) {
+            $('#pma_console>.content').addClass('console_dark_theme');
+        } else {
+            $('#pma_console>.content').removeClass('console_dark_theme');
+        }
     },
     isSelect: function (queryString) {
         var reg_exp = /^SELECT\s+/i;

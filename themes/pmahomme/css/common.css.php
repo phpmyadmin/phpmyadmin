@@ -3075,6 +3075,26 @@ table.show_create td {
     background: #fff;
     padding-top: .4em;
 }
+#pma_console .content.console_dark_theme {
+    background: #000;
+    color: #fff;
+}
+#pma_console .content.console_dark_theme .CodeMirror-wrap {
+    background: #000;
+    color: #fff;
+}
+#pma_console .content.console_dark_theme .action_content {
+    color: #000;
+}
+#pma_console .content.console_dark_theme .message {
+    border-color: #373B41;
+}
+#pma_console .content.console_dark_theme .CodeMirror-cursor {
+    border-color: #fff;
+}
+#pma_console .content.console_dark_theme .cm-keyword {
+    color: #de935f;
+}
 #pma_console .message,
 #pma_console .query_input {
     position: relative;
