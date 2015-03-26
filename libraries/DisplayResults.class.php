@@ -367,7 +367,7 @@ class PMA_DisplayResults
      * @param string  $printview      print view was requested
      * @param string  $url_query      URL query
      * @param boolean $editable       whether the results set is editable
-     * @param boolean $browse_dist    whether browsing distinct values
+     * @param boolean $is_browse_dist whether browsing distinct values
      *
      * @return void
      *
