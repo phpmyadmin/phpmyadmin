@@ -1044,27 +1044,29 @@ class PMA_DatabaseInterface
                         . PMA_Util::backquote($database_name) . ';'
                     );
 
-                    while ($row = $this->fetchAssoc($res)) {
-                        $databases[$database_name]['SCHEMA_TABLES']++;
-                        $databases[$database_name]['SCHEMA_TABLE_ROWS']
-                            += $row['Rows'];
-                        $databases[$database_name]['SCHEMA_DATA_LENGTH']
-                            += $row['Data_length'];
-                        $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH']
-                            += $row['Max_data_length'];
-                        $databases[$database_name]['SCHEMA_INDEX_LENGTH']
-                            += $row['Index_length'];
+                    if ($res !== false) {
+                        while ($row = $this->fetchAssoc($res)) {
+                            $databases[$database_name]['SCHEMA_TABLES']++;
+                            $databases[$database_name]['SCHEMA_TABLE_ROWS']
+                                += $row['Rows'];
+                            $databases[$database_name]['SCHEMA_DATA_LENGTH']
+                                += $row['Data_length'];
+                            $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH']
+                                += $row['Max_data_length'];
+                            $databases[$database_name]['SCHEMA_INDEX_LENGTH']
+                                += $row['Index_length'];
 
-                        // for InnoDB, this does not contain the number of
-                        // overhead bytes but the total free space
-                        if ('InnoDB' != $row['Engine']) {
-                            $databases[$database_name]['SCHEMA_DATA_FREE']
-                                += $row['Data_free'];
+                            // for InnoDB, this does not contain the number of
+                            // overhead bytes but the total free space
+                            if ('InnoDB' != $row['Engine']) {
+                                $databases[$database_name]['SCHEMA_DATA_FREE']
+                                    += $row['Data_free'];
+                            }
+                            $databases[$database_name]['SCHEMA_LENGTH']
+                                += $row['Data_length'] + $row['Index_length'];
                         }
-                        $databases[$database_name]['SCHEMA_LENGTH']
-                            += $row['Data_length'] + $row['Index_length'];
+                        $this->freeResult($res);
                     }
-                    $this->freeResult($res);
                     unset($res);
                 }
             }
