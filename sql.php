@@ -199,5 +199,3 @@ PMA_executeQueryAndSendQueryResponse(
     isset($selected) ? $selected : null,
     isset($complete_query) ? $complete_query : null
 );
-
-?>

@@ -138,4 +138,3 @@ if (! $result) {
         include_once '' . $cfg['DefaultTabDatabase'];
     }
 }
-?>

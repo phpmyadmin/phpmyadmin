@@ -342,5 +342,3 @@ $response->addHTML(
 );
 
 PMA_possiblyShowCreateTableDialog($db, $db_is_system_schema, $response);
-
-?>

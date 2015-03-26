@@ -109,5 +109,3 @@ $response->addHTML(PMA_getHtmlForMonitor($ServerStatusData));
 $response->addHTML(PMA_getHtmlForClientSideDataAndLinks($ServerStatusData));
 $response->addHTML('</div>');
 exit;
-
-?>

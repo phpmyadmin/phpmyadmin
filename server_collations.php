@@ -35,5 +35,3 @@ $response->addHTML(
         $mysql_collations_available
     )
 );
-
-?>

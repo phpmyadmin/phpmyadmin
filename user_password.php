@@ -208,4 +208,3 @@ function PMA_changePassDisplayPage($message, $sql_query)
         . '<strong>' . __('Back') . '</strong></a>';
     exit;
 }
-?>

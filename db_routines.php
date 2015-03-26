@@ -23,5 +23,3 @@ require_once 'libraries/rte/rte_routines.lib.php';
  */
 $_PMA_RTE = 'RTN';
 require_once 'libraries/rte/rte_main.inc.php';
-
-?>

@@ -153,4 +153,3 @@ if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
 $response->addHTML($html_output);
 
 $response->addHTML('</div>');
-?>

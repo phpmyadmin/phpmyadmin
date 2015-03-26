@@ -170,4 +170,3 @@ if (isset($_REQUEST['query'])) {
 }
 
 $response->addHTML(PMA_getCacheImages());
-?>

@@ -139,4 +139,3 @@ $htmlString = PMA_getHtmlForTableChartDisplay(
 );
 
 $response->addHTML($htmlString);
-?>

@@ -55,5 +55,3 @@ $response->addHTML(PMA_getHtmlForSubPageHeader('plugins'));
 $response->addHTML(PMA_getPluginAndModuleInfo($plugins, $modules));
 
 exit;
-
-?>

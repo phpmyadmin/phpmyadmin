@@ -57,4 +57,3 @@ $response->addHTML($html);
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('indexes.js');
-?>

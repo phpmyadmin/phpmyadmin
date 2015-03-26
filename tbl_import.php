@@ -26,5 +26,3 @@ require_once 'libraries/tbl_info.inc.php';
 
 $import_type = 'table';
 require_once 'libraries/display_import.inc.php';
-
-?>
