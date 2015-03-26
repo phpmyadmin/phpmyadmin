@@ -4632,7 +4632,7 @@ class PMA_DisplayResults
             $this->__get('db'), $this->__get('table'), '', self::POSITION_BOTH
         );
 
-        if ($exist_rel) {
+        if (! empty($exist_rel)) {
 
             foreach ($exist_rel as $master_field => $rel) {
                 if ($master_field != 'foreign_keys_data') {
