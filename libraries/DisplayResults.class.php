@@ -4566,7 +4566,7 @@ class PMA_DisplayResults
         $message = PMA_Message::success(__('Showing rows %1s - %2s'));
         $message->addParam($first_shown_rec);
 
-        if ($message_view_warning) {
+        if ($message_view_warning !== false) {
             $message->addParam('... ' . $message_view_warning, false);
         } else {
             $message->addParam($last_shown_rec);
@@ -4574,7 +4574,7 @@ class PMA_DisplayResults
 
         $message->addMessage('(');
 
-        if (!$message_view_warning) {
+        if ($message_view_warning === false) {
 
             if (isset($unlim_num_rows) && ($unlim_num_rows != $total)) {
                 $message_total = PMA_Message::notice(
