@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug #4813 MySQL 5.7.6 and the Users menu tab
 - bug #4818 MySQL 5.7.6 and changing the password for another user
 - bug #4819 Request URI too large
+- bug #4814 MySQL 5.7.6 and Databases
 - bug       Use 'server' parameter in console to work in multi server environments
 
 4.4.0.0 (not yet released)
