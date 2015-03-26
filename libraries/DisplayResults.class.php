@@ -1476,10 +1476,9 @@ class PMA_DisplayResults
     private function _getTableCommentsArray($analyzed_sql)
     {
 
-        $comments_map = null;
+        $comments_map = array();
 
         if ($GLOBALS['cfg']['ShowBrowseComments']) {
-            $comments_map = array();
             if (isset($analyzed_sql[0])
                 && is_array($analyzed_sql[0])
                 && isset($analyzed_sql[0]['table_ref'])
@@ -1788,8 +1787,7 @@ class PMA_DisplayResults
     private function _getCommentForRow($comments_map, $fields_meta)
     {
         $comments = '';
-        if (isset($comments_map)
-            && isset($comments_map[$fields_meta->table])
+        if (isset($comments_map[$fields_meta->table])
             && isset($comments_map[$fields_meta->table][$fields_meta->name])
         ) {
             $sanitized_comments = htmlspecialchars(
