@@ -125,10 +125,10 @@ class PMA_DatabaseInterface
     /**
      * Stores query data into session data for debugging purposes
      *
-     * @param string  $query  Query text
-     * @param object  $link   database link
-     * @param object  $result Query result
-     * @param integer $time   Time to execute query
+     * @param string         $query  Query text
+     * @param object         $link   database link
+     * @param object|boolean $result Query result
+     * @param integer        $time   Time to execute query
      *
      * @return void
      */
@@ -551,7 +551,7 @@ class PMA_DatabaseInterface
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
         if (empty($tables) && !PMA_DRIZZLE) {
             foreach ($databases as $each_database) {
-                if ($table || (true === $tbl_is_group) || $table_type) {
+                if ($table || (true === $tbl_is_group) || ! empty($table_type)) {
                     $sql = 'SHOW TABLE STATUS FROM '
                         . PMA_Util::backquote($each_database)
                         . ' WHERE';
@@ -564,7 +564,7 @@ class PMA_DatabaseInterface
                             . "%'";
                         $needAnd = true;
                     }
-                    if ($table_type) {
+                    if (! empty($table_type)) {
                         if ($needAnd) {
                             $sql .= " AND";
                         }
@@ -927,7 +927,7 @@ class PMA_DatabaseInterface
             }
 
             // get table information from information_schema
-            if ($database) {
+            if (! empty($database)) {
                 $sql_where_schema = 'WHERE `SCHEMA_NAME` LIKE \''
                     . PMA_Util::sqlAddSlashes($database) . '\'';
             } else {
