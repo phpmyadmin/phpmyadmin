@@ -1274,7 +1274,7 @@ class PMA_DisplayResults
             );
 
             // do we have any index?
-            if ($indexes) {
+            if (! empty($indexes)) {
                 $drop_down_html = $this->_getSortByKeyDropDown(
                     $indexes, $sort_expression,
                     $unsorted_sql_query
