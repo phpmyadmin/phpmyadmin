@@ -551,7 +551,7 @@ class PMA_DatabaseInterface
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
         if (empty($tables) && !PMA_DRIZZLE) {
             foreach ($databases as $each_database) {
-                if ($table || (true === $tbl_is_group) || $table_type) {
+                if ($table || (true === $tbl_is_group) || ! empty($table_type)) {
                     $sql = 'SHOW TABLE STATUS FROM '
                         . PMA_Util::backquote($each_database)
                         . ' WHERE';
@@ -564,7 +564,7 @@ class PMA_DatabaseInterface
                             . "%'";
                         $needAnd = true;
                     }
-                    if ($table_type) {
+                    if (! empty($table_type)) {
                         if ($needAnd) {
                             $sql .= " AND";
                         }
