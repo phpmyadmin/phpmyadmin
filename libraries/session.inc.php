@@ -102,6 +102,11 @@ if (! isset($_COOKIE[$session_name])) {
 }
 
 /**
+ * Disable setting of session cookies for further session_start() calls.
+ */
+@ini_set('session.use_cookies', 'true');
+
+/**
  * Token which is used for authenticating access queries.
  * (we use "space PMA_token space" to prevent overwriting)
  */
