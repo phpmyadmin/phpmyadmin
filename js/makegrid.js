@@ -440,9 +440,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     text += text.length > 0 ? '<br />' : '';
                     text += '- ' + g.strMultiSortHint;
                 }
-                if (g.showMarkHint && g.markHint
-                    && !g.showSortHint // we do not show mark hint, when sort hint is shown
-                    && g.showReorderHint && g.reorderHint
+                if (g.showMarkHint &&
+                    g.markHint &&
+                    ! g.showSortHint && // we do not show mark hint, when sort hint is shown
+                    g.showReorderHint &&
+                    g.reorderHint
                 ) {
                     text += text.length > 0 ? '<br />' : '';
                     text += '- ' + g.reorderHint;
