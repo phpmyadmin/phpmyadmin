@@ -927,7 +927,7 @@ class PMA_DatabaseInterface
             }
 
             // get table information from information_schema
-            if ($database) {
+            if (! empty($database)) {
                 $sql_where_schema = 'WHERE `SCHEMA_NAME` LIKE \''
                     . PMA_Util::sqlAddSlashes($database) . '\'';
             } else {
