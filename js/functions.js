@@ -989,9 +989,9 @@ function insertQuery(queryType)
         return;
     } else if (queryType == "format") {
         if (codemirror_editor) {
-            $('#querymessage').html(PMA_messages.strFormatting
-                + '&nbsp;<img class="ajaxIcon" src="'
-                + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+            $('#querymessage').html(PMA_messages.strFormatting +
+                '&nbsp;<img class="ajaxIcon" src="' +
+                pmaThemeImage + 'ajax_clock_small.gif" alt="">');
             var href = 'db_sql_format.php';
             var params = {
                 'ajax_request': true,
@@ -3797,8 +3797,7 @@ AJAX.registerOnload('functions.js', function () {
             success: function (data) {
                 // Update localStorage.
                 if (isStorageSupported('localStorage')) {
-                    window.localStorage.favorite_tables
-                        = data.favorite_tables;
+                    window.localStorage.favorite_tables = data.favorite_tables;
                 }
                 $('#pma_favorite_list').html(data.list);
             }
@@ -4472,8 +4471,8 @@ function checkNumberOfFields() {
  *
  */
 function PMA_ignorePhpErrors(clearPrevErrors){
-    if (typeof(clearPrevErrors) === "undefined"
-        || clearPrevErrors === null
+    if (typeof(clearPrevErrors) === "undefined" ||
+        clearPrevErrors === null
     ) {
         str = false;
     }
