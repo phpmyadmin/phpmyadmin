@@ -4,6 +4,46 @@
  *
  */
 
+var BrowserDetect = {
+        init: function () {
+            this.browser = this.searchString(this.dataBrowser) || "Other";
+            this.version = this.searchVersion(navigator.userAgent) || this.searchVersion(navigator.appVersion) || "Unknown";
+        },
+        searchString: function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var dataString = data[i].string;
+                this.versionSearchString = data[i].subString;
+
+                if (dataString.indexOf(data[i].subString) !== -1) {
+                    return data[i].identity;
+                }
+            }
+        },
+        searchVersion: function (dataString) {
+            var index = dataString.indexOf(this.versionSearchString);
+            if (index === -1) {
+                return;
+            }
+
+            var rv = dataString.indexOf("rv:");
+            if (this.versionSearchString === "Trident" && rv !== -1) {
+                return parseFloat(dataString.substring(rv + 3));
+            } else {
+                return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
+            }
+        },
+
+        dataBrowser: [
+            {string: navigator.userAgent, subString: "Chrome", identity: "Chrome"},
+            {string: navigator.userAgent, subString: "MSIE", identity: "Explorer"},
+            {string: navigator.userAgent, subString: "Trident", identity: "Explorer"},
+            {string: navigator.userAgent, subString: "Firefox", identity: "Firefox"},
+            {string: navigator.userAgent, subString: "Safari", identity: "Safari"},
+            {string: navigator.userAgent, subString: "Opera", identity: "Opera"}
+        ]
+
+    };
+
 /**
  * Disables the "Dump some row(s)" sub-options
  */
@@ -294,6 +334,78 @@ function aliasSelectHandler(event) {
     $("#alias_modal").dialog("option", "position", "center");
 }
 
+function getProgress()
+{
+    $.ajax({
+        type: 'GET',
+        url: 'progress_sess.php',
+        dataType: "json",
+        cache: 'false',
+        success: function(data){
+            $("#progress_message").html(data.progress_result);
+            if(data.progress_result!="Done!")
+            {
+                if(data.progress_result=="Initializing Parameters")
+                {
+                    $( "#progressbar" ).progressbar({
+                        value: 30
+                    });
+                }
+                else if(data.progress_result == "Building File")
+                {
+                    $( "#progressbar" ).progressbar({
+                        value: 60
+                    });
+                }
+                else
+                {
+                    $( "#progressbar" ).progressbar({
+                        value: 0
+                    });
+                }
+                getProgress();
+            }
+            else
+            {
+                $( "#progressbar" ).progressbar({
+                    value: 100
+                });
+            }
+        }
+    });
+}
+/**
+ * Handler for Progress dialog box
+ *
+ * @param event object the event object
+ *
+ * Gracefully detects browser and deactivates modal for firefox
+ *
+ * @return void
+ */
+function createProgressModal(event)
+{
+    BrowserDetect.init();
+    if(BrowserDetect.browser=="Chrome")
+    {
+        var dlgButtons = {};
+        $( "#progressbar" ).progressbar({
+            value: 0
+        });
+        $('#progress_modal').dialog({
+            width: Math.min($(window).width() - 100, 700),
+            maxHeight: $(window).height(),
+            modal: true,
+            dialogClass: "progress-dialog",
+            create: function() {
+                $(this).css('maxHeight', $(window).height() - 100);
+            },
+            position: { my: "center", at: "center", of: window }
+        });
+        getProgress();
+    }
+}
+
 /**
  * Handler for Alias dialog box
  *
@@ -397,5 +509,12 @@ AJAX.registerOnload('export.js', function () {
         'change',
         {sel: 'table', type: '_cols'},
         aliasSelectHandler
+    );
+
+    //Submit button on click event
+    $('.exportoptions > #buttonGo').on(
+        'click',
+        {},
+        createProgressModal
     );
 });
