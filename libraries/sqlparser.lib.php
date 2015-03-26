@@ -713,21 +713,12 @@ function PMA_SQP_parse($sql)
                     $punct_data = /*overload*/mb_substr(
                         $sql, $count1, $count2 - $count1
                     );
-                } elseif ($last != '~') {
-                    /**
-                     * @todo for negation operator, split in 2 tokens ?
-                     * "select x&~1 from t"
-                     * becomes "select x & ~ 1 from t" ?
-                     */
-                    $debugstr =  __('Unknown Punctuation String')
-                        . ' @ ' . ($count1+1) . "\n"
-                        . 'STR: ' . htmlspecialchars($punct_data);
-                    PMA_SQP_throwError($debugstr, $sql);
-                    return $sql_array;
+                } else {
+                    //Unrecognised punctuation strings
+	                PMA_SQP_arrayAdd(
+	                    $sql_array, 'punct', $punct_data, $arraysize, $count2
+	                );
                 }
-                PMA_SQP_arrayAdd(
-                    $sql_array, 'punct', $punct_data, $arraysize, $count2
-                );
                 continue;
             } // end if... elseif... else
             continue;
