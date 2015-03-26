@@ -3609,16 +3609,20 @@ class PMA_DisplayResults
     /**
      * Get data cell for geometry type fields
      *
-     * @param string  $column                the relevant column in data row
-     * @param string  $class                 the html class for column
-     * @param object  $meta                  the meta-information about this field
-     * @param array   $map                   the list of relations
-     * @param array   $_url_params           the parameters for generate url
-     * @param boolean $condition_field       the column should highlighted or not
-     * @param string  $transformation_plugin the name of transformation function
-     * @param string  $default_function      the default transformation function
-     * @param string  $transform_options     the transformation parameters
-     * @param array   $analyzed_sql          the analyzed query
+     * @param string        $column                the relevant column in data row
+     * @param string        $class                 the html class for column
+     * @param object        $meta                  the meta-information about
+     *                                             this field
+     * @param array         $map                   the list of relations
+     * @param array         $_url_params           the parameters for generate url
+     * @param boolean       $condition_field       the column should highlighted
+     *                                             or not
+     * @param object|string $transformation_plugin the name of transformation
+     *                                             function
+     * @param string        $default_function      the default transformation
+     *                                             function
+     * @param string        $transform_options     the transformation parameters
+     * @param array         $analyzed_sql          the analyzed query
      *
      * @return  string  $cell                  the prepared data cell, html content
      *
