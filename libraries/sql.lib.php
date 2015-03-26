@@ -1124,15 +1124,14 @@ function PMA_executeQueryAndStoreResults($full_sql_query)
  *
  * @param boolean $is_affected whether the query affected a table
  * @param mixed   $result      results of executing the query
- * @param int     $num_rows    number of rows affected or changed
  *
  * @return int    $num_rows    number of rows affected or changed
  */
-function PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result, $num_rows)
+function PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result)
 {
     if (! $is_affected) {
         $num_rows = ($result) ? @$GLOBALS['dbi']->numRows($result) : 0;
-    } elseif (! isset($num_rows)) {
+    } else {
         $num_rows = @$GLOBALS['dbi']->affectedRows();
     }
 
@@ -1378,8 +1377,7 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         // (This must be done immediately after the query because
         // mysql_affected_rows() reports about the last query done)
         $num_rows = PMA_getNumberOfRowsAffectedOrChanged(
-            $analyzed_sql_results['is_affected'], $result,
-            isset($num_rows) ? $num_rows : null
+            $analyzed_sql_results['is_affected'], $result
         );
 
         // Grabs the profiling results
