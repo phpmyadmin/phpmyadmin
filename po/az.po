@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-25 14:30-0400\n"
-"PO-Revision-Date: 2015-02-19 17:42+0200\n"
+"PO-Revision-Date: 2015-03-27 00:28+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
+"Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: az\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1975,7 +1975,7 @@ msgstr "Heç bir baza seçilmemişdir."
 #: libraries/tbl_relation.lib.php:652 setup/frames/config.inc.php:42
 #: setup/frames/index.inc.php:279
 msgid "Save"
-msgstr "Qeyd Et"
+msgstr "Yaddaşa ver"
 
 #: js/messages.php:353
 msgid "Hide search criteria"
@@ -5429,7 +5429,7 @@ msgstr "%s ifadəsi əlavə et"
 
 #: libraries/config/messages.inc.php:115 prefs_manage.php:316
 msgid "Save as file"
-msgstr "Fayl olaraq qeyd et"
+msgstr "Fayl olaraq yaddaşa ver"
 
 #: libraries/config/messages.inc.php:116 libraries/config/messages.inc.php:341
 msgid "Character set of the file"
@@ -5563,7 +5563,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:161 libraries/config/messages.inc.php:164
 #: libraries/display_export.lib.php:403 libraries/display_export.lib.php:438
 msgid "Overwrite existing file(s)"
-msgstr "Mövcud fayl(lar)ın üzerine yaz"
+msgstr "Mövcud fayl(lar)ın üzərinə yaz"
 
 #: libraries/config/messages.inc.php:165
 msgid "Remember file name template"
@@ -5576,7 +5576,7 @@ msgstr "AUTO_INCREMENT dəyəri əlavə et"
 
 #: libraries/config/messages.inc.php:168
 msgid "Enclose table and column names with backquotes"
-msgstr "Cədvəl ve sütun adlarını tək dırnaq arasına al"
+msgstr "Cədvəl və sütun adlarını tək dırnaq arasına al"
 
 #: libraries/config/messages.inc.php:169 libraries/config/messages.inc.php:367
 #: libraries/display_export.lib.php:299
@@ -5651,7 +5651,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:205
 msgid "Force SSL connection"
-msgstr ""
+msgstr "SSL qoşulmaya məcbur et"
 
 #: libraries/config/messages.inc.php:207
 msgid ""
@@ -5704,7 +5704,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:222
 msgid "Edit mode"
-msgstr ""
+msgstr "Redaktə rejimi"
 
 #: libraries/config/messages.inc.php:223
 msgid "Customize edit mode."
@@ -5721,7 +5721,7 @@ msgstr "Susmaya görə olan eksport seçimlərini özəlləşdirin."
 #: libraries/config/messages.inc.php:227 libraries/config/messages.inc.php:288
 #: setup/frames/menu.inc.php:22
 msgid "Features"
-msgstr ""
+msgstr "Özəllikləri"
 
 #: libraries/config/messages.inc.php:228
 msgid "General"
@@ -5745,7 +5745,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:235
 msgid "Set import and export directories and compression options."
-msgstr ""
+msgstr "İmport və Eksport qovluqlarını və sıxışdırma seçimlərini tənzimləyin."
 
 #: libraries/config/messages.inc.php:236
 msgid "LaTeX"
@@ -5812,13 +5812,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:262
 msgid "Security"
-msgstr ""
+msgstr "Təhlükəsizlik"
 
 #: libraries/config/messages.inc.php:264
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
+"Zəhmət olmasa unutmayın ki, phpMyAdmin sadəcə istifadəçi interfeysidir və "
+"özəllikləri MySQL-i limitləməz."
 
 #: libraries/config/messages.inc.php:267
 msgid "Basic settings"
@@ -5834,17 +5836,19 @@ msgstr "İdentifikasiya tənzimləmələri."
 
 #: libraries/config/messages.inc.php:270
 msgid "Server configuration"
-msgstr ""
+msgstr "Server Konfiqurasiyası"
 
 #: libraries/config/messages.inc.php:272
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
 msgstr ""
+"İləri səviyyə server konfiqurasiyası, nə olduqlarını bilmirsinizsə bunları "
+"dəyişdirməyin."
 
 #: libraries/config/messages.inc.php:275
 msgid "Enter server connection parameters."
-msgstr ""
+msgstr "Server əlaqə parametrlərini daxil edin."
 
 #: libraries/config/messages.inc.php:276
 msgid "Configuration storage"
@@ -5916,6 +5920,8 @@ msgstr "Verilənlər Bazasının strukturu"
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
+"Hansı detalların baza strukturunda(cədvəllərin siyahısında) göstəriləcəyini "
+"seçin."
 
 #: libraries/config/messages.inc.php:304 libraries/structure.lib.php:3264
 msgid "Table structure"
@@ -5923,7 +5929,7 @@ msgstr "Cədvəl strukturu"
 
 #: libraries/config/messages.inc.php:306
 msgid "Settings for the table structure (list of columns)."
-msgstr ""
+msgstr "Cədvəl strukturu(sütünların siyahısı) üçün tənzimləmələr."
 
 #: libraries/config/messages.inc.php:307
 msgid "Tabs"
@@ -6015,7 +6021,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:346 libraries/config/messages.inc.php:357
 #: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid "Replace table data with file"
-msgstr ""
+msgstr "Cədvəl verilənlərini fayl ilə dəyişdir"
 
 #: libraries/config/messages.inc.php:349
 msgid ""
@@ -6040,7 +6046,7 @@ msgstr "İlk sətirdəki sütun adları"
 #: libraries/config/messages.inc.php:360
 #: libraries/plugins/import/ImportOds.class.php:83
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Boş sətirləri import etmə"
 
 #: libraries/config/messages.inc.php:362
 msgid "Import currencies ($5.00 to 5.00)"
@@ -6181,7 +6187,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:424
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "Göstəriləcək maksimum sətir sayı"
 
 #: libraries/config/messages.inc.php:426
 msgid "Maximum number of tables displayed in table list."
@@ -6428,7 +6434,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:529
 msgid "Protect binary columns"
-msgstr ""
+msgstr "Binar sütunları qoru"
 
 #: libraries/config/messages.inc.php:531
 msgid ""
@@ -6443,11 +6449,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:537
 msgid "How many queries are kept in history."
-msgstr ""
+msgstr "Tarixdə nə qədər sorğu saxlanılacağıdır."
 
 #: libraries/config/messages.inc.php:538
 msgid "Query history length"
-msgstr ""
+msgstr "Sorğu tarixi uzunluğu"
 
 #: libraries/config/messages.inc.php:540
 msgid "Select which functions will be used for character set conversion."
@@ -6514,7 +6520,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:557
 msgid "Leave blank if not used."
-msgstr ""
+msgstr "İstifadə olunmayacaqsa boş buraxın."
 
 #: libraries/config/messages.inc.php:558
 msgid "Host authorization order"
@@ -6530,7 +6536,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:561
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "Parolsuz girişlərə icazə verin"
 
 #: libraries/config/messages.inc.php:562
 msgid "Allow root login"
@@ -6540,7 +6546,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Sessiya deyeri"
+msgstr "Session vaxt qurşağı"
 
 #: libraries/config/messages.inc.php:564
 msgid ""
@@ -6605,7 +6611,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:589
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
-msgstr ""
+msgstr "Serverə necə bağlansın, əmin deyilsinizə [kbd]tcp[/kbd] olaraq buraxın."
 
 #: libraries/config/messages.inc.php:590
 msgid "Connection type"
@@ -6730,7 +6736,7 @@ msgstr "Parolsuz qoşulmağı sınayın."
 
 #: libraries/config/messages.inc.php:638
 msgid "Connect without password"
-msgstr ""
+msgstr "Parolsuz qoşul"
 
 #: libraries/config/messages.inc.php:640
 msgid ""
@@ -6993,10 +6999,11 @@ msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
+"Serverin rahat başa düşülən açıqlaması. Hostadını göstərmək üçün boş buraxın."
 
 #: libraries/config/messages.inc.php:741
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "Bu serverin ətraflı adı"
 
 #: libraries/config/messages.inc.php:742
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -7004,7 +7011,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:743
 msgid "Allow to display all the rows"
-msgstr ""
+msgstr "Bütün sətirləri göstərməyə icazə ver"
 
 #: libraries/config/messages.inc.php:744
 msgid ""
@@ -7063,7 +7070,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:756
 msgid "Show function fields"
-msgstr ""
+msgstr "Funksiya sahələrini göstər"
 
 #: libraries/config/messages.inc.php:757
 msgid "Whether to show hint or not."
@@ -7081,7 +7088,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:760
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "phpinfo() linkini göstər"
 
 #: libraries/config/messages.inc.php:761
 msgid "Show detailed MySQL server information"
@@ -8673,10 +8680,9 @@ msgid "unknown"
 msgstr "bilinmir"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "Naviqasiya ağacı yüklənərkən xəta baş verdi"
+msgstr "Naviqasiya görüntüsü yüklənərkən xəta baş verdi"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -10102,7 +10108,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/abstract/ImageLinkTransformationsPlugin.class.php:33
 msgid "Displays a link to download this image."
-msgstr "Displays a link to this image (direct blob download, i.e.)."
+msgstr "Bu rəsmi endirmək üçün linki göstərir."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:31
 msgid ""
@@ -10394,6 +10400,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:47
 msgid "This server is configured as master in a replication process."
 msgstr ""
+"Bu server replikasiya prosesində master server olaraq konfiqurasiya edildi."
 
 #: libraries/replication_gui.lib.php:55
 msgid "Show connected slaves"
@@ -11151,7 +11158,7 @@ msgstr "Emrleri Tam Olaraq Göster"
 
 #: libraries/server_common.lib.php:27
 msgid "Server variables and settings"
-msgstr "Server Deyişenleri Ve Variantları"
+msgstr "Server dəyişənləri və tənzimləmələri"
 
 #: libraries/server_common.lib.php:30
 msgid "Storage Engines"
@@ -12056,10 +12063,9 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:44
 #: libraries/server_variables.lib.php:181
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Parolu deyişdirme"
+msgstr "İçərisində bu söz var:"
 
 #: libraries/server_status_variables.lib.php:52
 #, fuzzy
@@ -12737,8 +12743,9 @@ msgstr ""
 
 #: libraries/server_variables.lib.php:192
 #: libraries/server_variables.lib.php:264
+#, fuzzy
 msgid "Session value"
-msgstr "Sessiya deyeri"
+msgstr "Session dəyəri"
 
 #: libraries/server_variables.lib.php:192
 msgid "Global value"
@@ -13788,6 +13795,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"Config.inc.php faylını dəyişdirərək daha çox tənzimləmələr edə bilərsiniz, "
+"məs. %squrulum skripti%s istifadə edərək."
 
 #: prefs_manage.php:321
 msgid "Save to browser's storage"
@@ -13834,7 +13843,7 @@ msgstr ""
 
 #: setup/frames/config.inc.php:41 setup/frames/index.inc.php:276
 msgid "Download"
-msgstr ""
+msgstr "Endir"
 
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
@@ -13842,7 +13851,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:53
 msgid "Cannot load or save configuration"
-msgstr ""
+msgstr "Konfiqurasiya yüklənə bilmir və ya yaddaşa verilə bilmir"
 
 #: setup/frames/index.inc.php:56
 msgid ""
@@ -13856,6 +13865,8 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
+"Güvənli qoşulma istifadə etmirsiniz; bütün verilənlər(parollar kimi həssas, "
+"informasiyalar da daxil) şifrələnmədən transfer edilir!"
 
 #: setup/frames/index.inc.php:83
 #, php-format
@@ -13863,10 +13874,13 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr ""
+"Əgər serveriniz eyni zamanda HTTPS istəklərini(request) qəbul etmək üçün "
+"konfiqurasiya edilibsə, güvənli bağlantı istifadə etmək üçün [a@%s]bu "
+"linki[/a] izləyin."
 
 #: setup/frames/index.inc.php:90
 msgid "Insecure connection"
-msgstr ""
+msgstr "Güvənli olmayan qoşulma"
 
 #: setup/frames/index.inc.php:119
 msgid "Configuration saved."
@@ -13880,7 +13894,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:133 setup/frames/menu.inc.php:19
 msgid "Overview"
-msgstr ""
+msgstr "Qısa Xülasə"
 
 #: setup/frames/index.inc.php:140
 msgid "Show hidden messages (#MSG_COUNT)"
@@ -13888,15 +13902,15 @@ msgstr ""
 
 #: setup/frames/index.inc.php:193
 msgid "There are no configured servers"
-msgstr ""
+msgstr "Konfiqurasiya edilmiş server yoxdur"
 
 #: setup/frames/index.inc.php:202
 msgid "New server"
-msgstr ""
+msgstr "Yeni Server"
 
 #: setup/frames/index.inc.php:232
 msgid "Default language"
-msgstr ""
+msgstr "Susmaya görə dil"
 
 #: setup/frames/index.inc.php:242
 msgid "let the user choose"
@@ -13908,15 +13922,15 @@ msgstr ""
 
 #: setup/frames/index.inc.php:257
 msgid "Default server"
-msgstr ""
+msgstr "Susmaya görə server"
 
 #: setup/frames/index.inc.php:269
 msgid "End of line"
-msgstr ""
+msgstr "Sətir sonu"
 
 #: setup/frames/index.inc.php:275
 msgid "Display"
-msgstr ""
+msgstr "Göstər"
 
 #: setup/frames/index.inc.php:285
 msgid "Load"
