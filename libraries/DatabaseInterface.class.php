@@ -125,10 +125,10 @@ class PMA_DatabaseInterface
     /**
      * Stores query data into session data for debugging purposes
      *
-     * @param string  $query  Query text
-     * @param object  $link   database link
-     * @param object  $result Query result
-     * @param integer $time   Time to execute query
+     * @param string         $query  Query text
+     * @param object         $link   database link
+     * @param object|boolean $result Query result
+     * @param integer        $time   Time to execute query
      *
      * @return void
      */
