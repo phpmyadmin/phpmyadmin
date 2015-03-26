@@ -523,8 +523,8 @@ $(function () {
             storage.removeItem('navTreePaths');
         });
         // Initialize if no previous state is defined
-        if ($('#pma_navigation_tree_content').length
-            && typeof storage.navTreePaths === 'undefined'
+        if ($('#pma_navigation_tree_content').length &&
+            typeof storage.navTreePaths === 'undefined'
         ) {
             navTreeStateUpdate();
         } else if (PMA_commonParams.get('server') === storage.server &&
@@ -654,8 +654,8 @@ function PMA_showCurrentNavigation() {
         var $dbItem = findLoadedItem(
             $('#pma_navigation_tree > div'), db, 'database', !table
         );
-        if ($('#navi_db_select').length
-            && $('option:selected', $('#navi_db_select')).length
+        if ($('#navi_db_select').length &&
+            $('option:selected', $('#navi_db_select')).length
         ) {
             if (! PMA_selectCurrentDb()) {
                 return;
