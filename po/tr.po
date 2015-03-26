@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-25 14:30-0400\n"
-"PO-Revision-Date: 2015-03-26 13:22+0200\n"
+"PO-Revision-Date: 2015-03-26 13:35+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -1844,10 +1844,10 @@ msgid "No auto-saved query"
 msgstr "Otomatik kaydedilmiş sorgu yok"
 
 #: js/messages.php:310
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Değişken"
+msgstr "Değişken %d:"
 
 #: js/messages.php:313 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -3038,10 +3038,9 @@ msgstr ""
 "satır ekleyin. Bunu kalıcı yapmak için ayarlara bakın."
 
 #: libraries/Console.class.php:320
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Kopyalanmış tabloya geç"
+msgstr "Koyu temaya değiştir"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
 #: libraries/DisplayResults.class.php:2145
