@@ -1514,14 +1514,14 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
             }
             if(!$in_function){
                 if ($term['type'] == 'punct_listsep') {
-                    $extra_where_clause .= ' OR ';
+                    $extra_where_clause[] = ' OR ';
                 } else if ($term['type'] == 'punct') {
-                    $extra_where_clause .= ' <> ';
+                    $extra_where_clause[] = ' <> ';
                 } else if($term['type'] == 'alpha_functionName') {
                     array_pop($extra_where_clause);
                     array_pop($extra_where_clause);
                 } else {
-                    $extra_where_clause .= $term['data'];
+                    $extra_where_clause[] = $term['data'];
                 }
             }
             else if($term['type'] == 'punct_bracket_close_round') {
