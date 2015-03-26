@@ -130,4 +130,3 @@ if ($cfgRelation['pdfwork']) {
 }
 
 $response->addHTML($db_qbe->getSelectionForm());
-?>

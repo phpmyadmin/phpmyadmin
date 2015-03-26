@@ -23,5 +23,3 @@ require 'libraries/server_common.inc.php';
 
 $import_type = 'server';
 require 'libraries/display_import.inc.php';
-
-?>

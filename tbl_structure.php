@@ -207,4 +207,3 @@ $hidden_titles = PMA_getHiddenTitlesArray();
 require_once 'libraries/display_structure.inc.php';
 
 $response->addHTML('</div>');
-?>

@@ -510,4 +510,3 @@ if (!defined('TESTSUITE')) {
         echo PMA_getHtmlForDisplayedExportFooter($back_button);
     } // end if
 }
-?>

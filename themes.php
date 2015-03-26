@@ -28,5 +28,3 @@ $output .= '</p>';
 $output .= $_SESSION['PMA_Theme_Manager']->getPrintPreviews();
 
 $response->addHTML($output);
-
-?>

@@ -26,5 +26,3 @@ if (empty($version)) {
         )
     );
 }
-
-?>

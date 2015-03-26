@@ -18,4 +18,3 @@ PMA_Response::getInstance()->disable();
 if ($GLOBALS['cfg']['ShowPhpInfo']) {
     phpinfo();
 }
-?>

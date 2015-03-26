@@ -406,5 +406,3 @@ if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
 ) {
     $response->addHTML('</div>');
 }
-
-?>

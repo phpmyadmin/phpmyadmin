@@ -204,5 +204,3 @@ foreach ($tables as $table) {
  * Displays the footer
  */
 echo PMA_Util::getButton();
-
-?>

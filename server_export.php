@@ -25,5 +25,3 @@ $multi_values  = PMA_getHtmlForExportSelectOptions($select_item);
 
 $export_type = 'server';
 require_once 'libraries/display_export.inc.php';
-
-?>

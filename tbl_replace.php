@@ -464,5 +464,3 @@ if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert'
  */
 require '' . PMA_securePath($goto_include);
 exit;
-
-?>

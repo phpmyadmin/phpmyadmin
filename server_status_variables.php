@@ -53,5 +53,3 @@ $response->addHTML(PMA_getHtmlForVariablesList($ServerStatusData));
 $response->addHTML('</div>');
 
 exit;
-
-?>

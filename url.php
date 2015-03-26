@@ -35,4 +35,3 @@ if (! PMA_isValid($_GET['url'])
     printf(__('Taking you to %s.'), htmlspecialchars($_GET['url']));
 }
 die();
-?>

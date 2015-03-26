@@ -62,5 +62,3 @@ $err_url = $goto . '?' . PMA_URL_getCommon($params);
 // Displays the find and replace form
 $htmlOutput .= $table_search->getSelectionForm($goto);
 $response->addHTML($htmlOutput);
-
-?>

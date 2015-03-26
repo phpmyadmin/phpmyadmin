@@ -90,5 +90,3 @@ $multi_values .= '</select></div>';
 
 $export_type = 'database';
 require_once 'libraries/display_export.inc.php';
-
-?>
