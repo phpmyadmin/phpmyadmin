@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-25 14:30-0400\n"
-"PO-Revision-Date: 2015-03-09 09:53+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ar/>\n"
+"PO-Revision-Date: 2015-03-27 10:17+0200\n"
+"Last-Translator: Ahmed Saleh Abd El-Raouf Ismae <a.saleh.ismael@gmail.com>\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Weblate 2.3-dev\n"
@@ -30,16 +30,15 @@ msgid "The central list of columns for the current database is empty."
 msgstr "القائمة المركزية للأعمدة قاعدة البيانات الحالية فارغة."
 
 #: db_central_columns.php:129
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "إضغط للترتيب"
+msgstr "إضغط للترتيب."
 
 #: db_central_columns.php:148
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "%1$s - %2$s أظهر الصفوف"
+msgstr "%1$s - %2$s الصفوف الظاهرة."
 
 #: db_create.php:61
 #, php-format
@@ -254,21 +253,19 @@ msgid "Database %1$s has been renamed to %2$s."
 msgstr "تمت إعادة تسمية قاعدة البيانات %1$s إلى %2$s."
 
 #: db_operations.php:138
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "تم نسخ قاعدة البيانات  %1$s  إلى %2$s"
+msgstr "تم نسخ قاعدة البيانات  %1$s  إلى %2$s."
 
 #: db_operations.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا%"
-"s."
+msgstr "تم تعطيل phpMyAdmin لتهيئة التخزين . لمعرفة السبب اضغط %sهنا%s."
 
 #: db_printview.php:48 db_tracking.php:125 db_tracking.php:287
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:791
@@ -307,10 +304,9 @@ msgstr "الإنشاء:"
 
 #: db_printview.php:127 libraries/plugins/export/ExportSql.class.php:1157
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:953
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "آخر تحديث"
+msgstr "آخر تحديث:"
 
 #: db_printview.php:134 libraries/plugins/export/ExportSql.class.php:1170
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:958
@@ -487,22 +483,20 @@ msgstr "إستعمل خريطة الشوارع الحرة كطبقة أساسي�
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:168
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID :"
 
 #: gis_data_editor.php:191
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "هندسة"
+msgstr "هندسة %d:"
 
 #: gis_data_editor.php:213
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "نقطة"
+msgstr "نقطة:"
 
 #: gis_data_editor.php:214 gis_data_editor.php:241 gis_data_editor.php:297
 #: gis_data_editor.php:370 js/messages.php:388
@@ -526,22 +520,21 @@ msgid "Add a point"
 msgstr "إضافة نقطة"
 
 #: gis_data_editor.php:269
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "منحنى"
+msgstr "منحنى %d:"
 
 #: gis_data_editor.php:272 gis_data_editor.php:349
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "الحلقة الخارجية"
+msgstr "الحلقة الخارجية :"
 
 #: gis_data_editor.php:274 gis_data_editor.php:351
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "الحلقة الداخلية"
+msgstr "الحلقة الداخلية %d :"
 
 #: gis_data_editor.php:311
 msgid "Add a linestring"
@@ -552,10 +545,10 @@ msgid "Add an inner ring"
 msgstr "﻿إضافة حلقة الداخلية"
 
 #: gis_data_editor.php:333
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "مضلع"
+msgstr "مضلع %d:"
 
 #: gis_data_editor.php:397
 msgid "Add a polygon"
@@ -607,7 +600,6 @@ msgid "Output"
 msgstr "المخرجات"
 
 #: gis_data_editor.php:415
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -615,24 +607,22 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"اختر \"جيومفرومتيكست\" من العمود \"دالة\" ولصق السلسلة أدناه في الحقل "
-"\"القيمة\""
+"اختر \"جيومفرومتيكست\" من العمود \"دالة\" ولصق السلسلة أدناه في الحقل \""
+"القيمة\"."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "ممنوع الوصول!"
+msgstr "نجحت"
 
 #: import.php:58 js/messages.php:454
 msgid "Failed"
 msgstr "فشل"
 
 #: import.php:62
-#, fuzzy
 #| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "إدخال كامل"
+msgstr "إدخال غير كامل"
 
 #: import.php:163
 #, php-format
@@ -657,13 +647,14 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"الملف الذى تم رفعه لا يمكن نقله , لأن الخادم لديه open_basedir مفعلة و لكن "
+"دون القدرة على دخول المجلد %s (للملفات المؤقتة)."
 
 #: import.php:465 import.php:526 libraries/File.class.php:418
 #: libraries/File.class.php:512
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "لا يمكن قراءة الملف"
+msgstr "لا يمكن قراءة الملف!"
 
 #: import.php:475 import.php:486 import.php:507 import.php:518
 #: libraries/File.class.php:578
@@ -681,23 +672,22 @@ msgid ""
 msgstr ""
 
 #: import.php:552
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
-msgstr "لاتستطيع تغيير ترميز الملفات بدون مكتبة الدوال الخاصة بذلك"
+msgstr "لاتستطيع تغيير ترميز الملفات بدون مكتبة الدوال الخاصة بذلك!"
 
 #: import.php:592 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "لم أتمكن من تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
 
 #: import.php:649 libraries/sql.lib.php:884 libraries/sql.lib.php:1657
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "تم إنشاء العلامة المرجعية %s"
+msgstr "تم إنشاء العلامة المرجعية %s."
 
 #: import.php:658
 #, php-format
@@ -736,10 +726,9 @@ msgid ""
 msgstr ""
 
 #: index.php:158
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "المزايا العامّة للرابط"
+msgstr "الإعدادات العامة"
 
 #: index.php:186 libraries/display_change_password.lib.php:50
 #: libraries/display_change_password.lib.php:53 user_password.php:202
@@ -747,94 +736,82 @@ msgid "Change password"
 msgstr "تغيير كلمة السر"
 
 #: index.php:202
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Server connection collation"
-msgstr "إعداد الخادم"
+msgstr "إعدادات الأتصال بالخادم"
 
 #: index.php:224
 msgid "Appearance Settings"
 msgstr "إعدادات المظهر"
 
 #: index.php:254 prefs_manage.php:283
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "المزايا العامّة للرابط"
+msgstr "المزيد من الإعدادات"
 
 #: index.php:275
-#, fuzzy
 #| msgid "Databases"
 msgid "Database server"
-msgstr "قاعدة بيانات"
+msgstr "خادم قاعدة بيانات"
 
 #: index.php:278 libraries/plugins/auth/AuthenticationCookie.class.php:181
 msgid "Server:"
 msgstr "الخادم:"
 
 #: index.php:282
-#, fuzzy
 #| msgid "Server"
 msgid "Server type:"
-msgstr "خادم"
+msgstr "نوع الخادم :"
 
 #: index.php:286 libraries/plugins/export/ExportLatex.class.php:212
 #: libraries/plugins/export/ExportSql.class.php:681
 #: libraries/plugins/export/ExportXml.class.php:189
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "إصدارة المزود"
+msgstr "إصدار الخادم :"
 
 #: index.php:292
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "نسخة البروتوكول"
+msgstr "نسخة البروتوكول :"
 
 #: index.php:296
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "المستخدم"
+msgstr "المستخدم :"
 
 #: index.php:301
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Server charset:"
-msgstr "حذف الرسم البياني"
+msgstr "مجموعة أحرف الخادم :"
 
 #: index.php:316
 msgid "Web server"
 msgstr "خادم الويب"
 
 #: index.php:327
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version:"
-msgstr "إستخدم نسخة light"
+msgstr "إصدار عميل قاعدة البيانات :"
 
 #: index.php:331
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP extension:"
-msgstr "PHP إصدارة"
+msgstr "PHP إمتداد:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "PHP إصدارة"
+msgstr "PHP إصدار :"
 
 #: index.php:356
 msgid "Show PHP information"
 msgstr "عرض المعلومات المتعلقة ب  PHP"
 
 #: index.php:379
-#, fuzzy
 #| msgid "Login Information"
 msgid "Version information:"
-msgstr "بيانات الدخول"
+msgstr "بيانات الإصدار:"
 
 #: index.php:388 libraries/Util.class.php:429 libraries/Util.class.php:491
 #: libraries/config/FormDisplay.tpl.php:148
@@ -979,10 +956,9 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "أنت على وشك إفراغ كامل الجدول!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "حذف بيانات التتبع لهذا الجدول"
+msgstr "حذف بيانات التتبع لهذا الجدول ؟"
 
 #: js/messages.php:41
 #, fuzzy
@@ -3821,7 +3797,7 @@ msgstr "تعليق"
 
 #: libraries/Index.class.php:683
 msgid "The primary key has been dropped."
-msgstr "لقد تم حذف المفتاح الأساسي"
+msgstr "لقد تم حذف المفتاح الأساسي."
 
 #: libraries/Index.class.php:692
 #, php-format
@@ -9091,7 +9067,7 @@ msgstr ""
 
 #: libraries/mult_submits.inc.php:301
 msgid "Success!"
-msgstr "نجاح"
+msgstr "نجاح!"
 
 #: libraries/mult_submits.lib.php:338
 #, fuzzy
@@ -9933,7 +9909,7 @@ msgstr "تحسين الجدول"
 #: libraries/operations.lib.php:1141
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "لقد تم إعادة تحميل الجدول %s  بنجاح"
+msgstr "لقد تم إعادة تحميل الجدول %s  بنجاح."
 
 #: libraries/operations.lib.php:1148
 msgid "Flush the table (FLUSH)"
@@ -10139,12 +10115,12 @@ msgstr "مصادقة…"
 #: libraries/plugins/export/ExportCsv.class.php:65
 #: libraries/plugins/import/AbstractImportCsv.class.php:59
 msgid "Columns separated with:"
-msgstr "روابط ذات صلة"
+msgstr "فواصل الأعمدة :"
 
 #: libraries/plugins/export/ExportCsv.class.php:69
 #: libraries/plugins/import/AbstractImportCsv.class.php:64
 msgid "Columns enclosed with:"
-msgstr "حقل محاط بـ"
+msgstr "حقل محاط بـ :"
 
 #: libraries/plugins/export/ExportCsv.class.php:73
 #: libraries/plugins/import/AbstractImportCsv.class.php:70
@@ -13907,7 +13883,7 @@ msgstr "نص تنقيط غير معروف"
 #: libraries/structure.lib.php:70 tbl_operations.php:355
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "تم إفراغ محتويات الجدول %s"
+msgstr "تم إفراغ محتويات الجدول %s."
 
 #: libraries/structure.lib.php:93
 msgid "Tracking is active."
@@ -13997,7 +13973,7 @@ msgstr "لا شيء"
 #: libraries/structure.lib.php:1448
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "تم حذف العمود %s"
+msgstr "تم حذف العمود %s."
 
 #: libraries/structure.lib.php:1510 libraries/structure.lib.php:2222
 #: libraries/structure.lib.php:2232
@@ -14048,7 +14024,6 @@ msgid "Improve table structure"
 msgstr "اقترح بناء الجدول"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
 msgstr "تتبع الجدول"
@@ -14107,12 +14082,12 @@ msgstr ""
 #: libraries/structure.lib.php:2100 libraries/structure.lib.php:2115
 #, php-format
 msgid "An index has been added on %s."
-msgstr "تم إضافة الفهرس في %s"
+msgstr "تم إضافة الفهرس في %s."
 
 #: libraries/structure.lib.php:2086
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "تم إضافة المفتاح الأساسي في %s"
+msgstr "تم إضافة المفتاح الأساسي في %s."
 
 #: libraries/structure.lib.php:2165 libraries/structure.lib.php:2236
 #, fuzzy
