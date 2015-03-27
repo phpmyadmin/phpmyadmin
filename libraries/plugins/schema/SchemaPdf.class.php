@@ -72,8 +72,8 @@ class SchemaPdf extends SchemaPlugin
         $leaf->setText(__('Orientation'));
         $leaf->setValues(
             array(
-                'L' => 'Landscape',
-                'P' => 'Portrait',
+                'L' => __('Landscape'),
+                'P' => __('Portrait'),
             )
         );
         $specificOptions->addProperty($leaf);
