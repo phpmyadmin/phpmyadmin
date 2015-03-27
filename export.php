@@ -33,6 +33,12 @@ if (!defined('TESTSUITE')) {
         }
         exit;
     }
+    usleep(500000);
+    $temp = 'Initializing Parameters';
+    $_SESSION['export_progress'] = $temp;
+    session_write_close();
+    session_id($_COOKIE['phpMyAdmin']);
+    session_start();
     /**
      * Sets globals from $_POST
      *
@@ -264,6 +270,12 @@ if (!defined('TESTSUITE')) {
     } else {
         PMA_fatalError(__('Bad parameters!'));
     }
+
+    usleep(500000);
+    $_SESSION['export_progress'] = "Building File";
+    session_write_close();
+    session_id($_COOKIE['phpMyAdmin']);
+    session_start();
 
     // Merge SQL Query aliases with Export aliases from
     // export page, Export page aliases are given more
@@ -509,4 +521,13 @@ if (!defined('TESTSUITE')) {
     } else {
         echo PMA_getHtmlForDisplayedExportFooter($back_button);
     } // end if
+    usleep(500000);
+    $_SESSION['export_progress'] = "Done!";
+    session_write_close();
+    session_id($_COOKIE['phpMyAdmin']);
+    session_start();
+
+    usleep(500000);
+    $_SESSION['export_progress'] = "";
+    session_write_close();
 }

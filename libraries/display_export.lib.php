@@ -740,6 +740,7 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForAliasModalDialog($db, $table);
     $html .= PMA_getHtmlForExportOptionsOutput($export_type);
     $html .= PMA_getHtmlForExportOptionsFormat($export_list);
+    $html .= PMA_getHtmlForProgressModalDialog();
     return $html;
 }
 
@@ -877,6 +878,15 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
     $html .= $db_input_html . '<hr/>';
     $html .= $table_html;
 
+    $html .= '</div>';
+    return $html;
+}
+
+function PMA_getHtmlForProgressModalDialog(){
+    $title = __('Export Progress');
+    $html = '<div id="progress_modal" class="hide" title="' . $title . '">'; 
+    $html .= '<div id="progressbar"></div>';
+    $html .= '<div id="progress_message" align="center"></div>';
     $html .= '</div>';
     return $html;
 }
