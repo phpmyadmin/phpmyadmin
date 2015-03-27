@@ -428,6 +428,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      */
     private $_showGrid;
     private $_withDoc;
+    private $_tableOrder;
     private $_tables = array();
     private $_ff = PMA_PDF_FONT;
     private $_xMax = 0;
@@ -461,6 +462,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $this->setTableDimension(isset($_REQUEST['pdf_show_table_dimension']));
         $this->setAllTablesSameWidth(isset($_REQUEST['pdf_all_tables_same_width']));
         $this->setWithDataDictionary(isset($_REQUEST['pdf_with_doc']));
+        $this->setTableOrder($_REQUEST['pdf_table_order']);
         $this->setOrientation($_REQUEST['pdf_orientation']);
         $this->setPaper($_REQUEST['pdf_paper']);
 
@@ -481,6 +483,11 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $pdf->setOffline($this->offline);
 
         $alltables = $this->getTablesFromRequest();
+        if ($this->getTableOrder() == 'name_asc') {
+            sort($alltables);
+        } else if ($this->getTableOrder() == 'name_desc') {
+            rsort($alltables);
+        }
 
         if ($this->_withDoc) {
             $pdf->SetAutoPageBreak('auto', 15);
@@ -643,6 +650,30 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     public function isWithDataDictionary()
     {
         return $this->_withDoc;
+    }
+
+    /**
+     * Sets the order of the table in data dictionary
+     *
+     * @param string $value table order
+     *
+     * @return void
+     *
+     * @access public
+     */
+    public function setTableOrder($value)
+    {
+        $this->_tableOrder = $value;
+    }
+
+    /**
+     * Returns the order of the table in data dictionary
+     *
+     * @return string table order
+     */
+    public function getTableOrder()
+    {
+        return $this->_tableOrder;
     }
 
     /**

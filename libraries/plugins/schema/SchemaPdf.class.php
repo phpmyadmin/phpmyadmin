@@ -94,6 +94,18 @@ class SchemaPdf extends SchemaPlugin
         $leaf->setText(__('Data Dictionary'));
         $specificOptions->addProperty($leaf);
 
+        $leaf = new SelectPropertyItem();
+        $leaf->setName("table_order");
+        $leaf->setText(__('Order of the tables'));
+        $leaf->setValues(
+            array(
+                '' => __('None'),
+                'name_asc' => __('Name (Ascending)'),
+                'name_desc' => __('Name (Descending)'),
+            )
+        );
+        $specificOptions->addProperty($leaf);
+
         // add the main group to the root group
         $exportSpecificOptions->addProperty($specificOptions);
 
