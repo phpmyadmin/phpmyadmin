@@ -48,6 +48,7 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pdf_show_table_dimension'] = true;
         $_REQUEST['pdf_all_tables_same_width'] = true;
         $_REQUEST['pdf_paper'] = 'paper';
+        $_REQUEST['pdf_table_order'] = '';
         $_REQUEST['t_h'] = array('information_schema.files' => 1);
         $_REQUEST['t_x'] = array('information_schema.files' => 0);
         $_REQUEST['t_y'] = array('information_schema.files' => 0);
