@@ -1925,7 +1925,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         });
 
         $('#logTable table thead th')
-            .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
+            .append('<div class="sorticon"></div>');
 
         return cols;
     }

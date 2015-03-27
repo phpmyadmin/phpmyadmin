@@ -26,5 +26,5 @@ AJAX.registerOnload('server_plugins.js', function () {
         widgets: ['zebra']
     });
     $tables.find('thead th')
-        .append('<img class="sortableIcon" src="' + pma_theme_image + 'cleardot.gif" alt="">');
+        .append('<div class="sorticon"></div>');
 });
