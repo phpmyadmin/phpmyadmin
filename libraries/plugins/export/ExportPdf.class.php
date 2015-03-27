@@ -22,6 +22,7 @@ if (! file_exists(TCPDF_INC)) {
 require_once 'libraries/plugins/ExportPlugin.class.php';
 /* Get the PMA_ExportPdf class */
 require_once 'libraries/plugins/export/PMA_ExportPdf.class.php';
+require_once 'libraries/transformations.lib.php';
 
 /**
  * Handles the export for the PDF class
@@ -80,9 +81,8 @@ class ExportPdf extends ExportPlugin
         include_once "$props/plugins/ExportPluginProperties.class.php";
         include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
         include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        include_once "$props/options/items/MessageOnlyPropertyItem.class.php";
         include_once "$props/options/items/TextPropertyItem.class.php";
-        include_once "$props/options/items/HiddenPropertyItem.class.php";
+        include_once "$props/options/items/RadioPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('PDF');
@@ -101,20 +101,24 @@ class ExportPdf extends ExportPlugin
         $generalOptions = new OptionsPropertyMainGroup();
         $generalOptions->setName("general_opts");
         // create primary items and add them to the group
-        $leaf = new MessageOnlyPropertyItem();
-        $leaf->setName("explanation");
-        $leaf->setText(
-            __('(Generates a report containing the data of a single table)')
-        );
-        $generalOptions->addProperty($leaf);
+        $generalOptions->setText(__('Dump table'));
         $leaf = new TextPropertyItem();
         $leaf->setName("report_title");
         $leaf->setText(__('Report title:'));
+        // add the group to the root group
         $generalOptions->addProperty($leaf);
-        $leaf = new HiddenPropertyItem();
+
+        $leaf = new RadioPropertyItem();
         $leaf->setName("structure_or_data");
+        $leaf->setValues(
+            array(
+                'structure' => __('structure'),
+                'data' => __('data'),
+                'structure_and_data' => __('structure and data')
+            )
+        );
         $generalOptions->addProperty($leaf);
-        // add the main group to the root group
+        // add the group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
 
         // set the options for the export plugin property item
@@ -217,7 +221,7 @@ class ExportPdf extends ExportPlugin
         $attr = array(
             'currentDb' => $db, 'currentTable' => $table,
             'dbAlias' => $db_alias, 'tableAlias' => $table_alias,
-            'aliases' => $aliases
+            'aliases' => $aliases, 'purpose' => 'Dumping Data'
         );
         $pdf->setAttributes($attr);
         $pdf->mysqlReport($sql_query);
@@ -225,6 +229,93 @@ class ExportPdf extends ExportPlugin
         return true;
     } // end of the 'PMA_exportData()' function
 
+    /**
+     * Outputs table's structure
+     *
+     * @param string $db          database name
+     * @param string $table       table name
+     * @param string $crlf        the end of line sequence
+     * @param string $error_url   the url to go back in case of error
+     * @param string $export_mode 'create_table', 'triggers', 'create_view',
+     *                            'stand_in'
+     * @param string $export_type 'server', 'database', 'table'
+     * @param bool   $do_relation whether to include relation comments
+     * @param bool   $do_comments whether to include the pmadb-style column
+     *                                comments as comments in the structure;
+     *                                this is deprecated but the parameter is
+     *                                left here because export.php calls
+     *                                PMA_exportStructure() also for other
+     *                                export types which use this parameter
+     * @param bool   $do_mime     whether to include mime comments
+     * @param bool   $dates       whether to include creation/update/check dates
+     *
+     * @return bool Whether it succeeded
+     */
+    public function exportStructure(
+        $db,
+        $table,
+        $crlf,
+        $error_url,
+        $export_mode,
+        $export_type,
+        $do_relation = false,
+        $do_comments = false,
+        $do_mime = false,
+        $dates = false,
+        $aliases = array()
+    ) {
+        $db_alias = $db;
+        $table_alias = $table;
+        $this->initAlias($aliases, $db_alias, $table_alias);
+        $pdf = $this->_getPdf();
+        // getting purpose to show at top
+        switch($export_mode) {
+        case 'create_table':
+            $purpose = 'Table Structure';
+            break;
+        case 'triggers':
+            $purpose = 'Triggers';
+            break;
+        case 'create_view':
+            $purpose = 'View Structure';
+            break;
+        case 'stand_in':
+            $purpose = 'Stand In';
+        } // end switch
+
+        $attr = array(
+            'currentDb' => $db, 'currentTable' => $table,
+            'dbAlias' => $db_alias, 'tableAlias' => $table_alias,
+            'aliases' => $aliases, 'purpose' => $purpose
+        );
+        $pdf->setAttributes($attr);
+        /**
+         * relation, comment and mime display set true as presently
+         * in pdf format, no option is present to take user input.
+         */
+        switch($export_mode) {
+        case 'create_table':
+            $pdf->getTableDef(
+                $db, $table, $do_relation, true, $do_mime, false, $aliases//$do_comments
+            );
+            break;
+        case 'triggers':
+            $pdf->getTriggers($db, $table);
+            break;
+        case 'create_view':
+            $pdf->getTableDef(
+                $db, $table, $do_relation, true, $do_mime, false, $aliases//$do_comments
+            );
+            break;
+        case 'stand_in':
+            /* export a stand-in definition to resolve view dependencies
+             * Yet to develop this function
+             * $pdf->getTableDefStandIn($db, $table, $crlf);
+             */
+        } // end switch
+
+        return true;
+    }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
