@@ -1611,7 +1611,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 }
 
                 if (logData.rows.length !== 0) {
-                    runtime.logDataCols = buildLogTable(logData, removeVariables);
+                    runtime.logDataCols = buildLogTable(logData, opts.removeVariables);
 
                     /* Show some stats in the dialog */
                     $('#emptyDialog').dialog({title: PMA_messages.strLoadingLogs});
@@ -1905,7 +1905,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         // Append a tooltip to the count column, if there exist one
         if ($('#logTable tr:first th:last').text().indexOf("#") > -1) {
-            $('#logTable tr:first th:last').append('&nbsp;' + PMA_getImage('b_docs.png', '', {'class': 'qroupedQueryInfoIcon'}));
+            $('#logTable tr:first th:last').append('&nbsp;' + PMA_getImage('b_help.png', '', {'class': 'qroupedQueryInfoIcon'}));
 
             var tooltipContent = PMA_messages.strCountColumnExplanation;
             if (groupInserts) {
@@ -1925,7 +1925,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         });
 
         $('#logTable table thead th')
-            .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
+            .append('<div class="sorticon"></div>');
 
         return cols;
     }
