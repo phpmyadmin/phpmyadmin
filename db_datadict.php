@@ -62,7 +62,7 @@ foreach ($tables as $table) {
 
     echo '<div>' . "\n";
 
-    echo '<h2><a id="'.htmlspecialchars($table).'">'. htmlspecialchars($table) .'</a></h2>' . "\n";
+    echo '<h2><a id="' . htmlspecialchars($table) . '">' . htmlspecialchars($table) . '</a></h2>' . "\n";
 
     /**
      * Gets table informations
@@ -166,10 +166,10 @@ foreach ($tables as $table) {
             echo '    <td>';
             if ($foreigner = PMA_searchColumnInForeigners($res_rel, $column_name)) {
                 echo
-                    '<a href="#'.$foreigner['foreign_table'].'">'.
-                    $foreigner['foreign_table']
-                    .  "</a> -> "
-                    . $foreigner['foreign_field'].
+                    '<a href="#' . htmlspecialchars($foreigner['foreign_table']) . '">' .
+                    htmlspecialchars($foreigner['foreign_table'])
+                    . "</a> -> "
+                    . htmlspecialchars($foreigner['foreign_field'])
                 ;
             }
             echo '</td>' . "\n";
