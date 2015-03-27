@@ -2376,6 +2376,13 @@ $cfg['Schema']['pdf_with_doc'] = true;
 /**
  *
  *
+ * @global string $cfg['Schema']['pdf_table_order']
+ */
+$cfg['Schema']['pdf_table_order'] = '';
+
+/**
+ *
+ *
  * @global string $cfg['Schema']['dia_show_color']
  */
 $cfg['Schema']['dia_show_color'] = true;
