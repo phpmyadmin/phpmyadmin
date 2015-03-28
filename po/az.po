@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-28 00:23+0200\n"
+"PO-Revision-Date: 2015-03-28 23:20+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/az/>\n"
@@ -5664,7 +5664,7 @@ msgstr "Ümumi"
 
 #: libraries/config/messages.inc.php:224
 msgid "Set some commonly used options."
-msgstr ""
+msgstr "Geniş istifadə olunan seçimləri quraşdır."
 
 #: libraries/config/messages.inc.php:226
 msgid "Import defaults"
@@ -13704,7 +13704,7 @@ msgstr ""
 
 #: prefs_manage.php:272
 msgid "Merge with current configuration"
-msgstr ""
+msgstr "Cari konfiqurasiya ilə birləşdir"
 
 #: prefs_manage.php:288
 #, php-format
