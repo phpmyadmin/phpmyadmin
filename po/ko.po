@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-25 14:30-0400\n"
-"PO-Revision-Date: 2015-03-10 18:31+0200\n"
-"Last-Translator: Bumsoo Kim <bskim45@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ko/>\n"
+"PO-Revision-Date: 2015-03-28 22:50+0200\n"
+"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -772,7 +772,6 @@ msgid "PHP extension:"
 msgstr "PHP 확장:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "PHP 버전:"
@@ -850,7 +849,6 @@ msgstr ""
 "눌 수 없으며 이로 인해 예상하지 못한 결과가 발생 할 수 있습니다."
 
 #: index.php:495
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -862,10 +860,9 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP 매개변수 [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 가 phpMyAdmin 의 "
-"cookie 유효기간보다 작게 설정되어 있어, 로그인이 phpMyAdmin 설정값보다 빨리 "
-"만료됩니다."
+"PHP 매개변수 [a@http://php.net/manual/en/session.configuration.php#ini.session"
+".gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 가 phpMyAdmin 의 cookie "
+"유효기간보다 작게 설정되어 있어, 로그인이 phpMyAdmin 설정값보다 빨리 만료될 수 있습니다."
 
 #: index.php:508
 msgid ""
@@ -2363,13 +2360,11 @@ msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 
 #: js/messages.php:491
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
 msgstr "테이블"
 
 #: js/messages.php:492
-#, fuzzy
 #| msgid "Views"
 msgid "views"
 msgstr "뷰"
@@ -2387,7 +2382,6 @@ msgid "events"
 msgstr "이벤트"
 
 #: js/messages.php:495
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
 msgstr "함수"
@@ -4078,7 +4072,6 @@ msgid "Value"
 msgstr "값"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "테이블 검색"
@@ -4090,7 +4083,6 @@ msgid "Zoom search"
 msgstr "추가 검색"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "찾기 및 바꾸기"
@@ -7675,10 +7667,9 @@ msgid "Select Export Relational Type"
 msgstr ""
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:258
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "보이는 테이블:"
+msgstr "테이블 목록 표시/숨김"
 
 #: libraries/db_designer.lib.php:262 libraries/db_designer.lib.php:266
 msgid "View in fullscreen"
@@ -9660,10 +9651,9 @@ msgid "Username:"
 msgstr "사용자명:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:205
-#, fuzzy
 #| msgid "Server type:"
 msgid "Server Choice:"
-msgstr "서버 타입:"
+msgstr "서버 선택:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:354
 msgid "Entered captcha is wrong, try again!"
@@ -15083,14 +15073,13 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "현재 tmp_table_size의 값: %s, max_heap_table_size: %s"
+msgstr "Different tmp_table_size와 max_heap_table_size가 다름"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr ""
+msgstr "{tmp_table_size} 와 {max_heap_table_size}의 값이 다릅니다."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -15386,6 +15375,8 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"이는 간단한 작업이기 때문에 주로 시스템에 과부하가 걸리는 경우에 발생합니다. 시스템에 걸리는 부하를 모니터하시는 것이 도움이 될 수 "
+"있습니다."
 
 #: libraries/advisory_rules.txt:381
 #, php-format
