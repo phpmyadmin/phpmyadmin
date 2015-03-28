@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-25 14:30-0400\n"
-"PO-Revision-Date: 2015-02-18 05:23+0200\n"
-"Last-Translator: Yohanes Edwin <edwin@yohanesedwin.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/id/>\n"
+"PO-Revision-Date: 2015-03-28 05:46+0200\n"
+"Last-Translator: Deky Arifianto <Deky40@gmail.com>\n"
+"Language-Team: Indonesian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: changelog.php:36 license.php:28
@@ -824,7 +824,6 @@ msgid "List of changes"
 msgstr "Daftar perubahan"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -836,11 +835,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"File konfigurasi Anda ditentukan dengan pengguna Root dan tanpa adanya Kata "
-"Sandi (sama dengan Default MySQL Privileged Account). Jika MySQL-Server "
-"dijalankan dengan sedemikian, server Anda terbuka lebar untuk suatu "
-"penyerangan. Disarankan untuk memperbaiki kelemahan keamanan (security hole) "
-"ini."
+"File konfigurasi Anda ditentukan sebagai pengguna Root dan tanpa Kata Sandi ("
+"sama dengan Default MySQL Privileged Account). Jika MySQL-Server dijalankan "
+"tanpa sandi, server Anda terbuka lebar untuk suatu penyerangan. Disarankan "
+"untuk memperbaiki kelemahan keamanan (security hole) ini."
 
 #: index.php:464
 msgid ""
@@ -848,8 +846,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"Fungsi mbstring.func_overload aktif pada konfigurasi PHP Anda. Pilihan ini "
-"tidak cocok dengan phpMyAdmin dan mampu merusak sebagian data!"
+"Anda mengaktifkan Fungsi mbstring.func_overload pada konfigurasi PHP. "
+"Pilihan ini tidak cocok dengan phpMyAdmin dan mampu merusak sebagian data!"
 
 #: index.php:479
 msgid ""
@@ -897,8 +895,9 @@ msgid ""
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 "Direktori [code]config[/code] yang digunakan oleh skrip pengaturan, masih "
-"ada di direktori phpMyAdmin Anda. Anda harus menghapusnya setelah phpMyAdmin "
-"dikonfigurasi."
+"ada di direktori phpMyAdmin Anda. Anda disarankan menghapusnya setelah "
+"phpMyAdmin dikonfigurasi. Atau keamanan server anda bisa dimasuki orang lain "
+"dan mengunduh konfigurasi anda"
 
 #: index.php:542
 #, php-format
@@ -906,8 +905,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Penyimpanan konfigurasi phpMyAdmin belum sepenuhnya ditata, beberapa fitur "
-"perluasan telah dimatikan. %sCari tahu mengapa%s. "
+"Penyimpanan konfigurasi phpMyAdmin belum sempurna, beberapa fitur untuk "
+"sementara dimatikan. %sCari tahu mengapa%s. "
 
 #: index.php:549
 msgid ""
@@ -931,8 +930,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Server berjalan dengan Suhosin. Harap rujuk %sdokumentasi%s untuk "
-"kemungkinan masalah."
+"Server berjalan dengan Suhosin. Harap baca %sdokumentasi%s untuk kemungkinan "
+"masalah."
 
 #: js/messages.php:29 libraries/import.lib.php:125 sql.php:143
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -945,11 +944,11 @@ msgstr "Konfirmasi"
 #: js/messages.php:36
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Anda yakin akan mengeksekusi \"%s\"?"
+msgstr "Anda yakin akan menjalankan \"%s\"?"
 
 #: js/messages.php:37 libraries/mult_submits.lib.php:417
 msgid "You are about to DESTROY a complete database!"
-msgstr "Anda akan MENGHAPUS seluruh basis data!"
+msgstr "Anda akan MENGHAPUS seluruh database!"
 
 #: js/messages.php:38
 msgid "You are about to DESTROY a complete table!"
@@ -961,19 +960,19 @@ msgstr "Anda akan MENGOSONGKAN seluruh tabel!"
 
 #: js/messages.php:40
 msgid "Delete tracking data for this table?"
-msgstr "Hapus pelacakan data untuk tabel ini?"
+msgstr "Hapus data pelacakan tabel ini?"
 
 #: js/messages.php:41
 msgid "Delete tracking data for these tables?"
-msgstr "Hapus pelacakan data untuk tabel ini?"
+msgstr "Hapus data pelacakan tabel ini?"
 
 #: js/messages.php:42
 msgid "Delete tracking data for this version?"
-msgstr "Hapus pelacakan data untuk versi ini?"
+msgstr "Hapus data pelacakan versi ini?"
 
 #: js/messages.php:43
 msgid "Delete tracking data for these versions?"
-msgstr "Hapus pelacakan data untuk versi ini?"
+msgstr "Hapus data pelacakan versi ini?"
 
 #: js/messages.php:44
 msgid "Delete entry from tracking report?"
