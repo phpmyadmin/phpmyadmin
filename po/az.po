@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-28 23:45+0200\n"
-"Last-Translator: Huseyn <huseyn_esgerov@mail.ru>\n"
+"PO-Revision-Date: 2015-03-29 00:53+0200\n"
+"Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/az/>\n"
 "Language: az\n"
@@ -3789,11 +3789,11 @@ msgstr "Bu adda onsuzda giriş var."
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Axtarışı silmək üçün yetərli məlumat yoxdur."
 
 #: libraries/SavedSearches.class.php:375
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Axtarışı yükləmək üçün yetərli məlumat yoxdur."
 
 #: libraries/SavedSearches.class.php:394
 msgid "Error while loading the search."
@@ -3856,8 +3856,9 @@ msgid "Files"
 msgstr "Fayllar"
 
 #: libraries/ServerStatusData.class.php:214
+#, fuzzy
 msgid "Flush (close) all tables"
-msgstr ""
+msgstr "Bütün cədvəlləri təmizlə(bağla)"
 
 #: libraries/ServerStatusData.class.php:220
 msgid "Show open tables"
@@ -4015,7 +4016,6 @@ msgid "Value"
 msgstr "Dəyər"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "Cədvəl axtarışı"
@@ -4121,7 +4121,7 @@ msgstr "Dəyişdir"
 #: libraries/Theme.class.php:170
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "%s teması üçün keçərli şəkil adresi tapılmadı!"
 
 #: libraries/Theme.class.php:402
 msgid "No preview available."
@@ -4129,26 +4129,26 @@ msgstr "Önizləmə mövcud deyil."
 
 #: libraries/Theme.class.php:404
 msgid "take it"
-msgstr ""
+msgstr "Götür"
 
 #: libraries/Theme_Manager.class.php:137
 #, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "İlkin tema %s tapılmadı!"
 
 #: libraries/Theme_Manager.class.php:194
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "%s teması tapılmadı!"
 
 #: libraries/Theme_Manager.class.php:274
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "%s teması üçün tema adresi tapılmadı!"
 
 #: libraries/Theme_Manager.class.php:368
 msgid "Theme:"
-msgstr ""
+msgstr "Tema:"
 
 #: libraries/Types.class.php:320
 msgid ""
@@ -4203,6 +4203,8 @@ msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
+"DOUBLE üçün sinonim(istisna: REAL_AS_FLOAT SQL rejimdə  FLOAT ilə sinonimdir "
+")"
 
 #: libraries/Types.class.php:338
 msgid ""
@@ -4399,6 +4401,8 @@ msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"8-baytlıq tam ədəd, aralıq  -9,223,372,036,854,775,808-dan "
+"9,223,372,036,854,775,807 kimi"
 
 #: libraries/Types.class.php:774
 msgid "A system's default double-precision floating-point number"
@@ -4617,7 +4621,7 @@ msgstr ""
 #: libraries/central_columns.lib.php:275
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "Mərkəzi siyahıda olduğu üçün %1$s əlavə edilə bilmədi!"
 
 #: libraries/central_columns.lib.php:290
 msgid "Could not add columns!"
@@ -4729,6 +4733,8 @@ msgstr "Uyğun olmayan server indeksi: %s"
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
+"%1$s. serveri üçün uyğun olmayan hostname. Zəhmət olmasa server "
+"konfiqurasiyalarını gözdən keçirin."
 
 #: libraries/common.inc.php:658
 #, php-format
@@ -4750,7 +4756,7 @@ msgstr ""
 #: libraries/common.inc.php:1020
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "%s %s vəya yenisinə yüksəltməlisiniz."
 
 #: libraries/common.inc.php:1110
 msgid "Error: Token mismatch"
@@ -4781,27 +4787,27 @@ msgstr "Mətn"
 #: libraries/config.values.php:58 libraries/config.values.php:66
 #: libraries/config.values.php:78 libraries/config.values.php:90
 msgid "Both"
-msgstr ""
+msgstr "Hər ikisi"
 
 #: libraries/config.values.php:63
 msgid "Nowhere"
-msgstr ""
+msgstr "Heç bir yeri"
 
 #: libraries/config.values.php:64
 msgid "Left"
-msgstr ""
+msgstr "Sol"
 
 #: libraries/config.values.php:65
 msgid "Right"
-msgstr ""
+msgstr "Sağ"
 
 #: libraries/config.values.php:93
 msgid "Click"
-msgstr ""
+msgstr "Kliklə"
 
 #: libraries/config.values.php:94
 msgid "Double click"
-msgstr ""
+msgstr "İki dəfə tıklayın"
 
 #: libraries/config.values.php:95 libraries/config.values.php:124
 #: libraries/config/FormDisplay.tpl.php:218 libraries/relation.lib.php:94
@@ -4814,14 +4820,13 @@ msgid "key"
 msgstr ""
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Görünüş sütunları cədvəli"
+msgstr "sütunu göstər"
 
 #: libraries/config.values.php:122
 msgid "Open"
-msgstr ""
+msgstr "Açıq"
 
 #: libraries/config.values.php:123
 msgid "Closed"
@@ -4829,15 +4834,15 @@ msgstr "Bağlı"
 
 #: libraries/config.values.php:127
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Xəta hesabatı göndərməzdən əvvəl soruş"
 
 #: libraries/config.values.php:128
 msgid "Always send error reports"
-msgstr ""
+msgstr "Hər zaman xəta hesabatları göndər"
 
 #: libraries/config.values.php:129
 msgid "Never send error reports"
-msgstr ""
+msgstr "Xəta hesabatlarını heç bir zaman göndərmə"
 
 #: libraries/config.values.php:158
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -4847,7 +4852,7 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:204
 #: libraries/plugins/export/ExportTexytext.class.php:68
 msgid "structure"
-msgstr "Struktur"
+msgstr "struktur"
 
 #: libraries/config.values.php:159
 #: libraries/plugins/export/ExportHtmlword.class.php:70
@@ -12567,7 +12572,7 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:747
 msgid "The number of currently open connections."
-msgstr ""
+msgstr "Cari açıq bağlantıların sayı."
 
 #: libraries/server_status_variables.lib.php:750
 msgid ""
@@ -12589,11 +12594,11 @@ msgstr ""
 #: libraries/server_user_groups.lib.php:23
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "'%s' istifadəçi qrupunun istifadəçiləri"
 
 #: libraries/server_user_groups.lib.php:35
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "Bu istifadəçi qrupuna aid heç bir istifadəçi tapılmadı."
 
 #: libraries/server_user_groups.lib.php:64 libraries/server_users.lib.php:33
 msgid "User groups"
@@ -12623,13 +12628,12 @@ msgstr "İstifadəçi qrupları əlavə et"
 #: libraries/server_user_groups.lib.php:212
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "İstifadəçi qrupunu redaktə et: '%s'"
 
 #: libraries/server_user_groups.lib.php:228
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Selahiyyet te'yin edilmedi."
+msgstr "İstifadəçi qrupu menu təyinetmələri"
 
 #: libraries/server_user_groups.lib.php:235
 msgid "Group name:"
@@ -12667,7 +12671,7 @@ msgstr "Qlobal deyer"
 
 #: libraries/sql.lib.php:287
 msgid "SQL result"
-msgstr ""
+msgstr "SQL nəticəsi"
 
 #: libraries/sql.lib.php:295
 msgid "Generated by:"
@@ -12679,7 +12683,7 @@ msgstr "Detallı profil"
 
 #: libraries/sql.lib.php:336
 msgid "Order"
-msgstr ""
+msgstr "Sıra"
 
 #: libraries/sql.lib.php:338 libraries/sql.lib.php:354
 msgid "State"
@@ -12699,7 +12703,7 @@ msgstr "% müddət"
 
 #: libraries/sql.lib.php:361
 msgid "Calls"
-msgstr ""
+msgstr "Zənglər"
 
 #: libraries/sql.lib.php:363
 msgid "ø Time"
@@ -12728,7 +12732,7 @@ msgstr ""
 
 #: libraries/sql.lib.php:1492
 msgid "Showing as PHP code"
-msgstr ""
+msgstr "PHP kodu olaraq göstərilir"
 
 #: libraries/sql.lib.php:1813
 msgid ""
@@ -12739,7 +12743,7 @@ msgstr ""
 #: libraries/sql.lib.php:1850
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr ""
+msgstr "`%s` cədvəlinin indeksləri ilə əlaqəli problemlər"
 
 #: libraries/sql_query_form.lib.php:153
 #, php-format
@@ -12753,13 +12757,12 @@ msgstr "%s verilənlər bazasına SQL sorğusu(ları) göndər"
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Avto yaddaşa verilmiş sorğunu al"
 
 #: libraries/sql_query_form.lib.php:284
-#, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "Bu SQL sorğusunu bookmark-la"
+msgstr "Bu SQL sorğusunu bookmark-la:"
 
 #: libraries/sql_query_form.lib.php:298
 msgid "Replace existing bookmark of same name"
@@ -12786,6 +12789,8 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
+"SQL sorğunuzda problem var. MySQL serverinin xəta çıxış verilənləri "
+"aşağıdadır, əgər varsa,  problemi müəyyənləşdirməkdə sizə köməkci ola bilər."
 
 #: libraries/sqlparser.lib.php:168
 msgid ""
@@ -12843,7 +12848,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:100
 msgid "Tracking is not active."
-msgstr ""
+msgstr "İzləmə aktiv deyil."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:373
 #: view_operations.php:119
@@ -12866,7 +12871,7 @@ msgstr "Yaradılmanı göstər"
 
 #: libraries/structure.lib.php:340
 msgid "Add prefix to table"
-msgstr ""
+msgstr "Cədvələ prefiks əlavə et"
 
 #: libraries/structure.lib.php:342
 msgid "Replace table prefix"
