@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-25 14:30-0400\n"
-"PO-Revision-Date: 2015-03-28 23:19+0200\n"
-"Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
+"PO-Revision-Date: 2015-03-28 23:45+0200\n"
+"Last-Translator: Huseyn <huseyn_esgerov@mail.ru>\n"
 "Language-Team: Azerbaijani "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
@@ -12783,7 +12783,7 @@ msgstr "ø müddət"
 
 #: libraries/sql.lib.php:638 libraries/sql.lib.php:654
 msgid "Bookmark this SQL query"
-msgstr "Bu SQL sorğusunu bookmark-la"
+msgstr "Bu SQL sorğusunu işarələ"
 
 #: libraries/sql.lib.php:642
 msgid "Label:"
