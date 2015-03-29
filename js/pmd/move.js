@@ -896,7 +896,7 @@ function Save_as()
             $('<div id="page_save_as_dialog"></div>')
                 .append(data.message)
                 .dialog({
-                    title: "Save table coordinates",
+                    title: "Save page as",
                     width: 450,
                     modal: true,
                     buttons: button_options,
