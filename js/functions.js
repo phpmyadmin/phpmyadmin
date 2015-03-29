@@ -702,6 +702,7 @@ AJAX.registerOnload('functions.js', function () {
         var params = {
                 'ajax_request' : true,
                 'token' : PMA_commonParams.get('token'),
+                'server' : PMA_commonParams.get('server'),
                 'db' : PMA_commonParams.get('db'),
                 'access_time':_idleSecondsCounter
             };
@@ -728,7 +729,7 @@ AJAX.registerOnload('functions.js', function () {
                 }
             });
     }
-    if (PMA_commonParams.get('logged_in')) {
+    if (PMA_commonParams.get('logged_in') && PMA_commonParams.get('auth_type') == 'cookie') {
         IncInterval = window.setInterval(SetIdleTime, 1000);
         var interval = (PMA_commonParams.get('LoginCookieValidity') - 5) * 1000;
         if (interval > Math.pow(2, 31) - 1) { // max value for setInterval() function
