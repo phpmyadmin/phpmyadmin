@@ -1,6 +1,17 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.13.0 (2015-03-29)
+- bug #4803 "Show hidden items" is sometimes hidden
+- bug #4807 Breaks when sorting by multiple columns while using UNION
+- bug #4798 Missing column when exporting in sql
+- bug #4810 Broken find and replace
+- bug #4804 Undefined Index after export schema
+- bug #4802 Changelog page is not working
+- bug #4815 Infinite calls to index.php
+- bug #4820 Invalid links to dev.mysql.com
+- bug #4718 simulate query fails, but actual query does not
+
 4.3.12.0 (2015-03-14)
 - bug #4746 Right-aligned columns have left-aligned header
 - bug #4779 PMA_Util::parseEnumSetValues fails on enums with UTF-8 values

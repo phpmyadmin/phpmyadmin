@@ -652,6 +652,16 @@ class Node_Database extends Node
     {
         $this->_hiddenCount = $count;
     }
+
+    /**
+     * Returns the number of hidden items in this database
+     *
+     * @return int hidden item count
+     */
+    public function getHiddenCount()
+    {
+        return $this->_hiddenCount;
+    }
 }
 
 ?>

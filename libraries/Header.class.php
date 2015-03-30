@@ -226,7 +226,7 @@ class PMA_Header
             $GLOBALS['collation_connection'] = 'utf8_general_ci';
         }
 
-        return array(
+        $params = array(
             'common_query' => PMA_URL_getCommon(array(), 'text'),
             'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
             'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 1 : 0,
@@ -250,6 +250,13 @@ class PMA_Header
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'logged_in' => isset($GLOBALS['userlink']) ? true : false
         );
+        if (isset($GLOBALS['cfg']['Server'])
+            && isset($GLOBALS['cfg']['Server']['auth_type'])
+        ) {
+            $params['auth_type'] = $GLOBALS['cfg']['Server']['auth_type'];
+        }
+
+        return $params;
     }
 
     /**

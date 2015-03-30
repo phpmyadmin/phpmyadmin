@@ -154,6 +154,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
+            'server' : PMA_commonParams.get('server'),
             'db' : PMA_commonParams.get('db'),
             'table' : PMA_commonParams.get('table'),
             'field' : $('#tableid_0').val(),
@@ -178,6 +179,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
+            'server' : PMA_commonParams.get('server'),
             'db' : PMA_commonParams.get('db'),
             'table' : PMA_commonParams.get('table'),
             'field' : $('#tableid_1').val(),
@@ -201,6 +203,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
+            'server' : PMA_commonParams.get('server'),
             'db' : PMA_commonParams.get('db'),
             'table' : PMA_commonParams.get('table'),
             'field' : $('#tableid_2').val(),
@@ -222,6 +225,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
+            'server' : PMA_commonParams.get('server'),
             'db' : PMA_commonParams.get('db'),
             'table' : PMA_commonParams.get('table'),
             'field' : $('#tableid_3').val(),
@@ -394,6 +398,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             //Post SQL query to sql.php
             $.post('sql.php', {
                     'token' : PMA_commonParams.get('token'),
+                    'server' : PMA_commonParams.get('server'),
                     'db' : PMA_commonParams.get('db'),
                     'ajax_request' : true,
                     'sql_query' : sql_query,
@@ -590,6 +595,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 var post_params = {
                     'ajax_request' : true,
                     'get_data_row' : true,
+                    'server' : PMA_commonParams.get('server'),
                     'db' : PMA_commonParams.get('db'),
                     'table' : PMA_commonParams.get('table'),
                     'where_clause' : data[3],
