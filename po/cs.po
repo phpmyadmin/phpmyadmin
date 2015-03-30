@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:56-0400\n"
-"PO-Revision-Date: 2015-03-06 14:29+0200\n"
+"PO-Revision-Date: 2015-03-30 17:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"cs/>\n"
+"Language-Team: Czech "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -46,7 +46,7 @@ msgstr "Byla vytvořena databáze %1$s."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment"
-msgstr "Komentář k databázi:"
+msgstr "Komentář k databázi"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -9554,7 +9554,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:74
 msgid "Rename database to"
-msgstr "Přejmenovat databázi na:"
+msgstr "Přejmenovat databázi na"
 
 #: libraries/operations.lib.php:106
 #, php-format
@@ -9586,7 +9586,7 @@ msgstr "Jen data"
 
 #: libraries/operations.lib.php:174
 msgid "Copy database to"
-msgstr "Zkopírovat databázi na:"
+msgstr "Zkopírovat databázi na"
 
 #: libraries/operations.lib.php:185
 msgid "CREATE DATABASE before copying"
@@ -9610,7 +9610,7 @@ msgstr "(po jednom)"
 
 #: libraries/operations.lib.php:621
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Přesunout tabulku do (databáze<b>.</b>tabulka):"
+msgstr "Přesunout tabulku do (databáze<b>.</b>tabulka)"
 
 #: libraries/operations.lib.php:732
 msgid "Table options"
@@ -9630,7 +9630,7 @@ msgstr "Úložiště"
 
 #: libraries/operations.lib.php:955
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Kopírovat tabulku do (databáze<b>.</b>tabulka):"
+msgstr "Kopírovat tabulku do (databáze<b>.</b>tabulka)"
 
 #: libraries/operations.lib.php:1010
 msgid "Switch to copied table"
