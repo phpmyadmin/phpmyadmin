@@ -711,3 +711,33 @@ PMA_printJsValue("$.timepicker.regional['']['secondText']", __('Second'));
 ?>
 $.extend($.timepicker._defaults, $.timepicker.regional['']);
 } /* if ($.timepicker) */
+
+<?php
+/* Form validation */
+
+echo "function extendingValidatorMessages() {";
+echo "$.extend($.validator.messages, {";
+/* Default validation functions */
+PMA_printJsValueForFormValidation('required', __('This field is required'));
+PMA_printJsValueForFormValidation('remote', __('Please fix this field'));
+PMA_printJsValueForFormValidation('email', __('Please enter a valid email address'));
+PMA_printJsValueForFormValidation('url', __('Please enter a valid URL'));
+PMA_printJsValueForFormValidation('date', __('Please enter a valid date'));
+PMA_printJsValueForFormValidation('dateISO', __('Please enter a valid date ( ISO )'));
+PMA_printJsValueForFormValidation('number', __('Please enter a valid number'));
+PMA_printJsValueForFormValidation('creditcard', __('Please enter a valid credit card number'));
+PMA_printJsValueForFormValidation('digits', __('Please enter only digits'));
+PMA_printJsValueForFormValidation('equalTo', __('Please enter the same value again'));
+PMA_printJsValueForFormValidation('maxlength', __('Please enter no more than {0} characters'), true);
+PMA_printJsValueForFormValidation('minlength', __('Please enter at least {0} characters'), true);
+PMA_printJsValueForFormValidation('rangelength', __('Please enter a value between {0} and {1} characters long'), true);
+PMA_printJsValueForFormValidation('range', __('Please enter a value between {0} and {1}'), true);
+PMA_printJsValueForFormValidation('max', __('Please enter a value less than or equal to {0}'), true);
+PMA_printJsValueForFormValidation('min', __('Please enter a value greater than or equal to {0}'), true);
+/* customed functions */
+PMA_printJsValueForFormValidation('validationFunctionForDateTime', __('Please enter a valid date or time'), true);
+PMA_printJsValueForFormValidation('validationFunctionForHex', __('Please enter a valid HEX input'), true);
+PMA_printJsValueForFormValidation('validationFunctionForFuns', __('Error'), true, false);
+echo "});";
+echo "}";
+?>
