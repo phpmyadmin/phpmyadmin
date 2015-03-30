@@ -418,6 +418,7 @@ $js_messages['strLeavingDesigner'] = __(
 );
 $js_messages['strPageName'] = __('Page name');
 $js_messages['strSavePage'] = __('Save page');
+$js_messages['strSavePageAs'] = __('Save page as');
 $js_messages['strOpenPage'] = __('Open page');
 $js_messages['strDeletePage'] = __('Delete page');
 $js_messages['strUntitled'] = __('Untitled');

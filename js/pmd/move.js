@@ -896,7 +896,7 @@ function Save_as()
             $('<div id="page_save_as_dialog"></div>')
                 .append(data.message)
                 .dialog({
-                    title: "Save page as",
+                    title: PMA_messages.strSavePageAs,
                     width: 450,
                     modal: true,
                     buttons: button_options,
