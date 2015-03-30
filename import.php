@@ -683,7 +683,7 @@ if ($timeout_passed) {
     $message = PMA_Message::error(
         __(
             'Script timeout passed, if you want to finish import,'
-            . ' please click %shere%s to resubmit same file and import will resume.'
+            . ' please %sresubmit the same file%s and import will resume.'
         )
     );
     $message->addParam('<a href="' . $importUrl . '">', false);
