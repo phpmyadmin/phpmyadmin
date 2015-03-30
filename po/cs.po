@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-30 07:44-0400\n"
+"POT-Creation-Date: 2015-03-30 08:56-0400\n"
 "PO-Revision-Date: 2015-03-06 14:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -606,7 +606,7 @@ msgstr "Chyba"
 msgid "Incomplete params"
 msgstr "Chybí parametry"
 
-#: import.php:163
+#: import.php:164
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to %"
@@ -615,15 +615,15 @@ msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
 
-#: import.php:341 import.php:646
+#: import.php:342 import.php:647
 msgid "Showing bookmark"
 msgstr "Zobrazuji oblíbený dotaz"
 
-#: import.php:356 import.php:642
+#: import.php:357 import.php:643
 msgid "The bookmark has been deleted."
 msgstr "Položka byla smazána z oblíbených."
 
-#: import.php:452
+#: import.php:453
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -632,12 +632,12 @@ msgstr ""
 "Nahraný soubor nemohl být přesunut, protože na serveru je nastaveno "
 "open_basedir bez přístupu k adresáři %s (nutné pro dočasné soubory)."
 
-#: import.php:465 import.php:526 libraries/File.class.php:418
+#: import.php:466 import.php:527 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Soubor nelze přečíst!"
 
-#: import.php:475 import.php:486 import.php:507 import.php:518
+#: import.php:476 import.php:487 import.php:508 import.php:519
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -647,7 +647,7 @@ msgstr ""
 "Pokusili jste se importovat soubor s nepodporovanou kompresí (%s). Buďto "
 "podpora není implementována nebo je vypnuta ve vašem nastavení."
 
-#: import.php:532
+#: import.php:533
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -657,35 +657,39 @@ msgstr ""
 "nebo jeho velikost překročila velikost povolenou v nastavení PHP. Viz "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:552
+#: import.php:553
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "Bez potřebné knihovny nelze převést znakovou sadu!"
 
-#: import.php:592 libraries/display_import.inc.php:32
+#: import.php:593 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nepodařilo se nahrát pluginy pro import, zkontrolujte prosím vaší instalaci!"
 
-#: import.php:649 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
+#: import.php:650 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Byl vytvořen oblíbený dotaz %s."
 
-#: import.php:658
+#: import.php:659
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Import byl úspěšně dokončen, bylo provedeno %d dotazů."
 
-#: import.php:680
+#: import.php:685
+#, fuzzy, php-format
+#| msgid ""
+#| "Script timeout passed, if you want to finish import, please resubmit same "
+#| "file and import will resume."
 msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
+"Script timeout passed, if you want to finish import, please %sresubmit the "
+"same file%s and import will resume."
 msgstr ""
 "Limit pro běh importu vypršel, prosím odešlete formulář znovu se stejným "
 "souborem a import bude pokračovat."
 
-#: import.php:687
+#: import.php:695
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."

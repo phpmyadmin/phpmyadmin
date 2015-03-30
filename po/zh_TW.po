@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-30 07:44-0400\n"
+"POT-Creation-Date: 2015-03-30 08:56-0400\n"
 "PO-Revision-Date: 2014-10-03 21:14+0200\n"
 "Last-Translator: Peter Dave Hello <xs910203@gmail.com>\n"
 "Language-Team: Traditional Chinese <https://hosted.weblate.org/projects/"
@@ -604,22 +604,22 @@ msgstr "已失敗"
 msgid "Incomplete params"
 msgstr "參數不完整"
 
-#: import.php:163
+#: import.php:164
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to %"
 "sdocumentation%s for a workaround for this limit."
 msgstr "您上傳的檔案過大，請參考 %s說明文件%s 了解如何解決此問題。"
 
-#: import.php:341 import.php:646
+#: import.php:342 import.php:647
 msgid "Showing bookmark"
 msgstr "顯示書籤"
 
-#: import.php:356 import.php:642
+#: import.php:357 import.php:643
 msgid "The bookmark has been deleted."
 msgstr "書籤已被刪除。"
 
-#: import.php:452
+#: import.php:453
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -628,12 +628,12 @@ msgstr ""
 "已上傳的檔案無法被移出暫存區，因為伺服器上的 open_basedir 設定被啟用，但卻沒"
 "有提供資料夾 %s 的存取權限。"
 
-#: import.php:465 import.php:526 libraries/File.class.php:418
+#: import.php:466 import.php:527 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "無法讀取檔案！"
 
-#: import.php:475 import.php:486 import.php:507 import.php:518
+#: import.php:476 import.php:487 import.php:508 import.php:519
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -643,7 +643,7 @@ msgstr ""
 "您試圖載入未支援的壓縮檔(%s)。可能是檔案格式尚未被支援或該檔案在您的設定檔中"
 "被停用。"
 
-#: import.php:532
+#: import.php:533
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -652,33 +652,37 @@ msgstr ""
 "沒有接收到要匯入的資料。 可能是檔案名稱沒有被送出或是檔案大小超出 PHP 限制。 "
 "請參考 [doc@faq1-16]FAQ 1.16[/doc]。"
 
-#: import.php:552
+#: import.php:553
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "沒有字元集轉換函式庫，無法轉換檔案字元集！"
 
-#: import.php:592 libraries/display_import.inc.php:32
+#: import.php:593 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "無法載入匯入外掛程式，請檢查您的安裝！"
 
-#: import.php:649 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
+#: import.php:650 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已建立書籤 %s。"
 
-#: import.php:658
+#: import.php:659
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "匯入成功完成，共執行了 %d 個查詢指令。"
 
-#: import.php:680
+#: import.php:685
+#, fuzzy, php-format
+#| msgid ""
+#| "Script timeout passed, if you want to finish import, please resubmit same "
+#| "file and import will resume."
 msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
+"Script timeout passed, if you want to finish import, please %sresubmit the "
+"same file%s and import will resume."
 msgstr ""
 "Script 執行已逾時，若要繼續完成匯入，請重新送出相同檔案，匯入動作會繼續執行。"
 
-#: import.php:687
+#: import.php:695
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."

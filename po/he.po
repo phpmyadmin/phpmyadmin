@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-30 07:44-0400\n"
+"POT-Creation-Date: 2015-03-30 08:56-0400\n"
 "PO-Revision-Date: 2014-10-22 15:46+0200\n"
 "Last-Translator: Eyal Visoker <visokereyal@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -612,7 +612,7 @@ msgstr "נכשל"
 msgid "Incomplete params"
 msgstr "חסרים נתונים בפרמטרים"
 
-#: import.php:163
+#: import.php:164
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to %"
@@ -621,15 +621,15 @@ msgstr ""
 "כפי הנראה ניסית להעלות קובץ גדול מדי. נא לפנות ל%s תיעוד %s למצוא דרך לעקיפת "
 "מגבלה זו."
 
-#: import.php:341 import.php:646
+#: import.php:342 import.php:647
 msgid "Showing bookmark"
 msgstr "הצגת סימנייה"
 
-#: import.php:356 import.php:642
+#: import.php:357 import.php:643
 msgid "The bookmark has been deleted."
 msgstr "הסימנייה נמחקה."
 
-#: import.php:452
+#: import.php:453
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -638,14 +638,14 @@ msgstr ""
 "הקובץ שהועלה לא יכול להיות מועבר כי בשרת מוגדר open_basedir אבל אין גישה "
 "למחיצה %s (עבור קבצים זמניים)."
 
-#: import.php:465 import.php:526 libraries/File.class.php:418
+#: import.php:466 import.php:527 libraries/File.class.php:418
 #: libraries/File.class.php:512
 #, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
 msgstr "לא ניתן לקרוא את הקובץ"
 
-#: import.php:475 import.php:486 import.php:507 import.php:518
+#: import.php:476 import.php:487 import.php:508 import.php:519
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -655,7 +655,7 @@ msgstr ""
 "ניסית לטעון קובץ עם דחיסה שאינה נתמכת (%s). או שהתמיכה בדחיסה לא הוטמעה או "
 "שבוטלה בהגדרות שלך."
 
-#: import.php:532
+#: import.php:533
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -664,7 +664,7 @@ msgstr ""
 "לא התקבלו נתונים לייבוא. או שלא נשלח שום קובץ או שגודל הקובץ חרג מהגודל "
 "המרבי המותר בתצורת ה־PHP שלך. ניתן לעיין ב[doc@faq1-16]שו״ת 1.16[/doc]."
 
-#: import.php:552
+#: import.php:553
 #, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
@@ -673,30 +673,34 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "לא ניתן להמיר את קידוד התווים של הקובץ ללא ספרייה להמרת קידודי תווים"
 
-#: import.php:592 libraries/display_import.inc.php:32
+#: import.php:593 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "לא ניתן לטעון את תוספי הייבוא, נא לבדוק האם ההתקנה שלך תקינה!"
 
-#: import.php:649 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
+#: import.php:650 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "הסימנייה %s נוצרה"
 
-#: import.php:658
+#: import.php:659
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "הייבוא הושלם בהצלחה, הופעלו %d שאילתות."
 
-#: import.php:680
+#: import.php:685
+#, fuzzy, php-format
+#| msgid ""
+#| "Script timeout passed, if you want to finish import, please resubmit same "
+#| "file and import will resume."
 msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
+"Script timeout passed, if you want to finish import, please %sresubmit the "
+"same file%s and import will resume."
 msgstr ""
 "תום זמן ההמתנה של הסקריפט עבר, אם ברצונך לסיים את הייבוא נא לשלוח מחדש את "
 "אותו הקובץ והייבוא יימשך."
 
-#: import.php:687
+#: import.php:695
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."

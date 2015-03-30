@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-30 07:44-0400\n"
+"POT-Creation-Date: 2015-03-30 08:56-0400\n"
 "PO-Revision-Date: 2015-03-02 04:43+0200\n"
 "Last-Translator: zz <tczzjin@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
@@ -604,22 +604,22 @@ msgstr ""
 msgid "Incomplete params"
 msgstr "完整插入"
 
-#: import.php:163
+#: import.php:164
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to %"
 "sdocumentation%s for a workaround for this limit."
 msgstr "您想要上传的文件可能太大了，请参考%s文档%s来寻找解决方法。"
 
-#: import.php:341 import.php:646
+#: import.php:342 import.php:647
 msgid "Showing bookmark"
 msgstr "显示书签"
 
-#: import.php:356 import.php:642
+#: import.php:357 import.php:643
 msgid "The bookmark has been deleted."
 msgstr "已删除书签。"
 
-#: import.php:452
+#: import.php:453
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -628,12 +628,12 @@ msgstr ""
 "上传的文件无法被移动，因该服务器已启用 open_basedir ，没有相应的权限访问临时"
 "目录（%s）。"
 
-#: import.php:465 import.php:526 libraries/File.class.php:418
+#: import.php:466 import.php:527 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "无法读取文件！"
 
-#: import.php:475 import.php:486 import.php:507 import.php:518
+#: import.php:476 import.php:487 import.php:508 import.php:519
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -643,7 +643,7 @@ msgstr ""
 "您尝试导入的文件是不支持的压缩格式（%s）。可能服务器不支持或您在设置中禁止了"
 "这种格式。"
 
-#: import.php:532
+#: import.php:533
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -652,32 +652,36 @@ msgstr ""
 "没有接收到要导入的数据。可能是文件名没有提交，也可能是文件大小超出 PHP 限制。"
 "参见[doc@faq1-16]常见问题 1.16[/doc]。"
 
-#: import.php:552
+#: import.php:553
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "没有字符集转换库，无法转换文件字符集！"
 
-#: import.php:592 libraries/display_import.inc.php:32
+#: import.php:593 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "无法加载导入插件，请检查您的安装！"
 
-#: import.php:649 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
+#: import.php:650 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已创建书签 %s。"
 
-#: import.php:658
+#: import.php:659
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "导入成功，执行了 %d 个查询。"
 
-#: import.php:680
+#: import.php:685
+#, fuzzy, php-format
+#| msgid ""
+#| "Script timeout passed, if you want to finish import, please resubmit same "
+#| "file and import will resume."
 msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
+"Script timeout passed, if you want to finish import, please %sresubmit the "
+"same file%s and import will resume."
 msgstr "脚本超时，如果您要完成导入，请重新提交相同的文件，导入将会继续进行。"
 
-#: import.php:687
+#: import.php:695
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."

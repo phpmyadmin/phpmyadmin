@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-30 07:44-0400\n"
+"POT-Creation-Date: 2015-03-30 08:56-0400\n"
 "PO-Revision-Date: 2014-11-05 10:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tatar <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -650,36 +650,36 @@ msgstr ""
 msgid "Incomplete params"
 msgstr "Tulayım östise"
 
-#: import.php:163
+#: import.php:164
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to %"
 "sdocumentation%s for a workaround for this limit."
 msgstr ""
 
-#: import.php:341 import.php:646
+#: import.php:342 import.php:647
 msgid "Showing bookmark"
 msgstr "Bitbilge kürsätü"
 
-#: import.php:356 import.php:642
+#: import.php:357 import.php:643
 msgid "The bookmark has been deleted."
 msgstr "Tamğa beterelde."
 
-#: import.php:452
+#: import.php:453
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
 
-#: import.php:465 import.php:526 libraries/File.class.php:418
+#: import.php:466 import.php:527 libraries/File.class.php:418
 #: libraries/File.class.php:512
 #, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
 msgstr "Birem uqıp bulmadı"
 
-#: import.php:475 import.php:486 import.php:507 import.php:518
+#: import.php:476 import.php:487 import.php:508 import.php:519
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -687,40 +687,41 @@ msgid ""
 "for it is not implemented or disabled by your configuration."
 msgstr ""
 
-#: import.php:532
+#: import.php:533
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 
-#: import.php:552
+#: import.php:553
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 
-#: import.php:592 libraries/display_import.inc.php:32
+#: import.php:593 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Totaşmalar yökläp bulmadı, quyılışın tikşerep alası!"
 
-#: import.php:649 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
+#: import.php:650 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "%s digän bitbilge yaratıldı"
 
-#: import.php:658
+#: import.php:659
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr ""
 
-#: import.php:680
+#: import.php:685
+#, php-format
 msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
+"Script timeout passed, if you want to finish import, please %sresubmit the "
+"same file%s and import will resume."
 msgstr ""
 
-#: import.php:687
+#: import.php:695
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."

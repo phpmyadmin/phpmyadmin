@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-30 07:44-0400\n"
+"POT-Creation-Date: 2015-03-30 08:56-0400\n"
 "PO-Revision-Date: 2015-02-09 16:12+0200\n"
 "Last-Translator: mrnonz <nontawat39@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -618,7 +618,7 @@ msgstr "ผิดพลาด"
 msgid "Incomplete params"
 msgstr "คำสั่ง INSERT เต็มรูปแบบ"
 
-#: import.php:163
+#: import.php:164
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to %"
@@ -627,27 +627,27 @@ msgstr ""
 "คุณพยายามที่จะอัพโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s เอกสารช่วยเหลือ "
 "เพื่อแก้ไขปัญหาดังกล่าวนี้"
 
-#: import.php:341 import.php:646
+#: import.php:342 import.php:647
 msgid "Showing bookmark"
 msgstr "แสดงบุ๊คมาร์ค"
 
-#: import.php:356 import.php:642
+#: import.php:357 import.php:643
 msgid "The bookmark has been deleted."
 msgstr "ลบคำค้นที่จดไว้เรียบร้อยแล้ว"
 
-#: import.php:452
+#: import.php:453
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
 
-#: import.php:465 import.php:526 libraries/File.class.php:418
+#: import.php:466 import.php:527 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "อ่านไฟล์ไม่ได้!"
 
-#: import.php:475 import.php:486 import.php:507 import.php:518
+#: import.php:476 import.php:487 import.php:508 import.php:519
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -657,7 +657,7 @@ msgstr ""
 "คุณพยายามที่จะโหลดไฟล์ที่ไม่สนับสนุนระบบการบีบอัดไฟล์ข้อมูล (%s) กรุณากำหนดค่าอย่างไรอย่างหนึ่ง "
 "หรือปิดการตั้งค่าของคุณ"
 
-#: import.php:532
+#: import.php:533
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -666,33 +666,37 @@ msgstr ""
 "ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ "
 "กรุณาแก้ไขไฟล์ตั้งค่าของ PHP ดูเอกสารเพิ่มเติมได้ที่ [doc@faq1-16]FAQ 1.16[/doc]"
 
-#: import.php:552
+#: import.php:553
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "ไม่สามารถแปลงไฟล์ข้อมูลชุดอักขระได้ในไลค์บารี!"
 
-#: import.php:592 libraries/display_import.inc.php:32
+#: import.php:593 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "ไม่สามารถโหลดนำเข้าปลั๊กอินได้ กรุณาตรวจสอบการติดตั้งของคุณ!"
 
-#: import.php:649 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
+#: import.php:650 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "ที่คั่นหน้า %s ได้ถูกสร้างขึ้น"
 
-#: import.php:658
+#: import.php:659
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "นำเข้าสำเร็จเรียบร้อย การสอบถาม %d รายการได้ถูกดำเนินการแล้ว"
 
-#: import.php:680
+#: import.php:685
+#, fuzzy, php-format
+#| msgid ""
+#| "Script timeout passed, if you want to finish import, please resubmit same "
+#| "file and import will resume."
 msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
+"Script timeout passed, if you want to finish import, please %sresubmit the "
+"same file%s and import will resume."
 msgstr "หมดเวลาการนำเข้าแล้ว หากคุณต้องการดำเนินการต่อให้เรียบร้อย กรุณานำเข้าไฟล์เดิมอีกรอบ"
 
-#: import.php:687
+#: import.php:695
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."

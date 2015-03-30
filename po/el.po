@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-30 07:44-0400\n"
+"POT-Creation-Date: 2015-03-30 08:56-0400\n"
 "PO-Revision-Date: 2015-03-22 19:14+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -610,7 +610,7 @@ msgstr "Απέτυχε"
 msgid "Incomplete params"
 msgstr "Ελλιπείς παράμετροι"
 
-#: import.php:163
+#: import.php:164
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to %"
@@ -619,15 +619,15 @@ msgstr ""
 "Πιθανόν προσπαθήσατε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
 "sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
-#: import.php:341 import.php:646
+#: import.php:342 import.php:647
 msgid "Showing bookmark"
 msgstr "Εμφάνιση σελιδοδείκτη"
 
-#: import.php:356 import.php:642
+#: import.php:357 import.php:643
 msgid "The bookmark has been deleted."
 msgstr "Η ετικέτα διεγράφη."
 
-#: import.php:452
+#: import.php:453
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
@@ -637,12 +637,12 @@ msgstr ""
 "ενεργοποιημένο το open_basedir χωρίς πρόσβαση στο φάκελο %s (για προσωρινά "
 "αρχεία)."
 
-#: import.php:465 import.php:526 libraries/File.class.php:418
+#: import.php:466 import.php:527 libraries/File.class.php:418
 #: libraries/File.class.php:512
 msgid "File could not be read!"
 msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου!"
 
-#: import.php:475 import.php:486 import.php:507 import.php:518
+#: import.php:476 import.php:487 import.php:508 import.php:519
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -653,7 +653,7 @@ msgstr ""
 "υποστήριξη για αυτή δεν έχει εφαρμοστεί ή απενεργοποιηθεί από τις ρυθμίσεις "
 "σας."
 
-#: import.php:532
+#: import.php:533
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -663,37 +663,41 @@ msgstr ""
 "μέγεθος του αρχείου υπερβαίνει το μέγιστο επιτρεπτό μέγεθος από τη ρύθμιση "
 "της ΡΗΡ. Δείτε τις [doc@faq1-16]ΣΑΕ 1.16[/doc]."
 
-#: import.php:552
+#: import.php:553
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Αδύνατη η μετατροπή της κωδικοποίησης χωρίς τη βιβλιοθήκη μετατροπής "
 "κωδικοποίησης!"
 
-#: import.php:592 libraries/display_import.inc.php:32
+#: import.php:593 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Αδύνατη η φόρτωση προσθέτων εισαγωγής, για αυτό ελέξτε την εγκατάστασή σας!"
 
-#: import.php:649 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
+#: import.php:650 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Ο σελιδοδείκτης %s έχει δημιουργηθεί."
 
-#: import.php:658
+#: import.php:659
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Η εισαγωγή ολοκληρώθηκε επιτυχώς, %d ερωτήματα εκτελέστηκαν."
 
-#: import.php:680
+#: import.php:685
+#, fuzzy, php-format
+#| msgid ""
+#| "Script timeout passed, if you want to finish import, please resubmit same "
+#| "file and import will resume."
 msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
+"Script timeout passed, if you want to finish import, please %sresubmit the "
+"same file%s and import will resume."
 msgstr ""
 "Το χρονικό όριο του κώδικα εξαντλήθηκε, οπότε αν θέλετε να τελειώσετε την "
 "εισαγωγή, επανυποβάλτε το ίδιο αρχείο και η εισαγωγή θα συνεχίσει."
 
-#: import.php:687
+#: import.php:695
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."

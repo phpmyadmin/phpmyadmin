@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-30 07:44-0400\n"
+"POT-Creation-Date: 2015-03-30 08:56-0400\n"
 "PO-Revision-Date: 2014-11-14 19:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Welsh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -647,7 +647,7 @@ msgstr ""
 msgid "Incomplete params"
 msgstr ""
 
-#: import.php:163
+#: import.php:164
 #, fuzzy, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to %"
@@ -659,29 +659,29 @@ msgstr ""
 "Yn ôl pob tebyg, mae'r ffeil i rhy fawr i'w lanlwytho. Gweler y %sdogfennaeth"
 "%s am ffyrdd i weithio o gwmpas y cyfyngiad hwn."
 
-#: import.php:341 import.php:646
+#: import.php:342 import.php:647
 msgid "Showing bookmark"
 msgstr "Dangos clustnod"
 
-#: import.php:356 import.php:642
+#: import.php:357 import.php:643
 msgid "The bookmark has been deleted."
 msgstr "Cafodd y clustnod ei ddileu."
 
-#: import.php:452
+#: import.php:453
 #, php-format
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
 
-#: import.php:465 import.php:526 libraries/File.class.php:418
+#: import.php:466 import.php:527 libraries/File.class.php:418
 #: libraries/File.class.php:512
 #, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
 msgstr "Nid oedd modd darllen y ffeil hon"
 
-#: import.php:475 import.php:486 import.php:507 import.php:518
+#: import.php:476 import.php:487 import.php:508 import.php:519
 #: libraries/File.class.php:578
 #, php-format
 msgid ""
@@ -691,7 +691,7 @@ msgstr ""
 "Fe geisioch lwytho ffeil gyda chywasgiad sydd heb ei gynnal (%s). Naill ai "
 "bod dim cynhaliaeth ar gyfer hwn neu mae eich ffurfwedd wedi ei analluogi."
 
-#: import.php:532
+#: import.php:533
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -701,34 +701,35 @@ msgstr ""
 "wedi'i osod, neu roedd maint y ffeil yn fwy na'r maint uchaf sy'n cael ei "
 "ganiatáu gan eich ffurfwedd PHP. Gweler  See [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:552
+#: import.php:553
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 
-#: import.php:592 libraries/display_import.inc.php:32
+#: import.php:593 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nid oedd modd llwytho ategynnau mewnforio, gwiriwch eich arsefydliad!"
 
-#: import.php:649 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
+#: import.php:650 libraries/sql.lib.php:884 libraries/sql.lib.php:1661
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "Clustnodi %s a grëwyd"
 
-#: import.php:658
+#: import.php:659
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr ""
 "Gorffennodd y mewnforiad yn llwyddiannus, gyda %d ymholiad wedi'u gweithredu."
 
-#: import.php:680
+#: import.php:685
+#, php-format
 msgid ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
+"Script timeout passed, if you want to finish import, please %sresubmit the "
+"same file%s and import will resume."
 msgstr ""
 
-#: import.php:687
+#: import.php:695
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
