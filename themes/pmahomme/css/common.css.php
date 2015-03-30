@@ -1086,9 +1086,6 @@ div#dataDisplay select {
 div#dataDisplay th {
     line-height: 2em;
 }
-table#tableFieldsId {
-    width: 100%;
-}
 
 /* Calendar */
 table.calendar {
@@ -1281,7 +1278,7 @@ div#tablestatistics table {
     float: <?php echo $left; ?>;
 }
 
-#fieldset_user_global_rights>legend input {
+#fieldset_user_global_rights legend input {
     margin-<?php echo $left; ?>: 2em;
 }
 /* end user privileges */
@@ -1298,6 +1295,12 @@ div#tablestatistics table {
 h3#serverstatusqueries span {
     font-size: 60%;
     display: inline;
+}
+
+img.sortableIcon {
+    float: <?php echo $right; ?>;
+    background-repeat: no-repeat;
+    margin: 0;
 }
 
 .buttonlinks {
@@ -1450,10 +1453,9 @@ div#queryAnalyzerDialog table.queryNums {
 
 /* server variables */
 #serverVariables {
-    table-layout: fixed;
-    width: 100%;
+    min-width: 30em;
 }
-#serverVariables .var-row > td {
+#serverVariables .var-row > div {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1465,17 +1467,15 @@ div#queryAnalyzerDialog table.queryNums {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
     font-weight: bold;
 }
-#serverVariables .var-header {
+#serverVariables .var-header .var-value {
     text-align: <?php echo $left; ?>;
 }
 #serverVariables .var-row {
     padding: 0.5em;
     min-height: 18px;
 }
-#serverVariables .var-action {
-    width: 120px;
-}
 #serverVariables .var-name {
+    width: 45%;
     float: <?php echo $left; ?>;
     font-weight: bold;
 }
@@ -1822,7 +1822,7 @@ div.sqlvalidate {
     overflow: auto;
 }
 
-.result_query div.sqlOuter {
+#result_query div.sqlOuter {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     padding: 1em;
 }
@@ -1973,7 +1973,8 @@ select.invalid_value,
     margin-bottom: 0;
     margin-<?php echo $left; ?>: auto;
     padding: 5px;   /** Keep a little space on the sides of the text */
-    width: 350px;
+    width: 258px;
+    height: 70px;
 
     z-index: 1100;      /** If this is not kept at a high z-index, the jQueryUI modal dialogs (z-index: 1000) might hide this */
     text-align: center;
@@ -1983,19 +1984,20 @@ select.invalid_value,
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>);
     background-repeat: no-repeat;
     background-position: 2%;
-    border: 1px solid #e2b709;
+
  }
 
 /* additional styles */
 .ajax_notification {
     margin-top: 200px;
-    background: #ffe57e;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    box-shadow: 0 5px 90px #888;
-    -moz-box-shadow: 0 5px 90px #888;
-    -webkit-box-shadow: 0 5px 90px #888;
+    background: #ffffff;
+border-radius: 3px 3px 3px 3px;
+-moz-border-radius: 3px 3px 3px 3px;
+-webkit-border-radius: 3px 3px 3px 3px;
+-webkit-box-shadow: 0px 9px 30px 4px rgba(50, 50, 50, 1);
+-moz-box-shadow:    0px 9px 30px 4px rgba(50, 50, 50, 1);
+box-shadow:         0px 9px 30px 4px rgba(50, 50, 50, 1);
+
 }
 
 #loading_parent {
@@ -2173,7 +2175,6 @@ input#input_import_file {
 #index_frm .index_info input,
 #index_frm .index_info select {
     width: 14em;
-    margin: 0;
     box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -2240,6 +2241,10 @@ table#index_columns select {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
+}
+
+.margin#change_column_dialog {
+    margin: 0 .5em;
 }
 
 /* config forms */
@@ -2525,10 +2530,6 @@ fieldset .disabled-field td {
 .toggleButton .container {
     position: absolute;
 }
-.toggleButton .container td {
-    background-image: none;
-    background: none;
-}
 .toggleButton .toggleOn {
     color: #fff;
     padding: 0 1em;
@@ -2554,18 +2555,6 @@ fieldset .disabled-field td {
 }
 .doubleFieldset div.wrap {
     padding: 1.5em;
-}
-
-#table_name_col_no_outer {
-    margin-top: 45px;
-}
-
-#table_name_col_no {
-    position: fixed;
-    top: 55px;
-    z-index: 500;
-    width: 100%;
-    background: '#ffffff';
 }
 
 #table_columns input[type="text"],
@@ -2651,10 +2640,6 @@ fieldset .disabled-field td {
     overflow: hidden;
 }
 
-.pma_table tbody td span code span {
-    display: inline;
-}
-
 .pma_table th.draggable.right span {
     margin-<?php echo $right; ?>: 0px;
 }
@@ -2701,7 +2686,7 @@ fieldset .disabled-field td {
 }
 
 .tooltip {
-    background: #333 !important;
+   /* background: #333 !important;
     opacity: .8 !important;
     border: 1px solid #000 !important;
     -moz-border-radius: .3em !important;
@@ -2710,7 +2695,7 @@ fieldset .disabled-field td {
     text-shadow: -1px -1px #000 !important;
     font-size: .8em !important;
     font-weight: bold !important;
-    padding: 1px 3px !important;
+    padding: 1px 3px !important;*/
 }
 
 .tooltip * {
@@ -2962,7 +2947,7 @@ div#page_content form#db_search_form.ajax fieldset {
     margin-top: -0.3em;
 }
 
-div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {
+div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div#result_query {
     margin-top: 1em;
 }
 
@@ -3068,26 +3053,6 @@ table.show_create td {
     border-top: solid 1px #aaa;
     background: #fff;
     padding-top: .4em;
-}
-#pma_console .content.console_dark_theme {
-    background: #000;
-    color: #fff;
-}
-#pma_console .content.console_dark_theme .CodeMirror-wrap {
-    background: #000;
-    color: #fff;
-}
-#pma_console .content.console_dark_theme .action_content {
-    color: #000;
-}
-#pma_console .content.console_dark_theme .message {
-    border-color: #373B41;
-}
-#pma_console .content.console_dark_theme .CodeMirror-cursor {
-    border-color: #fff;
-}
-#pma_console .content.console_dark_theme .cm-keyword {
-    color: #de935f;
 }
 #pma_console .message,
 #pma_console .query_input {
