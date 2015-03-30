@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-06 08:15-0500\n"
-"PO-Revision-Date: 2015-03-28 22:50+0200\n"
+"PO-Revision-Date: 2015-03-30 03:04+0200\n"
 "Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/ko/>\n"
@@ -950,10 +950,9 @@ msgid "Delete tracking data for this table?"
 msgstr "이 테이블에 대한 추적 데이터를 삭제합니까?"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "이 테이블에 대한 추적 데이터를 제거"
+msgstr "이 테이블들에 대한 추적 데이터를 제거하시겠습니까?"
 
 #: js/messages.php:42
 #, fuzzy
@@ -2249,7 +2248,7 @@ msgstr "올바른 16진수 문자열을 입력하세요. 사용가능한 문자�
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
-msgstr ""
+msgstr "정말 모든 열을 보시겠습니까? 테이블 크기가 큰 경우 브라우저가 정지할 수 있습니다."
 
 #: js/messages.php:450
 msgid "cancel"
@@ -2357,7 +2356,6 @@ msgid "views"
 msgstr "뷰"
 
 #: js/messages.php:491
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
 msgstr "프로시저"
@@ -6555,7 +6553,7 @@ msgstr "테이블의 정렬 순서 기억하기"
 
 #: libraries/config/messages.inc.php:536
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "기본 키를 가진 테이블의 기본 정렬 순서."
 
 #: libraries/config/messages.inc.php:537
 msgid "Primary key default sort order"
@@ -7499,7 +7497,7 @@ msgstr "Signon 인증"
 #: libraries/config/setup.forms.php:259
 #: libraries/config/user_preferences.forms.php:159
 msgid "CSV using LOAD DATA"
-msgstr ""
+msgstr "LOAD DATA문을 이용한 CSV 들여오기"
 
 #: libraries/config/setup.forms.php:268 libraries/config/setup.forms.php:365
 #: libraries/config/user_preferences.forms.php:167
@@ -8069,6 +8067,8 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
+"업로드중인 파일의 용량이 최대 업로드 허용 용량보다 크거나 웹킷 기반 브라우저 (사파리, 구글 크롬, Arora 등)의 버그일 수 "
+"있습니다."
 
 #: libraries/display_import.lib.php:454
 #, php-format
@@ -8147,7 +8147,7 @@ msgstr "버퍼풀 사용량"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "pages"
-msgstr ""
+msgstr "페이지"
 
 #: libraries/engines/innodb.lib.php:190
 msgid "Free pages"
@@ -8427,7 +8427,7 @@ msgstr "연관 링크"
 
 #: libraries/engines/pbxt.lib.php:141
 msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr ""
+msgstr "Paul McCullagh 의 PrimeBase XT 블로그"
 
 #: libraries/error_report.lib.php:351
 msgid ""
@@ -10391,10 +10391,9 @@ msgid "FOREIGN KEY relation has been added."
 msgstr "FOREIGN KEY 릴레이션이 추가됨"
 
 #: libraries/pmd_common.php:543
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr "오류: 릴레이션이 추가되지 않음."
+msgstr "오류: 외래키 릴레이션을 추가할 수 없습니다!"
 
 #: libraries/pmd_common.php:548
 msgid "Error: Missing index on column(s)."
@@ -10417,28 +10416,24 @@ msgid "Error: Internal relation could not be added!"
 msgstr "오류: 릴레이션이 추가되지 않음."
 
 #: libraries/pmd_common.php:618
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been removed."
-msgstr "FOREIGN KEY 릴레이션이 추가됨"
+msgstr "외래키 릴레이션이 제거되었습니다."
 
 #: libraries/pmd_common.php:624
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr "오류: 릴레이션이 추가되지 않음."
+msgstr "오류: 외래키 릴레이션을 제거할 수 없습니다!"
 
 #: libraries/pmd_common.php:651
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relation could not be removed!"
-msgstr "오류: 릴레이션이 추가되지 않음."
+msgstr "오류: 내부 릴레이션을 제거할 수 없습니다!"
 
 #: libraries/pmd_common.php:655
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been removed."
-msgstr "내부 릴레이션이 추가됨"
+msgstr "내부 릴레이션이 제거되었습니다."
 
 #: libraries/relation.lib.php:86
 msgid "not OK"
@@ -10535,12 +10530,11 @@ msgid "Quick steps to setup advanced features:"
 msgstr "고급 기능을 설정을 쉽게 설정하기:"
 
 #: libraries/relation.lib.php:323
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
-"<code>examples/create_tables.sql</code>에서 필요한 테이블을 생성하세요."
+msgstr "<code>%screate_tables.sql</code>에서 필요한 테이블을 생성하세요."
 
 #: libraries/relation.lib.php:331
 msgid "Create a pma user and give access to these tables."
@@ -10579,6 +10573,7 @@ msgid "Master replication"
 msgstr "마스터 리플리케이션"
 
 #: libraries/replication_gui.lib.php:47
+#, fuzzy
 msgid "This server is configured as master in a replication process."
 msgstr "이 서버는 이중화 환경 내의 마스터 서버로 구성되지 않았습니다."
 
@@ -10616,9 +10611,8 @@ msgid "Ignore all databases; Replicate:"
 msgstr "데이터베이스를 선택하지 않았습니다."
 
 #: libraries/replication_gui.lib.php:105
-#, fuzzy
 msgid "Please select databases:"
-msgstr "데이터베이스를 선택하세요"
+msgstr "데이터베이스를 선택하세요:"
 
 #: libraries/replication_gui.lib.php:109
 msgid ""
@@ -10889,13 +10883,12 @@ msgstr "마스터 리플리케이션"
 
 #: libraries/replication_gui.lib.php:935
 msgid "Success."
-msgstr ""
+msgstr "성공."
 
 #: libraries/replication_gui.lib.php:936
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "오류"
+msgstr "오류."
 
 #: libraries/replication_gui.lib.php:981
 msgid "Unknown error"
@@ -11136,10 +11129,9 @@ msgid "SQL data access"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1146
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "루틴 이름이 필요함"
+msgstr "루틴 이름이 필요합니다!"
 
 #: libraries/rte/rte_routines.lib.php:1180
 #, php-format
@@ -11604,7 +11596,7 @@ msgstr "영속적인 연결"
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "SSL이 요구됨"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
@@ -11636,7 +11628,7 @@ msgstr "주의: 이 옵션을 0으로 하면 제한이 없어집니다."
 #: libraries/server_privileges.lib.php:876
 #: libraries/server_privileges.lib.php:887 server_privileges.php:81
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr ""
+msgstr "사용자가 서버에 시간당 보낼 수 있는 질의(쿼리)의 갯수를 제한함."
 
 #: libraries/server_privileges.lib.php:896
 #: libraries/server_privileges.lib.php:907 server_privileges.php:84
@@ -11742,7 +11734,7 @@ msgstr "유저 전용 데이터베이스"
 
 #: libraries/server_privileges.lib.php:1952
 msgid "Create database with same name and grant all privileges."
-msgstr ""
+msgstr "동명의 데이터베이스를 생성하고 모든 권한을 부여."
 
 #: libraries/server_privileges.lib.php:1958
 msgid "Grant all privileges on wildcard name (username\\_%)."
@@ -12045,6 +12037,8 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"시스템을 효과적으로 최적화하기 위해서는 한번에 한 설정만 변경한 후 데이터베이스의 성능을 관찰하거나 벤치마크한 후 확실한 효과가 관찰되지 "
+"않으면 설정을 되돌리는 식으로 진행하시는 것이 권장됩니다."
 
 #: libraries/server_status_monitor.lib.php:66
 msgid "Log statistics"
