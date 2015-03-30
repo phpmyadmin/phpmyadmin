@@ -41,6 +41,9 @@ if (PMA_isValid($_REQUEST['offset'], 'numeric')) {
 if (isset($_REQUEST['timeout_passed'])) {
     $timeout_passed = $_REQUEST['timeout_passed'];
 }
+if (isset($_REQUEST['local_import_file'])) {
+    $local_import_file = $_REQUEST['local_import_file'];
+}
 
 $timeout_passed_str = isset($timeout_passed)? $timeout_passed : null;
 $offset_str = isset($offset)? $offset : null;
