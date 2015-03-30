@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:56-0400\n"
-"PO-Revision-Date: 2015-03-30 21:07+0200\n"
+"PO-Revision-Date: 2015-03-30 21:08+0200\n"
 "Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
@@ -44,7 +44,7 @@ msgstr "Die Datenbank %1$s wurde erzeugt."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment"
-msgstr "Datenbankkommentar:"
+msgstr "Datenbankkommentar"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -9669,7 +9669,7 @@ msgstr "Keine partiellen Abhängigkeiten gefunden!"
 
 #: libraries/operations.lib.php:74
 msgid "Rename database to"
-msgstr "Datenbank umbenennen in:"
+msgstr "Datenbank umbenennen in"
 
 #: libraries/operations.lib.php:106
 #, php-format
