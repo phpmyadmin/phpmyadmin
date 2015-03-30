@@ -587,7 +587,7 @@ function PMA_getDatabaseTables(
             $html .= '</td>';
         }
 
-        $html .= '<td class="small_tab" ';
+        $html .= '<td class="small_tab" title="' . __('Toggle') . '" ';
         $html .= 'id="id_hide_tbody_' . $t_n_url . '" ';
         $html .= 'table_name="' . htmlspecialchars($t_n_url)
             . '" onmouseover="this.className=\'small_tab2\';" ';
@@ -610,7 +610,7 @@ function PMA_getDatabaseTables(
                 . '\'small_tab_pref2 small_tab_pref_1\';" ';
         $html .= 'onmouseout="this.className=\'small_tab_pref small_tab_pref_1\';" ';
         $html .= '>';
-        $html .= '<img alt="" ';
+        $html .= '<img alt="" title="' . __('See table structure') . '" ';
         $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png')
             . '" />';
         $html .= '</td>';
