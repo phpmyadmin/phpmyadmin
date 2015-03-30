@@ -546,7 +546,8 @@ function PMA_getDatabaseTables(
     $tab_pos, $display_page, $tab_column, $tables_all_keys, $tables_pk_or_unique_keys
 ) {
     $html  = '';
-    for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
+    $number_of_tables = count($GLOBALS['PMD']["TABLE_NAME"]);
+    for ($i = 0; $i < $number_of_tables; $i++) {
         $t_n = $GLOBALS['PMD']["TABLE_NAME"][$i];
         $t_n_url = $GLOBALS['PMD_URL']["TABLE_NAME"][$i];
 
