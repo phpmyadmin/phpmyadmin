@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:56-0400\n"
-"PO-Revision-Date: 2015-03-16 02:12+0200\n"
+"PO-Revision-Date: 2015-03-30 21:07+0200\n"
 "Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -688,7 +688,7 @@ msgstr ""
 "Der Import wurde erfolgreich abgeschlossen, %d Abfragen wurden ausgeführt."
 
 #: import.php:685
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -696,8 +696,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Das Ausführungszeitlimit wurde erreicht. Wenn Sie die Datei erneut "
-"abschicken, wird der Import fortgesetzt."
+"Das Ausführungszeitlimit wurde erreicht. Wenn Sie %sdie Datei erneut "
+"abschicken%s, wird der Import fortgesetzt."
 
 #: import.php:695
 msgid ""
@@ -1707,10 +1707,9 @@ msgid "Processing Request"
 msgstr "Bearbeite Anfrage"
 
 #: js/messages.php:261
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request Failed!!"
-msgstr "Anfrage abgebrochen!"
+msgstr "Anfrage fehlgeschlagen!"
 
 #: js/messages.php:262
 msgid "Error in Processing Request"
@@ -1870,10 +1869,10 @@ msgid "No auto-saved query"
 msgstr "Keine automatisch gespeicherte Abfrage"
 
 #: js/messages.php:310
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Variable"
+msgstr "Variable %d:"
 
 #: js/messages.php:313 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -2204,10 +2203,9 @@ msgstr "Seite speichern"
 
 #: js/messages.php:421 libraries/db_designer.lib.php:297
 #: libraries/db_designer.lib.php:300
-#, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "Seite speichern"
+msgstr "Seite speichern als"
 
 #: js/messages.php:422 libraries/db_designer.lib.php:281
 #: libraries/db_designer.lib.php:284
@@ -3090,10 +3088,9 @@ msgstr ""
 "Um dies dauerhaft zu speichern, siehe Einstellungen."
 
 #: libraries/Console.class.php:320
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Zur kopierten Tabelle wechseln"
+msgstr "Zum dunklen Motiv wechseln"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
 #: libraries/DisplayResults.class.php:2143
@@ -4892,7 +4889,7 @@ msgstr "Attribut"
 #: libraries/central_columns.lib.php:709
 #: libraries/central_columns.lib.php:1207
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -5635,16 +5632,15 @@ msgid "Default table tab"
 msgstr "Standardtab bei Tabellen"
 
 #: libraries/config/messages.inc.php:94
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Tabellen- und Feldnamen mit Backticks umschließen"
+msgstr ""
+"Automatische Vervollständigung von Tabellen- und Feldnamen in SQL-Abfragen."
 
 #: libraries/config/messages.inc.php:95
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Tabellen- und Feldnamen mit Backticks umschließen"
+msgstr "Tabellen- und Feldnamen in SQL-Abfragen automatisch vervollständigen"
 
 #: libraries/config/messages.inc.php:97
 msgid "Whether the table structure actions should be hidden."
@@ -5687,10 +5683,10 @@ msgid "Maximum execution time"
 msgstr "Maximale Ausführungszeit"
 
 #: libraries/config/messages.inc.php:113 libraries/display_export.lib.php:662
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
-msgstr "%s-Befehl hinzufügen"
+msgstr "%s-Befehl verwenden"
 
 #: libraries/config/messages.inc.php:115 prefs_manage.php:316
 msgid "Save as file"
@@ -6288,10 +6284,10 @@ msgid "Partial import: allow interrupt"
 msgstr "Teilweiser Import: Unterbrechung erlauben"
 
 #: libraries/config/messages.inc.php:338
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Temporarily disable foreign key checks while importing"
-msgstr "Fremdschlüsselüberprüfung deaktivieren"
+msgstr ""
+"Fremdschlüsselüberprüfung temporär während des Importierens deaktivieren"
 
 #: libraries/config/messages.inc.php:345 libraries/config/messages.inc.php:355
 #: libraries/plugins/import/ImportCsv.class.php:89
@@ -7971,13 +7967,12 @@ msgstr "Anzahl Tabellen:"
 
 #: libraries/db_designer.lib.php:590
 msgid "Toggle"
-msgstr ""
+msgstr "Umschalten"
 
 #: libraries/db_designer.lib.php:613
-#, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
-msgstr "Tabellenstruktur"
+msgstr "Tabellenstruktur ansehen"
 
 #: libraries/db_designer.lib.php:869
 msgid "Delete relation"
@@ -8347,13 +8342,11 @@ msgstr ""
 "überspringen, beginnend von der ersten:"
 
 #: libraries/display_import.lib.php:332
-#, fuzzy
 #| msgid "Options"
 msgid "Other Options:"
-msgstr "Optionen"
+msgstr "Andere Optionen:"
 
 #: libraries/display_import.lib.php:338
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable foreign key check"
 msgstr "Fremdschlüsselüberprüfung deaktivieren"
@@ -10088,6 +10081,7 @@ msgstr "Stellvertreter-Struktur des Views"
 #: libraries/plugins/export/ExportJson.class.php:70
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
+"Mit Whitespace formatiertes JSON ausgeben (Menschenlesbares Format verwenden)"
 
 #: libraries/plugins/export/ExportLatex.class.php:43
 msgid "Content of table @TABLE@"
@@ -10587,22 +10581,19 @@ msgid "Data Dictionary"
 msgstr "Strukturverzeichnis"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "Keines der Obigen"
+msgstr "Reihenfolge der Tabellen"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Aufsteigend"
+msgstr "Name (Aufsteigend)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Absteigend"
+msgstr "Name (Absteigend)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:68
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:81
