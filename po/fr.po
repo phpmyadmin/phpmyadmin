@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-03-30 17:16+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2015-03-31 13:57+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/fr/>\n"
 "Language: fr\n"
@@ -685,7 +685,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "L'importation s'est terminée avec succès, %d requêtes exécutées."
 
 #: import.php:665
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -693,8 +693,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"La limite de temps a été atteinte; si vous voulez terminer l'importation, "
-"soumettez à nouveau le même fichier et l'importation continuera."
+"La limite de temps a été atteinte; si vous voulez terminer l'importation, %"
+"ssoumettez à nouveau%s le même fichier et l'importation continuera."
 
 #: import.php:675
 msgid ""
