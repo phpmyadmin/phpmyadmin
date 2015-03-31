@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:56-0400\n"
-"PO-Revision-Date: 2015-03-22 19:14+0200\n"
+"PO-Revision-Date: 2015-03-31 12:44+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -44,7 +44,7 @@ msgstr "Δημιουργήθηκε η βάση δεδομένων %1$s."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment"
-msgstr "Σχόλιο βάσης:"
+msgstr "Σχόλιο βάσης δεδομένων"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -686,7 +686,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Η εισαγωγή ολοκληρώθηκε επιτυχώς, %d ερωτήματα εκτελέστηκαν."
 
 #: import.php:685
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -695,7 +695,7 @@ msgid ""
 "same file%s and import will resume."
 msgstr ""
 "Το χρονικό όριο του κώδικα εξαντλήθηκε, οπότε αν θέλετε να τελειώσετε την "
-"εισαγωγή, επανυποβάλτε το ίδιο αρχείο και η εισαγωγή θα συνεχίσει."
+"εισαγωγή, %sεπανυποβάλτε το ίδιο αρχείο%s και η εισαγωγή θα συνεχίσει."
 
 #: import.php:695
 msgid ""
@@ -1703,10 +1703,9 @@ msgid "Processing Request"
 msgstr "Προώθηση Αιτήματος"
 
 #: js/messages.php:261
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request Failed!!"
-msgstr "Το Αίτημα Διακόπηκε!!"
+msgstr "Το Αίτημα Απέτυχε!!"
 
 #: js/messages.php:262
 msgid "Error in Processing Request"
@@ -1863,10 +1862,10 @@ msgid "No auto-saved query"
 msgstr "Κανένα αυτόματα αποθηκευμένο ερώτημα"
 
 #: js/messages.php:310
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Μεταβλητή"
+msgstr "Μεταβλητή %d:"
 
 #: js/messages.php:313 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -3065,10 +3064,9 @@ msgstr ""
 "SHIFT + Enter. Για να το κάνετε αυτό μόνιμο, δείτε τις ρυθμίσεις."
 
 #: libraries/Console.class.php:320
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Μεταφορά στον αντεγραμμένο πίνακα"
+msgstr "Αλλαγή σε σκοτεινό θέμα"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
 #: libraries/DisplayResults.class.php:2143
@@ -7946,13 +7944,12 @@ msgstr "Αριθμός πινάκων:"
 
 #: libraries/db_designer.lib.php:590
 msgid "Toggle"
-msgstr ""
+msgstr "Εναλλαγή"
 
 #: libraries/db_designer.lib.php:613
-#, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
-msgstr "Δομή πίνακα"
+msgstr "Προβολή δομής πίνακα"
 
 #: libraries/db_designer.lib.php:869
 msgid "Delete relation"
@@ -9640,7 +9637,7 @@ msgstr "Δεν βρέθηκαν μερικές εξαρτήσεις!"
 
 #: libraries/operations.lib.php:74
 msgid "Rename database to"
-msgstr "Μετονομασία βάσης δεδομένων σε:"
+msgstr "Μετονομασία βάσης δεδομένων σε"
 
 #: libraries/operations.lib.php:106
 #, php-format
@@ -9672,7 +9669,7 @@ msgstr "Μόνο τα δεδομένα"
 
 #: libraries/operations.lib.php:174
 msgid "Copy database to"
-msgstr "Αντιγραφή βάσης δεδομένων σε:"
+msgstr "Αντιγραφή βάσης δεδομένων σε"
 
 #: libraries/operations.lib.php:185
 msgid "CREATE DATABASE before copying"
@@ -9696,7 +9693,7 @@ msgstr "(μοναδικά)"
 
 #: libraries/operations.lib.php:621
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Μεταφορά πίνακα σε (βάση<b>.</b>πίνακας):"
+msgstr "Μεταφορά πίνακα σε (βάση δεδομένων<b>.</b>πίνακας)"
 
 #: libraries/operations.lib.php:732
 msgid "Table options"
@@ -9716,7 +9713,7 @@ msgstr "Μηχανή αποθήκευσης"
 
 #: libraries/operations.lib.php:955
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Αντιγραφή πίνακα σε (βάση<b>.</b>πίνακας):"
+msgstr "Αντιγραφή πίνακα σε (βάση δεδομένων<b>.</b>πίνακας)"
 
 #: libraries/operations.lib.php:1010
 msgid "Switch to copied table"
@@ -10049,7 +10046,7 @@ msgstr "Στημένη δομή για προβολή"
 
 #: libraries/plugins/export/ExportJson.class.php:70
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Προϊόν όμορφα εκτυπώσιμου JSON (Χρήση μορφής ανθρωπίνως αναγνώσιμης)"
 
 #: libraries/plugins/export/ExportLatex.class.php:43
 msgid "Content of table @TABLE@"
@@ -10542,22 +10539,19 @@ msgid "Data Dictionary"
 msgstr "Περιληπτικός πίνακας δεδομένων"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "κανένα από τα παραπάνω"
+msgstr "Ταξινόμηση των πινάκων"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Αύξουσα"
+msgstr "Όνομα (Αύξουσα)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Φθίνουσα"
+msgstr "Όνομα (Φθίνουσα)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:68
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:81
