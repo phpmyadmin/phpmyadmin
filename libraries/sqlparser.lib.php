@@ -849,7 +849,7 @@ function PMA_SQP_parse($sql)
                 $t_suffix = '_reservedWord';
             } elseif (isset($PMA_SQPdata_column_attrib[$d_cur_upper])) {
                 $t_suffix = '_columnAttrib';
-                // INNODB is a MySQL table type, but in "SHOW INNODB STATUS",
+                // INNODB is a MySQL table type, but in "SHOW ENGINE INNODB STATUS",
                 // it should be regarded as a reserved word.
                 if ($d_cur_upper == 'INNODB'
                     && $d_prev_upper == 'SHOW'
