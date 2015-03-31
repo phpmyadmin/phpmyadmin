@@ -1184,5 +1184,13 @@ if (! defined('PMA_MINIMUM_COMMON')
             PMA_fixPMATables($GLOBALS['db'], false);
         }
     }
+    $cfgRelation = PMA_getRelationsParam();
+    if (empty($cfgRelation['db'])) {
+        foreach ($GLOBALS['pma']->databases as $database) {
+            if ($database == 'phpmyadmin') {
+                PMA_fixPMATables($database, false);
+            }
+        }
+    }
 }
 ?>
