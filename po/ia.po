@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:56-0400\n"
-"PO-Revision-Date: 2015-03-22 21:16+0200\n"
+"PO-Revision-Date: 2015-03-31 11:29+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -48,7 +48,7 @@ msgstr "Le base de datos %1$s ha essite create."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment"
-msgstr "Commento del base de datos:"
+msgstr "Commento del base de datos"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -690,7 +690,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importation executate con successo, %d demandas executate."
 
 #: import.php:685
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -698,15 +698,15 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Tempore limite excedite pro le exutation del script, si tu vole terminal le "
-"importation, tu invia de nove le file e le processo initiara de nove."
+"Tempore limite excedite, si tu vole terminar le importation, pro favor %stu "
+"invia de nove le mesme file%s e le processo initiara de nove."
 
 #: import.php:695
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"Il le ultimeexecutation on non tractava alcun dato, usualmente isto "
+"Il le ultime executation on non tractava alcun dato, usualmente isto "
 "significa que le tempore limite ponite in le configuration es troppo basse "
 "pro permitter a phpMyAdmin terminar le operation."
 
@@ -1708,10 +1708,9 @@ msgid "Processing Request"
 msgstr "Requesta de tractamento"
 
 #: js/messages.php:261
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request Failed!!"
-msgstr "Requesta abortate!"
+msgstr "Requesta fallite!"
 
 #: js/messages.php:262
 msgid "Error in Processing Request"
@@ -1871,10 +1870,10 @@ msgid "No auto-saved query"
 msgstr "Nulle query auto-salveguardate"
 
 #: js/messages.php:310
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Variabile"
+msgstr "Variabile %d:"
 
 #: js/messages.php:313 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -3083,10 +3082,9 @@ msgstr ""
 "Pro facer iste permanente, vide preferentias."
 
 #: libraries/Console.class.php:320
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Commuta a tabella copiate"
+msgstr "Commuta a thema obscur"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
 #: libraries/DisplayResults.class.php:2143
@@ -4881,7 +4879,7 @@ msgstr "Attributo"
 #: libraries/central_columns.lib.php:709
 #: libraries/central_columns.lib.php:1207
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -5675,7 +5673,7 @@ msgstr "Maxime tempore de execution"
 #: libraries/config/messages.inc.php:113 libraries/display_export.lib.php:662
 #, php-format
 msgid "Use %s statement"
-msgstr ""
+msgstr "Usa le instruction %s"
 
 #: libraries/config/messages.inc.php:115 prefs_manage.php:316
 msgid "Save as file"
@@ -7970,10 +7968,9 @@ msgid "Toggle"
 msgstr ""
 
 #: libraries/db_designer.lib.php:613
-#, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
-msgstr "Structura de tabella"
+msgstr "Vide le structura de tabella"
 
 #: libraries/db_designer.lib.php:869
 msgid "Delete relation"
@@ -9653,7 +9650,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:174
 msgid "Copy database to"
-msgstr "Copia base de datos in:"
+msgstr "Copia base de datos in"
 
 #: libraries/operations.lib.php:185
 msgid "CREATE DATABASE before copying"
@@ -10498,22 +10495,19 @@ msgid "Data Dictionary"
 msgstr "Dictionario de datos"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "necun del precedentes"
+msgstr "Ordine del tabellas"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Ascendente"
+msgstr "Nomine (Ascendente)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Descendente"
+msgstr "Nomine (Descendente)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:68
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:81
