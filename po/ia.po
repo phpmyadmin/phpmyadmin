@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-03-15 22:07+0200\n"
+"PO-Revision-Date: 2015-03-31 11:26+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/4-"
-"4/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -689,7 +689,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importation executate con successo, %d demandas executate."
 
 #: import.php:665
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -697,15 +697,15 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Tempore limite excedite pro le exutation del script, si tu vole terminal le "
-"importation, tu invia de nove le file e le processo initiara de nove."
+"Tempore limite excedite, si tu vole terminar le importation, pro favor %stu "
+"invia de nove le mesme file%s e le processo initiara de nove."
 
 #: import.php:675
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"Il le ultimeexecutation on non tractava alcun dato, usualmente isto "
+"Il le ultime executation on non tractava alcun dato, usualmente isto "
 "significa que le tempore limite ponite in le configuration es troppo basse "
 "pro permitter a phpMyAdmin terminar le operation."
 
@@ -1706,10 +1706,9 @@ msgid "Processing Request"
 msgstr "Requesta de tractamento"
 
 #: js/messages.php:261
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request Failed!!"
-msgstr "Requesta abortate!"
+msgstr "Requesta fallite!"
 
 #: js/messages.php:262
 msgid "Error in Processing Request"
