@@ -94,7 +94,7 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
-        'query' => 'SHOW INNODB STATUS;',
+        'query' => 'SHOW ENGINE INNODB STATUS;',
         'result' => false,
     ),
     array(
