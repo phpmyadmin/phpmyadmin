@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - bug       Missing sort icons in monitor
 - bug #4805 Inline edit broken when using functions in query
 - bug #4821 Timed-out import fails to restart when file represented
+- bug #4754 pMA DB not detected properly
 
 4.4.0.0 (not yet released)
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
