@@ -15,7 +15,7 @@ phpMyAdmin - ChangeLog
 - bug #4825 Datepicker missing when changing number of rows on Insert page
 - bug #4824 INNODB STATUS page is empty
 
-4.4.0.0 (not yet released)
+4.4.0.0 (2015-04-01)
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
 + rfe #1562 Allow tracking multiple table at once from database level tracking page
 + rfe #1564 Improve action message on Tracking page
