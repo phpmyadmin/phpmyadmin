@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:56-0400\n"
-"PO-Revision-Date: 2015-04-01 08:42+0200\n"
+"PO-Revision-Date: 2015-04-01 14:54+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
@@ -44,7 +44,7 @@ msgstr "Databáza %1$s bola vytvorená."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment"
-msgstr "Komentár k databáze:"
+msgstr "Komentár k databáze"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -827,7 +827,6 @@ msgid "List of changes"
 msgstr "Zoznam zmien"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -839,10 +838,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"Konfiguračný súbor obsahuje nastavenia (root bez hesla), ktoré zodpovedajú "
-"predvolenému privilegovanému MySQL účtu. Ak MySQL server beží s týmto "
-"nastavením, nie je zabezpečený proti napadnutiu, táto bezpečnostná chyba by "
-"mala byť urýchlene odstránená nastavením hesla pre užívateľa 'root'."
+"Ste pripojený ako 'root' bez hesla, čo zodpovedá predvolenému "
+"privilegovanému MySQL účtu. Ak MySQL server beží s týmto nastavením, nie je "
+"zabezpečený proti napadnutiu, táto bezpečnostná chyba by mala byť urýchlene "
+"odstránená nastavením hesla pre užívateľa 'root'."
 
 #: index.php:464
 msgid ""
@@ -1853,10 +1852,10 @@ msgid "No auto-saved query"
 msgstr ""
 
 #: js/messages.php:310
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Premenná"
+msgstr "Premenná %d:"
 
 #: js/messages.php:313 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -2166,10 +2165,9 @@ msgstr "Uložiť stránku"
 
 #: js/messages.php:421 libraries/db_designer.lib.php:297
 #: libraries/db_designer.lib.php:300
-#, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "Uložiť stránku"
+msgstr "Uložiť stránku ako"
 
 #: js/messages.php:422 libraries/db_designer.lib.php:281
 #: libraries/db_designer.lib.php:284
@@ -3023,10 +3021,9 @@ msgid ""
 msgstr ""
 
 #: libraries/Console.class.php:320
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Prepnúť na skopírovanú tabuľku"
+msgstr "Prepnúť na tmavú tému"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
 #: libraries/DisplayResults.class.php:2143
@@ -5497,16 +5494,14 @@ msgid "Default table tab"
 msgstr "Východzí panel tabuľky"
 
 #: libraries/config/messages.inc.php:94
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Použiť opačný apostrof pri názvoch tabuliek a polí"
+msgstr "Automatické dopĺňanie názvov tabuliek a stĺpcov v SQL dopytoch."
 
 #: libraries/config/messages.inc.php:95
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Použiť opačný apostrof pri názvoch tabuliek a polí"
+msgstr "Povoliť automatické dopĺňanie názvov tabuliek a stĺpcov"
 
 #: libraries/config/messages.inc.php:97
 msgid "Whether the table structure actions should be hidden."
@@ -6148,10 +6143,9 @@ msgid "Partial import: allow interrupt"
 msgstr "Čiastočný import: povoliť prerušenie"
 
 #: libraries/config/messages.inc.php:338
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Temporarily disable foreign key checks while importing"
-msgstr "Vypnúť kontrolu cudzích kľúčov"
+msgstr "Dočasne vypnúť kontrolu cudzích kľúčov počas importu"
 
 #: libraries/config/messages.inc.php:345 libraries/config/messages.inc.php:355
 #: libraries/plugins/import/ImportCsv.class.php:89
@@ -6483,7 +6477,7 @@ msgstr "Povoliť zvýrazňovanie"
 #: libraries/config/messages.inc.php:479
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
+msgstr "Či sa má ponúknuť možnosť rozbaľovania stromu v navigačnom paneli."
 
 #: libraries/config/messages.inc.php:481
 #| msgid "Table navigation bar"
@@ -7794,10 +7788,9 @@ msgid "Toggle"
 msgstr ""
 
 #: libraries/db_designer.lib.php:613
-#, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
-msgstr "Štruktúra tabuľky"
+msgstr "Zobraziť štruktúru tabuľky"
 
 #: libraries/db_designer.lib.php:869
 msgid "Delete relation"
@@ -8162,13 +8155,11 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:332
-#, fuzzy
 #| msgid "Options"
 msgid "Other Options:"
-msgstr "Nastavenia"
+msgstr "Ďalšie nastavenia:"
 
 #: libraries/display_import.lib.php:338
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable foreign key check"
 msgstr "Vypnúť kontrolu cudzích kľúčov"
@@ -9395,7 +9386,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:74
 msgid "Rename database to"
-msgstr "Premenovať databázu na:"
+msgstr "Premenovať databázu na"
 
 #: libraries/operations.lib.php:106
 #, php-format
@@ -9427,7 +9418,7 @@ msgstr "Iba dáta"
 
 #: libraries/operations.lib.php:174
 msgid "Copy database to"
-msgstr "Skopírovať databázu do:"
+msgstr "Skopírovať databázu do"
 
 #: libraries/operations.lib.php:185
 msgid "CREATE DATABASE before copying"
@@ -9451,7 +9442,7 @@ msgstr "(po jednom)"
 
 #: libraries/operations.lib.php:621
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Presunúť tabuľku do (databáza<b>.</b>tabuľka):"
+msgstr "Presunúť tabuľku do (databáza<b>.</b>tabuľka)"
 
 #: libraries/operations.lib.php:732
 msgid "Table options"
@@ -9471,7 +9462,7 @@ msgstr "Úložný Systém"
 
 #: libraries/operations.lib.php:955
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Skopírovať tabuľku do (databáza<b>.</b>tabuľka):"
+msgstr "Skopírovať tabuľku do (databáza<b>.</b>tabuľka)"
 
 #: libraries/operations.lib.php:1010
 msgid "Switch to copied table"
@@ -10263,22 +10254,19 @@ msgid "Data Dictionary"
 msgstr "Dátový slovník"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "žiadny z vyššie uvedených"
+msgstr "Triedenie tabuliek"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Vzostupne"
+msgstr "Meno (Vzostupne)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Zostupne"
+msgstr "Meno (Zostupne)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:68
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:81
@@ -13888,10 +13876,9 @@ msgid "Display column was successfully updated."
 msgstr "Vlákno %s bol úspešne zabité."
 
 #: libraries/tbl_relation.lib.php:911
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relations were successfully updated."
-msgstr "Bol pridaný interný vzťah"
+msgstr "Interné vzťahy boli úspešne zmenené."
 
 #: libraries/tbl_relation.lib.php:1176
 #, php-format
