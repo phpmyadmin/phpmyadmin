@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:56-0400\n"
-"PO-Revision-Date: 2015-03-26 15:42+0200\n"
+"PO-Revision-Date: 2015-04-01 17:21+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -686,7 +686,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "L'importation s'est terminée avec succès, %d requêtes exécutées."
 
 #: import.php:685
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -694,8 +694,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"La limite de temps a été atteinte; si vous voulez terminer l'importation, "
-"soumettez à nouveau le même fichier et l'importation continuera."
+"La limite de temps a été atteinte; si vous voulez terminer l'importation, %"
+"ssoumettez à nouveau%s le même fichier et l'importation continuera."
 
 #: import.php:695
 msgid ""
@@ -7928,13 +7928,12 @@ msgstr "Nombre de tables : "
 
 #: libraries/db_designer.lib.php:590
 msgid "Toggle"
-msgstr ""
+msgstr "Activer/désactiver"
 
 #: libraries/db_designer.lib.php:613
-#, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
-msgstr "Structure de table"
+msgstr "Voir la structure de la table"
 
 #: libraries/db_designer.lib.php:869
 msgid "Delete relation"
@@ -10536,22 +10535,19 @@ msgid "Data Dictionary"
 msgstr "Dictionnaire de données"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "aucun des choix ci-haut"
+msgstr "Ordre des tables"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Croissant"
+msgstr "Nom (ordre croissant)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Décroissant"
+msgstr "Nom (ordre décroissant)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:68
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:81
