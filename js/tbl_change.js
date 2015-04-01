@@ -638,9 +638,9 @@ AJAX.registerOnload('tbl_change.js', function () {
                 curr_rows--;
             }
         }
+        // Add all the required datepickers back
+        addDateTimePicker();
     });
-    // Add all the required datepickers back
-    addDateTimePicker();
 
     /**
      * @var $function_option_dialog object holds dialog for selected function options.
