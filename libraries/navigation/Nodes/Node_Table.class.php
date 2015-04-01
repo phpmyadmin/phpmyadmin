@@ -31,23 +31,9 @@ class Node_Table extends Node_DatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        switch($GLOBALS['cfg']['NavigationTreeDefaultTabTable']) {
-        case 'tbl_structure.php':
-            $this->icon  = PMA_Util::getImage('b_props.png', __('Structure'));
-            break;
-        case 'tbl_select.php':
-            $this->icon  = PMA_Util::getImage('b_search.png', __('Search'));
-            break;
-        case 'tbl_change.php':
-            $this->icon  = PMA_Util::getImage('b_insrow.png', __('Insert'));
-            break;
-        case 'tbl_sql.php':
-            $this->icon  = PMA_Util::getImage('b_sql.png',  __('SQL'));
-            break;
-        case 'sql.php':
-            $this->icon  = PMA_Util::getImage('b_browse.png', __('Browse'));
-            break;
-        }
+        $this->icon = array();
+        $this->_addIcon($GLOBALS['cfg']['NavigationTreeDefaultTabTable']);
+        $this->_addIcon($GLOBALS['cfg']['NavigationTreeDefaultTabTable2']);
         switch($GLOBALS['cfg']['DefaultTabTable']) {
         case 'tbl_structure.php':
             $this->title = __('Structure');
@@ -70,10 +56,16 @@ class Node_Table extends Node_DatabaseChild
                     . '?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
                     . '&amp;pos=0&amp;token=' . $_SESSION[' PMA_token '],
-            'icon' => $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
-                    . '?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;table=%1$s&amp;token='
-                    . $_SESSION[' PMA_token '],
+            'icon' => array(
+                $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
+                . '?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;table=%1$s&amp;token='
+                . $_SESSION[' PMA_token '],
+                $GLOBALS['cfg']['NavigationTreeDefaultTabTable2']
+                . '?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;table=%1$s&amp;token='
+                . $_SESSION[' PMA_token ']
+            ),
             'title' => $this->title
         );
         $this->classes = 'table';
@@ -264,6 +256,38 @@ class Node_Table extends Node_DatabaseChild
     protected function getItemType()
     {
         return 'table';
+    }
+
+    /**
+     * Add an icon to navigation tree
+     *
+     * @param string $page Page name to redirect
+     *
+     * @return void
+     */
+    private function _addIcon($page)
+    {
+        if (empty($page)) {
+            return;
+        }
+
+        switch ($page) {
+        case 'tbl_structure.php':
+            $this->icon[] = PMA_Util::getImage('b_props.png', __('Structure'));
+            break;
+        case 'tbl_select.php':
+            $this->icon[] = PMA_Util::getImage('b_search.png', __('Search'));
+            break;
+        case 'tbl_change.php':
+            $this->icon[] = PMA_Util::getImage('b_insrow.png', __('Insert'));
+            break;
+        case 'tbl_sql.php':
+            $this->icon[] = PMA_Util::getImage('b_sql.png', __('SQL'));
+            break;
+        case 'sql.php':
+            $this->icon[] = PMA_Util::getImage('b_browse.png', __('Browse'));
+            break;
+        }
     }
 }
 

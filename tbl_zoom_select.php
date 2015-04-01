@@ -30,6 +30,7 @@ $scripts->addFile('jqplot/plugins/jqplot.cursor.js');
 $scripts->addFile('canvg/canvg.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('tbl_zoom_plot_jqplot.js');
+$scripts->addFile('tbl_change.js');
 
 $table_search = new PMA_TableSearch($db, $table, "zoom");
 

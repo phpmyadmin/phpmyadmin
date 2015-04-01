@@ -40,6 +40,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['lang'] = "en";
+        $GLOBALS['text_dir'] = "ltr";
         $GLOBALS['available_languages'] = array(
             "en" => array("English", "US-ENGLISH"),
             "ch" => array("Chinese", "TW-Chinese")

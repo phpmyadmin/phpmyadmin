@@ -85,6 +85,16 @@ Basic settings
 
     You can set this parameter to ``true`` to stop this message from appearing.
 
+.. config:option:: $cfg['LoginCookieValidityDisableWarning']
+
+    :type: boolean
+    :default: false
+
+    A warning is displayed on the main page if the PHP parameter
+    session.gc_maxlifetime is lower than cookie validity configured in phpMyAdmin.
+
+    You can set this parameter to ``true`` to stop this message from appearing.
+
 .. config:option:: $cfg['ServerLibraryDifference_DisableWarning']
 
     :type: boolean
@@ -608,7 +618,7 @@ Server connection settings
     transformation system to work. phpMyAdmin will upgrade it automatically
     for you by analyzing your current column\_info table structure.
     However, if something goes wrong with the auto-upgrade then you can
-    use the SQL script found in ``./examples/upgrade_column_info_4_3_0+.sql``
+    use the SQL script found in ``./sql/upgrade_column_info_4_3_0+.sql``
     to upgrade it manually.
 
     To allow the usage of this functionality:
@@ -628,7 +638,7 @@ Server connection settings
            ADD `transformation` VARCHAR( 255 ) NOT NULL,
            ADD `transformation_options` VARCHAR( 255 ) NOT NULL;
     * to update your PRE-4.3.0 Column\_info table manually use this
-      ``./examples/upgrade_column_info_4_3_0+.sql`` SQL script.
+      ``./sql/upgrade_column_info_4_3_0+.sql`` SQL script.
 
     .. note::
 
@@ -893,6 +903,18 @@ Server connection settings
     (referring to tables which no longer exist). We only keep this number of newest
     rows in :config:option:`$cfg['Servers'][$i]['table_uiprefs']` and automatically
     delete older rows.
+
+.. config:option:: $cfg['Servers'][$i]['SessionTimeZone']
+
+    :type: string
+    :default: ``''``
+
+    Sets the time zone used by phpMyAdmin. Leave blank to use the time zone of your
+    database server. Possible values are explained at
+    http://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
+
+    This is useful when your database server uses a time zone which is different from the
+    time zone you want to use in phpMyAdmin.
 
 .. config:option:: $cfg['Servers'][$i]['AllowRoot']
 
@@ -1362,8 +1384,19 @@ Cookie authentication options
     .. note::
 
         Please use this carefully, as this may allow users access to MySQL servers
-        behind the firewall where your :term:`HTTP`
-        server is placed.
+        behind the firewall where your :term:`HTTP` server is placed.
+        See also :config:option:`$cfg['ArbitraryServerRegexp']`.
+
+.. config:option:: $cfg['ArbitraryServerRegexp']
+
+    :type: string
+    :default: ``''``
+
+    Restricts the MySQL servers to which the user can log in when
+    :config:option:`$cfg['AllowArbitraryServer']` is enabled by
+    matching the :term:`IP` or the hostname of the MySQL server
+    to the given regular expression. The regular expression must be enclosed
+    with a delimiter character.
 
 .. config:option:: $cfg['CaptchaLoginPublicKey']
 
@@ -1388,10 +1421,17 @@ Cookie authentication options
 Navigation panel setup
 ----------------------
 
+.. config:option:: $cfg['ShowDatabasesNavigationAsTree']
+
+    :type: boolean
+    :default: true
+
+    In the navigation panel, replaces the database tree with a selector
+
 .. config:option:: $cfg['FirstLevelNavigationItems']
 
     :type: integer
-    :default: 25
+    :default: 100
 
     The number of first level databases that can be displayed on each page
     of navigation tree.
@@ -1548,12 +1588,27 @@ Navigation panel setup
     * ``tbl_change.php``
     * ``sql.php``
 
-.. config:option:: $cfg['NavigationTreeDisableDatabaseExpansion']
+.. config:option:: $cfg['NavigationTreeDefaultTabTable2']
+
+    :type: string
+    :default: null
+
+    Defines the tab displayed by default when clicking the second small icon next
+    to each table name in the navigation panel. Possible values:
+
+    * ``(empty)``
+    * ``tbl_structure.php``
+    * ``tbl_sql.php``
+    * ``tbl_select.php``
+    * ``tbl_change.php``
+    * ``sql.php``
+
+.. config:option:: $cfg['NavigationTreeEnableExpansion']
 
     :type: boolean
     :default: false
 
-    Whether or not to disable the possibility of databases expansion in the navigation panel
+    Whether to offer the possibility of tree expansion in the navigation panel.
 
 Main panel
 ----------
@@ -1655,6 +1710,16 @@ Browse mode
     Defines whether the table navigation links contain ``'icons'``, ``'text'``
     or ``'both'``.
 
+.. config:option:: $cfg['ActionLinksMode']
+
+    :type: string
+    :default: ``'both'``
+
+    If set to ``icons``, will display icons instead of text for db and table
+    properties links (like :guilabel:`Browse`, :guilabel:`Select`,
+    :guilabel:`Insert`, ...). Can be set to ``'both'``
+    if you want icons AND text. When set to ``text``, will only show text.
+
 .. config:option:: $cfg['ShowAll']
 
     :type: boolean
@@ -1689,7 +1754,15 @@ Browse mode
     :default: ``'double-click'``
 
     Defines which action (``double-click`` or ``click``) triggers grid
-    editing. Can be deactived with the ``disabled`` value.
+    editing. Can be deactivated with the ``disabled`` value.
+
+.. config:option:: $cfg['RelationalDisplay']
+
+    :type: string
+    :default: ``'K'``
+
+    Defines the initial behavior for Options > Relational. ``K``, which
+    is the default, displays the key while ``D`` shows the display column.
 
 .. config:option:: $cfg['SaveCellsAtOnce']
 
@@ -1834,16 +1907,6 @@ Tabs display settings
     :default: ``'both'``
 
     Defines whether the menu tabs contain ``'icons'``, ``'text'`` or ``'both'``.
-
-.. config:option:: $cfg['ActionLinksMode']
-
-    :type: string
-    :default: ``'both'``
-
-    If set to ``icons``, will display icons instead of text for db and table
-    properties links (like :guilabel:`Browse`, :guilabel:`Select`,
-    :guilabel:`Insert`, ...). Can be set to ``'both'``
-    if you want icons AND text. When set to ``text``, will only show text.
 
 .. config:option:: $cfg['PropertiesNumColumns']
 
@@ -2252,18 +2315,6 @@ Design customization
     the left side, right side, both sides or nowhere). "left" and "right"
     are parsed as "top" and "bottom" with vertical display mode.
 
-.. config:option:: $cfg['DefaultDisplay']
-
-    :type: string
-    :default: ``'horizontal'``
-
-    There are 3 display modes: horizontal, horizontalflipped and vertical.
-    Define which one is displayed by default. The first mode displays each
-    row on a horizontal line, the second rotates the headers by 90
-    degrees, so you can use descriptive headers even though columns only
-    contain small values and still print them out. The vertical mode sorts
-    each row on a vertical lineup.
-
 .. config:option:: $cfg['RememberSorting']
 
     :type: boolean
@@ -2279,19 +2330,6 @@ Design customization
     This defines the default sort order for the tables, having a primary key,
     when there is no sort order defines externally.
     Acceptable values : ['NONE', 'ASC', 'DESC']
-
-.. config:option:: $cfg['HeaderFlipType']
-
-    :type: string
-    :default: ``'auto'``
-
-    The HeaderFlipType can be set to 'auto', 'css' or 'fake'. When using
-    'css' the rotation of the header for horizontalflipped is done via
-    CSS. The CSS transformation currently works only in Internet
-    Explorer.If set to 'fake' PHP does the transformation for you, but of
-    course this does not look as good as CSS. The 'auto' option enables
-    CSS transformation when browser supports it and use PHP based one
-    otherwise.
 
 .. config:option:: $cfg['ShowBrowseComments']
 
@@ -2515,14 +2553,6 @@ Web server upload/save/import directories
 
 Various display setting
 -----------------------
-
-.. config:option:: $cfg['ShowDisplayDirection']
-
-    :type: boolean
-    :default: false
-
-    Defines whether or not type display direction option is shown when
-    browsing a table.
 
 .. config:option:: $cfg['RepeatCells']
 

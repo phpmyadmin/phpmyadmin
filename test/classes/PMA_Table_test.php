@@ -469,7 +469,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         //type is BIT
         $name = "PMA_name";
         $type = "BIT";
-        $index = "PMA_index";
         $length = '12';
         $attribute = 'PMA_attribute';
         $collation = 'PMA_collation';
@@ -479,13 +478,12 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $extra = 'AUTO_INCREMENT';
 
         $comment = 'PMA_comment';
-        $field_primary = array("field_primary1", "field_primary2");
         $move_to = '-first';
 
         $query = PMA_Table::generateFieldSpec(
-            $name, $type, $index, $length, $attribute, $collation,
+            $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $field_primary, $move_to
+            $move_to
         );
         $this->assertEquals(
             "`PMA_name` BIT(12) PMA_attribute NULL DEFAULT b'10' "
@@ -496,9 +494,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         //type is DOUBLE
         $type = "DOUBLE";
         $query = PMA_Table::generateFieldSpec(
-            $name, $type, $index, $length, $attribute, $collation,
+            $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $field_primary, $move_to
+            $move_to
         );
         $this->assertEquals(
             "`PMA_name` DOUBLE(12) PMA_attribute NULL DEFAULT '12' "
@@ -509,9 +507,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         //type is BOOLEAN
         $type = "BOOLEAN";
         $query = PMA_Table::generateFieldSpec(
-            $name, $type, $index, $length, $attribute, $collation,
+            $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $field_primary, $move_to
+            $move_to
         );
         $this->assertEquals(
             "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT TRUE "
@@ -522,9 +520,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         //$default_type is NULL
         $default_type = 'NULL';
         $query = PMA_Table::generateFieldSpec(
-            $name, $type, $index, $length, $attribute, $collation,
+            $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $field_primary, $move_to
+            $move_to
         );
         $this->assertEquals(
             "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT NULL "
@@ -535,9 +533,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         //$default_type is CURRENT_TIMESTAMP
         $default_type = 'CURRENT_TIMESTAMP';
         $query = PMA_Table::generateFieldSpec(
-            $name, $type, $index, $length, $attribute, $collation,
+            $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $field_primary, $move_to
+            $move_to
         );
         $this->assertEquals(
             "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP "
@@ -550,9 +548,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $extra = 'INCREMENT';
         $move_to = '-first';
         $query = PMA_Table::generateFieldSpec(
-            $name, $type, $index, $length, $attribute, $collation,
+            $name, $type, $length, $attribute, $collation,
             $null, $default_type,  $default_value, $extra, $comment,
-            $field_primary, $move_to
+            $move_to
         );
         $this->assertEquals(
             "`PMA_name` BOOLEAN PMA_attribute NULL INCREMENT "
@@ -712,14 +710,12 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $default_value = 'VARCHAR';
         $extra = 'AUTO_INCREMENT';
         $comment = 'PMA comment';
-        $field_primary = 'new_name';
-        $index = array('new_name');
         $move_to = 'new_name';
 
         $result = PMA_Table::generateAlter(
             $oldcol, $newcol, $type, $length,
             $attribute, $collation, $null, $default_type, $default_value,
-            $extra, $comment, $field_primary, $index, $move_to
+            $extra, $comment, $move_to
         );
 
         $expect = "";

@@ -6,7 +6,9 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/properties/options/groups/OptionsPropertyRootGroup.class.php';
+require_once 'libraries/properties/options/groups/'
+    . 'OptionsPropertyRootGroup.class.php';
+
 /**
  * tests for OptionsPropertyRootGroup class
  *

@@ -57,8 +57,6 @@ if (! empty($goto)) {
     $is_gotofile  = true;
 } // end if
 
-/** @var PMA_String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
         . '?' . PMA_URL_getCommon(array('db' => $GLOBALS['db']))
@@ -190,7 +188,6 @@ PMA_executeQueryAndSendQueryResponse(
     isset($extra_data) ? $extra_data : null,
     $is_affected,
     isset($message_to_show) ? $message_to_show : null,
-    isset($disp_mode) ? $disp_mode : null,
     isset($message) ? $message : null,
     isset($sql_data) ? $sql_data : null,
     $goto,

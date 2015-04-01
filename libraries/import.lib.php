@@ -894,9 +894,6 @@ function PMA_analyzeTable(&$table)
         $types[$i] = NONE;
     }
 
-    /* Temp vars */
-    $curr_type = NONE;
-
     /* If the passed array is not of the correct form, do not process it */
     if (!is_array($table)
         || is_array($table[TBL_NAME])

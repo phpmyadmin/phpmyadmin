@@ -79,6 +79,12 @@ AJAX.registerOnload('export.js', function () {
             $("#checkbox_sql_relation").removeProp('disabled').parent().fadeTo('fast', 1);
             $("#checkbox_sql_mime").removeProp('disabled').parent().fadeTo('fast', 1);
         }
+
+        if (show == 'structure') {
+            $('#checkbox_sql_auto_increment').prop('disabled', true).parent().fadeTo('fast', 0.4);
+        } else {
+            $("#checkbox_sql_auto_increment").removeProp('disabled').parent().fadeTo('fast', 1);
+        }
     });
 });
 
@@ -204,7 +210,7 @@ AJAX.registerOnload('export.js', function () {
  */
 function toggle_quick_or_custom()
 {
-    if ($("input[name='quick_or_custom']").length == 0 // custom_no_form option
+    if ($("input[name='quick_or_custom']").length === 0 // custom_no_form option
         || $("#radio_custom_export").prop("checked") // custom
     ) {
         $("#databases_and_tables").show();
@@ -317,6 +323,7 @@ function createAliasModal(event) {
     $('#alias_modal input[type="text"]').prop('disabled', false);
     $('#alias_modal').dialog({
         width: Math.min($(window).width() - 100, 700),
+        maxHeight: $(window).height(),
         modal: true,
         dialogClass: "alias-dialog",
         buttons: dlgButtons,
@@ -334,9 +341,9 @@ function createAliasModal(event) {
                     isEmpty = false;
                 }
             });
-            $('input#btn_alias_config').attr('checked', !isEmpty);
+            $('input#btn_alias_config').prop('checked', !isEmpty);
         },
-        position: 'center'
+        position: { my: "center top", at: "center top", of: window }
     });
     // Call change event of .table_alias_select
     $('.table_alias_select:visible').trigger('change');

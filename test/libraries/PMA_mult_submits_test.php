@@ -458,7 +458,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         //validate 2: $reload
         $this->assertEquals(
-            null,
+            false,
             $reload
         );
 

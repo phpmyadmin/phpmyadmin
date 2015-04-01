@@ -1086,6 +1086,9 @@ div#dataDisplay select {
 div#dataDisplay th {
     line-height: 2em;
 }
+table#tableFieldsId {
+    width: 100%;
+}
 
 /* Calendar */
 table.calendar {
@@ -1278,7 +1281,7 @@ div#tablestatistics table {
     float: <?php echo $left; ?>;
 }
 
-#fieldset_user_global_rights legend input {
+#fieldset_user_global_rights>legend input {
     margin-<?php echo $left; ?>: 2em;
 }
 /* end user privileges */
@@ -1453,9 +1456,10 @@ div#queryAnalyzerDialog table.queryNums {
 
 /* server variables */
 #serverVariables {
-    min-width: 30em;
+    table-layout: fixed;
+    width: 100%;
 }
-#serverVariables .var-row > div {
+#serverVariables .var-row > td {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1467,15 +1471,17 @@ div#queryAnalyzerDialog table.queryNums {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
     font-weight: bold;
 }
-#serverVariables .var-header .var-value {
+#serverVariables .var-header {
     text-align: <?php echo $left; ?>;
 }
 #serverVariables .var-row {
     padding: 0.5em;
     min-height: 18px;
 }
+#serverVariables .var-action {
+    width: 120px;
+}
 #serverVariables .var-name {
-    width: 45%;
     float: <?php echo $left; ?>;
     font-weight: bold;
 }
@@ -1822,7 +1828,7 @@ div.sqlvalidate {
     overflow: auto;
 }
 
-#result_query div.sqlOuter {
+.result_query div.sqlOuter {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     padding: 1em;
 }
@@ -2173,6 +2179,7 @@ input#input_import_file {
 #index_frm .index_info input,
 #index_frm .index_info select {
     width: 14em;
+    margin: 0;
     box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -2239,10 +2246,6 @@ table#index_columns select {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
-}
-
-.margin#change_column_dialog {
-    margin: 0 .5em;
 }
 
 /* config forms */
@@ -2528,6 +2531,10 @@ fieldset .disabled-field td {
 .toggleButton .container {
     position: absolute;
 }
+.toggleButton .container td {
+    background-image: none;
+    background: none;
+}
 .toggleButton .toggleOn {
     color: #fff;
     padding: 0 1em;
@@ -2636,6 +2643,10 @@ fieldset .disabled-field td {
 .pma_table tbody td span {
     display: block;
     overflow: hidden;
+}
+
+.pma_table tbody td span code span {
+    display: inline;
 }
 
 .pma_table th.draggable.right span {
@@ -2945,7 +2956,7 @@ div#page_content form#db_search_form.ajax fieldset {
     margin-top: -0.3em;
 }
 
-div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div#result_query {
+div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {
     margin-top: 1em;
 }
 

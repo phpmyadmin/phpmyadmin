@@ -84,23 +84,6 @@ class Table_Stats_Pdf extends TableStats
     }
 
     /**
-     * Displays an error on missing coordinates
-     *
-     * @return void
-     */
-    protected function showMissingCoordinatesError()
-    {
-        PMA_Export_Relation_Schema::dieSchema(
-            $this->pageNumber,
-            "PDF",
-            sprintf(
-                __('Please configure the coordinates for table %s'),
-                $this->tableName
-            )
-        );
-    }
-
-    /**
      * Returns title of the current table,
      * title can have the dimensions of the table
      *

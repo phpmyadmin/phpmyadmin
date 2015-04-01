@@ -15,6 +15,10 @@
 function checkIndexType()
 {
     /**
+     * @var Object Dropdown to select the index choice.
+     */
+    $select_index_choice = $('#select_index_choice');
+    /**
      * @var Object Dropdown to select the index type.
      */
     $select_index_type = $('#select_index_type');
@@ -33,9 +37,9 @@ function checkIndexType()
     /**
      * @var Object Footer containg the controllers to add more columns
      */
-    $add_more = $('#index_frm .tblFooters');
+    $add_more = $('#index_frm .add_more');
 
-    if ($select_index_type.val() == 'SPATIAL') {
+    if ($select_index_choice.val() == 'SPATIAL') {
         // Disable and hide the size column
         $size_header.hide();
         $size_inputs.each(function () {
@@ -78,22 +82,29 @@ function checkIndexType()
         // Show controllers to add more columns
         $add_more.show();
     }
+
+    if ($select_index_choice.val() == 'SPATIAL' ||
+            $select_index_choice.val() == 'FULLTEXT') {
+        $select_index_type.val('').prop('disabled', true);
+    } else {
+        $select_index_type.prop('disabled', false)
+    }
 }
 
 /**
  * Sets current index information into form parameters.
  *
  * @param array  source_array Array containing index columns
- * @param string index_type   Type of index
+ * @param string index_choice Choice of index
  *
  * @return void
  */
-function PMA_setIndexFormParameters(source_array, index_type)
+function PMA_setIndexFormParameters(source_array, index_choice)
 {
-    if (index_type == 'index') {
+    if (index_choice == 'index') {
         $('input[name="indexes"]').val(JSON.stringify(source_array));
     } else {
-        $('input[name="' + index_type + '_indexes"]').val(JSON.stringify(source_array));
+        $('input[name="' + index_choice + '_indexes"]').val(JSON.stringify(source_array));
     }
 }
 
@@ -153,17 +164,20 @@ function PMA_removeColumnFromIndex(col_index)
  *
  * @param array  source_array Array holding corresponding indexes
  * @param string array_index  Index of an INDEX in array
- * @param string index_type   Type of Index
+ * @param string index_choice Choice of Index
  * @param string col_index    Index of column on form
  *
  * @return void
  */
-function PMA_addColumnToIndex(source_array, array_index, index_type, col_index)
+function PMA_addColumnToIndex(source_array, array_index, index_choice, col_index)
 {
     // Remove column from other indexes (if any).
     PMA_removeColumnFromIndex(col_index);
     var index_name = $('input[name="index[Key_name]"]').val();
     var index_comment = $('input[name="index[Index_comment]"]').val();
+    var key_block_size = $('input[name="index[Key_block_size]"]').val();
+    var parser = $('input[name="index[Parser]"]').val();
+    var index_type = $('select[name="index[Index_type]"]').val();
     var columns = [];
     $('#index_columns tbody').find('tr').each(function () {
         // Get columns in particular order.
@@ -179,20 +193,23 @@ function PMA_addColumnToIndex(source_array, array_index, index_type, col_index)
     source_array[array_index] = {
         'Key_name': index_name,
         'Index_comment': index_comment,
-        'Index_type': index_type.toUpperCase(),
+        'Index_choice': index_choice.toUpperCase(),
+        'Key_block_size': key_block_size,
+        'Parser': parser,
+        'Index_type': index_type,
         'columns': columns
     };
 
     // Update index details on form.
     $('select[name="field_key[' + col_index + ']"]')
-        .attr('data-index', index_type + ',' + array_index);
-    PMA_setIndexFormParameters(source_array, index_type.toLowerCase());
+        .attr('data-index', index_choice + ',' + array_index);
+    PMA_setIndexFormParameters(source_array, index_choice.toLowerCase());
 }
 
 /**
  * Get choices list for a column to create a composite index with.
  *
- * @param string index_type   Type of index
+ * @param string index_choice Choice of index
  * @param array  source_array Array hodling columns for particular index
  *
  * @return jQuery Object
@@ -288,7 +305,7 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
             PMA_addColumnToIndex(
                 source_array,
                 array_index,
-                index.Index_type,
+                index.Index_choice,
                 col_index
             );
         } else {
@@ -333,6 +350,7 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
                 open: function () {
                     checkIndexName("index_frm");
                     PMA_showHints($div);
+                    PMA_init_slider();
                     $('#index_columns td').each(function () {
                         $(this).css("width", $(this).width() + 'px');
                     });
@@ -354,21 +372,21 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
  * Creates a advanced index type selection dialog.
  *
  * @param array  source_array Array holding a particular type of indexes
- * @param string index_type   Type of index
+ * @param string index_choice Choice of index
  * @param string col_index    Index of new column on form
  *
  * @return void
  */
-function PMA_indexTypeSelectionDialog(source_array, index_type, col_index)
+function PMA_indexTypeSelectionDialog(source_array, index_choice, col_index)
 {
-    var $single_column_radio = $('<input type="radio" id="single_column" name="index_type"' +
+    var $single_column_radio = $('<input type="radio" id="single_column" name="index_choice"' +
         ' checked="checked">' +
         '<label for="single_column">' + PMA_messages.strCreateSingleColumnIndex + '</label>');
     var $composite_index_radio = $('<input type="radio" id="composite_index"' +
-        ' name="index_type">' +
+        ' name="index_choice">' +
         '<label for="composite_index">' + PMA_messages.strCreateCompositeIndex + '</label>');
     var $dialog_content = $('<fieldset id="advance_index_creator"></fieldset>');
-    $dialog_content.append('<legend>' + index_type.toUpperCase() + '</legend>');
+    $dialog_content.append('<legend>' + index_choice.toUpperCase() + '</legend>');
 
 
     // For UNIQUE/INDEX type, show choice for single-column and composite index.
@@ -380,8 +398,8 @@ function PMA_indexTypeSelectionDialog(source_array, index_type, col_index)
     button_options[PMA_messages.strGo] = function () {
         if ($('#single_column').is(':checked')) {
             var index = {
-                'Key_name': (index_type == 'primary' ? 'PRIMARY' : ''),
-                'Index_type': index_type.toUpperCase()
+                'Key_name': (index_choice == 'primary' ? 'PRIMARY' : ''),
+                'Index_choice': index_choice.toUpperCase()
             };
             PMA_showAddIndexDialog(source_array, (source_array.length), [col_index], col_index, index);
         }
@@ -458,10 +476,12 @@ function PMA_indexTypeSelectionDialog(source_array, index_type, col_index)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('indexes.js', function () {
-    $('#select_index_type').die('change');
-    $('a.drop_primary_key_index_anchor.ajax').die('click');
-    $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").die('click');
-    $('#index_frm input[type=submit]').die('click');
+    $(document).off('click', '#save_index_frm');
+    $(document).off('click', '#preview_index_frm');
+    $(document).off('change', '#select_index_choice');
+    $(document).off('click', 'a.drop_primary_key_index_anchor.ajax');
+    $(document).off('click', "#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax");
+    $(document).off('click', '#index_frm input[type=submit]');
     $('body').off('change', 'select[name*="field_key"]');
 });
 
@@ -481,9 +501,32 @@ AJAX.registerOnload('indexes.js', function () {
     indexes = [];
     fulltext_indexes = [];
 
-    checkIndexType();
-    checkIndexName("index_frm");
-    $('#select_index_type').live('change', function (event) {
+    // for table creation form
+    var $engine_selector = $('.create_table_form select[name=tbl_storage_engine]');
+    if ($engine_selector.length) {
+        PMA_hideShowConnection($engine_selector);
+    }
+
+    var $form = $("#index_frm");
+    if ($form.length > 0) {
+        showIndexEditDialog($form);
+    }
+
+    $(document).on('click', '#save_index_frm', function (event) {
+        event.preventDefault();
+        var $form = $("#index_frm");
+        var submitData = $form.serialize() + '&do_save_data=1&ajax_request=true&ajax_page_request=true';
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+        AJAX.source = $form;
+        $.post($form.attr('action'), submitData, AJAX.responseHandler);
+    });
+
+    $(document).on('click', '#preview_index_frm', function (event) {
+        event.preventDefault();
+        PMA_previewSQL($('#index_frm'));
+    });
+
+    $(document).on('change', '#select_index_choice', function (event) {
         event.preventDefault();
         checkIndexType();
         checkIndexName("index_frm");
@@ -492,7 +535,7 @@ AJAX.registerOnload('indexes.js', function () {
     /**
      * Ajax Event handler for 'Drop Index'
      */
-    $('a.drop_primary_key_index_anchor.ajax').live('click', function (event) {
+    $(document).on('click', 'a.drop_primary_key_index_anchor.ajax', function (event) {
         event.preventDefault();
         var $anchor = $(this);
         /**
@@ -533,13 +576,13 @@ AJAX.registerOnload('indexes.js', function () {
                             $(this).remove();
                         });
                     }
-                    if ($('#result_query').length) {
-                        $('#result_query').remove();
+                    if ($('.result_query').length) {
+                        $('.result_query').remove();
                     }
                     if (data.sql_query) {
-                        $('<div id="result_query"></div>')
+                        $('<div class="result_query"></div>')
                             .html(data.sql_query)
-                            .prependTo('#page_content');
+                            .prependTo('#structure_content');
                         PMA_highlightSQL($('#page_content'));
                     }
                     PMA_commonActions.refreshMain(false, function () {
@@ -556,7 +599,7 @@ AJAX.registerOnload('indexes.js', function () {
     /**
      *Ajax event handler for index edit
     **/
-    $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").live('click', function (event) {
+    $(document).on('click', "#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax", function (event) {
         event.preventDefault();
         var url, title;
         if ($(this).find("a").length === 0) {
@@ -594,21 +637,21 @@ AJAX.registerOnload('indexes.js', function () {
      */
     $('body').on('change', 'select[name*="field_key"]', function () {
         // Index of column on Table edit and create page.
-        var col_index = /\d/.exec($(this).attr('name'));
+        var col_index = /\d+/.exec($(this).attr('name'));
         col_index = col_index[0];
-        // Type of selected index.
-        var index_type = /[a-z]+/.exec($(this).val());
-        index_type = index_type[0];
+        // Choice of selected index.
+        var index_choice = /[a-z]+/.exec($(this).val());
+        index_choice = index_choice[0];
         // Array containing corresponding indexes.
         var source_array = null;
 
-        if (index_type == 'none') {
+        if (index_choice == 'none') {
             PMA_removeColumnFromIndex(col_index);
             return false;
         }
 
         // Select a source array.
-        switch (index_type) {
+        switch (index_choice) {
         case 'primary':
             source_array =  primary_indexes;
             break;
@@ -625,12 +668,12 @@ AJAX.registerOnload('indexes.js', function () {
 
         if (source_array.length === 0) {
             var index = {
-                'Key_name': (index_type == 'primary' ? 'PRIMARY' : ''),
-                'Index_type': index_type.toUpperCase()
+                'Key_name': (index_choice == 'primary' ? 'PRIMARY' : ''),
+                'Index_choice': index_choice.toUpperCase()
             };
             PMA_showAddIndexDialog(source_array, 0, [col_index], col_index, index);
         } else {
-            if (index_type == 'primary') {
+            if (index_choice == 'primary') {
                 var array_index = 0;
                 var source_length = source_array[array_index].columns.length;
                 var target_columns = [];
@@ -643,7 +686,7 @@ AJAX.registerOnload('indexes.js', function () {
                  source_array[array_index]);
             } else {
                 // If there are multiple columns selected for an index, show advanced dialog.
-                PMA_indexTypeSelectionDialog(source_array, index_type, col_index);
+                PMA_indexTypeSelectionDialog(source_array, index_choice, col_index);
             }
         }
     });

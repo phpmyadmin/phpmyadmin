@@ -150,9 +150,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $retval
         );
 
-        //$GLOBALS['cfg']['Server']['pmadb']==false
-        $value = $GLOBALS['cfg']['Server']['pmadb'];
-        $GLOBALS['cfg']['Server']['pmadb'] = false;
+        $relationsPara['db'] = false;
         $retval = PMA_getRelationsParamDiagnostic($relationsPara);
 
         $result = __('General relation features');
@@ -170,9 +168,6 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $result,
             $retval
         );
-
-        $GLOBALS['cfg']['Server']['pmadb'] = $value;
-
     }
 
     /**
@@ -325,6 +320,8 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $expected['foreign_db'] = 'GSoC14';
         $expected['foreign_table'] = 'table_1';
         $expected['constraint'] = 'ad';
+        $expected['on_delete'] = 'CASCADE';
+        $expected['on_update'] = 'CASCADE';
 
         $this->assertEquals(
             $expected,

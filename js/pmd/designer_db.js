@@ -64,7 +64,7 @@ var DesignerOfflineDB = (function () {
 
         cursorRequest.onsuccess = function (e) {
             var result = e.target.result;
-            if (!!result === false) {
+            if (Boolean(result) === false) {
                 return;
             }
             results.push(result.value);
@@ -88,7 +88,7 @@ var DesignerOfflineDB = (function () {
 
         cursorRequest.onsuccess = function(e) {
             var result = e.target.result;
-            if (!!result === false) {
+            if (Boolean(result) === false) {
                 return;
             }
             firstResult = result.value;

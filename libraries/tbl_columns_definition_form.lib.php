@@ -12,7 +12,6 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Function to get form parameters
  *
- * @param string $server     server
  * @param string $db         database
  * @param string $table      table
  * @param string $action     action
@@ -22,10 +21,9 @@ if (!defined('PHPMYADMIN')) {
  * @return array $form_params form parameters
  */
 function PMA_getFormsParameters(
-    $server, $db, $table, $action, $num_fields, $selected
+    $db, $table, $action, $num_fields, $selected
 ) {
     $form_params = array(
-        'server' => $server,
         'db' => $db
     );
 
@@ -68,22 +66,41 @@ function PMA_getFormsParameters(
  */
 function PMA_getHtmlForTableConfigurations()
 {
-    $html = '<table>'
-        . '<tr class="vtop">'
+    $html  = '<table>';
+    $html .= '<tr class="vtop">'
         . '<th>' . __('Table comments:') . '</th>'
         . '<td width="25">&nbsp;</td>'
-        . '<th>' . __('Storage Engine:')
+        . '<th>' . __('Collation:') . '</th>'
+        . '<td width="25">&nbsp;</td>'
+        . '<th>'
+        . __('Storage Engine:')
         . PMA_Util::showMySQLDocu('Storage_engines')
         . '</th>'
         . '<td width="25">&nbsp;</td>'
-        . '<th>' . __('Collation:') . '</th>'
-        . '</tr>'
-        . '<tr><td><input type="text" name="comment" size="40" maxlength="80"'
+        . '<th>'
+        . __('Connection:')
+        . PMA_Util::showMySQLDocu('federated-create-connection')
+        . '</th>'
+        . '</tr>';
+
+    $html .= '<tr>'
+        . '<td><input type="text" name="comment" size="40" maxlength="80"'
         . ' value="'
         . (isset($_REQUEST['comment'])
         ? htmlspecialchars($_REQUEST['comment'])
         : '')
         . '" class="textfield" />'
+        . '</td>'
+        . '<td width="25">&nbsp;</td>'
+        . '<td>'
+        . PMA_generateCharsetDropdownBox(
+            PMA_CSDROPDOWN_COLLATION, 'tbl_collation', null,
+            (isset($_REQUEST['tbl_collation'])
+                ? $_REQUEST['tbl_collation']
+                : null
+            ),
+            false
+        )
         . '</td>'
         . '<td width="25">&nbsp;</td>'
         . '<td>'
@@ -96,15 +113,12 @@ function PMA_getHtmlForTableConfigurations()
         )
         . '</td>'
         . '<td width="25">&nbsp;</td>'
-        . '<td>'
-        . PMA_generateCharsetDropdownBox(
-            PMA_CSDROPDOWN_COLLATION, 'tbl_collation', null,
-            (isset($_REQUEST['tbl_collation'])
-                ? $_REQUEST['tbl_collation']
-                : null
-            ),
-            false
-        )
+        . '<td><input type="text" name="connection" size="40"'
+        . ' value="' . (isset($_REQUEST['connection'])
+            ? htmlspecialchars($_REQUEST['connection'])
+            : '') . '"'
+        . ' placeholder="scheme://user_name[:password]@host_name[:port_num]/db_name/tbl_name"'
+        . ' class="textfield" required="required" />'
         . '</td>'
         . '</tr>';
 
@@ -1174,8 +1188,6 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
  * @param array|null $extracted_columnspec             extracted column spec
  * @param string     $submit_attribute                 submit attribute
  * @param array|null $analyzed_sql                     analyzed sql
- * @param string     $submit_default_current_timestamp submit default current
- *                                                     timestamp
  * @param array      $comments_map                     comments map
  * @param array|null $fields_meta                      fields map
  * @param bool       $is_backup                        is backup
@@ -1189,7 +1201,7 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
 function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
     $length_values_input_size, $length, $default_current_timestamp,
     $extracted_columnspec, $submit_attribute, $analyzed_sql,
-    $submit_default_current_timestamp, $comments_map, $fields_meta, $is_backup,
+    $comments_map, $fields_meta, $is_backup,
     $move_columns, $cfgRelation, $available_mime, $mime_map
 ) {
     // Cell index: If certain fields get left out, the counter shouldn't change.

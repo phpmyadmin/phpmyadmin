@@ -307,6 +307,10 @@ class PMA_Menu
         $tabs['structure']['icon'] = 'b_props.png';
         $tabs['structure']['link'] = 'tbl_structure.php';
         $tabs['structure']['text'] = __('Structure');
+        $tabs['structure']['active'] = in_array(
+            basename($GLOBALS['PMA_PHP_SELF']),
+            array('tbl_structure.php', 'tbl_relation.php')
+        );
 
         $tabs['sql']['icon'] = 'b_sql.png';
         $tabs['sql']['link'] = 'tbl_sql.php';
@@ -358,6 +362,15 @@ class PMA_Menu
             $tabs['operation']['link'] = 'tbl_operations.php';
             $tabs['operation']['text'] = __('Operations');
         }
+        /**
+         * Views support a limited number of operations
+         */
+        if ($tbl_is_view && ! $db_is_system_schema) {
+            $tabs['operation']['icon'] = 'b_tblops.png';
+            $tabs['operation']['link'] = 'view_operations.php';
+            $tabs['operation']['text'] = __('Operations');
+        }
+
         if (PMA_Tracker::isActive()) {
             $tabs['tracking']['icon'] = 'eye.png';
             $tabs['tracking']['text'] = __('Tracking');
@@ -375,15 +388,6 @@ class PMA_Menu
             $tabs['triggers']['link'] = 'tbl_triggers.php';
             $tabs['triggers']['text'] = __('Triggers');
             $tabs['triggers']['icon'] = 'b_triggers.png';
-        }
-
-        /**
-         * Views support a limited number of operations
-         */
-        if ($tbl_is_view && ! $db_is_system_schema) {
-            $tabs['operation']['icon'] = 'b_tblops.png';
-            $tabs['operation']['link'] = 'view_operations.php';
-            $tabs['operation']['text'] = __('Operations');
         }
 
         return $tabs;
@@ -511,9 +515,7 @@ class PMA_Menu
         $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
             || $GLOBALS['dbi']->isUserType('create');
         $binary_logs = null;
-        $notDrizzle = ! defined('PMA_DRIZZLE')
-            || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE);
-        if ($notDrizzle) {
+        if (! defined('PMA_DRIZZLE') || ! PMA_DRIZZLE) {
             if (PMA_Util::cacheExists('binary_logs')) {
                 $binary_logs = PMA_Util::cacheGet('binary_logs');
             } else {

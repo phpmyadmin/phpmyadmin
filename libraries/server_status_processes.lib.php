@@ -126,12 +126,19 @@ function PMA_getHtmlForServerProcesslist()
         $sql_query = $show_full_sql
             ? 'SHOW FULL PROCESSLIST'
             : 'SHOW PROCESSLIST';
-        if (! empty($_REQUEST['order_by_field'])
-            && ! empty($_REQUEST['sort_order'])
+        if ( (! empty($_REQUEST['order_by_field'])
+                && ! empty($_REQUEST['sort_order']) )
+            || (! empty($_REQUEST['showExecuting']) )
         ) {
-            $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` '
-                . 'ORDER BY `'
-                . $_REQUEST['order_by_field'] . '` ' . $_REQUEST['sort_order'];
+            $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
+        }
+        if (! empty($_REQUEST['showExecuting'])) {
+            $sql_query .= ' WHERE state = "executing" ';
+        }
+        if (! empty($_REQUEST['order_by_field']) && ! empty($_REQUEST['sort_order']) ) {
+            $sql_query .= ' ORDER BY '
+                . PMA_Util::backquote($_REQUEST['order_by_field'])
+                . ' ' . $_REQUEST['sort_order'];
         }
     }
 
@@ -153,16 +160,6 @@ function PMA_getHtmlForServerProcesslist()
             $column['sort_order'] = 'DESC';
         }
 
-        if ($is_sorted) {
-            if ($_REQUEST['sort_order'] == 'ASC') {
-                $asc_display_style = 'inline';
-                $desc_display_style = 'none';
-            } elseif ($_REQUEST['sort_order'] == 'DESC') {
-                $desc_display_style = 'inline';
-                $asc_display_style = 'none';
-            }
-        }
-
         $retval .= '<th>';
         $columnUrl = PMA_URL_getCommon($column);
         $retval .= '<a href="server_status_processes.php' . $columnUrl . '" ';
@@ -175,6 +172,12 @@ function PMA_getHtmlForServerProcesslist()
         $retval .= $column['column_name'];
 
         if ($is_sorted) {
+            $asc_display_style = 'inline';
+            $desc_display_style = 'none';
+            if ($_REQUEST['sort_order'] === 'DESC') {
+                $desc_display_style = 'inline';
+                $asc_display_style = 'none';
+            }
             $retval .= '<img class="icon ic_s_desc soimg" alt="'
                 . __('Descending') . '" title="" src="themes/dot.gif" '
                 . 'style="display: ' . $desc_display_style . '" />';
@@ -223,6 +226,40 @@ function PMA_getHtmlForServerProcesslist()
 }
 
 /**
+ * Returns the html for the list filter
+ *
+ * @return string
+ */
+function PMA_getHtmlForProcessListFilter()
+{
+    $showExecuting = '';
+    if (! empty($_REQUEST['showExecuting'])) {
+        $showExecuting = ' checked="checked"';
+    }
+
+    $url_params = array(
+        'showExecuting' => 1,
+        'ajax_request' => true
+    );
+
+    $retval  = '';
+    $retval .= '<fieldset id="tableFilter">';
+    $retval .= '<legend>' . __('Filters') . '</legend>';
+    $retval .= '<form action="server_status_processes.php?' . PMA_URL_getCommon($url_params) . '">';
+    $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
+    $retval .= '<div class="formelement">';
+    $retval .= '<input' . $showExecuting . ' type="checkbox" name="showExecuting" id="showExecuting" />';
+    $retval .= '<label for="showExecuting">';
+    $retval .= __('Show only active');
+    $retval .= '</label>';
+    $retval .= '</div>';
+    $retval .= '</form>';
+    $retval .= '</fieldset>';
+
+    return $retval;
+}
+
+/**
  * Prints Every Item of Server Process
  *
  * @param Array $process       data of Every Item of Server Process
@@ -235,7 +272,9 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
 {
     // Array keys need to modify due to the way it has used
     // to display column values
-    if (! empty($_REQUEST['order_by_field']) && ! empty($_REQUEST['sort_order']) ) {
+    if ( (! empty($_REQUEST['order_by_field']) && ! empty($_REQUEST['sort_order']) )
+        || (! empty($_REQUEST['showExecuting']))
+    ) {
         foreach (array_keys($process) as $key) {
             $new_key = ucfirst(/*overload*/mb_strtolower($key));
             if ($new_key !== $key) {

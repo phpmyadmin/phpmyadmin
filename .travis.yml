@@ -11,88 +11,67 @@ php:
   - "5.4"
   - "5.3"
   - hhvm
+  - nightly
 
 sudo: false
 
 env:
   matrix:
     - PHPUNIT_ARGS="--exclude-group selenium"
-    - LINT="yes"
   global:
-    - secure: "TR3s7lHkREN706g+FeNXl1S0R2fpcI1H+n8USIkl5WBd7S2/NpsZlSfkrgnC7/xRBDXzHwuYd8JQQyAZyrqPEeLqIqlKzxIcTHOiJWGeR/YO7JXsr1Slt/nFqygpIyz8yOh3QIvX6FMzPsamBlUNhRvTAkd2wXPMBpXQlhTVmX8="
-    - TESTSUITE_BROWSERSTACK_USER=phpMyAdmin
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
+    - TESTSUITE_URL=http://127.0.0.1:8000
 
 before_script:
   - export PATH=~/.composer/vendor/bin/:$PATH
-  - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')" ;
-  - set -e ; if [[ -z "$LINT" ]] ; then
-
-    composer install --dev --no-interaction ;
-
-    if [[ $TRAVIS_PHP_VERSION != "hhvm" ]] ; then
-
-    git clone --depth=1 git://github.com/zenovich/runkit.git ;
-    cd runkit ;
-    if [[ $TRAVIS_PHP_VERSION = "5.6" ]] ; then
-    wget https://github.com/zenovich/runkit/pull/73.diff ;
-    patch -p1 < 73.diff ;
-    fi ;
-    phpize ;
-    ./configure ;
-    make ;
-    make install ;
-    cd .. ;
-
-    phpenv config-add test/travis.php.ini ;
-
-    wget https://scrutinizer-ci.com/ocular.phar ;
-
-    fi ;
-
-    if [[ ! -z "$SELENIUM" ]] ; then
-
-    php --server 127.0.0.1:8000 &
-
-    wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip ;
-    unzip BrowserStackLocal-linux-x64.zip ;
-    ./BrowserStackLocal -localIdentifier "travis-$TRAVIS_JOB_NUMBER" -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,8000,0 &
-
-    mysql -uroot -p$TESTSUITE_PASSWORD < examples/create_tables.sql ;
-
-    fi ;
-    fi
+  - mysql -uroot -e "CREATE DATABASE test"
+  - mysql -uroot < sql/create_tables.sql
+  - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
+  - composer install --dev --no-interaction
+  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] ; then ./test/install-runkit ; fi
+  - if [ -n "$SELENIUM" ] ; then ./test/install-browserstack ; fi
+  - if [ -n "$SELENIUM" ] ; then php --server 127.0.0.1:8000 > php.log & fi
+  - if [ -n "$SELENIUM" ] ; then ~/browserstack/BrowserStackLocal -localIdentifier "travis-$TRAVIS_JOB_NUMBER" -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,8000,0 & fi
 
 script:
+  - ant clean
   - ant locales
-  - set -e; if [[ -z "$LINT" ]] ; then
-    export TESTSUITE_URL="http://127.0.0.1:8000" ;
-    if [[ $TRAVIS_PHP_VERSION == "hhvm" ]] ; then
+  - if [ -z "$SELENIUM" ] ; then ant lint ; fi
+  - set -e;
+    if [ $TRAVIS_PHP_VERSION == "hhvm" ] ; then
     ant phpunit-hhvm ;
     else
-    if [[ ! -z "$SELENIUM" ]] ; then
+    if [ ! -z "$SELENIUM" ] ; then
     ant phpunit-nocoverage ;
     else
     ant phpunit ;
     fi ;
-    fi ;
-    else
-    ant lint ;
     fi
 
 after_script:
-  - if [[ -f build/logs/clover.xml ]] ; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml || true ; fi
-  - if [[ -f vendor/bin/coveralls ]] ; then php vendor/bin/coveralls -v || true ; fi
+  - if [ -f build/logs/clover.xml ] ; then php vendor/bin/ocular code-coverage:upload --format=php-clover build/logs/clover.xml || true ; fi
+  - if [ -f vendor/bin/coveralls ] ; then php vendor/bin/coveralls -v || true ; fi
+  - if [ -f php.log ] ; then cat php.log ; fi
 
 matrix:
   allow_failures:
-    - php: 5.5
+    - php: 5.6
       env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes"
+    - php: hhvm
+      env: PHPUNIT_ARGS="--exclude-group selenium"
+    - php: nightly
+      env: PHPUNIT_ARGS="--exclude-group selenium"
   fast_finish: true
   include:
-    - php: 5.5
+    - php: 5.6
       env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes"
 cache:
   directories:
     - $HOME/.composer/cache/
+    - $HOME/browserstack
+    - $HOME/runkit
+# trigger Buildtime Trend Service to parse Travis CI log
+notifications:
+  webhooks:
+    - https://buildtimetrend.herokuapp.com/travis

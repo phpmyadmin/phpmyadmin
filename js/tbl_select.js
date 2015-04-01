@@ -10,7 +10,7 @@
  * Ajax event handlers for this page
  *
  * Actions ajaxified here:
- * Table Search
+ * Table search
  */
 
 /**
@@ -51,9 +51,9 @@ function PMA_checkIfDataTypeNumericOrDate(data_type)
  */
 AJAX.registerTeardown('tbl_select.js', function () {
     $('#togglesearchformlink').unbind('click');
-    $("#tbl_search_form.ajax").die('submit');
+    $(document).off('submit', "#tbl_search_form.ajax");
     $('select.geom_func').unbind('change');
-    $('span.open_search_gis_editor').die('click');
+    $(document).off('click', 'span.open_search_gis_editor');
     $('body').off('click', 'select[name*="criteriaColumnOperators"]');
 });
 
@@ -82,9 +82,9 @@ AJAX.registerOnload('tbl_select.js', function () {
         });
 
     /**
-     * Ajax event handler for Table Search
+     * Ajax event handler for Table search
      */
-    $("#tbl_search_form.ajax").live('submit', function (event) {
+    $(document).on('submit', "#tbl_search_form.ajax", function (event) {
         var unaryFunctions = [
             'IS NULL',
             'IS NOT NULL',
@@ -97,7 +97,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         event.preventDefault();
 
         // empty previous search results while we are waiting for new results
-        $("#sqlqueryresults").empty();
+        $("#sqlqueryresultsouter").empty();
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strSearching, false);
 
         PMA_prepareForAjaxRequest($search_form);
@@ -142,10 +142,10 @@ AJAX.registerOnload('tbl_select.js', function () {
             PMA_ajaxRemoveMessage($msgbox);
             if (typeof data !== 'undefined' && data.success === true) {
                 if (typeof data.sql_query !== 'undefined') { // zero rows
-                    $("#sqlqueryresults").html(data.sql_query);
+                    $("#sqlqueryresultsouter").html(data.sql_query);
                 } else { // results found
-                    $("#sqlqueryresults").html(data.message);
-                    $("#sqlqueryresults").trigger('makegrid').trigger('stickycolumns');
+                    $("#sqlqueryresultsouter").html(data.message);
+                    $(".sqlqueryresults").trigger('makegrid').trigger('stickycolumns');
                 }
                 $('#tbl_search_form')
                 // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
@@ -160,9 +160,9 @@ AJAX.registerOnload('tbl_select.js', function () {
                  // needed for the display options slider in the results
                 PMA_init_slider();
             } else {
-                $("#sqlqueryresults").html(data.error);
+                $("#sqlqueryresultsouter").html(data.error);
             }
-            PMA_highlightSQL($('#sqlqueryresults'));
+            PMA_highlightSQL($('#sqlqueryresultsouter'));
         }); // end $.post()
     });
 
@@ -227,7 +227,7 @@ AJAX.registerOnload('tbl_select.js', function () {
 
     });
 
-    $('span.open_search_gis_editor').live('click', function (event) {
+    $(document).on('click', 'span.open_search_gis_editor', function (event) {
         event.preventDefault();
 
         var $span = $(this);
@@ -321,7 +321,7 @@ AJAX.registerOnload('tbl_select.js', function () {
 
                             // If target field is a select list.
                             if ($target_field.is('select')) {
-                                $target_field.attr('value', final_value);
+                                $target_field.val(final_value);
                                 var $options = $target_field.find('option');
                                 var $closest_min = null;
                                 var $closest_max = null;

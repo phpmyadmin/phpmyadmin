@@ -54,6 +54,7 @@ $forms['Features']['Warnings'] = array(
     'ServerLibraryDifference_DisableWarning',
     'PmaNoRelation_DisableWarning',
     'SuhosinDisableWarning',
+    'LoginCookieValidityDisableWarning',
     'ReservedWordDisableWarning');
 // settings from this form are treated specially,
 // see prefs_forms.php and user_preferences.lib.php
@@ -73,6 +74,7 @@ $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/ShowAsPHP',
     'SQLQuery/Refresh');
 $forms['Navi_panel']['Navi_panel'] = array(
+    'ShowDatabasesNavigationAsTree',
     'NavigationLinkWithMainPanel',
     'NavigationDisplayLogo',
     'NavigationLogoLink',
@@ -81,7 +83,7 @@ $forms['Navi_panel']['Navi_panel'] = array(
     'FirstLevelNavigationItems',
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping',
-    'NavigationTreeDisableDatabaseExpansion',
+    'NavigationTreeEnableExpansion',
     'NavigationTreeDisplayItemFilterMinimum',
     'NumRecentTables',
     'NumFavoriteTables'
@@ -91,6 +93,7 @@ $forms['Navi_panel']['Navi_databases'] = array(
     'NavigationTreeDbSeparator');
 $forms['Navi_panel']['Navi_tables'] = array(
     'NavigationTreeDefaultTabTable',
+    'NavigationTreeDefaultTabTable2',
     'NavigationTreeTableSeparator',
     'NavigationTreeTableLevel',
 );
@@ -114,13 +117,12 @@ $forms['Main_panel']['Browse'] = array(
     'BrowseMarkerEnable',
     'GridEditing',
     'SaveCellsAtOnce',
-    'ShowDisplayDirection',
     'RepeatCells',
     'LimitChars',
     'RowActionLinks',
     'TablePrimaryKeyOrder',
-    'DefaultDisplay',
-    'RememberSorting');
+    'RememberSorting',
+    'RelationalDisplay');
 $forms['Main_panel']['Edit'] = array(
     'ProtectBinary',
     'ShowFunctionFields',

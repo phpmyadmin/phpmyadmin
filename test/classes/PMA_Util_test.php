@@ -44,6 +44,15 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
             '3',
             $limit_data['length']
         );
+
+        $limit_data = PMA_Util::analyzeLimitClause("limit 3,2,5");
+        $this->assertFalse($limit_data);
+
+        $limit_data = PMA_Util::analyzeLimitClause("limit");
+        $this->assertFalse($limit_data);
+
+        $limit_data = PMA_Util::analyzeLimitClause("limit ");
+        $this->assertFalse($limit_data);
     }
 
     /**

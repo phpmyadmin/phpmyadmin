@@ -1293,7 +1293,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'ADD CONSTRAINT KEYS ADD FOREIGN  KEY;',
+            '  ADD CONSTRAINT KEYS   ADD FOREIGN  KEY;',
             $GLOBALS['sql_constraints_query']
         );
 

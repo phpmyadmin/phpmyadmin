@@ -17,13 +17,13 @@ function show_hide_clauses($thisDropdown)
 /**
  * Sets dropdown options to values
  */
-function setDropdownValues($dropdown, values) {
+function setDropdownValues($dropdown, values, selectedValue) {
     $dropdown.empty();
     var optionsAsString = '';
     // add an empty string to the beginning for empty selection
     values.unshift('');
     $.each(values, function () {
-        optionsAsString += "<option value='" + this + "'>" + this + "</option>";
+        optionsAsString += "<option value='" + this + "'" + (selectedValue == this ? " selected='selected'" : "") + ">" + this + "</option>";
     });
     $dropdown.append($(optionsAsString));
 }
@@ -94,7 +94,13 @@ function getDropdownValues($dropdown) {
                     setDropdownValues($columnDd, []);
                 } else { // if a table selector
                     // set values for the column dropdown
-                    setDropdownValues($columnDd, data.columns);
+                    var primary = null;
+                    if (typeof data.primary !== 'undefined'
+                        && 1 === data.primary.length
+                    ) {
+                        primary = data.primary[0];
+                    }
+                    setDropdownValues($columnDd, data.columns, primary);
                 }
             } else {
                 PMA_ajaxShowMessage(data.error, false);

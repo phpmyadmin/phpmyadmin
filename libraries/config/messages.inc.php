@@ -17,6 +17,12 @@ if (!function_exists('__')) {
 $strConfigAllowArbitraryServer_desc
     = __('If enabled, user can enter any MySQL server in login form for cookie auth.');
 $strConfigAllowArbitraryServer_name = __('Allow login to any MySQL server');
+$strConfigArbitraryServerRegexp_desc = __(
+    'Restricts the MySQL servers the user can enter when a login to an arbitrary '
+    . 'MySQL server is enabled by matching the IP or hostname of the MySQL server to the given '
+    . 'regular expression.'
+);
+$strConfigArbitraryServerRegexp_name = __('Restrict login to MySQL server');
 $strConfigAllowThirdPartyFraming_desc = __(
     'Enabling this allows a page located on a different domain to call phpMyAdmin '
     . 'inside a frame, and is a potential [strong]security hole[/strong] allowing '
@@ -78,7 +84,6 @@ $strConfigConfirm_desc = __(
 );
 $strConfigConfirm_name = __('Confirm DROP queries');
 $strConfigDBG_sql_name = __('Debug SQL');
-$strConfigDefaultDisplay_name = __('Default display direction');
 $strConfigDefaultTabDatabase_desc
     = __('Tab that is displayed when entering a database.');
 $strConfigDefaultTabDatabase_name = __('Default database tab');
@@ -416,6 +421,10 @@ $strConfigMemoryLimit_desc = __(
     . '([kbd]0[/kbd] for no limit).'
 );
 $strConfigMemoryLimit_name = __('Memory limit');
+$strConfigShowDatabasesNavigationAsTree_desc = __('In the navigation panel, replaces the database tree with a selector');
+$strConfigShowDatabasesNavigationAsTree_name = __(
+    'Show databases navigation as tree'
+);
 $strConfigNavigationLinkWithMainPanel_desc = __('Link with main panel by highlighting the current database or table.');
 $strConfigNavigationLinkWithMainPanel_name = __('Link with main panel');
 $strConfigNavigationDisplayLogo_desc = __('Show logo in navigation panel.');
@@ -432,6 +441,9 @@ $strConfigNavigationDisplayServers_desc
     = __('Display server choice at the top of the navigation panel.');
 $strConfigNavigationDisplayServers_name = __('Display servers selection');
 $strConfigNavigationTreeDefaultTabTable_name = __('Target for quick access icon');
+$strConfigNavigationTreeDefaultTabTable2_name = __(
+    'Target for second quick access icon'
+);
 $strConfigNavigationTreeDisplayItemFilterMinimum_desc = __(
     'Defines the minimum number of items (tables, views, routines and events) to '
     . 'display a filter box.'
@@ -454,10 +466,10 @@ $strConfigNavigationTreeTableLevel_name = __('Maximum table tree depth');
 $strConfigNavigationTreePointerEnable_desc
     = __('Highlight server under the mouse cursor.');
 $strConfigNavigationTreePointerEnable_name = __('Enable highlighting');
-$strConfigNavigationTreeDisableDatabaseExpansion_desc
-    = __('Whether to disable the possibility of database expansion or not.');
-$strConfigNavigationTreeDisableDatabaseExpansion_name
-    = __('Disable database expansion');
+$strConfigNavigationTreeEnableExpansion_desc
+    = __('Whether to offer the possibility of tree expansion in the navigation panel.');
+$strConfigNavigationTreeEnableExpansion_name
+    = __('Enable navigation tree expansion');
 $strConfigNumRecentTables_desc
     = __('Maximum number of recently used tables; set 0 to disable.');
 $strConfigNumFavoriteTables_desc
@@ -528,6 +540,8 @@ $strConfigRepeatCells_desc
 $strConfigRepeatCells_name = __('Repeat headers');
 $strConfigRestoreDefaultValue = __('Restore default value');
 $strConfigGridEditing_name = __('Grid editing: trigger action');
+$strConfigRelationalDisplay_name = __('Relational display');
+$strConfigRelationalDisplay_desc = __('For display Options');
 $strConfigSaveCellsAtOnce_name = __('Grid editing: save all edited cells at once');
 $strConfigSaveDir_desc = __('Directory where exports can be saved on server.');
 $strConfigSaveDir_name = __('Save directory');
@@ -537,6 +551,8 @@ $strConfigServers_AllowDeny_rules_desc = __('Leave blank for defaults.');
 $strConfigServers_AllowDeny_rules_name = __('Host authorization rules');
 $strConfigServers_AllowNoPassword_name = __('Allow logins without a password');
 $strConfigServers_AllowRoot_name = __('Allow root login');
+$strConfigServers_SessionTimeZone_name = __('Session timezone');
+$strConfigServers_SessionTimeZone_desc = __('Sets the effective timezone; possibly different than the one from your database server');
 $strConfigServers_auth_http_realm_desc
     = __('HTTP Basic Auth Realm name to display when doing HTTP Auth.');
 $strConfigServers_auth_http_realm_name = __('HTTP Realm');
@@ -725,8 +741,6 @@ $strConfigShowDbStructureLastUpdate_desc = __('Show or hide a column displaying 
 $strConfigShowDbStructureLastUpdate_name = __('Show Last update timestamp');
 $strConfigShowDbStructureLastCheck_desc = __('Show or hide a column displaying the Last check timestamp for all tables.');
 $strConfigShowDbStructureLastCheck_name = __('Show Last check timestamp');
-$strConfigShowDisplayDirection_desc = __('Defines whether or not type display direction option is shown when browsing a table.');
-$strConfigShowDisplayDirection_name = __('Show display direction');
 $strConfigShowFieldTypesInDataEditView_desc = __('Defines whether or not type fields should be initially displayed in edit/insert mode.');
 $strConfigShowFieldTypesInDataEditView_name = __('Show field types');
 $strConfigShowFunctionFields_desc = __('Display the function fields in edit/insert mode.');
@@ -750,6 +764,10 @@ $strConfigSQLQuery_Refresh_name = __('Refresh');
 $strConfigSQLQuery_ShowAsPHP_name = __('Create PHP Code');
 $strConfigSuhosinDisableWarning_desc = __('A warning is displayed on the main page if Suhosin is detected.');
 $strConfigSuhosinDisableWarning_name = __('Suhosin warning');
+$strConfigLoginCookieValidityDisableWarning_desc = __('Disable the default warning that is displayed on the main page if the value of the PHP setting session.gc_maxlifetime is less than the value of `LoginCookieValidity`.');
+$strConfigLoginCookieValidityDisableWarning_name = __(
+    'Login cookie validity warning'
+);
 $strConfigTextareaCols_desc = __('Textarea size (columns) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25).');
 $strConfigTextareaCols_name = __('Textarea columns');
 $strConfigTextareaRows_desc = __('Textarea size (rows) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25).');

@@ -60,13 +60,10 @@ class PMA
         switch ($param) {
         case 'databases' :
             return $this->getDatabaseList();
-            break;
         case 'userlink' :
             return $this->userlink;
-            break;
         case 'controllink' :
             return $this->controllink;
-            break;
         }
 
         return null;

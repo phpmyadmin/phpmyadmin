@@ -1,7 +1,72 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.3.13.0 (2015-03-29)
+4.4.0.0 (2015-04-01)
++ rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
++ rfe #1562 Allow tracking multiple table at once from database level tracking page
++ rfe #1564 Improve action message on Tracking page
++ rfe #1566 Change value of "Number of rows:" when "Show all" is checked
++ rfe       Focus console by clicking on white space
++ rfe #1507 Part 1: Cycle through console history with keyboard up/down arrows
++ rfe #1579 Default to primary key when adding relation
++ rfe #1572 User prefs: Diff-friendly JSON for config
++ rfe #1567 Sever Variables Table UI Improvements
+- bug #4675 phpMyAdmin should be able to work without 'examples' DIR - move SQL scripts to sql directory
++ rfe #1578 Warn about reserved word only when a column is created
++ rfe #1590 Recaptcha API v2
++ rfe #1580 Individual Zeroconf PMA tables support
++ rfe #1525 Generate keys one per line
++ rfe #347  allow table with transformed column anywhere in FROM clause
++ rfe #1591 Shortcut link to search page
++ rfe #1568 Fold Add Column After / Before into dropdown
+- bug #4705 Table structure: adding primary key doesn't refresh page
++ rfe #1582 SQL formatter
++ rfe #1597 Fast filter improvement: remove "x other results found"
+- bug #4720 No error message on Missing extension mbstring
++ rfe #801  Builtin transformations and relations
++ rfe #767  USING BTREE support for HEAP/MEMORY tables
++ rfe #1596 Make "Options > Relational" configurable
++ rfe #719  More details in PDF relation view
++ rfe #1096 Cannot enter connection for federated engine table
++ rfe #954  Allow SALT in ENCRYPT function
++ rfe #1260 Setting LoginCookieValidity > session.gc_maxlifetime
++ rfe       Transformation for JSON
+- bug       Fix isCanvasSupported for new window
++ rfe #1600 Clarify the "Inline" link
++ rfe #1179 Speed up slow triggers by using EVENT_OBJECT_SCHEMA
++ rfe #1192 ON DUPLICATE KEY UPDATE for loading CSV
+- bug       Cannot execute command from console (multi-server installation)
++ rfe #1208 linking from information_schema
++ rfe #1235 Relation view: move to main "Structure" page
++ rfe #1558 Designer menu with explicit text
++ rfe #937  Relations with views like with tables
++ rfe #1241 Browse Field -> Search
++ rfe #723  Provide sanity check for table/column names (table names)
++ rfe #1312 SessionTimeZone configuration directive
+- bug       Add missing confirmation when deleting tracking report entries
++ rfe       Ability to disable foreign key check when emptying tables
++ rfe #1549 Reset auto-increment when exporting structure
++ rfe #1602 Recover query in redaction after session end
++ rfe #1605 After database creation, go to database structure page
++ rfe #1604 Show PHP version
+- bug #4770 Multiple delete on table browse ignoring foreign key checkbox
++ rfe       CodeMirror based SQL editor as an input transformation
++ rfe #1275 CodeMirror based JSON editor as an input transformation
++ rfe #685  Editor for HTML content
++ rfe #1595 make professional code editor suggestion
++ rfe #1606 processlist filter
++ rfe       Change tracking activation status from db level tracking page
++ rfe #1207 Export users associated with a specific schema/database
++ rfe #1575 "Disable database expansion" : unclear directive name and
+explanation 
++ rfe #1607 Tool tip for lock icon when making changes to a page
++ rfe #1327 Hide 'Add user' link if user does not have privileges
++ rfe #501  Support for SSL GRANT option
++ rfe #1608 Central columns allowing setting SIGNED / UNSIGNED attribute for integer
++ rfe #1441 Add regexp match when using AllowArbitraryServer
+- bug #4806 Unable to work with two different servers in two tabs
+
+4.3.13.0 (not yet released)
 - bug #4803 "Show hidden items" is sometimes hidden
 - bug #4807 Breaks when sorting by multiple columns while using UNION
 - bug #4798 Missing column when exporting in sql
@@ -27,7 +92,10 @@ phpMyAdmin - ChangeLog
 4.3.11.1 (2015-03-04)
 - bug       [security] Risk of BREACH attack, see PMASA-2015-1
 
-4.3.11.0 (2015-03-02)
+4.3.11.1 (not yet released)
+- bug       [security] Risk of BREACH attack, see PMASA-2015-1
+
+4.3.11.0 (not yet released)
 - bug #4774 SQL links are completely wrong
 - bug #4768 MariaDB: version mismatch
 - bug #4777 Some images are missing in Designer for original theme
@@ -73,7 +141,6 @@ phpMyAdmin - ChangeLog
 - bug #4719 'only_db' not working
 - bug #4700 Error text: Internal Server Error
 - bug #4722 Incorrect width table summary when favorite tables is disabled
-- bug #4710 Nav tree error after filtering the tables
 - bug #4716 Collapse all in navigation panel is sometimes broken
 - bug #4724 Cannot navigate in filtered table list
 - bug #4717 Database navigation menu broken when resolution/screen is changing

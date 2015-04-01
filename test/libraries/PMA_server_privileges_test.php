@@ -644,11 +644,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $create_user_show
         );
         $this->assertEquals(
-            "GRANT USAGE ON *.* TO 'pma_username'@'pma_hostname';",
+            "GRANT USAGE ON *.* TO 'pma_username'@'pma_hostname' REQUIRE NONE;",
             $real_sql_query
         );
         $this->assertEquals(
-            "GRANT USAGE ON *.* TO 'pma_username'@'pma_hostname';",
+            "GRANT USAGE ON *.* TO 'pma_username'@'pma_hostname' REQUIRE NONE;",
             $sql_query
         );
     }
@@ -684,7 +684,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $ret_message->getMessage()
         );
         $this->assertEquals(
-            "CREATE USER ''@'localhost';GRANT USAGE ON *.* TO ''@'localhost';"
+            "CREATE USER ''@'localhost';GRANT USAGE ON *.* TO ''@'localhost' REQUIRE NONE;"
             . "GRANT ALL PRIVILEGES ON `pma_dbname`.* TO ''@'localhost';",
             $sql_query
         );
@@ -948,13 +948,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //validate 3:$real_sql_query
         $this->assertEquals(
-            "GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname';",
+            "GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname' REQUIRE NONE;",
             $real_sql_query
         );
 
         //validate 4:$sql_query
         $this->assertEquals(
-            "GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname';",
+            "GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname' REQUIRE NONE;",
             $sql_query
         );
 
@@ -965,7 +965,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //validate 5: $sql_query
         $this->assertEquals(
-            "GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname';",
+            "GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname' REQUIRE NONE;",
             $sql_query
         );
 
@@ -1200,7 +1200,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $item = PMA_Util::getCheckbox(
             'createdb-2',
             __('Grant all privileges on wildcard name (username\\_%).'),
-            false, false
+            false, false, 'createdb-2'
         );
         $this->assertContains(
             $item,

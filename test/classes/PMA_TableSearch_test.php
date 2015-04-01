@@ -174,7 +174,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
             $form
         );
         $this->assertContains(
-            __('Find and Replace'),
+            __('Find and replace'),
             $form
         );
     }
@@ -194,15 +194,15 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         );
         //sub tabs
         $this->assertContains(
-            __('Table Search'),
+            __('Table search'),
             $html
         );
         $this->assertContains(
-            __('Zoom Search'),
+            __('Zoom search'),
             $html
         );
         $this->assertContains(
-            __('Find and Replace'),
+            __('Find and replace'),
             $html
         );
     }

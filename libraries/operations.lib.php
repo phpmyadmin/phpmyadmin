@@ -300,11 +300,11 @@ function PMA_runProcedureAndFunctionDefinitions($db)
 }
 
 /**
- * Get sql query and create database before copy
+ * Create database before copy
  *
- * @return string $sql_query
+ * @return void
  */
-function PMA_getSqlQueryAndCreateDbBeforeCopy()
+function PMA_createDbBeforeCopy()
 {
     // lower_case_table_names=1 `DB` becomes `db`
     if (! PMA_DRIZZLE) {
@@ -325,7 +325,8 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
             . PMA_generateCharsetQueryPart($_REQUEST['db_collation']);
     }
     $local_query .= ';';
-    $sql_query = $local_query;
+    $GLOBALS['sql_query'] .= $local_query;
+
     // save the original db name because Tracker.class.php which
     // may be called under $GLOBALS['dbi']->query() changes $GLOBALS['db']
     // for some statements, one of which being CREATE DATABASE
@@ -341,42 +342,6 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
     // rebuild the database list because PMA_Table::moveCopy
     // checks in this list if the target db exists
     $GLOBALS['pma']->databases->build();
-
-    return $sql_query;
-}
-
-/**
- * remove all foreign key constraints and return
- * sql constraints query for full database
- *
- * @param array     $tables_full       array of all tables in given db or dbs
- * @param ExportSql $export_sql_plugin export plugin instance
- * @param boolean   $move              whether database name is empty or not
- * @param string    $db                database name
- *
- * @return string sql constraints query for full databases
- */
-function PMA_getSqlConstraintsQueryForFullDb(
-    $tables_full, $export_sql_plugin, $move, $db
-) {
-    global $sql_constraints, $sql_drop_foreign_keys;
-    $sql_constraints_query_full_db = array();
-    foreach ($tables_full as $each_table => $tmp) {
-        /* Following globals are set in getTableDef */
-        $sql_constraints = '';
-        $sql_drop_foreign_keys = '';
-        $export_sql_plugin->getTableDef(
-            $db, $each_table, "\n", '', false, false, false, false
-        );
-        if ($move && ! empty($sql_drop_foreign_keys)) {
-            $GLOBALS['dbi']->query($sql_drop_foreign_keys);
-        }
-        // keep the constraint we just dropped
-        if (! empty($sql_constraints)) {
-            $sql_constraints_query_full_db[] = $sql_constraints;
-        }
-    }
-    return $sql_constraints_query_full_db;
 }
 
 /**
@@ -428,22 +393,19 @@ function PMA_getViewsAndCreateSqlViewStandIn(
  * Get sql query for copy/rename table and boolean for whether copy/rename or not
  *
  * @param array   $tables_full array of all tables in given db or dbs
- * @param string  $sql_query   sql query for all operations
  * @param boolean $move        whether database name is empty or not
  * @param string  $db          database name
  *
- * @return array ($sql_query, $error)
+ * @return array SQL queries for the constraints
  */
-function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move, $db)
+function PMA_copyTables($tables_full, $move, $db)
 {
-    $error = false;
+    $sqlContraints = array();
     foreach ($tables_full as $each_table => $tmp) {
         // skip the views; we have created stand-in definitions
         if (PMA_Table::isView($db, $each_table)) {
             continue;
         }
-        $back = $sql_query;
-        $sql_query = '';
 
         // value of $what for this table only
         $this_what = $_REQUEST['what'];
@@ -470,9 +432,7 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move, $db)
                 (isset($this_what) ? $this_what : 'data'),
                 $move, 'db_copy'
             )) {
-                $error = true;
-                // $sql_query is filled by PMA_Table::moveCopy()
-                $sql_query = $back . $sql_query;
+                $GLOBALS['_error'] = true;
                 break;
             }
             // apply the triggers to the destination db+table
@@ -488,15 +448,12 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move, $db)
             if (isset($_REQUEST['add_constraints'])
                 && ! empty($GLOBALS['sql_constraints_query'])
             ) {
-                $GLOBALS['sql_constraints_query_full_db'][]
-                    = $GLOBALS['sql_constraints_query'];
+                $sqlContraints[] = $GLOBALS['sql_constraints_query'];
                 unset($GLOBALS['sql_constraints_query']);
             }
         }
-        // $sql_query is filled by PMA_Table::moveCopy()
-        $sql_query = $back . $sql_query;
     }
-    return array($sql_query, $error);
+    return $sqlContraints;
 }
 
 /**
@@ -535,50 +492,50 @@ function PMA_runEventDefinitionsForDb($db)
  * @param boolean $move  whether database name is empty or not
  * @param string  $db    database name
  *
- * @return boolean $_error whether table rename/copy or not
+ * @return void
  */
 function PMA_handleTheViews($views, $move, $db)
 {
-    $_error = false;
     // temporarily force to add DROP IF EXIST to CREATE VIEW query,
     // to remove stand-in VIEW that was created earlier
     // ( $_REQUEST['drop_if_exists'] is used in moveCopy() )
     if (isset($_REQUEST['drop_if_exists'])) {
         $temp_drop_if_exists = $_REQUEST['drop_if_exists'];
     }
-    $_REQUEST['drop_if_exists'] = 'true';
 
+    $_REQUEST['drop_if_exists'] = 'true';
     foreach ($views as $view) {
         $copying_succeeded = PMA_Table::moveCopy(
             $db, $view, $_REQUEST['newname'], $view, 'structure', $move, 'db_copy'
         );
         if (! $copying_succeeded) {
-            $_error = true;
+            $GLOBALS['_error'] = true;
             break;
         }
     }
     unset($_REQUEST['drop_if_exists']);
+
     if (isset($temp_drop_if_exists)) {
         // restore previous value
         $_REQUEST['drop_if_exists'] = $temp_drop_if_exists;
     }
-    return $_error;
 }
 
 /**
  * Create all accumulated constraints
  *
+ * @param array $sqlConstratints array of sql constraints for the database
+ *
  * @return void
  */
-function PMA_createAllAccumulatedConstraints()
+function PMA_createAllAccumulatedConstraints($sqlConstratints)
 {
     $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
-    foreach ($GLOBALS['sql_constraints_query_full_db'] as $one_query) {
+    foreach ($sqlConstratints as $one_query) {
         $GLOBALS['dbi']->query($one_query);
         // and prepare to display them
         $GLOBALS['sql_query'] .= "\n" . $one_query;
     }
-    unset($GLOBALS['sql_constraints_query_full_db']);
 }
 
 /**

@@ -11,7 +11,7 @@ if [ $# -lt 1 ] ; then
     echo "  english - no translations will be kept"
     echo "  langcode - keeps language"
     echo
-    echo "Languages can be scpecified multiple times"
+    echo "Languages can be specified multiple times"
     exit 1
 fi
 

@@ -67,11 +67,7 @@ while ($row = $GLOBALS['dbi']->fetchAssoc($modified_result)) {
 
 if (isset($_REQUEST['saveToFile'])) {
     $response->disable();
-    $file_name = $_REQUEST['fileName'];
-    if ($file_name == '') {
-        $file_name = $visualizationSettings['spatialColumn'];
-    }
-
+    $file_name = $visualizationSettings['spatialColumn'];
     $save_format = $_REQUEST['fileFormat'];
     PMA_GIS_saveToFile($data, $visualizationSettings, $save_format, $file_name);
     exit();

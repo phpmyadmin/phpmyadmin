@@ -31,7 +31,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
         $this->_params['Schema'] = "PMA_Schema";
         $this->_params['Table'] = "PMA_Table";
         $this->_params['Key_name'] = "PMA_Key_name";
-        $this->_params['Index_type'] = "PMA_Index_type";
+        $this->_params['Index_choice'] = "PMA_Index_choice";
         $this->_params['Comment'] = "PMA_Comment";
         $this->_params['Index_comment'] = "PMA_Index_comment";
         $this->_params['Non_unique'] = "PMA_Non_unique";
@@ -72,8 +72,8 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
             $index->getRemarks()
         );
         $this->assertEquals(
-            'PMA_Index_type',
-            $index->getType()
+            'PMA_Index_choice',
+            $index->getChoice()
         );
         $this->assertEquals(
             'PMA_Packed',
@@ -92,7 +92,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
             $index->getComments()
         );
         $this->assertEquals(
-            'INDEX',
+            'PMA_Index_choice',
             $index->getChoice()
         );
 

@@ -88,249 +88,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for setting display mode
-     *
-     * @param string  $the_disp_mode the synthetic value for display_mode (see
-     *                               a few lines above for explanations)
-     * @param integer $the_total     the total number of rows returned by the SQL
-     *                               query without any programmatically appended
-     *                               LIMIT clause
-     *                               (just a copy of $unlim_num_rows if it exists,
-     *                               else computed inside this function)
-     * @param string  $output        output from the _setDisplayMode method
-     *
-     * @return void
-     *
-     * @dataProvider providerForTestSetDisplayModeCase1
-     * @group medium
-     */
-    public function testSetDisplayModeCase1($the_disp_mode, $the_total, $output)
-    {
-        if (!isset($GLOBALS['fields_meta'])) {
-            $fields_meta = array();
-            $fields_meta[0] = new stdClass();
-            $fields_meta[0]->table = 'company';
-        } else {
-            $fields_meta = $GLOBALS['fields_meta'];
-        }
-
-        $this->object->setProperties(
-            null, $fields_meta, true, null, null,
-            null, null, null, null, null, null,
-            true, null, null, null, null, null, false
-        );
-
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_setDisplayMode',
-                array(&$the_disp_mode, &$the_total)
-            )
-        );
-    }
-
-    /**
-     * Provider for testSetDisplayModeCase1
-     *
-     * @return array data for testSetDisplayModeCase1
-     */
-    public function providerForTestSetDisplayModeCase1()
-    {
-        return array(
-            array(
-                'urkp111111',
-                5,
-                array(
-                    'edit_lnk' => 'nn',
-                    'del_lnk' => 'nn',
-                    'sort_lnk' => 0,
-                    'nav_bar' => 0,
-                    'ins_row' => 0,
-                    'bkm_form' => 1,
-                    'text_btn' => 1,
-                    'pview_lnk' => 1
-                )
-            ),
-            array(
-                'nnnn000000',
-                5,
-                array(
-                    'edit_lnk' => 'nn',
-                    'del_lnk' => 'nn',
-                    'sort_lnk' => 0,
-                    'nav_bar' => 0,
-                    'ins_row' => 0,
-                    'bkm_form' => 0,
-                    'text_btn' => 0,
-                    'pview_lnk' => 0
-                )
-            )
-        );
-    }
-
-    /**
-     * Test for setting display mode
-     *
-     * @param string  $the_disp_mode the synthetic value for display_mode (see a
-     *                               few lines above for explanations)
-     * @param integer $the_total     the total number of rows returned by the SQL
-     *                               query without any programmatically appended
-     *                               LIMIT clause
-     *                               (just a copy of $unlim_num_rows if it exists,
-     *                               elsecomputed inside this function)
-     * @param string  $output        output from the _setDisplayMode method
-     *
-     * @return void
-     *
-     * @dataProvider providerForTestSetDisplayModeCase2
-     */
-    public function testSetDisplayModeCase2($the_disp_mode, $the_total, $output)
-    {
-        if (!isset($GLOBALS['fields_meta'])) {
-            $fields_meta = array();
-            $fields_meta[0] = new stdClass();
-            $fields_meta[0]->table = 'company';
-        } else {
-            $fields_meta = $GLOBALS['fields_meta'];
-        }
-
-        $this->object->setProperties(
-            1, $fields_meta, false, null, null,
-            false, null, null, null, null, null,
-            false, false, true, null, null, null, false
-        );
-
-        $this->object->__set('sql_query', 'SELECT * FROM `pma_bookmark` WHERE 1');
-
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_setDisplayMode',
-                array(&$the_disp_mode, &$the_total)
-            )
-        );
-    }
-
-    /**
-     * Provider for testSetDisplayModeCase2
-     *
-     * @return array data for testSetDisplayModeCase2
-     */
-    public function providerForTestSetDisplayModeCase2()
-    {
-        return array(
-            array(
-                'urkp111111',
-                5,
-                array(
-                    'edit_lnk' => 'nn',
-                    'del_lnk' => 'nn',
-                    'sort_lnk' => 0,
-                    'nav_bar' => 0,
-                    'ins_row' => 0,
-                    'bkm_form' => 1,
-                    'text_btn' => 1,
-                    'pview_lnk' => 1
-                )
-            ),
-            array(
-                'nnnn000000',
-                5,
-                array(
-                    'edit_lnk' => 'nn',
-                    'del_lnk' => 'nn',
-                    'sort_lnk' => 0,
-                    'nav_bar' => 0,
-                    'ins_row' => 0,
-                    'bkm_form' => 0,
-                    'text_btn' => 0,
-                    'pview_lnk' => 0
-                )
-            )
-        );
-    }
-
-    /**
-     * Test for setting display mode
-     *
-     * @param string  $the_disp_mode the synthetic value for display_mode (see a
-     *                               few lines above for explanations)
-     * @param integer $the_total     the total number of rows returned by the SQL
-     *                               query without any programmatically appended
-     *                               LIMIT clause
-     *                               (just a copy of $unlim_num_rows if it exists,
-     *                               else computed inside this function)
-     * @param string  $output        output from the _setDisplayMode method
-     *
-     * @return void
-     *
-     * @dataProvider providerForTestSetDisplayModeCase3
-     */
-    public function testSetDisplayModeCase3($the_disp_mode, $the_total, $output)
-    {
-        if (!isset($GLOBALS['fields_meta'])) {
-            $fields_meta = array();
-            $fields_meta[0] = new stdClass();
-            $fields_meta[0]->table = 'company';
-        } else {
-            $fields_meta = $GLOBALS['fields_meta'];
-        }
-
-        $this->object->setProperties(
-            1, $fields_meta, false, null, null,
-            false, null, null, null, null, null,
-            false, false, null, null, '1', null, false
-        );
-
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_setDisplayMode',
-                array(&$the_disp_mode, &$the_total)
-            )
-        );
-    }
-
-    /**
-     * Provider for testSetDisplayModeCase3
-     *
-     * @return array data for testSetDisplayModeCase3
-     */
-    public function providerForTestSetDisplayModeCase3()
-    {
-        return array(
-            array(
-                'urkp111111',
-                5,
-                array(
-                    'edit_lnk' => 'nn',
-                    'del_lnk' => 'nn',
-                    'sort_lnk' => 0,
-                    'nav_bar' => 0,
-                    'ins_row' => 0,
-                    'bkm_form' => 0,
-                    'text_btn' => 0,
-                    'pview_lnk' => 0
-                )
-            ),
-            array(
-                'nnnn000000',
-                5,
-                array(
-                    'edit_lnk' => 'nn',
-                    'del_lnk' => 'nn',
-                    'sort_lnk' => 0,
-                    'nav_bar' => 0,
-                    'ins_row' => 0,
-                    'bkm_form' => 0,
-                    'text_btn' => 0,
-                    'pview_lnk' => 0
-                )
-            )
-        );
-    }
-
-    /**
      * Test for _isSelect function
      *
      * @return void
@@ -400,6 +157,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '<input type="hidden" name="sql_query" value="SELECT * '
                 . 'FROM `pma_bookmark` WHERE 1" />'
                 . '<input type="hidden" name="pos" value="1" />'
+                . '<input type="hidden" name="is_browse_distinct" value="" />'
                 . '<input type="hidden" name="goto" value="" />'
                 . '<input type="submit" name="navig" class="ajax" '
                 . 'value="btn"  title="Submit" /></form></td>'
@@ -410,28 +168,24 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for table navigation
      *
-     * @param integer $pos_next                  the offset for the "next" page
-     * @param integer $pos_prev                  the offset for the "previous" page
-     * @param string  $id_for_direction_dropdown the id for the direction dropdown
-     * @param boolean $is_innodb                 the table type is innoDb or not
-     * @param string  $output                    output from the _getTableNavigation
-     *                                           method
+     * @param integer $pos_next  the offset for the "next" page
+     * @param integer $pos_prev  the offset for the "previous" page
+     * @param boolean $is_innodb the table type is innoDb or not
+     * @param string  $output    output from the _getTableNavigation method
      *
      * @return void
      *
      * @dataProvider providerForTestGetTableNavigation
      */
     public function testGetTableNavigation(
-        $pos_next, $pos_prev, $id_for_direction_dropdown, $is_innodb, $output
+        $pos_next, $pos_prev, $is_innodb, $output
     ) {
         $_SESSION['tmpval']['max_rows'] = '20';
         $_SESSION['tmpval']['pos'] = true;
         $GLOBALS['num_rows'] = '20';
         $GLOBALS['unlim_num_rows'] = '50';
         $GLOBALS['cfg']['ShowAll'] = true;
-        $GLOBALS['cfg']['ShowDisplayDirection'] = true;
         $_SESSION['tmpval']['repeat_cells'] = '1';
-        $_SESSION['tmpval']['disp_direction'] = '1';
 
         /**
          * FIXME Counting words of a generated large HTML is not a good way
@@ -445,7 +199,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 $this->_callPrivateFunction(
                     '_getTableNavigation',
                     array(
-                        $pos_next, $pos_prev, $id_for_direction_dropdown, $is_innodb
+                        $pos_next, $pos_prev, $is_innodb
                     )
                 )
             )
@@ -465,7 +219,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             array(
                 21,
                 41,
-                '123',
                 false,
                 '310'
             )
@@ -486,8 +239,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '',
                 '',
                 '',
-                0,
-                'data grid_edit not_null    row_0 vpointer vmarker'
+                'data grid_edit not_null   '
             )
         );
     }
@@ -500,7 +252,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @param string  $relation_class   the class for relations in a column
      * @param string  $hide_class       the class for visibility of a column
      * @param string  $field_type_class the class related to type of the field
-     * @param integer $row_no           the row index
      * @param string  $output           output of__getResettedClassForInlineEdit
      *
      * @return void
@@ -509,12 +260,10 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetClassesForColumn(
         $grid_edit_class, $not_null_class, $relation_class,
-        $hide_class, $field_type_class, $row_no, $output
+        $hide_class, $field_type_class, $output
     ) {
         $GLOBALS['cfg']['BrowsePointerEnable'] = true;
         $GLOBALS['cfg']['BrowseMarkerEnable'] = true;
-        $_SESSION['tmpval']['disp_direction']
-            = PMA_DisplayResults::DISP_DIR_VERTICAL;
 
         $this->assertEquals(
             $output,
@@ -522,7 +271,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '_getClassesForColumn',
                 array(
                     $grid_edit_class, $not_null_class, $relation_class,
-                    $hide_class, $field_type_class, $row_no
+                    $hide_class, $field_type_class
                 )
             )
         );
@@ -577,63 +326,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Provide data for testGetOperationLinksForVerticalTable
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForTestGetOperationLinksForVerticalTable()
-    {
-        return array(
-            array(
-                'edit',
-                '<tr>
-</tr>
-'
-            ),
-            array(
-                'copy',
-                "<tr>\nCOPY1COPY2</tr>\n"
-            ),
-            array(
-                'delete',
-                "<tr>\nDELETE1DELETE2</tr>\n"
-            ),
-        );
-    }
-
-    /**
-     * Test for _getOperationLinksForVerticalTable
-     *
-     * @param string $operation edit/copy/delete
-     * @param string $output    output of _getOperationLinksForVerticalTable
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForTestGetOperationLinksForVerticalTable
-     */
-    public function testGetOperationLinksForVerticalTable(
-        $operation, $output
-    ) {
-        $vertical_display = array(
-            'row_delete' => array(),
-            'textbtn' => '<th  rowspan="4" class="vmiddle">\n        \n    </th>\n',
-            'edit' => array(),
-            'copy' => array('COPY1', 'COPY2'),
-            'delete' => array('DELETE1', 'DELETE2'),
-        );
-
-        $this->object->__set('vertical_display', $vertical_display);
-
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getOperationLinksForVerticalTable',
-                array($operation)
-            )
-        );
-    }
-
-    /**
      * Data provider for testGetCheckBoxesForMultipleRowOperations
      *
      * @return array parameters and output
@@ -645,12 +337,12 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '_left',
                 array('edit_lnk' => null, 'del_lnk' => null),
                 //array('edit_lnk' => 'nn', 'del_lnk' => 'nn'),
-                '<td class="odd row_0 vpointer vmarker" class="center"><input type='
+                '<td class="odd" class="center"><input type='
                 . '"checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" '
                 . 'class="multi_checkbox" value="%60cars%60.%60id%60+%3D+3"  />'
                 . '<input type="hidden" class="condition_array" value="{&quot;'
-                . '`cars`.`id`&quot;:&quot;= 3&quot;}" />    </td><td class="even '
-                . 'row_1 vpointer vmarker" class="center"><input type="checkbox" '
+                . '`cars`.`id`&quot;:&quot;= 3&quot;}" />    </td><td class="even"'
+                . ' class="center"><input type="checkbox" '
                 . 'id="id_rows_to_delete1_left" name="rows_to_delete[1]" class='
                 . '"multi_checkbox" value="%60cars%60.%60id%60+%3D+9"  /><input '
                 . 'type="hidden" class="condition_array" value="{&quot;`cars`.'
@@ -662,26 +354,26 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getCheckBoxesForMultipleRowOperations
      *
-     * @param string $dir        _left / _right
-     * @param array  $is_display display mode
-     * @param string $output     output of _getCheckBoxesForMultipleRowOperations
+     * @param string $dir          _left / _right
+     * @param array  $displayParts which parts to display
+     * @param string $output       output of _getCheckBoxesForMultipleRowOperations
      *
      * @return void
      *
      * @dataProvider dataProviderForGetCheckBoxesForMultipleRowOperations
      */
     public function testGetCheckBoxesForMultipleRowOperations(
-        $dir, $is_display, $output
+        $dir, $displayParts, $output
     ) {
         $vertical_display = array(
             'row_delete' => array(
-                '<td class="odd row_0 vpointer vmarker" class="center"><input '
+                '<td class="odd" class="center"><input '
                 . 'type="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" '
                 . 'name="rows_to_delete[0]" class="multi_checkbox" value="%60cars'
                 . '%60.%60id%60+%3D+3"  /><input type="hidden" class="condition_'
                 . 'array" value="{&quot;`cars`.`id`&quot;:&quot;= 3&quot;}" />    '
                 . '</td>',
-                '<td class="even row_1 vpointer vmarker" class="center"><input '
+                '<td class="even" class="center"><input '
                 . 'type="checkbox" id="id_rows_to_delete1[%_PMA_CHECKBOX_DIR_%]" '
                 . 'name="rows_to_delete[1]" class="multi_checkbox" value="%60cars'
                 . '%60.%60id%60+%3D+9"  /><input type="hidden" class="condition_'
@@ -697,7 +389,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             $output,
             $this->_callPrivateFunction(
                 '_getCheckBoxesForMultipleRowOperations',
-                array($dir, $is_display)
+                array($dir, $displayParts)
             )
         );
     }
@@ -812,8 +504,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '%60new%60.%60id%60+%3D+1',
                 array('`new`.`id`' => '= 1'),
                 '[%_PMA_CHECKBOX_DIR_%]',
-                'odd row_0 vpointer vmarker',
-                '<td class="odd row_0 vpointer vmarker" class="center"><input type'
+                'odd',
+                '<td class="odd" class="center"><input type'
                 . '="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name='
                 . '"rows_to_delete[0]" class="multi_checkbox checkall" value="%60'
                 . 'new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_'
@@ -827,7 +519,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * Test for _getCheckboxForMultiRowSubmissions
      *
      * @param string $del_url           delete url
-     * @param array  $is_display        array with explicit indexes for all
+     * @param array  $displayParts      array with explicit indexes for all
      *                                  the display elements
      * @param string $row_no            the row number
      * @param string $where_clause_html url encoded where clause
@@ -841,7 +533,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @dataProvider dataProviderForGetCheckboxForMultiRowSubmissions
      */
     public function testGetCheckboxForMultiRowSubmissions(
-        $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
+        $del_url, $displayParts, $row_no, $where_clause_html, $condition_array,
         $id_suffix, $class, $output
     ) {
         $this->assertEquals(
@@ -849,7 +541,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             $this->_callPrivateFunction(
                 '_getCheckboxForMultiRowSubmissions',
                 array(
-                    $del_url, $is_display, $row_no, $where_clause_html,
+                    $del_url, $displayParts, $row_no, $where_clause_html,
                     $condition_array, $id_suffix, $class
                 )
             )
@@ -869,12 +561,12 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . 'customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_'
                 . 'action=update&amp;token=bbd5003198a3bd856b21d9607d6c6a1e',
-                'odd edit_row_anchor row_0 vpointer vmarker',
+                'odd edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt='
                 . '"Edit" class="icon ic_b_edit" /> Edit</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
-                '<td class="odd edit_row_anchor row_0 vpointer vmarker center"  >'
+                '<td class="odd edit_row_anchor center"  >'
                 . '<span class="nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -936,8 +628,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '="Copy" class="icon ic_b_insrow" /> Copy</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
-                'odd row_0 vpointer vmarker',
-                '<td class="odd row_0 vpointer vmarker center"  ><span class='
+                'odd',
+                '<td class="odd center"  ><span class='
                 . '"nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -1001,8 +693,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
-                'odd row_0 vpointer vmarker',
-                '<td class="odd row_0 vpointer vmarker center"  >' . "\n"
+                'odd',
+                '<td class="odd center"  >' . "\n"
                 . '<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE'
                 . '+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D'
                 . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
@@ -1264,7 +956,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      *
      * @param string $position          the position of the checkbox and links
      * @param string $del_url           delete url
-     * @param array  $is_display        array with explicit indexes for all the
+     * @param array  $displayParts      array with explicit indexes for all the
      *                                  display elements
      * @param string $row_no            row number
      * @param string $where_clause      where clause
@@ -1284,7 +976,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @dataProvider dataProviderForGetCheckboxAndLinks
      */
     public function testGetCheckboxAndLinks(
-        $position, $del_url, $is_display, $row_no, $where_clause,
+        $position, $del_url, $displayParts, $row_no, $where_clause,
         $where_clause_html, $condition_array, $edit_url,
         $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
     ) {
@@ -1293,7 +985,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             $this->_callPrivateFunction(
                 '_getCheckboxAndLinks',
                 array(
-                    $position, $del_url, $is_display, $row_no, $where_clause,
+                    $position, $del_url, $displayParts, $row_no, $where_clause,
                     $where_clause_html, $condition_array,
                     $edit_url, $copy_url, $class, $edit_str,
                     $copy_str, $del_str, $js_conf
@@ -1365,7 +1057,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      *
      * @param string  $dir               the direction of links should place
      * @param string  $del_url           the url for delete row
-     * @param array   $is_display        which elements to display
+     * @param array   $displayParts      which elements to display
      * @param integer $row_no            the index of current row
      * @param string  $where_clause      the where clause of the sql
      * @param string  $where_clause_html the html encoded where clause
@@ -1384,7 +1076,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @dataProvider dataProviderForGetPlacedLinks
      */
     public function testGetPlacedLinks(
-        $dir, $del_url, $is_display, $row_no, $where_clause, $where_clause_html,
+        $dir, $del_url, $displayParts, $row_no, $where_clause, $where_clause_html,
         $condition_array, $edit_url, $copy_url,
         $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf, $output
     ) {
@@ -1393,7 +1085,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             $this->_callPrivateFunction(
                 '_getPlacedLinks',
                 array(
-                    $dir, $del_url, $is_display, $row_no, $where_clause,
+                    $dir, $del_url, $displayParts, $row_no, $where_clause,
                     $where_clause_html, $condition_array,
                     $edit_url, $copy_url, $edit_anchor_class,
                     $edit_str, $copy_str, $del_str, $js_conf
@@ -1421,8 +1113,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'routine_type' => 'FUNCTION'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=circumference&amp;db=data&amp;edit_'
-                . 'item=1&amp;item_type=FUNCTION&amp;server=0&amp;lang=en'
+                'db_routines.php?item_name=circumference&amp;db=data'
+                . '&amp;item_type=FUNCTION&amp;server=0&amp;lang=en'
                 . '&amp;collation_connection=utf-8'
                 . '&amp;token=token'
             ),
@@ -1436,7 +1128,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'routine_type' => 'PROCEDURE'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=area&amp;db=data&amp;edit_item=1'
+                'db_routines.php?item_name=area&amp;db=data'
                 . '&amp;item_type=PROCEDURE&amp;server=0&amp;lang=en'
                 . '&amp;collation_connection=utf-8'
                 . '&amp;token=token'
@@ -1614,6 +1306,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 'mysql',
                 'user',
                 'tbl_structure.php',
+                0,
                 'SELECT * FROM `user`',
                 "\n"
                 . '<td><form action="sql.php" method="post">'
@@ -1624,10 +1317,12 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '<input type="hidden" name="token" value="token" />'
                 . '<input type="hidden" name="sql_query" value="SELECT * FROM `user`" />'
                 . '<input type="hidden" name="pos" value="0" />'
+                . '<input type="hidden" name="is_browse_distinct" value="" />'
                 . '<input type="hidden" name="session_max_rows" value="all" />'
                 . '<input type="hidden" name="goto" value="tbl_structure.php" />'
-                . '<input type="checkbox" name="navig" id="navig" class="showAllRows" value="all" />'
-                . '<label for="navig">Show all</label></form></td>'
+                . '<input type="checkbox" name="navig" id="showAll_0"'
+                . ' class="showAllRows" value="all" />'
+                . '<label for="showAll_0">Show all</label></form></td>'
             )
         );
     }
@@ -1639,6 +1334,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @param string $db             the database name
      * @param string $table          the table name
      * @param string $goto           the URL to go back in case of errors
+     * @param int    $unique_id      the unique id for the results set
      * @param string $html_sql_query the sql encoded by html special characters
      * @param string $output         output of _getRowInfoForSpecialLinks
      *
@@ -1647,11 +1343,12 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @dataProvider dataProviderForTestGetShowAllCheckboxForTableNavigation
      */
     public function testGetShowAllCheckboxForTableNavigation(
-        $db, $table, $goto, $html_sql_query, $output
+        $db, $table, $goto, $unique_id , $html_sql_query, $output
     ) {
         $this->object->__set('db', $db);
         $this->object->__set('table', $table);
         $this->object->__set('goto', $goto);
+        $this->object->__set('unique_id', $unique_id);
 
         $this->assertEquals(
             $output,
@@ -1814,7 +1511,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="31303031" title="" target="_new">31303031</a>'
+                '<a href="1001" title="" target="_new">1001</a>'
             ),
             array(
                 false,
@@ -1886,15 +1583,23 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     {
         $transformation_plugin = new Text_Plain_Link();
         $meta = new StdClass();
+        $meta->db = 'foo';
+        $meta->table = 'tbl';
+        $meta->orgtable = 'tbl';
         $meta->type = 'BLOB';
         $meta->flags = 'blob binary';
         $meta->name = 'tblob';
+        $meta->orgname = 'tblob';
 
         $meta2 = new StdClass();
+        $meta2->db = 'foo';
+        $meta2->table = 'tbl';
+        $meta2->orgtable = 'tbl';
         $meta2->type = 'string';
         $meta2->flags = '';
         $meta2->decimals = 0;
         $meta2->name = 'varchar';
+        $meta2->orgname = 'varchar';
         $url_params = array('db' => 'foo');
 
         return array(
@@ -1935,7 +1640,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 0,
                 'binary',
                 '<td class="left grid_edit  transformed hex">'
-                . '<a href="31303031" title="" target="_new">31303031</a></td>'
+                . '<a href="1001" title="" target="_new">1001</a></td>'
             ),
             array(
                 'noblob',
