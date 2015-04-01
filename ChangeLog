@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 - bug #4821 Timed-out import fails to restart when file represented
 - bug #4754 pMA DB not detected properly
 - bug #4825 Datepicker missing when changing number of rows on Insert page
+- bug #4824 INNODB STATUS page is empty
 
 4.4.0.0 (not yet released)
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
