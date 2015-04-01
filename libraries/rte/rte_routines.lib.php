@@ -1260,7 +1260,6 @@ function PMA_RTN_getQueryFromRequest()
             )
         ) {
             if (! $warned_about_length) {
-                $warned_about_length = true;
                 $errors[] = __(
                     'You must provide length/values for routine parameters'
                     . ' of type ENUM, SET, VARCHAR and VARBINARY.'
