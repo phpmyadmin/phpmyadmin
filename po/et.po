@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:56-0400\n"
-"PO-Revision-Date: 2015-03-29 10:24+0200\n"
+"PO-Revision-Date: 2015-04-02 08:03+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -680,7 +680,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importimine lõpetati edukalt, teostati %d päringut."
 
 #: import.php:685
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -688,8 +688,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Ületati skripti ooteaeg. Kui tahad importimise lõpetada, siis saada see fail "
-"uuesti ja importimine jätkub poolelijäänud kohast."
+"Ületati skripti ooteaeg. Kui tahad importimise lõpetada, siis palun %ssaada "
+"fail uuesti%s ja importimine jätkub poolelijäänud kohast."
 
 #: import.php:695
 msgid ""
@@ -3026,10 +3026,9 @@ msgstr ""
 "kombinatsiooniga."
 
 #: libraries/Console.class.php:320
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Mine kopeeritud tabelisse"
+msgstr "Vali tume teema"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
 #: libraries/DisplayResults.class.php:2143
@@ -7802,13 +7801,12 @@ msgstr "Tabelite hulk:"
 
 #: libraries/db_designer.lib.php:590
 msgid "Toggle"
-msgstr ""
+msgstr "Lülita"
 
 #: libraries/db_designer.lib.php:613
-#, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
-msgstr "Tabeli struktuur"
+msgstr "Vaata tabeli struktuuri"
 
 #: libraries/db_designer.lib.php:869
 msgid "Delete relation"
@@ -10366,22 +10364,19 @@ msgid "Data Dictionary"
 msgstr "Andmesõnastik"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "mitte kumbki ülal nimetatuist"
+msgstr "Tabelite järjekord"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Kasvav"
+msgstr "Nimi (kasvav)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Kahanev"
+msgstr "Nimi (kahanev)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:68
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:81
