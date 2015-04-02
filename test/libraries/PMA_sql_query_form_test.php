@@ -53,6 +53,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['GZipDump'] = false;
         $GLOBALS['cfg']['BZipDump'] = false;
         $GLOBALS['cfg']['ZipDump'] = false;
+        $GLOBALS['cfg']['XZDump'] = false;
         $GLOBALS['cfg']['ServerDefault'] = "default";
         $GLOBALS['cfg']['TextareaAutoSelect'] = true;
         $GLOBALS['cfg']['TextareaRows'] = 100;

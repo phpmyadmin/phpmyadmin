@@ -4433,6 +4433,11 @@ class PMA_Util
         if ($len >= 4 && $test == "PK\003\004") {
             return 'application/zip';
         }
+        if ($len >= 4 && $test[0] == chr(253) && $test[1] == chr(55)
+            && $test[2] == chr(122) && $test[3] == chr(88)
+        ) {
+            return 'application/x-xz';
+        }
         return 'none';
     }
 

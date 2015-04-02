@@ -778,23 +778,28 @@ class FormDisplay
             $opts['comment'] = $comment;
             $opts['comment_warning'] = true;
         }
-        // ZipDump, GZipDump, BZipDump - check function availability
+        // ZipDump, GZipDump, BZipDump, XZ - check function availability
         if ($system_path == 'ZipDump'
             || $system_path == 'GZipDump'
             || $system_path == 'BZipDump'
+            || $system_path == 'XZDump'
         ) {
             $comment = '';
             $funcs = array(
                 'ZipDump'  => array('zip_open', 'gzcompress'),
                 'GZipDump' => array('gzopen', 'gzencode'),
-                'BZipDump' => array('bzopen', 'bzcompress'));
+                'BZipDump' => array('bzopen', 'bzcompress'),
+                'XZDump' => array('xzopen', '')
+            );
             if (!function_exists($funcs[$system_path][0])) {
                 $comment = sprintf(
                     __('Compressed import will not work due to missing function %s.'),
                     $funcs[$system_path][0]
                 );
             }
-            if (!function_exists($funcs[$system_path][1])) {
+            if (! empty($funcs[$system_path][1])
+                && ! function_exists($funcs[$system_path][1])
+            ) {
                 $comment .= ($comment ? '; ' : '') . sprintf(
                     __(
                         'Compressed export will not work due to missing function %s.'

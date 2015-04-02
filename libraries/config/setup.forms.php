@@ -100,6 +100,7 @@ $forms['Features']['Import_export'] = array(
     'ZipDump',
     'GZipDump',
     'BZipDump',
+    'XZDump',
     'CompressOnFly');
 $forms['Features']['Security'] = array(
     'blowfish_secret',

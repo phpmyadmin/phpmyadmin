@@ -146,6 +146,9 @@ function PMA_getHtmlForImportCompressions()
     if ($cfg['ZipDump'] && @function_exists('zip_open')) {
         $compressions[] = 'zip';
     }
+    if ($cfg['XZDump'] && @function_exists('xzopen')) {
+        $compressions[] = 'xz';
+    }
     // We don't have show anything about compression, when no supported
     if ($compressions != array()) {
         $html .= '<div class="formelementrow" id="compression_info">';
