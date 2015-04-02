@@ -324,6 +324,8 @@ if (!defined('TESTSUITE')) {
             $export_type, $remember_template, $export_plugin, $compression,
             $filename_template
         );
+    } else {
+        $mime_type = '';
     }
 
     // Open file on server if needed

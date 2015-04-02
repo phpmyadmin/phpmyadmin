@@ -648,6 +648,10 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
             while ($row1 = $GLOBALS['dbi']->fetchRow($res)) {
                 if (mb_substr($row1[0], 0, 4) == 'max_') {
                     $row[$row1[0]] = 0;
+                } elseif (mb_substr($row1[0], 0, 5) == 'x509_'
+                    || mb_substr($row1[0], 0, 4) == 'ssl_'
+                ) {
+                    $row[$row1[0]] = '';
                 } else {
                     $row[$row1[0]] = 'N';
                 }
@@ -703,6 +707,152 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
     }
     return $html_output;
 } // end of the 'PMA_displayPrivTable()' function
+
+/**
+ * Get HTML for "Require"
+ *
+ * @param array $row privilege array
+ *
+ * @return string html snippet
+ */
+function PMA_getHtmlForRequires($row)
+{
+    $html_output  = '<fieldset>';
+
+    $html_output .= '<legend>';
+    $html_output .= '<input type="checkbox" name="SSL_priv" id="checkbox_SSL_priv"'
+        . ' value="Y" title="'
+        . __(
+            'Requires SSL-encrypted connections.'
+        )
+        . '"'
+        . ((isset($row['ssl_type']) && $row['ssl_type'] != '')
+            ? ' checked="checked"'
+            : ''
+        )
+        . '/>';
+    $html_output .= __('Require SSL') . '</legend>';
+    $html_output .= '<div id="require_ssl_div">';
+
+    // Specified
+    $html_output .= '<div class="item">';
+    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_specified"'
+        . ' value="specified"'
+        . ((isset($row['ssl_type']) && $row['ssl_type'] == 'SPECIFIED')
+            ? ' checked="checked"'
+            : ''
+        )
+        . '/>';
+
+    $html_output .= '<label for="ssl_type_speified"><code>'
+        . 'SPECIFIED'
+        . '</code></label>';
+    $html_output .= '</div>';
+
+    $html_output .= '<div id="specified_div" style="padding-left:20px;">';
+
+    // REQUIRE CIPHER
+    $html_output .= '<div class="item">';
+    $html_output .= '<label for="text_ssl_cipher">'
+        . '<code><dfn title="'
+        . __(
+            'Requires that a specific cipher method be used for a connection.'
+        )
+        . '">'
+        . 'REQUIRE CIPHER'
+        . '</dfn></code></label>';
+    $html_output .= '<input type="text" name="ssl_cipher" id="text_ssl_cipher" '
+        . 'value="' . (isset($row['ssl_cipher']) ? $row['ssl_cipher'] : '') . '" '
+        . 'size=80" title="'
+        . __(
+            'Requires that a specific cipher method be used for a connection.'
+        )
+        . '" />';
+    $html_output .= '</div>';
+
+    // REQUIRE ISSUER
+    $html_output .= '<div class="item">';
+    $html_output .= '<label for="text_x509_issuer">'
+        . '<code><dfn title="'
+        . __(
+            'Requires that a valid X509 certificate issued by this CA be presented.'
+        )
+        . '">'
+        . 'REQUIRE ISSUER'
+        . '</dfn></code></label>';
+    $html_output .= '<input type="text" name="x509_issuer" id="text_x509_issuer" '
+        . 'value="' . (isset($row['x509_issuer']) ? $row['x509_issuer'] : '') . '" '
+        . 'size=80" title="'
+        . __(
+            'Requires that a valid X509 certificate issued by this CA be presented.'
+        )
+        . '" />';
+    $html_output .= '</div>';
+
+    // REQUIRE SUBJECT
+    $html_output .= '<div class="item">';
+    $html_output .= '<label for="text_x509_subject">'
+        . '<code><dfn title="'
+        . __(
+            'Requires that a valid X509 certificate with this subject be presented.'
+        )
+        . '">'
+        . 'REQUIRE SUBJECT'
+        . '</dfn></code></label>';
+    $html_output .= '<input type="text" name="x509_subject" id="text_x509_subject" '
+        . 'value="' . (isset($row['x509_subject']) ? $row['x509_subject'] : '') . '" '
+        . 'size=80" title="'
+        . __(
+            'Requires that a valid X509 certificate with this subject be presented.'
+        )
+        . '" />';
+    $html_output .= '</div>';
+
+    $html_output .= '</div>';
+
+    // REQUIRE X509
+    $html_output .= '<div class="item">';
+    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_X509"'
+        . ' value="X509" title="'
+        . __(
+            'Requires a valid X509 cetrificate.'
+        )
+        . '"'
+        . ((isset($row['ssl_type']) && $row['ssl_type'] == 'X509')
+            ? ' checked="checked"'
+            : ''
+        )
+        . '/>';
+
+    $html_output .= '<label for="radio_X509_priv"><code>'
+        . 'REQUIRE X509'
+        . '</code></label>';
+    $html_output .= '</div>';
+
+    // REQUIRE SSL
+    $html_output .= '<div class="item">';
+    $html_output .= '<input type="radio" name="ssl_type" id="ssl_type_ANY"'
+        . ' value="ANY" title="'
+        . __(
+            'Requires SSL-encrypted connections.'
+        )
+        . '"'
+        . ((isset($row['ssl_type']) && ($row['ssl_type'] == 'ANY' || $row['ssl_type'] == ''))
+            ? ' checked="checked"'
+            : ''
+        )
+        . '/>';
+
+    $html_output .= '<label for="ssl_type_ANY"><code>'
+        . 'REQUIRE SSL'
+        . '</code></label>';
+    $html_output .= '</div>';
+
+    $html_output .= '</div>';
+    $html_output .= '</fieldset>';
+
+    return $html_output;
+}
 
 /**
  * Get HTML for "Resource limits"
@@ -1058,6 +1208,7 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
     // The "Resource limits" box is not displayed for db-specific privs
     if ($db == '*') {
         $html_output .= PMA_getHtmlForResourceLimits($row);
+        $html_output .= PMA_getHtmlForRequires($row);
     }
     // for Safari 2.0.2
     $html_output .= '<div class="clearfloat"></div>';
@@ -1706,6 +1857,46 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($dbname,
 }
 
 /**
+ * Get REQUIRE cluase
+ *
+ * @return stirng REQUIRE clause
+ */
+function PMA_getRequireClause()
+{
+    $require_clause = "";
+    if (isset($_POST['SSL_priv']) && $_POST['SSL_priv'] == 'Y') {
+        if (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'specified') {
+            $require = array();
+            if (! empty($_POST['ssl_cipher'])) {
+                $require[] = "CIPHER '"
+                        . PMA_Util::sqlAddSlashes($_POST['ssl_cipher']) . "'";
+            }
+            if (! empty($_POST['x509_issuer'])) {
+                $require[] = "ISSUER '"
+                        . PMA_Util::sqlAddSlashes($_POST['x509_issuer']) . "'";
+            }
+            if (! empty($_POST['x509_subject'])) {
+                $require[] = "SUBJECT '"
+                        . PMA_Util::sqlAddSlashes($_POST['x509_subject']) . "'";
+            }
+            if (count($require)) {
+                $require_clause = " REQUIRE " . implode(" AND ", $require);
+            } else {
+                $require_clause = " REQUIRE NONE";
+            }
+        } elseif (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'X509') {
+            $require_clause = " REQUIRE X509";
+        } elseif (isset($_POST['ssl_type']) && $_POST['ssl_type'] == 'ANY') {
+            $require_clause = " REQUIRE SSL";
+        }
+    } else {
+        $require_clause = " REQUIRE NONE";
+    }
+
+    return $require_clause;
+}
+
+/**
  * Get a WITH clause for 'update privileges' and 'add user'
  *
  * @return string $sql_query
@@ -1732,7 +1923,7 @@ function PMA_getWithClauseForAddUserAndUpdatePrivs()
         $max_user_connections = max(0, (int)$_POST['max_user_connections']);
         $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
     }
-    return ((!empty($sql_query)) ? 'WITH' . $sql_query : '');
+    return ((!empty($sql_query)) ? ' WITH' . $sql_query : '');
 }
 
 /**
@@ -1759,13 +1950,13 @@ function PMA_getHtmlForAddUser($dbname)
     $html_output .= PMA_Util::getCheckbox(
         'createdb-1',
         __('Create database with same name and grant all privileges.'),
-        false, false
+        false, false, 'createdb-1'
     );
     $html_output .= '<br />' . "\n";
     $html_output .= PMA_Util::getCheckbox(
         'createdb-2',
         __('Grant all privileges on wildcard name (username\\_%).'),
-        false, false
+        false, false, 'createdb-2'
     );
     $html_output .= '<br />' . "\n";
 
@@ -1777,7 +1968,8 @@ function PMA_getHtmlForAddUser($dbname)
                 htmlspecialchars($dbname)
             ),
             true,
-            false
+            false,
+            'createdb-3'
         );
         $html_output .= '<input type="hidden" name="dbname" value="'
             . htmlspecialchars($dbname) . '" />' . "\n";
@@ -1866,8 +2058,9 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
     $html_output = '';
     if ($GLOBALS['is_superuser']) {
         // check the privileges for a particular database.
-        $html_output = '<form id="usersForm" action="server_privileges.php">'
-            . '<fieldset>' . "\n";
+        $html_output  = '<form id="usersForm" action="server_privileges.php">';
+        $html_output .= PMA_URL_getHiddenInputs($db);
+        $html_output .= '<fieldset>';
         $html_output .= '<legend>' . "\n"
             . PMA_Util::getIcon('b_usrcheck.png')
             . '    '
@@ -1885,9 +2078,19 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         $html_output .= PMA_getHtmlForPrivsTableHead();
         $privMap = PMA_getPrivMap($db);
         $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
-        $html_output .= '</table>'
-            . '</fieldset>'
-            . '</form>' . "\n";
+        $html_output .= '</table>';
+
+        $html_output .= '<div style="float:left;">';
+        $html_output .= PMA_Util::getWithSelected(
+            $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "usersForm"
+        );
+        $html_output .= PMA_Util::getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_export',
+            __('Export'), 'b_tblexport.png', 'export'
+        );
+
+        $html_output .= '</fieldset>';
+        $html_output .= '</form>';
     } else {
         $html_output .= PMA_getHtmlForViewUsersError();
     }
@@ -1921,6 +2124,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
     if ($GLOBALS['is_superuser']) {
         // check the privileges for a particular table.
         $html_output  = '<form id="usersForm" action="server_privileges.php">';
+        $html_output .= PMA_URL_getHiddenInputs($db, $table);
         $html_output .= '<fieldset>';
         $html_output .= '<legend>'
             . PMA_Util::getIcon('b_usrcheck.png')
@@ -1952,6 +2156,16 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         PMA_mergePrivMapFromResult($privMap, $res);
         $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
         $html_output .= '</table>';
+
+        $html_output .= '<div style="float:left;">';
+        $html_output .= PMA_Util::getWithSelected(
+            $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "usersForm"
+        );
+        $html_output .= PMA_Util::getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_export',
+            __('Export'), 'b_tblexport.png', 'export'
+        );
+
         $html_output .= '</fieldset>';
         $html_output .= '</form>';
     } else {
@@ -2024,7 +2238,9 @@ function PMA_mergePrivMapFromResult(&$privMap, $result)
 function PMA_getHtmlForPrivsTableHead()
 {
     return '<thead>'
-        . '<tr><th>' . __('User') . '</th>'
+        . '<tr>'
+        . '<th></th>'
+        . '<th>' . __('User') . '</th>'
         . '<th>' . __('Host') . '</th>'
         . '<th>' . __('Type') . '</th>'
         . '<th>' . __('Privileges') . '</th>'
@@ -2058,6 +2274,7 @@ function PMA_getHtmlForViewUsersError()
 function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
 {
     $html_output = '<tbody>';
+    $index_checkbox = 0;
     $odd_row = true;
     if (empty($privMap)) {
         $html_output .= '<tr class="odd">'
@@ -2074,6 +2291,16 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
             $nbPrivileges = count($current_privileges);
             $html_output .= '<tr class="noclick '
                 . ($odd_row ? 'odd' : 'even') . '">';
+
+            $value = htmlspecialchars($current_user . '&amp;#27;' . $current_host);
+            $html_output .= '<td';
+            if ($nbPrivileges > 1) {
+                $html_output .= ' rowspan="' . $nbPrivileges . '"';
+            }
+            $html_output .= '>';
+            $html_output .= '<input type="checkbox" class="checkall" name="selected_usr[]" '
+                . 'id="checkbox_sel_users_' . ($index_checkbox++) . '" '
+                . 'value="' . $value . '" /></td>' . "\n";
 
             // user
             $html_output .= '<td';
@@ -2197,18 +2424,20 @@ function PMA_getHtmlListOfPrivs(
 
         // action
         $html_output .= '<td>';
-        $specific_db = (isset($current['Db']) && $current['Db'] != '*')
-            ? $current['Db'] : '';
-        $specific_table = (isset($current['Table_name'])
-            && $current['Table_name'] != '*')
-            ? $current['Table_name'] : '';
-        $html_output .= PMA_getUserLink(
-            'edit',
-            $current_user,
-            $current_host,
-            $specific_db,
-            $specific_table
-        );
+        if ($GLOBALS['is_grantuser']) {
+            $specific_db = (isset($current['Db']) && $current['Db'] != '*')
+                ? $current['Db'] : '';
+            $specific_table = (isset($current['Table_name'])
+                && $current['Table_name'] != '*')
+                ? $current['Table_name'] : '';
+            $html_output .= PMA_getUserLink(
+                'edit',
+                $current_user,
+                $current_host,
+                $specific_db,
+                $specific_table
+            );
+        }
         $html_output .= '</td>';
 
         $html_output .= '</tr>';
@@ -2391,18 +2620,18 @@ function PMA_getExtraDataForAjaxBehavior(
         }
 
         $new_user_string .= '<td>';
-
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')) {
             $new_user_string .= __('Yes');
         } else {
             $new_user_string .= __('No');
         }
-
         $new_user_string .='</td>';
 
-        $new_user_string .= '<td>'
-            . PMA_getUserLink('edit', $username, $hostname)
-            . '</td>' . "\n";
+        if ($GLOBALS['is_grantuser']) {
+            $new_user_string .= '<td>'
+                . PMA_getUserLink('edit', $username, $hostname)
+                . '</td>' . "\n";
+        }
 
         if (isset($cfgRelation['menuswork']) && $user_group_count > 0) {
             $new_user_string .= '<td>'
@@ -2683,50 +2912,55 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
 ) {
     $html_output = '';
     $found_rows = array();
+
     // display rows
     if (count($db_rights) < 1) {
         $html_output .= '<tr class="odd">' . "\n"
            . '<td colspan="6"><center><i>' . __('None') . '</i></center></td>' . "\n"
            . '</tr>' . "\n";
-    } else {
-        $odd_row = true;
-        //while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-        foreach ($db_rights as $row) {
-            $dbNameLength = /*overload*/mb_strlen($dbname);
-            $found_rows[] = (!$dbNameLength)
-                ? $row['Db']
-                : $row['Table_name'];
+        return array($found_rows, $html_output);
+    }
 
-            $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
-                . '<td>'
-                . htmlspecialchars(
-                    (!$dbNameLength)
-                    ? $row['Db']
-                    : $row['Table_name']
-                )
-                . '</td>' . "\n"
-                . '<td><code>' . "\n"
-                . '        '
-                . join(
-                    ',' . "\n" . '            ',
-                    PMA_extractPrivInfo($row, true)
-                ) . "\n"
-                . '</code></td>' . "\n"
-                . '<td>'
-                    . ((((!$dbNameLength) && $row['Grant_priv'] == 'Y')
-                        || ($dbNameLength
-                        && in_array('Grant', explode(',', $row['Table_priv']))))
-                    ? __('Yes')
-                    : __('No'))
-                . '</td>' . "\n"
-                . '<td>';
-            if (! empty($row['Table_privs']) || ! empty ($row['Column_priv'])) {
-                $html_output .= __('Yes');
-            } else {
-                $html_output .= __('No');
-            }
-            $html_output .= '</td>' . "\n"
-               . '<td>';
+    $odd_row = true;
+    //while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
+    foreach ($db_rights as $row) {
+        $dbNameLength = /*overload*/mb_strlen($dbname);
+        $found_rows[] = (!$dbNameLength)
+            ? $row['Db']
+            : $row['Table_name'];
+
+        $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
+            . '<td>'
+            . htmlspecialchars(
+                (!$dbNameLength)
+                ? $row['Db']
+                : $row['Table_name']
+            )
+            . '</td>' . "\n"
+            . '<td><code>' . "\n"
+            . '        '
+            . join(
+                ',' . "\n" . '            ',
+                PMA_extractPrivInfo($row, true)
+            ) . "\n"
+            . '</code></td>' . "\n"
+            . '<td>'
+                . ((((!$dbNameLength) && $row['Grant_priv'] == 'Y')
+                    || ($dbNameLength
+                    && in_array('Grant', explode(',', $row['Table_priv']))))
+                ? __('Yes')
+                : __('No'))
+            . '</td>' . "\n"
+            . '<td>';
+        if (! empty($row['Table_privs']) || ! empty ($row['Column_priv'])) {
+            $html_output .= __('Yes');
+        } else {
+            $html_output .= __('No');
+        }
+        $html_output .= '</td>';
+
+        $html_output .= '<td>';
+        if ($GLOBALS['is_grantuser']) {
             $html_output .= PMA_getUserLink(
                 'edit',
                 $username,
@@ -2734,25 +2968,27 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
                 (!$dbNameLength) ? $row['Db'] : $dbname,
                 (!$dbNameLength) ? '' : $row['Table_name']
             );
-            $html_output .= '</td>' . "\n"
-               . '    <td>';
-            if (! empty($row['can_delete'])
-                || isset($row['Table_name'])
-                && /*overload*/mb_strlen($row['Table_name'])
-            ) {
-                $html_output .= PMA_getUserLink(
-                    'revoke',
-                    $username,
-                    $hostname,
-                    (!$dbNameLength) ? $row['Db'] : $dbname,
-                    (!$dbNameLength) ? '' : $row['Table_name']
-                );
-            }
-            $html_output .= '</td>' . "\n"
-               . '</tr>' . "\n";
-            $odd_row = ! $odd_row;
-        } // end while
-    } //end if
+        }
+        $html_output .= '</td>';
+
+        $html_output .= '<td>';
+        if (! empty($row['can_delete'])
+            || isset($row['Table_name'])
+            && /*overload*/mb_strlen($row['Table_name'])
+        ) {
+            $html_output .= PMA_getUserLink(
+                'revoke',
+                $username,
+                $hostname,
+                (!$dbNameLength) ? $row['Db'] : $dbname,
+                (!$dbNameLength) ? '' : $row['Table_name']
+            );
+        }
+        $html_output .= '</td>' . "\n"
+           . '</tr>' . "\n";
+        $odd_row = ! $odd_row;
+    } // end while
+
     return array($found_rows, $html_output);
 }
 
@@ -2985,14 +3221,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         . '</table>' . "\n";
 
     $html_output .= '<div style="float:left;">'
-        . '<img class="selectallarrow"'
-        . ' src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
-        . ' width="38" height="22"'
-        . ' alt="' . __('With selected:') . '" />' . "\n"
-        . '<input type="checkbox" id="usersForm_checkall" class="checkall_box" '
-        . 'title="' . __('Check All') . '" /> '
-        . '<label for="usersForm_checkall">' . __('Check All') . '</label> '
-        . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
+        . PMA_Util::getWithSelected($pmaThemeImage, $text_dir, "usersForm") . "\n";
 
     $html_output .= PMA_Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_export',
@@ -3079,7 +3308,7 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
             $html_output .= '<td><code>' . "\n"
                 . '' . implode(',' . "\n" . '            ', $host['privs']) . "\n"
                 . '</code></td>' . "\n";
-            if ($GLOBALS['cfgRelation']['menuswork']) {
+            if ($cfgRelation['menuswork']) {
                 $html_output .= '<td class="usrGroup">' . "\n"
                     . (isset($group_assignment[$host['User']])
                         ? $group_assignment[$host['User']]
@@ -3091,14 +3320,16 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                 . ($host['Grant_priv'] == 'Y' ? __('Yes') : __('No'))
                 . '</td>' . "\n";
 
-            $html_output .= '<td class="center">'
-                . PMA_getUserLink(
-                    'edit',
-                    $host['User'],
-                    $host['Host']
-                )
-                . '</td>';
-            if ($GLOBALS['cfgRelation']['menuswork'] && $user_group_count > 0) {
+            if ($GLOBALS['is_grantuser']) {
+                $html_output .= '<td class="center">'
+                    . PMA_getUserLink(
+                        'edit',
+                        $host['User'],
+                        $host['Host']
+                    )
+                    . '</td>';
+            }
+            if ($cfgRelation['menuswork'] && $user_group_count > 0) {
                 if (empty($host['User'])) {
                     $html_output .= '<td class="center"></td>';
                 } else {
@@ -3363,6 +3594,11 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
             . ' ON ' . $db_and_table
             . ' TO \'' . PMA_Util::sqlAddSlashes($username) . '\'@\''
             . PMA_Util::sqlAddSlashes($hostname) . '\'';
+
+        if (! /*overload*/mb_strlen($dbname)) {
+            // add REQUIRE clause
+            $sql_query2 .= PMA_getRequireClause();
+        }
 
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
             || (! /*overload*/mb_strlen($dbname)
@@ -3816,12 +4052,12 @@ function PMA_getAddUserHtmlFieldset($db = '', $table = '')
 
     return '<fieldset id="fieldset_add_user">' . "\n"
         . '<legend>' . _pgettext('Create new user', 'New') . '</legend>'
-        . '<a href="server_privileges.php'
+        . '<a id="add_user_anchor" href="server_privileges.php'
         . PMA_URL_getCommon($url_params) . '" '
         . (!empty($rel_params)
             ? ('rel="' . PMA_URL_getCommon($rel_params) . '" ')
             : '')
-        . '">' . "\n"
+        . '>' . "\n"
         . PMA_Util::getIcon('b_usradd.png')
         . '            ' . __('Add user') . '</a>' . "\n"
         . '</fieldset>' . "\n";
@@ -4402,13 +4638,18 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         }
     }
 
+    // add REQUIRE clause
+    $require_clause = PMA_getRequireClause();
+    $real_sql_query .= $require_clause;
+    $sql_query .= $require_clause;
+
     if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
         || (isset($_POST['max_questions']) || isset($_POST['max_connections'])
         || isset($_POST['max_updates']) || isset($_POST['max_user_connections']))
     ) {
         $with_clause = PMA_getWithClauseForAddUserAndUpdatePrivs();
-        $real_sql_query .= ' ' . $with_clause;
-        $sql_query .= ' ' . $with_clause;
+        $real_sql_query .= $with_clause;
+        $sql_query .= $with_clause;
     }
 
     if (isset($create_user_real)) {

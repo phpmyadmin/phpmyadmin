@@ -118,7 +118,7 @@ function PMA_getHtmlForSqlQueryForm(
     $html .= '</form>' . "\n";
     // print an empty div, which will be later filled with
     // the sql query results by ajax
-    $html .= '<div id="sqlqueryresults"></div>';
+    $html .= '<div id="sqlqueryresultsouter"></div>';
 
     return $html;
 }
@@ -146,8 +146,6 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $locking = '';
     $height = $GLOBALS['cfg']['TextareaRows'] * 2;
 
-    $table          = '';
-    $db             = '';
     $fields_list    = array();
     if (! /*overload*/mb_strlen($GLOBALS['db'])) {
         // prepare for server related
@@ -176,7 +174,6 @@ function PMA_getHtmlForSqlQueryFormInsert(
             );
         }
     } else {
-        $table  = $GLOBALS['table'];
         $db     = $GLOBALS['db'];
         // Get the list and number of fields
         // we do a try_query here, because we could be in the query window,
@@ -219,6 +216,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
         . $auto_sel . $locking . '>'
         . htmlspecialchars($query)
         . '</textarea>';
+    $html .= '<div id="querymessage"></div>';
     // Add buttons to generate query easily for
     // select all, single select, insert, update and delete
     if (count($fields_list)) {
@@ -234,6 +232,12 @@ function PMA_getHtmlForSqlQueryFormInsert(
             . ' class="button sqlbutton" />';
     }
     $html .= '<input type="button" value="' . __('Clear') . '" id="clear"'
+        . ' class="button sqlbutton" />';
+    if ($GLOBALS['cfg']['CodemirrorEnable']) {
+        $html .= '<input type="button" value="' . __('Format') . '" id="format"'
+            . ' class="button sqlbutton" />';
+    }
+    $html .= '<input type="button" value="' . __('Get auto-saved query') . '" id="saved"'
         . ' class="button sqlbutton" />';
     $html .= '</div>' . "\n";
 

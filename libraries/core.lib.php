@@ -239,7 +239,13 @@ function PMA_fatalError(
         }
 
         // these variables are used in the included file libraries/error.inc.php
-        $error_header = __('Error');
+        //first check if php-mbstring is available
+        if (function_exists('mb_detect_encoding')) {
+            //If present use gettext
+            $error_header = __('Error');
+        } else {
+            $error_header = 'Error';
+        }
         $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
         $dir = $GLOBALS['text_dir'];
 
@@ -710,29 +716,6 @@ function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
     if ($length > 0) {
         header('Content-Length: ' . $length);
     }
-}
-
-/**
- * Checks whether element given by $path exists in $array.
- * $path is a string describing position of an element in an associative array,
- * eg. Servers/1/host refers to $array[Servers][1][host]
- *
- * @param string $path  path in the array
- * @param array  $array the array
- *
- * @return mixed    array element or $default
- */
-function PMA_arrayKeyExists($path, $array)
-{
-    $keys = explode('/', $path);
-    $value =& $array;
-    foreach ($keys as $key) {
-        if (! isset($value[$key])) {
-            return false;
-        }
-        $value =& $value[$key];
-    }
-    return true;
 }
 
 /**

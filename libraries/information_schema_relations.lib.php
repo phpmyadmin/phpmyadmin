@@ -18,11 +18,6 @@ $GLOBALS['information_schema_relations'] = array(
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        ),
-        'CHARACTER_SET_NAME' => array(
-            'foreign_db'    => 'information_schema',
-            'foreign_table' => 'CHARACTER_SETS',
-            'foreign_field' => 'CHARACTER_SET_NAME'
         )
     ),
     'COLLATIONS' => array(

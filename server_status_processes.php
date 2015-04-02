@@ -57,6 +57,7 @@ if ($response->isAjax() && !empty($_REQUEST['kill'])) {
     $response->addHTML('<div>');
     $response->addHTML($ServerStatusData->getMenuHtml());
     $response->addHTML(PMA_getHtmlForServerProcesses());
+    $response->addHTML(PMA_getHtmlForProcessListFilter());
     $response->addHTML('</div>');
 }
 exit;

@@ -381,7 +381,7 @@ $GLOBALS['dummy_queries'] = array(
             . ' EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, '
             . 'EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER'
             . ' FROM information_schema.TRIGGERS'
-            . ' WHERE TRIGGER_SCHEMA= \'pma_test\''
+            . ' WHERE EVENT_OBJECT_SCHEMA= \'pma_test\''
             . ' AND EVENT_OBJECT_TABLE = \'table1\';',
         'result' => array(),
     ),
@@ -505,7 +505,7 @@ $GLOBALS['dummy_queries'] = array(
             . "(SELECT DB_first_level FROM ( SELECT DISTINCT "
             . "SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level "
             . "FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY "
-            . "DB_first_level ASC LIMIT 0, 25) t2 WHERE 1 = LOCATE("
+            . "DB_first_level ASC LIMIT 0, 100) t2 WHERE 1 = LOCATE("
             . "CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) "
             . "ORDER BY SCHEMA_NAME ASC",
         'result' => array(

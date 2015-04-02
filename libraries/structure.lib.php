@@ -343,7 +343,8 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
         $html_output .= '<option value="copy_tbl_change_prefix" >'
             . __('Copy table with prefix') . '</option>' . "\n";
         if (isset($GLOBALS['cfgRelation']['central_columnswork'])
-        && $GLOBALS['cfgRelation']['central_columnswork']) {
+            && $GLOBALS['cfgRelation']['central_columnswork']
+        ) {
             $html_output .= '<option value="sync_unique_columns_central_list" >'
                 . __('Add columns to central list') . '</option>' . "\n";
             $html_output .= '<option value="delete_unique_columns_central_list" >'
@@ -1072,7 +1073,9 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
     if ((strlen($searchTable) > 0) || strlen($searchDb) > 0) {
         $ignored = true;
     }
-    foreach ($GLOBALS['replication_info']['slave']['Wild_Ignore_Table'] as $db_table) {
+    foreach (
+        $GLOBALS['replication_info']['slave']['Wild_Ignore_Table'] as $db_table
+        ) {
         $table_part = PMA_extractDbOrTable($db_table, 'table');
         $pattern = "@^"
             . /*overload*/mb_substr($table_part, 0, -1)
@@ -1468,16 +1471,9 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_system_schema,
 function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
     $tbl_is_view, $db_is_system_schema, $tbl_storage_engine
 ) {
-    $html_output = '<img class="selectallarrow" '
-        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
-        . 'width="38" height="22" alt="' . __('With selected:') . '" />';
-
-    $html_output .= '<input type="checkbox" id="fieldsForm_checkall" '
-        . 'class="checkall_box" title="' . __('Check All') . '" />'
-        . '<label for="fieldsForm_checkall">' . __('Check All') . '</label>';
-
-    $html_output .= '<i style="margin-left: 2em">'
-        . __('With selected:') . '</i>';
+    $html_output = PMA_Util::getWithSelected(
+        $pmaThemeImage, $text_dir, "fieldsForm"
+    );
 
     $html_output .= PMA_Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_browse',
@@ -1614,13 +1610,11 @@ function PMA_getHtmlForEditView($url_params)
  * @param string  $url_query           url query
  * @param boolean $tbl_is_view         whether table is view or not
  * @param boolean $db_is_system_schema whether db is information schema or not
- * @param string  $tbl_storage_engine  table storage engine
- * @param array   $cfgRelation         current relation parameters
  *
  * @return string $html_output
  */
 function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
-    $db_is_system_schema, $tbl_storage_engine, $cfgRelation
+    $db_is_system_schema
 ) {
     $html_output = '<a href="tbl_printview.php' . $url_query
         . '" target="print_view">'
@@ -1628,18 +1622,6 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
         . '</a>';
 
     if (! $tbl_is_view && ! $db_is_system_schema) {
-        // if internal relations are available, or foreign keys are supported
-        // ($tbl_storage_engine comes from libraries/tbl_info.inc.php
-
-        if ($cfgRelation['relwork']
-            || PMA_Util::isForeignKeySupported($tbl_storage_engine)
-        ) {
-            $html_output .= '<a href="tbl_relation.php' . $url_query . '">'
-                . PMA_Util::getIcon(
-                    'b_relations.png', __('Relation view'), true
-                )
-                . '</a>';
-        }
         if (!PMA_DRIZZLE) {
             $html_output .= '<a href="sql.php' . $url_query
                 . '&amp;session_max_rows=all&amp;sql_query=' . urlencode(
@@ -1665,6 +1647,14 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
         $html_output .= '<a href="normalization.php' . $url_query . '">'
             . PMA_Util::getIcon('normalize.png', __('Improve table structure'), true)
             . '</a>';
+    }
+
+    if ($tbl_is_view && ! $db_is_system_schema) {
+        if (PMA_Tracker::isActive()) {
+            $html_output .= '<a href="tbl_tracking.php' . $url_query . '">'
+                . PMA_Util::getIcon('eye.png', __('Track view'), true)
+                . '</a>';
+        }
     }
 
     return $html_output;
@@ -1698,6 +1688,7 @@ function PMA_getHtmlForAddColumn($columns_list)
             'b_insrow.png',
             __('Add column')
         );
+        $html_output .= '&nbsp;';
     }
     $num_fields = '<input type="number" name="num_fields" '
         . 'value="1" onfocus="this.select()" '
@@ -1707,25 +1698,21 @@ function PMA_getHtmlForAddColumn($columns_list)
     // I tried displaying the drop-down inside the label but with Firefox
     // the drop-down was blinking
     $column_selector = '<select name="after_field" '
-        . 'onclick="this.form.field_where[2].checked=true" '
-        . 'onchange="this.form.field_where[2].checked=true">';
+        . 'onchange="checkFirst()">';
 
+    $column_selector .= '<option '
+            . 'value="first" data-pos = "first">'
+            . __('at beginning of table')
+            . '</option>';
     foreach ($columns_list as $one_column_name) {
         $column_selector .= '<option '
             . 'value="' . htmlspecialchars($one_column_name) . '">'
-            . htmlspecialchars($one_column_name)
+            . sprintf(__('after %s'), htmlspecialchars($one_column_name))
             . '</option>';
     }
     $column_selector .= '</select>';
-
-    $choices = array(
-        'last'  => __('At End of Table'),
-        'first' => __('At Beginning of Table'),
-        'after' => sprintf(__('After %s'), '')
-    );
-    $html_output .= PMA_Util::getRadioFields(
-        'field_where', $choices, 'last', false
-    );
+    $html_output .= '<input type="hidden" name="field_where" value="after"/>';
+    $html_output .= '&nbsp;';
     $html_output .= $column_selector;
     $html_output .= '<input type="submit" value="' . __('Go') . '" />'
         . '</form>';
@@ -1959,13 +1946,20 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
     ) {
         $html_output .= $titles['No' . $action];
     } else {
-        $html_output .= '<a rel="samepage" '
-            . ($hasLinkClass ? 'class="ajax add_primary_key_anchor" ' :
-               ($action=='Index' ? 'class="ajax add_index_anchor"' :
-                ($action=='Unique' ? 'class="ajax add_unique_anchor"' : ' ')
-               )
-              )
-            . ' href="sql.php' . $url_query . '&amp;sql_query='
+        $html_output .= '<a rel="samepage" class="ajax add_key';
+        if ($hasLinkClass) {
+            $html_output .= ' add_primary_key_anchor"';
+        } else if ($action=='Index') {
+            $html_output .= ' add_index_anchor"';
+        } else if ($action=='Unique') {
+            $html_output .= ' add_unique_anchor"';
+        } else if ($action=='Spatial') {
+            $html_output .= ' add_spatial_anchor"';
+        } else {
+            $html_output .= '"';
+        }
+        $html_output .= ' href="tbl_structure.php' . $url_query
+            . '&amp;add_key=1&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
                 . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '')
@@ -2008,8 +2002,9 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
         && (/*overload*/mb_strpos($type, 'text') !== false
         || /*overload*/mb_strpos($type, 'char') !== false)
     ) {
-        $html_output .= '<a rel="samepage" href="sql.php' . $url_query
-            . '&amp;sql_query='
+        $html_output .= '<a rel="samepage" class="ajax add_key add_fulltext_anchor" '
+            . 'href="tbl_structure.php' . $url_query
+            . '&amp;add_key=1&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
                 . ' ADD FULLTEXT(' . PMA_Util::backquote($row['Field'])
@@ -2051,7 +2046,7 @@ function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
             . ' GROUP BY ' . PMA_Util::backquote($row['Field'])
             . ' ORDER BY ' . PMA_Util::backquote($row['Field'])
         )
-        . '">'
+        . '&amp;is_browse_distinct=1">'
         . $titles['DistinctValues']
         . '</a>';
     $html_output .= '</li>';
@@ -2133,8 +2128,8 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         $html_output .= '<li class="browse nowrap">';
         if ($isInCentralColumns) {
             $html_output .=
-                '<a href="#" onclick=$("input:checkbox").removeAttr("checked");'
-                . '$("#checkbox_row_' . $rownum . '").attr("checked","checked");'
+                '<a href="#" onclick=$("input:checkbox").prop("checked",false);'
+                . '$("#checkbox_row_' . $rownum . '").prop("checked",true);'
                 . '$("button[value=remove_from_central_columns]").click();>'
             . PMA_Util::getIcon(
                 'centralColumns_delete.png',
@@ -2143,8 +2138,8 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
             . '</a>';
         } else {
             $html_output .=
-                '<a href="#" onclick=$("input:checkbox").removeAttr("checked");'
-                . '$("#checkbox_row_' . $rownum . '").attr("checked","checked");'
+                '<a href="#" onclick=$("input:checkbox").prop("checked",false);'
+                . '$("#checkbox_row_' . $rownum . '").prop("checked",true);'
                 . '$("button[value=add_to_central_columns]").click();>'
             . PMA_Util::getIcon(
                 'centralColumns_add.png',
@@ -2359,7 +2354,6 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
             $html_output .= PMA_getHtmlForSpaceUsageTableRow(
                 $odd_row, __('Total'), $tot_size, $tot_unit
             );
-            $odd_row = !$odd_row;
         }
         // Optimize link if overhead
         if (isset($free_size) && !PMA_DRIZZLE
@@ -2400,7 +2394,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
  */
 function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
 {
-    // $selected comes from multi_submits.inc.php
+    // $selected comes from mult_submits.inc.php
     if (empty($selected)) {
         $selected[]   = $_REQUEST['field'];
         $selected_cnt = 1;
@@ -2483,7 +2477,7 @@ function PMA_columnNeedsAlterTable($i)
         || $_REQUEST['field_null'][$i] != $_REQUEST['field_null_orig'][$i]
         || $_REQUEST['field_type'][$i] != $_REQUEST['field_type_orig'][$i]
         || ! empty($_REQUEST['field_move_to'][$i])
-) {
+    ) {
         return true;
     } else {
         return false;
@@ -2508,7 +2502,6 @@ function PMA_updateColumns($db, $table)
     );
     $regenerate = false;
     $field_cnt = count($_REQUEST['field_name']);
-    $key_fields = array();
     $changes = array();
     $pmatable = new PMA_Table($table, $db);
 
@@ -2536,8 +2529,6 @@ function PMA_updateColumns($db, $table)
                 isset($_REQUEST['field_comments'][$i])
                 ? $_REQUEST['field_comments'][$i]
                 : '',
-                $key_fields,
-                $i,
                 isset($_REQUEST['field_move_to'][$i])
                 ? $_REQUEST['field_move_to'][$i]
                 : ''
@@ -2671,7 +2662,6 @@ function PMA_moveColumns($db, $table)
     $columns = $GLOBALS['dbi']->getColumnsFull($db, $table);
     $column_names = array_keys($columns);
     $changes = array();
-    $we_dont_change_keys = array();
 
     // move columns from first to last
     for ($i = 0, $l = count($_REQUEST['move_columns']); $i < $l; $i++) {
@@ -2718,8 +2708,6 @@ function PMA_moveColumns($db, $table)
             isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra'] : false,
             isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
             ? $data['COLUMN_COMMENT'] : false,
-            $we_dont_change_keys,
-            $i,
             $i === 0 ? '-first' : $column_names[$i - 1]
         );
         // update current column_names array, first delete old position
@@ -2775,33 +2763,6 @@ function PMA_getColumnsWithUniqueIndex($db ,$table)
         }
     }
     return $columns_with_unique_index;
-}
-
-/**
- * Check column names for MySQL reserved words
- *
- * @param string $db    database name
- * @param string $table tablename
- *
- * @return array $messages      array of PMA_Messages
- */
-function PMA_getReservedWordColumnNameMessages($db ,$table)
-{
-    $messages = array();
-    if ($GLOBALS['cfg']['ReservedWordDisableWarning'] === false) {
-        $pma_table = new PMA_Table($table, $db);
-        $columns = $pma_table->getReservedColumnNames();
-        if (!empty($columns)) {
-            foreach ($columns as $column) {
-                $msg = PMA_message::notice(
-                    __('The column name \'%s\' is a MySQL reserved keyword.')
-                );
-                $msg->addParam($column);
-                $messages[] = $msg;
-            }
-        }
-    }
-    return $messages;
 }
 
 /**
@@ -2873,7 +2834,7 @@ function PMA_displayTableBrowseForSelectedColumns($db, $table, $goto,
 
     PMA_executeQueryAndSendQueryResponse(
         $analyzed_sql_results, false, $db, $table, null, null, null, false,
-        null, null, null, null, $goto, $pmaThemeImage, null, null,
+        null, null, null, $goto, $pmaThemeImage, null, null,
         null, $sql_query, null, null
     );
 }
@@ -2888,7 +2849,9 @@ function PMA_displayTableBrowseForSelectedColumns($db, $table, $goto,
  */
 function PMA_checkFavoriteTable($db, $current_table)
 {
-    foreach ($_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $key => $value) {
+    foreach (
+        $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $key => $value
+        ) {
         if ($value['db'] == $db && $value['table'] == $current_table) {
             return true;
         }
@@ -3256,5 +3219,56 @@ function PMA_possiblyShowCreateTableDialog($db, $db_is_system_schema, $response)
         ob_end_clean();
         $response->addHTML($content);
     } // end if (Create Table dialog)
+}
+
+/**
+ * Returns the HTML for secondary levels tabs of the table structure page
+ *
+ * @return string HTML for secondary levels tabs
+ */
+function PMA_getStructureSecondaryTabs($tbl_storage_engine)
+{
+    $html_output = '';
+
+    $cfgRelation = PMA_getRelationsParam();
+    if ($cfgRelation['relwork']
+        || PMA_Util::isForeignKeySupported(strtoupper($tbl_storage_engine))
+    ) {
+        $url_params = array();
+        $url_params['db'] = $GLOBALS['db'];
+        $url_params['table'] = $GLOBALS['table'];
+
+        $html_output .= '<ul id="topmenu2">';
+        foreach (PMA_getStructureSubTabs() as $tab) {
+            $html_output .= PMA_Util::getHtmlTab($tab, $url_params);
+        }
+        $html_output .= '</ul>';
+        $html_output .= '<div class="clearfloat"></div>';
+    }
+    return $html_output;
+}
+
+/**
+ * Returns an array with necessary configurations to create
+ * sub-tabs in the Structure page at table level
+ *
+ * @return array Array containing configuration (icon, text, link, id)
+ * of sub-tabs
+ */
+function PMA_getStructureSubTabs()
+{
+    $subtabs = array();
+
+    $subtabs['structure']['icon'] = 'b_props';
+    $subtabs['structure']['link'] = 'tbl_structure.php';
+    $subtabs['structure']['text'] = __('Table structure');
+    $subtabs['structure']['id'] = 'table_strucuture_id';
+
+    $subtabs['relation']['icon'] = 'b_relations';
+    $subtabs['relation']['link'] = 'tbl_relation.php';
+    $subtabs['relation']['text'] = __('Relation view');
+    $subtabs['relation']['id'] = 'table_relation_id';
+
+    return $subtabs;
 }
 ?>

@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf_static.php
-// Version     : 1.0.002
+// Version     : 1.1.0
 // Begin       : 2002-08-03
-// Last Update : 2014-04-25
+// Last Update : 2014-12-10
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -38,7 +38,7 @@
  * This is a PHP class that contains static methods for the TCPDF class.<br>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 1.0.002
+ * @version 1.1.0
  */
 
 /**
@@ -46,7 +46,7 @@
  * Static methods used by the TCPDF class.
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 1.0.002
+ * @version 1.1.0
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_STATIC {
@@ -55,7 +55,7 @@ class TCPDF_STATIC {
 	 * Current TCPDF version.
 	 * @private static
 	 */
-	private static $tcpdf_version = '6.0.077';
+	private static $tcpdf_version = '6.2.3';
 
 	/**
 	 * String alias for total number of pages.
@@ -105,6 +105,362 @@ class TCPDF_STATIC {
 	 * @public static
 	 */
 	public static $pageboxes = array('MediaBox', 'CropBox', 'BleedBox', 'TrimBox', 'ArtBox');
+	
+	/**
+	 * Array of page formats
+	 * measures are calculated in this way: (inches * 72) or (millimeters * 72 / 25.4)
+	 * @public static
+	 */
+	public static $page_formats = array(
+		// ISO 216 A Series + 2 SIS 014711 extensions
+		'A0'                     => array( 2383.937,  3370.394), // = (  841 x 1189 ) mm  = ( 33.11 x 46.81 ) in
+		'A1'                     => array( 1683.780,  2383.937), // = (  594 x 841  ) mm  = ( 23.39 x 33.11 ) in
+		'A2'                     => array( 1190.551,  1683.780), // = (  420 x 594  ) mm  = ( 16.54 x 23.39 ) in
+		'A3'                     => array(  841.890,  1190.551), // = (  297 x 420  ) mm  = ( 11.69 x 16.54 ) in
+		'A4'                     => array(  595.276,   841.890), // = (  210 x 297  ) mm  = (  8.27 x 11.69 ) in
+		'A5'                     => array(  419.528,   595.276), // = (  148 x 210  ) mm  = (  5.83 x 8.27  ) in
+		'A6'                     => array(  297.638,   419.528), // = (  105 x 148  ) mm  = (  4.13 x 5.83  ) in
+		'A7'                     => array(  209.764,   297.638), // = (   74 x 105  ) mm  = (  2.91 x 4.13  ) in
+		'A8'                     => array(  147.402,   209.764), // = (   52 x 74   ) mm  = (  2.05 x 2.91  ) in
+		'A9'                     => array(  104.882,   147.402), // = (   37 x 52   ) mm  = (  1.46 x 2.05  ) in
+		'A10'                    => array(   73.701,   104.882), // = (   26 x 37   ) mm  = (  1.02 x 1.46  ) in
+		'A11'                    => array(   51.024,    73.701), // = (   18 x 26   ) mm  = (  0.71 x 1.02  ) in
+		'A12'                    => array(   36.850,    51.024), // = (   13 x 18   ) mm  = (  0.51 x 0.71  ) in
+		// ISO 216 B Series + 2 SIS 014711 extensions
+		'B0'                     => array( 2834.646,  4008.189), // = ( 1000 x 1414 ) mm  = ( 39.37 x 55.67 ) in
+		'B1'                     => array( 2004.094,  2834.646), // = (  707 x 1000 ) mm  = ( 27.83 x 39.37 ) in
+		'B2'                     => array( 1417.323,  2004.094), // = (  500 x 707  ) mm  = ( 19.69 x 27.83 ) in
+		'B3'                     => array( 1000.630,  1417.323), // = (  353 x 500  ) mm  = ( 13.90 x 19.69 ) in
+		'B4'                     => array(  708.661,  1000.630), // = (  250 x 353  ) mm  = (  9.84 x 13.90 ) in
+		'B5'                     => array(  498.898,   708.661), // = (  176 x 250  ) mm  = (  6.93 x 9.84  ) in
+		'B6'                     => array(  354.331,   498.898), // = (  125 x 176  ) mm  = (  4.92 x 6.93  ) in
+		'B7'                     => array(  249.449,   354.331), // = (   88 x 125  ) mm  = (  3.46 x 4.92  ) in
+		'B8'                     => array(  175.748,   249.449), // = (   62 x 88   ) mm  = (  2.44 x 3.46  ) in
+		'B9'                     => array(  124.724,   175.748), // = (   44 x 62   ) mm  = (  1.73 x 2.44  ) in
+		'B10'                    => array(   87.874,   124.724), // = (   31 x 44   ) mm  = (  1.22 x 1.73  ) in
+		'B11'                    => array(   62.362,    87.874), // = (   22 x 31   ) mm  = (  0.87 x 1.22  ) in
+		'B12'                    => array(   42.520,    62.362), // = (   15 x 22   ) mm  = (  0.59 x 0.87  ) in
+		// ISO 216 C Series + 2 SIS 014711 extensions + 5 EXTENSION
+		'C0'                     => array( 2599.370,  3676.535), // = (  917 x 1297 ) mm  = ( 36.10 x 51.06 ) in
+		'C1'                     => array( 1836.850,  2599.370), // = (  648 x 917  ) mm  = ( 25.51 x 36.10 ) in
+		'C2'                     => array( 1298.268,  1836.850), // = (  458 x 648  ) mm  = ( 18.03 x 25.51 ) in
+		'C3'                     => array(  918.425,  1298.268), // = (  324 x 458  ) mm  = ( 12.76 x 18.03 ) in
+		'C4'                     => array(  649.134,   918.425), // = (  229 x 324  ) mm  = (  9.02 x 12.76 ) in
+		'C5'                     => array(  459.213,   649.134), // = (  162 x 229  ) mm  = (  6.38 x 9.02  ) in
+		'C6'                     => array(  323.150,   459.213), // = (  114 x 162  ) mm  = (  4.49 x 6.38  ) in
+		'C7'                     => array(  229.606,   323.150), // = (   81 x 114  ) mm  = (  3.19 x 4.49  ) in
+		'C8'                     => array(  161.575,   229.606), // = (   57 x 81   ) mm  = (  2.24 x 3.19  ) in
+		'C9'                     => array(  113.386,   161.575), // = (   40 x 57   ) mm  = (  1.57 x 2.24  ) in
+		'C10'                    => array(   79.370,   113.386), // = (   28 x 40   ) mm  = (  1.10 x 1.57  ) in
+		'C11'                    => array(   56.693,    79.370), // = (   20 x 28   ) mm  = (  0.79 x 1.10  ) in
+		'C12'                    => array(   39.685,    56.693), // = (   14 x 20   ) mm  = (  0.55 x 0.79  ) in
+		'C76'                    => array(  229.606,   459.213), // = (   81 x 162  ) mm  = (  3.19 x 6.38  ) in
+		'DL'                     => array(  311.811,   623.622), // = (  110 x 220  ) mm  = (  4.33 x 8.66  ) in
+		'DLE'                    => array(  323.150,   637.795), // = (  114 x 225  ) mm  = (  4.49 x 8.86  ) in
+		'DLX'                    => array(  340.158,   666.142), // = (  120 x 235  ) mm  = (  4.72 x 9.25  ) in
+		'DLP'                    => array(  280.630,   595.276), // = (   99 x 210  ) mm  = (  3.90 x 8.27  ) in (1/3 A4)
+		// SIS 014711 E Series
+		'E0'                     => array( 2491.654,  3517.795), // = (  879 x 1241 ) mm  = ( 34.61 x 48.86 ) in
+		'E1'                     => array( 1757.480,  2491.654), // = (  620 x 879  ) mm  = ( 24.41 x 34.61 ) in
+		'E2'                     => array( 1247.244,  1757.480), // = (  440 x 620  ) mm  = ( 17.32 x 24.41 ) in
+		'E3'                     => array(  878.740,  1247.244), // = (  310 x 440  ) mm  = ( 12.20 x 17.32 ) in
+		'E4'                     => array(  623.622,   878.740), // = (  220 x 310  ) mm  = (  8.66 x 12.20 ) in
+		'E5'                     => array(  439.370,   623.622), // = (  155 x 220  ) mm  = (  6.10 x 8.66  ) in
+		'E6'                     => array(  311.811,   439.370), // = (  110 x 155  ) mm  = (  4.33 x 6.10  ) in
+		'E7'                     => array(  221.102,   311.811), // = (   78 x 110  ) mm  = (  3.07 x 4.33  ) in
+		'E8'                     => array(  155.906,   221.102), // = (   55 x 78   ) mm  = (  2.17 x 3.07  ) in
+		'E9'                     => array(  110.551,   155.906), // = (   39 x 55   ) mm  = (  1.54 x 2.17  ) in
+		'E10'                    => array(   76.535,   110.551), // = (   27 x 39   ) mm  = (  1.06 x 1.54  ) in
+		'E11'                    => array(   53.858,    76.535), // = (   19 x 27   ) mm  = (  0.75 x 1.06  ) in
+		'E12'                    => array(   36.850,    53.858), // = (   13 x 19   ) mm  = (  0.51 x 0.75  ) in
+		// SIS 014711 G Series
+		'G0'                     => array( 2715.591,  3838.110), // = (  958 x 1354 ) mm  = ( 37.72 x 53.31 ) in
+		'G1'                     => array( 1919.055,  2715.591), // = (  677 x 958  ) mm  = ( 26.65 x 37.72 ) in
+		'G2'                     => array( 1357.795,  1919.055), // = (  479 x 677  ) mm  = ( 18.86 x 26.65 ) in
+		'G3'                     => array(  958.110,  1357.795), // = (  338 x 479  ) mm  = ( 13.31 x 18.86 ) in
+		'G4'                     => array(  677.480,   958.110), // = (  239 x 338  ) mm  = (  9.41 x 13.31 ) in
+		'G5'                     => array(  479.055,   677.480), // = (  169 x 239  ) mm  = (  6.65 x 9.41  ) in
+		'G6'                     => array(  337.323,   479.055), // = (  119 x 169  ) mm  = (  4.69 x 6.65  ) in
+		'G7'                     => array(  238.110,   337.323), // = (   84 x 119  ) mm  = (  3.31 x 4.69  ) in
+		'G8'                     => array(  167.244,   238.110), // = (   59 x 84   ) mm  = (  2.32 x 3.31  ) in
+		'G9'                     => array(  119.055,   167.244), // = (   42 x 59   ) mm  = (  1.65 x 2.32  ) in
+		'G10'                    => array(   82.205,   119.055), // = (   29 x 42   ) mm  = (  1.14 x 1.65  ) in
+		'G11'                    => array(   59.528,    82.205), // = (   21 x 29   ) mm  = (  0.83 x 1.14  ) in
+		'G12'                    => array(   39.685,    59.528), // = (   14 x 21   ) mm  = (  0.55 x 0.83  ) in
+		// ISO Press
+		'RA0'                    => array( 2437.795,  3458.268), // = (  860 x 1220 ) mm  = ( 33.86 x 48.03 ) in
+		'RA1'                    => array( 1729.134,  2437.795), // = (  610 x 860  ) mm  = ( 24.02 x 33.86 ) in
+		'RA2'                    => array( 1218.898,  1729.134), // = (  430 x 610  ) mm  = ( 16.93 x 24.02 ) in
+		'RA3'                    => array(  864.567,  1218.898), // = (  305 x 430  ) mm  = ( 12.01 x 16.93 ) in
+		'RA4'                    => array(  609.449,   864.567), // = (  215 x 305  ) mm  = (  8.46 x 12.01 ) in
+		'SRA0'                   => array( 2551.181,  3628.346), // = (  900 x 1280 ) mm  = ( 35.43 x 50.39 ) in
+		'SRA1'                   => array( 1814.173,  2551.181), // = (  640 x 900  ) mm  = ( 25.20 x 35.43 ) in
+		'SRA2'                   => array( 1275.591,  1814.173), // = (  450 x 640  ) mm  = ( 17.72 x 25.20 ) in
+		'SRA3'                   => array(  907.087,  1275.591), // = (  320 x 450  ) mm  = ( 12.60 x 17.72 ) in
+		'SRA4'                   => array(  637.795,   907.087), // = (  225 x 320  ) mm  = (  8.86 x 12.60 ) in
+		// German DIN 476
+		'4A0'                    => array( 4767.874,  6740.787), // = ( 1682 x 2378 ) mm  = ( 66.22 x 93.62 ) in
+		'2A0'                    => array( 3370.394,  4767.874), // = ( 1189 x 1682 ) mm  = ( 46.81 x 66.22 ) in
+		// Variations on the ISO Standard
+		'A2_EXTRA'               => array( 1261.417,  1754.646), // = (  445 x 619  ) mm  = ( 17.52 x 24.37 ) in
+		'A3+'                    => array(  932.598,  1369.134), // = (  329 x 483  ) mm  = ( 12.95 x 19.02 ) in
+		'A3_EXTRA'               => array(  912.756,  1261.417), // = (  322 x 445  ) mm  = ( 12.68 x 17.52 ) in
+		'A3_SUPER'               => array(  864.567,  1440.000), // = (  305 x 508  ) mm  = ( 12.01 x 20.00 ) in
+		'SUPER_A3'               => array(  864.567,  1380.472), // = (  305 x 487  ) mm  = ( 12.01 x 19.17 ) in
+		'A4_EXTRA'               => array(  666.142,   912.756), // = (  235 x 322  ) mm  = (  9.25 x 12.68 ) in
+		'A4_SUPER'               => array(  649.134,   912.756), // = (  229 x 322  ) mm  = (  9.02 x 12.68 ) in
+		'SUPER_A4'               => array(  643.465,  1009.134), // = (  227 x 356  ) mm  = (  8.94 x 14.02 ) in
+		'A4_LONG'                => array(  595.276,   986.457), // = (  210 x 348  ) mm  = (  8.27 x 13.70 ) in
+		'F4'                     => array(  595.276,   935.433), // = (  210 x 330  ) mm  = (  8.27 x 12.99 ) in
+		'SO_B5_EXTRA'            => array(  572.598,   782.362), // = (  202 x 276  ) mm  = (  7.95 x 10.87 ) in
+		'A5_EXTRA'               => array(  490.394,   666.142), // = (  173 x 235  ) mm  = (  6.81 x 9.25  ) in
+		// ANSI Series
+		'ANSI_E'                 => array( 2448.000,  3168.000), // = (  864 x 1118 ) mm  = ( 34.00 x 44.00 ) in
+		'ANSI_D'                 => array( 1584.000,  2448.000), // = (  559 x 864  ) mm  = ( 22.00 x 34.00 ) in
+		'ANSI_C'                 => array( 1224.000,  1584.000), // = (  432 x 559  ) mm  = ( 17.00 x 22.00 ) in
+		'ANSI_B'                 => array(  792.000,  1224.000), // = (  279 x 432  ) mm  = ( 11.00 x 17.00 ) in
+		'ANSI_A'                 => array(  612.000,   792.000), // = (  216 x 279  ) mm  = (  8.50 x 11.00 ) in
+		// Traditional 'Loose' North American Paper Sizes
+		'USLEDGER'               => array( 1224.000,   792.000), // = (  432 x 279  ) mm  = ( 17.00 x 11.00 ) in
+		'LEDGER'                 => array( 1224.000,   792.000), // = (  432 x 279  ) mm  = ( 17.00 x 11.00 ) in
+		'ORGANIZERK'             => array(  792.000,  1224.000), // = (  279 x 432  ) mm  = ( 11.00 x 17.00 ) in
+		'BIBLE'                  => array(  792.000,  1224.000), // = (  279 x 432  ) mm  = ( 11.00 x 17.00 ) in
+		'USTABLOID'              => array(  792.000,  1224.000), // = (  279 x 432  ) mm  = ( 11.00 x 17.00 ) in
+		'TABLOID'                => array(  792.000,  1224.000), // = (  279 x 432  ) mm  = ( 11.00 x 17.00 ) in
+		'ORGANIZERM'             => array(  612.000,   792.000), // = (  216 x 279  ) mm  = (  8.50 x 11.00 ) in
+		'USLETTER'               => array(  612.000,   792.000), // = (  216 x 279  ) mm  = (  8.50 x 11.00 ) in
+		'LETTER'                 => array(  612.000,   792.000), // = (  216 x 279  ) mm  = (  8.50 x 11.00 ) in
+		'USLEGAL'                => array(  612.000,  1008.000), // = (  216 x 356  ) mm  = (  8.50 x 14.00 ) in
+		'LEGAL'                  => array(  612.000,  1008.000), // = (  216 x 356  ) mm  = (  8.50 x 14.00 ) in
+		'GOVERNMENTLETTER'       => array(  576.000,   756.000), // = (  203 x 267  ) mm  = (  8.00 x 10.50 ) in
+		'GLETTER'                => array(  576.000,   756.000), // = (  203 x 267  ) mm  = (  8.00 x 10.50 ) in
+		'JUNIORLEGAL'            => array(  576.000,   360.000), // = (  203 x 127  ) mm  = (  8.00 x 5.00  ) in
+		'JLEGAL'                 => array(  576.000,   360.000), // = (  203 x 127  ) mm  = (  8.00 x 5.00  ) in
+		// Other North American Paper Sizes
+		'QUADDEMY'               => array( 2520.000,  3240.000), // = (  889 x 1143 ) mm  = ( 35.00 x 45.00 ) in
+		'SUPER_B'                => array(  936.000,  1368.000), // = (  330 x 483  ) mm  = ( 13.00 x 19.00 ) in
+		'QUARTO'                 => array(  648.000,   792.000), // = (  229 x 279  ) mm  = (  9.00 x 11.00 ) in
+		'GOVERNMENTLEGAL'        => array(  612.000,   936.000), // = (  216 x 330  ) mm  = (  8.50 x 13.00 ) in
+		'FOLIO'                  => array(  612.000,   936.000), // = (  216 x 330  ) mm  = (  8.50 x 13.00 ) in
+		'MONARCH'                => array(  522.000,   756.000), // = (  184 x 267  ) mm  = (  7.25 x 10.50 ) in
+		'EXECUTIVE'              => array(  522.000,   756.000), // = (  184 x 267  ) mm  = (  7.25 x 10.50 ) in
+		'ORGANIZERL'             => array(  396.000,   612.000), // = (  140 x 216  ) mm  = (  5.50 x 8.50  ) in
+		'STATEMENT'              => array(  396.000,   612.000), // = (  140 x 216  ) mm  = (  5.50 x 8.50  ) in
+		'MEMO'                   => array(  396.000,   612.000), // = (  140 x 216  ) mm  = (  5.50 x 8.50  ) in
+		'FOOLSCAP'               => array(  595.440,   936.000), // = (  210 x 330  ) mm  = (  8.27 x 13.00 ) in
+		'COMPACT'                => array(  306.000,   486.000), // = (  108 x 171  ) mm  = (  4.25 x 6.75  ) in
+		'ORGANIZERJ'             => array(  198.000,   360.000), // = (   70 x 127  ) mm  = (  2.75 x 5.00  ) in
+		// Canadian standard CAN 2-9.60M
+		'P1'                     => array( 1587.402,  2437.795), // = (  560 x 860  ) mm  = ( 22.05 x 33.86 ) in
+		'P2'                     => array( 1218.898,  1587.402), // = (  430 x 560  ) mm  = ( 16.93 x 22.05 ) in
+		'P3'                     => array(  793.701,  1218.898), // = (  280 x 430  ) mm  = ( 11.02 x 16.93 ) in
+		'P4'                     => array(  609.449,   793.701), // = (  215 x 280  ) mm  = (  8.46 x 11.02 ) in
+		'P5'                     => array(  396.850,   609.449), // = (  140 x 215  ) mm  = (  5.51 x 8.46  ) in
+		'P6'                     => array(  303.307,   396.850), // = (  107 x 140  ) mm  = (  4.21 x 5.51  ) in
+		// North American Architectural Sizes
+		'ARCH_E'                 => array( 2592.000,  3456.000), // = (  914 x 1219 ) mm  = ( 36.00 x 48.00 ) in
+		'ARCH_E1'                => array( 2160.000,  3024.000), // = (  762 x 1067 ) mm  = ( 30.00 x 42.00 ) in
+		'ARCH_D'                 => array( 1728.000,  2592.000), // = (  610 x 914  ) mm  = ( 24.00 x 36.00 ) in
+		'BROADSHEET'             => array( 1296.000,  1728.000), // = (  457 x 610  ) mm  = ( 18.00 x 24.00 ) in
+		'ARCH_C'                 => array( 1296.000,  1728.000), // = (  457 x 610  ) mm  = ( 18.00 x 24.00 ) in
+		'ARCH_B'                 => array(  864.000,  1296.000), // = (  305 x 457  ) mm  = ( 12.00 x 18.00 ) in
+		'ARCH_A'                 => array(  648.000,   864.000), // = (  229 x 305  ) mm  = (  9.00 x 12.00 ) in
+		// -- North American Envelope Sizes
+		// - Announcement Envelopes
+		'ANNENV_A2'              => array(  314.640,   414.000), // = (  111 x 146  ) mm  = (  4.37 x 5.75  ) in
+		'ANNENV_A6'              => array(  342.000,   468.000), // = (  121 x 165  ) mm  = (  4.75 x 6.50  ) in
+		'ANNENV_A7'              => array(  378.000,   522.000), // = (  133 x 184  ) mm  = (  5.25 x 7.25  ) in
+		'ANNENV_A8'              => array(  396.000,   584.640), // = (  140 x 206  ) mm  = (  5.50 x 8.12  ) in
+		'ANNENV_A10'             => array(  450.000,   692.640), // = (  159 x 244  ) mm  = (  6.25 x 9.62  ) in
+		'ANNENV_SLIM'            => array(  278.640,   638.640), // = (   98 x 225  ) mm  = (  3.87 x 8.87  ) in
+		// - Commercial Envelopes
+		'COMMENV_N6_1/4'         => array(  252.000,   432.000), // = (   89 x 152  ) mm  = (  3.50 x 6.00  ) in
+		'COMMENV_N6_3/4'         => array(  260.640,   468.000), // = (   92 x 165  ) mm  = (  3.62 x 6.50  ) in
+		'COMMENV_N8'             => array(  278.640,   540.000), // = (   98 x 191  ) mm  = (  3.87 x 7.50  ) in
+		'COMMENV_N9'             => array(  278.640,   638.640), // = (   98 x 225  ) mm  = (  3.87 x 8.87  ) in
+		'COMMENV_N10'            => array(  296.640,   684.000), // = (  105 x 241  ) mm  = (  4.12 x 9.50  ) in
+		'COMMENV_N11'            => array(  324.000,   746.640), // = (  114 x 263  ) mm  = (  4.50 x 10.37 ) in
+		'COMMENV_N12'            => array(  342.000,   792.000), // = (  121 x 279  ) mm  = (  4.75 x 11.00 ) in
+		'COMMENV_N14'            => array(  360.000,   828.000), // = (  127 x 292  ) mm  = (  5.00 x 11.50 ) in
+		// - Catalogue Envelopes
+		'CATENV_N1'              => array(  432.000,   648.000), // = (  152 x 229  ) mm  = (  6.00 x 9.00  ) in
+		'CATENV_N1_3/4'          => array(  468.000,   684.000), // = (  165 x 241  ) mm  = (  6.50 x 9.50  ) in
+		'CATENV_N2'              => array(  468.000,   720.000), // = (  165 x 254  ) mm  = (  6.50 x 10.00 ) in
+		'CATENV_N3'              => array(  504.000,   720.000), // = (  178 x 254  ) mm  = (  7.00 x 10.00 ) in
+		'CATENV_N6'              => array(  540.000,   756.000), // = (  191 x 267  ) mm  = (  7.50 x 10.50 ) in
+		'CATENV_N7'              => array(  576.000,   792.000), // = (  203 x 279  ) mm  = (  8.00 x 11.00 ) in
+		'CATENV_N8'              => array(  594.000,   810.000), // = (  210 x 286  ) mm  = (  8.25 x 11.25 ) in
+		'CATENV_N9_1/2'          => array(  612.000,   756.000), // = (  216 x 267  ) mm  = (  8.50 x 10.50 ) in
+		'CATENV_N9_3/4'          => array(  630.000,   810.000), // = (  222 x 286  ) mm  = (  8.75 x 11.25 ) in
+		'CATENV_N10_1/2'         => array(  648.000,   864.000), // = (  229 x 305  ) mm  = (  9.00 x 12.00 ) in
+		'CATENV_N12_1/2'         => array(  684.000,   900.000), // = (  241 x 318  ) mm  = (  9.50 x 12.50 ) in
+		'CATENV_N13_1/2'         => array(  720.000,   936.000), // = (  254 x 330  ) mm  = ( 10.00 x 13.00 ) in
+		'CATENV_N14_1/4'         => array(  810.000,   882.000), // = (  286 x 311  ) mm  = ( 11.25 x 12.25 ) in
+		'CATENV_N14_1/2'         => array(  828.000,  1044.000), // = (  292 x 368  ) mm  = ( 11.50 x 14.50 ) in
+		// Japanese (JIS P 0138-61) Standard B-Series
+		'JIS_B0'                 => array( 2919.685,  4127.244), // = ( 1030 x 1456 ) mm  = ( 40.55 x 57.32 ) in
+		'JIS_B1'                 => array( 2063.622,  2919.685), // = (  728 x 1030 ) mm  = ( 28.66 x 40.55 ) in
+		'JIS_B2'                 => array( 1459.843,  2063.622), // = (  515 x 728  ) mm  = ( 20.28 x 28.66 ) in
+		'JIS_B3'                 => array( 1031.811,  1459.843), // = (  364 x 515  ) mm  = ( 14.33 x 20.28 ) in
+		'JIS_B4'                 => array(  728.504,  1031.811), // = (  257 x 364  ) mm  = ( 10.12 x 14.33 ) in
+		'JIS_B5'                 => array(  515.906,   728.504), // = (  182 x 257  ) mm  = (  7.17 x 10.12 ) in
+		'JIS_B6'                 => array(  362.835,   515.906), // = (  128 x 182  ) mm  = (  5.04 x 7.17  ) in
+		'JIS_B7'                 => array(  257.953,   362.835), // = (   91 x 128  ) mm  = (  3.58 x 5.04  ) in
+		'JIS_B8'                 => array(  181.417,   257.953), // = (   64 x 91   ) mm  = (  2.52 x 3.58  ) in
+		'JIS_B9'                 => array(  127.559,   181.417), // = (   45 x 64   ) mm  = (  1.77 x 2.52  ) in
+		'JIS_B10'                => array(   90.709,   127.559), // = (   32 x 45   ) mm  = (  1.26 x 1.77  ) in
+		'JIS_B11'                => array(   62.362,    90.709), // = (   22 x 32   ) mm  = (  0.87 x 1.26  ) in
+		'JIS_B12'                => array(   45.354,    62.362), // = (   16 x 22   ) mm  = (  0.63 x 0.87  ) in
+		// PA Series
+		'PA0'                    => array( 2381.102,  3174.803), // = (  840 x 1120 ) mm  = ( 33.07 x 44.09 ) in
+		'PA1'                    => array( 1587.402,  2381.102), // = (  560 x 840  ) mm  = ( 22.05 x 33.07 ) in
+		'PA2'                    => array( 1190.551,  1587.402), // = (  420 x 560  ) mm  = ( 16.54 x 22.05 ) in
+		'PA3'                    => array(  793.701,  1190.551), // = (  280 x 420  ) mm  = ( 11.02 x 16.54 ) in
+		'PA4'                    => array(  595.276,   793.701), // = (  210 x 280  ) mm  = (  8.27 x 11.02 ) in
+		'PA5'                    => array(  396.850,   595.276), // = (  140 x 210  ) mm  = (  5.51 x 8.27  ) in
+		'PA6'                    => array(  297.638,   396.850), // = (  105 x 140  ) mm  = (  4.13 x 5.51  ) in
+		'PA7'                    => array(  198.425,   297.638), // = (   70 x 105  ) mm  = (  2.76 x 4.13  ) in
+		'PA8'                    => array(  147.402,   198.425), // = (   52 x 70   ) mm  = (  2.05 x 2.76  ) in
+		'PA9'                    => array(   99.213,   147.402), // = (   35 x 52   ) mm  = (  1.38 x 2.05  ) in
+		'PA10'                   => array(   73.701,    99.213), // = (   26 x 35   ) mm  = (  1.02 x 1.38  ) in
+		// Standard Photographic Print Sizes
+		'PASSPORT_PHOTO'         => array(   99.213,   127.559), // = (   35 x 45   ) mm  = (  1.38 x 1.77  ) in
+		'E'                      => array(  233.858,   340.157), // = (   82 x 120  ) mm  = (  3.25 x 4.72  ) in
+		'L'                      => array(  252.283,   360.000), // = (   89 x 127  ) mm  = (  3.50 x 5.00  ) in
+		'3R'                     => array(  252.283,   360.000), // = (   89 x 127  ) mm  = (  3.50 x 5.00  ) in
+		'KG'                     => array(  289.134,   430.866), // = (  102 x 152  ) mm  = (  4.02 x 5.98  ) in
+		'4R'                     => array(  289.134,   430.866), // = (  102 x 152  ) mm  = (  4.02 x 5.98  ) in
+		'4D'                     => array(  340.157,   430.866), // = (  120 x 152  ) mm  = (  4.72 x 5.98  ) in
+		'2L'                     => array(  360.000,   504.567), // = (  127 x 178  ) mm  = (  5.00 x 7.01  ) in
+		'5R'                     => array(  360.000,   504.567), // = (  127 x 178  ) mm  = (  5.00 x 7.01  ) in
+		'8P'                     => array(  430.866,   575.433), // = (  152 x 203  ) mm  = (  5.98 x 7.99  ) in
+		'6R'                     => array(  430.866,   575.433), // = (  152 x 203  ) mm  = (  5.98 x 7.99  ) in
+		'6P'                     => array(  575.433,   720.000), // = (  203 x 254  ) mm  = (  7.99 x 10.00 ) in
+		'8R'                     => array(  575.433,   720.000), // = (  203 x 254  ) mm  = (  7.99 x 10.00 ) in
+		'6PW'                    => array(  575.433,   864.567), // = (  203 x 305  ) mm  = (  7.99 x 12.01 ) in
+		'S8R'                    => array(  575.433,   864.567), // = (  203 x 305  ) mm  = (  7.99 x 12.01 ) in
+		'4P'                     => array(  720.000,   864.567), // = (  254 x 305  ) mm  = ( 10.00 x 12.01 ) in
+		'10R'                    => array(  720.000,   864.567), // = (  254 x 305  ) mm  = ( 10.00 x 12.01 ) in
+		'4PW'                    => array(  720.000,  1080.000), // = (  254 x 381  ) mm  = ( 10.00 x 15.00 ) in
+		'S10R'                   => array(  720.000,  1080.000), // = (  254 x 381  ) mm  = ( 10.00 x 15.00 ) in
+		'11R'                    => array(  790.866,  1009.134), // = (  279 x 356  ) mm  = ( 10.98 x 14.02 ) in
+		'S11R'                   => array(  790.866,  1224.567), // = (  279 x 432  ) mm  = ( 10.98 x 17.01 ) in
+		'12R'                    => array(  864.567,  1080.000), // = (  305 x 381  ) mm  = ( 12.01 x 15.00 ) in
+		'S12R'                   => array(  864.567,  1292.598), // = (  305 x 456  ) mm  = ( 12.01 x 17.95 ) in
+		// Common Newspaper Sizes
+		'NEWSPAPER_BROADSHEET'   => array( 2125.984,  1700.787), // = (  750 x 600  ) mm  = ( 29.53 x 23.62 ) in
+		'NEWSPAPER_BERLINER'     => array( 1332.283,   892.913), // = (  470 x 315  ) mm  = ( 18.50 x 12.40 ) in
+		'NEWSPAPER_TABLOID'      => array( 1218.898,   793.701), // = (  430 x 280  ) mm  = ( 16.93 x 11.02 ) in
+		'NEWSPAPER_COMPACT'      => array( 1218.898,   793.701), // = (  430 x 280  ) mm  = ( 16.93 x 11.02 ) in
+		// Business Cards
+		'CREDIT_CARD'            => array(  153.014,   242.646), // = (   54 x 86   ) mm  = (  2.13 x 3.37  ) in
+		'BUSINESS_CARD'          => array(  153.014,   242.646), // = (   54 x 86   ) mm  = (  2.13 x 3.37  ) in
+		'BUSINESS_CARD_ISO7810'  => array(  153.014,   242.646), // = (   54 x 86   ) mm  = (  2.13 x 3.37  ) in
+		'BUSINESS_CARD_ISO216'   => array(  147.402,   209.764), // = (   52 x 74   ) mm  = (  2.05 x 2.91  ) in
+		'BUSINESS_CARD_IT'       => array(  155.906,   240.945), // = (   55 x 85   ) mm  = (  2.17 x 3.35  ) in
+		'BUSINESS_CARD_UK'       => array(  155.906,   240.945), // = (   55 x 85   ) mm  = (  2.17 x 3.35  ) in
+		'BUSINESS_CARD_FR'       => array(  155.906,   240.945), // = (   55 x 85   ) mm  = (  2.17 x 3.35  ) in
+		'BUSINESS_CARD_DE'       => array(  155.906,   240.945), // = (   55 x 85   ) mm  = (  2.17 x 3.35  ) in
+		'BUSINESS_CARD_ES'       => array(  155.906,   240.945), // = (   55 x 85   ) mm  = (  2.17 x 3.35  ) in
+		'BUSINESS_CARD_CA'       => array(  144.567,   252.283), // = (   51 x 89   ) mm  = (  2.01 x 3.50  ) in
+		'BUSINESS_CARD_US'       => array(  144.567,   252.283), // = (   51 x 89   ) mm  = (  2.01 x 3.50  ) in
+		'BUSINESS_CARD_JP'       => array(  155.906,   257.953), // = (   55 x 91   ) mm  = (  2.17 x 3.58  ) in
+		'BUSINESS_CARD_HK'       => array(  153.071,   255.118), // = (   54 x 90   ) mm  = (  2.13 x 3.54  ) in
+		'BUSINESS_CARD_AU'       => array(  155.906,   255.118), // = (   55 x 90   ) mm  = (  2.17 x 3.54  ) in
+		'BUSINESS_CARD_DK'       => array(  155.906,   255.118), // = (   55 x 90   ) mm  = (  2.17 x 3.54  ) in
+		'BUSINESS_CARD_SE'       => array(  155.906,   255.118), // = (   55 x 90   ) mm  = (  2.17 x 3.54  ) in
+		'BUSINESS_CARD_RU'       => array(  141.732,   255.118), // = (   50 x 90   ) mm  = (  1.97 x 3.54  ) in
+		'BUSINESS_CARD_CZ'       => array(  141.732,   255.118), // = (   50 x 90   ) mm  = (  1.97 x 3.54  ) in
+		'BUSINESS_CARD_FI'       => array(  141.732,   255.118), // = (   50 x 90   ) mm  = (  1.97 x 3.54  ) in
+		'BUSINESS_CARD_HU'       => array(  141.732,   255.118), // = (   50 x 90   ) mm  = (  1.97 x 3.54  ) in
+		'BUSINESS_CARD_IL'       => array(  141.732,   255.118), // = (   50 x 90   ) mm  = (  1.97 x 3.54  ) in
+		// Billboards
+		'4SHEET'                 => array( 2880.000,  4320.000), // = ( 1016 x 1524 ) mm  = ( 40.00 x 60.00 ) in
+		'6SHEET'                 => array( 3401.575,  5102.362), // = ( 1200 x 1800 ) mm  = ( 47.24 x 70.87 ) in
+		'12SHEET'                => array( 8640.000,  4320.000), // = ( 3048 x 1524 ) mm  = (120.00 x 60.00 ) in
+		'16SHEET'                => array( 5760.000,  8640.000), // = ( 2032 x 3048 ) mm  = ( 80.00 x 120.00) in
+		'32SHEET'                => array(11520.000,  8640.000), // = ( 4064 x 3048 ) mm  = (160.00 x 120.00) in
+		'48SHEET'                => array(17280.000,  8640.000), // = ( 6096 x 3048 ) mm  = (240.00 x 120.00) in
+		'64SHEET'                => array(23040.000,  8640.000), // = ( 8128 x 3048 ) mm  = (320.00 x 120.00) in
+		'96SHEET'                => array(34560.000,  8640.000), // = (12192 x 3048 ) mm  = (480.00 x 120.00) in
+		// -- Old European Sizes
+		// - Old Imperial English Sizes
+		'EN_EMPEROR'             => array( 3456.000,  5184.000), // = ( 1219 x 1829 ) mm  = ( 48.00 x 72.00 ) in
+		'EN_ANTIQUARIAN'         => array( 2232.000,  3816.000), // = (  787 x 1346 ) mm  = ( 31.00 x 53.00 ) in
+		'EN_GRAND_EAGLE'         => array( 2070.000,  3024.000), // = (  730 x 1067 ) mm  = ( 28.75 x 42.00 ) in
+		'EN_DOUBLE_ELEPHANT'     => array( 1926.000,  2880.000), // = (  679 x 1016 ) mm  = ( 26.75 x 40.00 ) in
+		'EN_ATLAS'               => array( 1872.000,  2448.000), // = (  660 x 864  ) mm  = ( 26.00 x 34.00 ) in
+		'EN_COLOMBIER'           => array( 1692.000,  2484.000), // = (  597 x 876  ) mm  = ( 23.50 x 34.50 ) in
+		'EN_ELEPHANT'            => array( 1656.000,  2016.000), // = (  584 x 711  ) mm  = ( 23.00 x 28.00 ) in
+		'EN_DOUBLE_DEMY'         => array( 1620.000,  2556.000), // = (  572 x 902  ) mm  = ( 22.50 x 35.50 ) in
+		'EN_IMPERIAL'            => array( 1584.000,  2160.000), // = (  559 x 762  ) mm  = ( 22.00 x 30.00 ) in
+		'EN_PRINCESS'            => array( 1548.000,  2016.000), // = (  546 x 711  ) mm  = ( 21.50 x 28.00 ) in
+		'EN_CARTRIDGE'           => array( 1512.000,  1872.000), // = (  533 x 660  ) mm  = ( 21.00 x 26.00 ) in
+		'EN_DOUBLE_LARGE_POST'   => array( 1512.000,  2376.000), // = (  533 x 838  ) mm  = ( 21.00 x 33.00 ) in
+		'EN_ROYAL'               => array( 1440.000,  1800.000), // = (  508 x 635  ) mm  = ( 20.00 x 25.00 ) in
+		'EN_SHEET'               => array( 1404.000,  1692.000), // = (  495 x 597  ) mm  = ( 19.50 x 23.50 ) in
+		'EN_HALF_POST'           => array( 1404.000,  1692.000), // = (  495 x 597  ) mm  = ( 19.50 x 23.50 ) in
+		'EN_SUPER_ROYAL'         => array( 1368.000,  1944.000), // = (  483 x 686  ) mm  = ( 19.00 x 27.00 ) in
+		'EN_DOUBLE_POST'         => array( 1368.000,  2196.000), // = (  483 x 775  ) mm  = ( 19.00 x 30.50 ) in
+		'EN_MEDIUM'              => array( 1260.000,  1656.000), // = (  445 x 584  ) mm  = ( 17.50 x 23.00 ) in
+		'EN_DEMY'                => array( 1260.000,  1620.000), // = (  445 x 572  ) mm  = ( 17.50 x 22.50 ) in
+		'EN_LARGE_POST'          => array( 1188.000,  1512.000), // = (  419 x 533  ) mm  = ( 16.50 x 21.00 ) in
+		'EN_COPY_DRAUGHT'        => array( 1152.000,  1440.000), // = (  406 x 508  ) mm  = ( 16.00 x 20.00 ) in
+		'EN_POST'                => array( 1116.000,  1386.000), // = (  394 x 489  ) mm  = ( 15.50 x 19.25 ) in
+		'EN_CROWN'               => array( 1080.000,  1440.000), // = (  381 x 508  ) mm  = ( 15.00 x 20.00 ) in
+		'EN_PINCHED_POST'        => array( 1062.000,  1332.000), // = (  375 x 470  ) mm  = ( 14.75 x 18.50 ) in
+		'EN_BRIEF'               => array(  972.000,  1152.000), // = (  343 x 406  ) mm  = ( 13.50 x 16.00 ) in
+		'EN_FOOLSCAP'            => array(  972.000,  1224.000), // = (  343 x 432  ) mm  = ( 13.50 x 17.00 ) in
+		'EN_SMALL_FOOLSCAP'      => array(  954.000,  1188.000), // = (  337 x 419  ) mm  = ( 13.25 x 16.50 ) in
+		'EN_POTT'                => array(  900.000,  1080.000), // = (  318 x 381  ) mm  = ( 12.50 x 15.00 ) in
+		// - Old Imperial Belgian Sizes
+		'BE_GRAND_AIGLE'         => array( 1984.252,  2948.031), // = (  700 x 1040 ) mm  = ( 27.56 x 40.94 ) in
+		'BE_COLOMBIER'           => array( 1757.480,  2409.449), // = (  620 x 850  ) mm  = ( 24.41 x 33.46 ) in
+		'BE_DOUBLE_CARRE'        => array( 1757.480,  2607.874), // = (  620 x 920  ) mm  = ( 24.41 x 36.22 ) in
+		'BE_ELEPHANT'            => array( 1746.142,  2182.677), // = (  616 x 770  ) mm  = ( 24.25 x 30.31 ) in
+		'BE_PETIT_AIGLE'         => array( 1700.787,  2381.102), // = (  600 x 840  ) mm  = ( 23.62 x 33.07 ) in
+		'BE_GRAND_JESUS'         => array( 1559.055,  2069.291), // = (  550 x 730  ) mm  = ( 21.65 x 28.74 ) in
+		'BE_JESUS'               => array( 1530.709,  2069.291), // = (  540 x 730  ) mm  = ( 21.26 x 28.74 ) in
+		'BE_RAISIN'              => array( 1417.323,  1842.520), // = (  500 x 650  ) mm  = ( 19.69 x 25.59 ) in
+		'BE_GRAND_MEDIAN'        => array( 1303.937,  1714.961), // = (  460 x 605  ) mm  = ( 18.11 x 23.82 ) in
+		'BE_DOUBLE_POSTE'        => array( 1233.071,  1601.575), // = (  435 x 565  ) mm  = ( 17.13 x 22.24 ) in
+		'BE_COQUILLE'            => array( 1218.898,  1587.402), // = (  430 x 560  ) mm  = ( 16.93 x 22.05 ) in
+		'BE_PETIT_MEDIAN'        => array( 1176.378,  1502.362), // = (  415 x 530  ) mm  = ( 16.34 x 20.87 ) in
+		'BE_RUCHE'               => array( 1020.472,  1303.937), // = (  360 x 460  ) mm  = ( 14.17 x 18.11 ) in
+		'BE_PROPATRIA'           => array(  977.953,  1218.898), // = (  345 x 430  ) mm  = ( 13.58 x 16.93 ) in
+		'BE_LYS'                 => array(  898.583,  1125.354), // = (  317 x 397  ) mm  = ( 12.48 x 15.63 ) in
+		'BE_POT'                 => array(  870.236,  1088.504), // = (  307 x 384  ) mm  = ( 12.09 x 15.12 ) in
+		'BE_ROSETTE'             => array(  765.354,   983.622), // = (  270 x 347  ) mm  = ( 10.63 x 13.66 ) in
+		// - Old Imperial French Sizes
+		'FR_UNIVERS'             => array( 2834.646,  3685.039), // = ( 1000 x 1300 ) mm  = ( 39.37 x 51.18 ) in
+		'FR_DOUBLE_COLOMBIER'    => array( 2551.181,  3571.654), // = (  900 x 1260 ) mm  = ( 35.43 x 49.61 ) in
+		'FR_GRANDE_MONDE'        => array( 2551.181,  3571.654), // = (  900 x 1260 ) mm  = ( 35.43 x 49.61 ) in
+		'FR_DOUBLE_SOLEIL'       => array( 2267.717,  3401.575), // = (  800 x 1200 ) mm  = ( 31.50 x 47.24 ) in
+		'FR_DOUBLE_JESUS'        => array( 2154.331,  3174.803), // = (  760 x 1120 ) mm  = ( 29.92 x 44.09 ) in
+		'FR_GRAND_AIGLE'         => array( 2125.984,  3004.724), // = (  750 x 1060 ) mm  = ( 29.53 x 41.73 ) in
+		'FR_PETIT_AIGLE'         => array( 1984.252,  2664.567), // = (  700 x 940  ) mm  = ( 27.56 x 37.01 ) in
+		'FR_DOUBLE_RAISIN'       => array( 1842.520,  2834.646), // = (  650 x 1000 ) mm  = ( 25.59 x 39.37 ) in
+		'FR_JOURNAL'             => array( 1842.520,  2664.567), // = (  650 x 940  ) mm  = ( 25.59 x 37.01 ) in
+		'FR_COLOMBIER_AFFICHE'   => array( 1785.827,  2551.181), // = (  630 x 900  ) mm  = ( 24.80 x 35.43 ) in
+		'FR_DOUBLE_CAVALIER'     => array( 1757.480,  2607.874), // = (  620 x 920  ) mm  = ( 24.41 x 36.22 ) in
+		'FR_CLOCHE'              => array( 1700.787,  2267.717), // = (  600 x 800  ) mm  = ( 23.62 x 31.50 ) in
+		'FR_SOLEIL'              => array( 1700.787,  2267.717), // = (  600 x 800  ) mm  = ( 23.62 x 31.50 ) in
+		'FR_DOUBLE_CARRE'        => array( 1587.402,  2551.181), // = (  560 x 900  ) mm  = ( 22.05 x 35.43 ) in
+		'FR_DOUBLE_COQUILLE'     => array( 1587.402,  2494.488), // = (  560 x 880  ) mm  = ( 22.05 x 34.65 ) in
+		'FR_JESUS'               => array( 1587.402,  2154.331), // = (  560 x 760  ) mm  = ( 22.05 x 29.92 ) in
+		'FR_RAISIN'              => array( 1417.323,  1842.520), // = (  500 x 650  ) mm  = ( 19.69 x 25.59 ) in
+		'FR_CAVALIER'            => array( 1303.937,  1757.480), // = (  460 x 620  ) mm  = ( 18.11 x 24.41 ) in
+		'FR_DOUBLE_COURONNE'     => array( 1303.937,  2040.945), // = (  460 x 720  ) mm  = ( 18.11 x 28.35 ) in
+		'FR_CARRE'               => array( 1275.591,  1587.402), // = (  450 x 560  ) mm  = ( 17.72 x 22.05 ) in
+		'FR_COQUILLE'            => array( 1247.244,  1587.402), // = (  440 x 560  ) mm  = ( 17.32 x 22.05 ) in
+		'FR_DOUBLE_TELLIERE'     => array( 1247.244,  1927.559), // = (  440 x 680  ) mm  = ( 17.32 x 26.77 ) in
+		'FR_DOUBLE_CLOCHE'       => array( 1133.858,  1700.787), // = (  400 x 600  ) mm  = ( 15.75 x 23.62 ) in
+		'FR_DOUBLE_POT'          => array( 1133.858,  1757.480), // = (  400 x 620  ) mm  = ( 15.75 x 24.41 ) in
+		'FR_ECU'                 => array( 1133.858,  1474.016), // = (  400 x 520  ) mm  = ( 15.75 x 20.47 ) in
+		'FR_COURONNE'            => array( 1020.472,  1303.937), // = (  360 x 460  ) mm  = ( 14.17 x 18.11 ) in
+		'FR_TELLIERE'            => array(  963.780,  1247.244), // = (  340 x 440  ) mm  = ( 13.39 x 17.32 ) in
+		'FR_POT'                 => array(  878.740,  1133.858), // = (  310 x 400  ) mm  = ( 12.20 x 15.75 ) in
+	);
 
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -163,670 +519,16 @@ class TCPDF_STATIC {
 
 	/**
 	 * Get page dimensions from format name.
-	 * @param $format (mixed) The format name. It can be: <ul>
-	 * <li><b>ISO 216 A Series + 2 SIS 014711 extensions</b></li>
-	 * <li>A0 (841x1189 mm ; 33.11x46.81 in)</li>
-	 * <li>A1 (594x841 mm ; 23.39x33.11 in)</li>
-	 * <li>A2 (420x594 mm ; 16.54x23.39 in)</li>
-	 * <li>A3 (297x420 mm ; 11.69x16.54 in)</li>
-	 * <li>A4 (210x297 mm ; 8.27x11.69 in)</li>
-	 * <li>A5 (148x210 mm ; 5.83x8.27 in)</li>
-	 * <li>A6 (105x148 mm ; 4.13x5.83 in)</li>
-	 * <li>A7 (74x105 mm ; 2.91x4.13 in)</li>
-	 * <li>A8 (52x74 mm ; 2.05x2.91 in)</li>
-	 * <li>A9 (37x52 mm ; 1.46x2.05 in)</li>
-	 * <li>A10 (26x37 mm ; 1.02x1.46 in)</li>
-	 * <li>A11 (18x26 mm ; 0.71x1.02 in)</li>
-	 * <li>A12 (13x18 mm ; 0.51x0.71 in)</li>
-	 * <li><b>ISO 216 B Series + 2 SIS 014711 extensions</b></li>
-	 * <li>B0 (1000x1414 mm ; 39.37x55.67 in)</li>
-	 * <li>B1 (707x1000 mm ; 27.83x39.37 in)</li>
-	 * <li>B2 (500x707 mm ; 19.69x27.83 in)</li>
-	 * <li>B3 (353x500 mm ; 13.90x19.69 in)</li>
-	 * <li>B4 (250x353 mm ; 9.84x13.90 in)</li>
-	 * <li>B5 (176x250 mm ; 6.93x9.84 in)</li>
-	 * <li>B6 (125x176 mm ; 4.92x6.93 in)</li>
-	 * <li>B7 (88x125 mm ; 3.46x4.92 in)</li>
-	 * <li>B8 (62x88 mm ; 2.44x3.46 in)</li>
-	 * <li>B9 (44x62 mm ; 1.73x2.44 in)</li>
-	 * <li>B10 (31x44 mm ; 1.22x1.73 in)</li>
-	 * <li>B11 (22x31 mm ; 0.87x1.22 in)</li>
-	 * <li>B12 (15x22 mm ; 0.59x0.87 in)</li>
-	 * <li><b>ISO 216 C Series + 2 SIS 014711 extensions + 2 EXTENSION</b></li>
-	 * <li>C0 (917x1297 mm ; 36.10x51.06 in)</li>
-	 * <li>C1 (648x917 mm ; 25.51x36.10 in)</li>
-	 * <li>C2 (458x648 mm ; 18.03x25.51 in)</li>
-	 * <li>C3 (324x458 mm ; 12.76x18.03 in)</li>
-	 * <li>C4 (229x324 mm ; 9.02x12.76 in)</li>
-	 * <li>C5 (162x229 mm ; 6.38x9.02 in)</li>
-	 * <li>C6 (114x162 mm ; 4.49x6.38 in)</li>
-	 * <li>C7 (81x114 mm ; 3.19x4.49 in)</li>
-	 * <li>C8 (57x81 mm ; 2.24x3.19 in)</li>
-	 * <li>C9 (40x57 mm ; 1.57x2.24 in)</li>
-	 * <li>C10 (28x40 mm ; 1.10x1.57 in)</li>
-	 * <li>C11 (20x28 mm ; 0.79x1.10 in)</li>
-	 * <li>C12 (14x20 mm ; 0.55x0.79 in)</li>
-	 * <li>C76 (81x162 mm ; 3.19x6.38 in)</li>
-	 * <li>DL (110x220 mm ; 4.33x8.66 in)</li>
-	 * <li><b>SIS 014711 E Series</b></li>
-	 * <li>E0 (879x1241 mm ; 34.61x48.86 in)</li>
-	 * <li>E1 (620x879 mm ; 24.41x34.61 in)</li>
-	 * <li>E2 (440x620 mm ; 17.32x24.41 in)</li>
-	 * <li>E3 (310x440 mm ; 12.20x17.32 in)</li>
-	 * <li>E4 (220x310 mm ; 8.66x12.20 in)</li>
-	 * <li>E5 (155x220 mm ; 6.10x8.66 in)</li>
-	 * <li>E6 (110x155 mm ; 4.33x6.10 in)</li>
-	 * <li>E7 (78x110 mm ; 3.07x4.33 in)</li>
-	 * <li>E8 (55x78 mm ; 2.17x3.07 in)</li>
-	 * <li>E9 (39x55 mm ; 1.54x2.17 in)</li>
-	 * <li>E10 (27x39 mm ; 1.06x1.54 in)</li>
-	 * <li>E11 (19x27 mm ; 0.75x1.06 in)</li>
-	 * <li>E12 (13x19 mm ; 0.51x0.75 in)</li>
-	 * <li><b>SIS 014711 G Series</b></li>
-	 * <li>G0 (958x1354 mm ; 37.72x53.31 in)</li>
-	 * <li>G1 (677x958 mm ; 26.65x37.72 in)</li>
-	 * <li>G2 (479x677 mm ; 18.86x26.65 in)</li>
-	 * <li>G3 (338x479 mm ; 13.31x18.86 in)</li>
-	 * <li>G4 (239x338 mm ; 9.41x13.31 in)</li>
-	 * <li>G5 (169x239 mm ; 6.65x9.41 in)</li>
-	 * <li>G6 (119x169 mm ; 4.69x6.65 in)</li>
-	 * <li>G7 (84x119 mm ; 3.31x4.69 in)</li>
-	 * <li>G8 (59x84 mm ; 2.32x3.31 in)</li>
-	 * <li>G9 (42x59 mm ; 1.65x2.32 in)</li>
-	 * <li>G10 (29x42 mm ; 1.14x1.65 in)</li>
-	 * <li>G11 (21x29 mm ; 0.83x1.14 in)</li>
-	 * <li>G12 (14x21 mm ; 0.55x0.83 in)</li>
-	 * <li><b>ISO Press</b></li>
-	 * <li>RA0 (860x1220 mm ; 33.86x48.03 in)</li>
-	 * <li>RA1 (610x860 mm ; 24.02x33.86 in)</li>
-	 * <li>RA2 (430x610 mm ; 16.93x24.02 in)</li>
-	 * <li>RA3 (305x430 mm ; 12.01x16.93 in)</li>
-	 * <li>RA4 (215x305 mm ; 8.46x12.01 in)</li>
-	 * <li>SRA0 (900x1280 mm ; 35.43x50.39 in)</li>
-	 * <li>SRA1 (640x900 mm ; 25.20x35.43 in)</li>
-	 * <li>SRA2 (450x640 mm ; 17.72x25.20 in)</li>
-	 * <li>SRA3 (320x450 mm ; 12.60x17.72 in)</li>
-	 * <li>SRA4 (225x320 mm ; 8.86x12.60 in)</li>
-	 * <li><b>German DIN 476</b></li>
-	 * <li>4A0 (1682x2378 mm ; 66.22x93.62 in)</li>
-	 * <li>2A0 (1189x1682 mm ; 46.81x66.22 in)</li>
-	 * <li><b>Variations on the ISO Standard</b></li>
-	 * <li>A2_EXTRA (445x619 mm ; 17.52x24.37 in)</li>
-	 * <li>A3+ (329x483 mm ; 12.95x19.02 in)</li>
-	 * <li>A3_EXTRA (322x445 mm ; 12.68x17.52 in)</li>
-	 * <li>A3_SUPER (305x508 mm ; 12.01x20.00 in)</li>
-	 * <li>SUPER_A3 (305x487 mm ; 12.01x19.17 in)</li>
-	 * <li>A4_EXTRA (235x322 mm ; 9.25x12.68 in)</li>
-	 * <li>A4_SUPER (229x322 mm ; 9.02x12.68 in)</li>
-	 * <li>SUPER_A4 (227x356 mm ; 8.94x14.02 in)</li>
-	 * <li>A4_LONG (210x348 mm ; 8.27x13.70 in)</li>
-	 * <li>F4 (210x330 mm ; 8.27x12.99 in)</li>
-	 * <li>SO_B5_EXTRA (202x276 mm ; 7.95x10.87 in)</li>
-	 * <li>A5_EXTRA (173x235 mm ; 6.81x9.25 in)</li>
-	 * <li><b>ANSI Series</b></li>
-	 * <li>ANSI_E (864x1118 mm ; 34.00x44.00 in)</li>
-	 * <li>ANSI_D (559x864 mm ; 22.00x34.00 in)</li>
-	 * <li>ANSI_C (432x559 mm ; 17.00x22.00 in)</li>
-	 * <li>ANSI_B (279x432 mm ; 11.00x17.00 in)</li>
-	 * <li>ANSI_A (216x279 mm ; 8.50x11.00 in)</li>
-	 * <li><b>Traditional 'Loose' North American Paper Sizes</b></li>
-	 * <li>LEDGER, USLEDGER (432x279 mm ; 17.00x11.00 in)</li>
-	 * <li>TABLOID, USTABLOID, BIBLE, ORGANIZERK (279x432 mm ; 11.00x17.00 in)</li>
-	 * <li>LETTER, USLETTER, ORGANIZERM (216x279 mm ; 8.50x11.00 in)</li>
-	 * <li>LEGAL, USLEGAL (216x356 mm ; 8.50x14.00 in)</li>
-	 * <li>GLETTER, GOVERNMENTLETTER (203x267 mm ; 8.00x10.50 in)</li>
-	 * <li>JLEGAL, JUNIORLEGAL (203x127 mm ; 8.00x5.00 in)</li>
-	 * <li><b>Other North American Paper Sizes</b></li>
-	 * <li>QUADDEMY (889x1143 mm ; 35.00x45.00 in)</li>
-	 * <li>SUPER_B (330x483 mm ; 13.00x19.00 in)</li>
-	 * <li>QUARTO (229x279 mm ; 9.00x11.00 in)</li>
-	 * <li>FOLIO, GOVERNMENTLEGAL (216x330 mm ; 8.50x13.00 in)</li>
-	 * <li>EXECUTIVE, MONARCH (184x267 mm ; 7.25x10.50 in)</li>
-	 * <li>MEMO, STATEMENT, ORGANIZERL (140x216 mm ; 5.50x8.50 in)</li>
-	 * <li>FOOLSCAP (210x330 mm ; 8.27x13.00 in)</li>
-	 * <li>COMPACT (108x171 mm ; 4.25x6.75 in)</li>
-	 * <li>ORGANIZERJ (70x127 mm ; 2.75x5.00 in)</li>
-	 * <li><b>Canadian standard CAN 2-9.60M</b></li>
-	 * <li>P1 (560x860 mm ; 22.05x33.86 in)</li>
-	 * <li>P2 (430x560 mm ; 16.93x22.05 in)</li>
-	 * <li>P3 (280x430 mm ; 11.02x16.93 in)</li>
-	 * <li>P4 (215x280 mm ; 8.46x11.02 in)</li>
-	 * <li>P5 (140x215 mm ; 5.51x8.46 in)</li>
-	 * <li>P6 (107x140 mm ; 4.21x5.51 in)</li>
-	 * <li><b>North American Architectural Sizes</b></li>
-	 * <li>ARCH_E (914x1219 mm ; 36.00x48.00 in)</li>
-	 * <li>ARCH_E1 (762x1067 mm ; 30.00x42.00 in)</li>
-	 * <li>ARCH_D (610x914 mm ; 24.00x36.00 in)</li>
-	 * <li>ARCH_C, BROADSHEET (457x610 mm ; 18.00x24.00 in)</li>
-	 * <li>ARCH_B (305x457 mm ; 12.00x18.00 in)</li>
-	 * <li>ARCH_A (229x305 mm ; 9.00x12.00 in)</li>
-	 * <li><b>Announcement Envelopes</b></li>
-	 * <li>ANNENV_A2 (111x146 mm ; 4.37x5.75 in)</li>
-	 * <li>ANNENV_A6 (121x165 mm ; 4.75x6.50 in)</li>
-	 * <li>ANNENV_A7 (133x184 mm ; 5.25x7.25 in)</li>
-	 * <li>ANNENV_A8 (140x206 mm ; 5.50x8.12 in)</li>
-	 * <li>ANNENV_A10 (159x244 mm ; 6.25x9.62 in)</li>
-	 * <li>ANNENV_SLIM (98x225 mm ; 3.87x8.87 in)</li>
-	 * <li><b>Commercial Envelopes</b></li>
-	 * <li>COMMENV_N6_1/4 (89x152 mm ; 3.50x6.00 in)</li>
-	 * <li>COMMENV_N6_3/4 (92x165 mm ; 3.62x6.50 in)</li>
-	 * <li>COMMENV_N8 (98x191 mm ; 3.87x7.50 in)</li>
-	 * <li>COMMENV_N9 (98x225 mm ; 3.87x8.87 in)</li>
-	 * <li>COMMENV_N10 (105x241 mm ; 4.12x9.50 in)</li>
-	 * <li>COMMENV_N11 (114x263 mm ; 4.50x10.37 in)</li>
-	 * <li>COMMENV_N12 (121x279 mm ; 4.75x11.00 in)</li>
-	 * <li>COMMENV_N14 (127x292 mm ; 5.00x11.50 in)</li>
-	 * <li><b>Catalogue Envelopes</b></li>
-	 * <li>CATENV_N1 (152x229 mm ; 6.00x9.00 in)</li>
-	 * <li>CATENV_N1_3/4 (165x241 mm ; 6.50x9.50 in)</li>
-	 * <li>CATENV_N2 (165x254 mm ; 6.50x10.00 in)</li>
-	 * <li>CATENV_N3 (178x254 mm ; 7.00x10.00 in)</li>
-	 * <li>CATENV_N6 (191x267 mm ; 7.50x10.50 in)</li>
-	 * <li>CATENV_N7 (203x279 mm ; 8.00x11.00 in)</li>
-	 * <li>CATENV_N8 (210x286 mm ; 8.25x11.25 in)</li>
-	 * <li>CATENV_N9_1/2 (216x267 mm ; 8.50x10.50 in)</li>
-	 * <li>CATENV_N9_3/4 (222x286 mm ; 8.75x11.25 in)</li>
-	 * <li>CATENV_N10_1/2 (229x305 mm ; 9.00x12.00 in)</li>
-	 * <li>CATENV_N12_1/2 (241x318 mm ; 9.50x12.50 in)</li>
-	 * <li>CATENV_N13_1/2 (254x330 mm ; 10.00x13.00 in)</li>
-	 * <li>CATENV_N14_1/4 (286x311 mm ; 11.25x12.25 in)</li>
-	 * <li>CATENV_N14_1/2 (292x368 mm ; 11.50x14.50 in)</li>
-	 * <li><b>Japanese (JIS P 0138-61) Standard B-Series</b></li>
-	 * <li>JIS_B0 (1030x1456 mm ; 40.55x57.32 in)</li>
-	 * <li>JIS_B1 (728x1030 mm ; 28.66x40.55 in)</li>
-	 * <li>JIS_B2 (515x728 mm ; 20.28x28.66 in)</li>
-	 * <li>JIS_B3 (364x515 mm ; 14.33x20.28 in)</li>
-	 * <li>JIS_B4 (257x364 mm ; 10.12x14.33 in)</li>
-	 * <li>JIS_B5 (182x257 mm ; 7.17x10.12 in)</li>
-	 * <li>JIS_B6 (128x182 mm ; 5.04x7.17 in)</li>
-	 * <li>JIS_B7 (91x128 mm ; 3.58x5.04 in)</li>
-	 * <li>JIS_B8 (64x91 mm ; 2.52x3.58 in)</li>
-	 * <li>JIS_B9 (45x64 mm ; 1.77x2.52 in)</li>
-	 * <li>JIS_B10 (32x45 mm ; 1.26x1.77 in)</li>
-	 * <li>JIS_B11 (22x32 mm ; 0.87x1.26 in)</li>
-	 * <li>JIS_B12 (16x22 mm ; 0.63x0.87 in)</li>
-	 * <li><b>PA Series</b></li>
-	 * <li>PA0 (840x1120 mm ; 33.07x44.09 in)</li>
-	 * <li>PA1 (560x840 mm ; 22.05x33.07 in)</li>
-	 * <li>PA2 (420x560 mm ; 16.54x22.05 in)</li>
-	 * <li>PA3 (280x420 mm ; 11.02x16.54 in)</li>
-	 * <li>PA4 (210x280 mm ; 8.27x11.02 in)</li>
-	 * <li>PA5 (140x210 mm ; 5.51x8.27 in)</li>
-	 * <li>PA6 (105x140 mm ; 4.13x5.51 in)</li>
-	 * <li>PA7 (70x105 mm ; 2.76x4.13 in)</li>
-	 * <li>PA8 (52x70 mm ; 2.05x2.76 in)</li>
-	 * <li>PA9 (35x52 mm ; 1.38x2.05 in)</li>
-	 * <li>PA10 (26x35 mm ; 1.02x1.38 in)</li>
-	 * <li><b>Standard Photographic Print Sizes</b></li>
-	 * <li>PASSPORT_PHOTO (35x45 mm ; 1.38x1.77 in)</li>
-	 * <li>E (82x120 mm ; 3.25x4.72 in)</li>
-	 * <li>3R, L (89x127 mm ; 3.50x5.00 in)</li>
-	 * <li>4R, KG (102x152 mm ; 4.02x5.98 in)</li>
-	 * <li>4D (120x152 mm ; 4.72x5.98 in)</li>
-	 * <li>5R, 2L (127x178 mm ; 5.00x7.01 in)</li>
-	 * <li>6R, 8P (152x203 mm ; 5.98x7.99 in)</li>
-	 * <li>8R, 6P (203x254 mm ; 7.99x10.00 in)</li>
-	 * <li>S8R, 6PW (203x305 mm ; 7.99x12.01 in)</li>
-	 * <li>10R, 4P (254x305 mm ; 10.00x12.01 in)</li>
-	 * <li>S10R, 4PW (254x381 mm ; 10.00x15.00 in)</li>
-	 * <li>11R (279x356 mm ; 10.98x14.02 in)</li>
-	 * <li>S11R (279x432 mm ; 10.98x17.01 in)</li>
-	 * <li>12R (305x381 mm ; 12.01x15.00 in)</li>
-	 * <li>S12R (305x456 mm ; 12.01x17.95 in)</li>
-	 * <li><b>Common Newspaper Sizes</b></li>
-	 * <li>NEWSPAPER_BROADSHEET (750x600 mm ; 29.53x23.62 in)</li>
-	 * <li>NEWSPAPER_BERLINER (470x315 mm ; 18.50x12.40 in)</li>
-	 * <li>NEWSPAPER_COMPACT, NEWSPAPER_TABLOID (430x280 mm ; 16.93x11.02 in)</li>
-	 * <li><b>Business Cards</b></li>
-	 * <li>CREDIT_CARD, BUSINESS_CARD, BUSINESS_CARD_ISO7810 (54x86 mm ; 2.13x3.37 in)</li>
-	 * <li>BUSINESS_CARD_ISO216 (52x74 mm ; 2.05x2.91 in)</li>
-	 * <li>BUSINESS_CARD_IT, BUSINESS_CARD_UK, BUSINESS_CARD_FR, BUSINESS_CARD_DE, BUSINESS_CARD_ES (55x85 mm ; 2.17x3.35 in)</li>
-	 * <li>BUSINESS_CARD_US, BUSINESS_CARD_CA (51x89 mm ; 2.01x3.50 in)</li>
-	 * <li>BUSINESS_CARD_JP (55x91 mm ; 2.17x3.58 in)</li>
-	 * <li>BUSINESS_CARD_HK (54x90 mm ; 2.13x3.54 in)</li>
-	 * <li>BUSINESS_CARD_AU, BUSINESS_CARD_DK, BUSINESS_CARD_SE (55x90 mm ; 2.17x3.54 in)</li>
-	 * <li>BUSINESS_CARD_RU, BUSINESS_CARD_CZ, BUSINESS_CARD_FI, BUSINESS_CARD_HU, BUSINESS_CARD_IL (50x90 mm ; 1.97x3.54 in)</li>
-	 * <li><b>Billboards</b></li>
-	 * <li>4SHEET (1016x1524 mm ; 40.00x60.00 in)</li>
-	 * <li>6SHEET (1200x1800 mm ; 47.24x70.87 in)</li>
-	 * <li>12SHEET (3048x1524 mm ; 120.00x60.00 in)</li>
-	 * <li>16SHEET (2032x3048 mm ; 80.00x120.00 in)</li>
-	 * <li>32SHEET (4064x3048 mm ; 160.00x120.00 in)</li>
-	 * <li>48SHEET (6096x3048 mm ; 240.00x120.00 in)</li>
-	 * <li>64SHEET (8128x3048 mm ; 320.00x120.00 in)</li>
-	 * <li>96SHEET (12192x3048 mm ; 480.00x120.00 in)</li>
-	 * <li><b>Old Imperial English (some are still used in USA)</b></li>
-	 * <li>EN_EMPEROR (1219x1829 mm ; 48.00x72.00 in)</li>
-	 * <li>EN_ANTIQUARIAN (787x1346 mm ; 31.00x53.00 in)</li>
-	 * <li>EN_GRAND_EAGLE (730x1067 mm ; 28.75x42.00 in)</li>
-	 * <li>EN_DOUBLE_ELEPHANT (679x1016 mm ; 26.75x40.00 in)</li>
-	 * <li>EN_ATLAS (660x864 mm ; 26.00x34.00 in)</li>
-	 * <li>EN_COLOMBIER (597x876 mm ; 23.50x34.50 in)</li>
-	 * <li>EN_ELEPHANT (584x711 mm ; 23.00x28.00 in)</li>
-	 * <li>EN_DOUBLE_DEMY (572x902 mm ; 22.50x35.50 in)</li>
-	 * <li>EN_IMPERIAL (559x762 mm ; 22.00x30.00 in)</li>
-	 * <li>EN_PRINCESS (546x711 mm ; 21.50x28.00 in)</li>
-	 * <li>EN_CARTRIDGE (533x660 mm ; 21.00x26.00 in)</li>
-	 * <li>EN_DOUBLE_LARGE_POST (533x838 mm ; 21.00x33.00 in)</li>
-	 * <li>EN_ROYAL (508x635 mm ; 20.00x25.00 in)</li>
-	 * <li>EN_SHEET, EN_HALF_POST (495x597 mm ; 19.50x23.50 in)</li>
-	 * <li>EN_SUPER_ROYAL (483x686 mm ; 19.00x27.00 in)</li>
-	 * <li>EN_DOUBLE_POST (483x775 mm ; 19.00x30.50 in)</li>
-	 * <li>EN_MEDIUM (445x584 mm ; 17.50x23.00 in)</li>
-	 * <li>EN_DEMY (445x572 mm ; 17.50x22.50 in)</li>
-	 * <li>EN_LARGE_POST (419x533 mm ; 16.50x21.00 in)</li>
-	 * <li>EN_COPY_DRAUGHT (406x508 mm ; 16.00x20.00 in)</li>
-	 * <li>EN_POST (394x489 mm ; 15.50x19.25 in)</li>
-	 * <li>EN_CROWN (381x508 mm ; 15.00x20.00 in)</li>
-	 * <li>EN_PINCHED_POST (375x470 mm ; 14.75x18.50 in)</li>
-	 * <li>EN_BRIEF (343x406 mm ; 13.50x16.00 in)</li>
-	 * <li>EN_FOOLSCAP (343x432 mm ; 13.50x17.00 in)</li>
-	 * <li>EN_SMALL_FOOLSCAP (337x419 mm ; 13.25x16.50 in)</li>
-	 * <li>EN_POTT (318x381 mm ; 12.50x15.00 in)</li>
-	 * <li><b>Old Imperial Belgian</b></li>
-	 * <li>BE_GRAND_AIGLE (700x1040 mm ; 27.56x40.94 in)</li>
-	 * <li>BE_COLOMBIER (620x850 mm ; 24.41x33.46 in)</li>
-	 * <li>BE_DOUBLE_CARRE (620x920 mm ; 24.41x36.22 in)</li>
-	 * <li>BE_ELEPHANT (616x770 mm ; 24.25x30.31 in)</li>
-	 * <li>BE_PETIT_AIGLE (600x840 mm ; 23.62x33.07 in)</li>
-	 * <li>BE_GRAND_JESUS (550x730 mm ; 21.65x28.74 in)</li>
-	 * <li>BE_JESUS (540x730 mm ; 21.26x28.74 in)</li>
-	 * <li>BE_RAISIN (500x650 mm ; 19.69x25.59 in)</li>
-	 * <li>BE_GRAND_MEDIAN (460x605 mm ; 18.11x23.82 in)</li>
-	 * <li>BE_DOUBLE_POSTE (435x565 mm ; 17.13x22.24 in)</li>
-	 * <li>BE_COQUILLE (430x560 mm ; 16.93x22.05 in)</li>
-	 * <li>BE_PETIT_MEDIAN (415x530 mm ; 16.34x20.87 in)</li>
-	 * <li>BE_RUCHE (360x460 mm ; 14.17x18.11 in)</li>
-	 * <li>BE_PROPATRIA (345x430 mm ; 13.58x16.93 in)</li>
-	 * <li>BE_LYS (317x397 mm ; 12.48x15.63 in)</li>
-	 * <li>BE_POT (307x384 mm ; 12.09x15.12 in)</li>
-	 * <li>BE_ROSETTE (270x347 mm ; 10.63x13.66 in)</li>
-	 * <li><b>Old Imperial French</b></li>
-	 * <li>FR_UNIVERS (1000x1300 mm ; 39.37x51.18 in)</li>
-	 * <li>FR_DOUBLE_COLOMBIER (900x1260 mm ; 35.43x49.61 in)</li>
-	 * <li>FR_GRANDE_MONDE (900x1260 mm ; 35.43x49.61 in)</li>
-	 * <li>FR_DOUBLE_SOLEIL (800x1200 mm ; 31.50x47.24 in)</li>
-	 * <li>FR_DOUBLE_JESUS (760x1120 mm ; 29.92x44.09 in)</li>
-	 * <li>FR_GRAND_AIGLE (750x1060 mm ; 29.53x41.73 in)</li>
-	 * <li>FR_PETIT_AIGLE (700x940 mm ; 27.56x37.01 in)</li>
-	 * <li>FR_DOUBLE_RAISIN (650x1000 mm ; 25.59x39.37 in)</li>
-	 * <li>FR_JOURNAL (650x940 mm ; 25.59x37.01 in)</li>
-	 * <li>FR_COLOMBIER_AFFICHE (630x900 mm ; 24.80x35.43 in)</li>
-	 * <li>FR_DOUBLE_CAVALIER (620x920 mm ; 24.41x36.22 in)</li>
-	 * <li>FR_CLOCHE (600x800 mm ; 23.62x31.50 in)</li>
-	 * <li>FR_SOLEIL (600x800 mm ; 23.62x31.50 in)</li>
-	 * <li>FR_DOUBLE_CARRE (560x900 mm ; 22.05x35.43 in)</li>
-	 * <li>FR_DOUBLE_COQUILLE (560x880 mm ; 22.05x34.65 in)</li>
-	 * <li>FR_JESUS (560x760 mm ; 22.05x29.92 in)</li>
-	 * <li>FR_RAISIN (500x650 mm ; 19.69x25.59 in)</li>
-	 * <li>FR_CAVALIER (460x620 mm ; 18.11x24.41 in)</li>
-	 * <li>FR_DOUBLE_COURONNE (460x720 mm ; 18.11x28.35 in)</li>
-	 * <li>FR_CARRE (450x560 mm ; 17.72x22.05 in)</li>
-	 * <li>FR_COQUILLE (440x560 mm ; 17.32x22.05 in)</li>
-	 * <li>FR_DOUBLE_TELLIERE (440x680 mm ; 17.32x26.77 in)</li>
-	 * <li>FR_DOUBLE_CLOCHE (400x600 mm ; 15.75x23.62 in)</li>
-	 * <li>FR_DOUBLE_POT (400x620 mm ; 15.75x24.41 in)</li>
-	 * <li>FR_ECU (400x520 mm ; 15.75x20.47 in)</li>
-	 * <li>FR_COURONNE (360x460 mm ; 14.17x18.11 in)</li>
-	 * <li>FR_TELLIERE (340x440 mm ; 13.39x17.32 in)</li>
-	 * <li>FR_POT (310x400 mm ; 12.20x15.75 in)</li>
-	 * </ul>
+	 * @param $format (mixed) The format name @see self::$page_format<ul>
 	 * @return array containing page width and height in points
 	 * @since 5.0.010 (2010-05-17)
 	 * @public static
 	 */
 	public static function getPageSizeFromFormat($format) {
-		// Paper cordinates are calculated in this way: (inches * 72) where (1 inch = 25.4 mm)
-		switch (strtoupper($format)) {
-			// ISO 216 A Series + 2 SIS 014711 extensions
-			case 'A0' : {$pf = array( 2383.937, 3370.394); break;}
-			case 'A1' : {$pf = array( 1683.780, 2383.937); break;}
-			case 'A2' : {$pf = array( 1190.551, 1683.780); break;}
-			case 'A3' : {$pf = array(  841.890, 1190.551); break;}
-			case 'A4' : {$pf = array(  595.276,  841.890); break;}
-			case 'A5' : {$pf = array(  419.528,  595.276); break;}
-			case 'A6' : {$pf = array(  297.638,  419.528); break;}
-			case 'A7' : {$pf = array(  209.764,  297.638); break;}
-			case 'A8' : {$pf = array(  147.402,  209.764); break;}
-			case 'A9' : {$pf = array(  104.882,  147.402); break;}
-			case 'A10': {$pf = array(   73.701,  104.882); break;}
-			case 'A11': {$pf = array(   51.024,   73.701); break;}
-			case 'A12': {$pf = array(   36.850,   51.024); break;}
-			// ISO 216 B Series + 2 SIS 014711 extensions
-			case 'B0' : {$pf = array( 2834.646, 4008.189); break;}
-			case 'B1' : {$pf = array( 2004.094, 2834.646); break;}
-			case 'B2' : {$pf = array( 1417.323, 2004.094); break;}
-			case 'B3' : {$pf = array( 1000.630, 1417.323); break;}
-			case 'B4' : {$pf = array(  708.661, 1000.630); break;}
-			case 'B5' : {$pf = array(  498.898,  708.661); break;}
-			case 'B6' : {$pf = array(  354.331,  498.898); break;}
-			case 'B7' : {$pf = array(  249.449,  354.331); break;}
-			case 'B8' : {$pf = array(  175.748,  249.449); break;}
-			case 'B9' : {$pf = array(  124.724,  175.748); break;}
-			case 'B10': {$pf = array(   87.874,  124.724); break;}
-			case 'B11': {$pf = array(   62.362,   87.874); break;}
-			case 'B12': {$pf = array(   42.520,   62.362); break;}
-			// ISO 216 C Series + 2 SIS 014711 extensions + 2 EXTENSION
-			case 'C0' : {$pf = array( 2599.370, 3676.535); break;}
-			case 'C1' : {$pf = array( 1836.850, 2599.370); break;}
-			case 'C2' : {$pf = array( 1298.268, 1836.850); break;}
-			case 'C3' : {$pf = array(  918.425, 1298.268); break;}
-			case 'C4' : {$pf = array(  649.134,  918.425); break;}
-			case 'C5' : {$pf = array(  459.213,  649.134); break;}
-			case 'C6' : {$pf = array(  323.150,  459.213); break;}
-			case 'C7' : {$pf = array(  229.606,  323.150); break;}
-			case 'C8' : {$pf = array(  161.575,  229.606); break;}
-			case 'C9' : {$pf = array(  113.386,  161.575); break;}
-			case 'C10': {$pf = array(   79.370,  113.386); break;}
-			case 'C11': {$pf = array(   56.693,   79.370); break;}
-			case 'C12': {$pf = array(   39.685,   56.693); break;}
-			case 'C76': {$pf = array(  229.606,  459.213); break;}
-			case 'DL' : {$pf = array(  311.811,  623.622); break;}
-			// SIS 014711 E Series
-			case 'E0' : {$pf = array( 2491.654, 3517.795); break;}
-			case 'E1' : {$pf = array( 1757.480, 2491.654); break;}
-			case 'E2' : {$pf = array( 1247.244, 1757.480); break;}
-			case 'E3' : {$pf = array(  878.740, 1247.244); break;}
-			case 'E4' : {$pf = array(  623.622,  878.740); break;}
-			case 'E5' : {$pf = array(  439.370,  623.622); break;}
-			case 'E6' : {$pf = array(  311.811,  439.370); break;}
-			case 'E7' : {$pf = array(  221.102,  311.811); break;}
-			case 'E8' : {$pf = array(  155.906,  221.102); break;}
-			case 'E9' : {$pf = array(  110.551,  155.906); break;}
-			case 'E10': {$pf = array(   76.535,  110.551); break;}
-			case 'E11': {$pf = array(   53.858,   76.535); break;}
-			case 'E12': {$pf = array(   36.850,   53.858); break;}
-			// SIS 014711 G Series
-			case 'G0' : {$pf = array( 2715.591, 3838.110); break;}
-			case 'G1' : {$pf = array( 1919.055, 2715.591); break;}
-			case 'G2' : {$pf = array( 1357.795, 1919.055); break;}
-			case 'G3' : {$pf = array(  958.110, 1357.795); break;}
-			case 'G4' : {$pf = array(  677.480,  958.110); break;}
-			case 'G5' : {$pf = array(  479.055,  677.480); break;}
-			case 'G6' : {$pf = array(  337.323,  479.055); break;}
-			case 'G7' : {$pf = array(  238.110,  337.323); break;}
-			case 'G8' : {$pf = array(  167.244,  238.110); break;}
-			case 'G9' : {$pf = array(  119.055,  167.244); break;}
-			case 'G10': {$pf = array(   82.205,  119.055); break;}
-			case 'G11': {$pf = array(   59.528,   82.205); break;}
-			case 'G12': {$pf = array(   39.685,   59.528); break;}
-			// ISO Press
-			case 'RA0': {$pf = array( 2437.795, 3458.268); break;}
-			case 'RA1': {$pf = array( 1729.134, 2437.795); break;}
-			case 'RA2': {$pf = array( 1218.898, 1729.134); break;}
-			case 'RA3': {$pf = array(  864.567, 1218.898); break;}
-			case 'RA4': {$pf = array(  609.449,  864.567); break;}
-			case 'SRA0': {$pf = array( 2551.181, 3628.346); break;}
-			case 'SRA1': {$pf = array( 1814.173, 2551.181); break;}
-			case 'SRA2': {$pf = array( 1275.591, 1814.173); break;}
-			case 'SRA3': {$pf = array(  907.087, 1275.591); break;}
-			case 'SRA4': {$pf = array(  637.795,  907.087); break;}
-			// German  DIN 476
-			case '4A0': {$pf = array( 4767.874, 6740.787); break;}
-			case '2A0': {$pf = array( 3370.394, 4767.874); break;}
-			// Variations on the ISO Standard
-			case 'A2_EXTRA'   : {$pf = array( 1261.417, 1754.646); break;}
-			case 'A3+'        : {$pf = array(  932.598, 1369.134); break;}
-			case 'A3_EXTRA'   : {$pf = array(  912.756, 1261.417); break;}
-			case 'A3_SUPER'   : {$pf = array(  864.567, 1440.000); break;}
-			case 'SUPER_A3'   : {$pf = array(  864.567, 1380.472); break;}
-			case 'A4_EXTRA'   : {$pf = array(  666.142,  912.756); break;}
-			case 'A4_SUPER'   : {$pf = array(  649.134,  912.756); break;}
-			case 'SUPER_A4'   : {$pf = array(  643.465, 1009.134); break;}
-			case 'A4_LONG'    : {$pf = array(  595.276,  986.457); break;}
-			case 'F4'         : {$pf = array(  595.276,  935.433); break;}
-			case 'SO_B5_EXTRA': {$pf = array(  572.598,  782.362); break;}
-			case 'A5_EXTRA'   : {$pf = array(  490.394,  666.142); break;}
-			// ANSI Series
-			case 'ANSI_E': {$pf = array( 2448.000, 3168.000); break;}
-			case 'ANSI_D': {$pf = array( 1584.000, 2448.000); break;}
-			case 'ANSI_C': {$pf = array( 1224.000, 1584.000); break;}
-			case 'ANSI_B': {$pf = array(  792.000, 1224.000); break;}
-			case 'ANSI_A': {$pf = array(  612.000,  792.000); break;}
-			// Traditional 'Loose' North American Paper Sizes
-			case 'USLEDGER':
-			case 'LEDGER' : {$pf = array( 1224.000,  792.000); break;}
-			case 'ORGANIZERK':
-			case 'BIBLE':
-			case 'USTABLOID':
-			case 'TABLOID': {$pf = array(  792.000, 1224.000); break;}
-			case 'ORGANIZERM':
-			case 'USLETTER':
-			case 'LETTER' : {$pf = array(  612.000,  792.000); break;}
-			case 'USLEGAL':
-			case 'LEGAL'  : {$pf = array(  612.000, 1008.000); break;}
-			case 'GOVERNMENTLETTER':
-			case 'GLETTER': {$pf = array(  576.000,  756.000); break;}
-			case 'JUNIORLEGAL':
-			case 'JLEGAL' : {$pf = array(  576.000,  360.000); break;}
-			// Other North American Paper Sizes
-			case 'QUADDEMY': {$pf = array( 2520.000, 3240.000); break;}
-			case 'SUPER_B': {$pf = array(  936.000, 1368.000); break;}
-			case 'QUARTO': {$pf = array(  648.000,  792.000); break;}
-			case 'GOVERNMENTLEGAL':
-			case 'FOLIO': {$pf = array(  612.000,  936.000); break;}
-			case 'MONARCH':
-			case 'EXECUTIVE': {$pf = array(  522.000,  756.000); break;}
-			case 'ORGANIZERL':
-			case 'STATEMENT':
-			case 'MEMO': {$pf = array(  396.000,  612.000); break;}
-			case 'FOOLSCAP': {$pf = array(  595.440,  936.000); break;}
-			case 'COMPACT': {$pf = array(  306.000,  486.000); break;}
-			case 'ORGANIZERJ': {$pf = array(  198.000,  360.000); break;}
-			// Canadian standard CAN 2-9.60M
-			case 'P1': {$pf = array( 1587.402, 2437.795); break;}
-			case 'P2': {$pf = array( 1218.898, 1587.402); break;}
-			case 'P3': {$pf = array(  793.701, 1218.898); break;}
-			case 'P4': {$pf = array(  609.449,  793.701); break;}
-			case 'P5': {$pf = array(  396.850,  609.449); break;}
-			case 'P6': {$pf = array(  303.307,  396.850); break;}
-			// North American Architectural Sizes
-			case 'ARCH_E' : {$pf = array( 2592.000, 3456.000); break;}
-			case 'ARCH_E1': {$pf = array( 2160.000, 3024.000); break;}
-			case 'ARCH_D' : {$pf = array( 1728.000, 2592.000); break;}
-			case 'BROADSHEET':
-			case 'ARCH_C' : {$pf = array( 1296.000, 1728.000); break;}
-			case 'ARCH_B' : {$pf = array(  864.000, 1296.000); break;}
-			case 'ARCH_A' : {$pf = array(  648.000,  864.000); break;}
-			// --- North American Envelope Sizes ---
-			//   - Announcement Envelopes
-			case 'ANNENV_A2'  : {$pf = array(  314.640,  414.000); break;}
-			case 'ANNENV_A6'  : {$pf = array(  342.000,  468.000); break;}
-			case 'ANNENV_A7'  : {$pf = array(  378.000,  522.000); break;}
-			case 'ANNENV_A8'  : {$pf = array(  396.000,  584.640); break;}
-			case 'ANNENV_A10' : {$pf = array(  450.000,  692.640); break;}
-			case 'ANNENV_SLIM': {$pf = array(  278.640,  638.640); break;}
-			//   - Commercial Envelopes
-			case 'COMMENV_N6_1/4': {$pf = array(  252.000,  432.000); break;}
-			case 'COMMENV_N6_3/4': {$pf = array(  260.640,  468.000); break;}
-			case 'COMMENV_N8'    : {$pf = array(  278.640,  540.000); break;}
-			case 'COMMENV_N9'    : {$pf = array(  278.640,  638.640); break;}
-			case 'COMMENV_N10'   : {$pf = array(  296.640,  684.000); break;}
-			case 'COMMENV_N11'   : {$pf = array(  324.000,  746.640); break;}
-			case 'COMMENV_N12'   : {$pf = array(  342.000,  792.000); break;}
-			case 'COMMENV_N14'   : {$pf = array(  360.000,  828.000); break;}
-			//   - Catalogue Envelopes
-			case 'CATENV_N1'     : {$pf = array(  432.000,  648.000); break;}
-			case 'CATENV_N1_3/4' : {$pf = array(  468.000,  684.000); break;}
-			case 'CATENV_N2'     : {$pf = array(  468.000,  720.000); break;}
-			case 'CATENV_N3'     : {$pf = array(  504.000,  720.000); break;}
-			case 'CATENV_N6'     : {$pf = array(  540.000,  756.000); break;}
-			case 'CATENV_N7'     : {$pf = array(  576.000,  792.000); break;}
-			case 'CATENV_N8'     : {$pf = array(  594.000,  810.000); break;}
-			case 'CATENV_N9_1/2' : {$pf = array(  612.000,  756.000); break;}
-			case 'CATENV_N9_3/4' : {$pf = array(  630.000,  810.000); break;}
-			case 'CATENV_N10_1/2': {$pf = array(  648.000,  864.000); break;}
-			case 'CATENV_N12_1/2': {$pf = array(  684.000,  900.000); break;}
-			case 'CATENV_N13_1/2': {$pf = array(  720.000,  936.000); break;}
-			case 'CATENV_N14_1/4': {$pf = array(  810.000,  882.000); break;}
-			case 'CATENV_N14_1/2': {$pf = array(  828.000, 1044.000); break;}
-			// Japanese (JIS P 0138-61) Standard B-Series
-			case 'JIS_B0' : {$pf = array( 2919.685, 4127.244); break;}
-			case 'JIS_B1' : {$pf = array( 2063.622, 2919.685); break;}
-			case 'JIS_B2' : {$pf = array( 1459.843, 2063.622); break;}
-			case 'JIS_B3' : {$pf = array( 1031.811, 1459.843); break;}
-			case 'JIS_B4' : {$pf = array(  728.504, 1031.811); break;}
-			case 'JIS_B5' : {$pf = array(  515.906,  728.504); break;}
-			case 'JIS_B6' : {$pf = array(  362.835,  515.906); break;}
-			case 'JIS_B7' : {$pf = array(  257.953,  362.835); break;}
-			case 'JIS_B8' : {$pf = array(  181.417,  257.953); break;}
-			case 'JIS_B9' : {$pf = array(  127.559,  181.417); break;}
-			case 'JIS_B10': {$pf = array(   90.709,  127.559); break;}
-			case 'JIS_B11': {$pf = array(   62.362,   90.709); break;}
-			case 'JIS_B12': {$pf = array(   45.354,   62.362); break;}
-			// PA Series
-			case 'PA0' : {$pf = array( 2381.102, 3174.803,); break;}
-			case 'PA1' : {$pf = array( 1587.402, 2381.102); break;}
-			case 'PA2' : {$pf = array( 1190.551, 1587.402); break;}
-			case 'PA3' : {$pf = array(  793.701, 1190.551); break;}
-			case 'PA4' : {$pf = array(  595.276,  793.701); break;}
-			case 'PA5' : {$pf = array(  396.850,  595.276); break;}
-			case 'PA6' : {$pf = array(  297.638,  396.850); break;}
-			case 'PA7' : {$pf = array(  198.425,  297.638); break;}
-			case 'PA8' : {$pf = array(  147.402,  198.425); break;}
-			case 'PA9' : {$pf = array(   99.213,  147.402); break;}
-			case 'PA10': {$pf = array(   73.701,   99.213); break;}
-			// Standard Photographic Print Sizes
-			case 'PASSPORT_PHOTO': {$pf = array(   99.213,  127.559); break;}
-			case 'E'   : {$pf = array(  233.858,  340.157); break;}
-			case 'L':
-			case '3R'  : {$pf = array(  252.283,  360.000); break;}
-			case 'KG':
-			case '4R'  : {$pf = array(  289.134,  430.866); break;}
-			case '4D'  : {$pf = array(  340.157,  430.866); break;}
-			case '2L':
-			case '5R'  : {$pf = array(  360.000,  504.567); break;}
-			case '8P':
-			case '6R'  : {$pf = array(  430.866,  575.433); break;}
-			case '6P':
-			case '8R'  : {$pf = array(  575.433,  720.000); break;}
-			case '6PW':
-			case 'S8R' : {$pf = array(  575.433,  864.567); break;}
-			case '4P':
-			case '10R' : {$pf = array(  720.000,  864.567); break;}
-			case '4PW':
-			case 'S10R': {$pf = array(  720.000, 1080.000); break;}
-			case '11R' : {$pf = array(  790.866, 1009.134); break;}
-			case 'S11R': {$pf = array(  790.866, 1224.567); break;}
-			case '12R' : {$pf = array(  864.567, 1080.000); break;}
-			case 'S12R': {$pf = array(  864.567, 1292.598); break;}
-			// Common Newspaper Sizes
-			case 'NEWSPAPER_BROADSHEET': {$pf = array( 2125.984, 1700.787); break;}
-			case 'NEWSPAPER_BERLINER'  : {$pf = array( 1332.283,  892.913); break;}
-			case 'NEWSPAPER_TABLOID':
-			case 'NEWSPAPER_COMPACT'   : {$pf = array( 1218.898,  793.701); break;}
-			// Business Cards
-			case 'CREDIT_CARD':
-			case 'BUSINESS_CARD':
-			case 'BUSINESS_CARD_ISO7810': {$pf = array(  153.014,  242.646); break;}
-			case 'BUSINESS_CARD_ISO216' : {$pf = array(  147.402,  209.764); break;}
-			case 'BUSINESS_CARD_IT':
-			case 'BUSINESS_CARD_UK':
-			case 'BUSINESS_CARD_FR':
-			case 'BUSINESS_CARD_DE':
-			case 'BUSINESS_CARD_ES'     : {$pf = array(  155.906,  240.945); break;}
-			case 'BUSINESS_CARD_CA':
-			case 'BUSINESS_CARD_US'     : {$pf = array(  144.567,  252.283); break;}
-			case 'BUSINESS_CARD_JP'     : {$pf = array(  155.906,  257.953); break;}
-			case 'BUSINESS_CARD_HK'     : {$pf = array(  153.071,  255.118); break;}
-			case 'BUSINESS_CARD_AU':
-			case 'BUSINESS_CARD_DK':
-			case 'BUSINESS_CARD_SE'     : {$pf = array(  155.906,  255.118); break;}
-			case 'BUSINESS_CARD_RU':
-			case 'BUSINESS_CARD_CZ':
-			case 'BUSINESS_CARD_FI':
-			case 'BUSINESS_CARD_HU':
-			case 'BUSINESS_CARD_IL'     : {$pf = array(  141.732,  255.118); break;}
-			// Billboards
-			case '4SHEET' : {$pf = array( 2880.000, 4320.000); break;}
-			case '6SHEET' : {$pf = array( 3401.575, 5102.362); break;}
-			case '12SHEET': {$pf = array( 8640.000, 4320.000); break;}
-			case '16SHEET': {$pf = array( 5760.000, 8640.000); break;}
-			case '32SHEET': {$pf = array(11520.000, 8640.000); break;}
-			case '48SHEET': {$pf = array(17280.000, 8640.000); break;}
-			case '64SHEET': {$pf = array(23040.000, 8640.000); break;}
-			case '96SHEET': {$pf = array(34560.000, 8640.000); break;}
-			// Old European Sizes
-			//   - Old Imperial English Sizes
-			case 'EN_EMPEROR'          : {$pf = array( 3456.000, 5184.000); break;}
-			case 'EN_ANTIQUARIAN'      : {$pf = array( 2232.000, 3816.000); break;}
-			case 'EN_GRAND_EAGLE'      : {$pf = array( 2070.000, 3024.000); break;}
-			case 'EN_DOUBLE_ELEPHANT'  : {$pf = array( 1926.000, 2880.000); break;}
-			case 'EN_ATLAS'            : {$pf = array( 1872.000, 2448.000); break;}
-			case 'EN_COLOMBIER'        : {$pf = array( 1692.000, 2484.000); break;}
-			case 'EN_ELEPHANT'         : {$pf = array( 1656.000, 2016.000); break;}
-			case 'EN_DOUBLE_DEMY'      : {$pf = array( 1620.000, 2556.000); break;}
-			case 'EN_IMPERIAL'         : {$pf = array( 1584.000, 2160.000); break;}
-			case 'EN_PRINCESS'         : {$pf = array( 1548.000, 2016.000); break;}
-			case 'EN_CARTRIDGE'        : {$pf = array( 1512.000, 1872.000); break;}
-			case 'EN_DOUBLE_LARGE_POST': {$pf = array( 1512.000, 2376.000); break;}
-			case 'EN_ROYAL'            : {$pf = array( 1440.000, 1800.000); break;}
-			case 'EN_SHEET':
-			case 'EN_HALF_POST'        : {$pf = array( 1404.000, 1692.000); break;}
-			case 'EN_SUPER_ROYAL'      : {$pf = array( 1368.000, 1944.000); break;}
-			case 'EN_DOUBLE_POST'      : {$pf = array( 1368.000, 2196.000); break;}
-			case 'EN_MEDIUM'           : {$pf = array( 1260.000, 1656.000); break;}
-			case 'EN_DEMY'             : {$pf = array( 1260.000, 1620.000); break;}
-			case 'EN_LARGE_POST'       : {$pf = array( 1188.000, 1512.000); break;}
-			case 'EN_COPY_DRAUGHT'     : {$pf = array( 1152.000, 1440.000); break;}
-			case 'EN_POST'             : {$pf = array( 1116.000, 1386.000); break;}
-			case 'EN_CROWN'            : {$pf = array( 1080.000, 1440.000); break;}
-			case 'EN_PINCHED_POST'     : {$pf = array( 1062.000, 1332.000); break;}
-			case 'EN_BRIEF'            : {$pf = array(  972.000, 1152.000); break;}
-			case 'EN_FOOLSCAP'         : {$pf = array(  972.000, 1224.000); break;}
-			case 'EN_SMALL_FOOLSCAP'   : {$pf = array(  954.000, 1188.000); break;}
-			case 'EN_POTT'             : {$pf = array(  900.000, 1080.000); break;}
-			//   - Old Imperial Belgian Sizes
-			case 'BE_GRAND_AIGLE' : {$pf = array( 1984.252, 2948.031); break;}
-			case 'BE_COLOMBIER'   : {$pf = array( 1757.480, 2409.449); break;}
-			case 'BE_DOUBLE_CARRE': {$pf = array( 1757.480, 2607.874); break;}
-			case 'BE_ELEPHANT'    : {$pf = array( 1746.142, 2182.677); break;}
-			case 'BE_PETIT_AIGLE' : {$pf = array( 1700.787, 2381.102); break;}
-			case 'BE_GRAND_JESUS' : {$pf = array( 1559.055, 2069.291); break;}
-			case 'BE_JESUS'       : {$pf = array( 1530.709, 2069.291); break;}
-			case 'BE_RAISIN'      : {$pf = array( 1417.323, 1842.520); break;}
-			case 'BE_GRAND_MEDIAN': {$pf = array( 1303.937, 1714.961); break;}
-			case 'BE_DOUBLE_POSTE': {$pf = array( 1233.071, 1601.575); break;}
-			case 'BE_COQUILLE'    : {$pf = array( 1218.898, 1587.402); break;}
-			case 'BE_PETIT_MEDIAN': {$pf = array( 1176.378, 1502.362); break;}
-			case 'BE_RUCHE'       : {$pf = array( 1020.472, 1303.937); break;}
-			case 'BE_PROPATRIA'   : {$pf = array(  977.953, 1218.898); break;}
-			case 'BE_LYS'         : {$pf = array(  898.583, 1125.354); break;}
-			case 'BE_POT'         : {$pf = array(  870.236, 1088.504); break;}
-			case 'BE_ROSETTE'     : {$pf = array(  765.354,  983.622); break;}
-			//   - Old Imperial French Sizes
-			case 'FR_UNIVERS'          : {$pf = array( 2834.646, 3685.039); break;}
-			case 'FR_DOUBLE_COLOMBIER' : {$pf = array( 2551.181, 3571.654); break;}
-			case 'FR_GRANDE_MONDE'     : {$pf = array( 2551.181, 3571.654); break;}
-			case 'FR_DOUBLE_SOLEIL'    : {$pf = array( 2267.717, 3401.575); break;}
-			case 'FR_DOUBLE_JESUS'     : {$pf = array( 2154.331, 3174.803); break;}
-			case 'FR_GRAND_AIGLE'      : {$pf = array( 2125.984, 3004.724); break;}
-			case 'FR_PETIT_AIGLE'      : {$pf = array( 1984.252, 2664.567); break;}
-			case 'FR_DOUBLE_RAISIN'    : {$pf = array( 1842.520, 2834.646); break;}
-			case 'FR_JOURNAL'          : {$pf = array( 1842.520, 2664.567); break;}
-			case 'FR_COLOMBIER_AFFICHE': {$pf = array( 1785.827, 2551.181); break;}
-			case 'FR_DOUBLE_CAVALIER'  : {$pf = array( 1757.480, 2607.874); break;}
-			case 'FR_CLOCHE'           : {$pf = array( 1700.787, 2267.717); break;}
-			case 'FR_SOLEIL'           : {$pf = array( 1700.787, 2267.717); break;}
-			case 'FR_DOUBLE_CARRE'     : {$pf = array( 1587.402, 2551.181); break;}
-			case 'FR_DOUBLE_COQUILLE'  : {$pf = array( 1587.402, 2494.488); break;}
-			case 'FR_JESUS'            : {$pf = array( 1587.402, 2154.331); break;}
-			case 'FR_RAISIN'           : {$pf = array( 1417.323, 1842.520); break;}
-			case 'FR_CAVALIER'         : {$pf = array( 1303.937, 1757.480); break;}
-			case 'FR_DOUBLE_COURONNE'  : {$pf = array( 1303.937, 2040.945); break;}
-			case 'FR_CARRE'            : {$pf = array( 1275.591, 1587.402); break;}
-			case 'FR_COQUILLE'         : {$pf = array( 1247.244, 1587.402); break;}
-			case 'FR_DOUBLE_TELLIERE'  : {$pf = array( 1247.244, 1927.559); break;}
-			case 'FR_DOUBLE_CLOCHE'    : {$pf = array( 1133.858, 1700.787); break;}
-			case 'FR_DOUBLE_POT'       : {$pf = array( 1133.858, 1757.480); break;}
-			case 'FR_ECU'              : {$pf = array( 1133.858, 1474.016); break;}
-			case 'FR_COURONNE'         : {$pf = array( 1020.472, 1303.937); break;}
-			case 'FR_TELLIERE'         : {$pf = array(  963.780, 1247.244); break;}
-			case 'FR_POT'              : {$pf = array(  878.740, 1133.858); break;}
-			// DEFAULT ISO A4
-			default: {$pf = array(  595.276,  841.890); break;}
+		if (isset(self::$page_formats[$format])) {
+			return self::$page_formats[$format];
 		}
-		return $pf;
+		return self::$page_formats['A4'];
 	}
 
 	/**
@@ -1093,12 +795,13 @@ class TCPDF_STATIC {
 	/**
 	 * Returns a temporary filename for caching object on filesystem.
 	 * @param $type (string) Type of file (name of the subdir on the tcpdf cache folder).
+	 * @param $file_id (string) TCPDF file_id.
 	 * @return string filename.
 	 * @since 4.5.000 (2008-12-31)
 	 * @public static
 	 */
-	public static function getObjFilename($type='tmp') {
-		return tempnam(K_PATH_CACHE, '__tcpdf_'.$type.'_'.md5(getmypid().uniqid('', true).rand().microtime(true)).'_');
+	public static function getObjFilename($type='tmp', $file_id='') {
+		return tempnam(K_PATH_CACHE, '__tcpdf_'.$file_id.'_'.$type.'_'.md5(TCPDF_STATIC::getRandomSeed()).'_');
 	}
 
 	/**
@@ -1141,7 +844,7 @@ class TCPDF_STATIC {
 	}
 
 	/**
-	 * Ouput input data and compress it if possible.
+	 * Output input data and compress it if possible.
 	 * @param $data (string) Data to output.
 	 * @param $length (int) Data length in bytes.
 	 * @since 5.9.086
@@ -1347,41 +1050,19 @@ class TCPDF_STATIC {
 	 * @public static
 	 */
 	public static function getRandomSeed($seed='') {
-		$seed .= microtime();
+		$rnd = uniqid(rand().microtime(true), true);
+		if (function_exists('posix_getpid')) {
+			$rnd .= posix_getpid();
+		}
 		if (function_exists('openssl_random_pseudo_bytes') AND (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN')) {
 			// this is not used on windows systems because it is very slow for a know bug
-			$seed .= openssl_random_pseudo_bytes(512);
+			$rnd .= openssl_random_pseudo_bytes(512);
 		} else {
 			for ($i = 0; $i < 23; ++$i) {
-				$seed .= uniqid('', true);
+				$rnd .= uniqid('', true);
 			}
 		}
-		$seed .= uniqid('', true);
-		$seed .= rand();
-		$seed .= getmypid();
-		$seed .= __FILE__;
-		if (isset($_SERVER['REMOTE_ADDR'])) {
-			$seed .= $_SERVER['REMOTE_ADDR'];
-		}
-		if (isset($_SERVER['HTTP_USER_AGENT'])) {
-			$seed .= $_SERVER['HTTP_USER_AGENT'];
-		}
-		if (isset($_SERVER['HTTP_ACCEPT'])) {
-			$seed .= $_SERVER['HTTP_ACCEPT'];
-		}
-		if (isset($_SERVER['HTTP_ACCEPT_ENCODING'])) {
-			$seed .= $_SERVER['HTTP_ACCEPT_ENCODING'];
-		}
-		if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-			$seed .= $_SERVER['HTTP_ACCEPT_LANGUAGE'];
-		}
-		if (isset($_SERVER['HTTP_ACCEPT_CHARSET'])) {
-			$seed .= $_SERVER['HTTP_ACCEPT_CHARSET'];
-		}
-		$seed .= rand();
-		$seed .= uniqid('', true);
-		$seed .= microtime();
-		return $seed;
+		return $rnd.$seed.__FILE__.serialize($_SERVER).microtime(true);
 	}
 
 	/**
@@ -1464,7 +1145,7 @@ class TCPDF_STATIC {
 	}
 
 	/**
-	 * Return the premission code used on encryption (P value).
+	 * Return the permission code used on encryption (P value).
 	 * @param $permissions (Array) the set of permissions (specify the ones you want to block).
 	 * @param $mode (int) encryption strength: 0 = RC4 40 bit; 1 = RC4 128 bit; 2 = AES 128 bit; 3 = AES 256 bit.
 	 * @since 5.0.005 (2010-05-12)
@@ -1569,7 +1250,7 @@ class TCPDF_STATIC {
 		$length = strlen($name);
 		for ($i = 0; $i < $length; ++$i) {
 			$chr = $name[$i];
-			if (preg_match('/[0-9a-zA-Z]/', $chr) == 1) {
+			if (preg_match('/[0-9a-zA-Z#_=-]/', $chr) == 1) {
 				$escname .= $chr;
 			} else {
 				$escname .= sprintf('#%02X', ord($chr));
@@ -2450,17 +2131,6 @@ class TCPDF_STATIC {
 	}
 
 	/**
-	 * Serialize an array of parameters to be used with TCPDF tag in HTML code.
-	 * @param $pararray (array) parameters array
-	 * @return sting containing serialized data
-	 * @since 4.9.006 (2010-04-02)
-	 * @public static
-	 */
-	public static function serializeTCPDFtagParameters($pararray) {
-		return urlencode(serialize($pararray));
-	}
-
-	/**
 	 * Returns an array of hyphenation patterns.
 	 * @param $file (string) TEX file containing hypenation patterns. TEX pattrns can be downloaded from http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/
 	 * @return array of hyphenation patterns
@@ -2752,6 +2422,22 @@ class TCPDF_STATIC {
 			$ret = array_merge($ret, preg_split($pattern.$modifiers, $subject, $limit, $flags));
 		}
 		return $ret;
+	}
+
+	/**
+	 * Wrapper to use fopen only with local files
+	 * @param filename (string) Name of the file to open
+	 * @param $mode (string) 
+	 * @return Returns a file pointer resource on success, or FALSE on error.  
+	 * @public static
+	 */
+	public static function fopenLocal($filename, $mode) {
+		if (strpos($filename, '://') === false) {
+			$filename = 'file://'.$filename;
+		} elseif (strpos($filename, 'file://') !== 0) {
+			$this->Error('Unsupported file protocol');
+		}
+		return fopen($filename, $mode);
 	}
 
 	/**

@@ -202,19 +202,19 @@ class PMA_TableSearch
     {
         $subtabs = array();
         $subtabs['search']['icon'] = 'b_search.png';
-        $subtabs['search']['text'] = __('Table Search');
+        $subtabs['search']['text'] = __('Table search');
         $subtabs['search']['link'] = 'tbl_select.php';
         $subtabs['search']['id'] = 'tbl_search_id';
         $subtabs['search']['args']['pos'] = 0;
 
         $subtabs['zoom']['icon'] = 'b_props.png';
         $subtabs['zoom']['link'] = 'tbl_zoom_select.php';
-        $subtabs['zoom']['text'] = __('Zoom Search');
+        $subtabs['zoom']['text'] = __('Zoom search');
         $subtabs['zoom']['id'] = 'zoom_search_id';
 
         $subtabs['replace']['icon'] = 'b_find_replace.png';
         $subtabs['replace']['link'] = 'tbl_find_replace.php';
-        $subtabs['replace']['text'] = __('Find and Replace');
+        $subtabs['replace']['text'] = __('Find and replace');
         $subtabs['replace']['id'] = 'find_replace_id';
 
         return $subtabs;
@@ -1012,7 +1012,7 @@ class PMA_TableSearch
     }
 
     /**
-     * Provides the search form's table row in case of Zoom Search
+     * Provides the search form's table row in case of Zoom search
      * (for tbl_zoom_select.php)
      *
      * @return string the generated table row
@@ -1222,7 +1222,7 @@ class PMA_TableSearch
         } else if ($this->_searchType == 'replace') {
             $html_output .= '<fieldset id="fieldset_find_replace">';
             $html_output .= '<fieldset id="fieldset_find">';
-            $html_output .= '<legend>' . __('Find and Replace') . '</legend>';
+            $html_output .= '<legend>' . __('Find and replace') . '</legend>';
             $html_output .= $this->_getSearchAndReplaceHTML();
             $html_output .= '</fieldset>';
             $html_output .= '</fieldset>';
@@ -1237,7 +1237,7 @@ class PMA_TableSearch
             . ($this->_searchType == 'zoom' ? '" id="inputFormSubmitId"' : '" ')
             . 'value="' . __('Go') . '" />';
         $html_output .= '</fieldset></form>';
-        $html_output .= '<div id="sqlqueryresults"></div>';
+        $html_output .= '<div id="sqlqueryresultsouter"></div>';
         return $html_output;
     }
 
@@ -1342,9 +1342,9 @@ class PMA_TableSearch
     }
 
     /**
-     * Displays the 'Find and Replace' form
+     * Displays the 'Find and replace' form
      *
-     * @return string HTML for 'Find and Replace' form
+     * @return string HTML for 'Find and replace' form
      */
     function _getSearchAndReplaceHTML()
     {
@@ -1369,7 +1369,8 @@ class PMA_TableSearch
                 'useRegex',
                 __('Use regular expression'),
                 false,
-                false
+                false,
+                'useRegex'
             );
         return $htmlOutput;
     }

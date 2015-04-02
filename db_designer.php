@@ -137,11 +137,11 @@ $response->addHTML(
     )
 );
 $response->addHTML(
-    PMA_getDesignerPageTopMenu(isset($_REQUEST['query']), $selected_page)
+    PMA_getDesignerPageMenu(isset($_REQUEST['query']), $selected_page)
 );
 
 $response->addHTML('<div id="canvas_outer">');
-$response->addHTML('<form action="" method="post" name="form1">');
+$response->addHTML('<form action="" id="container-form" method="post" name="form1">');
 
 $response->addHTML(PMA_getHTMLCanvas());
 $response->addHTML(PMA_getHTMLTableList($tab_pos, $display_page));

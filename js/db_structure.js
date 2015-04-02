@@ -22,13 +22,10 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('db_structure.js', function () {
-    $("span.fkc_switch").unbind('click');
-    $('#fkc_checkbox').unbind('change');
-    $("a.truncate_table_anchor.ajax").die('click');
-    $("a.drop_table_anchor.ajax").die('click');
-    $('a.drop_tracking_anchor.ajax').die('click');
-    $('#real_end_input').die('click');
-    $("a.favorite_table_anchor.ajax").die('click');
+    $(document).off('click', "a.truncate_table_anchor.ajax");
+    $(document).off('click', "a.drop_table_anchor.ajax");
+    $(document).off('click', '#real_end_input');
+    $(document).off('click', "a.favorite_table_anchor.ajax");
     $('a.real_row_count').off('click');
     $('a.row_count_sum').off('click');
     $('select[name=submit_mult]').unbind('change');
@@ -128,7 +125,7 @@ function PMA_adjustTotals() {
 
     // Update summary with new data
     var $summary = $("#tbl_summary_row");
-    $summary.find('.tbl_num').text(PMA_sprintf(PMA_messages.strTables, tableSum));
+    $summary.find('.tbl_num').text(PMA_sprintf(PMA_messages.strNTables, tableSum));
     $summary.find('.row_count_sum').text(strRowSum);
     $summary.find('.tbl_size').text(sizeSum + " " + byteUnits[size_magnitude]);
     $summary.find('.tbl_overhead').text(overheadSum + " " + byteUnits[overhead_magnitude]);
@@ -246,32 +243,11 @@ AJAX.registerOnload('db_structure.js', function () {
             return false;
         }
     });
-     /**
-     * Event handler for 'Foreign Key Checks' disabling option
-     * in the drop table confirmation form
-     */
-    $("span.fkc_switch").click(function (event) {
-        if ($("#fkc_checkbox").prop('checked')) {
-            $("#fkc_checkbox").prop('checked', false);
-            $("#fkc_status").html(PMA_messages.strForeignKeyCheckDisabled);
-            return;
-        }
-        $("#fkc_checkbox").prop('checked', true);
-        $("#fkc_status").html(PMA_messages.strForeignKeyCheckEnabled);
-    });
-
-    $('#fkc_checkbox').change(function () {
-        if ($(this).prop("checked")) {
-            $("#fkc_status").html(PMA_messages.strForeignKeyCheckEnabled);
-            return;
-        }
-        $("#fkc_status").html(PMA_messages.strForeignKeyCheckDisabled);
-    }); // End of event handler for 'Foreign Key Check'
 
     /**
      * Ajax Event handler for 'Truncate Table'
      */
-    $("a.truncate_table_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "a.truncate_table_anchor.ajax", function (event) {
         event.preventDefault();
 
         /**
@@ -320,7 +296,7 @@ AJAX.registerOnload('db_structure.js', function () {
     /**
      * Ajax Event handler for 'Drop Table' or 'Drop View'
      */
-    $("a.drop_table_anchor.ajax").live('click', function (event) {
+    $(document).on('click', "a.drop_table_anchor.ajax", function (event) {
         event.preventDefault();
 
         var $this_anchor = $(this);
@@ -369,96 +345,12 @@ AJAX.registerOnload('db_structure.js', function () {
         }); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
 
-    /**
-     * Ajax Event handler for 'Drop tracking'
-     */
-    $('a.drop_tracking_anchor.ajax').live('click', function (event) {
-        event.preventDefault();
-
-        var $anchor = $(this);
-
-        /**
-         * @var curr_tracking_row   Object containing reference to the current tracked table's row
-         */
-        var $curr_tracking_row = $anchor.parents('tr');
-         /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = PMA_messages.strDeleteTrackingData;
-
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
-
-            PMA_ajaxShowMessage(PMA_messages.strDeletingTrackingData);
-
-            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
-                if (typeof data !== 'undefined' && data.success === true) {
-                    var $tracked_table = $curr_tracking_row.parents('table');
-                    var table_name = $curr_tracking_row.find('td:nth-child(2)').text();
-
-                    // Check how many rows will be left after we remove
-                    if ($tracked_table.find('tbody tr').length === 1) {
-                        // We are removing the only row it has
-                        $('#tracked_tables').hide("slow").remove();
-                    } else {
-                        // There are more rows left after the deletion
-                        toggleRowColors($curr_tracking_row.next());
-                        $curr_tracking_row.hide("slow", function () {
-                            $(this).remove();
-                        });
-                    }
-
-                    // Make the removed table visible in the list of 'Untracked tables'.
-                    var $untracked_table = $('table#noversions');
-
-                    // This won't work if no untracked tables are there.
-                    if ($untracked_table.length > 0) {
-                        var $rows = $untracked_table.find('tbody tr');
-
-                        $rows.each(function (index) {
-                            var $row = $(this);
-                            var tmp_tbl_name = $row.find('td:first-child').text();
-                            var is_last_iteration = (index == ($rows.length - 1));
-
-                            if (tmp_tbl_name > table_name || is_last_iteration) {
-                                var $cloned = $row.clone();
-
-                                // Change the table name of the cloned row.
-                                $cloned.find('td:first-child').text(table_name);
-
-                                // Change the link of the cloned row.
-                                var new_url = $cloned
-                                    .find('td:nth-child(2) a')
-                                    .attr('href')
-                                    .replace('table=' + tmp_tbl_name, 'table=' + encodeURIComponent(table_name));
-                                $cloned.find('td:nth-child(2) a').attr('href', new_url);
-
-                                // Insert the cloned row in an appropriate location.
-                                if (tmp_tbl_name > table_name) {
-                                    $cloned.insertBefore($row);
-                                    toggleRowColors($row);
-                                    return false;
-                                } else {
-                                    $cloned.insertAfter($row);
-                                    toggleRowColors($cloned);
-                                }
-                            }
-                        });
-                    }
-
-                    PMA_ajaxShowMessage(data.message);
-                } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
-                }
-            }); // end $.get()
-        }); // end $.PMA_confirm()
-    }); //end Drop Tracking
-
     //Calculate Real End for InnoDB
     /**
      * Ajax Event handler for calculating the real end for a InnoDB table
      *
      */
-    $('#real_end_input').live('click', function (event) {
+    $(document).on('click', '#real_end_input', function (event) {
         event.preventDefault();
 
         /**

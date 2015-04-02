@@ -11,8 +11,32 @@ require_once './libraries/common.inc.php';
 
 require_once './libraries/tracking.lib.php';
 
+//Get some js files needed for Ajax requests
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('tbl_tracking.js');
+
 define('TABLE_MAY_BE_ABSENT', true);
 require './libraries/tbl_common.inc.php';
+
+if (PMA_Tracker::isActive()
+    && PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])
+    && ! (isset($_REQUEST['toggle_activation'])
+    && $_REQUEST['toggle_activation'] == 'deactivate_now')
+    && ! (isset($_REQUEST['report_export'])
+    && $_REQUEST['export_type'] == 'sqldumpfile')
+) {
+    $msg = PMA_Message::notice(
+        sprintf(
+            __('Tracking of %s is activated.'),
+            htmlspecialchars($GLOBALS["db"] . '.' . $GLOBALS["table"])
+        )
+    );
+    PMA_Response::getInstance()->addHTML($msg->getDisplay());
+}
+
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=tbl_tracking.php';
 $url_params['goto'] = 'tbl_tracking.php';
 $url_params['back'] = 'tbl_tracking.php';
@@ -68,6 +92,26 @@ $html = '<br />';
 /**
  * Actions
  */
+if (isset($_REQUEST['submit_mult'])) {
+    if (! empty($_REQUEST['selected_versions'])) {
+        if ($_REQUEST['submit_mult'] == 'delete_version') {
+            foreach ($_REQUEST['selected_versions'] as $version) {
+                PMA_deleteTrackingVersion($version);
+            }
+            $html .= PMA_Message::success(
+                __('Tracking versions deleted successfully.')
+            )->getDisplay();
+        }
+    } else {
+        $html .= PMA_Message::notice(
+            __('No versions selected.')
+        )->getDisplay();
+    }
+}
+
+if (isset($_REQUEST['submit_delete_version'])) {
+    $html .= PMA_deleteTrackingVersion($_REQUEST['version']);
+}
 
 // Create tracking version
 if (isset($_REQUEST['submit_create_version'])) {
@@ -75,12 +119,16 @@ if (isset($_REQUEST['submit_create_version'])) {
 }
 
 // Deactivate tracking
-if (isset($_REQUEST['submit_deactivate_now'])) {
+if (isset($_REQUEST['toggle_activation'])
+    && $_REQUEST['toggle_activation'] == 'deactivate_now'
+) {
     $html .= PMA_deactivateTracking();
 }
 
 // Activate tracking
-if (isset($_REQUEST['submit_activate_now'])) {
+if (isset($_REQUEST['toggle_activation'])
+    && $_REQUEST['toggle_activation'] == 'activate_now'
+) {
     $html .= PMA_activateTracking();
 }
 
@@ -139,13 +187,18 @@ $sql_result = PMA_getListOfVersionsOfTable();
 $last_version = PMA_getTableLastVersionNumber($sql_result);
 if ($last_version > 0) {
     $html .= PMA_getHtmlForTableVersionDetails(
-        $sql_result, $last_version, $url_params, $url_query
+        $sql_result, $last_version, $url_params,
+        $url_query, $pmaThemeImage, $text_dir
     );
 }
 
 $type = PMA_Table::isView($GLOBALS['db'], $GLOBALS['table']) ? 'view' : 'table';
 $html .= PMA_getHtmlForDataDefinitionAndManipulationStatements(
-    $url_query, $last_version, $type
+    'tbl_tracking.php' . $url_query,
+    $last_version,
+    $GLOBALS['db'],
+    array($GLOBALS['table']),
+    $type
 );
 
 $html .= '<br class="clearfloat"/>';

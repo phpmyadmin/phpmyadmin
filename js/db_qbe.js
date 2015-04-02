@@ -20,10 +20,10 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('db_qbe.js', function () {
-    $("#searchId").die('change');
-    $("#saveSearch").die('click');
-    $("#updateSearch").die('click');
-    $("#deleteSearch").die('click');
+    $(document).off('change', "#searchId");
+    $(document).off('click', "#saveSearch");
+    $(document).off('click', "#updateSearch");
+    $(document).off('click', "#deleteSearch");
 });
 
 AJAX.registerOnload('db_qbe.js', function () {
@@ -31,7 +31,7 @@ AJAX.registerOnload('db_qbe.js', function () {
     /**
      * Ajax event handlers for 'Select saved search'
      */
-    $("#searchId").live('change', function (event) {
+    $(document).on('change', "#searchId", function (event) {
         $('#action').val('load');
         $('#formQBE').submit();
     });
@@ -39,21 +39,21 @@ AJAX.registerOnload('db_qbe.js', function () {
     /**
      * Ajax event handlers for 'Create bookmark'
      */
-    $("#saveSearch").live('click', function (event) {
+    $(document).on('click', "#saveSearch", function (event) {
         $('#action').val('create');
     });
 
     /**
      * Ajax event handlers for 'Update bookmark'
      */
-    $("#updateSearch").live('click', function (event) {
+    $(document).on('click', "#updateSearch", function (event) {
         $('#action').val('update');
     });
 
     /**
      * Ajax event handlers for 'Delete bookmark'
      */
-    $("#deleteSearch").live('click', function (event) {
+    $(document).on('click', "#deleteSearch", function (event) {
         var question = PMA_sprintf(PMA_messages.strConfirmDeleteQBESearch, $("#searchId option:selected").text());
         if (!confirm(question)) {
             return false;

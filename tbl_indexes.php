@@ -42,7 +42,7 @@ $form_params = PMA_getFormParameters($db, $table);
 if (isset($_REQUEST['create_edit_table'])) {
     $fields = json_decode($_REQUEST['columns'], true);
     $index_params = array(
-        'Non_unique' => ($_REQUEST['index']['Index_type'] == 'UNIQUE') ? '0' : '1'
+        'Non_unique' => ($_REQUEST['index']['Index_choice'] == 'UNIQUE') ? '0' : '1'
     );
     $index->set($index_params);
     $add_fields = count($fields);

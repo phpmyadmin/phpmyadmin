@@ -757,6 +757,9 @@ div#dataDisplay input, div#dataDisplay select {
 div#dataDisplay th {
     line-height: 2em;
 }
+table#tableFieldsId {
+    width: 100%;
+}
 
 /* Calendar */
 table.calendar {
@@ -947,7 +950,7 @@ div#tablestatistics table {
     float: <?php echo $left; ?>;
 }
 
-#fieldset_user_global_rights legend input {
+#fieldset_user_global_rights>legend input {
     margin-<?php echo $left; ?>: 2em;
 }
 /* end user privileges */
@@ -1103,9 +1106,10 @@ div#logTable table {
 
 /* server variables */
 #serverVariables {
-    min-width: 30em;
+    table-layout: fixed;
+    width: 100%;
 }
-#serverVariables .var-row > div {
+#serverVariables .var-row > tr {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1117,15 +1121,17 @@ div#logTable table {
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
-#serverVariables .var-header .var-value {
+#serverVariables .var-header {
     text-align: <?php echo $left; ?>;
 }
 #serverVariables .var-row {
     padding: 0.5em;
     min-height: 18px;
 }
+#serverVariables .var-action {
+    width: 120px;
+}
 #serverVariables .var-name {
-    width: 45%;
     float: <?php echo $left; ?>;
     font-weight: bold;
 }
@@ -1365,7 +1371,7 @@ div.sqlvalidate {
     overflow:           auto;
 }
 
-#result_query div.sqlOuter,
+.result_query div.sqlOuter,
 div.sqlvalidate  {
     border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
     border-top:         0;
@@ -1655,9 +1661,6 @@ input#input_import_file {
 }
 #addColumns input[type="submit"] {
     margin-<?php echo $left; ?>: 1em;
-}
-.margin#change_column_dialog {
-    margin: 0 .5em;
 }
 
 /**
@@ -1985,6 +1988,10 @@ fieldset .disabled-field td {
 .toggleButton .container {
     position: absolute;
 }
+.toggleButton .container td {
+    background-image: none;
+    background: none;
+}
 .toggleButton .toggleOn {
     color: #fff;
     padding: 0 1em;
@@ -2026,7 +2033,7 @@ fieldset .disabled-field td {
 #placeholder {
     position: relative;
     border: 1px solid #aaa;
-    float: right;
+    float: <?php echo $right; ?>;
     overflow: hidden;
 }
 
@@ -2093,6 +2100,10 @@ fieldset .disabled-field td {
 .pma_table tbody td span {
     display: block;
     overflow: hidden;
+}
+
+.pma_table tbody td span code span {
+    display: inline;
 }
 
 .modal-copy input {
@@ -2626,7 +2637,7 @@ div#page_content form#db_search_form.ajax fieldset {
     margin-top: -0.3em;
 }
 
-div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div#result_query {
+div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {
     margin-top: 1em;
 }
 
@@ -2676,6 +2687,7 @@ table.show_create td {
 #pma_console {
     position: relative;
     margin-<?php echo $left; ?>: 240px;
+    z-index: 100;
 }
 #pma_console>.templates {
     display: none;

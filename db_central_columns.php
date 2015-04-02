@@ -19,20 +19,24 @@ if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
         $orig_col_name = $_POST['orig_col_name'];
     }
     $col_default = $_POST['col_default'];
+    if ($col_default == 'NONE' && $_POST['col_default_sel'] != 'USER_DEFINED') {
+        $col_default = "";
+    }
     $col_extra = $_POST['col_extra'];
     $col_isNull = isset($_POST['col_isNull'])?1:0;
     $col_length = $_POST['col_length'];
+    $col_attribute = $_POST['col_attribute'];
     $col_type = $_POST['col_type'];
     $collation = $_POST['collation'];
     if (isset($orig_col_name) && $orig_col_name) {
         echo PMA_updateOneColumn(
-            $db, $orig_col_name, $col_name, $col_type,
+            $db, $orig_col_name, $col_name, $col_type,$col_attribute,
             $col_length, $col_isNull, $collation, $col_extra, $col_default
         );
         exit;
     } else {
         $tmp_msg = PMA_updateOneColumn(
-            $db, "", $col_name, $col_type,
+            $db, "", $col_name, $col_type,$col_attribute,
             $col_length, $col_isNull, $collation, $col_extra, $col_default
         );
     }
@@ -110,17 +114,9 @@ $tableheader = PMA_getCentralColumnsTableHeader(
 );
 $response->addHTML($tableheader);
 $result = PMA_getColumnsList($db, $pos, $max_rows);
-$odd_row = false;
+$odd_row = true;
 $row_num=0;
 foreach ($result as $row) {
-    $vals = explode(',', $row['col_extra']);
-    if (in_array('auto_increment', $vals)) {
-        $row['col_extra'] = 'auto_increment';
-    } elseif (in_array('on update CURRENT_TIMESTAMP', $vals)) {
-        $row['col_extra'] = 'on update CURRENT_TIMESTAMP';
-    } else {
-        $row['col_extra'] = '';
-    }
     $tableHtmlRow = PMA_getHTMLforCentralColumnsTableRow(
         $row, $odd_row, $row_num, $db
     );

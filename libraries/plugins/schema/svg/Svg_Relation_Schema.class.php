@@ -469,7 +469,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Draws relation arrows and lines
      * connects master table's master field to
-     * foreign table's forein field
+     * foreign table's foreign field
      *
      * @return void
      * @access private

@@ -42,6 +42,14 @@ $cfg_db['NavigationTreeDefaultTabTable'] = array(
     'tbl_change.php',    // insert row page
     'sql.php'            // browse page
 );
+$cfg_db['NavigationTreeDefaultTabTable2'] = array(
+    '', //don't display
+    'tbl_structure.php', // fields list
+    'tbl_sql.php',       // SQL form
+    'tbl_select.php',    // search page
+    'tbl_change.php',    // insert row page
+    'sql.php'            // browse page
+);
 $cfg_db['NavigationTreeDbSeparator'] = 'short_string';
 $cfg_db['NavigationTreeTableSeparator'] = 'short_string';
 $cfg_db['TableNavigationLinksMode'] = array(
@@ -63,7 +71,6 @@ $cfg_db['TablePrimaryKeyOrder'] = array(
     'DESC'  => __('Descending')
 );
 $cfg_db['ProtectBinary'] = array(false, 'blob', 'noblob', 'all');
-$cfg_db['DefaultDisplay'] = array('horizontal', 'vertical', 'horizontalflipped');
 $cfg_db['CharEditing'] = array('input', 'textarea');
 $cfg_db['TabsMode'] = array(
     'icons' => __('Icons'),
@@ -86,6 +93,10 @@ $cfg_db['GridEditing'] = array(
     'click' => __('Click'),
     'double-click' => __('Double click'),
     'disabled' => __('Disabled'),
+);
+$cfg_db['RelationalDisplay'] = array(
+    'K' => __('key'),
+    'D' => __('display column')
 );
 $cfg_db['DefaultTabServer'] = array(
     'index.php',               // the welcome page (recommended for multiuser setups)

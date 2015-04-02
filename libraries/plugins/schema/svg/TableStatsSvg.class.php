@@ -84,23 +84,6 @@ class Table_Stats_Svg extends TableStats
     }
 
     /**
-     * Displays an error on missing coordinates
-     *
-     * @return void
-     */
-    protected function showMissingCoordinatesError()
-    {
-        PMA_Export_Relation_Schema::dieSchema(
-            $this->pageNumber,
-            "SVG",
-            sprintf(
-                __('Please configure the coordinates for table %s'),
-                $this->tableName
-            )
-        );
-    }
-
-    /**
      * Sets the width of the table
      *
      * @param string  $font     The font size
@@ -125,8 +108,8 @@ class Table_Stats_Svg extends TableStats
 
         /*
          * it is unknown what value must be added, because
-        * table title is affected by the tabe width value
-        */
+         * table title is affected by the table width value
+         */
         while ($this->width
             < PMA_Font::getStringWidth($this->getTitle(), $font, $fontSize)
         ) {

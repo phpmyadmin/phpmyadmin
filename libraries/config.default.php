@@ -54,6 +54,14 @@ $cfg['PmaNoRelation_DisableWarning'] = false;
 $cfg['SuhosinDisableWarning'] = false;
 
 /**
+ * Disable the default warning that is displayed if session.gc_maxlifetime
+ * is less than `LoginCookieValidity`
+ *
+ * @global boolean $cfg['LoginCookieValidityDisableWarning']
+ */
+$cfg['LoginCookieValidityDisableWarning'] = false;
+
+/**
  * Disable the default warning that is displayed if a difference between
  * the MySQL library and server is detected.
  *
@@ -317,15 +325,8 @@ $cfg['Servers'][$i]['hide_db'] = '';
 $cfg['Servers'][$i]['verbose'] = '';
 
 /**
- * Zero Configuration mode.
- *
- * @global boolean $cfg['ZeroConf']
- */
-$cfg['ZeroConf'] = true;
-
-/**
  * Database used for Relation, Bookmark and PDF Features
- * (see examples/create_tables.sql)
+ * (see sql/create_tables.sql)
  *   - leave blank for no support
  *     SUGGESTED: 'phpmyadmin'
  *
@@ -491,6 +492,14 @@ $cfg['Servers'][$i]['central_columns'] = '';
  * @global integer $cfg['Servers'][$i]['userconfig'] = '';
  */
 $cfg['Servers'][$i]['MaxTableUiprefs'] = 100;
+
+/**
+ * Sets the time zone used by phpMyAdmin. Possible values are explained at
+ * http://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
+ *
+ * @global string $cfg['Servers'][$i]['SessionTimeZone'] = ''
+ */
+$cfg['Servers'][$i]['SessionTimeZone'] = '';
 
 /**
  * whether to allow root login
@@ -800,6 +809,14 @@ $cfg['IgnoreMultiSubmitErrors'] = false;
 $cfg['AllowArbitraryServer'] = false;
 
 /**
+ * restrict by IP (with regular expression) the MySQL servers the user can enter
+ * when $cfg['AllowArbitraryServer'] = true
+ *
+ * @global string $cfg['ArbitraryServerRegexp']
+ */
+$cfg['ArbitraryServerRegexp'] = '';
+
+/**
  * if reCaptcha is enabled it needs public key to connect with the service
  *
  * @global string $cfg['CaptchaLoginPublicKey']
@@ -818,11 +835,18 @@ $cfg['CaptchaLoginPrivateKey'] = '';
  */
 
 /**
+ * In the navigation panel, replaces the database tree with a selector
+ *
+ * @global boolean $cfg['ShowDatabasesNavigationAsTree']
+ */
+$cfg['ShowDatabasesNavigationAsTree'] = true;
+
+/**
  * maximum number of first level databases displayed in navigation panel
  *
  * @global integer $cfg['FirstLevelNavigationItems']
  */
-$cfg['FirstLevelNavigationItems'] = 25;
+$cfg['FirstLevelNavigationItems'] = 100;
 
 /**
  * maximum number of items displayed in navigation panel
@@ -949,11 +973,26 @@ $cfg['NavigationTreeDisplayDbFilterMinimum'] = 30;
 $cfg['NavigationTreeDefaultTabTable'] = 'tbl_structure.php';
 
 /**
+ * target of the navigation panel quick second access icon
+ *
+ * Possible values:
+ * 'tbl_structure.php' = fields list
+ * 'tbl_sql.php' = SQL form
+ * 'tbl_select.php' = search page
+ * 'tbl_change.php' = insert row page
+ * 'sql.php' = browse page
+ * '' = no link
+ *
+ * @global string $cfg['NavigationTreeDefaultTabTable2']
+ */
+$cfg['NavigationTreeDefaultTabTable2'] = '';
+
+/**
  * Disables the possibility of database expansion
  *
- * @global boolean $cfg['DisableDatabaseExpansion']
+ * @global boolean $cfg['NavigationTreeEnableExpansion']
  */
-$cfg['NavigationTreeDisableDatabaseExpansion'] = false;
+$cfg['NavigationTreeEnableExpansion'] = true;
 
 /*******************************************************************************
  * In the main panel, at startup...
@@ -1086,6 +1125,19 @@ $cfg['SaveCellsAtOnce'] = false;
  * @global string $cfg['GridEditing']
  */
 $cfg['GridEditing'] ='double-click';
+
+/**
+ * Options > Relational display
+ *
+ * Possible values:
+ * 'K' for key value
+ * 'D' for display column
+ *
+ * @global string $cfg['RelationalDisplay']
+ *
+ */
+
+$cfg['RelationalDisplay'] = 'K';
 
 
 /*******************************************************************************
@@ -2420,9 +2472,13 @@ $cfg['DefaultLang'] = 'en';
 $cfg['DefaultConnectionCollation'] = 'utf8_unicode_ci';
 
 /**
- * Force: always use this language
- * $cfg['Lang'] = 'en';
+ * Force: always use this language, e.g. 'en'
  *
+ * @global string $cfg['Lang']
+ */
+$cfg['Lang'] = '';
+
+/**
  * Regular expression to limit listed languages, e.g. '^(cs|en)' for Czech and
  * English only
  *
@@ -2597,26 +2653,11 @@ $cfg['RowActionLinks'] = 'left';
 $cfg['TablePrimaryKeyOrder'] = 'NONE';
 
 /**
- * default display direction (horizontal|vertical|horizontalflipped)
- *
- * @global string $cfg['DefaultDisplay']
- */
-$cfg['DefaultDisplay'] = 'horizontal';
-
-/**
  * remember the last way a table sorted
  *
  * @global string $cfg['RememberSorting']
  */
 $cfg['RememberSorting'] = true;
-
-/**
- * table-header rotation via faking or CSS? (css|fake|auto)
- * NOTE: CSS only works in IE browsers!
- *
- * @global string $cfg['HeaderFlipType']
- */
-$cfg['HeaderFlipType'] = 'auto';
 
 /**
  * shows stored relation-comments in 'browse' mode.
@@ -2631,11 +2672,6 @@ $cfg['ShowBrowseComments'] = true;
  * @global boolean $cfg['ShowPropertyComments']
  */
 $cfg['ShowPropertyComments']= true;
-
-/**
- * shows table display direction.
- */
-$cfg['ShowDisplayDirection'] = false;
 
 /**
  * repeat header names every X cells? (0 = deactivate)
@@ -2922,6 +2958,12 @@ $cfg['DisableMultiTableMaintenance'] = false;
  */
 $cfg['SendErrorReports'] = 'ask';
 
+/**
+ * Zero Configuration mode.
+ *
+ * @global boolean $cfg['ZeroConf']
+ */
+$cfg['ZeroConf'] = true;
 
 /*******************************************************************************
  * Developers ONLY!

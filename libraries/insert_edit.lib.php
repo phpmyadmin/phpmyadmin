@@ -1738,7 +1738,7 @@ function PMA_getParamsForUpdateOrInsert()
             ? $_REQUEST['where_clause']
             : array($_REQUEST['where_clause']);
         $using_key  = true;
-        $is_insert  = isset($_REQUEST['submit_type']) 
+        $is_insert  = isset($_REQUEST['submit_type'])
                       && ($_REQUEST['submit_type'] == 'insert'
                       || $_REQUEST['submit_type'] == 'showinsert'
                       || $_REQUEST['submit_type'] == 'insertignore');
@@ -2160,9 +2160,13 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit( $multi_edit_funcs,
         || ($current_value != "''"
         && in_array($multi_edit_funcs[$key], $func_optional_param))
     ) {
-        if (isset($multi_edit_salt[$key])
+        if ((isset($multi_edit_salt[$key])
             && ($multi_edit_funcs[$key] == "AES_ENCRYPT"
-            || $multi_edit_funcs[$key] == "AES_DECRYPT")
+            || $multi_edit_funcs[$key] == "AES_DECRYPT"))
+            || (! empty($multi_edit_salt[$key])
+            && ($multi_edit_funcs[$key] == "DES_ENCRYPT"
+            || $multi_edit_funcs[$key] == "DES_DECRYPT"
+            || $multi_edit_funcs[$key] == "ENCRYPT"))
         ) {
             return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                    . PMA_Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";
@@ -2822,7 +2826,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
             if (method_exists($transformation_plugin, 'getInputHtml')) {
                 $transformed_html = $transformation_plugin->getInputHtml(
                     $column, $row_id, $column_name_appendix,
-                    $transformation_options, $current_value
+                    $transformation_options, $current_value, $text_dir
                 );
             }
             if (method_exists($transformation_plugin, 'getScripts')) {

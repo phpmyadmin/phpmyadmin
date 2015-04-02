@@ -30,11 +30,5 @@ AJAX.registerOnload('server_status_queries.js', function () {
         // Could not load chart, no big deal...
     }
 
-    /*** Table sort tooltip ***/
-    PMA_tooltip(
-        $('table.sortable>thead>tr:first').find('th'),
-        'th',
-        PMA_messages.strSortHint
-    );
     initTableSorter('statustabs_queries');
 });

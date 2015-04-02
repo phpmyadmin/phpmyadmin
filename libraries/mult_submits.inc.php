@@ -214,6 +214,19 @@ if (!empty($submit_mult) && !empty($what)) {
         $GLOBALS['dbi']->freeResult($result);
     }
 
+    if (! isset($_REQUEST['fk_check'])
+        && ($query_type == 'drop_tbl'
+        || $query_type == 'empty_tbl'
+        || $query_type == 'row_delete')
+    ) {
+        $default_fk_check_value = $GLOBALS['dbi']->fetchValue(
+            'SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1
+        ) == 'ON';
+
+        // for disabling foreign key checks while dropping tables
+        $GLOBALS['dbi']->query('SET FOREIGN_KEY_CHECKS = 0;');
+    }
+
     list(
         $result, $rebuild_database_list, $reload_ret,
         $run_parts, $use_sql, $sql_query, $sql_query_views
@@ -229,9 +242,6 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 
     if ($query_type == 'drop_tbl') {
-        $default_fk_check_value = $GLOBALS['dbi']->fetchValue(
-            'SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1
-        ) == 'ON';
         if (!empty($sql_query)) {
             $sql_query .= ';';
         } elseif (!empty($sql_query_views)) {
@@ -248,22 +258,12 @@ if (!empty($submit_mult) && !empty($what)) {
 
         PMA_executeQueryAndSendQueryResponse(
             $analyzed_sql_results, false, $db, $table, null, null, null,
-            false, null, null, null, null, $goto, $pmaThemeImage, null, null,
+            false, null, null, null, $goto, $pmaThemeImage, null, null,
             $query_type, $sql_query, $selected, null
         );
     } elseif (!$run_parts) {
         $GLOBALS['dbi']->selectDb($db);
-        // for disabling foreign key checks while dropping tables
-        if (! isset($_REQUEST['fk_check']) && $query_type == 'drop_tbl') {
-            $GLOBALS['dbi']->query('SET FOREIGN_KEY_CHECKS = 0;');
-        }
         $result = $GLOBALS['dbi']->tryQuery($sql_query);
-        if (! isset($_REQUEST['fk_check'])
-            && $query_type == 'drop_tbl'
-            && $default_fk_check_value
-        ) {
-            $GLOBALS['dbi']->query('SET FOREIGN_KEY_CHECKS = 1;');
-        }
         if ($result && !empty($sql_query_views)) {
             $sql_query .= ' ' . $sql_query_views . ';';
             $result = $GLOBALS['dbi']->tryQuery($sql_query_views);
@@ -273,6 +273,14 @@ if (!empty($submit_mult) && !empty($what)) {
         if (! $result) {
             $message = PMA_Message::error($GLOBALS['dbi']->getError());
         }
+    }
+    if (! isset($_REQUEST['fk_check'])
+        && ($query_type == 'drop_tbl'
+        || $query_type == 'empty_tbl'
+        || $query_type == 'row_delete')
+        && $default_fk_check_value
+    ) {
+        $GLOBALS['dbi']->query('SET FOREIGN_KEY_CHECKS = 1;');
     }
     if ($rebuild_database_list) {
         // avoid a problem with the database list navigator

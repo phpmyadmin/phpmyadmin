@@ -11,6 +11,25 @@
 if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     exit();
 }
+
+/** @var PMA_Theme $pmaTheme */
+$pmaTheme = $_SESSION['PMA_Theme'];
+$headerImg = $pmaTheme->getImgPath('pmd/Header.png');
+$headerLinkedImg = $pmaTheme->getImgPath('pmd/Header_Linked.png');
+$minusImg = $pmaTheme->getImgPath('pmd/minus.png');
+$plusImg = $pmaTheme->getImgPath('pmd/plus.png');
+$leftPanelButtonImg = $pmaTheme->getImgPath('pmd/left_panel_butt.png');
+$topPanelImg = $pmaTheme->getImgPath('pmd/top_panel.png');
+$smallTabImg = $pmaTheme->getImgPath('pmd/small_tab.png');
+$frams1Img = $pmaTheme->getImgPath('pmd/1.png');
+$frams2Img = $pmaTheme->getImgPath('pmd/2.png');
+$frams3Img = $pmaTheme->getImgPath('pmd/3.png');
+$frams4Img = $pmaTheme->getImgPath('pmd/4.png');
+$frams5Img = $pmaTheme->getImgPath('pmd/5.png');
+$frams6Img = $pmaTheme->getImgPath('pmd/6.png');
+$frams7Img = $pmaTheme->getImgPath('pmd/7.png');
+$frams8Img = $pmaTheme->getImgPath('pmd/8.png');
+$resizeImg = $pmaTheme->getImgPath('pmd/resize.png');
 ?>
 
 /* Designer */
@@ -26,6 +45,8 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 #canvas_outer {
     position: relative;
+    width: 100%;
+    display: block;
 }
 
 #canvas {
@@ -52,9 +73,12 @@ canvas.pmd * {
     -moz-user-select: none;
 }
 
-.tab_zag {
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/Header.png'); ?>);
+.pmd_tab .header {
+    background-image: url(<?php echo $headerImg; ?>);
     background-repeat: repeat-x;
+}
+
+.tab_zag {
     text-align: center;
     cursor: move;
     padding: 1px;
@@ -62,7 +86,7 @@ canvas.pmd * {
 }
 
 .tab_zag_2 {
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/Header_Linked.png'); ?>);
+    background-image: url(<?php echo $headerLinkedImg; ?>);
     background-repeat: repeat-x;
     text-align: center;
     cursor: move;
@@ -94,8 +118,6 @@ canvas.pmd * {
     position: absolute;
     background-color: #99FF99;
     color: #000;
-    <?php echo $left; ?>: 200px;
-    top: 50px;
     z-index: 3;
     border: #00CC66 solid 1px;
     display: none;
@@ -117,7 +139,7 @@ canvas.pmd * {
     margin-left: 2px;
     text-align: <?php echo $left; ?>;
     background-color: #fff;
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/left_panel_butt.png'); ?>);
+    background-image: url(<?php echo $leftPanelButtonImg; ?>);
     border: #ccc solid 1px;
 }
 
@@ -151,7 +173,7 @@ canvas.pmd * {
     cursor: default;
     width: 1px;
     color: #000;
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/Header.png'); ?>);
+    background-image: url(<?php echo $headerImg; ?>);
     background-repeat: repeat-x;
 }
 
@@ -159,7 +181,7 @@ canvas.pmd * {
     vertical-align: top;
     background-color: #0064ea;
     color: #fff;
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/small_tab.png'); ?>);
+    background-image: url(<?php echo $smallTabImg; ?>);
     cursor: default;
     text-align: center;
     font-weight: bold;
@@ -183,7 +205,7 @@ canvas.pmd * {
 }
 
 .small_tab_pref {
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/Header.png'); ?>);
+    background-image: url(<?php echo $headerImg; ?>);
     background-repeat: repeat-x;
     text-align: center;
     width: 1px;
@@ -234,41 +256,41 @@ canvas.pmd * {
 }
 
 .frams1 {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/1.png'); ?>) no-repeat right bottom;
+    background: url(<?php echo $frams1Img; ?>) no-repeat right bottom;
 }
 
 .frams2 {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/2.png'); ?>) no-repeat left bottom;
+    background: url(<?php echo $frams2Img; ?>) no-repeat left bottom;
 }
 
 .frams3 {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/3.png'); ?>) no-repeat left top;
+    background: url(<?php echo $frams3Img; ?>) no-repeat left top;
 }
 
 .frams4 {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/4.png'); ?>) no-repeat right top;
+    background: url(<?php echo $frams4Img; ?>) no-repeat right top;
 }
 
 .frams5 {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/5.png'); ?>) repeat-x center bottom;
+    background: url(<?php echo $frams5Img; ?>) repeat-x center bottom;
 }
 
 .frams6 {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/6.png'); ?>) repeat-y left;
+    background: url(<?php echo $frams6Img; ?>) repeat-y left;
 }
 
 .frams7 {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/7.png'); ?>) repeat-x top;
+    background: url(<?php echo $frams7Img; ?>) repeat-x top;
 }
 
 .frams8 {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/8.png'); ?>) repeat-y right;
+    background: url(<?php echo $frams8Img; ?>) repeat-y right;
 }
 
 #osn_tab {
+    position: absolute;
     background-color: #fff;
     color: #000;
-    border: #A9A9A9 solid 1px;
 }
 
 .pmd_header {
@@ -278,7 +300,7 @@ canvas.pmd * {
     font-weight: bold;
     margin: 0;
     padding: 0;
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/top_panel.png'); ?>);
+    background-image: url(<?php echo $topPanelImg; ?>);
     background-position: top;
     background-repeat: repeat-x;
     border-right: #999 solid 1px;
@@ -330,10 +352,14 @@ a.M_butt:hover {
 
 #layer_menu {
     z-index: 100;
-    position: absolute;
-    <?php echo $left; ?>: 0;
+    position: relative;
+    float: right;
     background-color: #EAEEF0;
     border: #999 solid 1px;
+}
+
+#layer_menu.left {
+    float: left;
 }
 
 #layer_upd_relation {
@@ -360,10 +386,8 @@ a.M_butt:hover {
 }
 
 #layer_menu_sizer {
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/resize.png'); ?>);
+    background-image: url(<?php echo $resizeImg; ?>);
     cursor: nw-resize;
-    width: 16px;
-    height: 16px;
 }
 
 .panel {
@@ -389,7 +413,7 @@ a.trigger {
     <?php echo $right; ?>: 0;
     color: #fff;
     padding: 10px 40px 10px 15px;
-    background: #333 url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/plus.png'); ?>) 85% 55% no-repeat;
+    background: #333 url(<?php echo $plusImg; ?>) 85% 55% no-repeat;
     border: 1px solid #444;
     display: block;
     z-index: 102;
@@ -397,17 +421,17 @@ a.trigger {
 
 a.trigger:hover {
     color: #080808;
-    background: #fff696 url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/plus.png'); ?>) 85% 55% no-repeat;
+    background: #fff696 url(<?php echo $plusImg; ?>) 85% 55% no-repeat;
     border: 1px solid #999;
 }
 
 a.active.trigger {
-    background: #222 url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/minus.png'); ?>) 85% 55% no-repeat;
+    background: #222 url(<?php echo $minusImg; ?>) 85% 55% no-repeat;
     z-index: 999;
 }
 
 a.active.trigger:hover {
-    background: #fff696 url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/minus.png'); ?>) 85% 55% no-repeat;
+    background: #fff696 url(<?php echo $minusImg; ?>) 85% 55% no-repeat;
 }
 
 h2.tiger {
@@ -423,7 +447,7 @@ h2.tiger {
 }
 
 h2.tiger a {
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/Header.png'); ?>);
+    background-image: url(<?php echo $headerImg; ?>);
     text-align: center;
     text-decoration: none;
     color : #333;
@@ -432,11 +456,11 @@ h2.tiger a {
 
 h2.tiger a:hover {
     color: #000;
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/Header_Linked.png'); ?>);
+    background-image: url(<?php echo $headerLinkedImg; ?>);
 }
 
 h2.active {
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/Header.png'); ?>);
+    background-image: url(<?php echo $headerImg ?>);
     background-repeat: repeat-x;
     padding: 1px;
     background-position: left bottom;
@@ -527,4 +551,51 @@ h2.active {
     text-align: <?php echo $left; ?>;
     position: absolute;
     cursor: pointer;
+}
+
+.side-menu {
+    float: left;
+    position: relative;
+    width: auto;
+    height: auto;
+    background: #efefef;
+    border: 1px solid grey;
+    overflow: hidden;
+    z-index: 50;
+    padding: 2px;
+}
+
+.side-menu.right {
+    float: right;
+}
+
+.side-menu .hide {
+    display: none;
+}
+
+.side-menu a {
+    display: block;
+    float: none;
+    overflow: hidden;
+}
+
+.side-menu img,
+.side-menu .text {
+    float: left;
+}
+
+#name-panel {
+    border-bottom: 1px solid grey;
+    text-align: center;
+    background: #efefef;
+    width: 100%;
+    font-size: 1.2em;
+    padding: 10px;
+    font-weight: bold;
+}
+
+#container-form {
+    width: 100%;
+    position: absolute;
+    left: 0;
 }

@@ -403,14 +403,12 @@ class ImportMediawiki extends ImportPlugin
      * Replaces all instances of the '||' separator between delimiters
      * in a given string
      *
-     * @param string $start_delim start delimiter
-     * @param string $end_delim   end delimiter
      * @param string $replace     the string to be replaced with
      * @param string $subject     the text to be replaced
      *
      * @return string with replacements
      */
-    private function _delimiterReplace($start_delim, $end_delim, $replace, $subject)
+    private function _delimiterReplace($replace, $subject)
     {
         // String that will be returned
         $cleaned = "";
@@ -505,7 +503,7 @@ class ImportMediawiki extends ImportPlugin
 
         // Replace instances of the separator inside HTML-like
         // tags with the placeholder
-        $cleaned = $this->_delimiterReplace("<", ">", $placeholder, $text);
+        $cleaned = $this->_delimiterReplace($placeholder, $text);
         // Explode, then put the replaced separators back in
         $items = explode($separator, $cleaned);
         foreach ($items as $i => $str) {

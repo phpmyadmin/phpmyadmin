@@ -43,6 +43,11 @@ define('SETUP_DIR_WRITABLE', true);
 define('EXAMPLES_DIR', './examples/');
 
 /**
+ * Directory where SQL scripts to create/upgrade configuration storage reside.
+ */
+define('SQL_DIR', './sql/');
+
+/**
  * Directory where configuration files are stored.
  * It is not used directly in code, just a convenient
  * define used further in this file.

@@ -310,8 +310,8 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
     /**
      * Adjusts the result pointer to an arbitrary row in the result
      *
-     * @param resource $result database result
-     * @param integer  $offset offset to seek
+     * @param mysqli_result $result database result
+     * @param integer       $offset offset to seek
      *
      * @return bool true on success, false on failure
      */

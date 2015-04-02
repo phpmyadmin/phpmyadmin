@@ -48,11 +48,11 @@ function PMA_getHtmlForColumnsList(
             if ($listType == 'checkbox') {
                 $selectColHtml .= '<input type="checkbox" value="'
                     . htmlspecialchars($column) . '"/>'
-                    . htmlspecialchars($column) . ' [ ' 
+                    . htmlspecialchars($column) . ' [ '
                     . htmlspecialchars($def['Type']) . ' ]</br>';
             } else {
                 $selectColHtml .= '<option value="' . htmlspecialchars($column) . ''
-                . '">' . htmlspecialchars($column) 
+                . '">' . htmlspecialchars($column)
                 . ' [ ' . htmlspecialchars($def['Type']) . ' ]'
                 . '</option>';
             }
@@ -90,7 +90,7 @@ function PMA_getHtmlForCreateNewColumn(
     for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
             $columnNumber, $columnMeta, '',
-            8, '', null, array(), null, null, null,
+            8, '', null, array(), null, null,
             $comments_map, null, true,
             array(), $cfgRelation,
             isset($available_mime)?$available_mime:array(), $mime_map
