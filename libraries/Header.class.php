@@ -406,6 +406,7 @@ class PMA_Header
                 }
                 $this->_scripts->addCode('ConsoleEnterExecutes='
                     . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false'));
+                $this->_scripts->addFiles($this->_console->getScripts());
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');
                 }

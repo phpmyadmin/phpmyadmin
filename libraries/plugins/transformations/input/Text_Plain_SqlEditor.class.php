@@ -42,9 +42,13 @@ class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationsPlugin
      */
     public function getScripts()
     {
-        return array(
-            'transformations/sql_editor.js'
-        );
+        $scripts = array();
+        if ($GLOBALS['cfg']['CodemirrorEnable']) {
+            $scripts[] = 'codemirror/lib/codemirror.js';
+            $scripts[] = 'codemirror/mode/sql/sql.js';
+            $scripts[] = 'transformations/sql_editor.js';
+        }
+        return $scripts;
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

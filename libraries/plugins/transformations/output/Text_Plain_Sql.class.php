@@ -22,6 +22,18 @@ require_once 'libraries/plugins/transformations/abstract/'
  */
 class Text_Plain_Sql extends SQLTransformationsPlugin
 {
+    public function __construct()
+    {
+        if (! empty($GLOBALS['cfg']['CodemirrorEnable'])) {
+            $response = PMA_Response::getInstance();
+            $scripts = $response->getHeader()->getScripts();
+            $scripts->addFile('codemirror/lib/codemirror.js');
+            $scripts->addFile('codemirror/mode/sql/sql.js');
+            $scripts->addFile('codemirror/addon/runmode/runmode.js');
+            $scripts->addFile('function.js');
+        }
+    }
+
     /**
      * Gets the plugin`s MIME type
      *
