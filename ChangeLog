@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - bug #4825 Datepicker missing when changing number of rows on Insert page
 - bug #4824 INNODB STATUS page is empty
 - bug #4828 JavaScript is loaded in wrong order
+- bug #4827 TEXT formatting doesn't work after inline editing
 
 4.4.0.0 (2015-04-01)
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
