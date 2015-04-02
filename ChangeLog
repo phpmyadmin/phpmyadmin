@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 + rfe #1619 Show databases as list instead of as dropdown when no database is selected
 + rfe       Optional dark theme for the console
 + rfe #354  PDF schema sort options
++ rfe #844  Structure in PDF export
 
 4.4.1.0 (not yet released)
 - bug #4813 MySQL 5.7.6 and the Users menu tab
