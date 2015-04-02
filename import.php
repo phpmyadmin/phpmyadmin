@@ -511,6 +511,23 @@ if ($import_file != 'none' && ! $error) {
             PMA_stopImport($message);
         }
         break;
+    case 'application/x-xz':
+        if ($cfg['XZDump'] && @function_exists('xzopen')) {
+            $handle = @xzopen($import_file, 'r');
+            if ($handle !== false) {
+                ob_start();
+                xzpassthru($handle);
+                $import_text = ob_end_clean();
+                xzclose($handle);
+            }
+        } else {
+            $message = PMA_Message::error(
+                __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
+            );
+            $message->addParam($compression);
+            PMA_stopImport($message);
+        }
+        break;
     case 'none':
         $import_handle = @fopen($import_file, 'r');
         break;

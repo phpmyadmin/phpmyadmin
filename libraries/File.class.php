@@ -624,6 +624,14 @@ class PMA_File
                 return false;
             }
             break;
+        case 'application/x-xz':
+            if ($GLOBALS['cfg']['XZDump'] && @function_exists('xzopen')) {
+                $this->_handle = @xzopen($this->getName(), 'r');
+            } else {
+                $this->errorUnsupported();
+                return false;
+            }
+            break;
         case 'none':
             $this->_handle = @fopen($this->getName(), 'r');
             break;

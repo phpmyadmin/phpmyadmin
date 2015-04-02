@@ -94,6 +94,12 @@ function PMA_supportedDecompressions()
         }
         $compressions .= 'zip';
     }
+    if ($cfg['XZDump'] && @function_exists('xzopen')) {
+        if (!empty($compressions)) {
+            $compressions .= '|';
+        }
+        $compressions .= 'xz';
+    }
 
     return $compressions;
 }

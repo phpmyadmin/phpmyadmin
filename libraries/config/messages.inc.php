@@ -809,6 +809,8 @@ $strConfigProxyPass_name = __('Proxy password');
 
 $strConfigZipDump_desc = __('Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression for import and export operations.');
 $strConfigZipDump_name = __('ZIP');
+$strConfigXZDump_desc = __('Enable [a@http://en.wikipedia.org/wiki/Xz]xz[/a] compression for import operation.');
+$strConfigXZDump_name = __('XZ');
 $strConfigCaptchaLoginPublicKey_desc  = __('Enter your public key for your domain reCaptcha service.');
 $strConfigCaptchaLoginPublicKey_name  = __('Public key for reCaptcha');
 $strConfigCaptchaLoginPrivateKey_desc = __('Enter your private key for your domain reCaptcha service.');
