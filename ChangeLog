@@ -18,6 +18,9 @@ phpMyAdmin - ChangeLog
 + rfe #844  Structure in PDF export
 + rfe #1635 Have ZeroConf create phpmyadmin DB if possible
 
+4.4.2.0 (not yet released)
+- bug #4835 PMA_hideShowConnection not called after submit_num_fields
+
 4.4.1.0 (not yet released)
 - bug #4813 MySQL 5.7.6 and the Users menu tab
 - bug #4818 MySQL 5.7.6 and changing the password for another user
@@ -36,7 +39,6 @@ phpMyAdmin - ChangeLog
 - bug #4822 Compress when php.ini output_buffering is active
 - bug #4832 Sorting distinct values result loses links
 - bug #4834 Do not attach token to css requests to improve caching
-- bug #4835 PMA_hideShowConnection not called after submit_num_fields
 
 4.4.0.0 (2015-04-01)
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
