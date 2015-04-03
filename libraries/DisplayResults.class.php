@@ -735,10 +735,11 @@ class PMA_DisplayResults
 
                 $table_navigation_html .= '<td>';
                 $_url_params = array(
-                    'db'        => $this->__get('db'),
-                    'table'     => $this->__get('table'),
-                    'sql_query' => $this->__get('sql_query'),
-                    'goto'      => $this->__get('goto'),
+                    'db'                 => $this->__get('db'),
+                    'table'              => $this->__get('table'),
+                    'sql_query'          => $this->__get('sql_query'),
+                    'goto'               => $this->__get('goto'),
+                    'is_browse_distinct' => $this->__get('is_browse_distinct'),
                 );
 
                 //<form> to keep the form alignment of button < and <<
@@ -1876,17 +1877,19 @@ class PMA_DisplayResults
         }
 
         $_single_url_params = array(
-            'db'                => $this->__get('db'),
-            'table'             => $this->__get('table'),
-            'sql_query'         => $single_sorted_sql_query,
-            'session_max_rows'  => $session_max_rows
+            'db'                 => $this->__get('db'),
+            'table'              => $this->__get('table'),
+            'sql_query'          => $single_sorted_sql_query,
+            'session_max_rows'   => $session_max_rows,
+            'is_browse_distinct' => $this->__get('is_browse_distinct'),
         );
 
         $_multi_url_params = array(
-            'db'                => $this->__get('db'),
-            'table'             => $this->__get('table'),
-            'sql_query'         => $multi_sorted_sql_query,
-            'session_max_rows'  => $session_max_rows
+            'db'                 => $this->__get('db'),
+            'table'              => $this->__get('table'),
+            'sql_query'          => $multi_sorted_sql_query,
+            'session_max_rows'   => $session_max_rows,
+            'is_browse_distinct' => $this->__get('is_browse_distinct'),
         );
         $single_order_url  = 'sql.php' . PMA_URL_getCommon($_single_url_params);
         $multi_order_url = 'sql.php' . PMA_URL_getCommon($_multi_url_params);
