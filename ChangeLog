@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 - bug #4822 Compress when php.ini output_buffering is active
 - bug #4832 Sorting distinct values result loses links
 - bug #4834 Do not attach token to css requests to improve caching
+- bug #4835 PMA_hideShowConnection not called after submit_num_fields
 
 4.4.0.0 (2015-04-01)
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
