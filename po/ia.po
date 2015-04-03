@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-03 05:47-0400\n"
-"PO-Revision-Date: 2015-03-31 11:29+0200\n"
+"PO-Revision-Date: 2015-04-03 15:35+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7975,7 +7975,7 @@ msgstr "Numero de tabellas:"
 
 #: libraries/db_designer.lib.php:591
 msgid "Toggle"
-msgstr ""
+msgstr "Alternar"
 
 #: libraries/db_designer.lib.php:614
 msgid "See table structure"
@@ -10132,22 +10132,19 @@ msgid "Report title:"
 msgstr "Titulo de reporto:"
 
 #: libraries/plugins/export/ExportPdf.class.php:230
-#, fuzzy
 #| msgid "Dump table"
 msgid "Dumping data"
-msgstr "Dump (discargamento) de tabella"
+msgstr "Dump (discargamento) de datos"
 
 #: libraries/plugins/export/ExportPdf.class.php:284
-#, fuzzy
 #| msgid "structure"
 msgid "View structure"
-msgstr "structura"
+msgstr "Vide structura"
 
 #: libraries/plugins/export/ExportPdf.class.php:287
-#, fuzzy
 #| msgid "and then"
 msgid "Stand in"
-msgstr "e alora"
+msgstr "Substitue"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
@@ -10359,10 +10356,9 @@ msgid "Purpose:"
 msgstr ""
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:494
-#, fuzzy
 #| msgid "MIME type"
 msgid "MIME"
-msgstr "Typo MIME"
+msgstr "MIME"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
