@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 + rfe       Optional dark theme for the console
 + rfe #354  PDF schema sort options
 + rfe #844  Structure in PDF export
++ rfe #1635 Have ZeroConf create phpmyadmin DB if possible
 
 4.4.1.0 (not yet released)
 - bug #4813 MySQL 5.7.6 and the Users menu tab

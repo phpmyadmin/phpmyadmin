@@ -79,7 +79,7 @@ function PMA_getRelationsParam()
  */
 function PMA_getRelationsParamDiagnostic($cfgRelation)
 {
-    $retval = '';
+    $retval = '<br>';
 
     $messages = array();
     $messages['error'] = '<font color="red"><strong>'
@@ -101,8 +101,12 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
              . __('General relation features')
              . ' <font color="green">' . __('Disabled')
              . '</font>' . "\n";
-        if (! empty($GLOBALS['db']) && $GLOBALS['cfg']['ZeroConf']) {
-            $retval .= PMA_getHtmlFixPMATables(true);
+        if ($GLOBALS['cfg']['ZeroConf']) {
+            if (empty($GLOBALS['db'])) {
+                $retval .= PMA_getHtmlFixPMATables(true, true);
+            } else {
+                $retval .= PMA_getHtmlFixPMATables(true);
+            }
         }
     } else {
         $retval .= '<table>' . "\n";
@@ -1873,6 +1877,29 @@ function PMA_getDefaultPMATableNames()
 }
 
 /**
+ * Create a table named phpmyadmin to be used as configuration storage
+ *
+ * @return void
+ */
+function PMA_createPMADatabase()
+{
+    $GLOBALS['dbi']->tryQuery("CREATE DATABASE IF NOT EXISTS `phpmyadmin`");
+    if ($error = $GLOBALS['dbi']->getError()) {
+        if ($GLOBALS['errno'] == 1044) {
+            $GLOBALS['message'] =    __(
+                'You do not have necessary privileges to create a database named'
+                . ' \'phpmyadmin\'. You may go to \'Operations\' tab of any'
+                . ' database to set up the phpMyAdmin configuration storage there.'
+            );
+        } else {
+            $GLOBALS['message'] = $error;
+        }
+        return false;
+    }
+    return true;
+}
+
+/**
  * Creates PMA tables in the given db, updates if already exists.
  *
  * @param string  $db     database
@@ -1918,6 +1945,7 @@ function PMA_fixPMATables($db, $create = true)
                     $GLOBALS['message'] = $error;
                     return;
                 }
+                $foundOne = true;
                 $GLOBALS['cfg']['Server'][$feature] = $table;
             }
         } else {
@@ -1960,22 +1988,33 @@ function PMA_fixPMATables($db, $create = true)
  * Get Html for PMA tables fixing anchor.
  *
  * @param boolean $allTables whether to create all tables
+ * @param boolean $createDb  whether to create the pmadb also
  *
  * @return string Html
  */
-function PMA_getHtmlFixPMATables($allTables)
+function PMA_getHtmlFixPMATables($allTables, $createDb = false)
 {
     $retval = '';
 
     $url_query = PMA_URL_getCommon(array('db' => $GLOBALS['db']));
     if ($allTables) {
-        $url_query .= '&amp;goto=db_operations.php&amp;create_pmadb=1';
-        $message = PMA_Message::notice(
-            __(
-                '%sCreate%s the phpMyAdmin configuration storage in the '
-                . 'current database.'
-            )
-        );
+        if ($createDb) {
+            $url_query .= '&amp;goto=db_operations.php&amp;create_pmadb=1';
+            $message = PMA_Message::notice(
+                __(
+                    '%sCreate%s a database named \'phpmyadmin\' and setup '
+                    . 'the phpMyAdmin configuration storage there.'
+                )
+            );
+        } else {
+            $url_query .= '&amp;goto=db_operations.php&amp;fixall_pmadb=1';
+            $message = PMA_Message::notice(
+                __(
+                    '%sCreate%s the phpMyAdmin configuration storage in the '
+                    . 'current database.'
+                )
+            );
+        }
     } else {
         $url_query .= '&amp;goto=db_operations.php&amp;fix_pmadb=1';
         $message = PMA_Message::notice(
