@@ -2726,6 +2726,7 @@ AJAX.registerOnload('functions.js', function () {
                 $("#page_content").html(data.message);
                 PMA_highlightSQL($('#page_content'));
                 PMA_verifyColumnsProperties();
+                PMA_hideShowConnection($('.create_table_form select[name=tbl_storage_engine]'));
                 PMA_ajaxRemoveMessage($msgbox);
             } else {
                 PMA_ajaxShowMessage(data.error);
