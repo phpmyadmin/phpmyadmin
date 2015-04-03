@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-30 08:56-0400\n"
+"POT-Creation-Date: 2015-04-03 05:47-0400\n"
 "PO-Revision-Date: 2015-03-30 17:45+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,6 +64,7 @@ msgstr "Tablo yorumları:"
 #: libraries/plugins/export/ExportOdt.class.php:464
 #: libraries/plugins/export/ExportTexytext.class.php:272
 #: libraries/plugins/export/ExportTexytext.class.php:361
+#: libraries/plugins/export/PMA_ExportPdf.class.php:465
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1000
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1023
 #: libraries/tbl_columns_definition_form.lib.php:611
@@ -85,12 +86,13 @@ msgstr "Sütun"
 #: libraries/plugins/export/ExportOdt.class.php:467
 #: libraries/plugins/export/ExportTexytext.class.php:273
 #: libraries/plugins/export/ExportTexytext.class.php:362
+#: libraries/plugins/export/PMA_ExportPdf.class.php:467
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1001
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1024
 #: libraries/rte/rte_list.lib.php:54 libraries/rte/rte_list.lib.php:80
 #: libraries/rte/rte_routines.lib.php:961
 #: libraries/rte/rte_routines.lib.php:990
-#: libraries/rte/rte_routines.lib.php:1627
+#: libraries/rte/rte_routines.lib.php:1626
 #: libraries/server_privileges.lib.php:2264 libraries/structure.lib.php:847
 #: libraries/structure.lib.php:1295
 #: libraries/tbl_columns_definition_form.lib.php:296
@@ -109,6 +111,7 @@ msgstr "Türü"
 #: libraries/plugins/export/ExportOdt.class.php:470
 #: libraries/plugins/export/ExportTexytext.class.php:274
 #: libraries/plugins/export/ExportTexytext.class.php:363
+#: libraries/plugins/export/PMA_ExportPdf.class.php:469
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1003
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1026
 #: libraries/structure.lib.php:1298
@@ -127,6 +130,7 @@ msgstr "Boş"
 #: libraries/plugins/export/ExportOdt.class.php:473
 #: libraries/plugins/export/ExportTexytext.class.php:275
 #: libraries/plugins/export/ExportTexytext.class.php:364
+#: libraries/plugins/export/PMA_ExportPdf.class.php:471
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1004
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1027
 #: libraries/replication_gui.lib.php:147 libraries/structure.lib.php:223
@@ -140,6 +144,7 @@ msgstr "Varsayılan"
 #: libraries/plugins/export/ExportLatex.class.php:512
 #: libraries/plugins/export/ExportOdt.class.php:477
 #: libraries/plugins/export/ExportTexytext.class.php:366
+#: libraries/plugins/export/PMA_ExportPdf.class.php:480
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1006
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1029
 #: libraries/tbl_printview.lib.php:481
@@ -153,6 +158,7 @@ msgstr "Bağlantı verilen"
 #: libraries/plugins/export/ExportLatex.class.php:515
 #: libraries/plugins/export/ExportOdt.class.php:482
 #: libraries/plugins/export/ExportTexytext.class.php:369
+#: libraries/plugins/export/PMA_ExportPdf.class.php:487
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1017
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1030
 #: libraries/tbl_columns_definition_form.lib.php:327
@@ -547,13 +553,13 @@ msgid "Add geometry"
 msgstr "Geometri ekle"
 
 #: gis_data_editor.php:409 js/messages.php:254
-#: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1683
+#: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1684
 #: libraries/TableSearch.class.php:1238 libraries/Util.class.php:4619
 #: libraries/browse_foreigners.lib.php:54 libraries/core.lib.php:610
 #: libraries/display_change_password.lib.php:109
 #: libraries/display_create_table.lib.php:72
 #: libraries/display_export.lib.php:303 libraries/display_export.lib.php:309
-#: libraries/display_import.lib.php:391 libraries/index.lib.php:40
+#: libraries/display_import.lib.php:397 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1539 libraries/insert_edit.lib.php:1576
 #: libraries/normalization.lib.php:148 libraries/normalization.lib.php:785
 #: libraries/operations.lib.php:38 libraries/operations.lib.php:81
@@ -566,7 +572,7 @@ msgstr "Geometri ekle"
 #: libraries/replication_gui.lib.php:314 libraries/replication_gui.lib.php:451
 #: libraries/replication_gui.lib.php:897 libraries/rte/rte_events.lib.php:520
 #: libraries/rte/rte_routines.lib.php:1102
-#: libraries/rte/rte_routines.lib.php:1721
+#: libraries/rte/rte_routines.lib.php:1720
 #: libraries/rte/rte_triggers.lib.php:396 libraries/server_bin_log.lib.php:61
 #: libraries/server_privileges.lib.php:705
 #: libraries/server_privileges.lib.php:2005
@@ -610,8 +616,8 @@ msgstr "Tamamlanmamış parametreler"
 #: import.php:164
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen bu sınır için çözüm "
 "yolu olarak %sbelgeden%s yararlanın."
@@ -681,15 +687,12 @@ msgstr "İçe aktarma başarılı olarak bitti, %d sorgu çalıştırıldı."
 
 #: import.php:685
 #, php-format
-#| msgid ""
-#| "Script timeout passed, if you want to finish import, please resubmit same "
-#| "file and import will resume."
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Betik zaman aşımı geçti, eğer içe aktarmayı bitirmek istiyorsanız, lütfen %"
-"saynı dosyayı yeniden gönderin%s ve içe aktarma devam edecektir."
+"Betik zaman aşımı geçti, eğer içe aktarmayı bitirmek istiyorsanız, lütfen "
+"%saynı dosyayı yeniden gönderin%s ve içe aktarma devam edecektir."
 
 #: import.php:695
 msgid ""
@@ -1311,9 +1314,9 @@ msgstr "Çizelgeyi ızgaraya ekle"
 msgid "Please add at least one variable to the series!"
 msgstr "Lütfen diziye en az bir değişken ekleyin!"
 
-#: js/messages.php:151 libraries/DisplayResults.class.php:1371
+#: js/messages.php:151 libraries/DisplayResults.class.php:1372
 #: libraries/TableSearch.class.php:876 libraries/TableSearch.class.php:1045
-#: libraries/config.values.php:69 libraries/db_designer.lib.php:981
+#: libraries/config.values.php:69 libraries/db_designer.lib.php:982
 #: libraries/display_export.lib.php:587
 #: libraries/plugins/export/ExportSql.class.php:1899
 #: libraries/plugins/schema/SchemaPdf.class.php:102
@@ -1372,8 +1375,8 @@ msgid ""
 "depending on your system."
 msgstr ""
 "slow_query_log etkinleştirildi ama sunucu sadece %d saniyeden daha uzun "
-"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak 0-"
-"2 saniyeye ayarlanması tavsiye edilir."
+"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak "
+"0-2 saniyeye ayarlanması tavsiye edilir."
 
 #: js/messages.php:164
 #, php-format
@@ -1518,6 +1521,7 @@ msgstr "Çıktıyı açıkla"
 #: libraries/plugins/export/ExportHtmlword.class.php:471
 #: libraries/plugins/export/ExportOdt.class.php:587
 #: libraries/plugins/export/ExportTexytext.class.php:426
+#: libraries/plugins/export/PMA_ExportPdf.class.php:305
 #: libraries/rte/rte_list.lib.php:68
 #: libraries/server_status_processes.lib.php:89 libraries/sql.lib.php:344
 msgid "Time"
@@ -1667,11 +1671,11 @@ msgstr "Deneme"
 msgid "Formatting SQL..."
 msgstr "SQL biçimlendiriliyor..."
 
-#: js/messages.php:255 libraries/db_designer.lib.php:828
-#: libraries/db_designer.lib.php:877 libraries/db_designer.lib.php:1021
-#: libraries/db_designer.lib.php:1083 libraries/db_designer.lib.php:1172
-#: libraries/db_designer.lib.php:1241 libraries/db_designer.lib.php:1318
-#: libraries/db_designer.lib.php:1361 libraries/server_variables.lib.php:157
+#: js/messages.php:255 libraries/db_designer.lib.php:829
+#: libraries/db_designer.lib.php:878 libraries/db_designer.lib.php:1022
+#: libraries/db_designer.lib.php:1084 libraries/db_designer.lib.php:1173
+#: libraries/db_designer.lib.php:1242 libraries/db_designer.lib.php:1319
+#: libraries/db_designer.lib.php:1362 libraries/server_variables.lib.php:157
 msgid "Cancel"
 msgstr "İptal"
 
@@ -1719,10 +1723,10 @@ msgstr "Sütun Kaldırılıyor"
 msgid "Adding Primary Key"
 msgstr "Birincil Anahtar Ekleniyor"
 
-#: js/messages.php:268 libraries/db_designer.lib.php:825
-#: libraries/db_designer.lib.php:1019 libraries/db_designer.lib.php:1081
-#: libraries/db_designer.lib.php:1170 libraries/db_designer.lib.php:1239
-#: libraries/db_designer.lib.php:1316
+#: js/messages.php:268 libraries/db_designer.lib.php:826
+#: libraries/db_designer.lib.php:1020 libraries/db_designer.lib.php:1082
+#: libraries/db_designer.lib.php:1171 libraries/db_designer.lib.php:1240
+#: libraries/db_designer.lib.php:1317
 msgid "OK"
 msgstr "TAMAM"
 
@@ -1819,8 +1823,8 @@ msgstr "Sorgu kutusunu gizle"
 msgid "Show query box"
 msgstr "Sorgu kutusunu göster"
 
-#: js/messages.php:306 libraries/Console.class.php:96
-#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3293
+#: js/messages.php:306 libraries/Console.class.php:88
+#: libraries/Console.class.php:172 libraries/DisplayResults.class.php:3296
 #: libraries/Index.class.php:675 libraries/Util.class.php:664
 #: libraries/Util.class.php:1189 libraries/Util.class.php:3423
 #: libraries/Util.class.php:3424 libraries/central_columns.lib.php:850
@@ -1831,8 +1835,8 @@ msgstr "Sorgu kutusunu göster"
 msgid "Edit"
 msgstr "Düzenle"
 
-#: js/messages.php:307 libraries/DisplayResults.class.php:825
-#: libraries/DisplayResults.class.php:833
+#: js/messages.php:307 libraries/DisplayResults.class.php:826
+#: libraries/DisplayResults.class.php:834
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d geçerli bir satır sayısı değil."
@@ -2088,7 +2092,7 @@ msgstr "Veri imleci içeriği"
 msgid "Ignore"
 msgstr "Yoksay"
 
-#: js/messages.php:387 libraries/DisplayResults.class.php:3296
+#: js/messages.php:387 libraries/DisplayResults.class.php:3299
 msgid "Copy"
 msgstr "Kopyala"
 
@@ -2104,7 +2108,7 @@ msgstr "Satır dizgisi"
 msgid "Polygon"
 msgstr "Poligon"
 
-#: js/messages.php:394 libraries/DisplayResults.class.php:1666
+#: js/messages.php:394 libraries/DisplayResults.class.php:1667
 msgid "Geometry"
 msgstr "Geometri"
 
@@ -2265,7 +2269,7 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 "Sütunların görünürlüğünü değiştirmek<br />için aşağı açılır okuna tıklayın."
 
-#: js/messages.php:447 libraries/DisplayResults.class.php:929
+#: js/messages.php:447 libraries/DisplayResults.class.php:930
 #: libraries/browse_foreigners.lib.php:253
 #: libraries/browse_foreigners.lib.php:306
 #: libraries/server_privileges.lib.php:3484
@@ -2422,8 +2426,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm %"
-"s, %s tarihinde yayınlandı."
+"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm "
+"%s, %s tarihinde yayınlandı."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:504
@@ -2434,7 +2438,7 @@ msgstr ", son sağlam sürüm:"
 msgid "up to date"
 msgstr "güncel"
 
-#: js/messages.php:507 libraries/DisplayResults.class.php:4826
+#: js/messages.php:507 libraries/DisplayResults.class.php:4829
 #: view_create.php:182
 msgid "Create view"
 msgstr "Görünüm oluştur"
@@ -2847,30 +2851,30 @@ msgstr ""
 msgid "Font size"
 msgstr "Yazı Tipi boyutu"
 
-#: libraries/Console.class.php:93 libraries/Console.class.php:175
+#: libraries/Console.class.php:85 libraries/Console.class.php:168
 msgid "Collapse"
 msgstr "Daralt"
 
-#: libraries/Console.class.php:94 libraries/Console.class.php:177
+#: libraries/Console.class.php:86 libraries/Console.class.php:170
 msgid "Expand"
 msgstr "Genişlet"
 
-#: libraries/Console.class.php:95 libraries/Console.class.php:178
+#: libraries/Console.class.php:87 libraries/Console.class.php:171
 msgid "Requery"
 msgstr "Yeniden sorgula"
 
-#: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
-#: libraries/DisplayResults.class.php:3364
-#: libraries/DisplayResults.class.php:4695
+#: libraries/Console.class.php:89 libraries/DbSearch.class.php:365
+#: libraries/DisplayResults.class.php:3367
+#: libraries/DisplayResults.class.php:4698
 #: libraries/central_columns.lib.php:852
-#: libraries/central_columns.lib.php:1084 libraries/db_designer.lib.php:875
+#: libraries/central_columns.lib.php:1084 libraries/db_designer.lib.php:876
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:386 libraries/tracking.lib.php:476
 #: setup/frames/index.inc.php:183 setup/frames/index.inc.php:291
 msgid "Delete"
 msgstr "Sil"
 
-#: libraries/Console.class.php:99 libraries/Console.class.php:185
+#: libraries/Console.class.php:91 libraries/Console.class.php:178
 #: libraries/Menu.class.php:214 libraries/config/messages.inc.php:785
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
@@ -2886,71 +2890,71 @@ msgstr "Sil"
 msgid "Database"
 msgstr "Veritabanı"
 
-#: libraries/Console.class.php:108
+#: libraries/Console.class.php:100
 #, php-format
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
 msgstr[0] "Toplam %d yer imi"
 msgstr[1] "Toplam %d yer imi"
 
-#: libraries/Console.class.php:116
+#: libraries/Console.class.php:108
 msgid "private"
 msgstr "özel"
 
-#: libraries/Console.class.php:120 libraries/bookmark.lib.php:87
+#: libraries/Console.class.php:112 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "paylaşılmış"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
-#: libraries/Console.class.php:124
+#: libraries/Console.class.php:116
 #, php-format
 msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "%1$s, %2$s ve %3$s yer imleri dahil edildi"
 
-#: libraries/Console.class.php:130
+#: libraries/Console.class.php:122
 msgid "No bookmarks"
 msgstr "Yer imleri yok"
 
-#: libraries/Console.class.php:180
+#: libraries/Console.class.php:173
 msgid "Explain"
 msgstr "Açıkla"
 
-#: libraries/Console.class.php:181 libraries/Util.class.php:1262
+#: libraries/Console.class.php:174 libraries/Util.class.php:1262
 #: libraries/sql.lib.php:333
 msgid "Profiling"
 msgstr "Profil çıkart"
 
-#: libraries/Console.class.php:183
+#: libraries/Console.class.php:176
 msgid "Bookmark"
 msgstr "Yer imi"
 
-#: libraries/Console.class.php:184
+#: libraries/Console.class.php:177
 msgid "Query failed"
 msgstr "Sorgu başarısız oldu"
 
-#: libraries/Console.class.php:188
+#: libraries/Console.class.php:181
 msgid "Queried time"
 msgstr "Sorgu süresi"
 
-#: libraries/Console.class.php:195
+#: libraries/Console.class.php:188
 msgid "SQL Query Console"
 msgstr "SQL Sorgu Konsolu"
 
-#: libraries/Console.class.php:196
+#: libraries/Console.class.php:189
 msgid "Console"
 msgstr "Konsol"
 
-#: libraries/Console.class.php:199 libraries/sql_query_form.lib.php:234
+#: libraries/Console.class.php:192 libraries/sql_query_form.lib.php:234
 #: setup/frames/index.inc.php:298
 msgid "Clear"
 msgstr "Temizle"
 
-#: libraries/Console.class.php:202
+#: libraries/Console.class.php:195
 msgid "History"
 msgstr "Geçmiş"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:303
-#: libraries/DisplayResults.class.php:1602 libraries/TableSearch.class.php:788
+#: libraries/Console.class.php:198 libraries/Console.class.php:296
+#: libraries/DisplayResults.class.php:1603 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
@@ -2978,66 +2982,66 @@ msgstr "Geçmiş"
 msgid "Options"
 msgstr "Seçenekler"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:265
+#: libraries/Console.class.php:202 libraries/Console.class.php:258
 msgid "Bookmarks"
 msgstr "Yer imleri"
 
-#: libraries/Console.class.php:219
+#: libraries/Console.class.php:212
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Sorguyu çalıştırmak için Ctrl+Enter tuşlarına basın"
 
-#: libraries/Console.class.php:221
+#: libraries/Console.class.php:214
 msgid "Press Enter to execute query"
 msgstr "Sorguyu çalıştırmak için Enter tuşuna basın"
 
-#: libraries/Console.class.php:242
+#: libraries/Console.class.php:235
 msgid "During current session"
 msgstr "Şu anki oturum sırasında"
 
-#: libraries/Console.class.php:269 libraries/Util.class.php:1231
+#: libraries/Console.class.php:262 libraries/Util.class.php:1231
 #: libraries/config/messages.inc.php:772
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Yenile"
 
-#: libraries/Console.class.php:272
+#: libraries/Console.class.php:265
 msgid "Add"
 msgstr "Ekle"
 
-#: libraries/Console.class.php:281
+#: libraries/Console.class.php:274
 msgid "Add bookmark"
 msgstr "Yer imi ekle"
 
-#: libraries/Console.class.php:285
+#: libraries/Console.class.php:278
 msgid "Label"
 msgstr "Etiket"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:280
 msgid "Target database"
 msgstr "Hedef veritabanı"
 
-#: libraries/Console.class.php:290
+#: libraries/Console.class.php:283
 msgid "Share this bookmark"
 msgstr "Bu yer imini paylaş"
 
-#: libraries/Console.class.php:307
+#: libraries/Console.class.php:300
 msgid "Set default"
 msgstr "Varsayılana ayarla"
 
-#: libraries/Console.class.php:311
+#: libraries/Console.class.php:304
 msgid "Always expand query messages"
 msgstr "Her zaman sorgu mesajlarını genişlet"
 
-#: libraries/Console.class.php:313
+#: libraries/Console.class.php:306
 msgid "Show query history at start"
 msgstr "Başlangıçta sorgu geçmişini göster"
 
-#: libraries/Console.class.php:315
+#: libraries/Console.class.php:308
 msgid "Show current browsing query"
 msgstr "Şu anki gözatılan sorguyu göster"
 
-#: libraries/Console.class.php:317
+#: libraries/Console.class.php:310
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
@@ -3045,13 +3049,13 @@ msgstr ""
 "Enter tuşuna basarak sorguları çalıştırın ve Shift + Enter tuşları ile yeni "
 "satır ekleyin. Bunu kalıcı yapmak için ayarlara bakın."
 
-#: libraries/Console.class.php:320
+#: libraries/Console.class.php:313
 msgid "Switch to dark theme"
 msgstr "Koyu temaya değiştir"
 
-#: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
-#: libraries/DisplayResults.class.php:2143
-#: libraries/DisplayResults.class.php:2149 libraries/TableSearch.class.php:847
+#: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1356
+#: libraries/DisplayResults.class.php:2146
+#: libraries/DisplayResults.class.php:2152 libraries/TableSearch.class.php:847
 #: libraries/config.values.php:70 libraries/operations.lib.php:589
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
@@ -3060,9 +3064,9 @@ msgstr "Koyu temaya değiştir"
 msgid "Ascending"
 msgstr "Küçükten Büyüğe"
 
-#: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1367
-#: libraries/DisplayResults.class.php:2139
-#: libraries/DisplayResults.class.php:2153 libraries/TableSearch.class.php:848
+#: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1368
+#: libraries/DisplayResults.class.php:2142
+#: libraries/DisplayResults.class.php:2156 libraries/TableSearch.class.php:848
 #: libraries/config.values.php:71 libraries/operations.lib.php:592
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
@@ -3259,161 +3263,161 @@ msgstr "Tablo içindekiler:"
 msgid "Inside column:"
 msgstr "İç sütun:"
 
-#: libraries/DisplayResults.class.php:802
+#: libraries/DisplayResults.class.php:803
 msgid "Save edited data"
 msgstr "Düzenlenen veriyi kaydet"
 
-#: libraries/DisplayResults.class.php:808
+#: libraries/DisplayResults.class.php:809
 msgid "Restore column order"
 msgstr "Sütun düzenini geri yükle"
 
-#: libraries/DisplayResults.class.php:856
+#: libraries/DisplayResults.class.php:857
 #: libraries/central_columns.lib.php:661
 msgid "Filter rows"
 msgstr "Satırları süz"
 
-#: libraries/DisplayResults.class.php:858
+#: libraries/DisplayResults.class.php:859
 #: libraries/central_columns.lib.php:663
 msgid "Search this table"
 msgstr "Bu tabloda ara"
 
-#: libraries/DisplayResults.class.php:886 libraries/Util.class.php:2464
+#: libraries/DisplayResults.class.php:887 libraries/Util.class.php:2464
 #: libraries/Util.class.php:2467
 msgctxt "First page"
 msgid "Begin"
 msgstr "Başlangıç"
 
-#: libraries/DisplayResults.class.php:889 libraries/Util.class.php:2465
+#: libraries/DisplayResults.class.php:890 libraries/Util.class.php:2465
 #: libraries/Util.class.php:2468 libraries/server_bin_log.lib.php:170
 #: libraries/server_bin_log.lib.php:172
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Önceki"
 
-#: libraries/DisplayResults.class.php:955 libraries/Util.class.php:2496
+#: libraries/DisplayResults.class.php:956 libraries/Util.class.php:2496
 #: libraries/Util.class.php:2506 libraries/server_bin_log.lib.php:204
 #: libraries/server_bin_log.lib.php:206
 msgctxt "Next page"
 msgid "Next"
 msgstr "Sonraki"
 
-#: libraries/DisplayResults.class.php:985 libraries/Util.class.php:2497
+#: libraries/DisplayResults.class.php:986 libraries/Util.class.php:2497
 #: libraries/Util.class.php:2507
 msgctxt "Last page"
 msgid "End"
 msgstr "Son"
 
-#: libraries/DisplayResults.class.php:1028
+#: libraries/DisplayResults.class.php:1029
 msgid "All"
 msgstr "Tümü"
 
-#: libraries/DisplayResults.class.php:1038 libraries/Util.class.php:4613
+#: libraries/DisplayResults.class.php:1039 libraries/Util.class.php:4613
 #: libraries/display_export.lib.php:338
 msgid "Number of rows:"
 msgstr "Satır sayısı:"
 
-#: libraries/DisplayResults.class.php:1313
+#: libraries/DisplayResults.class.php:1314
 msgid "Sort by key"
 msgstr "Anahtara göre sırala"
 
-#: libraries/DisplayResults.class.php:1608
-#: libraries/DisplayResults.class.php:1716
+#: libraries/DisplayResults.class.php:1609
+#: libraries/DisplayResults.class.php:1717
 msgid "Partial texts"
 msgstr "Kısmi metinler"
 
-#: libraries/DisplayResults.class.php:1609
-#: libraries/DisplayResults.class.php:1720
+#: libraries/DisplayResults.class.php:1610
+#: libraries/DisplayResults.class.php:1721
 msgid "Full texts"
 msgstr "Tam metinler"
 
-#: libraries/DisplayResults.class.php:1625
+#: libraries/DisplayResults.class.php:1626
 msgid "Relational key"
 msgstr "Bağlantılı anahtar"
 
-#: libraries/DisplayResults.class.php:1626
+#: libraries/DisplayResults.class.php:1627
 msgid "Relational display column"
 msgstr "Bağlantılı görüntü sütunu"
 
-#: libraries/DisplayResults.class.php:1639
+#: libraries/DisplayResults.class.php:1640
 msgid "Show binary contents"
 msgstr "Binari içerikleri göster"
 
-#: libraries/DisplayResults.class.php:1645
+#: libraries/DisplayResults.class.php:1646
 msgid "Show BLOB contents"
 msgstr "BLOB içerikleri göster"
 
-#: libraries/DisplayResults.class.php:1657
+#: libraries/DisplayResults.class.php:1658
 msgid "Hide browser transformation"
 msgstr "Tarayıcı dönüşümünü gizle"
 
-#: libraries/DisplayResults.class.php:1667
+#: libraries/DisplayResults.class.php:1668
 msgid "Well Known Text"
 msgstr "Çok İyi Bilinen Metin"
 
-#: libraries/DisplayResults.class.php:1668
+#: libraries/DisplayResults.class.php:1669
 msgid "Well Known Binary"
 msgstr "Çok İyi Bilinen Binari"
 
-#: libraries/DisplayResults.class.php:3338
-#: libraries/DisplayResults.class.php:3354
+#: libraries/DisplayResults.class.php:3341
+#: libraries/DisplayResults.class.php:3357
 msgid "The row has been deleted."
 msgstr "Satır silindi."
 
-#: libraries/DisplayResults.class.php:3391
-#: libraries/DisplayResults.class.php:4695
+#: libraries/DisplayResults.class.php:3394
+#: libraries/DisplayResults.class.php:4698
 #: libraries/server_status_processes.lib.php:295
 msgid "Kill"
 msgstr "Sonlandır"
 
-#: libraries/DisplayResults.class.php:4110
+#: libraries/DisplayResults.class.php:4113
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Yaklaşık olabilir. [doc@faq3-11]SSS 3.11[/doc]'e bakın."
 
-#: libraries/DisplayResults.class.php:4167 libraries/Message.class.php:180
-#: libraries/rte/rte_routines.lib.php:1466 libraries/sql_query_form.lib.php:89
+#: libraries/DisplayResults.class.php:4170 libraries/Message.class.php:180
+#: libraries/rte/rte_routines.lib.php:1465 libraries/sql_query_form.lib.php:89
 #: libraries/tbl_relation.lib.php:1036 tbl_find_replace.php:51
 #: tbl_operations.php:200 tbl_row_action.php:121 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL sorgunuz başarılı olarak çalıştırıldı."
 
-#: libraries/DisplayResults.class.php:4553 libraries/structure.lib.php:692
+#: libraries/DisplayResults.class.php:4556 libraries/structure.lib.php:692
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Bu görünüm en az bu satır sayısı kadar olur. Lütfen %sbelgeden%s yararlanın."
 
-#: libraries/DisplayResults.class.php:4566
+#: libraries/DisplayResults.class.php:4569
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Gösterilen satır %1s - %2s"
 
-#: libraries/DisplayResults.class.php:4581
+#: libraries/DisplayResults.class.php:4584
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d toplam, %2$d sorguda"
 
-#: libraries/DisplayResults.class.php:4586
+#: libraries/DisplayResults.class.php:4589
 #, php-format
 msgid "%d total"
 msgstr "toplam %d"
 
-#: libraries/DisplayResults.class.php:4598 libraries/sql.lib.php:1511
+#: libraries/DisplayResults.class.php:4601 libraries/sql.lib.php:1511
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Sorgu %01.4f saniye sürdü."
 
-#: libraries/DisplayResults.class.php:4700
-#: libraries/DisplayResults.class.php:4707 libraries/Util.class.php:4573
+#: libraries/DisplayResults.class.php:4703
+#: libraries/DisplayResults.class.php:4710 libraries/Util.class.php:4573
 #: libraries/Util.class.php:4579 libraries/mult_submits.inc.php:45
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:312
 #: libraries/structure.lib.php:314
 msgid "With selected:"
 msgstr "Seçilileri:"
 
-#: libraries/DisplayResults.class.php:4704
-#: libraries/DisplayResults.class.php:4706 libraries/Util.class.php:4575
+#: libraries/DisplayResults.class.php:4707
+#: libraries/DisplayResults.class.php:4709 libraries/Util.class.php:4575
 #: libraries/Util.class.php:4576 libraries/server_privileges.lib.php:1196
 #: libraries/server_privileges.lib.php:1197
 #: libraries/server_privileges.lib.php:1409
@@ -3422,13 +3426,13 @@ msgstr "Seçilileri:"
 msgid "Check All"
 msgstr "Tümünü Seç"
 
-#: libraries/DisplayResults.class.php:4711 libraries/structure.lib.php:1486
+#: libraries/DisplayResults.class.php:4714 libraries/structure.lib.php:1486
 #: libraries/structure.lib.php:2210
 msgid "Change"
 msgstr "Değiştir"
 
-#: libraries/DisplayResults.class.php:4724
-#: libraries/DisplayResults.class.php:4995 libraries/Menu.class.php:336
+#: libraries/DisplayResults.class.php:4727
+#: libraries/DisplayResults.class.php:4998 libraries/Menu.class.php:336
 #: libraries/Menu.class.php:438 libraries/Menu.class.php:571
 #: libraries/Util.class.php:3425 libraries/Util.class.php:3426
 #: libraries/Util.class.php:4137 libraries/Util.class.php:4152
@@ -3443,29 +3447,29 @@ msgstr "Değiştir"
 msgid "Export"
 msgstr "Dışa Aktar"
 
-#: libraries/DisplayResults.class.php:4881
+#: libraries/DisplayResults.class.php:4884
 msgid "Query results operations"
 msgstr "Sorgu sonuçları işlemleri"
 
-#: libraries/DisplayResults.class.php:4919 libraries/Header.class.php:378
+#: libraries/DisplayResults.class.php:4922 libraries/Header.class.php:378
 #: libraries/structure.lib.php:320 libraries/structure.lib.php:393
 #: libraries/structure.lib.php:1621
 msgid "Print view"
 msgstr "Baskı görünümü"
 
-#: libraries/DisplayResults.class.php:4937
+#: libraries/DisplayResults.class.php:4940
 msgid "Print view (with full texts)"
 msgstr "Baskı görünümü (tüm metinler ile)"
 
-#: libraries/DisplayResults.class.php:5008 libraries/tbl_chart.lib.php:319
+#: libraries/DisplayResults.class.php:5011 libraries/tbl_chart.lib.php:319
 msgid "Display chart"
 msgstr "Çizelge göster"
 
-#: libraries/DisplayResults.class.php:5033
+#: libraries/DisplayResults.class.php:5036
 msgid "Visualize GIS data"
 msgstr "GIS verisini görselleştir"
 
-#: libraries/DisplayResults.class.php:5269
+#: libraries/DisplayResults.class.php:5272
 msgid "Link not found!"
 msgstr "Bağlantı bulunamadı!"
 
@@ -3544,7 +3548,7 @@ msgstr "Git bilgisi eksik!"
 msgid "Open new phpMyAdmin window"
 msgstr "Yeni phpMyAdmin penceresi aç"
 
-#: libraries/Header.class.php:446
+#: libraries/Header.class.php:447
 msgid "Click on the bar to scroll to top of page"
 msgstr "Sayfanın en üstüne kaydırmak için çubuğa tklayın"
 
@@ -3714,6 +3718,7 @@ msgstr "İzleme"
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:557
 #: libraries/plugins/export/ExportOdt.class.php:685
+#: libraries/plugins/export/ExportPdf.class.php:281
 #: libraries/plugins/export/ExportSql.class.php:1774
 #: libraries/plugins/export/ExportTexytext.class.php:503
 #: libraries/plugins/export/ExportXml.class.php:125
@@ -4093,22 +4098,22 @@ msgstr ""
 
 #: libraries/TableSearch.class.php:181 libraries/insert_edit.lib.php:243
 #: libraries/navigation/Nodes/Node_Function.class.php:34
-#: libraries/rte/rte_routines.lib.php:1629
+#: libraries/rte/rte_routines.lib.php:1628
 msgid "Function"
 msgstr "İşlev"
 
-#: libraries/TableSearch.class.php:188 libraries/db_designer.lib.php:958
-#: libraries/db_designer.lib.php:978 libraries/db_designer.lib.php:1131
-#: libraries/db_designer.lib.php:1144 libraries/db_designer.lib.php:1223
-#: libraries/db_designer.lib.php:1290
+#: libraries/TableSearch.class.php:188 libraries/db_designer.lib.php:959
+#: libraries/db_designer.lib.php:979 libraries/db_designer.lib.php:1132
+#: libraries/db_designer.lib.php:1145 libraries/db_designer.lib.php:1224
+#: libraries/db_designer.lib.php:1291
 msgid "Operator"
 msgstr "İşletici"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1294
-#: libraries/db_designer.lib.php:942 libraries/db_designer.lib.php:1007
-#: libraries/db_designer.lib.php:1160 libraries/db_designer.lib.php:1306
+#: libraries/db_designer.lib.php:943 libraries/db_designer.lib.php:1008
+#: libraries/db_designer.lib.php:1161 libraries/db_designer.lib.php:1307
 #: libraries/insert_edit.lib.php:1570 libraries/replication_gui.lib.php:532
-#: libraries/rte/rte_routines.lib.php:1631
+#: libraries/rte/rte_routines.lib.php:1630
 #: libraries/server_status_variables.lib.php:220
 msgid "Value"
 msgstr "Değer"
@@ -4292,20 +4297,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Küçük kayan noktalı bir sayı, izin verilebilir değerler -3.402823466E+38'den "
 "-1.175494351E-38'e, 0 ve 1.175494351E-38'den 3.402823466E+38'e kadardır"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler -"
-"1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
+"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler "
+"-1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
 "2.2250738585072014E-308'den 1.7976931348623157E+308'e kadardır"
 
 #: libraries/Types.class.php:336
@@ -4592,7 +4597,7 @@ msgstr "En fazla: %s%s"
 #: libraries/rte/rte_general.lib.php:36 libraries/rte/rte_routines.lib.php:320
 #: libraries/rte/rte_routines.lib.php:329
 #: libraries/rte/rte_routines.lib.php:363
-#: libraries/rte/rte_routines.lib.php:1500
+#: libraries/rte/rte_routines.lib.php:1499
 #: libraries/rte/rte_triggers.lib.php:86 libraries/rte/rte_triggers.lib.php:95
 #: libraries/rte/rte_triggers.lib.php:127
 msgid "MySQL said: "
@@ -4803,9 +4808,10 @@ msgstr "HAYIR"
 #: libraries/plugins/export/ExportHtmlword.class.php:470
 #: libraries/plugins/export/ExportOdt.class.php:584
 #: libraries/plugins/export/ExportTexytext.class.php:425
+#: libraries/plugins/export/PMA_ExportPdf.class.php:303
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:989
-#: libraries/rte/rte_routines.lib.php:1626 libraries/structure.lib.php:1294
+#: libraries/rte/rte_routines.lib.php:1625 libraries/structure.lib.php:1294
 #: libraries/tbl_columns_definition_form.lib.php:295
 #: setup/frames/index.inc.php:162
 msgid "Name"
@@ -4904,8 +4910,8 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
-"%1$s saat dilimi sunucu %2$d için kullanılamaz. Lütfen [em]$cfg['Servers'][%3"
-"$d]['SessionTimeZone'][/em] için yapılandırma ayarlarınızı kontrol edin. "
+"%1$s saat dilimi sunucu %2$d için kullanılamaz. Lütfen [em]$cfg['Servers']"
+"[%3$d]['SessionTimeZone'][/em] için yapılandırma ayarlarınızı kontrol edin. "
 "phpMyAdmin, veritabanı sunucusunun şu anki varsayılan saat dilimini "
 "kullanıyor."
 
@@ -5004,6 +5010,7 @@ msgstr "Hata raporlarını asla gönderme"
 #: libraries/plugins/export/ExportLatex.class.php:103
 #: libraries/plugins/export/ExportMediawiki.class.php:73
 #: libraries/plugins/export/ExportOdt.class.php:83
+#: libraries/plugins/export/ExportPdf.class.php:119
 #: libraries/plugins/export/ExportSql.class.php:204
 #: libraries/plugins/export/ExportTexytext.class.php:68
 msgid "structure"
@@ -5014,6 +5021,7 @@ msgstr "yapı"
 #: libraries/plugins/export/ExportLatex.class.php:104
 #: libraries/plugins/export/ExportMediawiki.class.php:74
 #: libraries/plugins/export/ExportOdt.class.php:84
+#: libraries/plugins/export/ExportPdf.class.php:120
 #: libraries/plugins/export/ExportSql.class.php:205
 #: libraries/plugins/export/ExportTexytext.class.php:69
 msgid "data"
@@ -5024,6 +5032,7 @@ msgstr "veri"
 #: libraries/plugins/export/ExportLatex.class.php:105
 #: libraries/plugins/export/ExportMediawiki.class.php:75
 #: libraries/plugins/export/ExportOdt.class.php:85
+#: libraries/plugins/export/ExportPdf.class.php:121
 #: libraries/plugins/export/ExportSql.class.php:206
 #: libraries/plugins/export/ExportTexytext.class.php:70
 msgid "structure and data"
@@ -5242,8 +5251,8 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Eğer [kbd]tanımlama bilgisi[/kbd] kimlik doğrulaması kullanılıyorsa ve %"
-"sOturum açma tanımlama bilgisi depolaması%s değeri 0 değilse, %sOturum açma "
+"Eğer [kbd]tanımlama bilgisi[/kbd] kimlik doğrulaması kullanılıyorsa ve "
+"%sOturum açma tanımlama bilgisi depolaması%s değeri 0 değilse, %sOturum açma "
 "tanımlama bilgisi geçerliliği%s eşit ya da daha az değere ayarlanmak "
 "zorundadır."
 
@@ -5256,8 +5265,8 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarlarını kullanın "
-"- %sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi%"
-"s. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
+"- %sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi"
+"%s. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
 "kullanıcıya sahip ve bağlı olduğunuz bir ISS'e ait ise güvenilir olmayabilir."
 
 #: libraries/config/ServerConfigChecks.class.php:434
@@ -5272,8 +5281,8 @@ msgstr ""
 "[kbd]Yapılandırma[/kbd] kimlik doğrulaması türünü ayarladınız ve buna "
 "otomatik oturum açma için kullanıcı adı ve parola dahildir, canlı "
 "anamakineler için istenmeyen bir seçenektir. phpMyAdmin URL'nizi bilen veya "
-"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. %"
-"sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
+"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. "
+"%sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
 "kbd] olarak ayarlayın."
 
 #: libraries/config/ServerConfigChecks.class.php:440
@@ -5701,6 +5710,7 @@ msgstr "Tablo adı şablonu"
 #: libraries/plugins/export/ExportLatex.class.php:97
 #: libraries/plugins/export/ExportMediawiki.class.php:63
 #: libraries/plugins/export/ExportOdt.class.php:77
+#: libraries/plugins/export/ExportPdf.class.php:114
 #: libraries/plugins/export/ExportTexytext.class.php:62
 msgid "Dump table"
 msgstr "Tabloyu dökümle"
@@ -6113,7 +6123,9 @@ msgstr ""
 "Hangi ayrıntıların veritabanı yapısında (tabloların listesi) gösterileceğini "
 "seçin."
 
-#: libraries/config/messages.inc.php:304 libraries/structure.lib.php:3264
+#: libraries/config/messages.inc.php:304
+#: libraries/plugins/export/ExportPdf.class.php:278
+#: libraries/structure.lib.php:3264
 msgid "Table structure"
 msgstr "Tablo yapısı"
 
@@ -7804,7 +7816,7 @@ msgid "Create table"
 msgstr "Tablo oluştur"
 
 #: libraries/db_designer.lib.php:321 libraries/db_designer.lib.php:324
-#: libraries/db_designer.lib.php:788
+#: libraries/db_designer.lib.php:789
 msgid "Create relation"
 msgstr "Bağlantı oluştur"
 
@@ -7873,46 +7885,45 @@ msgstr "Gizle"
 msgid "Number of tables:"
 msgstr "Tablo sayısı:"
 
-#: libraries/db_designer.lib.php:590
+#: libraries/db_designer.lib.php:591
 msgid "Toggle"
 msgstr "Değiştir"
 
-#: libraries/db_designer.lib.php:613
-#| msgid "Table structure"
+#: libraries/db_designer.lib.php:614
 msgid "See table structure"
 msgstr "Tablo yapısına bak"
 
-#: libraries/db_designer.lib.php:869
+#: libraries/db_designer.lib.php:870
 msgid "Delete relation"
 msgstr "Bağlantıyı sil"
 
-#: libraries/db_designer.lib.php:926 libraries/db_designer.lib.php:990
+#: libraries/db_designer.lib.php:927 libraries/db_designer.lib.php:991
 msgid "Relation operator"
 msgstr "Bağlantı işletici"
 
-#: libraries/db_designer.lib.php:936 libraries/db_designer.lib.php:1000
-#: libraries/db_designer.lib.php:1154 libraries/db_designer.lib.php:1300
+#: libraries/db_designer.lib.php:937 libraries/db_designer.lib.php:1001
+#: libraries/db_designer.lib.php:1155 libraries/db_designer.lib.php:1301
 msgid "Except"
 msgstr "Hariç"
 
-#: libraries/db_designer.lib.php:942 libraries/db_designer.lib.php:1008
-#: libraries/db_designer.lib.php:1160 libraries/db_designer.lib.php:1306
+#: libraries/db_designer.lib.php:943 libraries/db_designer.lib.php:1009
+#: libraries/db_designer.lib.php:1161 libraries/db_designer.lib.php:1307
 msgid "subquery"
 msgstr "alt sorgu"
 
-#: libraries/db_designer.lib.php:948 libraries/db_designer.lib.php:1065
+#: libraries/db_designer.lib.php:949 libraries/db_designer.lib.php:1066
 msgid "Rename to"
 msgstr "Yeniden şuna adlandır"
 
-#: libraries/db_designer.lib.php:951 libraries/db_designer.lib.php:1071
+#: libraries/db_designer.lib.php:952 libraries/db_designer.lib.php:1072
 msgid "New name"
 msgstr "Yeni ad"
 
-#: libraries/db_designer.lib.php:955 libraries/db_designer.lib.php:1217
+#: libraries/db_designer.lib.php:956 libraries/db_designer.lib.php:1218
 msgid "Aggregate"
 msgstr "Topla"
 
-#: libraries/db_designer.lib.php:1352
+#: libraries/db_designer.lib.php:1353
 msgid "Active options"
 msgstr "Aktif seçenekler"
 
@@ -8011,7 +8022,7 @@ msgstr "Veritabanı(ları):"
 msgid "Table(s):"
 msgstr "Tablo(lar):"
 
-#: libraries/display_export.lib.php:272 libraries/display_import.lib.php:356
+#: libraries/display_export.lib.php:272 libraries/display_import.lib.php:362
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
 msgstr "Biçim:"
@@ -8028,7 +8039,7 @@ msgstr ""
 "Seçili biçimde seçenekleri doldurmak için aşağı kaydır ve diğer biçimler "
 "için seçenekleri yoksay."
 
-#: libraries/display_export.lib.php:291 libraries/display_import.lib.php:373
+#: libraries/display_export.lib.php:291 libraries/display_import.lib.php:379
 msgid "Encoding Conversion:"
 msgstr "Kodlama Dönüştürme:"
 
@@ -8077,8 +8088,8 @@ msgstr ", @TABLE@ tablo adı olacaktır"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Bu değer %1$sstrftime%2$s kullanılarak yorumlanır, bu yüzden zaman "
 "biçimlendirme dizgisi kullanabilirsiniz. İlave olarak aşağıdaki dönüşümler "
@@ -8208,20 +8219,20 @@ msgstr ""
 msgid "File to Import:"
 msgstr "İçe Aktarmak için Dosya:"
 
-#: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
+#: libraries/display_import.lib.php:232 libraries/display_import.lib.php:249
 msgid "You may also drag and drop a file on any page."
 msgstr ""
 "Ayrıca herhangi bir sayfaya dosyayı sürükleyebilir ve bırakabilirsiniz."
 
-#: libraries/display_import.lib.php:246
+#: libraries/display_import.lib.php:252
 msgid "File uploads are not allowed on this server."
 msgstr "Bu sunucuda dosya gönderimlerine izin verilmez."
 
-#: libraries/display_import.lib.php:270
+#: libraries/display_import.lib.php:276
 msgid "Partial Import:"
 msgstr "Kısmi İçe Aktarma:"
 
-#: libraries/display_import.lib.php:277
+#: libraries/display_import.lib.php:283
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -8229,7 +8240,7 @@ msgstr ""
 "Önceki içe aktarma zaman aşımına uğradı, sonradan yeniden gönderim %d "
 "konumundan devam edecek."
 
-#: libraries/display_import.lib.php:291
+#: libraries/display_import.lib.php:297
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be a good way to import large "
@@ -8239,7 +8250,7 @@ msgstr ""
 "durumunda içe aktarımı yarıda kesmeye izin verir. <i>(Bu büyük dosyaları içe "
 "aktarmak için iyi bir yol olabilir, ancak bu işlemleri bozabilir.)</i>"
 
-#: libraries/display_import.lib.php:301
+#: libraries/display_import.lib.php:307
 msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
@@ -8247,19 +8258,19 @@ msgstr ""
 "Bu sorgu (SQL için) ya da satır (diğer biçimler için) numaralarını, ilkinden "
 "başlayarak atla:"
 
-#: libraries/display_import.lib.php:332
+#: libraries/display_import.lib.php:338
 msgid "Other Options:"
 msgstr "Diğer Seçenekler:"
 
-#: libraries/display_import.lib.php:338
+#: libraries/display_import.lib.php:344
 msgid "Disable foreign key check"
 msgstr "Dış anahtar kontrolünü etkisizleştir"
 
-#: libraries/display_import.lib.php:362
+#: libraries/display_import.lib.php:368
 msgid "Format-Specific Options:"
 msgstr "Biçim-Belli Seçenekler:"
 
-#: libraries/display_import.lib.php:472
+#: libraries/display_import.lib.php:478
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
@@ -8269,29 +8280,29 @@ msgstr ""
 "webkit tabanlı (Safari, Google Chrome, Arora vs.) tarayıcılardaki bilinen "
 "bir hatadır."
 
-#: libraries/display_import.lib.php:478
+#: libraries/display_import.lib.php:484
 #, php-format
 msgid "%s of %s"
 msgstr "%s / %s"
 
-#: libraries/display_import.lib.php:479
+#: libraries/display_import.lib.php:485
 msgid "Uploading your import file…"
 msgstr "İçe aktarma dosyanız gönderiliyor…"
 
-#: libraries/display_import.lib.php:480
+#: libraries/display_import.lib.php:486
 #, php-format
 msgid "%s/sec."
 msgstr "%s/san."
 
-#: libraries/display_import.lib.php:481
+#: libraries/display_import.lib.php:487
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Yaklaşık kalan %MIN dik. %SEC san."
 
-#: libraries/display_import.lib.php:482
+#: libraries/display_import.lib.php:488
 msgid "About %SEC sec. remaining."
 msgstr "Yaklaşık kalan %SEC san."
 
-#: libraries/display_import.lib.php:484
+#: libraries/display_import.lib.php:490
 msgid "The file is being processed, please be patient."
 msgstr "Dosya işleme alındı, lütfen sabırlı olun."
 
@@ -8635,8 +8646,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "%sPrimeBase XT Ana Sayfasında%s PBXT hakkında belge ve daha fazla bilgi "
 "bulunabilir."
@@ -8692,7 +8703,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Döküm, %s dosyasına kaydedildi."
 
 #: libraries/import.lib.php:202 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1505
+#: libraries/rte/rte_routines.lib.php:1486 libraries/sql.lib.php:1505
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL boş bir sonuç kümesi döndürdü (yani sıfır satır)."
@@ -8750,7 +8761,7 @@ msgstr "Şu görünüme git: %s"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Sadece tek tablo UPDATE ve DELETE sorguları benzetilebilir."
 
-#: libraries/import.lib.php:1814
+#: libraries/import.lib.php:1815
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9786,8 +9797,8 @@ msgstr "%s'e Hoş Geldiniz"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Muhtemelen bunun sebebi yapılandırma dosyasını oluşturmadığınız içindir. Bir "
 "tane oluşturmak için %1$skur programcığı%2$s kullanmak isteyebilirsiniz."
@@ -9926,6 +9937,7 @@ msgstr "Tablo döküm verisi"
 #: libraries/plugins/export/ExportHtmlword.class.php:472
 #: libraries/plugins/export/ExportOdt.class.php:590
 #: libraries/plugins/export/ExportTexytext.class.php:427
+#: libraries/plugins/export/PMA_ExportPdf.class.php:307
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:363
 msgid "Event"
 msgstr "Olay"
@@ -9933,6 +9945,7 @@ msgstr "Olay"
 #: libraries/plugins/export/ExportHtmlword.class.php:473
 #: libraries/plugins/export/ExportOdt.class.php:593
 #: libraries/plugins/export/ExportTexytext.class.php:428
+#: libraries/plugins/export/PMA_ExportPdf.class.php:309
 #: libraries/rte/rte_events.lib.php:491
 #: libraries/rte/rte_routines.lib.php:1052
 #: libraries/rte/rte_triggers.lib.php:377
@@ -10063,13 +10076,27 @@ msgstr "Tablo adlarını dışa aktar"
 msgid "Export table headers"
 msgstr "Tablo başlıklarını dışa aktar"
 
-#: libraries/plugins/export/ExportPdf.class.php:107
-msgid "(Generates a report containing the data of a single table)"
-msgstr "(Tek bir tablonun verisini içeren bir rapor üretir)"
-
-#: libraries/plugins/export/ExportPdf.class.php:112
+#: libraries/plugins/export/ExportPdf.class.php:106
 msgid "Report title:"
 msgstr "Rapor başlığı:"
+
+#: libraries/plugins/export/ExportPdf.class.php:230
+#, fuzzy
+#| msgid "Dumping data for table"
+msgid "Dumping data"
+msgstr "Tablo döküm verisi"
+
+#: libraries/plugins/export/ExportPdf.class.php:284
+#, fuzzy
+#| msgid "structure"
+msgid "View structure"
+msgstr "yapı"
+
+#: libraries/plugins/export/ExportPdf.class.php:287
+#, fuzzy
+#| msgid "and then"
+msgid "Stand in"
+msgstr "ve ondan sonra"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
@@ -10281,6 +10308,16 @@ msgstr "İçerikleri dışa aktar"
 msgid "Table:"
 msgstr "Tablo:"
 
+#: libraries/plugins/export/PMA_ExportPdf.class.php:118
+msgid "Purpose:"
+msgstr ""
+
+#: libraries/plugins/export/PMA_ExportPdf.class.php:494
+#, fuzzy
+#| msgid "MIME type"
+msgid "MIME"
+msgstr "MIME türü"
+
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
 msgid ""
@@ -10453,17 +10490,14 @@ msgid "Data Dictionary"
 msgstr "Veri sözlüğü"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#| msgid "neither of the above"
 msgid "Order of the tables"
 msgstr "Tabloların sırası"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#| msgid "Ascending"
 msgid "Name (Ascending)"
 msgstr "Adı (Küçükten Büyüğe)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#| msgid "Descending"
 msgid "Name (Descending)"
 msgstr "Adı (Büyükten Küçüğe)"
 
@@ -10699,11 +10733,11 @@ msgstr "SQL için sözdizimi vurgulanan CodeMirror düzenleyicisi."
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr "XML (ve HTML) için sözdizimi vurgulanan CodeMirror düzenleyicisi."
 
-#: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
+#: libraries/plugins/transformations/output/Text_Plain_Json.class.php:44
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "Sözdizimi vurgulamalı JSON gibi metni biçimlendirir."
 
-#: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
+#: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:44
 msgid "Formats text as XML with syntax highlighting."
 msgstr "Sözdizimi vurgulamalı XML gibi metni biçimlendirir."
 
@@ -11228,7 +11262,7 @@ msgstr "Master sunucu %s olarak başarılı bir şekilde değiştirildi."
 #: libraries/rte/rte_events.lib.php:151 libraries/rte/rte_routines.lib.php:316
 #: libraries/rte/rte_routines.lib.php:325
 #: libraries/rte/rte_routines.lib.php:359
-#: libraries/rte/rte_routines.lib.php:1496
+#: libraries/rte/rte_routines.lib.php:1495
 #: libraries/rte/rte_triggers.lib.php:82 libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:123
 #, php-format
@@ -11332,8 +11366,8 @@ msgstr "Bir olay tanımı vermek zorundasınız."
 
 #: libraries/rte/rte_export.lib.php:42 libraries/rte/rte_general.lib.php:72
 #: libraries/rte/rte_routines.lib.php:481
-#: libraries/rte/rte_routines.lib.php:1332
-#: libraries/rte/rte_routines.lib.php:1545
+#: libraries/rte/rte_routines.lib.php:1331
+#: libraries/rte/rte_routines.lib.php:1544
 msgid "Error in processing request:"
 msgstr "İstek işlemede hata:"
 
@@ -11447,7 +11481,7 @@ msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Parametre için geçersiz yön \"%s\" verilmiş."
 
 #: libraries/rte/rte_routines.lib.php:1202
-#: libraries/rte/rte_routines.lib.php:1265
+#: libraries/rte/rte_routines.lib.php:1264
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -11463,29 +11497,29 @@ msgstr "Her yordam parametresi için bir ad ve bir tür vermek zorundasınız."
 msgid "You must provide a valid return type for the routine."
 msgstr "Yordam için geçerli bir dönüş türü vermek zorundasınız."
 
-#: libraries/rte/rte_routines.lib.php:1308
+#: libraries/rte/rte_routines.lib.php:1307
 msgid "You must provide a routine definition."
 msgstr "Bir yordam tanımı vermek zorundasınız."
 
-#: libraries/rte/rte_routines.lib.php:1419
+#: libraries/rte/rte_routines.lib.php:1418
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "%s yordamı yürütme sonuçları"
 
-#: libraries/rte/rte_routines.lib.php:1474
+#: libraries/rte/rte_routines.lib.php:1473
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "İşlemin içindeki son ifade tarafından %d satır etkilendi."
 msgstr[1] "İşlemin içindeki son ifade tarafından %d satır etkilendi."
 
-#: libraries/rte/rte_routines.lib.php:1532
-#: libraries/rte/rte_routines.lib.php:1540
+#: libraries/rte/rte_routines.lib.php:1531
+#: libraries/rte/rte_routines.lib.php:1539
 msgid "Execute routine"
 msgstr "Yordamı çalıştır"
 
-#: libraries/rte/rte_routines.lib.php:1619
-#: libraries/rte/rte_routines.lib.php:1622
+#: libraries/rte/rte_routines.lib.php:1618
+#: libraries/rte/rte_routines.lib.php:1621
 msgid "Routine parameters"
 msgstr "Yordam parametreleri"
 
@@ -12250,8 +12284,8 @@ msgstr "Kullanıcılara genel bakış"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Not: phpMyAdmin kullanıcıların yetkilerini doğrudan MySQL'in yetki "
 "tablolarından alır. Bu tabloların içerikleri, eğer elle değiştirildiyse "
@@ -13626,8 +13660,8 @@ msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
-"Yaklaşık olabilir. Tam sayıyı almak için sayının üzerine tıklayın. [doc@faq3-"
-"11]SSS 3.11[/doc]'e bakın."
+"Yaklaşık olabilir. Tam sayıyı almak için sayının üzerine tıklayın. "
+"[doc@faq3-11]SSS 3.11[/doc]'e bakın."
 
 #: libraries/structure.lib.php:862 libraries/structure.lib.php:2346
 #: libraries/tbl_printview.lib.php:324
@@ -14395,8 +14429,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. %"
-"sKur programcığı%s kullanarak."
+"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. "
+"%sKur programcığı%s kullanarak."
 
 #: prefs_manage.php:321
 msgid "Save to browser's storage"
@@ -15084,8 +15118,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Boş sorgu önbellek belleğinin, toplam sorgu önbelleği boyutuna şu anki oranı "
 "%%%s. Bu %%80'in üzerinde olmalıdır"
@@ -15236,8 +15270,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "Tüm sıralamaların %%%s'i geçici tablolara sebep olur, bu değer %%10'dan "
 "düşük olmalıdır."
@@ -15990,6 +16024,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
+
+#~ msgid "(Generates a report containing the data of a single table)"
+#~ msgstr "(Tek bir tablonun verisini içeren bir rapor üretir)"
 
 #~ msgid "Please select a database."
 #~ msgstr "Lütfen bir veritabanı seçin."
@@ -17061,12 +17098,12 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ "Eğer D işlenirse, varsayılan 0'dır. Eğer M işlenirse, varsayılan 10'dur."
 
 #~ msgid ""
-#~ "A small (single-precision) floating-point number. Allowable values are -"
-#~ "3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
+#~ "A small (single-precision) floating-point number. Allowable values are "
+#~ "-3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
 #~ "3.402823466E+38."
 #~ msgstr ""
-#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler -"
-#~ "3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
+#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler "
+#~ "-3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
 #~ "3.402823466E+38'e."
 
 #~ msgid ""
