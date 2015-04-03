@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - bug #4824 INNODB STATUS page is empty
 - bug #4828 JavaScript is loaded in wrong order
 - bug #4827 TEXT formatting doesn't work after inline editing
+- bug #4822 Compress when php.ini output_buffering is active
 - bug #4832 Sorting distinct values result loses links
 
 4.4.0.0 (2015-04-01)
