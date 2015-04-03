@@ -16248,7 +16248,7 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "Δομή πίνακα"
 
 #~ msgid "Show data row(s)."

@@ -16117,7 +16117,7 @@ msgstr "مقدار concurrent_insert صفر شده است"
 
 #, fuzzy
 #~| msgid "Databases"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "پايگاههاي داده"
 
 #, fuzzy

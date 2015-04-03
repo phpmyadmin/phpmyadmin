@@ -17133,7 +17133,7 @@ msgstr "concurrent_insert は 0 に設定されています"
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "テーブルの構造"
 
 #, fuzzy

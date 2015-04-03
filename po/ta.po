@@ -15026,7 +15026,7 @@ msgstr ""
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "தரவுத்தளங்கள்->அட்டவணை கட்டமைப்பு"
 
 #~ msgid "Show data row(s)."

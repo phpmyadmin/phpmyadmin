@@ -15440,7 +15440,7 @@ msgstr "Паралельді_кірістірмелерді анықтау"
 
 #, fuzzy
 #~| msgid "Databases"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "Мәлімет қорлары"
 
 #, fuzzy

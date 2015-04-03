@@ -16204,7 +16204,7 @@ msgstr "concurrent_insert is ingesteld op 0"
 #~ msgid "Show versions"
 #~ msgstr "Versies weergeven"
 
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "Tabel Structuur"
 
 #~ msgid "Show data row(s)."

@@ -17878,7 +17878,7 @@ msgstr "Maksimal ulanishlar soni "
 
 #, fuzzy
 #~| msgid "Database for user"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "Foydalanuvchi uchun ma`lumotlar bazasi"
 
 #, fuzzy

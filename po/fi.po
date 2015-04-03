@@ -16956,7 +16956,7 @@ msgstr "concurrent_insert on asetettu arvoon 0"
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "Taulun rakenne"
 
 #~ msgid "Show data row(s)."

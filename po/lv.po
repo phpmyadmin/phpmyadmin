@@ -16306,7 +16306,7 @@ msgstr ""
 
 #, fuzzy
 #~| msgid "Databases"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "Datubāzes"
 
 #, fuzzy

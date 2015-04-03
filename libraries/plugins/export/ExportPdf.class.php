@@ -227,7 +227,7 @@ class ExportPdf extends ExportPlugin
             'aliases' => $aliases
         );
         $pdf->setAttributes($attr);
-        $pdf->purpose = __('Dumping Data');
+        $pdf->purpose = __('Dumping data');
         $pdf->mysqlReport($sql_query);
 
         return true;
@@ -275,16 +275,16 @@ class ExportPdf extends ExportPlugin
         // getting purpose to show at top
         switch($export_mode) {
         case 'create_table':
-            $purpose = __('Table Structure');
+            $purpose = __('Table structure');
             break;
         case 'triggers':
             $purpose = __('Triggers');
             break;
         case 'create_view':
-            $purpose = __('View Structure');
+            $purpose = __('View structure');
             break;
         case 'stand_in':
-            $purpose = __('Stand In');
+            $purpose = __('Stand in');
         } // end switch
 
         $attr = array(

@@ -15268,7 +15268,7 @@ msgstr "concurrent_insert 0-a konfiqurasiya edilib"
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "Cədvəl strukturu"
 
 #~ msgid "Show data row(s)."

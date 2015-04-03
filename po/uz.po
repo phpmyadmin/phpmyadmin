@@ -17785,7 +17785,7 @@ msgstr "Максимал уланишлар сони "
 
 #, fuzzy
 #~| msgid "Database for user"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "Фойдаланувчи учун маълумотлар базаси"
 
 #, fuzzy

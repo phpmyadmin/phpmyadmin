@@ -16361,7 +16361,7 @@ msgstr ""
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "بنية الجدول"
 
 #, fuzzy

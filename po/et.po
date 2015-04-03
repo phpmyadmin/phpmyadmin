@@ -15894,7 +15894,7 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgid "Show versions"
 #~ msgstr "Näita versioone"
 
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "Tabeli struktuur"
 
 #~ msgid "Show data row(s)."

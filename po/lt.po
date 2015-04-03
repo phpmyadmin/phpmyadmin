@@ -16887,7 +16887,7 @@ msgstr "MyISAM concurrent įterpimai"
 
 #, fuzzy
 #~| msgid "Database for user"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "Vartotojo duomenų bazė"
 
 #, fuzzy

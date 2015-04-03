@@ -16506,7 +16506,7 @@ msgstr "concurrent_insert je postavljeno na 0"
 
 #, fuzzy
 #~| msgid "Database for user"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "Baza za korisnika"
 
 #, fuzzy

@@ -16684,7 +16684,7 @@ msgstr "ХИ. давхацсан холболтууд"
 
 #, fuzzy
 #~| msgid "Database for user"
-#~ msgid "Table Structure"
+#~ msgid "Table structure"
 #~ msgstr "Хэрэглэгчийн өгөгдлийн сан"
 
 #, fuzzy
