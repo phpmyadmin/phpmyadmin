@@ -15973,7 +15973,7 @@ msgstr ""
 # మొదటి అనువాదము
 #, fuzzy
 #~| msgid "Database"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "డేటాబేస్"
 
 #, fuzzy

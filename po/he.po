@@ -16242,7 +16242,7 @@ msgstr ""
 
 #, fuzzy
 #~| msgid "Databases"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "מאגרי נתונים"
 
 #, fuzzy

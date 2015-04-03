@@ -16302,7 +16302,7 @@ msgstr "concurrent_insert ถูกตั้งค่าไว้ที่ 0"
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "โครงสร้างของตาราง"
 
 #, fuzzy

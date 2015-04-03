@@ -16232,7 +16232,7 @@ msgstr "concurrent_insert e 0"
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "Структура на таблица"
 
 #~ msgid "Show data row(s)."

@@ -16848,7 +16848,7 @@ msgstr "макс. истовремених веза"
 
 #, fuzzy
 #~| msgid "Database for user"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "База за корисника"
 
 #, fuzzy

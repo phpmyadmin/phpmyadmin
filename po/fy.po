@@ -14816,7 +14816,7 @@ msgstr ""
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "Tabelstruktuer"
 
 #, fuzzy

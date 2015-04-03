@@ -16538,7 +16538,7 @@ msgstr ""
 
 #, fuzzy
 #~| msgid "Databases"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "База на податоци"
 
 #, fuzzy

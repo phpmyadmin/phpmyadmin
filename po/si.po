@@ -16148,7 +16148,7 @@ msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "වගු සැකිල්ල"
 
 #~ msgid "Show data row(s)."

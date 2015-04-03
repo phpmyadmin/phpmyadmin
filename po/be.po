@@ -16962,7 +16962,7 @@ msgstr "максымум адначасовых злучэньняў"
 
 #, fuzzy
 #~| msgid "Database for user"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "База дадзеных для карыстальніка"
 
 #, fuzzy

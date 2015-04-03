@@ -16681,7 +16681,7 @@ msgstr "concurrent_insert 0 पर सेट है"
 
 #, fuzzy
 #~| msgid "Database for user"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "यूसर के लिए डेटाबेस"
 
 #, fuzzy

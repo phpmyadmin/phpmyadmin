@@ -16106,7 +16106,7 @@ msgstr "A concurrent_insert 0-ra van állítva"
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "Táblaszerkezet"
 
 #~ msgid "Show data row(s)."

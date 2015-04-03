@@ -16173,7 +16173,7 @@ msgstr "concurrent_insert এর জন্য ০ নির্ধারন ক�
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "টেবলের জন্য টেবলের গঠন"
 
 #, fuzzy

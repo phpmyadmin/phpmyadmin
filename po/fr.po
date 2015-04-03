@@ -16174,7 +16174,7 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "Structure de table"
 
 #~ msgid "Show data row(s)."

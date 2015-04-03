@@ -16957,7 +16957,7 @@ msgstr "najv. uzastopnih veza"
 
 #, fuzzy
 #~| msgid "Database for user"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "Baza podataka za korisnika"
 
 #, fuzzy

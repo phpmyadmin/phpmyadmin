@@ -15511,7 +15511,7 @@ msgstr ""
 #~ msgid "Delete tracking data for this table"
 #~ msgstr "Dele datos traciante pro iste tabula"
 
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "Structura de Tabella"
 
 #~ msgid "Show data row(s)."

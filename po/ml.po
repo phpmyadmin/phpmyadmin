@@ -15040,7 +15040,7 @@ msgstr ""
 
 #, fuzzy
 #~| msgid "Database comment"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "വിവരശേഖര അഭിപ്രായം: "
 
 #, fuzzy

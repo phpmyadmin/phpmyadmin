@@ -16018,7 +16018,7 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ msgid "Show versions"
 #~ msgstr "Sürümleri göster"
 
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "Tablo Yapısı"
 
 #~ msgid "Show data row(s)."

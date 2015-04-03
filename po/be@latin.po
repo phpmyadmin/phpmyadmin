@@ -17033,7 +17033,7 @@ msgstr "maksymum adnačasovych złučeńniaŭ"
 
 #, fuzzy
 #~| msgid "Database for user"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "Baza dadzienych dla karystalnika"
 
 #, fuzzy

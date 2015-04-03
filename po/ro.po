@@ -16869,7 +16869,7 @@ msgstr "concurrent_insert este setat cu 0"
 
 #, fuzzy
 #~| msgid "Database for user"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "Bază de date pentru utilizatorul"
 
 #~ msgid "Show data row(s)."

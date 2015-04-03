@@ -16355,7 +16355,7 @@ msgstr ""
 
 #, fuzzy
 #~| msgid "Databases"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "Datu-baseak"
 
 #, fuzzy

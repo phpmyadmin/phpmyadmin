@@ -16436,7 +16436,7 @@ msgstr ""
 
 #, fuzzy
 #~| msgid "Databases"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "Cronfeydd Data"
 
 #, fuzzy

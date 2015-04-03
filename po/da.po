@@ -15992,7 +15992,7 @@ msgstr "concurrent_insert er sat til 0"
 
 #, fuzzy
 #~| msgid "Table structure"
-#~ msgid "Table structure"
+#~ msgid "Table Structure"
 #~ msgstr "Tabel-struktur"
 
 #~ msgid "Show data row(s)."
