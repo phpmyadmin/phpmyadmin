@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:56-0400\n"
-"PO-Revision-Date: 2015-03-26 16:03+0200\n"
+"PO-Revision-Date: 2015-04-03 05:25+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -683,7 +683,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Uvažanje je uspešno zaključeno, izvedenih je bilo %d poizvedb."
 
 #: import.php:685
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -691,8 +691,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Časovna omejitev skripta je potekla; če želite končati uvoz, prosimo, "
-"ponovno pošljite isto datoteko in uvoz se bo nadaljeval."
+"Časovna omejitev skripta je potekla; če želite končati uvoz, prosimo, %"
+"sponovno pošljite isto datoteko%s in uvoz se bo nadaljeval."
 
 #: import.php:695
 msgid ""
@@ -3045,10 +3045,9 @@ msgstr ""
 "nastavite za stalno, si oglejte nastavitve."
 
 #: libraries/Console.class.php:320
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Preklopi na kopirano tabelo"
+msgstr "Preklopi na temno emo"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
 #: libraries/DisplayResults.class.php:2143
@@ -7868,13 +7867,12 @@ msgstr "Število tabel:"
 
 #: libraries/db_designer.lib.php:590
 msgid "Toggle"
-msgstr ""
+msgstr "Preklopi"
 
 #: libraries/db_designer.lib.php:613
-#, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
-msgstr "Zgradba tabele"
+msgstr "Ogled zgradbe tabele"
 
 #: libraries/db_designer.lib.php:869
 msgid "Delete relation"
@@ -10440,22 +10438,19 @@ msgid "Data Dictionary"
 msgstr "Slovar podatkov"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "nič od zgoraj"
+msgstr "Vrstni red tabel"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Naraščajoče"
+msgstr "Ime (Naraščajoče)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Padajoče"
+msgstr "Ime (Padajoče)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:68
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:81
