@@ -276,7 +276,8 @@ function PMA_current_version(data)
                 /* Security update */
                 htmlClass = 'error';
             }
-            $('#maincontainer').after('<div class="' + htmlClass + '">' + message + '</div>');
+            $('#newer_version_notice').remove();
+            $('#maincontainer').after('<div id="newer_version_notice" class="' + htmlClass + '">' + message + '</div>');
         }
         if (latest === current) {
             version_information_message = ' (' + PMA_messages.strUpToDate + ')';
