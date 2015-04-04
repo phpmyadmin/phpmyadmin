@@ -21,6 +21,7 @@ phpMyAdmin - ChangeLog
 4.4.2.0 (not yet released)
 - bug #4835 PMA_hideShowConnection not called after submit_num_fields
 - bug #4836 Server warning after moving from console to direct clicks
+- bug #4837 Duplicate new version notification when using the "Back" button 
 
 4.4.1.0 (not yet released)
 - bug #4813 MySQL 5.7.6 and the Users menu tab
