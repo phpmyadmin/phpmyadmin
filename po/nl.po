@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-03 05:47-0400\n"
-"PO-Revision-Date: 2015-04-01 09:21+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"PO-Revision-Date: 2015-04-04 20:24+0200\n"
+"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +44,7 @@ msgstr "Database %1$s is aangemaakt."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment"
-msgstr "Database-opmerking:"
+msgstr "Database commentaar"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -1863,10 +1863,10 @@ msgid "No auto-saved query"
 msgstr "Geen automatisch opgeslagen query"
 
 #: js/messages.php:310
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Variabelen"
+msgstr "Variabele %d:"
 
 #: js/messages.php:313 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -3068,10 +3068,9 @@ msgstr ""
 "Enter. Om dit permanent te maken, bekijk het instellingenmenu."
 
 #: libraries/Console.class.php:313
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Wissel naar de gekopieerde tabel"
+msgstr "Wissel naar donker thema"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1356
 #: libraries/DisplayResults.class.php:2146
@@ -5603,16 +5602,14 @@ msgid "Default table tab"
 msgstr "Standaard tabel tabblad"
 
 #: libraries/config/messages.inc.php:94
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Aanhalingstekens (`) bij tabel- en kolomnamen gebruiken"
+msgstr "Automatisch aanvullen van tabel- en kolomnamen in de SQL queries."
 
 #: libraries/config/messages.inc.php:95
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Aanhalingstekens (`) bij tabel- en kolomnamen gebruiken"
+msgstr "Automatisch aanvullen van tabel- en kolomnamen inschakelen"
 
 #: libraries/config/messages.inc.php:97
 msgid "Whether the table structure actions should be hidden."
@@ -7944,13 +7941,12 @@ msgstr "Aantal tabellen:"
 
 #: libraries/db_designer.lib.php:591
 msgid "Toggle"
-msgstr ""
+msgstr "Schakel"
 
 #: libraries/db_designer.lib.php:614
-#, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
-msgstr "Tabelstructuur"
+msgstr "Zie tabelstructuur"
 
 #: libraries/db_designer.lib.php:870
 msgid "Delete relation"
@@ -9648,7 +9644,7 @@ msgstr "Geen gedeeltelijke afhankelijkheden gevonden!"
 
 #: libraries/operations.lib.php:74
 msgid "Rename database to"
-msgstr "Hernoem database naar:"
+msgstr "Hernoem database naar"
 
 #: libraries/operations.lib.php:106
 #, php-format
@@ -9680,7 +9676,7 @@ msgstr "Alleen gegevens"
 
 #: libraries/operations.lib.php:174
 msgid "Copy database to"
-msgstr "Kopiëer database naar:"
+msgstr "Kopieer database naar"
 
 #: libraries/operations.lib.php:185
 msgid "CREATE DATABASE before copying"
@@ -9704,7 +9700,7 @@ msgstr "(apart)"
 
 #: libraries/operations.lib.php:621
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Verplaats tabel naar (database<b>.</b>tabel):"
+msgstr "Verplaats tabel naar (database<b>.</b>tabel)"
 
 #: libraries/operations.lib.php:732
 msgid "Table options"
@@ -9724,7 +9720,7 @@ msgstr "Opslag-engine"
 
 #: libraries/operations.lib.php:955
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Tabel kopiëren naar (database<b>.</b>tabel):"
+msgstr "Tabel kopiëren naar (database<b>.</b>tabel)"
 
 #: libraries/operations.lib.php:1010
 msgid "Switch to copied table"
@@ -10057,6 +10053,7 @@ msgstr "Stand-in structuur voor view"
 #: libraries/plugins/export/ExportJson.class.php:70
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
+"Uitvoer in prettig leesbaar JSON (Gebruik een voor mensen leesbaar formaat)"
 
 #: libraries/plugins/export/ExportLatex.class.php:43
 msgid "Content of table @TABLE@"
@@ -10162,22 +10159,19 @@ msgid "Report title:"
 msgstr "Rapporttitel:"
 
 #: libraries/plugins/export/ExportPdf.class.php:230
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "Gegevens worden geëxporteerd voor tabel"
+msgstr "Dumpen data"
 
 #: libraries/plugins/export/ExportPdf.class.php:284
-#, fuzzy
 #| msgid "structure"
 msgid "View structure"
-msgstr "structuur"
+msgstr "View structuur"
 
 #: libraries/plugins/export/ExportPdf.class.php:287
-#, fuzzy
 #| msgid "and then"
 msgid "Stand in"
-msgstr "en dan"
+msgstr "Staan in"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
@@ -10390,13 +10384,12 @@ msgstr "Tabel:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:118
 msgid "Purpose:"
-msgstr ""
+msgstr "Doel:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:494
-#, fuzzy
 #| msgid "MIME type"
 msgid "MIME"
-msgstr "MIME-type"
+msgstr "MIME"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -10573,22 +10566,19 @@ msgid "Data Dictionary"
 msgstr "Data Woordenboek"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "geen van bovenstaande opties"
+msgstr "Volgorde van de tabellen"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Oplopend"
+msgstr "Naam (Oplopend)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Aflopend"
+msgstr "Naam (Aflopend)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:68
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:81
