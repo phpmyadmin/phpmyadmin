@@ -145,7 +145,7 @@ function PMA_printJsValue($key, $value)
  */
 function PMA_getJsValueForFormValidation($key, $value, $addOn, $comma)
 {
-    $result = $key . ' : ';
+    $result = $key . ': ';
     if ($addOn) {
         $result .= '$.validator.format(';
     }
@@ -154,7 +154,7 @@ function PMA_getJsValueForFormValidation($key, $value, $addOn, $comma)
         $result .= ')';
     }
     if ($comma) {
-        $result .= ',';
+        $result .= ', ';
     }
     return $result;
 }
