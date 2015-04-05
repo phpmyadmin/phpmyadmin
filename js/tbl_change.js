@@ -182,7 +182,12 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
             || target.value === 'AES_ENCRYPT'
             || target.value === 'MD5') {
         $('#' + target.id).rules("add", {
-            validationFunctionForFuns : $this_input
+            validationFunctionForFuns: {
+                param: $this_input,
+                depends: function() {
+                    return checkForCheckbox(multi_edit);
+                }
+            }
         });
     }
 
@@ -207,36 +212,80 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
         // validate for date time
         if (theType == "datetime" || theType == "time" || theType == "date" || theType == "timestamp") {
             $this_input.rules("add", {
-                validationFunctionForDateTime : theType
+                validationFunctionForDateTime: {
+                    param: theType,
+                    depends: function() {
+                        return checkForCheckbox(multi_edit);
+                    }
+                }
             });
         }
         //validation for integer type
         if ($this_input.data('type') === 'INT') {
-            var min = $this_input.attr('min');
-            var max = $this_input.attr('max');
+            var mini = parseInt($this_input.attr('min'));
+            var maxi = parseInt($this_input.attr('max'));
             $this_input.rules("add", {
-                maxlength : max,
-                minlength : min
+                number: {
+                    param : true,
+                    depends: function() {
+                        return checkForCheckbox(multi_edit);
+                    }
+                },
+                min: {
+                    param: mini,
+                    depends: function() {
+                        if (isNaN($this_input.val())) return false;
+                        else return checkForCheckbox(multi_edit);
+                    }
+                },
+                max: {
+                    param: maxi,
+                    depends: function() {
+                        if (isNaN($this_input.val())) return false;
+                        else return checkForCheckbox(multi_edit);
+                    }
+                }
             });
             //validation for CHAR types
         } else if ($this_input.data('type') === 'CHAR') {
             var maxlen = $this_input.data('maxlength');
             if (maxlen <=4) {
-                maxlen=charExceptionHandling
+                maxlen=charExceptionHandling;
             }
             $this_input.rules("add", {
-                maxlength : maxlen
+                maxlength: {
+                    param: maxlen,
+                    depends: function() {
+                        return checkForCheckbox(multi_edit);
+                    }
+                }
             });
             // validate binary & blob types
         } else if ($this_input.data('type') === 'HEX') {
             $this_input.rules("add", {
-                validationFunctionForHex : true
+                validationFunctionForHex: {
+                    param: true,
+                    depends: function() {
+                        return checkForCheckbox(multi_edit);
+                    }
+                }
             });
         }
         if (removeOnclick === 1) $this_input.removeAttr('onchange');
     }
 }
- /* End of fields validation*/
+/* End of fields validation*/
+
+/**
+ * To check whether insert section is ignored or not
+ */
+function checkForCheckbox(multi_edit)
+{
+    if($("#insert_ignore_"+multi_edit).length) {
+        return $("#insert_ignore_"+multi_edit).is(":unchecked");
+    }
+    return true;
+}
 
 /**
  * Applies the selected function to all rows to be inserted.
