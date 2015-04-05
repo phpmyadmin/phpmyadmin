@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-04-03 05:47-0400\n"
+"POT-Creation-Date: 2015-04-05 05:49-0400\n"
 "PO-Revision-Date: 2014-12-24 03:16+0200\n"
 "Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -395,7 +395,7 @@ msgid "Action"
 msgstr "Действие"
 
 #: db_tracking.php:131 libraries/navigation/Navigation.class.php:213
-#: libraries/tracking.lib.php:280 tbl_change.php:158
+#: libraries/tracking.lib.php:280 tbl_change.php:160
 msgid "Show"
 msgstr "Показать"
 
@@ -1874,7 +1874,7 @@ msgstr "Число %d не является правильным номером 
 
 #: js/messages.php:308 libraries/TableSearch.class.php:927
 #: libraries/TableSearch.class.php:1259 libraries/sql.lib.php:243
-#: tbl_change.php:153
+#: tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "Обзор внешних значений"
 
@@ -2808,6 +2808,117 @@ msgstr "Минута"
 #: js/messages.php:710
 msgid "Second"
 msgstr "Секунда"
+
+#: js/messages.php:721
+msgid "This field is required"
+msgstr ""
+
+#: js/messages.php:722
+#, fuzzy
+#| msgid "Use text field"
+msgid "Please fix this field"
+msgstr "Использовать текстовое поле"
+
+#: js/messages.php:723
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid email address"
+msgstr "Введите правильное имя страницы"
+
+#: js/messages.php:724
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid URL"
+msgstr "Пожалуйста, введите правильное числовое значение!"
+
+#: js/messages.php:725
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date"
+msgstr "Введите правильное имя страницы"
+
+#: js/messages.php:726
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date ( ISO )"
+msgstr "Введите правильное имя страницы"
+
+#: js/messages.php:727
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid number"
+msgstr "Пожалуйста, введите правильное числовое значение!"
+
+#: js/messages.php:728
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid credit card number"
+msgstr "Пожалуйста, введите правильное числовое значение!"
+
+#: js/messages.php:729
+#, fuzzy
+#| msgid "Please enter a valid length!"
+msgid "Please enter only digits"
+msgstr "Пожалуйста, введите правильную длину!"
+
+#: js/messages.php:730
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter the same value again"
+msgstr "Введите правильное имя страницы"
+
+#: js/messages.php:731
+#, fuzzy
+#| msgid "Please enter correct captcha!"
+msgid "Please enter no more than {0} characters"
+msgstr "Пожалуйста, введите правильное значение captcha!"
+
+#: js/messages.php:732
+#, fuzzy
+#| msgid "Please enter correct captcha!"
+msgid "Please enter at least {0} characters"
+msgstr "Пожалуйста, введите правильное значение captcha!"
+
+#: js/messages.php:733
+msgid "Please enter a value between {0} and {1} characters long"
+msgstr ""
+
+#: js/messages.php:734
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a value between {0} and {1}"
+msgstr "Введите правильное имя страницы"
+
+#: js/messages.php:735
+#, fuzzy
+#| msgid "Please enter a valid length!"
+msgid "Please enter a value less than or equal to {0}"
+msgstr "Пожалуйста, введите правильную длину!"
+
+#: js/messages.php:736
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a value greater than or equal to {0}"
+msgstr "Введите правильное имя страницы"
+
+#: js/messages.php:738
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date or time"
+msgstr "Введите правильное имя страницы"
+
+#: js/messages.php:739
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid HEX input"
+msgstr "Пожалуйста, введите правильное числовое значение!"
+
+#: js/messages.php:740 libraries/Message.class.php:199
+#: libraries/Util.class.php:624 libraries/core.lib.php:245
+#: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1166
+#: tbl_operations.php:202 view_operations.php:63
+msgid "Error"
+msgstr "Ошибка"
 
 #: libraries/Advisor.class.php:79
 #, php-format
@@ -3756,7 +3867,7 @@ msgstr "Операции"
 
 #: libraries/Menu.class.php:376 libraries/Menu.class.php:484
 #: libraries/Util.class.php:4159 libraries/Util.class.php:4173
-#: libraries/relation.lib.php:248
+#: libraries/relation.lib.php:252
 msgid "Tracking"
 msgstr "Слежение"
 
@@ -3843,13 +3954,6 @@ msgstr "Расширения"
 #: libraries/Menu.class.php:612 libraries/Util.class.php:4145
 msgid "Engines"
 msgstr "Типы таблиц"
-
-#: libraries/Message.class.php:199 libraries/Util.class.php:624
-#: libraries/core.lib.php:245 libraries/import.lib.php:183
-#: libraries/insert_edit.lib.php:1166 tbl_operations.php:202
-#: view_operations.php:63
-msgid "Error"
-msgstr "Ошибка"
 
 #: libraries/Message.class.php:254
 #, php-format
@@ -10944,78 +11048,78 @@ msgstr "Доступно"
 msgid "Configuration of pmadb… "
 msgstr "Конфигурация pmadb… "
 
-#: libraries/relation.lib.php:101 libraries/relation.lib.php:128
+#: libraries/relation.lib.php:101 libraries/relation.lib.php:132
 msgid "General relation features"
 msgstr "Основные возможности связей"
 
-#: libraries/relation.lib.php:139
+#: libraries/relation.lib.php:143
 msgid "Display Features"
 msgstr "Показать возможности"
 
-#: libraries/relation.lib.php:156
+#: libraries/relation.lib.php:160
 msgid "Designer and creation of PDFs"
 msgstr "Дизайнер и создание PDF"
 
-#: libraries/relation.lib.php:167
+#: libraries/relation.lib.php:171
 msgid "Displaying Column Comments"
 msgstr "Отображать комментарии столбцов"
 
-#: libraries/relation.lib.php:173
+#: libraries/relation.lib.php:177
 msgid "Browser transformation"
 msgstr "Преобразование"
 
-#: libraries/relation.lib.php:180
+#: libraries/relation.lib.php:184
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
 "Необходимо обновить таблицу column_info. Детали смотрите в документации. "
 
-#: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:362
+#: libraries/relation.lib.php:197 libraries/sql_query_form.lib.php:362
 msgid "Bookmarked SQL query"
 msgstr "Созданные закладки"
 
-#: libraries/relation.lib.php:204
+#: libraries/relation.lib.php:208
 msgid "SQL history"
 msgstr "История SQL-запросов"
 
-#: libraries/relation.lib.php:215
+#: libraries/relation.lib.php:219
 msgid "Persistent recently used tables"
 msgstr "Недавно использованные таблицы"
 
-#: libraries/relation.lib.php:226
+#: libraries/relation.lib.php:230
 #, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
 msgstr "Недавно использованные таблицы"
 
-#: libraries/relation.lib.php:237
+#: libraries/relation.lib.php:241
 msgid "Persistent tables' UI preferences"
 msgstr "Настройки интерфейса часто используемых таблиц"
 
-#: libraries/relation.lib.php:259
+#: libraries/relation.lib.php:263
 msgid "User preferences"
 msgstr "Пользовательские настройки"
 
-#: libraries/relation.lib.php:276
+#: libraries/relation.lib.php:280
 msgid "Configurable menus"
 msgstr "Настраиваемые меню"
 
-#: libraries/relation.lib.php:287
+#: libraries/relation.lib.php:291
 msgid "Hide/show navigation items"
 msgstr "Скрыть/показать пункты навигации"
 
-#: libraries/relation.lib.php:298
+#: libraries/relation.lib.php:302
 msgid "Saving Query-By-Example searches"
 msgstr "Сохраняются Query-By-Example"
 
-#: libraries/relation.lib.php:309
+#: libraries/relation.lib.php:313
 msgid "Managing Central list of columns"
 msgstr "Управление центральным списком столбцов"
 
-#: libraries/relation.lib.php:317
+#: libraries/relation.lib.php:321
 msgid "Quick steps to setup advanced features:"
 msgstr "Шаги необходимые для установки дополнительных функций:"
 
-#: libraries/relation.lib.php:323
+#: libraries/relation.lib.php:327
 #, fuzzy, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
@@ -11024,11 +11128,11 @@ msgstr ""
 "Создайте необходимые таблицы с помощью скрипта <code>examples/create_tables."
 "sql</code>."
 
-#: libraries/relation.lib.php:331
+#: libraries/relation.lib.php:335
 msgid "Create a pma user and give access to these tables."
 msgstr "Создайте пользователя pma и предоставьте доступ к этим таблицам."
 
-#: libraries/relation.lib.php:336
+#: libraries/relation.lib.php:340
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -11036,22 +11140,37 @@ msgstr ""
 "Подключите дополнительные функции в конфигурационном файле (<code>config.inc."
 "php</code>), начните с примера в <code>config.sample.inc.php</code>."
 
-#: libraries/relation.lib.php:344
+#: libraries/relation.lib.php:348
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Перезайдите в phpMyAdmin, чтобы загрузить обновленный конфигурационный файл."
 
-#: libraries/relation.lib.php:1687
+#: libraries/relation.lib.php:1691
 msgid "no description"
 msgstr "нет описания"
 
-#: libraries/relation.lib.php:1975
+#: libraries/relation.lib.php:1890
+msgid ""
+"You do not have necessary privileges to create a database named "
+"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"phpMyAdmin configuration storage there."
+msgstr ""
+
+#: libraries/relation.lib.php:2005
+#, fuzzy, php-format
+#| msgid "Missing phpMyAdmin configuration storage tables"
+msgid ""
+"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"configuration storage there."
+msgstr "Отсутствие таблиц хранения конфигурации phpMyAdmin"
+
+#: libraries/relation.lib.php:2013
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "%sСоздать%s хранилище конфигурации phpMyAdmin в текущей базе данных."
 
-#: libraries/relation.lib.php:1982
+#: libraries/relation.lib.php:2021
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."

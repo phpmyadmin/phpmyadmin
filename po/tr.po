@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-04-03 05:47-0400\n"
+"POT-Creation-Date: 2015-04-05 05:49-0400\n"
 "PO-Revision-Date: 2015-04-03 19:11+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -388,7 +388,7 @@ msgid "Action"
 msgstr "Eylem"
 
 #: db_tracking.php:131 libraries/navigation/Navigation.class.php:213
-#: libraries/tracking.lib.php:280 tbl_change.php:158
+#: libraries/tracking.lib.php:280 tbl_change.php:160
 msgid "Show"
 msgstr "Göster"
 
@@ -1843,7 +1843,7 @@ msgstr "%d geçerli bir satır sayısı değil."
 
 #: js/messages.php:308 libraries/TableSearch.class.php:927
 #: libraries/TableSearch.class.php:1259 libraries/sql.lib.php:243
-#: tbl_change.php:153
+#: tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "Dış değerlere gözat"
 
@@ -2770,6 +2770,117 @@ msgstr "Dakika"
 #: js/messages.php:710
 msgid "Second"
 msgstr "Saniye"
+
+#: js/messages.php:721
+msgid "This field is required"
+msgstr ""
+
+#: js/messages.php:722
+#, fuzzy
+#| msgid "Use text field"
+msgid "Please fix this field"
+msgstr "Metin alanını kullan"
+
+#: js/messages.php:723
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid email address"
+msgstr "Lütfen geçerli bir sayfa adı girin"
+
+#: js/messages.php:724
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid URL"
+msgstr "Lütfen geçerli bir numara girin!"
+
+#: js/messages.php:725
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date"
+msgstr "Lütfen geçerli bir sayfa adı girin"
+
+#: js/messages.php:726
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date ( ISO )"
+msgstr "Lütfen geçerli bir sayfa adı girin"
+
+#: js/messages.php:727
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid number"
+msgstr "Lütfen geçerli bir numara girin!"
+
+#: js/messages.php:728
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid credit card number"
+msgstr "Lütfen geçerli bir numara girin!"
+
+#: js/messages.php:729
+#, fuzzy
+#| msgid "Please enter a valid length!"
+msgid "Please enter only digits"
+msgstr "Lütfen geçerli bir uzunluk girin!"
+
+#: js/messages.php:730
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter the same value again"
+msgstr "Lütfen geçerli bir sayfa adı girin"
+
+#: js/messages.php:731
+#, fuzzy
+#| msgid "Please enter correct captcha!"
+msgid "Please enter no more than {0} characters"
+msgstr "Lütfen doğru captcha'yı girin!"
+
+#: js/messages.php:732
+#, fuzzy
+#| msgid "Please enter correct captcha!"
+msgid "Please enter at least {0} characters"
+msgstr "Lütfen doğru captcha'yı girin!"
+
+#: js/messages.php:733
+msgid "Please enter a value between {0} and {1} characters long"
+msgstr ""
+
+#: js/messages.php:734
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a value between {0} and {1}"
+msgstr "Lütfen geçerli bir sayfa adı girin"
+
+#: js/messages.php:735
+#, fuzzy
+#| msgid "Please enter a valid length!"
+msgid "Please enter a value less than or equal to {0}"
+msgstr "Lütfen geçerli bir uzunluk girin!"
+
+#: js/messages.php:736
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a value greater than or equal to {0}"
+msgstr "Lütfen geçerli bir sayfa adı girin"
+
+#: js/messages.php:738
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date or time"
+msgstr "Lütfen geçerli bir sayfa adı girin"
+
+#: js/messages.php:739
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid HEX input"
+msgstr "Lütfen geçerli bir numara girin!"
+
+#: js/messages.php:740 libraries/Message.class.php:199
+#: libraries/Util.class.php:624 libraries/core.lib.php:245
+#: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1166
+#: tbl_operations.php:202 view_operations.php:63
+msgid "Error"
+msgstr "Hata"
 
 #: libraries/Advisor.class.php:79
 #, php-format
@@ -3709,7 +3820,7 @@ msgstr "İşlemler"
 
 #: libraries/Menu.class.php:376 libraries/Menu.class.php:484
 #: libraries/Util.class.php:4159 libraries/Util.class.php:4173
-#: libraries/relation.lib.php:248
+#: libraries/relation.lib.php:252
 msgid "Tracking"
 msgstr "İzleme"
 
@@ -3796,13 +3907,6 @@ msgstr "Eklentiler"
 #: libraries/Menu.class.php:612 libraries/Util.class.php:4145
 msgid "Engines"
 msgstr "Motorlar"
-
-#: libraries/Message.class.php:199 libraries/Util.class.php:624
-#: libraries/core.lib.php:245 libraries/import.lib.php:183
-#: libraries/insert_edit.lib.php:1166 tbl_operations.php:202
-#: view_operations.php:63
-msgid "Error"
-msgstr "Hata"
 
 #: libraries/Message.class.php:254
 #, php-format
@@ -10081,12 +10185,10 @@ msgid "Report title:"
 msgstr "Rapor başlığı:"
 
 #: libraries/plugins/export/ExportPdf.class.php:230
-#| msgid "Dumping data for table"
 msgid "Dumping data"
 msgstr "Veri dökümleniyor"
 
 #: libraries/plugins/export/ExportPdf.class.php:284
-#| msgid "structure"
 msgid "View structure"
 msgstr "Yapıyı göster"
 
@@ -10311,7 +10413,6 @@ msgid "Purpose:"
 msgstr "Amacı:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:494
-#| msgid "MIME type"
 msgid "MIME"
 msgstr "MIME"
 
@@ -10799,86 +10900,86 @@ msgstr "Etkinleştirildi"
 msgid "Configuration of pmadb… "
 msgstr "pmadb yapılandırması... "
 
-#: libraries/relation.lib.php:101 libraries/relation.lib.php:128
+#: libraries/relation.lib.php:101 libraries/relation.lib.php:132
 msgid "General relation features"
 msgstr "Genel bağlantı özellikleri"
 
-#: libraries/relation.lib.php:139
+#: libraries/relation.lib.php:143
 msgid "Display Features"
 msgstr "Özellikleri görüntüleme"
 
-#: libraries/relation.lib.php:156
+#: libraries/relation.lib.php:160
 msgid "Designer and creation of PDFs"
 msgstr "PDF'lerin tasarımcısı ve oluşturulması"
 
-#: libraries/relation.lib.php:167
+#: libraries/relation.lib.php:171
 msgid "Displaying Column Comments"
 msgstr "Sütun Yorumlarını görüntüleme"
 
-#: libraries/relation.lib.php:173
+#: libraries/relation.lib.php:177
 msgid "Browser transformation"
 msgstr "Tarayıcı dönüşümü"
 
-#: libraries/relation.lib.php:180
+#: libraries/relation.lib.php:184
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
 "Lütfen column_info tablonuzun nasıl güncelleneceğini öğrenmek için belgelere "
 "bakın. "
 
-#: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:362
+#: libraries/relation.lib.php:197 libraries/sql_query_form.lib.php:362
 msgid "Bookmarked SQL query"
 msgstr "İşaretlenmiş SQL sorgusu"
 
-#: libraries/relation.lib.php:204
+#: libraries/relation.lib.php:208
 msgid "SQL history"
 msgstr "SQL geçmişi"
 
-#: libraries/relation.lib.php:215
+#: libraries/relation.lib.php:219
 msgid "Persistent recently used tables"
 msgstr "Sürekli son kullanılan tablolar"
 
-#: libraries/relation.lib.php:226
+#: libraries/relation.lib.php:230
 msgid "Persistent favorite tables"
 msgstr "Sürekli sık kullanılan tablolar"
 
-#: libraries/relation.lib.php:237
+#: libraries/relation.lib.php:241
 msgid "Persistent tables' UI preferences"
 msgstr "Sürekli tabloların KA tercihleri"
 
-#: libraries/relation.lib.php:259
+#: libraries/relation.lib.php:263
 msgid "User preferences"
 msgstr "Kullanıcı tercihleri"
 
-#: libraries/relation.lib.php:276
+#: libraries/relation.lib.php:280
 msgid "Configurable menus"
 msgstr "Yapılandırılabilir menüler"
 
-#: libraries/relation.lib.php:287
+#: libraries/relation.lib.php:291
 msgid "Hide/show navigation items"
 msgstr "Gezinti öğelerini gizle/göster"
 
-#: libraries/relation.lib.php:298
+#: libraries/relation.lib.php:302
 msgid "Saving Query-By-Example searches"
 msgstr "Örnekle Sorgulama aramalarını kaydetme"
 
-#: libraries/relation.lib.php:309
+#: libraries/relation.lib.php:313
 msgid "Managing Central list of columns"
 msgstr "Sütunların Merkezi listesi yönetimi"
 
-#: libraries/relation.lib.php:317
+#: libraries/relation.lib.php:321
 msgid "Quick steps to setup advanced features:"
 msgstr "Gelişmiş özellikleri ayarlamak için hızlı adımlar:"
 
-#: libraries/relation.lib.php:323
+#: libraries/relation.lib.php:327
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
 msgstr "Gerekli tabloları <code>%screate_tables.sql</code> ile oluşturun."
 
-#: libraries/relation.lib.php:331
+#: libraries/relation.lib.php:335
 msgid "Create a pma user and give access to these tables."
 msgstr "Pma kullanıcısı oluşturun ve bu tablolara erişim verin."
 
-#: libraries/relation.lib.php:336
+#: libraries/relation.lib.php:340
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -10887,24 +10988,39 @@ msgstr ""
 "etkinleştirin, örneğin <code>config.sample.inc.php</code> dosyasından "
 "başlayarak."
 
-#: libraries/relation.lib.php:344
+#: libraries/relation.lib.php:348
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Güncellenmiş yapılandırma dosyasını yüklemek için phpMyAdmin'e yeniden "
 "oturum açın."
 
-#: libraries/relation.lib.php:1687
+#: libraries/relation.lib.php:1691
 msgid "no description"
 msgstr "Açıklama yok"
 
-#: libraries/relation.lib.php:1975
+#: libraries/relation.lib.php:1890
+msgid ""
+"You do not have necessary privileges to create a database named "
+"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"phpMyAdmin configuration storage there."
+msgstr ""
+
+#: libraries/relation.lib.php:2005
+#, fuzzy, php-format
+#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
+msgid ""
+"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"configuration storage there."
+msgstr "Eksik phpMyAdmin yapılandırma depolama tablolarını %soluştur%s."
+
+#: libraries/relation.lib.php:2013
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 "Şu anki veritabanında phpMyAdmin yapılandırma depolaması %soluşturun%s."
 
-#: libraries/relation.lib.php:1982
+#: libraries/relation.lib.php:2021
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "Eksik phpMyAdmin yapılandırma depolama tablolarını %soluştur%s."

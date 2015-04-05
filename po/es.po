@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-04-03 05:47-0400\n"
+"POT-Creation-Date: 2015-04-05 05:49-0400\n"
 "PO-Revision-Date: 2015-03-05 21:07+0200\n"
 "Last-Translator: Macofe <macofe.languagetool@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -392,7 +392,7 @@ msgid "Action"
 msgstr "Acción"
 
 #: db_tracking.php:131 libraries/navigation/Navigation.class.php:213
-#: libraries/tracking.lib.php:280 tbl_change.php:158
+#: libraries/tracking.lib.php:280 tbl_change.php:160
 msgid "Show"
 msgstr "Mostrar"
 
@@ -1876,7 +1876,7 @@ msgstr "%d no es un número de fila válido."
 
 #: js/messages.php:308 libraries/TableSearch.class.php:927
 #: libraries/TableSearch.class.php:1259 libraries/sql.lib.php:243
-#: tbl_change.php:153
+#: tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "Mostrar los valores foráneos"
 
@@ -2812,6 +2812,117 @@ msgstr "Minuto"
 #: js/messages.php:710
 msgid "Second"
 msgstr "Segundo"
+
+#: js/messages.php:721
+msgid "This field is required"
+msgstr ""
+
+#: js/messages.php:722
+#, fuzzy
+#| msgid "Use text field"
+msgid "Please fix this field"
+msgstr "Use el campo de texto"
+
+#: js/messages.php:723
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid email address"
+msgstr "Introduzca un nombre de página válido"
+
+#: js/messages.php:724
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid URL"
+msgstr "¡Introduzca un número válido!"
+
+#: js/messages.php:725
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date"
+msgstr "Introduzca un nombre de página válido"
+
+#: js/messages.php:726
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date ( ISO )"
+msgstr "Introduzca un nombre de página válido"
+
+#: js/messages.php:727
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid number"
+msgstr "¡Introduzca un número válido!"
+
+#: js/messages.php:728
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid credit card number"
+msgstr "¡Introduzca un número válido!"
+
+#: js/messages.php:729
+#, fuzzy
+#| msgid "Please enter a valid length!"
+msgid "Please enter only digits"
+msgstr "¡Introduzca una longitud válida!"
+
+#: js/messages.php:730
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter the same value again"
+msgstr "Introduzca un nombre de página válido"
+
+#: js/messages.php:731
+#, fuzzy
+#| msgid "Please enter correct captcha!"
+msgid "Please enter no more than {0} characters"
+msgstr "¡Introduzca el captcha correcto!"
+
+#: js/messages.php:732
+#, fuzzy
+#| msgid "Please enter correct captcha!"
+msgid "Please enter at least {0} characters"
+msgstr "¡Introduzca el captcha correcto!"
+
+#: js/messages.php:733
+msgid "Please enter a value between {0} and {1} characters long"
+msgstr ""
+
+#: js/messages.php:734
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a value between {0} and {1}"
+msgstr "Introduzca un nombre de página válido"
+
+#: js/messages.php:735
+#, fuzzy
+#| msgid "Please enter a valid length!"
+msgid "Please enter a value less than or equal to {0}"
+msgstr "¡Introduzca una longitud válida!"
+
+#: js/messages.php:736
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a value greater than or equal to {0}"
+msgstr "Introduzca un nombre de página válido"
+
+#: js/messages.php:738
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date or time"
+msgstr "Introduzca un nombre de página válido"
+
+#: js/messages.php:739
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid HEX input"
+msgstr "¡Introduzca un número válido!"
+
+#: js/messages.php:740 libraries/Message.class.php:199
+#: libraries/Util.class.php:624 libraries/core.lib.php:245
+#: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1166
+#: tbl_operations.php:202 view_operations.php:63
+msgid "Error"
+msgstr "Error"
 
 #: libraries/Advisor.class.php:79
 #, php-format
@@ -3764,7 +3875,7 @@ msgstr "Operaciones"
 
 #: libraries/Menu.class.php:376 libraries/Menu.class.php:484
 #: libraries/Util.class.php:4159 libraries/Util.class.php:4173
-#: libraries/relation.lib.php:248
+#: libraries/relation.lib.php:252
 msgid "Tracking"
 msgstr "Seguimiento"
 
@@ -3851,13 +3962,6 @@ msgstr "Complementos"
 #: libraries/Menu.class.php:612 libraries/Util.class.php:4145
 msgid "Engines"
 msgstr "Motores"
-
-#: libraries/Message.class.php:199 libraries/Util.class.php:624
-#: libraries/core.lib.php:245 libraries/import.lib.php:183
-#: libraries/insert_edit.lib.php:1166 tbl_operations.php:202
-#: view_operations.php:63
-msgid "Error"
-msgstr "Error"
 
 #: libraries/Message.class.php:254
 #, php-format
@@ -10984,84 +11088,84 @@ msgstr "Habilitado"
 msgid "Configuration of pmadb… "
 msgstr "Configuración de pmadb… "
 
-#: libraries/relation.lib.php:101 libraries/relation.lib.php:128
+#: libraries/relation.lib.php:101 libraries/relation.lib.php:132
 msgid "General relation features"
 msgstr "Opciones de relación general"
 
-#: libraries/relation.lib.php:139
+#: libraries/relation.lib.php:143
 msgid "Display Features"
 msgstr "Mostrar las opciones"
 
-#: libraries/relation.lib.php:156
+#: libraries/relation.lib.php:160
 msgid "Designer and creation of PDFs"
 msgstr "Diseño y creación de PDFs"
 
-#: libraries/relation.lib.php:167
+#: libraries/relation.lib.php:171
 msgid "Displaying Column Comments"
 msgstr "Mostrando los comentarios de la columna"
 
-#: libraries/relation.lib.php:173
+#: libraries/relation.lib.php:177
 msgid "Browser transformation"
 msgstr "Transformación del navegador"
 
-#: libraries/relation.lib.php:180
+#: libraries/relation.lib.php:184
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr "Para actualizar su tabla column_info, revise la documentación. "
 
-#: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:362
+#: libraries/relation.lib.php:197 libraries/sql_query_form.lib.php:362
 msgid "Bookmarked SQL query"
 msgstr "Consulta guardada en favoritos"
 
-#: libraries/relation.lib.php:204
+#: libraries/relation.lib.php:208
 msgid "SQL history"
 msgstr "Historial-SQL"
 
-#: libraries/relation.lib.php:215
+#: libraries/relation.lib.php:219
 msgid "Persistent recently used tables"
 msgstr "Tablas persistentes utilizadas recientemente"
 
-#: libraries/relation.lib.php:226
+#: libraries/relation.lib.php:230
 msgid "Persistent favorite tables"
 msgstr "Tablas favoritas usadas recientemente"
 
-#: libraries/relation.lib.php:237
+#: libraries/relation.lib.php:241
 msgid "Persistent tables' UI preferences"
 msgstr "Preferencias de interfaz de tablas persistentes"
 
-#: libraries/relation.lib.php:259
+#: libraries/relation.lib.php:263
 msgid "User preferences"
 msgstr "Preferencias de usuario"
 
-#: libraries/relation.lib.php:276
+#: libraries/relation.lib.php:280
 msgid "Configurable menus"
 msgstr "Menús configurables"
 
-#: libraries/relation.lib.php:287
+#: libraries/relation.lib.php:291
 msgid "Hide/show navigation items"
 msgstr "Ocultar/mostrar elementos de navegación"
 
-#: libraries/relation.lib.php:298
+#: libraries/relation.lib.php:302
 msgid "Saving Query-By-Example searches"
 msgstr "Guardando búsquedas de consulta-con-ejemplo"
 
-#: libraries/relation.lib.php:309
+#: libraries/relation.lib.php:313
 msgid "Managing Central list of columns"
 msgstr "Gestión de la lista central de columnas"
 
-#: libraries/relation.lib.php:317
+#: libraries/relation.lib.php:321
 msgid "Quick steps to setup advanced features:"
 msgstr "Pasos rápidos para configurar funcionalidades avanzadas:"
 
-#: libraries/relation.lib.php:323
+#: libraries/relation.lib.php:327
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
 msgstr "Crear las tablas necesarias con <code>%screate_tables.sql</code>."
 
-#: libraries/relation.lib.php:331
+#: libraries/relation.lib.php:335
 msgid "Create a pma user and give access to these tables."
 msgstr "Crear un usuario pma y permitir acceso a estas tablas."
 
-#: libraries/relation.lib.php:336
+#: libraries/relation.lib.php:340
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -11070,17 +11174,33 @@ msgstr ""
 "(<code>config.inc.php</code>), por ejemplo comenzando desde <code>config."
 "sample.inc.php</code>."
 
-#: libraries/relation.lib.php:344
+#: libraries/relation.lib.php:348
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Inicie sesión en phpMyAdmin nuevamente para cargar el archivo de "
 "configuración actualizado."
 
-#: libraries/relation.lib.php:1687
+#: libraries/relation.lib.php:1691
 msgid "no description"
 msgstr "Sin descripción"
 
-#: libraries/relation.lib.php:1975
+#: libraries/relation.lib.php:1890
+msgid ""
+"You do not have necessary privileges to create a database named "
+"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"phpMyAdmin configuration storage there."
+msgstr ""
+
+#: libraries/relation.lib.php:2005
+#, fuzzy, php-format
+#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
+msgid ""
+"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"configuration storage there."
+msgstr ""
+"%sCree%s las tablas en las que se guarda la configuración de phpMyAdmin."
+
+#: libraries/relation.lib.php:2013
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
@@ -11088,7 +11208,7 @@ msgstr ""
 "%sCrear%s las tablas de almacenamiento de configuración de phpMyAdmin en la "
 "base de datos actual."
 
-#: libraries/relation.lib.php:1982
+#: libraries/relation.lib.php:2021
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-04-03 05:47-0400\n"
+"POT-Creation-Date: 2015-04-05 05:49-0400\n"
 "PO-Revision-Date: 2015-01-07 01:02+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -390,7 +390,7 @@ msgid "Action"
 msgstr "Veprimi"
 
 #: db_tracking.php:131 libraries/navigation/Navigation.class.php:213
-#: libraries/tracking.lib.php:280 tbl_change.php:158
+#: libraries/tracking.lib.php:280 tbl_change.php:160
 msgid "Show"
 msgstr "Shfaq"
 
@@ -1891,7 +1891,7 @@ msgstr "%d nuk është numër i vlefshëm radhe."
 
 #: js/messages.php:308 libraries/TableSearch.class.php:927
 #: libraries/TableSearch.class.php:1259 libraries/sql.lib.php:243
-#: tbl_change.php:153
+#: tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "Shfleto vlerat e huaja"
 
@@ -2829,6 +2829,117 @@ msgstr "Minutë"
 #: js/messages.php:710
 msgid "Second"
 msgstr "Dytësor"
+
+#: js/messages.php:721
+msgid "This field is required"
+msgstr ""
+
+#: js/messages.php:722
+#, fuzzy
+#| msgid "Use text field"
+msgid "Please fix this field"
+msgstr "Përdor fushën e tekstit"
+
+#: js/messages.php:723
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid email address"
+msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+
+#: js/messages.php:724
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid URL"
+msgstr "Ju lutem, fut një numër të vlefshëm!"
+
+#: js/messages.php:725
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date"
+msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+
+#: js/messages.php:726
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date ( ISO )"
+msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+
+#: js/messages.php:727
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid number"
+msgstr "Ju lutem, fut një numër të vlefshëm!"
+
+#: js/messages.php:728
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid credit card number"
+msgstr "Ju lutem, fut një numër të vlefshëm!"
+
+#: js/messages.php:729
+#, fuzzy
+#| msgid "Please enter a valid length!"
+msgid "Please enter only digits"
+msgstr "Ju lutem, fut një gjatësi të vlefshme!"
+
+#: js/messages.php:730
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter the same value again"
+msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+
+#: js/messages.php:731
+#, fuzzy
+#| msgid "Please enter correct captcha!"
+msgid "Please enter no more than {0} characters"
+msgstr "Ju lutem, fut një captcha të saktë!"
+
+#: js/messages.php:732
+#, fuzzy
+#| msgid "Please enter correct captcha!"
+msgid "Please enter at least {0} characters"
+msgstr "Ju lutem, fut një captcha të saktë!"
+
+#: js/messages.php:733
+msgid "Please enter a value between {0} and {1} characters long"
+msgstr ""
+
+#: js/messages.php:734
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a value between {0} and {1}"
+msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+
+#: js/messages.php:735
+#, fuzzy
+#| msgid "Please enter a valid length!"
+msgid "Please enter a value less than or equal to {0}"
+msgstr "Ju lutem, fut një gjatësi të vlefshme!"
+
+#: js/messages.php:736
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a value greater than or equal to {0}"
+msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+
+#: js/messages.php:738
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date or time"
+msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+
+#: js/messages.php:739
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid HEX input"
+msgstr "Ju lutem, fut një numër të vlefshëm!"
+
+#: js/messages.php:740 libraries/Message.class.php:199
+#: libraries/Util.class.php:624 libraries/core.lib.php:245
+#: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1166
+#: tbl_operations.php:202 view_operations.php:63
+msgid "Error"
+msgstr "Gabim"
 
 #: libraries/Advisor.class.php:79
 #, php-format
@@ -3773,7 +3884,7 @@ msgstr "Veprime"
 
 #: libraries/Menu.class.php:376 libraries/Menu.class.php:484
 #: libraries/Util.class.php:4159 libraries/Util.class.php:4173
-#: libraries/relation.lib.php:248
+#: libraries/relation.lib.php:252
 msgid "Tracking"
 msgstr "Gjurmim"
 
@@ -3860,13 +3971,6 @@ msgstr "Shtojcat (plugins)"
 #: libraries/Menu.class.php:612 libraries/Util.class.php:4145
 msgid "Engines"
 msgstr "Makinat"
-
-#: libraries/Message.class.php:199 libraries/Util.class.php:624
-#: libraries/core.lib.php:245 libraries/import.lib.php:183
-#: libraries/insert_edit.lib.php:1166 tbl_operations.php:202
-#: view_operations.php:63
-msgid "Error"
-msgstr "Gabim"
 
 #: libraries/Message.class.php:254
 #, php-format
@@ -10961,86 +11065,86 @@ msgstr "Aftëso"
 msgid "Configuration of pmadb… "
 msgstr "Konfigurimi i pmadb… "
 
-#: libraries/relation.lib.php:101 libraries/relation.lib.php:128
+#: libraries/relation.lib.php:101 libraries/relation.lib.php:132
 msgid "General relation features"
 msgstr "Tipari i relacionit të përgjithshëm"
 
-#: libraries/relation.lib.php:139
+#: libraries/relation.lib.php:143
 msgid "Display Features"
 msgstr "Shfaq tiparet"
 
-#: libraries/relation.lib.php:156
+#: libraries/relation.lib.php:160
 msgid "Designer and creation of PDFs"
 msgstr "Dizajner dhe krijim i PDF-së"
 
-#: libraries/relation.lib.php:167
+#: libraries/relation.lib.php:171
 msgid "Displaying Column Comments"
 msgstr "Shfaq komentet e kolonave"
 
-#: libraries/relation.lib.php:173
+#: libraries/relation.lib.php:177
 msgid "Browser transformation"
 msgstr "Transformimet e shfletuesit"
 
-#: libraries/relation.lib.php:180
+#: libraries/relation.lib.php:184
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
 "Ju lutem, shiko dokumentacionin mbi mënyrën se si aktualizohet tabela juaj "
 "column_info. "
 
-#: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:362
+#: libraries/relation.lib.php:197 libraries/sql_query_form.lib.php:362
 msgid "Bookmarked SQL query"
 msgstr "Pyetsor SQL i faqeruajtur"
 
-#: libraries/relation.lib.php:204
+#: libraries/relation.lib.php:208
 msgid "SQL history"
 msgstr "SQL historia"
 
-#: libraries/relation.lib.php:215
+#: libraries/relation.lib.php:219
 msgid "Persistent recently used tables"
 msgstr "Tabelat e përdorura së fundi të vazhdueshme"
 
-#: libraries/relation.lib.php:226
+#: libraries/relation.lib.php:230
 msgid "Persistent favorite tables"
 msgstr "Tabelat e preferuara të përhershme"
 
-#: libraries/relation.lib.php:237
+#: libraries/relation.lib.php:241
 msgid "Persistent tables' UI preferences"
 msgstr "Preferencat UI të tabelave të vazhdueshme"
 
-#: libraries/relation.lib.php:259
+#: libraries/relation.lib.php:263
 msgid "User preferences"
 msgstr "Preferencat e përdoruesit"
 
-#: libraries/relation.lib.php:276
+#: libraries/relation.lib.php:280
 msgid "Configurable menus"
 msgstr "Menytë e konfigurueshme"
 
-#: libraries/relation.lib.php:287
+#: libraries/relation.lib.php:291
 msgid "Hide/show navigation items"
 msgstr "Fshih/shfaq njësitë e menysë"
 
-#: libraries/relation.lib.php:298
+#: libraries/relation.lib.php:302
 msgid "Saving Query-By-Example searches"
 msgstr "Ruan kërkimet Pyetsor-sipas-Shembullit"
 
-#: libraries/relation.lib.php:309
+#: libraries/relation.lib.php:313
 msgid "Managing Central list of columns"
 msgstr "Menaxhimi i listës qendrore të kolonave"
 
-#: libraries/relation.lib.php:317
+#: libraries/relation.lib.php:321
 msgid "Quick steps to setup advanced features:"
 msgstr "Hapat e shpejtë për të rregulluar tiparet e avancuara:"
 
-#: libraries/relation.lib.php:323
+#: libraries/relation.lib.php:327
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
 msgstr "Krijo tabelat e nevojshme me <code>%screate_tables.sql</code>."
 
-#: libraries/relation.lib.php:331
+#: libraries/relation.lib.php:335
 msgid "Create a pma user and give access to these tables."
 msgstr "Krijo një përdorues pma dhe jepi hyrje këtyre tabelave."
 
-#: libraries/relation.lib.php:336
+#: libraries/relation.lib.php:340
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -11048,22 +11152,37 @@ msgstr ""
 "Aftëso tiparet e avancuara në filin e konfigurimit (<code>config.inc.php</"
 "code>), për shembull duke filluar nga <code>config.sample.inc.php</code>."
 
-#: libraries/relation.lib.php:344
+#: libraries/relation.lib.php:348
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Ri-hyj në phpMyAdmin, për të ngarkuar filin e aktualizuar të konfigurimit."
 
-#: libraries/relation.lib.php:1687
+#: libraries/relation.lib.php:1691
 msgid "no description"
 msgstr "nuk ka përshkrim"
 
-#: libraries/relation.lib.php:1975
+#: libraries/relation.lib.php:1890
+msgid ""
+"You do not have necessary privileges to create a database named "
+"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"phpMyAdmin configuration storage there."
+msgstr ""
+
+#: libraries/relation.lib.php:2005
+#, fuzzy, php-format
+#| msgid "Missing phpMyAdmin configuration storage tables"
+msgid ""
+"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"configuration storage there."
+msgstr "Mungojnë tabelat e ruajtjes së konfigurimit të phpMyAdmin"
+
+#: libraries/relation.lib.php:2013
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "%sKrijo%s ruajtjen e konfigurimit phpMyAdmin në databazën aktuale."
 
-#: libraries/relation.lib.php:1982
+#: libraries/relation.lib.php:2021
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."

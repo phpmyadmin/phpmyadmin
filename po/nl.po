@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-04-03 05:47-0400\n"
+"POT-Creation-Date: 2015-04-05 05:49-0400\n"
 "PO-Revision-Date: 2015-04-04 20:24+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -389,7 +389,7 @@ msgid "Action"
 msgstr "Actie"
 
 #: db_tracking.php:131 libraries/navigation/Navigation.class.php:213
-#: libraries/tracking.lib.php:280 tbl_change.php:158
+#: libraries/tracking.lib.php:280 tbl_change.php:160
 msgid "Show"
 msgstr "Toon"
 
@@ -1854,7 +1854,7 @@ msgstr "%d is geen geldig rijnummer."
 
 #: js/messages.php:308 libraries/TableSearch.class.php:927
 #: libraries/TableSearch.class.php:1259 libraries/sql.lib.php:243
-#: tbl_change.php:153
+#: tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "Bekijk vreemde waarden"
 
@@ -1864,7 +1864,6 @@ msgstr "Geen automatisch opgeslagen query"
 
 #: js/messages.php:310
 #, php-format
-#| msgid "Variable"
 msgid "Variable %d:"
 msgstr "Variabele %d:"
 
@@ -2788,6 +2787,117 @@ msgstr "Minuut"
 msgid "Second"
 msgstr "Seconde"
 
+#: js/messages.php:721
+msgid "This field is required"
+msgstr ""
+
+#: js/messages.php:722
+#, fuzzy
+#| msgid "Use text field"
+msgid "Please fix this field"
+msgstr "Tekstveld gebruiken"
+
+#: js/messages.php:723
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid email address"
+msgstr "Gelieve een geldige paginanaam in te geven"
+
+#: js/messages.php:724
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid URL"
+msgstr "Vul een geldig nummer in!"
+
+#: js/messages.php:725
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date"
+msgstr "Gelieve een geldige paginanaam in te geven"
+
+#: js/messages.php:726
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date ( ISO )"
+msgstr "Gelieve een geldige paginanaam in te geven"
+
+#: js/messages.php:727
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid number"
+msgstr "Vul een geldig nummer in!"
+
+#: js/messages.php:728
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid credit card number"
+msgstr "Vul een geldig nummer in!"
+
+#: js/messages.php:729
+#, fuzzy
+#| msgid "Please enter a valid length!"
+msgid "Please enter only digits"
+msgstr "Vul een geldige lengte in!"
+
+#: js/messages.php:730
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter the same value again"
+msgstr "Gelieve een geldige paginanaam in te geven"
+
+#: js/messages.php:731
+#, fuzzy
+#| msgid "Please enter correct captcha!"
+msgid "Please enter no more than {0} characters"
+msgstr "Vul een correcte captcha in!"
+
+#: js/messages.php:732
+#, fuzzy
+#| msgid "Please enter correct captcha!"
+msgid "Please enter at least {0} characters"
+msgstr "Vul een correcte captcha in!"
+
+#: js/messages.php:733
+msgid "Please enter a value between {0} and {1} characters long"
+msgstr ""
+
+#: js/messages.php:734
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a value between {0} and {1}"
+msgstr "Gelieve een geldige paginanaam in te geven"
+
+#: js/messages.php:735
+#, fuzzy
+#| msgid "Please enter a valid length!"
+msgid "Please enter a value less than or equal to {0}"
+msgstr "Vul een geldige lengte in!"
+
+#: js/messages.php:736
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a value greater than or equal to {0}"
+msgstr "Gelieve een geldige paginanaam in te geven"
+
+#: js/messages.php:738
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter a valid date or time"
+msgstr "Gelieve een geldige paginanaam in te geven"
+
+#: js/messages.php:739
+#, fuzzy
+#| msgid "Please enter a valid number!"
+msgid "Please enter a valid HEX input"
+msgstr "Vul een geldig nummer in!"
+
+#: js/messages.php:740 libraries/Message.class.php:199
+#: libraries/Util.class.php:624 libraries/core.lib.php:245
+#: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1166
+#: tbl_operations.php:202 view_operations.php:63
+msgid "Error"
+msgstr "Fout"
+
 #: libraries/Advisor.class.php:79
 #, php-format
 msgid "PHP threw following error: %s"
@@ -3068,7 +3178,6 @@ msgstr ""
 "Enter. Om dit permanent te maken, bekijk het instellingenmenu."
 
 #: libraries/Console.class.php:313
-#| msgid "Switch to copied table"
 msgid "Switch to dark theme"
 msgstr "Wissel naar donker thema"
 
@@ -3730,7 +3839,7 @@ msgstr "Handelingen"
 
 #: libraries/Menu.class.php:376 libraries/Menu.class.php:484
 #: libraries/Util.class.php:4159 libraries/Util.class.php:4173
-#: libraries/relation.lib.php:248
+#: libraries/relation.lib.php:252
 msgid "Tracking"
 msgstr "Traceren"
 
@@ -3817,13 +3926,6 @@ msgstr "Plug-ins"
 #: libraries/Menu.class.php:612 libraries/Util.class.php:4145
 msgid "Engines"
 msgstr "Engines"
-
-#: libraries/Message.class.php:199 libraries/Util.class.php:624
-#: libraries/core.lib.php:245 libraries/import.lib.php:183
-#: libraries/insert_edit.lib.php:1166 tbl_operations.php:202
-#: view_operations.php:63
-msgid "Error"
-msgstr "Fout"
 
 #: libraries/Message.class.php:254
 #, php-format
@@ -5602,12 +5704,10 @@ msgid "Default table tab"
 msgstr "Standaard tabel tabblad"
 
 #: libraries/config/messages.inc.php:94
-#| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Automatisch aanvullen van tabel- en kolomnamen in de SQL queries."
 
 #: libraries/config/messages.inc.php:95
-#| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
 msgstr "Automatisch aanvullen van tabel- en kolomnamen inschakelen"
 
@@ -7944,7 +8044,6 @@ msgid "Toggle"
 msgstr "Schakel"
 
 #: libraries/db_designer.lib.php:614
-#| msgid "Table structure"
 msgid "See table structure"
 msgstr "Zie tabelstructuur"
 
@@ -10159,17 +10258,14 @@ msgid "Report title:"
 msgstr "Rapporttitel:"
 
 #: libraries/plugins/export/ExportPdf.class.php:230
-#| msgid "Dumping data for table"
 msgid "Dumping data"
 msgstr "Dumpen data"
 
 #: libraries/plugins/export/ExportPdf.class.php:284
-#| msgid "structure"
 msgid "View structure"
 msgstr "View structuur"
 
 #: libraries/plugins/export/ExportPdf.class.php:287
-#| msgid "and then"
 msgid "Stand in"
 msgstr "Staan in"
 
@@ -10387,7 +10483,6 @@ msgid "Purpose:"
 msgstr "Doel:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:494
-#| msgid "MIME type"
 msgid "MIME"
 msgstr "MIME"
 
@@ -10566,17 +10661,14 @@ msgid "Data Dictionary"
 msgstr "Data Woordenboek"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#| msgid "neither of the above"
 msgid "Order of the tables"
 msgstr "Volgorde van de tabellen"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#| msgid "Ascending"
 msgid "Name (Ascending)"
 msgstr "Naam (Oplopend)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#| msgid "Descending"
 msgid "Name (Descending)"
 msgstr "Naam (Aflopend)"
 
@@ -10884,88 +10976,88 @@ msgstr "Ingeschakeld"
 msgid "Configuration of pmadb… "
 msgstr "Configuratie van pmadb… "
 
-#: libraries/relation.lib.php:101 libraries/relation.lib.php:128
+#: libraries/relation.lib.php:101 libraries/relation.lib.php:132
 msgid "General relation features"
 msgstr "Algemene relatie-opties"
 
-#: libraries/relation.lib.php:139
+#: libraries/relation.lib.php:143
 msgid "Display Features"
 msgstr "Toon Opties"
 
-#: libraries/relation.lib.php:156
+#: libraries/relation.lib.php:160
 msgid "Designer and creation of PDFs"
 msgstr "Ontwerpen en aanmaken van PDF-bestanden"
 
-#: libraries/relation.lib.php:167
+#: libraries/relation.lib.php:171
 msgid "Displaying Column Comments"
 msgstr "Toon kolomopmerkingen"
 
-#: libraries/relation.lib.php:173
+#: libraries/relation.lib.php:177
 msgid "Browser transformation"
 msgstr "Browsertransformaties"
 
-#: libraries/relation.lib.php:180
+#: libraries/relation.lib.php:184
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
 "Raadpleeg de documentatie over hoe u de tabel column_info kunt bijwerkt. "
 
-#: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:362
+#: libraries/relation.lib.php:197 libraries/sql_query_form.lib.php:362
 msgid "Bookmarked SQL query"
 msgstr "Opgeslagen SQL-query"
 
-#: libraries/relation.lib.php:204
+#: libraries/relation.lib.php:208
 msgid "SQL history"
 msgstr "SQL-geschiedenis"
 
-#: libraries/relation.lib.php:215
+#: libraries/relation.lib.php:219
 msgid "Persistent recently used tables"
 msgstr "Persistente recent gebruikte tabellen"
 
-#: libraries/relation.lib.php:226
+#: libraries/relation.lib.php:230
 msgid "Persistent favorite tables"
 msgstr "Persistente veelgebruikte tabellen"
 
-#: libraries/relation.lib.php:237
+#: libraries/relation.lib.php:241
 msgid "Persistent tables' UI preferences"
 msgstr "Persistente interfacevoorkeuren voor tabellen"
 
-#: libraries/relation.lib.php:259
+#: libraries/relation.lib.php:263
 msgid "User preferences"
 msgstr "Gebruikersvoorkeuren"
 
-#: libraries/relation.lib.php:276
+#: libraries/relation.lib.php:280
 msgid "Configurable menus"
 msgstr "Configureerbare menu's"
 
 # Zowel "frame" als "window" vertalen naar "venster".
-#: libraries/relation.lib.php:287
+#: libraries/relation.lib.php:291
 msgid "Hide/show navigation items"
 msgstr "Navigatieonderdelen tonen/verbergen"
 
-#: libraries/relation.lib.php:298
+#: libraries/relation.lib.php:302
 msgid "Saving Query-By-Example searches"
 msgstr "Query-door-voorbeeld opzoekingen wordt opgeslagen"
 
-#: libraries/relation.lib.php:309
+#: libraries/relation.lib.php:313
 msgid "Managing Central list of columns"
 msgstr "Beheer van centrale lijst van kolommen"
 
-#: libraries/relation.lib.php:317
+#: libraries/relation.lib.php:321
 msgid "Quick steps to setup advanced features:"
 msgstr "Snelle stappen voor het instellen van geavanceerde functies:"
 
-#: libraries/relation.lib.php:323
+#: libraries/relation.lib.php:327
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
 msgstr "Maak de benodigde tabellen aan met <code>%screate_tables.sql</code>."
 
 # hem/haar/het past beter maar het geslacht van de gebruiker is
 # onvoorspelbaar.
-#: libraries/relation.lib.php:331
+#: libraries/relation.lib.php:335
 msgid "Create a pma user and give access to these tables."
 msgstr "Maak een pma-gebruiker aan en verleen die toegang tot deze tabellen."
 
-#: libraries/relation.lib.php:336
+#: libraries/relation.lib.php:340
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -10974,24 +11066,39 @@ msgstr ""
 "inc.php</code>) ingeschakeld worden, als voorbeeld kunt u gebruik maken van "
 "<code>config.sample.inc.php</code>."
 
-#: libraries/relation.lib.php:344
+#: libraries/relation.lib.php:348
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Meld opnieuw aan bij phpMyAdmin om het bijgewerkte configuratiebestand te "
 "laden."
 
-#: libraries/relation.lib.php:1687
+#: libraries/relation.lib.php:1691
 msgid "no description"
 msgstr "Geen beschrijving aanwezig"
 
-#: libraries/relation.lib.php:1975
+#: libraries/relation.lib.php:1890
+msgid ""
+"You do not have necessary privileges to create a database named "
+"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"phpMyAdmin configuration storage there."
+msgstr ""
+
+#: libraries/relation.lib.php:2005
+#, fuzzy, php-format
+#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
+msgid ""
+"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"configuration storage there."
+msgstr "%sCreate%s ontbrekende phpMyAdmin configuratie opslag tabellen."
+
+#: libraries/relation.lib.php:2013
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 "%sMaak%s de configuratie-opslag van phpMyAdmin aan in de huidige database."
 
-#: libraries/relation.lib.php:1982
+#: libraries/relation.lib.php:2021
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "%sCreate%s ontbrekende phpMyAdmin configuratie opslag tabellen."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-04-03 05:47-0400\n"
+"POT-Creation-Date: 2015-04-05 05:49-0400\n"
 "PO-Revision-Date: 2015-03-27 10:17+0200\n"
 "Last-Translator: Ahmed Saleh Abd El-Raouf Ismae <a.saleh.ismael@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -391,7 +391,7 @@ msgid "Action"
 msgstr "العملية"
 
 #: db_tracking.php:131 libraries/navigation/Navigation.class.php:213
-#: libraries/tracking.lib.php:280 tbl_change.php:158
+#: libraries/tracking.lib.php:280 tbl_change.php:160
 msgid "Show"
 msgstr "عرض"
 
@@ -1849,7 +1849,7 @@ msgstr "%d ليس رقم عمود صالح."
 
 #: js/messages.php:308 libraries/TableSearch.class.php:927
 #: libraries/TableSearch.class.php:1259 libraries/sql.lib.php:243
-#: tbl_change.php:153
+#: tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "استعرض القيم الغريبة"
 
@@ -2844,6 +2844,115 @@ msgstr "الدقيقة"
 #: js/messages.php:710
 msgid "Second"
 msgstr "الثانية"
+
+#: js/messages.php:721
+msgid "This field is required"
+msgstr ""
+
+#: js/messages.php:722
+#, fuzzy
+#| msgid "Use text field"
+msgid "Please fix this field"
+msgstr "استخدم حقل نص"
+
+#: js/messages.php:723
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid email address"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:724
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid URL"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:725
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid date"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:726
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid date ( ISO )"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:727
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid number"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:728
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid credit card number"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:729
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter only digits"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:730
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter the same value again"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:731
+msgid "Please enter no more than {0} characters"
+msgstr ""
+
+#: js/messages.php:732
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter at least {0} characters"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:733
+msgid "Please enter a value between {0} and {1} characters long"
+msgstr ""
+
+#: js/messages.php:734
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a value between {0} and {1}"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:735
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a value less than or equal to {0}"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:736
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a value greater than or equal to {0}"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:738
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid date or time"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:739
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid HEX input"
+msgstr "رقم منفذ غير صحيح"
+
+#: js/messages.php:740 libraries/Message.class.php:199
+#: libraries/Util.class.php:624 libraries/core.lib.php:245
+#: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1166
+#: tbl_operations.php:202 view_operations.php:63
+msgid "Error"
+msgstr "خطأ"
 
 #: libraries/Advisor.class.php:79
 #, php-format
@@ -3874,7 +3983,7 @@ msgstr "عمليات"
 
 #: libraries/Menu.class.php:376 libraries/Menu.class.php:484
 #: libraries/Util.class.php:4159 libraries/Util.class.php:4173
-#: libraries/relation.lib.php:248
+#: libraries/relation.lib.php:252
 msgid "Tracking"
 msgstr "تتبع"
 
@@ -3963,13 +4072,6 @@ msgstr "القوابس"
 #: libraries/Menu.class.php:612 libraries/Util.class.php:4145
 msgid "Engines"
 msgstr "محركات"
-
-#: libraries/Message.class.php:199 libraries/Util.class.php:624
-#: libraries/core.lib.php:245 libraries/import.lib.php:183
-#: libraries/insert_edit.lib.php:1166 tbl_operations.php:202
-#: view_operations.php:63
-msgid "Error"
-msgstr "خطأ"
 
 #: libraries/Message.class.php:254
 #, php-format
@@ -11085,113 +11187,130 @@ msgstr "مفعل"
 msgid "Configuration of pmadb… "
 msgstr "تمت التعديلات"
 
-#: libraries/relation.lib.php:101 libraries/relation.lib.php:128
+#: libraries/relation.lib.php:101 libraries/relation.lib.php:132
 msgid "General relation features"
 msgstr "المزايا العامّة للرابط"
 
-#: libraries/relation.lib.php:139
+#: libraries/relation.lib.php:143
 msgid "Display Features"
 msgstr "إظهار المزايا"
 
-#: libraries/relation.lib.php:156
+#: libraries/relation.lib.php:160
 #, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
 msgstr "إنشاء ملفات PDF"
 
-#: libraries/relation.lib.php:167
+#: libraries/relation.lib.php:171
 msgid "Displaying Column Comments"
 msgstr "إظهار تعليقات العمود"
 
-#: libraries/relation.lib.php:173
+#: libraries/relation.lib.php:177
 msgid "Browser transformation"
 msgstr "تحويل المتصفح"
 
-#: libraries/relation.lib.php:180
+#: libraries/relation.lib.php:184
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr "رجاء راجع التوثيق لكيفية تحديث جدول column_comments."
 
-#: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:362
+#: libraries/relation.lib.php:197 libraries/sql_query_form.lib.php:362
 msgid "Bookmarked SQL query"
 msgstr "علامة مرجعية SQL-استعلام"
 
-#: libraries/relation.lib.php:204
+#: libraries/relation.lib.php:208
 msgid "SQL history"
 msgstr "نصوص SQL سابقة"
 
-#: libraries/relation.lib.php:215
+#: libraries/relation.lib.php:219
 msgid "Persistent recently used tables"
 msgstr ""
 
-#: libraries/relation.lib.php:226
+#: libraries/relation.lib.php:230
 #, fuzzy
 #| msgid "There are no recent tables"
 msgid "Persistent favorite tables"
 msgstr "لا يوجد جداول أخيرة"
 
-#: libraries/relation.lib.php:237
+#: libraries/relation.lib.php:241
 msgid "Persistent tables' UI preferences"
 msgstr ""
 
-#: libraries/relation.lib.php:259
+#: libraries/relation.lib.php:263
 msgid "User preferences"
 msgstr ""
 
-#: libraries/relation.lib.php:276
+#: libraries/relation.lib.php:280
 #, fuzzy
 #| msgid "Configuration file"
 msgid "Configurable menus"
 msgstr "ملف التكوين"
 
-#: libraries/relation.lib.php:287
+#: libraries/relation.lib.php:291
 msgid "Hide/show navigation items"
 msgstr ""
 
-#: libraries/relation.lib.php:298
+#: libraries/relation.lib.php:302
 msgid "Saving Query-By-Example searches"
 msgstr ""
 
-#: libraries/relation.lib.php:309
+#: libraries/relation.lib.php:313
 msgid "Managing Central list of columns"
 msgstr ""
 
-#: libraries/relation.lib.php:317
+#: libraries/relation.lib.php:321
 msgid "Quick steps to setup advanced features:"
 msgstr ""
 
-#: libraries/relation.lib.php:323
+#: libraries/relation.lib.php:327
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
 msgstr ""
 
-#: libraries/relation.lib.php:331
+#: libraries/relation.lib.php:335
 msgid "Create a pma user and give access to these tables."
 msgstr ""
 
-#: libraries/relation.lib.php:336
+#: libraries/relation.lib.php:340
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 
-#: libraries/relation.lib.php:344
+#: libraries/relation.lib.php:348
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1687
+#: libraries/relation.lib.php:1691
 msgid "no description"
 msgstr "بدون وصف"
 
-#: libraries/relation.lib.php:1975
+#: libraries/relation.lib.php:1890
+msgid ""
+"You do not have necessary privileges to create a database named "
+"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"phpMyAdmin configuration storage there."
+msgstr ""
+
+#: libraries/relation.lib.php:2005
+#, fuzzy, php-format
+#| msgid ""
+#| "Tracking of changes made in database. Requires the phpMyAdmin "
+#| "configuration storage."
+msgid ""
+"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"configuration storage there."
+msgstr "تعقب التغيرات الحاصلة على قاعدة البيانات."
+
+#: libraries/relation.lib.php:2013
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 
-#: libraries/relation.lib.php:1982
+#: libraries/relation.lib.php:2021
 #, fuzzy, php-format
 #| msgid ""
 #| "Tracking of changes made in database. Requires the phpMyAdmin "

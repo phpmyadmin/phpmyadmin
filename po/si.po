@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-04-03 05:47-0400\n"
+"POT-Creation-Date: 2015-04-05 05:49-0400\n"
 "PO-Revision-Date: 2014-11-11 12:16+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -390,7 +390,7 @@ msgid "Action"
 msgstr "ක්‍රියාව"
 
 #: db_tracking.php:131 libraries/navigation/Navigation.class.php:213
-#: libraries/tracking.lib.php:280 tbl_change.php:158
+#: libraries/tracking.lib.php:280 tbl_change.php:160
 msgid "Show"
 msgstr "පෙන්වන්න"
 
@@ -1890,7 +1890,7 @@ msgstr "%d වලංගු පේළි අංකයක් නොවේ."
 
 #: js/messages.php:308 libraries/TableSearch.class.php:927
 #: libraries/TableSearch.class.php:1259 libraries/sql.lib.php:243
-#: tbl_change.php:153
+#: tbl_change.php:155
 msgid "Browse foreign values"
 msgstr "අන්‍ය අගයන් පිරික්සන්න"
 
@@ -2869,6 +2869,115 @@ msgstr "මිනිත්තු"
 #: js/messages.php:710
 msgid "Second"
 msgstr "තත්පර"
+
+#: js/messages.php:721
+msgid "This field is required"
+msgstr ""
+
+#: js/messages.php:722
+#, fuzzy
+#| msgid "Use text field"
+msgid "Please fix this field"
+msgstr "පෙළ ක්ෂේත්‍ර භාවිතා කරන්න"
+
+#: js/messages.php:723
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid email address"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:724
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid URL"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:725
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid date"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:726
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid date ( ISO )"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:727
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid number"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:728
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid credit card number"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:729
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter only digits"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:730
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter the same value again"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:731
+msgid "Please enter no more than {0} characters"
+msgstr ""
+
+#: js/messages.php:732
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter at least {0} characters"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:733
+msgid "Please enter a value between {0} and {1} characters long"
+msgstr ""
+
+#: js/messages.php:734
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a value between {0} and {1}"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:735
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a value less than or equal to {0}"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:736
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a value greater than or equal to {0}"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:738
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid date or time"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:739
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid HEX input"
+msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+
+#: js/messages.php:740 libraries/Message.class.php:199
+#: libraries/Util.class.php:624 libraries/core.lib.php:245
+#: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1166
+#: tbl_operations.php:202 view_operations.php:63
+msgid "Error"
+msgstr "දෝෂය"
 
 #: libraries/Advisor.class.php:79
 #, php-format
@@ -3855,7 +3964,7 @@ msgstr "මෙහෙයුම්"
 
 #: libraries/Menu.class.php:376 libraries/Menu.class.php:484
 #: libraries/Util.class.php:4159 libraries/Util.class.php:4173
-#: libraries/relation.lib.php:248
+#: libraries/relation.lib.php:252
 msgid "Tracking"
 msgstr "අවධානය"
 
@@ -3944,13 +4053,6 @@ msgstr "පේණු"
 #: libraries/Menu.class.php:612 libraries/Util.class.php:4145
 msgid "Engines"
 msgstr "යන්ත්‍රයන්"
-
-#: libraries/Message.class.php:199 libraries/Util.class.php:624
-#: libraries/core.lib.php:245 libraries/import.lib.php:183
-#: libraries/insert_edit.lib.php:1166 tbl_operations.php:202
-#: view_operations.php:63
-msgid "Error"
-msgstr "දෝෂය"
 
 #: libraries/Message.class.php:254
 #, php-format
@@ -11080,118 +11182,133 @@ msgstr "සක්‍රිය කරන ලද"
 msgid "Configuration of pmadb… "
 msgstr "වින්‍යාසය සුරකින ලදි."
 
-#: libraries/relation.lib.php:101 libraries/relation.lib.php:128
+#: libraries/relation.lib.php:101 libraries/relation.lib.php:132
 msgid "General relation features"
 msgstr "වගු සබඳතා වලට අදාල සාමාන්‍ය විශේෂාංග"
 
-#: libraries/relation.lib.php:139
+#: libraries/relation.lib.php:143
 msgid "Display Features"
 msgstr "දර්ශන ලක්ෂණ"
 
-#: libraries/relation.lib.php:156
+#: libraries/relation.lib.php:160
 #, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
 msgstr "PDF සෑදීම"
 
-#: libraries/relation.lib.php:167
+#: libraries/relation.lib.php:171
 msgid "Displaying Column Comments"
 msgstr "තීර විස්තර පෙන්වීම"
 
-#: libraries/relation.lib.php:173
+#: libraries/relation.lib.php:177
 msgid "Browser transformation"
 msgstr "බ්‍රව්සර රූපාන්තරනය"
 
-#: libraries/relation.lib.php:180
+#: libraries/relation.lib.php:184
 #, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr "ඔබගේ column_comments වගුව යාවත්කාලීන කරන්නේ කෙසේද යන්න පිළිබඳව ලියකියවිලි බලන්න"
 
-#: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:362
+#: libraries/relation.lib.php:197 libraries/sql_query_form.lib.php:362
 msgid "Bookmarked SQL query"
 msgstr "පොත් සලකුණු කරන ලද SQL විමසුම"
 
-#: libraries/relation.lib.php:204
+#: libraries/relation.lib.php:208
 msgid "SQL history"
 msgstr "SQL ඉතිහාසය"
 
-#: libraries/relation.lib.php:215
+#: libraries/relation.lib.php:219
 msgid "Persistent recently used tables"
 msgstr "කල්පවතිනා ලෙස සටහන් කෙරෙන මෑතදී භාවිතා කල වගු"
 
-#: libraries/relation.lib.php:226
+#: libraries/relation.lib.php:230
 #, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
 msgstr "කල්පවතිනා ලෙස සටහන් කෙරෙන මෑතදී භාවිතා කල වගු"
 
-#: libraries/relation.lib.php:237
+#: libraries/relation.lib.php:241
 msgid "Persistent tables' UI preferences"
 msgstr "කල්පවතිනා ලෙස සටහන් කෙරෙන වගු අතුරු මුහුණත සම්බන්ධ අභිරුචි"
 
-#: libraries/relation.lib.php:259
+#: libraries/relation.lib.php:263
 msgid "User preferences"
 msgstr "භාවිතා කරන්නාගේ අභිරුචි"
 
-#: libraries/relation.lib.php:276
+#: libraries/relation.lib.php:280
 #, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
 msgstr "සැකසුම : %s"
 
-#: libraries/relation.lib.php:287
+#: libraries/relation.lib.php:291
 #, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
 msgstr "යාත්‍රණ රාමුව ප්‍රතිපූර්ණය කරන්න"
 
-#: libraries/relation.lib.php:298
+#: libraries/relation.lib.php:302
 msgid "Saving Query-By-Example searches"
 msgstr ""
 
-#: libraries/relation.lib.php:309
+#: libraries/relation.lib.php:313
 msgid "Managing Central list of columns"
 msgstr ""
 
-#: libraries/relation.lib.php:317
+#: libraries/relation.lib.php:321
 msgid "Quick steps to setup advanced features:"
 msgstr ""
 
-#: libraries/relation.lib.php:323
+#: libraries/relation.lib.php:327
 #, fuzzy, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
 msgstr "<code>examples/create_tables.sql</code> භාවිතා කර අවශ්‍ය කරන වගු තනා ගන්න."
 
-#: libraries/relation.lib.php:331
+#: libraries/relation.lib.php:335
 msgid "Create a pma user and give access to these tables."
 msgstr "පරිපාලක භාවිතා කරන්නෙක් තනා ඔහුට මෙම වගු සඳහා පරිශීලන වරප්‍රසාද ලබා දෙන්න."
 
-#: libraries/relation.lib.php:336
+#: libraries/relation.lib.php:340
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 
-#: libraries/relation.lib.php:344
+#: libraries/relation.lib.php:348
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "යාවත්කාලීන කරන ලද වින්‍යාස ගොනුව පූරණය සඳහා phpMyAdmin වෙත නැවත වරක් ඇතුල් වන්න."
 
-#: libraries/relation.lib.php:1687
+#: libraries/relation.lib.php:1691
 msgid "no description"
 msgstr "විස්තරයක් නොමැත"
 
-#: libraries/relation.lib.php:1975
+#: libraries/relation.lib.php:1890
+msgid ""
+"You do not have necessary privileges to create a database named "
+"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"phpMyAdmin configuration storage there."
+msgstr ""
+
+#: libraries/relation.lib.php:2005
+#, fuzzy, php-format
+#| msgid "Missing phpMyAdmin configuration storage tables"
+msgid ""
+"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"configuration storage there."
+msgstr "phpMyAdmin වින්‍යාස ගබඩාවේ අඩු වගු"
+
+#: libraries/relation.lib.php:2013
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "phpMyAdmin වින්‍යාස ගබඩාවේ අඩු වගු"
 
-#: libraries/relation.lib.php:1982
+#: libraries/relation.lib.php:2021
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
