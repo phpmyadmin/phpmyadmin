@@ -715,8 +715,8 @@ $.extend($.timepicker._defaults, $.timepicker.regional['']);
 <?php
 /* Form validation */
 
-echo "function extendingValidatorMessages() {";
-echo "$.extend($.validator.messages, {";
+echo "function extendingValidatorMessages() {\n";
+echo "$.extend($.validator.messages, {\n";
 /* Default validation functions */
 PMA_printJsValueForFormValidation('required', __('This field is required'));
 PMA_printJsValueForFormValidation('remote', __('Please fix this field'));
@@ -738,6 +738,6 @@ PMA_printJsValueForFormValidation('min', __('Please enter a value greater than o
 PMA_printJsValueForFormValidation('validationFunctionForDateTime', __('Please enter a valid date or time'), true);
 PMA_printJsValueForFormValidation('validationFunctionForHex', __('Please enter a valid HEX input'), true);
 PMA_printJsValueForFormValidation('validationFunctionForFuns', __('Error'), true, false);
-echo "});";
-echo "}";
+echo "\n});";
+echo "\n} /* if ($.validator) */";
 ?>
