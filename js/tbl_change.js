@@ -178,102 +178,62 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
         $("#salt_" + target.id).remove();
     }
 
-    if (target.value === 'AES_DECRYPT' || target.value === 'AES_ENCRYPT') {
-        if ($this_input.data('type') !== 'HEX') {
-            $('#' + target.id).addClass('invalid_value');
-            return false;
-        }
-    } else if(target.value === 'MD5' &&
-        typeof $this_input.data('maxlength') !== 'undefined' &&
-        $this_input.data('maxlength') < 32
-    ) {
-        $('#' + target.id).addClass('invalid_value');
-        return false;
-    } else {
-        $('#' + target.id).removeClass('invalid_value');
+    if (target.value === 'AES_DECRYPT'
+            || target.value === 'AES_ENCRYPT'
+            || target.value === 'MD5') {
+        $('#' + target.id).rules("add", {
+            validationFunctionForFuns : $this_input
+        });
     }
 
+    var removeOnclick = 1;
+    if ($("input[name='fields_null[multi_edit][" + multi_edit + "][" + urlField + "]']").length) {
+        removeOnclick = 0;
+    }
     // Unchecks the corresponding "NULL" control
     $("input[name='fields_null[multi_edit][" + multi_edit + "][" + urlField + "]']").prop('checked', false);
 
     // Unchecks the Ignore checkbox for the current row
     $("input[name='insert_ignore_" + multi_edit + "']").prop('checked', false);
 
-    // Does this field come from datepicker?
-    if ($this_input.data('comes_from') == 'datepicker') {
-        // Yes, so do not validate because the final value is not yet in
-        // the field and hopefully the datepicker returns a valid date+time
-        $this_input.removeClass("invalid_value");
-        return true;
+    var charExceptionHandling;
+    if (theType.substring(0,4) === "char") {
+        charExceptionHandling = theType.substring(5,6);
     }
-
-    if (target.name.substring(0, 6) == "fields") {
+    else if (theType.substring(0,7) === "varchar") {
+        charExceptionHandling = theType.substring(8,9);
+    }
+    if (target.name.substring(0, 6) === "fields") {
         // validate for date time
         if (theType == "datetime" || theType == "time" || theType == "date" || theType == "timestamp") {
-            $this_input.removeClass("invalid_value");
-            var dt_value = $this_input.val();
-            if (theType == "date") {
-                if (! isDate(dt_value)) {
-                    $this_input.addClass("invalid_value");
-                    return false;
-                }
-            } else if (theType == "time") {
-                if (! isTime(dt_value)) {
-                    $this_input.addClass("invalid_value");
-                    return false;
-                }
-            } else if (theType == "datetime" || theType == "timestamp") {
-                var tmstmp = false;
-                if (dt_value == "CURRENT_TIMESTAMP") {
-                    return true;
-                }
-                if (theType == "timestamp") {
-                    tmstmp = true;
-                }
-                if (dt_value == "0000-00-00 00:00:00") {
-                    return true;
-                }
-                var dv = dt_value.indexOf(" ");
-                if (dv == -1) {
-                    $this_input.addClass("invalid_value");
-                    return false;
-                } else {
-                    if (! (isDate(dt_value.substring(0, dv), tmstmp) && isTime(dt_value.substring(dv + 1)))) {
-                        $this_input.addClass("invalid_value");
-                        return false;
-                    }
-                }
-            }
+            $this_input.rules("add", {
+                validationFunctionForDateTime : theType
+            });
         }
         //validation for integer type
         if ($this_input.data('type') === 'INT') {
             var min = $this_input.attr('min');
             var max = $this_input.attr('max');
-            var value = $this_input.val();
-            $this_input.removeClass("invalid_value");
-            if (isNaN(value) || BigInts.compare(value, min) < 0 ||
-                BigInts.compare(value, max) > 0
-            ) {
-                $this_input.addClass("invalid_value");
-                return false;
-            }
+            $this_input.rules("add", {
+                maxlength : max,
+                minlength : min
+            });
             //validation for CHAR types
         } else if ($this_input.data('type') === 'CHAR') {
-            var len = $this_input.val().length;
             var maxlen = $this_input.data('maxlength');
-            $this_input.removeClass("invalid_value");
-            if (typeof maxlen !== 'undefined' && len > maxlen) {
-                $this_input.addClass("invalid_value");
-                return false;
+            if (maxlen <=4) {
+                maxlen=charExceptionHandling
             }
+            $this_input.rules("add", {
+                maxlength : maxlen
+            });
             // validate binary & blob types
         } else if ($this_input.data('type') === 'HEX') {
-            $this_input.removeClass("invalid_value");
-            if ($this_input.val().match(/^[a-f0-9]*$/i) === null) {
-                $this_input.addClass("invalid_value");
-                return false;
-            }
+            $this_input.rules("add", {
+                validationFunctionForHex : true
+            });
         }
+        if (removeOnclick === 1) $this_input.removeAttr('onchange');
     }
 }
  /* End of fields validation*/
@@ -352,6 +312,72 @@ AJAX.registerTeardown('tbl_change.js', function () {
  * Restart insertion with 'N' rows.
  */
 AJAX.registerOnload('tbl_change.js', function () {
+
+    if($("#insertForm").length) {
+        // validate the comment form when it is submitted
+        $("#insertForm").validate();
+        jQuery.validator.addMethod("validationFunctionForHex", function(value, element) {
+            if (value.match(/^[a-f0-9]*$/i) === null) {
+                return false;
+            }
+            else return true;
+        });
+
+        jQuery.validator.addMethod("validationFunctionForFuns", function(value, element, options) {
+            if (value.substring(0, 3) === "AES" && options.data('type') !== 'HEX') {
+                return false;
+            }
+            else if (value.substring(0, 3) === "MD5"
+                    && typeof options.data('maxlength') !== 'undefined'
+                    && options.data('maxlength') < 32) {
+                return false;
+            }
+            else return true;
+        });
+
+        jQuery.validator.addMethod("validationFunctionForDateTime", function(value, element, options) {
+            var dt_value = value;
+            var theType = options;
+            if (theType == "date") {
+                if (! isDate(dt_value)) {
+                    return false;
+                }
+                return true;
+            } else if (theType == "time") {
+                if (! isTime(dt_value)) {
+                    return false;
+                }
+                return true;
+            } else if (theType == "datetime" || theType == "timestamp") {
+                var tmstmp = false;
+                if (dt_value == "CURRENT_TIMESTAMP") {
+                    return true;
+                }
+                if (theType == "timestamp") {
+                    tmstmp = true;
+                }
+                if (dt_value == "0000-00-00 00:00:00") {
+                    return true;
+                }
+                var dv = dt_value.indexOf(" ");
+                if (dv == -1) {
+                    return false;
+                } else {
+                    if (! (isDate(dt_value.substring(0, dv), tmstmp)
+                        && isTime(dt_value.substring(dv + 1)))) {
+                        return false;
+                    }
+                    return true;
+                }
+            }
+        });
+        /*
+         * message extending script must be run
+         * after initiation of functions
+         */
+        extendingValidatorMessages();
+    };
+
     $.datepicker.initialized = false;
 
     $(document).on('click', 'span.open_gis_editor', function (event) {
