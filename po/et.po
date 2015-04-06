@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-05 05:49-0400\n"
-"PO-Revision-Date: 2015-04-02 08:03+0200\n"
+"PO-Revision-Date: 2015-04-06 08:53+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2754,107 +2754,91 @@ msgstr "Sekund"
 
 #: js/messages.php:721
 msgid "This field is required"
-msgstr ""
+msgstr "See väli on kohustuslik"
 
 #: js/messages.php:722
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Kasuta tekstivälja"
+msgstr "Palun paranda see väli"
 
 #: js/messages.php:723
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Palun sisesta korrektne lehe nimi"
+msgstr "Palun sisesta korrektne e-posti aadress"
 
 #: js/messages.php:724
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Palun sisesta korrektne number!"
+msgstr "Palun sisesta korrektne URL"
 
 #: js/messages.php:725
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Palun sisesta korrektne lehe nimi"
+msgstr "Palun sisesta korrektne kuupäev"
 
 #: js/messages.php:726
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Palun sisesta korrektne lehe nimi"
+msgstr "Palun sisesta korrektne kuupäev (ISO)"
 
 #: js/messages.php:727
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Palun sisesta korrektne number!"
+msgstr "Palun sisesta korrektne number"
 
 #: js/messages.php:728
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Palun sisesta korrektne number!"
+msgstr "Palun sisesta korrektne krediitkaardi number"
 
 #: js/messages.php:729
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Palun sisesta korrektne pikkus!"
+msgstr "Palun sisesta ainult numbrid"
 
 #: js/messages.php:730
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Palun sisesta korrektne lehe nimi"
+msgstr "Palun sisesta sama väärtus uuesti"
 
 #: js/messages.php:731
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter no more than {0} characters"
-msgstr "Palun sisesta korrektne tekst!"
+msgstr "Palun sisesta kuni {0} märki"
 
 #: js/messages.php:732
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter at least {0} characters"
-msgstr "Palun sisesta korrektne tekst!"
+msgstr "Palun sisesta vähemalt {0} märki"
 
 #: js/messages.php:733
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Palun sisesta väärtus pikkusega {0} kuni {1} tähte"
 
 #: js/messages.php:734
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Palun sisesta korrektne lehe nimi"
+msgstr "Palun sisesta väärtus vahemikust {0} kuni {1}"
 
 #: js/messages.php:735
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Palun sisesta korrektne pikkus!"
+msgstr "Palun sisesta väärtus, mis on väiksem kui või võrdne {0}"
 
 #: js/messages.php:736
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Palun sisesta korrektne lehe nimi"
+msgstr "Palun sisesta väärtus, mis on suurem kui või võrdne {0}"
 
 #: js/messages.php:738
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Palun sisesta korrektne lehe nimi"
+msgstr "Palun sisesta korrektne kuupäev või kellaaeg"
 
 #: js/messages.php:739
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Palun sisesta korrektne number!"
+msgstr "Palun sisesta korrektne 16-nd väärtus"
 
 #: js/messages.php:740 libraries/Message.class.php:199
 #: libraries/Util.class.php:624 libraries/core.lib.php:245
@@ -10095,22 +10079,19 @@ msgid "Report title:"
 msgstr "Raporti pealkiri:"
 
 #: libraries/plugins/export/ExportPdf.class.php:230
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "Andmete tõmmistamine tabelile"
+msgstr "Andmete tõmmistamine"
 
 #: libraries/plugins/export/ExportPdf.class.php:284
-#, fuzzy
 #| msgid "structure"
 msgid "View structure"
-msgstr "struktuur"
+msgstr "Vaata struktuuri"
 
 #: libraries/plugins/export/ExportPdf.class.php:287
-#, fuzzy
 #| msgid "and then"
 msgid "Stand in"
-msgstr "ja siis"
+msgstr "Asendus"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
@@ -10324,13 +10305,12 @@ msgstr "Tabel:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:118
 msgid "Purpose:"
-msgstr ""
+msgstr "Eesmärk:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:494
-#, fuzzy
 #| msgid "MIME type"
 msgid "MIME"
-msgstr "MIME-tüüp"
+msgstr "MIME"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -10913,14 +10893,19 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Sul puuduvad õigused andmebaasi 'phpmyadmin' loomiseks. Sa võid minna "
+"suvalise andmebaasi kaardile 'Operatsioonid' ja määrata phpMyAdmini "
+"häälestuse salvestamine sinna."
 
 #: libraries/relation.lib.php:2005
-#, fuzzy, php-format
+#, php-format
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "%sLoo%s puuduvad phpMyAdmini seadistuse salvestuse tabelid."
+msgstr ""
+"%sLoo%s andmebaas 'phpmyadmin' ja häälesta phpMyAdmini seadistuse "
+"salvestamine sinna."
 
 #: libraries/relation.lib.php:2013
 #, php-format
