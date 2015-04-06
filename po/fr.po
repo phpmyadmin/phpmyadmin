@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-05 05:49-0400\n"
-"PO-Revision-Date: 2015-04-03 12:23+0200\n"
+"PO-Revision-Date: 2015-04-06 12:51+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2789,107 +2789,91 @@ msgstr "Seconde"
 
 #: js/messages.php:721
 msgid "This field is required"
-msgstr ""
+msgstr "Ce champ est obligatoire"
 
 #: js/messages.php:722
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Entrez une valeur"
+msgstr "Corrigez ce champ"
 
 #: js/messages.php:723
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Veuillez entrer un nom de page valide"
+msgstr "Veuillez entrer une adresse courriel valide"
 
 #: js/messages.php:724
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Veuillez entrer un nombre valide !"
+msgstr "Veuillez entrer une URL valide"
 
 #: js/messages.php:725
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Veuillez entrer un nom de page valide"
+msgstr "Veuillez entrer une date valide"
 
 #: js/messages.php:726
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Veuillez entrer un nom de page valide"
+msgstr "Veuillez saisir une date valide (ISO)"
 
 #: js/messages.php:727
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Veuillez entrer un nombre valide !"
+msgstr "Veuillez saisir un nombre valide"
 
 #: js/messages.php:728
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Veuillez entrer un nombre valide !"
+msgstr "Veuillez saisir un numéro de carte de crédit valide"
 
 #: js/messages.php:729
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Veuillez entrer une longueur valide !"
+msgstr "Veuillez saisir uniquement des chiffres"
 
 #: js/messages.php:730
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Veuillez entrer un nom de page valide"
+msgstr "Veuillez saisir la même valeur à nouveau"
 
 #: js/messages.php:731
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter no more than {0} characters"
-msgstr "Veuillez saisir le captcha correct !"
+msgstr "Veuillez saisir au maximum {0} caractères"
 
 #: js/messages.php:732
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter at least {0} characters"
-msgstr "Veuillez saisir le captcha correct !"
+msgstr "Veuillez saisir au moins {0} caractères"
 
 #: js/messages.php:733
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Veuillez saisir une valeur d'une longueur entre {0} et {1} caractères"
 
 #: js/messages.php:734
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Veuillez entrer un nom de page valide"
+msgstr "Veuillez saisir une valeur entre {0} et {1}"
 
 #: js/messages.php:735
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Veuillez entrer une longueur valide !"
+msgstr "Veuillez saisir une valeur inférieure ou égale à {0}"
 
 #: js/messages.php:736
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Veuillez entrer un nom de page valide"
+msgstr "Veuillez saisir une valeur supérieure ou égale à {0}"
 
 #: js/messages.php:738
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Veuillez entrer un nom de page valide"
+msgstr "Veuillez saisir une date ou une heure valide"
 
 #: js/messages.php:739
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Veuillez entrer un nombre valide !"
+msgstr "Veuillez saisir une valeur hexadécimale valide"
 
 #: js/messages.php:740 libraries/Message.class.php:199
 #: libraries/Util.class.php:624 libraries/core.lib.php:245
@@ -11089,16 +11073,20 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Vous n'avez pas les privilèges nécessaires pour créer une base de données "
+"nommée « phpmyadmin ». Vous pouvez aller à l'onglet « Opérations » de toute "
+"base de données pour y mettre en place la configuration de stockage "
+"phpMyAdmin."
 
 #: libraries/relation.lib.php:2005
-#, fuzzy, php-format
+#, php-format
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sCréer%s les tables manquantes pour le stockage de configurations "
-"phpMyAdmin."
+"%sCréer%s une base de données nommée « phpmyadmin » et la configuration du "
+"stockage de phpMyAdmin dans cette base."
 
 #: libraries/relation.lib.php:2013
 #, php-format
