@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-05 05:49-0400\n"
-"PO-Revision-Date: 2015-04-06 12:51+0200\n"
+"PO-Revision-Date: 2015-04-06 12:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -1051,11 +1051,11 @@ msgstr "Sélectionnez au moins l'une des options !"
 
 #: js/messages.php:63
 msgid "Please enter a valid number!"
-msgstr "Veuillez entrer un nombre valide !"
+msgstr "Veuillez saisir un nombre valide !"
 
 #: js/messages.php:64
 msgid "Please enter a valid length!"
-msgstr "Veuillez entrer une longueur valide !"
+msgstr "Veuillez saisir une longueur valide !"
 
 #: js/messages.php:65
 msgid "Add Index"
@@ -2208,7 +2208,7 @@ msgstr "Veuillez sélectionner une page pour continuer"
 
 #: js/messages.php:426
 msgid "Please enter a valid page name"
-msgstr "Veuillez entrer un nom de page valide"
+msgstr "Veuillez saisir un nom de page valide"
 
 #: js/messages.php:427
 msgid "Do you want to save the changes to the current page?"
@@ -2799,17 +2799,17 @@ msgstr "Corrigez ce champ"
 #: js/messages.php:723
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Veuillez entrer une adresse courriel valide"
+msgstr "Veuillez saisir une adresse courriel valide"
 
 #: js/messages.php:724
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Veuillez entrer une URL valide"
+msgstr "Veuillez saisir une URL valide"
 
 #: js/messages.php:725
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Veuillez entrer une date valide"
+msgstr "Veuillez saisir une date valide"
 
 #: js/messages.php:726
 #| msgid "Please enter a valid page name"
@@ -14199,7 +14199,7 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Veuillez entrer les valeurs des options de transformation en suivant ce "
+"Veuillez saisir les valeurs des options de transformation en suivant ce "
 "format: 'a', 100, b,'c'…<br />Si vous devez entrer un caractère (\"\\\") ou "
 "une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
 "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
