@@ -254,7 +254,7 @@ $strConfigForm_Other_core_settings_desc
 $strConfigForm_Page_titles = __('Page titles');
 $strConfigForm_Page_titles_desc = __(
     'Specify browser\'s title bar text. Refer to '
-    . '[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used '
+    . '[doc@faq6-27]documentation[/doc] for magic strings that can be used '
     . 'to get special values.'
 );
 $strConfigForm_Query_window = __('Query window');
