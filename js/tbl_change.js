@@ -346,12 +346,12 @@ function applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows
  */
 AJAX.registerTeardown('tbl_change.js', function () {
     $(document).off('click', 'span.open_gis_editor');
+    $(document).off('click', "input[name^='insert_ignore_']");
     $(document).off('click', "input[name='gis_data[save]']");
     $(document).off('click', 'input.checkbox_null');
     $('select[name="submit_type"]').unbind('change');
     $(document).off('change', "#insert_rows");
     $(document).off('click', "select[name*='funcs']");
-    $(document).off('click', "#insert_ignore_1");
 });
 
 /**
@@ -456,7 +456,7 @@ AJAX.registerOnload('tbl_change.js', function () {
     /**
      * Forced validation check of fields
      */
-    $(document).on('click', "#insert_ignore_1", function (event) {
+    $(document).on('click',"input[name^='insert_ignore_']", function (event) {
         $("#insertForm").valid();
     });
 
