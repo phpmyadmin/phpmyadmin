@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-04-05 16:54+0200\n"
+"PO-Revision-Date: 2015-04-06 20:00+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/it/>\n"
@@ -1687,7 +1687,7 @@ msgstr "Prova"
 
 #: js/messages.php:251
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Formatto SQL..."
 
 #: js/messages.php:255 libraries/db_designer.lib.php:828
 #: libraries/db_designer.lib.php:877 libraries/db_designer.lib.php:1021
@@ -1869,7 +1869,7 @@ msgstr "Naviga tra i valori esterni"
 
 #: js/messages.php:309
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Nessuna query auto-memorizzata"
 
 #: js/messages.php:312 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -2008,11 +2008,11 @@ msgstr "Terzo livello di normalizzazione (3NF)"
 
 #: js/messages.php:344
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Conferma le dipendenze transitive"
 
 #: js/messages.php:345
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Le dipendenze selezionate sono come segue:"
 
 #: js/messages.php:346
 #| msgid "No databases selected."
@@ -4831,6 +4831,8 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
+"Il salvataggio della configurazione non è pronto per la funzionalità della "
+"lista centrale dei campi."
 
 #: libraries/central_columns.lib.php:283
 #, php-format
@@ -4915,7 +4917,7 @@ msgstr "Aggiungi nuovo campo"
 
 #: libraries/central_columns.lib.php:991
 msgid "on update CURRENT_TIMESTAMP"
-msgstr ""
+msgstr "on update CURRENT_TIMESTAMP"
 
 #: libraries/common.inc.php:579
 msgid "Failed to read configuration file!"
@@ -6513,6 +6515,8 @@ msgstr "Mostra la navigazione tra i database in forma di albero"
 #: libraries/config/messages.inc.php:428
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
+"Collegamento con il pannello principale evidenziando il database o la "
+"tabella correnti."
 
 #: libraries/config/messages.inc.php:430
 msgid "Show logo in navigation panel."
@@ -6743,7 +6747,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:509
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Avviso differenza Server/libreria"
 
 #: libraries/config/messages.inc.php:511
 #| msgid ""
@@ -6759,7 +6763,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:514
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "Avviso parola riservata in MySQL"
 
 #: libraries/config/messages.inc.php:516
 msgid "How to display the menu tabs"
@@ -6767,7 +6771,7 @@ msgstr "Come visualizzare le linguette dei menu"
 
 #: libraries/config/messages.inc.php:518
 msgid "How to display various action links"
-msgstr ""
+msgstr "Come visualizzare i collegamenti a diverse azioni"
 
 #: libraries/config/messages.inc.php:519
 #| msgid "Disallow BLOB and BINARY columns from editing"
@@ -7918,7 +7922,6 @@ msgstr "CSV usando LOAD DATA"
 #: libraries/config/setup.forms.php:268 libraries/config/setup.forms.php:365
 #: libraries/config/user_preferences.forms.php:167
 #: libraries/config/user_preferences.forms.php:263
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "Foglio di calcolo OpenDocument"
@@ -8389,22 +8392,19 @@ msgid "New database name"
 msgstr "Nome del database"
 
 #: libraries/display_export.lib.php:826
-#, fuzzy
 #| msgid "New page name: "
 msgid "New table name"
-msgstr "Nome per la nuova pagina: "
+msgstr "Nome nuova tabella"
 
 #: libraries/display_export.lib.php:836
-#, fuzzy
 #| msgid "Copy column name."
 msgid "Old column name"
-msgstr "Copia il nome del campo."
+msgstr "Vecchio nome campo"
 
 #: libraries/display_export.lib.php:837
-#, fuzzy
 #| msgid "Copy column name."
 msgid "New column name"
-msgstr "Copia il nome del campo."
+msgstr "Nuovo nome campo"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -8426,10 +8426,10 @@ msgid "committed on %1$s by %2$s"
 msgstr "Crea versione %1$s di %2$s"
 
 #: libraries/display_git_revision.lib.php:75
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "authored on %1$s by %2$s"
-msgstr "Crea versione %1$s di %2$s"
+msgstr "scritto il %1$s da %2$s"
 
 #: libraries/display_import.lib.php:71
 msgid ""
@@ -8491,7 +8491,6 @@ msgstr ""
 "riprenderà dalla posizione: %d."
 
 #: libraries/display_import.lib.php:291
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -8503,7 +8502,7 @@ msgid ""
 msgstr ""
 "Consenti l'interruzione del processo di importazione nel caso lo script "
 "rilevi di essere troppo vicino al timeout di PHP. <i>(Questo potrebbe essere "
-"un buon modo di importare grandi file, tuttavia potrebbe interrompere le "
+"un buon modo di importare grandi file, tuttavia può interrompere le "
 "transazioni.)</i>"
 
 #: libraries/display_import.lib.php:301
@@ -8532,10 +8531,9 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:455
-#, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file…"
-msgstr "Caricamento del file di importazione in corso…"
+msgstr "Caricamento del tuo file di importazione in corso…"
 
 #: libraries/display_import.lib.php:456
 #, php-format
@@ -8965,25 +8963,23 @@ msgid ""
 msgstr "Le seguenti strutture sono state create o modificate. Qui tu puoi:"
 
 #: libraries/import.lib.php:1256
-#, fuzzy
 #| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
-msgstr "Visualizza i contenuti della struttura facendo click sul suo nome"
+msgstr "Visualizza i contenuti della struttura facendo click sul suo nome."
 
 #: libraries/import.lib.php:1257
-#, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
-"Modificare ogni impostazione cliccando sul corrispondente link \"Opzioni\""
+"Modifica una qualunque impostazione cliccando sul corrispondente link \""
+"Opzioni\"."
 
 #: libraries/import.lib.php:1258
-#, fuzzy
 #| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
-msgstr "Modifica la struttura seguendo il link \"Struttura\""
+msgstr "Modifica la struttura seguendo il link \"Struttura\"."
 
 #: libraries/import.lib.php:1264
 #, php-format
@@ -9031,21 +9027,20 @@ msgid "Binary"
 msgstr "Binario"
 
 #: libraries/insert_edit.lib.php:592
-#, fuzzy
 #| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr ""
-"A causa della lunghezza,<br /> questo campo potrebbe non essere modificabile"
+"A causa della sua lunghezza,<br /> questo campo potrebbe non essere "
+"modificabile."
 
 #: libraries/insert_edit.lib.php:1044
 msgid "Binary - do not edit"
 msgstr "Dato binario - non modificare"
 
 #: libraries/insert_edit.lib.php:1171 libraries/sql_query_form.lib.php:449
-#, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "directory di upload del web-server"
+msgstr "directory di upload del web-server:"
 
 #: libraries/insert_edit.lib.php:1392
 #, php-format
@@ -9116,16 +9111,14 @@ msgid "Success!"
 msgstr ""
 
 #: libraries/mult_submits.lib.php:338
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table prefix:"
-msgstr "Sostituisci il prefisso della tabella"
+msgstr "Sostituisci il prefisso della tabella:"
 
 #: libraries/mult_submits.lib.php:340
-#, fuzzy
 #| msgid "Copy table with prefix"
 msgid "Copy table with prefix:"
-msgstr "Copia tabella col prefisso"
+msgstr "Copia tabella col prefisso:"
 
 #: libraries/mult_submits.lib.php:345
 msgid "From"
@@ -9141,10 +9134,9 @@ msgid "Submit"
 msgstr "Invia"
 
 #: libraries/mult_submits.lib.php:380
-#, fuzzy
 #| msgid "Add table prefix"
 msgid "Add table prefix:"
-msgstr "Aggiungi un prefisso alla tabella"
+msgstr "Aggiungi un prefisso alla tabella:"
 
 #: libraries/mult_submits.lib.php:383
 msgid "Add prefix"
@@ -9171,12 +9163,10 @@ msgid "Traditional Chinese"
 msgstr "Cinese Tradizionale"
 
 #: libraries/mysql_charsets.lib.php:183 libraries/mysql_charsets.lib.php:371
-#, fuzzy
 msgid "case-insensitive"
 msgstr "case-insensitive"
 
 #: libraries/mysql_charsets.lib.php:186 libraries/mysql_charsets.lib.php:373
-#, fuzzy
 msgid "case-sensitive"
 msgstr "case-sensitive"
 
@@ -9348,34 +9338,29 @@ msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
 #: libraries/navigation/Navigation.class.php:187
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "Eventi"
+msgstr "Eventi:"
 
 #: libraries/navigation/Navigation.class.php:188
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "Funzioni"
+msgstr "Funzioni:"
 
 #: libraries/navigation/Navigation.class.php:189
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Procedure"
+msgstr "Procedure:"
 
 #: libraries/navigation/Navigation.class.php:190
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabelle"
+msgstr "Tabelle:"
 
 #: libraries/navigation/Navigation.class.php:191
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "Viste"
+msgstr "Viste:"
 
 #: libraries/navigation/NavigationHeader.class.php:148
 msgid "Home"
@@ -9390,10 +9375,9 @@ msgid "phpMyAdmin documentation"
 msgstr "Documentazione di phpMyAdmin"
 
 #: libraries/navigation/NavigationHeader.class.php:192
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
-msgstr "Ricarica la frame di navigazione"
+msgstr "Ricarica il pannello di navigazione"
 
 #: libraries/navigation/NavigationTree.class.php:685
 msgid ""
@@ -9409,29 +9393,25 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/navigation/NavigationTree.class.php:1210
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Prego, selezionare un database"
+msgstr "Per favore seleziona un database."
 
 #: libraries/navigation/NavigationTree.class.php:1268
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
-msgstr "filtra i database in base al nome"
+msgstr "Filtra i database in base al nome o all'espressione regolare (regex)"
 
 #: libraries/navigation/NavigationTree.class.php:1270
 #: libraries/navigation/NavigationTree.class.php:1304
-#, fuzzy
 #| msgid "Clear series"
 msgid "Clear fast filter"
-msgstr "Cancella la serie"
+msgstr "Cancella il fast filter"
 
 #: libraries/navigation/NavigationTree.class.php:1303
-#, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"
-msgstr "filtra elementi in base al nome"
+msgstr "Filtra in base al nome o all'espressione regolare (regex)"
 
 #: libraries/navigation/NavigationTree.class.php:1329
 msgid "Collapse all"
@@ -9459,26 +9439,22 @@ msgid "Columns"
 msgstr "Campi"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new column"
 msgid "New"
 msgstr "Nuovo"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:41
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Opzioni di esportazione per database"
+msgstr "Opzioni di database"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:632
-#, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "Mostra suggerimento"
+msgstr "Mostra elementi nascosti"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new database"
 msgid "New"
@@ -9515,7 +9491,6 @@ msgid "New"
 msgstr "Nuovo"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
 msgstr "Procedure"
@@ -9585,32 +9560,28 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:138 normalization.php:19
-#, fuzzy
 #| msgid "Select a column."
 msgid "Select one…"
-msgstr "Seleziona una colonna."
+msgstr "Seleziona un elemento…"
 
 #: libraries/normalization.lib.php:139 normalization.php:20
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "No such column"
-msgstr "Muovi campo"
+msgstr "Campo inesistente"
 
 #: libraries/normalization.lib.php:146
 msgid "split into "
 msgstr ""
 
 #: libraries/normalization.lib.php:167
-#, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
 msgstr "Aggiungi chiave primaria"
 
 #: libraries/normalization.lib.php:173
-#, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Errore: relazione già esistente."
+msgstr "La chiave primaria esiste già."
 
 #: libraries/normalization.lib.php:178
 msgid ""
@@ -9628,16 +9599,14 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:194
-#, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "Aggiungi chiave primaria"
+msgstr "+ Aggiungi un nuovo campo di chiave primaria"
 
 #: libraries/normalization.lib.php:212
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove redundant columns"
-msgstr "Rimuovi campo/i"
+msgstr "Rimuovi i campi ridondanti"
 
 #: libraries/normalization.lib.php:215
 msgid ""
@@ -9653,16 +9622,14 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:226
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "Rimuove gli utenti selezionati"
+msgstr "Rimuovi gli elementi selezionati"
 
 #: libraries/normalization.lib.php:227
-#, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
-msgstr "Aggiungi campo"
+msgstr "Nessun campo ridondante"
 
 #: libraries/normalization.lib.php:248
 msgid "Move repeating groups"
@@ -9756,10 +9723,9 @@ msgstr ""
 
 #: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
 #: libraries/normalization.lib.php:663
-#, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing!"
-msgstr "Errore nel processare la richiesta"
+msgstr "Errore di esecuzione!"
 
 #: libraries/normalization.lib.php:501
 #, php-format
@@ -9773,18 +9739,15 @@ msgid "The third step of normalization is complete."
 msgstr ""
 
 #: libraries/normalization.lib.php:642
-#, fuzzy, php-format
+#, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr ""
-"Le tabelle di destinazione selezionate sono state sincronizzate con le "
-"tabelle di origine."
+msgstr "Il gruppo ripetuto selezionato è stato spostato nella tabella '%s'"
 
 #: libraries/normalization.lib.php:689
-#, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
-msgstr "Set"
+msgstr "Passo n. 3."
 
 #: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
@@ -9809,10 +9772,9 @@ msgid "Table is already in Third normal form!"
 msgstr ""
 
 #: libraries/normalization.lib.php:770
-#, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Nascondi le azioni relative alla struttura della tabella"
+msgstr "Migliora la struttura della tabella (Normalizzazione):"
 
 #: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
@@ -9843,10 +9805,9 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:75
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to:"
-msgstr "Rinomina il database come"
+msgstr "Rinomina il database in:"
 
 #: libraries/operations.lib.php:107
 #, php-format
@@ -9877,10 +9838,9 @@ msgid "Data only"
 msgstr "Solo dati"
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to:"
-msgstr "Copia il database come"
+msgstr "Copia il database come:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
@@ -10119,10 +10079,9 @@ msgid "Username:"
 msgstr "Nome utente:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:205
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Scelta del server"
+msgstr "Scelta del server:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:354
 msgid "Entered captcha is wrong, try again!"
@@ -10133,10 +10092,9 @@ msgid "Please enter correct captcha!"
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Impossibile eseguire il login nel server MySQL"
+msgstr "Non sei autorizzato ad eseguire il login in questo server MySQL!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:101
 msgid "Wrong username/password. Access denied."
@@ -10277,24 +10235,21 @@ msgstr "Opzioni di creazione dell'oggetto"
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Sottotitolo della tabella"
+msgstr "Sottotitolo della tabella:"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
-#, fuzzy
 #| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "Sottotitolo della tabella (continuato)"
+msgstr "Sottotitolo della tabella (continuato):"
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
-#, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Chiave etichetta"
+msgstr "Etichetta della chiave:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:102
