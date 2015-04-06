@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-05 05:49-0400\n"
-"PO-Revision-Date: 2015-04-03 22:58+0200\n"
+"PO-Revision-Date: 2015-04-06 02:35+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -2768,107 +2768,91 @@ msgstr "Sekunda"
 
 #: js/messages.php:721
 msgid "This field is required"
-msgstr ""
+msgstr "Polje je obvezno"
 
 #: js/messages.php:722
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Uporabi besedilno polje"
+msgstr "Prosimo, popravite to polje"
 
 #: js/messages.php:723
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Prosimo, vnesite veljavno ime strani"
+msgstr "Prosimo, vnesite veljaven e-pošni naslov"
 
 #: js/messages.php:724
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Prosimo, vnesite veljavno število!"
+msgstr "Prosimo, vnesite veljaven URL"
 
 #: js/messages.php:725
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Prosimo, vnesite veljavno ime strani"
+msgstr "Prosimo, vnesite veljaven datum"
 
 #: js/messages.php:726
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Prosimo, vnesite veljavno ime strani"
+msgstr "Prosimo, vnesite veljaven datum (ISO)"
 
 #: js/messages.php:727
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Prosimo, vnesite veljavno število!"
+msgstr "Prosimo, vnesite veljavno število"
 
 #: js/messages.php:728
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Prosimo, vnesite veljavno število!"
+msgstr "Prosimo, vnesite veljavno številko kreditne kartice"
 
 #: js/messages.php:729
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Prosimo, vnesite veljavno dolžino!"
+msgstr "Prosimo, vnesite samo številke"
 
 #: js/messages.php:730
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Prosimo, vnesite veljavno ime strani"
+msgstr "Prosimo, ponovno vnesite isto vrednost"
 
 #: js/messages.php:731
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter no more than {0} characters"
-msgstr "Prosimo, vnesite pravilno captcho!"
+msgstr "Prosimo, ne vnesete več kot {0} znakov"
 
 #: js/messages.php:732
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter at least {0} characters"
-msgstr "Prosimo, vnesite pravilno captcho!"
+msgstr "Prosimo, vnesite vsaj {0} znakov"
 
 #: js/messages.php:733
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Prosimo, vnesite vrednost, dolgo od {0} do {1} znakov"
 
 #: js/messages.php:734
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Prosimo, vnesite veljavno ime strani"
+msgstr "Prosimo, vnesite vrednost med {0} in {1}"
 
 #: js/messages.php:735
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Prosimo, vnesite veljavno dolžino!"
+msgstr "Prosimo, vnesite vrednost, manjšo ali enako {0}"
 
 #: js/messages.php:736
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Prosimo, vnesite veljavno ime strani"
+msgstr "Prosimo, vnesite vrednost, večjo ali enako {0}"
 
 #: js/messages.php:738
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Prosimo, vnesite veljavno ime strani"
+msgstr "Prosimo, vnesite veljaven datum ali čas"
 
 #: js/messages.php:739
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Prosimo, vnesite veljavno število!"
+msgstr "Prosimo, vnesite veljaven heksadecimalen vnos"
 
 #: js/messages.php:740 libraries/Message.class.php:199
 #: libraries/Util.class.php:624 libraries/core.lib.php:245
@@ -10980,14 +10964,19 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Nimate zadostnih dovoljenj za ustvarjanje zbirke podatkov 'phpmyadmin'. "
+"Greste lahko na zavihek 'Dejanja' v vsaki od zbirk podatkov in nastavite "
+"hrambo konfiguracije phpMyAdmin."
 
 #: libraries/relation.lib.php:2005
-#, fuzzy, php-format
+#, php-format
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "%sUstvari%s manjkajoče tabele hrambe konfiguracije phpMyAdmin."
+msgstr ""
+"%sUstvari%s zbirko podatkov 'phpmyadmin' in vanjo namesti hrambo "
+"konfiguracije phpMyAdmin."
 
 #: libraries/relation.lib.php:2013
 #, php-format
