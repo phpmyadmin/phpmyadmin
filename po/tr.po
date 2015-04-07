@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-03-30 17:43+0200\n"
+"PO-Revision-Date: 2015-04-05 17:27+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/tr/>\n"
@@ -10787,7 +10787,7 @@ msgstr ""
 #: libraries/relation.lib.php:1982
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Eksik phpMyAdmin yapılandırma depolama tablolarını %soluştur%s."
+msgstr "Eksik phpMyAdmin yapılandırma depolama tablolarını %soluşturun%s."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388

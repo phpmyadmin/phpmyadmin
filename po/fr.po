@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-03-31 13:57+0200\n"
+"PO-Revision-Date: 2015-04-06 12:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/fr/>\n"
@@ -1047,11 +1047,11 @@ msgstr "Sélectionnez au moins l'une des options !"
 
 #: js/messages.php:63
 msgid "Please enter a valid number!"
-msgstr "Veuillez entrer un nombre valide !"
+msgstr "Veuillez saisir un nombre valide !"
 
 #: js/messages.php:64
 msgid "Please enter a valid length!"
-msgstr "Veuillez entrer une longueur valide !"
+msgstr "Veuillez saisir une longueur valide !"
 
 #: js/messages.php:65
 msgid "Add Index"
@@ -2191,7 +2191,7 @@ msgstr "Veuillez sélectionner une page pour continuer"
 
 #: js/messages.php:424
 msgid "Please enter a valid page name"
-msgstr "Veuillez entrer un nom de page valide"
+msgstr "Veuillez saisir un nom de page valide"
 
 #: js/messages.php:425
 msgid "Do you want to save the changes to the current page?"
@@ -13974,7 +13974,7 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Veuillez entrer les valeurs des options de transformation en suivant ce "
+"Veuillez saisir les valeurs des options de transformation en suivant ce "
 "format: 'a', 100, b,'c'…<br />Si vous devez entrer un caractère (\"\\\") ou "
 "une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
 "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
