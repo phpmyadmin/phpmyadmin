@@ -257,8 +257,6 @@ $strConfigForm_Page_titles_desc = __(
     . '[doc@faq6-27]documentation[/doc] for magic strings that can be used '
     . 'to get special values.'
 );
-$strConfigForm_Query_window = __('Query window');
-$strConfigForm_Query_window_desc = __('Customize query window options');
 $strConfigForm_Security = __('Security');
 $strConfigForm_Security_desc = __(
     'Please note that phpMyAdmin is just a user interface and its features do not '
@@ -777,9 +775,9 @@ $strConfigLoginCookieValidityDisableWarning_desc = __('Disable the default warni
 $strConfigLoginCookieValidityDisableWarning_name = __(
     'Login cookie validity warning'
 );
-$strConfigTextareaCols_desc = __('Textarea size (columns) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25).');
+$strConfigTextareaCols_desc = __('Textarea size (columns) in edit mode, this value will be emphasized for SQL query textareas (*2).');
 $strConfigTextareaCols_name = __('Textarea columns');
-$strConfigTextareaRows_desc = __('Textarea size (rows) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25).');
+$strConfigTextareaRows_desc = __('Textarea size (rows) in edit mode, this value will be emphasized for SQL query textareas (*2).');
 $strConfigTextareaRows_name = __('Textarea rows');
 $strConfigTitleDatabase_desc = __('Title of browser window when a database is selected.');
 $strConfigTitleDatabase_name = __('Database');
