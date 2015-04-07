@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - bug #4836 Server warning after moving from console to direct clicks
 - bug #4837 Duplicate new version notification when using the "Back" button
 - bug #4839 DOC link in setting is broken
+- bug #4841 Status page: Mislukte pogingen per uur value is incorrect
 
 4.4.1.0 (not yet released)
 - bug #4813 MySQL 5.7.6 and the Users menu tab
