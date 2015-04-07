@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-04-06 20:00+0200\n"
+"PO-Revision-Date: 2015-04-07 14:28+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/it/>\n"
@@ -8420,10 +8420,10 @@ msgid "Git revision:"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:67
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "committed on %1$s by %2$s"
-msgstr "Crea versione %1$s di %2$s"
+msgstr "Inviato il %1$s da %2$s"
 
 #: libraries/display_git_revision.lib.php:75
 #, php-format
@@ -10269,69 +10269,61 @@ msgid "Display MIME types"
 msgstr "Mostra tipi MIME"
 
 #: libraries/plugins/export/ExportLatex.class.php:162
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Metti i nomi dei campi nel primo rigo"
+msgstr "Metti i nomi dei campi nella prima riga:"
 
 #: libraries/plugins/export/ExportLatex.class.php:205
 #: libraries/plugins/export/ExportSql.class.php:670
 #: libraries/plugins/export/ExportXml.class.php:182
 #: libraries/replication_gui.lib.php:423 libraries/replication_gui.lib.php:694
 #: libraries/server_privileges.lib.php:1521 libraries/sql.lib.php:292
-#, fuzzy
 #| msgid "Host"
 msgid "Host:"
-msgstr "Host"
+msgstr "Host:"
 
 #: libraries/plugins/export/ExportLatex.class.php:210
 #: libraries/plugins/export/ExportSql.class.php:677
 #: libraries/plugins/export/ExportXml.class.php:187 libraries/sql.lib.php:296
-#, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Generato il"
+msgstr "Creato il:"
 
 #: libraries/plugins/export/ExportLatex.class.php:213
 #: libraries/plugins/export/ExportSql.class.php:683
 #: libraries/plugins/export/ExportXml.class.php:190
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "Versione PHP"
+msgstr "Versione PHP:"
 
 #: libraries/plugins/export/ExportLatex.class.php:242
 #: libraries/plugins/export/ExportSql.class.php:849
 #: libraries/plugins/export/ExportXml.class.php:422
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:294
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "Database"
+msgstr "Database:"
 
 #: libraries/plugins/export/ExportLatex.class.php:306
 #: libraries/plugins/export/ExportSql.class.php:1899
-#, fuzzy
 #| msgid "Data"
 msgid "Data:"
-msgstr "Dati"
+msgstr "Dati:"
 
 #: libraries/plugins/export/ExportLatex.class.php:488
-#, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
-msgstr "Struttura"
+msgstr "Struttura:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
 msgstr "Esporta nomi delle tabelle"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
-#, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "orizzontale (headers ruotati)"
+msgstr "Esporta le intestazioni della tabella"
 
 #: libraries/plugins/export/ExportPdf.class.php:107
 msgid "(Generates a report containing the data of a single table)"
@@ -10394,10 +10386,9 @@ msgstr ""
 "</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:332
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Opzioni di creazione dell'oggetto"
+msgstr "Opzioni di creazione dei dati"
 
 #: libraries/plugins/export/ExportSql.class.php:336
 #: libraries/plugins/export/ExportSql.class.php:2001
@@ -10446,7 +10437,6 @@ msgstr ""
 "(4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
-#, fuzzy
 #| msgid ""
 #| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 #| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -10454,8 +10444,8 @@ msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"emtrambi i precedenti<br /> &nbsp; &nbsp; &nbsp; Ad esempio: <code>INSERT "
-"INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"entrambi i precedenti<br /> &nbsp; &nbsp; &nbsp; Ad esempio: <code>INSERT "
+"INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:408
 msgid ""
@@ -10509,28 +10499,24 @@ msgid "Constraints for table"
 msgstr "Limiti per la tabella"
 
 #: libraries/plugins/export/ExportSql.class.php:1337
-#, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
-msgstr "Limiti per le tabelle scaricate"
+msgstr "Indici per le tabelle scaricate"
 
 #: libraries/plugins/export/ExportSql.class.php:1338
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "Nelle tabelle:"
+msgstr "Indici per le tabelle"
 
 #: libraries/plugins/export/ExportSql.class.php:1359
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "Non usare AUTO_INCREMENT per il valore zero"
+msgstr "AUTO_INCREMENT per le tabelle scaricate"
 
 #: libraries/plugins/export/ExportSql.class.php:1360
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "Aggiungi valore AUTO_INCREMENT"
+msgstr "AUTO_INCREMENT per la tabella"
 
 #: libraries/plugins/export/ExportSql.class.php:1608
 msgid "MIME TYPES FOR TABLE"
@@ -10545,10 +10531,10 @@ msgid "It appears your table uses triggers;"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1828
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Struttura per la vista"
+msgstr "Struttura per la vista %s esportata come una tabella"
 
 #: libraries/plugins/export/ExportSql.class.php:1917
 msgid "Error reading data:"
@@ -10563,10 +10549,9 @@ msgid "Export contents"
 msgstr "Esporta contenuti"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:117
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
-msgstr "Tabella"
+msgstr "Tabella:"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -10630,10 +10615,10 @@ msgid "MediaWiki Table"
 msgstr "Tabella MediaWiki"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:279
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Formato non valido per l'input CSV alla linea %d."
+msgstr "Formato non valido per mediawiki alla linea: <br />%s."
 
 #: libraries/plugins/import/ImportOds.class.php:89
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -10655,10 +10640,9 @@ msgstr ""
 "problema e prova ancora."
 
 #: libraries/plugins/import/ImportOds.class.php:170
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Foglio di calcolo nel formato Open Document"
+msgstr "Non riesco ad analizzare il foglio di calcolo nel formato OpenDocument!"
 
 #: libraries/plugins/import/ImportShp.class.php:54
 msgid "ESRI Shape File"
