@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-05 05:49-0400\n"
 "PO-Revision-Date: 2015-04-07 05:23+0200\n"
-"Last-Translator: Danilo GUia <danilo.eng@globomail.com>\n"
+"Last-Translator: Washington Bruno Rodrigues Cav <washingtonbruno@msn.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -3183,10 +3183,9 @@ msgstr ""
 "definir como permanente, vá em configurações."
 
 #: libraries/Console.class.php:313
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Mudar para a tabela copiada"
+msgstr "Mudar para o tema escuro"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1356
 #: libraries/DisplayResults.class.php:2146
