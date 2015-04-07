@@ -233,7 +233,13 @@ function PMA_getHtmlForImportOptionsFile($max_upload_size, $import_list)
         $html .= '            </li>';
         $html .= '            <li>';
         $html .= '               <input type="radio" name="file_location" '
-            . 'id="radio_local_import_file" />';
+            . 'id="radio_local_import_file"';
+        if (! empty($GLOBALS['timeout_passed'])
+           && ! empty($GLOBALS['local_import_file'])
+        ) {
+            $html .= ' checked="checked"';
+        }
+        $html .= ' />';
         $html .= PMA_Util::getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
         $html .= '            </li>';
         $html .= '            </ul>';

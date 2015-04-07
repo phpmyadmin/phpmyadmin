@@ -1,6 +1,25 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.4.1.0 (2015-04-07)
+- bug #4813 MySQL 5.7.6 and the Users menu tab
+- bug #4818 MySQL 5.7.6 and changing the password for another user
+- bug #4819 Request URI too large
+- bug #4814 MySQL 5.7.6 and Databases
+- bug       Use 'server' parameter in console to work in multi server environments
+- bug       Missing tooltip in monitor
+- bug       Missing sort icons in monitor
+- bug #4805 Inline edit broken when using functions in query
+- bug #4821 Timed-out import fails to restart when file represented
+- bug #4754 pMA DB not detected properly
+- bug #4825 Datepicker missing when changing number of rows on Insert page
+- bug #4824 INNODB STATUS page is empty
+- bug #4828 JavaScript is loaded in wrong order
+- bug #4827 TEXT formatting doesn't work after inline editing
+- bug #4822 Compress when php.ini output_buffering is active
+- bug #4832 Sorting distinct values result loses links
+- bug #4834 Do not attach token to css requests to improve caching
+
 4.4.0.0 (2015-04-01)
 + rfe #1553 InnoDB presently supports one FULLTEXT index creation at a time
 + rfe #1562 Allow tracking multiple table at once from database level tracking page
@@ -66,7 +85,10 @@ explanation
 + rfe #1441 Add regexp match when using AllowArbitraryServer
 - bug #4806 Unable to work with two different servers in two tabs
 
-4.3.13.0 (not yet released)
+4.3.14.0 (not yet released)
+
+
+4.3.13.0 (2015-03-29)
 - bug #4803 "Show hidden items" is sometimes hidden
 - bug #4807 Breaks when sorting by multiple columns while using UNION
 - bug #4798 Missing column when exporting in sql

@@ -42,10 +42,13 @@ class Text_Plain_XmlEditor extends CodeMirrorEditorTransformationsPlugin
      */
     public function getScripts()
     {
-        return array(
-            'codemirror/mode/xml/xml.js',
-            'transformations/xml_editor.js'
-        );
+        $scripts = array();
+        if ($GLOBALS['cfg']['CodemirrorEnable']) {
+            $scripts[] = 'codemirror/lib/codemirror.js';
+            $scripts[] = 'codemirror/mode/xml/xml.js';
+            $scripts[] = 'transformations/xml_editor.js';
+        }
+        return $scripts;
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

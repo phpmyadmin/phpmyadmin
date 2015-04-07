@@ -16,7 +16,7 @@ function initTableSorter(tabid) {
     }
     $table.tablesorter(opts);
     $table.find('tr:first th')
-        .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
+        .append('<div class="sorticon"></div>');
 }
 
 $(function () {
