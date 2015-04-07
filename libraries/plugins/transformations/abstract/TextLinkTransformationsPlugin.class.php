@@ -52,7 +52,7 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
 
         $transform_options = array (
             'string' => '<a href="'
-                . PMA_linkURL((isset($options[0]) ? $options[0] : '') . $append_part)
+                . (isset($options[0]) ? $options[0] : '') . $append_part
                 . '" title="'
                 . htmlspecialchars(isset($options[1]) ? $options[1] : '')
                 . '" target="_new">'
