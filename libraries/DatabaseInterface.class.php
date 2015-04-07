@@ -958,12 +958,15 @@ class PMA_DatabaseInterface
                         $stats_join";
                 }
                 $sql .= $sql_where_schema . '
-                    GROUP BY s.SCHEMA_NAME
+                    GROUP BY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME
                     ORDER BY ' . PMA_Util::backquote($sort_by) . ' ' . $sort_order
                     . $limit;
             } else {
-                $sql = 'SELECT
-                    s.SCHEMA_NAME,
+                $sql  = 'SELECT *,
+                        CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME
+                    FROM (';
+                $sql .= 'SELECT
+                    BINARY s.SCHEMA_NAME AS BIN_NAME,
                     s.DEFAULT_COLLATION_NAME';
                 if ($force_stats) {
                     $sql .= ',
@@ -984,7 +987,7 @@ class PMA_DatabaseInterface
                             ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
                 }
                 $sql .= $sql_where_schema . '
-                        GROUP BY BINARY s.SCHEMA_NAME
+                        GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME
                         ORDER BY ';
                 if ($sort_by == 'SCHEMA_NAME'
                     || $sort_by == 'DEFAULT_COLLATION_NAME'
@@ -994,6 +997,7 @@ class PMA_DatabaseInterface
                 $sql .= PMA_Util::backquote($sort_by)
                     . ' ' . $sort_order
                     . $limit;
+                $sql .= ') a';
             }
 
             $databases = $this->fetchResult($sql, 'SCHEMA_NAME', null, $link);

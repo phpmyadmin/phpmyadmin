@@ -76,6 +76,7 @@ $post_params = array(
     'MAX_FILE_SIZE',
     'message_to_show',
     'noplugin',
+    'skip',
     'skip_queries',
     'local_import_file'
 );
@@ -655,12 +656,19 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
 
 // Did we hit timeout? Tell it user.
 if ($timeout_passed) {
+    $importUrl = $err_url .= '&timeout_passed=1&offset=' . urlencode($GLOBALS['offset']);
+    if (isset($local_import_file)) {
+        $importUrl .= '&local_import_file=' . urlencode($local_import_file);
+    }
     $message = PMA_Message::error(
         __(
             'Script timeout passed, if you want to finish import,'
-            . ' please resubmit same file and import will resume.'
+            . ' please %sresubmit the same file%s and import will resume.'
         )
     );
+    $message->addParam('<a href="' . $importUrl . '">', false);
+    $message->addParam('</a>', false);
+
     if ($offset == 0 || (isset($original_skip) && $original_skip == $offset)) {
         $message->addString(
             __(

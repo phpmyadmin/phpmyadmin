@@ -640,32 +640,41 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $this_field.addClass('null');
                     } else {
                         $this_field.removeClass('null');
-                        var new_html = data.isNeedToRecheck
+                        var value = data.isNeedToRecheck
                             ? data.truncatableFieldValue
                             : $this_field.data('value');
 
+                        // Truncates the text.
+                        $this_field.removeClass('truncated');
+                        if (PMA_commonParams.get('pftext') === 'P' && value.length > g.maxTruncatedLen) {
+                            $this_field.addClass('truncated');
+                            value = value.substring(0, g.maxTruncatedLen) + '...';
+                        }
+
                         //Add <br> before carriage return.
-                        new_html = escapeHtml(new_html);
+                        new_html = escapeHtml(value);
                         new_html = new_html.replace(/\n/g, '<br>\n');
 
                         //remove decimal places if column type not supported
                         if (($this_field.attr('data-decimals') === 0) && ( $this_field.attr('data-type').indexOf('time') != -1)) {
                             new_html = new_html.substring(0, new_html.indexOf('.'));
                         }
+
                         //remove addtional decimal places
                         if (($this_field.attr('data-decimals') > 0) && ( $this_field.attr('data-type').indexOf('time') != -1)){
                             new_html = new_html.substring(0, new_html.length - (6 - $this_field.attr('data-decimals')));
                         }
-                        $this_field.removeClass('truncated');
-                        if (PMA_commonParams.get('pftext') === 'P' && new_html.length > g.maxTruncatedLen) {
-                            $this_field.addClass('truncated');
-                            new_html = new_html.substring(0, g.maxTruncatedLen) + '...';
-                        }
+
                         var selector = 'span';
                         if ($this_field.hasClass('hex') && $this_field.find('a').length) {
                             selector = 'a';
                         }
-                        $this_field.find(selector).html(new_html);
+
+                        // Updates the code keeping highlighting (if any).
+                        var $target = $this_field.find(selector);
+                        if (!PMA_updateCode($target, new_html, value)) {
+                            $target.html(new_html);
+                        }
                     }
                     if ($this_field.is('.bit')) {
                         $this_field.find('span').text($this_field.data('value'));

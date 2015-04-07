@@ -56,28 +56,5 @@ if (is_readable($_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php')) {
             $height
         );
     }
-    // Here we map some of the classes that we
-    // defined above to other CSS selectors.
-    // The indexes of the array correspond to
-    // already defined classes and the values
-    // are the selectors that we want to map to.
-    $elements = array(
-        's_sortable' => 'img.sortableIcon',
-        's_asc'      => 'th.headerSortUp img.sortableIcon',
-        's_desc'     => 'th.headerSortDown img.sortableIcon'
-    );
-    $template = "%s { background-position: 0 -%upx; "
-              . "height: %upx; width: %upx; }\n";
-    foreach ($elements as $key => $value) {
-        if (isset($sprites[$key])) { // If the CSS class has been defined
-            printf(
-                $template,
-                $value,
-                ($sprites[$key]['position'] * 16),
-                $sprites[$key]['height'],
-                $sprites[$key]['width']
-            );
-        }
-    }
 }
 ?>

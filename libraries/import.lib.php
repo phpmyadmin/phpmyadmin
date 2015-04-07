@@ -1484,11 +1484,12 @@ function PMA_getMatchedRows($analyzed_sql_results = array())
 function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
 {
     $where_clause = '';
-    $extra_where_clause = '';
+    $extra_where_clause = array();
     $target_cols = array();
 
     $prev_term = '';
     $i = 0;
+    $in_function = 0;
     foreach ($analyzed_sql_results['parsed_sql'] as $key => $term) {
         if (! isset($get_set_expr)
             && preg_match(
@@ -1508,19 +1509,33 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
             ) {
                 break;
             }
+            if(!$in_function){
+                if ($term['type'] == 'punct_listsep') {
+                    $extra_where_clause[] = ' OR ';
+                } else if ($term['type'] == 'punct') {
+                    $extra_where_clause[] = ' <> ';
+                } else if($term['type'] == 'alpha_functionName') {
+                    array_pop($extra_where_clause);
+                    array_pop($extra_where_clause);
+                } else {
+                    $extra_where_clause[] = $term['data'];
+                }
+            }
+            else if($term['type'] == 'punct_bracket_close_round') {
+                $in_function--;
+            }
 
-            if ($term['type'] == 'punct_listsep') {
-                $extra_where_clause .= ' OR ';
-            } else if ($term['type'] == 'punct') {
-                $extra_where_clause .= ' <> ';
-            } else {
-                $extra_where_clause .= $term['data'];
+            if($term['type'] == 'alpha_functionName') {
+                $in_function++;
             }
 
             // Get columns in SET expression.
             if ($prev_term != 'punct') {
                 if ($term['type'] != 'punct_listsep'
                     && $term['type'] != 'punct'
+                    && $term['type'] != 'punct_bracket_open_round'
+                    && $term['type'] != 'punct_bracket_close_round'
+                    && !$in_function
                     && isset($term['data'])
                 ) {
                     if (isset($target_cols[$i])) {
@@ -1544,8 +1559,8 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
 
     // Get WHERE clause.
     $where_clause .= $analyzed_sql_results['analyzed_sql'][0]['where_clause'];
-    if (empty($where_clause) && empty($extra_where_clause)) {
-        $where_clause = '1';
+    if (empty($where_clause)) {
+        $where_clause = (!empty($extra_where_clause) && $extra_where_clause[0]) ? implode(' ',$extra_where_clause) : '1';
     }
 
     $matched_row_query = 'SELECT '

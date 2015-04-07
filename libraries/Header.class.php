@@ -226,7 +226,7 @@ class PMA_Header
             $GLOBALS['collation_connection'] = 'utf8_general_ci';
         }
 
-        return array(
+        $params = array(
             'common_query' => PMA_URL_getCommon(array(), 'text'),
             'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
             'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 1 : 0,
@@ -254,6 +254,13 @@ class PMA_Header
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'logged_in' => isset($GLOBALS['userlink']) ? true : false
         );
+        if (isset($GLOBALS['cfg']['Server'])
+            && isset($GLOBALS['cfg']['Server']['auth_type'])
+        ) {
+            $params['auth_type'] = $GLOBALS['cfg']['Server']['auth_type'];
+        }
+
+        return $params;
     }
 
     /**
@@ -397,6 +404,7 @@ class PMA_Header
                     $this->_scripts->addFile('codemirror/addon/hint/show-hint.js');
                     $this->_scripts->addFile('codemirror/addon/hint/sql-hint.js');
                 }
+                $this->_scripts->addFiles($this->_console->getScripts());
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');
                 }
@@ -503,7 +511,8 @@ class PMA_Header
         if (!empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
-            $captcha_url = ' https://www.google.com https://www.gstatic.com ';
+            $captcha_url = ' https://apis.google.com https://www.google.com/recaptcha/'
+               . ' https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/ ';
         } else {
             $captcha_url = '';
         }
@@ -615,7 +624,6 @@ class PMA_Header
             . 'type="image/x-icon" />';
         // stylesheets
         $basedir    = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-        $common_url = PMA_URL_getCommon(array('server' => $GLOBALS['server']));
         $theme_id   = $GLOBALS['PMA_Config']->getThemeUniqueValue();
         $theme_path = $GLOBALS['pmaThemePath'];
 
@@ -628,9 +636,8 @@ class PMA_Header
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $theme_path . '/jquery/jquery-ui-1.11.2.css" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'phpmyadmin.css.php'
-                . $common_url . '&amp;nocache='
-                . $theme_id . $GLOBALS['text_dir'] . '" />';
+                . $basedir . 'phpmyadmin.css.php?'
+                . 'nocache=' . $theme_id . $GLOBALS['text_dir'] . '" />';
         }
 
         return $retval;

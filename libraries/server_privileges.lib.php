@@ -1777,28 +1777,41 @@ function PMA_updatePassword($err_url, $username, $hostname)
 
     // here $nopass could be == 1
     if (empty($message)) {
+        if (PMA_Util::getServerType() == 'MySQL'
+            && PMA_MYSQL_INT_VERSION >= 50706
+        ) {
+            $query_prefix = "ALTER USER '"
+                . PMA_Util::sqlAddSlashes($username)
+                . "'@'" . PMA_Util::sqlAddSlashes($hostname) . "'"
+                . " IDENTIFIED BY '";
 
-        $hashing_function
-            = (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'old'
+            // in $sql_query which will be displayed, hide the password
+            $sql_query = $query_prefix . "*'";
+
+            $local_query = $query_prefix
+                . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . "'";
+        } else {
+            $hashing_function
+                = (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'old'
                 ? 'OLD_'
                 : ''
             )
             . 'PASSWORD';
 
-        // in $sql_query which will be displayed, hide the password
-        $sql_query        = 'SET PASSWORD FOR \''
-            . PMA_Util::sqlAddSlashes($username)
-            . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
-            . (($_POST['pma_pw'] == '')
-                ? '\'\''
-                : $hashing_function . '(\''
-                . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
+            $sql_query        = 'SET PASSWORD FOR \''
+                . PMA_Util::sqlAddSlashes($username)
+                . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
+                . (($_POST['pma_pw'] == '')
+                    ? '\'\''
+                    : $hashing_function . '(\''
+                    . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
 
-        $local_query      = 'SET PASSWORD FOR \''
-            . PMA_Util::sqlAddSlashes($username)
-            . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
-            . (($_POST['pma_pw'] == '') ? '\'\'' : $hashing_function
-            . '(\'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\')');
+            $local_query      = 'SET PASSWORD FOR \''
+                . PMA_Util::sqlAddSlashes($username)
+                . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
+                . (($_POST['pma_pw'] == '') ? '\'\'' : $hashing_function
+                . '(\'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\')');
+        }
 
         $GLOBALS['dbi']->tryQuery($local_query)
             or PMA_Util::mysqlDie(
@@ -4163,12 +4176,18 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
        . __('Users overview') . "\n"
        . '</h2>' . "\n";
 
+    $password_column = 'Password';
+    if (PMA_Util::getServerType() == 'MySQL' 
+        && PMA_MYSQL_INT_VERSION >= 50706
+    ) {
+        $password_column = 'authentication_string';
+    }
     // $sql_query is for the initial-filtered,
     // $sql_query_all is for counting the total no. of users
 
     $sql_query = $sql_query_all = 'SELECT *,' .
-        "       IF(`Password` = _latin1 '', 'N', 'Y') AS 'Password'" .
-        '  FROM `mysql`.`user`';
+        " IF(`" . $password_column . "` = _latin1 '', 'N', 'Y') AS 'Password'" .
+        ' FROM `mysql`.`user`';
 
     $sql_query .= (isset($_REQUEST['initial'])
         ? PMA_rangeOfUsers($_REQUEST['initial'])

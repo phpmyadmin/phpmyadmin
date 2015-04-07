@@ -510,7 +510,7 @@ class PMA_DisplayResults
             // 2.3 Other statements (ie "SELECT" ones) -> updates
             //     $displayParts['edit_lnk'], $displayParts['del_lnk'] and
             //     $displayParts['text_btn'] (keeps other default values)
-            $prev_table = $fields_meta[0]->table;
+            $prev_table = '';
             $displayParts['text_btn']  = (string) '1';
 
             for ($i = 0; $i < $this->__get('fields_cnt'); $i++) {
@@ -522,8 +522,9 @@ class PMA_DisplayResults
 
                 // 2.3.2 Displays edit/delete/sort/insert links?
                 if ($is_link
-                    && (($fields_meta[$i]->table == '')
-                    || ($fields_meta[$i]->table != $prev_table))
+                    && $prev_table != ''
+                    && $fields_meta[$i]->table != ''
+                    && $fields_meta[$i]->table != $prev_table
                 ) {
                     // don't display links
                     $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
@@ -541,7 +542,9 @@ class PMA_DisplayResults
 
                 // 2.3.3 Always display print view link
                 $displayParts['pview_lnk']    = (string) '1';
-                $prev_table = $fields_meta[$i]->table;
+                if ($fields_meta[$i]->table != '') {
+                    $prev_table = $fields_meta[$i]->table;
+                }
 
             } // end for
         } // end if..elseif...else (2.1 -> 2.3)
@@ -732,10 +735,11 @@ class PMA_DisplayResults
 
                 $table_navigation_html .= '<td>';
                 $_url_params = array(
-                    'db'        => $this->__get('db'),
-                    'table'     => $this->__get('table'),
-                    'sql_query' => $this->__get('sql_query'),
-                    'goto'      => $this->__get('goto'),
+                    'db'                 => $this->__get('db'),
+                    'table'              => $this->__get('table'),
+                    'sql_query'          => $this->__get('sql_query'),
+                    'goto'               => $this->__get('goto'),
+                    'is_browse_distinct' => $this->__get('is_browse_distinct'),
                 );
 
                 //<form> to keep the form alignment of button < and <<
@@ -1873,17 +1877,19 @@ class PMA_DisplayResults
         }
 
         $_single_url_params = array(
-            'db'                => $this->__get('db'),
-            'table'             => $this->__get('table'),
-            'sql_query'         => $single_sorted_sql_query,
-            'session_max_rows'  => $session_max_rows
+            'db'                 => $this->__get('db'),
+            'table'              => $this->__get('table'),
+            'sql_query'          => $single_sorted_sql_query,
+            'session_max_rows'   => $session_max_rows,
+            'is_browse_distinct' => $this->__get('is_browse_distinct'),
         );
 
         $_multi_url_params = array(
-            'db'                => $this->__get('db'),
-            'table'             => $this->__get('table'),
-            'sql_query'         => $multi_sorted_sql_query,
-            'session_max_rows'  => $session_max_rows
+            'db'                 => $this->__get('db'),
+            'table'              => $this->__get('table'),
+            'sql_query'          => $multi_sorted_sql_query,
+            'session_max_rows'   => $session_max_rows,
+            'is_browse_distinct' => $this->__get('is_browse_distinct'),
         );
         $single_order_url  = 'sql.php' . PMA_URL_getCommon($_single_url_params);
         $multi_order_url = 'sql.php' . PMA_URL_getCommon($_multi_url_params);
@@ -2846,6 +2852,7 @@ class PMA_DisplayResults
             $hide_class = ($col_visib && ! $col_visib[$currentColumn])
                 ? 'hide'
                 : '';
+            $grid_edit = $meta->orgtable != '' ? $grid_edit_class : '';
 
             // handle datetime-related class, for grid editing
             $field_type_class
@@ -2854,7 +2861,7 @@ class PMA_DisplayResults
             $is_field_truncated = false;
             // combine all the classes applicable to this column's value
             $class = $this->_getClassesForColumn(
-                $grid_edit_class, $not_null_class, $relation_class,
+                $grid_edit, $not_null_class, $relation_class,
                 $hide_class, $field_type_class
             );
 
