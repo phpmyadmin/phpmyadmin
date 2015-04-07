@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-05 05:49-0400\n"
-"PO-Revision-Date: 2015-04-07 05:21+0200\n"
-"Last-Translator: Washington Bruno Rodrigues Cav <washingtonbruno@msn.com>\n"
+"PO-Revision-Date: 2015-04-07 05:23+0200\n"
+"Last-Translator: Danilo GUia <danilo.eng@globomail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -265,8 +265,8 @@ msgstr "O banco de dados %1$s foi copiado para %2$s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"O armazenamento de configurações do phpMyAdmin foi desativado. Para "
-"descobrir o motivo, clique %saqui%s."
+"A configuração de armazenamento do phpMyAdmin foi desativada. %sSaiba mais "
+"aqui%s."
 
 #: db_printview.php:48 db_tracking.php:125 db_tracking.php:287
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:791
@@ -1993,7 +1993,7 @@ msgstr ""
 
 #: js/messages.php:338
 msgid "Step"
-msgstr "Passo"
+msgstr "Etapa"
 
 #: js/messages.php:339
 msgid "The following actions will be performed:"
