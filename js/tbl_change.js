@@ -147,6 +147,17 @@ function isTime(val)
     return tmexp.test(val);
 }
 
+/**
+ * To check whether insert section is ignored or not
+ */
+function checkForCheckbox(multi_edit)
+{
+    if($("#insert_ignore_"+multi_edit).length) {
+        return $("#insert_ignore_"+multi_edit).is(":unchecked");
+    }
+    return true;
+}
+
 function verificationsAfterFieldChange(urlField, multi_edit, theType)
 {
     var evt = window.event || arguments.callee.caller.arguments[0];
@@ -277,17 +288,6 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
 /* End of fields validation*/
 
 /**
- * To check whether insert section is ignored or not
- */
-function checkForCheckbox(multi_edit)
-{
-    if($("#insert_ignore_"+multi_edit).length) {
-        return $("#insert_ignore_"+multi_edit).is(":unchecked");
-    }
-    return true;
-}
-
-/**
  * Applies the selected function to all rows to be inserted.
  *
  * @param  string currId       Current ID of the row
@@ -346,6 +346,7 @@ function applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows
  */
 AJAX.registerTeardown('tbl_change.js', function () {
     $(document).off('click', 'span.open_gis_editor');
+    $(document).off('click', "input[name^='insert_ignore_']");
     $(document).off('click', "input[name='gis_data[save]']");
     $(document).off('click', 'input.checkbox_null');
     $('select[name="submit_type"]').unbind('change');
@@ -450,6 +451,13 @@ AJAX.registerOnload('tbl_change.js', function () {
         } else {
             loadGISEditor(value, field, type, input_name, token);
         }
+    });
+
+    /**
+     * Forced validation check of fields
+     */
+    $(document).on('click',"input[name^='insert_ignore_']", function (event) {
+        $("#insertForm").valid();
     });
 
     /**
