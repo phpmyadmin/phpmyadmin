@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-07 12:54-0400\n"
-"PO-Revision-Date: 2015-04-07 20:59+0200\n"
-"Last-Translator: Alex <amihaita@yahoo.com>\n"
+"PO-Revision-Date: 2015-04-07 21:04+0200\n"
+"Last-Translator: Alecsandru Prună <alecs.pruna@outlook.com>\n"
 "Language-Team: Romanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ro/>\n"
 "Language: ro\n"
@@ -34,10 +34,10 @@ msgid "Click to sort."
 msgstr "Clic pentru sortare."
 
 #: db_central_columns.php:148
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Afișează înregistrarea(ile) %1$s - %2$s"
+msgstr "Afișează înregistrarile %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -263,15 +263,15 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Baza de date %1$s a fost copiată la %2$s."
 
 #: db_operations.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Opțiunile adiționale pentru folosirea tabelelor intercalate au fost "
-"dezactivate. Pentru a afla de ce, click  %saici%s."
+"Salvarea setărilor phpMyAdmin a fost dezactivată. Pentru a afla de ce, click "
+"%saici%s."
 
 #: db_printview.php:48 db_tracking.php:125 db_tracking.php:287
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:789
@@ -10262,7 +10262,7 @@ msgstr "(individual)"
 
 #: libraries/operations.lib.php:621
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Mută tabelul la (bază_de_date<b>.</b>tabel):"
+msgstr "Mută tabelul la (bază_de_date<b>.</b>tabel)"
 
 #: libraries/operations.lib.php:732
 msgid "Table options"
@@ -10282,7 +10282,7 @@ msgstr "Motor de stocare"
 
 #: libraries/operations.lib.php:955
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Copiază tabelul la (bază_de_date<b>.</b>tabel):"
+msgstr "Copiază tabelul la (bază_de_date<b>.</b>tabel)"
 
 #: libraries/operations.lib.php:1010
 msgid "Switch to copied table"
