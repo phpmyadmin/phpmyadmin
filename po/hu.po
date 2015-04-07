@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-07 12:54-0400\n"
-"PO-Revision-Date: 2015-04-05 14:15+0200\n"
+"PO-Revision-Date: 2015-04-07 20:42+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -6073,7 +6073,6 @@ msgid "Page titles"
 msgstr "Oldalcímek"
 
 #: libraries/config/messages.inc.php:256
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -6083,7 +6082,7 @@ msgid ""
 "for magic strings that can be used to get special values."
 msgstr ""
 "Megadhatja a böngésző fejlécében megjelenített címet. Hivatkozzon a "
-"[doc@cfg_TitleTable]dokumentációra[/doc] a mágikus parancsok végett, amiket "
+"[doc@faq6-27]dokumentációra[/doc] a mágikus parancsok végett, amiket "
 "speciális értékek megjelenítésére használhat."
 
 #: libraries/config/messages.inc.php:260
@@ -7562,7 +7561,6 @@ msgid "Login cookie validity warning"
 msgstr "Bejelentkezési cookie érvényesség figyelmeztetés"
 
 #: libraries/config/messages.inc.php:778
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)."
@@ -7571,14 +7569,13 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Szövegdoboz méret (oszlop) szerkesztés módban, ez az érték lesz kiemelve az "
-"SQL-lekérdezés szövegdobozainál (*2) és a lekérdezés ablaknál (*1,25)."
+"SQL-lekérdezés szövegdobozainál (*2)."
 
 #: libraries/config/messages.inc.php:779
 msgid "Textarea columns"
 msgstr "Szövegdoboz oszlopai"
 
 #: libraries/config/messages.inc.php:780
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)."
@@ -7587,7 +7584,7 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Szövegdoboz méret (sor) szerkesztés módban, ez az érték lesz kiemelve az SQL-"
-"lekérdezés szövegdobozainál (*2) és a lekérdezés ablaknál (*1,25)."
+"lekérdezés szövegdobozainál (*2)."
 
 #: libraries/config/messages.inc.php:781
 msgid "Textarea rows"
