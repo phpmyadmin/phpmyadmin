@@ -8,7 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #4839 DOC link in setting is broken
 - bug #4841 Status page: Mislukte pogingen per uur value is incorrect
 
-4.4.1.0 (not yet released)
+4.4.1.0 (2015-04-07)
 - bug #4813 MySQL 5.7.6 and the Users menu tab
 - bug #4818 MySQL 5.7.6 and changing the password for another user
 - bug #4819 Request URI too large
