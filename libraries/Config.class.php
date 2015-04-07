@@ -396,6 +396,10 @@ class PMA_Config
      */
     function isGitRevision()
     {
+        if (!$this->get('ShowGitRevision')) {
+            return false;
+        }
+
         // caching
         if (isset($_SESSION['is_git_revision'])) {
             if ($_SESSION['is_git_revision']) {
