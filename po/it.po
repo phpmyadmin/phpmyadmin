@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-04-08 16:07+0200\n"
-"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
+"PO-Revision-Date: 2015-04-08 17:27+0200\n"
+"Last-Translator: Francesco Saverio Giacobazzi "
+"<francesco.giacobazzi@ferrania.it>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/it/>\n"
 "Language: it\n"
@@ -7841,7 +7842,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:795
 msgid "Proxy url"
-msgstr ""
+msgstr "Url Proxy"
 
 #: libraries/config/messages.inc.php:796
 msgid ""
@@ -7849,6 +7850,10 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Il nome utente per l'autenticazione con il proxy. Per impostazione "
+"predefinita, non viene eseguita autenticazione. Se viene fornito un nome "
+"utente, verrà eseguita l'autenticazione di base. Nessun altro tipo di "
+"autenticazione è attualmente supportato."
 
 #: libraries/config/messages.inc.php:797
 #| msgid "Username"
@@ -7857,7 +7862,7 @@ msgstr "Nome utente Proxy"
 
 #: libraries/config/messages.inc.php:798
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "La password per l'autenticazione con il proxy."
 
 #: libraries/config/messages.inc.php:799
 #| msgid "Password"
@@ -7882,23 +7887,24 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:803
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "Inserisci la tua chiave pubblica per il servizio di dominio reCaptcha."
 
 #: libraries/config/messages.inc.php:804
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Chiave pubblica per reCaptcha"
 
 #: libraries/config/messages.inc.php:805
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr ""
+"Immettere la propria chiave privata per il servizio di dominio reCaptcha."
 
 #: libraries/config/messages.inc.php:806
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Chiave privata per reCaptcha"
 
 #: libraries/config/messages.inc.php:808
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "Scegli l'azione di default quando invii i rapporti d'errore."
 
 #: libraries/config/messages.inc.php:809
 #| msgid "Server port"
