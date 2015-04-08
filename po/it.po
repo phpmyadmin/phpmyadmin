@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-07 12:54-0400\n"
-"PO-Revision-Date: 2015-04-08 16:07+0200\n"
-"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
+"PO-Revision-Date: 2015-04-08 17:29+0200\n"
+"Last-Translator: Francesco Saverio Giacobazzi "
+"<francesco.giacobazzi@ferrania.it>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
@@ -44,7 +45,7 @@ msgstr "Il database %1$s è stato creato."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment"
-msgstr "Commento del database:"
+msgstr "Commento del database"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -1867,10 +1868,10 @@ msgid "No auto-saved query"
 msgstr "Nessuna query auto-memorizzata"
 
 #: js/messages.php:310
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Variabile"
+msgstr "Variabile %d:"
 
 #: js/messages.php:313 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -2192,10 +2193,9 @@ msgstr "Salva pagina"
 
 #: js/messages.php:421 libraries/db_designer.lib.php:297
 #: libraries/db_designer.lib.php:300
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page as"
-msgstr "Seleziona pagina"
+msgstr "Salva pagina come"
 
 #: js/messages.php:422 libraries/db_designer.lib.php:281
 #: libraries/db_designer.lib.php:284
@@ -2798,105 +2798,90 @@ msgstr "Secondo"
 
 #: js/messages.php:721
 msgid "This field is required"
-msgstr ""
+msgstr "Questo campo è obbligatorio"
 
 #: js/messages.php:722
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Utilizza campo text"
+msgstr "Si prega di correggere questo campo"
 
 #: js/messages.php:723
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Inserisci un nome di pagina valido"
+msgstr "Per favore inserisci un indirizzo email valido"
 
 #: js/messages.php:724
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Si prega di inserire un numero valido!"
+msgstr "Si prega di inserire un URL valido"
 
 #: js/messages.php:725
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Inserisci un nome di pagina valido"
+msgstr "Si prega di inserire una data valida"
 
 #: js/messages.php:726
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Inserisci un nome di pagina valido"
+msgstr "Si prega di inserire una data valida ( ISO )"
 
 #: js/messages.php:727
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Si prega di inserire un numero valido!"
+msgstr "Si prega di inserire un numero valido"
 
 #: js/messages.php:728
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Si prega di inserire un numero valido!"
+msgstr "Si prega di inserire un numero di carta di credito valido"
 
 #: js/messages.php:729
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Inserire una lunghezza valida!"
+msgstr "Si prega di inserire solo cifre"
 
 #: js/messages.php:730
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Inserisci un nome di pagina valido"
+msgstr "Si prega di inserire lo stesso valore di nuovo"
 
 #: js/messages.php:731
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "Si prega di inserire non più di {0} caratteri"
 
 #: js/messages.php:732
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter at least {0} characters"
-msgstr "Inserisci un nome di pagina valido"
+msgstr "Si prega di inserire almeno {0} caratteri"
 
 #: js/messages.php:733
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Per favore inserisci un valore tra {0} e {1} caratteri"
 
 #: js/messages.php:734
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Inserisci un nome di pagina valido"
+msgstr "Immettere un valore compreso tra {0} e {1}"
 
 #: js/messages.php:735
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Inserire una lunghezza valida!"
+msgstr "Per favore inserisci un valore minore o uguale a {0}"
 
 #: js/messages.php:736
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Inserisci un nome di pagina valido"
+msgstr "Immettere un valore maggiore o uguale a {0}"
 
 #: js/messages.php:738
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Inserisci un nome di pagina valido"
+msgstr "Si prega di inserire una data o un'ora valida"
 
 #: js/messages.php:739
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Si prega di inserire un numero valido!"
+msgstr "Si prega di inserire un input HEX valido"
 
 #: js/messages.php:740 libraries/Message.class.php:199
 #: libraries/Util.class.php:624 libraries/core.lib.php:245
@@ -3127,10 +3112,9 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Premere Ctrl+Enter per eseguire la query"
 
 #: libraries/Console.class.php:214
-#, fuzzy
 #| msgid "Execute every"
 msgid "Press Enter to execute query"
-msgstr "Esegui ogni"
+msgstr "Premere INVIO per eseguire query"
 
 #: libraries/Console.class.php:235
 msgid "During current session"
@@ -3184,12 +3168,13 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"Esegui le query con INVIO e inserisci la nuova riga con MAIUSC + INVIO. Per "
+"rendere questo permanente, vedi le impostazioni."
 
 #: libraries/Console.class.php:313
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Passa alla tabella copiata"
+msgstr "Passare al tema scuro"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1356
 #: libraries/DisplayResults.class.php:2146
@@ -4970,7 +4955,7 @@ msgstr "Attributo"
 #: libraries/central_columns.lib.php:709
 #: libraries/central_columns.lib.php:1207
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -5711,16 +5696,14 @@ msgid "Default table tab"
 msgstr "Tabulazione predefinita per le tabelle"
 
 #: libraries/config/messages.inc.php:94
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Racchiudi i nomi di tabelle e di campi con virgolette"
+msgstr "Completamento automatico dei nomi di tabella e colonna nelle query SQL."
 
 #: libraries/config/messages.inc.php:95
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Racchiudi i nomi di tabelle e di campi con virgolette"
+msgstr "Attivare il completamento automatico per i nomi di tabella e colonna"
 
 #: libraries/config/messages.inc.php:97
 msgid "Whether the table structure actions should be hidden."
@@ -5763,10 +5746,10 @@ msgid "Maximum execution time"
 msgstr "Massimo tempo di esecuzione"
 
 #: libraries/config/messages.inc.php:113 libraries/display_export.lib.php:662
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
-msgstr "Aggiungi l'istruzione %s"
+msgstr "Utilizzare l'istruzione di %s"
 
 #: libraries/config/messages.inc.php:115 prefs_manage.php:316
 msgid "Save as file"
@@ -6140,7 +6123,6 @@ msgid "Page titles"
 msgstr "Titoli delle pagine"
 
 #: libraries/config/messages.inc.php:256
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -6149,9 +6131,9 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Specifica il testo per la barra del titolo. Puoi consultare la "
-"[doc@cfg_TitleTable]documentazione[/doc] per vedere delle stringhe che "
-"possono essere utilizzate per ottenere dei valori speciali."
+"Specifica il testo per la barra del titolo del browser. Puoi consultare la "
+"[doc@faq6-27]documentazione[/doc] per vedere delle stringhe che possono "
+"essere utilizzate per ottenere dei valori speciali."
 
 #: libraries/config/messages.inc.php:260
 msgid "Security"
@@ -6368,10 +6350,11 @@ msgid "Partial import: allow interrupt"
 msgstr "Importazione parziale: consenti interruzione"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Temporarily disable foreign key checks while importing"
-msgstr "Disabilita i controlli sulle chiavi straniere"
+msgstr ""
+"Disattivare temporaneamente i controlli sulle chiavi esterne durante "
+"l'importazione"
 
 #: libraries/config/messages.inc.php:343 libraries/config/messages.inc.php:353
 #: libraries/plugins/import/ImportCsv.class.php:89
@@ -7645,7 +7628,6 @@ msgid "Login cookie validity warning"
 msgstr "Avviso validità per il cookie di login"
 
 #: libraries/config/messages.inc.php:778
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)."
@@ -7653,16 +7635,14 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
-"Dimensione dell'area di testo (campi) nella modalità di modifica, questo "
-"valore verrà incrementato per le aree di testo delle query SQL (x2) e per la "
-"finestra di query (x1.25)."
+"Dimensione TextArea (colonne) in modalità di modifica, questo valore verrà "
+"sottolineato per SQL query textareas (* 2)."
 
 #: libraries/config/messages.inc.php:779
 msgid "Textarea columns"
 msgstr "Campi di aree di testo"
 
 #: libraries/config/messages.inc.php:780
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)."
@@ -7671,8 +7651,7 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Dimensione dell'area di testo (righe) in modalitá di modifica, questo valore "
-"viene incrementato per le aree di testo delle query SQL (×2) e per la "
-"finestra di query (×1.25)."
+"viene incrementato per le aree di testo delle query SQL (*2)."
 
 #: libraries/config/messages.inc.php:781
 msgid "Textarea rows"
@@ -7774,7 +7753,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:802
 msgid "Proxy url"
-msgstr ""
+msgstr "Url Proxy"
 
 #: libraries/config/messages.inc.php:803
 msgid ""
@@ -7782,6 +7761,10 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Il nome utente per l'autenticazione con il proxy. Per impostazione "
+"predefinita, non viene eseguita autenticazione. Se viene fornito un nome "
+"utente, verrà eseguita l'autenticazione di base. Nessun altro tipo di "
+"autenticazione è attualmente supportato."
 
 #: libraries/config/messages.inc.php:804
 msgid "Proxy username"
@@ -7789,7 +7772,7 @@ msgstr "Nome utente Proxy"
 
 #: libraries/config/messages.inc.php:805
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "La password per l'autenticazione con il proxy."
 
 #: libraries/config/messages.inc.php:806
 msgid "Proxy password"
@@ -7809,23 +7792,24 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:810
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "Inserisci la tua chiave pubblica per il servizio di dominio reCaptcha."
 
 #: libraries/config/messages.inc.php:811
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Chiave pubblica per reCaptcha"
 
 #: libraries/config/messages.inc.php:812
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr ""
+"Immettere la propria chiave privata per il servizio di dominio reCaptcha."
 
 #: libraries/config/messages.inc.php:813
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Chiave privata per reCaptcha"
 
 #: libraries/config/messages.inc.php:815
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "Scegli l'azione di default quando invii i rapporti d'errore."
 
 #: libraries/config/messages.inc.php:816
 msgid "Send error reports"
@@ -7836,12 +7820,13 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Le query verranno eseguite premendo Invio (invece di Ctrl+Invio). Le nuove "
+"linee saranno inserite con MAIUSC+INVIO."
 
 #: libraries/config/messages.inc.php:819
-#, fuzzy
 #| msgid "Executed queries"
 msgid "Enter executes queries in console"
-msgstr "Query eseguite"
+msgstr "INVIO esegue query in console"
 
 #: libraries/config/messages.inc.php:822
 msgid ""
@@ -8069,10 +8054,9 @@ msgid "Toggle"
 msgstr ""
 
 #: libraries/db_designer.lib.php:614
-#, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
-msgstr "Struttura della tabella"
+msgstr "Guarda la struttura della tabella"
 
 #: libraries/db_designer.lib.php:870
 msgid "Delete relation"
@@ -8440,16 +8424,14 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:338
-#, fuzzy
 #| msgid "Options"
 msgid "Other Options:"
-msgstr "Opzioni"
+msgstr "Altre opzioni:"
 
 #: libraries/display_import.lib.php:344
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable foreign key check"
-msgstr "Disabilita i controlli sulle chiavi straniere"
+msgstr "Disabilita i controlli sulle chiavi esterne"
 
 #: libraries/display_import.lib.php:368
 msgid "Format-Specific Options:"
@@ -9704,7 +9686,6 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:74
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to"
 msgstr "Rinomina il database come"
@@ -9738,7 +9719,6 @@ msgid "Data only"
 msgstr "Solo dati"
 
 #: libraries/operations.lib.php:174
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to"
 msgstr "Copia il database come"
@@ -9765,7 +9745,7 @@ msgstr "(singolarmente)"
 
 #: libraries/operations.lib.php:621
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Sposta la tabella nel (database<b>.</b>tabella):"
+msgstr "Sposta la tabella in (database<b>.</b>tabella)"
 
 #: libraries/operations.lib.php:732
 msgid "Table options"
@@ -9785,7 +9765,7 @@ msgstr "Motore di Memorizzazione"
 
 #: libraries/operations.lib.php:955
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Copia la tabella nel (database<b>.</b>tabella):"
+msgstr "Copia la tabella in (database<b>.</b>tabella)"
 
 #: libraries/operations.lib.php:1010
 msgid "Switch to copied table"
@@ -10224,16 +10204,14 @@ msgid "Report title:"
 msgstr "Titolo del report:"
 
 #: libraries/plugins/export/ExportPdf.class.php:230
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "Dump dei dati per la tabella"
+msgstr "Dump dei dati"
 
 #: libraries/plugins/export/ExportPdf.class.php:284
-#, fuzzy
 #| msgid "structure"
 msgid "View structure"
-msgstr "struttura"
+msgstr "Vedi struttura"
 
 #: libraries/plugins/export/ExportPdf.class.php:287
 #, fuzzy
@@ -10456,10 +10434,9 @@ msgid "Purpose:"
 msgstr ""
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:494
-#, fuzzy
 #| msgid "MIME type"
 msgid "MIME"
-msgstr "Tipo MIME"
+msgstr "MIME"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -10642,22 +10619,19 @@ msgid "Data Dictionary"
 msgstr "Dizionario dei dati"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "nessuno dei precedenti"
+msgstr "Ordine delle tabelle"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Crescente"
+msgstr "Nome (ascendente)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Decrescente"
+msgstr "Nome (Decrescente)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:68
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:81
@@ -11090,12 +11064,14 @@ msgid ""
 msgstr ""
 
 #: libraries/relation.lib.php:2005
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "Mancano le tabelle di configurazione di phpMyAdmin"
+msgstr ""
+"%sCrea%s un database denominato 'phpmyadmin' e imposta la configurazione di "
+"storage phpMyAdmin lì."
 
 #: libraries/relation.lib.php:2013
 #, php-format
