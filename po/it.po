@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-07 12:54-0400\n"
-"PO-Revision-Date: 2015-04-08 13:06+0200\n"
+"PO-Revision-Date: 2015-04-08 13:12+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -12867,10 +12867,9 @@ msgid "per minute:"
 msgstr "al minuto:"
 
 #: libraries/server_status_queries.lib.php:54
-#, fuzzy
 #| msgid "per second"
 msgid "per second:"
-msgstr "al secondo"
+msgstr "al secondo:"
 
 #: libraries/server_status_queries.lib.php:93
 msgid "Statements"
@@ -13601,10 +13600,9 @@ msgstr ""
 "performace se hai una buona implementazione dei processi.)"
 
 #: libraries/server_status_variables.lib.php:757
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Percentuale hit nella cache del thread"
+msgstr "Percentuale hit nella cache del thread (valore calcolato)"
 
 #: libraries/server_status_variables.lib.php:760
 msgid "The number of threads that are not sleeping."
@@ -13620,41 +13618,35 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:64 libraries/server_users.lib.php:33
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "Utenti"
+msgstr "Gruppi utenti"
 
 #: libraries/server_user_groups.lib.php:79
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Versione del server"
+msgstr "Tabulazioni livello server"
 
 #: libraries/server_user_groups.lib.php:80
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Server del Database"
+msgstr "Tabulazioni livello Database"
 
 #: libraries/server_user_groups.lib.php:81
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Commenti alla tabella"
+msgstr "Tabulazioni livello tabella"
 
 #: libraries/server_user_groups.lib.php:110
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Viste"
+msgstr "Vista utenti"
 
 #: libraries/server_user_groups.lib.php:147
 #: libraries/server_user_groups.lib.php:209
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Aggiungi utente"
+msgstr "Aggiungi gruppo utente"
 
 #: libraries/server_user_groups.lib.php:212
 #, php-format
@@ -13662,16 +13654,14 @@ msgid "Edit user group: '%s'"
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:228
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Nessun privilegio."
+msgstr "Menu assegnazioni del gruppo utente"
 
 #: libraries/server_user_groups.lib.php:235
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Nomi dei campi: "
+msgstr "Nome del gruppo:"
 
 #: libraries/server_user_groups.lib.php:272
 #, fuzzy
