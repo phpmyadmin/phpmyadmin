@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-07 12:54-0400\n"
-"PO-Revision-Date: 2015-04-06 07:48+0200\n"
+"PO-Revision-Date: 2015-04-08 07:09+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -6098,7 +6098,6 @@ msgid "Page titles"
 msgstr "Τίτλοι σελίδας"
 
 #: libraries/config/messages.inc.php:256
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -6108,7 +6107,7 @@ msgid ""
 "for magic strings that can be used to get special values."
 msgstr ""
 "Ορίστε το κείμενο του τίτλου στο φυλλομετρητή σας. Δείτε την "
-"[doc@cfg_TitleTable]τεκμηρίωση[/doc] για μαγικά κείμενα που μπορούν να "
+"[doc@faq6-27]τεκμηρίωση[/doc] για μαγικά κείμενα που μπορούν να "
 "χρησιμοποιηθούν για ειδικές τιμές."
 
 #: libraries/config/messages.inc.php:260
@@ -7599,7 +7598,6 @@ msgid "Login cookie validity warning"
 msgstr "Προειδοποίηση εγκυρότητας cookie σύνδεσης"
 
 #: libraries/config/messages.inc.php:778
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)."
@@ -7608,15 +7606,13 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Το μέγεθος του textarea (στήλες) σε κατάσταση επεξεργασίας. Αυτή η τιμή "
-"πολλαπλασιαστεί για τα textareas των ερωτημάτων (x2) και το παράθυρο των "
-"ερωτημάτων (x1,25)."
+"πολλαπλασιαστεί για τα textareas των ερωτημάτων (x2)."
 
 #: libraries/config/messages.inc.php:779
 msgid "Textarea columns"
 msgstr "Στήλες textarea"
 
 #: libraries/config/messages.inc.php:780
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)."
@@ -7625,8 +7621,7 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Το μέγεθος του textarea (γραμμές) σε κατάσταση επεξεργασίας. Αυτή η τιμή "
-"πολλαπλασιαστεί για τα textareas των ερωτημάτων (x2) και το παράθυρο των "
-"ερωτημάτων (x1,25)."
+"πολλαπλασιαστεί για τα textareas των ερωτημάτων (x2)."
 
 #: libraries/config/messages.inc.php:781
 msgid "Textarea rows"
