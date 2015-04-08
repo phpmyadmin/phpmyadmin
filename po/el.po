@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-07 12:54-0400\n"
-"PO-Revision-Date: 2015-04-08 07:09+0200\n"
+"PO-Revision-Date: 2015-04-08 11:34+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
 "Language-Team: Greek "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
@@ -10242,7 +10242,6 @@ msgid "View structure"
 msgstr "Προβολή δομής"
 
 #: libraries/plugins/export/ExportPdf.class.php:287
-#, fuzzy
 #| msgid "and then"
 msgid "Stand in"
 msgstr "και μετά"
