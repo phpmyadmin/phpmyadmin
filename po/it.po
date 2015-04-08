@@ -12862,10 +12862,9 @@ msgid "per hour:"
 msgstr "all'ora:"
 
 #: libraries/server_status_queries.lib.php:47
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "al minuto"
+msgstr "al minuto:"
 
 #: libraries/server_status_queries.lib.php:54
 #, fuzzy
