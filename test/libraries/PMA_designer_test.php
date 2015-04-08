@@ -64,7 +64,7 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
             ->method('tryQuery')
             ->with(
                 "SELECT `page_nr`, `page_descr` FROM `pmadb`.`pdf_pages`"
-                . " WHERE db_name = '" . $db . "' ORDER BY `page_nr`",
+                . " WHERE db_name = '" . $db . "' ORDER BY `page_descr`",
                 2,
                 PMA_DatabaseInterface::QUERY_STORE,
                 false

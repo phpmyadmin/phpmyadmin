@@ -125,7 +125,7 @@ function PMA_getPageIdsAndNames($db)
         . PMA_Util::backquote($cfgRelation['db']) . "."
         . PMA_Util::backquote($cfgRelation['pdf_pages'])
         . " WHERE db_name = '" . PMA_Util::sqlAddSlashes($db) . "'"
-        . " ORDER BY `page_nr`";
+        . " ORDER BY `page_descr`";
     $page_rs = PMA_queryAsControlUser(
         $page_query, false, PMA_DatabaseInterface::QUERY_STORE
     );
