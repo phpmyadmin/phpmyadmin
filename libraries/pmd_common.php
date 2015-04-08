@@ -335,32 +335,57 @@ function PMA_deletePage($pg)
 }
 
 /**
- * Returns the id of the first pdf page of the database
+ * Returns the id of the default pdf page of the database.
+ * Default page is the one which has the same name as the database.
+ * If no such exists, returns the id of the first page of the database.
  *
  * @param string $db database
  *
  * @return int id of the first pdf page, default is -1
  */
-function PMA_getFirstPage($db)
+function PMA_getDefaultPage($db)
 {
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
         return null;
     }
 
-    $query = "SELECT MIN(`page_nr`)"
+    $page_no = -1;
+
+    $query = "SELECT `page_nr`"
         . " FROM " . PMA_Util::backquote($cfgRelation['db'])
         . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
-        . " WHERE `db_name` = '" . $db . "'";
+        . " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($db) . "'"
+        . " AND `page_descr` = '" .  PMA_Util::sqlAddSlashes($db) . "'";
 
-    $min_page_no = $GLOBALS['dbi']->fetchResult(
+    $default_page_no = $GLOBALS['dbi']->fetchResult(
         $query,
         null,
         null,
         $GLOBALS['controllink'],
         PMA_DatabaseInterface::QUERY_STORE
     );
-    return count($min_page_no[0]) ? $min_page_no[0] : -1;
+
+    if (count($default_page_no)) {
+        $page_no = $default_page_no[0];
+    } else {
+        $query = "SELECT MIN(`page_nr`)"
+            . " FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['pdf_pages'])
+            . " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($db) . "'";
+
+        $min_page_no = $GLOBALS['dbi']->fetchResult(
+            $query,
+            null,
+            null,
+            $GLOBALS['controllink'],
+            PMA_DatabaseInterface::QUERY_STORE
+        );
+        if (count($min_page_no[0])) {
+            $page_no = $min_page_no[0];
+        }
+    }
+    return $page_no;
 }
 
 /**
