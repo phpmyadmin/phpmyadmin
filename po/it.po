@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-04-07 14:28+0200\n"
+"PO-Revision-Date: 2015-04-08 13:04+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/it/>\n"
@@ -10655,7 +10655,6 @@ msgstr ""
 "C'è stato un errore durante l'importazione del file shape ESRI:  \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:196
-#, fuzzy
 #| msgid ""
 #| "You tried to import an invalid file or the imported file contains invalid "
 #| "data"
@@ -10664,7 +10663,7 @@ msgid ""
 "data!"
 msgstr ""
 "Hai cercato di importare un file non valido o il file importato contiene "
-"dati non validi"
+"dati non validi!"
 
 #: libraries/plugins/import/ImportShp.class.php:202
 #, php-format
@@ -10672,10 +10671,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "L'Estensione Spaziale di MySQL non supporta il tipo ESRI \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:250
-#, fuzzy
 #| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "Il file importato non contiene dei dati"
+msgstr "Il file importato non contiene alcun dato!"
 
 #: libraries/plugins/import/ImportSql.class.php:167
 msgid "SQL compatibility mode:"
@@ -10686,10 +10684,9 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Non usare <code>AUTO_INCREMENT</code> per il valori zero"
 
 #: libraries/plugins/import/ImportSql.class.php:193
-#, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Non letto"
+msgstr "Letto come multybyte"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -10752,16 +10749,15 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Schema del database %s - Pagina %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:252
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "Tipo di esportazione non valido"
+msgstr "Pagina di esportazione PDF"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:474
 #, fuzzy, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "Schema del database %s - Pagina %s"
+msgstr "Schema del database %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:497
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:877
@@ -10818,7 +10814,6 @@ msgstr ""
 "seconda opzione, dovete avere la prima opzione settata ad una stringa vuota."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -10846,13 +10841,13 @@ msgstr ""
 "tramite lo standard input. Restituisce lo standard output dell'applicazione. "
 "L'impostazione predefinita è Tidy, per stampare in maniera corretta il "
 "codice HTML. Per motivi di sicurezza, dovete editare manualmente il file "
-"libraries/transformations/text_plain__external.inc.php e inserire gli "
-"strumenti che permettete di utilizzare. La prima opzione è così il numero "
-"del programma che volete utilizzare e la seconda sono i parametri per il "
-"programma. Il terzo parametro, se impostato a 1 convertirà l'output "
+"libraries/plugins/transformations/output/Text_Plain_External.class.php e "
+"inserire gli strumenti che permettete di utilizzare. La prima opzione è il "
+"numero del programma che volete utilizzare e la seconda sono i parametri per "
+"il programma. Il terzo parametro, se impostato a 1 convertirà l'output "
 "utilizzando htmlspecialchars() (Predefinito: 1). Un quarto parametro, se "
 "impostato a 1 inserirà un NOWRAP al contenuto della cella così che l'intero "
-"output sarà mostrato senza essere riformattato (Predefinito: 1)."
+"output sarà mostrato sulla stessa riga (Predefinito: 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -10979,32 +10974,28 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr ""
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Formatta il testo come query SQL con evidenziazione della sintassi."
+msgstr "Formatta il testo come JSON con evidenziazione della sintassi."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Formatta il testo come query SQL con evidenziazione della sintassi."
+msgstr "Formatta il testo come XML con evidenziazione della sintassi."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
 msgstr "Errore: relazione già esistente."
 
 #: libraries/pmd_common.php:538
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "Relazione FOREIGN KEY aggiunta"
+msgstr "La relazione FOREIGN KEY è stata aggiunta."
 
 #: libraries/pmd_common.php:543
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr "Errore: relazione non aggiunta."
+msgstr "Errore: non è stato possibile aggiungere la relazione FOREIGN KEY!"
 
 #: libraries/pmd_common.php:548
 msgid "Error: Missing index on column(s)."
@@ -11015,40 +11006,34 @@ msgid "Error: Relational features are disabled!"
 msgstr "Errore: Le funzionalità relazionali sono disabilitate!"
 
 #: libraries/pmd_common.php:572
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Aggiunte relazioni internet"
+msgstr "La relazioni interna è stata aggiunta."
 
 #: libraries/pmd_common.php:577
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relation could not be added!"
-msgstr "Errore: relazione non aggiunta."
+msgstr "Errore: non è stato possibile aggiungere la relazione interna!"
 
 #: libraries/pmd_common.php:618
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been removed."
-msgstr "Relazione FOREIGN KEY aggiunta"
+msgstr "La relazione FOREIGN KEY è stata rimossa."
 
 #: libraries/pmd_common.php:624
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr "Errore: relazione non aggiunta."
+msgstr "Errore: non è stato possibile rimuovere la relazione FOREIGN KEY!"
 
 #: libraries/pmd_common.php:651
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relation could not be removed!"
-msgstr "Errore: relazione non aggiunta."
+msgstr "Errore: non è stato possibile rimuovere la relazione interna!"
 
 #: libraries/pmd_common.php:655
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been removed."
-msgstr "Aggiunte relazioni internet"
+msgstr "La relazione interna è stata rimossa."
 
 #: libraries/relation.lib.php:86
 msgid "not OK"
@@ -11064,10 +11049,9 @@ msgid "Enabled"
 msgstr "Abilitata"
 
 #: libraries/relation.lib.php:97
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "Configurazione salvata."
+msgstr "Configurazione di pmadb... "
 
 #: libraries/relation.lib.php:101 libraries/relation.lib.php:128
 msgid "General relation features"
@@ -11078,10 +11062,9 @@ msgid "Display Features"
 msgstr "Mostra Caratteristiche"
 
 #: libraries/relation.lib.php:156
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Creazione di PDF"
+msgstr "Progettazione e creazione dei PDF"
 
 #: libraries/relation.lib.php:167
 msgid "Displaying Column Comments"
@@ -11092,12 +11075,12 @@ msgid "Browser transformation"
 msgstr "Trasformazione del browser"
 
 #: libraries/relation.lib.php:180
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
-"Prego vedi la documentazione su come aggiornare la tabella column_comments."
+"Si prega di leggere la documentazione su come aggiornare la tabella "
+"column_info. "
 
 #: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:362
 msgid "Bookmarked SQL query"
@@ -11112,10 +11095,9 @@ msgid "Persistent recently used tables"
 msgstr "Tabelle persistenti utilizzate di recente"
 
 #: libraries/relation.lib.php:226
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Tabelle persistenti utilizzate di recente"
+msgstr "Tabelle persistenti preferite"
 
 #: libraries/relation.lib.php:237
 msgid "Persistent tables' UI preferences"
@@ -11126,16 +11108,14 @@ msgid "User preferences"
 msgstr "Impostazioni utente"
 
 #: libraries/relation.lib.php:276
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Configurazione: %s"
+msgstr "Menu configurabili"
 
 #: libraries/relation.lib.php:287
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Ricarica la frame di navigazione"
+msgstr "Mostra/nascondi le voci di navigazione"
 
 #: libraries/relation.lib.php:298
 msgid "Saving Query-By-Example searches"
@@ -11150,11 +11130,11 @@ msgid "Quick steps to setup advanced features:"
 msgstr "Passi veloci per l'installazione delle funzionalità avanzate:"
 
 #: libraries/relation.lib.php:323
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr "Crea le tabelle necessarie <code>examples/create_tables.sql</code>."
+msgstr "Crea le tabelle necessarie con <code>%screate_tables.sql</code>."
 
 #: libraries/relation.lib.php:331
 msgid "Create a pma user and give access to these tables."
@@ -11179,17 +11159,20 @@ msgid "no description"
 msgstr "nessuna descrizione"
 
 #: libraries/relation.lib.php:1975
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Mancano le tabelle di configurazione di phpMyAdmin"
+msgstr ""
+"%sCreate%s la configurazione salvata di phpMyAdmin nel database corrente."
 
 #: libraries/relation.lib.php:1982
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Mancano le tabelle di configurazione di phpMyAdmin"
+msgstr ""
+"%sCreate%s mancano le tabelle di salvataggio della configurazione di "
+"phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -11263,10 +11246,9 @@ msgid "Slave replication"
 msgstr "Replicazione slave"
 
 #: libraries/replication_gui.lib.php:143
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "Connessione non sicura"
+msgstr "Connessione principale:"
 
 #: libraries/replication_gui.lib.php:209
 msgid "Slave SQL Thread not running!"
@@ -11345,10 +11327,10 @@ msgid "Skip current error"
 msgstr "Salta l'errore corrente"
 
 #: libraries/replication_gui.lib.php:309
-#, fuzzy, php-format
+#, php-format
 #| msgid "Skip current error"
 msgid "Skip next %s errors."
-msgstr "Salta l'errore corrente"
+msgstr "Salta i prossimi %s errori."
 
 #: libraries/replication_gui.lib.php:336
 #, php-format
@@ -11377,10 +11359,9 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:400 libraries/replication_gui.lib.php:787
 #: libraries/server_privileges.lib.php:1455
-#, fuzzy
 #| msgid "User name"
 msgid "User name:"
-msgstr "Nome utente"
+msgstr "Nome utente:"
 
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:791
 #: libraries/replication_gui.lib.php:807
@@ -11398,10 +11379,9 @@ msgid "Password"
 msgstr "Password"
 
 #: libraries/replication_gui.lib.php:435
-#, fuzzy
 #| msgid "Port"
 msgid "Port:"
-msgstr "Porta"
+msgstr "Porta:"
 
 #: libraries/replication_gui.lib.php:519
 msgid "Master status"
@@ -11462,10 +11442,9 @@ msgstr "Qualsiasi utente"
 #: libraries/replication_gui.lib.php:803 libraries/replication_gui.lib.php:836
 #: libraries/replication_gui.lib.php:869
 #: libraries/server_privileges.lib.php:1620
-#, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Utilizza campo text"
+msgstr "Utilizza campo text:"
 
 #: libraries/replication_gui.lib.php:830
 #: libraries/server_privileges.lib.php:1611
@@ -11487,56 +11466,48 @@ msgid "Re-type"
 msgstr "Reinserisci"
 
 #: libraries/replication_gui.lib.php:885
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate Password:"
-msgstr "Genera Password"
+msgstr "Genera Password:"
 
 #: libraries/replication_gui.lib.php:923
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Stato di replicazione"
+msgstr "Replicazione iniziata con successo."
 
 #: libraries/replication_gui.lib.php:924
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Replicazione master"
+msgstr "Errore nell'avvio della replicazione."
 
 #: libraries/replication_gui.lib.php:927
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Diagramma creato con successo."
+msgstr "Replicazione fermata con successo."
 
 #: libraries/replication_gui.lib.php:928
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Replicazione master"
+msgstr "Errore nel tentativo di fermare la replicazione."
 
 #: libraries/replication_gui.lib.php:931
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Stato di replicazione"
+msgstr "Replicazione resettata con successo."
 
 #: libraries/replication_gui.lib.php:932
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Replicazione master"
+msgstr "Errore nel tentativo di reset della replicazione."
 
 #: libraries/replication_gui.lib.php:935
 msgid "Success."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:936
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Errore"
+msgstr "Errore."
 
 #: libraries/replication_gui.lib.php:981
 msgid "Unknown error"
@@ -11555,16 +11526,15 @@ msgstr ""
 "dei problemi di permessi sul master."
 
 #: libraries/replication_gui.lib.php:1020
-#, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "Impossibile modificare il master"
+msgstr "Impossibile modificare il master!"
 
 #: libraries/replication_gui.lib.php:1024
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Master server changed successfully to %s."
-msgstr "Il server master modificato con successo a %s"
+msgstr "Server master modificato con successo in %s."
 
 #: libraries/rte/rte_events.lib.php:111 libraries/rte/rte_events.lib.php:120
 #: libraries/rte/rte_events.lib.php:151 libraries/rte/rte_routines.lib.php:316
@@ -11594,13 +11564,11 @@ msgstr "L'evento %1$s è stato creato."
 
 #: libraries/rte/rte_events.lib.php:172 libraries/rte/rte_routines.lib.php:379
 #: libraries/rte/rte_triggers.lib.php:144
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
-"<b>Si sono verificati uno o piú errori durante l'esecuzione della tua "
-"richiesta:</b>"
+"Si sono verificati uno o più errori durante l'esecuzione della tua richiesta:"
 
 #: libraries/rte/rte_events.lib.php:231
 msgid "Edit event"
@@ -11649,23 +11617,20 @@ msgstr "Conserva dopo il completamento"
 #: libraries/rte/rte_events.lib.php:502
 #: libraries/rte/rte_routines.lib.php:1063
 #: libraries/rte/rte_triggers.lib.php:383 view_create.php:210
-#, fuzzy
 msgid "Definer"
 msgstr "Definer"
 
 #: libraries/rte/rte_events.lib.php:546
 #: libraries/rte/rte_routines.lib.php:1130
 #: libraries/rte/rte_triggers.lib.php:422
-#, fuzzy
 #| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "Il definer deve essere nel seguente formato: \"nomeutente@nomehost\""
+msgstr "Il definer deve essere nel seguente formato: \"nomeutente@nomehost\"!"
 
 #: libraries/rte/rte_events.lib.php:553
-#, fuzzy
 #| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "È necessario fornire il nome dell'evento"
+msgstr "Devi fornire un nome di evento!"
 
 #: libraries/rte/rte_events.lib.php:568
 msgid "You must provide a valid interval value for the event."
@@ -11687,10 +11652,9 @@ msgstr "È necessario fornire una definizione per l'evento."
 #: libraries/rte/rte_routines.lib.php:481
 #: libraries/rte/rte_routines.lib.php:1332
 #: libraries/rte/rte_routines.lib.php:1545
-#, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "Errore nel processare la richiesta"
+msgstr "Errore nell'elaborazione della richiesta:"
 
 #: libraries/rte/rte_footer.lib.php:94
 msgid "OFF"
@@ -11795,10 +11759,9 @@ msgid "SQL data access"
 msgstr "Tipo di accesso dati SQL"
 
 #: libraries/rte/rte_routines.lib.php:1146
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "È necessario fornire il nome della routine"
+msgstr "Devi fornire un nome di routine!"
 
 #: libraries/rte/rte_routines.lib.php:1180
 #, php-format
@@ -11833,17 +11796,17 @@ msgid "Execution results of routine %s"
 msgstr "Risultato di esecuzione della routine %s"
 
 #: libraries/rte/rte_routines.lib.php:1474
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 "%d riga influenzata dall'ultima istruzione eseguita all'interno della "
-"procedura"
+"procedura."
 msgstr[1] ""
 "%d righe influenzate dall'ultima istruzione eseguita all'interno della "
-"procedura"
+"procedura."
 
 #: libraries/rte/rte_routines.lib.php:1532
 #: libraries/rte/rte_routines.lib.php:1540
@@ -11885,28 +11848,24 @@ msgid "Time"
 msgstr "Tempo"
 
 #: libraries/rte/rte_triggers.lib.php:429
-#, fuzzy
 #| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "È necessario fornire il nome del trigger"
+msgstr "Devi fornire un nome di trigger!"
 
 #: libraries/rte/rte_triggers.lib.php:436
-#, fuzzy
 #| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "È necessario fornire un timing valido per il trigger"
+msgstr "Devi fornire un timing valido per il trigger!"
 
 #: libraries/rte/rte_triggers.lib.php:443
-#, fuzzy
 #| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "È necessario fornire un valido evento per il trigger"
+msgstr "Devi fornire un evento valido per il trigger!"
 
 #: libraries/rte/rte_triggers.lib.php:451
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "È necessario fornire un valido nome di tabella"
+msgstr "Devi fornire un nome valido di tabella!"
 
 #: libraries/rte/rte_triggers.lib.php:457
 msgid "You must provide a trigger definition."
@@ -11995,10 +11954,9 @@ msgid "Ignoring unsupported language code."
 msgstr ""
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
-#, fuzzy
 #| msgid "Current Server"
 msgid "Current Server:"
-msgstr "Server corrente"
+msgstr "Server corrente:"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
@@ -12158,10 +12116,9 @@ msgstr "Permette di chiudere il server."
 
 #: libraries/server_privileges.lib.php:321
 #: libraries/server_privileges.lib.php:1350 server_privileges.php:90
-#, fuzzy
 #| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
-msgstr "Permette di vedere i processi di tutti gli utenti"
+msgstr "Permette di vedere i processi di tutti gli utenti."
 
 #: libraries/server_privileges.lib.php:326
 #: libraries/server_privileges.lib.php:1238 server_privileges.php:70
@@ -12230,17 +12187,15 @@ msgstr "Permette la creazione di nuove viste."
 
 #: libraries/server_privileges.lib.php:385
 #: libraries/server_privileges.lib.php:1310 server_privileges.php:68
-#, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
-msgstr "Permette di impostare gli eventi per lo scheduler"
+msgstr "Permette di impostare gli eventi per lo scheduler."
 
 #: libraries/server_privileges.lib.php:390
 #: libraries/server_privileges.lib.php:1314 server_privileges.php:108
-#, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
-msgstr "Permette di creare e di eliminare i triggers"
+msgstr "Permette di creare e di eliminare i triggers."
 
 #: libraries/server_privileges.lib.php:401
 #: libraries/server_privileges.lib.php:407
@@ -12283,10 +12238,9 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Connessione persistente"
+msgstr "Richiede connessioni SSL-encrypted."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
@@ -12355,10 +12309,9 @@ msgstr "Privilegi relativi alle tabelle"
 #: libraries/server_privileges.lib.php:999
 #: libraries/server_privileges.lib.php:1200
 #: libraries/server_privileges.lib.php:3219
-#, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "Nota: i nomi dei privilegi di MySQL sono in Inglese"
+msgstr "Nota: i nomi dei privilegi di MySQL sono espressi in Inglese."
 
 #: libraries/server_privileges.lib.php:1164
 msgid "Administration"
@@ -12370,10 +12323,9 @@ msgid "Global privileges"
 msgstr "Privilegi globali"
 
 #: libraries/server_privileges.lib.php:1185
-#, fuzzy
 #| msgid "global"
 msgid "Global"
-msgstr "globale"
+msgstr "Globale"
 
 #: libraries/server_privileges.lib.php:1187
 #: libraries/server_privileges.lib.php:3034
@@ -12501,10 +12453,9 @@ msgid "wildcard"
 msgstr "carattere jolly"
 
 #: libraries/server_privileges.lib.php:2388
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "specifico del database"
+msgstr "specifico di tabella"
 
 #: libraries/server_privileges.lib.php:2515
 msgid "Edit Privileges"
@@ -12515,10 +12466,9 @@ msgid "Revoke"
 msgstr "Revoca"
 
 #: libraries/server_privileges.lib.php:2542
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Modifica server"
+msgstr "Modifica il gruppo utente"
 
 #: libraries/server_privileges.lib.php:2722
 msgid "… keep the old one."
@@ -12555,10 +12505,9 @@ msgid "Column-specific privileges"
 msgstr "Privilegi relativi ai campi"
 
 #: libraries/server_privileges.lib.php:3103
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database(s):"
-msgstr "Aggiungi privilegi sul seguente database"
+msgstr "Aggiungi privilegi sul seguente/i database:"
 
 #: libraries/server_privileges.lib.php:3127
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -12567,10 +12516,9 @@ msgstr ""
 "letterale."
 
 #: libraries/server_privileges.lib.php:3145
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "Aggiungi privilegi sulla seguente tabella"
+msgstr "Aggiungi privilegi sulla seguente tabella:"
 
 #: libraries/server_privileges.lib.php:3382
 msgid "Remove selected users"
@@ -12628,10 +12576,9 @@ msgid "New"
 msgstr "Nuovo"
 
 #: libraries/server_privileges.lib.php:4096
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
-msgstr "Modifica Privilegi"
+msgstr "Modifica Privilegi:"
 
 #: libraries/server_privileges.lib.php:4156
 msgid ""
@@ -12917,10 +12864,9 @@ msgid "Instructions/Setup"
 msgstr "Istruzioni/Configurazione"
 
 #: libraries/server_status_monitor.lib.php:265
-#, fuzzy
 #| msgid "Done rearranging/editing charts"
 msgid "Done dragging (rearranging) charts"
-msgstr "Ho finito di modificare/muovere i grafici"
+msgstr "Ho finito di spostare (riarrangiare) i grafici"
 
 #: libraries/server_status_monitor.lib.php:284
 #, fuzzy
