@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-04-08 13:12+0200\n"
+"PO-Revision-Date: 2015-04-08 16:07+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/it/>\n"
@@ -6829,7 +6829,7 @@ msgstr "Ricorda l'ordine delle tabelle"
 
 #: libraries/config/messages.inc.php:536
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "Criterio di ordinamento predefinito per le tabelle con chiave primaria."
 
 #: libraries/config/messages.inc.php:537
 #| msgid "Default sorting order"
@@ -6851,7 +6851,7 @@ msgstr "Ripeti intestazioni"
 
 #: libraries/config/messages.inc.php:542
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Modifica griglia: azione di innesco"
 
 #: libraries/config/messages.inc.php:543
 #| msgid "Relational display column"
@@ -6913,6 +6913,8 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Imposta la timezone effettiva, potrebbe essere diversa da quella del tuo "
+"server database"
 
 #: libraries/config/messages.inc.php:557
 #| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
@@ -7458,6 +7460,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Sono richiesti sia questa tabella che la tabella gruppi di utenti per "
+"abilitare la funzione menu configurabile; lasciando uno dei due vuoto si "
+"disattiva questa funzione, suggerito: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:724
 #| msgid "Use Tables"
@@ -7470,6 +7475,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Sono richiesti sia questa tabella che la tabella utenti per abilitare la "
+"funzione menu configurabile; lasciando uno dei due vuoto si disattiva questa "
+"funzione, suggerito: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:726
 #| msgid "Use Host Table"
@@ -7489,7 +7497,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:728
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Tabella dei dati di navigazione nascosta"
 
 #: libraries/config/messages.inc.php:730
 msgid "User for config auth"
@@ -7543,6 +7551,8 @@ msgstr "Mostra il modulo di creazione dei database"
 #: libraries/config/messages.inc.php:738
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
+"Mostra o nascondi un campo che visualizza la marcatura temporale (timestamp) "
+"di Creazione per tutte le tabelle."
 
 #: libraries/config/messages.inc.php:739
 #| msgid "Show more actions"
@@ -7553,15 +7563,19 @@ msgstr "Mostra la marca temporale di Creazione"
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
+"Mostra o nascondi un campo che visualizza la marcatura temporale (timestamp) "
+"di Ultimo aggiornamento per tutte le tabelle."
 
 #: libraries/config/messages.inc.php:741
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Mostra la marcatura temporale (timestamp) dell'Ultimo aggiornamento"
 
 #: libraries/config/messages.inc.php:742
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
+"Mostra o nascondi un campo che visualizza la marcatura temporale (timestamp) "
+"di Ultimo controllo per tutte le tabelle."
 
 #: libraries/config/messages.inc.php:743
 #| msgid "Show master status"
@@ -7820,6 +7834,10 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"L'URL del proxy da utilizzare quando si recuperano le informazioni sulla "
+"versione di phpMyAdmin o quando si inviano rapporti di errore. Hai bisogno "
+"di questo se il server in cui è installato phpMyAdmin non ha accesso diretto "
+"a Internet. Il formato è: \"hostname:portnumber\"."
 
 #: libraries/config/messages.inc.php:795
 msgid "Proxy url"
@@ -8386,10 +8404,9 @@ msgid "Select table"
 msgstr "Seleziona tabella"
 
 #: libraries/display_export.lib.php:802
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "Nome del database"
+msgstr "Nome del nuovo database"
 
 #: libraries/display_export.lib.php:826
 #| msgid "New page name: "
@@ -10754,7 +10771,7 @@ msgid "PDF export page"
 msgstr "Pagina di esportazione PDF"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:474
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
 msgstr "Schema del database %s"
@@ -13741,22 +13758,19 @@ msgid "Group name:"
 msgstr "Nome del gruppo:"
 
 #: libraries/server_user_groups.lib.php:272
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Versione del server"
+msgstr "Tabulazioni livello server"
 
 #: libraries/server_user_groups.lib.php:275
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Server del Database"
+msgstr "Tabulazioni livello database"
 
 #: libraries/server_user_groups.lib.php:278
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Commenti alla tabella"
+msgstr "Tabulazioni livello tabella"
 
 #: libraries/server_variables.lib.php:114
 msgid "Setting variable failed"
@@ -13776,77 +13790,67 @@ msgid "SQL result"
 msgstr "Risultato SQL"
 
 #: libraries/sql.lib.php:298
-#, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
-msgstr "Generato da"
+msgstr "Generato da:"
 
 #: libraries/sql.lib.php:336
-#, fuzzy
 #| msgid "Data file grow size"
 msgid "Detailed profile"
-msgstr "Dimensione incremento del file dei dati"
+msgstr "Profilo dettagliato"
 
 #: libraries/sql.lib.php:339
-#, fuzzy
 #| msgid "Other"
 msgid "Order"
-msgstr "Altre"
+msgstr "Ordine"
 
 #: libraries/sql.lib.php:341 libraries/sql.lib.php:357
-#, fuzzy
 #| msgctxt "Start of recurring event"
 #| msgid "Start"
 msgid "State"
-msgstr "Inizio"
+msgstr "Stato"
 
 #: libraries/sql.lib.php:354
 msgid "Summary by state"
 msgstr ""
 
 #: libraries/sql.lib.php:360
-#, fuzzy
 #| msgid "Total time:"
 msgid "Total Time"
-msgstr "Tempo totale:"
+msgstr "Tempo Totale"
 
 #: libraries/sql.lib.php:362
-#, fuzzy
 #| msgid "Time"
 msgid "% Time"
-msgstr "Tempo"
+msgstr "% Tempo"
 
 #: libraries/sql.lib.php:364
-#, fuzzy
 #| msgid "Close"
 msgid "Calls"
-msgstr "Chiudi"
+msgstr "Chiamate"
 
 #: libraries/sql.lib.php:366
-#, fuzzy
 #| msgid "Time"
 msgid "ø Time"
-msgstr "Tempo"
+msgstr "ø Tempo"
 
 #: libraries/sql.lib.php:638 libraries/sql.lib.php:654
 msgid "Bookmark this SQL query"
 msgstr "Aggiungi ai preferiti questa query SQL"
 
 #: libraries/sql.lib.php:642
-#, fuzzy
 #| msgid "Label"
 msgid "Label:"
-msgstr "Etichetta"
+msgstr "Etichetta:"
 
 #: libraries/sql.lib.php:647 libraries/sql_query_form.lib.php:292
 msgid "Let every user access this bookmark"
 msgstr "Permetti ad ogni utente di accedere a questo bookmark"
 
 #: libraries/sql.lib.php:888
-#, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
-msgstr "Segnalibro non creato"
+msgstr "Segnalibro non creato!"
 
 #: libraries/sql.lib.php:995
 #, php-format
@@ -13858,7 +13862,6 @@ msgid "Showing as PHP code"
 msgstr "Visualizzo comel codice PHP"
 
 #: libraries/sql.lib.php:1816
-#, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
 #| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -13866,9 +13869,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
-"Questa tabella non contiene una colonna unica. Funzionalità relative alla "
-"modifica, copia ed eliminazione potrebbero non funzionare dopo il "
-"salvataggio."
+"La selezione corrente non contiene un campo unico. Modifica griglia, "
+"checkbox, Modifica, Copia ed Elimina potrebbero non essere disponibili."
 
 #: libraries/sql.lib.php:1853
 #, php-format
@@ -13890,10 +13892,9 @@ msgid "Get auto-saved query"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:284
-#, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "Aggiungi ai preferiti questa query SQL"
+msgstr "Aggiungi ai preferiti questa query SQL:"
 
 #: libraries/sql_query_form.lib.php:298
 msgid "Replace existing bookmark of same name"
@@ -13994,26 +13995,25 @@ msgstr "Il tracking non è attivo."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:373
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
-msgstr "La vista %s è stata eliminata"
+msgstr "La vista %s è stata eliminata."
 
 #: libraries/structure.lib.php:132 tbl_operations.php:374
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
-msgstr "La tabella %s è stata eliminata"
+msgstr "La tabella %s è stata eliminata."
 
 #: libraries/structure.lib.php:182
 msgid "Sum"
 msgstr "Totali"
 
 #: libraries/structure.lib.php:316
-#, fuzzy
 #| msgid "Show color"
 msgid "Show create"
-msgstr "Mostra il colore"
+msgstr "Mostra crea"
 
 #: libraries/structure.lib.php:340
 msgid "Add prefix to table"
@@ -14028,32 +14028,31 @@ msgid "Copy table with prefix"
 msgstr "Copia tabella col prefisso"
 
 #: libraries/structure.lib.php:349
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add columns to central list"
-msgstr "Campi con aree di testo CHAR"
+msgstr "Aggiungi campi alla lista centrale"
 
 #: libraries/structure.lib.php:351
 msgid "Remove columns from central list"
 msgstr ""
 
 #: libraries/structure.lib.php:353
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Make consistent with central list"
-msgstr "Campi con aree di testo CHAR"
+msgstr "Rendi consistente con la lista centrale"
 
 #: libraries/structure.lib.php:375
 msgid "Check tables having overhead"
 msgstr "Controllo addizionale"
 
 #: libraries/structure.lib.php:840
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Può essere approssimativo. Vedi [doc@faq3-11]FAQ 3.11[/doc]."
+msgstr ""
+"Può essere approssimativo. Clicca sul numero per vedere il conteggio esatto. "
+"Vedi [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/structure.lib.php:862 libraries/structure.lib.php:2346
 #: libraries/tbl_printview.lib.php:324
@@ -14076,7 +14075,6 @@ msgstr "Il campo %s è stato eliminato."
 
 #: libraries/structure.lib.php:1510 libraries/structure.lib.php:2222
 #: libraries/structure.lib.php:2232
-#, fuzzy
 msgid "Spatial"
 msgstr "Spaziale"
 
@@ -14086,19 +14084,16 @@ msgid "Fulltext"
 msgstr "Testo completo"
 
 #: libraries/structure.lib.php:1528 libraries/structure.lib.php:2146
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "Campi con aree di testo CHAR"
+msgstr "Aggiungi ai campi centrali"
 
 #: libraries/structure.lib.php:1533 libraries/structure.lib.php:2136
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove from central columns"
-msgstr "Rimuovi campo/i"
+msgstr "Rimuovi dai campi centrali"
 
 #: libraries/structure.lib.php:1549 libraries/structure.lib.php:1645
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
 msgstr "Muovi campi"
@@ -14116,10 +14111,9 @@ msgid "Propose table structure"
 msgstr "Proponi la struttura della tabella"
 
 #: libraries/structure.lib.php:1648
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Proponi la struttura della tabella"
+msgstr "Migliora la struttura della tabella"
 
 #: libraries/structure.lib.php:1655
 #| msgid "Track table"
@@ -14133,7 +14127,6 @@ msgid "Add %s column(s)"
 msgstr "Aggiungi %s campo/i"
 
 #: libraries/structure.lib.php:1705
-#, fuzzy
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
 msgstr "All'inizio della tabella"
@@ -14145,7 +14138,6 @@ msgid "after %s"
 msgstr "dopo %s"
 
 #: libraries/structure.lib.php:1805
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "Statistiche righe"
@@ -14224,32 +14216,28 @@ msgid "Query error"
 msgstr "Errore nella query"
 
 #: libraries/structure.lib.php:2737
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Gli utenti selezionati sono stati cancellati con successo."
+msgstr "I campi sono stati spostati con successo."
 
 #: libraries/structure.lib.php:2889
-#, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
-msgstr "Aggiungi questa serie"
+msgstr "Aggiungi ai Preferiti"
 
 #: libraries/structure.lib.php:2939
 msgid "Favorite List is full!"
 msgstr "La lista dei preferiti è piena!"
 
 #: libraries/structure.lib.php:3029
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Showing create queries"
-msgstr "Mostra query SQL"
+msgstr "Mostra crea query"
 
 #: libraries/structure.lib.php:3269
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
-msgstr "Vedi relazioni"
+msgstr "Relazione vista"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -14267,7 +14255,6 @@ msgid "Line"
 msgstr "Linea"
 
 #: libraries/tbl_chart.lib.php:47
-#, fuzzy
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Spline"
@@ -14283,11 +14270,10 @@ msgid "Pie"
 msgstr "A torta"
 
 #: libraries/tbl_chart.lib.php:58
-#, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Tempo"
+msgstr "Timeline"
 
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
@@ -14323,56 +14309,48 @@ msgid "Series names are in a column"
 msgstr ""
 
 #: libraries/tbl_chart.lib.php:240
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "All'interno del campo:"
+msgstr "Campo serie:"
 
 #: libraries/tbl_chart.lib.php:253
-#, fuzzy
 #| msgid "Values for column %s"
 msgid "Value column:"
-msgstr "Valori per il campo %s"
+msgstr "Campo valore:"
 
 #: libraries/tbl_chart.lib.php:286
-#, fuzzy
 #| msgid "Start row"
 msgid "Start row:"
-msgstr "Riga iniziale"
+msgstr "Riga iniziale:"
 
 #: libraries/tbl_chart.lib.php:318
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Salva con nome"
+msgstr "Salva il grafico come immagine"
 
 #: libraries/tbl_chart.lib.php:357
 msgid "Chart title"
 msgstr "Titolo del grafico"
 
 #: libraries/tbl_columns_definition_form.lib.php:73
-#, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
-msgstr "Codifica caratteri"
+msgstr "Raccolta (Collazione):"
 
 #: libraries/tbl_columns_definition_form.lib.php:76
-#, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Motore di Memorizzazione"
+msgstr "Motore di Memorizzazione:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Connessioni"
+msgstr "Connessione:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
-#, fuzzy
 #| msgid "PARTITION definition"
 msgid "PARTITION definition:"
-msgstr "Definizione PARTITION"
+msgstr "Definizione PARTITION:"
 
 #: libraries/tbl_columns_definition_form.lib.php:179
 msgid "Table name"
@@ -14399,16 +14377,14 @@ msgstr ""
 "escaping o virgolette, utilizzando questo formato: a"
 
 #: libraries/tbl_columns_definition_form.lib.php:328
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "Muovi campo"
+msgstr "Sposta campo"
 
 #: libraries/tbl_columns_definition_form.lib.php:336
-#, fuzzy
 #| msgid "Available transformations"
 msgid "List of available transformations and their options"
-msgstr "Trasformazioni disponibili"
+msgstr "Lista delle trasformazioni disponibili e loro opzioni"
 
 #: libraries/tbl_columns_definition_form.lib.php:341
 msgid ""
@@ -14424,47 +14400,41 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:349
 #: transformation_overview.php:41
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Trasformazione del browser"
+msgstr "Trasformazione della visualizzazione del browser"
 
 #: libraries/tbl_columns_definition_form.lib.php:351
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Trasformazione del browser"
+msgstr "Opzioni di trasformazione della visualizzazione del browser"
 
 #: libraries/tbl_columns_definition_form.lib.php:354
 #: transformation_overview.php:42
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "Trasformazione del browser"
+msgstr "Trasformazione dell'input"
 
 #: libraries/tbl_columns_definition_form.lib.php:356
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "Opzioni di transformazione"
+msgstr "Opzioni di trasformazione dell'input"
 
 #: libraries/tbl_columns_definition_form.lib.php:597
-#, fuzzy, php-format
+#, php-format
 #| msgid "Select referenced key"
 msgid "Referenced by %s."
-msgstr "Seleziona le chiavi referenziali"
+msgstr "Riferito da %s."
 
 #: libraries/tbl_columns_definition_form.lib.php:605
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "Seleziona Foreign Key"
+msgstr "E' una Foreign Key."
 
 #: libraries/tbl_columns_definition_form.lib.php:632
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Pick from Central Columns"
-msgstr "Rimuovi campo/i"
+msgstr "Scegli dai Campi Centrali"
 
 #: libraries/tbl_columns_definition_form.lib.php:818
 msgid "first"
@@ -14526,10 +14496,9 @@ msgstr ""
 "\"PRIMARY\" <b>puó</b> essere <b>solo</b> il nome di una chiave primaria!"
 
 #: libraries/tbl_indexes.lib.php:305
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Dimensione cache degli indici"
+msgstr "Scelta dell'indice:"
 
 #: libraries/tbl_indexes.lib.php:321
 msgid "Key block size:"
@@ -14540,40 +14509,34 @@ msgid "Index type:"
 msgstr "Tipo di indice:"
 
 #: libraries/tbl_indexes.lib.php:346
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Utente:"
+msgstr "Analizzatore:"
 
 #: libraries/tbl_indexes.lib.php:358
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
-msgstr "Commenti"
+msgstr "Commento:"
 
 #: libraries/tbl_indexes.lib.php:393 libraries/tbl_indexes.lib.php:430
-#, fuzzy
 #| msgid "Drag to reorder."
 msgid "Drag to reorder"
-msgstr "Trascina per riordinare."
+msgstr "Trascina per riordinare"
 
 #: libraries/tbl_printview.lib.php:30
-#, fuzzy
 #| msgid "Showing tables"
 msgid "Showing tables:"
-msgstr "Mostra le tabelle"
+msgstr "Mostrando le tabelle:"
 
 #: libraries/tbl_printview.lib.php:178
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row Statistics:"
-msgstr "Statistiche righe"
+msgstr "Statistiche righe:"
 
 #: libraries/tbl_printview.lib.php:305
-#, fuzzy
 #| msgid "Space usage"
 msgid "Space usage:"
-msgstr "Spazio utilizzato"
+msgstr "Spazio utilizzato:"
 
 #: libraries/tbl_relation.lib.php:228
 msgid "Internal relations"
@@ -14592,22 +14555,19 @@ msgstr ""
 "FOREIGN KEY esiste."
 
 #: libraries/tbl_relation.lib.php:367
-#, fuzzy
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
-msgstr "Vincolo della chiave esterna"
+msgstr "Vincoli della foreign key"
 
 #: libraries/tbl_relation.lib.php:370
-#, fuzzy
 #| msgid "Action"
 msgid "Actions"
-msgstr "Azione"
+msgstr "Azioni"
 
 #: libraries/tbl_relation.lib.php:371
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "Limiti per la tabella"
+msgstr "Proprietà del vincolo"
 
 #: libraries/tbl_relation.lib.php:376
 msgid ""
@@ -14619,46 +14579,40 @@ msgid "Foreign key constraint"
 msgstr "Vincolo della chiave esterna"
 
 #: libraries/tbl_relation.lib.php:402
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "Aggiungi vincoli"
+msgstr "+ Aggiungi vincolo"
 
 #: libraries/tbl_relation.lib.php:439
-#, fuzzy, php-format
+#, php-format
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Vincolo della chiave esterna"
+msgstr "Il vincolo %s della foreign key è stato eliminato"
 
 #: libraries/tbl_relation.lib.php:463
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "Limiti per la tabella"
+msgstr "Nome del vincolo"
 
 #: libraries/tbl_relation.lib.php:526
-#, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
-msgstr "Aggiungi campo"
+msgstr "+ Aggiungi campo"
 
 #: libraries/tbl_relation.lib.php:670
-#, fuzzy
 #| msgid "Choose column to display"
 msgid "Choose column to display:"
-msgstr "Scegli il campo da mostrare"
+msgstr "Scegli il campo da mostrare:"
 
 #: libraries/tbl_relation.lib.php:827
-#, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "Il thread %s è stato terminato con successo."
+msgstr "Il campo display è stato aggiornato con successo."
 
 #: libraries/tbl_relation.lib.php:911
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relations were successfully updated."
-msgstr "Aggiunte relazioni internet"
+msgstr "Le relazioni interne sono state aggiornate con successo."
 
 #: libraries/tbl_relation.lib.php:1176
 #, php-format
@@ -14671,10 +14625,10 @@ msgid "Create version %1$s of %2$s"
 msgstr "Crea versione %1$s di %2$s"
 
 #: libraries/tracking.lib.php:74
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Create version %1$s"
-msgstr "Crea versione"
+msgstr "Crea versione %1$s"
 
 #: libraries/tracking.lib.php:79
 msgid "Track these data definition statements:"
@@ -14707,10 +14661,9 @@ msgid "Deactivate now"
 msgstr "Disattiva ora"
 
 #: libraries/tracking.lib.php:287 libraries/tracking.lib.php:350
-#, fuzzy
 #| msgid "Create version"
 msgid "Delete version"
-msgstr "Crea versione"
+msgstr "Cancella versione"
 
 #: libraries/tracking.lib.php:460
 msgid "Tracking statements"
@@ -14812,10 +14765,10 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Monitoraggio per %1$s é disattivato dalla version %2$s."
 
 #: libraries/tracking.lib.php:1306
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Crea versione %1$s di %2$s"
+msgstr "La versione %1$s di %2$s è stata cancellata."
 
 #: libraries/tracking.lib.php:1337
 #, php-format
@@ -14866,10 +14819,9 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: prefs_forms.php:86
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors!"
-msgstr "Impossibile salvare le impostazioni, il form conteneva degli errori"
+msgstr "Impossibile salvare le impostazioni, il form inviato contiene errori!"
 
 #: prefs_manage.php:82
 msgid "Could not import configuration"
@@ -14969,13 +14921,12 @@ msgid "Download"
 msgstr "Scarica"
 
 #: setup/frames/form.inc.php:25
-#, fuzzy
 #| msgid ""
 #| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
-"Formset non corretto, controllate il vettore $formsets nel file setup/frames/"
-"form.inc.php"
+"Formset non corretto, controllate il vettore $formsets nel file "
+"setup/frames/form.inc.php!"
 
 #: setup/frames/index.inc.php:53
 msgid "Cannot load or save configuration"
@@ -15195,16 +15146,14 @@ msgid "Tracking of %s is activated."
 msgstr "Monitoraggio di %s é attivo."
 
 #: tbl_tracking.php:102
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Gli utenti selezionati sono stati cancellati con successo."
+msgstr "Tracking versions cancellate con successo."
 
 #: tbl_tracking.php:107
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Nessuna riga selezionata"
+msgstr "Nessuna versione selezionata."
 
 #: tbl_tracking.php:138
 msgid "SQL statements executed."
@@ -15223,16 +15172,14 @@ msgid "Available MIME types"
 msgstr "Tipi-MIME disponibili"
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Trasformazioni disponibili"
+msgstr "Trasformazioni disponibili per il display del browser"
 
 #: transformation_overview.php:38
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "Trasformazioni disponibili"
+msgstr "Trasformazioni disponibili per l'input"
 
 #: transformation_overview.php:53
 msgctxt "for MIME transformation"
@@ -15240,10 +15187,10 @@ msgid "Description"
 msgstr "Descrizione"
 
 #: url.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking report"
 msgid "Taking you to %s."
-msgstr "Rapporto tracking"
+msgstr "In trasferimento a %s."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
@@ -15266,10 +15213,9 @@ msgid "Rename view to"
 msgstr "Rinomina la vista in"
 
 #: view_operations.php:133
-#, fuzzy
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "Elimina la tabella (DROP)"
+msgstr "Elimina la vista (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
@@ -15368,7 +15314,6 @@ msgid "Long query time"
 msgstr "Tempo di query lunghe"
 
 #: libraries/advisory_rules.txt:80
-#, fuzzy
 #| msgid ""
 #| "long_query_time is set to 10 seconds or more, thus only slow queries that "
 #| "take above 10 seconds are logged."
@@ -15376,7 +15321,7 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"long_query_time è impostato a 10 secondi o più, quindi solo le query lente "
+"(long_query_time) è impostato a 10 secondi o più, quindi solo le query lente "
 "che richiedono più di 10 secondi vengono registrate nel log."
 
 #: libraries/advisory_rules.txt:81
@@ -15415,7 +15360,6 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries è impostato a  'OFF'"
 
 #: libraries/advisory_rules.txt:95
-#, fuzzy
 #| msgid ""
 #| "Enable slow query logging by setting {log_slow_queries} to 'ON'. This "
 #| "will help troubleshooting badly performing queries."
@@ -15423,15 +15367,14 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Abilitate il log delle query lente impostando {log_slow_queries} a 'ON'. "
-"Questo aiuterà nella risoluzione dei problemi per le query con prestazioni "
-"non buone."
+"Abilitate il log delle query lente impostando {slow_query_log} a 'ON'. "
+"Questo aiuterà nella risoluzione dei problemi per le query con cattive "
+"prestazioni."
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "log_slow_queries is set to 'OFF'"
 msgid "slow_query_log is set to 'OFF'"
-msgstr "log_slow_queries è impostato a  'OFF'"
+msgstr "slow_query_log è impostato a  'OFF'"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
@@ -15799,7 +15742,6 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Troppi ordinamenti stanno creando tabelle temporanee."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, "
 #| "depending on your system memory limits"
@@ -15807,8 +15749,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
 msgstr ""
-"Incrementate sort_buffer_size e/o read_rnd_buffer_size, a seconda dei limiti "
-"di memoria del vostro sistema"
+"Valutate se incrementare {sort_buffer_size} e/o {read_rnd_buffer_size}, a "
+"seconda dei limiti di memoria del vostro sistema"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
@@ -15964,15 +15906,13 @@ msgstr ""
 "dovrebbe essere inferiore a 1 all'ora"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size vs. max_heap_table_size"
+msgstr "Differenti tmp_table_size e max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
-#, fuzzy
 #| msgid "tmp_table_size and max_heap_table_size are not the same."
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr "tmp_table_size e max_heap_table_size non coincidono."
+msgstr "{tmp_table_size} e {max_heap_table_size} non coincidono."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -16183,7 +16123,6 @@ msgstr ""
 "aperti. Potrebbe ricevere un errore \"Troppi file aperti\"."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {open_files_limit}, and check the error log when "
 #| "restarting after changing open_files_limit."
@@ -16191,8 +16130,8 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
-"Incrementate {open_files_limit} e controllate il log degli errori quando "
-"riavviate dopo avere cambiato open_files_limit."
+"Valutate se incrementare {open_files_limit} e controllate il log degli "
+"errori quando riavviate dopo avere cambiato {open_files_limit}."
 
 #: libraries/advisory_rules.txt:339
 #, php-format
@@ -16321,7 +16260,6 @@ msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads è superiore a 2 secondi"
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid ""
 #| "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
 #| "to launch"
@@ -16329,8 +16267,8 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
 msgstr ""
-"Impostate slow_launch_time a 1 secondo o 2 secondi per contare correttamente "
-"i thread che sono lenti all'avvio"
+"Impostate {slow_launch_time} a 1 o 2 secondi per contare correttamente i "
+"thread che sono lenti ad avviarsi"
 
 #: libraries/advisory_rules.txt:388
 #, php-format
@@ -16342,7 +16280,6 @@ msgid "Percentage of used connections"
 msgstr "Percentuale di connessioni utilizzate"
 
 #: libraries/advisory_rules.txt:395
-#, fuzzy
 #| msgid ""
 #| "The maximum amount of used connections is getting close to the value of "
 #| "max_connections."
@@ -16351,10 +16288,9 @@ msgid ""
 "{max_connections}."
 msgstr ""
 "Il numero massimo di connessioni utilizzate si sta avvicinando al valore "
-"max_connections."
+"{max_connections}."
 
 #: libraries/advisory_rules.txt:396
-#, fuzzy
 #| msgid ""
 #| "Increase max_connections, or decrease wait_timeout so that connections "
 #| "that do not close database handlers properly get killed sooner. Make sure "
@@ -16364,10 +16300,10 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
-"Aumentate max_connections, o diminuite wait_timeout affinché le connessioni "
-"che non chiudono i database handler possano essere cancellate al più presto. "
-"Controllate che nel codice gli handler al database vengano chiusi "
-"correttamente."
+"Aumentate {max_connections}, o diminuite {wait_timeout} affinché le "
+"connessioni che non chiudono i database handler in modo corretto possano "
+"essere cancellate al più presto. Assicuratevi che il codice chiuda i "
+"database handler in modo corretto."
 
 #: libraries/advisory_rules.txt:397
 #, php-format
