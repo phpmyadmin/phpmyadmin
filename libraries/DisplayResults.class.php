@@ -4715,6 +4715,11 @@ class PMA_DisplayResults
         );
 
         $links_html .= PMA_Util::getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_copy',
+            __('Copy'), 'b_insrow.png', 'copy'
+        );
+
+        $links_html .= PMA_Util::getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_delete',
             $delete_text, 'b_drop.png', 'delete'
         );
