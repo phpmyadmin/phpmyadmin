@@ -46,7 +46,6 @@ class PMA_OutputBuffering
                 $mode = 0;
             } elseif (function_exists('ob_get_level') && ob_get_level() > 0) {
                 // happens when php.ini's output_buffering is not Off
-                error_log('clean');
                 ob_end_clean();
                 $mode = 1;
             } else {
