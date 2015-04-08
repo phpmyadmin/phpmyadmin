@@ -9,6 +9,9 @@ phpMyAdmin - ChangeLog
 - bug #4841 Status page: Mislukte pogingen per uur value is incorrect
 - bug       MIME Transformation link fixed
 
+4.4.1.1 (2015-04-08)
+- bug #4846 Web server's error log is flooded
+
 4.4.1.0 (2015-04-07)
 - bug #4813 MySQL 5.7.6 and the Users menu tab
 - bug #4818 MySQL 5.7.6 and changing the password for another user
