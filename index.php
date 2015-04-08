@@ -264,6 +264,16 @@ if ($server > 0) {
 
 echo '</div>';
 
+echo '<div class="group" id="voice_div">';
+    echo '<h2>' . __('Voice Command') . '</h2>';
+    echo '<input type="checkbox" onclick="voice_init()">Enable Voice Command';
+    echo '<div>';
+        echo '<h3>Instructions</h3>';
+        echo '<p>Access any tab by saying: - "Show *tab name*"</p>';
+        echo '<p>So for accessing Database tab you will say "Show Database"</p>';
+    echo '</div>';
+echo '</div>';
+
 
 echo '</div>';
 echo '<div id="main_pane_right">';
