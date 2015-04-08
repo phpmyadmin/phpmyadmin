@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-04-08 21:38+0200\n"
-"Last-Translator: Tomas <tomas@tomasruud.com>\n"
+"PO-Revision-Date: 2015-04-08 21:39+0200\n"
+"Last-Translator: Espen Frøyshov <efroys@gmail.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/nb/>\n"
 "Language: nb\n"
@@ -2167,10 +2167,9 @@ msgstr "Velg side"
 
 #: js/messages.php:420 libraries/db_designer.lib.php:281
 #: libraries/db_designer.lib.php:284
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Ledige sider"
+msgstr "Åpne siden"
 
 #: js/messages.php:421
 #, fuzzy
