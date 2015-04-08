@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-07 12:54-0400\n"
-"PO-Revision-Date: 2015-04-08 17:29+0200\n"
+"PO-Revision-Date: 2015-04-08 17:32+0200\n"
 "Last-Translator: Francesco Saverio Giacobazzi "
 "<francesco.giacobazzi@ferrania.it>\n"
 "Language-Team: Italian "
@@ -7833,6 +7833,8 @@ msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
+"Abilitare la modalità configurazione Zero che consente di configurare "
+"automaticamente tabelle di memorizzazione di phpMyAdmin."
 
 #: libraries/config/messages.inc.php:825
 msgid "Enable Zero Configuration mode"
@@ -7919,6 +7921,8 @@ msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
+"Si stà utilizzando l'estensione mysql che è deprecata in phpMyAdmin. Si "
+"consiglia di installare l'estensione mysqli."
 
 #: libraries/db_designer.lib.php:25
 msgid "Select page"
@@ -10214,10 +10218,9 @@ msgid "View structure"
 msgstr "Vedi struttura"
 
 #: libraries/plugins/export/ExportPdf.class.php:287
-#, fuzzy
 #| msgid "and then"
 msgid "Stand in"
-msgstr "e quindi"
+msgstr "Stand in"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
