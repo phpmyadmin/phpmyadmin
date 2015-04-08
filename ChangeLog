@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 - bug #4839 DOC link in setting is broken
 - bug #4841 Status page: Mislukte pogingen per uur value is incorrect
 - bug       MIME Transformation link fixed
+- bug #4838 Prevents console window from moving out of the screen height
 
 4.4.1.1 (2015-04-08)
 - bug #4846 Web server's error log is flooded
