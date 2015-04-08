@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-04-08 13:04+0200\n"
+"PO-Revision-Date: 2015-04-08 13:12+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/it/>\n"
@@ -12869,10 +12869,9 @@ msgid "Done dragging (rearranging) charts"
 msgstr "Ho finito di spostare (riarrangiare) i grafici"
 
 #: libraries/server_status_monitor.lib.php:284
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Abilita evidenziamento"
+msgstr "Abilita spostamento grafici"
 
 #: libraries/server_status_monitor.lib.php:288
 #: libraries/server_status_processes.lib.php:29
@@ -12900,7 +12899,6 @@ msgid "Reset to default"
 msgstr "Ripristina i valori predefiniti"
 
 #: libraries/server_status_processes.lib.php:24
-#, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
 #| "between the web server and the MySQL server."
@@ -12908,8 +12906,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"N.B.: Abilitare qui le statistiche del Database potrebbe causare del "
-"traffico intenso fra il server web e MySQL."
+"N.B.: Abilitare qui l'auto-refresh potrebbe causare del traffico intenso fra "
+"il server web e il server MySQL."
 
 #: libraries/server_status_processes.lib.php:69
 msgid "ID"
@@ -12926,10 +12924,9 @@ msgid "Filters"
 msgstr "Filtri"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Mostra solo i valori di allarme"
+msgstr "Mostra solo attivi"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -12937,22 +12934,19 @@ msgid "Questions since startup: %s"
 msgstr "Questions eseguiti dall'avvio: %s"
 
 #: libraries/server_status_queries.lib.php:44
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "all'ora"
+msgstr "all'ora:"
 
 #: libraries/server_status_queries.lib.php:47
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "al minuto"
+msgstr "al minuto:"
 
 #: libraries/server_status_queries.lib.php:54
-#, fuzzy
 #| msgid "per second"
 msgid "per second:"
-msgstr "al secondo"
+msgstr "al secondo:"
 
 #: libraries/server_status_queries.lib.php:93
 msgid "Statements"
@@ -13683,10 +13677,9 @@ msgstr ""
 "performace se hai una buona implementazione dei processi.)"
 
 #: libraries/server_status_variables.lib.php:757
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Percentuale hit nella cache del thread"
+msgstr "Percentuale hit nella cache del thread (valore calcolato)"
 
 #: libraries/server_status_variables.lib.php:760
 msgid "The number of threads that are not sleeping."
@@ -13702,41 +13695,35 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:64 libraries/server_users.lib.php:33
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "Utenti"
+msgstr "Gruppi utenti"
 
 #: libraries/server_user_groups.lib.php:79
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Versione del server"
+msgstr "Tabulazioni livello server"
 
 #: libraries/server_user_groups.lib.php:80
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Server del Database"
+msgstr "Tabulazioni livello Database"
 
 #: libraries/server_user_groups.lib.php:81
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Commenti alla tabella"
+msgstr "Tabulazioni livello tabella"
 
 #: libraries/server_user_groups.lib.php:110
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Viste"
+msgstr "Vista utenti"
 
 #: libraries/server_user_groups.lib.php:147
 #: libraries/server_user_groups.lib.php:209
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Aggiungi utente"
+msgstr "Aggiungi gruppo utente"
 
 #: libraries/server_user_groups.lib.php:212
 #, php-format
@@ -13744,16 +13731,14 @@ msgid "Edit user group: '%s'"
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:228
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Nessun privilegio."
+msgstr "Menu assegnazioni del gruppo utente"
 
 #: libraries/server_user_groups.lib.php:235
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Nomi dei campi: "
+msgstr "Nome del gruppo:"
 
 #: libraries/server_user_groups.lib.php:272
 #, fuzzy
