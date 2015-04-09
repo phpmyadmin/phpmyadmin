@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-07 12:54-0400\n"
-"PO-Revision-Date: 2015-04-03 15:35+0200\n"
+"PO-Revision-Date: 2015-04-08 11:43+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -2804,103 +2804,89 @@ msgstr "Secunda"
 
 #: js/messages.php:721
 msgid "This field is required"
-msgstr ""
+msgstr "Iste campo es requirite"
 
 #: js/messages.php:722
 msgid "Please fix this field"
-msgstr ""
+msgstr "Pro favor corrige iste campo"
 
 #: js/messages.php:723
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Pro favor inserta un nomine valide de pagina"
+msgstr "Pro favor inserta un  valide adresse de e-posta"
 
 #: js/messages.php:724
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Pro favor inserta un numero valide!"
+msgstr "Pro favor inserta un valide URL"
 
 #: js/messages.php:725
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Pro favor inserta un nomine valide de pagina"
+msgstr "Pro favor inserta un  valide data"
 
 #: js/messages.php:726
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Pro favor inserta un nomine valide de pagina"
+msgstr "Pro favor inserta un nomine valide data (ISO)"
 
 #: js/messages.php:727
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Pro favor inserta un numero valide!"
+msgstr "Pro favor inserta un numero valide"
 
 #: js/messages.php:728
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Pro favor inserta un numero valide!"
+msgstr "Pro favor inserta un numero valide de carta de credito"
 
 #: js/messages.php:729
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Pro favor inserta un longor valide!"
+msgstr "Pro favor inserta solmente digitos"
 
 #: js/messages.php:730
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Pro favor inserta un nomine valide de pagina"
+msgstr "Pro favor inserta novemente le mesme valor"
 
 #: js/messages.php:731
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "Pro favor inserta plus que {0} characteres"
 
 #: js/messages.php:732
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter at least {0} characters"
-msgstr "Pro favor inserta un nomine valide de pagina"
+msgstr "Pro favor inserta al minus  {0}  characteres"
 
 #: js/messages.php:733
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Pro favor inserta un valor de longor de characteres inter  {0} e {1}"
 
 #: js/messages.php:734
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Pro favor inserta un nomine valide de pagina"
+msgstr "Pro favor inserta un valor inter  {0} e {1}"
 
 #: js/messages.php:735
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Pro favor inserta un longor valide!"
+msgstr "Pro favor inserta un valor minor o equal a {0}"
 
 #: js/messages.php:736
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Pro favor inserta un nomine valide de pagina"
+msgstr "Pro favor inserta un major o equal a {0}"
 
 #: js/messages.php:738
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Pro favor inserta un nomine valide de pagina"
+msgstr "Pro favor inserta un data o tempore valide"
 
 #: js/messages.php:739
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Pro favor inserta un numero valide!"
+msgstr "Pro favor inserta un valide ingresso HEX"
 
 #: js/messages.php:740 libraries/Message.class.php:199
 #: libraries/Util.class.php:624 libraries/core.lib.php:245
@@ -6150,7 +6136,6 @@ msgid "Page titles"
 msgstr "Titulos de pagina"
 
 #: libraries/config/messages.inc.php:256
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -6160,8 +6145,8 @@ msgid ""
 "for magic strings that can be used to get special values."
 msgstr ""
 "Specifica le texto del barra de titulo del navigator. Refere a "
-"[doc@cfg_TitleTable]documentation[/doc] pro vider catenas que on pote "
-"utilisar pro obtener valores special (magic strings)."
+"[doc@faq6-27]documentation[/doc] pro vider catenas que on pote utilisar pro "
+"obtener valores special (magic strings)."
 
 #: libraries/config/messages.inc.php:260
 msgid "Security"
@@ -7650,7 +7635,6 @@ msgid "Login cookie validity warning"
 msgstr "Avis de validitate de cookie de authentication de accesso"
 
 #: libraries/config/messages.inc.php:778
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)."
@@ -7659,15 +7643,13 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Grandor de area de texto (columnas) in modo de modifica, iste valor essera "
-"evidentiate per areas de texto (*2) de query SQL e per le fenestra de query "
-"(*1.25)."
+"evidentiate per areas de texto (*2) de query SQL.."
 
 #: libraries/config/messages.inc.php:779
 msgid "Textarea columns"
 msgstr "Columnas de area de texto"
 
 #: libraries/config/messages.inc.php:780
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)."
@@ -7676,8 +7658,7 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Grandor de area de texto (rangos) in modo de modifica, iste valor essera "
-"evidentiate per areas de texto (*2) de query SQL e per le fenestra de query "
-"(*1.25)."
+"evidentiate per areas de texto (*2) de query SQL."
 
 #: libraries/config/messages.inc.php:781
 msgid "Textarea rows"
@@ -10986,14 +10967,14 @@ msgid ""
 msgstr ""
 
 #: libraries/relation.lib.php:2005
-#, fuzzy, php-format
+#, php-format
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sCreate%s mancante de tabellas de immagazinage de configuration de "
-"phpMyAdmin."
+"%sCreate%s un base de datos nominate 'phpmyadmin' e configura le "
+"configuration de immagazinage de phpMyAdmin ci."
 
 #: libraries/relation.lib.php:2013
 #, php-format
