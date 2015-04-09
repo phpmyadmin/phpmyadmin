@@ -312,7 +312,7 @@ if (! empty($_REQUEST['id_bookmark'])) {
         );
         if (! empty($_REQUEST['bookmark_variable'])) {
             $import_text = PMA_Bookmark_applyVariables(
-                $import_text, $_REQUEST['bookmark_variable']
+                $import_text
             );
         }
 
