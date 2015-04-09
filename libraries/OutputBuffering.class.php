@@ -110,7 +110,6 @@ class PMA_OutputBuffering
             $buffer->_content = ob_get_contents();
             ob_end_clean();
         }
-        PMA_Response::response();
     }
 
     /**
