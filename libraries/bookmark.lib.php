@@ -259,7 +259,8 @@ function PMA_Bookmark_applyVariables($query, $variables)
         $query
     );
     // replace variable placeholders with values
-    for ($i = 1; $i <= PMA_Bookmark_getVariableCount($query); $i++) {
+    $number_of_variables = PMA_Bookmark_getVariableCount($query);
+    for ($i = 1; $i <= $number_of_variables; $i++) {
         $var = '';
         if (! empty($_REQUEST['bookmark_variable'][$i])) {
             $var = PMA_Util::sqlAddSlashes($_REQUEST['bookmark_variable'][$i]);
