@@ -260,17 +260,19 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
             //validation for CHAR types
         } else if ($this_input.data('type') === 'CHAR') {
             var maxlen = $this_input.data('maxlength');
-            if (maxlen <=4) {
-                maxlen=charExceptionHandling;
-            }
-            $this_input.rules("add", {
-                maxlength: {
-                    param: maxlen,
-                    depends: function() {
-                        return checkForCheckbox(multi_edit);
-                    }
+            if (typeof maxlen !== 'undefined') {
+                if (maxlen <=4) {
+                    maxlen=charExceptionHandling;
                 }
-            });
+                $this_input.rules("add", {
+                    maxlength: {
+                        param: maxlen,
+                        depends: function() {
+                            return checkForCheckbox(multi_edit);
+                        }
+                    }
+                });
+            }
             // validate binary & blob types
         } else if ($this_input.data('type') === 'HEX') {
             $this_input.rules("add", {
