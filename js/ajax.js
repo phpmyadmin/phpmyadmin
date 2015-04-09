@@ -361,9 +361,14 @@ var AJAX = {
 
                     var source = data._selflink.split('?')[0];
                     //Check for faulty links
-                    if (source == "import.php") {
-                        var replacement = "tbl_sql.php";
-                        data._selflink = data._selflink.replace(source,replacement);
+                    $selflink_replace = {
+                        "import.php": "tbl_sql.php",
+                        "tbl_chart.php": "sql.php",
+                        "tbl_gis_visualization.php": "sql.php"
+                    };
+                    if ($selflink_replace[source]) {
+                        var replacement = $selflink_replace[source];
+                        data._selflink = data._selflink.replace(source, replacement);
                     }
                     $('#selflink > a').attr('href', data._selflink);
                 }

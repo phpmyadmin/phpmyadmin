@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 + rfe #763  Warning before silent data conversion/truncation
 + rfe #1650 Support a default page in designer
 + rfe #1651 Allow copying mutiple rows
++ rfe #1643 No SQL query for loading data
 
 4.4.2.0 (not yet released)
 - bug #4835 PMA_hideShowConnection not called after submit_num_fields
