@@ -4,9 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-04-08 17:31+0200\n"
-"Last-Translator: Francesco Saverio Giacobazzi "
-"<francesco.giacobazzi@ferrania.it>\n"
+"PO-Revision-Date: 2015-04-09 20:20+0200\n"
+"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/it/>\n"
 "Language: it\n"
@@ -8000,7 +7999,7 @@ msgstr "Nessun cambiamento"
 #: libraries/database_interface.inc.php:32
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Vedi %sour documentation%s per maggiori dettagli."
 
 #: libraries/database_interface.inc.php:48
 msgid ""
@@ -8057,11 +8056,11 @@ msgstr "Mostra/Nascondi la lista delle tabelle"
 
 #: libraries/db_designer.lib.php:262 libraries/db_designer.lib.php:266
 msgid "View in fullscreen"
-msgstr ""
+msgstr "Visualizza pieno schermo"
 
 #: libraries/db_designer.lib.php:265
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "Esci da visualizzazione a pieno schermo"
 
 #: libraries/db_designer.lib.php:273 libraries/db_designer.lib.php:276
 #| msgid "New name"
@@ -8196,11 +8195,11 @@ msgstr "Opzioni attive"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:377
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "Non posso eseguire ricerche in un set di risultati non bufferizzato"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:398
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "Non posso contare le righe in un set di risultati non bufferizzato"
 
 #: libraries/display_change_password.lib.php:60
 #: libraries/replication_gui.lib.php:866
@@ -8393,7 +8392,7 @@ msgstr "Salva l'output come testo"
 
 #: libraries/display_export.lib.php:653 libraries/display_export.lib.php:757
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "Rinomina database/tabelle/campi esportati"
 
 #: libraries/display_export.lib.php:663
 msgid "Save output to a file"
@@ -8401,7 +8400,7 @@ msgstr "Salva l'output in un file"
 
 #: libraries/display_export.lib.php:690
 msgid "Skip tables larger than"
-msgstr ""
+msgstr "Salta le tabelle più grandi di"
 
 #: libraries/display_export.lib.php:784
 #| msgid "Select a table"
@@ -8436,15 +8435,15 @@ msgstr "Nuovo nome campo"
 #: libraries/display_git_revision.lib.php:56
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s dalla diramazione %2$s"
 
 #: libraries/display_git_revision.lib.php:58
 msgid "no branch"
-msgstr ""
+msgstr "nessuna diramazione"
 
 #: libraries/display_git_revision.lib.php:64
 msgid "Git revision:"
-msgstr ""
+msgstr "Revisione Git:"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
@@ -8499,7 +8498,7 @@ msgstr "File da importare:"
 
 #: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "Puoi anche trascinare e rilasciare un file su qualsiasi pagina."
 
 #: libraries/display_import.lib.php:246
 msgid "File uploads are not allowed on this server."
@@ -8537,6 +8536,8 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Salta questo numero di query (per SQL) o di linee (per altri formati), "
+"partendo dalla prima:"
 
 #: libraries/display_import.lib.php:340
 msgid "Format-Specific Options:"
@@ -8555,7 +8556,7 @@ msgstr ""
 #: libraries/display_import.lib.php:454
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s di %s"
 
 #: libraries/display_import.lib.php:455
 #| msgid "Uploading your import file…"
@@ -8565,15 +8566,15 @@ msgstr "Caricamento del tuo file di importazione in corso…"
 #: libraries/display_import.lib.php:456
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/sec."
 
 #: libraries/display_import.lib.php:457
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Rimangono circa %MIN min. e %SEC sec."
 
 #: libraries/display_import.lib.php:458
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Rimangono circa %SEC sec."
 
 #: libraries/display_import.lib.php:460
 msgid "The file is being processed, please be patient."
@@ -8658,7 +8659,7 @@ msgstr "Pagine occupate"
 
 #: libraries/engines/innodb.lib.php:233
 msgid "Latched pages"
-msgstr ""
+msgstr "Pagine collegate"
 
 #: libraries/engines/innodb.lib.php:246
 msgid "Buffer Pool Activity"
@@ -8941,14 +8942,17 @@ msgid ""
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
+"phpMyAdmin è incorso in un errore. Abbiamo raccolto i dati dell'errore oltre "
+"a informazioni sui parametri di configurazione da inviare al team di "
+"phpMyAdmin per aiutarci a risolvere il problema."
 
 #: libraries/error_report.lib.php:358
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "Puoi esaminare i dati nel rapporto di errore:"
 
 #: libraries/error_report.lib.php:365
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "Per favore spiega i passaggi che conducono all'errore:"
 
 #: libraries/export.lib.php:118 libraries/export.lib.php:153
 #: libraries/export.lib.php:377
@@ -8982,7 +8986,7 @@ msgstr "MySQL ha restituito un insieme vuoto (i.e. zero righe)."
 
 #: libraries/import.lib.php:265 libraries/sql.lib.php:1515
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[è stato fatto un ROLLBACK.]"
 
 #: libraries/import.lib.php:1255
 msgid ""
@@ -9035,13 +9039,15 @@ msgstr "Vai alla visualizzazione: %s"
 
 #: libraries/import.lib.php:1382
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
-msgstr ""
+msgstr "Possono essere simulate query UPDATE e DELETE solo su tabelle singole."
 
 #: libraries/import.lib.php:1814
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Possono essere annulate (rolled back) solo query SQL INSERT, UPDATE, DELETE "
+"and REPLACE contenenti tabelle di un motore transazionale."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -9135,7 +9141,7 @@ msgstr "Converti a Kana"
 
 #: libraries/mult_submits.inc.php:301
 msgid "Success!"
-msgstr ""
+msgstr "Successo!"
 
 #: libraries/mult_submits.lib.php:338
 #| msgid "Replace table prefix"
@@ -9363,6 +9369,7 @@ msgstr "sconosciuto"
 #: libraries/navigation/Navigation.class.php:54
 msgid "An error has occurred while loading the navigation display"
 msgstr ""
+"Si è verificato un errore durante il caricamento del display di navigazione"
 
 #: libraries/navigation/Navigation.class.php:187
 #| msgid "Events"
@@ -9411,13 +9418,16 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Nel pannello di navigazione ci sono gruppi di oggetti grandi che possono "
+"ridurre le prestazioni. Valuta se disabilitare il raggruppamento oggetti nel "
+"pannello di navigazione."
 
 #: libraries/navigation/NavigationTree.class.php:871
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s risultato trovato"
+msgstr[1] "%s risultati trovati"
 
 #: libraries/navigation/NavigationTree.class.php:1210
 #| msgid "Please select a database"
@@ -9442,13 +9452,13 @@ msgstr "Filtra in base al nome o all'espressione regolare (regex)"
 
 #: libraries/navigation/NavigationTree.class.php:1329
 msgid "Collapse all"
-msgstr ""
+msgstr "Collassa tutto"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Nome classe \"%1$s\" invalido, utilizzo il valore predefinito \"Node\""
 
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
