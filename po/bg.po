@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-03-06 10:58+0200\n"
+"PO-Revision-Date: 2015-04-10 17:26+0200\n"
 "Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-4/"
-"bg/>\n"
+"Language-Team: Bulgarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/bg/>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -8318,10 +8318,9 @@ msgid "Select table"
 msgstr "Избор на таблици"
 
 #: libraries/display_export.lib.php:802
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "Име БД"
+msgstr "Ново име на БД"
 
 #: libraries/display_export.lib.php:826
 #, fuzzy
