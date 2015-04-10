@@ -207,6 +207,12 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
+            'BoolPropertyItem',
+            $property
+        );
+
+        $property = array_shift($properties);
+        $this->assertInstanceOf(
             'SelectPropertyItem',
             $property
         );
@@ -405,7 +411,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $properties = $option->getProperties();
 
         $this->assertCount(
-            5,
+            6,
             $properties
         );
 
