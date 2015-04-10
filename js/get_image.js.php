@@ -17,6 +17,13 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 define('PMA_MINIMUM_COMMON', true);
 require_once './libraries/common.inc.php';
 
+require_once './libraries/OutputBuffering.class.php';
+$buffer = PMA_OutputBuffering::getInstance();
+$buffer->start();
+register_shutdown_function(function() {
+    echo PMA_OutputBuffering::getInstance()->getContents();
+});
+
 // Get the data for the sprites, if it's available
 if (is_readable($_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php')) {
     include $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
