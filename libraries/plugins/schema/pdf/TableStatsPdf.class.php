@@ -159,7 +159,7 @@ class Table_Stats_Pdf extends TableStats
      */
     public function tableDraw($fontSize, $withDoc, $setColor = 0)
     {
-        global $pdf;
+        $pdf = $this->diagram;
 
         $pdf->setXyScale($this->x, $this->y);
         $pdf->SetFont($this->_ff, 'B', $fontSize);

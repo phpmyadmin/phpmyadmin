@@ -140,17 +140,16 @@ class Table_Stats_Eps extends TableStats
      */
     public function tableDraw($showColor)
     {
-        global $eps;
         //echo $this->tableName.'<br />';
-        $eps->rect($this->x, $this->y + 12, $this->width, $this->heightCell, 1);
-        $eps->showXY($this->getTitle(), $this->x + 5, $this->y + 14);
+        $this->diagram->rect($this->x, $this->y + 12, $this->width, $this->heightCell, 1);
+        $this->diagram->showXY($this->getTitle(), $this->x + 5, $this->y + 14);
         foreach ($this->fields as $field) {
             $this->currentCell += $this->heightCell;
-            $eps->rect(
+            $this->diagram->rect(
                 $this->x, $this->y + 12  + $this->currentCell,
                 $this->width, $this->heightCell, 1
             );
-            $eps->showXY($field, $this->x + 5, $this->y + 14 + $this->currentCell);
+            $this->diagram->showXY($field, $this->x + 5, $this->y + 14 + $this->currentCell);
         }
     }
 }

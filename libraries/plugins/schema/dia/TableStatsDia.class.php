@@ -91,7 +91,7 @@ class Table_Stats_Dia extends TableStats
      */
     public function tableDraw($showColor)
     {
-        global $dia;
+        $dia = $this->diagram;
 
         if ($showColor) {
             $listOfColors = array(

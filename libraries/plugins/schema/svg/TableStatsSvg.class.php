@@ -145,13 +145,11 @@ class Table_Stats_Svg extends TableStats
      */
     public function tableDraw($showColor)
     {
-        global $svg;
-
-        $svg->printElement(
+        $this->diagram->printElement(
             'rect', $this->x, $this->y, $this->width,
             $this->heightCell, null, 'fill:red;stroke:black;'
         );
-        $svg->printElement(
+        $this->diagram->printElement(
             'text', $this->x + 5, $this->y+ 14, $this->width, $this->heightCell,
             $this->getTitle(), 'fill:none;stroke:black;'
         );
@@ -166,11 +164,11 @@ class Table_Stats_Svg extends TableStats
                     $fillColor = 'none';
                 }
             }
-            $svg->printElement(
+            $this->diagram->printElement(
                 'rect', $this->x, $this->y + $this->currentCell, $this->width,
                 $this->heightCell, null, 'fill:' . $fillColor . ';stroke:black;'
             );
-            $svg->printElement(
+            $this->diagram->printElement(
                 'text', $this->x + 5, $this->y + 14 + $this->currentCell,
                 $this->width, $this->heightCell, $field, 'fill:none;stroke:black;'
             );
