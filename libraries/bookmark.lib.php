@@ -245,12 +245,11 @@ function PMA_Bookmark_getVariableCount($query)
 /**
  * Replace the placeholders in the bookmark query with variables
  *
- * @param string $query     bookmarked query
- * @param array  $variables variables to apply
+ * @param string $query bookmarked query
  *
  * @return string query with variables applied
  */
-function PMA_Bookmark_applyVariables($query, $variables)
+function PMA_Bookmark_applyVariables($query)
 {
     // remove comments that encloses a variable placeholder
     $query = preg_replace(
@@ -259,7 +258,8 @@ function PMA_Bookmark_applyVariables($query, $variables)
         $query
     );
     // replace variable placeholders with values
-    for ($i = 1; $i <= PMA_Bookmark_getVariableCount($query); $i++) {
+    $number_of_variables = PMA_Bookmark_getVariableCount($query);
+    for ($i = 1; $i <= $number_of_variables; $i++) {
         $var = '';
         if (! empty($_REQUEST['bookmark_variable'][$i])) {
             $var = PMA_Util::sqlAddSlashes($_REQUEST['bookmark_variable'][$i]);
