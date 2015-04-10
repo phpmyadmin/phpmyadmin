@@ -1846,6 +1846,13 @@ $cfg['Export']['sql_views_as_tables'] = false;
 /**
  *
  *
+ * @global boolean $cfg['Export']['sql_metadata']
+ */
+$cfg['Export']['sql_metadata'] = false;
+
+/**
+ *
+ *
  * @global boolean $cfg['Export']['sql_use_transaction']
  */
 $cfg['Export']['sql_use_transaction'] = false;
