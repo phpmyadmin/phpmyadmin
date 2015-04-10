@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-08 06:21+0200\n"
+"PO-Revision-Date: 2015-04-10 19:50+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -5872,10 +5872,9 @@ msgid "Export views as tables"
 msgstr "Görünümleri tablolar halinde dışa aktar"
 
 #: libraries/config/messages.inc.php:176
-#, fuzzy
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "Eksik phpMyAdmin yapılandırma depolama tablolarını %soluşturun%s."
+msgstr "phpMyAdmin yapılandırma depolamasından ilgili üstveriyi içe aktar"
 
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:179
 #: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:181
@@ -7523,12 +7522,13 @@ msgid "Skip locked tables"
 msgstr "Kilitli tabloları atla"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr "Eğer Suhosin algılanırsa, ana sayfada bir uyarı görüntülenir."
+msgstr ""
+"Eğer Suhosin algılanırsa, ana sayfada görüntülenen varsayılan uyarıyı "
+"etkisizleştirir."
 
 #: libraries/config/messages.inc.php:774
 msgid "Suhosin warning"
@@ -10190,10 +10190,9 @@ msgstr ""
 "zaman damgasını dahil et"
 
 #: libraries/plugins/export/ExportSql.class.php:161
-#, fuzzy
 #| msgid "Export method"
 msgid "Export metadata"
-msgstr "Dışa aktarma yöntemi"
+msgstr "Üstveriyi dışa aktar"
 
 #: libraries/plugins/export/ExportSql.class.php:176
 msgid ""
@@ -10325,10 +10324,10 @@ msgid "It appears your database uses functions;"
 msgstr "Görünüşe göre veritabanınız işlevleri kullanmakta;"
 
 #: libraries/plugins/export/ExportSql.class.php:989
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata Headers"
 msgid "Metadata for %s"
-msgstr "Üstveri Başlıkları"
+msgstr "%s için üstveri"
 
 #: libraries/plugins/export/ExportSql.class.php:1352
 msgid "It appears your database uses views;"
