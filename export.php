@@ -128,6 +128,7 @@ if (!defined('TESTSUITE')) {
             'sql_utc_time',
             'sql_drop_database',
             'sql_views_as_tables',
+            'sql_metadata',
             'csv_separator',
             'csv_enclosed',
             'csv_escaped',

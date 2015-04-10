@@ -155,6 +155,12 @@ class ExportSql extends ExportPlugin
             $leaf->setText(__('Export views as tables'));
             $generalOptions->addProperty($leaf);
 
+            // export metadata
+            $leaf = new BoolPropertyItem();
+            $leaf->setName("metadata");
+            $leaf->setText(__('Export metadata'));
+            $generalOptions->addProperty($leaf);
+
             // compatibility maximization
             $compats = $GLOBALS['dbi']->getCompatibilities();
             if (count($compats) > 0) {
@@ -926,6 +932,95 @@ class ExportSql extends ExportPlugin
             }
         }
         return $result;
+    }
+
+    /**
+     * Exports metadata from Configuration Storage
+     *
+     * @param string $db            database being exported
+     * @param string $table         table being exported
+     * @param array  $metadataTypes types of metadata to export
+     * @param array  $targetNames   associative array of db and table names of
+     *                              target configuraton storage
+     *
+     * @return bool Whether it succeeded
+     */
+    public function exportMetadata(
+        $db, $table, $metadataTypes, $targetNames = array()
+    ) {
+        $cfgRelation = PMA_getRelationsParam();
+        if (! isset($cfgRelation['db'])) {
+            return true;
+        }
+
+        if (isset($table)) {
+            $types = array(
+                'column_info' => 'db_name',
+                'table_uiprefs' => 'db_name',
+                'tracking' => 'db_name',
+            );
+        } else {
+            $types = array(
+                'bookmark' => 'dbase',
+                'relation' => 'master_db',
+                'table_coords' => 'db_name',
+                'pdf_pages' => 'db_name',
+                'savedsearches' => 'db_name',
+                'central_columns' => 'db_name',
+            );
+        }
+
+        $aliases = array();
+        foreach ($targetNames as $type => $targetName) {
+            if ($type == 'phpmyadmin') {
+                $aliases[$cfgRelation['db']] = $targetName;
+            } else {
+                if (isset($cfgRelation[$type])) {
+                    $aliases[$cfgRelation['db']]['tables'][$cfgRelation[$type]]['alias']
+                        = $targetName;
+                }
+            }
+        }
+
+        $comment = $this->_possibleCRLF()
+            . $this->_exportComment()
+            . $this->_exportComment(
+                sprintf(
+                    __('Metadata for %s'),
+                    isset($table) ? $table : $db
+                )
+            )
+            . $this->_exportComment();
+        if (! PMA_exportOutputHandler($comment)) {
+            return false;
+        }
+
+        foreach ($types as $type => $dbNameColumn) {
+            if (in_array($type, $metadataTypes) && isset($cfgRelation[$type])) {
+
+                $sql_query = "SELECT * FROM "
+                    . PMA_Util::backquote($cfgRelation['db'])
+                    . '.' . PMA_Util::backquote($cfgRelation[$type])
+                    . " WHERE " . PMA_Util::backquote($dbNameColumn)
+                    . " = '" . PMA_Util::sqlAddSlashes($db) . "'";
+                if (isset($table)) {
+                    $sql_query .= " AND `table_name` = '"
+                        . PMA_Util::sqlAddSlashes($table) . "'";
+                }
+
+                if (! $this->exportData(
+                    $cfgRelation['db'],
+                    $cfgRelation[$type],
+                    $GLOBALS['crlf'],
+                    '',
+                    $sql_query,
+                    $aliases
+                )) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**

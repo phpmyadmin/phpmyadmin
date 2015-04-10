@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 + rfe #1651 Allow copying mutiple rows
 + rfe #1643 No SQL query for loading data
 + rfe #1653 New data validation feature and datetime type
++ rfe #1632 Importing and exporting pMA meta-data
 
 4.4.2.0 (not yet released)
 - bug #4835 PMA_hideShowConnection not called after submit_num_fields

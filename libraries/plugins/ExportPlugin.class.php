@@ -148,6 +148,23 @@ abstract class ExportPlugin
     }
 
     /**
+     * Exports metadata from Configuration Storage
+     *
+     * @param string $db            database being exported
+     * @param string $table         table being exported
+     * @param array  $metadataTypes types of metadata to export
+     * @param array  $targetNames   associative array of db and table names of
+     *                              target configuraton storage
+     *
+     * @return bool Whether it succeeded
+     */
+    public function exportMetadata(
+        $db, $table, $metadataTypes, $targetNames = array()
+    ) {
+        ;
+    }
+
+    /**
      * Returns a stand-in CREATE definition to resolve view dependencies
      *
      * @param string $db      the database name

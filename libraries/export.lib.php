@@ -550,6 +550,12 @@ function PMA_exportDatabase(
         $export_plugin->exportRoutines($db, $aliases);
     }
 
+    if (isset($GLOBALS['sql_metadata'])) {
+        // Types of metatada to export.
+        // In the future these can be allowed to be selected by the user
+        $metadataTypes = PMA_getMetadataTypesToExport();
+    }
+
     $views = array();
 
     foreach ($tables as $table) {
@@ -634,6 +640,15 @@ function PMA_exportDatabase(
                 break 1;
             }
         }
+
+        // now export metadata related to this table
+        if (isset($GLOBALS['sql_metadata'])) {
+            if (! $export_plugin->exportMetadata(
+                $db, $table, $metadataTypes
+            )) {
+                return;
+            }
+        }
     }
 
     if (isset($GLOBALS['sql_create_view'])) {
@@ -657,6 +672,15 @@ function PMA_exportDatabase(
 
     if (! $export_plugin->exportDBFooter($db, $db_alias)) {
         return;
+    }
+
+    // export metadata related to this db
+    if (isset($GLOBALS['sql_metadata'])) {
+        if (! $export_plugin->exportMetadata(
+            $db, null, $metadataTypes
+        )) {
+            return;
+        }
     }
 }
 
@@ -775,6 +799,18 @@ function PMA_exportTable(
     if (! $export_plugin->exportDBFooter($db, $db_alias)) {
         return;
     }
+
+    if (isset($GLOBALS['sql_metadata'])) {
+        // Types of metatada to export.
+        // In the future these can be allowed to be selected by the user
+        $metadataTypes = PMA_getMetadataTypesToExport();
+
+        if (! $export_plugin->exportMetadata(
+                $db, $table, $metadataTypes
+        )) {
+            return;
+        }
+    }
 }
 
 /**
@@ -885,5 +921,25 @@ function PMA_lockTables($db, $tables, $lockType = "WRITE")
 function PMA_unlockTables()
 {
     return $GLOBALS['dbi']->tryQuery("UNLOCK TABLES");
+}
+
+/**
+ * Returns the all the metadata types the can be exported with a database or a table
+ *
+ * @return array metadata types.
+ */
+function PMA_getMetadataTypesToExport()
+{
+    return array(
+        'column_info',
+        'table_uiprefs',
+        'tracking',
+        'bookmark',
+        'relation',
+        'table_coords',
+        'pdf_pages',
+        'savedsearches',
+        'central_columns',
+    );
 }
 ?>
