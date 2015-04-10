@@ -24,11 +24,14 @@ class PMA_Export_Relation_Schema
      *
      * @see PMA_SVG
      */
-    function __construct()
+    function __construct($diagram)
     {
+        $this->diagram = $diagram;
         $this->setPageNumber($_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
     }
+
+    protected $diagram;
 
     protected $showColor;
     protected $tableDimension;

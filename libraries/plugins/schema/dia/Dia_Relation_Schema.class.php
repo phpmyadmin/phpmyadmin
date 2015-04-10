@@ -222,17 +222,14 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      */
     function __construct()
     {
-        parent::__construct();
-
-        global $dia;
+        parent::__construct(new PMA_DIA());
 
         $this->setShowColor(isset($_REQUEST['dia_show_color']));
         $this->setShowKeys(isset($_REQUEST['dia_show_keys']));
         $this->setOrientation($_REQUEST['dia_orientation']);
         $this->setPaper($_REQUEST['dia_paper']);
 
-        $dia = new PMA_DIA();
-        $dia->startDiaDoc(
+        $this->diagram->startDiaDoc(
             $this->paper, $this->_topMargin, $this->_bottomMargin,
             $this->_leftMargin, $this->_rightMargin, $this->orientation
         );
@@ -242,7 +239,8 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         foreach ($alltables as $table) {
             if (! isset($this->tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Dia(
-                    $table, $this->pageNumber, $this->showKeys, $this->offline
+                    $this->diagram, $table, $this->pageNumber,
+                    $this->showKeys, $this->offline
                 );
             }
         }
@@ -290,7 +288,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         if ($seen_a_relation) {
             $this->_drawRelations();
         }
-        $dia->endDiaDoc();
+        $this->diagram->endDiaDoc();
     }
 
     /**
@@ -301,8 +299,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      */
     function showOutput()
     {
-        global $dia;
-        $dia->showOutput($this->getFileName('.dia'));
+        $this->diagram->showOutput($this->getFileName('.dia'));
     }
 
     /**
@@ -324,17 +321,20 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
     ) {
         if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new Table_Stats_Dia(
-                $masterTable, $this->pageNumber, $showKeys
+                $this->diagram, $masterTable, $this->pageNumber, $showKeys
             );
         }
         if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new Table_Stats_Dia(
-                $foreignTable, $this->pageNumber, $showKeys
+                $this->diagram, $foreignTable, $this->pageNumber, $showKeys
             );
         }
         $this->_relations[] = new Relation_Stats_Dia(
-            $this->_tables[$masterTable], $masterField,
-            $this->_tables[$foreignTable], $foreignField
+            $this->diagram,
+            $this->_tables[$masterTable],
+            $masterField,
+            $this->_tables[$foreignTable],
+            $foreignField
         );
     }
 

@@ -37,7 +37,7 @@ class PMA_Export_Relation_Schema_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $_REQUEST['page_number'] = 33;
-        $this->object = new PMA_Export_Relation_Schema();
+        $this->object = new PMA_Export_Relation_Schema(null);
     }
 
     /**
