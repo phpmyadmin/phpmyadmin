@@ -429,6 +429,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     private $_showGrid;
     private $_withDoc;
     private $_tableOrder;
+    /**
+     * @var Table_Stats_Pdf[]
+     */
     private $_tables = array();
     private $_ff = PMA_PDF_FONT;
     private $_xMax = 0;
@@ -441,6 +444,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     private $_leftMargin = 10;
     private $_rightMargin = 10;
     private $_tablewidth;
+    /**
+     * @var Relation_Stats_Pdf[]
+     */
     protected $relations = array();
 
     /**
@@ -691,7 +697,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Sets X and Y minimum and maximum for a table cell
      *
-     * @param object $table The table name of which sets XY co-ordinates
+     * @param Table_Stats_Pdf $table The table name of which sets XY co-ordinates
      *
      * @return void
      *
