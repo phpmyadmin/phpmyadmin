@@ -306,34 +306,33 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      */
     function __construct()
     {
-        parent::__construct();
-
-        global $svg;
+        parent::__construct(new PMA_SVG());
 
         $this->setShowColor(isset($_REQUEST['svg_show_color']));
         $this->setShowKeys(isset($_REQUEST['svg_show_keys']));
         $this->setTableDimension(isset($_REQUEST['svg_show_table_dimension']));
         $this->setAllTablesSameWidth(isset($_REQUEST['svg_all_tables_same_width']));
 
-        $svg = new PMA_SVG();
-        $svg->setTitle(
+        $this->diagram->setTitle(
             sprintf(
                 __('Schema of the %s database - Page %s'),
                 $GLOBALS['db'],
                 $this->pageNumber
             )
         );
-        $svg->SetAuthor('phpMyAdmin ' . PMA_VERSION);
-        $svg->setFont('Arial');
-        $svg->setFontSize('16px');
-        $svg->startSvgDoc('1000px', '1000px');
+        $this->diagram->SetAuthor('phpMyAdmin ' . PMA_VERSION);
+        $this->diagram->setFont('Arial');
+        $this->diagram->setFontSize('16px');
+        $this->diagram->startSvgDoc('1000px', '1000px');
 
         $alltables = $this->getTablesFromRequest();
 
         foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Svg(
-                    $table, $svg->getFont(), $svg->getFontSize(), $this->pageNumber,
+                    $this->diagram,
+                    $table, $this->diagram->getFont(),
+                    $this->diagram->getFontSize(), $this->pageNumber,
                     $this->_tablewidth, $this->showKeys, $this->tableDimension,
                     $this->offline
                 );
@@ -361,7 +360,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
                 if ($master_field != 'foreign_keys_data') {
                     if (in_array($rel['foreign_table'], $alltables)) {
                         $this->_addRelation(
-                            $one_table, $svg->getFont(), $svg->getFontSize(),
+                            $one_table, $this->diagram->getFont(), $this->diagram->getFontSize(),
                             $master_field, $rel['foreign_table'],
                             $rel['foreign_field'], $this->tableDimension
                         );
@@ -378,8 +377,8 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
                         as $index => $one_field
                     ) {
                         $this->_addRelation(
-                            $one_table, $svg->getFont(),
-                            $svg->getFontSize(),
+                            $one_table, $this->diagram->getFont(),
+                            $this->diagram->getFontSize(),
                             $one_field, $one_key['ref_table_name'],
                             $one_key['ref_index_list'][$index],
                             $this->tableDimension
@@ -393,7 +392,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         }
 
         $this->_drawTables();
-        $svg->endSvgDoc();
+        $this->diagram->endSvgDoc();
     }
 
     /**
@@ -404,8 +403,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      */
     function showOutput()
     {
-        global $svg;
-        $svg->showOutput($this->getFileName('.svg'));
+        $this->diagram->showOutput($this->getFileName('.svg'));
     }
 
 
@@ -448,6 +446,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
     ) {
         if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new Table_Stats_Svg(
+                $this->diagram,
                 $masterTable, $font, $fontSize, $this->pageNumber,
                 $this->_tablewidth, false, $tableDimension
             );
@@ -455,14 +454,18 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         }
         if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new Table_Stats_Svg(
+               $this->diagram,
                 $foreignTable, $font, $fontSize, $this->pageNumber,
                 $this->_tablewidth, false, $tableDimension
             );
             $this->_setMinMax($this->_tables[$foreignTable]);
         }
         $this->_relations[] = new Relation_Stats_Svg(
-            $this->_tables[$masterTable], $masterField,
-            $this->_tables[$foreignTable], $foreignField
+            $this->diagram,
+            $this->_tables[$masterTable],
+            $masterField,
+            $this->_tables[$foreignTable],
+            $foreignField
         );
     }
 
