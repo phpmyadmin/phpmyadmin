@@ -1614,15 +1614,19 @@ function PMA_sendResponseForGridEdit($result)
 /**
  * Function to get html for the sql query results div
  *
- * @param string $previous_update_query_html html for the previously executed query
- * @param string $profiling_chart_html       html for profiling
- * @param object $missing_unique_column_msg  message for the missing unique column
- * @param object $bookmark_created_msg       message for bookmark creation
- * @param string $table_html                 html for the table for displaying sql
- *                                           results
- * @param string $indexes_problems_html      html for displaying errors in indexes
- * @param string $bookmark_support_html      html for displaying bookmark form
- * @param string $print_button_html          html for the print button in printview
+ * @param string      $previous_update_query_html html for the previously
+ *                                                executed query
+ * @param string      $profiling_chart_html       html for profiling
+ * @param PMA_Message $missing_unique_column_msg  message for the missing
+ *                                                unique column
+ * @param PMA_Message $bookmark_created_msg       message for bookmark creation
+ * @param string      $table_html                 html for the table for
+ *                                                displaying sql results
+ * @param string      $indexes_problems_html      html for displaying errors
+ *                                                in indexes
+ * @param string      $bookmark_support_html      html for displaying bookmark form
+ * @param string      $print_button_html          html for the print button
+ *                                                in printview
  *
  * @return string $html_output
  */
