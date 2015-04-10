@@ -400,6 +400,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                 return true;
             } else if (theType == "datetime" || theType == "timestamp") {
                 var tmstmp = false;
+                dt_value = dt_value.trim();
                 if (dt_value == "CURRENT_TIMESTAMP") {
                     return true;
                 }
@@ -410,8 +411,11 @@ AJAX.registerOnload('tbl_change.js', function () {
                     return true;
                 }
                 var dv = dt_value.indexOf(" ");
-                if (dv == -1) {
-                    return false;
+                if (dv == -1) { // Only the date component, which is valid
+                    if (!  isDate(dt_value, tmstmp)) {
+                        return false;
+                    }
+                    return true;
                 } else {
                     if (! (isDate(dt_value.substring(0, dv), tmstmp)
                         && isTime(dt_value.substring(dv + 1)))) {
