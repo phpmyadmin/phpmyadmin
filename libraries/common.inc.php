@@ -495,7 +495,9 @@ if ($token_mismatch) {
         /* Permit redirection with token-mismatch in url.php */
         'url',
         /* Permit session expiry flag */
-        'session_expired'
+        'session_expired',
+        /* JS loading */
+        'scripts', 'call_done'
     );
     /**
      * Allow changing themes in test/theme.php

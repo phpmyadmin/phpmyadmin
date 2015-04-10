@@ -26,6 +26,13 @@ session_write_close();
 require_once './libraries/js_escape.lib.php';
 require_once './libraries/Util.class.php';
 
+require_once './libraries/OutputBuffering.class.php';
+$buffer = PMA_OutputBuffering::getInstance();
+$buffer->start();
+register_shutdown_function(function() {
+    echo PMA_OutputBuffering::getInstance()->getContents();
+});
+
 $js_messages['strNoDropDatabases'] = __('"DROP DATABASE" statements are disabled.');
 if ($cfg['AllowUserDropDatabase']) {
     $js_messages['strNoDropDatabases'] = '';
