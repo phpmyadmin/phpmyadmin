@@ -33,6 +33,7 @@ phpMyAdmin - ChangeLog
 - bug       MIME Transformation link fixed
 - bug #4838 Prevents console window from moving out of the screen height
 - bug #4829 Create procedure via SQL Editor not more possible
+- bug #4833 CSS and Javascript are not compressed
 
 4.4.1.1 (2015-04-08)
 - bug #4846 Web server's error log is flooded
