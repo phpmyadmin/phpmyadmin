@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-07 12:54-0400\n"
-"PO-Revision-Date: 2015-04-09 20:10+0200\n"
+"PO-Revision-Date: 2015-04-09 20:20+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -8933,13 +8933,15 @@ msgstr "Vai alla visualizzazione: %s"
 
 #: libraries/import.lib.php:1382
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
-msgstr ""
+msgstr "Possono essere simulate query UPDATE e DELETE solo su tabelle singole."
 
 #: libraries/import.lib.php:1815
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Possono essere annulate (rolled back) solo query SQL INSERT, UPDATE, DELETE "
+"and REPLACE contenenti tabelle di un motore transazionale."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -9031,7 +9033,7 @@ msgstr "Converti a Kana"
 
 #: libraries/mult_submits.inc.php:301
 msgid "Success!"
-msgstr ""
+msgstr "Successo!"
 
 #: libraries/mult_submits.lib.php:338
 msgid "Replace table prefix:"
@@ -9256,6 +9258,7 @@ msgstr "sconosciuto"
 #: libraries/navigation/Navigation.class.php:54
 msgid "An error has occurred while loading the navigation display"
 msgstr ""
+"Si è verificato un errore durante il caricamento del display di navigazione"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -9298,13 +9301,16 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Nel pannello di navigazione ci sono gruppi di oggetti grandi che possono "
+"ridurre le prestazioni. Valuta se disabilitare il raggruppamento oggetti nel "
+"pannello di navigazione."
 
 #: libraries/navigation/NavigationTree.class.php:871
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s risultato trovato"
+msgstr[1] "%s risultati trovati"
 
 #: libraries/navigation/NavigationTree.class.php:1281
 msgid "Filter databases by name or regex"
@@ -9321,13 +9327,13 @@ msgstr "Filtra in base al nome o all'espressione regolare (regex)"
 
 #: libraries/navigation/NavigationTree.class.php:1342
 msgid "Collapse all"
-msgstr ""
+msgstr "Collassa tutto"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Nome classe \"%1$s\" invalido, utilizzo il valore predefinito \"Node\""
 
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
