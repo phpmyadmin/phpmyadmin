@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-07 05:23+0200\n"
-"Last-Translator: Washington Bruno Rodrigues Cav <washingtonbruno@msn.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2015-04-11 23:17+0200\n"
+"Last-Translator: Thiago Casotti <thiago.casotti@uol.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -2815,10 +2815,9 @@ msgid "Please enter a valid date"
 msgstr "Por favor, digite uma data válida"
 
 #: js/messages.php:733
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Por favor, digite um número válido"
+msgstr "Por favor, digite uma data válida"
 
 #: js/messages.php:734
 msgid "Please enter a valid number"
@@ -2841,38 +2840,33 @@ msgid "Please enter no more than {0} characters"
 msgstr "Por favor, digite até {0} caractéres"
 
 #: js/messages.php:739
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter at least {0} characters"
-msgstr "Por favor, digite o valor correto da imagem de verificação!"
+msgstr "Por favor, digite pelo menos {0} caracteres"
 
 #: js/messages.php:740
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Por favor digite um valor entre {0} e {1} caracteres compridos"
 
 #: js/messages.php:741
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Por favor, digite um número válido"
+msgstr "Por favor, digite um valor entre {0} and {1}"
 
 #: js/messages.php:742
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Por favor, digite um tamanho correto!"
+msgstr "Por favor, digite um valor menor ou igual a {0}"
 
 #: js/messages.php:743
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Por favor, digite um número válido"
+msgstr "Por favor, digite um valor maior ou igual a {0}"
 
 #: js/messages.php:745
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Por favor, digite um número válido"
+msgstr "Por favor, digite um data válida ou um tempo"
 
 #: js/messages.php:746
 #, fuzzy
