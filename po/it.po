@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-04-09 20:20+0200\n"
+"PO-Revision-Date: 2015-04-11 15:25+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/it/>\n"
@@ -8006,7 +8006,7 @@ msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
-"Si stà utilizzando l'estensione mysql che è deprecata in phpMyAdmin. Si "
+"Si sta utilizzando l'estensione mysql che è deprecata in phpMyAdmin. Si "
 "consiglia di installare l'estensione mysqli."
 
 #: libraries/db_designer.lib.php:25
@@ -9463,11 +9463,11 @@ msgstr "Nome classe \"%1$s\" invalido, utilizzo il valore predefinito \"Node\""
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "Non ho potuto includere la classe \"%1$s\", file \"%2$s\" non trovato"
 
 #: libraries/navigation/Nodes/Node.class.php:786
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Espandi/Riduci"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:27
@@ -9569,32 +9569,38 @@ msgstr "Nuova"
 
 #: libraries/normalization.lib.php:114
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Rendi atomici tutti i campi"
 
 #: libraries/normalization.lib.php:116 libraries/normalization.lib.php:773
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Primo step di normalizzazione (1NF)"
 
 #: libraries/normalization.lib.php:119 libraries/normalization.lib.php:170
 #: libraries/normalization.lib.php:213 libraries/normalization.lib.php:249
 msgid "Step 1."
-msgstr ""
+msgstr "Step 1."
 
 #: libraries/normalization.lib.php:121
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Ci sono campi che possono essere suddivisi in più di un campo? Ad esempio, "
+"l'indirizzo può essere diviso in via, città, provincia e cap."
 
 #: libraries/normalization.lib.php:128
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
+"Mostrami la lista centrale dei campi che non sono già presenti in questa "
+"tabella"
 
 #: libraries/normalization.lib.php:131
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
 msgstr ""
+"Seleziona un campo che può essere suddiviso in più di uno. (selezionando "
+"'non esiste tale campo', passerà allo step successivo)"
 
 #: libraries/normalization.lib.php:138 normalization.php:19
 #| msgid "Select a column."
@@ -9608,7 +9614,7 @@ msgstr "Campo inesistente"
 
 #: libraries/normalization.lib.php:146
 msgid "split into "
-msgstr ""
+msgstr "suddividi in "
 
 #: libraries/normalization.lib.php:167
 #| msgid "Add primary key"
@@ -9625,15 +9631,20 @@ msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"Non c'è nessuna chiave primaria: si prega di aggiungerne "
+"una.<br/>Suggerimento: Una chiave primaria è un campo (o una combinazione di "
+"campi) che identifica univocamente tutte le righe."
 
 #: libraries/normalization.lib.php:185
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Aggiunge una chiave primaria ad un campo, o a più campi già esistenti"
 
 #: libraries/normalization.lib.php:190
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
+"Se non è possibile rendere combinazioni di campi esistenti come chiave "
+"primaria"
 
 #: libraries/normalization.lib.php:194
 #| msgid "Add primary key"
@@ -9651,12 +9662,18 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"Hai un gruppo di campi che, combinati fra di loro, danno come risultato un "
+"campo già esistente? Ad esempio, se hai nome, cognome e nominativo, e "
+"combinando nome e cognome ottieni nominativo, allora nominativo è un campo "
+"ridondante."
 
 #: libraries/normalization.lib.php:221
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"Seleziona i campi ridondanti e clicca su rimuovi. Se non ci sono campi "
+"ridondanti, clicca su 'Nessun campo ridondante'"
 
 #: libraries/normalization.lib.php:226
 #| msgid "Remove selected users"
@@ -9670,7 +9687,7 @@ msgstr "Nessun campo ridondante"
 
 #: libraries/normalization.lib.php:248
 msgid "Move repeating groups"
-msgstr ""
+msgstr "Sposta i gruppi ripetuti"
 
 #: libraries/normalization.lib.php:251
 msgid ""
@@ -9680,24 +9697,31 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"Hai un gruppo di due o più campi che sono strettamente correlati e ripetono "
+"tutti lo stesso attributo? Ad esempio, una tabella che contiene record di "
+"libri potrebbe avere campi come: id_libro, autore1, autore2, autore3, e così "
+"via, formando un gruppo ripetuto (gruppo di autori). In questo caso dovrebbe "
+"essere creata una nuova tabella separata (id_libro, autore)."
 
 #: libraries/normalization.lib.php:259
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
+"Seleziona i campi che formano un gruppo ripetuto. Se non c'è alcun gruppo "
+"ripetuto, clicca su 'Nessun gruppo ripetuto'"
 
 #: libraries/normalization.lib.php:265
 msgid "No repeating group"
-msgstr ""
+msgstr "Nessun gruppo ripetuto"
 
 #: libraries/normalization.lib.php:291
 msgid "Step 2."
-msgstr ""
+msgstr "Step 2."
 
 #: libraries/normalization.lib.php:291
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Trova le dipendenze parziali"
 
 #: libraries/normalization.lib.php:313
 #, php-format
@@ -9705,10 +9729,13 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"Non sono possibili dipendenze parziali in quanto non esiste alcun campo non-"
+"primario dato che la chiave primaria ( %1$s ) è composta da tutti i campi "
+"presenti nella tabella."
 
 #: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "La tabella è già in seconda forma normalizzata."
 
 #: libraries/normalization.lib.php:323
 #, php-format
@@ -9716,16 +9743,22 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"La chiave primaria ( %1$s ) consiste in più di un campo, è necessario "
+"pertanto trovare le dipendenze parziali."
 
 #: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
+"Si prega di rispondere con attenzione alle domande seguenti per ottenere una "
+"normalizzazione corretta."
 
 #: libraries/normalization.lib.php:331
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"+ Mostrami le possibili dipendenze parziali basate sui dati contenuti nella "
+"tabella"
 
 #: libraries/normalization.lib.php:335
 msgid ""
@@ -9733,11 +9766,14 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"Per ciascuno dei campi qui sotto, per favore seleziona il <b>sottogruppo "
+"minimo</b> di campi, tra tutti i sottogruppi indicati, i cui valori, "
+"combinati tra di loro, sono sufficienti a determinare il valore del campo."
 
 #: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' dipende da:"
 
 #: libraries/normalization.lib.php:356
 #, php-format
@@ -9745,6 +9781,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"Non sono possibili dipendenze parziali, in quanto la chiave primaria ( %1$s )"
+" ha solo un campo."
 
 #: libraries/normalization.lib.php:381
 #, php-format
@@ -9752,11 +9790,14 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
+"Per poter mettere la tabella originale  '%1$s' nella Seconda forma "
+"normalizzata dobbiamo creare le tabelle seguenti:"
 
 #: libraries/normalization.lib.php:417
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
+"Il secondo passaggio di normalizzazione per la tabella  '%1$s' è completo."
 
 #: libraries/normalization.lib.php:457 libraries/normalization.lib.php:600
 #: libraries/normalization.lib.php:663
@@ -9770,10 +9811,12 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
+"Per poter mettere la tabella originale  '%1$s' nella Terza forma "
+"normalizzata dobbiamo creare le tabelle seguenti:"
 
 #: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "Il terzo passaggio di normalizzazione è completo."
 
 #: libraries/normalization.lib.php:642
 #, php-format
@@ -9788,7 +9831,7 @@ msgstr "Passo n. 3."
 
 #: libraries/normalization.lib.php:689
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "Trova le dipendenze transitive"
 
 #: libraries/normalization.lib.php:696
 msgid ""
@@ -9797,16 +9840,23 @@ msgid ""
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
+"Per ciascuno dei campi qui sotto, per favore seleziona il <b>sottogruppo "
+"minimo</b> di campi, tra tutti i sottogruppi indicati, i cui valori, "
+"combinati tra di loro, sono sufficienti a determinare il valore del campo.<"
+"br />Nota: Un campo può anche non avere dipendenze transitive, in quel caso "
+"non devi selezionare nulla."
 
 #: libraries/normalization.lib.php:743
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"Non sono possibili dipendenze Transitive in quanto la tabella non ha alcun "
+"campo in chiave non primaria"
 
 #: libraries/normalization.lib.php:747
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "La Tabella è già in Terza forma normalizzata!"
 
 #: libraries/normalization.lib.php:770
 #| msgid "Hide table structure actions"
@@ -9815,31 +9865,35 @@ msgstr "Migliora la struttura della tabella (Normalizzazione):"
 
 #: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Seleziona fino al numero di passaggi che vuoi normalizzare"
 
 #: libraries/normalization.lib.php:774
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Secondo passaggio di normalizzazione (1NF+2NF)"
 
 #: libraries/normalization.lib.php:775
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Terzo passaggio di normalizzazione (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:782
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"Suggerimento: segui la procedura con attenzione per ottenere una "
+"normalizzazione corretta"
 
 #: libraries/normalization.lib.php:843
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"Questa lista si basa su un sottoinsieme dei dati della tabella e non è detto "
+"che sia accurata. "
 
 #: libraries/normalization.lib.php:859
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "Dipendenze parziali non trovate!"
 
 #: libraries/operations.lib.php:75
 #| msgid "Rename database to"
@@ -10095,11 +10149,11 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:164
 msgid "Retry to connect"
-msgstr ""
+msgstr "Riprova a connetterti"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:146
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "La tua sessione è scaduta. Esegui un nuovo login."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:170
 msgid "Log in"
@@ -10122,11 +10176,11 @@ msgstr "Scelta del server:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:354
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Il captcha inserito è sbagliato, riprova!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:364
 msgid "Please enter correct captcha!"
-msgstr ""
+msgstr "Inserisci per favore il captcha corretto!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
 #| msgid "Cannot log in to the MySQL server"
@@ -10510,7 +10564,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:511
 msgid "It appears your database uses procedures;"
-msgstr ""
+msgstr "Il tuo database sembra utilizzare le procedure;"
 
 #: libraries/plugins/export/ExportSql.class.php:515
 #: libraries/plugins/export/ExportSql.class.php:551
@@ -10518,14 +10572,16 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:1799
 msgid "alias export may not work reliably in all cases."
 msgstr ""
+"l'esportazione degli alias potrebbe non funzionare correttamente in tutti i "
+"casi."
 
 #: libraries/plugins/export/ExportSql.class.php:548
 msgid "It appears your database uses functions;"
-msgstr ""
+msgstr "Il tuo database sembra utilizzare le funzioni;"
 
 #: libraries/plugins/export/ExportSql.class.php:1257
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "Il tuo database sembra utilizzare le viste;"
 
 #: libraries/plugins/export/ExportSql.class.php:1302
 msgid "Constraints for dumped tables"
@@ -10565,7 +10621,7 @@ msgstr "RELATIONS FOR TABLE"
 
 #: libraries/plugins/export/ExportSql.class.php:1796
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Il tuo database sembra utilizzare i trigger;"
 
 #: libraries/plugins/export/ExportSql.class.php:1828
 #, php-format
@@ -10732,7 +10788,7 @@ msgstr "XML"
 #: libraries/plugins/import/ShapeRecord.class.php:58
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "La geometria di tipo '%s' non è supportata da MySQL."
 
 #: libraries/plugins/schema/Export_Relation_Schema.class.php:285
 msgid "SCHEMA ERROR: "
@@ -10760,7 +10816,7 @@ msgstr "Verticale"
 #: libraries/plugins/schema/SchemaPdf.class.php:67
 #: libraries/plugins/schema/SchemaSvg.class.php:66
 msgid "Same width for all tables"
-msgstr ""
+msgstr "Stessa larghezza per tutte le tabelle"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:89
 msgid "Show grid"
@@ -10817,6 +10873,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Converte i valori Boolean in testo (default 'T' e 'F'). La prima opzione è "
+"per TRUE, la seconda per FALSE. Nonzero=true."
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -10913,10 +10971,13 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Funzionalità di caricamento immagini che mostra anche un'anteprima in "
+"miniatura. Le opzioni sono larghezza e altezza in pixel dell'immagine in "
+"miniatura. Il valore predefinito è 100 X 100."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:79
 msgid "Image preview here"
-msgstr ""
+msgstr "Anteprima immagine qui"
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
@@ -10940,17 +11001,22 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
+"Antepone e/o Accoda testo a una stringa. La prima opzione è il testo da "
+"anteporre, la seconda quella da accodare (racchiuso tra apici, default "
+"stringa vuota)."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:33
 msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Convalida la stringa usando l'espressione regolare ed esegue l'inserimento "
+"solo se la stringa corrisponde. La prima opzione è l'Espressione Regolare."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Convalida fallita per la stringa di input %s."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10976,6 +11042,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Funzionalità di caricamento file per campi TEXT. Non dispone di una textarea "
+"per l'input."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
