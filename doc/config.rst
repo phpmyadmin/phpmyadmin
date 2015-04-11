@@ -1675,6 +1675,14 @@ Main panel
     in the configuration file, end users can't be allowed to change their
     passwords.
 
+.. config:option:: $cfg['ShowGitRevision']
+
+    :type: boolean
+    :default: true
+
+    Defines whether to display informations about the current Git revision (if
+    applicable) on the main panel.
+
 Database structure
 ------------------
 
