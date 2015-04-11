@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-11 11:53+0200\n"
+"PO-Revision-Date: 2015-04-11 15:25+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -9722,10 +9722,12 @@ msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"Questa lista si basa su un sottoinsieme dei dati della tabella e non è detto "
+"che sia accurata. "
 
 #: libraries/normalization.lib.php:859
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "Dipendenze parziali non trovate!"
 
 #: libraries/operations.lib.php:74
 msgid "Rename database to"
@@ -9979,11 +9981,11 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:164
 msgid "Retry to connect"
-msgstr ""
+msgstr "Riprova a connetterti"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:146
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "La tua sessione è scaduta. Esegui un nuovo login."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:170
 msgid "Log in"
@@ -10005,11 +10007,11 @@ msgstr "Scelta del server:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:354
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Il captcha inserito è sbagliato, riprova!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:364
 msgid "Please enter correct captcha!"
-msgstr ""
+msgstr "Inserisci per favore il captcha corretto!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
 msgid "You are not allowed to log in to this MySQL server!"
@@ -10397,7 +10399,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:517
 msgid "It appears your database uses procedures;"
-msgstr ""
+msgstr "Il tuo database sembra utilizzare le procedure;"
 
 #: libraries/plugins/export/ExportSql.class.php:521
 #: libraries/plugins/export/ExportSql.class.php:557
@@ -10405,10 +10407,12 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:1894
 msgid "alias export may not work reliably in all cases."
 msgstr ""
+"l'esportazione degli alias potrebbe non funzionare correttamente in tutti i "
+"casi."
 
 #: libraries/plugins/export/ExportSql.class.php:554
 msgid "It appears your database uses functions;"
-msgstr ""
+msgstr "Il tuo database sembra utilizzare le funzioni;"
 
 #: libraries/plugins/export/ExportSql.class.php:989
 #, fuzzy, php-format
@@ -10418,7 +10422,7 @@ msgstr "Intestazioni di Metadata"
 
 #: libraries/plugins/export/ExportSql.class.php:1352
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "Il tuo database sembra utilizzare le viste;"
 
 #: libraries/plugins/export/ExportSql.class.php:1397
 msgid "Constraints for dumped tables"
@@ -10454,7 +10458,7 @@ msgstr "RELATIONS FOR TABLE"
 
 #: libraries/plugins/export/ExportSql.class.php:1891
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Il tuo database sembra utilizzare i trigger;"
 
 #: libraries/plugins/export/ExportSql.class.php:1923
 #, php-format
@@ -10621,7 +10625,7 @@ msgstr "XML"
 #: libraries/plugins/import/ShapeRecord.class.php:58
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "La geometria di tipo '%s' non è supportata da MySQL."
 
 #: libraries/plugins/schema/Export_Relation_Schema.class.php:288
 msgid "SCHEMA ERROR: "
@@ -10649,7 +10653,7 @@ msgstr "Verticale"
 #: libraries/plugins/schema/SchemaPdf.class.php:67
 #: libraries/plugins/schema/SchemaSvg.class.php:66
 msgid "Same width for all tables"
-msgstr ""
+msgstr "Stessa larghezza per tutte le tabelle"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:89
 msgid "Show grid"
@@ -10715,6 +10719,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Converte i valori Boolean in testo (default 'T' e 'F'). La prima opzione è "
+"per TRUE, la seconda per FALSE. Nonzero=true."
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -10800,10 +10806,13 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Funzionalità di caricamento immagini che mostra anche un'anteprima in "
+"miniatura. Le opzioni sono larghezza e altezza in pixel dell'immagine in "
+"miniatura. Il valore predefinito è 100 X 100."
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:79
 msgid "Image preview here"
-msgstr ""
+msgstr "Anteprima immagine qui"
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
@@ -10827,17 +10836,22 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
+"Antepone e/o Accoda testo a una stringa. La prima opzione è il testo da "
+"anteporre, la seconda quella da accodare (racchiuso tra apici, default "
+"stringa vuota)."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:33
 msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Convalida la stringa usando l'espressione regolare ed esegue l'inserimento "
+"solo se la stringa corrisponde. La prima opzione è l'Espressione Regolare."
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Convalida fallita per la stringa di input %s."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10863,6 +10877,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Funzionalità di caricamento file per campi TEXT. Non dispone di una textarea "
+"per l'input."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
