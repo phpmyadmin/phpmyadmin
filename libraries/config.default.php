@@ -3054,4 +3054,11 @@ $cfg['DefaultFunctions'] = array(
  */
 $cfg['maxRowPlotLimit'] = 500;
 
+/**
+ * Show Git revision if applicable
+ *
+ * @global boolean $cfg['ShowGitRevision']
+ */
+$cfg['ShowGitRevision'] = true;
+
 ?>
