@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-08 11:34+0200\n"
+"PO-Revision-Date: 2015-04-11 17:05+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -5909,11 +5909,9 @@ msgid "Export views as tables"
 msgstr "Εξαγωγή προβολών ως πίνακες"
 
 #: libraries/config/messages.inc.php:176
-#, fuzzy
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr ""
-"%sΔημιουργία%s των πινάκων αποθήκευσης ρυθμίσεων του phpMyAdmin που λείπουν."
+msgstr "Εξαγωγή σχετικών μεταδεδομένων από αποθήκευση ρυθμίσεων του phpMyAdmin"
 
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:179
 #: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:181
@@ -7580,12 +7578,13 @@ msgid "Skip locked tables"
 msgstr "Παράβλεψη κλειδωμένων πινάκων"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr "Μια προειδοποίηση εμφανίζεται στη βασική σελίδα αν βρεθεί το Suhosin."
+msgstr ""
+"Απενεργοποίηση της προεπιλεγμένης προειδοποίησης που εμφανίζεται στη βασική "
+"σελίδα αν βρεθεί το Suhosin."
 
 #: libraries/config/messages.inc.php:774
 msgid "Suhosin warning"
@@ -10269,10 +10268,9 @@ msgstr ""
 "ελέγχονται βάσεις δεδομένων"
 
 #: libraries/plugins/export/ExportSql.class.php:161
-#, fuzzy
 #| msgid "Export method"
 msgid "Export metadata"
-msgstr "Μέθοδος εξαγωγής"
+msgstr "Εξαγωγή μεταδεδομένων"
 
 #: libraries/plugins/export/ExportSql.class.php:176
 msgid ""
@@ -10405,10 +10403,10 @@ msgid "It appears your database uses functions;"
 msgstr "Φαίνεται ότι ο πίνακάς σας χρησιμοποιεί συναρτήσεις"
 
 #: libraries/plugins/export/ExportSql.class.php:989
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata Headers"
 msgid "Metadata for %s"
-msgstr "Κεφαλίδες μετα-δεδομένων"
+msgstr "Μεταδεδομένα για %s"
 
 #: libraries/plugins/export/ExportSql.class.php:1352
 msgid "It appears your database uses views;"
