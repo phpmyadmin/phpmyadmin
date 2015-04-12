@@ -580,7 +580,10 @@ $GLOBALS['PMA_Config']->checkPermissions();
 if ($GLOBALS['PMA_Config']->error_config_file) {
     $error = '[strong]' . __('Failed to read configuration file!') . '[/strong]'
         . '[br][br]'
-        . __('This usually means there is a syntax error in it, please check any errors shown below.')
+        . __(
+            'This usually means there is a syntax error in it, '
+            . 'please check any errors shown below.'
+        )
         . '[br][br]'
         . '[conferr]';
     trigger_error($error, E_USER_ERROR);
@@ -641,7 +644,10 @@ if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
         if ($each_server['connect_type'] == 'tcp' && empty($each_server['host'])) {
             trigger_error(
                 sprintf(
-                    __('Invalid hostname for server %1$s. Please review your configuration.'),
+                    __(
+                        'Invalid hostname for server %1$s. '
+                        . 'Please review your configuration.'
+                    ),
                     $server_index
                 ),
                 E_USER_ERROR
@@ -986,13 +992,19 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // Set timestamp for the session, if required.
         if ($cfg['Server']['SessionTimeZone'] != '') {
             $sql_query_tz = 'SET ' . PMA_Util::backquote('time_zone') . ' = '
-                . '\'' . PMA_Util::sqlAddSlashes($cfg['Server']['SessionTimeZone']) . '\'';
+                . '\''
+                . PMA_Util::sqlAddSlashes($cfg['Server']['SessionTimeZone'])
+                . '\'';
 
-            if(! $userlink->query($sql_query_tz)) {
-                $error_message_tz = sprintf(__('Unable to use timezone %1$s for server %2$d. '
-                    . 'Please check your configuration setting for '
-                    . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
-                    . 'phpMyAdmin is currently using the default time zone of the database server.'),
+            if (! $userlink->query($sql_query_tz)) {
+                $error_message_tz = sprintf(
+                    __(
+                        'Unable to use timezone %1$s for server %2$d. '
+                        . 'Please check your configuration setting for '
+                        . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
+                        . 'phpMyAdmin is currently using the default time zone '
+                        . 'of the database server.'
+                    ),
                     $cfg['Servers'][$GLOBALS['server']]['SessionTimeZone'],
                     $GLOBALS['server'],
                     $GLOBALS['server']
