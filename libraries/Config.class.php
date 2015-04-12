@@ -755,19 +755,19 @@ class PMA_Config
         if (! function_exists('curl_init')) {
             return null;
         }
-        $ch = curl_init($link);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($ch, CURLOPT_HEADER, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        $handle = curl_init($link);
+        curl_setopt($handle, CURLOPT_FOLLOWLOCATION, 0);
+        curl_setopt($handle, CURLOPT_HEADER, 1);
+        curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
+        curl_setopt($handle, CURLOPT_TIMEOUT, 5);
         if (! defined('TESTSUITE')) {
             session_write_close();
         }
-        $data = @curl_exec($ch);
+        $data = @curl_exec($handle);
         if (! defined('TESTSUITE')) {
             ini_set('session.use_only_cookies', '0');
             ini_set('session.use_cookies', '0');
