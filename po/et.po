@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-06 08:53+0200\n"
+"PO-Revision-Date: 2015-04-13 10:20+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -5828,10 +5828,9 @@ msgid "Export views as tables"
 msgstr "Vaadete eksportimine tabelitena"
 
 #: libraries/config/messages.inc.php:176
-#, fuzzy
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "%sLoo%s puuduvad phpMyAdmini seadistuse salvestuse tabelid."
+msgstr "Ekspordi seotud metaandmed phpMyAdmini häälestuse salvestuskohast"
 
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:179
 #: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:181
@@ -6024,7 +6023,6 @@ msgid "Page titles"
 msgstr "Lehe pealkirjad"
 
 #: libraries/config/messages.inc.php:257
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -6033,9 +6031,9 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Täpsusta veebilehitseja pealkirja. Vaata [doc@cfg_TitleTable]"
-"dokumentatsioonist[/doc], kuidas kasutada maagilisi sõne, mida saab kasutada "
-"eriliste väärtuste saamiseks."
+"Täpsusta veebilehitseja tiitliriba tekst. Vaata "
+"[doc@faq6-27]dokumentatsioonist[/doc], kuidas kasutada kasutada eriliste "
+"väärtuste kuvamiseks maagilisi sõnesid."
 
 #: libraries/config/messages.inc.php:261
 msgid "Security"
@@ -7454,12 +7452,11 @@ msgid "Skip locked tables"
 msgstr "Jäta lukustatud tabelid vahele"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr "Kuva avalehel hoiatus, kui tuvastatakse Suhosin."
+msgstr "Keela vaikimisi hoiatus, mis kuvatakse avalehel Suhosin'i tuvastamisel."
 
 #: libraries/config/messages.inc.php:774
 msgid "Suhosin warning"
@@ -7479,7 +7476,6 @@ msgid "Login cookie validity warning"
 msgstr "Sisselogimise küpsise kehtivuse hoiatus"
 
 #: libraries/config/messages.inc.php:779
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)."
@@ -7488,14 +7484,13 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Tekstiala suurus (veerud) muutmise vaates. See väärtus tõstetakse esile SQL "
-"päringu tekstialades (*2) ja päringu aknas (*1.25)."
+"päringu tekstialades (*2)."
 
 #: libraries/config/messages.inc.php:780
 msgid "Textarea columns"
 msgstr "Tekstiala veerud"
 
 #: libraries/config/messages.inc.php:781
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)."
@@ -7504,7 +7499,7 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Tekstiala suurus (read) muutmise vaates. See väärtus tõstetakse esile SQL "
-"päringu tekstialades (*2) ja päringu aknas (*1.25)."
+"päringu tekstialades (*2)."
 
 #: libraries/config/messages.inc.php:782
 msgid "Textarea rows"
@@ -10111,10 +10106,9 @@ msgstr ""
 "kontrollimise kohta"
 
 #: libraries/plugins/export/ExportSql.class.php:161
-#, fuzzy
 #| msgid "Export method"
 msgid "Export metadata"
-msgstr "Ekspordi meetod"
+msgstr "Ekspordi metaandmed"
 
 #: libraries/plugins/export/ExportSql.class.php:176
 msgid ""
@@ -10246,10 +10240,10 @@ msgid "It appears your database uses functions;"
 msgstr "Tundub, et su tabel kasutab funktsioone;"
 
 #: libraries/plugins/export/ExportSql.class.php:989
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata Headers"
 msgid "Metadata for %s"
-msgstr "Metaandmete päised"
+msgstr "%s metaandmed"
 
 #: libraries/plugins/export/ExportSql.class.php:1352
 msgid "It appears your database uses views;"
