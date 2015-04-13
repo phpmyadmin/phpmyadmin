@@ -25,7 +25,9 @@ phpMyAdmin - ChangeLog
 + rfe #1632 Importing and exporting pMA meta-data
 + rfe #1639 Add grouping to stored procedures in the navigation tree
 
-4.4.2.0 (not yet released)
+4.4.3.0 (not yet released)
+
+4.4.2.0 (2015-04-13)
 - bug #4835 PMA_hideShowConnection not called after submit_num_fields
 - bug #4836 Server warning after moving from console to direct clicks
 - bug #4837 Duplicate new version notification when using the "Back" button
