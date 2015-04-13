@@ -276,7 +276,8 @@ function PMA_current_version(data)
                 /* Security update */
                 htmlClass = 'error';
             }
-            $('#maincontainer').after('<div class="' + htmlClass + '">' + message + '</div>');
+            $('#newer_version_notice').remove();
+            $('#maincontainer').after('<div id="newer_version_notice" class="' + htmlClass + '">' + message + '</div>');
         }
         if (latest === current) {
             version_information_message = ' (' + PMA_messages.strUpToDate + ')';
@@ -2727,6 +2728,7 @@ AJAX.registerOnload('functions.js', function () {
                 $("#page_content").html(data.message);
                 PMA_highlightSQL($('#page_content'));
                 PMA_verifyColumnsProperties();
+                PMA_hideShowConnection($('.create_table_form select[name=tbl_storage_engine]'));
                 PMA_ajaxRemoveMessage($msgbox);
             } else {
                 PMA_ajaxShowMessage(data.error);

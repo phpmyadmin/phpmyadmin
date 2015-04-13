@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-04-01 14:54+0200\n"
+"PO-Revision-Date: 2015-04-05 09:31+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/sk/>\n"
@@ -1846,7 +1846,7 @@ msgstr "Prejsť hodnoty cudzích kľúčov"
 
 #: js/messages.php:309
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Žiadny automaticky uložený dopyt"
 
 #: js/messages.php:312 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -1933,6 +1933,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Poznámka:  a, b -> d,f znamená, že kombinované hodnoty v stĺpcoch a a b "
+"spolu môžu určovať hodnoty stĺpcov d a f."
 
 #: js/messages.php:332
 msgid "No partial dependencies selected!"
@@ -2119,6 +2121,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Hovorí, že ste vykonali zmeny na tejto stránke; budete vyzvaní k potvrdeniu "
+"pred zahodením zmien"
 
 #: js/messages.php:410
 msgid "Select referenced key"
@@ -2351,11 +2355,15 @@ msgstr "Zrušiť prepojenie s hlavným panelom"
 #: js/messages.php:488
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Pre filtrovanie všetkých databáz na serveri, stlačte Enter po zadaní "
+"hľadaného výrazu"
 
 #: js/messages.php:489
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Pre filtrovanie všetkých %s v databázi, stlačte Enter po zadaní hľadaného "
+"výrazu"
 
 #: js/messages.php:490
 msgid "tables"
@@ -2440,6 +2448,8 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Varovanie: formulár na tejto stránke má viac než %d polí. Pri odoslaní, "
+"niektoré polia môžu byť ignorované kvôli nastaveniu PHP max_input_vars."
 
 #: js/messages.php:527 js/messages.php:539
 msgid "Some errors have been detected on the server!"
@@ -4066,10 +4076,9 @@ msgid "Table search"
 msgstr "Vyhľadávanie v tabuľke"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
-msgstr "Zoomovacie vyhľadávanie"
+msgstr "Zoom vyhľadávania"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
 msgid "Find and replace"
@@ -5127,7 +5136,7 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:389
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr ""
+msgstr "Táto %svoľba%s by mala byť zapnutá, ak ju podporuje váš web server."
 
 #: libraries/config/ServerConfigChecks.class.php:395
 #, php-format
@@ -5135,6 +5144,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sGZip kompresia a dekompresia%s vyžaduje funkicie  (%s), ktoré nie sú "
+"dostupné na tomto systéme."
 
 #: libraries/config/ServerConfigChecks.class.php:402
 #, php-format
@@ -5182,6 +5193,8 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sZip kompresia%s vyžaduje funkcie (%s), ktoré nie sú dostupné na tomto "
+"systéme."
 
 #: libraries/config/ServerConfigChecks.class.php:447
 #, php-format
@@ -5189,6 +5202,8 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sZip dekompresia%s vyžaduje funkcie (%s), ktoré nie sú dostupné na tomto "
+"systéme."
 
 #: libraries/config/Validator.class.php:249
 msgid "Could not initialize Drizzle connection library!"
@@ -6663,6 +6678,8 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Nastaví efektívnu časovú zónu; pravdepodobne rôznu od nastavenia vášho "
+"databázového servera"
 
 #: libraries/config/messages.inc.php:557
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -7440,6 +7457,9 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Užívateľské meno pre prihlásenie k proxy serveru. Štandardne nie je použité "
+"žiadne prihlásenie. Ak je zadané užívateľské meno, použije sa základné "
+"overenie. Žiadny iný spôsob overovania momentálne nie je podporovaný."
 
 #: libraries/config/messages.inc.php:797
 msgid "Proxy username"
@@ -7447,7 +7467,7 @@ msgstr "Proxy užívateľské meno"
 
 #: libraries/config/messages.inc.php:798
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "Heslo pre prihlásenie sa k proxy serveru."
 
 #: libraries/config/messages.inc.php:799
 msgid "Proxy password"
@@ -7467,23 +7487,23 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:803
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "Vložte váš verejný kľúč pre službu reCaptcha."
 
 #: libraries/config/messages.inc.php:804
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Verejný kľúč pre reCaptcha"
 
 #: libraries/config/messages.inc.php:805
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
+msgstr "Zadajte váš súkromný kľúč pre službu reCaptcha."
 
 #: libraries/config/messages.inc.php:806
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Privátny kľúč pre reCaptcha"
 
 #: libraries/config/messages.inc.php:808
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "Zvoľte východziu akciu pri odosielaní hlásení o chybe."
 
 #: libraries/config/messages.inc.php:809
 msgid "Send error reports"

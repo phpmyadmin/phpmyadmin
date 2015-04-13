@@ -420,7 +420,7 @@ function PMA_analyzeAndGetTableHtmlForProfilingResults(
     foreach ($profiling_results as $one_result) {
         if (isset($profiling_stats['states'][ucwords($one_result['Status'])])) {
             $states = $profiling_stats['states'];
-            $states[ucwords($one_result['Status'])]['time']
+            $states[ucwords($one_result['Status'])]['total_time']
                 += $one_result['Duration'];
             $states[ucwords($one_result['Status'])]['calls']++;
         } else {

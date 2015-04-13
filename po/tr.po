@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-03-30 17:43+0200\n"
+"PO-Revision-Date: 2015-04-11 22:10+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/tr/>\n"
@@ -1352,7 +1352,7 @@ msgstr "slow_query_log etkinleştirildi."
 
 #: js/messages.php:160
 msgid "slow_query_log and general_log are disabled."
-msgstr "slow_query_log ve general_log etkisiz."
+msgstr "slow_query_log ve general_log etkisizleştirildi."
 
 #: js/messages.php:161
 msgid "log_output is not set to TABLE."
@@ -1402,7 +1402,7 @@ msgstr "%s etkinleştir"
 #: js/messages.php:171
 #, php-format
 msgid "Disable %s"
-msgstr "%s etkisiz"
+msgstr "%s etkisizleştir"
 
 #. l10n: %d seconds
 #: js/messages.php:173
@@ -5547,7 +5547,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:104
 msgid "Disable multi table maintenance"
-msgstr "Çoklu tablo bakımı etkisiz"
+msgstr "Çoklu tablo bakımını etkisizleştir"
 
 #: libraries/config/messages.inc.php:106
 msgid ""
@@ -6111,7 +6111,7 @@ msgstr "Uyarılar"
 
 #: libraries/config/messages.inc.php:314
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "phpMyAdmin tarafından gösterilen bazı uyarıları etkisizleştir."
+msgstr "phpMyAdmin tarafından gösterilen bazı uyarıları etkisizleştirir."
 
 #: libraries/config/messages.inc.php:316
 msgid ""
@@ -6572,7 +6572,7 @@ msgid ""
 msgstr ""
 "Eğer phpMyAdmin yapılandırma depolaması için gerekli tablolardan herhangi "
 "biri bulunamazsa, veritabanı ayrıntıları Yapı sayfasında görüntülenen "
-"varsayılan uyarıyı etkisizleştir."
+"varsayılan uyarıyı etkisizleştirir."
 
 #: libraries/config/messages.inc.php:503
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -6584,7 +6584,7 @@ msgid ""
 "MySQL library and server is detected."
 msgstr ""
 "Eğer MySQL kütüphanesi ve sunucu arasında fark saptanırsa, görüntülenen "
-"varsayılan uyarıyı etkisizleştir."
+"varsayılan uyarıyı etkisizleştirir."
 
 #: libraries/config/messages.inc.php:509
 msgid "Server/library difference warning"
@@ -6596,7 +6596,7 @@ msgid ""
 "column names in a table are reserved MySQL words."
 msgstr ""
 "Eğer bir tablodaki sütun adları MySQL kelimelerine ayrılmışsa, Yapı "
-"sayfasında görüntülenen varsayılan uyarıyı etkisizleştir."
+"sayfasında görüntülenen varsayılan uyarıyı etkisizleştirir."
 
 #: libraries/config/messages.inc.php:514
 msgid "MySQL reserved word warning"
@@ -6866,7 +6866,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:602
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr "INFORMATION_SCHEMA kullanımı etkisiz"
+msgstr "INFORMATION_SCHEMA kullanımını etkisizleştir"
 
 #: libraries/config/messages.inc.php:603
 msgid "Hide databases"
@@ -7400,7 +7400,8 @@ msgid ""
 "`LoginCookieValidity`."
 msgstr ""
 "Eğer PHP ayarı session.gc_maxlifetime değeri `LoginCookieValidity` "
-"değerinden az ise, ana sayfada görüntülenen varsayılan uyarıyı etkisizleştir."
+"değerinden az ise, ana sayfada görüntülenen varsayılan uyarıyı "
+"etkisizleştirin."
 
 #: libraries/config/messages.inc.php:769
 msgid "Login cookie validity warning"
@@ -10787,7 +10788,7 @@ msgstr ""
 #: libraries/relation.lib.php:1982
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Eksik phpMyAdmin yapılandırma depolama tablolarını %soluştur%s."
+msgstr "Eksik phpMyAdmin yapılandırma depolama tablolarını %soluşturun%s."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388

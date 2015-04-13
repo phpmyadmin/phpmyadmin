@@ -98,6 +98,7 @@ class PMA_Response
         if (! defined('TESTSUITE')) {
             $buffer = PMA_OutputBuffering::getInstance();
             $buffer->start();
+            register_shutdown_function('PMA_Response::response');
         }
         $this->_header = new PMA_Header();
         $this->_HTML   = '';

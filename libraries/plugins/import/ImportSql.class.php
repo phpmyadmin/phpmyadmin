@@ -101,14 +101,16 @@ class ImportSql extends ImportPlugin
      */
     private $_stringFunctions = array(
         self::READ_MB_FALSE => array(
-            'substr' => 'substr',
-            'strlen' => 'strlen',
-            'strpos' => 'strpos',
+            'substr'     => 'substr',
+            'strlen'     => 'strlen',
+            'strpos'     => 'strpos',
+            'strtoupper' => 'strtoupper',
         ),
         self::READ_MB_TRUE => array(
-            'substr' => 'mb_substr',
-            'strlen' => 'mb_strlen',
-            'strpos' => 'mb_strpos',
+            'substr'     => 'mb_substr',
+            'strlen'     => 'mb_strlen',
+            'strpos'     => 'mb_strpos',
+            'strtoupper' => 'mb_strtoupper',
         ),
     );
 
@@ -366,7 +368,8 @@ class ImportSql extends ImportPlugin
             }
 
             //If DELIMITER is found.
-            if ($specialChars === $this->_delimiterKeyword) {
+            $specialCharsUpper = $this->_stringFctToUse['strtoupper']($specialChars);
+            if ($specialCharsUpper === $this->_delimiterKeyword) {
                 $this->_isInDelimiter =  true;
                 $this->_delimiterPosition = $this->_firstSearchChar
                     + $this->_stringFctToUse['strlen']($specialChars);

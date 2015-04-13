@@ -432,6 +432,9 @@ var PMA_consoleResizer = {
      * @return void
      */
     _mousemove: function(event) {
+        if (event.pageY < 35) {
+            event.pageY = 35
+        }
         PMA_consoleResizer._resultHeight = PMA_consoleResizer._height + (PMA_consoleResizer._posY -event.pageY);
         // Content min-height is 32, if adjusting height small than it we'll move it out of the page
         if(PMA_consoleResizer._resultHeight <= 32) {
