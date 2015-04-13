@@ -10,6 +10,13 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+if (! extension_loaded('mysql')) {
+    // The old MySQL extension is deprecated as of PHP 5.5.0, and will be
+    // removed in the future. Instead, the `MySQLi` or `PDO_MySQL` extension
+    // should be used.
+    return;
+}
+
 require_once './libraries/dbi/DBIExtension.int.php';
 
 /**

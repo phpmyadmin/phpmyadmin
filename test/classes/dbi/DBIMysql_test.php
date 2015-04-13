@@ -38,6 +38,9 @@ class PMA_DBI_Mysql_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
+        if (! extension_loaded('mysql')) {
+            $this->markTestSkipped('The MySQL extension is not available.');
+        }
         $GLOBALS['cfg']['Server']['ssl'] = true;
         $GLOBALS['cfg']['PersistentConnections'] = false;
         $GLOBALS['cfg']['Server']['compress'] = true;
