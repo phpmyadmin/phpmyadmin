@@ -351,13 +351,12 @@ $(function () {
         dialog.editorDialog(1, $(this));
     });
 
-    /** Execute Routines */
+    /** Edit Routines, Triggers or Events */
     $(document).on('click', 'li.procedure > a.ajax, li.function > a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
-        dialog.executeDialog($(this));
+        dialog.editorDialog(0, $(this));
     });
-    /** Edit Triggers and Events */
     $(document).on('click', 'li.trigger > a.ajax', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('trigger');
@@ -369,15 +368,16 @@ $(function () {
         dialog.editorDialog(0, $(this));
     });
 
-    /** Edit Routines */
+    /** Execute Routines */
     $(document).on('click', 'li.procedure div a.ajax img,' +
         ' li.function div a.ajax img', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
-        dialog.editorDialog(0, $(this).parent());
+        dialog.executeDialog($(this).parent());
     });
     /** Export Triggers and Events */
-    $(document).on('click', 'li.trigger div:eq(1) a.ajax img, li.event div:eq(1) a.ajax img', function (event) {
+    $(document).on('click', 'li.trigger div:eq(1) a.ajax img,' +
+        ' li.event div:eq(1) a.ajax img', function (event) {
         event.preventDefault();
         var dialog = new RTE.object();
         dialog.exportDialog($(this).parent());
