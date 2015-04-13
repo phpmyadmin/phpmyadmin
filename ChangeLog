@@ -36,6 +36,7 @@ phpMyAdmin - ChangeLog
 - bug #4829 Create procedure via SQL Editor not more possible
 - bug #4833 CSS and Javascript are not compressed
 - bug #4849 Functions accessed from navigation do not load on ajax dialog
+- bug #4850 Relation view on 1920
 
 4.4.1.1 (2015-04-08)
 - bug #4846 Web server's error log is flooded
