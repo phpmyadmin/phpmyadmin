@@ -251,9 +251,6 @@ fieldset .formelement {
     fieldset .formelement {
         clear: none;
     }
-    #foreign_keys.relationalTable td:first-child + td {
-        width: 25%;
-    }
     #foreign_keys.relationalTable td:first-child + td select {
         width: auto;
         margin-right: 1%;
@@ -261,7 +258,6 @@ fieldset .formelement {
     #foreign_keys.relationalTable {
         width: 100%;
     }
-
 }
 
 /* revert for Gecko */
