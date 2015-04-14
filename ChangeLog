@@ -26,6 +26,7 @@ phpMyAdmin - ChangeLog
 + rfe #1639 Add grouping to stored procedures in the navigation tree
 
 4.4.3.0 (not yet released)
+- bug #4851 PHP errors in login dialogue
 
 4.4.2.0 (2015-04-13)
 - bug #4835 PMA_hideShowConnection not called after submit_num_fields
