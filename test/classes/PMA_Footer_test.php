@@ -224,7 +224,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
     {
         $footer = new PMA_Footer();
         $this->assertContains(
-            '<script type="text/javascript">',
+            '<script data-cfasync="false" type="text/javascript">',
             $footer->getScripts()->getDisplay()
         );
     }
