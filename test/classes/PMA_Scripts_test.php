@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for Script.class.php
  *
@@ -78,7 +79,8 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
     public function testIncludeFile()
     {
         $this->assertEquals(
-            '<script type="text/javascript" src="js/get_scripts.js.php?'
+            '<script data-cfasync="false" type="text/javascript" '
+            . 'src="js/get_scripts.js.php?'
             . 'scripts%5B%5D=common.js"></script>',
             $this->_callPrivateFunction(
                 '_includeFiles',
@@ -107,8 +109,10 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
         $this->object->addEvent('onClick', 'doSomething');
 
         $this->assertRegExp(
-            '@<script type="text/javascript" src="js/get_scripts.js.php\\?'
-            . 'scripts%5B%5D=common.js"></script><script type="text/'
+            '@<script data-cfasync="false" type="text/javascript" '
+            . 'src="js/get_scripts.js.php\\?'
+            . 'scripts%5B%5D=common.js"></script>'
+            . '<script data-cfasync="false" type="text/'
             . 'javascript">// <!\\[CDATA\\[' . "\n"
             . 'AJAX.scriptHandler.add\\("common.js",1\\);' . "\n"
             . '\\$\\(function\\(\\) \\{AJAX.fireOnload\\("common.js"\\);\\}\\);'
@@ -130,7 +134,7 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
         $this->object->addCode('alert(\'CodeAdded\');');
 
         $this->assertEquals(
-            '<script type="text/javascript">// <![CDATA[
+            '<script data-cfasync="false" type="text/javascript">// <![CDATA[
 alert(\'CodeAdded\');
 AJAX.scriptHandler;
 $(function() {});
