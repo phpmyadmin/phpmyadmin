@@ -57,10 +57,10 @@ class PMA_Scripts
             if (/*overload*/mb_strpos($value['filename'], "?") !== false) {
                 if ($value['before_statics'] === true) {
                     $first_dynamic_scripts
-                        .= "<script type='text/javascript' src='js/"
+                        .= "<script data-cfasync='false' type='text/javascript' src='js/"
                         . $value['filename'] . "'></script>";
                 } else {
-                    $dynamic_scripts .= "<script type='text/javascript' src='js/"
+                    $dynamic_scripts .= "<script data-cfasync='false' type='text/javascript' src='js/"
                         . $value['filename'] . "'></script>";
                 }
                 continue;
@@ -85,7 +85,7 @@ class PMA_Scripts
         $url = 'js/get_scripts.js.php?' . implode($separator, $scripts);
 
         $static_scripts = sprintf(
-            '<script type="text/javascript" src="%s"></script>',
+            '<script data-cfasync="false" type="text/javascript" src="%s"></script>',
             htmlspecialchars($url)
         );
         return $first_dynamic_scripts . $static_scripts . $dynamic_scripts;
@@ -266,7 +266,7 @@ class PMA_Scripts
         $code .= '});';
         $this->addCode($code);
 
-        $retval .= '<script type="text/javascript">';
+        $retval .= '<script data-cfasync="false" type="text/javascript">';
         $retval .= "// <![CDATA[\n";
         $retval .= $this->_code;
         foreach ($this->_events as $js_event) {
