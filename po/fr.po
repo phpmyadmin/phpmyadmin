@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-04-06 12:53+0200\n"
+"PO-Revision-Date: 2015-04-14 14:56+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/fr/>\n"
@@ -5274,7 +5274,7 @@ msgid ""
 msgstr ""
 "La méthode d'authentification [kbd]config[/kbd] permet une connexion "
 "automatique, ce qui n'est pas souhaitable dans un environnement réel. Toute "
-"personne qui connaît l'URL d'accès peut entrer dans votre phpMyAdmin. Il est "
+"personne qui connaît l'URL d'accès peut accéder à votre phpMyAdmin. Il est "
 "suggéré de régler votre %stype d'authentification%s à [kbd]cookie[/kbd] ou "
 "[kbd]http[/kbd]."
 
@@ -5347,7 +5347,7 @@ msgstr "Adresse IP incorrecte : %s"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Si activé, permet d'entrer un nom de serveur MySQL sur le panneau de "
+"Si activé, permet de saisir un nom de serveur MySQL sur le panneau de "
 "connexion en mode cookie."
 
 #: libraries/config/messages.inc.php:19
@@ -7922,7 +7922,7 @@ msgstr "Mot de passe : "
 #: libraries/replication_gui.lib.php:877
 #: libraries/server_privileges.lib.php:1687
 msgid "Re-type:"
-msgstr "Entrer à nouveau : "
+msgstr "Saisir à nouveau :"
 
 #: libraries/display_change_password.lib.php:83
 msgid "Password Hashing:"
@@ -9820,8 +9820,8 @@ msgstr "Connexion"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:188
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
-"Vous pouvez entrer le nom du serveur ou son adresse IP, ainsi que le port "
-"séparé par un espace."
+"Vous pouvez saisir le nom du serveur ou son adresse IP, ainsi que le port "
+"séparé par une espace."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:193
 msgid "Username:"
@@ -11160,7 +11160,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:881
 #: libraries/server_privileges.lib.php:1691
 msgid "Re-type"
-msgstr "Entrer à nouveau"
+msgstr "Saisir à nouveau"
 
 #: libraries/replication_gui.lib.php:885
 msgid "Generate Password:"
@@ -13956,7 +13956,7 @@ msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
-"Pour les valeurs par défaut, veuillez n'entrer qu'une seule valeur, sans "
+"Pour les valeurs par défaut, veuillez ne saisir qu'une seule valeur, sans "
 "caractère d'échappement ou apostrophes, sous la forme: a"
 
 #: libraries/tbl_columns_definition_form.lib.php:328
@@ -13975,7 +13975,7 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Veuillez saisir les valeurs des options de transformation en suivant ce "
-"format: 'a', 100, b,'c'…<br />Si vous devez entrer un caractère (\"\\\") ou "
+"format: 'a', 100, b,'c'…<br />Si vous devez saisir un caractère (\"\\\") ou "
 "une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
 "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
 
