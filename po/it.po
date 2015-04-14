@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-04-11 15:25+0200\n"
+"PO-Revision-Date: 2015-04-14 22:48+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/it/>\n"
@@ -11068,15 +11068,15 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Editor CodeMirror per JSON con evidenziazione della sintassi."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Editor CodeMirror per SQL con evidenziazione della sintassi."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Editor CodeMirror per XML (e HTML) con evidenziazione della sintassi."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
 #| msgid "Formats text as SQL query with syntax highlighting."
@@ -11104,7 +11104,7 @@ msgstr "Errore: non è stato possibile aggiungere la relazione FOREIGN KEY!"
 
 #: libraries/pmd_common.php:548
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Errore: manca l'indice su campo/i."
 
 #: libraries/pmd_common.php:552
 msgid "Error: Relational features are disabled!"
@@ -11224,11 +11224,11 @@ msgstr "Mostra/nascondi le voci di navigazione"
 
 #: libraries/relation.lib.php:298
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "Salvataggio ricerche Query-By-Example"
 
 #: libraries/relation.lib.php:309
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Gestione lista Centrale dei campi"
 
 #: libraries/relation.lib.php:317
 msgid "Quick steps to setup advanced features:"
@@ -11607,7 +11607,7 @@ msgstr "Errore nel tentativo di reset della replicazione."
 
 #: libraries/replication_gui.lib.php:935
 msgid "Success."
-msgstr ""
+msgstr "Successo."
 
 #: libraries/replication_gui.lib.php:936
 #| msgid "Error"
@@ -12056,7 +12056,7 @@ msgstr "Non ci sono eventi da visualizzare."
 
 #: libraries/select_lang.lib.php:613
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Il codice in linguaggio non supportato viene ignorato."
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 #| msgid "Current Server"
@@ -12339,7 +12339,7 @@ msgstr "Nessun"
 #: libraries/server_privileges.lib.php:3223
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
-msgstr ""
+msgstr "Gruppo utenti"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
@@ -12349,26 +12349,32 @@ msgstr "Richiede connessioni SSL-encrypted."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Richiedi SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
+"Richiede che venga usato un metodo specifico di cifratura per una "
+"connessione."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Richiede che venga presentato un certificato X509 valido emesso da questa CA "
+"(Certification Authority)."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
+"Richiede che venga presentato un certificato X509 valido, con questo "
+"soggetto."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 cetrificate."
-msgstr ""
+msgstr "Richiede un certificato X509 valido."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
@@ -12468,6 +12474,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
+"Esiste già un account con lo stesso nome utente (username), ma probabilmente "
+"con un nome host (hostname) diverso."
 
 #: libraries/server_privileges.lib.php:1663
 msgid "Do not change the password"
