@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-14 22:48+0200\n"
+"PO-Revision-Date: 2015-04-15 09:43+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -12336,7 +12336,7 @@ msgstr "Grant"
 
 #: libraries/server_privileges.lib.php:2281
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Non hai sufficienti privilegi per visualizzare gli utenti."
 
 #: libraries/server_privileges.lib.php:2301
 #: libraries/server_privileges.lib.php:3678
@@ -12489,6 +12489,8 @@ msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
+"Nota: Stai cercando di modificare i privilegi dell'utente con cui sei "
+"collegato attualmente."
 
 #: libraries/server_privileges.lib.php:4182 libraries/server_users.lib.php:25
 msgid "Users overview"
@@ -13308,7 +13310,7 @@ msgstr "Percentuale di cache delle chiavi utilizzata (valore calcolato)"
 
 #: libraries/server_status_variables.lib.php:598
 msgid "The number of requests to read a key block from the cache."
-msgstr "Il numero di richieste per le ggere un blocco chiave dalla cache."
+msgstr "Il numero di richieste per leggere un blocco chiave dalla cache."
 
 #: libraries/server_status_variables.lib.php:601
 msgid ""
@@ -13317,15 +13319,17 @@ msgid ""
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
 "Il numero di letture fisiche dal disco di un blocco chiave. Se Key_reads è "
-"grande allora il valore key_buffer_size è probabilmente troppo piccolo. IIl "
-"rapporto di cache miss rate può essere calcolato come Key_reads/"
-"Key_read_requests."
+"grande allora il valore key_buffer_size è probabilmente troppo piccolo. II "
+"rapporto di mancate letture dalla cache delle chivi può essere calcolato "
+"come Key_reads/Key_read_requests."
 
 #: libraries/server_status_variables.lib.php:607
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"La mancata lettura dalla cache delle chiavi viene calcolato come rapporto "
+"tra le letture fisiche e le richieste di lettura (valore calcolato)"
 
 #: libraries/server_status_variables.lib.php:611
 msgid "The number of requests to write a key block to the cache."
@@ -13339,6 +13343,8 @@ msgstr "Il numero di scritture fisiche di un blocco chiave sul disco."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Percentuale di scritture fisiche in rapporto alle scritture richieste ("
+"valore calcolato)"
 
 #: libraries/server_status_variables.lib.php:621
 msgid ""
@@ -13582,11 +13588,11 @@ msgstr "Il numero di processi non in attesa."
 #: libraries/server_user_groups.lib.php:23
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Utenti del gruppo utenti '%s'"
 
 #: libraries/server_user_groups.lib.php:35
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "Non sono stati trovati utenti appartenenti a questo gruppo."
 
 #: libraries/server_user_groups.lib.php:64 libraries/server_users.lib.php:33
 msgid "User groups"
@@ -13616,7 +13622,7 @@ msgstr "Aggiungi gruppo utente"
 #: libraries/server_user_groups.lib.php:212
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Modifica il gruppo utenti: '%s'"
 
 #: libraries/server_user_groups.lib.php:228
 msgid "User group menu assignments"
@@ -13673,7 +13679,7 @@ msgstr "Stato"
 
 #: libraries/sql.lib.php:354
 msgid "Summary by state"
-msgstr ""
+msgstr "Sommario per stato"
 
 #: libraries/sql.lib.php:360
 msgid "Total Time"
@@ -13741,7 +13747,7 @@ msgstr "Esegui la/e query SQL sul database %s"
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Ottieni la query auto-memorizzata"
 
 #: libraries/sql_query_form.lib.php:284
 msgid "Bookmark this SQL query:"
@@ -13761,7 +13767,7 @@ msgstr "Mostra di nuovo questa query"
 
 #: libraries/sql_query_form.lib.php:333
 msgid "Rollback when finished"
-msgstr ""
+msgstr "Annulla le modifiche quando hai finito"
 
 #: libraries/sql_query_form.lib.php:382
 msgid "View only"
@@ -13881,7 +13887,7 @@ msgstr "Aggiungi campi alla lista centrale"
 
 #: libraries/structure.lib.php:351
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "Rimuove campi dalla lista centrale"
 
 #: libraries/structure.lib.php:353
 msgid "Make consistent with central list"
@@ -13942,7 +13948,7 @@ msgstr "Muovi campi"
 
 #: libraries/structure.lib.php:1552
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Sposta i campi trascinandoli su e giù."
 
 #: libraries/structure.lib.php:1601 view_create.php:182
 msgid "Edit view"
@@ -14096,7 +14102,7 @@ msgstr "Spline"
 #: libraries/tbl_chart.lib.php:50
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Area"
 
 #: libraries/tbl_chart.lib.php:53
 msgctxt "Chart type"
@@ -14111,7 +14117,7 @@ msgstr "Timeline"
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "Distribuzione"
 
 #: libraries/tbl_chart.lib.php:82
 msgid "Stacked"
@@ -14139,7 +14145,7 @@ msgstr "Etichetta per l'asse Y:"
 
 #: libraries/tbl_chart.lib.php:237
 msgid "Series names are in a column"
-msgstr ""
+msgstr "I nomi delle serie sono i un campo"
 
 #: libraries/tbl_chart.lib.php:240
 msgid "Series column:"
@@ -14250,11 +14256,11 @@ msgstr "Scegli dai Campi Centrali"
 
 #: libraries/tbl_columns_definition_form.lib.php:820
 msgid "first"
-msgstr ""
+msgstr "primo"
 
 #: libraries/tbl_columns_definition_form.lib.php:1126
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Modifica i valori ENUM/SET"
 
 #: libraries/tbl_columns_definition_form.lib.php:1151
 msgctxt "for default"
@@ -14313,7 +14319,7 @@ msgstr "Scelta dell'indice:"
 
 #: libraries/tbl_indexes.lib.php:321
 msgid "Key block size:"
-msgstr ""
+msgstr "Dimensione del key block:"
 
 #: libraries/tbl_indexes.lib.php:334
 msgid "Index type:"
@@ -14375,6 +14381,8 @@ msgstr "Proprietà del vincolo"
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
+"Saranno visualizzati solo campi con indice. Puoi definire un indice qui "
+"sotto."
 
 #: libraries/tbl_relation.lib.php:381
 msgid "Foreign key constraint"
@@ -14608,7 +14616,7 @@ msgstr "Non sono stati trovati file ZIP all'interno dell'archivio!"
 
 #: navigation.php:20
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr ""
+msgstr "Errore fatale: si può accedere ala navigazione solo tramite AJAX"
 
 #: prefs_forms.php:86
 msgid "Cannot save settings, submitted form contains errors!"
@@ -14692,7 +14700,7 @@ msgstr "Visualizza il dump (schema) dei databases"
 
 #: server_privileges.php:141
 msgid "Username and hostname didn't change."
-msgstr ""
+msgstr "Username e hostname non sono cambiati."
 
 #: server_status_processes.php:36
 #, php-format
@@ -14889,11 +14897,12 @@ msgstr "Nessun dato da visualizzare"
 
 #: tbl_chart.php:61 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "Nessuna query SQL era impostata per estrarre dati."
 
 #: tbl_chart.php:119
 msgid "No numeric columns present in the table to plot."
 msgstr ""
+"Nella tabella  non sono presenti campi numerici da visualizzare graficamente."
 
 #: tbl_create.php:33 tbl_get_field.php:25
 #, php-format
@@ -14916,14 +14925,14 @@ msgstr "Nome tabella non valido"
 #: tbl_replace.php:236
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Riga: %1$s, Campo: %2$s, Errore: %3$s"
 
 #: tbl_structure.php:63
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Il nome '%s' è un termine riservato MySQL."
+msgstr[1] "I nomi '%s' sono termini riservati MySQL."
 
 #: tbl_structure.php:114
 msgid "No column selected."
