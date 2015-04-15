@@ -184,8 +184,8 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     /**
      * Run the multi query and output the results
      *
-     * @param object $link  connection object
-     * @param string $query multi query statement to execute
+     * @param resource $link  connection object
+     * @param string   $query multi query statement to execute
      *
      * @return result collection | boolean(false)
      */
@@ -260,7 +260,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     /**
      * Check if there are any more query results from a multi query
      *
-     * @param object $link the connection object
+     * @param resource $link the connection object
      *
      * @return bool false
      */
@@ -276,7 +276,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     /**
      * Prepare next result from multi_query
      *
-     * @param object $link the connection object
+     * @param resource $link the connection object
      *
      * @return bool false
      */

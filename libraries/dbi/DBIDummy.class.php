@@ -568,8 +568,8 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * selects given database
      *
-     * @param string $dbname name of db to select
-     * @param object $link   mysql link resource
+     * @param string   $dbname name of db to select
+     * @param resource $link   mysql link resource
      *
      * @return bool
      */
@@ -582,9 +582,9 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * runs a query and returns the result
      *
-     * @param string $query   query to run
-     * @param object $link    mysql link resource
-     * @param int    $options query options
+     * @param string   $query   query to run
+     * @param resource $link    mysql link resource
+     * @param int      $options query options
      *
      * @return mixed
      */
@@ -610,8 +610,8 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * Run the multi query and output the results
      *
-     * @param object $link  connection object
-     * @param string $query multi query statement to execute
+     * @param resource $link  connection object
+     * @param string   $query multi query statement to execute
      *
      * @return result collection | boolean(false)
      */
@@ -728,7 +728,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * Check if there are any more query results from a multi query
      *
-     * @param object $link the connection object
+     * @param resource $link the connection object
      *
      * @return bool false
      */
@@ -740,7 +740,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * Prepare next result from multi_query
      *
-     * @param object $link the connection object
+     * @param resource $link the connection object
      *
      * @return boolean false
      */
@@ -752,7 +752,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * Store the result returned from multi query
      *
-     * @param object $link the connection object
+     * @param resource $link the connection object
      *
      * @return mixed false when empty results / result set when not empty
      */
@@ -764,7 +764,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * Returns a string representing the type of connection used
      *
-     * @param object $link mysql link
+     * @param resource $link mysql link
      *
      * @return string type of connection used
      */
@@ -776,7 +776,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * Returns the version of the MySQL protocol used
      *
-     * @param object $link mysql link
+     * @param resource $link mysql link
      *
      * @return integer version of the MySQL protocol used
      */
@@ -798,7 +798,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns last error message or false if no errors occurred
      *
-     * @param object $link connection link
+     * @param resource $link connection link
      *
      * @return string|bool $error or false
      */
@@ -826,8 +826,8 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns the number of rows affected by last query
      *
-     * @param object $link           the mysql object
-     * @param bool   $get_from_cache whether to retrieve from cache
+     * @param resource $link           the mysql object
+     * @param bool     $get_from_cache whether to retrieve from cache
      *
      * @return string|int
      */
