@@ -14,7 +14,7 @@ define('LINE_COUNTS', true);
 $LINE_COUNT = array();
 
 $LINE_COUNT["error_report.js"] = 338;
-$LINE_COUNT["functions.js"] = 4537;
+$LINE_COUNT["functions.js"] = 4539;
 $LINE_COUNT["db_central_columns.js"] = 197;
 $LINE_COUNT["jquery/jquery-ui-timepicker-addon.js"] = 2223;
 $LINE_COUNT["jquery/jquery.cookie.js"] = 91;
@@ -191,7 +191,7 @@ $LINE_COUNT["tbl_tracking.js"] = 95;
 $LINE_COUNT["makegrid.js"] = 1978;
 $LINE_COUNT["export.js"] = 401;
 $LINE_COUNT["doclinks.js"] = 365;
-$LINE_COUNT["console.js"] = 1029;
+$LINE_COUNT["console.js"] = 1032;
 $LINE_COUNT["transformations/json.js"] = 17;
 $LINE_COUNT["transformations/image_upload.js"] = 28;
 $LINE_COUNT["transformations/xml.js"] = 18;

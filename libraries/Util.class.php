@@ -1498,19 +1498,19 @@ class PMA_Util
 
         // If we don't want any zeros after the comma just add the thousand separator
         if ($noTrailingZero) {
-            $value = self::localizeNumber(
+            $localizedValue = self::localizeNumber(
                 preg_replace('/(?<=\d)(?=(\d{3})+(?!\d))/', ',', $value)
             );
         } else {
             //number_format is not multibyte safe, str_replace is safe
-            $value = self::localizeNumber(number_format($value, $digits_right));
+            $localizedValue = self::localizeNumber(number_format($value, $digits_right));
         }
 
         if ($originalValue != 0 && floatval($value) == 0) {
-            return ' <' . (1 / self::pow(10, $digits_right)) . ' ' . $unit;
+            return ' <' . self::localizeNumber((1 / self::pow(10, $digits_right))) . ' ' . $unit;
         }
 
-        return $sign . $value . ' ' . $unit;
+        return $sign . $localizedValue . ' ' . $unit;
     } // end of the 'formatNumber' function
 
     /**

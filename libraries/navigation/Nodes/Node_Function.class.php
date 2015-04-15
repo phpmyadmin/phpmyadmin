@@ -35,10 +35,10 @@ class Node_Function extends Node_DatabaseChild
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
-                    . '&amp;edit_item=1&amp;token=' . $_SESSION[' PMA_token '],
+                    . '&amp;execute_dialog=1&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
-                    . '&amp;export_item=1&amp;token=' . $_SESSION[' PMA_token ']
+                    . '&amp;edit_item=1&amp;token=' . $_SESSION[' PMA_token ']
         );
         $this->classes = 'function';
     }
