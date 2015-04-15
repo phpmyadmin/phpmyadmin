@@ -49,7 +49,7 @@ class StringReader {
   var $_pos;
   var $_str;
 
-  public function __construct($str='') {
+  function StringReader($str='') {
     $this->_str = $str;
     $this->_pos = 0;
   }
@@ -86,7 +86,7 @@ class FileReader {
   var $_fd;
   var $_length;
 
-  public function __construct($filename) {
+  function FileReader($filename) {
     if (file_exists($filename)) {
 
       $this->_length=filesize($filename);
@@ -143,7 +143,7 @@ class FileReader {
 // Preloads entire file in memory first, then creates a StringReader
 // over it (it assumes knowledge of StringReader internals)
 class CachedFileReader extends StringReader {
-  public function __construct($filename) {
+  function CachedFileReader($filename) {
     if (file_exists($filename)) {
 
       $length=filesize($filename);
