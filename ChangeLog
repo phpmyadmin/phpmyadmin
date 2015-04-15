@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug #4851 PHP errors in login dialogue
 - bug #4845 White screen (Cloudflare)
 - bug #4207 json_encode error due to strftime returning non utf8 chars in Windows 8.1 Chinese version
+- bug #4794 Server error viewing table content
 
 4.4.2.0 (2015-04-13)
 - bug #4835 PMA_hideShowConnection not called after submit_num_fields
