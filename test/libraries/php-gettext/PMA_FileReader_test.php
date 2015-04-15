@@ -121,8 +121,10 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
     public function testForNonExistingFile()
     {
         $file = new FileReader('./path/for/no/file.txt');
+        // looking at the return value of a constructor is curious
+        // but the constructor returns a value
         $this->assertFalse(
-            $file->FileReader('./path/for/no/file.txt')
+            $file->__construct('./path/for/no/file.txt')
         );
     }
 
@@ -130,11 +132,11 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
     {
         $reader = new CachedFileReader('./test/test_data/test.file');
         $this->assertEquals(
-            $reader->CachedFileReader('./test/test_data/test.file'),
+            $reader->__construct('./test/test_data/test.file'),
             null
         );
         $this->assertFalse(
-            $reader->CachedFileReader('./path/for/no/file.txt')
+            $reader->__construct('./path/for/no/file.txt')
         );
 
     }

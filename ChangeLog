@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #4794 Server error viewing table content
 - bug       Fix issues related to number of decimal places in time
 - bug #4853 Relation view between 1600 and 1780 px
+- bug       PHP 7 compatibility in php-gettext
 
 4.4.2.0 (2015-04-13)
 - bug #4835 PMA_hideShowConnection not called after submit_num_fields
