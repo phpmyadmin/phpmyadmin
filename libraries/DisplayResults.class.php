@@ -2420,7 +2420,8 @@ class PMA_DisplayResults
     private function _buildNullDisplay($class, $condition_field, $meta, $align = '')
     {
         // the null class is needed for grid editing
-        return '<td ' . $align . ' data-decimals="' . $meta->decimals
+        $decimals = isset($meta->decimals) ? $meta->decimals : '-1';
+        return '<td ' . $align . ' data-decimals="' . $decimals
             . '" data-type="' . $meta->type . '"  class="'
             . $this->_addClass(
                 $class, $condition_field, $meta, ''
@@ -5206,7 +5207,8 @@ class PMA_DisplayResults
 
         $relational_display = $_SESSION['tmpval']['relational_display'];
         $printview = $this->__get('printview');
-        $result = '<td data-decimals="' . $meta->decimals . '" data-type="'
+        $decimals = isset($meta->decimals) ? $meta->decimals : '-1';
+        $result = '<td data-decimals="' . $decimals . '" data-type="'
             . $meta->type . '" class="'
             . $this->_addClass(
                 $class, $condition_field, $meta, $nowrap,
