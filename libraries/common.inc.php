@@ -871,7 +871,21 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             PMA_secureSession();
             $auth_plugin->auth();
         } else {
-            $auth_plugin->authSetUser();
+            if ($token_provided && $token_mismatch) {
+                $response = PMA_Response::getInstance();
+                if ($response->isAjax()) {
+                    $response->isSuccess(false);
+                    // reload_flag removes the token parameter from the URL and reloads
+                    $response->addJSON('reload_flag', '1');
+                    if (defined('TESTSUITE')) {
+                        return true;
+                    } else {
+                        exit;
+                    }
+                }
+            } else {
+                $auth_plugin->authSetUser();
+            }
         }
 
         // Check IP-based Allow/Deny rules as soon as possible to reject the
