@@ -1114,19 +1114,24 @@ function addDateTimePicker() {
     if ($.timepicker !== undefined) {
         $('input.timefield, input.datefield, input.datetimefield').each(function () {
 
-            no_decimals = $(this).parent().attr('data-decimals');
+            var decimals = $(this).parent().attr('data-decimals');
+            var type = $(this).parent().attr('data-type');
+
             var showMillisec = false;
             var showMicrosec = false;
             var timeFormat = 'HH:mm:ss';
             // check for decimal places of seconds
-            if (($(this).parent().attr('data-decimals') > 0) && ($(this).parent().attr('data-type').indexOf('time') != -1)){
-                showMillisec = true;
-                timeFormat = 'HH:mm:ss.lc';
-                if ($(this).parent().attr('data-decimals') > 3) {
+            if (decimals > 0 && type.indexOf('time') != -1){
+                if (decimals > 3) {
+                    showMillisec = true;
                     showMicrosec = true;
+                    timeFormat = 'HH:mm:ss.lc';
+                } else {
+                    showMillisec = true;
+                    timeFormat = 'HH:mm:ss.l';
                 }
             }
-            PMA_addDatepicker($(this), $(this).parent().attr('data-type'), {
+            PMA_addDatepicker($(this), type, {
                 showMillisec: showMillisec,
                 showMicrosec: showMicrosec,
                 timeFormat: timeFormat
