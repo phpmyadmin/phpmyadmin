@@ -1749,11 +1749,9 @@ class PMA_Table
         if (isset($this->uiprefs[$property])) {
             unset($this->uiprefs[$property]);
 
-            $cfgRelation = PMA_getRelationsParam();
             // check if pmadb is set
-            if (/*overload*/mb_strlen($cfgRelation['db'])
-                && /*overload*/mb_strlen($cfgRelation['table_uiprefs'])
-            ) {
+            $cfgRelation = PMA_getRelationsParam();
+            if ($cfgRelation['uiprefswork']) {
                 return $this->saveUiprefsToDb();
             }
         }
