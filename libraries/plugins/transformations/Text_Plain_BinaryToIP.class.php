@@ -48,7 +48,7 @@ class Text_Plain_BinaryToIP extends TransformationsPlugin
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
         $length = strlen($buffer);
-        if ($length == 16 or $length == 4) {
+        if ($length == 4 || $length == 16) {
             return inet_ntop(pack('A' . $length, $buffer));
         }
         return $buffer;
