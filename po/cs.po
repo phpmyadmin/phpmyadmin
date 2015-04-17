@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-11 18:43+0200\n"
+"PO-Revision-Date: 2015-04-17 14:32+0200\n"
 "Last-Translator: Ondra Šimeček <ondrasek.simecek@gmail.com>\n"
 "Language-Team: Czech "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
@@ -9177,6 +9177,8 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Byly nalezeny obsáhlé skupiny položek v navigačním panelu, které mohou "
+"ovlivnit výkon. Zvažte deaktivování seskupování položek v navigačním panelu."
 
 #: libraries/navigation/NavigationTree.class.php:871
 #, fuzzy, php-format
@@ -9433,6 +9435,11 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"Nemáte skupinu dvou nebo více sloupců, které jsou si významově blízké a "
+"opakují stejný atribut? Například, tabulka, která obsahuje data o knihách, "
+"může obsahovat sloupce jako id_knihy, autor1, autor2, autor3 a další, které "
+"vytvářejí opakující se skupinu atributů (autoři). Pokud ano, měli byste "
+"vytvořit novou tabulku (id_knihy, autor)."
 
 #: libraries/normalization.lib.php:259
 msgid ""
@@ -9471,6 +9478,8 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"Primární klíč ( %1$s ) obsahuje více než jeden sloupec, takže potřebujeme "
+"nalézt dílčí závislosti."
 
 #: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 msgid ""
