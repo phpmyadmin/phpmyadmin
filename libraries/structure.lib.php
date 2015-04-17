@@ -1704,10 +1704,21 @@ function PMA_getHtmlForAddColumn($columns_list)
             . 'value="first" data-pos = "first">'
             . __('at beginning of table')
             . '</option>';
+    $cols_count = count($columns_list);
     foreach ($columns_list as $one_column_name) {
-        $column_selector .= '<option '
-            . 'value="' . htmlspecialchars($one_column_name) . '">'
-            . sprintf(__('after %s'), htmlspecialchars($one_column_name))
+        //by default select the last column (add column at the end of the table)
+        if (--$cols_count == 0) {
+            $column_selector .= '<option '
+                . 'value="' . htmlspecialchars($one_column_name)
+                . '" selected="selected">';
+        } else {
+            $column_selector .= '<option '
+                . 'value="' . htmlspecialchars($one_column_name) . '">';
+        }
+        $column_selector .= sprintf(
+            __('after %s'),
+            htmlspecialchars($one_column_name)
+        )
             . '</option>';
     }
     $column_selector .= '</select>';
