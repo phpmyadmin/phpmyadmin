@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-15 09:43+0200\n"
+"PO-Revision-Date: 2015-04-15 23:57+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -5908,12 +5908,11 @@ msgid "Export views as tables"
 msgstr "Esporta le viste come tabelle"
 
 #: libraries/config/messages.inc.php:176
-#, fuzzy
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr ""
-"%sCreate%s mancano le tabelle di salvataggio della configurazione di "
-"phpMyAdmin."
+"Esporta i metadati correlati prelevandoli dall'area di configurazione di "
+"phpMyAdmin"
 
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:179
 #: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:181
@@ -7588,12 +7587,13 @@ msgid "Skip locked tables"
 msgstr "Ignora le tabelle bloccate"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr "Mostra un avviso sulla pagina principale se viene rilevato Suhosin."
+msgstr ""
+"Disabilita l'avviso predefinito che è visualizzato sulla pagina principale "
+"se viene rilevato Suhosin."
 
 #: libraries/config/messages.inc.php:774
 msgid "Suhosin warning"
@@ -8034,7 +8034,7 @@ msgstr "Numero di tabelle:"
 
 #: libraries/db_designer.lib.php:591
 msgid "Toggle"
-msgstr ""
+msgstr "Scambia"
 
 #: libraries/db_designer.lib.php:614
 msgid "See table structure"
@@ -10141,6 +10141,8 @@ msgstr "Struttura stand-in per le viste"
 #: libraries/plugins/export/ExportJson.class.php:70
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
+"Output JSON ben formattato per la stampa (Utilizza una formattazione per la "
+"lettura facilitata)"
 
 #: libraries/plugins/export/ExportLatex.class.php:43
 msgid "Content of table @TABLE@"
@@ -10279,10 +10281,9 @@ msgstr ""
 "del database"
 
 #: libraries/plugins/export/ExportSql.class.php:161
-#, fuzzy
 #| msgid "Export method"
 msgid "Export metadata"
-msgstr "Metodo di esportazione"
+msgstr "Esporta i metadati"
 
 #: libraries/plugins/export/ExportSql.class.php:176
 msgid ""
@@ -10415,10 +10416,10 @@ msgid "It appears your database uses functions;"
 msgstr "Il tuo database sembra utilizzare le funzioni;"
 
 #: libraries/plugins/export/ExportSql.class.php:989
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata Headers"
 msgid "Metadata for %s"
-msgstr "Intestazioni di Metadata"
+msgstr "Metadati per %s"
 
 #: libraries/plugins/export/ExportSql.class.php:1352
 msgid "It appears your database uses views;"
@@ -10483,7 +10484,7 @@ msgstr "Tabella:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:118
 msgid "Purpose:"
-msgstr ""
+msgstr "Scopo:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:494
 msgid "MIME"
@@ -11085,6 +11086,10 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Non possiedi i privilegi necessari per creare un database di nome "
+"'phpmyadmin'. Puoi andare nella sezione 'Operazioni' di un qualunque "
+"database per impostare in quel database la memorizzazione della "
+"configurazione di phpMyAdmin."
 
 #: libraries/relation.lib.php:2005
 #, php-format
@@ -12172,7 +12177,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "Richiede un certificato X509 valido."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
