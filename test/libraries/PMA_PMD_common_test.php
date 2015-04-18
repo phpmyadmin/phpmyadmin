@@ -167,7 +167,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
             ->with(
                 "SELECT `page_nr` FROM `pmadb`.`pdf_pages`"
                 . " WHERE `db_name` = '" . $db . "'"
-                . " AND `page_descr` = '" . $db. "'",
+                . " AND `page_descr` = '" . $db . "'",
                 null,
                 null,
                 2,
@@ -199,7 +199,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
             ->with(
                 "SELECT `page_nr` FROM `pmadb`.`pdf_pages`"
                 . " WHERE `db_name` = '" . $db . "'"
-                . " AND `page_descr` = '" . $db. "'",
+                . " AND `page_descr` = '" . $db . "'",
                 null,
                 null,
                 2,

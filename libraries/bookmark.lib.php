@@ -93,7 +93,7 @@ function PMA_Bookmark_getList($db = false)
     } else {
         $query = "SELECT `label`, `id`, `query`, `dbase` AS `db`,"
             . " IF (`user` = '', true, false) AS `shared`"
-            . " FROM ". PMA_Util::backquote($cfgBookmark['db'])
+            . " FROM " . PMA_Util::backquote($cfgBookmark['db'])
             . "." . PMA_Util::backquote($cfgBookmark['table'])
             . " WHERE `user` = '' OR"
             . " `user` = '" . PMA_Util::sqlAddSlashes($cfgBookmark['user'])  . "'";
