@@ -1967,7 +1967,7 @@ class ExportSql extends ExportPlugin
     public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
     ) {
-        global $current_row, $sql_backquotes, $tbl_size, $type_export, $allrows, $limit_to, $limit_from;
+        global $current_row, $sql_backquotes, $tbl_size, $type_export, $allrows, $limit_to;
 
         $db_alias = $db;
         $table_alias = $table;
