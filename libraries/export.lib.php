@@ -716,7 +716,7 @@ function PMA_exportTable(
     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
     $allrows, $limit_to, $limit_from, $sql_query, $aliases, $tbl_size
 ) {
-    global $tbl_size, $type_export, $allrows, $limit_to, $limit_from;
+    global $tbl_size, $type_export, $allrows, $limit_to;
     $type_export = 'table';
     $db_alias = !empty($aliases[$db]['alias'])
         ? $aliases[$db]['alias'] : '';
@@ -960,7 +960,7 @@ function PMA_getMetadataTypesToExport()
  */
 function PMA_getTableSizeForServer($db_select)
 {
-    $table_size = array();
+    $tbl_size = array();
     $temp=0;
     foreach ($db_select as $current_db) {
         if($current_db!='mysql'&&$current_db!='performance_schema') {
