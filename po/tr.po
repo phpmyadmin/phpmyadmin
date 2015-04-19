@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-11 22:10+0200\n"
+"PO-Revision-Date: 2015-04-19 08:39+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -10165,10 +10165,9 @@ msgid "View structure"
 msgstr "Yapıyı göster"
 
 #: libraries/plugins/export/ExportPdf.class.php:287
-#, fuzzy
 #| msgid "and then"
 msgid "Stand in"
-msgstr "ve ondan sonra"
+msgstr "Bulunduğu"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
