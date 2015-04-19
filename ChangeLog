@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - bug       PHP 7 compatibility in bfShapeFiles
 - bug       PHP 7 session_regenerate_id() warning
 - bug #4857 Alter table after changing column name error
+- bug #4830 Maximum execution time exceeded in Util.class.php
 
 4.4.2.0 (2015-04-13)
 - bug #4835 PMA_hideShowConnection not called after submit_num_fields

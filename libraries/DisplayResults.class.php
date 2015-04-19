@@ -2698,7 +2698,9 @@ class PMA_DisplayResults
             } // end if (1)
 
             // 2. Displays the rows' values
-            $this->_setMimeMap();
+            if (is_null($this->__get('mime_map'))) {
+                $this->_setMimeMap();
+            }
             $table_body_html .= $this->_getRowValues(
                 $dt_result, $row, $row_no, $col_order, $map,
                 $grid_edit_class, $col_visib, $where_clause,
