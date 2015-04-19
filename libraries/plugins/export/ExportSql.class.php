@@ -1967,7 +1967,7 @@ class ExportSql extends ExportPlugin
     public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
     ) {
-        global $current_row, $sql_backquotes;
+        global $current_row, $sql_backquotes, $tbl_size, $type_export, $allrows, $limit_to, $limit_from;
 
         $db_alias = $db;
         $table_alias = $table;
@@ -1982,6 +1982,21 @@ class ExportSql extends ExportPlugin
         $formatted_table_name = PMA_Util::backquoteCompat(
             $table_alias, $compat, $sql_backquotes
         );
+
+        //Check for Dump all rows or Some rows
+        if(!isset($allrows)||($allrows=='1'))
+        {
+            $query = 'SELECT table_rows
+                          from information_schema.TABLES
+                          WHERE table_schema = "' . $db . '"
+                          AND table_name = "' . $table . '"';
+
+            $row_count = $GLOBALS['dbi']->fetchValue($query);
+        }
+        else
+        {
+            $row_count = $limit_to;
+        }
 
         // Do not export data for a VIEW, unless asked to export the view as a table
         // (For a VIEW, this is called only when exporting a single VIEW)
@@ -2142,7 +2157,10 @@ class ExportSql extends ExportPlugin
             $separator      = ';';
         }
 
+        $fin_row = (int)($row_count/10) + $current_row;
+        $counter=0;
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+            $counter++;
             if ($current_row == 0) {
                 $head = $this->_possibleCRLF()
                     . $this->_exportComment()
@@ -2222,6 +2240,27 @@ class ExportSql extends ExportPlugin
                         . '\'';
                 } // end if
             } // end for
+
+            if($row_count<=20) {
+                if($type_export=='database') {
+                    sess_message('Exporting Database: - '.$db.'<br>Exporting Table: - '.$table, $tbl_size[$table]/$row_count);
+                }
+                else {
+                    sess_message('Exporting Table: - '.$table, $tbl_size[$table]/$row_count);
+                }
+            }
+            else {
+                $chunk = $tbl_size[$table]/10;
+                if($counter==$fin_row) {
+                    if($type_export=='database') {
+                        sess_message('Exporting Database: - '.$db.'<br>Exporting Table: - '.$table, $chunk);
+                    }
+                    else {
+                        sess_message('Exporting Table: - '.$table, $chunk);
+                    }
+                    $fin_row += (int)($row_count/10);
+                }
+            }
 
             // should we make update?
             if (isset($GLOBALS['sql_type'])
@@ -2316,6 +2355,10 @@ class ExportSql extends ExportPlugin
             }
         }
 
+        if($counter)
+        {
+            $tbl_size[$table] = 0;
+        }
         $GLOBALS['dbi']->freeResult($result);
         return true;
     } // end of the 'exportData()' function
