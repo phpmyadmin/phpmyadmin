@@ -487,7 +487,7 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
 function PMA_exportServer(
     $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-    $aliases
+    $aliases, $tbl_size
 ) {
     if (! empty($db_select)) {
         $tmp_select = implode($db_select, '|');
@@ -495,6 +495,7 @@ function PMA_exportServer(
     }
     // Walk over databases
     foreach ($GLOBALS['pma']->databases as $current_db) {
+        sess_message("Exporting Database: - ". $current_db, '');
         if (isset($tmp_select)
             && /*overload*/mb_strpos(' ' . $tmp_select, '|' . $current_db . '|')
         ) {
@@ -502,7 +503,7 @@ function PMA_exportServer(
             PMA_exportDatabase(
                 $current_db, $tables, $whatStrucOrData, $export_plugin, $crlf,
                 $err_url, $export_type, $do_relation, $do_comments, $do_mime,
-                $do_dates, $aliases
+                $do_dates, $aliases, $tbl_size
             );
         }
     } // end foreach database
@@ -529,8 +530,10 @@ function PMA_exportServer(
 function PMA_exportDatabase(
     $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-    $aliases
+    $aliases, $tbl_size
 ) {
+    global $tbl_size, $type_export;
+    $type_export = 'database';
     $db_alias = !empty($aliases[$db]['alias'])
         ? $aliases[$db]['alias'] : '';
     if (! $export_plugin->exportDBHeader($db, $db_alias)) {
@@ -559,6 +562,7 @@ function PMA_exportDatabase(
     $views = array();
 
     foreach ($tables as $table) {
+        sess_message("Exporting Database: - ".$db."<br>Exporting Table: - ".$table, '');
         // if this is a view, collect it for later;
         // views must be exported after the tables
         $is_view = PMA_Table::isView($db, $table);
@@ -649,6 +653,7 @@ function PMA_exportDatabase(
                 return;
             }
         }
+        sess_message("Exporting Database: - ".$db."<br>Exporting Table: - ".$table, $tbl_size[$table]);
     }
 
     if (isset($GLOBALS['sql_create_view'])) {
@@ -709,8 +714,10 @@ function PMA_exportDatabase(
 function PMA_exportTable(
     $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-    $allrows, $limit_to, $limit_from, $sql_query, $aliases
+    $allrows, $limit_to, $limit_from, $sql_query, $aliases, $tbl_size
 ) {
+    global $tbl_size, $type_export, $allrows, $limit_to, $limit_from;
+    $type_export = 'table';
     $db_alias = !empty($aliases[$db]['alias'])
         ? $aliases[$db]['alias'] : '';
     if (! $export_plugin->exportDBHeader($db, $db_alias)) {
@@ -811,6 +818,7 @@ function PMA_exportTable(
             return;
         }
     }
+    sess_message('Table Export Done',$tbl_size[$table]);
 }
 
 /**
@@ -941,5 +949,91 @@ function PMA_getMetadataTypesToExport()
         'savedsearches',
         'central_columns',
     );
+}
+
+/**
+ * Returns table size of each table as percentage of all the tables of databases
+ *
+ * @param  array $db_select list of databases selected
+ *
+ * @return array of table sizes
+ */
+function PMA_getTableSizeForServer($db_select)
+{
+    $table_size = array();
+    $temp=0;
+    foreach ($db_select as $current_db) {
+        if($current_db!='mysql'&&$current_db!='performance_schema') {
+            $tables = $GLOBALS['dbi']->getTables($current_db);
+            foreach ($tables as $table) {
+                $query = 'SELECT data_length + index_length
+                            from information_schema.TABLES
+                            WHERE table_schema = "' . $current_db . '"
+                            AND table_name = "' . $table . '"';
+                $size = $GLOBALS['dbi']->fetchValue($query);
+                $size /= 1024;
+                $tbl_size[$table] = $size;
+                $temp+=$size;
+            }
+        }
+    }
+    foreach ($tbl_size as $key => $value) {
+        $tbl_size[$key] = (($value/$temp)*90);
+    }
+    return $tbl_size;
+}
+
+/**
+ * Returns table size of each table as percentage of a specific database
+ *
+ * @param  array $tables list of tables
+ *
+ * @return array of table sizes
+ */
+function PMA_getTableSizeForDb($tables, $db)
+{
+    $tbl_size = array();
+    $temp=0;
+    foreach ($tables as $table) {
+        $query = 'SELECT data_length + index_length
+                    from information_schema.TABLES
+                    WHERE table_schema = "' . $db . '"
+                    AND table_name = "' . $table . '"';
+        $size = $GLOBALS['dbi']->fetchValue($query);
+        $size /= 1024;
+        $tbl_size[$table] = $size;
+        $temp+=$size;
+    }
+    foreach ($tbl_size as $key => $value) {
+         $tbl_size[$key] = (($value/$temp)*90);
+    }
+    return $tbl_size;
+}
+
+/**
+ * Record Session Message and percentage
+ *
+ * @param string $message     message to record
+ * @param string $percentage  progress in terms of percentage
+ */
+function sess_message($message, $percentage)
+{
+    usleep(150000);
+    $_SESSION['export_progress'] = $message;
+    $_SESSION['percentage'] = $percentage;
+    session_write_close();
+    session_id($_COOKIE['phpMyAdmin']);
+    session_start();
+}
+
+/**
+ * End Session Record
+ */
+function sess_message_close()
+{
+    usleep(150000);
+    $_SESSION['export_progress'] = "";
+    $_SESSION['percentage']="";
+    session_write_close();
 }
 ?>
