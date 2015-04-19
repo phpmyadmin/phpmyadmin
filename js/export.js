@@ -396,16 +396,16 @@ function getProgress()
         cache: 'false',
         success: function(data) {
             $("#progress_message").html(data.progress_result);
-            if(data.progress_result!="Done!") {
+            if(data.progress_result!=="Done!") {
                 if(cancel_check(data.progress_result)) {
                     var px = parseFloat(data.percentage);
                     var wid = parseFloat($('#progressbar').width());
                     wid = wid/100;
                     px = px*wid;
                     animateProgress(String(parseFloat($('#progressbar .ui-progressbar-value').width())+px));
-                    if(data.progress_result=='Table Export Done'
-                    || data.progress_result=='Server Export Done'
-                    || data.progress_result=='Database Export Done') {
+                    if(data.progress_result==='Table Export Done'
+                    || data.progress_result==='Server Export Done'
+                    || data.progress_result==='Database Export Done') {
                         $("#progress_message").html('Done!');
                         animateProgress('100%');
                         delete window.arr;
@@ -438,9 +438,8 @@ function getProgress()
 function createProgressModal(event)
 {
     BrowserDetect.init();
-    if(BrowserDetect.browser=="Chrome")
+    if(BrowserDetect.browser==="Chrome")
     {
-        var dlgButtons = {};
         $( "#progressbar" ).progressbar({
             value: 0.1
         });
