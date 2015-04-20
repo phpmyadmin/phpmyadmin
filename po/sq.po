@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-20 10:01+0200\n"
+"PO-Revision-Date: 2015-04-20 11:35+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sq/>\n"
@@ -1891,10 +1891,10 @@ msgid "No auto-saved query"
 msgstr "Nuk ka pyetsor auto-ruaj"
 
 #: js/messages.php:317
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Variabli"
+msgstr "Variabli %d:"
 
 #: js/messages.php:320 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -2219,10 +2219,9 @@ msgstr "Ruaj faqen"
 
 #: js/messages.php:428 libraries/db_designer.lib.php:297
 #: libraries/db_designer.lib.php:300
-#, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "Ruaj faqen"
+msgstr "Ruaj faqen si"
 
 #: js/messages.php:429 libraries/db_designer.lib.php:281
 #: libraries/db_designer.lib.php:284
@@ -2828,31 +2827,27 @@ msgstr "Dytësor"
 
 #: js/messages.php:728
 msgid "This field is required"
-msgstr ""
+msgstr "Kjo fushë kërkohet"
 
 #: js/messages.php:729
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Përdor fushën e tekstit"
+msgstr "Ju lutem, fiksoje këtë fushë"
 
 #: js/messages.php:730
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+msgstr "Ju lutem, fut një adresë të vlefshme email"
 
 #: js/messages.php:731
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Ju lutem, fut një numër të vlefshëm!"
+msgstr "Ju lutem, fut një URL të vlefshme"
 
 #: js/messages.php:732
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+msgstr "Ju lutem, fut një datë të vlefshme"
 
 #: js/messages.php:733
 #, fuzzy
@@ -3392,8 +3387,8 @@ msgstr[1] "<b>Gjithsejt:</b> <i>%s</i> përkime"
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s përkim në <b>%2$s</b>"
-msgstr[1] "%1$s përkime në <b>%2$s</b>"
+msgstr[0] "%1$s përkim në <strong>%2$s</strong>"
+msgstr[1] "%1$s përkime në <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:354 libraries/Menu.class.php:303
 #: libraries/Util.class.php:3196 libraries/Util.class.php:3412
@@ -4284,10 +4279,9 @@ msgid "Value"
 msgstr "Vlera"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
-msgstr "Kërkimi i tabelës"
+msgstr "Kërko tabelën"
 
 #: libraries/TableSearch.class.php:212
 #| msgid "Zoom Search"
@@ -8018,10 +8012,9 @@ msgid "Select Export Relational Type"
 msgstr "Zgjedh tipin Eksport Relacional"
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:258
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "Shfaqën tabelat:"
+msgstr "Shfaq/fsheh listën e tabelave"
 
 #: libraries/db_designer.lib.php:262 libraries/db_designer.lib.php:266
 msgid "View in fullscreen"
@@ -8094,10 +8087,9 @@ msgid "Move Menu"
 msgstr "Lëviz meny"
 
 #: libraries/db_designer.lib.php:416 libraries/db_designer.lib.php:419
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
-msgstr "Tekste pjesore"
+msgstr "Kap tekstin"
 
 #: libraries/db_designer.lib.php:458
 msgid "Hide/Show all"
@@ -8480,8 +8472,8 @@ msgid ""
 "files, however it can break transactions.)</i>"
 msgstr ""
 "Lejo ndërprerjen e një importi, në rast se skripti zbulon që është afër "
-"limitit kohor të PHP timeout. <i>(Kjo mund të jetë një mënyrë e mirë për të "
-"importuar file të mëdha, por mund të thyejë transaksionet.)</ i>"
+"limitit kohor të skadimit PHP. <i>(Kjo mund të jetë një mënyrë e mirë për të "
+"importuar file të mëdha, por mund të thyejë transaksionet.)</i>"
 
 #: libraries/display_import.lib.php:307
 msgid ""
@@ -9324,10 +9316,9 @@ msgid "unknown"
 msgstr "e panjohur"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "Një gabim ka ndodhur gjatë ngarkimit të pemës së navigimit"
+msgstr "Një gabim ka ndodhur gjatë ngarkimit të shfaqjes së navigimit"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -9375,13 +9366,13 @@ msgstr ""
 "navigimit."
 
 #: libraries/navigation/NavigationTree.class.php:871
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s rezultat tjetër i gjetur"
-msgstr[1] "%s rezultate tjera të gjetura"
+msgstr[0] "%s rezultat është gjetur"
+msgstr[1] "%s rezultate janë gjetur"
 
 #: libraries/navigation/NavigationTree.class.php:1281
 msgid "Filter databases by name or regex"
@@ -10103,10 +10094,9 @@ msgid "Please enter correct captcha!"
 msgstr "Ju lutem, fut një captcha të saktë!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Nuk mund të hyjë në MySQL server"
+msgstr "Nuk lejoheni të hyni në këtë server MySQL!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:101
 msgid "Wrong username/password. Access denied."
@@ -11001,27 +10991,25 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Sintaksa thesoi editorin CodeMirror për JSON."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Sintaksa theksoi editorin CodeMirror për SQL."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Sintaksa theksoi editorin CodeMirror për XML (dhe HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:44
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Formaton tekstin si pyetsor SQL me sintaksë të theksuar."
+msgstr "Formaton tekstin si JSON me sintaksë të theksuar."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:44
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Formaton tekstin si pyetsor SQL me sintaksë të theksuar."
+msgstr "Formaton tekstin si XML me sintaksë të theksuar."
 
 #: libraries/pmd_common.php:517
 msgid "Error: relation already exists."
@@ -11202,10 +11190,10 @@ msgid ""
 msgstr "%sKrijo%s ruajtjen e konfigurimit phpMyAdmin në databazën aktuale."
 
 #: libraries/relation.lib.php:2021
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Mungojnë tabelat e ruajtjes së konfigurimit të phpMyAdmin"
+msgstr "%sKrijo%s mungon në tabelat e ruajtjes së konfigurimit phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -11268,8 +11256,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
-"Pasi të keni rifilluar serverin MySQL, ju lutem, kliko mbi butonin Shko. Më "
-"pas, do të shihni një mesazh, që ju informon, se ky server <b>është</ b> "
+"Pasi të keni rifilluar serverin MySQL, ju lutem, kliko butonin Shko. Më pas, "
+"do të shihni një mesazh, që ju informon, se ky server <b>është</b> "
 "konfiguruar si master."
 
 #: libraries/replication_gui.lib.php:141
@@ -11946,7 +11934,7 @@ msgstr "Nuk ka ngjarje për t'u shfaqur."
 
 #: libraries/select_lang.lib.php:614
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Injoron kodin e gjuhës së pambuluar."
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
@@ -12228,29 +12216,29 @@ msgstr "Grup përdoruesi"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Lidhjet e vazhdueshme"
+msgstr "Kërkon lidhje SSL-të kriptuara."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Kërkon SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "Kërkon të përdoret një metodë specifike shifrore për një lidhje."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Kërkon të paraqitet një çertifikatë e vlefshme X509 e lëshuar nga kjo CA."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Kërkon të paraqitet një çertifikatë e vlefshme X509 me këtë temë."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 certificate."
@@ -12904,10 +12892,9 @@ msgid "Filters"
 msgstr "Filtrat"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Shfaq vetëm vlerat e alarmit"
+msgstr "Shfaq vetëm aktive"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13820,7 +13807,7 @@ msgstr "Ekzekuto pyetsorin/rët SQL në databazën %s"
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Merr pyetsorin e auto-ruajtur"
 
 #: libraries/sql_query_form.lib.php:284
 msgid "Bookmark this SQL query:"
@@ -14037,10 +14024,9 @@ msgid "Improve table structure"
 msgstr "Përmirëso strukturën e tabelës"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Gjurmo tabelën"
+msgstr "Pamja e gjurmës"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:188
@@ -14049,10 +14035,9 @@ msgid "Add %s column(s)"
 msgstr "Shto %s kolonë(a)"
 
 #: libraries/structure.lib.php:1705
-#, fuzzy
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
-msgstr "Në fillim të tabelës"
+msgstr "në fillim të tabelës"
 
 #: libraries/structure.lib.php:1710
 #: libraries/tbl_columns_definition_form.lib.php:829
@@ -14154,10 +14139,9 @@ msgid "Showing create queries"
 msgstr "Shfaqën krijo pyetsorët"
 
 #: libraries/structure.lib.php:3269
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
-msgstr "Pamje e relationit"
+msgstr "Pamje e relacionit"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -14252,10 +14236,9 @@ msgid "Storage Engine:"
 msgstr "Makina e ruajtjes:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Lidhjet"
+msgstr "Lidhja:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
@@ -14397,24 +14380,22 @@ msgstr ""
 "\"PRIMARY\" <b>duhet</b> të jetë emri dhe <b>vetëm</b> një çelës primar!"
 
 #: libraries/tbl_indexes.lib.php:305
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Madhësia cache e indeksit"
+msgstr "Zgjedhja e indeksit:"
 
 #: libraries/tbl_indexes.lib.php:321
 msgid "Key block size:"
-msgstr ""
+msgstr "Madhësia e bllokut të çelësit:"
 
 #: libraries/tbl_indexes.lib.php:334
 msgid "Index type:"
 msgstr "Tipi i indeksit:"
 
 #: libraries/tbl_indexes.lib.php:346
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Përdoruesi:"
+msgstr "Parser:"
 
 #: libraries/tbl_indexes.lib.php:358
 msgid "Comment:"
@@ -14516,9 +14497,9 @@ msgid "Create version %1$s of %2$s"
 msgstr "Krijo versionin %1$s nga %2$s"
 
 #: libraries/tracking.lib.php:74
-#, fuzzy, php-format
+#, php-format
 msgid "Create version %1$s"
-msgstr "Versioni i MySQL"
+msgstr "Krijo versionin %1$s"
 
 #: libraries/tracking.lib.php:79
 msgid "Track these data definition statements:"
@@ -14551,9 +14532,8 @@ msgid "Deactivate now"
 msgstr "Pasivizo tani"
 
 #: libraries/tracking.lib.php:287 libraries/tracking.lib.php:350
-#, fuzzy
 msgid "Delete version"
-msgstr "Versioni i MySQL"
+msgstr "Fshij versionin"
 
 #: libraries/tracking.lib.php:460
 msgid "Tracking statements"
@@ -14655,9 +14635,9 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Gjurmimi për %1$s u pasivizua në versionin %2$s."
 
 #: libraries/tracking.lib.php:1306
-#, fuzzy, php-format
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Versioni i MySQL"
+msgstr "Versioni %1$s nga %2$s u fshi."
 
 #: libraries/tracking.lib.php:1337
 #, php-format
@@ -15015,12 +14995,12 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Radhë: %1$s, Kolonë: %2$s, Gabim: %3$s"
 
 #: tbl_structure.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "Emri i kolonës '%s' është një fjalë kyçe e rezervuar MySQL."
-msgstr[1] "Emri i kolonës '%s' është një fjalë kyçe e rezervuar MySQL."
+msgstr[0] "Emri '%s' është një fjalë kyçe e rezervuar MySQL."
+msgstr[1] "Emrat '%s' janë fjalë kyçe të rezervuara MySQL."
 
 #: tbl_structure.php:114
 msgid "No column selected."
@@ -15032,16 +15012,14 @@ msgid "Tracking of %s is activated."
 msgstr "Gjurmimi i %s është aktivizuar."
 
 #: tbl_tracking.php:102
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Përdoruesit e zgjedhur u hoqën me sukses."
+msgstr "Versionet e gjurmuara u fshinë me sukses."
 
 #: tbl_tracking.php:107
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Nuk ka rreshta të zgjedhur"
+msgstr "Nuk janë zgjedhur versione."
 
 #: tbl_tracking.php:138
 msgid "SQL statements executed."
