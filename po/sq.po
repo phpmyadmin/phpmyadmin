@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-20 11:35+0200\n"
+"PO-Revision-Date: 2015-04-20 11:44+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sq/>\n"
@@ -2850,22 +2850,19 @@ msgid "Please enter a valid date"
 msgstr "Ju lutem, fut një datë të vlefshme"
 
 #: js/messages.php:733
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+msgstr "Ju lutem, fut një datë të vlefshme ( ISO )"
 
 #: js/messages.php:734
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Ju lutem, fut një numër të vlefshëm!"
+msgstr "Ju lutem, fut një numër të vlefshëm"
 
 #: js/messages.php:735
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Ju lutem, fut një numër të vlefshëm!"
+msgstr "Ju lutem, fut një numër të vlefshëm karte krediti"
 
 #: js/messages.php:736
 #, fuzzy
