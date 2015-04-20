@@ -19,7 +19,7 @@ require_once 'libraries/plugins/IOTransformationsPlugin.class.php';
  * @package    PhpMyAdmin-Transformations
  * @subpackage IPToBinary
  */
-class Text_Plain_IPToBinary extends IOTransformationsPlugin
+class Text_Plain_Iptobinary extends IOTransformationsPlugin
 {
     /**
      * Gets the transformation description of the plugin

@@ -19,7 +19,7 @@ require_once 'libraries/plugins/TransformationsPlugin.class.php';
  * @package    PhpMyAdmin-Transformations
  * @subpackage BinaryToIP
  */
-class Text_Plain_BinaryToIP extends TransformationsPlugin
+class Text_Plain_Binarytoip extends TransformationsPlugin
 {
     /**
      * Gets the transformation description of the plugin
