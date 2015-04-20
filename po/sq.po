@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-20 12:06+0200\n"
+"PO-Revision-Date: 2015-04-20 16:56+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sq/>\n"
@@ -7680,7 +7680,6 @@ msgid "Textarea columns"
 msgstr "Kolonat e zonës së tekstit"
 
 #: libraries/config/messages.inc.php:781
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)."
@@ -7689,8 +7688,7 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Madhësia e zonës së tekstit (radhët) në mënyrën e korrigjimit, kjo vlerë "
-"është e theksuar për zonat e tekstit të pyetsorit SQL (*2) dhe për dritaren "
-"e pyetsorit (*1.25)."
+"është e theksuar për zonat e tekstit të pyetsorit SQL (*2)."
 
 #: libraries/config/messages.inc.php:782
 msgid "Textarea rows"
@@ -7855,11 +7853,12 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Pyetsorët ekzekutohen duke shtypur Enter (në vend të Ctrl+Enter). Linja të "
+"reja mund të futen me Shift+Enter."
 
 #: libraries/config/messages.inc.php:820
-#, fuzzy
 msgid "Enter executes queries in console"
-msgstr "query SQL"
+msgstr "Enter ekzekuton pyetsorën në konsole"
 
 #: libraries/config/messages.inc.php:823
 msgid ""
@@ -8089,13 +8088,12 @@ msgstr "Numri i tabelave:"
 
 #: libraries/db_designer.lib.php:591
 msgid "Toggle"
-msgstr ""
+msgstr "Nyjëzim"
 
 #: libraries/db_designer.lib.php:614
-#, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
-msgstr "Struktura e tabelës"
+msgstr "Shiko strukturën e tabelës"
 
 #: libraries/db_designer.lib.php:870
 msgid "Delete relation"
@@ -8463,16 +8461,14 @@ msgstr ""
 "duke filluar nga i pari:"
 
 #: libraries/display_import.lib.php:338
-#, fuzzy
 #| msgid "Options"
 msgid "Other Options:"
-msgstr "Opsionet"
+msgstr "Opsionet e tjera:"
 
 #: libraries/display_import.lib.php:344
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable foreign key check"
-msgstr "Pasivizo kontrollet e çelësave të huaj"
+msgstr "Pasivizo kontrollin e çelësit të huaj"
 
 #: libraries/display_import.lib.php:368
 msgid "Format-Specific Options:"
@@ -10199,7 +10195,7 @@ msgstr "Struktura zëvendësuese për pamjen"
 
 #: libraries/plugins/export/ExportJson.class.php:70
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Produkti printuar-bukur JSON (Përdor formatim human-lexueshëm)"
 
 #: libraries/plugins/export/ExportLatex.class.php:43
 msgid "Content of table @TABLE@"
@@ -10305,22 +10301,19 @@ msgid "Report title:"
 msgstr "Titulli i raportit:"
 
 #: libraries/plugins/export/ExportPdf.class.php:230
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "Zbraz të dhënat për tabelën"
+msgstr "Zbraz të dhënat"
 
 #: libraries/plugins/export/ExportPdf.class.php:284
-#, fuzzy
 #| msgid "structure"
 msgid "View structure"
-msgstr "strukturën"
+msgstr "Shfaq strukturën"
 
 #: libraries/plugins/export/ExportPdf.class.php:287
-#, fuzzy
 #| msgid "and then"
 msgid "Stand in"
-msgstr "dhe pastaj"
+msgstr "Qëndro në"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
@@ -10343,10 +10336,9 @@ msgstr ""
 "kontrolluar së fundi"
 
 #: libraries/plugins/export/ExportSql.class.php:161
-#, fuzzy
 #| msgid "Export method"
 msgid "Export metadata"
-msgstr "Metoda e eksportit"
+msgstr "Eksporto metadata"
 
 #: libraries/plugins/export/ExportSql.class.php:176
 msgid ""
@@ -10479,10 +10471,10 @@ msgid "It appears your database uses functions;"
 msgstr "Duket se databaza juaj përdor funksionet;"
 
 #: libraries/plugins/export/ExportSql.class.php:989
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for %s"
-msgstr "Mungojnë të dhëna për %s"
+msgstr "Metadata për %s"
 
 #: libraries/plugins/export/ExportSql.class.php:1352
 msgid "It appears your database uses views;"
@@ -10547,13 +10539,12 @@ msgstr "Tabela:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:118
 msgid "Purpose:"
-msgstr ""
+msgstr "Qëllimi:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:494
-#, fuzzy
 #| msgid "MIME type"
 msgid "MIME"
-msgstr "Tipi MIME"
+msgstr "MIME"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -10728,22 +10719,19 @@ msgid "Data Dictionary"
 msgstr "Fjalori i të dhënave"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "asnjë nga ato më sipër"
+msgstr "Renditja e tabelave"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Ngritëse"
+msgstr "Emri (Ngritëse)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Zbritëse"
+msgstr "Emri (Zbritëse)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:64
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:79
@@ -11153,14 +11141,19 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Ju nuk keni privilegjet e nevojshme për të krijuar një databazë me emrin "
+"'phpmyadmin'. Ju mund të shkoni në tabelorin 'Veprimet'  të çdo databaze, "
+"për të rregulluar ruajtjen e konfigurimit phpMyAdmin atje."
 
 #: libraries/relation.lib.php:2005
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "Mungojnë tabelat e ruajtjes së konfigurimit të phpMyAdmin"
+msgstr ""
+"%sKrijo%s një databazë me emrin 'phpmyadmin' dhe rregullo ruajtjen e "
+"konfigurimit të phpMyAdmin atje."
 
 #: libraries/relation.lib.php:2013
 #, php-format
@@ -12221,7 +12214,7 @@ msgstr "Kërkon të paraqitet një çertifikatë e vlefshme X509 me këtë temë
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "Kërkon një çertifikatë të vlefshme X509."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
