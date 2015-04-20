@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-20 11:44+0200\n"
+"PO-Revision-Date: 2015-04-20 12:04+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sq/>\n"
@@ -2865,62 +2865,53 @@ msgid "Please enter a valid credit card number"
 msgstr "Ju lutem, fut një numër të vlefshëm karte krediti"
 
 #: js/messages.php:736
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Ju lutem, fut një gjatësi të vlefshme!"
+msgstr "Ju lutem, fut vetëm numra"
 
 #: js/messages.php:737
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+msgstr "Ju lutem, fut të njëjtën vlerë përsëri"
 
 #: js/messages.php:738
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter no more than {0} characters"
-msgstr "Ju lutem, fut një captcha të saktë!"
+msgstr "Ju lutem, mos fut më shumë se {0} karaktere"
 
 #: js/messages.php:739
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter at least {0} characters"
-msgstr "Ju lutem, fut një captcha të saktë!"
+msgstr "Ju lutem, fut së paku {0} karaktere"
 
 #: js/messages.php:740
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Ju lutem, fut një vlerë të gjatë ndërmjet {0} dhe {1} karaktere"
 
 #: js/messages.php:741
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+msgstr "Ju lutem, fut një vlerë ndërmjet {0} dhe {1}"
 
 #: js/messages.php:742
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Ju lutem, fut një gjatësi të vlefshme!"
+msgstr "Ju lutem, fut një vlerë më të vogël ose të barabartë me {0}"
 
 #: js/messages.php:743
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+msgstr "Ju lutem, fut një vlerë më të madhe ose të barabartë me {0}"
 
 #: js/messages.php:745
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Ju lutem, fut një emër të vlefshëm faqeje"
+msgstr "Ju lutem, fut një datë ose kohë të vlefshme"
 
 #: js/messages.php:746
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Ju lutem, fut një numër të vlefshëm!"
+msgstr "Ju lutem, fut një hyrje HEX të vlefshëm"
 
 #: js/messages.php:747 libraries/Message.class.php:199
 #: libraries/Util.class.php:624 libraries/core.lib.php:245
@@ -3151,10 +3142,9 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Shtyp Ctrl+Enter për të ekzekutuar pyetsorin"
 
 #: libraries/Console.class.php:214
-#, fuzzy
 #| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
-msgstr "Shtyp Ctrl+Enter për të ekzekutuar pyetsorin"
+msgstr "Shtyp Enter për të ekzekutuar pyetsorin"
 
 #: libraries/Console.class.php:235
 msgid "During current session"
@@ -3208,12 +3198,13 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"Ekzekuto pyetsorët me Enter dhe fut linja të reja me Shift + Enter. Për ta "
+"bërë këtë të përhershme, shfaq rregullimet."
 
 #: libraries/Console.class.php:313
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Kalo tek tabela e kopjuar"
+msgstr "Kalo tek modeli i errët"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1356
 #: libraries/DisplayResults.class.php:2146
@@ -4995,7 +4986,7 @@ msgstr "Atributi"
 #: libraries/central_columns.lib.php:709
 #: libraries/central_columns.lib.php:1207
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/central_columns.lib.php:749
 msgid "Select a table"
@@ -5745,18 +5736,14 @@ msgid "Default table tab"
 msgstr "Tabelori standard i tabelës"
 
 #: libraries/config/messages.inc.php:94
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr ""
-"Bashkëngjitni emrat e tabelave dhe kolonave me prapacitate (backquotes)"
+msgstr "Autoplotëso emrat e tabelës dhe kolonës në pyetsorët SQL."
 
 #: libraries/config/messages.inc.php:95
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr ""
-"Bashkëngjitni emrat e tabelave dhe kolonave me prapacitate (backquotes)"
+msgstr "Aftëso autoplotësimin për emrat e tabelave dhe kolonave"
 
 #: libraries/config/messages.inc.php:97
 msgid "Whether the table structure actions should be hidden."
@@ -5799,10 +5786,10 @@ msgid "Maximum execution time"
 msgstr "Koha maksimale e ekzekutimit"
 
 #: libraries/config/messages.inc.php:113 libraries/display_export.lib.php:662
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
-msgstr "Shto %s deklaratë"
+msgstr "Shto deklaratën %s"
 
 #: libraries/config/messages.inc.php:115 prefs_manage.php:316
 msgid "Save as file"
@@ -5984,10 +5971,9 @@ msgid "Export views as tables"
 msgstr "Eksporto pamjet si tabela"
 
 #: libraries/config/messages.inc.php:176
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "Mungojnë tabelat e ruajtjes së konfigurimit të phpMyAdmin"
+msgstr "Eksporti i metadata të lidhura nga ruajtja e konfigurimit phpMyAdmin"
 
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:179
 #: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:181
@@ -6181,7 +6167,6 @@ msgid "Page titles"
 msgstr "Titujt e faqes"
 
 #: libraries/config/messages.inc.php:257
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -6190,9 +6175,9 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Specifiko tekstin e linjës së titullit të shfletuesit. Refero tek "
-"[doc@cfg_TitleTable]dokumentacioni[/doc] për vargje magjike, që mund të "
-"përdoren për të marrë vlera të veçanta."
+"Specifiko tekstin e linjës së titullit të shfletuesit. Refero [doc@faq6-27]"
+"dokumentacioni [/doc] për vargjet magjike që mund të përdoren për të marrë "
+"vlera të veçanta."
 
 #: libraries/config/messages.inc.php:261
 msgid "Security"
