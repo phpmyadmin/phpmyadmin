@@ -26,7 +26,9 @@ phpMyAdmin - ChangeLog
 + rfe #1639 Add grouping to stored procedures in the navigation tree
 + rfe #1655 Support IPv6 browser transformation
 
-4.4.3.0 (not yet released)
+4.4.4.0 (not yet released)
+
+4.4.3.0 (2015-04-20)
 - bug #4851 PHP errors in login dialogue
 - bug #4207 json_encode error due to strftime returning non utf8 chars in Windows 8.1 Chinese version
 - bug #4845 White screen (Cloudflare)
