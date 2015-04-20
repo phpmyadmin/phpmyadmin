@@ -2420,7 +2420,8 @@ class PMA_DisplayResults
     private function _buildNullDisplay($class, $condition_field, $meta, $align = '')
     {
         // the null class is needed for grid editing
-        return '<td ' . $align . ' data-decimals="' . $meta->decimals
+        $decimals = isset($meta->decimals) ? $meta->decimals : '-1';
+        return '<td ' . $align . ' data-decimals="' . $decimals
             . '" data-type="' . $meta->type . '"  class="'
             . $this->_addClass(
                 $class, $condition_field, $meta, ''
@@ -2498,7 +2499,7 @@ class PMA_DisplayResults
         }
 
         $mime_map = $this->__get('mime_map');
-        $orgFullColName = $meta->db . '.' . $meta->orgtable . '.' . $meta->orgname;
+        $orgFullColName = $this->__get('db') . '.' . $meta->orgtable . '.' . $meta->orgname;
         if ($transformation_plugin != $default_function
             || !empty($mime_map[$orgFullColName]['input_transformation'])
         ) {
@@ -2697,7 +2698,9 @@ class PMA_DisplayResults
             } // end if (1)
 
             // 2. Displays the rows' values
-            $this->_setMimeMap();
+            if (is_null($this->__get('mime_map'))) {
+                $this->_setMimeMap();
+            }
             $table_body_html .= $this->_getRowValues(
                 $dt_result, $row, $row_no, $col_order, $map,
                 $grid_edit_class, $col_visib, $where_clause,
@@ -2744,7 +2747,7 @@ class PMA_DisplayResults
                 ++$currentColumn) {
 
             $meta = $fields_meta[$currentColumn];
-            $orgFullTableName = $meta->db . '.' . $meta->orgtable;
+            $orgFullTableName = $this->__get('db') . '.' . $meta->orgtable;
 
             if ($GLOBALS['cfgRelation']['commwork']
                 && $GLOBALS['cfgRelation']['mimework']
@@ -2753,7 +2756,7 @@ class PMA_DisplayResults
                 && empty($added[$orgFullTableName])
             ) {
                 $mimeMap = array_merge(
-                    $mimeMap, PMA_getMIME($meta->db, $meta->orgtable, false, true)
+                    $mimeMap, PMA_getMIME($this->__get('db'), $meta->orgtable, false, true)
                 );
                 $added[$orgFullTableName] = true;
             }
@@ -2845,7 +2848,7 @@ class PMA_DisplayResults
 
             $meta    = $fields_meta[$i];
             $orgFullColName
-                = $meta->db . '.' . $meta->orgtable . '.' . $meta->orgname;
+                = $this->__get('db') . '.' . $meta->orgtable . '.' . $meta->orgname;
 
             $not_null_class = $meta->not_null ? 'not_null' : '';
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
@@ -2920,7 +2923,7 @@ class PMA_DisplayResults
 
             // Check whether the field needs to display with syntax highlighting
 
-            $dbLower = /*overload*/mb_strtolower($meta->db);
+            $dbLower = /*overload*/mb_strtolower($this->__get('db'));
             $tblLower = /*overload*/mb_strtolower($meta->orgtable);
             $nameLower = /*overload*/mb_strtolower($meta->orgname);
             if (! empty($this->transformation_info[$dbLower][$tblLower][$nameLower])
@@ -2990,7 +2993,7 @@ class PMA_DisplayResults
             );
 
             $transform_url_params = array(
-                'db'            => $meta->db,
+                'db'            => $this->__get('db'),
                 'table'         => $meta->orgtable,
                 'where_clause'  => $unique_conditions[0],
                 'transform_key' => $meta->orgname
@@ -5206,7 +5209,8 @@ class PMA_DisplayResults
 
         $relational_display = $_SESSION['tmpval']['relational_display'];
         $printview = $this->__get('printview');
-        $result = '<td data-decimals="' . $meta->decimals . '" data-type="'
+        $decimals = isset($meta->decimals) ? $meta->decimals : '-1';
+        $result = '<td data-decimals="' . $decimals . '" data-type="'
             . $meta->type . '" class="'
             . $this->_addClass(
                 $class, $condition_field, $meta, $nowrap,
