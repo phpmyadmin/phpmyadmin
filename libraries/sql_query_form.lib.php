@@ -366,7 +366,7 @@ function PMA_getHtmlForSqlQueryFormBookmark()
     foreach ($bookmark_list as $key => $value) {
         $html .= '<option value="' . htmlspecialchars($key) . '"'
             . ' data-varcount="' . PMA_Bookmark_getVariableCount($value['query'])
-            .'">'
+            . '">'
             . htmlspecialchars($value['label']) . '</option>' . "\n";
     }
     // &nbsp; is required for correct display with styles/line height

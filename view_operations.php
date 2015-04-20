@@ -71,7 +71,7 @@ if (isset($result)) {
         unset($warning_messages);
     }
     echo PMA_Util::getMessage(
-        $_message, $sql_query, $_type, $is_view = true
+        $_message, $sql_query, $_type
     );
     unset($_message, $_type);
 }
