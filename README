@@ -1,17 +1,3 @@
-==================================================================================
-== WP-Cloud Version                                                             ==
-== ----------------                                                             ==
-==                                                                              ==
-== This version is a deployment-ready version of phpMyAdmin All-Languages.      ==
-== It contains all language files packaged in 'phpMyAdmin-*-all-languages.zip'. ==
-==                                                                              ==
-== Following folders have been removed from the distribution package:           ==
-== - doc                                                                        ==
-== - examples                                                                   ==
-== - scripts                                                                    ==
-== - setup                                                                      ==
-==================================================================================
-
 phpMyAdmin - Readme
 ===================
 
