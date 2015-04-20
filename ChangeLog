@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 + rfe #1655 Support IPv6 browser transformation
 
 4.4.4.0 (not yet released)
+- bug #1656 Edit vs Change
 
 4.4.3.0 (2015-04-20)
 - bug #4851 PHP errors in login dialogue
