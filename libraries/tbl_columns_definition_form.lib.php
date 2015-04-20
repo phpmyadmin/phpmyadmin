@@ -776,10 +776,14 @@ function PMA_getHtmlForTransformation($columnNumber, $ci, $ci_offset,
             $tooltip = PMA_getTransformationDescription(
                 $available_mime[$type . '_file'][$mimekey], false
             );
+            $name = PMA_getTransformationName(
+                $available_mime[$type . '_file'][$mimekey]
+            );
+            $name .= ' (' . $transform . ')';
             $html .= '<option value="'
                 . $available_mime[$type . '_file'][$mimekey] . '" '
                 . $checked . ' title="' . htmlspecialchars($tooltip) . '">'
-                . htmlspecialchars($transform) . '</option>';
+                . htmlspecialchars($name) . '</option>';
         }
     }
 

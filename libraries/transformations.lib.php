@@ -177,6 +177,21 @@ function PMA_getTransformationDescription($file, $html_formatted = true)
 }
 
 /**
+ * Returns the name of the transformation
+ *
+ * @param string  $file transformation file
+ *
+ * @return String the name of the transformation
+ */
+function PMA_getTransformationName($file)
+{
+    $class_name = PMA_getTransformationClassName($file);
+    // include and instantiate the class
+    include_once 'libraries/plugins/transformations/' . $file;
+    return $class_name::getName();
+}
+
+/**
  * Gets the mimetypes for all columns of a table
  *
  * @param string  $db       the name of the db to check for
