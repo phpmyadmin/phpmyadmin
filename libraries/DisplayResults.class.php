@@ -4712,7 +4712,7 @@ class PMA_DisplayResults
 
         $links_html .= PMA_Util::getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_change',
-            __('Change'), 'b_edit.png', 'edit'
+            __('Edit'), 'b_edit.png', 'edit'
         );
 
         $links_html .= PMA_Util::getButtonOrImage(
