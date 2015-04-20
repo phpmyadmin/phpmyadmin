@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-20 16:56+0200\n"
+"PO-Revision-Date: 2015-04-20 16:57+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sq/>\n"
@@ -45,7 +45,7 @@ msgstr "Databaza %1$s është krijuar."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment"
-msgstr "Komenti i databazës:"
+msgstr "Komenti i databazës"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:981
@@ -9787,7 +9787,7 @@ msgstr "Nuk gjenden varësi të pjesëshme!"
 
 #: libraries/operations.lib.php:74
 msgid "Rename database to"
-msgstr "Riemëro databazën në:"
+msgstr "Riemëro databazën në"
 
 #: libraries/operations.lib.php:106
 #, php-format
@@ -9819,7 +9819,7 @@ msgstr "Vetëm të dhënat"
 
 #: libraries/operations.lib.php:174
 msgid "Copy database to"
-msgstr "Kopjo databazën në:"
+msgstr "Kopjo databazën në"
 
 #: libraries/operations.lib.php:185
 msgid "CREATE DATABASE before copying"
@@ -9843,7 +9843,7 @@ msgstr "(vetëm)"
 
 #: libraries/operations.lib.php:621
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Lëviz tabelën tek (databaza<b>.</b>tabela):"
+msgstr "Lëviz tabelën tek (databaza<b>.</b>tabela)"
 
 #: libraries/operations.lib.php:732
 msgid "Table options"
@@ -9863,7 +9863,7 @@ msgstr "Makinat e ruajtjes"
 
 #: libraries/operations.lib.php:955
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Kopjo tabelën tek (databaza<b>.</b>tabela):"
+msgstr "Kopjo tabelën tek (databaza<b>.</b>tabela)"
 
 #: libraries/operations.lib.php:1010
 msgid "Switch to copied table"
