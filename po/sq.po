@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-20 12:04+0200\n"
+"PO-Revision-Date: 2015-04-20 12:06+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sq/>\n"
@@ -6392,10 +6392,9 @@ msgid "Partial import: allow interrupt"
 msgstr "Importim pjesor: lejo ndërprerje"
 
 #: libraries/config/messages.inc.php:337
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Temporarily disable foreign key checks while importing"
-msgstr "Pasivizo kontrollet e çelësave të huaj"
+msgstr "Pasivizo përkohësisht kontrollet e çelësave të huaj ndërsa importon"
 
 #: libraries/config/messages.inc.php:344 libraries/config/messages.inc.php:354
 #: libraries/plugins/import/ImportCsv.class.php:89
@@ -7635,13 +7634,13 @@ msgid "Skip locked tables"
 msgstr "Shmang tabelat e kyçura"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
 msgstr ""
-"Një paralajmërim shfaqet në faqen kryesore, nëse Suhosin është zbuluar."
+"Pasivizo paralajmërimin standard, që shfaqet në faqen kryesore, nëse Suhosin "
+"është zbuluar."
 
 #: libraries/config/messages.inc.php:774
 msgid "Suhosin warning"
@@ -7666,7 +7665,6 @@ msgid "Login cookie validity warning"
 msgstr "Paralajmërimi i vlefshmërisë së gatimit (cookie) të hyrjes"
 
 #: libraries/config/messages.inc.php:779
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)."
@@ -7675,8 +7673,7 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Madhësia e zonës së tekstit (kolonave) në mënyrën e korrigjimit, kjo vlerë "
-"do të theksohet për zonat e tekstit të pyetsorit SQL (*2) dhe për dritaren e "
-"pyetsorit (*1.25)."
+"do të theksohet për zonat e tekstit të pyetsorit SQL (*2)."
 
 #: libraries/config/messages.inc.php:780
 msgid "Textarea columns"
