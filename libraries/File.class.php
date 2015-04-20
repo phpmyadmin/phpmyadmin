@@ -83,7 +83,7 @@ class PMA_File
      */
     public function __construct($name = false)
     {
-        if ($name) {
+        if ($name && is_string($name)) {
             $this->setName($name);
         }
     }
