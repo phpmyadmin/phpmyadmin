@@ -59,9 +59,9 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
      * @param array  $options              transformation options
      * @param string $value                Current field value
      * @param string $text_dir             text direction
-     * @param integer $tabindex            tab index
-     * @param integer $tabindex_for_value  offset for the values tabindex
-     * @param integer $idindex             id index
+     * @param int    $tabindex             tab index
+     * @param int    $tabindex_for_value   offset for the values tabindex
+     * @param int    $idindex              id index
      *
      * @return string the html for input field
      */
