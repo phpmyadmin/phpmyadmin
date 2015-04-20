@@ -37,11 +37,15 @@ abstract class IOTransformationsPlugin extends TransformationsPlugin
      * @param array  $options              transformation options
      * @param string $value                Current field value
      * @param string $text_dir             text direction
+     * @param integer $tabindex            tab index
+     * @param integer $tabindex_for_value  offset for the values tabindex
+     * @param integer $idindex             id index
      *
      * @return string the html for input field
      */
     public function getInputHtml(
-        $column, $row_id, $column_name_appendix, $options, $value, $text_dir
+        $column, $row_id, $column_name_appendix, $options, $value, $text_dir,
+        $tabindex, $tabindex_for_value, $idindex
     ) {
         return '';
     }

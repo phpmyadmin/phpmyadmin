@@ -10,8 +10,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the transformations interface */
-require_once 'libraries/plugins/TransformationsPlugin.class.php';
+/* Get the transformations class */
+require_once 'libraries/plugins/IOTransformationsPlugin.class.php';
 
 /**
  * Handles the IPv4/IPv6 to binary transformation for text plain
@@ -19,7 +19,7 @@ require_once 'libraries/plugins/TransformationsPlugin.class.php';
  * @package    PhpMyAdmin-Transformations
  * @subpackage IPToBinary
  */
-class Text_Plain_IPToBinary extends TransformationsPlugin
+class Text_Plain_IPToBinary extends IOTransformationsPlugin
 {
     /**
      * Gets the transformation description of the plugin
@@ -63,11 +63,15 @@ class Text_Plain_IPToBinary extends TransformationsPlugin
      * @param array  $options              transformation options
      * @param string $value                Current field value
      * @param string $text_dir             text direction
+     * @param integer $tabindex            tab index
+     * @param integer $tabindex_for_value  offset for the values tabindex
+     * @param integer $idindex             id index
      *
      * @return string the html for input field
      */
     public function getInputHtml(
-        $column, $row_id, $column_name_appendix, $options, $value, $text_dir
+        $column, $row_id, $column_name_appendix, $options, $value, $text_dir,
+        $tabindex, $tabindex_for_value, $idindex
     ) {
         $html = '';
         $val = '';
@@ -84,8 +88,12 @@ class Text_Plain_IPToBinary extends TransformationsPlugin
         }
         $class = 'transform_IPToBin';
         $html .= '<input type="text" name="fields' . $column_name_appendix . '"'
-            . ' value="' . htmlspecialchars($val) . '" size="40"'
-            . ' dir="' . $text_dir . '" class="' . $class . '">'
+            . ' value="' . htmlspecialchars($val) . '"'
+            . ' size="40"'
+            . ' dir="' . $text_dir . '"'
+            . ' class="' . $class . '"'
+            . ' id="field_' . ($idindex) . '_3"'
+            . ' tabindex="' . ($tabindex + $tabindex_for_value) . '">'
             . '</input>';
         return $html;
     }
