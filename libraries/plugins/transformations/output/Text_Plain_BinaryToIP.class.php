@@ -49,7 +49,10 @@ class Text_Plain_BinaryToIP extends TransformationsPlugin
     {
         $length = strlen($buffer);
         if ($length == 4 || $length == 16) {
-            return inet_ntop(pack('A' . $length, $buffer));
+            $val = @inet_ntop(pack('A' . $length, $buffer));
+            if ($val !== false) {
+                return $val;
+            }
         }
         return $buffer;
     }
