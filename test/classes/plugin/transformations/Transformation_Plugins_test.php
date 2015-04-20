@@ -129,7 +129,10 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     'test',
                     array('150'),
                     '',
-                    'ltr'
+                    'ltr',
+                    0,
+                    0,
+                    0
                 )
             ),
             array(
@@ -150,7 +153,10 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                         'wrapper_link' => '?table=a'
                     ),
                     'something',
-                    'ltr'
+                    'ltr',
+                    0,
+                    0,
+                    0
                 )
             ),
             // Test data for Text_Plain_Fileupload plugin
@@ -190,7 +196,10 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     'test',
                     array(),
                     '',
-                    'ltr'
+                    'ltr',
+                    0,
+                    0,
+                    0
                 )
             ),
             array(
@@ -206,7 +215,10 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     '2ndtest',
                     array(),
                     'something',
-                    'ltr'
+                    'ltr',
+                    0,
+                    0,
+                    0
                 )
             ),
             // Test data for Text_Plain_Regexvalidation plugin
@@ -237,7 +249,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 'getInputHtml',
                 '',
                 array(
-                    array(), 0, '', array(), '', 'ltr'
+                    array(), 0, '', array(), '', 'ltr', 0, 0, 0
                 )
             ),
             // Test data for Application_Octetstream_Download plugin
