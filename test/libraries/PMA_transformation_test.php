@@ -145,6 +145,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                 ),
                 'input_transformation' => array(
                     'Image/JPEG: Upload',
+                    'Text/Plain: BinaryToIP',
                     'Text/Plain: Fileupload',
                     'Text/Plain: JsonEditor',
                     'Text/Plain: Regexvalidation',
@@ -157,6 +158,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                 ),
                 'input_transformation_file' => array(
                     'input/Image_JPEG_Upload.class.php',
+                    'input/Text_Plain_BinaryToIP.class.php',
                     'input/Text_Plain_Fileupload.class.php',
                     'input/Text_Plain_JsonEditor.class.php',
                     'input/Text_Plain_Regexvalidation.class.php',
