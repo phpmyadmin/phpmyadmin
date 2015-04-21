@@ -2,7 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.4.4.0 (not yet released)
-- bug #1656 Edit vs Change
+- bug #4863 Edit vs Change
 - bug #4859 Don't scroll (to bottom) when editing multiple rows
 
 4.4.3.0 (2015-04-20)
