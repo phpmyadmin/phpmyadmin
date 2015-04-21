@@ -2844,6 +2844,7 @@ fieldset .disabled-field td {
 .cEdit .edit_box {
     overflow: hidden;
     padding: 0;
+    margin: 0;
 }
 
 .cEdit .edit_box_posting {
