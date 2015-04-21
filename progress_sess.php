@@ -1,7 +1,10 @@
 <?php
 header("Content-Type: application/json");
 session_id($_COOKIE['phpMyAdmin']);
-session_start();
+if(!isset($_SESSION))
+{
+    session_start();
+}
 if(isset($_SESSION['export_progress']))
 {
 $result = $_SESSION['export_progress'];
