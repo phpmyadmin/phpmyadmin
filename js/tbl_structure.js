@@ -92,9 +92,6 @@ AJAX.registerOnload('tbl_structure.js', function () {
     indexes = [];
     fulltext_indexes = [];
 
-    //by default select the last option to add new column (adds at end of the table)
-    $("select[name=after_field] option:last").attr("selected","selected");
-
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
      */

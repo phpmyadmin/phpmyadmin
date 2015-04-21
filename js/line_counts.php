@@ -14,7 +14,7 @@ define('LINE_COUNTS', true);
 $LINE_COUNT = array();
 
 $LINE_COUNT["error_report.js"] = 338;
-$LINE_COUNT["functions.js"] = 4539;
+$LINE_COUNT["functions.js"] = 4544;
 $LINE_COUNT["db_central_columns.js"] = 197;
 $LINE_COUNT["jquery/jquery-ui-timepicker-addon.js"] = 2223;
 $LINE_COUNT["jquery/jquery.cookie.js"] = 91;
@@ -167,7 +167,7 @@ $LINE_COUNT["rte.js"] = 944;
 $LINE_COUNT["server_status_processes.js"] = 189;
 $LINE_COUNT["tbl_relation.js"] = 233;
 $LINE_COUNT["server_status_queries.js"] = 34;
-$LINE_COUNT["tbl_structure.js"] = 396;
+$LINE_COUNT["tbl_structure.js"] = 393;
 $LINE_COUNT["jqplot/plugins/jqplot.categoryAxisRenderer.js"] = 679;
 $LINE_COUNT["jqplot/plugins/jqplot.pointLabels.js"] = 376;
 $LINE_COUNT["jqplot/plugins/jqplot.dateAxisRenderer.js"] = 741;
