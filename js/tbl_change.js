@@ -245,15 +245,21 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
                 min: {
                     param: mini,
                     depends: function() {
-                        if (isNaN($this_input.val())) return false;
-                        else return checkForCheckbox(multi_edit);
+                        if (isNaN($this_input.val())) {
+                            return false;
+                        } else {
+                            return checkForCheckbox(multi_edit);
+                        }
                     }
                 },
                 max: {
                     param: maxi,
                     depends: function() {
-                        if (isNaN($this_input.val())) return false;
-                        else return checkForCheckbox(multi_edit);
+                        if (isNaN($this_input.val())) {
+                            return false;
+                        } else {
+                            return checkForCheckbox(multi_edit);
+                        }
                     }
                 }
             });
@@ -284,7 +290,9 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
                 }
             });
         }
-        if (removeOnclick === 1) $this_input.removeAttr('onchange');
+        if (removeOnclick === 1) {
+            $this_input.removeAttr('onchange');
+        }
     }
 }
 /* End of fields validation*/
@@ -371,20 +379,21 @@ AJAX.registerOnload('tbl_change.js', function () {
         jQuery.validator.addMethod("validationFunctionForHex", function(value, element) {
             if (value.match(/^[a-f0-9]*$/i) === null) {
                 return false;
+            } else {
+                return true;
             }
-            else return true;
         });
 
         jQuery.validator.addMethod("validationFunctionForFuns", function(value, element, options) {
             if (value.substring(0, 3) === "AES" && options.data('type') !== 'HEX') {
                 return false;
-            }
-            else if (value.substring(0, 3) === "MD5"
+            } else if (value.substring(0, 3) === "MD5"
                     && typeof options.data('maxlength') !== 'undefined'
                     && options.data('maxlength') < 32) {
                 return false;
+            } else {
+                return true;
             }
-            else return true;
         });
 
         jQuery.validator.addMethod("validationFunctionForDateTime", function(value, element, options) {
