@@ -168,7 +168,7 @@ foreach ($fields as $row) {
         '<tr class="' . ($odd_row ? 'odd': 'even') . '">'
     );
     $odd_row = !$odd_row;
-    $isInCentralColumns = in_array($row['Field'], $central_list)?true:false;
+    $isInCentralColumns = in_array($row['Field'], $central_list) ? true : false;
     $response->addHTML(
         PMA_getHtmlTableStructureRow(
             $row, $rownum, $displayed_field_name,
