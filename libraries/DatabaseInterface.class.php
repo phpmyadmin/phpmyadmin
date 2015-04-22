@@ -1343,7 +1343,7 @@ class PMA_DatabaseInterface
      */
     public function getColumnsSql($database, $table, $column = null, $full = false)
     {
-        if (PMA_DRIZZLE) {
+        if (defined('PMA_DRIZZLE') && PMA_DRIZZLE) {
             // `Key` column:
             // * used in primary key => PRI
             // * unique one-column => UNI
