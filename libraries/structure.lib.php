@@ -2100,7 +2100,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     $html_output .= PMA_getHtmlForActionRowInStructureTable(
         $type, $tbl_storage_engine,
         'add_unique unique nowrap',
-        isset($columns_with_unique_index[$field_name]),
+        in_array($field_name, $columns_with_unique_index),
         false, $url_query, $primary, 'ADD UNIQUE',
         __('An index has been added on %s.'),
         'Unique', $titles, $row, false
@@ -2754,26 +2754,24 @@ function PMA_moveColumns($db, $table)
 }
 
 /**
- * Get columns with unique index
+ * Get columns with indexes
  *
  * @param string $db    database name
  * @param string $table tablename
+ * @param int    $types types bitmask
  *
- * @return array $columns_with_unique_index  An array of columns with unique index,
- *                                            with $column name as the array key
+ * @return array an array of columns
  */
-function PMA_getColumnsWithUniqueIndex($db ,$table)
+function PMA_getColumnsWithIndex($db, $table, $types)
 {
-    $columns_with_unique_index = array();
-    foreach (PMA_Index::getFromTable($table, $db) as $index) {
-        if ($index->isUnique() && $index->getChoice() == 'UNIQUE') {
-            $columns = $index->getColumns();
-            foreach ($columns as $column_name => $dummy) {
-                $columns_with_unique_index[$column_name] = 1;
-            }
+    $columns_with_index = array();
+    foreach (PMA_Index::getFromTableByChoice($table, $db, $types) as $index) {
+        $columns = $index->getColumns();
+        foreach ($columns as $column_name => $dummy) {
+            $columns_with_index[] = $column_name;
         }
     }
-    return $columns_with_unique_index;
+    return $columns_with_index;
 }
 
 /**

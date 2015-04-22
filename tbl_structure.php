@@ -171,7 +171,7 @@ require_once 'libraries/Index.class.php';
 // @todo should be: $server->db($db)->table($table)->primary()
 $primary = PMA_Index::getPrimary($table, $db);
 
-$columns_with_unique_index = PMA_getColumnsWithUniqueIndex($db, $table);
+$columns_with_unique_index = PMA_getColumnsWithIndex($db, $table, PMA_Index::UNIQUE);
 
 // 3. Get fields
 $fields = (array) $GLOBALS['dbi']->getColumns($db, $table, null, true);

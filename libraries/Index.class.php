@@ -17,6 +17,12 @@ if (! defined('PHPMYADMIN')) {
  */
 class PMA_Index
 {
+    const PRIMARY  = 1;
+    const UNIQUE   = 2;
+    const INDEX    = 4;
+    const SPATIAL  = 8;
+    const FULLTEXT = 16;
+
     /**
      * Class-wide storage container for indexes (caching, singleton)
      *
@@ -141,7 +147,7 @@ class PMA_Index
      * @param string $table  table
      * @param string $schema schema
      *
-     * @return array  array of indexes
+     * @return PMA_Index[]  array of indexes
      */
     static public function getFromTable($table, $schema)
     {
@@ -152,6 +158,35 @@ class PMA_Index
         } else {
             return array();
         }
+    }
+
+    /**
+     * Returns an array with all indexes from the given table of the requested types
+     *
+     * @param string $table   table
+     * @param string $schema  schema
+     * @param int    $choices choices
+     *
+     * @return PMA_Index[] array of indexes
+     */
+    static public function getFromTableByChoice($table, $schema, $choices = 31)
+    {
+        $indexes = array();
+        foreach (self::getFromTable($table, $schema) as $index) {
+            if (($types & PMA_Index::PRIMARY) && $index->getChoice() == 'PRIMARY') {
+                $indexes[] = $index;
+            }
+            if (($types & PMA_Index::UNIQUE) && $index->getChoice() == 'UNIQUE') {
+                $indexes[] = $index;
+            }
+            if (($types & PMA_Index::SPATIAL) && $index->getChoice() == 'SPATIAL') {
+                $indexes[] = $index;
+            }
+            if (($types & PMA_Index::FULLTEXT) && $index->getChoice() == 'FULLTEXT') {
+                $indexes[] = $index;
+            }
+        }
+        return $indexes;
     }
 
     /**
