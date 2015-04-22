@@ -179,6 +179,9 @@ class PMA_Index
             if (($choices & PMA_Index::UNIQUE) && $index->getChoice() == 'UNIQUE') {
                 $indexes[] = $index;
             }
+            if (($choices & PMA_Index::INDEX) && $index->getChoice() == 'INDEX') {
+                $indexes[] = $index;
+            }
             if (($choices & PMA_Index::SPATIAL) && $index->getChoice() == 'SPATIAL') {
                 $indexes[] = $index;
             }
