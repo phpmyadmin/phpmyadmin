@@ -874,6 +874,7 @@ function PMA_getHtmlForColumns($columns)
     $html .= '<table id="tablestructure" class="data">';
     $html .= '<thead>';
     $html .= '<tr>';
+    $html .= '<th>' . __('#') . '</th>';
     $html .= '<th>' . __('Column') . '</th>';
     $html .= '<th>' . __('Type') . '</th>';
     $html .= '<th>' . __('Collation') . '</th>';
@@ -885,8 +886,9 @@ function PMA_getHtmlForColumns($columns)
     $html .= '</thead>';
     $html .= '<tbody>';
     $style = 'odd';
+    $index = 1;
     foreach ($columns as $field) {
-        $html .= PMA_getHtmlForField($field, $style);
+        $html .= PMA_getHtmlForField($index++, $field, $style);
         if ($style == 'even') {
             $style = 'odd';
         } else {
@@ -903,14 +905,16 @@ function PMA_getHtmlForColumns($columns)
 /**
  * Function to get html for field
  *
+ * @param int    $index index
  * @param array  $field field
  * @param string $style style
  *
  * @return string
  */
-function PMA_getHtmlForField($field, $style)
+function PMA_getHtmlForField($index, $field, $style)
 {
     $html = '<tr class="noclick ' . $style . '">';
+    $html .= '<td>' . $index . '</td>';
     $html .= '<td><b>' . htmlspecialchars($field['Field']);
     if ($field['Key'] == 'PRI') {
         $html .= ' ' . PMA_Util::getImage(
