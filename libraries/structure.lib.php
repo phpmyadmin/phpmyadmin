@@ -2768,10 +2768,10 @@ function PMA_getColumnsWithIndex($db, $table, $types)
     foreach (PMA_Index::getFromTableByChoice($table, $db, $types) as $index) {
         $columns = $index->getColumns();
         foreach ($columns as $column_name => $dummy) {
-            $columns_with_index[] = $column_name;
+            $columns_with_index[$column_name] = 1;
         }
     }
-    return $columns_with_index;
+    return array_keys($columns_with_index);
 }
 
 /**
