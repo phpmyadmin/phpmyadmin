@@ -916,6 +916,10 @@ function PMA_getHtmlForField($field, $style)
         $html .= ' ' . PMA_Util::getImage(
             'b_primary.png', __('Primary')
         );
+    } elseif (! empty($field['Key'])) {
+        $html .= ' ' . PMA_Util::getImage(
+            'bd_primary.png', __('Index')
+        );
     }
     $html .= '</b></td>';
     $html .= "\n";
