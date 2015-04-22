@@ -253,7 +253,7 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
             }
         }
     } else {
-        if ($table == null) {
+        if ($table === null) {
             $table = $_REQUEST['table'];
         }
         foreach ($field_select as $column) {
