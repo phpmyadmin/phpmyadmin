@@ -1,5 +1,5 @@
 <?php
-header("Content-Type: application/json");
+include_once 'libraries/common.inc.php';
 session_id($_COOKIE['phpMyAdmin']);
 if(!isset($_SESSION))
 {
@@ -21,7 +21,9 @@ else
 {
 $percentage = '';
 }
-$arr = array('progress_result'=>$result, 'percentage'=>$percentage);
-echo json_encode($arr);
+$response = PMA_Response::getInstance();
+$response->disable();
+$response->addJSON("progress_result", $result);
+$response->addJSON("percentage", $percentage);
 session_write_close();
 ?>
