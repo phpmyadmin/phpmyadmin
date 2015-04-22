@@ -333,7 +333,7 @@ function PMA_getHeaderCells($is_backup, $columnMeta, $mimework, $db, $table)
     if ($mimework && $GLOBALS['cfg']['BrowseMIME']) {
         $header_cells[] = __('MIME type');
         $header_link = '<a href="transformation_overview.php'
-            . PMA_URL_getCommon(array('db' => $db, 'table' => $table))
+            . PMA_URL_getCommon()
             . '#%s" title="' . __(
                 'List of available transformations and their options'
             )

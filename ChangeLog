@@ -31,6 +31,7 @@ phpMyAdmin - ChangeLog
 - bug #4859 Don't scroll (to bottom) when editing multiple rows
 - bug #4862 Misaligned Inline edit field
 - bug #4861 Use of undefined constant PMA_DRIZZLE
+- bug #4865 sprintf(): Too few arguments
 
 4.4.3.0 (2015-04-20)
 - bug #4851 PHP errors in login dialogue
