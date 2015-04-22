@@ -173,16 +173,16 @@ class PMA_Index
     {
         $indexes = array();
         foreach (self::getFromTable($table, $schema) as $index) {
-            if (($types & PMA_Index::PRIMARY) && $index->getChoice() == 'PRIMARY') {
+            if (($choices & PMA_Index::PRIMARY) && $index->getChoice() == 'PRIMARY') {
                 $indexes[] = $index;
             }
-            if (($types & PMA_Index::UNIQUE) && $index->getChoice() == 'UNIQUE') {
+            if (($choices & PMA_Index::UNIQUE) && $index->getChoice() == 'UNIQUE') {
                 $indexes[] = $index;
             }
-            if (($types & PMA_Index::SPATIAL) && $index->getChoice() == 'SPATIAL') {
+            if (($choices & PMA_Index::SPATIAL) && $index->getChoice() == 'SPATIAL') {
                 $indexes[] = $index;
             }
-            if (($types & PMA_Index::FULLTEXT) && $index->getChoice() == 'FULLTEXT') {
+            if (($choices & PMA_Index::FULLTEXT) && $index->getChoice() == 'FULLTEXT') {
                 $indexes[] = $index;
             }
         }
