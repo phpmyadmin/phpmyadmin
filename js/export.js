@@ -393,6 +393,7 @@ function getProgress()
         type: 'GET',
         url: 'progress_sess.php',
         dataType: "json",
+        data: {token: PMA_commonParams.get('token'), ajax_request: 'true'},
         cache: 'false',
         success: function(data) {
             $("#progress_message").html(data.progress_result);
