@@ -75,7 +75,7 @@ if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
 
 $header_cells = PMA_getHeaderCells(
     $is_backup, isset($fields_meta) ? $fields_meta : null,
-    $cfgRelation['mimework'], $db, $table
+    $cfgRelation['mimework']
 );
 
 //  workaround for field_fulltext, because its submitted indices contain
