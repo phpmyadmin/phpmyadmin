@@ -1023,8 +1023,8 @@ class ExportSql extends ExportPlugin
             $types = array(
                 'bookmark' => 'dbase',
                 'relation' => 'master_db',
-                'table_coords' => 'db_name',
                 'pdf_pages' => 'db_name',
+                'table_coords' => 'db_name',
                 'savedsearches' => 'db_name',
                 'central_columns' => 'db_name',
             );
@@ -1058,8 +1058,21 @@ class ExportSql extends ExportPlugin
         foreach ($types as $type => $dbNameColumn) {
             if (in_array($type, $metadataTypes) && isset($cfgRelation[$type])) {
 
-                $sql_query = "SELECT * FROM "
-                    . PMA_Util::backquote($cfgRelation['db'])
+                // remove auto_incrementing id field for some tables
+                if ($type == 'bookmark') {
+                    $sql_query = "SELECT `dbase`, `user`, `label`, `query` FROM ";
+                } elseif ($type == 'column_info') {
+                    $sql_query = "SELECT `db_name`, `table_name`, `column_name`,"
+                        . " `comment`, `mimetype`, `transformation`,"
+                        . " `transformation_options`, `input_transformation`,"
+                        . " `input_transformation_options` FROM";
+                } elseif ($type == 'savedsearches') {
+                    $sql_query = "SELECT `username`, `db_name`, `search_name`,"
+                        . " `search_data` FROM";
+                } else {
+                    $sql_query = "SELECT * FROM ";
+                }
+                $sql_query .= PMA_Util::backquote($cfgRelation['db'])
                     . '.' . PMA_Util::backquote($cfgRelation[$type])
                     . " WHERE " . PMA_Util::backquote($dbNameColumn)
                     . " = '" . PMA_Util::sqlAddSlashes($db) . "'";
