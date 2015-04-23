@@ -1064,75 +1064,73 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
 ) {
     $html_output = '';
 
-    if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
-        if ($is_myisam_or_aria || $is_innodb) {
-            $params = array(
-                'sql_query' => 'CHECK TABLE '
-                    . PMA_Util::backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-            );
-            $html_output .= PMA_getMaintainActionlink(
-                __('Check table'),
-                $params,
-                $url_params,
-                'CHECK_TABLE'
-            );
-        }
-        if ($is_innodb) {
-            $params = array(
-                'sql_query' => 'ALTER TABLE '
-                . PMA_Util::backquote($GLOBALS['table'])
-                . ' ENGINE = InnoDB;'
-            );
-            $html_output .= PMA_getMaintainActionlink(
-                __('Defragment table'),
-                $params,
-                $url_params,
-                'InnoDB_File_Defragmenting'
-            );
-        }
-        if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
-            $params = array(
-                'sql_query' => 'ANALYZE TABLE '
-                    . PMA_Util::backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-            );
-            $html_output .= PMA_getMaintainActionlink(
-                __('Analyze table'),
-                $params,
-                $url_params,
-                'ANALYZE_TABLE'
-            );
-        }
-        if ($is_myisam_or_aria && !PMA_DRIZZLE) {
-            $params = array(
-                'sql_query' => 'REPAIR TABLE '
-                    . PMA_Util::backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-            );
-            $html_output .= PMA_getMaintainActionlink(
-                __('Repair table'),
-                $params,
-                $url_params,
-                'REPAIR_TABLE'
-            );
-        }
-        if (($is_myisam_or_aria || $is_innodb || $is_berkeleydb)
-            && !PMA_DRIZZLE
-        ) {
-            $params = array(
-                'sql_query' => 'OPTIMIZE TABLE '
-                    . PMA_Util::backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-            );
-            $html_output .= PMA_getMaintainActionlink(
-                __('Optimize table'),
-                $params,
-                $url_params,
-                'OPTIMIZE_TABLE'
-            );
-        }
-    } // end MYISAM or BERKELEYDB case
+    if ($is_myisam_or_aria || $is_innodb) {
+        $params = array(
+            'sql_query' => 'CHECK TABLE '
+                . PMA_Util::backquote($GLOBALS['table']),
+            'table_maintenance' => 'Go',
+        );
+        $html_output .= PMA_getMaintainActionlink(
+            __('Check table'),
+            $params,
+            $url_params,
+            'CHECK_TABLE'
+        );
+    }
+    if ($is_innodb) {
+        $params = array(
+            'sql_query' => 'ALTER TABLE '
+            . PMA_Util::backquote($GLOBALS['table'])
+            . ' ENGINE = InnoDB;'
+        );
+        $html_output .= PMA_getMaintainActionlink(
+            __('Defragment table'),
+            $params,
+            $url_params,
+            'InnoDB_File_Defragmenting'
+        );
+    }
+    if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
+        $params = array(
+            'sql_query' => 'ANALYZE TABLE '
+                . PMA_Util::backquote($GLOBALS['table']),
+            'table_maintenance' => 'Go',
+        );
+        $html_output .= PMA_getMaintainActionlink(
+            __('Analyze table'),
+            $params,
+            $url_params,
+            'ANALYZE_TABLE'
+        );
+    }
+    if ($is_myisam_or_aria && !PMA_DRIZZLE) {
+        $params = array(
+            'sql_query' => 'REPAIR TABLE '
+                . PMA_Util::backquote($GLOBALS['table']),
+            'table_maintenance' => 'Go',
+        );
+        $html_output .= PMA_getMaintainActionlink(
+            __('Repair table'),
+            $params,
+            $url_params,
+            'REPAIR_TABLE'
+        );
+    }
+    if (($is_myisam_or_aria || $is_innodb || $is_berkeleydb)
+        && !PMA_DRIZZLE
+    ) {
+        $params = array(
+            'sql_query' => 'OPTIMIZE TABLE '
+                . PMA_Util::backquote($GLOBALS['table']),
+            'table_maintenance' => 'Go',
+        );
+        $html_output .= PMA_getMaintainActionlink(
+            __('Optimize table'),
+            $params,
+            $url_params,
+            'OPTIMIZE_TABLE'
+        );
+    }
 
     $params = array(
         'sql_query' => 'FLUSH TABLE '
