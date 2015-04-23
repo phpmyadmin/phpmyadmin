@@ -1064,32 +1064,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
 ) {
     $html_output = '';
 
-    if ($is_myisam_or_aria || $is_innodb) {
-        $params = array(
-            'sql_query' => 'CHECK TABLE '
-                . PMA_Util::backquote($GLOBALS['table']),
-            'table_maintenance' => 'Go',
-        );
-        $html_output .= PMA_getMaintainActionlink(
-            __('Check table'),
-            $params,
-            $url_params,
-            'CHECK_TABLE'
-        );
-    }
-    if ($is_innodb) {
-        $params = array(
-            'sql_query' => 'ALTER TABLE '
-            . PMA_Util::backquote($GLOBALS['table'])
-            . ' ENGINE = InnoDB;'
-        );
-        $html_output .= PMA_getMaintainActionlink(
-            __('Defragment table'),
-            $params,
-            $url_params,
-            'InnoDB_File_Defragmenting'
-        );
-    }
+    // analyze table
     if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
         $params = array(
             'sql_query' => 'ANALYZE TABLE '
@@ -1103,19 +1078,70 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
             'ANALYZE_TABLE'
         );
     }
-    if ($is_myisam_or_aria && !PMA_DRIZZLE) {
+
+    // check table
+    if ($is_myisam_or_aria || $is_innodb) {
         $params = array(
-            'sql_query' => 'REPAIR TABLE '
+            'sql_query' => 'CHECK TABLE '
                 . PMA_Util::backquote($GLOBALS['table']),
             'table_maintenance' => 'Go',
         );
         $html_output .= PMA_getMaintainActionlink(
-            __('Repair table'),
+            __('Check table'),
             $params,
             $url_params,
-            'REPAIR_TABLE'
+            'CHECK_TABLE'
         );
     }
+
+    // checksum table
+    if (! PMA_DRIZZLE) {
+        $params = array(
+            'sql_query' => 'CHECKSUM TABLE '
+                . PMA_Util::backquote($GLOBALS['table']),
+            'table_maintenance' => 'Go',
+        );
+        $html_output .= PMA_getMaintainActionlink(
+            __('Checksum table'),
+            $params,
+            $url_params,
+            'CHECKSUM_TABLE'
+        );
+    }
+
+    // defragment table
+    if ($is_innodb) {
+        $params = array(
+            'sql_query' => 'ALTER TABLE '
+            . PMA_Util::backquote($GLOBALS['table'])
+            . ' ENGINE = InnoDB;'
+        );
+        $html_output .= PMA_getMaintainActionlink(
+            __('Defragment table'),
+            $params,
+            $url_params,
+            'InnoDB_File_Defragmenting'
+        );
+    }
+
+    // flush table
+    $params = array(
+        'sql_query' => 'FLUSH TABLE '
+            . PMA_Util::backquote($GLOBALS['table']),
+        'message_to_show' => sprintf(
+            __('Table %s has been flushed.'),
+            htmlspecialchars($GLOBALS['table'])
+        ),
+        'reload' => 1,
+    );
+    $html_output .= PMA_getMaintainActionlink(
+        __('Flush the table (FLUSH)'),
+        $params,
+        $url_params,
+        'FLUSH'
+    );
+
+    // optimize table
     if (($is_myisam_or_aria || $is_innodb || $is_berkeleydb)
         && !PMA_DRIZZLE
     ) {
@@ -1132,38 +1158,20 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
         );
     }
 
-    $params = array(
-        'sql_query' => 'FLUSH TABLE '
-            . PMA_Util::backquote($GLOBALS['table']),
-        'message_to_show' => sprintf(
-            __('Table %s has been flushed.'),
-            htmlspecialchars($GLOBALS['table'])
-        ),
-        'reload' => 1,
-    );
-
-    $html_output .= PMA_getMaintainActionlink(
-        __('Flush the table (FLUSH)'),
-        $params,
-        $url_params,
-        'FLUSH'
-    );
-
-    if (! PMA_DRIZZLE) {
+    // repair table
+    if ($is_myisam_or_aria && !PMA_DRIZZLE) {
         $params = array(
-            'sql_query' => 'CHECKSUM TABLE '
+            'sql_query' => 'REPAIR TABLE '
                 . PMA_Util::backquote($GLOBALS['table']),
             'table_maintenance' => 'Go',
         );
         $html_output .= PMA_getMaintainActionlink(
-            __('Checksum table'),
+            __('Repair table'),
             $params,
             $url_params,
-            'CHECKSUM_TABLE'
+            'REPAIR_TABLE'
         );
     }
-
-
 
     return $html_output;
 }

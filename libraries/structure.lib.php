@@ -330,18 +330,18 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
         $html_output .= '</optgroup>';
 
         $html_output .= '<optgroup label="' . __('Table maintenance') . '">';
+        $html_output .= '<option value="analyze_tbl" >'
+            . __('Analyze table') . '</option>' . "\n";
         $html_output .= '<option value="check_tbl" >'
             . __('Check table') . '</option>' . "\n";
         if (!PMA_DRIZZLE) {
+            $html_output .= '<option value="checksum_tbl" >'
+                . __('Checksum table') . '</option>' . "\n";
             $html_output .= '<option value="optimize_tbl" >'
                 . __('Optimize table') . '</option>' . "\n";
             $html_output .= '<option value="repair_tbl" >'
                 . __('Repair table') . '</option>' . "\n";
         }
-        $html_output .= '<option value="analyze_tbl" >'
-            . __('Analyze table') . '</option>' . "\n";
-        $html_output .= '<option value="checksum_tbl" >'
-            . __('Checksum table') . '</option>' . "\n";
         $html_output .= '</optgroup>';
 
         $html_output .= '<optgroup label="' . __('Prefix') . '">';
