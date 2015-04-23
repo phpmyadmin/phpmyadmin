@@ -1023,8 +1023,8 @@ class ExportSql extends ExportPlugin
             $types = array(
                 'bookmark' => 'dbase',
                 'relation' => 'master_db',
-                'pdf_pages' => 'db_name',
-                'table_coords' => 'db_name',
+                //'pdf_pages' => 'db_name',
+                //'table_coords' => 'db_name',
                 'savedsearches' => 'db_name',
                 'central_columns' => 'db_name',
             );
