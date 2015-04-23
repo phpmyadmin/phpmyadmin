@@ -1032,8 +1032,6 @@ function sess_message($message, $percentage)
 function sess_message_close()
 {
     usleep(150000);
-    $_SESSION['export_progress'] = "";
-    $_SESSION['percentage']="";
     session_write_close();
 }
 ?>
