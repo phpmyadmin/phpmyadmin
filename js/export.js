@@ -409,6 +409,14 @@ function getProgress()
                     || data.progress_result==='Database Export Done') {
                         $("#progress_message").html('Done!');
                         animateProgress('100%');
+                        $.ajax({
+                            type: 'POST',
+                            url: 'progress_sess.php',
+                            data: {token: PMA_commonParams.get('token'), ajax_request: 'true', done_status: 'true'},
+                            cache: 'false',
+                            success: function(data){
+                            }
+                        });
                         delete window.arr;
                     }
                     else {
@@ -418,6 +426,14 @@ function getProgress()
             }
             else if (data.progress_result=='Done!') {
                 animateProgress('100%');
+                $.ajax({
+                    type: 'POST',
+                    url: 'progress_sess.php',
+                    data: {token: PMA_commonParams.get('token'), ajax_request: 'true', done_status: 'true'},
+                    cache: 'false',
+                    success: function(data){
+                    }
+                });
                 delete window.arr;
             }
             else {
