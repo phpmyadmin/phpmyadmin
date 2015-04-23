@@ -25,6 +25,7 @@ phpMyAdmin - ChangeLog
 + rfe #1632 Importing and exporting pMA meta-data
 + rfe #1639 Add grouping to stored procedures in the navigation tree
 + rfe #1655 Support IPv6 browser transformation
++ rfe       Option groups for 'With selected' dropdown in database structure page
 
 4.4.4.0 (not yet released)
 - bug #4863 Edit vs Change

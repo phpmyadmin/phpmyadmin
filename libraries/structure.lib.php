@@ -322,10 +322,14 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
     if (!$db_is_system_schema
         && !$GLOBALS['cfg']['DisableMultiTableMaintenance']
     ) {
+        $html_output .= '<optgroup label="' . __('Delete data or table') . '">';
         $html_output .= '<option value="empty_tbl" >'
             . __('Empty') . '</option>' . "\n";
         $html_output .= '<option value="drop_tbl" >'
             . __('Drop') . '</option>' . "\n";
+        $html_output .= '</optgroup>';
+
+        $html_output .= '<optgroup label="' . __('Table maintenance') . '">';
         $html_output .= '<option value="check_tbl" >'
             . __('Check table') . '</option>' . "\n";
         if (!PMA_DRIZZLE) {
@@ -336,23 +340,31 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
         }
         $html_output .= '<option value="analyze_tbl" >'
             . __('Analyze table') . '</option>' . "\n";
+        $html_output .= '</optgroup>';
+
+        $html_output .= '<optgroup label="' . __('Prefix') . '">';
         $html_output .= '<option value="add_prefix_tbl" >'
             . __('Add prefix to table') . '</option>' . "\n";
         $html_output .= '<option value="replace_prefix_tbl" >'
             . __('Replace table prefix') . '</option>' . "\n";
         $html_output .= '<option value="copy_tbl_change_prefix" >'
             . __('Copy table with prefix') . '</option>' . "\n";
+        $html_output .= '</optgroup>';
     }
+
     if (isset($GLOBALS['cfgRelation']['central_columnswork'])
         && $GLOBALS['cfgRelation']['central_columnswork']
     ) {
+        $html_output .= '<optgroup label="' . __('Central columns') . '">';
         $html_output .= '<option value="sync_unique_columns_central_list" >'
             . __('Add columns to central list') . '</option>' . "\n";
         $html_output .= '<option value="delete_unique_columns_central_list" >'
             . __('Remove columns from central list') . '</option>' . "\n";
         $html_output .= '<option value="make_consistent_with_central_list" >'
             . __('Make consistent with central list') . '</option>' . "\n";
+        $html_output .= '</optgroup>';
     }
+
     $html_output .= '</select>'
         . implode("\n", $hidden_fields) . "\n";
     $html_output .= '</div>';
