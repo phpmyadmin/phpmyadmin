@@ -74,6 +74,7 @@ if (! empty($submit_mult)
             case 'optimize_tbl':
             case 'repair_tbl':
             case 'analyze_tbl':
+            case 'checksum_tbl':
                 $query_type = $submit_mult;
                 unset($submit_mult);
                 $mult_btn   = __('Yes');

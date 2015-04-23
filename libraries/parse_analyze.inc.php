@@ -50,7 +50,7 @@ $is_replace = isset($analyzed_sql[0]['queryflags']['is_replace']);
 // for the presence of INSERT
 $is_insert = isset($analyzed_sql[0]['queryflags']['is_insert']);
 
-// for the presence of CHECK|ANALYZE|REPAIR|OPTIMIZE TABLE
+// for the presence of CHECK|ANALYZE|REPAIR|OPTIMIZE|CHECKSUM TABLE
 $is_maint = isset($analyzed_sql[0]['queryflags']['is_maint']);
 
 // for the presence of SHOW

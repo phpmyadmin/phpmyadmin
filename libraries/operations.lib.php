@@ -1149,6 +1149,22 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
         'FLUSH'
     );
 
+    if (! PMA_DRIZZLE) {
+        $params = array(
+            'sql_query' => 'CHECKSUM TABLE '
+                . PMA_Util::backquote($GLOBALS['table']),
+            'table_maintenance' => 'Go',
+        );
+        $html_output .= PMA_getMaintainActionlink(
+            __('Checksum table'),
+            $params,
+            $url_params,
+            'CHECKSUM_TABLE'
+        );
+    }
+
+
+
     return $html_output;
 }
 

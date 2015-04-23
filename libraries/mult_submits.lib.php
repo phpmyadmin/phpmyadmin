@@ -150,6 +150,12 @@ function PMA_getQueryStrFromSelected(
             $use_sql    = true;
             break;
 
+        case 'checksum_tbl':
+            $sql_query .= (empty($sql_query) ? 'CHECKSUM TABLE ' : ', ')
+                       . PMA_Util::backquote($selected[$i]);
+            $use_sql    = true;
+            break;
+
         case 'repair_tbl':
             $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ')
                        . PMA_Util::backquote($selected[$i]);

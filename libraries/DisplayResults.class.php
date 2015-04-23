@@ -449,7 +449,7 @@ class PMA_DisplayResults
             || $this->__get('is_maint') || $this->__get('is_explain')
         ) {
             // 2.1 Statement is a "SELECT COUNT", a
-            //     "CHECK/ANALYZE/REPAIR/OPTIMIZE", an "EXPLAIN" one or
+            //     "CHECK/ANALYZE/REPAIR/OPTIMIZE/CHECKSUM", an "EXPLAIN" one or
             //     contains a "PROC ANALYSE" part
             $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
             $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link

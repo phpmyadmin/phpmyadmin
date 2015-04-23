@@ -1034,7 +1034,7 @@ function PMA_SQP_analyze($arr)
      * ['queryflags']['is_replace'] = 1;   for the presence of REPLACE
      * ['queryflags']['is_insert'] = 1;    for the presence of INSERT
      * ['queryflags']['is_maint'] = 1;     for the presence of CHECK|ANALYZE
-     *                                     |REPAIR|OPTIMIZE TABLE
+     *                                     |REPAIR|OPTIMIZE|CHECKSUM TABLE
      * ['queryflags']['is_show'] = 1;      for the presence of SHOW
      * ['queryflags']['is_analyse'] = 1;   for the presence of PROCEDURE ANALYSE
      * ['queryflags']['is_export'] = 1;    for the presence of INTO OUTFILE
@@ -1709,9 +1709,9 @@ function PMA_SQP_analyze($arr)
                 ) {
                     $subresult['queryflags']['reload'] = 1;
                 }
-                // for the presence of CHECK|ANALYZE|REPAIR|OPTIMIZE TABLE
+                // for the presence of CHECK|ANALYZE|REPAIR|OPTIMIZE|CHECKSUM TABLE
                 $keywords = array(
-                    'CHECK', 'ANALYZE', 'REPAIR', 'OPTIMIZE'
+                    'CHECK', 'ANALYZE', 'REPAIR', 'OPTIMIZE', 'CHECKSUM'
                 );
                 if (in_array($first_reserved_word, $keywords)
                     && $upper_data == 'TABLE'
