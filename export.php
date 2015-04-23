@@ -33,6 +33,10 @@ if (!defined('TESTSUITE')) {
         }
         exit;
     }
+    /*
+    * Session based message to indicate initialization of parameters
+    */
+    sess_message('Initializing Parameters','2');
     /**
      * Sets globals from $_POST
      *
@@ -266,6 +270,8 @@ if (!defined('TESTSUITE')) {
         PMA_fatalError(__('Bad parameters!'));
     }
 
+    sess_message('Building File','3');
+
     // Merge SQL Query aliases with Export aliases from
     // export page, Export page aliases are given more
     // preference over SQL Query aliases.
@@ -408,31 +414,44 @@ if (!defined('TESTSUITE')) {
             if (! isset($db_select)) {
                 $db_select = '';
             }
+            sess_message('Exporting Server','1');
+            $tbl_size = PMA_getTableSizeForServer($db_select);
             PMA_exportServer(
                 $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
                 $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                $aliases
+                $aliases, $tbl_size
             );
+            sess_message('Server Export Done','1');
+            sess_message('Done!','');
+            sess_message_close();
         } elseif ($export_type == 'database') {
             if (isset($lock_tables)) {
+                $tbl_size = PMA_getTableSizeForDb($tables, $db);
                 PMA_lockTables($db, $tables, "READ");
                 try {
                     PMA_exportDatabase(
                         $db, $tables, $whatStrucOrData, $export_plugin, $crlf,
                         $err_url, $export_type, $do_relation, $do_comments,
-                        $do_mime, $do_dates, $aliases
+                        $do_mime, $do_dates, $aliases, $tbl_size
                     );
                     PMA_unlockTables();
+                    sess_message('Database Export Done', '1');
+                    sess_message('Done!','');
+                    sess_message_close();
                 } catch (Exception $e) { // TODO use finally when PHP version is 5.5
                     PMA_unlockTables();
                     throw $e;
                 }
             } else {
+                $tbl_size = PMA_getTableSizeForDb($tables, $db);
                 PMA_exportDatabase(
                     $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
                     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                    $aliases
+                    $aliases, $tbl_size
                 );
+                sess_message('Database Export Done', '1');
+                sess_message('Done!','');
+                sess_message_close();
             }
         } else {
             // We export just one table
@@ -448,24 +467,32 @@ if (!defined('TESTSUITE')) {
             }
             if (isset($lock_tables)) {
                 try {
+                    sess_message('Exporting Table','1');
+                    $tbl_size[$table]=90;
                     PMA_lockTables($db, array($table), "READ");
                     PMA_exportTable(
                         $db, $table, $whatStrucOrData, $export_plugin, $crlf,
                         $err_url, $export_type, $do_relation, $do_comments,
                         $do_mime, $do_dates, $allrows, $limit_to, $limit_from,
-                        $sql_query, $aliases
+                        $sql_query, $aliases, $tbl_size
                     );
                     PMA_unlockTables();
+                    sess_message('Done!','');
+                    sess_message_close();
                 } catch (Exception $e) { // TODO use finally when PHP version is 5.5
                     PMA_unlockTables();
                     throw $e;
                 }
             } else {
+                sess_message('Exporting Table','1');
+                $tbl_size[$table]=90;
                 PMA_exportTable(
                     $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
                     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                    $allrows, $limit_to, $limit_from, $sql_query, $aliases
+                    $allrows, $limit_to, $limit_from, $sql_query, $aliases, $tbl_size
                 );
+                sess_message('Done!','');
+                sess_message_close();
             }
         }
         if (! $export_plugin->exportFooter()) {

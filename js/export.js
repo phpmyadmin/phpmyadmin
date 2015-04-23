@@ -4,6 +4,49 @@
  *
  */
 
+ /**
+ * Detects Browser
+ */
+ var BrowserDetect = {
+        init: function () {
+            this.browser = this.searchString(this.dataBrowser) || "Other";
+            this.version = this.searchVersion(navigator.userAgent) || this.searchVersion(navigator.appVersion) || "Unknown";
+        },
+        searchString: function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var dataString = data[i].string;
+                this.versionSearchString = data[i].subString;
+
+                if (dataString.indexOf(data[i].subString) !== -1) {
+                    return data[i].identity;
+                }
+            }
+        },
+        searchVersion: function (dataString) {
+            var index = dataString.indexOf(this.versionSearchString);
+            if (index === -1) {
+                return;
+            }
+
+            var rv = dataString.indexOf("rv:");
+            if (this.versionSearchString === "Trident" && rv !== -1) {
+                return parseFloat(dataString.substring(rv + 3));
+            } else {
+                return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
+            }
+        },
+
+        dataBrowser: [
+            {string: navigator.userAgent, subString: "Chrome", identity: "Chrome"},
+            {string: navigator.userAgent, subString: "MSIE", identity: "Explorer"},
+            {string: navigator.userAgent, subString: "Trident", identity: "Explorer"},
+            {string: navigator.userAgent, subString: "Firefox", identity: "Firefox"},
+            {string: navigator.userAgent, subString: "Safari", identity: "Safari"},
+            {string: navigator.userAgent, subString: "Opera", identity: "Opera"}
+        ]
+
+    };
+
 /**
  * Disables the "Dump some row(s)" sub-options
  */
@@ -295,6 +338,128 @@ function aliasSelectHandler(event) {
 }
 
 /**
+ * Animates Progress
+ *
+ * @param width_val percentage to animate
+ *
+ * @return void
+ */
+function animateProgress(width_val)
+{
+    $("#progressbar .ui-progressbar-value").animate(
+    {
+        width: width_val
+    }, {queue: false});
+}
+
+/**
+ *
+ * Checks for dangling repetitive requests
+ *
+ * @param string Response string
+ *
+ * @return flag indicative of the state or not
+ */
+function cancel_check(string)
+{
+    var flag = 1;
+    if(string in window.arr) {
+        window.arr[string]++;
+    }
+    else {
+        window.arr[string] = 1;
+    }
+    for(key in window.arr) {
+        if(window.arr[key]>25) {
+            flag=0;
+            break;
+        }
+        else {
+            flag=1;
+        }
+    }
+    return flag;
+}
+
+/**
+ *
+ * Gets Progress from progress_sess.php
+ *
+ * @return void
+ */
+function getProgress()
+{
+    $.ajax({
+        type: 'GET',
+        url: 'progress_sess.php',
+        dataType: "json",
+        data: {token: PMA_commonParams.get('token'), ajax_request: 'true'},
+        cache: 'false',
+        success: function(data) {
+            $("#progress_message").html(data.progress_result);
+            if(data.progress_result!=="Done!") {
+                if(cancel_check(data.progress_result)) {
+                    var px = parseFloat(data.percentage);
+                    var wid = parseFloat($('#progressbar').width());
+                    wid = wid/100;
+                    px = px*wid;
+                    animateProgress(String(parseFloat($('#progressbar .ui-progressbar-value').width())+px));
+                    if(data.progress_result==='Table Export Done'
+                    || data.progress_result==='Server Export Done'
+                    || data.progress_result==='Database Export Done') {
+                        $("#progress_message").html('Done!');
+                        animateProgress('100%');
+                        delete window.arr;
+                    }
+                    else {
+                        getProgress();
+                    }
+                }
+            }
+            else if (data.progress_result=='Done!') {
+                animateProgress('100%');
+                delete window.arr;
+            }
+            else {
+                delete window.arr;
+            }
+        }
+    });
+}
+
+/**
+ * Handler for Progress dialog box
+ *
+ * @param event object the event object
+ *
+ * Gracefully detects browser and deactivates modal for firefox
+ *
+ * @return void
+ */
+function createProgressModal(event)
+{
+    BrowserDetect.init();
+    if(BrowserDetect.browser==="Chrome")
+    {
+        $( "#progressbar" ).progressbar({
+            value: 0.1
+        });
+        window.arr = new Array();
+        $('#progress_modal').dialog({
+            width: Math.min($(window).width() - 100, 700),
+            maxHeight: $(window).height(),
+            modal: true,
+            dialogClass: "progress-dialog",
+            create: function() {
+                $(this).css('maxHeight', $(window).height() - 100);
+            },
+            position: { my: "center", at: "center", of: window }
+        });
+        getProgress();
+    }
+}
+
+/**
  * Handler for Alias dialog box
  *
  * @param event object the event object
@@ -397,5 +562,12 @@ AJAX.registerOnload('export.js', function () {
         'change',
         {sel: 'table', type: '_cols'},
         aliasSelectHandler
+    );
+
+    //Submit button on click event
+    $('.exportoptions > #buttonGo').on(
+        'click',
+        {},
+        createProgressModal
     );
 });
