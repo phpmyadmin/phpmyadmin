@@ -228,7 +228,7 @@ $htmlString .= '<select>'
 if ($view['operation'] == 'create') {
     $htmlString .= '<tr><td class="nowrap">' . __('VIEW name') . '</td>'
         . '<td><input type="text" size="20" name="view[name]"'
-        . ' onfocus="this.select()"'
+        . ' onfocus="this.select()" maxlength="64"'
         . ' value="' . htmlspecialchars($view['name']) . '" />'
         . '</td></tr>';
 } else {
