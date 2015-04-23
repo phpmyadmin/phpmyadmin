@@ -150,16 +150,16 @@ abstract class ExportPlugin
     /**
      * Exports metadata from Configuration Storage
      *
-     * @param string $db            database being exported
-     * @param string $table         table being exported
-     * @param array  $metadataTypes types of metadata to export
-     * @param array  $targetNames   associative array of db and table names of
-     *                              target configuraton storage
+     * @param string       $db            database being exported
+     * @param string|array $tables        table(s) being exported
+     * @param array        $metadataTypes types of metadata to export
+     * @param array        $targetNames   associative array of db and table names of
+     *                                    target configuraton storage
      *
      * @return bool Whether it succeeded
      */
     public function exportMetadata(
-        $db, $table, $metadataTypes, $targetNames = array()
+        $db, $tables, $metadataTypes, $targetNames = array()
     ) {
         ;
     }

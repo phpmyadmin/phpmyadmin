@@ -550,12 +550,6 @@ function PMA_exportDatabase(
         $export_plugin->exportRoutines($db, $aliases);
     }
 
-    if (isset($GLOBALS['sql_metadata'])) {
-        // Types of metatada to export.
-        // In the future these can be allowed to be selected by the user
-        $metadataTypes = PMA_getMetadataTypesToExport();
-    }
-
     $views = array();
 
     foreach ($tables as $table) {
@@ -640,15 +634,6 @@ function PMA_exportDatabase(
                 break 1;
             }
         }
-
-        // now export metadata related to this table
-        if (isset($GLOBALS['sql_metadata'])) {
-            if (! $export_plugin->exportMetadata(
-                $db, $table, $metadataTypes
-            )) {
-                return;
-            }
-        }
     }
 
     if (isset($GLOBALS['sql_create_view'])) {
@@ -676,8 +661,12 @@ function PMA_exportDatabase(
 
     // export metadata related to this db
     if (isset($GLOBALS['sql_metadata'])) {
+        // Types of metatada to export.
+        // In the future these can be allowed to be selected by the user
+        $metadataTypes = PMA_getMetadataTypesToExport();
+
         if (! $export_plugin->exportMetadata(
-            $db, null, $metadataTypes
+            $db, $tables, $metadataTypes
         )) {
             return;
         }

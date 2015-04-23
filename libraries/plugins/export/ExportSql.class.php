@@ -815,6 +815,22 @@ class ExportSql extends ExportPlugin
         if (! PMA_exportOutputHandler($create_query)) {
             return false;
         }
+
+        return $this->exportUseStatement($db_alias, $compat);
+    }
+
+    /**
+     * Outputs USE statement
+     *
+     * @param string $db     db to use
+     * @param string $compat sql compatibility
+     *
+     * @return bool Whether it succeeded
+     */
+    private function exportUseStatement($db, $compat)
+    {
+        global $crlf;
+
         if ((isset($GLOBALS['sql_compatibility'])
             && $GLOBALS['sql_compatibility'] == 'NONE')
             || PMA_DRIZZLE
@@ -822,12 +838,12 @@ class ExportSql extends ExportPlugin
             $result = PMA_exportOutputHandler(
                 'USE '
                 . PMA_Util::backquoteCompat(
-                    $db_alias, $compat, isset($GLOBALS['sql_backquotes'])
+                    $db, $compat, isset($GLOBALS['sql_backquotes'])
                 )
                 . ';' . $crlf
             );
         } else {
-            $result = PMA_exportOutputHandler('USE ' . $db_alias . ';' . $crlf);
+            $result = PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
         }
         return $result;
     }
@@ -937,6 +953,53 @@ class ExportSql extends ExportPlugin
     /**
      * Exports metadata from Configuration Storage
      *
+     * @param string       $db            database being exported
+     * @param string|array $tables        table(s) being exported
+     * @param array        $metadataTypes types of metadata to export
+     * @param array        $targetNames   associative array of db and table names of
+     *                                    target configuraton storage
+     *
+     * @return bool Whether it succeeded
+     */
+    public function exportMetadata(
+        $db, $tables, $metadataTypes, $targetNames = array()
+    ) {
+        $cfgRelation = PMA_getRelationsParam();
+        if (! isset($cfgRelation['db'])) {
+            return true;
+        }
+
+        $comment = $this->_possibleCRLF()
+            . $this->_possibleCRLF()
+            . $this->_exportComment()
+            . $this->_exportComment(__('Metadata'))
+            . $this->_exportComment();
+        if (! PMA_exportOutputHandler($comment)) {
+            return false;
+        }
+
+        if (! $this->exportUseStatement(
+            $cfgRelation['db'], $GLOBALS['sql_compatibility']
+        )) {
+            return false;
+        }
+
+        if (is_array($tables)) {
+            // export metadata for each table
+            foreach ($tables as $table) {
+                $this->_exportMetadata($db, $table, $metadataTypes);
+            }
+            // export metadata for the database
+            $this->_exportMetadata($db, null, $metadataTypes);
+        } else {
+            // export metadata for single table
+            $this->_exportMetadata($db, $tables, $metadataTypes);
+        }
+    }
+
+    /**
+     * Exports metadata from Configuration Storage
+     *
      * @param string $db            database being exported
      * @param string $table         table being exported
      * @param array  $metadataTypes types of metadata to export
@@ -945,13 +1008,10 @@ class ExportSql extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportMetadata(
+    private function _exportMetadata(
         $db, $table, $metadataTypes, $targetNames = array()
     ) {
         $cfgRelation = PMA_getRelationsParam();
-        if (! isset($cfgRelation['db'])) {
-            return true;
-        }
 
         if (isset($table)) {
             $types = array(
