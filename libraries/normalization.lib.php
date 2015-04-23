@@ -79,8 +79,7 @@ function PMA_getHtmlForCreateNewColumn(
     $available_mime = array();
     $mime_map = array();
     $header_cells = PMA_getHeaderCells(
-        true, null,
-        $cfgRelation['mimework'], $db, $table
+        true, null, $cfgRelation['mimework']
     );
     if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
         $mime_map = PMA_getMIME($db, $table);

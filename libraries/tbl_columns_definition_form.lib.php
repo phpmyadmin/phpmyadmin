@@ -284,12 +284,10 @@ function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cel
  * @param bool       $is_backup  whether backup or not
  * @param array|null $columnMeta column meta data
  * @param bool       $mimework   whether mimework or not
- * @param string     $db         current database
- * @param string     $table      current table
  *
  * @return array
  */
-function PMA_getHeaderCells($is_backup, $columnMeta, $mimework, $db, $table)
+function PMA_getHeaderCells($is_backup, $columnMeta, $mimework)
 {
     $header_cells = array();
     $header_cells[] = __('Name');
