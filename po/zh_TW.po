@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2014-10-03 21:14+0200\n"
-"Last-Translator: Peter Dave Hello <xs910203@gmail.com>\n"
-"Language-Team: Traditional Chinese <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"PO-Revision-Date: 2015-04-23 12:44+0200\n"
+"Last-Translator: Albert Song <albb0920@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -333,23 +333,21 @@ msgid "Access denied!"
 msgstr "拒絕存取！"
 
 #: db_tracking.php:39 db_tracking.php:64
-#, fuzzy
 #| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "追蹤資料定義已刪除"
+msgstr "追蹤資料已刪除。"
 
 #: db_tracking.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "已建立版本 %1$s，%2$s 的追蹤已啓用。"
+msgstr "已建立版本 %1$s，已對選取的資料表啟用追蹤。"
 
 #: db_tracking.php:79
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "尚未選擇任何資料庫。"
+msgstr "尚未選擇任何資料表。"
 
 #: db_tracking.php:114
 msgid "Tracked tables"
@@ -14433,16 +14431,14 @@ msgid "Tracking of %s is activated."
 msgstr "%s 的追蹤已啓用。"
 
 #: tbl_tracking.php:102
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "已成功刪除選中的使用者。"
+msgstr "已成功選取的追蹤版本。"
 
 #: tbl_tracking.php:107
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "尚未選擇任何資料列"
+msgstr "尚未選擇任何版本。"
 
 #: tbl_tracking.php:138
 msgid "SQL statements executed."
