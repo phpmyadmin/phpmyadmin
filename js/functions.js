@@ -3536,7 +3536,11 @@ function showIndexEditDialog($outer)
     $('#index_columns td').each(function () {
         $(this).css("width", $(this).width() + 'px');
     });
-    $('#index_columns tbody').sortable();
+    $('#index_columns tbody').sortable({
+        axis: 'y',
+        containment: $("#index_columns tbody"),
+        tolerance: 'pointer'
+    });
     PMA_showHints($outer);
     PMA_init_slider();
     // Add a slider for selecting how many columns to add to the index
