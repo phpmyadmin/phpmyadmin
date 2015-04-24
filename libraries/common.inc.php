@@ -1096,6 +1096,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // the checkbox was unchecked
         unset($_SESSION['profiling']);
     }
+
+    // load user preferences
+    $GLOBALS['PMA_Config']->loadUserPreferences();
+
     /**
      * Inclusion of profiling scripts is needed on various
      * pages like sql, tbl_sql, db_sql, tbl_select
@@ -1125,10 +1129,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         );
         exit;
     }
-} // end if !defined('PMA_MINIMUM_COMMON')
-
-// load user preferences
-$GLOBALS['PMA_Config']->loadUserPreferences();
+} else { // end if !defined('PMA_MINIMUM_COMMON')
+    // load user preferences
+    $GLOBALS['PMA_Config']->loadUserPreferences();
+}
 
 // remove sensitive values from session
 $GLOBALS['PMA_Config']->set('blowfish_secret', '');
