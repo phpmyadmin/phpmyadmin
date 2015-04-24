@@ -325,7 +325,7 @@ function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
 
     $html .= '<a href="#" class="M_butt" id="display_field_button" target="_self">';
     $html .= '<img class="' . $iconClass . '" title="'
-        . __('Choose column to display') . '" alt="" ';
+        . __('Choose column to display') . '" alt="" '
         . 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/display_field.png')
         . '" />';
     $html .= '<span class="' . $textClass . '">'
@@ -333,21 +333,21 @@ function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
     $html .= '</a>';
 
     $html .= '<a href="#" id="reloadPage" class="M_butt" target="_self">';
-    $html .= '<img class="' . $iconClass . '" title="' . __('Reload') . '" alt="" ';
+    $html .= '<img class="' . $iconClass . '" title="' . __('Reload') . '" alt="" '
         . 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/reload.png') . '" />';
     $html .= '<span class="' . $textClass . '">' . __('Reload') . '</span>';
     $html .= '</a>';
 
-    $html .= '<a href="' . PMA_Util::getDocuLink('faq', 'faq6-31') . '" ';
+    $html .= '<a href="' . PMA_Util::getDocuLink('faq', 'faq6-31') . '" '
         . 'target="documentation" class="M_butt" target="_self">';
-    $html .= '<img class="' . $iconClass . '" title="' . __('Help') . '" alt="" ';
+    $html .= '<img class="' . $iconClass . '" title="' . __('Help') . '" alt="" '
         . 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/help.png') . '" />';
     $html .= '<span class="' . $textClass . '">' . __('Help') . '</span>';
     $html .= '</a>';
 
     $html .= '<a href="#" class="M_butt" id="angular_direct_button" target="_self">';
     $html .= '<img class="' . $iconClass . '" title="'
-        . __('Angular links') . ' / ' . __('Direct links') . '" alt="" ';
+        . __('Angular links') . ' / ' . __('Direct links') . '" alt="" '
         . 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/ang_direct.png')
         . '" />';
     $html .= '<span class="' . $textClass . '">'
@@ -394,10 +394,10 @@ function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
 
     } else {
         $html .= '<a class="M_butt" href="#" '
-            . 'onclick="build_query(\'SQL Query on Database\', 0)" ';
+            . 'onclick="build_query(\'SQL Query on Database\', 0)" '
             . 'onmousedown="return false;" class="M_butt" target="_self">';
         $html .= '<img class="' . $iconClass . '" title="' . __('Build Query')
-            . '" alt="key" width="20" height="20" src="';
+            . '" alt="key" width="20" height="20" src="'
             . $_SESSION['PMA_Theme']->getImgPath('pmd/query_builder.png') . '" />';
         $html .= '<span class="' . $textClass . '">' . __('Build Query') . '</span>';
         $html .= '</a>';
@@ -406,15 +406,15 @@ function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
     $html .= '<a href="#" class="M_butt" target="_self" id="key_Left_Right">';
     $html .= '<img class="' . $iconClass . '" title="' . __('Move Menu')
          . '" alt=">" data-right="'
-         . $_SESSION['PMA_Theme']->getImgPath('pmd/2leftarrow_m.png');
+         . $_SESSION['PMA_Theme']->getImgPath('pmd/2leftarrow_m.png')
          . '" src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/2rightarrow_m.png')
          . '" />';
     $html .= '<span class="' . $textClass . '">' . __('Move Menu') . '</span>';
     $html .= '</a>';
 
     $html .= '<a href="#" class="M_butt" target="_self" id="pin_Text">';
-    $html .= '<img class="' . $iconClass . '" title="' . __('Pin text') . '" alt=">"';
-         . ' data-right="' . $_SESSION['PMA_Theme']->getImgPath('pmd/anchor.png');
+    $html .= '<img class="' . $iconClass . '" title="' . __('Pin text') . '" alt=">"'
+         . ' data-right="' . $_SESSION['PMA_Theme']->getImgPath('pmd/anchor.png')
          . '" src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/anchor.png') . '" />';
     $html .= '<span class="' . $textClass . '">' . __('Pin text') . '</span>';
     $html .= '</a>';
