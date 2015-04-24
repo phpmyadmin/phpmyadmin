@@ -252,84 +252,84 @@ function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
     $html .= '<div class="pmd_header side-menu" id="side_menu">';
 
     $html .= '<a class="M_butt" id="key_Show_left_menu" href="#" target="_self">';
-    $html .= '<img class="' . $iconClass . '" title="' . __('Show/Hide tables list') . '" alt="v" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2_m.png')
-        . '" />';
-    $html .= '<span class="' . $textClass . '">' . __('Show/Hide tables list') . '</span>';
+    $html .= '<img class="' . $iconClass . '" title="' . __('Show/Hide tables list')
+        . '" alt="v" src="'
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2_m.png') . '" />';
+    $html .= '<span class="' . $textClass . '">' . __('Show/Hide tables list')
+        . '</span>';
     $html .= '</a>';
 
     $html .= '<a href="#" id="toggleFullscreen" class="M_butt" target="_self">';
-    $html .= '<img class="' . $iconClass . '" title="' . __('View in fullscreen') . '" alt="" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/viewInFullscreen.png')
-        . '" />';
+    $html .= '<img class="' . $iconClass . '" title="' . __('View in fullscreen')
+        . '" alt="" src="'
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/viewInFullscreen.png') . '" />';
     $html .= '<span class="' . $textClass . '" data-exit="' . __('Exit fullscreen');
-    $html .= '" data-enter="' . __('View in fullscreen') . '">' . __('View in fullscreen') . '</span>';
+    $html .= '" data-enter="' . __('View in fullscreen') . '">'
+        . __('View in fullscreen') . '</span>';
     $html .= '</a>';
 
     if (! $visualBuilder) {
 
-        $html .= '<a id="newPage" href="#" ';
-        $html .= 'class="M_butt" target="_self">';
-        $html .= '<img class="' . $iconClass . '" title="' . __('New page') . '"alt="" ';
-        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/page_add.png')
-            . '" />';
+        $html .= '<a id="newPage" href="#" class="M_butt" target="_self">';
+        $html .= '<img class="' . $iconClass . '" title="' . __('New page')
+            . '"alt="" src="'
+            . $_SESSION['PMA_Theme']->getImgPath('pmd/page_add.png') . '" />';
         $html .= '<span class="' . $textClass . '">' . __('New page') . '</span>';
         $html .= '</a>';
 
-        $html .= '<a href="#" id="editPage" ';
-        $html .= 'class="M_butt ajax" target="_self">';
-        $html .= '<img class="' . $iconClass . '" title="' . __('Open page') . '" alt="" ';
-        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/page_edit.png')
-            . '" />';
+        $html .= '<a href="#" id="editPage" class="M_butt ajax" target="_self">';
+        $html .= '<img class="' . $iconClass . '" title="' . __('Open page')
+            . '" alt="" src="'
+            . $_SESSION['PMA_Theme']->getImgPath('pmd/page_edit.png') . '" />';
         $html .= '<span class="' . $textClass . '">' . __('Open page') . '</span>';
         $html .= '</a>';
 
-        $html .= '<a href="#" id="savePos" ';
-        $html .= 'class="M_butt" target="_self">';
-        $html .= '<img class="' . $iconClass . '" title="' . __('Save page') . '" alt="" ';
-        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/save.png')
-            . '" />';
+        $html .= '<a href="#" id="savePos" class="M_butt" target="_self">';
+        $html .= '<img class="' . $iconClass . '" title="' . __('Save page')
+            . '" alt="" src="'
+            . $_SESSION['PMA_Theme']->getImgPath('pmd/save.png') . '" />';
         $html .= '<span class="' . $textClass . '">' . __('Save page') . '</span>';
         $html .= '</a>';
 
-        $html .= '<a href="#" id="SaveAs" ';
-        $html .= 'class="M_butt ajax" target="_self">';
-        $html .= '<img class="' . $iconClass . '" title="' . __('Save page as') . '" alt="" ';
-        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/save_as.png')
-            . '" />';
-        $html .= '<span class="' . $textClass . '">' . __('Save page as') . '</span>';
+        $html .= '<a href="#" id="SaveAs" class="M_butt ajax" target="_self">';
+        $html .= '<img class="' . $iconClass . '" title="' . __('Save page as')
+            . '" alt="" src="'
+            . $_SESSION['PMA_Theme']->getImgPath('pmd/save_as.png') . '" />';
+        $html .= '<span class="' . $textClass . '">' . __('Save page as')
+            . '</span>';
         $html .= '</a>';
 
-        $html .= '<a href="#" id="delPages" ';
-        $html .= 'class="M_butt ajax" target="_self">';
-        $html .= '<img class="' . $iconClass . '" title="' . __('Delete pages') . '" alt="" ';
-        $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/page_delete.png')
-            . '" />';
-        $html .= '<span class="' . $textClass . '">' . __('Delete pages') . '</span>';
+        $html .= '<a href="#" id="delPages" class="M_butt ajax" target="_self">';
+        $html .= '<img class="' . $iconClass . '" title="' . __('Delete pages')
+            . '" alt="" src="'
+            . $_SESSION['PMA_Theme']->getImgPath('pmd/page_delete.png') . '" />';
+        $html .= '<span class="' . $textClass . '">' . __('Delete pages')
+            . '</span>';
         $html .= '</a>';
     }
 
-    $html .= '<a href="#" id="StartTableNew" ';
-    $html .= 'class="M_butt" target="_self">';
-    $html .= '<img class="' . $iconClass . '" title="' . __('Create table') . '" alt="" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/table.png') . '" />';
+    $html .= '<a href="#" id="StartTableNew" class="M_butt" target="_self">';
+    $html .= '<img class="' . $iconClass . '" title="' . __('Create table')
+        . '" alt="" src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/table.png')
+        . '" />';
     $html .= '<span class="' . $textClass . '">' . __('Create table') . '</span>';
     $html .= '</a>';
 
-    $html .= '<a href="#" class="M_butt" ';
-    $html .= 'id="rel_button" target="_self">';
-    $html .= '<img class="' . $iconClass . '" title="' . __('Create relation') . '" alt="" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/relation.png')
+    $html .= '<a href="#" class="M_butt" id="rel_button" target="_self">';
+    $html .= '<img class="' . $iconClass . '" title="' . __('Create relation')
+        . '" alt="" src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/relation.png')
         . '" />';
-    $html .= '<span class="' . $textClass . '">' . __('Create relation') . '</span>';
+    $html .= '<span class="' . $textClass . '">' . __('Create relation')
+        . '</span>';
     $html .= '</a>';
 
-    $html .= '<a href="#" ';
-    $html .= 'class="M_butt" id="display_field_button" target="_self">';
-    $html .= '<img class="' . $iconClass . '" title="' . __('Choose column to display') . '" alt="" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/display_field.png')
+    $html .= '<a href="#" class="M_butt" id="display_field_button" target="_self">';
+    $html .= '<img class="' . $iconClass . '" title="'
+        . __('Choose column to display') . '" alt="" ';
+        . 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/display_field.png')
         . '" />';
-    $html .= '<span class="' . $textClass . '">' . __('Choose column to display') . '</span>';
+    $html .= '<span class="' . $textClass . '">'
+        . __('Choose column to display') . '</span>';
     $html .= '</a>';
 
     $html .= '<a href="#" id="reloadPage" class="M_butt" ';
