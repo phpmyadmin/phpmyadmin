@@ -35,4 +35,3 @@ foreach ($GLOBALS['goto_whitelist'] as $one_whitelist) {
     $i++;
     echo 'PMA_gotoWhitelist[' . $i . ']="' . $one_whitelist . '";' . "\n";
 }
-?>

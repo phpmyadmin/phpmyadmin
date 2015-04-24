@@ -59,4 +59,3 @@ if (! empty($_GET['scripts']) && is_array($_GET['scripts'])) {
 if (isset($_GET['call_done'])) {
     echo "AJAX.scriptHandler.done();";
 }
-?>
