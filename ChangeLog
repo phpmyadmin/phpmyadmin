@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #4861 Use of undefined constant PMA_DRIZZLE
 - bug #4865 sprintf(): Too few arguments
 - bug #4866 Limit column ordering in index edit dialog
+- bug #4870 Inconsistency in 'Ignore' checkbox in insert page
 
 4.4.3.0 (2015-04-20)
 - bug #4851 PHP errors in login dialogue
