@@ -272,4 +272,3 @@ function PMA_Bookmark_applyVariables($query)
     }
     return $query;
 }
-?>

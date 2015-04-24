@@ -522,5 +522,3 @@ function ADVISOR_formatByteDown($value, $limes = 6, $comma = 0)
 {
     return implode(' ', PMA_Util::formatByteDown($value, $limes, $comma));
 }
-
-?>
