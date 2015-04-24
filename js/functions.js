@@ -2712,30 +2712,29 @@ AJAX.registerOnload('functions.js', function () {
      */
     $(document).on('click', "form.create_table_form.ajax input[name=submit_num_fields]", function (event) {
         event.preventDefault();
-        /**
-         * @var    the_form    object referring to the create table form
-         */
-        var $form = $(this).closest('form');
+        var $table = $('#table_columns');
 
-        if (!checkFormElementInRange(this.form, 'added_fields', PMA_messages.strLeastColumnError, 1)) {
-            return;
+        var $row = $table.find('tr.odd:first');
+        var $clone = $row.clone();
+        $clone.find('input[type="text"]').val('');
+        $clone.find('input[type="checkbox"]').prop('checked', false);
+        $clone.find('input[type="checkbox"]').prop('checked', false);
+        $clone.find('select').children().first().attr('selected', 'selected');
+        $clone.find('.default_value').hide();
+        $clone.find('select[name^="field_key"]').data('index', null);
+
+        var name = $table.find('tr:last td:first input').attr('name');
+        var nextIndex = parseInt(name.match(/\d+/), 10) + 1;
+        var columnsToAdd = parseInt($('#added_fields').val(), 10);
+        var odd = $table.find('tr:last').hasClass('odd');
+        for (var i = 0; i < columnsToAdd; i++) {
+        	var html = $clone.clone().html();
+        	html = html.replace(/\[0\]/g, '[' + (nextIndex + i) + ']').replace(/_0_/g, '_' + (nextIndex + i) + '_');
+
+        	odd = !odd;
+        	var $tr = $('<tr class="' + (odd ? 'odd' : 'even') + '" />').append($(html));
+        	$table.find('tbody').append($tr);
         }
-
-        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-        PMA_prepareForAjaxRequest($form);
-
-        //User wants to add more fields to the table
-        $.post($form.attr('action'), $form.serialize() + "&submit_num_fields=1", function (data) {
-            if (typeof data !== 'undefined' && data.success) {
-                $("#page_content").html(data.message);
-                PMA_highlightSQL($('#page_content'));
-                PMA_verifyColumnsProperties();
-                PMA_hideShowConnection($('.create_table_form select[name=tbl_storage_engine]'));
-                PMA_ajaxRemoveMessage($msgbox);
-            } else {
-                PMA_ajaxShowMessage(data.error);
-            }
-        }); //end $.post()
     }); // end create table form (add fields)
 
     $(document).on('keydown', "form.create_table_form.ajax input[name=added_fields]", function (event) {
@@ -2748,7 +2747,7 @@ AJAX.registerOnload('functions.js', function () {
                 .click();
         }
     });
-    $("input[value=AUTO_INCREMENT]").change(function(){
+    $(document).on('change', "input[value=AUTO_INCREMENT]", function() {
         if (this.checked) {
             var col = /\d/.exec($(this).attr('name'));
             col = col[0];
