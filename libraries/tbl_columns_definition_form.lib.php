@@ -185,8 +185,8 @@ function PMA_getHtmlForTableNameAndNoOfColumns()
         . '</td>'
         . '<td>';
     $html .= sprintf(
-        __('Add %s column(s)'), '<input type="text" id="added_fields" '
-        . 'name="added_fields" size="2" value="1" onfocus="this.select'
+        __('Add %s column(s)'), '<input type="number" id="added_fields" '
+        . 'name="added_fields" size="2" value="1" min="1" onfocus="this.select'
         . '()" />'
     );
 

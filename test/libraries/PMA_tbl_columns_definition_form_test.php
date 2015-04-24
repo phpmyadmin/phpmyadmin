@@ -231,8 +231,8 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<input type="text" id="added_fields" name="added_fields" '
-                . 'size="2" value="1" onfocus="this.select()"'
+                '<input type="number" id="added_fields" name="added_fields" '
+                . 'size="2" value="1" min="1" onfocus="this.select()"'
             ),
             $result
         );
