@@ -2495,10 +2495,7 @@ function PMA_SQLPrettyPrint(string)
 
 jQuery.fn.PMA_confirm = function (question, url, callbackFn) {
     var confirmState = PMA_commonParams.get('confirm');
-    // when the Confirm directive is set to false in config.inc.php
-    // and not changed in user prefs, confirmState is ""
-    // when it's unticked in user prefs, confirmState is 1
-    if (confirmState === "" || confirmState === "1") {
+    if (! confirmState) {
         // user does not want to confirm
         if ($.isFunction(callbackFn)) {
             callbackFn.call(this, url);

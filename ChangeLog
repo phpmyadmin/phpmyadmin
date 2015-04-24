@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - bug #4866 Limit column ordering in index edit dialog
 - bug #4867 Incorrect ALTER TABLE statement generated
 - bug #4870 Inconsistency in 'Ignore' checkbox in insert page
+- bug #4869 Drop column action not asking to confirm
 
 4.4.3.0 (2015-04-20)
 - bug #4851 PHP errors in login dialogue
