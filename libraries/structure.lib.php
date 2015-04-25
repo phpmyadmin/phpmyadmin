@@ -1890,6 +1890,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
     }
     if (!$is_innodb
         && isset($showtable['Data_length'])
+        && isset($showtable['Rows'])
         && $showtable['Rows'] > 0
         && $mergetable == false
     ) {
