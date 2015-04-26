@@ -306,6 +306,7 @@ var AJAX = {
         }
         if (typeof data.success != 'undefined' && data.success) {
             $table_clone = false;
+            $('html, body').animate({scrollTop: 0}, 'fast');
             PMA_ajaxRemoveMessage(AJAX.$msgbox);
 
             if (data._redirect) {

@@ -190,6 +190,8 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     }
                     $after_field_item.remove();
                     $curr_row.hide("medium").remove();
+                    //by default select the last option to add new column (in case last column is dropped)
+                    $("select[name=after_field] option:last").attr("selected","selected");
                     //refresh table stats
                     if (data.tableStat) {
                         $('#tablestatistics').html(data.tableStat);

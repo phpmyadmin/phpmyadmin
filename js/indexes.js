@@ -354,7 +354,11 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
                     $('#index_columns td').each(function () {
                         $(this).css("width", $(this).width() + 'px');
                     });
-                    $('#index_columns tbody').sortable();
+                    $('#index_columns tbody').sortable({
+                        axis: 'y',
+                        containment: $("#index_columns tbody"),
+                        tolerance: 'pointer'
+                    });
                     // We dont need the slider at this moment.
                     $(this).find('fieldset.tblFooters').remove();
                 },

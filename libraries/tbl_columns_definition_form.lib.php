@@ -238,6 +238,30 @@ function PMA_getHtmlForTableFieldDefinitions($header_cells, $content_cells)
 }
 
 /**
+ * Function to get html for the hidden fields containing index creation info 
+ *
+ * @param string $index_type the index type
+ *
+ * @return string
+ */
+function PMA_getHtmlForHiddenIndexInfo($index_type)
+{
+    $html = '<input type="hidden" name="' . $index_type . '" value="';
+    if (! empty($_REQUEST[$index_type])) {
+        // happens when an index has been set on a column, 
+        // and a column is added to the table creation dialog
+        //
+        // this contains a JSON-encoded string
+        $html .= htmlspecialchars($_REQUEST[$index_type]);
+    } else {
+        $html .= '[]';
+    }
+    $html .= '">';
+
+    return $html;
+}    
+
+/**
  * Function to get html for the create table or field add view
  *
  * @param string $action        action
@@ -254,10 +278,11 @@ function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cel
         . ($action == 'tbl_create.php' ? 'create_table' : 'append_fields')
         . '_form ajax lock-page">';
     $html .= PMA_URL_getHiddenInputs($form_params);
-    $html .= '<input type="hidden" name="primary_indexes" value="[]">';
-    $html .= '<input type="hidden" name="unique_indexes" value="[]">';
-    $html .= '<input type="hidden" name="indexes" value="[]">';
-    $html .= '<input type="hidden" name="fulltext_indexes" value="[]">';
+
+    $html .= PMA_getHtmlForHiddenIndexInfo('primary_indexes');
+    $html .= PMA_getHtmlForHiddenIndexInfo('unique_indexes');
+    $html .= PMA_getHtmlForHiddenIndexInfo('indexes');
+    $html .= PMA_getHtmlForHiddenIndexInfo('fulltext_indexes');
 
     if ($action == 'tbl_create.php') {
         $html .= PMA_getHtmlForTableNameAndNoOfColumns();
@@ -331,7 +356,7 @@ function PMA_getHeaderCells($is_backup, $columnMeta, $mimework, $db, $table)
     if ($mimework && $GLOBALS['cfg']['BrowseMIME']) {
         $header_cells[] = __('MIME type');
         $header_link = '<a href="transformation_overview.php'
-            . PMA_URL_getCommon(array('db' => $db, 'table' => $table))
+            . PMA_URL_getCommon()
             . '#%s" title="' . __(
                 'List of available transformations and their options'
             )
