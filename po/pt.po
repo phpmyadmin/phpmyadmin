@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2014-11-20 14:21+0200\n"
-"Last-Translator: Sandro Amaral <sandro123iv@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/pt/>\n"
+"PO-Revision-Date: 2015-04-22 13:28+0200\n"
+"Last-Translator: João Rodrigues <geral@jonilive.com>\n"
+"Language-Team: Portuguese "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.1-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -341,10 +341,9 @@ msgid ""
 msgstr ""
 
 #: db_tracking.php:79
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Nenhuma base de dados selecionada."
+msgstr "Nenhuma tabela selecionada."
 
 #: db_tracking.php:114
 msgid "Tracked tables"

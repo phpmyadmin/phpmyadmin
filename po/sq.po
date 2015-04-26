@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-01-07 01:02+0200\n"
+"PO-Revision-Date: 2015-04-20 11:31+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
-"Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sq/>\n"
+"Language-Team: Albanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/sq/>\n"
+"Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sq\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -388,10 +388,9 @@ msgid "Show"
 msgstr "Shfaq"
 
 #: db_tracking.php:139 db_tracking.php:231
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "Duke fshirë të dhënat e monitorimit"
+msgstr "Fshij gjurmimin"
 
 #: db_tracking.php:140
 msgid "Versions"
@@ -685,7 +684,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importi ka përfunduar me sukses, %d pyetsorë u ekzekutuan."
 
 #: import.php:665
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -693,8 +692,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Skripti jashtë kohe kaloi, nëse doni të përfundoni importin, ju lutem ri-"
-"dërgo të njëjtin fil dhe importi do të rifillojë."
+"Koha e skadimit të skriptit kaloi, nëse doni të përfundoni importin, ju "
+"lutem %sri-dërgo të njëjtin fil%s dhe importimi do të rifillojë."
 
 #: import.php:675
 msgid ""
@@ -791,10 +790,9 @@ msgid "PHP extension:"
 msgstr "Zgjerimi PHP:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
-msgstr "PHP Versioni:"
+msgstr "Versioni PHP:"
 
 #: index.php:356
 msgid "Show PHP information"
@@ -833,7 +831,6 @@ msgid "List of changes"
 msgstr "Lista e ndryshimeve"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -845,11 +842,11 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"Fili i konfigurimit përmban rregullimet (rrënjë - root - pa fjalëkalim), që "
-"korrespondon me llogarinë e parazgjedhur të privilegjeve MySQL. MySQL server "
-"i juaj është në funksion me këtë parazgjedhje, është i hapur për ndërhyrje, "
-"dhe ju duhet me të vërtetë ta rregulloni këtë vrimë sigurie, duke vënë një "
-"fjalëkalim për përdoruesin 'root'."
+"Jeni lidhur si 'root' (rrënjë) pa fjalëkalim, gjë që korrespondon me "
+"llogarinë standarde të privilegjuar MySQL. Serveri juaj MySQL që funksionon "
+"me këtë standard, është i hapur për ndërhyrje, dhe ju duhet me të vërtetë ta "
+"rregulloni këtë vrimë të sigurisë duke vendosur një fjalëkalim për "
+"përdoruesin \"root\"."
 
 #: index.php:464
 msgid ""
@@ -873,7 +870,6 @@ msgstr ""
 "rezultate të papritura."
 
 #: index.php:495
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -885,10 +881,12 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Parametri juaj PHP [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] është më i vogël se "
+"Parametri juaj PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] është më i vogël se "
 "vlefshmëria e gatimit (cookie) të konfiguruar në phpMyAdmin, për shkak të "
-"kësaj, hyrja juaj do të përfundojë më shpejt se e konfiguruara në phpMyAdmin."
+"kësaj, hyrja juaj mund të përfundojë më shpejt se është konfiguruar në "
+"phpMyAdmin."
 
 #: index.php:508
 msgid ""
@@ -978,34 +976,29 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Jeni duke TRUNCATE (cunguar) një tabelë të plotë!"
 
 #: js/messages.php:40
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Fshij të dhënat e monitorimit për këtë tabelë"
+msgstr "Fshij të dhënat e gjurmimit për këtë tabelë?"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Fshij të dhënat e monitorimit për këtë tabelë"
+msgstr "Fshij të dhënat e gjurmimit për këto tabela?"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Fshij të dhënat e monitorimit për këtë tabelë"
+msgstr "Fshij të dhënat e gjurmimit për këtë version?"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Fshij të dhënat e monitorimit për këtë tabelë"
+msgstr "Fshij të dhënat e gjurmimit për këto versione?"
 
 #: js/messages.php:44
-#, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Fshij gjurmimin e të dhënave për këtë raport"
+msgstr "Fshij hyrjet nga raporti i gjurmimit?"
 
 #: js/messages.php:45
 msgid "Deleting tracking data"
@@ -1044,10 +1037,9 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Doni me të vërtetë të revokoni përdoruesin(it) e zgjedhur?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Doni me të vërtetë të fshini këtë faqeruajtës?"
+msgstr "Doni me të vërtetë ta fshini këtë kolonë qendrore?"
 
 #: js/messages.php:56
 msgid "Save & Close"
@@ -1705,7 +1697,7 @@ msgstr "Testi"
 
 #: js/messages.php:251
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Formaton SQL..."
 
 #: js/messages.php:255 libraries/db_designer.lib.php:828
 #: libraries/db_designer.lib.php:877 libraries/db_designer.lib.php:1021
@@ -1729,10 +1721,9 @@ msgid "Processing Request"
 msgstr "Proçeson kërkesën"
 
 #: js/messages.php:261
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request Failed!!"
-msgstr "Kërkesa u abortua!"
+msgstr "Kërkesa dështoi!"
 
 #: js/messages.php:262
 msgid "Error in Processing Request"
@@ -1887,7 +1878,7 @@ msgstr "Shfleto vlerat e huaja"
 
 #: js/messages.php:309
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Nuk ka pyetsor auto-ruaj"
 
 #: js/messages.php:312 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -2172,6 +2163,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Tregon se keni bërë ndryshime në këtë faqe; do të nxiteni për konfirmim para "
+"braktisjes së ndryshimeve"
 
 #: js/messages.php:410
 msgid "Select referenced key"
@@ -2415,41 +2408,39 @@ msgstr "Moslidh nga paneli kryesor"
 #: js/messages.php:488
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Për të filtruar të gjitha databazat në server, shtyp Enter pas një termi "
+"kërkimi"
 
 #: js/messages.php:489
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Për të filtruar të gjitha %s në databazë, shtyp Enter pas një temi kërkimi"
 
 #: js/messages.php:490
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Tabela"
+msgstr "tabelat"
 
 #: js/messages.php:491
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Shfaqje"
+msgstr "pamje"
 
 #: js/messages.php:492
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Proçedurat"
+msgstr "proçedurat"
 
 #: js/messages.php:493
-#, fuzzy
 #| msgid "event"
 msgid "events"
-msgstr "ngjarje"
+msgstr "ngjarjet"
 
 #: js/messages.php:494
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "Funksionet"
+msgstr "funksionet"
 
 #: js/messages.php:497
 msgid "The requested page was not found in the history, it may have expired."
@@ -2553,6 +2544,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Shfletuesi juaj ueb nuk e mbështet ruajtjen e rregullimeve lokale ose limiti "
+"i kuotave është arritur, disa karakteristika mund të mos punojnë si duhet "
+"për ju. Në Safari, një problem i tillë shkaktohet zakonisht nga \"Private "
+"Browsing Mode\" (mënya private e shfletimit)."
 
 #: js/messages.php:578
 msgctxt "Previous month"
@@ -3242,8 +3237,8 @@ msgstr[1] "<b>Gjithsejt:</b> <i>%s</i> përkime"
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s përkim në <b>%2$s</b>"
-msgstr[1] "%1$s përkime në <b>%2$s</b>"
+msgstr[0] "%1$s përkim në <strong>%2$s</strong>"
+msgstr[1] "%1$s përkime në <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:354 libraries/Menu.class.php:303
 #: libraries/Util.class.php:3196 libraries/Util.class.php:3412
@@ -4137,22 +4132,19 @@ msgid "Value"
 msgstr "Vlera"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
-msgstr "Kërkimi i tabelës"
+msgstr "Kërko tabelën"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
-msgstr "Kërkimi Zoom"
+msgstr "Kërkimi zoom"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
-msgstr "Gjej dhe Zëvendëso"
+msgstr "Gjej dhe zëvendëso"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1342
 msgid "Edit/Insert"
@@ -4645,11 +4637,10 @@ msgid "Create PHP Code"
 msgstr "Krijo kod PHP"
 
 #: libraries/Util.class.php:1274
-#, fuzzy
 #| msgid "Print view"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Shfaq për printim"
+msgstr "Korrigjo në linjë"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1579
@@ -4846,10 +4837,9 @@ msgid "Length/Values"
 msgstr "Gjatësia/Vlerat"
 
 #: libraries/central_columns.lib.php:660
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Atributet"
+msgstr "Atributi"
 
 #: libraries/central_columns.lib.php:664
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -4935,6 +4925,10 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"Në pamundësi për të përdorur zonën kohore %1$s për serverin %2$d. Ju lutem, "
+"kontrollo rregullimin e konfigurimit tuaj për "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin përdor "
+"aktualisht zonën kohore të parazgjedhur të serverit të databazës."
 
 #: libraries/common.inc.php:1020
 #, php-format
@@ -5000,13 +4994,12 @@ msgstr "Pasivizuar"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "çelës"
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Shfaq tabelën e kolonave"
+msgstr "shfaq kolonën"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5190,7 +5183,7 @@ msgstr ""
 "Çelësi duhet të përmbajë shkronja, numra [em]dhe[/em] karaktere të veçanta."
 
 #: libraries/config/ServerConfigChecks.class.php:371
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5204,11 +5197,12 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Ky %sopsion%s duhet të pasivizohet, pasi lejon sulmuesit të hyjnë me forcë "
-"brutale (bruteforce) në çdo MySQL server. Nëse kjo ju duket e nevojshme, "
-"përdor %slistën e besuar të proxieve%s. Megjithatë, mbrojtja IP-bazuar nuk "
-"mund të jetë e besueshme, nëse IP e juaj i përket një ISP-je, ku mijëra "
-"përdorues, duke përfshirë edhe ju, janë të lidhur aty."
+"Ky %sopsion%s duhet të pasivizohet, pasi i lejon sulmuesit të hyjnë me forcë "
+"brutale (bruteforce) në çdo server MySQL. Nëse kjo ju duket e nevojshme, "
+"përdor %shyrjen e kufizuar në serverin MySQL%s ose %slistën e besuar të "
+"proxies%s. Megjithatë, mbrojtja me bazë IP nuk mund të jetë e besueshme, "
+"nëse IP e juaj i përket një ISP, ku mijëra përdorues, përfshirë edhe ju, "
+"janë të lidhur aty."
 
 #: libraries/config/ServerConfigChecks.class.php:381
 msgid ""
@@ -5403,12 +5397,14 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Kufizon serverat MySQL, ku përdoruesi mund të hyjë, kur një hyrje për në një "
+"server arbitrar MySQL është aftësuar me anë të përkimeve të IP-së ose "
+"hostname të serverit MySQL për shprehjen e rregullt të dhënë."
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Nuk mund të hyjë në MySQL server"
+msgstr "Kufizo hyrjen në serverin MySQL"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -6451,13 +6447,12 @@ msgstr "Kufizimi i kujtesës"
 
 #: libraries/config/messages.inc.php:424
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "Në panelin e navigimit, zëvendëso pemën e databazës me një përzgjedhës"
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Shfaq njësitë e fshehta të pemës së navigimit."
+msgstr "Shfaq navigimin e databazës si pemë"
 
 #: libraries/config/messages.inc.php:428
 msgid "Link with main panel by highlighting the current database or table."
@@ -6505,10 +6500,9 @@ msgid "Target for quick access icon"
 msgstr "Objektivi për ikonën e hyrjes së shpejtë"
 
 #: libraries/config/messages.inc.php:445
-#, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "Objektivi për ikonën e hyrjes së shpejtë"
+msgstr "Objektivi për ikonën e dytë të hyrjes së shpejtë"
 
 #: libraries/config/messages.inc.php:448
 msgid ""
@@ -6567,17 +6561,15 @@ msgid "Enable highlighting"
 msgstr "Aftëso theksimin"
 
 #: libraries/config/messages.inc.php:470
-#, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "Nëse për të pasivizuar mundësinë e zgjerimit të databazës ose jo."
+msgstr "Nëse ofron mundësinë e zgjerimit të pemës në panelin e navigimit."
 
 #: libraries/config/messages.inc.php:472
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Linja e navigimit të tabelës"
+msgstr "Aftëso zgjerimin e navigimit të pemës"
 
 #: libraries/config/messages.inc.php:474
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6763,16 +6755,14 @@ msgid "Grid editing: trigger action"
 msgstr "Korrigjim i rrjetës: veprim shkrehës"
 
 #: libraries/config/messages.inc.php:543
-#, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
-msgstr "Kolona e shfaqjes relacionale"
+msgstr "Shfaqje relacionale"
 
 #: libraries/config/messages.inc.php:544
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Opsionet e shfaqjes së serverit."
+msgstr "Për opsionet e shfaqjes"
 
 #: libraries/config/messages.inc.php:545
 msgid "Grid editing: save all edited cells at once"
@@ -6811,16 +6801,17 @@ msgid "Allow root login"
 msgstr "Lejo hyrjen në rrënjë (root)"
 
 #: libraries/config/messages.inc.php:554
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Vlera e sesionit"
+msgstr "Zona kohore e sesionit"
 
 #: libraries/config/messages.inc.php:555
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Vendos zonën kohore efektive; ndoshta të ndryshme me atë që jepet nga "
+"serveri i databazës suaj"
 
 #: libraries/config/messages.inc.php:557
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -7484,7 +7475,6 @@ msgid "Suhosin warning"
 msgstr "Suhosin paralajmërim"
 
 #: libraries/config/messages.inc.php:767
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words."
@@ -7493,14 +7483,14 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Pasivizon paralajmërimin standard që është shfaqur në faqen Struktura, nëse "
-"emrat e kolonës në një tabelë janë fjalë të rezervuara MySQL."
+"Pasivizo paralajmërimin standard, që është shfaqur në faqen kryesore, nëse "
+"vlera e rregullimit PHP session.gc_maxlifetime është më e vogël se vlera e "
+"`LoginCookieValidity` (vlefshmëria e hyrjes së gatimit)."
 
 #: libraries/config/messages.inc.php:769
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Vlefshmëria e gatimit (cookie) të hyrjes"
+msgstr "Paralajmërimi i vlefshmërisë së gatimit (cookie) të hyrjes"
 
 #: libraries/config/messages.inc.php:771
 msgid ""
@@ -7812,10 +7802,9 @@ msgid "Select Export Relational Type"
 msgstr "Zgjedh tipin Eksport Relacional"
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:258
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "Shfaqën tabelat:"
+msgstr "Shfaq/fsheh listën e tabelave"
 
 #: libraries/db_designer.lib.php:262 libraries/db_designer.lib.php:266
 msgid "View in fullscreen"
@@ -7896,10 +7885,9 @@ msgid "Move Menu"
 msgstr "Lëviz meny"
 
 #: libraries/db_designer.lib.php:416 libraries/db_designer.lib.php:419
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
-msgstr "Tekste pjesore"
+msgstr "Kap tekstin"
 
 #: libraries/db_designer.lib.php:458
 msgid "Hide/Show all"
@@ -8272,8 +8260,8 @@ msgid ""
 "files, however it can break transactions.)</i>"
 msgstr ""
 "Lejo ndërprerjen e një importi, në rast se skripti zbulon që është afër "
-"limitit kohor të PHP timeout. <i>(Kjo mund të jetë një mënyrë e mirë për të "
-"importuar file të mëdha, por mund të thyejë transaksionet.)</ i>"
+"limitit kohor të skadimit PHP. <i>(Kjo mund të jetë një mënyrë e mirë për të "
+"importuar file të mëdha, por mund të thyejë transaksionet.)</i>"
 
 #: libraries/display_import.lib.php:301
 msgid ""
@@ -9104,10 +9092,9 @@ msgid "unknown"
 msgstr "e panjohur"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "Një gabim ka ndodhur gjatë ngarkimit të pemës së navigimit"
+msgstr "Një gabim ka ndodhur gjatë ngarkimit të shfaqjes së navigimit"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -9155,19 +9142,18 @@ msgstr ""
 "navigimit."
 
 #: libraries/navigation/NavigationTree.class.php:871
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s rezultat tjetër i gjetur"
-msgstr[1] "%s rezultate tjera të gjetura"
+msgstr[0] "%s rezultat është gjetur"
+msgstr[1] "%s rezultate janë gjetur"
 
 #: libraries/navigation/NavigationTree.class.php:1210
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Të lutem, zgjidh një databazë"
+msgstr "Ju lutem, zgjedh një databazë."
 
 #: libraries/navigation/NavigationTree.class.php:1268
 msgid "Filter databases by name or regex"
@@ -9889,10 +9875,9 @@ msgid "Please enter correct captcha!"
 msgstr "Ju lutem, fut një captcha të saktë!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Nuk mund të hyjë në MySQL server"
+msgstr "Nuk lejoheni të hyni në këtë server MySQL!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:101
 msgid "Wrong username/password. Access denied."
@@ -10728,27 +10713,25 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Sintaksa thesoi editorin CodeMirror për JSON."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Sintaksa theksoi editorin CodeMirror për SQL."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Sintaksa theksoi editorin CodeMirror për XML (dhe HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Formaton tekstin si pyetsor SQL me sintaksë të theksuar."
+msgstr "Formaton tekstin si JSON me sintaksë të theksuar."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Formaton tekstin si pyetsor SQL me sintaksë të theksuar."
+msgstr "Formaton tekstin si XML me sintaksë të theksuar."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -10914,10 +10897,10 @@ msgid ""
 msgstr "%sKrijo%s ruajtjen e konfigurimit phpMyAdmin në databazën aktuale."
 
 #: libraries/relation.lib.php:1982
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Mungojnë tabelat e ruajtjes së konfigurimit të phpMyAdmin"
+msgstr "%sKrijo%s mungon në tabelat e ruajtjes së konfigurimit phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:333
 #: libraries/server_databases.lib.php:388
@@ -10980,8 +10963,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
-"Pasi të keni rifilluar serverin MySQL, ju lutem, kliko mbi butonin Shko. Më "
-"pas, do të shihni një mesazh, që ju informon, se ky server <b>është</ b> "
+"Pasi të keni rifilluar serverin MySQL, ju lutem, kliko butonin Shko. Më pas, "
+"do të shihni një mesazh, që ju informon, se ky server <b>është</b> "
 "konfiguruar si master."
 
 #: libraries/replication_gui.lib.php:141
@@ -11658,7 +11641,7 @@ msgstr "Nuk ka ngjarje për t'u shfaqur."
 
 #: libraries/select_lang.lib.php:613
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Injoron kodin e gjuhës së pambuluar."
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
@@ -11940,33 +11923,33 @@ msgstr "Grup përdoruesi"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Lidhjet e vazhdueshme"
+msgstr "Kërkon lidhje SSL-të kriptuara."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Kërkon SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "Kërkon të përdoret një metodë specifike shifrore për një lidhje."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Kërkon të paraqitet një çertifikatë e vlefshme X509 e lëshuar nga kjo CA."
 
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Kërkon të paraqitet një çertifikatë e vlefshme X509 me këtë temë."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 cetrificate."
-msgstr ""
+msgstr "Kërkon një çertifikatë të vlefshme X509."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
@@ -12616,10 +12599,9 @@ msgid "Filters"
 msgstr "Filtrat"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Shfaq vetëm vlerat e alarmit"
+msgstr "Shfaq vetëm aktive"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13532,7 +13514,7 @@ msgstr "Ekzekuto pyetsorin/rët SQL në databazën %s"
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Merr pyetsorin e auto-ruajtur"
 
 #: libraries/sql_query_form.lib.php:284
 msgid "Bookmark this SQL query:"
@@ -13749,10 +13731,9 @@ msgid "Improve table structure"
 msgstr "Përmirëso strukturën e tabelës"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Gjurmo tabelën"
+msgstr "Pamja e gjurmës"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
@@ -13761,10 +13742,9 @@ msgid "Add %s column(s)"
 msgstr "Shto %s kolonë(a)"
 
 #: libraries/structure.lib.php:1705
-#, fuzzy
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
-msgstr "Në fillim të tabelës"
+msgstr "në fillim të tabelës"
 
 #: libraries/structure.lib.php:1710
 #: libraries/tbl_columns_definition_form.lib.php:827
@@ -13866,10 +13846,9 @@ msgid "Showing create queries"
 msgstr "Shfaqën krijo pyetsorët"
 
 #: libraries/structure.lib.php:3269
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
-msgstr "Pamje e relationit"
+msgstr "Pamje e relacionit"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -13968,10 +13947,9 @@ msgid "Storage Engine:"
 msgstr "Makina e ruajtjes:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Lidhjet"
+msgstr "Lidhja:"
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
@@ -14113,24 +14091,22 @@ msgstr ""
 "\"PRIMARY\" <b>duhet</b> të jetë emri dhe <b>vetëm</b> një çelës primar!"
 
 #: libraries/tbl_indexes.lib.php:305
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Madhësia cache e indeksit"
+msgstr "Zgjedhja e indeksit:"
 
 #: libraries/tbl_indexes.lib.php:321
 msgid "Key block size:"
-msgstr ""
+msgstr "Madhësia e bllokut të çelësit:"
 
 #: libraries/tbl_indexes.lib.php:334
 msgid "Index type:"
 msgstr "Tipi i indeksit:"
 
 #: libraries/tbl_indexes.lib.php:346
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Përdoruesi:"
+msgstr "Parser:"
 
 #: libraries/tbl_indexes.lib.php:358
 msgid "Comment:"
@@ -14232,9 +14208,9 @@ msgid "Create version %1$s of %2$s"
 msgstr "Krijo versionin %1$s nga %2$s"
 
 #: libraries/tracking.lib.php:74
-#, fuzzy, php-format
+#, php-format
 msgid "Create version %1$s"
-msgstr "Versioni i MySQL"
+msgstr "Krijo versionin %1$s"
 
 #: libraries/tracking.lib.php:79
 msgid "Track these data definition statements:"
@@ -14267,9 +14243,8 @@ msgid "Deactivate now"
 msgstr "Pasivizo tani"
 
 #: libraries/tracking.lib.php:287 libraries/tracking.lib.php:350
-#, fuzzy
 msgid "Delete version"
-msgstr "Versioni i MySQL"
+msgstr "Fshij versionin"
 
 #: libraries/tracking.lib.php:460
 msgid "Tracking statements"
@@ -14371,9 +14346,9 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Gjurmimi për %1$s u pasivizua në versionin %2$s."
 
 #: libraries/tracking.lib.php:1306
-#, fuzzy, php-format
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Versioni i MySQL"
+msgstr "Versioni %1$s nga %2$s u fshi."
 
 #: libraries/tracking.lib.php:1337
 #, php-format
@@ -14731,12 +14706,12 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Radhë: %1$s, Kolonë: %2$s, Gabim: %3$s"
 
 #: tbl_structure.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "Emri i kolonës '%s' është një fjalë kyçe e rezervuar MySQL."
-msgstr[1] "Emri i kolonës '%s' është një fjalë kyçe e rezervuar MySQL."
+msgstr[0] "Emri '%s' është një fjalë kyçe e rezervuar MySQL."
+msgstr[1] "Emrat '%s' janë fjalë kyçe të rezervuara MySQL."
 
 #: tbl_structure.php:114
 msgid "No column selected."
@@ -14748,16 +14723,14 @@ msgid "Tracking of %s is activated."
 msgstr "Gjurmimi i %s është aktivizuar."
 
 #: tbl_tracking.php:102
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Përdoruesit e zgjedhur u hoqën me sukses."
+msgstr "Versionet e gjurmuara u fshinë me sukses."
 
 #: tbl_tracking.php:107
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Nuk ka rreshta të zgjedhur"
+msgstr "Nuk janë zgjedhur versione."
 
 #: tbl_tracking.php:138
 msgid "SQL statements executed."

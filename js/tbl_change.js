@@ -601,14 +601,21 @@ AJAX.registerOnload('tbl_change.js', function () {
                     /** name of new {@link $last_checkbox} */
                     var new_name = last_checkbox_name.replace(/\d+/, last_checkbox_index + 1);
 
+                    $('<br/><div class="clearfloat"></div>')
+                    .insertBefore("table.insertRowTable:last");
+
                     $last_checkbox
                     .clone()
                     .attr({'id': new_name, 'name': new_name})
                     .prop('checked', true)
-                    .add('label[for^=insert_ignore]:last')
+                    .insertBefore("table.insertRowTable:last");
+
+                    $('label[for^=insert_ignore]:last')
                     .clone()
                     .attr('for', new_name)
-                    .before('<br />')
+                    .insertBefore("table.insertRowTable:last");
+
+                    $('<br/>')
                     .insertBefore("table.insertRowTable:last");
                 }
                 curr_rows++;
