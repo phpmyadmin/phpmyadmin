@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-04-05 09:31+0200\n"
-"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"PO-Revision-Date: 2015-04-26 15:02+0200\n"
+"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -2753,102 +2753,87 @@ msgid "This field is required"
 msgstr ""
 
 #: js/messages.php:729
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Požiť textové pole"
+msgstr "Prosím opravte toto pole"
 
 #: js/messages.php:730
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Prosím zadajte platný názov stránky"
+msgstr "Prosím zadajte platnú emailovú adresu"
 
 #: js/messages.php:731
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Prosím zdajte platné číslo!"
+msgstr "Prosím zdajte platnú adresu URL"
 
 #: js/messages.php:732
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Prosím zadajte platný názov stránky"
+msgstr "Prosím zadajte platný dátum"
 
 #: js/messages.php:733
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Prosím zadajte platný názov stránky"
+msgstr "Prosím zadajte platný dátum ( ISO )"
 
 #: js/messages.php:734
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Prosím zdajte platné číslo!"
+msgstr "Prosím zadajte platné číslo"
 
 #: js/messages.php:735
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Prosím zdajte platné číslo!"
+msgstr "Prosím zadajte platné číslo kreditnej karty"
 
 #: js/messages.php:736
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Prosím zadajte platnú dĺžku!"
+msgstr "Prosím zadajte iba čísla"
 
 #: js/messages.php:737
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Prosím zadajte platný názov stránky"
+msgstr "Prosím zadajte tú istú hodnotu ešte raz"
 
 #: js/messages.php:738
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "Prosím zadajte nie viac ako {0} znakov"
 
 #: js/messages.php:739
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter at least {0} characters"
-msgstr "Prosím zadajte platný názov stránky"
+msgstr "Prosím zadajte najmenej {0} znakov"
 
 #: js/messages.php:740
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Prosím zadajte počet znakov medzi {0} a {1}"
 
 #: js/messages.php:741
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Prosím zadajte platný názov stránky"
+msgstr "Prosím zadajte hodnotu medzi {0} a {1}"
 
 #: js/messages.php:742
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Prosím zadajte platnú dĺžku!"
+msgstr "Prosím zadajte hodnotu menšiu alebo rovnú {0}"
 
 #: js/messages.php:743
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Prosím zadajte platný názov stránky"
+msgstr "Prosím zadajte hodnotu väčšiu alebo rovnú {0}"
 
 #: js/messages.php:745
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Prosím zadajte platný názov stránky"
+msgstr "Prosím zadajte platný dátum alebo čas"
 
 #: js/messages.php:746
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Prosím zdajte platné číslo!"
+msgstr "Prosím zdajte platný HEX vstup"
 
 #: js/messages.php:747 libraries/Message.class.php:199
 #: libraries/Util.class.php:624 libraries/core.lib.php:245
