@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.4.4.0 (not yet released)
+4.4.4.0 (2015-04-26)
 - bug #4863 Edit vs Change
 - bug #4859 Don't scroll (to bottom) when editing multiple rows
 - bug #4862 Misaligned Inline edit field
