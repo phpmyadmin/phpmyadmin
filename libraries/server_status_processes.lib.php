@@ -126,16 +126,16 @@ function PMA_getHtmlForServerProcesslist()
         $sql_query = $show_full_sql
             ? 'SHOW FULL PROCESSLIST'
             : 'SHOW PROCESSLIST';
-        if ( (! empty($_REQUEST['order_by_field'])
-                && ! empty($_REQUEST['sort_order']) )
-            || (! empty($_REQUEST['showExecuting']) )
+        if ((! empty($_REQUEST['order_by_field'])
+            && ! empty($_REQUEST['sort_order']))
+            || (! empty($_REQUEST['showExecuting']))
         ) {
             $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
         }
         if (! empty($_REQUEST['showExecuting'])) {
             $sql_query .= ' WHERE state = "executing" ';
         }
-        if (! empty($_REQUEST['order_by_field']) && ! empty($_REQUEST['sort_order']) ) {
+        if (! empty($_REQUEST['order_by_field']) && ! empty($_REQUEST['sort_order'])) {
             $sql_query .= ' ORDER BY '
                 . PMA_Util::backquote($_REQUEST['order_by_field'])
                 . ' ' . $_REQUEST['sort_order'];
@@ -272,7 +272,7 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
 {
     // Array keys need to modify due to the way it has used
     // to display column values
-    if ( (! empty($_REQUEST['order_by_field']) && ! empty($_REQUEST['sort_order']) )
+    if ((! empty($_REQUEST['order_by_field']) && ! empty($_REQUEST['sort_order']))
         || (! empty($_REQUEST['showExecuting']))
     ) {
         foreach (array_keys($process) as $key) {

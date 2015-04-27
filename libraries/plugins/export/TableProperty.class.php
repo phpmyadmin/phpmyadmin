@@ -199,7 +199,7 @@ class TableProperty
      */
     function isPK()
     {
-        return $this->key=="PRI";
+        return $this->key == "PRI";
     }
 
     /**

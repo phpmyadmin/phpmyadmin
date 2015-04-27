@@ -40,7 +40,7 @@ function PMA_getHtmlForMonitor($ServerStatusData)
 
     $retval .= '<script type="text/javascript">';
     $retval .= 'variableNames = [ ';
-    $i=0;
+    $i = 0;
     foreach ($ServerStatusData->status as $name=>$value) {
         if (is_numeric($value)) {
             if ($i++ > 0) {

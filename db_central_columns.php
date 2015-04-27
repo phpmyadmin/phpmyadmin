@@ -131,7 +131,7 @@ $tableheader = PMA_getCentralColumnsTableHeader(
 $response->addHTML($tableheader);
 $result = PMA_getColumnsList($db, $pos, $max_rows);
 $odd_row = true;
-$row_num=0;
+$row_num = 0;
 foreach ($result as $row) {
     $tableHtmlRow = PMA_getHTMLforCentralColumnsTableRow(
         $row, $odd_row, $row_num, $db

@@ -336,7 +336,7 @@ function PMA_getHtmlFor2NFstep1($db, $table)
                 . 'whose values combined together are sufficient'
                 . ' to determine the value of the column.'
             );
-            $cnt=0;
+            $cnt = 0;
             foreach ($columns as $column) {
                 if (!in_array($column, $pk)) {
                     $cnt++;
@@ -383,7 +383,7 @@ function PMA_getHtmlForNewTables2NF($partialDependencies,$table)
         ), htmlspecialchars($table)
     ) . '</b></p>';
     $tableName = $table;
-    $i=1;
+    $i = 1;
     foreach ($partialDependencies as $key=>$dependents) {
         $html .= '<p><input type="text" name="' . htmlspecialchars($key)
             . '" value="' . htmlspecialchars($tableName) . '"/>'
@@ -483,7 +483,7 @@ function PMA_createNewTablesFor2NF($partialDependencies, $tablesName, $table, $d
 function PMA_getHtmlForNewTables3NF($dependencies, $tables, $db)
 {
     $html = "";
-    $i=1;
+    $i = 1;
     $newTables = array();
     foreach ($tables as $table=>$arrDependson) {
         if (count(array_unique($arrDependson)) == 1) {
@@ -699,7 +699,7 @@ function PMA_getHtmlFor3NFstep1($db, $tables)
         . 'Note: A column may have no transitive dependency, '
         . 'in that case you don\'t have to select any.'
     );
-    $cnt=0;
+    $cnt = 0;
     foreach ($tables as $key=>$table) {
         $primary = PMA_Index::getPrimary($table, $db);
         $primarycols = $primary->getColumns();

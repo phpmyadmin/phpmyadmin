@@ -95,7 +95,7 @@ function PMA_getReportData($exception_type = 'js')
     } elseif ($exception_type == 'php') {
         $errors = array();
         // create php error report
-        $i=0;
+        $i = 0;
         if (!isset($_SESSION['prev_errors'])
             || $_SESSION['prev_errors'] == ''
         ) {

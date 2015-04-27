@@ -2786,11 +2786,11 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
     // HTML attribute
 
     //add data attributes "no of decimals" and "data type"
-    $no_decimals=0;
+    $no_decimals = 0;
     $type = current(explode("(", $column['pma_type']));
     if (preg_match('/\(([^()]+)\)/', $column['pma_type'], $match)) {
         $match[0] = trim($match[0], '()');
-        $no_decimals=$match[0];
+        $no_decimals = $match[0];
     }
     $html_output .= '<td' . ' data-type="' . $type . '"' . ' data-decimals="'
         . $no_decimals . '">' . "\n";

@@ -282,12 +282,14 @@ class PMA_ExportPdf extends PMA_PDF
      */
     public function getTriggers($db, $table)
     {
-        $i=0;
+        $i = 0;
         $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
         foreach ($triggers as $trigger) {
             $i++; break;
         }
-        if ($i==0) return; //prevents printing blank trigger list for any table
+        if ($i == 0) {
+            return; //prevents printing blank trigger list for any table
+        }
 
         unset($this->tablewidths);
         unset($this->colTitles);

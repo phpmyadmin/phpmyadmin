@@ -1009,7 +1009,7 @@ class PMA_NavigationTree
                 $retval .= "</span>";
                 $retval .= $this->_getPaginationParamsHtml($node);
                 if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
-                   || $parentName != 'root'
+                    || $parentName != 'root'
                 ) {
                     $retval .= $node->getIcon($match);
                 }

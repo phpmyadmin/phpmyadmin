@@ -35,7 +35,7 @@ function PMA_getColumnMap($sql_query, $view_columns)
         $nbFields = count($real_source_fields_meta);
         if ($nbFields > 0) {
 
-            for ($i=0; $i < $nbFields; $i++) {
+            for ($i = 0; $i < $nbFields; $i++) {
 
                 $map = array();
                 $map['table_name'] = $real_source_fields_meta[$i]->table;
