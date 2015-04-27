@@ -30,7 +30,7 @@ require_once './libraries/OutputBuffering.class.php';
 $buffer = PMA_OutputBuffering::getInstance();
 $buffer->start();
 register_shutdown_function(
-    function() {
+    function () {
         echo PMA_OutputBuffering::getInstance()->getContents();
     }
 );

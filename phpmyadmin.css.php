@@ -24,7 +24,7 @@ if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER == '6'
     $buffer = PMA_OutputBuffering::getInstance();
     $buffer->start();
     register_shutdown_function(
-        function() {
+        function () {
             echo PMA_OutputBuffering::getInstance()->getContents();
         }
     );
