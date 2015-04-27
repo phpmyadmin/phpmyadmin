@@ -1911,7 +1911,7 @@ function PMA_SQP_analyze($arr)
 
         $sep = ' ';
         if ($arr[$i]['type'] == 'alpha_functionName') {
-            $sep='';
+            $sep = '';
             $upper_data = /*overload*/mb_strtoupper($arr[$i]['data']);
             if ($upper_data =='GROUP_CONCAT') {
                 $in_group_concat = true;
@@ -2033,7 +2033,7 @@ function PMA_SQP_analyze($arr)
         }
 
         // clear $upper_data for next iteration
-        $upper_data='';
+        $upper_data = '';
     } // end for $i (loop #2)
     if (empty($section_before_limit)) {
         $section_before_limit = $arr['raw'];
