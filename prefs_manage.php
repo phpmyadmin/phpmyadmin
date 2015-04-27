@@ -181,7 +181,7 @@ if (isset($_POST['submit_export'])
                     if ($k == 'token') {
                         continue;
                     }
-                    $params[$k] = /*overload*/mb_substr($q, $pos+1);
+                    $params[$k] = /*overload*/mb_substr($q, $pos + 1);
                 }
             } else {
                 $return_url = 'prefs_manage.php';

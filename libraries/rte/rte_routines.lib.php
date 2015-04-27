@@ -703,7 +703,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
                         && ($parsed_query[$i+1]['type'] == 'alpha_charset'
                         || $parsed_query[$i+1]['type'] == 'alpha_identifier')
                     ) {
-                        $dtd .= $word . ' ' . $parsed_query[$i+1]['data'];
+                        $dtd .= $word . ' ' . $parsed_query[$i + 1]['data'];
                     }
                     break;
                 } else if ($fetching == true) {

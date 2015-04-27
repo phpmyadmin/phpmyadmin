@@ -578,7 +578,7 @@ class ImportCsv extends AbstractImportCsv
             ) {
                 // Fill out column names
                 for ($i = 0; $i < $max_cols; ++$i) {
-                    $col_names[] = 'COL ' . ($i+1);
+                    $col_names[] = 'COL ' . ($i + 1);
                 }
             }
 

@@ -2160,7 +2160,7 @@ function PMA_SQP_analyze($arr)
                         ) {
                             if ($arr[$i+3]['type'] == 'alpha_reservedWord') {
                                 $value = $third_upper_data . '_'
-                                    . /*overload*/mb_strtoupper($arr[$i+3]['data']);
+                                    . /*overload*/mb_strtoupper($arr[$i + 3]['data']);
                             }
                         } elseif ($third_upper_data == 'CURRENT_TIMESTAMP') {
                             if ($clause == 'on_update'
