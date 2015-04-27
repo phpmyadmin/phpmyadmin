@@ -893,7 +893,7 @@ function PMA_mergeAliases($aliases1, $aliases2)
 function PMA_lockTables($db, $tables, $lockType = "WRITE")
 {
     $locks = array();
-    foreach($tables as $table) {
+    foreach ($tables as $table) {
         $locks[] = PMA_Util::backquote($db) . "." . PMA_Util::backquote($table)
             . " " . $lockType;
     }
