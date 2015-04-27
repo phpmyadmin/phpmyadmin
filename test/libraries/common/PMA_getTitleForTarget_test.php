@@ -50,7 +50,6 @@ class PMA_GetTitleForTarget_Test extends PHPUnit_Framework_TestCase
      * @return void
      *
      * @dataProvider dataProvider
-     * @return void
      */
     function testGetTitleForTarget($target, $result)
     {
