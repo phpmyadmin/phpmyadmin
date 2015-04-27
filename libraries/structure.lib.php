@@ -634,38 +634,25 @@ function PMA_getHtmlForShowStats($tbl_url_query, $formatted_size,
 }
 
 /**
- * Get HTML to show database structure creation, last update and last checkx time
+ * Get HTML to show either a database structure creation, last update or
+ * last check time
  *
- * @param string $create_time create time
- * @param string $update_time last update time
- * @param string $check_time  last check time
+ * @param string $one_time     one of the times to show 
+ * @param string $config_param the related configuration parameter 
+ * @param string $class        the class to generate 
  *
  * @return string $html_output
  */
-function PMA_getHtmlForStructureTimes($create_time, $update_time, $check_time)
+function PMA_getHtmlForStructureTime($one_time, $config_param, $class)
 {
     $html_output = '';
-    if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
-        $html_output .= '<td class="value tbl_creation">'
-            . ($create_time
-                ? PMA_Util::localisedDate(strtotime($create_time))
+    if ($GLOBALS['cfg'][$config_param]) {
+        $html_output .= '<td class="value ' . $class . '">'
+            . ($one_time
+                ? PMA_Util::localisedDate(strtotime($one_time))
                 : '-' )
             . '</td>';
     } // end if
-    if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
-        $html_output .= '<td class="value tbl_last_update">'
-            . ($update_time
-                ? PMA_Util::localisedDate(strtotime($update_time))
-                : '-' )
-            . '</td>';
-    } // end if
-    if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
-        $html_output .= '<td class="value tbl_last_check">'
-            . ($check_time
-                ? PMA_Util::localisedDate(strtotime($check_time))
-                : '-' )
-            . '</td>';
-    }
     return $html_output;
 }
 
@@ -766,9 +753,15 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
         );
     }
 
-    $html_output .= PMA_getHtmlForStructureTimes(
-        $create_time, $update_time, $check_time
-    );
+    $html_output .= PMA_getHtmlForStructureTime(
+        $create_time, 'ShowDbStructureCreation', 'tbl_creation'
+    )
+        . PMA_getHtmlForStructureTime(
+            $update_time, 'ShowDbStructureLastUpdate', 'tbl_last_update'
+        )
+        . PMA_getHtmlForStructureTime(
+            $check_time, 'ShowDbStructureLastCheck', 'tbl_last_check'
+        );
 
     return array($html_output, $approx_rows);
 }
