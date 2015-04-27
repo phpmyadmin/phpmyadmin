@@ -26,7 +26,7 @@ $_GET['scripts'] = json_encode($_GET['scripts']);
 define('PMA_MINIMUM_COMMON', true);
 require_once './libraries/common.inc.php';
 
-include_once './libraries/OutputBuffering.class.php';
+require_once './libraries/OutputBuffering.class.php';
 $buffer = PMA_OutputBuffering::getInstance();
 $buffer->start();
 register_shutdown_function(
