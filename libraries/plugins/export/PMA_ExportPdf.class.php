@@ -287,7 +287,9 @@ class PMA_ExportPdf extends PMA_PDF
         foreach ($triggers as $trigger) {
             $i++; break;
         }
-        if ($i==0) return; //prevents printing blank trigger list for any table
+        if ($i == 0) {
+            return; //prevents printing blank trigger list for any table
+        }
 
         unset($this->tablewidths);
         unset($this->colTitles);
