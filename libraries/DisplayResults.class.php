@@ -2918,7 +2918,6 @@ class PMA_DisplayResults
                 } // end if transformation is set
             } // end if mime/transformation works.
 
-
             // Check whether the field needs to display with syntax highlighting
 
             $dbLower = /*overload*/mb_strtolower($this->__get('db'));
