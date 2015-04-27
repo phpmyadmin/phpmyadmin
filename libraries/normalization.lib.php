@@ -192,8 +192,13 @@ function PMA_getHtmlContentsFor1NFStep2($db, $table)
             . '<a href="#" id="addNewPrimary">'
             . __('+ Add a new primary key column') . '</a>';
     }
-    $res = array('legendText'=>$legendText, 'headText'=>$headText,
-        'subText'=>$subText, 'hasPrimaryKey'=>$hasPrimaryKey, 'extra'=>$extra);
+    $res = array(
+        'legendText' => $legendText,
+        'headText' => $headText,
+        'subText' => $subText,
+        'hasPrimaryKey' => $hasPrimaryKey,
+        'extra' => $extra
+    );
     return $res;
 }
 
@@ -227,9 +232,11 @@ function PMA_getHtmlContentsFor1NFStep4($db, $table)
         . '" onclick="goToFinish1NF();"'
         . '/>';
     $res = array(
-            'legendText'=>$legendText, 'headText'=>$headText,
-            'subText'=>$subText, 'extra'=>$extra
-        );
+        'legendText' => $legendText,
+        'headText' => $headText,
+        'subText' => $subText,
+        'extra' => $extra
+    );
     return $res;
 }
 
@@ -271,9 +278,12 @@ function PMA_getHtmlContentsFor1NFStep3($db, $table)
         $pk[] = $col->getName();
     }
     $res = array(
-            'legendText'=>$legendText, 'headText'=>$headText,
-            'subText'=>$subText, 'extra'=>$extra, 'primary_key'=> json_encode($pk)
-        );
+        'legendText' => $legendText,
+        'headText' => $headText,
+        'subText' => $subText,
+        'extra' => $extra,
+        'primary_key' => json_encode($pk)
+    );
     return $res;
 }
 
@@ -359,8 +369,11 @@ function PMA_getHtmlFor2NFstep1($db, $table)
         $extra = '<h3>' . __('Table is already in second normal form.') . '</h3>';
     }
     $res = array(
-        'legendText'=>$legendText, 'headText'=>$headText,
-        'subText'=>$subText,'extra'=>$extra, 'primary_key'=> $key
+        'legendText' => $legendText,
+        'headText' => $headText,
+        'subText' => $subText,
+        'extra' => $extra,
+        'primary_key' => $key
     );
     return $res;
 }
@@ -465,8 +478,10 @@ function PMA_createNewTablesFor2NF($partialDependencies, $tablesName, $table, $d
         }
     }
     return array(
-        'legendText'=>__('End of step'), 'headText'=>$headText,
-        'queryError'=>$error, 'extra'=>$message
+        'legendText' => __('End of step'),
+        'headText' => $headText,
+        'queryError' => $error,
+        'extra' => $message
     );
 }
 
@@ -527,7 +542,7 @@ function PMA_getHtmlForNewTables3NF($dependencies, $tables, $db)
             }
         }
     }
-    return array('html'=>$html, 'newTables'=>$newTables);
+    return array('html' => $html, 'newTables' => $newTables);
 }
 
 /**
@@ -608,8 +623,10 @@ function PMA_createNewTablesFor3NF($newTables, $db)
         }
     }
     return array(
-        'legendText'=>__('End of step'), 'headText'=>$headText,
-        'queryError'=>$error, 'extra'=>$message
+        'legendText' => __('End of step'),
+        'headText' => $headText,
+        'queryError' => $error,
+        'extra' => $message
     );
 }
 /**
@@ -671,7 +688,7 @@ function PMA_moveRepeatingGroup(
         }
     }
     return array(
-        'queryError'=>$error, 'message'=>$message
+        'queryError' => $error, 'message' => $message
     );
 }
 
@@ -709,10 +726,10 @@ function PMA_getHtmlFor3NFstep1($db, $tables)
             $pk[] = $col->getName();
         }
         $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
-            $columns = (array) $GLOBALS['dbi']->getColumnNames(
-                $db, $table, $GLOBALS['userlink']
-            );
-        if (count($columns)-count($pk)<=1) {
+        $columns = (array) $GLOBALS['dbi']->getColumnNames(
+            $db, $table, $GLOBALS['userlink']
+        );
+        if (count($columns) - count($pk) <= 1) {
             continue;
         }
         foreach ($columns as $column) {
@@ -746,8 +763,10 @@ function PMA_getHtmlFor3NFstep1($db, $tables)
         $extra = "<h3>" . __("Table is already in Third normal form!") . "</h3>";
     }
     $res = array(
-        'legendText'=>$legendText, 'headText'=>$headText,
-        'subText'=>$subText,'extra'=>$extra
+        'legendText' => $legendText,
+        'headText' => $headText,
+        'subText' => $subText,
+        'extra' => $extra
     );
     return $res;
 }
