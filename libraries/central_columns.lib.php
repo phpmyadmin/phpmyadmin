@@ -975,7 +975,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
         $meta['DefaultType'] = 'NONE';
     } else {
         if ($row['col_default'] == 'CURRENT_TIMESTAMP'
-                || $row['col_default'] == 'NULL'
+            || $row['col_default'] == 'NULL'
         ) {
             $meta['DefaultType'] = $row['col_default'];
         } else {
@@ -1006,7 +1006,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
         '<td class="nowrap" name="col_isNull">'
         . PMA_getHtmlForColumnNull($row_num, 6, 0, array('Null'=>$row['col_isNull']))
         . '</td>';
-    
+
     $tableHtml .=
         '<td class="nowrap" name="col_extra">'
         . PMA_getHtmlForColumnExtra(
