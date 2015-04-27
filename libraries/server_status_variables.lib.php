@@ -98,7 +98,7 @@ function PMA_getHtmlForLinkSuggestions($ServerStatusData)
     $retval .= '<p class="notice">' . __('Related links:');
     foreach ($ServerStatusData->links as $section_name => $section_links) {
         $retval .= '<span class="status_' . $section_name . '"> ';
-        $i=0;
+        $i = 0;
         foreach ($section_links as $link_name => $link_url) {
             if ($i > 0) {
                 $retval .= ', ';

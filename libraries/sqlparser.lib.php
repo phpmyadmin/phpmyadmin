@@ -1505,10 +1505,10 @@ function PMA_SQP_analyze($arr)
             && ($seen_end_of_table_ref || $i == $size-1)
             && $subresult != $subresult_empty
         ) {
-            for ($tr=0; $tr <= $current_table_ref; $tr++) {
+            for ($tr = 0; $tr <= $current_table_ref; $tr++) {
                 $alias = $subresult['table_ref'][$tr]['table_alias'];
                 $truename = $subresult['table_ref'][$tr]['table_true_name'];
-                for ($se=0; $se <= $current_select_expr; $se++) {
+                for ($se = 0; $se <= $current_select_expr; $se++) {
                     if (isset($alias)
                         && /*overload*/mb_strlen($alias)
                         && $subresult['select_expr'][$se]['table_true_name'] == $alias
@@ -1591,7 +1591,7 @@ function PMA_SQP_analyze($arr)
     //DEBUG
     /*
       if (isset($current_select_expr)) {
-       for ($trace=0; $trace<=$current_select_expr; $trace++) {
+       for ($trace = 0; $trace <= $current_select_expr; $trace++) {
            echo "<br />";
            reset ($subresult['select_expr'][$trace]);
            while (list ($key, $val) = each ($subresult['select_expr'][$trace]))
@@ -1601,7 +1601,7 @@ function PMA_SQP_analyze($arr)
 
       if (isset($current_table_ref)) {
        echo "current_table_ref = " . $current_table_ref . "<br>";
-       for ($trace=0; $trace<=$current_table_ref; $trace++) {
+       for ($trace = 0; $trace <= $current_table_ref; $trace++) {
 
            echo "<br />";
            reset ($subresult['table_ref'][$trace]);
@@ -2457,7 +2457,7 @@ function PMA_SQP_format(
             $typearr[4] = '';
         }
 
-        for ($j=0; $j<4; $j++) {
+        for ($j = 0; $j<4; $j++) {
             $typearr[$j] = $typearr[$j + 1];
         }
 

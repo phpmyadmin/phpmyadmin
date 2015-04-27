@@ -4211,7 +4211,7 @@ class PMA_DisplayResults
         $map = array();
 
         // find tables
-        $target=array();
+        $target = array();
         if (isset($analyzed_sql[0]['table_ref'])
             && is_array($analyzed_sql[0]['table_ref'])
         ) {

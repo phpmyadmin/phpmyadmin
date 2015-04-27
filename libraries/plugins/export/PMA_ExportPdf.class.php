@@ -282,7 +282,7 @@ class PMA_ExportPdf extends PMA_PDF
      */
     public function getTriggers($db, $table)
     {
-        $i=0;
+        $i = 0;
         $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
         foreach ($triggers as $trigger) {
             $i++; break;
