@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Set of functions related to db printview 
+ * Set of functions related to db printview
  *
  * @package PhpMyAdmin
  */
@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Function to get html for one of the db dates
  *
- * @param string $title the title 
+ * @param string $title the title
  * @param string $date  which date to display
  *
  * @return string html content

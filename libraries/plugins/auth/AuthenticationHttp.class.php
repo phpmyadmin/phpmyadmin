@@ -281,7 +281,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      *
      * @param string $password New password to set
      *
-     * @return void 
+     * @return void
      */
     public function handlePasswordChange($password)
     {

@@ -60,9 +60,9 @@ if ($PMA_recoding_engine == PMA_CHARSET_ICONV_AIX) {
 }
 
 /**
- * Determines the correct recoding engine to use 
+ * Determines the correct recoding engine to use
  *
- * @return int $PMA_recoding_engine 
+ * @return int $PMA_recoding_engine
  *
  * @access  public
  *
