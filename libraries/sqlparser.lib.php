@@ -2457,7 +2457,7 @@ function PMA_SQP_format(
             $typearr[4] = '';
         }
 
-        for ($j = 0; $j<4; $j++) {
+        for ($j = 0; $j < 4; $j++) {
             $typearr[$j] = $typearr[$j + 1];
         }
 
