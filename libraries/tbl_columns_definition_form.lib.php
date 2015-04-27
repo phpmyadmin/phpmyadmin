@@ -240,7 +240,7 @@ function PMA_getHtmlForTableFieldDefinitions($header_cells, $content_cells)
 }
 
 /**
- * Function to get html for the hidden fields containing index creation info 
+ * Function to get html for the hidden fields containing index creation info
  *
  * @param string $index_type the index type
  *
@@ -250,7 +250,7 @@ function PMA_getHtmlForHiddenIndexInfo($index_type)
 {
     $html = '<input type="hidden" name="' . $index_type . '" value="';
     if (! empty($_REQUEST[$index_type])) {
-        // happens when an index has been set on a column, 
+        // happens when an index has been set on a column,
         // and a column is added to the table creation dialog
         //
         // this contains a JSON-encoded string
@@ -261,7 +261,7 @@ function PMA_getHtmlForHiddenIndexInfo($index_type)
     $html .= '">';
 
     return $html;
-}    
+}
 
 /**
  * Function to get html for the create table or field add view
@@ -348,6 +348,7 @@ function PMA_getHeaderCells($is_backup, $columnMeta, $mimework)
 
     $header_cells[] = '<abbr title="AUTO_INCREMENT">A_I</abbr>';
     $header_cells[] = __('Comments');
+    $header_cells[] = __('Virtuality');
 
     if (isset($columnMeta)) {
         $header_cells[] = __('Move column');
@@ -484,6 +485,12 @@ function PMA_getRowDataForRegeneration($columnNumber, $submit_fulltext)
         ? 'FULLTEXT'
         : false);
 
+    if (! empty($_REQUEST['field_virtuality'][$columnNumber])) {
+        $columnMeta['Extra']
+            = (isset($_REQUEST['field_virtuality'][$columnNumber])
+            ? $_REQUEST['field_virtuality'][$columnNumber]
+            : '');
+    }
     return $columnMeta;
 }
 
@@ -1231,6 +1238,63 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
 }
 
 /**
+ * Returns HTML for Virtuality column
+ *
+ * @param int   $columnNumber column number
+ * @param int   $ci           cell index
+ * @param int   $ci_offset    cell index offset
+ * @param array $columnMeta   column meta
+ * @param array $analyzed_sql analyzed sql
+ *
+ * @return string
+ */
+function PMA_getHtmlForColumnVirtuality(
+    $columnNumber, $ci, $ci_offset, $columnMeta, $analyzed_sql
+) {
+    $options = array(
+        ''           =>  '',
+        'VIRTUAL'    => 'VIRTUAL',
+        'PERSISTENT' => 'PERSISTENT',
+    );
+
+    $html = '<select'
+        . ' name="field_virtuality[' . $columnNumber . ']"'
+        . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"'
+        . ' class="virtuality">';
+
+    foreach ($options as $key => $value) {
+        $html .= '<option value="' . $key . '"';
+        // is only set when we go back to edit a field's structure
+        if (isset($columnMeta['Extra'])
+            && $columnMeta['Extra'] == $key
+        ) {
+            $html .= ' selected="selected"';
+        }
+        $html .= ' >' . $value . '</option>';
+    }
+    $html .= '</select>';
+    $html .= '<br />';
+
+    $expression = '';
+    if ($GLOBALS['cfg']['CharEditing'] == 'textarea') {
+        $html .= '<textarea'
+            . ' name="field_expression[' . $columnNumber . ']"'
+            . ' cols="15" maxlength="252"'
+            . ' class="textfield expression">'
+            . $expression
+            . '</textarea>';
+    } else {
+        $html .= '<input type="text"'
+            . ' name="field_expression[' . $columnNumber . ']"'
+            . ' size="12" maxlength="252" value="' . $expression . '"'
+            . ' placeholder="' . __('Expression') . '"'
+            . ' class="textfield expression" />';
+    }
+
+    return $html;
+}
+
+/**
  * Function to get html for column attributes
  *
  * @param int        $columnNumber                     column number
@@ -1336,6 +1400,13 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
     $content_cell[$ci] = PMA_getHtmlForColumnComment(
         $columnNumber, $ci, $ci_offset, isset($columnMeta) ? $columnMeta : null,
         $comments_map
+    );
+    $ci++;
+
+    // column virtuality
+    $content_cell[$ci] = PMA_getHtmlForColumnVirtuality(
+        $columnNumber, $ci, $ci_offset, isset($columnMeta) ? $columnMeta : null,
+        $analyzed_sql
     );
     $ci++;
 
