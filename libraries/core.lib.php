@@ -789,7 +789,7 @@ function PMA_arrayRemove($path, &$array)
             break;
         }
         $depth++;
-        $path[$depth] =& $path[$depth-1][$key];
+        $path[$depth] =& $path[$depth - 1][$key];
     }
     // if element found, remove it
     if ($found) {
