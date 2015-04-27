@@ -478,7 +478,7 @@ class PMA_ExportPdf extends PMA_PDF
             $this->display_column[$columns_cnt] = true;
         }
 
-       if ($do_relation && $have_rel) {
+        if ($do_relation && $have_rel) {
             $this->colTitles[$columns_cnt] = __('Links to');
             $this->display_column[$columns_cnt] = true;
             $this->colAlign[$columns_cnt] = 'L';
