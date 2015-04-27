@@ -307,8 +307,10 @@ class PMA_Console
                     .  '<label><input type="checkbox" name="current_query">'
                     .  __('Show current browsing query') . '</label><br>'
                     .  '<label><input type="checkbox" name="enter_executes">'
-                    .  __('Execute queries on Enter and insert new line with Shift + Enter. '
-                    .     'To make this permanent, view settings.') . '</label><br>'
+                    .  __(
+                        'Execute queries on Enter and insert new line with Shift + Enter. '
+                        . 'To make this permanent, view settings.'
+                    ) . '</label><br>'
                     .  '<label><input type="checkbox" name="dark_theme">'
                     .  __('Switch to dark theme') . '</label><br>'
                     .  '</div>';
