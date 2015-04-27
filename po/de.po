@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-10 10:21-0400\n"
-"PO-Revision-Date: 2015-03-30 21:08+0200\n"
+"PO-Revision-Date: 2015-04-25 10:46+0200\n"
 "Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -2811,107 +2811,91 @@ msgstr "Sekunde"
 
 #: js/messages.php:728
 msgid "This field is required"
-msgstr ""
+msgstr "Dieses Feld muss ausgefüllt werden"
 
 #: js/messages.php:729
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Textfeld verwenden"
+msgstr "Bitte korrigieren Sie dieses Feld"
 
 #: js/messages.php:730
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Bitte geben Sie einen gültigen Seitennamen ein"
+msgstr "Bitte geben Sie eine gültigen E-Mail-Adresse ein"
 
 #: js/messages.php:731
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Bitte geben Sie eine gültige Nummer ein!"
+msgstr "Bitte geben Sie eine gültige URL ein"
 
 #: js/messages.php:732
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Bitte geben Sie einen gültigen Seitennamen ein"
+msgstr "Bitte geben Sie ein gültiges Datum ein"
 
 #: js/messages.php:733
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Bitte geben Sie einen gültigen Seitennamen ein"
+msgstr "Bitte geben Sie ein gültiges Datum (ISO) ein"
 
 #: js/messages.php:734
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Bitte geben Sie eine gültige Nummer ein!"
+msgstr "Bitte geben Sie eine gültige Zahl ein"
 
 #: js/messages.php:735
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Bitte geben Sie eine gültige Nummer ein!"
+msgstr "Bitte geben Sie eine gültige Kreditkartennummer ein"
 
 #: js/messages.php:736
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Bitte geben Sie eine gültige Länge ein!"
+msgstr "Bitte geben Sie nur Ziffern ein"
 
 #: js/messages.php:737
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Bitte geben Sie einen gültigen Seitennamen ein"
+msgstr "Bitte geben Sie denselben Wert nochmal ein"
 
 #: js/messages.php:738
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter no more than {0} characters"
-msgstr "Bitte korrektes Captcha eingeben!"
+msgstr "Bitte nicht mehr als {0} Zeichen eingeben"
 
 #: js/messages.php:739
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter at least {0} characters"
-msgstr "Bitte korrektes Captcha eingeben!"
+msgstr "Bitte geben Sie mindestens {0} Zeichen ein"
 
 #: js/messages.php:740
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Bitte geben Sie einen zwischen {0} und {1} Zeichen langen Wert ein"
 
 #: js/messages.php:741
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Bitte geben Sie einen gültigen Seitennamen ein"
+msgstr "Bitte geben Sie einen Wert zwischen {0} und {1} ein"
 
 #: js/messages.php:742
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Bitte geben Sie eine gültige Länge ein!"
+msgstr "Bitte geben Sie einen Wert kleiner gleich {0} ein"
 
 #: js/messages.php:743
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Bitte geben Sie einen gültigen Seitennamen ein"
+msgstr "Bitte geben Sie einen Wert größer gleich {0} ein"
 
 #: js/messages.php:745
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Bitte geben Sie einen gültigen Seitennamen ein"
+msgstr "Bitte geben Sie ein gültiges Datum oder eine gültige Zeitangabe ein"
 
 #: js/messages.php:746
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Bitte geben Sie eine gültige Nummer ein!"
+msgstr "Bitte geben Sie einen gültige hexadezimale Eingabe ein"
 
 #: js/messages.php:747 libraries/Message.class.php:199
 #: libraries/Util.class.php:624 libraries/core.lib.php:245
@@ -5974,10 +5958,10 @@ msgid "Export views as tables"
 msgstr "Exportiere Ansicht als Tabelle"
 
 #: libraries/config/messages.inc.php:176
-#, fuzzy
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "Fehlende phpMyAdmin-Konfigurationsspeicher-Tabellen %sanlegen%s."
+msgstr ""
+"Verwandte Metadaten aus dem phpMyAdmin-Konfigurationsspeicher exportieren"
 
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:179
 #: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:181
@@ -6172,7 +6156,6 @@ msgid "Page titles"
 msgstr "Seitentitel"
 
 #: libraries/config/messages.inc.php:257
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -6182,7 +6165,7 @@ msgid ""
 "for magic strings that can be used to get special values."
 msgstr ""
 "Text für die Browser-Titelleiste. Weitere Informationen über Schlüsselwörter "
-"und Variablennamen in der [doc@cfg_TitleTable]Dokumentation[/doc]."
+"und Variablennamen in der [doc@faq6-27]Dokumentation[/doc]."
 
 #: libraries/config/messages.inc.php:261
 msgid "Security"
@@ -7634,12 +7617,13 @@ msgid "Skip locked tables"
 msgstr "Überspringe gesperrte Tabellen"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr "Warnhinweis auf der Hauptseite, wenn Suhosin erkannt wird."
+msgstr ""
+"Default-Warnhinweis auf der Hauptseite deaktivieren, der angezeigt wird, "
+"wenn Suhosin erkannt wird."
 
 #: libraries/config/messages.inc.php:774
 msgid "Suhosin warning"
@@ -7660,7 +7644,6 @@ msgid "Login cookie validity warning"
 msgstr "Login-Cookie Gültigkeitswarnung"
 
 #: libraries/config/messages.inc.php:779
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)."
@@ -7669,14 +7652,13 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Textfeldgröße (in Spalten) im Bearbeitungsmodus. Dieser Wert wird vergrößert "
-"für Textfelder bei SQL-Abfragen (*2) und Abfragefenster (*1,25)."
+"für Textfelder bei SQL-Abfragen (*2)."
 
 #: libraries/config/messages.inc.php:780
 msgid "Textarea columns"
 msgstr "Textfeldspalten"
 
 #: libraries/config/messages.inc.php:781
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)."
@@ -7685,7 +7667,7 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Textfeldgröße (in Zeilen) im Bearbeitungsmodus. Dieser Wert wird vergrößert "
-"für Textfelder bei SQL-Abfragen (*2) und Abfragefenster (*1,25)."
+"für Textfelder bei SQL-Abfragen (*2)."
 
 #: libraries/config/messages.inc.php:782
 msgid "Textarea rows"
@@ -9822,7 +9804,7 @@ msgstr "Nur Daten"
 
 #: libraries/operations.lib.php:174
 msgid "Copy database to"
-msgstr "Datenbank kopieren nach:"
+msgstr "Datenbank kopieren nach"
 
 #: libraries/operations.lib.php:185
 msgid "CREATE DATABASE before copying"
@@ -9846,7 +9828,7 @@ msgstr "(einmalig)"
 
 #: libraries/operations.lib.php:621
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Verschiebe Tabelle nach (Datenbank<b>.</b>Tabellenname):"
+msgstr "Verschiebe Tabelle nach (Datenbank<b>.</b>Tabellenname)"
 
 #: libraries/operations.lib.php:732
 msgid "Table options"
@@ -9866,7 +9848,7 @@ msgstr "Tabellenformat"
 
 #: libraries/operations.lib.php:955
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Kopiere Tabelle nach (Datenbank<b>.</b>Tabellenname):"
+msgstr "Kopiere Tabelle nach (Datenbank<b>.</b>Tabellenname)"
 
 #: libraries/operations.lib.php:1010
 msgid "Switch to copied table"
@@ -10310,22 +10292,19 @@ msgid "Report title:"
 msgstr "Titel des Reports:"
 
 #: libraries/plugins/export/ExportPdf.class.php:230
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "Daten für Tabelle"
+msgstr "Datendump"
 
 #: libraries/plugins/export/ExportPdf.class.php:284
-#, fuzzy
 #| msgid "structure"
 msgid "View structure"
-msgstr "Struktur"
+msgstr "Ansichtsstruktur"
 
 #: libraries/plugins/export/ExportPdf.class.php:287
-#, fuzzy
 #| msgid "and then"
 msgid "Stand in"
-msgstr "und dann"
+msgstr "Ersatz"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
@@ -10350,10 +10329,9 @@ msgstr ""
 "geprüft wurde"
 
 #: libraries/plugins/export/ExportSql.class.php:161
-#, fuzzy
 #| msgid "Export method"
 msgid "Export metadata"
-msgstr "Exportmethode"
+msgstr "Metadaten exportieren"
 
 #: libraries/plugins/export/ExportSql.class.php:176
 msgid ""
@@ -10486,10 +10464,10 @@ msgid "It appears your database uses functions;"
 msgstr "Es scheint, dass Ihre Datenbank Funktionen verwendet;"
 
 #: libraries/plugins/export/ExportSql.class.php:989
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata Headers"
 msgid "Metadata for %s"
-msgstr "Metadaten-Header"
+msgstr "Metadaten für %s"
 
 #: libraries/plugins/export/ExportSql.class.php:1352
 msgid "It appears your database uses views;"
@@ -10554,13 +10532,12 @@ msgstr "Tabelle:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:118
 msgid "Purpose:"
-msgstr ""
+msgstr "Zweck:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:494
-#, fuzzy
 #| msgid "MIME type"
 msgid "MIME"
-msgstr "MIME-Typ"
+msgstr "MIME"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -11165,14 +11142,19 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Sie haben nicht die nötigen Rechte, um eine Datenbank mit Namen „phpmyadmin“ "
+"anzulegen. Sie können zum „Operationen“-Tab einer beliebigen Datenbank "
+"gehen, um in dieser den phpMyAdmin-Konfigurationsspeicher einzurichten."
 
 #: libraries/relation.lib.php:2005
-#, fuzzy, php-format
+#, php-format
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "Fehlende phpMyAdmin-Konfigurationsspeicher-Tabellen %sanlegen%s."
+msgstr ""
+"Eine Datenbank mit Namen „phpmyadmin“ %sanlegen%s und dort die phpMyAdmin-"
+"Konfigurationsspeicher-Tabellen einrichten."
 
 #: libraries/relation.lib.php:2013
 #, php-format

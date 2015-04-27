@@ -312,7 +312,7 @@ function PMA_deletePage($pg)
 {
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
-        return null;
+        return false;
     }
 
     $query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])

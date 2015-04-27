@@ -28,7 +28,9 @@ phpMyAdmin - ChangeLog
 + rfe       Option groups for 'With selected' dropdown in database structure page
 + rfe #1661 Support checksum table
 
-4.4.4.0 (not yet released)
+4.4.5.0 (not yet released)
+
+4.4.4.0 (2015-04-26)
 - bug #4863 Edit vs Change
 - bug #4859 Don't scroll (to bottom) when editing multiple rows
 - bug #4862 Misaligned Inline edit field
@@ -39,6 +41,7 @@ phpMyAdmin - ChangeLog
 - bug #4870 Inconsistency in 'Ignore' checkbox in insert page
 - bug #4869 Drop column action not asking to confirm
 - bug #4871 Error on creating table
+- bug       Undefined index: Rows
 
 4.4.3.0 (2015-04-20)
 - bug #4851 PHP errors in login dialogue
