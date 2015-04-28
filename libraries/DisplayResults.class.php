@@ -559,7 +559,8 @@ class PMA_DisplayResults
             $the_total   = PMA_Table::countRecords($db, $table);
         }
 
-        // if for COUNT query, number of rows returned more than 1 (may be being used GROUP BY)
+        // if for COUNT query, number of rows returned more than 1
+        // (may be being used GROUP BY)
         if ($this->__get('is_count') && isset($num_rows) && $num_rows > 1) {
             $displayParts['nav_bar']   = (string) '1';
             $displayParts['sort_lnk']  = (string) '1';
@@ -1039,7 +1040,8 @@ class PMA_DisplayResults
         $additional_fields_html .= __('Number of rows:') . ' ';
         $additional_fields_html .= PMA_Util::getDropdown(
             'session_max_rows', $numberOfRowsChoices,
-            $_SESSION['tmpval']['max_rows'], '', 'autosubmit', $numberOfRowsPlaceholder
+            $_SESSION['tmpval']['max_rows'], '',
+            'autosubmit', $numberOfRowsPlaceholder
         );
 
         return $additional_fields_html;
@@ -1103,8 +1105,8 @@ class PMA_DisplayResults
         }
 
         // Output data needed for grid editing
-        $table_headers_html .= '<input class="save_cells_at_once" type="hidden" value="'
-            . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
+        $table_headers_html .= '<input class="save_cells_at_once" type="hidden"'
+            . ' value="' . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
             . '<div class="common_hidden_inputs">'
             . PMA_URL_getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
@@ -2089,10 +2091,13 @@ class PMA_DisplayResults
             // Another query to test this:
             // SELECT p.*, FROM_UNIXTIME(p.temps) FROM mytable AS p
             // (and try clicking on each column's header twice)
-            if (! empty($sort_tbl)
-                && /*overload*/mb_strpos($sort_expression_nodirection[$index_in_expression], $sort_tbl) === false
-                && /*overload*/mb_strpos($sort_expression_nodirection[$index_in_expression], '(') === false
-            ) {
+            $noSortTable = /*overload*/mb_strpos(
+                $sort_expression_nodirection[$index_in_expression], $sort_tbl
+            ) === false;
+            $noOpenParenthesis = /*overload*/mb_strpos(
+                $sort_expression_nodirection[$index_in_expression], '('
+            ) === false;
+            if (! empty($sort_tbl) && $noSortTable && $noOpenParenthesis) {
                 $new_sort_expression_nodirection = $sort_tbl
                     . $sort_expression_nodirection[$index_in_expression];
             } else {
@@ -2352,7 +2357,8 @@ class PMA_DisplayResults
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
 
             $right_column_html .= "\n"
-                . '<th class="column_action" ' . $colspan . '>' . $full_or_partial_text_link
+                . '<th class="column_action" ' . $colspan . '>'
+                . $full_or_partial_text_link
                 . '</th>';
 
         } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
@@ -2497,7 +2503,8 @@ class PMA_DisplayResults
         }
 
         $mime_map = $this->__get('mime_map');
-        $orgFullColName = $this->__get('db') . '.' . $meta->orgtable . '.' . $meta->orgname;
+        $orgFullColName = $this->__get('db') . '.' . $meta->orgtable
+            . '.' . $meta->orgname;
         if ($transformation_plugin != $default_function
             || !empty($mime_map[$orgFullColName]['input_transformation'])
         ) {
@@ -2754,7 +2761,8 @@ class PMA_DisplayResults
                 && empty($added[$orgFullTableName])
             ) {
                 $mimeMap = array_merge(
-                    $mimeMap, PMA_getMIME($this->__get('db'), $meta->orgtable, false, true)
+                    $mimeMap,
+                    PMA_getMIME($this->__get('db'), $meta->orgtable, false, true)
                 );
                 $added[$orgFullTableName] = true;
             }
@@ -5618,15 +5626,15 @@ class PMA_DisplayResults
             );
 
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
-                $del_url, $displayParts, $row_no, $where_clause_html, $condition_array,
-                '_right', ''
+                $del_url, $displayParts, $row_no, $where_clause_html,
+                $condition_array, '_right', ''
             );
 
         } else { // $position == self::POSITION_NONE
 
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
-                $del_url, $displayParts, $row_no, $where_clause_html, $condition_array,
-                '_left', ''
+                $del_url, $displayParts, $row_no, $where_clause_html,
+                $condition_array, '_left', ''
             );
         }
 
