@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.4.5.0 (not yet released)
+- bug       Table overhead stats: missing space before the unit
 
 4.4.4.0 (2015-04-26)
 - bug #4863 Edit vs Change
