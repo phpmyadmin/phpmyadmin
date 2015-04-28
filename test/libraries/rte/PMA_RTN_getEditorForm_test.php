@@ -472,7 +472,7 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
                     )
                 )
             ),
-           array(
+            array(
                 $data,
                 array(
                     'tag' => 'input',
@@ -481,7 +481,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
                     )
                 )
             ),
-
         );
     }
 
@@ -676,7 +675,7 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
                     )
                 )
             ),
-           array(
+            array(
                 $data,
                 array(
                     'tag' => 'input',
@@ -685,7 +684,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
                     )
                 )
             ),
-
         );
     }
 

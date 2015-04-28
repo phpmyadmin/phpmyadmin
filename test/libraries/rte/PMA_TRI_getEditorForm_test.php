@@ -91,7 +91,7 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
             ),
             array(
                 $data,
-                 array(
+                array(
                     'tag' => 'select',
                     'attributes' => array(
                         'name' => 'item_table'
@@ -202,7 +202,7 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
             ),
             array(
                 $data,
-                 array(
+                array(
                     'tag' => 'select',
                     'attributes' => array(
                         'name' => 'item_table'

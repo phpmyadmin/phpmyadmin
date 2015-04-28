@@ -84,9 +84,10 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
           ),
           array(
               'PMA_db', 'PMA_table2', null,
-              array(array('Key_name'=>'PRIMARY', 'Column_name'=>'id'),
+              array(
+                array('Key_name'=>'PRIMARY', 'Column_name'=>'id'),
                 array('Key_name'=>'PRIMARY', 'Column_name'=>'col1')
-             )
+              )
           ),
         );
         $dbi->expects($this->any())
