@@ -1773,12 +1773,11 @@ function PMA_updatePassword($err_url, $username, $hostname)
             $local_query = $query_prefix
                 . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . "'";
         } else {
-            $hashing_function
-                = (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'old'
-                ? 'OLD_'
-                : ''
-            )
-            . 'PASSWORD';
+            if (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'old') {
+                $hashing_function = 'OLD_PASSWORD';
+            } else {
+                $hashing_function = 'PASSWORD';
+            }
 
             $sql_query        = 'SET PASSWORD FOR \''
                 . PMA_Util::sqlAddSlashes($username)

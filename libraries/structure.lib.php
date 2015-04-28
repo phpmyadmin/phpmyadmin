@@ -1379,13 +1379,12 @@ function PMA_getHtmlTableStructureRow($row, $rownum,
         . $extracted_columnspec['displayed_type'] . $type_mime
         . '</bdo></td>';
 
-    $html_output .= '<td>' .
-        (empty($field_charset)
-            ? ''
-            : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">'
-                . $field_charset . '</dfn>'
-        )
-        . '</td>';
+    $html_output .= '<td>';
+    if (! empty($field_charset)) {
+        $html_output .= '<dfn title="' . PMA_getCollationDescr($field_charset)
+            . '">' . $field_charset . '</dfn>';
+    }
+    $html_output .= '</td>';
 
     $html_output .= '<td class="column_attribute nowrap">'
         . $attribute . '</td>';
