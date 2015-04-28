@@ -80,7 +80,7 @@ class PMA_StorageEngine_Pbxt_Test extends PHPUnit_Framework_TestCase
                         . ' record cache used to cache table data. The default'
                         . ' value is 32MB. This memory is used to cache changes to'
                         . ' the handle data (.xtd) and row pointer (.xtr) files.'
-                     ),
+                    ),
                     'type'  => 1
                 ),
                 'pbxt_log_cache_size' => array(
@@ -253,9 +253,9 @@ class PMA_StorageEngine_Pbxt_Test extends PHPUnit_Framework_TestCase
                     'Documentation and further information about PBXT'
                     . ' can be found on the %sPrimeBase XT Home Page%s.'
                 ),
-               '<a href="' . PMA_linkURL('http://www.primebase.com/xt/')
-               . '" target="_blank">',
-               '</a>'
+                '<a href="' . PMA_linkURL('http://www.primebase.com/xt/')
+                . '" target="_blank">',
+                '</a>'
             )
             . '</p>' . "\n"
             . '<h3>' . __('Related Links') . '</h3>' . "\n"
