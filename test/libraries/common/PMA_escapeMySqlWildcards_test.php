@@ -66,7 +66,6 @@ class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider escapeDataProvider
      */
-
     public function testUnEscape($a, $b)
     {
         $this->assertEquals(

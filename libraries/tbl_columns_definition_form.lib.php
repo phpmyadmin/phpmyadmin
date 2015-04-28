@@ -968,7 +968,6 @@ function PMA_getHtmlForColumnIndexes($columnNumber, $ci, $ci_offset, $columnMeta
  *
  * @return string
  */
-
 function PMA_getHtmlForIndexTypeOption($columnNumber, $columnMeta, $type, $key)
 {
     $typeToLower = /*overload*/mb_strtolower($type);
