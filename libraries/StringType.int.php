@@ -4,6 +4,12 @@
  *
  * @package PhpMyAdmin-String
  */
+
+/**
+ * Defines a set of specialized string functions.
+ *
+ * @package PhpMyAdmin-String
+ */
 interface PMA_StringType
 {
     /**
