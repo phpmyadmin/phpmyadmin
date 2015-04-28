@@ -52,7 +52,7 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testgetParameterRow_empty()
+    public function testgetParameterRowEmpty()
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
@@ -68,8 +68,8 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @depends testgetParameterRow_empty
-     * @dataProvider provider_row
+     * @depends testgetParameterRowEmpty
+     * @dataProvider providerRow
      */
     public function testgetParameterRow($data, $index, $matcher)
     {
@@ -83,7 +83,7 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function provider_row()
+    public function providerRow()
     {
         $data = array(
             'item_name'                 => '',
@@ -184,9 +184,9 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      * @return void
      *
      * @depends testgetParameterRow
-     * @dataProvider provider_row_ajax
+     * @dataProvider providerRowAjax
      */
-    public function testgetParameterRow_ajax($data, $matcher)
+    public function testgetParameterRowAjax($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
@@ -194,11 +194,11 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testgetParameterRow_ajax
+     * Data provider for testgetParameterRowAjax
      *
      * @return array
      */
-    public function provider_row_ajax()
+    public function providerRowAjax()
     {
         $data = array(
             'item_name'                 => '',
@@ -292,10 +292,10 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @depends testgetParameterRow_ajax
-     * @dataProvider provider_editor_1
+     * @depends testgetParameterRowAjax
+     * @dataProvider providerEditor1
      */
-    public function testgetEditorForm_1($data, $matcher)
+    public function testgetEditorForm1($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
@@ -303,11 +303,11 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testgetEditorForm_1
+     * Data provider for testgetEditorForm1
      *
      * @return array
      */
-    public function provider_editor_1()
+    public function providerEditor1()
     {
         $data = array(
             'item_name'                 => '',
@@ -492,10 +492,10 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @depends testgetParameterRow_ajax
-     * @dataProvider provider_editor_2
+     * @depends testgetParameterRowAjax
+     * @dataProvider providerEditor2
      */
-    public function testgetEditorForm_2($data, $matcher)
+    public function testgetEditorForm2($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
@@ -505,11 +505,11 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testgetEditorForm_2
+     * Data provider for testgetEditorForm2
      *
      * @return array
      */
-    public function provider_editor_2()
+    public function providerEditor2()
     {
         $data = array(
             'item_name'                 => 'foo',
@@ -695,10 +695,10 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @depends testgetParameterRow_ajax
-     * @dataProvider provider_editor_3
+     * @depends testgetParameterRowAjax
+     * @dataProvider providerEditor3
      */
-    public function testgetEditorForm_3($data, $matcher)
+    public function testgetEditorForm3($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = true;
         PMA_RTN_setGlobals();
@@ -710,11 +710,11 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testgetEditorForm_3
+     * Data provider for testgetEditorForm3
      *
      * @return array
      */
-    public function provider_editor_3()
+    public function providerEditor3()
     {
         $data = array(
             'item_name'                 => 'foo',
@@ -899,10 +899,10 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @depends testgetParameterRow_ajax
-     * @dataProvider provider_editor_4
+     * @depends testgetParameterRowAjax
+     * @dataProvider providerEditor4
      */
-    public function testgetEditorForm_4($data, $matcher)
+    public function testgetEditorForm4($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
@@ -914,11 +914,11 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testgetEditorForm_4
+     * Data provider for testgetEditorForm4
      *
      * @return array
      */
-    public function provider_editor_4()
+    public function providerEditor4()
     {
         $data = array(
             'item_name'                 => 'foo',

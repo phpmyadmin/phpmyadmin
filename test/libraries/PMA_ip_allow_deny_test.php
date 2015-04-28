@@ -53,7 +53,7 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getIp()
+    public function test_getIp()
     {
         //$_SERVER['REMOTE_ADDR'] is empty
         $this->assertEquals(
@@ -85,7 +85,7 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_ipMaskTest()
+    public function test_ipMaskTest()
     {
         //IPV4 testing
         $testRange = "255.255.0.0/8";
@@ -163,7 +163,7 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_allowDeny()
+    public function test_allowDeny()
     {
         $_SERVER['REMOTE_ADDR'] = "";
         $this->assertEquals(

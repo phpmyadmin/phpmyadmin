@@ -56,9 +56,9 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @dataProvider provider_add
+     * @dataProvider providerAdd
      */
-    public function testgetEditorForm_add($data, $matcher)
+    public function testgetEditorFormAdd($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_EVN_setGlobals();
@@ -71,11 +71,11 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testgetEditorForm_add
+     * Data provider for testgetEditorFormAdd
      *
      * @return array
      */
-    public function provider_add()
+    public function providerAdd()
     {
         $data = array(
             'item_name'           => '',
@@ -241,9 +241,9 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @dataProvider provider_edit
+     * @dataProvider providerEdit
      */
-    public function testgetEditorForm_edit($data, $matcher)
+    public function testgetEditorFormEdit($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_EVN_setGlobals();
@@ -260,7 +260,7 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function provider_edit()
+    public function providerEdit()
     {
         $data = array(
             'item_name'           => 'foo',
@@ -426,9 +426,9 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @dataProvider provider_ajax
+     * @dataProvider providerAjax
      */
-    public function testgetEditorForm_ajax($data, $matcher)
+    public function testgetEditorFormAjax($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = true;
         PMA_EVN_setGlobals();
@@ -445,7 +445,7 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function provider_ajax()
+    public function providerAjax()
     {
         $data = array(
             'item_name'           => '',

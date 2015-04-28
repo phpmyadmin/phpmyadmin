@@ -32,9 +32,9 @@ class PMA_RTN_ParameterParser_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @dataProvider definer_provider
+     * @dataProvider definerProvider
      */
-    public function test_parseDefiner($source, $target)
+    public function testParseDefiner($source, $target)
     {
         PMA_RTN_setGlobals();
         $this->assertEquals(
@@ -44,11 +44,11 @@ class PMA_RTN_ParameterParser_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for test_parseDefiner
+     * Data provider for testParseDefiner
      *
      * @return array
      */
-    public function definer_provider()
+    public function definerProvider()
     {
         return array(
             array('CREATE PROCEDURE FOO() SELECT NULL', ''),
@@ -71,20 +71,20 @@ class PMA_RTN_ParameterParser_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @dataProvider param_provider
+     * @dataProvider paramProvider
      */
-    public function test_parseOneParameter($source, $target)
+    public function testParseOneParameter($source, $target)
     {
         PMA_RTN_setGlobals();
         $this->assertEquals($target, PMA_RTN_parseOneParameter($source));
     }
 
     /**
-     * Data provider for test_parseOneParameter
+     * Data provider for testParseOneParameter
      *
      * @return array
      */
-    public function param_provider()
+    public function paramProvider()
     {
         return array(
             array('`foo` TEXT', array('', 'foo', 'TEXT', '', '')),
@@ -124,10 +124,10 @@ class PMA_RTN_ParameterParser_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @depends test_parseOneParameter
-     * @dataProvider query_provider
+     * @depends testParseOneParameter
+     * @dataProvider queryProvider
      */
-    public function test_parseAllParameters($query, $type, $target)
+    public function testParseAllParameters($query, $type, $target)
     {
         PMA_RTN_setGlobals();
         $this->assertEquals(
@@ -137,11 +137,11 @@ class PMA_RTN_ParameterParser_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for test_parseAllParameters
+     * Data provider for testParseAllParameters
      *
      * @return array
      */
-    public function query_provider()
+    public function queryProvider()
     {
         return array(
             array(
