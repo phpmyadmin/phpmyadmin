@@ -795,7 +795,7 @@ function PMA_exportTable(
         $metadataTypes = PMA_getMetadataTypesToExport();
 
         if (! $export_plugin->exportMetadata(
-                $db, $table, $metadataTypes
+            $db, $table, $metadataTypes
         )) {
             return;
         }

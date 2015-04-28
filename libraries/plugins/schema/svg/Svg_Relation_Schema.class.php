@@ -454,7 +454,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         }
         if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new Table_Stats_Svg(
-               $this->diagram,
+                $this->diagram,
                 $foreignTable, $font, $fontSize, $this->pageNumber,
                 $this->_tablewidth, false, $tableDimension
             );

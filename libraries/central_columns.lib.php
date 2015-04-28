@@ -986,7 +986,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
     $tableHtml .=
         '<td class="nowrap" name="col_default">'
         . PMA_getHtmlForColumnDefault(
-                $row_num, 3, 0, /*overload*/mb_strtoupper($row['col_default']), '', $meta
+            $row_num, 3, 0, /*overload*/mb_strtoupper($row['col_default']), '', $meta
         )
         . '</td>';
     $tableHtml .=
