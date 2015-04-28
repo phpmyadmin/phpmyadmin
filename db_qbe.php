@@ -106,7 +106,7 @@ if ($message_to_display) {
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new PMA_DBQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
+$db_qbe = new PMA_DbQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
 
 /**
  * Displays the Query by example form
