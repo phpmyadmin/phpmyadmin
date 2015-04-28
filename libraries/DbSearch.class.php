@@ -243,7 +243,7 @@ class PMA_DbSearch
         } // end for
         // Use 'OR' if 'at least one word' is to be searched, else use 'AND'
         $implode_str  = ($this->_criteriaSearchType == 1 ? ' OR ' : ' AND ');
-        if ( empty($likeClauses)) {
+        if (empty($likeClauses)) {
             // this could happen when the "inside column" does not exist
             // in any selected tables
             $where_clause = ' WHERE FALSE';

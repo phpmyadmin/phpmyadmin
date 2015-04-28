@@ -176,7 +176,7 @@ class PMA_SysInfoWinnt extends PMA_SysInfo
             $arrInstance = array();
             foreach ($arrProp as $propItem) {
                 $name = $propItem->Name;
-                if ( empty($strValue) || in_array($name, $strValue)) {
+                if (empty($strValue) || in_array($name, $strValue)) {
                     $value = $objItem->$name;
                     $arrInstance[$name] = trim($value);
                 }

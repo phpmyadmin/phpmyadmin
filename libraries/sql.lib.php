@@ -273,11 +273,11 @@ function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
     if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
         PMA_Util::checkParameters(array('db', 'sql_query'));
         $header->enablePrintView();
-        if ( $GLOBALS['cfg']['Server']['verbose']) {
+        if ($GLOBALS['cfg']['Server']['verbose']) {
             $hostname =  $GLOBALS['cfg']['Server']['verbose'];
         } else {
             $hostname =  $GLOBALS['cfg']['Server']['host'];
-            if (! empty( $GLOBALS['cfg']['Server']['port'])) {
+            if (! empty($GLOBALS['cfg']['Server']['port'])) {
                 $hostname .=  $GLOBALS['cfg']['Server']['port'];
             }
         }
@@ -1985,7 +1985,7 @@ function PMA_getQueryResponseForResultsReturned($result,
         );
 
     }
-    if ( isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
+    if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
         $displayParts = array(
             'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
             'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,

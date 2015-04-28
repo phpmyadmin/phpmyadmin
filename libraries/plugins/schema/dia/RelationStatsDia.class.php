@@ -115,8 +115,8 @@ class Relation_Stats_Dia
         * points are same then return it false and don't draw that
         * relation
         */
-        if ( $this->srcConnPointsRight == $this->destConnPointsRight) {
-            if ( $this->srcConnPointsLeft == $this->destConnPointsLeft) {
+        if ($this->srcConnPointsRight == $this->destConnPointsRight) {
+            if ($this->srcConnPointsLeft == $this->destConnPointsLeft) {
                 return false;
             }
         }

@@ -75,7 +75,7 @@ abstract class AuthenticationPlugin
             );
         } else {
             $dbi_error = $GLOBALS['dbi']->getError();
-            if ( ! empty($dbi_error)) {
+            if (! empty($dbi_error)) {
                 return PMA_sanitize($dbi_error);
             } elseif (isset($GLOBALS['errno'])) {
                 return '#' . $GLOBALS['errno'] . ' '

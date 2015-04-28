@@ -413,7 +413,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
  */
 function PMA_Transformation_globalHtmlReplace($buffer, $options = array())
 {
-    if ( ! isset($options['string']) ) {
+    if (! isset($options['string'])) {
         $options['string'] = '';
     }
 

@@ -160,7 +160,7 @@ class PMA_Scripts
      */
     private function _eventBlacklist($filename)
     {
-        if (   strpos($filename, 'jquery') !== false
+        if (strpos($filename, 'jquery') !== false
             || strpos($filename, 'codemirror') !== false
             || strpos($filename, 'messages.php') !== false
             || strpos($filename, 'ajax.js') !== false

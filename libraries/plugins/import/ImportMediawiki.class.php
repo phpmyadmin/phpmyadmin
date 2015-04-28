@@ -134,7 +134,7 @@ class ImportMediawiki extends ImportPlugin
                 $cur_buffer_line = trim($buffer_lines[$line_nr]);
 
                 // If the line is empty, go to the next one
-                if ( $cur_buffer_line === '' ) {
+                if ($cur_buffer_line === '' ) {
                     continue;
                 }
 
@@ -216,7 +216,7 @@ class ImportMediawiki extends ImportPlugin
                         // If the current line contains header cells
                         // ( marked with '!' ),
                         // it will be marked as table header
-                        if ( $in_table_header ) {
+                        if ($in_table_header ) {
                             // Set the header columns
                             $cur_temp_table_headers = $cur_temp_line;
                         } else {

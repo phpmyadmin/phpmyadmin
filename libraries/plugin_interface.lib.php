@@ -227,7 +227,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
         $ret .= '<input type="hidden" id="force_file_' . $plugin_name
             . '" value="';
         $properties = $plugin->getProperties();
-        if ( ! strcmp($section, 'Import')
+        if (! strcmp($section, 'Import')
             || ($properties != null && $properties->getForceFile() != null)
         ) {
             $ret .= 'true';

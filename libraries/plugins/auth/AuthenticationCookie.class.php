@@ -221,14 +221,14 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // We already have one correct captcha.
         $skip = false;
-        if (  isset($_SESSION['last_valid_captcha'])
+        if (isset($_SESSION['last_valid_captcha'])
             && $_SESSION['last_valid_captcha']
         ) {
             $skip = true;
         }
 
         // Add captcha input field if reCaptcha is enabled
-        if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+        if (!empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
             && !$skip
         ) {
@@ -325,14 +325,14 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // We already have one correct captcha.
         $skip = false;
-        if (  isset($_SESSION['last_valid_captcha'])
+        if (isset($_SESSION['last_valid_captcha'])
             && $_SESSION['last_valid_captcha']
         ) {
             $skip = true;
         }
 
         // Verify Captcha if it is required.
-        if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+        if (!empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
             && !$skip
         ) {

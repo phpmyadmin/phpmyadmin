@@ -311,7 +311,7 @@ class ExportMediawiki extends ExportPlugin
             $column_names = $GLOBALS['dbi']->getColumnNames($db, $table);
 
             // Add column names as table headers
-            if ( ! is_null($column_names) ) {
+            if (! is_null($column_names) ) {
                 // Use '|-' for separating rows
                 $output .= "|-" . $this->_exportCRLF();
 

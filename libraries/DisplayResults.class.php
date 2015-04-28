@@ -3303,7 +3303,7 @@ class PMA_DisplayResults
 
         // Class definitions required for grid editing jQuery scripts
         $edit_anchor_class = "edit_row_anchor";
-        if ( $clause_is_unique == 0) {
+        if ($clause_is_unique == 0) {
             $edit_anchor_class .= ' nonunique';
         }
 
