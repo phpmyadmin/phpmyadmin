@@ -44,7 +44,7 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function test_getParams()
+    public function testGetParams()
     {
         $this->assertEquals(
             false,
@@ -57,7 +57,7 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function test_getList()
+    public function testGetList()
     {
         $this->assertEquals(
             array(),
@@ -70,7 +70,7 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function test_get()
+    public function testGet()
     {
         $this->assertEquals(
             '',
@@ -83,7 +83,7 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function test_save()
+    public function testSave()
     {
         $bookmark = array(
             'dbase' => 'phpmyadmin',
@@ -100,7 +100,7 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function test_delete()
+    public function testDelete()
     {
         $this->assertFalse(
             PMA_Bookmark_delete('1')
