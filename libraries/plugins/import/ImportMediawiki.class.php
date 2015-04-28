@@ -403,8 +403,8 @@ class ImportMediawiki extends ImportPlugin
      * Replaces all instances of the '||' separator between delimiters
      * in a given string
      *
-     * @param string $replace     the string to be replaced with
-     * @param string $subject     the text to be replaced
+     * @param string $replace the string to be replaced with
+     * @param string $subject the text to be replaced
      *
      * @return string with replacements
      */

@@ -405,18 +405,18 @@ class PMA_ExportPdf extends PMA_PDF
     /**
      * Print $table's CREATE definition
      *
-     * @param string $db            the database name
-     * @param string $table         the table name
-     * @param bool   $do_relation   whether to include relation comments
-     * @param bool   $do_comments   whether to include the pmadb-style column
+     * @param string $db          the database name
+     * @param string $table       the table name
+     * @param bool   $do_relation whether to include relation comments
+     * @param bool   $do_comments whether to include the pmadb-style column
      *                                comments as comments in the structure;
      *                                this is deprecated but the parameter is
      *                                left here because export.php calls
      *                                PMA_exportStructure() also for other
      *                                export types which use this parameter
-     * @param bool   $do_mime       whether to include mime comments
-     * @param bool   $view          whether we're handling a view
-     * @param bool   $aliases       aliases of db/table/columns
+     * @param bool   $do_mime     whether to include mime comments
+     * @param bool   $view        whether we're handling a view
+     * @param bool   $aliases     aliases of db/table/columns
      *
      * @return void
      */
