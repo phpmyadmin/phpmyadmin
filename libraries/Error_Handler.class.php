@@ -305,7 +305,7 @@ class PMA_Error_Handler
                         $retval .= $error->getDisplay();
                     }
                 } else {
-                    $retval .= var_export($error);
+                    $retval .= var_export($error, true);
                 }
             }
         } else {
