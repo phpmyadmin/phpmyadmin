@@ -299,7 +299,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return void
      */
-    private function _importDataOneTable ($table)
+    private function _importDataOneTable($table)
     {
         $analyze = $this->_getAnalyze();
         if ($analyze) {
