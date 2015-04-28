@@ -377,7 +377,6 @@ function PMA_getHtmlForReplicationDbMultibox()
  *
  * @return String HTML code
  */
-
 function PMA_getHtmlForReplicationChangeMaster($submitname)
 {
     $html = '';
@@ -641,7 +640,6 @@ function PMA_getHtmlForReplicationSlavesTable($hidden = false)
  *
  * @return array   username length, hostname length
  */
-
 function PMA_replicationGetUsernameHostnameLength()
 {
     $fields_info = $GLOBALS['dbi']->getColumns('mysql', 'user');

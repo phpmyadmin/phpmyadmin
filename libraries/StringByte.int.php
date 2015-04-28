@@ -19,7 +19,6 @@ interface PMA_StringByte
      *
      * @return int|false string length
      */
-
     public function strlen($string);
 
     /**

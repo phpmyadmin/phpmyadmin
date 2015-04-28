@@ -500,7 +500,6 @@ class PMA_Error_Handler
      *
      * @return void
      */
-
     public function reportErrors()
     {
         // if there're no actual errors,

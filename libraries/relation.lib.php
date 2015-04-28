@@ -1259,7 +1259,6 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
  *
  * @access  public
  */
-
 function PMA_getForeignData(
     $foreigners, $field, $override_total, $foreign_filter, $foreign_limit
 ) {

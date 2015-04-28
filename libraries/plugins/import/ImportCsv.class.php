@@ -650,7 +650,6 @@ class ImportCsv extends AbstractImportCsv
      *
      * @return string
      */
-
     public function readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len)
     {
         for ($j = 0; $j < $csv_terminated_len - 1; $j++) {
