@@ -1086,53 +1086,29 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
            . ($current_grant_value == 'Y' ? 'checked="checked" ' : '')
            . 'title="';
 
-        $html_output .= (isset($GLOBALS[
-                    'strPrivDesc' . /*overload*/mb_substr(
-                        $tmp_current_grant,
-                        0,
-                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
-                    )
-                ] )
-                ? $GLOBALS[
-                    'strPrivDesc' . /*overload*/mb_substr(
-                        $tmp_current_grant,
-                        0,
-                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
-                    )
-                ]
-                : $GLOBALS[
-                    'strPrivDesc' . /*overload*/mb_substr(
-                        $tmp_current_grant,
-                        0,
-                        (/*overload*/mb_strlen($tmp_current_grant) - 5)
-                    ) . 'Tbl'
-                ]
+        $privGlobalName = 'strPrivDesc'
+            . /*overload*/mb_substr(
+                $tmp_current_grant,
+                0,
+                (/*overload*/mb_strlen($tmp_current_grant) - 5)
+            );
+        $html_output .= (isset($GLOBALS[$privGlobalName])
+                ? $GLOBALS[$privGlobalName]
+                : $GLOBALS[$privGlobalName . 'Tbl']
             )
             . '"/>' . "\n";
 
+        $privGlobalName1 = 'strPrivDesc'
+            . /*overload*/mb_substr(
+                $tmp_current_grant,
+                0,
+                - 5
+            );
         $html_output .= '<label for="checkbox_' . $current_grant
             . '"><code><dfn title="'
-            . (isset($GLOBALS[
-                    'strPrivDesc' . /*overload*/mb_substr(
-                        $tmp_current_grant,
-                        0,
-                        -5
-                    )
-                ])
-                ? $GLOBALS[
-                    'strPrivDesc' . /*overload*/mb_substr(
-                        $tmp_current_grant,
-                        0,
-                        -5
-                    )
-                ]
-                : $GLOBALS[
-                    'strPrivDesc' . /*overload*/mb_substr(
-                        $tmp_current_grant,
-                        0,
-                        -5
-                    ) . 'Tbl'
-                ]
+            . (isset($GLOBALS[$privGlobalName1])
+                ? $GLOBALS[$privGlobalName1]
+                : $GLOBALS[$privGlobalName1 . 'Tbl']
             )
             . '">'
             . /*overload*/mb_strtoupper(
