@@ -480,7 +480,7 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
  * @param bool         $do_comments     whether to add comments
  * @param bool         $do_mime         whether to add MIME info
  * @param bool         $do_dates        whether to add dates
- * @param array  $aliases         Alias information for db/table/column
+ * @param array        $aliases         alias information for db/table/column
  *
  * @return void
  */

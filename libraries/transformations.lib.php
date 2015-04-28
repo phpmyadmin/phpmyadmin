@@ -179,7 +179,7 @@ function PMA_getTransformationDescription($file, $html_formatted = true)
 /**
  * Returns the name of the transformation
  *
- * @param string  $file transformation file
+ * @param string $file transformation file
  *
  * @return String the name of the transformation
  */
