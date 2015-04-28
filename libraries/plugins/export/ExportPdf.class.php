@@ -135,7 +135,7 @@ class ExportPdf extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
         $pdf_report_title = $this->_getPdfReportTitle();
         $pdf = $this->_getPdf();
@@ -153,7 +153,7 @@ class ExportPdf extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         $pdf = $this->_getPdf();
 
@@ -173,7 +173,7 @@ class ExportPdf extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $db_alias = '')
     {
         return true;
     }
@@ -185,7 +185,7 @@ class ExportPdf extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         return true;
     }

@@ -37,14 +37,14 @@ abstract class ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportHeader ();
+    abstract public function exportHeader();
 
     /**
      * Outputs export footer
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportFooter ();
+    abstract public function exportFooter();
 
     /**
      * Outputs database header
@@ -54,7 +54,7 @@ abstract class ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportDBHeader ($db, $db_alias = '');
+    abstract public function exportDBHeader($db, $db_alias = '');
 
     /**
      * Outputs database footer
@@ -63,7 +63,7 @@ abstract class ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportDBFooter ($db);
+    abstract public function exportDBFooter($db);
 
     /**
      * Outputs CREATE DATABASE statement
@@ -87,7 +87,7 @@ abstract class ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportData (
+    abstract public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
     );
 
