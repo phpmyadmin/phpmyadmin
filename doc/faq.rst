@@ -2011,6 +2011,34 @@ Which says, OwnerEmail depends on OwnerLastName and OwnerFirstName.
 OwnerPhone depends on OwnerLastName and OwnerFirstName.
 PetType depends on PetBreed.
 
+.. _faq6_38:
+
+6.38 How can I reassign auto-incremented values? 
+------------------------------------------------
+
+Some users prefer their AUTO_INCREMENT values to be consecutive; this is not
+always the case after row deletion.
+
+Here are the steps to accomplish this. These are manual steps because they
+involve a manual verification at one point.
+
+* Ensure that you have exclusive access to the table to rearrange
+
+* On your primary key column (i.e. id), remove the AUTO_INCREMENT setting
+
+* Delete your primary key in Structure > indexes
+
+* Create a new column future_id as primary key, AUTO_INCREMENT
+
+* Browse your table and verify that the new increments correspond to what
+  you're expecting
+
+* Drop your old id column
+
+* Rename the future_id column to id
+
+* Move the new id column via Structure > Move columns
+
 .. _faqproject:
 
 phpMyAdmin project
