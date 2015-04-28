@@ -305,10 +305,7 @@ class PMA_Error_Handler
                         $retval .= $error->getDisplay();
                     }
                 } else {
-                    ob_start();
-                    var_dump($error);
-                    $retval .= ob_get_contents();
-                    ob_end_clean();
+                    $retval .= var_export($error, true);
                 }
             }
         } else {
@@ -557,4 +554,3 @@ class PMA_Error_Handler
         $response->getFooter()->getScripts()->addCode($jsCode);
     }
 }
-?>
