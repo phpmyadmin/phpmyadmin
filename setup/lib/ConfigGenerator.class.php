@@ -38,7 +38,7 @@ class ConfigGenerator
             . ' */' . $crlf . $crlf;
 
         //servers
-        $ret .= self::_getServerPart($cf, $crlf, $conf['Servers']);
+        $ret .= self::getServerPart($cf, $crlf, $conf['Servers']);
         unset($conf['Servers']);
 
         // other settings
@@ -149,7 +149,7 @@ class ConfigGenerator
      *
      * @return string
      */
-    protected static function _getServerPart(ConfigFile $cf, $crlf, $servers)
+    protected static function getServerPart(ConfigFile $cf, $crlf, $servers)
     {
         if ($cf->getServerCount() === 0) {
             return null;
