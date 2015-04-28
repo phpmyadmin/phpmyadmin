@@ -410,7 +410,7 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
 
-    if ($foreign) {
+    if (! empty($foreign)) {
         $response->addHTML(
             PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
         );
