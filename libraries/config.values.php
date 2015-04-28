@@ -140,13 +140,13 @@ $cfg_db['Import']['charset'] = array_merge(
 );
 $cfg_db['Import']['sql_compatibility']
     = $cfg_db['Export']['sql_compatibility'] = array(
-    'NONE', 'ANSI', 'DB2', 'MAXDB', 'MYSQL323',
-    'MYSQL40', 'MSSQL', 'ORACLE',
-    // removed; in MySQL 5.0.33, this produces exports that
-    // can't be read by POSTGRESQL (see our bug #1596328)
-    //'POSTGRESQL',
-    'TRADITIONAL'
-);
+        'NONE', 'ANSI', 'DB2', 'MAXDB', 'MYSQL323',
+        'MYSQL40', 'MSSQL', 'ORACLE',
+        // removed; in MySQL 5.0.33, this produces exports that
+        // can't be read by POSTGRESQL (see our bug #1596328)
+        //'POSTGRESQL',
+        'TRADITIONAL'
+    );
 $cfg_db['Import']['csv_terminated'] = 'short_string';
 $cfg_db['Import']['csv_enclosed'] = 'short_string';
 $cfg_db['Import']['csv_escaped'] = 'short_string';

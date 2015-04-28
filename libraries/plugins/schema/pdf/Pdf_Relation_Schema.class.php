@@ -788,7 +788,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 ($this->diagram->getPageHeight() - $topSpace - $bottomSpace) / $gridSize
             );
             $l <= $size;
-            $l++) {
+            $l++
+        ) {
             $this->diagram->line(
                 0, $l * $gridSize + $topSpace,
                 $this->diagram->getPageWidth(), $l * $gridSize + $topSpace
