@@ -254,6 +254,8 @@ class PMA_Export_Relation_Schema
      * Returns the file name
      *
      * @param String $extension file extension
+     *
+     * @return string file name
      */
     protected function getFileName($extension)
     {

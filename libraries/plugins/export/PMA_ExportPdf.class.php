@@ -279,6 +279,8 @@ class PMA_ExportPdf extends PMA_PDF
      *
      * @param string $db    database name
      * @param string $table table name
+     *
+     * @return void
      */
     public function getTriggers($db, $table)
     {
@@ -339,10 +341,10 @@ class PMA_ExportPdf extends PMA_PDF
         $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
 
         foreach ($triggers as $trigger) {
-            $data [] = $trigger['name'];
-            $data [] = $trigger['action_timing'];
-            $data [] = $trigger['event_manipulation'];
-            $data [] = $trigger['definition'];
+            $data[] = $trigger['name'];
+            $data[] = $trigger['action_timing'];
+            $data[] = $trigger['event_manipulation'];
+            $data[] = $trigger['definition'];
             $this->page = $currpage;
             // write the horizontal borders
             $this->Line($l, $h, $fullwidth+$l, $h);
@@ -415,6 +417,8 @@ class PMA_ExportPdf extends PMA_PDF
      * @param bool   $do_mime       whether to include mime comments
      * @param bool   $view          whether we're handling a view
      * @param bool  $aliases        Aliases of db/table/columns
+     *
+     * @return void
      */
     public function getTableDef(
         $db,

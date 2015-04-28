@@ -21,6 +21,8 @@ class PMA_ResultSetHasJustOneTableTest extends PHPUnit_Framework_TestCase
 
     /**
      * Should return false if all columns are not from the same table
+     *
+     * @return void
      */
     public function testWithMultipleTables()
     {
@@ -89,6 +91,8 @@ class PMA_ResultSetHasJustOneTableTest extends PHPUnit_Framework_TestCase
     /**
      * We can not say all the columns are from the same table if all the columns
      * are funtion columns (table is '')
+     *
+     * @return void
      */
     public function testWithOnlyFunctionColumns()
     {
