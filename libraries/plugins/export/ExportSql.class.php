@@ -816,7 +816,7 @@ class ExportSql extends ExportPlugin
             return false;
         }
 
-        return $this->exportUseStatement($db_alias, $compat);
+        return $this->_exportUseStatement($db_alias, $compat);
     }
 
     /**
@@ -827,7 +827,7 @@ class ExportSql extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    private function exportUseStatement($db, $compat)
+    private function _exportUseStatement($db, $compat)
     {
         global $crlf;
 
@@ -978,7 +978,7 @@ class ExportSql extends ExportPlugin
             return false;
         }
 
-        if (! $this->exportUseStatement(
+        if (! $this->_exportUseStatement(
             $cfgRelation['db'], $GLOBALS['sql_compatibility']
         )) {
             return false;
