@@ -22,7 +22,7 @@ class PMA_Export_Relation_Schema
     /**
      * Constructor.
      *
-     * @see PMA_SVG
+     * @param object $diagram schema diagram
      */
     function __construct($diagram)
     {

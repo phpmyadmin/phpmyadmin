@@ -3241,6 +3241,8 @@ function PMA_possiblyShowCreateTableDialog($db, $db_is_system_schema, $response)
 /**
  * Returns the HTML for secondary levels tabs of the table structure page
  *
+ * @param string $tbl_storage_engine storage engine of the table
+ *
  * @return string HTML for secondary levels tabs
  */
 function PMA_getStructureSecondaryTabs($tbl_storage_engine)
