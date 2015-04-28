@@ -531,12 +531,14 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         }
 
         // Defines the scale factor
+        $innerWidth = $this->diagram->getPageWidth() - $this->_rightMargin
+            - $this->_leftMargin;
+        $innerHeight = $this->diagram->getPageHeight() - $this->_topMargin
+            - $this->_bottomMargin;
         $this->_scale = ceil(
             max(
-                ($this->_xMax - $this->_xMin)
-                / ($this->diagram->getPageWidth() - $this->_rightMargin - $this->_leftMargin),
-                ($this->_yMax - $this->_yMin)
-                / ($this->diagram->getPageHeight() - $this->_topMargin - $this->_bottomMargin)
+                ($this->_xMax - $this->_xMin) / $innerWidth,
+                ($this->_yMax - $this->_yMin) / $innerHeight
             ) * 100
         ) / 100;
 
@@ -783,10 +785,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $this->diagram->SetMargins(0, 0);
         $this->diagram->SetDrawColor(200, 200, 200);
         // Draws horizontal lines
+        $innerHeight = $this->diagram->getPageHeight() - $topSpace - $bottomSpace;
         for ($l = 0,
-            $size = intval(
-                ($this->diagram->getPageHeight() - $topSpace - $bottomSpace) / $gridSize
-            );
+            $size = intval($innerHeight / $gridSize);
             $l <= $size;
             $l++
         ) {
@@ -796,10 +797,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             );
             // Avoid duplicates
             if ($l > 0
-                && $l <= intval(
-                    ($this->diagram->getPageHeight() - $topSpace - $bottomSpace - $labelHeight)
-                    / $gridSize
-                )
+                && $l <= intval(($innerHeight - $labelHeight) / $gridSize)
             ) {
                 $this->diagram->SetXY(0, $l * $gridSize + $topSpace);
                 $label = (string) sprintf(
@@ -880,7 +878,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $this->diagram->Ln(15);
         $i = 1;
         foreach ($alltables as $table) {
-            $this->diagram->PMA_links['doc'][$table]['-'] = $this->diagram->AddLink();
+            $this->diagram->PMA_links['doc'][$table]['-']
+                = $this->diagram->AddLink();
             $this->diagram->SetX(10);
             // $this->diagram->Ln(1);
             $this->diagram->Cell(
@@ -897,7 +896,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             foreach ($fields as $row) {
                 $this->diagram->SetX(20);
                 $field_name = $row['Field'];
-                $this->diagram->PMA_links['doc'][$table][$field_name] = $this->diagram->AddLink();
+                $this->diagram->PMA_links['doc'][$table][$field_name]
+                    = $this->diagram->AddLink();
                 //$this->diagram->Cell(
                 //    0, 6, $field_name, 0, 1,
                 //    'L', 0, $this->diagram->PMA_links['doc'][$table][$field_name]
@@ -922,9 +922,14 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $this->diagram->SetAutoPageBreak(true, 15);
             $this->diagram->addpage($this->orientation);
             $this->diagram->Bookmark($table);
-            $this->diagram->SetAlias('{' . sprintf("%02d", $z) . '}', $this->diagram->PageNo());
-            $this->diagram->PMA_links['RT'][$table]['-'] = $this->diagram->AddLink();
-            $this->diagram->SetLink($this->diagram->PMA_links['doc'][$table]['-'], -1);
+            $this->diagram->SetAlias(
+                '{' . sprintf("%02d", $z) . '}', $this->diagram->PageNo()
+            );
+            $this->diagram->PMA_links['RT'][$table]['-']
+                = $this->diagram->AddLink();
+            $this->diagram->SetLink(
+                $this->diagram->PMA_links['doc'][$table]['-'], -1
+            );
             $this->diagram->SetFont($this->_ff, 'B', 18);
             $this->diagram->Cell(
                 0, 8, $z . ' ' . $table, 1, 1,
@@ -979,22 +984,30 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
             $break = false;
             if (! empty($show_comment)) {
-                $this->diagram->Cell(0, 3, __('Table comments:') . ' ' . $show_comment, 0, 1);
+                $this->diagram->Cell(
+                    0, 3, __('Table comments:') . ' ' . $show_comment, 0, 1
+                );
                 $break = true;
             }
 
             if (! empty($create_time)) {
-                $this->diagram->Cell(0, 3, __('Creation:') . ' ' . $create_time, 0, 1);
+                $this->diagram->Cell(
+                    0, 3, __('Creation:') . ' ' . $create_time, 0, 1
+                );
                 $break = true;
             }
 
             if (! empty($update_time)) {
-                $this->diagram->Cell(0, 3, __('Last update:') . ' ' . $update_time, 0, 1);
+                $this->diagram->Cell(
+                    0, 3, __('Last update:') . ' ' . $update_time, 0, 1
+                );
                 $break = true;
             }
 
             if (! empty($check_time)) {
-                $this->diagram->Cell(0, 3, __('Last check:') . ' ' . $check_time, 0, 1);
+                $this->diagram->Cell(
+                    0, 3, __('Last check:') . ' ' . $check_time, 0, 1
+                );
                 $break = true;
             }
 
@@ -1053,9 +1066,12 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 }
                 $field_name = $row['Field'];
                 // $this->diagram->Ln();
-                $this->diagram->PMA_links['RT'][$table][$field_name] = $this->diagram->AddLink();
+                $this->diagram->PMA_links['RT'][$table][$field_name]
+                    = $this->diagram->AddLink();
                 $this->diagram->Bookmark($field_name, 1, -1);
-                $this->diagram->SetLink($this->diagram->PMA_links['doc'][$table][$field_name], -1);
+                $this->diagram->SetLink(
+                    $this->diagram->PMA_links['doc'][$table][$field_name], -1
+                );
                 $foreigner = PMA_searchColumnInForeigners($res_rel, $field_name);
 
                 $linksTo = '';
@@ -1095,8 +1111,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 if ($foreigner
                     && isset($this->diagram->PMA_links['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']])
                 ) {
-                    $links[6] = $this->diagram->PMA_links['doc'][$foreigner['foreign_table']]
-                        [$foreigner['foreign_field']];
+                    $links[6] = $this->diagram->PMA_links['doc']
+                        [$foreigner['foreign_table']][$foreigner['foreign_field']];
                 } else {
                     unset($links[6]);
                 }
