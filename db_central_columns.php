@@ -30,13 +30,13 @@ if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
     $collation = $_POST['collation'];
     if (isset($orig_col_name) && $orig_col_name) {
         echo PMA_updateOneColumn(
-            $db, $orig_col_name, $col_name, $col_type,$col_attribute,
+            $db, $orig_col_name, $col_name, $col_type, $col_attribute,
             $col_length, $col_isNull, $collation, $col_extra, $col_default
         );
         exit;
     } else {
         $tmp_msg = PMA_updateOneColumn(
-            $db, "", $col_name, $col_type,$col_attribute,
+            $db, "", $col_name, $col_type, $col_attribute,
             $col_length, $col_isNull, $collation, $col_extra, $col_default
         );
     }
