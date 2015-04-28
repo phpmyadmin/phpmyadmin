@@ -637,9 +637,9 @@ function PMA_getHtmlForShowStats($tbl_url_query, $formatted_size,
  * Get HTML to show either a database structure creation, last update or
  * last check time
  *
- * @param string $one_time     one of the times to show 
- * @param string $config_param the related configuration parameter 
- * @param string $class        the class to generate 
+ * @param string $one_time     one of the times to show
+ * @param string $config_param the related configuration parameter
+ * @param string $class        the class to generate
  *
  * @return string $html_output
  */
