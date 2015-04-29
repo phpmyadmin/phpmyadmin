@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 + rfe #1655 Support IPv6 browser transformation
 + rfe       Option groups for 'With selected' dropdown in database structure page
 + rfe #1661 Support checksum table
++ rfe #1380 Support for Paramaters with raw SQL
 
 4.4.5.0 (not yet released)
 - bug       Table overhead stats: missing space before the unit

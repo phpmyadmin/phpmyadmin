@@ -1107,6 +1107,44 @@ function insertValueQuery()
 }
 
 /**
+ * Updates the input fields for the parameters based on the query
+ */
+function updateQueryParameters() {
+
+    if ($('#parameterized').is(':checked')) {
+        var query = codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val();
+
+        var allParameters = query.match(/:[a-zA-Z0-9_]+/g);
+         var parameters = [];
+         // get unique parameters
+         if (allParameters) {
+             $.each(allParameters, function(i, parameter){
+                 if ($.inArray(parameter, parameters) === -1) {
+                     parameters.push(parameter);
+                 }
+             });
+         }
+
+         var $temp = $('<div />');
+         $temp.append($('#parametersDiv').children());
+         $('#parametersDiv').empty();
+
+         $.each(parameters, function (i, parameter) {
+             var paramName = parameter.substring(1);
+             var $param = $temp.find('#paramSpan_' + paramName );
+             if (! $param.length) {
+                 $param = $('<span class="parameter" id="paramSpan_' + paramName + '" />');
+                 $('<label for="param_' + paramName + '" />').text(parameter).appendTo($param);
+                 $('<input type="text" name="parameters[' + parameter + ']" id="param_' + paramName + '" />').appendTo($param);
+             }
+             $('#parametersDiv').append($param);
+         });
+    } else {
+        $('#parametersDiv').empty();
+    }
+}
+
+/**
  * Add a date/time picker to each element that needs it
  * (only when jquery-ui-timepicker-addon.js is loaded)
  */
@@ -1598,6 +1636,12 @@ AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', "input#sql_query_edit_save");
     $(document).off('click', "input#sql_query_edit_discard");
     $('input.sqlbutton').unbind('click');
+    if (codemirror_editor) {
+        codemirror_editor.off('blur');
+    } else {
+        $(document).off('blur', '#sqlquery');
+    }
+    $(document).off('change', '#parameterized');
     $("#export_type").unbind('change');
     $('#sqlquery').unbind('keydown');
     $('#sql_query_edit').unbind('keydown');
@@ -1681,6 +1725,8 @@ AJAX.registerOnload('functions.js', function () {
         PMA_handleSimulateQueryButton();
         return false;
     });
+
+    $(document).on('change', '#parameterized', updateQueryParameters);
 
     $("#export_type").change(function () {
         if ($("#export_type").val() == 'svg') {
@@ -4024,6 +4070,7 @@ AJAX.registerOnload('functions.js', function () {
                 lineWrapping: true
             });
             codemirror_editor.on("inputRead", codemirrorAutocompleteOnInputRead);
+            codemirror_editor.on("blur", updateQueryParameters);
             codemirror_editor.focus();
             $(codemirror_editor.getWrapperElement()).bind(
                 'keydown',
@@ -4031,7 +4078,9 @@ AJAX.registerOnload('functions.js', function () {
             );
         } else {
             // without codemirror
-            $elm.focus().bind('keydown', catchKeypressesFromSqlTextboxes);
+            $elm.focus()
+                .bind('keydown', catchKeypressesFromSqlTextboxes)
+                .bind('blur', updateQueryParameters);
         }
     }
     PMA_highlightSQL($('body'));

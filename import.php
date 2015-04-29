@@ -103,6 +103,20 @@ if (!isset($_SESSION['is_multi_query'])) {
 // Are we just executing plain query or sql file?
 // (eg. non import, but query box/window run)
 if (! empty($sql_query)) {
+
+    // apply values for parameters
+    if (! empty($_REQUEST['parameterized'])) {
+        $parameters = $_REQUEST['parameters'];
+        foreach ($parameters as $parameter => $replacement) {
+            $quoted = preg_quote($parameter);
+            $sql_query = preg_replace(
+                '/' . $quoted . '([^a-zA-Z0-9_])/',
+                PMA_Util::sqlAddSlashes($replacement) . '${1}',
+                $sql_query
+            );
+        }
+    }
+
     // run SQL query
     $import_text = $sql_query;
     $import_type = 'query';
