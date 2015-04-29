@@ -1295,6 +1295,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
     $html_select .= '</select>' . "\n";
     $html_output .= sprintf(__('Partition %s'), $html_select);
 
+    $html_output .= '<div class="clearfloat" />';
     $html_output .= PMA_Util::getRadioFields(
         'partition_operation', $choices, '', false, true, 'floatleft'
     );
@@ -1307,6 +1308,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         )
     );
     $html_output .= '<div class="clearfloat" /><br />';
+
     $html_output .= '<a href="sql.php'
         . PMA_URL_getCommon($this_url_params) . '">'
         . __('Remove partitioning') . '</a>';
