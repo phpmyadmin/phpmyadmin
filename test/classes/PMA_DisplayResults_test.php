@@ -365,7 +365,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function testGetCheckBoxesForMultipleRowOperations(
         $dir, $displayParts, $output
     ) {
-        $vertical_display = array(
+        $display_params = array(
             'row_delete' => array(
                 '<td class="odd" class="center"><input '
                 . 'type="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" '
@@ -382,7 +382,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $this->object->__set('vertical_display', $vertical_display);
+        $this->object->__set('display_params', $display_params);
 
         $_SESSION['tmpval']['repeat_cells'] = 0;
         $this->assertEquals(

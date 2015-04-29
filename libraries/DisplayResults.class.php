@@ -150,8 +150,8 @@ class PMA_DisplayResults
         /** array column names to highlight */
         'highlight_columns' => null,
 
-        /** array information used with vertical display mode */
-        'vertical_display' => null,
+        /** array holding various display information */
+        'display_params' => null,
 
         /** array mime types information of fields */
         'mime_map' => null,
@@ -1079,7 +1079,7 @@ class PMA_DisplayResults
         $fields_meta = $this->__get('fields_meta');
         $highlight_columns = $this->__get('highlight_columns');
         $printview = $this->__get('printview');
-        $vertical_display = $this->__get('vertical_display');
+        $display_params = $this->__get('display_params');
 
         // required to generate sort links that will remember whether the
         // "Show all" button has been clicked
@@ -1118,12 +1118,12 @@ class PMA_DisplayResults
             $table_headers_html .= $this->_getDataForResettingColumnOrder();
         }
 
-        $vertical_display['emptypre']   = 0;
-        $vertical_display['emptyafter'] = 0;
-        $vertical_display['textbtn']    = '';
+        $display_params['emptypre']   = 0;
+        $display_params['emptyafter'] = 0;
+        $display_params['textbtn']    = '';
         $full_or_partial_text_link = null;
 
-        $this->__set('vertical_display', $vertical_display);
+        $this->__set('display_params', $display_params);
 
         // Display options (if we are not in print view)
         if (! (isset($printview) && ($printview == '1')) && ! $is_limited_display) {
@@ -1179,7 +1179,7 @@ class PMA_DisplayResults
             // 2.0 Prepare comment-HTML-wrappers for each row, if defined/enabled.
             $comments = $this->_getCommentForRow($comments_map, $fields_meta[$i]);
 
-            $vertical_display = $this->__get('vertical_display');
+            $display_params = $this->__get('display_params');
 
             if (($displayParts['sort_lnk'] == '1') && ! $is_limited_display) {
 
@@ -1194,7 +1194,7 @@ class PMA_DisplayResults
 
                 $table_headers_html .= $sorted_header_html;
 
-                $vertical_display['desc'][] = '    <th '
+                $display_params['desc'][] = '    <th '
                     . 'class="draggable'
                     . ($condition_field ? ' condition' : '')
                     . '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
@@ -1208,7 +1208,7 @@ class PMA_DisplayResults
                         $fields_meta[$i], $comments
                     );
 
-                $vertical_display['desc'][] = '    <th '
+                $display_params['desc'][] = '    <th '
                     . 'class="draggable'
                     . ($condition_field ? ' condition"' : '')
                     . '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
@@ -1217,7 +1217,7 @@ class PMA_DisplayResults
                     . "\n" . $comments . '    </th>';
             } // end else (2.2)
 
-            $this->__set('vertical_display', $vertical_display);
+            $this->__set('display_params', $display_params);
 
         } // end for
 
@@ -1399,7 +1399,7 @@ class PMA_DisplayResults
     ) {
 
         $button_html = '';
-        $vertical_display = $this->__get('vertical_display');
+        $display_params = $this->__get('display_params');
 
         // 1. Displays the full/partial text button (part 1)...
         $button_html .= '<thead><tr>' . "\n";
@@ -1415,7 +1415,7 @@ class PMA_DisplayResults
             && ($displayParts['text_btn'] == '1')
         ) {
 
-            $vertical_display['emptypre']
+            $display_params['emptypre']
                 = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
 
@@ -1431,7 +1431,7 @@ class PMA_DisplayResults
             //     ... at the left column of the result table header if possible
             //     and required
 
-            $vertical_display['emptypre']
+            $display_params['emptypre']
                 = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
 
@@ -1445,7 +1445,7 @@ class PMA_DisplayResults
         ) {
             //     ... elseif no button, displays empty(ies) col(s) if required
 
-            $vertical_display['emptypre']
+            $display_params['emptypre']
                 = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
 
@@ -1457,7 +1457,7 @@ class PMA_DisplayResults
             $button_html .= '<th class="column_action"></th>';
         }
 
-        $this->__set('vertical_display', $vertical_display);
+        $this->__set('display_params', $display_params);
 
         return array($colspan, $button_html);
 
@@ -2341,7 +2341,7 @@ class PMA_DisplayResults
     ) {
 
         $right_column_html = '';
-        $vertical_display = $this->__get('vertical_display');
+        $display_params = $this->__get('display_params');
 
         // Displays the needed checkboxes at the right
         // column of the result table header if possible and required...
@@ -2352,7 +2352,7 @@ class PMA_DisplayResults
             && ($displayParts['text_btn'] == '1')
         ) {
 
-            $vertical_display['emptyafter']
+            $display_params['emptyafter']
                 = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
 
@@ -2370,14 +2370,14 @@ class PMA_DisplayResults
             //     ... elseif no button, displays empty columns if required
             // (unless coming from Browse mode print view)
 
-            $vertical_display['emptyafter']
+            $display_params['emptyafter']
                 = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
 
             $right_column_html .= "\n" . '<td ' . $colspan . '></td>';
         }
 
-        $this->__set('vertical_display', $vertical_display);
+        $this->__set('display_params', $display_params);
 
         return $right_column_html;
 
@@ -2563,19 +2563,19 @@ class PMA_DisplayResults
         // guess, it should depend on remaining URL length
         $url_sql_query = $this->_getUrlSqlQuery($analyzed_sql);
 
-        $vertical_display = $this->__get('vertical_display');
+        $display_params = $this->__get('display_params');
 
         if (! is_array($map)) {
             $map = array();
         }
 
         $row_no                         = 0;
-        $vertical_display['edit']       = array();
-        $vertical_display['copy']       = array();
-        $vertical_display['delete']     = array();
-        $vertical_display['data']       = array();
-        $vertical_display['row_delete'] = array();
-        $this->__set('vertical_display', $vertical_display);
+        $display_params['edit']       = array();
+        $display_params['copy']       = array();
+        $display_params['delete']     = array();
+        $display_params['data']       = array();
+        $display_params['row_delete'] = array();
+        $this->__set('display_params', $display_params);
 
         // name of the class added to all grid editable elements;
         // if we don't have all the columns of a unique key in the result set,
@@ -2622,7 +2622,7 @@ class PMA_DisplayResults
                 && !($row_no % $_SESSION['tmpval']['repeat_cells'])
             ) {
                 $table_body_html .= $this->_getRepeatingHeaders(
-                    $vertical_display
+                    $display_params
                 );
             }
 
@@ -3012,12 +3012,12 @@ class PMA_DisplayResults
             $transform_options['wrapper_link']
                 = PMA_URL_getCommon($transform_url_params);
 
-            $vertical_display = $this->__get('vertical_display');
+            $display_params = $this->__get('display_params');
 
             if ($meta->numeric == 1) {
                 // n u m e r i c
 
-                $vertical_display['data'][$row_no][$i]
+                $display_params['data'][$row_no][$i]
                     = $this->_getDataCellForNumericColumns(
                         $row[$i], $class, $condition_field, $meta, $map,
                         $is_field_truncated, $analyzed_sql,
@@ -3032,7 +3032,7 @@ class PMA_DisplayResults
                 // inline-edit geometry data.
                 $class = str_replace('grid_edit', '', $class);
 
-                $vertical_display['data'][$row_no][$i]
+                $display_params['data'][$row_no][$i]
                     = $this->_getDataCellForGeometryColumns(
                         $row[$i], $class, $meta, $map, $_url_params,
                         $condition_field, $transformation_plugin,
@@ -3042,7 +3042,7 @@ class PMA_DisplayResults
             } else {
                 // n o t   n u m e r i c
 
-                $vertical_display['data'][$row_no][$i]
+                $display_params['data'][$row_no][$i]
                     = $this->_getDataCellForNonNumericColumns(
                         $row[$i], $class, $meta, $map, $_url_params,
                         $condition_field, $transformation_plugin,
@@ -3053,17 +3053,17 @@ class PMA_DisplayResults
             }
 
             // output stored cell
-            $row_values_html .= $vertical_display['data'][$row_no][$i];
+            $row_values_html .= $display_params['data'][$row_no][$i];
 
-            if (isset($vertical_display['rowdata'][$i][$row_no])) {
-                $vertical_display['rowdata'][$i][$row_no]
-                    .= $vertical_display['data'][$row_no][$i];
+            if (isset($display_params['rowdata'][$i][$row_no])) {
+                $display_params['rowdata'][$i][$row_no]
+                    .= $display_params['data'][$row_no][$i];
             } else {
-                $vertical_display['rowdata'][$i][$row_no]
-                    = $vertical_display['data'][$row_no][$i];
+                $display_params['rowdata'][$i][$row_no]
+                    = $display_params['data'][$row_no][$i];
             }
 
-            $this->__set('vertical_display', $vertical_display);
+            $this->__set('display_params', $display_params);
 
         } // end for
 
@@ -3224,8 +3224,7 @@ class PMA_DisplayResults
     /**
      * Get HTML for repeating headers
      *
-     * @param array $vertical_display information used with vertical
-     *                                display mode
+     * @param array $display_params holds various display info 
      *
      * @return  string  $header_html    html content
      *
@@ -3234,27 +3233,27 @@ class PMA_DisplayResults
      * @see     _getTableBody()
      */
     private function _getRepeatingHeaders(
-        $vertical_display
+        $display_params
     ) {
         $header_html = '<tr>' . "\n";
 
-        if ($vertical_display['emptypre'] > 0) {
+        if ($display_params['emptypre'] > 0) {
 
             $header_html .= '    <th colspan="'
-                . $vertical_display['emptypre'] . '">'
+                . $display_params['emptypre'] . '">'
                 . "\n" . '        &nbsp;</th>' . "\n";
 
         } else if ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
             $header_html .= '    <th></th>' . "\n";
         }
 
-        foreach ($vertical_display['desc'] as $val) {
+        foreach ($display_params['desc'] as $val) {
             $header_html .= $val;
         }
 
-        if ($vertical_display['emptyafter'] > 0) {
+        if ($display_params['emptyafter'] > 0) {
             $header_html
-                .= '    <th colspan="' . $vertical_display['emptyafter']
+                .= '    <th colspan="' . $display_params['emptyafter']
                 . '">'
                 . "\n" . '        &nbsp;</th>' . "\n";
         }
@@ -3886,9 +3885,9 @@ class PMA_DisplayResults
 
         $checkBoxes_html = '';
         $cell_displayed = 0;
-        $vertical_display = $this->__get('vertical_display');
+        $display_params = $this->__get('display_params');
 
-        foreach ($vertical_display['row_delete'] as $val) {
+        foreach ($display_params['row_delete'] as $val) {
 
             if (($cell_displayed != 0)
                 && ($_SESSION['tmpval']['repeat_cells'] != 0)
@@ -4259,7 +4258,7 @@ class PMA_DisplayResults
             $dt_result, $displayParts, $map, $analyzed_sql, $is_limited_display
         );
 
-        $this->__set('vertical_display', null);
+        $this->__set('display_params', null);
 
         $table_html .= '</tbody>' . "\n"
             . '</table>';
