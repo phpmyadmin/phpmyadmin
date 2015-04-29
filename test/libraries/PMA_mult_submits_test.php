@@ -284,7 +284,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         list(
             $result, $rebuild_database_list, $reload_ret,
-            $run_parts, $use_sql, $sql_query, $sql_query_views
+            $run_parts, $use_sql,,
         ) = PMA_getQueryStrFromSelected(
             $query_type, $selected, $db, $table, $views,
             $primary, $from_prefix, $to_prefix
@@ -316,8 +316,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         $query_type = 'analyze_tbl';
         list(
-            $result, $rebuild_database_list, $reload_ret,
-            $run_parts, $use_sql, $sql_query, $sql_query_views
+            ,,,, $use_sql,,
         ) = PMA_getQueryStrFromSelected(
             $query_type, $selected, $db, $table, $views,
             $primary, $from_prefix, $to_prefix

@@ -409,7 +409,7 @@ function PMA_getHtmlForAddPrefixTable($action, $_url_params)
  * @param string $what        mult_submit type
  * @param string $action      action type
  * @param array  $_url_params URL params
- * @param array  $full_query  full sql query string
+ * @param string $full_query  full sql query string
  *
  * @return string
  */
