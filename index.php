@@ -679,10 +679,10 @@ function PMA_printListItem($name, $listId = null, $url = null,
         if (null !== $target) {
             echo ' target="' . $target . '"';
         }
-        if (null != $a_id) {
+        if (null !== $a_id) {
             echo ' id="' . $a_id . '"';
         }
-        if (null != $a_class) {
+        if (null !== $a_class) {
             echo ' class="' . $a_class . '"';
         }
         echo '>';
