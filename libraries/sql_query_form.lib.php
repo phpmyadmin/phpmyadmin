@@ -239,6 +239,14 @@ function PMA_getHtmlForSqlQueryFormInsert(
     }
     $html .= '<input type="button" value="' . __('Get auto-saved query') . '" id="saved"'
         . ' class="button sqlbutton" />';
+
+    // parameter binding
+    $html .= '<div>';
+    $html .= '<input type="checkbox" name="parameterized" id="parameterized" />';
+    $html .= '<label for="parameterized">' . __('Bind parameters') . '</label>';
+    $html .= '<div id="parametersDiv"></div>';
+    $html .= '</div>';
+
     $html .= '</div>' . "\n";
 
     if (count($fields_list)) {
