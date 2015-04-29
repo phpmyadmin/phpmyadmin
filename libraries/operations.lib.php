@@ -976,6 +976,7 @@ function PMA_getHtmlForCopytable()
     $html_output .= PMA_Util::getRadioFields(
         'what', $choices, 'data', true
     );
+    $html_output .= '<br />';
 
     $html_output .= '<input type="checkbox" name="drop_if_exists" '
         . 'value="true" id="checkbox_drop" />'
