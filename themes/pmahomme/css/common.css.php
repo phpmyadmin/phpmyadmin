@@ -1627,6 +1627,7 @@ div#sqlquerycontainer {
 div#tablefieldscontainer {
     float: <?php echo $right; ?>;
     width: 29%;
+    margin-top: -20px;
     /* height: 15em; */
 }
 
