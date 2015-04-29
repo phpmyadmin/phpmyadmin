@@ -969,9 +969,10 @@ function PMA_getHtmlForCopytable()
         . 'value="' . htmlspecialchars($GLOBALS['table']) . '"/><br />';
 
     $choices = array(
-            'structure' => __('Structure only'),
-            'data'      => __('Structure and data'),
-            'dataonly'  => __('Data only'));
+        'structure' => __('Structure only'),
+        'data'      => __('Structure and data'),
+        'dataonly'  => __('Data only')
+    );
 
     $html_output .= PMA_Util::getRadioFields(
         'what', $choices, 'data', true
