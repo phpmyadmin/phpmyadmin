@@ -109,9 +109,16 @@ if (! empty($sql_query)) {
         $parameters = $_REQUEST['parameters'];
         foreach ($parameters as $parameter => $replacement) {
             $quoted = preg_quote($parameter);
+            // making sure that :param does not apply values to :param1
             $sql_query = preg_replace(
                 '/' . $quoted . '([^a-zA-Z0-9_])/',
                 PMA_Util::sqlAddSlashes($replacement) . '${1}',
+                $sql_query
+            );
+            // for parameters the appear at the end of the string
+            $sql_query = preg_replace(
+                '/' . $quoted . '$/',
+                PMA_Util::sqlAddSlashes($replacement),
                 $sql_query
             );
         }
