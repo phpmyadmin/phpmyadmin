@@ -1283,7 +1283,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         . '<fieldset>'
         . '<legend>' . __('Partition maintenance') . '</legend>';
 
-    $html_select = '<select name="partition_name">' . "\n";
+    $html_select = '<select name="partition_name[]" multiple="multiple">' . "\n";
     foreach ($partition_names as $one_partition) {
         $one_partition = htmlspecialchars($one_partition);
         $html_select .= '<option value="' . $one_partition . '">'
@@ -1581,7 +1581,7 @@ function PMA_getQueryAndResultForPartition()
         . PMA_Util::backquote($GLOBALS['table']) . ' '
         . $_REQUEST['partition_operation']
         . ' PARTITION '
-        . $_REQUEST['partition_name'] . ';';
+        . implode(', ', $_REQUEST['partition_name']) . ';';
     $result = $GLOBALS['dbi']->query($sql_query);
 
     return array($sql_query, $result);
