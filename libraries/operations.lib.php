@@ -1281,7 +1281,10 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         . '<form method="post" action="tbl_operations.php">'
         . PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<fieldset>'
-        . '<legend>' . __('Partition maintenance') . '</legend>';
+        . '<legend>'
+        . __('Partition maintenance')
+        . PMA_Util::showMySQLDocu('partitioning_maintenance')
+        . '</legend>';
 
     $html_select = '<select name="partition_name[]" multiple="multiple">' . "\n";
     foreach ($partition_names as $one_partition) {
@@ -1293,9 +1296,8 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
     $html_output .= sprintf(__('Partition %s'), $html_select);
 
     $html_output .= PMA_Util::getRadioFields(
-        'partition_operation', $choices, '', false
+        'partition_operation', $choices, '', false, true, 'floatleft'
     );
-    $html_output .= PMA_Util::showMySQLDocu('partitioning_maintenance');
     $this_url_params = array_merge(
         $url_params,
         array(
@@ -1304,7 +1306,8 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
             . ' REMOVE PARTITIONING;'
         )
     );
-    $html_output .= '<br /><a href="sql.php'
+    $html_output .= '<div class="clearfloat" /><br />';
+    $html_output .= '<a href="sql.php'
         . PMA_URL_getCommon($this_url_params) . '">'
         . __('Remove partitioning') . '</a>';
 
