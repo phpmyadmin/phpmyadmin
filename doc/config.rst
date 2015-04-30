@@ -1414,7 +1414,7 @@ Cookie authentication options
     :type: string
     :default: ``''``
 
-    The public key for the reCaptcha service that can be obtain from
+    The public key for the reCaptcha service that can be obtained from
     http://www.google.com/recaptcha.
 
     reCaptcha will be then used in :ref:`cookie`.
