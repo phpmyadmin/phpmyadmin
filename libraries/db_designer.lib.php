@@ -426,8 +426,7 @@ function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
 
     $html .= '<a href="#" class="M_butt" target="_self" id="pin_Text">';
     $html .= '<img class="' . $iconClass . '" title="' . __('Pin text') . '" alt=">"'
-         . ' data-right="' . $_SESSION['PMA_Theme']->getImgPath('pmd/anchor.png')
-         . '" src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/anchor.png') . '" />';
+         . ' src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/anchor.png') . '" />';
     $html .= '<span class="' . $textClass . '">' . __('Pin text') . '</span>';
     $html .= '</a>';
 
