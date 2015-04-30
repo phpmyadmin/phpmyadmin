@@ -457,6 +457,7 @@ $js_messages['strShowAllCol'] = __('Show all');
 $js_messages['strAlertNonUnique'] = __('This table does not contain a unique column. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
 $js_messages['strEnterValidHex'] = __('Please enter a valid hexadecimal string. Valid characters are 0-9, A-F.');
 $js_messages['strShowAllRowsWarning'] = __('Do you really want to see all of the rows? For a big table this could crash the browser.');
+$js_messages['strOriginalLength'] = __('Original length');
 
 /** Drag & Drop sql import messages */
 $js_messages['dropImportMessageCancel'] = __('cancel');
