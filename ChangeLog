@@ -33,6 +33,7 @@ phpMyAdmin - ChangeLog
 - bug       Table overhead stats: missing space before the unit
 - bug       Fix resize icon in Designer
 - bug #4879 Exit fullscreen in Designer does not change the button text
+- bug #4880 Designer icons missing when using original theme
 
 4.4.4.0 (2015-04-26)
 - bug #4863 Edit vs Change

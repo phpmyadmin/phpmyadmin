@@ -254,7 +254,11 @@ function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
     $html .= '<a class="M_butt" id="key_Show_left_menu" href="#" target="_self">';
     $html .= '<img class="' . $iconClass . '" title="' . __('Show/Hide tables list')
         . '" alt="v" src="'
-        . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2_m.png') . '" />';
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2_m.png') . '" '
+        . 'data-down="'
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2_m.png') . '" '
+        . 'data-up="'
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/uparrow2_m.png') . '" />';
     $html .= '<span class="' . $textClass . '">' . __('Show/Hide tables list')
         . '</span>';
     $html .= '</a>';
@@ -368,7 +372,11 @@ function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
     $html .= '<a href="#" class="M_butt" target="_self" id="key_SB_all">';
     $html .= '<img class="' . $iconClass . '" title="' . __('Small/Big All')
         . '" alt="v" src="'
-        . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png') . '" />';
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png') .'" '
+        . 'data-right="'
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow1.png') .'" '
+        . 'data-down="'
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png') .'"" />';
     $html .= '<span class="' . $textClass . '">' . __('Small/Big All') . '</span>';
     $html .= '</a>';
 
@@ -460,16 +468,18 @@ function PMA_getHTMLTableList($tab_pos, $display_page)
     $html .= '<a href="#" class="M_butt" target="_self" ';
     $html .= '>';
     $html .= '<img title="' . __('Hide/Show all') . '" alt="v" id="key_HS_all" ';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png')
-        . '" />';
+    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png') . '" '
+        . 'data-down="' . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png') . '" '
+        . 'data-right="' . $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow1.png') . '" />';
     $html .= '</a>';
 
     $html .= '<a href="#" class="M_butt" target="_self" ';
     $html .= '>';
     $html .= '<img alt="v" id="key_HS" ';
     $html .= 'title="' . __('Hide/Show Tables with no relation') . '"';
-    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2.png')
-        . '" />';
+    $html .= 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2.png') . '" '
+        . 'data-down="' . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2.png') . '" '
+        . 'data-right="' . $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow2.png') . '" />';
     $html .= '</a>';
 
     $html .= '</div>';
