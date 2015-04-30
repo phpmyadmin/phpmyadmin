@@ -169,4 +169,4 @@ if (isset($_REQUEST['query'])) {
     $response->addHTML(PMA_getQueryDetails());
 }
 
-$response->addHTML(PMA_getCacheImages());
+$response->addHTML('<div id="PMA_disable_floating_menubar"></div>');

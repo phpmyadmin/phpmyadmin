@@ -1380,27 +1380,4 @@ function PMA_getQueryDetails()
     return $html;
 }
 
-/**
- * Return HTML to fetch some images eagerly.
- *
- * @return string html
- */
-function PMA_getCacheImages()
-{
-    $html  = '<img src="';
-    $html .= $_SESSION['PMA_Theme']->getImgPath('pmd/2leftarrow_m.png');
-    $html .= '" width="0" height="0" alt="" />';
-    $html .= '<img src="';
-    $html .= $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow1.png');
-    $html .= '" width="0" height="0" alt="" />';
-    $html .= '<img src="';
-    $html .= $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow2.png');
-    $html .= '" width="0" height="0" alt="" />';
-    $html .= '<img src="';
-    $html .= $_SESSION['PMA_Theme']->getImgPath('pmd/uparrow2_m.png');
-    $html .= '" width="0" height="0" alt="" />';
-    $html .= '<div id="PMA_disable_floating_menubar"></div>';
-
-    return $html;
-}
 ?>
