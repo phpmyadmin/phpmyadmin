@@ -675,6 +675,7 @@ function Save3(callback)
         $('<div id="page_save_dialog"></div>')
             .append($form)
             .dialog({
+                appendTo: '#page_content',
                 title: PMA_messages.strSavePage,
                 width: 300,
                 modal: true,
@@ -722,6 +723,7 @@ function Edit_pages()
                 $('<div id="page_edit_dialog"></div>')
                     .append(data.message)
                     .dialog({
+                        appendTo: '#page_content',
                         title: PMA_messages.strOpenPage,
                         width: 350,
                         modal: true,
@@ -802,6 +804,7 @@ function Delete_pages()
             $('<div id="page_delete_dialog"></div>')
                 .append(data.message)
                 .dialog({
+                    appendTo: '#page_content',
                     title: PMA_messages.strDeletePage,
                     width: 350,
                     modal: true,
@@ -900,6 +903,7 @@ function Save_as()
             $('<div id="page_save_as_dialog"></div>')
                 .append(data.message)
                 .dialog({
+                    appendTo: '#page_content',
                     title: PMA_messages.strSavePageAs,
                     width: 450,
                     modal: true,
@@ -934,6 +938,7 @@ function Prompt_to_save_current_page(callback)
         $('<div id="prompt_save_dialog"></div>')
             .append('<div>' + PMA_messages.strLeavingPage + '</div>')
             .dialog({
+                appendTo: '#page_content',
                 title: PMA_messages.strSavePage,
                 width: 300,
                 modal: true,
@@ -981,6 +986,7 @@ function Export_pages()
             $('<div id="page_export_dialog"></div>')
                 .append($form)
                 .dialog({
+                    appendTo: '#page_content',
                     title: PMA_messages.strExportRelationalSchema,
                     width: 550,
                     modal: true,
