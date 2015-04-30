@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-30 09:42-0400\n"
-"PO-Revision-Date: 2015-04-19 08:39+0200\n"
+"PO-Revision-Date: 2015-04-30 21:14+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -2301,10 +2301,9 @@ msgstr ""
 "tarayıcıyı çökertebilir."
 
 #: js/messages.php:460
-#, fuzzy
 #| msgid "Original string"
 msgid "Original length"
-msgstr "Orijinal satır"
+msgstr "Orijinal uzunluk"
 
 #: js/messages.php:463
 msgid "cancel"
@@ -3427,7 +3426,7 @@ msgstr "Bağlantılı görüntü sütunu"
 
 #: libraries/DisplayResults.class.php:1642
 msgid "Show binary contents"
-msgstr "Binari içerikleri göster"
+msgstr "İkili değer içerikleri göster"
 
 #: libraries/DisplayResults.class.php:1648
 msgid "Show BLOB contents"
@@ -3443,7 +3442,7 @@ msgstr "Çok İyi Bilinen Metin"
 
 #: libraries/DisplayResults.class.php:1671
 msgid "Well Known Binary"
-msgstr "Çok İyi Bilinen Binari"
+msgstr "Çok İyi Bilinen İkili Değer"
 
 #: libraries/DisplayResults.class.php:3350
 #: libraries/DisplayResults.class.php:3366
@@ -3853,7 +3852,7 @@ msgstr "Kullanıcılar"
 #: libraries/Menu.class.php:588 libraries/ServerStatusData.class.php:194
 #: libraries/Util.class.php:4147 libraries/server_common.lib.php:36
 msgid "Binary log"
-msgstr "Binari günlüğü"
+msgstr "İkili değer günlüğü"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:199
 #: libraries/Util.class.php:4148 libraries/server_common.lib.php:42
@@ -4506,16 +4505,16 @@ msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
-"CHAR türü benzeridir ama binari olmayan karakter dizgileri yerine binari "
-"bayt dizgilerini saklar"
+"CHAR türü benzeridir ama ikili değer olmayan karakter dizgileri yerine ikili "
+"değer bayt dizgilerini saklar"
 
 #: libraries/Types.class.php:368
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
-"VARCHAR türü benzeridir ama binari olmayan karakter dizgileri yerine binari "
-"bayt dizgilerini saklar"
+"VARCHAR türü benzeridir ama ikili değer olmayan karakter dizgileri yerine "
+"ikili değer bayt dizgilerini saklar"
 
 #: libraries/Types.class.php:370
 msgid ""
@@ -4656,8 +4655,8 @@ msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
-"Değişken uzunlukta bir (0-65,535) dizgi, tüm karşılaştırmalar için binari "
-"karşılaştırma kullanır"
+"Değişken uzunlukta bir (0-65,535) dizgi, tüm karşılaştırmalar için ikili "
+"değer karşılaştırması kullanır"
 
 #: libraries/Types.class.php:798
 msgid "An enumeration, chosen from the list of defined values"
@@ -6754,7 +6753,7 @@ msgstr "BLOB ve BINARY sütunlarını düzenlemeye izin vermez."
 
 #: libraries/config/messages.inc.php:528
 msgid "Protect binary columns"
-msgstr "Binari sütunlarını koru"
+msgstr "İkili değer sütunlarını koru"
 
 #: libraries/config/messages.inc.php:530
 msgid ""
@@ -8864,7 +8863,7 @@ msgstr "&nbsp;%s&nbsp;sütunda indeks oluştur"
 #: libraries/insert_edit.lib.php:393 libraries/mysql_charsets.lib.php:161
 #: libraries/mysql_charsets.lib.php:364
 msgid "Binary"
-msgstr "Binari"
+msgstr "İkili Değer"
 
 #: libraries/insert_edit.lib.php:592
 msgid "Because of its length,<br /> this column might not be editable."
@@ -8872,7 +8871,7 @@ msgstr "Uzunluğu nedeniyle,<br /> bu sütun düzenlenebilir olmayabilir."
 
 #: libraries/insert_edit.lib.php:1044
 msgid "Binary - do not edit"
-msgstr "Binari - düzenlemeyiniz"
+msgstr "İkili değer - düzenlemeyin"
 
 #: libraries/insert_edit.lib.php:1171 libraries/sql_query_form.lib.php:458
 msgid "web server upload directory:"
@@ -9741,10 +9740,9 @@ msgid "Check table"
 msgstr "Tabloyu kontrol et"
 
 #: libraries/operations.lib.php:1107 libraries/structure.lib.php:339
-#, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
-msgstr "Tabloyu kontrol et"
+msgstr "Sağlama tablosu"
 
 #: libraries/operations.lib.php:1122
 msgid "Defragment table"
@@ -10303,8 +10301,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Onaltılık düzende gösterimdeki binari sütunları dökümle <i>(örneğin, \"abc"
-"\", 0x616263 olur)</i>"
+"Onaltılık düzende gösterimdeki ikili değer sütunlarını dökümle <i>(örneğin, "
+"\"abc\", 0x616263 olur)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:446
 msgid ""
@@ -10332,10 +10330,9 @@ msgid "It appears your database uses functions;"
 msgstr "Görünüşe göre veritabanınız işlevleri kullanmakta;"
 
 #: libraries/plugins/export/ExportSql.class.php:975
-#, fuzzy
 #| msgid "Metadata for %s"
 msgid "Metadata"
-msgstr "%s için üstveri"
+msgstr "Üstveri"
 
 #: libraries/plugins/export/ExportSql.class.php:1049
 #, php-format
@@ -10667,11 +10664,11 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Sütunun binari verisini indirmek için bir bağlantı görüntüler. Dosya adını "
-"belirlemek için ilk seçeneği kullanabilirsiniz ya da dosya adını içeren "
-"sütünun adı olarak ikinci seçeneği kullanabilirsiniz. Eğer ikinci seçeneği "
-"kullanırsanız birinci seçeneği boş karakter dizgisi olarak ayarlamanız "
-"gerekir."
+"Sütunun ikili değer verisini indirmek için bir bağlantı görüntüler. Dosya "
+"adını belirlemek için ilk seçeneği kullanabilirsiniz ya da dosya adını "
+"içeren sütünun adı olarak ikinci seçeneği kullanabilirsiniz. Eğer ikinci "
+"seçeneği kullanırsanız birinci seçeneği boş karakter dizgisi olarak "
+"ayarlamanız gerekir."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
 msgid ""
@@ -10738,7 +10735,6 @@ msgstr ""
 "genişlik ve yüksekliktir. Orijinal en-boy oranı korunur."
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
@@ -10746,8 +10742,8 @@ msgid ""
 "Converts an (IPv4) Internet network address stored as a bigint into a string "
 "in Internet standard dotted format."
 msgstr ""
-"(IPv4) Internet ağ adresini, Internet standart noktalı biçimdeki dizgiye "
-"dönüştürür."
+"Bigint olarak saklanan bir (IPv4) Internet ağ adresini, Internet standart "
+"noktalı biçimindeki bir dizgiye dönüştürür."
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
 msgid ""
@@ -10821,6 +10817,7 @@ msgstr ""
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.class.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr ""
+"(IPv4/IPv6) biçimindeki bir Internet ağ adresini ikili değere dönüştürür"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -10835,7 +10832,6 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr "XML (ve HTML) için sözdizimi vurgulanan CodeMirror düzenleyicisi."
 
 #: libraries/plugins/transformations/output/Text_Plain_Binarytoip.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
@@ -10843,8 +10839,8 @@ msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
-"(IPv4) Internet ağ adresini, Internet standart noktalı biçimdeki dizgiye "
-"dönüştürür."
+"İkili değer dizgisi olarak saklanan bir Internet ağ adresini, Internet "
+"standart (IPv4/IPv6) biçimindeki bir dizgiye dönüştürür."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:47
 msgid "Formats text as JSON with syntax highlighting."
@@ -11790,7 +11786,7 @@ msgstr "Şu Anki Sunucu:"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
-msgstr "Görüntülemek için binari günlüğünü seçin"
+msgstr "Görüntülemek için ikili değer günlüğünü seçin"
 
 #: libraries/server_bin_log.lib.php:128
 msgid "Log name"
@@ -12804,13 +12800,14 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
-"Geçici binari günlüğü önbelleğinde kullanılan ama binlog_cache_size değerini "
-"aşmış ve işlemdeki ifadeleri saklamak için geçici dosya kullanmış işlemlerin "
-"sayısıdır."
+"Geçici ikili değer günlüğü önbelleğinde kullanılan ama binlog_cache_size "
+"değerini aşmış ve işlemdeki ifadeleri saklamak için geçici dosya kullanmış "
+"işlemlerin sayısıdır."
 
 #: libraries/server_status_variables.lib.php:341
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr "Geçici binari günlüğü önbelleğinde kullanılan işlemlerin sayısıdır."
+msgstr ""
+"Geçici ikili değer günlüğü önbelleğinde kullanılan işlemlerin sayısıdır."
 
 #: libraries/server_status_variables.lib.php:344
 msgid ""
@@ -13640,10 +13637,9 @@ msgid "Get auto-saved query"
 msgstr "Otomatik kaydedilmiş sorguyu al"
 
 #: libraries/sql_query_form.lib.php:246
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "Kötü parametreler!"
+msgstr "Parametreleri bağla"
 
 #: libraries/sql_query_form.lib.php:292
 msgid "Bookmark this SQL query:"
@@ -13693,13 +13689,14 @@ msgstr ""
 "SQL ayrıştırıcısında bir hata bulabilme ihtimaliniz var. Lütfen sorgunuzu "
 "yakından dikkatli bir şekilde gözden geçirin ve tırnakların doğru ve uyumsuz "
 "olmadığını kontrol edin. Diğer muhtemel hata nedenleri tırnaklı metin "
-"alanının dışında binari ile dosya gönderiyor olmanız olabilir. Aynı zamanda "
-"sorgunuzu MySQL komut satırı arabiriminde deneyebilirsiniz. Eğer hata varsa, "
-"aşağıdaki MySQL sunucu hata çıktısı, sorunu teşhis etmenizde ayrıca size "
-"yardımcı olabilir. Eğer hala sorunlarınız varsa ya da komut satırı arabirimi "
-"başarılı olduğunda ayrıştırıcı başarısızsa, lütfen sorunlara neden olan SQL "
-"sorgu girdinizi tek bir sorguya indirgeyin ve aşağıdaki CUT bölümü içindeki "
-"veri yığını ile birlikte hata raporunu gönderin:"
+"alanının dışında ikili değer ile dosya gönderiyor olmanız olabilir. Aynı "
+"zamanda sorgunuzu MySQL komut satırı arabiriminde deneyebilirsiniz. Eğer "
+"hata varsa, aşağıdaki MySQL sunucu hata çıktısı, sorunu teşhis etmenizde "
+"ayrıca size yardımcı olabilir. Eğer hala sorunlarınız varsa ya da komut "
+"satırı arabirimi başarılı olduğunda ayrıştırıcı başarısızsa, lütfen "
+"sorunlara neden olan SQL sorgu girdinizi tek bir sorguya indirgeyin ve "
+"aşağıdaki CUT bölümü içindeki veri yığını ile birlikte hata raporunu "
+"gönderin:"
 
 #: libraries/sqlparser.lib.php:181
 msgid "BEGIN CUT"
@@ -13766,10 +13763,9 @@ msgid "Show create"
 msgstr "Oluşturmayı göster"
 
 #: libraries/structure.lib.php:347
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Prefix"
-msgstr "Ön ek ekle"
+msgstr "Ön ek"
 
 #: libraries/structure.lib.php:349
 msgid "Add prefix to table"
@@ -15114,7 +15110,7 @@ msgstr "Dağıtım"
 
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr "Sürüm, kaynaktan derlenmiş, MySQL resmi binariden değil."
+msgstr "Sürüm, kaynaktan derlenmiş, MySQL resmi ikili değerden değil."
 
 #: libraries/advisory_rules.txt:125
 msgid ""
