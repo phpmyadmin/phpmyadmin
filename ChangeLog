@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #4879 Exit fullscreen in Designer does not change the button text
 - bug #4880 Designer icons missing when using original theme
 - bug #4878 Column list of central columns is not cleared
+- bug #4881 jQuery dialogs of the Designer are not displayed in fullscreen
 
 4.4.4.0 (2015-04-26)
 - bug #4863 Edit vs Change
