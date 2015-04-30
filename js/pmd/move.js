@@ -1171,7 +1171,7 @@ function Small_tab_all(id_this) // max/min all tables
             }
         }
         icon.alt = ">";
-        icon.src = pmaThemeImage + "pmd/rightarrow1.png";
+        icon.src = icon.dataset.right;
     } else {
         for (key in j_tabs) {
             if (document.getElementById('id_hide_tbody_' + key).innerHTML != "v") {
@@ -1179,7 +1179,7 @@ function Small_tab_all(id_this) // max/min all tables
             }
         }
         icon.alt = "v";
-        icon.src = pmaThemeImage + "pmd/downarrow1.png";
+        icon.src = icon.dataset.down;
     }
     Re_load();
 }
@@ -1382,10 +1382,10 @@ function Hide_tab_all(id_this) // max/min all tables
 {
     if (id_this.alt == 'v') {
         id_this.alt = '>';
-        id_this.src = pmaThemeImage + "pmd/rightarrow1.png";
+        id_this.src = id_this.dataset.right;
     } else {
         id_this.alt = 'v';
-        id_this.src = pmaThemeImage + "pmd/downarrow1.png";
+        id_this.src = id_this.dataset.down;
     }
     var E = document.form1;
     for (var i = 0; i < E.elements.length; i++) {
@@ -1433,10 +1433,10 @@ function No_have_constr(id_this)
 
     if (id_this.alt == 'v') {
         id_this.alt = '>';
-        id_this.src = pmaThemeImage + "pmd/rightarrow2.png";
+        id_this.src = id_this.dataset.right;;
     } else {
         id_this.alt = 'v';
-        id_this.src = pmaThemeImage + "pmd/downarrow2.png";
+        id_this.src = id_this.dataset.down;
     }
     var E = document.form1;
     for (var i = 0; i < E.elements.length; i++) {
@@ -1495,7 +1495,7 @@ function Show_left_menu(id_this) // max/min all tables
         document.getElementById("layer_menu").style.top = '0px';
         document.getElementById("layer_menu").style.display = 'block';
         icon.alt = ">";
-        icon.src = pmaThemeImage + "pmd/uparrow2_m.png";
+        icon.src = icon.dataset.up;
         if (isIE) {
             General_scroll();
         }
@@ -1503,7 +1503,7 @@ function Show_left_menu(id_this) // max/min all tables
         document.getElementById("layer_menu").style.top = -1000 + 'px'; //fast scroll
         document.getElementById("layer_menu").style.display = 'none';
         icon.alt = "v";
-        icon.src = pmaThemeImage + "pmd/downarrow2_m.png";
+        icon.src = icon.dataset.down;
     }
 }
 //------------------------------------------------------------------------------
