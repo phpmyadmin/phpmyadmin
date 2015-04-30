@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-04-30 09:42-0400\n"
-"PO-Revision-Date: 2015-04-11 01:02+0200\n"
+"PO-Revision-Date: 2015-04-30 22:31+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -2305,10 +2305,9 @@ msgstr ""
 "összeomlaszthatja a böngészőt."
 
 #: js/messages.php:460
-#, fuzzy
 #| msgid "Original string"
 msgid "Original length"
-msgstr "Eredeti szöveg"
+msgstr "Eredeti hossz"
 
 #: js/messages.php:463
 msgid "cancel"
@@ -9772,10 +9771,9 @@ msgid "Check table"
 msgstr "Tábla ellenőrzése"
 
 #: libraries/operations.lib.php:1107 libraries/structure.lib.php:339
-#, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
-msgstr "Tábla ellenőrzése"
+msgstr "Tábla ellenőrzőösszege"
 
 #: libraries/operations.lib.php:1122
 msgid "Defragment table"
@@ -10361,10 +10359,9 @@ msgid "It appears your database uses functions;"
 msgstr "Úgy tűnik, az adatbázis függvényeket használ;"
 
 #: libraries/plugins/export/ExportSql.class.php:975
-#, fuzzy
 #| msgid "Metadata for %s"
 msgid "Metadata"
-msgstr "%s metaadatai"
+msgstr "Metaadat"
 
 #: libraries/plugins/export/ExportSql.class.php:1049
 #, php-format
@@ -10774,7 +10771,6 @@ msgstr ""
 "kerülnek."
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
@@ -10782,8 +10778,8 @@ msgid ""
 "Converts an (IPv4) Internet network address stored as a bigint into a string "
 "in Internet standard dotted format."
 msgstr ""
-"Átalakít egy (IPv4) Internet hálózati címet Intenet szabvány pontozott "
-"formátumú karakterláncba."
+"Átalakít egy bigint formában tárolt (IPv4) Internet hálózati címet Internet "
+"szabványú pontozott formátumú karakterláncba."
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
 msgid ""
@@ -10858,6 +10854,7 @@ msgstr ""
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.class.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr ""
+"Átalakít egy (IPv4/IPv6) formátumban lévő Internet hálózati címet binárissá"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -10873,7 +10870,6 @@ msgstr ""
 "Szintaxis kiemeléssel ellátott CodeMirror szerkesztő XML-hez (és HTML-hez)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Binarytoip.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
@@ -10881,8 +10877,8 @@ msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
-"Átalakít egy (IPv4) Internet hálózati címet Intenet szabvány pontozott "
-"formátumú karakterláncba."
+"Átalakít egy bináris karakterláncban tárolt Internet hálózati címet Internet "
+"szabványú (IPv4/IPv6) formátumú karakterláncba."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:47
 msgid "Formats text as JSON with syntax highlighting."
@@ -13698,10 +13694,9 @@ msgid "Get auto-saved query"
 msgstr "Automatikusan mentett lekérdezés beszerzése"
 
 #: libraries/sql_query_form.lib.php:246
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "Rossz paraméterek!"
+msgstr "Paraméterek kötése"
 
 #: libraries/sql_query_form.lib.php:292
 msgid "Bookmark this SQL query:"
@@ -13823,10 +13818,9 @@ msgid "Show create"
 msgstr "Létrehozás megjelenítése"
 
 #: libraries/structure.lib.php:347
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Prefix"
-msgstr "Előtag hozzáadása"
+msgstr "Előtag"
 
 #: libraries/structure.lib.php:349
 msgid "Add prefix to table"
