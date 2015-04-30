@@ -27,9 +27,10 @@ AJAX.registerOnload('pmd/move.js', function () {
                 $('#page_content').removeClass('content_fullscreen')
                     .css({'width': 'auto', 'height': 'auto'});
                 var $img = $('#toggleFullscreen img');
-                $img.attr('src', $img.data('enter'));
                 var $span = $img.siblings('span');
                 $span.text($span.data('enter'));
+                $img.attr('src', $img.data('enter'))
+                    .attr('title', $span.data('enter'));
             }
         });
     } else {
@@ -527,6 +528,7 @@ function Toggle_fullscreen()
     var $span = $img.siblings('span');
     if (! $.FullScreen.isFullScreen()) {
         $img.attr('src', $img.data('exit'))
+            .attr('title', $span.data('exit'));
         $span.text($span.data('exit'));
         $('#page_content')
             .addClass('content_fullscreen')
