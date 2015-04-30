@@ -181,6 +181,10 @@ button {
     margin-<?php echo $right; ?>: 1em;
 }
 
+.floatright {
+    float: <?php echo $right; ?>;
+}
+
 table.nospacing {
     border-spacing: 0;
 }
