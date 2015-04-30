@@ -1728,43 +1728,6 @@ AJAX.registerOnload('functions.js', function () {
 
     $(document).on('change', '#parameterized', updateQueryParameters);
 
-    $("#export_type").change(function () {
-        if ($("#export_type").val() == 'svg') {
-            $("#show_grid_opt").prop("disabled", true);
-            $("#orientation_opt").prop("disabled", true);
-            $("#with_doc").prop("disabled", true);
-            $("#show_table_dim_opt").removeProp("disabled");
-            $("#all_tables_same_width").removeProp("disabled");
-            $("#paper_opt").removeProp("disabled");
-            $("#show_color_opt").removeProp("disabled");
-            //$(this).css("background-color","yellow");
-        } else if ($("#export_type").val() == 'dia') {
-            $("#show_grid_opt").prop("disabled", true);
-            $("#with_doc").prop("disabled", true);
-            $("#show_table_dim_opt").prop("disabled", true);
-            $("#all_tables_same_width").prop("disabled", true);
-            $("#paper_opt").removeProp("disabled");
-            $("#show_color_opt").removeProp("disabled");
-            $("#orientation_opt").removeProp("disabled");
-        } else if ($("#export_type").val() == 'eps') {
-            $("#show_grid_opt").prop("disabled", true);
-            $("#orientation_opt").removeProp("disabled");
-            $("#with_doc").prop("disabled", true);
-            $("#show_table_dim_opt").prop("disabled", true);
-            $("#all_tables_same_width").prop("disabled", true);
-            $("#paper_opt").prop("disabled", true);
-            $("#show_color_opt").prop("disabled", true);
-        } else if ($("#export_type").val() == 'pdf') {
-            $("#show_grid_opt").removeProp("disabled");
-            $("#orientation_opt").removeProp("disabled");
-            $("#with_doc").removeProp("disabled");
-            $("#show_table_dim_opt").removeProp("disabled");
-            $("#all_tables_same_width").removeProp("disabled");
-            $("#paper_opt").removeProp("disabled");
-            $("#show_color_opt").removeProp("disabled");
-        }
-    });
-
     if ($('#input_username')) {
         if ($('#input_username').val() === '') {
             $('#input_username').focus();
