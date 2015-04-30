@@ -387,11 +387,11 @@ a.M_butt:hover {
 
 #layer_menu_sizer {
     background-image: url(<?php echo $resizeImg; ?>);
-    cursor: ne-resize;
+    cursor: e-resize;
 }
 
-.left #layer_menu_sizer {
-     cursor: nw-resize;
+#layer_menu_sizer .icon {
+    margin: 0;
 }
 
 .panel {

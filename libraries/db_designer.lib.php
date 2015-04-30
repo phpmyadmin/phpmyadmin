@@ -262,7 +262,11 @@ function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
     $html .= '<a href="#" id="toggleFullscreen" class="M_butt" target="_self">';
     $html .= '<img class="' . $iconClass . '" title="' . __('View in fullscreen')
         . '" alt="" src="'
-        . $_SESSION['PMA_Theme']->getImgPath('pmd/viewInFullscreen.png') . '" />';
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/viewInFullscreen.png') . '" '
+        . 'data-enter="'
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/viewInFullscreen.png') . '" '
+        . 'data-exit="'
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/exitFullscreen.png') . '"  />';
     $html .= '<span class="' . $textClass . '" data-exit="' . __('Exit fullscreen');
     $html .= '" data-enter="' . __('View in fullscreen') . '">'
         . __('View in fullscreen') . '</span>';
