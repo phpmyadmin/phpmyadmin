@@ -26,7 +26,10 @@ AJAX.registerOnload('pmd/move.js', function () {
             if (! $.FullScreen.isFullScreen()) {
                 $('#page_content').removeClass('content_fullscreen')
                     .css({'width': 'auto', 'height': 'auto'});
-                $('#toggleFullscreen').show();
+                var $img = $('#toggleFullscreen img');
+                $img.attr('src', $img.data('enter'));
+                var $span = $img.siblings('span');
+                $span.text($span.data('enter'));
             }
         });
     } else {
@@ -520,16 +523,17 @@ function Rect(x1, y1, w, h, color)
 //--------------------------- FULLSCREEN -------------------------------------
 function Toggle_fullscreen()
 {
-    var button = $('#toggleFullscreen').children().last();
+    var $img = $('#toggleFullscreen img');
+    var $span = $img.siblings('span');
     if (! $.FullScreen.isFullScreen()) {
-        button.html(button.attr('data-exit'));
+        $img.attr('src', $img.data('exit'))
+        $span.text($span.data('exit'));
         $('#page_content')
             .addClass('content_fullscreen')
             .css({'width': screen.width - 5, 'height': screen.height - 5})
             .requestFullScreen();
     }
     if ($.FullScreen.isFullScreen()) {
-        button.html(button.attr('data-enter'));
         $.FullScreen.cancelFullScreen();
     }
 }

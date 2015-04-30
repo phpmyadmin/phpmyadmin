@@ -351,7 +351,7 @@ a.M_butt:hover {
 }
 
 #layer_menu {
-    z-index: 100;
+    z-index: 50;
     position: relative;
     float: right;
     background-color: #EAEEF0;
