@@ -3604,7 +3604,7 @@ class PMA_DisplayResults
                 $analyzed_sql, $meta, $map, $column,
                 $transformation_plugin, $default_function, $nowrap,
                 $where_comparison, $transform_options,
-                $is_field_truncated
+                $is_field_truncated, ''
             );
         } else {
 
@@ -3677,13 +3677,17 @@ class PMA_DisplayResults
 
             // Convert to WKT format
             $wktval = PMA_Util::asWKT($column);
-            $is_field_truncated = $this->_getPartialText($wktval);
+            list(
+                $is_field_truncated,
+                $wktval,
+                // skip 3rd param
+            ) = $this->_getPartialText($wktval);
 
             $cell = $this->_getRowData(
                 $class, $condition_field, $analyzed_sql, $meta, $map,
                 $wktval, $transformation_plugin, $default_function, '',
                 $where_comparison, $transform_options,
-                $is_field_truncated
+                $is_field_truncated, ''
             );
             return $cell;
         }
@@ -3694,14 +3698,18 @@ class PMA_DisplayResults
             $where_comparison = ' = ' . $column;
 
             $wkbval = substr(bin2hex($column), 8);
-            $is_field_truncated = $this->_getPartialText($wkbval);
+            list(
+                $is_field_truncated,
+                $wkbval,
+                // skip 3rd param
+            ) = $this->_getPartialText($wkbval);
 
             $cell = $this->_getRowData(
                 $class, $condition_field,
                 $analyzed_sql, $meta, $map, $wkbval,
                 $transformation_plugin, $default_function, '',
                 $where_comparison, $transform_options,
-                $is_field_truncated
+                $is_field_truncated, ''
             );
             return $cell;
         }
@@ -3795,7 +3803,11 @@ class PMA_DisplayResults
             && strpos($transformation_plugin->getName(), 'Link') !== false)
             && !stristr($field_flags, self::BINARY_FIELD)
         ) {
-            $is_field_truncated = $this->_getPartialText($column);
+            list(
+                $is_field_truncated,
+                $column,
+                $original_length
+            ) = $this->_getPartialText($column);
         }
 
         $formatted = false;
@@ -3863,7 +3875,7 @@ class PMA_DisplayResults
             $analyzed_sql, $meta, $map, $column,
             $transformation_plugin, $default_function, $nowrap,
             $where_comparison, $transform_options,
-            $is_field_truncated
+            $is_field_truncated, $original_length
         );
 
         return $cell;
@@ -5168,7 +5180,11 @@ class PMA_DisplayResults
         ) {
             // in this case, restart from the original $content
             $result = bin2hex($content);
-            $is_truncated = $this->_getPartialText($result);
+            list(
+                $is_truncated,
+                $result,
+                // skip 3rd param
+            ) = $this->_getPartialText($result);
         }
 
         /* Create link to download */
@@ -5205,6 +5221,7 @@ class PMA_DisplayResults
      * @param string        $where_comparison      data for the where clause
      * @param array         $transform_options     options for transformation
      * @param bool          $is_field_truncated    whether the field is truncated
+     * @param string        $original_length       of a truncated column, or ''
      *
      * @return string  formatted data
      *
@@ -5217,14 +5234,21 @@ class PMA_DisplayResults
     private function _getRowData(
         $class, $condition_field, $analyzed_sql, $meta, $map, $data,
         $transformation_plugin, $default_function, $nowrap, $where_comparison,
-        $transform_options, $is_field_truncated
+        $transform_options, $is_field_truncated, $original_length=''
     ) {
 
         $relational_display = $_SESSION['tmpval']['relational_display'];
         $printview = $this->__get('printview');
         $decimals = isset($meta->decimals) ? $meta->decimals : '-1';
-        $result = '<td data-decimals="' . $decimals . '" data-type="'
-            . $meta->type . '" class="'
+        $result = '<td data-decimals="' . $decimals . '"'
+            . ' data-type="' . $meta->type . '"';
+
+        if (! empty($original_length)) {
+            // cannot use data-original-length
+            $result .= ' data-originallength="' . $original_length . '"';
+        }
+
+        $result .= ' class="'
             . $this->_addClass(
                 $class, $condition_field, $meta, $nowrap,
                 $is_field_truncated, $transformation_plugin, $default_function
@@ -5641,34 +5665,35 @@ class PMA_DisplayResults
 
     } // end of the '_getCheckboxAndLinks()' function
 
-
     /**
      * Truncates given string based on LimitChars configuration
      * and Session pftext variable
      * (string is truncated only if necessary)
      *
-     * @param string &$str string to be truncated
+     * @param string $str string to be truncated
      *
-     * @return boolean  true if truncated, otherwise false
+     * @return mixed 
      *
      * @access  private
      *
      * @see     _handleNonPrintableContents(), _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericColumns
      */
-    private function _getPartialText(&$str)
+    private function _getPartialText($str)
     {
-        if (/*overload*/mb_strlen($str) > $GLOBALS['cfg']['LimitChars']
+        $original_length = /*overload*/mb_strlen($str);
+        if ($original_length > $GLOBALS['cfg']['LimitChars']
             && $_SESSION['tmpval']['pftext'] === self::DISPLAY_PARTIAL_TEXT
         ) {
             $str = /*overload*/mb_substr(
                 $str, 0, $GLOBALS['cfg']['LimitChars']
             ) . '...';
-
-            return true;
+            $truncated = true;
+        } else {
+            $truncated = false;
         }
 
-        return false;
+        return array($truncated, $str, $original_length);
     }
 }
 

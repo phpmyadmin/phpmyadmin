@@ -1863,7 +1863,15 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
      * Initialize grid
      ******************/
 
-    // wrap all data cells, except actions cell, with span
+    // wrap all truncated data cells with span indicating the original length
+    // todo update the original length after a grid edit
+    $(t).find('td.data.truncated:not(:has(span))')
+        .wrapInner(function() {
+            return '<span title="' + PMA_messages.strOriginalLength + ' '
+                + $(this).data('originallength') + '"></span>';
+        });
+
+    // wrap remaining cells, except actions cell, with span
     $(t).find('th, td:not(:has(span))')
         .wrapInner('<span />');
 

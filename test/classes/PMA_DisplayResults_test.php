@@ -1423,10 +1423,10 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function dataProviderForTestGetPartialText()
     {
         return array(
-            array('P', 10, 'foo', false),
-            array('P', 1, 'foo', true),
-            array('F', 10, 'foo', false),
-            array('F', 1, 'foo', false)
+            array('P', 10, 'foo', array(false, 'foo', 3)),
+            array('P', 1, 'foo', array(true, 'f...', 3)),
+            array('F', 10, 'foo', array(false, 'foo', 3)),
+            array('F', 1, 'foo', array(false, 'foo', 3))
         );
     }
 
@@ -1451,7 +1451,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             $output,
             $this->_callPrivateFunction(
                 '_getPartialText',
-                array(&$str)
+                array($str)
             )
         );
     }
@@ -1676,6 +1676,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 0,
                 0,
                 '<td data-decimals="0" data-type="string" '
+                . 'data-originallength="11" '
                 . 'class="grid_edit ">foo bar baz</td>' . "\n"
             )
         );
