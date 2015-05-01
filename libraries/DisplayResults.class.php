@@ -4852,7 +4852,7 @@ class PMA_DisplayResults
                 . PMA_Util::linkOrButton(
                     'view_create.php' . $url_query,
                     PMA_Util::getIcon(
-                        'b_views.png', __('Create view'), true
+                        'b_view_add.png', __('Create view'), true
                     ),
                     array('class' => 'create_view' . $ajax_class), true, true, ''
                 )
