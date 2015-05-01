@@ -50,7 +50,7 @@ function PMA_getHtmlForCreateTable($db)
     $html .= '<legend>';
 
     if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html .= PMA_Util::getImage('b_newtbl.png') . '&nbsp';
+        $html .= PMA_Util::getImage('b_table_add.png') . '&nbsp';
     }
     $html .= __('Create table');
 
