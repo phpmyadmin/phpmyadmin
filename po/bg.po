@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-04-30 09:42-0400\n"
+"POT-Creation-Date: 2015-05-01 07:28-0400\n"
 "PO-Revision-Date: 2015-04-10 17:27+0200\n"
 "Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -562,11 +562,11 @@ msgstr "Добави геометрия"
 #: libraries/display_import.lib.php:397 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1539 libraries/insert_edit.lib.php:1576
 #: libraries/normalization.lib.php:147 libraries/normalization.lib.php:803
-#: libraries/operations.lib.php:38 libraries/operations.lib.php:81
-#: libraries/operations.lib.php:209 libraries/operations.lib.php:252
-#: libraries/operations.lib.php:596 libraries/operations.lib.php:649
-#: libraries/operations.lib.php:698 libraries/operations.lib.php:1016
-#: libraries/operations.lib.php:1319
+#: libraries/operations.lib.php:38 libraries/operations.lib.php:82
+#: libraries/operations.lib.php:211 libraries/operations.lib.php:254
+#: libraries/operations.lib.php:598 libraries/operations.lib.php:651
+#: libraries/operations.lib.php:700 libraries/operations.lib.php:1018
+#: libraries/operations.lib.php:1321
 #: libraries/plugins/auth/AuthenticationCookie.class.php:244
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:154
 #: libraries/replication_gui.lib.php:314 libraries/replication_gui.lib.php:450
@@ -616,8 +616,8 @@ msgstr "Непълни параметри"
 #: import.php:185
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Вероятно сте направили опит да качите твърде голям файл. Моля, обърнете се "
 "към %sдокументацията%s за да намерите начин да избегнете това ограничение."
@@ -661,8 +661,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Не бяха получени данни за импорт. Или не е изпратен файл, или файлът е бил "
-"по-голям от разрешеното в конфигурацията на PHP. Вижте [doc@faq1-16]ЧЗВ 1.16"
-"[/doc]."
+"по-голям от разрешеното в конфигурацията на PHP. Вижте [doc@faq1-16]ЧЗВ "
+"1.16[/doc]."
 
 #: import.php:574
 msgid ""
@@ -3171,7 +3171,7 @@ msgstr "Превключване към копираната таблица"
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1358
 #: libraries/DisplayResults.class.php:2151
 #: libraries/DisplayResults.class.php:2157 libraries/TableSearch.class.php:847
-#: libraries/config.values.php:70 libraries/operations.lib.php:589
+#: libraries/config.values.php:70 libraries/operations.lib.php:591
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
 #: libraries/server_status_processes.lib.php:185
@@ -3182,7 +3182,7 @@ msgstr "Възходящо"
 #: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1370
 #: libraries/DisplayResults.class.php:2147
 #: libraries/DisplayResults.class.php:2161 libraries/TableSearch.class.php:848
-#: libraries/config.values.php:71 libraries/operations.lib.php:592
+#: libraries/config.values.php:71 libraries/operations.lib.php:594
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
 #: libraries/server_status_processes.lib.php:182
@@ -3528,8 +3528,8 @@ msgstr "SQL заявката беше изпълнена успешно"
 #: libraries/DisplayResults.class.php:4577 libraries/structure.lib.php:693
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Този изглед има поне толкова реда. Погледнете %sдокументацията%s."
 
 #: libraries/DisplayResults.class.php:4590
@@ -3745,7 +3745,7 @@ msgstr "Кардиналност"
 #: libraries/build_html_for_db.lib.php:22
 #: libraries/central_columns.lib.php:702
 #: libraries/central_columns.lib.php:1207 libraries/mysql_charsets.lib.php:45
-#: libraries/operations.lib.php:239 libraries/operations.lib.php:765
+#: libraries/operations.lib.php:241 libraries/operations.lib.php:767
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:858
 #: libraries/structure.lib.php:1303 libraries/structure.lib.php:1853
 #: libraries/tbl_columns_definition_form.lib.php:338
@@ -4481,14 +4481,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -5410,8 +5410,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:440
@@ -5593,16 +5593,16 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
 "Определя какъв вид полета за редакция да бъдат използвани за колони тип CHAR "
-"и VARCHAR:[kbd]input[/kbd] - позволява ограничаване по дължина, [kbd]textarea"
-"[/kbd] - позволява вмъкването на нови редове"
+"и VARCHAR:[kbd]input[/kbd] - позволява ограничаване по дължина, "
+"[kbd]textarea[/kbd] - позволява вмъкването на нови редове"
 
 #: libraries/config/messages.inc.php:53
 msgid "CHAR columns editing"
@@ -5614,8 +5614,8 @@ msgstr "Редакция на CHAR колони"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Използване на удобен за потребителя редактор за писане на SQL заявките "
 "([a@http://codemirror.net/]CodeMirror[/a]) със синтактично оцветяване и "
@@ -5969,8 +5969,8 @@ msgstr "Презаписване на съществуващите файл(ов
 msgid "Remember file name template"
 msgstr "Запомняне на шаблона за име на файл"
 
-#: libraries/config/messages.inc.php:166 libraries/operations.lib.php:194
-#: libraries/operations.lib.php:644 libraries/operations.lib.php:989
+#: libraries/config/messages.inc.php:166 libraries/operations.lib.php:196
+#: libraries/operations.lib.php:646 libraries/operations.lib.php:991
 msgid "Add AUTO_INCREMENT value"
 msgstr "Добавяне AUTO_INCREMENT стойност"
 
@@ -6017,8 +6017,8 @@ msgstr "Липсват таблици от хранилището за конф�
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:179
 #: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:181
 #: libraries/config/messages.inc.php:183 libraries/config/messages.inc.php:185
-#: libraries/config/messages.inc.php:192 libraries/operations.lib.php:189
-#: libraries/operations.lib.php:985
+#: libraries/config/messages.inc.php:192 libraries/operations.lib.php:191
+#: libraries/operations.lib.php:987
 #, php-format
 msgid "Add %s"
 msgstr "Добавяне на %s"
@@ -6243,15 +6243,16 @@ msgstr "Заглавие в браузъра"
 #: libraries/config/messages.inc.php:257
 #, fuzzy
 #| msgid ""
-#| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
-#| "documentation[/doc] for magic strings that can be used to get special "
-#| "values."
+#| "Specify browser's title bar text. Refer to "
+#| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
+#| "used to get special values."
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Настройте заглавието в браузъра. Прочетете [doc@cfg_TitleTable]документацията"
-"[/doc] за магическите низове и техните стойности."
+"Настройте заглавието в браузъра. Прочетете "
+"[doc@cfg_TitleTable]документацията[/doc] за магическите низове и техните "
+"стойности."
 
 #: libraries/config/messages.inc.php:261
 msgid "Security"
@@ -7165,8 +7166,8 @@ msgstr "Таблица за белязки"
 
 #: libraries/config/messages.inc.php:581
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:584
@@ -7199,8 +7200,8 @@ msgstr "Парола на контролен потребител"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -7258,9 +7259,9 @@ msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Допълнителна информация в [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-"системата за проследяване на дефекти на PMA[/a] и [a@http://bugs.mysql."
-"com/19588]дефекти на MySQL[/a]"
+"Допълнителна информация в [a@https://sourceforge.net/p/phpmyadmin/"
+"bugs/2606/]системата за проследяване на дефекти на PMA[/a] и [a@http://bugs."
+"mysql.com/19588]дефекти на MySQL[/a]"
 
 #: libraries/config/messages.inc.php:610
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -7310,8 +7311,8 @@ msgstr "Показване таблицата със състоянието на
 
 #: libraries/config/messages.inc.php:628
 msgid ""
-"Leave blank for no QBE saved searches support, suggested: [kbd]"
-"pma__savedsearches[/kbd]."
+"Leave blank for no QBE saved searches support, suggested: "
+"[kbd]pma__savedsearches[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:631
@@ -7322,8 +7323,8 @@ msgstr "Колони в текство поле"
 
 #: libraries/config/messages.inc.php:633
 msgid ""
-"Leave blank for no central columns support, suggested: [kbd]"
-"pma__central_columns[/kbd]."
+"Leave blank for no central columns support, suggested: "
+"[kbd]pma__central_columns[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:636
@@ -7413,8 +7414,8 @@ msgstr "Променливи"
 
 #: libraries/config/messages.inc.php:670
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:674
@@ -7427,11 +7428,11 @@ msgstr "Таблица за връзка"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
-"За примери посетете [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
-"видове удостоверяване[/a]"
+"За примери посетете [a@http://wiki.phpmyadmin.net/pma/"
+"auth_types#signon]видове удостоверяване[/a]"
 
 #: libraries/config/messages.inc.php:679
 msgid "Signon session name"
@@ -7538,8 +7539,8 @@ msgstr "Изрази, които да бъдат проследявани"
 
 #: libraries/config/messages.inc.php:719
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:722
@@ -7558,8 +7559,8 @@ msgstr "Автоматично създаване на версии"
 
 #: libraries/config/messages.inc.php:729
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:730
@@ -7729,8 +7730,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Показва връзка към изхода на [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]"
+"Показва връзка към изхода на [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:759
 msgid "Show phpinfo() link"
@@ -8477,8 +8478,8 @@ msgstr ", @TABLE@ ще стане името на таблицата"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:526
@@ -8995,8 +8996,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:176
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:183
@@ -9932,197 +9933,197 @@ msgstr ""
 msgid "Rename database to"
 msgstr "Преименуване БД на"
 
-#: libraries/operations.lib.php:106
+#: libraries/operations.lib.php:107
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "БД %s беше изтрита."
 
-#: libraries/operations.lib.php:118
+#: libraries/operations.lib.php:119
 msgid "Remove database"
 msgstr "Изтриване БД"
 
-#: libraries/operations.lib.php:124
+#: libraries/operations.lib.php:125
 msgid "Drop the database (DROP)"
 msgstr "Изтриване на БД (DROP)"
 
-#: libraries/operations.lib.php:144 libraries/operations.lib.php:972
+#: libraries/operations.lib.php:145 libraries/operations.lib.php:974
 #: libraries/tracking.lib.php:517
 msgid "Structure only"
 msgstr "Само структурата"
 
-#: libraries/operations.lib.php:145 libraries/operations.lib.php:973
+#: libraries/operations.lib.php:146 libraries/operations.lib.php:975
 #: libraries/tracking.lib.php:523
 msgid "Structure and data"
 msgstr "Структурата и данните"
 
-#: libraries/operations.lib.php:146 libraries/operations.lib.php:974
+#: libraries/operations.lib.php:147 libraries/operations.lib.php:976
 #: libraries/tracking.lib.php:520
 msgid "Data only"
 msgstr "Само данните"
 
-#: libraries/operations.lib.php:174
+#: libraries/operations.lib.php:175
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to"
 msgstr "Копиране на БД в"
 
-#: libraries/operations.lib.php:185
+#: libraries/operations.lib.php:187
 msgid "CREATE DATABASE before copying"
 msgstr "Изпълняване на CREATE DATABASE преди копирането"
 
-#: libraries/operations.lib.php:198 libraries/operations.lib.php:997
+#: libraries/operations.lib.php:200 libraries/operations.lib.php:999
 msgid "Add constraints"
 msgstr "Добавяне ограничения"
 
-#: libraries/operations.lib.php:206
+#: libraries/operations.lib.php:208
 msgid "Switch to copied database"
 msgstr "Показване на копираната БД"
 
-#: libraries/operations.lib.php:577
+#: libraries/operations.lib.php:579
 msgid "Alter table order by"
 msgstr "Подреждане на таблицата по"
 
-#: libraries/operations.lib.php:585
+#: libraries/operations.lib.php:587
 msgid "(singly)"
 msgstr "(еднократно)"
 
-#: libraries/operations.lib.php:621
+#: libraries/operations.lib.php:623
 msgid "Move table to (database<b>.</b>table)"
 msgstr "Преместване на таблица към (БД<b>.</b>таблица)"
 
-#: libraries/operations.lib.php:732
+#: libraries/operations.lib.php:734
 msgid "Table options"
 msgstr "Опции на таблицата"
 
-#: libraries/operations.lib.php:736
+#: libraries/operations.lib.php:738
 msgid "Rename table to"
 msgstr "Преименуване на таблицата на"
 
-#: libraries/operations.lib.php:745
+#: libraries/operations.lib.php:747
 msgid "Table comments"
 msgstr "Коментари към таблицата"
 
-#: libraries/operations.lib.php:754 libraries/server_engines.lib.php:49
+#: libraries/operations.lib.php:756 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
 msgstr "Хранилище"
 
-#: libraries/operations.lib.php:955
+#: libraries/operations.lib.php:957
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "Копиране на таблица в (БД<b>.</b>таблица)"
 
-#: libraries/operations.lib.php:1012
+#: libraries/operations.lib.php:1014
 msgid "Switch to copied table"
 msgstr "Превключване към копираната таблица"
 
-#: libraries/operations.lib.php:1039 libraries/structure.lib.php:332
+#: libraries/operations.lib.php:1041 libraries/structure.lib.php:332
 msgid "Table maintenance"
 msgstr "Поддръжка на таблицата"
 
-#: libraries/operations.lib.php:1077 libraries/structure.lib.php:334
+#: libraries/operations.lib.php:1079 libraries/structure.lib.php:334
 msgid "Analyze table"
 msgstr "Анализиране на таблицата"
 
-#: libraries/operations.lib.php:1092 libraries/structure.lib.php:336
+#: libraries/operations.lib.php:1094 libraries/structure.lib.php:336
 msgid "Check table"
 msgstr "Проверка на таблицата"
 
-#: libraries/operations.lib.php:1107 libraries/structure.lib.php:339
+#: libraries/operations.lib.php:1109 libraries/structure.lib.php:339
 #, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
 msgstr "Проверка на таблицата"
 
-#: libraries/operations.lib.php:1122
+#: libraries/operations.lib.php:1124
 msgid "Defragment table"
 msgstr "Дефрагментиране на таблица"
 
-#: libraries/operations.lib.php:1134
+#: libraries/operations.lib.php:1136
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "Кеша на таблица %s беше изчистен."
 
-#: libraries/operations.lib.php:1140
+#: libraries/operations.lib.php:1142
 msgid "Flush the table (FLUSH)"
 msgstr "Изпразване кеша на таблицата (FLUSH)"
 
-#: libraries/operations.lib.php:1156 libraries/structure.lib.php:341
+#: libraries/operations.lib.php:1158 libraries/structure.lib.php:341
 #: libraries/structure.lib.php:1777
 msgid "Optimize table"
 msgstr "Оптимизация на таблицата"
 
-#: libraries/operations.lib.php:1171 libraries/structure.lib.php:343
+#: libraries/operations.lib.php:1173 libraries/structure.lib.php:343
 msgid "Repair table"
 msgstr "Поправяне на таблицата"
 
-#: libraries/operations.lib.php:1217 libraries/structure.lib.php:325
+#: libraries/operations.lib.php:1219 libraries/structure.lib.php:325
 #: view_operations.php:127
 msgid "Delete data or table"
 msgstr ""
 
-#: libraries/operations.lib.php:1225
+#: libraries/operations.lib.php:1227
 msgid "Empty the table (TRUNCATE)"
 msgstr "Изпразване на таблицата (TRUNCATE)"
 
-#: libraries/operations.lib.php:1233
+#: libraries/operations.lib.php:1235
 msgid "Delete the table (DROP)"
 msgstr "Изтриване на таблицата (DROP)"
 
-#: libraries/operations.lib.php:1273
+#: libraries/operations.lib.php:1275
 msgid "Analyze"
 msgstr "Анализиране"
 
-#: libraries/operations.lib.php:1274
+#: libraries/operations.lib.php:1276
 msgid "Check"
 msgstr "Проверка"
 
-#: libraries/operations.lib.php:1275
+#: libraries/operations.lib.php:1277
 msgid "Optimize"
 msgstr "Оптимизиране"
 
-#: libraries/operations.lib.php:1276
+#: libraries/operations.lib.php:1278
 msgid "Rebuild"
 msgstr ""
 
-#: libraries/operations.lib.php:1277
+#: libraries/operations.lib.php:1279
 msgid "Repair"
 msgstr "Поправяне"
 
-#: libraries/operations.lib.php:1285
+#: libraries/operations.lib.php:1287
 msgid "Partition maintenance"
 msgstr ""
 
-#: libraries/operations.lib.php:1296
+#: libraries/operations.lib.php:1298
 #, php-format
 msgid "Partition %s"
 msgstr ""
 
-#: libraries/operations.lib.php:1314
+#: libraries/operations.lib.php:1316
 msgid "Remove partitioning"
 msgstr ""
 
-#: libraries/operations.lib.php:1340
+#: libraries/operations.lib.php:1342
 msgid "Check referential integrity:"
 msgstr "Проверка на интегритета на връзките:"
 
-#: libraries/operations.lib.php:1625
+#: libraries/operations.lib.php:1627
 msgid "Can't move table to same one!"
 msgstr "Не може да се премести таблицата към себе си!"
 
-#: libraries/operations.lib.php:1627
+#: libraries/operations.lib.php:1629
 msgid "Can't copy table to same one!"
 msgstr "Не може да се копира таблицата към себе си!"
 
-#: libraries/operations.lib.php:1637
+#: libraries/operations.lib.php:1639
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Таблицата %s беше преместена към %s."
 
-#: libraries/operations.lib.php:1641
+#: libraries/operations.lib.php:1643
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Таблица %s беше копирана в %s."
 
-#: libraries/operations.lib.php:1661
+#: libraries/operations.lib.php:1663
 msgid "The table name is empty!"
 msgstr "Името на таблицата е празно!"
 
@@ -10167,8 +10168,8 @@ msgstr "Добре дошли в %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Изглежда не се създали конфигурационен файл. Вероятно ще искате да "
 "използвате %1$sскрипта за настройки%2$s, за да го създадете."
@@ -10625,8 +10626,8 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 "Съхраняване на полета от вида TIMESTAMP в UTC формат<i>(позволява полетата "
-"TIMESTAMP да бъдат експортирани и четени от сървъри в различни часови пояси)"
-"</i>"
+"TIMESTAMP да бъдат експортирани и четени от сървъри в различни часови "
+"пояси)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:517
 msgid "It appears your database uses procedures;"
@@ -11023,10 +11024,10 @@ msgstr ""
 "Text_Plain_External.class.php и да изредите програмите, на които позволявате "
 "да бъдат стартирани. Първата опция тогава е номера на програмата, която "
 "бихте искали да използвате, а втората са параметрите ѝ. Ако третият "
-"параметър е установен на 1, ще конвертира изхода използвайки htmlspecialchars"
-"() (По подразбиране е 1). Ако четвъртият параметър е установен на 1 това ще "
-"предотврати спренос на нов ред и целият изход ще бъде показан на един ред "
-"(По подразбиране е 1)."
+"параметър е установен на 1, ще конвертира изхода използвайки "
+"htmlspecialchars() (По подразбиране е 1). Ако четвъртият параметър е "
+"установен на 1 това ще предотврати спренос на нов ред и целият изход ще бъде "
+"показан на един ред (По подразбиране е 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -11068,7 +11069,7 @@ msgstr ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
 msgid ""
-"Converts an (IPv4) Internet network address stored as a bigint into a string "
+"Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
 msgstr ""
 "Обръща (IPv4) Интернет мрежови адрес в низ в стандартен Интернет точков "
@@ -12814,8 +12815,8 @@ msgstr "Преглед потребители"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Забележка: phpMyAdmin взема потребителските права директно от таблицата с "
 "правата на MySQL. Съдържанието на тази таблица може да се различава от "
@@ -14979,8 +14980,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Имате достъп до още настройки, модифицирайки config.inc.php, примерно чрез %"
-"sскрипта за настройки%s."
+"Имате достъп до още настройки, модифицирайки config.inc.php, примерно чрез "
+"%sскрипта за настройки%s."
 
 #: prefs_manage.php:321
 msgid "Save to browser's storage"
@@ -15625,8 +15626,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -15745,8 +15746,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% от всички сортировки се изпълняват с временни таблици, тази стойност "
 "трябва да бъде под 10%%."
@@ -16798,11 +16799,11 @@ msgstr "concurrent_insert e 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to [kbd]"
-#~| "anonymous[/kbd])"
+#~| "If you have a custom username, specify it here (defaults to "
+#~| "[kbd]anonymous[/kbd])"
 #~ msgid ""
-#~ "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#~ "[/kbd])."
+#~ "If you have a custom username, specify it here (defaults to "
+#~ "[kbd]anonymous[/kbd])."
 #~ msgstr ""
 #~ "Ако имате отделно потребителско име, въведете го тук (по подразбиране е "
 #~ "[kbd]anonymous[/kbd])"
@@ -16816,8 +16817,8 @@ msgstr "concurrent_insert e 0"
 #~ "%s."
 #~ msgstr ""
 #~ "SQL валидаторът не може да бъде инициализиран. Моля проверете дали са "
-#~ "инсталирани необходимите PHP разширения, както е описано в %"
-#~ "sдокументацията%s."
+#~ "инсталирани необходимите PHP разширения, както е описано в "
+#~ "%sдокументацията%s."
 
 #, fuzzy
 #~| msgid "Error: Relation not added."
