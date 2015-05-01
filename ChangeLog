@@ -37,6 +37,7 @@ phpMyAdmin - ChangeLog
 - bug #4880 Designer icons missing when using original theme
 - bug #4878 Column list of central columns is not cleared
 - bug #4881 jQuery dialogs of the Designer are not displayed in fullscreen
+- bug #4883 Search function breaks when searching for certain combinations of backslashes and slashes
 
 4.4.4.0 (2015-04-26)
 - bug #4863 Edit vs Change
