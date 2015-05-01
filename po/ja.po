@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-04-30 09:42-0400\n"
+"POT-Creation-Date: 2015-05-01 07:28-0400\n"
 "PO-Revision-Date: 2015-03-28 04:08+0200\n"
 "Last-Translator: Hiroshi Chiyokawa <hiroshi.chiyokawa@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -560,11 +560,11 @@ msgstr "幾何データを追加する"
 #: libraries/display_import.lib.php:397 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1539 libraries/insert_edit.lib.php:1576
 #: libraries/normalization.lib.php:147 libraries/normalization.lib.php:803
-#: libraries/operations.lib.php:38 libraries/operations.lib.php:81
-#: libraries/operations.lib.php:209 libraries/operations.lib.php:252
-#: libraries/operations.lib.php:596 libraries/operations.lib.php:649
-#: libraries/operations.lib.php:698 libraries/operations.lib.php:1016
-#: libraries/operations.lib.php:1319
+#: libraries/operations.lib.php:38 libraries/operations.lib.php:82
+#: libraries/operations.lib.php:211 libraries/operations.lib.php:254
+#: libraries/operations.lib.php:598 libraries/operations.lib.php:651
+#: libraries/operations.lib.php:700 libraries/operations.lib.php:1018
+#: libraries/operations.lib.php:1321
 #: libraries/plugins/auth/AuthenticationCookie.class.php:244
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:154
 #: libraries/replication_gui.lib.php:314 libraries/replication_gui.lib.php:450
@@ -614,8 +614,8 @@ msgstr "不完全なパラメータ"
 #: import.php:185
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。この制限に関する対策に"
 "ついては %sドキュメント%s をご覧ください。"
@@ -660,8 +660,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "インポートするデータを受信できませんでした。ファイル名が送信されていないか、"
-"ファイルサイズが PHP の設定で許可された最大値を超えています。[doc@faq1-16]"
-"FAQ 1.16[/doc] をご覧ください。"
+"ファイルサイズが PHP の設定で許可された最大値を超えています。"
+"[doc@faq1-16]FAQ 1.16[/doc] をご覧ください。"
 
 #: import.php:574
 msgid ""
@@ -3276,7 +3276,7 @@ msgstr "コピーしたテーブルに切り替える"
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1358
 #: libraries/DisplayResults.class.php:2151
 #: libraries/DisplayResults.class.php:2157 libraries/TableSearch.class.php:847
-#: libraries/config.values.php:70 libraries/operations.lib.php:589
+#: libraries/config.values.php:70 libraries/operations.lib.php:591
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
 #: libraries/server_status_processes.lib.php:185
@@ -3287,7 +3287,7 @@ msgstr "昇順"
 #: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1370
 #: libraries/DisplayResults.class.php:2147
 #: libraries/DisplayResults.class.php:2161 libraries/TableSearch.class.php:848
-#: libraries/config.values.php:71 libraries/operations.lib.php:592
+#: libraries/config.values.php:71 libraries/operations.lib.php:594
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
 #: libraries/server_status_processes.lib.php:182
@@ -3635,8 +3635,8 @@ msgstr "SQL は正常に実行されました"
 #: libraries/DisplayResults.class.php:4577 libraries/structure.lib.php:693
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: libraries/DisplayResults.class.php:4590
@@ -3856,7 +3856,7 @@ msgstr "一意な値の数"
 #: libraries/build_html_for_db.lib.php:22
 #: libraries/central_columns.lib.php:702
 #: libraries/central_columns.lib.php:1207 libraries/mysql_charsets.lib.php:45
-#: libraries/operations.lib.php:239 libraries/operations.lib.php:765
+#: libraries/operations.lib.php:241 libraries/operations.lib.php:767
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:858
 #: libraries/structure.lib.php:1303 libraries/structure.lib.php:1853
 #: libraries/tbl_columns_definition_form.lib.php:338
@@ -4597,20 +4597,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "単精度浮動小数、有効範囲は -3.402823466E+38 から -1.175494351E-38、0、"
 "1.175494351E-38 から 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"倍精度浮動小数、有効範囲は -1.7976931348623157E+308 から -"
-"2.2250738585072014E-308、0、2.2250738585072014E-308 から 1.7976931348623157E"
+"倍精度浮動小数、有効範囲は -1.7976931348623157E+308 から "
+"-2.2250738585072014E-308、0、2.2250738585072014E-308 から 1.7976931348623157E"
 "+308"
 
 #: libraries/Types.class.php:336
@@ -5582,8 +5582,8 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:419
 #, fuzzy, php-format
 #| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, %"
-#| "sLogin cookie validity%s must be set to a value less or equal to it."
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
+#| "%sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
@@ -5595,20 +5595,21 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:426
 #, fuzzy, php-format
 #| msgid ""
-#| "If you feel this is necessary, use additional protection settings - %"
-#| "shost authentication%s settings and %strusted proxies list%s. However, IP-"
-#| "based protection may not be reliable if your IP belongs to an ISP where "
-#| "thousands of users, including you, are connected to."
+#| "If you feel this is necessary, use additional protection settings - "
+#| "%shost authentication%s settings and %strusted proxies list%s. However, "
+#| "IP-based protection may not be reliable if your IP belongs to an ISP "
+#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定（%"
-"sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してください。し"
-"かしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続"
-"されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
+"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定"
+"（%sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してくださ"
+"い。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれてい"
+"る、接続されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえま"
+"せん。"
 
 #: libraries/config/ServerConfigChecks.class.php:434
 #, php-format
@@ -5616,8 +5617,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "[kbd]config[/kbd] 認証タイプを設定し、自動ログインのためにユーザ名とパスワー"
 "ドを含めています。このことは、実働しているホストにとって望ましい方法とはいえ"
@@ -5806,8 +5807,8 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -5827,8 +5828,8 @@ msgstr "CHAR 系カラムの編集"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "構文の色分けや行番号の付加といった分かりやすいエディタ ([a@http://codemirror."
 "net/]CodeMirror[/a]) を、SQL クエリの編集の際に使用します。"
@@ -6172,8 +6173,8 @@ msgstr "既存のファイルは上書きする"
 msgid "Remember file name template"
 msgstr "ファイル名のテンプレートを記憶しておく"
 
-#: libraries/config/messages.inc.php:166 libraries/operations.lib.php:194
-#: libraries/operations.lib.php:644 libraries/operations.lib.php:989
+#: libraries/config/messages.inc.php:166 libraries/operations.lib.php:196
+#: libraries/operations.lib.php:646 libraries/operations.lib.php:991
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT 値を追加する"
 
@@ -6220,8 +6221,8 @@ msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:179
 #: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:181
 #: libraries/config/messages.inc.php:183 libraries/config/messages.inc.php:185
-#: libraries/config/messages.inc.php:192 libraries/operations.lib.php:189
-#: libraries/operations.lib.php:985
+#: libraries/config/messages.inc.php:192 libraries/operations.lib.php:191
+#: libraries/operations.lib.php:987
 #, php-format
 msgid "Add %s"
 msgstr "%s を追加する"
@@ -6442,9 +6443,9 @@ msgstr "ページタイトル"
 #: libraries/config/messages.inc.php:257
 #, fuzzy
 #| msgid ""
-#| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
-#| "documentation[/doc] for magic strings that can be used to get special "
-#| "values."
+#| "Specify browser's title bar text. Refer to "
+#| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
+#| "used to get special values."
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -7446,14 +7447,14 @@ msgstr "ブックマークテーブル"
 #: libraries/config/messages.inc.php:581
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma_column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma_column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
-"カラムのコメントと MIME タイプ機能を使わない場合は空欄にします。[kbd]"
-"pma_column_info[/kbd] としておくのがいいでしょう。"
+"カラムのコメントと MIME タイプ機能を使わない場合は空欄にします。"
+"[kbd]pma_column_info[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:584
 msgid "Column information table"
@@ -7488,8 +7489,8 @@ msgstr "phpMyAdmin ユーザのパスワード"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -7561,8 +7562,8 @@ msgstr "非表示にするデータベース"
 #: libraries/config/messages.inc.php:613
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma_history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -7615,8 +7616,8 @@ msgstr "スレーブのステータステーブルを閲覧する"
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
-"Leave blank for no QBE saved searches support, suggested: [kbd]"
-"pma__savedsearches[/kbd]."
+"Leave blank for no QBE saved searches support, suggested: "
+"[kbd]pma__savedsearches[/kbd]."
 msgstr ""
 "PDF スキーマを使用しない場合は空欄のままにします。[kbd]pma_pdf_pages[/kbd] と"
 "しておくのがいいでしょう。"
@@ -7633,8 +7634,8 @@ msgstr "textarea の 1 行の文字数"
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
 #| "kbd]"
 msgid ""
-"Leave blank for no central columns support, suggested: [kbd]"
-"pma__central_columns[/kbd]."
+"Leave blank for no central columns support, suggested: "
+"[kbd]pma__central_columns[/kbd]."
 msgstr ""
 "PDF スキーマを使用しない場合は空欄にします。[kbd]pma_table_coords[/kbd] とし"
 "ておくのがいいでしょう。"
@@ -7769,8 +7770,8 @@ msgstr "変数"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/relation]リレーションリンク[/a]機能を使わな"
 "い場合は空欄にします。[kbd]pma_relation[/kbd] としておくのがいいでしょう。"
@@ -7785,8 +7786,8 @@ msgstr "リレーションテーブル"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "設定例は[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]認証モード[/a]を"
 "参照してください。"
@@ -7848,8 +7849,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
-"表示するカラムを記述するためのテーブル。使用しない場合は空欄にします。[kbd]"
-"pma_table_info[/kbd] としておくのがいいでしょう。"
+"表示するカラムを記述するためのテーブル。使用しない場合は空欄にします。"
+"[kbd]pma_table_info[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:694
 msgid "Display columns table"
@@ -7918,11 +7919,11 @@ msgstr "追跡するコマンド"
 #: libraries/config/messages.inc.php:719
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma_tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma_tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "SQL コマンドの追跡機能を使わない場合は空欄にします。[kbd]pma_tracking[/kbd] "
 "としておくのがいいでしょう。"
@@ -7946,11 +7947,11 @@ msgstr "世代の自動作成"
 #: libraries/config/messages.inc.php:729
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "データベースにユーザ設定の保存しない場合は空欄にします。[kbd]pma_userconfig[/"
 "kbd] としておくのがいいでしょう。"
@@ -7988,8 +7989,8 @@ msgstr "ホストテーブルを使う"
 #: libraries/config/messages.inc.php:735
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -8404,8 +8405,8 @@ msgid ""
 "for import and export operations."
 msgstr ""
 "インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/"
-"ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%83%"
-"9E%E3%83%83%E3%83%88%29]ZIP[/a] 圧縮を有効にします。"
+"ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC"
+"%E3%83%9E%E3%83%83%E3%83%88%29]ZIP[/a] 圧縮を有効にします。"
 
 #: libraries/config/messages.inc.php:810
 msgid "ZIP"
@@ -8913,8 +8914,8 @@ msgstr "、@TABLE@ はテーブル名に"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用"
 "することができます。また、埋め込み変数変換も行われます（%3$s変換されま"
@@ -9496,8 +9497,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:176
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
 "ト%sにあります。"
@@ -10443,197 +10444,197 @@ msgstr ""
 msgid "Rename database to"
 msgstr "データベース名の変更"
 
-#: libraries/operations.lib.php:106
+#: libraries/operations.lib.php:107
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "データベース %s を削除しました。"
 
-#: libraries/operations.lib.php:118
+#: libraries/operations.lib.php:119
 msgid "Remove database"
 msgstr "データベースの削除"
 
-#: libraries/operations.lib.php:124
+#: libraries/operations.lib.php:125
 msgid "Drop the database (DROP)"
 msgstr "データベースを削除する (DROP)"
 
-#: libraries/operations.lib.php:144 libraries/operations.lib.php:972
+#: libraries/operations.lib.php:145 libraries/operations.lib.php:974
 #: libraries/tracking.lib.php:517
 msgid "Structure only"
 msgstr "構造のみ"
 
-#: libraries/operations.lib.php:145 libraries/operations.lib.php:973
+#: libraries/operations.lib.php:146 libraries/operations.lib.php:975
 #: libraries/tracking.lib.php:523
 msgid "Structure and data"
 msgstr "構造とデータ"
 
-#: libraries/operations.lib.php:146 libraries/operations.lib.php:974
+#: libraries/operations.lib.php:147 libraries/operations.lib.php:976
 #: libraries/tracking.lib.php:520
 msgid "Data only"
 msgstr "データのみ"
 
-#: libraries/operations.lib.php:174
+#: libraries/operations.lib.php:175
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to"
 msgstr "データベースのコピー先"
 
-#: libraries/operations.lib.php:185
+#: libraries/operations.lib.php:187
 msgid "CREATE DATABASE before copying"
 msgstr "コピーの前に CREATE DATABASE する"
 
-#: libraries/operations.lib.php:198 libraries/operations.lib.php:997
+#: libraries/operations.lib.php:200 libraries/operations.lib.php:999
 msgid "Add constraints"
 msgstr "制約を追加する"
 
-#: libraries/operations.lib.php:206
+#: libraries/operations.lib.php:208
 msgid "Switch to copied database"
 msgstr "コピーしたデータベースに切り替える"
 
-#: libraries/operations.lib.php:577
+#: libraries/operations.lib.php:579
 msgid "Alter table order by"
 msgstr "テーブルの並び順"
 
-#: libraries/operations.lib.php:585
+#: libraries/operations.lib.php:587
 msgid "(singly)"
 msgstr "(1 回)"
 
-#: libraries/operations.lib.php:621
+#: libraries/operations.lib.php:623
 msgid "Move table to (database<b>.</b>table)"
 msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する:"
 
-#: libraries/operations.lib.php:732
+#: libraries/operations.lib.php:734
 msgid "Table options"
 msgstr "テーブルオプション"
 
-#: libraries/operations.lib.php:736
+#: libraries/operations.lib.php:738
 msgid "Rename table to"
 msgstr "変更後のテーブル名称"
 
-#: libraries/operations.lib.php:745
+#: libraries/operations.lib.php:747
 msgid "Table comments"
 msgstr "テーブルのコメント"
 
-#: libraries/operations.lib.php:754 libraries/server_engines.lib.php:49
+#: libraries/operations.lib.php:756 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
 msgstr "ストレージエンジン"
 
-#: libraries/operations.lib.php:955
+#: libraries/operations.lib.php:957
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "テーブルを (データベース)<b>.</b>(テーブル) にコピーする:"
 
-#: libraries/operations.lib.php:1012
+#: libraries/operations.lib.php:1014
 msgid "Switch to copied table"
 msgstr "コピーしたテーブルに切り替える"
 
-#: libraries/operations.lib.php:1039 libraries/structure.lib.php:332
+#: libraries/operations.lib.php:1041 libraries/structure.lib.php:332
 msgid "Table maintenance"
 msgstr "テーブルメンテナンス"
 
-#: libraries/operations.lib.php:1077 libraries/structure.lib.php:334
+#: libraries/operations.lib.php:1079 libraries/structure.lib.php:334
 msgid "Analyze table"
 msgstr "テーブルを分析する"
 
-#: libraries/operations.lib.php:1092 libraries/structure.lib.php:336
+#: libraries/operations.lib.php:1094 libraries/structure.lib.php:336
 msgid "Check table"
 msgstr "テーブルをチェックする"
 
-#: libraries/operations.lib.php:1107 libraries/structure.lib.php:339
+#: libraries/operations.lib.php:1109 libraries/structure.lib.php:339
 #, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
 msgstr "テーブルをチェックする"
 
-#: libraries/operations.lib.php:1122
+#: libraries/operations.lib.php:1124
 msgid "Defragment table"
 msgstr "テーブルのデフラグ"
 
-#: libraries/operations.lib.php:1134
+#: libraries/operations.lib.php:1136
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "テーブル %s をフラッシュしました。"
 
-#: libraries/operations.lib.php:1140
+#: libraries/operations.lib.php:1142
 msgid "Flush the table (FLUSH)"
 msgstr "テーブルをフラッシュする (FLUSH)"
 
-#: libraries/operations.lib.php:1156 libraries/structure.lib.php:341
+#: libraries/operations.lib.php:1158 libraries/structure.lib.php:341
 #: libraries/structure.lib.php:1777
 msgid "Optimize table"
 msgstr "テーブルを最適化する"
 
-#: libraries/operations.lib.php:1171 libraries/structure.lib.php:343
+#: libraries/operations.lib.php:1173 libraries/structure.lib.php:343
 msgid "Repair table"
 msgstr "テーブルを修復する"
 
-#: libraries/operations.lib.php:1217 libraries/structure.lib.php:325
+#: libraries/operations.lib.php:1219 libraries/structure.lib.php:325
 #: view_operations.php:127
 msgid "Delete data or table"
 msgstr "データまたはテーブルの削除"
 
-#: libraries/operations.lib.php:1225
+#: libraries/operations.lib.php:1227
 msgid "Empty the table (TRUNCATE)"
 msgstr "テーブルを空にする (TRUNCATE)"
 
-#: libraries/operations.lib.php:1233
+#: libraries/operations.lib.php:1235
 msgid "Delete the table (DROP)"
 msgstr "テーブルを削除する (DROP)"
 
-#: libraries/operations.lib.php:1273
+#: libraries/operations.lib.php:1275
 msgid "Analyze"
 msgstr "分析"
 
-#: libraries/operations.lib.php:1274
+#: libraries/operations.lib.php:1276
 msgid "Check"
 msgstr "確認"
 
-#: libraries/operations.lib.php:1275
+#: libraries/operations.lib.php:1277
 msgid "Optimize"
 msgstr "最適化"
 
-#: libraries/operations.lib.php:1276
+#: libraries/operations.lib.php:1278
 msgid "Rebuild"
 msgstr "再構築"
 
-#: libraries/operations.lib.php:1277
+#: libraries/operations.lib.php:1279
 msgid "Repair"
 msgstr "修復"
 
-#: libraries/operations.lib.php:1285
+#: libraries/operations.lib.php:1287
 msgid "Partition maintenance"
 msgstr "パーティション管理"
 
-#: libraries/operations.lib.php:1296
+#: libraries/operations.lib.php:1298
 #, php-format
 msgid "Partition %s"
 msgstr "パーティション %s"
 
-#: libraries/operations.lib.php:1314
+#: libraries/operations.lib.php:1316
 msgid "Remove partitioning"
 msgstr "パーティションを削除"
 
-#: libraries/operations.lib.php:1340
+#: libraries/operations.lib.php:1342
 msgid "Check referential integrity:"
 msgstr "参照整合性の確認:"
 
-#: libraries/operations.lib.php:1625
+#: libraries/operations.lib.php:1627
 msgid "Can't move table to same one!"
 msgstr "同じテーブルには移動できません!"
 
-#: libraries/operations.lib.php:1627
+#: libraries/operations.lib.php:1629
 msgid "Can't copy table to same one!"
 msgstr "同じテーブルにはコピーできません!"
 
-#: libraries/operations.lib.php:1637
+#: libraries/operations.lib.php:1639
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "テーブル %s を %s に移動しました。"
 
-#: libraries/operations.lib.php:1641
+#: libraries/operations.lib.php:1643
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "テーブル %s を %s にコピーしました。"
 
-#: libraries/operations.lib.php:1661
+#: libraries/operations.lib.php:1663
 msgid "The table name is empty!"
 msgstr "テーブル名が空です!"
 
@@ -10679,11 +10680,11 @@ msgstr "%s へようこそ"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
-"$s を利用して設定ファイルを作成してください。"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
+"ト%2$s を利用して設定ファイルを作成してください。"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:144
 msgid ""
@@ -11606,7 +11607,7 @@ msgstr ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
 msgid ""
-"Converts an (IPv4) Internet network address stored as a bigint into a string "
+"Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
 msgstr ""
 "(IPv4) インターネットアドレスをインターネット標準ドット表記 (例:xxx.xxx.xxx."
@@ -13361,8 +13362,8 @@ msgstr "ユーザ概略"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
@@ -16371,8 +16372,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は、%s%% で"
 "す。この値は、80%% 以上がいいと言われています"
@@ -16529,8 +16530,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "全ソートの内 %s%% が一時テーブルを使用しています。この値は、10%% 未満がいいと"
 "言われています。"
@@ -17082,8 +17083,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections は max_connections の %s%% になっています。この値は、80%"
-"% 未満がいいと言われています"
+"Max_used_connections は max_connections の %s%% になっています。この値は、"
+"80%% 未満がいいと言われています"
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
@@ -17302,10 +17303,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが 60%"
-"% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブルを使"
-"用していない、もしくは同マシン上で他のサービスを稼動させていないのであれば、"
-"ご使用のシステムではこの設定で十分かもしれません。"
+"現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが "
+"60%% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブルを"
+"使用していない、もしくは同マシン上で他のサービスを稼動させていないのであれ"
+"ば、ご使用のシステムではこの設定で十分かもしれません。"
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
@@ -17713,9 +17714,10 @@ msgstr "concurrent_insert は 0 に設定されています"
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
-#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
-#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical "
+#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+#~ "reserved.[/em]"
 #~ msgstr ""
 #~ "SQL 検証サービスを使用する場合、[strong]すべての SQL 文は統計目的のために"
 #~ "匿名で格納されていること[/strong]に注意する必要があります。[br][em]"
@@ -17743,14 +17745,14 @@ msgstr "concurrent_insert は 0 に設定されています"
 
 #, fuzzy
 #~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to [kbd]"
-#~| "anonymous[/kbd])"
+#~| "If you have a custom username, specify it here (defaults to "
+#~| "[kbd]anonymous[/kbd])"
 #~ msgid ""
-#~ "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#~ "[/kbd])."
+#~ "If you have a custom username, specify it here (defaults to "
+#~ "[kbd]anonymous[/kbd])."
 #~ msgstr ""
-#~ "ユーザ名を所持している場合は、ここに記述します（デフォルトは [kbd]"
-#~ "anonymous[/kbd]）。"
+#~ "ユーザ名を所持している場合は、ここに記述します（デフォルトは "
+#~ "[kbd]anonymous[/kbd]）。"
 
 #~ msgid "Validated SQL"
 #~ msgstr "検証した SQL 文"
@@ -17782,25 +17784,25 @@ msgstr "concurrent_insert は 0 に設定されています"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma_userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma_userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
-#~ "データベースにユーザ設定の保存しない場合は空欄にします。[kbd]"
-#~ "pma_userconfig[/kbd] としておくのがいいでしょう。"
+#~ "データベースにユーザ設定の保存しない場合は空欄にします。"
+#~ "[kbd]pma_userconfig[/kbd] としておくのがいいでしょう。"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma_userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma_userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
-#~ "データベースにユーザ設定の保存しない場合は空欄にします。[kbd]"
-#~ "pma_userconfig[/kbd] としておくのがいいでしょう。"
+#~ "データベースにユーザ設定の保存しない場合は空欄にします。"
+#~ "[kbd]pma_userconfig[/kbd] としておくのがいいでしょう。"
 
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "ENUM もしくは SET データが長いので、？"
@@ -18193,14 +18195,14 @@ msgstr "concurrent_insert は 0 に設定されています"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
-#~ "[kbd]nested[/kbd] に設定した場合、テーブル名のエイリアスは、$cfg"
-#~ "['LeftFrameTableSeparator'] の指示に応じてテーブルを分割/入れ子するために"
-#~ "使用されます。そのフォルダはエイリアスのように呼び出されるだけで、テーブル"
-#~ "名自体はそのまま変わることありません。"
+#~ "[kbd]nested[/kbd] に設定した場合、テーブル名のエイリアス"
+#~ "は、$cfg['LeftFrameTableSeparator'] の指示に応じてテーブルを分割/入れ子す"
+#~ "るために使用されます。そのフォルダはエイリアスのように呼び出されるだけで、"
+#~ "テーブル名自体はそのまま変わることありません。"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "テーブルの名前の代わりにコメントを表示する"
@@ -18729,8 +18731,8 @@ msgstr "concurrent_insert は 0 に設定されています"
 #~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
-#~ "このクエリの結果は、グラフに使用することができませんでした。[doc@faq6-29]"
-#~ "FAQ 6.29[/doc] を参照してください。"
+#~ "このクエリの結果は、グラフに使用することができませんでした。"
+#~ "[doc@faq6-29]FAQ 6.29[/doc] を参照してください。"
 
 #~ msgid "Title"
 #~ msgstr "タイトル"

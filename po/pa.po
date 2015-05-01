@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-04-30 09:42-0400\n"
+"POT-Creation-Date: 2015-05-01 07:28-0400\n"
 "PO-Revision-Date: 2014-01-06 12:13+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Punjabi <http://hosted.weblate.org/projects/phpmyadmin/master/"
 "pa/>\n"
+"Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -559,11 +559,11 @@ msgstr ""
 #: libraries/display_import.lib.php:397 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1539 libraries/insert_edit.lib.php:1576
 #: libraries/normalization.lib.php:147 libraries/normalization.lib.php:803
-#: libraries/operations.lib.php:38 libraries/operations.lib.php:81
-#: libraries/operations.lib.php:209 libraries/operations.lib.php:252
-#: libraries/operations.lib.php:596 libraries/operations.lib.php:649
-#: libraries/operations.lib.php:698 libraries/operations.lib.php:1016
-#: libraries/operations.lib.php:1319
+#: libraries/operations.lib.php:38 libraries/operations.lib.php:82
+#: libraries/operations.lib.php:211 libraries/operations.lib.php:254
+#: libraries/operations.lib.php:598 libraries/operations.lib.php:651
+#: libraries/operations.lib.php:700 libraries/operations.lib.php:1018
+#: libraries/operations.lib.php:1321
 #: libraries/plugins/auth/AuthenticationCookie.class.php:244
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:154
 #: libraries/replication_gui.lib.php:314 libraries/replication_gui.lib.php:450
@@ -611,8 +611,8 @@ msgstr ""
 #: import.php:185
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 
 #: import.php:363 import.php:668
@@ -3008,7 +3008,7 @@ msgstr ""
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1358
 #: libraries/DisplayResults.class.php:2151
 #: libraries/DisplayResults.class.php:2157 libraries/TableSearch.class.php:847
-#: libraries/config.values.php:70 libraries/operations.lib.php:589
+#: libraries/config.values.php:70 libraries/operations.lib.php:591
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
 #: libraries/server_status_processes.lib.php:185
@@ -3019,7 +3019,7 @@ msgstr ""
 #: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1370
 #: libraries/DisplayResults.class.php:2147
 #: libraries/DisplayResults.class.php:2161 libraries/TableSearch.class.php:848
-#: libraries/config.values.php:71 libraries/operations.lib.php:592
+#: libraries/config.values.php:71 libraries/operations.lib.php:594
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
 #: libraries/server_status_processes.lib.php:182
@@ -3337,8 +3337,8 @@ msgstr ""
 #: libraries/DisplayResults.class.php:4577 libraries/structure.lib.php:693
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4590
@@ -3537,7 +3537,7 @@ msgstr ""
 #: libraries/build_html_for_db.lib.php:22
 #: libraries/central_columns.lib.php:702
 #: libraries/central_columns.lib.php:1207 libraries/mysql_charsets.lib.php:45
-#: libraries/operations.lib.php:239 libraries/operations.lib.php:765
+#: libraries/operations.lib.php:241 libraries/operations.lib.php:767
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:858
 #: libraries/structure.lib.php:1303 libraries/structure.lib.php:1853
 #: libraries/tbl_columns_definition_form.lib.php:338
@@ -4222,14 +4222,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -5105,8 +5105,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:440
@@ -5252,8 +5252,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:55
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:59
@@ -5543,8 +5543,8 @@ msgstr ""
 msgid "Remember file name template"
 msgstr ""
 
-#: libraries/config/messages.inc.php:166 libraries/operations.lib.php:194
-#: libraries/operations.lib.php:644 libraries/operations.lib.php:989
+#: libraries/config/messages.inc.php:166 libraries/operations.lib.php:196
+#: libraries/operations.lib.php:646 libraries/operations.lib.php:991
 msgid "Add AUTO_INCREMENT value"
 msgstr ""
 
@@ -5587,8 +5587,8 @@ msgstr ""
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:179
 #: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:181
 #: libraries/config/messages.inc.php:183 libraries/config/messages.inc.php:185
-#: libraries/config/messages.inc.php:192 libraries/operations.lib.php:189
-#: libraries/operations.lib.php:985
+#: libraries/config/messages.inc.php:192 libraries/operations.lib.php:191
+#: libraries/operations.lib.php:987
 #, php-format
 msgid "Add %s"
 msgstr ""
@@ -6549,8 +6549,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:581
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:584
@@ -6664,8 +6664,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:628
 msgid ""
-"Leave blank for no QBE saved searches support, suggested: [kbd]"
-"pma__savedsearches[/kbd]."
+"Leave blank for no QBE saved searches support, suggested: "
+"[kbd]pma__savedsearches[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:631
@@ -6674,8 +6674,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:633
 msgid ""
-"Leave blank for no central columns support, suggested: [kbd]"
-"pma__central_columns[/kbd]."
+"Leave blank for no central columns support, suggested: "
+"[kbd]pma__central_columns[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:636
@@ -6758,8 +6758,8 @@ msgstr "ਸਾਰੇ ਦਿਖ਼ਾਓ"
 
 #: libraries/config/messages.inc.php:670
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:674
@@ -6768,8 +6768,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:676
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:679
@@ -6866,8 +6866,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:719
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:722
@@ -6886,8 +6886,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:729
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:730
@@ -7675,8 +7675,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:526
@@ -8175,8 +8175,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:176
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:183
@@ -9033,193 +9033,193 @@ msgstr ""
 msgid "Rename database to"
 msgstr ""
 
-#: libraries/operations.lib.php:106
+#: libraries/operations.lib.php:107
 #, php-format
 msgid "Database %s has been dropped."
 msgstr ""
 
-#: libraries/operations.lib.php:118
+#: libraries/operations.lib.php:119
 msgid "Remove database"
 msgstr ""
 
-#: libraries/operations.lib.php:124
+#: libraries/operations.lib.php:125
 msgid "Drop the database (DROP)"
 msgstr ""
 
-#: libraries/operations.lib.php:144 libraries/operations.lib.php:972
+#: libraries/operations.lib.php:145 libraries/operations.lib.php:974
 #: libraries/tracking.lib.php:517
 msgid "Structure only"
 msgstr ""
 
-#: libraries/operations.lib.php:145 libraries/operations.lib.php:973
+#: libraries/operations.lib.php:146 libraries/operations.lib.php:975
 #: libraries/tracking.lib.php:523
 msgid "Structure and data"
 msgstr ""
 
-#: libraries/operations.lib.php:146 libraries/operations.lib.php:974
+#: libraries/operations.lib.php:147 libraries/operations.lib.php:976
 #: libraries/tracking.lib.php:520
 msgid "Data only"
 msgstr ""
 
-#: libraries/operations.lib.php:174
+#: libraries/operations.lib.php:175
 msgid "Copy database to"
 msgstr ""
 
-#: libraries/operations.lib.php:185
+#: libraries/operations.lib.php:187
 msgid "CREATE DATABASE before copying"
 msgstr ""
 
-#: libraries/operations.lib.php:198 libraries/operations.lib.php:997
+#: libraries/operations.lib.php:200 libraries/operations.lib.php:999
 msgid "Add constraints"
 msgstr ""
 
-#: libraries/operations.lib.php:206
+#: libraries/operations.lib.php:208
 msgid "Switch to copied database"
 msgstr ""
 
-#: libraries/operations.lib.php:577
+#: libraries/operations.lib.php:579
 msgid "Alter table order by"
 msgstr ""
 
-#: libraries/operations.lib.php:585
+#: libraries/operations.lib.php:587
 msgid "(singly)"
 msgstr ""
 
-#: libraries/operations.lib.php:621
+#: libraries/operations.lib.php:623
 msgid "Move table to (database<b>.</b>table)"
 msgstr ""
 
-#: libraries/operations.lib.php:732
+#: libraries/operations.lib.php:734
 msgid "Table options"
 msgstr ""
 
-#: libraries/operations.lib.php:736
+#: libraries/operations.lib.php:738
 msgid "Rename table to"
 msgstr ""
 
-#: libraries/operations.lib.php:745
+#: libraries/operations.lib.php:747
 msgid "Table comments"
 msgstr ""
 
-#: libraries/operations.lib.php:754 libraries/server_engines.lib.php:49
+#: libraries/operations.lib.php:756 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
 msgstr ""
 
-#: libraries/operations.lib.php:955
+#: libraries/operations.lib.php:957
 msgid "Copy table to (database<b>.</b>table)"
 msgstr ""
 
-#: libraries/operations.lib.php:1012
+#: libraries/operations.lib.php:1014
 msgid "Switch to copied table"
 msgstr ""
 
-#: libraries/operations.lib.php:1039 libraries/structure.lib.php:332
+#: libraries/operations.lib.php:1041 libraries/structure.lib.php:332
 msgid "Table maintenance"
 msgstr ""
 
-#: libraries/operations.lib.php:1077 libraries/structure.lib.php:334
+#: libraries/operations.lib.php:1079 libraries/structure.lib.php:334
 msgid "Analyze table"
 msgstr ""
 
-#: libraries/operations.lib.php:1092 libraries/structure.lib.php:336
+#: libraries/operations.lib.php:1094 libraries/structure.lib.php:336
 msgid "Check table"
 msgstr ""
 
-#: libraries/operations.lib.php:1107 libraries/structure.lib.php:339
+#: libraries/operations.lib.php:1109 libraries/structure.lib.php:339
 msgid "Checksum table"
 msgstr ""
 
-#: libraries/operations.lib.php:1122
+#: libraries/operations.lib.php:1124
 msgid "Defragment table"
 msgstr ""
 
-#: libraries/operations.lib.php:1134
+#: libraries/operations.lib.php:1136
 #, php-format
 msgid "Table %s has been flushed."
 msgstr ""
 
-#: libraries/operations.lib.php:1140
+#: libraries/operations.lib.php:1142
 msgid "Flush the table (FLUSH)"
 msgstr ""
 
-#: libraries/operations.lib.php:1156 libraries/structure.lib.php:341
+#: libraries/operations.lib.php:1158 libraries/structure.lib.php:341
 #: libraries/structure.lib.php:1777
 msgid "Optimize table"
 msgstr ""
 
-#: libraries/operations.lib.php:1171 libraries/structure.lib.php:343
+#: libraries/operations.lib.php:1173 libraries/structure.lib.php:343
 msgid "Repair table"
 msgstr ""
 
-#: libraries/operations.lib.php:1217 libraries/structure.lib.php:325
+#: libraries/operations.lib.php:1219 libraries/structure.lib.php:325
 #: view_operations.php:127
 msgid "Delete data or table"
 msgstr ""
 
-#: libraries/operations.lib.php:1225
+#: libraries/operations.lib.php:1227
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
-#: libraries/operations.lib.php:1233
+#: libraries/operations.lib.php:1235
 msgid "Delete the table (DROP)"
 msgstr ""
 
-#: libraries/operations.lib.php:1273
+#: libraries/operations.lib.php:1275
 msgid "Analyze"
 msgstr ""
 
-#: libraries/operations.lib.php:1274
+#: libraries/operations.lib.php:1276
 msgid "Check"
 msgstr ""
 
-#: libraries/operations.lib.php:1275
+#: libraries/operations.lib.php:1277
 msgid "Optimize"
 msgstr ""
 
-#: libraries/operations.lib.php:1276
+#: libraries/operations.lib.php:1278
 msgid "Rebuild"
 msgstr ""
 
-#: libraries/operations.lib.php:1277
+#: libraries/operations.lib.php:1279
 msgid "Repair"
 msgstr ""
 
-#: libraries/operations.lib.php:1285
+#: libraries/operations.lib.php:1287
 msgid "Partition maintenance"
 msgstr ""
 
-#: libraries/operations.lib.php:1296
+#: libraries/operations.lib.php:1298
 #, php-format
 msgid "Partition %s"
 msgstr ""
 
-#: libraries/operations.lib.php:1314
+#: libraries/operations.lib.php:1316
 msgid "Remove partitioning"
 msgstr ""
 
-#: libraries/operations.lib.php:1340
+#: libraries/operations.lib.php:1342
 msgid "Check referential integrity:"
 msgstr ""
 
-#: libraries/operations.lib.php:1625
+#: libraries/operations.lib.php:1627
 msgid "Can't move table to same one!"
 msgstr ""
 
-#: libraries/operations.lib.php:1627
+#: libraries/operations.lib.php:1629
 msgid "Can't copy table to same one!"
 msgstr ""
 
-#: libraries/operations.lib.php:1637
+#: libraries/operations.lib.php:1639
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr ""
 
-#: libraries/operations.lib.php:1641
+#: libraries/operations.lib.php:1643
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr ""
 
-#: libraries/operations.lib.php:1661
+#: libraries/operations.lib.php:1663
 msgid "The table name is empty!"
 msgstr ""
 
@@ -9264,8 +9264,8 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationConfig.class.php:124
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:144
@@ -10042,7 +10042,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
 msgid ""
-"Converts an (IPv4) Internet network address stored as a bigint into a string "
+"Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
 msgstr ""
 
@@ -11637,8 +11637,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4299
@@ -14219,8 +14219,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14338,8 +14338,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
