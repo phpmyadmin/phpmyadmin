@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-01 07:28-0400\n"
-"PO-Revision-Date: 2015-04-12 00:52+0200\n"
+"PO-Revision-Date: 2015-05-01 14:46+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2315,10 +2315,9 @@ msgstr ""
 "crashen."
 
 #: js/messages.php:460
-#, fuzzy
 #| msgid "Original string"
 msgid "Original length"
-msgstr "Oorspronkelijke tekenreeks"
+msgstr "Oorspronkelijke lengte"
 
 #: js/messages.php:463
 msgid "cancel"
@@ -9814,10 +9813,9 @@ msgid "Check table"
 msgstr "Controleer tabel"
 
 #: libraries/operations.lib.php:1109 libraries/structure.lib.php:339
-#, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
-msgstr "Controleer tabel"
+msgstr "Checksum tabel"
 
 #: libraries/operations.lib.php:1124
 msgid "Defragment table"
@@ -10405,10 +10403,9 @@ msgid "It appears your database uses functions;"
 msgstr "Het lijkt erop dat uw databasefuncties gebruikt;"
 
 #: libraries/plugins/export/ExportSql.class.php:975
-#, fuzzy
 #| msgid "Metadata for %s"
 msgid "Metadata"
-msgstr "Metadata voor %s"
+msgstr "Metadata"
 
 #: libraries/plugins/export/ExportSql.class.php:1049
 #, php-format
@@ -10815,7 +10812,6 @@ msgstr ""
 "in pixels. De originele verhouding wordt behouden."
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
@@ -10823,8 +10819,8 @@ msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
 msgstr ""
-"Zet een (IPv4-)internetnetwerkadres om in een tekenreeks volgens het "
-"standaard formaat met punten."
+"Zet een als BIGINT opgeslagen (IPv4-)internetnetwerkadres om in een "
+"tekenreeks volgens het standaard formaat met punten."
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
 msgid ""
@@ -10899,7 +10895,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.class.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "Zet een internet netwerkadres in (IPv4/IPv6) om in een binair getal"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -10914,7 +10910,6 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr "Syntaxiskleurende CodeMirror bewerker voor XML (en HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Binarytoip.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
@@ -10922,8 +10917,8 @@ msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
-"Zet een (IPv4-)internetnetwerkadres om in een tekenreeks volgens het "
-"standaard formaat met punten."
+"Zet een (IPv4-)internetnetwerkadres opgeslagen als binaire tekenreeks om in "
+"een tekenreeks  met het standaard (IPv4/IPv6) formaat."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:47
 msgid "Formats text as JSON with syntax highlighting."
@@ -13764,10 +13759,9 @@ msgid "Get auto-saved query"
 msgstr "Neem automatisch opgeslagen query"
 
 #: libraries/sql_query_form.lib.php:246
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "Verkeerde parameters!"
+msgstr "Bind parameters"
 
 #: libraries/sql_query_form.lib.php:292
 msgid "Bookmark this SQL query:"
@@ -13889,10 +13883,9 @@ msgid "Show create"
 msgstr "Toon aanmaken"
 
 #: libraries/structure.lib.php:347
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Prefix"
-msgstr "Voorvoegsel toevoegen"
+msgstr "Voorvoegsel"
 
 #: libraries/structure.lib.php:349
 msgid "Add prefix to table"
