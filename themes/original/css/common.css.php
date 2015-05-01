@@ -3157,6 +3157,9 @@ body .ui-dialog .ui-dialog-titlebar {
     border: none;
     border-bottom: 1px solid #000000;
 }
+body .ui-dialog .ui-dialog-titlebar button {
+    border: 1px solid #999999;
+}
 body .ui-dialog .ui-dialog-content {
     padding: .2em .4em;
 }
@@ -3165,8 +3168,10 @@ body .ui-dialog .ui-dialog-buttonpane {
     border-top: 1px solid #000000;
 }
 body .ui-dialog .ui-dialog-buttonpane button {
-    margin: 0 0 0 0.4em;
+    margin: .1em 0 .1em .4em;
+    border: 1px solid #999999;
+    color: #000000;
 }
 body .ui-dialog .ui-button-text-only .ui-button-text {
-    padding: .3em .6em;
+    padding: .2em .6em;
 }
