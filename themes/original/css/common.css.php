@@ -3121,3 +3121,48 @@ th.headerSortDown .sorticon, th.headerSortUp:hover .sorticon {
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
 }
 /* end of styles of sortable tables */
+
+/* Override some jQuery-ui styling to have square corners */
+body .ui-corner-all,
+body .ui-corner-top,
+body .ui-corner-left,
+body .ui-corner-tl {
+    border-top-left-radius: 0;
+}
+body .ui-corner-all,
+body .ui-corner-top,
+body .ui-corner-right,
+body .ui-corner-tr {
+    border-top-right-radius: 0;
+}
+body .ui-corner-all,
+body .ui-corner-bottom,
+body .ui-corner-left,
+body .ui-corner-bl {
+    border-bottom-left-radius: 0;
+}
+body .ui-corner-all,
+body .ui-corner-bottom,
+body .ui-corner-right,
+body .ui-corner-br {
+    border-bottom-right-radius: 0;
+}
+/* Override  jQuery-ui styling for ui-dialog */
+body .ui-dialog {
+    padding: .1em;
+}
+body .ui-dialog .ui-dialog-titlebar {
+    padding: .2em .5em;
+}
+body .ui-dialog .ui-dialog-content {
+    padding: .2em .4em;
+}
+body .ui-dialog .ui-dialog-buttonpane {
+    background: #D3DCE3;
+}
+body .ui-dialog .ui-dialog-buttonpane button {
+    margin: 0 0 0 0.4em;
+}
+body .ui-dialog .ui-button-text-only .ui-button-text {
+    padding: .3em .6em;
+}
