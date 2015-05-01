@@ -179,6 +179,7 @@ function PMA_getHtmlForCopyDatabase($db)
         . PMA_Util::getRadioFields(
             'what', $choices, 'data', true
         );
+    $html_output .= '<br />';
     $html_output .= '<input type="checkbox" name="create_database_before_copying" '
         . 'value="1" id="checkbox_create_database_before_copying"'
         . 'checked="checked" />';
