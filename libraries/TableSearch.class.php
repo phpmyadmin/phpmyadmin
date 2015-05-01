@@ -207,7 +207,7 @@ class PMA_TableSearch
         $subtabs['search']['id'] = 'tbl_search_id';
         $subtabs['search']['args']['pos'] = 0;
 
-        $subtabs['zoom']['icon'] = 'b_props.png';
+        $subtabs['zoom']['icon'] = 'b_select.png';
         $subtabs['zoom']['link'] = 'tbl_zoom_select.php';
         $subtabs['zoom']['text'] = __('Zoom search');
         $subtabs['zoom']['id'] = 'zoom_search_id';
