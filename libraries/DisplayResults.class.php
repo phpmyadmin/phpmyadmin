@@ -3224,7 +3224,7 @@ class PMA_DisplayResults
     /**
      * Get HTML for repeating headers
      *
-     * @param array $display_params holds various display info 
+     * @param array $display_params holds various display info
      *
      * @return  string  $header_html    html content
      *
@@ -5672,7 +5672,7 @@ class PMA_DisplayResults
      *
      * @param string $str string to be truncated
      *
-     * @return mixed 
+     * @return mixed
      *
      * @access  private
      *
