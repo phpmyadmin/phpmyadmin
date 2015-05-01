@@ -142,7 +142,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<input type="text" name="comment" size="40" maxlength="80" '
+                '<input type="text" name="comment" size="40" maxlength="60" '
                 . 'value="c&d" class="textfield"'
             ),
             $result
@@ -223,7 +223,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<input type="text" name="table" size="40" maxlength="80" '
+                '<input type="text" name="table" size="40" maxlength="64" '
                 . 'value="tablename" class="textfield" '
             ),
             $result

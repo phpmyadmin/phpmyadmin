@@ -75,7 +75,8 @@ function PMA_getHtmlForRenameDatabase($db)
         . '</legend>';
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
-        . 'size="30" class="textfield" value="" required="required" />'
+        . 'maxlength="64" size="30" class="textfield" value="" '
+        . 'required="required" />'
         . '</fieldset>'
         . '<fieldset class="tblFooters">'
         . '<input id="rename_db_input" type="submit" value="' . __('Go') . '" />'
@@ -173,7 +174,7 @@ function PMA_getHtmlForCopyDatabase($db)
     }
     $html_output .= __('Copy database to')
         . '</legend>'
-        . '<input type="text" name="newname" size="30" '
+        . '<input type="text" maxlength="64" name="newname" size="30" '
         . 'class="textfield" value="" required="required" /><br />'
         . PMA_Util::getRadioFields(
             'what', $choices, 'data', true
@@ -632,7 +633,7 @@ function PMA_getHtmlForMoveTable()
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
     $html_output .= '<input class="halfWidth" type="text" size="20" name="new_name"'
-        . ' required="required" '
+        . ' maxlength="64" required="required" '
         . 'value="' . htmlspecialchars($GLOBALS['table']) . '" /><br />';
 
     // starting with MySQL 5.0.24, SHOW CREATE TABLE includes the AUTO_INCREMENT
@@ -735,7 +736,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
     //Change table name
     $html_output .= '<tr><td>' . __('Rename table to') . '</td>'
         . '<td>'
-        . '<input type="text" size="20" name="new_name" '
+        . '<input type="text" size="20" name="new_name" maxlength="64" '
         . 'value="' . htmlspecialchars($GLOBALS['table'])
         . '" required="required" />'
         . '</td>'
@@ -965,7 +966,7 @@ function PMA_getHtmlForCopytable()
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
     $html_output .= '<input class="halfWidth" type="text" required="required" '
-        . 'size="20" name="new_name" '
+        . 'size="20" name="new_name" maxlength="64" '
         . 'value="' . htmlspecialchars($GLOBALS['table']) . '"/><br />';
 
     $choices = array(

@@ -84,7 +84,7 @@ function PMA_getHtmlForTableConfigurations()
         . '</tr>';
 
     $html .= '<tr>'
-        . '<td><input type="text" name="comment" size="40" maxlength="80"'
+        . '<td><input type="text" name="comment" size="40" maxlength="60"'
         . ' value="'
         . (isset($_REQUEST['comment'])
         ? htmlspecialchars($_REQUEST['comment'])
@@ -178,7 +178,7 @@ function PMA_getHtmlForTableNameAndNoOfColumns()
         . '<table id="table_name_col_no">'
         . '<tr class="vmiddle floatleft">'
         . '<td>' . __('Table name')
-        . ':&nbsp;<input type="text" name="table" size="40" maxlength="80"'
+        . ':&nbsp;<input type="text" name="table" size="40" maxlength="64"'
         . ' value="'
         . (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : '')
         . '" class="textfield" autofocus required />'
