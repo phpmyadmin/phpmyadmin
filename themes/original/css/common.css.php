@@ -3149,16 +3149,20 @@ body .ui-corner-br {
 }
 /* Override  jQuery-ui styling for ui-dialog */
 body .ui-dialog {
-    padding: .1em;
+    padding: 0;
+    border-color: #000000;
 }
 body .ui-dialog .ui-dialog-titlebar {
-    padding: .2em .5em;
+    padding: .3em .5em;
+    border: none;
+    border-bottom: 1px solid #000000;
 }
 body .ui-dialog .ui-dialog-content {
     padding: .2em .4em;
 }
 body .ui-dialog .ui-dialog-buttonpane {
     background: #D3DCE3;
+    border-top: 1px solid #000000;
 }
 body .ui-dialog .ui-dialog-buttonpane button {
     margin: 0 0 0 0.4em;
