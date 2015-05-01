@@ -578,7 +578,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
             array(
                 new Text_Plain_Longtoipv4(),
                 'getInfo',
-                'Converts an (IPv4) Internet network address stored as a bigint'
+                'Converts an (IPv4) Internet network address stored as a BIGINT'
                 . ' into a string in Internet standard dotted format.'
             ),
             array(
