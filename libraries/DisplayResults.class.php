@@ -2845,8 +2845,9 @@ class PMA_DisplayResults
 
         $row_info = $this->_getRowInfoForSpecialLinks($row, $col_order);
 
+        $columnCount = $this->__get('fields_cnt');
         for ($currentColumn = 0;
-                $currentColumn < $this->__get('fields_cnt');
+                $currentColumn < $columnCount;
                 ++$currentColumn) {
 
             // assign $i with appropriate column order
