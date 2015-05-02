@@ -1739,6 +1739,14 @@ Browse mode
     :guilabel:`Insert`, ...). Can be set to ``'both'``
     if you want icons AND text. When set to ``text``, will only show text.
 
+.. config:option:: $cfg['RowActionType']
+
+    :type: string
+    :default: ``'both'``
+
+    Whether to display icons or text or both icons and text in table row action
+    segment. Value can be either of ``'icons'``, ``'text'`` or ``'both'``.
+
 .. config:option:: $cfg['ShowAll']
 
     :type: boolean
@@ -2811,10 +2819,3 @@ Developer
     Enable to let server present itself as demo server.
     This is used for <http://demo.phpmyadmin.net/>.
 
-.. config:option:: $cfg['RowActionType']
-
-    :type: string
-    :default: ``'both'``
-
-    Whether to display icons or text or both icons and text in table row action
-    segment. Value can be either of ``'icons'``, ``'text'`` or ``'both'``.
