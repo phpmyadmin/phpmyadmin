@@ -2845,6 +2845,8 @@ class PMA_DisplayResults
 
         $row_info = $this->_getRowInfoForSpecialLinks($row, $col_order);
 
+        $previousMetaOrgTable = '';
+
         $columnCount = $this->__get('fields_cnt');
         for ($currentColumn = 0;
                 $currentColumn < $columnCount;
@@ -2989,14 +2991,25 @@ class PMA_DisplayResults
                 'transform_key' => $meta->name,
             );
 
-            $unique_conditions = PMA_Util::getUniqueCondition(
-                $dt_result,
-                $this->__get('fields_cnt'),
-                $this->__get('fields_meta'),
-                $row,
-                false,
-                $meta->orgtable
-            );
+            /*
+             * The result set can have columns from more than one table,
+             * this is why we have to check for the unique conditions
+             * related to this table; however getUniqueCondition() is
+             * costly and does not need to be called if we already know
+             * the conditions for the current table.
+             */
+
+            if ($meta->orgtable != $previousMetaOrgTable) {
+                $unique_conditions = PMA_Util::getUniqueCondition(
+                    $dt_result,
+                    $this->__get('fields_cnt'),
+                    $this->__get('fields_meta'),
+                    $row,
+                    false,
+                    $meta->orgtable
+                );
+                $previousMetaOrgTable = $meta->orgtable;
+            }
 
             $transform_url_params = array(
                 'db'            => $this->__get('db'),
