@@ -988,7 +988,7 @@ $cfg['NavigationTreeDefaultTabTable'] = 'tbl_structure.php';
 $cfg['NavigationTreeDefaultTabTable2'] = '';
 
 /**
- * Disables the possibility of database expansion
+ * Enables the possibility of navigation tree expansion
  *
  * @global boolean $cfg['NavigationTreeEnableExpansion']
  */
