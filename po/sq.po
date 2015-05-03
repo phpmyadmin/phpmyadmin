@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-01 07:28-0400\n"
-"PO-Revision-Date: 2015-04-20 16:57+0200\n"
+"PO-Revision-Date: 2015-05-03 16:39+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
-"Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sq/>\n"
+"Language-Team: Albanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sq/>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2320,10 +2320,9 @@ msgstr ""
 "kjo mund të dështojë shfletuesin."
 
 #: js/messages.php:460
-#, fuzzy
 #| msgid "Original string"
 msgid "Original length"
-msgstr "Varg (string) origjinal"
+msgstr "Gjatësi origjinale"
 
 #: js/messages.php:463
 msgid "cancel"
@@ -9792,10 +9791,9 @@ msgid "Check table"
 msgstr "Kontrollo tabelën"
 
 #: libraries/operations.lib.php:1109 libraries/structure.lib.php:339
-#, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
-msgstr "Kontrollo tabelën"
+msgstr "Tabela e kontrollshumës"
 
 #: libraries/operations.lib.php:1124
 msgid "Defragment table"
@@ -10383,10 +10381,9 @@ msgid "It appears your database uses functions;"
 msgstr "Duket se databaza juaj përdor funksionet;"
 
 #: libraries/plugins/export/ExportSql.class.php:975
-#, fuzzy
 #| msgid "Metadata for %s"
 msgid "Metadata"
-msgstr "Metadata për %s"
+msgstr "Metadata"
 
 #: libraries/plugins/export/ExportSql.class.php:1049
 #, php-format
@@ -10792,7 +10789,6 @@ msgstr ""
 "lartësia në piksels. Raporti i aspektit origjinal ruhet."
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
@@ -10800,8 +10796,8 @@ msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
 msgstr ""
-"Konverto një adresë rrjeti të internetit (IPv4) në një varg në formatin me "
-"pikësime standard të internetit."
+"Konverto një adresë rrjeti të internetit (IPv4), të ruajtur si një BIGINT, "
+"në një varg në formatin me pika standard të internetit."
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
 msgid ""
@@ -10876,6 +10872,7 @@ msgstr ""
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.class.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr ""
+"Konverton një adresë rrjeti të Internetit në formatin (IPv4/IPv6) në binar"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -10890,7 +10887,6 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr "Sintaksa theksoi editorin CodeMirror për XML (dhe HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Binarytoip.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
@@ -10898,8 +10894,8 @@ msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
-"Konverto një adresë rrjeti të internetit (IPv4) në një varg në formatin me "
-"pikësime standard të internetit."
+"Konverton një adresë rrjeti të internetit të ruajtur si një varg binar, në "
+"një varg në formatin standard të internetit (IPv4/IPv6)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:47
 msgid "Formats text as JSON with syntax highlighting."
@@ -13709,10 +13705,9 @@ msgid "Get auto-saved query"
 msgstr "Merr pyetsorin e auto-ruajtur"
 
 #: libraries/sql_query_form.lib.php:246
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "Parametra të këqinj!"
+msgstr "Parametrat e lidhur"
 
 #: libraries/sql_query_form.lib.php:292
 msgid "Bookmark this SQL query:"
@@ -13836,10 +13831,9 @@ msgid "Show create"
 msgstr "Shfaq krijo"
 
 #: libraries/structure.lib.php:347
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Prefix"
-msgstr "Shto prefiks"
+msgstr "Prefiksi"
 
 #: libraries/structure.lib.php:349
 msgid "Add prefix to table"
