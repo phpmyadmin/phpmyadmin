@@ -454,8 +454,8 @@ class PMA_DisplayResults
     /**
      * Defines the parts to display for the results of a SQL query
      *
-     * @param array  $displayParts the parts to display (see a few
-     *                             lines above for explanations)
+     * @param array   $displayParts the parts to display (see a few
+     *                              lines above for explanations)
      * @param integer &$the_total   the total number of rows returned by the SQL
      *                              query without any programmatically appended
      *                              LIMIT clause
