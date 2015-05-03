@@ -402,12 +402,60 @@ class PMA_DisplayResults
 
     } // end of the 'setProperties()' function
 
+    /**
+     * Defines the parts to display for a SHOW statement
+     *
+     * @param array $displayParts the parts to display
+     *
+     * @return array $displayParts the modified display parts
+     *
+     * @access  private
+     *
+     */
+    private function _setDisplayPartsForShow($displayParts)
+    {
+        preg_match(
+            '@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?'
+            . 'PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS'
+            . ')@i',
+            $this->__get('sql_query'), $which
+        );
+
+        $bIsProcessList = isset($which[1]);
+        if ($bIsProcessList) {
+            $str = ' ' . strtoupper($which[1]);
+            $bIsProcessList = $bIsProcessList
+                && strpos($str, 'PROCESSLIST') > 0;
+        }
+
+        if ($bIsProcessList) {
+            // no edit link
+            $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
+            // "kill process" type edit link
+            $displayParts['del_lnk']  = self::KILL_PROCESS;
+        } else {
+            // Default case -> no links
+            // no edit link
+            $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
+            // no delete link
+            $displayParts['del_lnk']  = self::NO_EDIT_OR_DELETE;
+        }
+        // Other settings
+        $displayParts['sort_lnk']  = (string) '0';
+        $displayParts['nav_bar']   = (string) '0';
+        $displayParts['ins_row']   = (string) '0';
+        $displayParts['bkm_form']  = (string) '1';
+        $displayParts['text_btn']  = (string) '1';
+        $displayParts['pview_lnk'] = (string) '1';
+
+        return $displayParts;
+    }
 
     /**
      * Defines the parts to display for the results of a SQL query
      *
-     * @param string  $displayParts the parts to display (see a few
-     *                              lines above for explanations)
+     * @param array  $displayParts the parts to display (see a few
+     *                             lines above for explanations)
      * @param integer &$the_total   the total number of rows returned by the SQL
      *                              query without any programmatically appended
      *                              LIMIT clause
@@ -423,7 +471,6 @@ class PMA_DisplayResults
      */
     private function _setDisplayParts($displayParts, &$the_total)
     {
-
         // 1. Following variables are needed for use in isset/empty or
         //    use with array indexes or safe use in foreach
         $db = $this->__get('db');
@@ -466,46 +513,7 @@ class PMA_DisplayResults
             $displayParts['pview_lnk'] = (string) '1';
 
         } elseif ($this->__get('is_show')) {
-            // 2.2 Statement is a "SHOW..."
-            /**
-             * 2.2.1
-             * @todo defines edit/delete links depending on show statement
-             */
-            preg_match(
-                '@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?'
-                . 'PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS'
-                . ')@i',
-                $this->__get('sql_query'), $which
-            );
-
-            $bIsProcessList = isset($which[1]);
-            if ($bIsProcessList) {
-                $str = ' ' . strtoupper($which[1]);
-                $bIsProcessList = $bIsProcessList
-                    && strpos($str, 'PROCESSLIST') > 0;
-            }
-
-            if ($bIsProcessList) {
-                // no edit link
-                $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
-                // "kill process" type edit link
-                $displayParts['del_lnk']  = self::KILL_PROCESS;
-            } else {
-                // Default case -> no links
-                // no edit link
-                $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
-                // no delete link
-                $displayParts['del_lnk']  = self::NO_EDIT_OR_DELETE;
-            }
-            unset($bIsProcessList);
-            // 2.2.2 Other settings
-            $displayParts['sort_lnk']  = (string) '0';
-            $displayParts['nav_bar']   = (string) '0';
-            $displayParts['ins_row']   = (string) '0';
-            $displayParts['bkm_form']  = (string) '1';
-            $displayParts['text_btn']  = (string) '1';
-            $displayParts['pview_lnk'] = (string) '1';
-
+            $displayParts = $this->_setDisplayPartsForShow($displayParts);
         } else {
             // 2.3 Other statements (ie "SELECT" ones) -> updates
             //     $displayParts['edit_lnk'], $displayParts['del_lnk'] and
