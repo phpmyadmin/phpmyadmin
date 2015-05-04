@@ -239,6 +239,9 @@ function PMA_getCollationDescr($collation)
     case 'romanian':
         $descr = __('Romanian');
         break;
+    case 'sinhala':
+        $descr = __('Sinhalese');
+        break;
     case 'slovak':
         $descr = __('Slovak');
         break;
@@ -265,6 +268,9 @@ function PMA_getCollationDescr($collation)
         break;
     case 'unicode':
         $descr = __('Unicode') . ' (' . __('multilingual') . ')';
+        break;
+    case 'vietnamese':
+        $descr = __('Vietnamese');
         break;
     case 'bin':
         $is_bin = true;
