@@ -246,10 +246,12 @@ function PMA_getHtmlForProcessListFilter()
     $retval  = '';
     $retval .= '<fieldset id="tableFilter">';
     $retval .= '<legend>' . __('Filters') . '</legend>';
-    $retval .= '<form action="server_status_processes.php?' . PMA_URL_getCommon($url_params) . '">';
+    $retval .= '<form action="server_status_processes.php?'
+        . PMA_URL_getCommon($url_params) . '">';
     $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
     $retval .= '<div class="formelement">';
-    $retval .= '<input' . $showExecuting . ' type="checkbox" name="showExecuting" id="showExecuting" />';
+    $retval .= '<input' . $showExecuting . ' type="checkbox" name="showExecuting"'
+        . ' id="showExecuting" class="autosubmit"/>';
     $retval .= '<label for="showExecuting">';
     $retval .= __('Show only active');
     $retval .= '</label>';
