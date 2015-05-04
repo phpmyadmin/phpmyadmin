@@ -6,7 +6,7 @@ Requirements
 Web server
 ----------
 
-Since, phpMyAdmin's interface is based entirely in your browser, you'll need a
+Since phpMyAdmin's interface is based entirely in your browser, you'll need a
 web server (such as Apache, nginx, :term:`IIS`) to install phpMyAdmin's files into.
 
 PHP
