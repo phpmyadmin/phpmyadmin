@@ -1150,7 +1150,7 @@ div#tablestatistics table {
     position: fixed;
     padding: .25em .25em .2em;
     top: 0;
-    z-index: 900;
+    z-index: 99;
     background: #888;
 }
 
