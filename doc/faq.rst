@@ -1602,7 +1602,7 @@ mimetypes by heart so he/she can enter it at will?
 .. _faqbookmark:
 
 6.18 Bookmarks: Where can I store bookmarks? Why can't I see any bookmarks below the query box? What are these variables for?
---------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
 
 Any query you have executed can be stored as a bookmark on the page
 where the results are displayed. You will find a button labeled
