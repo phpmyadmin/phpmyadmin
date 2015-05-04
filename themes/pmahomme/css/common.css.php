@@ -2547,7 +2547,6 @@ fieldset .disabled-field td {
 #table_name_col_no {
     position: fixed;
     top: 55px;
-    z-index: 500;
     width: 100%;
     background: '#ffffff';
 }
