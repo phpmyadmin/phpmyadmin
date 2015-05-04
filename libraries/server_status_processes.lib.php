@@ -19,13 +19,15 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getHtmlForServerProcesses()
 {
+    $retval = PMA_getHtmlForServerProcesslist();
+
     $notice = PMA_Message::notice(
         __(
             'Note: Enabling the auto refresh here might cause '
             . 'heavy traffic between the web server and the MySQL server.'
         )
     )->getDisplay();
-    $retval  = $notice . '<div class="tabLinks">';
+    $retval .= $notice . '<div class="tabLinks">';
     $retval .= '<label>' . __('Refresh rate') . ': ';
     $retval .= PMA_ServerStatusData::getHtmlForRefreshList(
         'refreshRate',
@@ -37,7 +39,6 @@ function PMA_getHtmlForServerProcesses()
     $retval .= PMA_Util::getImage('play.png') . __('Start auto refresh');
     $retval .= '</a>';
     $retval .= '</div>';
-    $retval .= PMA_getHtmlForServerProcesslist();
     return $retval;
 }
 
