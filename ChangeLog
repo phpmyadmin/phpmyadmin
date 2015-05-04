@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - bug #4883 Search function breaks when searching for certain combinations of backslashes and slashes
 - bug #4830 Maximum execution time exceeded in Util.class.php (better fix)
 - bug #4885 Some icons are above the overlay of jQuery dialogs
+- bug #4886 Clicking on external links in advisor rules give JS error
 
 4.4.4.0 (2015-04-26)
 - bug #4863 Edit vs Change
