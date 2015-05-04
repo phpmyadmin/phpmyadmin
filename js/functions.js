@@ -3231,7 +3231,7 @@ AJAX.registerOnload('functions.js', function () {
         var min = (list_size <= maxRows) ? list_size : maxRows;
         for (i = 0; i < min; i++) {
 
-            fields += '<tr><td><div><span style="font-size:14px; font-weight:bold">' +
+            fields += '<tr><td><div><span style="font-weight:bold">' +
                 escapeHtml(central_column_list[db + '_' + table][i].col_name) +
                 '</span><br><span style="color:gray">' + central_column_list[db + '_' + table][i].col_type;
 
@@ -3294,7 +3294,7 @@ AJAX.registerOnload('functions.js', function () {
                     min = (list_size <= maxRows + result_pointer) ? list_size : maxRows + result_pointer;
                     for (i = result_pointer; i < min; i++) {
 
-                        fields += '<tr><td><div><span style="font-size:14px; font-weight:bold">' +
+                        fields += '<tr><td><div><span style="font-weight:bold">' +
                             central_column_list[db + '_' + table][i].col_name +
                             '</span><br><span style="color:gray">' +
                             central_column_list[db + '_' + table][i].col_type;
