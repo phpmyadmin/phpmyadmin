@@ -688,8 +688,8 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
     $tableheader = '<thead>';
     $tableheader .= '<tr>'
         . '<th class="' . $class . '"></th>'
-        . $action
         . '<th class="" style="display:none"></th>'
+        . $action
         . '<th class="' . $class . '" title="' . $title . '" data-column="name">'
         . __('Name') . '<div class="sorticon"></div></th>'
         . '<th class="' . $class . '" title="' . $title . '" data-column="type">'
