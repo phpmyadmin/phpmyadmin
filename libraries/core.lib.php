@@ -857,7 +857,7 @@ function PMA_isAllowedDomain($url)
         'docs.phpmyadmin.net',
         /* mysql.com domains */
         'dev.mysql.com','bugs.mysql.com',
-        /* drizzle.com domains */
+        /* drizzle.org domains */
         'www.drizzle.org',
         /* php.net domains */
         'php.net',
