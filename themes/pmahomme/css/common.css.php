@@ -2548,7 +2548,7 @@ fieldset .disabled-field td {
     position: fixed;
     top: 55px;
     width: 100%;
-    background: '#ffffff';
+    background: #ffffff;
 }
 
 #table_columns input[type="text"],
