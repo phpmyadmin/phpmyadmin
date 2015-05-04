@@ -129,14 +129,14 @@ rule 'Distribution'
 	version_comment
 	preg_match('/percona/i',value)
 	The MySQL manual only is accurate for official MySQL binaries.
-	Percona documentation is at http://www.percona.com/software/documentation/
+	Percona documentation is at <a href="http://www.percona.com/software/documentation/">http://www.percona.com/software/documentation/</a>
 	'percona' found in version_comment
 
 rule 'Distribution'
 	version
 	PMA_DRIZZLE
 	The MySQL manual only is accurate for official MySQL binaries.
-	Drizzle documentation is at http://www.drizzle.org/content/documentation/
+	Drizzle documentation is at <a href="http://www.drizzle.org/content/documentation/">http://www.drizzle.org/content/documentation/</a>
 	Version string (%s) matches Drizzle versioning scheme | value
 
 rule 'MySQL Architecture'
