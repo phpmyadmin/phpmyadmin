@@ -402,6 +402,32 @@ class PMA_DisplayResults
 
     } // end of the 'setProperties()' function
 
+
+    /**
+     * Defines the parts to display for a print view 
+     *
+     * @param array $displayParts the parts to display
+     *
+     * @return array $displayParts the modified display parts
+     *
+     * @access  private
+     *
+     */
+    private function _setDisplayPartsForPrintView($displayParts)
+    {
+        // set all elements to false!
+        $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
+        $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
+        $displayParts['sort_lnk']  = (string) '0';
+        $displayParts['nav_bar']   = (string) '0';
+        $displayParts['ins_row']   = (string) '0';
+        $displayParts['bkm_form']  = (string) '0';
+        $displayParts['text_btn']  = (string) '0';
+        $displayParts['pview_lnk'] = (string) '0';
+
+        return $displayParts;
+    }
+
     /**
      * Defines the parts to display for a SHOW statement
      *
@@ -480,17 +506,9 @@ class PMA_DisplayResults
         $fields_meta = $this->__get('fields_meta');
         $printview = $this->__get('printview');
 
-        // 2. Updates the display mode
-        if (isset($printview) && ($printview == '1')) {
-            // 2.0 Print view -> set all elements to false!
-            $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
-            $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
-            $displayParts['sort_lnk']  = (string) '0';
-            $displayParts['nav_bar']   = (string) '0';
-            $displayParts['ins_row']   = (string) '0';
-            $displayParts['bkm_form']  = (string) '0';
-            $displayParts['text_btn']  = (string) '0';
-            $displayParts['pview_lnk'] = (string) '0';
+        // 2. Updates the display parts
+        if ($printview == '1') {
+            $displayParts = $this->_setDisplayPartsForPrintView($displayParts);
 
         } elseif ($this->__get('is_count') || $this->__get('is_analyse')
             || $this->__get('is_maint') || $this->__get('is_explain')
