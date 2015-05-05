@@ -769,7 +769,7 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
         . ' cols="' . $textareaCols . '"'
         . ' dir="' . $text_dir . '"'
         . ' id="field_' . ($idindex) . '_3"'
-        . ' ' . $unnullify_trigger
+        . (! empty($unnullify_trigger) ? ' ' . $unnullify_trigger : '')
         . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
         . ' data-type="' . $data_type . '">'
         . $special_chars_encoded

@@ -446,8 +446,8 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHTMLforTableNavigation()
     {
         $result = PMA_getHTMLforTableNavigation(0, 0, 'phpmyadmin');
-        $this->assertTag(
-            array('tag' => 'table'),
+        $this->assertContains(
+            '<table',
             $result
         );
         $this->assertContains(
@@ -489,8 +489,9 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetCentralColumnsTableHeader()
     {
-        $this->assertTag(
-            array('tag' => 'thead'), PMA_getCentralColumnsTableHeader(
+        $this->assertContains(
+            '<thead',
+            PMA_getCentralColumnsTableHeader(
                 'column_heading', __('Click to sort'), 2
             )
         );
@@ -513,15 +514,21 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             'col_attribute'=>''
         );
         $result = PMA_getHTMLforCentralColumnsTableRow($row, false, 1, 'phpmyadmin');
-        $this->assertTag(
-            array('tag' => 'tr'), $result
+        $this->assertContains(
+            '<tr',
+            $result
         );
         $this->assertContains(
             PMA_URL_getHiddenInputs('phpmyadmin'),
             $result
         );
-        $this->assertTag(
-            array('tag' => 'span', 'content'=>'col_test'), $result
+        $this->assertContains(
+            '<span',
+            $result
+        );
+        $this->assertContains(
+            'col_test',
+            $result
         );
         $this->assertContains(
             __('on update CURRENT_TIMESTAMP'),
@@ -614,8 +621,13 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHTMLforAddNewColumn()
     {
         $result = PMA_getHTMLforAddNewColumn('phpmyadmin');
-        $this->assertTag(
-            array('tag' => 'form','tag'=>'table'), $result
+        $this->assertContains(
+            '<form',
+            $result
+        );
+        $this->assertContains(
+            '<table',
+            $result
         );
         $this->assertContains(
             __('Add new column'),
@@ -672,12 +684,13 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $db = 'PMA_db';
         $result = PMA_getHTMLforTableDropdown($db);
-        $this->assertTag(array('tag'=>'select', 'id'=>'table-select'), $result);
-        $this->assertTag(
-            array(
-                'tag'=>'option', 'attributes'=>array('value'=>'PMA_table'),
-                'content'=>'PMA_table'
-            ), $result
+        $this->assertContains(
+            '<select name="table-select" id="table-select"',
+            $result
+        );
+        $this->assertContains(
+            '<option value="PMA_table"',
+            $result
         );
     }
 
@@ -706,7 +719,14 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHTMLforAddCentralColumn()
     {
         $result = PMA_getHTMLforAddCentralColumn(20, 0, 'phpmyadmin');
-        $this->assertTag(array('tag'=>'table', 'tag'=>'form'), $result);
+        $this->assertContains(
+            '<table',
+            $result
+        );
+        $this->assertContains(
+            '<form',
+            $result
+        );
         $this->assertContains(
             PMA_URL_getHiddenInputs('phpmyadmin')
             . '<input type="hidden" name="add_column" value="add">'
