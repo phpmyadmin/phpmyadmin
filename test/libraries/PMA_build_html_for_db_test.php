@@ -114,7 +114,7 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
      */
     public function testBuildHtmlForDb($current, $is_superuser,
         $url_query, $column_order, $replication_types,
-        $replication_info, $tags
+        $replication_info, $html_segments
     ) {
         $result = PMA_buildHtmlForDb(
             $current, $is_superuser, $url_query,
@@ -124,9 +124,9 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
             $column_order,
             $result[0]
         );
-        foreach ($tags as $value) {
-            $this->assertTag(
-                $value,
+        foreach ($html_segments as $html_segment) {
+            $this->assertContains(
+                $html_segment,
                 $result[1]
             );
         }
@@ -157,111 +157,8 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
                     )
                 ),
                 array(
-                    array(
-                        'tag' => 'td',
-                        'attributes' => array(
-                            'class' => 'tool'
-                        ),
-                        'child' => array(
-                            'tag' => 'input',
-                            'attributes' => array(
-                                'type' => 'checkbox',
-                                'name' => 'selected_dbs[]',
-                                'value' => 'pma'
-                            )
-                        )
-                    ),
-                    array(
-                        'tag' => 'td',
-                        'attributes' => array(
-                            'class' => 'name'
-                        ),
-                        'child' => array(
-                            'tag' => 'a',
-                            'attributes' => array(
-                                'title' => 'Jump to database'
-                            ),
-                            'content' => 'pma'
-                        )
-                    ),
-                    array(
-                        'tag' => 'td',
-                        'attributes' => array(
-                            'class' => 'tool'
-                        ),
-                        'descendant' => array(
-                            'tag' => 'img',
-                            'attributes' => array(
-                                'title' => 'Not replicated'
-                            )
-                        )
-                    ),
-                    array(
-                        'tag' => 'td',
-                        'attributes' => array(
-                            'class' => 'tool'
-                        ),
-                        'child' => array(
-                            'tag' => 'a',
-                            'child' => array(
-                                'tag' => 'span',
-                                'child' => array(
-                                    'tag' => 'img',
-                                    'attributes' => array(
-                                        'title' => 'Check Privileges'
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
-            ),
-            array(
-                array('SCHEMA_NAME' => 'sakila'),
-                true,
-                'target=main.php',
-                PMA_getColumnOrder(),
-                array(
-                    'SCHEMA_NAME' => 'sakila',
-                ),
-                array(
-                    'sakila' => array(
-                        'status' => 'true',
-                        'Ignore_DB' => array(
-                            'pma' => 'pma'
-                        ),
-                        'Do_DB' => array(
-                            'sakila' => 'sakila'
-                        )
-                    )
-                ),
-                array(
-                    array(
-                        'tag' => 'td',
-                        'attributes' => array(
-                            'class' => 'tool'
-                        ),
-                        'child' => array(
-                            'tag' => 'input',
-                            'attributes' => array(
-                                'type' => 'checkbox',
-                                'name' => 'selected_dbs[]',
-                                'value' => 'sakila'
-                            )
-                        )
-                    ),
-                    array(
-                        'tag' => 'td',
-                        'attributes' => array(
-                            'class' => 'tool'
-                        ),
-                        'descendant' => array(
-                            'tag' => 'img',
-                            'attributes' => array(
-                                'title' => 'Replicated'
-                            )
-                        )
-                    ),
+                    '<td class="tool">',
+                    '<input type="checkbox" name="selected_dbs[]" class="checkall" title="pma" value="pma"'
                 )
             ),
             array(
@@ -281,21 +178,7 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
                     )
                 ),
                 array(
-                    array(
-                        'tag' => 'td',
-                        'attributes' => array(
-                            'class' => 'tool'
-                        ),
-                        'child' => array(
-                            'tag' => 'input',
-                            'attributes' => array(
-                                'type' => 'checkbox',
-                                'name' => 'selected_dbs[]',
-                                'value' => 'INFORMATION_SCHEMA',
-                                'disabled' => 'disabled'
-                            )
-                        )
-                    )
+                    '<input type="checkbox" name="selected_dbs[]" class="checkall" title="INFORMATION_SCHEMA" value="INFORMATION_SCHEMA" disabled="disabled"'
                 )
             )
         );
