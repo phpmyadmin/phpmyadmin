@@ -47,7 +47,27 @@ help:
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 
 clean:
-	-rm -rf $(BUILDDIR)/*
+	-rm -rf $(BUILDDIR)/doctrees
+	-rm -rf $(BUILDDIR)/html
+	-rm -rf $(BUILDDIR)/dirhtml
+	-rm -rf $(BUILDDIR)/singlehtml
+	-rm -rf $(BUILDDIR)/pickle
+	-rm -rf $(BUILDDIR)/json
+	-rm -rf $(BUILDDIR)/htmlhelp
+	-rm -rf $(BUILDDIR)/qthelp
+	-rm -rf $(BUILDDIR)/devhelp
+	-rm -rf $(BUILDDIR)/epub
+	-rm -rf $(BUILDDIR)/latex
+	-rm -rf $(BUILDDIR)/text
+	-rm -rf $(BUILDDIR)/man
+	-rm -rf $(BUILDDIR)/texinfo
+	-rm -rf $(BUILDDIR)/info
+	-rm -rf $(BUILDDIR)/gettext
+	-rm -rf $(BUILDDIR)/changes
+	-rm -rf $(BUILDDIR)/linkcheck
+	-rm -rf $(BUILDDIR)/doctest
+	-rm -rf $(BUILDDIR)/xml
+	-rm -rf $(BUILDDIR)/pseudoxml
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
