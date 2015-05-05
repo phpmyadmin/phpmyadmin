@@ -88,7 +88,10 @@ AJAX.registerOnload('db_central_columns.js', function () {
         });
     window.scrollTo(0, 0);
     $(document).on("keyup", ".filter_rows", function () {
-        var cols = ["Name", "Type", "Attribute","Length/Values", "Collation", "Null", "Extra", "Default"];
+        // get the column names
+        var cols = $('th.column_heading').map(function () {
+            return $.trim($(this).text());
+        }).get();
         $.uiTableFilter($("#table_columns"), $(this).val(), cols, null, "td span");
     });
     $('.edit').click(function() {
