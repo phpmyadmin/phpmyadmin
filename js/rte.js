@@ -371,7 +371,7 @@ RTE.COMMON = {
     },
 
     dropDialog: function ($this) {
-       /**
+        /**
          * @var $curr_row Object containing reference to the current row
          */
         var $curr_row = $this.parents('tr');
@@ -404,6 +404,7 @@ RTE.COMMON = {
                         // nothing to show in the table, so we hide it.
                         $table.hide("slow", function () {
                             $(this).find('tr.even, tr.odd').remove();
+                            $('.withSelected').remove();
                             $('#nothing2display').show("slow");
                         });
                     } else {
@@ -422,7 +423,7 @@ RTE.COMMON = {
                              */
                             var rowclass = '';
                             $table.find('tr').has('td').each(function () {
-                                rowclass = (ct % 2 === 0) ? 'odd' : 'even';
+                                rowclass = (ct % 2 === 1) ? 'odd' : 'even';
                                 $(this).removeClass().addClass(rowclass);
                                 ct++;
                             });
@@ -437,6 +438,89 @@ RTE.COMMON = {
                     PMA_ajaxShowMessage(data.error, false);
                 }
             }); // end $.get()
+        }); // end $.PMA_confirm()
+    },
+
+    dropMultipleDialog: function ($this) {
+        // We ask for confirmation here
+        $this.PMA_confirm(PMA_messages.strDropRTEitems, '', function (url) {
+            /**
+             * @var msg jQuery object containing the reference to
+             *          the AJAX message shown to the user
+             */
+            var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+
+            // drop anchors of all selected rows
+            var drop_anchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
+            var success = true;
+            var count = drop_anchors.length;
+            var returnCount = 0;
+
+            drop_anchors.each(function () {
+                var $anchor = $(this);
+                /**
+                 * @var $curr_row Object containing reference to the current row
+                 */
+                var $curr_row = $anchor.parents('tr');
+                $.get($anchor.attr('href'), {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+                    returnCount++;
+                    if (data.success === true) {
+                        /**
+                         * @var $table Object containing reference
+                         *             to the main list of elements
+                         */
+                        var $table = $curr_row.parent();
+                        // Check how many rows will be left after we remove
+                        // the one that the user has requested us to remove
+                        if ($table.find('tr').length === 3) {
+                            // If there are two rows left, it means that they are
+                            // the header of the table and the rows that we are
+                            // about to remove, so after the removal there will be
+                            // nothing to show in the table, so we hide it.
+                            $table.hide("slow", function () {
+                                $(this).find('tr.even, tr.odd').remove();
+                                $('.withSelected').remove();
+                                $('#nothing2display').show("slow");
+                            });
+                        } else {
+                            $curr_row.hide("fast", function () {
+                                $(this).remove();
+                                // Now we have removed the row from the list, but maybe
+                                // some row classes are wrong now. So we will itirate
+                                // throught all rows and assign correct classes to them.
+                                /**
+                                 * @var ct Count of processed rows
+                                 */
+                                var ct = 0;
+                                /**
+                                 * @var rowclass Class to be attached to the row
+                                 *               that is being processed
+                                 */
+                                var rowclass = '';
+                                $table.find('tr').has('td').each(function () {
+                                    rowclass = (ct % 2 === 1) ? 'odd' : 'even';
+                                    $(this).removeClass().addClass(rowclass);
+                                    ct++;
+                                });
+                            });
+                        }
+                        if (returnCount == count) {
+                            if (success) {
+                                // Get rid of the "Loading" message
+                                PMA_ajaxRemoveMessage($msg);
+                                $('#rteListForm_checkall').prop({checked: false, indeterminate: false});
+                            }
+                            PMA_reloadNavigation();
+                        }
+                    } else {
+                        PMA_ajaxShowMessage(data.error, false);
+                        success = false;
+                        if (returnCount == count) {
+                            PMA_reloadNavigation();
+                        }
+                    }
+                }); // end $.get()
+            }); // end drop_anchors.each()
         }); // end $.PMA_confirm()
     }
 }; // end RTE namespace
@@ -827,6 +911,12 @@ $(function () {
         event.preventDefault();
         var dialog = new RTE.object();
         dialog.dropDialog($(this));
+    }); // end $(document).on()
+
+    $(document).on('click', '#rteListForm.ajax .mult_submit[value="drop"]', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object();
+        dialog.dropMultipleDialog($(this));
     }); // end $(document).on()
 
     /**

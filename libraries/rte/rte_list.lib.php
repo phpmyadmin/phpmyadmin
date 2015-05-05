@@ -137,6 +137,7 @@ function PMA_RTE_getList($type, $items)
     $retval .= "    </table>\n";
 
     if (count($items)) {
+        $retval .= '<div class="withSelected">';
         $retval .= PMA_Util::getWithSelected(
             $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], 'rteListForm'
         );
@@ -150,6 +151,7 @@ function PMA_RTE_getList($type, $items)
             'submit_mult', 'mult_submit', 'submit_mult_drop',
             __('Drop'), 'b_drop.png', 'drop'
         );
+        $retval .= '</div>';
     }
 
     $retval .= "</fieldset>\n";
