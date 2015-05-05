@@ -443,10 +443,8 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
         $this->object->authFails();
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<p>error 123</p>'
-            ),
+        $this->assertContains(
+            '<p>error 123</p>',
             $result
         );
 
