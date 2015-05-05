@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.4.5.0 (not yet released)
+4.4.5.0 (2015-05-05)
 - bug       Table overhead stats: missing space before the unit
 - bug       Fix resize icon in Designer
 - bug #4879 Exit fullscreen in Designer does not change the button text
