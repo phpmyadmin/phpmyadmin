@@ -35,6 +35,7 @@ function PMA_RTE_getList($type, $items)
      * Generate output
      */
     $retval  = "<!-- LIST OF " . PMA_RTE_getWord('docu') . " START -->\n";
+    $retval .= '<form id="rteListForm" action="">';
     $retval .= "<fieldset>\n";
     $retval .= "    <legend>\n";
     $retval .= "        " . PMA_RTE_getWord('title') . "\n";
@@ -49,6 +50,7 @@ function PMA_RTE_getList($type, $items)
     // th cells with a colspan need corresponding td cells, according to W3C
     switch ($type) {
     case 'routine':
+        $retval .= "            <th></th>\n";
         $retval .= "            <th>" . __('Name') . "</th>\n";
         $retval .= "            <th colspan='4'>" . __('Action') . "</th>\n";
         $retval .= "            <th>" . __('Type') . "</th>\n";
@@ -60,6 +62,7 @@ function PMA_RTE_getList($type, $items)
         }
         break;
     case 'trigger':
+        $retval .= "            <th></th>\n";
         $retval .= "            <th>" . __('Name') . "</th>\n";
         if (empty($table)) {
             $retval .= "            <th>" . __('Table') . "</th>\n";
@@ -74,6 +77,7 @@ function PMA_RTE_getList($type, $items)
         }
         break;
     case 'event':
+        $retval .= "            <th></th>\n";
         $retval .= "            <th>" . __('Name') . "</th>\n";
         $retval .= "            <th>" . __('Status') . "</th>\n";
         $retval .= "            <th colspan='3'>" . __('Action') . "</th>\n";
@@ -112,7 +116,23 @@ function PMA_RTE_getList($type, $items)
         $count++;
     }
     $retval .= "    </table>\n";
+
+    if (count($items)) {
+        $retval .= PMA_Util::getWithSelected(
+            $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], 'rteListForm'
+        );
+        $retval .= PMA_Util::getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_export',
+            __('Export'), 'b_tblexport.png', 'export'
+        );
+        $retval .= PMA_Util::getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_drop',
+            __('Drop'), 'b_drop.png', 'drop'
+        );
+    }
+
     $retval .= "</fieldset>\n";
+    $retval .= "</form>\n";
     $retval .= "<!-- LIST OF " . PMA_RTE_getWord('docu') . " END -->\n";
 
     return $retval;
@@ -138,6 +158,11 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     $type_link = "item_type={$routine['ROUTINE_TYPE']}";
 
     $retval  = "        <tr class='noclick $rowclass'>\n";
+    $retval .= "            <td>\n";
+    $retval .= '                <input type="checkbox"'
+        . ' class="checkall" name="selected[]"'
+        . ' value="' . htmlspecialchars($routine['SPECIFIC_NAME']) . '" />';
+    $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     $retval .= "                <span class='drop_sql hide'>"
         . htmlspecialchars($sql_drop) . "</span>\n";
@@ -252,6 +277,11 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
 
     $retval  = "        <tr class='noclick $rowclass'>\n";
     $retval .= "            <td>\n";
+    $retval .= '                <input type="checkbox"'
+        . ' class="checkall" name="selected[]"'
+        . ' value="' . htmlspecialchars($trigger['name']) . '" />';
+    $retval .= "            </td>\n";
+    $retval .= "            <td>\n";
     $retval .= "                <span class='drop_sql hide'>"
         . htmlspecialchars($trigger['drop']) . "</span>\n";
     $retval .= "                <strong>\n";
@@ -330,6 +360,11 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
     );
 
     $retval  = "        <tr class='noclick $rowclass'>\n";
+    $retval .= "            <td>\n";
+    $retval .= '                <input type="checkbox"'
+        . ' class="checkall" name="selected[]"'
+        . ' value="' . htmlspecialchars($event['EVENT_NAME']) . '" />';
+    $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     $retval .= "                <span class='drop_sql hide'>"
         . htmlspecialchars($sql_drop) . "</span>\n";
