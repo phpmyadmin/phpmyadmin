@@ -63,9 +63,22 @@ function PMA_EVN_handleExport()
 {
     global $_GET, $db;
 
-    if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
-        $item_name = $_GET['item_name'];
-        $export_data = $GLOBALS['dbi']->getDefinition($db, 'EVENT', $item_name);
+    if (! empty($_GET['export_item']) && isset($_GET['item_name'])) {
+        if (is_string($_GET['item_name'])) {
+            $item_names = array($_GET['item_name']);
+        } else {
+            $item_names = $_GET['item_name'];
+        }
+        $export_data = '';
+        foreach ($item_names as $item_name) {
+            $definition = $GLOBALS['dbi']->getDefinition($db, 'EVENT', $item_name);
+            if ($definition === false) { // complins even if one is missing
+                $_GET['item_name'] = $item_name;
+                PMA_RTE_handleExport(false);
+                return;
+            }
+            $export_data .= $definition . "\n\n";
+        }
         PMA_RTE_handleExport($export_data);
     }
 } // end PMA_EVN_handleExport()
@@ -105,14 +118,29 @@ function PMA_TRI_handleExport()
 {
     global $_GET, $db, $table;
 
-    if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
-        $item_name = $_GET['item_name'];
+    if (! empty($_GET['export_item']) && isset($_GET['item_name'])) {
+        if (is_string($_GET['item_name'])) {
+            $item_names = array($_GET['item_name']);
+        } else {
+            $item_names = $_GET['item_name'];
+        }
+
         $triggers = $GLOBALS['dbi']->getTriggers($db, $table, '');
-        $export_data = false;
-        foreach ($triggers as $trigger) {
-            if ($trigger['name'] === $item_name) {
-                $export_data = $trigger['create'];
-                break;
+
+        $export_data = '';
+        foreach ($item_names as $item_name) {
+            $found = false;
+            foreach ($triggers as $trigger) {
+                if ($trigger['name'] === $item_name) {
+                    $export_data .= $trigger['create'] . "\n\n";
+                    $found = true;
+                    break;
+                }
+            }
+            if (! $found) { // complains if even one is missing
+                $_GET['item_name'] = $item_name;
+                PMA_RTE_handleExport(false);
+                return;
             }
         }
         PMA_RTE_handleExport($export_data);

@@ -35,7 +35,26 @@ function PMA_RTE_getList($type, $items)
      * Generate output
      */
     $retval  = "<!-- LIST OF " . PMA_RTE_getWord('docu') . " START -->\n";
-    $retval .= '<form id="rteListForm" action="">';
+    $retval .= '<form id="rteListForm" class="ajax" action="';
+    switch ($type) {
+        case 'routine':
+            $retval .= 'db_routines.php';
+            break;
+        case 'trigger':
+            if (! empty($table)) {
+                $retval .= 'tbl_triggers.php';
+            } else {
+                $retval .= 'db_triggers.php';
+            }
+            break;
+        case 'event':
+            $retval .= 'db_events.php';
+            break;
+        default:
+            break;
+    }
+    $retval .= '">';
+    $retval .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
     $retval .= "<fieldset>\n";
     $retval .= "    <legend>\n";
     $retval .= "        " . PMA_RTE_getWord('title') . "\n";
@@ -121,10 +140,12 @@ function PMA_RTE_getList($type, $items)
         $retval .= PMA_Util::getWithSelected(
             $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], 'rteListForm'
         );
-        $retval .= PMA_Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_export',
-            __('Export'), 'b_tblexport.png', 'export'
-        );
+        if ($type != 'routine') {
+            $retval .= PMA_Util::getButtonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_export',
+                __('Export'), 'b_tblexport.png', 'export'
+            );
+        }
         $retval .= PMA_Util::getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_drop',
             __('Drop'), 'b_drop.png', 'drop'
@@ -160,7 +181,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     $retval  = "        <tr class='noclick $rowclass'>\n";
     $retval .= "            <td>\n";
     $retval .= '                <input type="checkbox"'
-        . ' class="checkall" name="selected[]"'
+        . ' class="checkall" name="item_name[]"'
         . ' value="' . htmlspecialchars($routine['SPECIFIC_NAME']) . '" />';
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
@@ -278,7 +299,7 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
     $retval  = "        <tr class='noclick $rowclass'>\n";
     $retval .= "            <td>\n";
     $retval .= '                <input type="checkbox"'
-        . ' class="checkall" name="selected[]"'
+        . ' class="checkall" name="item_name[]"'
         . ' value="' . htmlspecialchars($trigger['name']) . '" />';
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
@@ -362,7 +383,7 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
     $retval  = "        <tr class='noclick $rowclass'>\n";
     $retval .= "            <td>\n";
     $retval .= '                <input type="checkbox"'
-        . ' class="checkall" name="selected[]"'
+        . ' class="checkall" name="item_name[]"'
         . ' value="' . htmlspecialchars($event['EVENT_NAME']) . '" />';
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";

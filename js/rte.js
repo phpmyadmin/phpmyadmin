@@ -110,8 +110,15 @@ RTE.COMMON = {
 
     exportDialog: function ($this) {
         var $msg = PMA_ajaxShowMessage();
-        // Fire the ajax request straight away
-        $.get($this.attr('href'), {'ajax_request': true}, function (data) {
+        if ($this.hasClass('mult_submit')) {
+            var $form = $this.parents('form');
+            var submitData = $form.serialize() + '&ajax_request=true&export_item=1';
+            $.get($form.attr('action'), submitData, showExport);
+        } else {
+            $.get($this.attr('href'), {'ajax_request': true}, showExport);
+        }
+
+        function showExport(data) {
             if (data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 /**
@@ -153,7 +160,7 @@ RTE.COMMON = {
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
-        }); // end $.get()
+        }; // end $.get()
     },  // end exportDialog()
     editorDialog: function (is_new, $this) {
         var that = this;
@@ -801,6 +808,12 @@ $(function () {
      * Attach Ajax event handlers for Export of Routines, Triggers and Events
      */
     $(document).on('click', 'a.ajax.export_anchor', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object();
+        dialog.exportDialog($(this));
+    }); // end $(document).on()
+
+    $(document).on('click', '#rteListForm.ajax .mult_submit[value="export"]', function (event) {
         event.preventDefault();
         var dialog = new RTE.object();
         dialog.exportDialog($(this));
