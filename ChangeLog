@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - bug #4830 Maximum execution time exceeded in Util.class.php (better fix)
 - bug #4885 Some icons are above the overlay of jQuery dialogs
 - bug #4886 Clicking on external links in advisor rules give JS error
+- bug #4888 Filter in central columns does not work in other languages
 
 4.4.4.0 (2015-04-26)
 - bug #4863 Edit vs Change
