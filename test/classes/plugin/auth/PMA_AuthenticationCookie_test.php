@@ -217,79 +217,59 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         // assertions
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<img src="testlogo_right.png" id="imLogo"'
-            ),
+        $this->assertContains(
+            '<img src="testlogo_right.png" id="imLogo"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<div class="error">'
-            ),
+        $this->assertContains(
+            '<div class="error">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<form method="post" action="index.php" name="login_form" ' .
-                'class="disableAjax login hide js-show">'
-            ),
+        $this->assertContains(
+            '<form method="post" action="index.php" name="login_form" ' .
+            'class="disableAjax login hide js-show">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="text" name="pma_servername" id="input_servername" ' .
-                'value="localhost"'
-            ),
+        $this->assertContains(
+            '<input type="text" name="pma_servername" id="input_servername" ' .
+            'value="localhost"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="text" name="pma_username" id="input_username" ' .
-                'value="pmauser" size="24" class="textfield"/>'
-            ),
+        $this->assertContains(
+            '<input type="text" name="pma_username" id="input_username" ' .
+            'value="pmauser" size="24" class="textfield"/>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="password" name="pma_password" id="input_password" ' .
-                'value="" size="24" class="textfield" />'
-            ),
+        $this->assertContains(
+            '<input type="password" name="pma_password" id="input_password" ' .
+            'value="" size="24" class="textfield" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select name="server" id="select_server" ' .
-                'onchange="document.forms[\'login_form\'].' .
-                'elements[\'pma_servername\'].value = \'\'" >'
-            ),
+        $this->assertContains(
+            '<select name="server" id="select_server" ' .
+            'onchange="document.forms[\'login_form\'].' .
+            'elements[\'pma_servername\'].value = \'\'" >',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="target" value="testTarget" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="target" value="testTarget" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="db" value="testDb" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="db" value="testDb" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="table" value="testTable" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="table" value="testTable" />',
             $result
         );
 
@@ -341,33 +321,25 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         // assertions
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<img name="imLogo" id="imLogo" src="testpma_logo.png"'
-            ),
+        $this->assertContains(
+            '<img name="imLogo" id="imLogo" src="testpma_logo.png"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
-                'id="sel-lang">'
-            ),
+        $this->assertContains(
+            '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
+            'id="sel-lang">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<form method="post" action="index.php" name="login_form" ' .
-                'autocomplete="off" class="disableAjax login hide js-show">'
-            ),
+        $this->assertContains(
+            '<form method="post" action="index.php" name="login_form" ' .
+            'autocomplete="off" class="disableAjax login hide js-show">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="server" value="0" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="server" value="0" />',
             $result
         );
 
