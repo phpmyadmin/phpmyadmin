@@ -181,6 +181,10 @@ button {
     margin-<?php echo $right; ?>: 1em;
 }
 
+.floatright {
+    float: <?php echo $right; ?>;
+}
+
 table.nospacing {
     border-spacing: 0;
 }
@@ -820,7 +824,7 @@ div#tablestatistics table {
     position: fixed;
     padding: .1em .3em;
     top: 0;
-    z-index: 900;
+    z-index: 99;
     background: white;
 }
 

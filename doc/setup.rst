@@ -428,7 +428,7 @@ Signon authentication mode
 --------------------------
 
 * This mode is a convenient way of using credentials from another
-  application to authenticate to phpMyAdmin to implement signle signon
+  application to authenticate to phpMyAdmin to implement single signon
   solution.
 * The other application has to store login information into session
   data (see :config:option:`$cfg['Servers'][$i]['SignonSession']`) or you

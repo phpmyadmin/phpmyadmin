@@ -267,7 +267,7 @@ class Advisor
      */
     private function _replaceLinkURL($matches)
     {
-        return 'href="' . PMA_linkURL($matches[2]) . '"';
+        return 'href="' . PMA_linkURL($matches[2]) . '" target="_blank"';
     }
 
     /**
