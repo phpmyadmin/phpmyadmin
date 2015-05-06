@@ -633,25 +633,25 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input type="checkbox" class="checkbox_null" tabindex="2" '
-                . 'name="fields_nulla" checked="checked" id="field_1_2" ',
+            . 'name="fields_nulla" checked="checked" id="field_1_2" ',
             $result
         );
 
         $this->assertContains(
             '<input type="hidden" class="nullify_code" name="nullify_codea" '
-                . 'value="2" ',
+            . 'value="2" ',
             $result
         );
 
         $this->assertContains(
             '<input type="hidden" class="hashed_field" name="hashed_fielda" '
-                . 'value="foobar" />',
+            . 'value="foobar" />',
             $result
         );
 
         $this->assertContains(
             '<input type="hidden" class="multi_edit" name="multi_edita" '
-                . 'value="<script>"',
+            . 'value="<script>"',
             $result
         );
 
@@ -730,8 +730,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<a class="ajax browse_foreign" href="browse_'
-                . 'foreigners.php?db=db&amp;table=tbl&amp;field=f&amp;rownumber=8&amp;data=abc'
-                . '&amp;server=1&amp;lang=en&amp;token=token">',
+            . 'foreigners.php?db=db&amp;table=tbl&amp;field=f&amp;rownumber=8'
+            . '&amp;data=abc&amp;server=1&amp;lang=en&amp;token=token">',
             $result
         );
 
@@ -800,8 +800,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<textarea name="fieldsb" class="char" '
-                . 'data-maxlength="10" rows="5" cols="1" dir="abc/" '
-                . 'id="field_1_3" tabindex="2" data-type="CHAR">',
+            . 'data-maxlength="10" rows="5" cols="1" dir="abc/" '
+            . 'id="field_1_3" tabindex="2" data-type="CHAR">',
             $result
         );
     }
@@ -1421,7 +1421,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<form id="continueForm" method="post" action="tbl_replace.php" '
-                . 'name="continueForm">',
+            . 'name="continueForm">',
             $result
         );
 
@@ -1483,7 +1483,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input type="submit" class="control_at_footer" value="Go" '
-                . 'tabindex="9" id="buttonYes" ',
+            . 'tabindex="9" id="buttonYes" ',
             $result
         );
     }
@@ -1545,19 +1545,19 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input type="submit" class="control_at_footer" value="Go" '
-                . 'tabindex="7" id="buttonYes" />',
+            . 'tabindex="7" id="buttonYes" />',
             $result
         );
 
         $this->assertContains(
             '<input type="button" class="preview_sql" value="Preview SQL" '
-                . 'tabindex="8" />',
+            . 'tabindex="8" />',
             $result
         );
 
         $this->assertContains(
             '<input type="reset" class="control_at_footer" value="Reset" '
-                . 'tabindex="9" />',
+            . 'tabindex="9" />',
             $result
         );
     }
@@ -2858,11 +2858,11 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-                '<option>AES_ENCRYPT</option>',
+            '<option>AES_ENCRYPT</option>',
             $actual
         );
         $this->assertContains(
-                '<span class="column_type">varchar(20)</span>',
+            '<span class="column_type">varchar(20)</span>',
             $actual
         );
         $this->assertContains(
@@ -2875,15 +2875,15 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             '<img src="" width="150" height="100" '
-                . 'alt="Image preview here"/>',
+            . 'alt="Image preview here"/>',
             $actual
         );
         $this->assertContains(
             '<input type="file" '
-                . 'name="fields_upload[d89e2ddb530bb8953b290ab0793aecb0]" '
-                . 'accept="image/*" '
-                . 'class="image-upload"'
-                . '/>',
+            . 'name="fields_upload[d89e2ddb530bb8953b290ab0793aecb0]" '
+            . 'accept="image/*" '
+            . 'class="image-upload"'
+            . '/>',
             $actual
         );
 
@@ -2912,7 +2912,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-                '<option>UUID</option>',
+            '<option>UUID</option>',
             $actual
         );
         $this->assertContains(
@@ -2921,8 +2921,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             '<input type="text" '
-                . 'name="fields[d8578edf8458ce06fbc5bb76a58c5ca4]" '
-                . 'value="12-10-14.000000"',
+            . 'name="fields[d8578edf8458ce06fbc5bb76a58c5ca4]" '
+            . 'value="12-10-14.000000"',
             $actual
         );
     }
