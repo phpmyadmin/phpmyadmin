@@ -140,41 +140,31 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $result = PMA_getHtmlForTableConfigurations();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="text" name="comment" size="40" maxlength="60" '
-                . 'value="c&d" class="textfield"'
-            ),
+        $this->assertContains(
+            '<input type="text" name="comment" size="40" maxlength="60" '
+                . 'value="c&amp;d" class="textfield"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select name="tbl_storage_engine">'
-            ),
+        $this->assertContains(
+            '<select name="tbl_storage_engine">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select lang="en" dir="ltr" name="tbl_collation">'
-            ),
+        $this->assertContains(
+            '<select lang="en" dir="ltr" name="tbl_collation">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="utf8_bin" title="Unicode (multilingual), Binary">'
-                . 'utf8_bin</option>'
-            ),
+        $this->assertContains(
+            '<option value="utf8_bin" title="Unicode (multilingual), Binary">'
+                . 'utf8_bin</option>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<textarea name="partition_definition" id="partitiondefinition" '
-                . 'cols="10" rows="15" dir="text_dir">partition&gt;</textarea>'
-            ),
+        $this->assertContains(
+            '<textarea name="partition_definition" id="partitiondefinition" '
+                . 'cols="10" rows="15" dir="text_dir">partition&gt;</textarea>',
             $result
         );
     }
@@ -188,24 +178,18 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
     {
         $result = PMA_getHtmlForFooter();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="submit" name="do_save_data" value="Save" />'
-            ),
+        $this->assertContains(
+            '<input type="submit" name="do_save_data" value="Save" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<div id="properties_message">'
-            ),
+        $this->assertContains(
+            '<div id="properties_message">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<div id="popup_background">'
-            ),
+        $this->assertContains(
+            '<div id="popup_background">',
             $result
         );
     }
@@ -221,26 +205,20 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $result = PMA_getHtmlForTableNameAndNoOfColumns();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="text" name="table" size="40" maxlength="64" '
-                . 'value="tablename" class="textfield" '
-            ),
+        $this->assertContains(
+            '<input type="text" name="table" size="40" maxlength="64" '
+                . 'value="tablename" class="textfield" ',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="number" id="added_fields" name="added_fields" '
-                . 'size="2" value="1" min="1" onfocus="this.select()"'
-            ),
+        $this->assertContains(
+            '<input type="number" id="added_fields" name="added_fields" '
+                . 'size="2" value="1" min="1" onfocus="this.select()"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="button" name="submit_num_fields"value="Go"'
-            ),
+        $this->assertContains(
+            '<input type="button" name="submit_num_fields"value="Go"',
             $result
         );
     }
@@ -260,28 +238,28 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         );
         $result = PMA_getHtmlForTableFieldDefinitions($header_cells, $content_cells);
 
-        $this->assertTag(
-            array('tag' => 'th', 'content' => 'h1'),
+        $this->assertContains(
+            '<th>h1</th>',
             $result
         );
 
-        $this->assertTag(
-            array('tag' => 'th', 'content' => 'h2'),
+        $this->assertContains(
+            '<th>h2</th>',
             $result
         );
 
-        $this->assertTag(
-            array('tag' => 'td', 'content' => 'a'),
+        $this->assertContains(
+            '<td class="center">a</td>',
             $result
         );
 
-        $this->assertTag(
-            array('tag' => 'td', 'content' => 'b'),
+        $this->assertContains(
+            '<td class="center">b</td>',
             $result
         );
 
-        $this->assertTag(
-            array('tag' => 'td', 'content' => 'c'),
+        $this->assertContains(
+            '<td class="center">c</td>',
             $result
         );
     }
@@ -313,39 +291,29 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             array('h1')
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<form method="post" action="tbl_create.php" '
-                . 'class="create_table_form ajax">'
-            ),
+        $this->assertContains(
+            '<form method="post" action="tbl_create.php" '
+                . 'class="create_table_form ajax lock-page">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="a" value="b"'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="a" value="b"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select lang="en" dir="ltr" name="tbl_collation">'
-            ),
+        $this->assertContains(
+            '<select lang="en" dir="ltr" name="tbl_collation">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="submit" name="do_save_data" value="Save"'
-            ),
+        $this->assertContains(
+            '<input type="submit" name="do_save_data" value="Save"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="text" name="table"'
-            ),
+        $this->assertContains(
+            '<input type="text" name="table"',
             $result
         );
     }
@@ -621,12 +589,10 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             'isForeignKey' => false, 'isEditable' => true)), $cfgRelation
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input id="field_2_0" type="text" name="field_name[2]" '
+        $this->assertContains(
+            '<input id="field_2_0" type="text" name="field_name[2]" '
                 . 'maxlength="64" class="textfield" title="Column" size="10" '
-                . 'value="fieldname" />'
-            ),
+                . 'value="fieldname" />',
             $result
         );
     }
@@ -644,17 +610,13 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             'isForeignKey' => false, 'isEditable' => true))
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select class="column_type" name="field_type[1]" id="field_1_1">'
-            ),
+        $this->assertContains(
+            '<select class="column_type" name="field_type[1]" id="field_1_1">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option title="">INT</option>'
-            ),
+        $this->assertContains(
+            '<option title="">INT</option>',
             $result
         );
     }
@@ -680,11 +642,9 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             2, 4, 4, $cmeta, $mime, ''
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input id="field_2_0" type="text" name="field_transformation_'
-                . 'options[2]" size="16" class="textfield" value="transops" />'
-            ),
+        $this->assertContains(
+            '<input id="field_2_0" type="text" name="field_transformation_'
+                . 'options[2]" size="16" class="textfield" value="transops" />',
             $result
         );
     }
@@ -719,10 +679,8 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             2, 0, 0, $avail_mime, $cmeta, $mime, ''
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select id="field_2_0" size="1" name="field_transformation[2]">'
-            ),
+        $this->assertContains(
+            '<select id="field_2_0" size="1" name="field_transformation[2]">',
             $result
         );
 
@@ -757,35 +715,24 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             2, 0, 0, $moveColumns, $cmeta
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select id="field_2_0" name="field_move_to[2]" size="1" '
-                . 'width="5em">'
-            ),
+        $this->assertContains(
+            '<select id="field_2_0" name="field_move_to[2]" size="1" '
+                . 'width="5em">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="" selected="selected">',
-                array('content' => ' ')
-            ),
+        $this->assertContains(
+            '<option value="" selected="selected">&nbsp;</option>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="a" disabled="disabled">',
-                array('content' => 'after `a`')
-            ),
+        $this->assertContains(
+            '<option value="a" disabled="disabled">after `a`</option>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="fieldname" disabled="disabled">',
-                array('content' => 'after `fieldname`')
-            ),
+        $this->assertContains(
+            '<option value="fieldname" disabled="disabled">after `fieldname`</option>',
             $result
         );
     }
@@ -809,11 +756,9 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             2, 1, 0, $cmeta, $commentMeta
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input id="field_2_1" type="text" name="field_comments[2]" '
-                . 'size="12" value="fieldnamecomment<" class="textfield" />'
-            ),
+        $this->assertContains(
+            '<input id="field_2_1" type="text" name="field_comments[2]" '
+                . 'size="12" value="fieldnamecomment&lt;" class="textfield" />',
             $result
         );
     }
@@ -833,11 +778,9 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             2, 1, 0, $cmeta
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input name="field_extra[2]" id="field_2_1" checked="checked" '
-                . 'type="checkbox" value="AUTO_INCREMENT" />'
-            ),
+        $this->assertContains(
+            '<input name="field_extra[2]" id="field_2_1" checked="checked" '
+                . 'type="checkbox" value="AUTO_INCREMENT" />',
             $result
         );
     }
@@ -858,41 +801,28 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             2, 1, 0, $cmeta
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select name="field_key[2]" id="field_2_1">'
-            ),
+        $this->assertContains(
+            '<select name="field_key[2]" id="field_2_1"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="none_2">---</option>'
-            ),
+        $this->assertContains(
+            '<option value="none_2">---</option>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="primary_2" title="Primary">',
-                array('content' => 'PRIMARY')
-            ),
+        $this->assertContains(
+            '<option value="primary_2" title="Primary">PRIMARY</option>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="unique_2" title="Unique">',
-                array('content' => 'UNIQUE')
-            ),
+        $this->assertContains(
+            '<option value="unique_2" title="Unique">UNIQUE</option>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="index_2" title="Index">',
-                array('content' => 'INDEX')
-            ),
+        $this->assertContains(
+            '<option value="index_2" title="Index">INDEX</option>',
             $result
         );
     }
@@ -912,11 +842,8 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             2, $cmeta, 'INT', 'PRI'
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="int_2" title="INT" selected="selected">',
-                array('content' => 'INT')
-            ),
+        $this->assertContains(
+            '<option value="int_2" title="INT" selected="selected">INT</option>',
             $result
         );
     }
@@ -936,11 +863,9 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             2, 3, 1, $cmeta
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input name="field_null[2]" id="field_2_2" checked="checked" '
-                . 'type="checkbox" value="NULL" class="allow_null"/>'
-            ),
+        $this->assertContains(
+            '<input name="field_null[2]" id="field_2_2" checked="checked" '
+                . 'type="checkbox" value="NULL" class="allow_null"/>',
             $result
         );
     }
@@ -988,19 +913,14 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             2, 3, 1, $colspec, $cmeta, true, $analyzed_sql
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select style="width: 7em;" name="field_attribute[2]" '
-                . 'id="field_2_2">'
-            ),
+        $this->assertContains(
+            '<select style="width: 7em;" name="field_attribute[2]" '
+                . 'id="field_2_2">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="on update CURRENT_TIMESTAMP">',
-                array('content' => 'on update CURRENT_TIMESTAMP')
-            ),
+        $this->assertContains(
+            '<option value="on update CURRENT_TIMESTAMP">',
             $result
         );
     }
@@ -1020,18 +940,13 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             2, 3, 1, $cmeta
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select name="field_collation[2]" id="field_2_2">'
-            ),
+        $this->assertContains(
+            '<select lang="en" dir="ltr" name="field_collation[2]" id="field_2_2">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="utf8_bin" title="Unicode (multilingual), Binary">',
-                array('content' => 'utf8_bin')
-            ),
+        $this->assertContains(
+            '<option value="utf8_bin" title="Unicode (multilingual), Binary">',
             $result
         );
     }
@@ -1047,18 +962,14 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             2, 3, 1, 10, 8
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input id="field_2_2" type="text" name="field_length[2]" size="10" '
-                . 'value="8" class="textfield" />'
-            ),
+        $this->assertContains(
+            '<input id="field_2_2" type="text" name="field_length[2]" size="10" '
+                . 'value="8" class="textfield" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<p class="enum_notice" id="enum_notice_2_2">'
-            ),
+        $this->assertContains(
+            '<p class="enum_notice" id="enum_notice_2_2">',
             $result
         );
     }
@@ -1080,27 +991,20 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             2, 3, 1, 'TIMESTAMP', true, $cmeta
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select name="field_default_type[2]" id="field_2_2" '
-                . 'class="default_type">'
-            ),
+        $this->assertContains(
+            '<select name="field_default_type[2]" id="field_2_2" '
+                . 'class="default_type">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="NONE" selected="selected" >',
-                array('content' => 'None')
-            ),
+        $this->assertContains(
+            '<option value="NONE" selected="selected" >',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="text" name="field_default_value[2]" size="12" '
-                . 'value="2222" class="textfield default_value" />'
-            ),
+        $this->assertContains(
+            '<input type="text" name="field_default_value[2]" size="12" '
+                . 'value="2222" class="textfield default_value" />',
             $result
         );
     }
