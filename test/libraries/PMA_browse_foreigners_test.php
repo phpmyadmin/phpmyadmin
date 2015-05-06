@@ -141,25 +141,19 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<select class="pageselector ajax" name="pos">'),
+        $this->assertContains(
+            '<select class="pageselector ajax" name="pos"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option selected="selected" '
-                . 'style="font-weight: bold" value="0">',
-                array('content' => '1')
-            ),
+        $this->assertContains(
+            '<option selected="selected" '
+            . 'style="font-weight: bold" value="0">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="25">',
-                array('content' => '2')
-            ),
+        $this->assertContains(
+            '<option  value="25"',
             $result
         );
     }
@@ -181,21 +175,18 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
             $description, $title
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<td>'),
+        $this->assertContains(
+            '<td>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<a class="foreign_value" href="#" '
-                . 'title="Use this value">',
-                array('content' => 'foo')
-            ),
+        $this->assertContains(
+            '<a class="foreign_value" data-key="" href="#" '
+            . 'title="Use this value">',
             $result
         );
 
-        $cssClass = 'baz';
+        $cssClass = 'class="baz"';
         $isSelected = true;
         $keyname = 'bar';
         $title = 'foo';
@@ -204,22 +195,19 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
             $description, $title
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<td>'),
+        $this->assertContains(
+            '<td class="baz">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<strong>'),
+        $this->assertContains(
+            '<strong>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<a class="foreign_value" href="#" '
-                . 'title="Use this value: foo">',
-                array('content' => 'bar')
-            ),
+        $this->assertContains(
+            '<a class="foreign_value" data-key="bar" href="#" '
+            . 'title="Use this value: foo">',
             $result
         );
     }
@@ -267,75 +255,63 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
             $db, $table, $field, $foreignData, $fieldkey, $data
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<form class="ajax" '
-                . 'id="browse_foreign_form" name="browse_foreign_from" '
-                . 'action="browse_foreigners.php" method="post">'
-            ),
+        $this->assertContains(
+            '<form class="ajax" '
+            . 'id="browse_foreign_form" name="browse_foreign_from" '
+            . 'action="browse_foreigners.php" method="post">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<fieldset>'),
+        $this->assertContains(
+            '<fieldset>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<input type="hidden" name="field" value="foo" />'),
+        $this->assertContains(
+            '<input type="hidden" name="field" value="foo" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<input type="hidden" name="fieldkey" value="bar" />'),
+        $this->assertContains(
+            '<input type="hidden" name="fieldkey" value="bar" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<input type="hidden" name="rownumber" value="1" />'),
+        $this->assertContains(
+            '<input type="hidden" name="rownumber" value="1" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<span class="formelement">'),
+        $this->assertContains(
+            '<span class="formelement">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<label for="input_foreign_filter">',
-                array('content' => 'Search:')
-            ),
+        $this->assertContains(
+            '<label for="input_foreign_filter">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="text" name="foreign_filter" '
-                . 'id="input_foreign_filter" '
-                . 'value="5" data-old="5" '
-                . '/>'
-            ),
+        $this->assertContains(
+            '<input type="text" name="foreign_filter" '
+             . 'id="input_foreign_filter" '
+            . 'value="5" data-old="5" '
+            . '/>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="submit" name="submit_foreign_filter" value="Go" />'
-            ),
+        $this->assertContains(
+            '<input type="submit" name="submit_foreign_filter" value="Go" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<span class="formelement">',
-                array('content' => '')
-            ),
+        $this->assertContains(
+            '<span class="formelement">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<table width="100%" id="browse_foreign_table">'),
+        $this->assertContains(
+            '<table width="100%" id="browse_foreign_table">',
             $result
         );
 
@@ -346,26 +322,16 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
             $db, $table, $field, $foreignData, $fieldkey, $data
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<table width="100%" id="browse_foreign_table">'),
+        $this->assertContains(
+            '<table width="100%" id="browse_foreign_table">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<th>',
-                array('content' => 'Keyname')
-            ),
+        $this->assertContains(
+            '<th>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<th>',
-                array('content' => 'Description')
-            ),
-            $result
-        );
     }
 }
 ?>

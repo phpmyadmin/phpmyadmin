@@ -37,47 +37,35 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         PMA_displayFormTop(null, 'posted', array(1));
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<form method="get" action="http://www.phpmyadmin.net" ' .
-                'class="config-form disableAjax">'
-            ),
+        $this->assertContains(
+            '<form method="get" action="http://www.phpmyadmin.net" ' .
+            'class="config-form disableAjax">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="tab_hash" value="" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="tab_hash" value="" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="check_page_refresh"  ' .
-                'id="check_page_refresh" value="" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="check_page_refresh"  ' .
+            'id="check_page_refresh" value="" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="lang" value="en" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="lang" value="en" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="token" value="token" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="token" value="token" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="0" value="1" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="0" value="1" />',
             $result
         );
     }
@@ -93,23 +81,23 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         PMA_displayTabsTop(array('one', 'two'));
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray('<ul class="tabs">'),
+        $this->assertContains(
+            '<ul class="tabs">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<a href="#0">', array('content' => 'one')),
+        $this->assertContains(
+            '<a href="#0"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<a href="#1">', array('content' => 'two')),
+        $this->assertContains(
+            '<a href="#1"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray('<div class="tabs_contents">'),
+        $this->assertContains(
+            '<div class="tabs_contents"',
             $result
         );
     }
@@ -128,61 +116,33 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         PMA_displayFieldsetTop("TitleTest", "DescTest", $errors, $attributes);
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<fieldset class="optbox" name="attrname">'
-            ),
+        $this->assertContains(
+            '<fieldset class="optbox" name="attrname">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<legend>',
-                array(
-                    'content' => 'TitleTest',
-                    'parent' => array('tag' => 'fieldset')
-                )
-            ),
+        $this->assertContains(
+            '<legend>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<p>',
-                array(
-                    'content' => 'DescTest',
-                )
-            ),
+        $this->assertContains(
+            '<p>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<dl class="errors">'
-            ),
+        $this->assertContains(
+            '<dl class="errors">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<dd>',
-                array('content' => 'e1', 'parent' => array('tag' => 'dl'))
-            ),
+        $this->assertContains(
+            '<dd>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<dd>',
-                array('content' => 'e2', 'parent' => array('tag' => 'dl'))
-            ),
-            $result
-        );
-
-        $this->assertTag(
-            PMA_getTagArray(
-                '<table width="100%" cellspacing="0">'
-            ),
+        $this->assertContains(
+            '<table width="100%" cellspacing="0">',
             $result
         );
     }
@@ -216,82 +176,52 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<tr class="group-header-field group-header-1 disabled-field">'
-            ),
+        $this->assertContains(
+            '<tr class="group-header-field group-header-1 disabled-field">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<label for="test/path">',
-                array('content' => 'testName')
-            ),
+        $this->assertContains(
+            '<label for="test/path">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<a href="http://doclink" target="documentation">',
-                array(
-                    'parent' => array(
-                        'tag' => 'span',
-                        'attributes' => array('class' => 'doc')
-                    )
-                )
-            ),
+        $this->assertContains(
+            '<a href="http://doclink" target="documentation"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<img src="testImageb_help.png" title="Documentation" ' .
-                'alt="Documentation" />',
-                array(
-                    'parent' => array('tag' => 'a')
-                )
-            ),
+        $this->assertContains(
+            '<img src="testImageb_help.png" title="Documentation" ' .
+            'alt="Documentation" /',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<span class="disabled-notice">'
-            ),
+        $this->assertContains(
+            '<span class="disabled-notice">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<small>',
-                array('content' => 'desc')
-            ),
+        $this->assertContains(
+            '<small>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="text" size="60" name="test/path" id="test/path" ' .
-                'class="custom field-error" value="val" />'
-            ),
+        $this->assertContains(
+            '<input type="text" size="60" name="test/path" id="test/path" ' .
+            'class="custom field-error" value="val" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<span class="field-comment-mark field-comment-warning" '
-                . 'title="testComment">',
-                array('content' => 'i')
-            ),
+        $this->assertContains(
+            '<span class="field-comment-mark field-comment-warning" '
+            . 'title="testComment">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<a class="restore-default" href="#test/path" ' .
-                'style="display:none">'
-            ),
+        $this->assertContains(
+            '<a class="restore-default" href="#test/path" ' .
+            'style="display:none">',
             $result
         );
 
@@ -320,55 +250,31 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<tr class="group-field group-field-1">'
-            ),
+        $this->assertContains(
+            '<tr class="group-field group-field-1">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="checkbox" name="test/path" id="test/path" ' .
-                'checked="checked" />',
-                array(
-                    'parent' => array(
-                        'tag' => 'span',
-                        'attributes' => array('class' => 'checkbox custom')
-                    )
-                )
-            ),
+        $this->assertContains(
+            '<input type="checkbox" name="test/path" id="test/path" ' .
+            'checked="checked" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<a class="userprefs-comment" title="userprefsComment">',
-                array('child' => array('tag' => 'img'))
-            ),
+        $this->assertContains(
+            '<a class="userprefs-comment" title="userprefsComment">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<td class="userprefs-allow" title="Allow users to customize ' .
-                'this value">',
-                array(
-                    'child' => PMA_getTagArray(
-                        '<input type="checkbox" name="test/path-userprefs-allow" ' .
-                        'checked="checked"/>'
-                    )
-                )
-            ),
+        $this->assertContains(
+            '<td class="userprefs-allow" title="Allow users to customize ' .
+            'this value">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<a class="set-value" href="#test/path=setVal" ' .
-                'title="Set value: setVal" style="display:none">',
-                array('child' => array('tag' => 'img'))
-            ),
+        $this->assertContains(
+            '<a class="set-value" href="#test/path=setVal" ' .
+            'title="Set value: setVal" style="display:none">',
             $result
         );
 
@@ -385,11 +291,9 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="text" size="25" name="test/path" id="test/path" ' .
-                'value="val" />'
-            ),
+        $this->assertContains(
+            '<input type="text" size="25" name="test/path" id="test/path" ' .
+            'value="val" />',
             $result
         );
 
@@ -401,11 +305,9 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="number" name="test/path" ' .
-                'id="test/path" value="val" />'
-            ),
+        $this->assertContains(
+            '<input type="number" name="test/path" ' .
+            'id="test/path" value="val" />',
             $result
         );
 
@@ -423,50 +325,23 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
             '', true, $opts
         );
         $result = ob_get_clean();
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select name="test/path" id="test/path">'
-            ),
+        $this->assertContains(
+            '<select name="test/path" id="test/path">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select name="test/path" id="test/path">'
-            ),
+        $this->assertContains(
+            '<option value="1" selected="selected" disabled="disabled">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="1" selected="selected" disabled="disabled">',
-                array(
-                    'parent' => array('tag' => 'select'),
-                    'content' => "test"
-                )
-            ),
+        $this->assertContains(
+            '<option value="key1">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="key1">',
-                array(
-                    'parent' => array('tag' => 'select'),
-                    'content' => "yes"
-                )
-            ),
-            $result
-        );
-
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="key2">',
-                array(
-                    'parent' => array('tag' => 'select'),
-                    'content' => "no"
-                )
-            ),
+        $this->assertContains(
+            '<option value="key2">',
             $result
         );
 
@@ -485,21 +360,12 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select name="test/path" id="test/path">'
-            ),
+        $this->assertContains(
+            '<select name="test/path" id="test/path">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select name="test/path" id="test/path">'
-            ),
-            $result
-        );
-
-        // assertTag doesn't seem to work with htmlentities
+        // assertContains doesn't seem to work with htmlentities
         $this->assertContains(
             '<option value="a&lt;b">c&amp;d</option>',
             $result
@@ -514,13 +380,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<textarea cols="40" rows="5" name="test/path" id="test/path">',
-                array(
-                    'content' => "foo\nbar"
-                )
-            ),
+        $this->assertContains(
+            '<textarea cols="40" rows="5" name="test/path" id="test/path">',
             $result
         );
         runkit_constant_remove('PMA_SETUP');
@@ -551,18 +412,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         PMA_displayGroupHeader('headerText');
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<tr class="group-header group-header-4">',
-                array(
-                    'child' => PMA_getTagArray(
-                        '<th colspan="3">',
-                        array(
-                            'content' => 'headerText'
-                        )
-                    )
-                )
-            ),
+        $this->assertContains(
+            '<tr class="group-header group-header-4">',
             $result
         );
 
@@ -575,18 +426,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         PMA_displayGroupHeader('headerText');
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<tr class="group-header group-header-4">',
-                array(
-                    'child' => PMA_getTagArray(
-                        '<th colspan="2">',
-                        array(
-                            'content' => 'headerText'
-                        )
-                    )
-                )
-            ),
+        $this->assertContains(
+            '<tr class="group-header group-header-4">',
             $result
         );
 
@@ -628,30 +469,18 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         PMA_displayFieldsetBottom();
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<td colspan="3" class="lastrow">'
-            ),
+        $this->assertContains(
+            '<td colspan="3" class="lastrow">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="submit" name="submit_save" value="Apply"',
-                array(
-                    'parent' => array('tag' => 'td')
-                )
-            ),
+        $this->assertContains(
+            '<input type="submit" name="submit_save" value="Apply"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="button" name="submit_reset" value="Reset" />',
-                array(
-                    'parent' => array('tag' => 'td')
-                )
-            ),
+        $this->assertContains(
+            '<input type="button" name="submit_reset" value="Reset" />',
             $result
         );
 
@@ -668,10 +497,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         PMA_displayFieldsetBottom();
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<td colspan="2" class="lastrow">'
-            ),
+        $this->assertContains(
+            '<td colspan="2" class="lastrow">',
             $result
         );
     }
