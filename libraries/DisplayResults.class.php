@@ -404,7 +404,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Defines the parts to display for a print view 
+     * Defines the parts to display for a print view
      *
      * @param array $displayParts the parts to display
      *
