@@ -229,7 +229,7 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
     $retval .= '</thead>';
     $retval .= '<tbody>';
     $retval .= '<tr class="odd">';
-    $retval .= '<th class="name">' . __('max. concurrent connections') . '</th>';
+    $retval .= '<th class="name">' . __('Max. concurrent connections') . '</th>';
     $retval .= '<td class="value">';
     $retval .= PMA_Util::formatNumber(
         $ServerStatusData->status['Max_used_connections'], 0

@@ -199,7 +199,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            '<th class="name">max. concurrent connections</th>',
+            '<th class="name">Max. concurrent connections</th>',
             $html
         );
         //Max_used_connections
