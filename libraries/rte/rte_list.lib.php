@@ -37,21 +37,21 @@ function PMA_RTE_getList($type, $items)
     $retval  = "<!-- LIST OF " . PMA_RTE_getWord('docu') . " START -->\n";
     $retval .= '<form id="rteListForm" class="ajax" action="';
     switch ($type) {
-        case 'routine':
-            $retval .= 'db_routines.php';
-            break;
-        case 'trigger':
-            if (! empty($table)) {
-                $retval .= 'tbl_triggers.php';
-            } else {
-                $retval .= 'db_triggers.php';
-            }
-            break;
-        case 'event':
-            $retval .= 'db_events.php';
-            break;
-        default:
-            break;
+    case 'routine':
+        $retval .= 'db_routines.php';
+        break;
+    case 'trigger':
+        if (! empty($table)) {
+            $retval .= 'tbl_triggers.php';
+        } else {
+            $retval .= 'db_triggers.php';
+        }
+        break;
+    case 'event':
+        $retval .= 'db_events.php';
+        break;
+    default:
+        break;
     }
     $retval .= '">';
     $retval .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
