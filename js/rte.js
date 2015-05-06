@@ -187,7 +187,7 @@ RTE.COMMON = {
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
-        }; // end $.get()
+        }; // end showExport()
     },  // end exportDialog()
     editorDialog: function (is_new, $this) {
         var that = this;

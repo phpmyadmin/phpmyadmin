@@ -63,6 +63,7 @@ function PMA_RTE_handleExport($export_data)
 function PMA_EVN_handleExport()
 {
     global $_GET, $db;
+
     if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
         $item_name = $_GET['item_name'];
         $export_data = $GLOBALS['dbi']->getDefinition($db, 'EVENT', $item_name);
@@ -104,6 +105,7 @@ function PMA_RTN_handleExport()
 function PMA_TRI_handleExport()
 {
     global $_GET, $db, $table;
+
     if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
         $item_name = $_GET['item_name'];
         $triggers = $GLOBALS['dbi']->getTriggers($db, $table, '');
