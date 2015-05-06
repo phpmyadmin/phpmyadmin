@@ -152,7 +152,7 @@ Basic settings
     Setting this to ``true`` allows the user to execute queries by pressing Enter
     instead of Ctrl+Enter. A new line can be inserted by pressing Shift + Enter.
 
-    The behaviour of the console can be temporary changed using console's
+    The behaviour of the console can be temporarily changed using console's
     settings interface.
 
 .. config:option:: $cfg['AllowThirdPartyFraming']
