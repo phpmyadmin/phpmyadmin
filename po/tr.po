@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-06 07:09+0200\n"
+"PO-Revision-Date: 2015-05-06 09:25+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/tr/>\n"
@@ -6442,7 +6442,6 @@ msgstr ""
 "Veritabanı süzgeci kutusunu görüntülemek için en az veritabanı sayısıdır"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6450,8 +6449,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Gezinti ağacındaki öğeleri gruplar (aşağıda tanımlanan ayıraç tarafından "
-"belirlenir)."
+"Gezinti ağacındaki öğeleri gruplar (Veritabanları ve Tablolar sekmeleri ve "
+"üzerinde tanımlanan ayıraç tarafından belirlenir)."
 
 #: libraries/config/messages.inc.php:458
 msgid "Group items in the tree"
@@ -14874,22 +14873,22 @@ msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "MySQL kılavuzu sadece resmi MySQL binarileri için doğrudur."
 
 #: libraries/advisory_rules.txt:132
-#, fuzzy
 #| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid ""
 "Percona documentation is at http://www.percona.com/software/documentation/"
-msgstr "Percona belgesi http://www.percona.com/docs/wiki/ adresinde"
+msgstr ""
+"Percona belgeleri http://www.percona.com/software/documentation/ adresinde"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
 msgstr "'percona', version_comment içinde bulundu"
 
 #: libraries/advisory_rules.txt:139
-#, fuzzy
 #| msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgid ""
 "Drizzle documentation is at http://www.drizzle.org/content/documentation/"
-msgstr "Drizzle belgesi http://docs.drizzle.org/ adresinde"
+msgstr ""
+"Drizzle belgeleri http://www.drizzle.org/content/documentation/ adresinde"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -15688,7 +15687,6 @@ msgid "Too many connections are aborted."
 msgstr "Çok fazla bağlantı durduruldu."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -15699,10 +15697,9 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Bağlantılar genellikle izin verilmediklerinde durdurulurlar. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Bu makale</a> kaynağın izini aramakta yardımcı "
-"olabilir."
+"Bağlantılar genellikle izin verilmediklerinde durdurulurlar. <a href=\""
+"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Bu makale</a> kaynağın izini aramakta yardımcı olabilir."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -15825,7 +15822,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB günlük dosyası boyutu yetersiz şekilde büyük."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -15850,12 +15847,12 @@ msgstr ""
 "Genellikle {innodb_log_file_size} değerini {innodb_buffer_pool_size} "
 "boyutunun %%25'ine ayarlamak yeterlidir. Çok büyük innodb_log_file_size, "
 "veritabanı çökmesinden sonra kurtarma zamanını oldukça yavaşlatır. Aynı "
-"zamanda <a href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-"
-"proper-innodb_log_file_size/\">bu Makaleye</a> bakın. Sunucuyu kapatmanız, "
-"InnoDB günlük dosyalarını kaldırmanız, my.cnf içindeki yeni değeri "
-"ayarlamanız, sunucuyu başlatmanız gerekir, ondan sonra herşeyin iyi "
-"gittiğini anlamak için hata günlüklerini kontrol etmelisiniz. Aynı zamanda "
-"<a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"zamanda <a href=\"http://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">this Article</a>bu Makaleye</a> bakın. Sunucuyu "
+"kapatmanız, InnoDB günlük dosyalarını kaldırmanız, my.cnf içindeki yeni "
+"değeri ayarlamanız, sunucuyu başlatmanız gerekir, ondan sonra herşeyin iyi "
+"gittiğini anlamak için hata günlüklerini kontrol etmelisiniz. Aynı zamanda <"
+"a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">bu blog girişine</a> bakın"
 
 #: libraries/advisory_rules.txt:448
@@ -15872,7 +15869,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoD arabellek havuzunuz oldukça küçük."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -15898,14 +15895,14 @@ msgid ""
 msgstr ""
 "InnoDB arabellek havuzu InnoDB tabloları için performansta derin etki yapar. "
 "Tüm kalan belleğinizi bu arabelleğe atayın. Veritabanı sunucuları için "
-"depolama motoru olarak sadece InnoDB kullanın ve başka çalışan hizmetler "
-"(örn. web sunucusu) olmasın, bunu kullanılabilir belleğin %%80'nine kadar "
+"depolama motoru olarak sadece InnoDB kullanın ve başka çalışan hizmetler ("
+"örn. web sunucusu) olmasın, bunu kullanılabilir belleğin %%80'nine kadar "
 "ayarlayabilirsiniz. Eğer durum bu değilse, diğer hizmetlerinizin ve InnoDB-"
 "Tabloları olmayanların bellek tüketimini dikkatlice değerlendirmeniz ve "
 "dolayısıyla bu değişkeni ayarlamanız gerekir. Eğer çok yükseğe ayarlanırsa, "
 "sisteminiz önemli derecede performansı düşüren değiş tokuşa başlayacaktır. "
-"Aynı zamanda <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/"
-"choosing-innodb_buffer_pool_size/\">bu makaleye</a> bakın"
+"Aynı zamanda <a href=\"http://www.percona.com/blog/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">bu makaleye</a> bakın"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
