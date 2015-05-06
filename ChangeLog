@@ -31,6 +31,7 @@ phpMyAdmin - ChangeLog
 + rfe #1146 Show original size of truncated columns
 
 4.4.6.0 (not yet released)
+- bug #4890 webkitStorageInfo and webkitIndexedDB is deprecated
 
 4.4.5.0 (2015-05-05)
 - bug       Table overhead stats: missing space before the unit
