@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-04-12 00:30+0200\n"
+"PO-Revision-Date: 2015-05-06 21:07+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-4/nl/"
-">\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-4/nl/>"
+"\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -5954,7 +5954,6 @@ msgid "Page titles"
 msgstr "Paginatitels"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -5963,8 +5962,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Browser titel balk tekst. Zie [doc@cfg_TitleTable]documentatie[/doc] voor "
-"bruikbare codes."
+"Specificeer de browser titelbalk tekst. Zie [doc@faq6-27]documentatie[/doc] "
+"voor tekenreeksen die voor speciale tekens gebruikt kunnen worden."
 
 #: libraries/config/messages.inc.php:255
 msgid "Query window"
@@ -6477,7 +6476,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Minimale aantal databases waarbij een filterveld wordt getoond"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6485,8 +6483,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Groepeer elementen in een boomstructuur (scheidingsteken zoals hieronder "
-"aangegeven)."
+"Groepeer elementen in een boomstructuur (scheidingsteken zoals gedefinieerd "
+"in de Databases en Tabellen tabs hier boven)."
 
 #: libraries/config/messages.inc.php:458
 msgid "Group items in the tree"
@@ -15009,23 +15007,24 @@ msgstr ""
 "De MySQL-handleiding is enkel van toepassing op officiële MySQL-versies."
 
 #: libraries/advisory_rules.txt:132
-#, fuzzy
 #| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid ""
 "Percona documentation is at http://www.percona.com/software/documentation/"
 msgstr ""
-"Percona-documentatie kan gevonden worden op http://www.percona.com/docs/wiki/"
+"Percona documentatie kan gevonden worden op "
+"http://www.percona.com/software/documentation/"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
 msgstr "'percona' werd gevonden in version_comment"
 
 #: libraries/advisory_rules.txt:139
-#, fuzzy
 #| msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgid ""
 "Drizzle documentation is at http://www.drizzle.org/content/documentation/"
-msgstr "Drizzle-documentatie kan gevonden worden op http://docs.drizzle.org/"
+msgstr ""
+"Drizzle-documentatie kan gevonden worden op "
+"http://www.drizzle.org/content/documentation/"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -15853,7 +15852,6 @@ msgid "Too many connections are aborted."
 msgstr "Te veel verbindingen werden afgebroken."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -15864,10 +15862,10 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Verbindingen worden meestal afgebroken wanneer deze niet toegelaten zijn. <a "
-"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Dit artikel</a> kan u helpen om de oorzaak te "
-"vinden."
+"Verbindingen worden meestal afgebroken wanneer deze niet geautoriseerd "
+"kunnen worden.  <a href=\"http://www.percona.com/blog/2008/08/23/how-to-"
+"track-down-the-source-of-aborted_connects/\">Dit artikel</a> kan u helpen om "
+"de oorzaak te vinden."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -15996,7 +15994,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Het InnoDB-logboek is veel te groot."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -16020,15 +16018,15 @@ msgid ""
 msgstr ""
 "Doorgaans is het voldoende om {innodb_log_file_size} in te stellen op 25%% "
 "van {innodb_buffer_pool_size}. \n"
-"Een grote {innodb_log_file_size} verlengt de hersteltijd na een database-"
-"crash enorm. Bekijk ook <a href=\"http://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">dit artikel</a>.\n"
-"De server moet uitgeschakeld worden, de InnoDB-logbestanden moeten worden "
-"verwijderd, de nieuwe waarde moet worden ingesteld in my.cnf, de server "
-"herstart en dan moeten de foutenlogboeken bekeken worden om te zien of alles "
-"goed gegaan is. Bekijk ook <a href=\"http://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">deze blog</"
-"a>"
+"Een zeer grote {innodb_log_file_size} verlengt de hersteltijd na een "
+"database-crash enorm. Bekijk ook <a href=\""
+"http://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/"
+"\">dit artikel</a>.\n"
+"De server moet uitgeschakeld worden, verwijder de InnoDB-logbestanden, stel "
+"de nieuwe waarde in my.cnf,  herstart de server en controleer dan de "
+"foutenlogboeken om te zien of alles goed gegaan is. Bekijk ook <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">deze blog</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -16044,7 +16042,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Uw InnoDB-bufferpool is betrekkelijk klein."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -16076,9 +16074,9 @@ msgstr ""
 "zorgvuldig het geheugengebruik van de andere diensten en niet-InnoDB-"
 "tabellen inschatten en deze waarde gepast instellen. Als deze te hoog wordt "
 "ingesteld, kan het systeem swapgeheugen gaan gebruiken, waardoor de "
-"prestaties sterk verminderd worden. Bekijk ook <a href=\"http://www."
-"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">dit "
-"artikel</a>"
+"prestaties sterk verminderd worden. Zie ook <a href=\""
+"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">"
+"this article</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
