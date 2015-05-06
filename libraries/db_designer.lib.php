@@ -372,11 +372,11 @@ function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
     $html .= '<a href="#" class="M_butt" target="_self" id="key_SB_all">';
     $html .= '<img class="' . $iconClass . '" title="' . __('Small/Big All')
         . '" alt="v" src="'
-        . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png') .'" '
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png') . '" '
         . 'data-right="'
-        . $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow1.png') .'" '
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow1.png') . '" '
         . 'data-down="'
-        . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png') .'"" />';
+        . $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png') . '"" />';
     $html .= '<span class="' . $textClass . '">' . __('Small/Big All') . '</span>';
     $html .= '</a>';
 
