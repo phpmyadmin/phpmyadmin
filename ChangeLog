@@ -1,6 +1,19 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.4.5.0 (2015-05-05)
+- bug       Table overhead stats: missing space before the unit
+- bug       Fix resize icon in Designer
+- bug #4879 Exit fullscreen in Designer does not change the button text
+- bug #4880 Designer icons missing when using original theme
+- bug #4878 Column list of central columns is not cleared
+- bug #4881 jQuery dialogs of the Designer are not displayed in fullscreen
+- bug #4883 Search function breaks when searching for certain combinations of backslashes and slashes
+- bug #4830 Maximum execution time exceeded in Util.class.php (better fix)
+- bug #4885 Some icons are above the overlay of jQuery dialogs
+- bug #4886 Clicking on external links in advisor rules give JS error
+- bug #4888 Filter in central columns does not work in other languages
+
 4.4.4.0 (2015-04-26)
 - bug #4863 Edit vs Change
 - bug #4859 Don't scroll (to bottom) when editing multiple rows

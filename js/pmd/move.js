@@ -26,7 +26,10 @@ AJAX.registerOnload('pmd/move.js', function () {
             if (! $.FullScreen.isFullScreen()) {
                 $('#page_content').removeClass('content_fullscreen')
                     .css({'width': 'auto', 'height': 'auto'});
-                $('#toggleFullscreen').show();
+                var $img = $('#toggleFullscreen img');
+                $img.attr('src', $img.data('enter'));
+                var $span = $img.siblings('span');
+                $span.text($span.data('enter'));
             }
         });
     } else {
@@ -520,16 +523,17 @@ function Rect(x1, y1, w, h, color)
 //--------------------------- FULLSCREEN -------------------------------------
 function Toggle_fullscreen()
 {
-    var button = $('#toggleFullscreen').children().last();
+    var $img = $('#toggleFullscreen img');
+    var $span = $img.siblings('span');
     if (! $.FullScreen.isFullScreen()) {
-        button.html(button.attr('data-exit'));
+        $img.attr('src', $img.data('exit'))
+        $span.text($span.data('exit'));
         $('#page_content')
             .addClass('content_fullscreen')
             .css({'width': screen.width - 5, 'height': screen.height - 5})
             .requestFullScreen();
     }
     if ($.FullScreen.isFullScreen()) {
-        button.html(button.attr('data-enter'));
         $.FullScreen.cancelFullScreen();
     }
 }
@@ -671,6 +675,7 @@ function Save3(callback)
         $('<div id="page_save_dialog"></div>')
             .append($form)
             .dialog({
+                appendTo: '#page_content',
                 title: PMA_messages.strSavePage,
                 width: 300,
                 modal: true,
@@ -718,6 +723,7 @@ function Edit_pages()
                 $('<div id="page_edit_dialog"></div>')
                     .append(data.message)
                     .dialog({
+                        appendTo: '#page_content',
                         title: PMA_messages.strOpenPage,
                         width: 350,
                         modal: true,
@@ -798,6 +804,7 @@ function Delete_pages()
             $('<div id="page_delete_dialog"></div>')
                 .append(data.message)
                 .dialog({
+                    appendTo: '#page_content',
                     title: PMA_messages.strDeletePage,
                     width: 350,
                     modal: true,
@@ -896,6 +903,7 @@ function Save_as()
             $('<div id="page_save_as_dialog"></div>')
                 .append(data.message)
                 .dialog({
+                    appendTo: '#page_content',
                     title: "Save table coordinates",
                     width: 450,
                     modal: true,
@@ -930,6 +938,7 @@ function Prompt_to_save_current_page(callback)
         $('<div id="prompt_save_dialog"></div>')
             .append('<div>' + PMA_messages.strLeavingPage + '</div>')
             .dialog({
+                appendTo: '#page_content',
                 title: PMA_messages.strSavePage,
                 width: 300,
                 modal: true,
@@ -977,6 +986,7 @@ function Export_pages()
             $('<div id="page_export_dialog"></div>')
                 .append($form)
                 .dialog({
+                    appendTo: '#page_content',
                     title: PMA_messages.strExportRelationalSchema,
                     width: 550,
                     modal: true,
@@ -1167,7 +1177,7 @@ function Small_tab_all(id_this) // max/min all tables
             }
         }
         icon.alt = ">";
-        icon.src = pmaThemeImage + "pmd/rightarrow1.png";
+        icon.src = icon.dataset.right;
     } else {
         for (key in j_tabs) {
             if (document.getElementById('id_hide_tbody_' + key).innerHTML != "v") {
@@ -1175,7 +1185,7 @@ function Small_tab_all(id_this) // max/min all tables
             }
         }
         icon.alt = "v";
-        icon.src = pmaThemeImage + "pmd/downarrow1.png";
+        icon.src = icon.dataset.down;
     }
     Re_load();
 }
@@ -1378,10 +1388,10 @@ function Hide_tab_all(id_this) // max/min all tables
 {
     if (id_this.alt == 'v') {
         id_this.alt = '>';
-        id_this.src = pmaThemeImage + "pmd/rightarrow1.png";
+        id_this.src = id_this.dataset.right;
     } else {
         id_this.alt = 'v';
-        id_this.src = pmaThemeImage + "pmd/downarrow1.png";
+        id_this.src = id_this.dataset.down;
     }
     var E = document.form1;
     for (var i = 0; i < E.elements.length; i++) {
@@ -1429,10 +1439,10 @@ function No_have_constr(id_this)
 
     if (id_this.alt == 'v') {
         id_this.alt = '>';
-        id_this.src = pmaThemeImage + "pmd/rightarrow2.png";
+        id_this.src = id_this.dataset.right;;
     } else {
         id_this.alt = 'v';
-        id_this.src = pmaThemeImage + "pmd/downarrow2.png";
+        id_this.src = id_this.dataset.down;
     }
     var E = document.form1;
     for (var i = 0; i < E.elements.length; i++) {
@@ -1491,7 +1501,7 @@ function Show_left_menu(id_this) // max/min all tables
         document.getElementById("layer_menu").style.top = '0px';
         document.getElementById("layer_menu").style.display = 'block';
         icon.alt = ">";
-        icon.src = pmaThemeImage + "pmd/uparrow2_m.png";
+        icon.src = icon.dataset.up;
         if (isIE) {
             General_scroll();
         }
@@ -1499,7 +1509,7 @@ function Show_left_menu(id_this) // max/min all tables
         document.getElementById("layer_menu").style.top = -1000 + 'px'; //fast scroll
         document.getElementById("layer_menu").style.display = 'none';
         icon.alt = "v";
-        icon.src = pmaThemeImage + "pmd/downarrow2_m.png";
+        icon.src = icon.dataset.down;
     }
 }
 //------------------------------------------------------------------------------

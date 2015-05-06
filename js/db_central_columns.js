@@ -53,7 +53,10 @@ AJAX.registerOnload('db_central_columns.js', function () {
         });
     window.scrollTo(0, 0);
     $(document).on("keyup", ".filter_rows", function () {
-        var cols = ["Name", "Type", "Attribute","Length/Values", "Collation", "Null", "Extra", "Default"];
+        // get the column names
+        var cols = $('th.column_heading').map(function () {
+            return $.trim($(this).text());
+        }).get();
         $.uiTableFilter($("#table_columns"), $(this).val(), cols, null, "td span");
     });
     $('.edit').click(function() {
@@ -151,7 +154,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
     });
     $('#table-select').change(function(e) {
         var selectvalue = $(this).val();
-        var default_column_select = $('#column-select').html();
+        var default_column_select = $('#column-select option:first');
         var href = "db_central_columns.php";
         var params = {
             'ajax_request' : true,
@@ -163,7 +166,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         $('#column-select').html('<option value="">' + PMA_messages.strLoading + '</option>');
         if (selectvalue !== "") {
             $.post(href, params, function (data) {
-                $('#column-select').html(default_column_select);
+                $('#column-select').empty().append(default_column_select);
                 $('#column-select').append(data.message);
             });
         }
