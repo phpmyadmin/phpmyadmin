@@ -141,12 +141,10 @@ function PMA_RTE_getList($type, $items)
         $retval .= PMA_Util::getWithSelected(
             $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], 'rteListForm'
         );
-        if ($type != 'routine') {
-            $retval .= PMA_Util::getButtonOrImage(
-                'submit_mult', 'mult_submit', 'submit_mult_export',
-                __('Export'), 'b_tblexport.png', 'export'
-            );
-        }
+        $retval .= PMA_Util::getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_export',
+            __('Export'), 'b_tblexport.png', 'export'
+        );
         $retval .= PMA_Util::getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_drop',
             __('Drop'), 'b_drop.png', 'drop'

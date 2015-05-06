@@ -299,6 +299,7 @@ $js_messages['strDeleting'] = __('Deleting');
 
 /* For db_routines.js */
 $js_messages['MissingReturn'] = __('The definition of a stored function must contain a RETURN statement!');
+$js_messages['strExport'] = __('Export');
 
 /* For ENUM/SET editor*/
 $js_messages['enum_editor'] = __('ENUM/SET editor');

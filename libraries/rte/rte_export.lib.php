@@ -23,8 +23,7 @@ function PMA_RTE_handleExport($export_data)
 
     $item_name = htmlspecialchars(PMA_Util::backquote($_GET['item_name']));
     if ($export_data !== false) {
-        $export_data = '<textarea cols="40" rows="15" style="width: 100%;">'
-                     . htmlspecialchars(trim($export_data)) . '</textarea>';
+        $export_data = htmlspecialchars(trim($export_data));
         $title = sprintf(PMA_RTE_getWord('export'), $item_name);
         if ($GLOBALS['is_ajax_request'] == true) {
             $response = PMA_Response::getInstance();
@@ -32,6 +31,8 @@ function PMA_RTE_handleExport($export_data)
             $response->addJSON('title', $title);
             exit;
         } else {
+            $export_data = '<textarea cols="40" rows="15" style="width: 100%;">'
+               . $export_data . '</textarea>';
             echo "<fieldset>\n"
                . "<legend>$title</legend>\n"
                . $export_data
@@ -62,23 +63,9 @@ function PMA_RTE_handleExport($export_data)
 function PMA_EVN_handleExport()
 {
     global $_GET, $db;
-
-    if (! empty($_GET['export_item']) && isset($_GET['item_name'])) {
-        if (is_string($_GET['item_name'])) {
-            $item_names = array($_GET['item_name']);
-        } else {
-            $item_names = $_GET['item_name'];
-        }
-        $export_data = '';
-        foreach ($item_names as $item_name) {
-            $definition = $GLOBALS['dbi']->getDefinition($db, 'EVENT', $item_name);
-            if ($definition === false) { // complins even if one is missing
-                $_GET['item_name'] = $item_name;
-                PMA_RTE_handleExport(false);
-                return;
-            }
-            $export_data .= $definition . "\n\n";
-        }
+    if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
+        $item_name = $_GET['item_name'];
+        $export_data = $GLOBALS['dbi']->getDefinition($db, 'EVENT', $item_name);
         PMA_RTE_handleExport($export_data);
     }
 } // end PMA_EVN_handleExport()
@@ -117,30 +104,14 @@ function PMA_RTN_handleExport()
 function PMA_TRI_handleExport()
 {
     global $_GET, $db, $table;
-
-    if (! empty($_GET['export_item']) && isset($_GET['item_name'])) {
-        if (is_string($_GET['item_name'])) {
-            $item_names = array($_GET['item_name']);
-        } else {
-            $item_names = $_GET['item_name'];
-        }
-
+    if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
+        $item_name = $_GET['item_name'];
         $triggers = $GLOBALS['dbi']->getTriggers($db, $table, '');
-
-        $export_data = '';
-        foreach ($item_names as $item_name) {
-            $found = false;
-            foreach ($triggers as $trigger) {
-                if ($trigger['name'] === $item_name) {
-                    $export_data .= $trigger['create'] . "\n\n";
-                    $found = true;
-                    break;
-                }
-            }
-            if (! $found) { // complains if even one is missing
-                $_GET['item_name'] = $item_name;
-                PMA_RTE_handleExport(false);
-                return;
+        $export_data = false;
+        foreach ($triggers as $trigger) {
+            if ($trigger['name'] === $item_name) {
+                $export_data = $trigger['create'];
+                break;
             }
         }
         PMA_RTE_handleExport($export_data);

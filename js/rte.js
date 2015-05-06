@@ -111,9 +111,35 @@ RTE.COMMON = {
     exportDialog: function ($this) {
         var $msg = PMA_ajaxShowMessage();
         if ($this.hasClass('mult_submit')) {
-            var $form = $this.parents('form');
-            var submitData = $form.serialize() + '&ajax_request=true&export_item=1';
-            $.get($form.attr('action'), submitData, showExport);
+            var combined = {
+                success: true,
+                title: PMA_messages.strExport,
+                message: '',
+                error: ''
+            };
+            // export anchors of all selected rows
+            var export_anchors = $('input.checkall:checked').parents('tr').find('.export_anchor');
+            var count = export_anchors.length;
+            var returnCount = 0;
+
+            export_anchors.each(function () {
+                $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
+                    returnCount++;
+                    if (data.success === true) {
+                        combined.message += "\n" + data.message + "\n";
+                        if (returnCount == count) {
+                            showExport(combined);
+                        }
+                    } else {
+                        // complain even if one export is failing
+                        combined.success = false;
+                        combined.error += "\n" + data.error + "\n";
+                        if (returnCount == count) {
+                            showExport(combined);
+                        }
+                    }
+                });
+            });
         } else {
             $.get($this.attr('href'), {'ajax_request': true}, showExport);
         }
@@ -132,6 +158,7 @@ RTE.COMMON = {
                 /**
                  * Display the dialog to the user
                  */
+                data.message = '<textarea cols="40" rows="15" style="width: 100%;">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
                     width: 500,
                     buttons: button_options,
