@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-01 23:36+0200\n"
+"PO-Revision-Date: 2015-05-06 12:09+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/4-"
-"4/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -5981,7 +5981,6 @@ msgid "Page titles"
 msgstr "Titulos de pagina"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -5991,8 +5990,8 @@ msgid ""
 "for magic strings that can be used to get special values."
 msgstr ""
 "Specifica le texto del barra de titulo del navigator. Refere a "
-"[doc@cfg_TitleTable]documentation[/doc] pro vider catenas que on pote "
-"utilisar pro obtener valores special (magic strings)."
+"[doc@faq6-27]documentation[/doc] pro vider catenas que on pote utilisar pro "
+"obtener valores special (magic strings)."
 
 #: libraries/config/messages.inc.php:255
 msgid "Query window"
@@ -6512,7 +6511,6 @@ msgstr ""
 "datos"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6521,7 +6519,7 @@ msgid ""
 "the Databases and Tables tabs above)."
 msgstr ""
 "Elementos de gruppo in le arbore de navigation (determinate per le separator "
-"definite a basso)."
+"definite in le base de datos e schedas de tabellas de supra)."
 
 #: libraries/config/messages.inc.php:458
 msgid "Group items in the tree"
@@ -9389,6 +9387,11 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"Tu ha un gruppo de duo o plus columnas que es connectite strictemente e que "
+"omnes es repetente le mesme attributo? Per exemplo un tabella que mantene  "
+"datos super libros poterea haber columnas tal como libro_id,autor2,autor2, "
+"autor3 et cetera que forma un gruppo de repetition. In iste caso un nove "
+"tabella (libro_id,autor) deberea esser create."
 
 #: libraries/normalization.lib.php:259
 msgid ""
@@ -9416,6 +9419,9 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"Il non es possibile dependentias partial proque il non existe alcun columna "
+"non-primari proque la clave primari ( %1$s ) es componite de omne columnas "
+"in le tabella."
 
 #: libraries/normalization.lib.php:318 libraries/normalization.lib.php:360
 msgid "Table is already in second normal form."
@@ -9427,16 +9433,22 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"Le clave primari ( %1$s ) consiste de plus que un columna assi que on "
+"necessita trovar le dependentias partial."
 
 #: libraries/normalization.lib.php:327 libraries/normalization.lib.php:692
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
+"Pro favor responde al demanda(s)  sequente con attention pro obtener un "
+"normalisation  correcte."
 
 #: libraries/normalization.lib.php:331
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"+ Monstra me le possibile dependentias partial basate sur le datos in le "
+"tabella"
 
 #: libraries/normalization.lib.php:335
 msgid ""
@@ -9444,6 +9456,9 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"Pro cata columna a basso, pro favor selige le <b>minime insimul</b> de "
+"columnas inter le insimul date le cuje valores, combinate conjunctemente, es "
+"sufficiente per determinar le valor del columna."
 
 #: libraries/normalization.lib.php:345 libraries/normalization.lib.php:730
 #, php-format
@@ -9456,6 +9471,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"Necun dependentia partial es possibile  proque le clave primari  ( %1$s ) ha "
+"solmente un columna."
 
 #: libraries/normalization.lib.php:381
 #, php-format
@@ -9463,6 +9480,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
+"Pro poner le tabella original  '%1$s'  in le Secunde forma normal on "
+"necessita crear le tabellas sequente:"
 
 #: libraries/normalization.lib.php:417
 #, php-format
@@ -9480,6 +9499,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
+"Pro poner le tabella original  '%1$s' in le Tertie forma normal on necessita "
+"crear le tabellas sequente:"
 
 #: libraries/normalization.lib.php:548
 msgid "The third step of normalization is complete."
@@ -9488,7 +9509,7 @@ msgstr "Le tertie passo pro normalisar es complete."
 #: libraries/normalization.lib.php:642
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr ""
+msgstr "Le gruppo repetente seligite ha essite movite al tabella  '%s'"
 
 #: libraries/normalization.lib.php:689
 msgid "Step 3."
