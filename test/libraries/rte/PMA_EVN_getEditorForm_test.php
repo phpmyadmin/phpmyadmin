@@ -62,11 +62,9 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_EVN_setGlobals();
-        $this->assertTag(
+        $this->assertContains(
             $matcher,
-            PMA_EVN_getEditorForm('add', 'change', $data),
-            '',
-            false
+            PMA_EVN_getEditorForm('add', 'change', $data)
         );
     }
 
@@ -97,138 +95,43 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'add_item'
-                    )
-                )
+                "<input name='add_item'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_name'
-                    )
-                )
+                "<input type='text' name='item_name'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_status'
-                    )
-                )
+                "<select name='item_status'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_type'
-                    )
-                )
+                "<input name='item_type'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_changetype'
-                    )
-                )
+                "<input type='text' name='item_execute_at'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_execute_at'
-                    )
-                )
+                "<input type='text' name='item_ends'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_interval_value'
-                    )
-                )
+                "<textarea name='item_definition'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_interval_field'
-                    )
-                )
+                "<input type='text' name='item_definer'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_starts'
-                    )
-                )
+                "<input type='text' name='item_comment'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_ends'
-                    )
-                )
-            ),
-            array(
-                $data,
-                array(
-                    'tag' => 'textarea',
-                    'attributes' => array(
-                        'name' => 'item_definition'
-                    )
-                )
-            ),
-            array(
-                $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_preserve'
-                    )
-                )
-            ),
-            array(
-                $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_definer'
-                    )
-                )
-            ),
-            array(
-                $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_comment'
-                    )
-                )
-            ),
-            array(
-                $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'editor_process_add'
-                    )
-                )
+                "<input type='submit' name='editor_process_add'"
             )
         );
     }
@@ -247,11 +150,9 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_EVN_setGlobals();
-        $this->assertTag(
+        $this->assertContains(
             $matcher,
-            PMA_EVN_getEditorForm('edit', 'change', $data),
-            '',
-            false
+            PMA_EVN_getEditorForm('edit', 'change', $data)
         );
     }
 
@@ -282,138 +183,43 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'edit_item'
-                    )
-                )
+                "<input name='edit_item'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_name'
-                    )
-                )
+                "<input type='text' name='item_name'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_status'
-                    )
-                )
+                "<select name='item_status'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_type'
-                    )
-                )
+                "<input name='item_type'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_changetype'
-                    )
-                )
+                "<input type='text' name='item_execute_at'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_execute_at'
-                    )
-                )
+                "<input type='text' name='item_ends'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_interval_value'
-                    )
-                )
+                "<textarea name='item_definition'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_interval_field'
-                    )
-                )
+                "<input type='text' name='item_definer'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_starts'
-                    )
-                )
+                "<input type='text' name='item_comment'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_ends'
-                    )
-                )
-            ),
-            array(
-                $data,
-                array(
-                    'tag' => 'textarea',
-                    'attributes' => array(
-                        'name' => 'item_definition'
-                    )
-                )
-            ),
-            array(
-                $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_preserve'
-                    )
-                )
-            ),
-            array(
-                $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_definer'
-                    )
-                )
-            ),
-            array(
-                $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_comment'
-                    )
-                )
-            ),
-            array(
-                $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'editor_process_edit'
-                    )
-                )
+                "<input type='submit' name='editor_process_edit'"
             )
         );
     }
@@ -432,11 +238,9 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = true;
         PMA_EVN_setGlobals();
-        $this->assertTag(
+        $this->assertContains(
             $matcher,
-            PMA_EVN_getEditorForm('edit', 'change', $data),
-            '',
-            false
+            PMA_EVN_getEditorForm('edit', 'change', $data)
         );
     }
 
@@ -467,30 +271,15 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_type'
-                    )
-                )
+                "<select name='item_type'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'editor_process_edit'
-                    )
-                )
+                "<input type='hidden' name='editor_process_edit'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'ajax_request'
-                    )
-                )
+                "<input type='hidden' name='ajax_request'"
             )
         );
     }
