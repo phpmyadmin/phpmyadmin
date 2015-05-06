@@ -294,7 +294,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input type="text" name="foreign_filter" '
-             . 'id="input_foreign_filter" '
+            . 'id="input_foreign_filter" '
             . 'value="5" data-old="5" '
             . '/>',
             $result
