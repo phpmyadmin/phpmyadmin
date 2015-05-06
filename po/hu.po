@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-03-30 18:31+0200\n"
+"PO-Revision-Date: 2015-05-06 16:56+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/4-4/"
-"hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -5932,7 +5932,6 @@ msgid "Page titles"
 msgstr "Oldalcímek"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -5942,7 +5941,7 @@ msgid ""
 "for magic strings that can be used to get special values."
 msgstr ""
 "Megadhatja a böngésző fejlécében megjelenített címet. Hivatkozzon a "
-"[doc@cfg_TitleTable]dokumentációra[/doc] a mágikus parancsok végett, amiket "
+"[doc@faq6-27]dokumentációra[/doc] a mágikus parancsok végett, amiket "
 "speciális értékek megjelenítésére használhat."
 
 #: libraries/config/messages.inc.php:255
@@ -6454,7 +6453,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "A szűrődoboz megjelenítéséhez szükséges minimális adatbázisok száma"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6462,8 +6460,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Elemek csoportosítása a navigációs faszerkezetben (lent megadott elválasztó "
-"által meghatározva)."
+"Elemek csoportosítása a navigációs faszerkezetben (a lenti Adatbázisok és "
+"táblák lapon megadott elválasztó által meghatározva)."
 
 #: libraries/config/messages.inc.php:458
 msgid "Group items in the tree"
@@ -14932,22 +14930,20 @@ msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "A MySQL kézikönyv csak a hivatalos MySQL kiadás számára akkurátus."
 
 #: libraries/advisory_rules.txt:132
-#, fuzzy
 #| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid ""
 "Percona documentation is at http://www.percona.com/software/documentation/"
-msgstr "Percona dokumentáció: http://www.percona.com/docs/wiki/"
+msgstr "Percona dokumentáció: http://www.percona.com/software/documentation/"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
 msgstr "'percona' a version_comment-ben találva"
 
 #: libraries/advisory_rules.txt:139
-#, fuzzy
 #| msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgid ""
 "Drizzle documentation is at http://www.drizzle.org/content/documentation/"
-msgstr "Drizzle dokumentáció: http://docs.drizzle.org/"
+msgstr "Drizzle dokumentáció: http://www.drizzle.org/content/documentation/"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -15772,7 +15768,6 @@ msgid "Too many connections are aborted."
 msgstr "Túl sok kapcsolat lett megszakítva."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -15783,9 +15778,9 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"A nem azonosítható kapcsolatok általában meg lesznek szakítva. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Ez a cikk</a> segíthet."
+"A nem azonosítható kapcsolatok általában meg lesznek szakítva. <a href=\""
+"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Ez a cikk</a> segíthet a forrás lekövetéséhez."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -15909,7 +15904,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Az InnoDB naplófájl mérete túlságosan nagy."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -15934,13 +15929,13 @@ msgstr ""
 "Általában elegendő az {innodb_log_file_size} beállítása 25%%-ra a "
 "{innodb_buffer_pool_size} nagyságához képest. Egy nagyon nagy "
 "{innodb_log_file_size} jelentősen lassítja a helyreállási időt egy "
-"összeomlás után. Lásd <a href=\"http://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">ezt a cikket</a>. A "
-"kiszolgálót le kell állítani, az InnoDB naplófájlokat ki kell törölni, új "
-"értéket kell beállítani a my.cnf fájlban, ezután lehet elindítani a "
-"szervert, majd meg kell nézni a naplófájlokban, hogy minden jól ment-e. Lásd "
-"még: <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-"increase-innodblogfilesize-proper-way.html\">ezt a blog bejegyzést</a>"
+"összeomlás után. Lásd <a href=\"http://www.percona.com/blog/2006/07/03"
+"/choosing-proper-innodb_log_file_size/\">ezt a cikket</a>. A kiszolgálót le "
+"kell állítani, az InnoDB naplófájlokat ki kell törölni, új értéket kell "
+"beállítani a my.cnf fájlban, ezután lehet elindítani a szervert, majd meg "
+"kell nézni a naplófájlokban, hogy minden jól ment-e. Lásd még: <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">ezt a blog bejegyzést</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -15956,7 +15951,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Az InnoDB pufferterülete túlságosan kicsi."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -15988,8 +15983,8 @@ msgstr ""
 "akkor gondosan értékelje át a memória-felhasználás mértékét a más "
 "szolgáltatások és a nem-InnoDB-táblák számára, és állítsuk át a változó "
 "értékét ennek megfelelően. Ha az érték túl magas, a rendszer teljesítménye "
-"jelentősen csökken. Lásd <a href=\"http://www.mysqlperformanceblog."
-"com/2007/11/03/choosing-innodb_buffer_pool_size/\">ezt a cikket</a>"
+"jelentősen csökken. Lásd <a href=\"http://www.percona.com/blog/2007/11/03"
+"/choosing-innodb_buffer_pool_size/\">ezt a cikket</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
