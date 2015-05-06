@@ -1262,6 +1262,35 @@ function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $htmlId)
 }
 
 /**
+ * Adds COALESCE or DROP option to choices array depeding on Partition method used
+ *
+ * @param array  $choices original common choices array
+ * @param string $db      Database for the partition maintenance
+ * @param string $table   Table for the partition maintenance
+ *
+ * @return array $choices new complete choices array
+ */
+function PMA_addOptionToDropOrCoalescePartition($choices, $db, $table)
+{
+    $partition_method = $GLOBALS['dbi']->fetchResult(
+        'SELECT `PARTITION_METHOD` FROM `INFORMATION_SCHEMA`.`PARTITIONS` '
+        . 'WHERE `TABLE_SCHEMA` = "' . $db . '" '
+        . 'AND `TABLE_NAME` = "' . $table . '"'
+    );
+
+    if (! empty($partition_method)) {
+        if ($partition_method[0] == 'KEY' || $partition_method[0] == 'HASH') {
+            $choices['COALESCE'] = __('Coalesce');
+        }
+        else {
+            $choices['DROP'] = __('Drop');
+        }
+    }
+
+    return $choices;
+}
+
+/**
  * Get HTML snippet for partition maintenance
  *
  * @param array $partition_names array of partition names for a specific db/table
@@ -1279,8 +1308,11 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         'REPAIR' => __('Repair')
     );
 
+    $choices = PMA_addOptionToDropOrCoalescePartition($choices, $GLOBALS['db'], $GLOBALS['table']);
+
     $html_output = '<div class="operations_half_width">'
-        . '<form method="post" action="tbl_operations.php">'
+        . '<form id="partitionsForm" class="ajax" '
+        . 'method="post" action="tbl_operations.php" >'
         . PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<fieldset>'
         . '<legend>'
@@ -1587,8 +1619,13 @@ function PMA_getQueryAndResultForPartition()
     $sql_query = 'ALTER TABLE '
         . PMA_Util::backquote($GLOBALS['table']) . ' '
         . $_REQUEST['partition_operation']
-        . ' PARTITION '
-        . implode(', ', $_REQUEST['partition_name']) . ';';
+        . ' PARTITION ';
+
+        if($_REQUEST['partition_operation'] == 'COALESCE')
+            $sql_query .= count($_REQUEST['partition_name']);
+        else
+            $sql_query .= implode(', ', $_REQUEST['partition_name']) . ';';
+
     $result = $GLOBALS['dbi']->query($sql_query);
 
     return array($sql_query, $result);
