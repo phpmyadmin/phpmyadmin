@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-04-14 14:56+0200\n"
+"PO-Revision-Date: 2015-05-06 14:12+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-4/fr/"
-">\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -5957,7 +5957,6 @@ msgid "Page titles"
 msgstr "Titres de page"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -5967,8 +5966,8 @@ msgid ""
 "for magic strings that can be used to get special values."
 msgstr ""
 "Spécifier le texte de la barre de titre du navigateur. Se référer à la "
-"[doc@cfg_TitleTable]documentation[/doc] pour les chaînes magiques pouvant "
-"être utilisées."
+"[doc@faq6-27]documentation[/doc] pour les chaînes magiques pouvant être "
+"utilisées."
 
 #: libraries/config/messages.inc.php:255
 msgid "Query window"
@@ -6481,7 +6480,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Nombre minimum de bases de données pour activer le filtre"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6490,7 +6488,7 @@ msgid ""
 "the Databases and Tables tabs above)."
 msgstr ""
 "Regrouper les éléments dans l'arborescence de navigation (déterminé par le "
-"séparateur défini plus bas)."
+"séparateur défini dans les onglets Bases de données et Tables ci-dessus)."
 
 #: libraries/config/messages.inc.php:458
 msgid "Group items in the tree"
@@ -14999,24 +14997,24 @@ msgstr ""
 "MySQL."
 
 #: libraries/advisory_rules.txt:132
-#, fuzzy
 #| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid ""
 "Percona documentation is at http://www.percona.com/software/documentation/"
 msgstr ""
-"La documentation de Percona est disponible au http://www.percona.com/docs/"
-"wiki/"
+"La documentation de Percona est disponible au "
+"http://www.percona.com/software/documentation"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
 msgstr "Le mot «percona» a été trouvé dans version_comment"
 
 #: libraries/advisory_rules.txt:139
-#, fuzzy
 #| msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgid ""
 "Drizzle documentation is at http://www.drizzle.org/content/documentation/"
-msgstr "La documentation de Drizzle est disponible au http://docs.drizzle.org/"
+msgstr ""
+"La documentation de Drizzle est disponible au "
+"http://www.drizzle.org/content/documentation/"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -15837,7 +15835,6 @@ msgid "Too many connections are aborted."
 msgstr "Trop de connexions ont avorté."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -15848,8 +15845,8 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"C'est habituellement un problème d'authentification. <a href=\"http://www."
-"mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-"
+"C'est habituellement un problème d'authentification.<a href=\""
+"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">Cet article</a> peut vous aider à en trouver la cause."
 
 #: libraries/advisory_rules.txt:404
@@ -15975,7 +15972,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "La taille du journal InnoDB est trop grande."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -16000,11 +15997,11 @@ msgstr ""
 "Il suffit normalement de régler {innodb_log_file_size} à 25%% de "
 "{innodb_buffer_pool_size}. Si {innodb_log_file_size} est très grand, le "
 "temps de recouvrement en cas de panne de la base de données sera long. Voir "
-"aussi <a href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-"
-"proper-innodb_log_file_size/\">cet article</a>. Il vous faut fermer le "
-"serveur, enlever les journaux InnoDB, placer la nouvelle valeur dans my.cnf, "
-"démarrer le serveur, puis vérifier les journaux d'erreurs. Voir aussi <a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"aussi <a href=\"http://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">cet article</a>. Il vous faut fermer le serveur, "
+"enlever les journaux InnoDB, placer la nouvelle valeur dans my.cnf, démarrer "
+"le serveur, puis vérifier les journaux d'erreurs. Voir aussi <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">cet article de blogue.</a>"
 
 #: libraries/advisory_rules.txt:448
@@ -16021,7 +16018,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Votre mémoire-tampon InnoDB est petite."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -16052,9 +16049,9 @@ msgstr ""
 "disponible. Si ce n'est pas le cas, vérifiez soigneusement la consommation "
 "mémoire des autres services et des tables non-InnoDB et réglez ce paramètre "
 "en conséquence. Si sa valeur est trop grande, le système utilisera à "
-"utiliser le swap, ce qui réduit la performance. Voir aussi <a href=\"http://"
-"www.mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">cet article</a>"
+"utiliser le swap, ce qui réduit la performance. Voir aussi <a href=\""
+"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">"
+"cet article</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
