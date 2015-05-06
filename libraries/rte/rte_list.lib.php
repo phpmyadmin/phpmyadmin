@@ -143,7 +143,7 @@ function PMA_RTE_getList($type, $items)
         );
         $retval .= PMA_Util::getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_export',
-            __('Export'), 'b_tblexport.png', 'export'
+            __('Export'), 'b_export.png', 'export'
         );
         $retval .= PMA_Util::getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_drop',
