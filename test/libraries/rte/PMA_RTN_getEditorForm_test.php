@@ -75,7 +75,10 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
-        $this->assertTag($matcher, PMA_RTN_getParameterRow($data, $index), false);
+        $this->assertContains(
+            $matcher,
+            PMA_RTN_getParameterRow($data, $index)
+        );
     }
 
     /**
@@ -115,62 +118,27 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
             array(
                 $data,
                 0,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_param_dir[0]'
-                    )
-                )
+                "<select name='item_param_dir[0]'"
             ),
             array(
                 $data,
                 0,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_param_name[0]'
-                    )
-                )
+                "<input name='item_param_name[0]'"
             ),
             array(
                 $data,
                 0,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_param_type[0]'
-                    )
-                )
+                "<select name='item_param_type[0]'"
             ),
             array(
                 $data,
                 0,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_param_length[0]'
-                    )
-                )
+                "<select name='item_param_opts_num[0]'"
             ),
             array(
                 $data,
                 0,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_param_opts_num[0]'
-                    )
-                )
-            ),
-            array(
-                $data,
-                0,
-                array(
-                    'tag' => 'a',
-                    'attributes' => array(
-                        'class' => 'routine_param_remove_anchor'
-                    )
-                )
+                "<a href='#' class='routine_param_remove_anchor'"
             ),
         );
     }

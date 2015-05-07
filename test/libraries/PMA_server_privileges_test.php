@@ -2106,20 +2106,22 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($exp_found_rows, $actual[0]);
         $this->assertContains('Edit Privileges', $actual[1]);
         $this->assertContains('Revoke', $actual[1]);
-        $this->assertTag(PMA_getTagArray('<tr class="odd">'), $actual[1]);
-        $this->assertTag(
-            PMA_getTagArray('<dfn title="No privileges.">USAGE</dfn>'), $actual[1]
+        $this->assertContains(
+            '<tr class="odd">',
+            $actual[1]
         );
-        $this->assertTag(
-            PMA_getTagArray(
-                '<img src="imageb_usredit.png" title="Edit Privileges" '
-                . 'alt="Edit Privileges" />'
-            ), $actual[1]
+        $this->assertContains(
+            '<dfn title="No privileges.">USAGE</dfn>',
+            $actual[1]
         );
-        $this->assertTag(
-            PMA_getTagArray(
-                '<img src="imageb_usrdrop.png" title="Revoke" alt="Revoke" />'
-            ), $actual[1]
+        $this->assertContains(
+            '<img src="imageb_usredit.png" title="Edit Privileges" '
+                . 'alt="Edit Privileges" />',
+            $actual[1]
+        );
+        $this->assertContains(
+            '<img src="imageb_usrdrop.png" title="Revoke" alt="Revoke" />',
+            $actual[1]
         );
 
         // Test case 2
@@ -2146,19 +2148,17 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $actual = PMA_getHtmlForAllTableSpecificRights('pma', 'host', 'pmadb');
         $this->assertArrayHasKey(0, $actual);
         $this->assertArrayHasKey(1, $actual);
-        $this->assertTag(
-            PMA_getTagArray('<input type="hidden" name="username" value="pma" />'),
+        $this->assertContains(
+            '<input type="hidden" name="username" value="pma" />',
             $actual[0]
         );
-        $this->assertTag(
-            PMA_getTagArray('<input type="hidden" name="hostname" value="host" />'),
+        $this->assertContains(
+            '<input type="hidden" name="hostname" value="host" />',
             $actual[0]
         );
-        $this->assertTag(
-            PMA_getTagArray(
-                '<legend data-submenu-label="Table">',
-                array('content' => 'Table-specific privileges')
-            ),
+        $this->assertContains(
+            '<legend data-submenu-label="Table">'
+                . 'Table-specific privileges',
             $actual[0]
         );
         $this->assertEquals(array(), $actual[1]);
@@ -2167,11 +2167,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $actual = PMA_getHtmlForAllTableSpecificRights('pma2', 'host2', '');
         $this->assertArrayHasKey(0, $actual);
         $this->assertArrayHasKey(1, $actual);
-        $this->assertTag(
-            PMA_getTagArray(
-                '<legend data-submenu-label="Database">',
-                array('content' => 'Database-specific privileges')
-            ),
+        $this->assertContains(
+                '<legend data-submenu-label="Database">'
+                    . 'Database-specific privileges',
             $actual[0]
         );
     }
@@ -2190,33 +2188,27 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'mysql'
         );
         $actual = PMA_getHtmlForSelectDbInEditPrivs(array('pmadb'));
-        $this->assertTag(
-            PMA_getTagArray(
-                '<label for="text_dbname">',
-                array('content' => 'Add privileges on the following database(s):')
-            ),
+        $this->assertContains(
+            '<label for="text_dbname">'
+                . 'Add privileges on the following database(s):',
             $actual
         );
-        $this->assertTag(
-            PMA_getTagArray('<select name="pred_dbname[]" multiple="multiple">'),
+        $this->assertContains(
+            '<select name="pred_dbname[]" multiple="multiple">',
             $actual
         );
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="testdb">',
-                array('content' => 'testdb')
-            ),
+        $this->assertContains(
+            '<option value="testdb">'
+                . 'testdb',
             $actual
         );
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="mysql">',
-                array('content' => 'mysql')
-            ),
+        $this->assertContains(
+            '<option value="mysql">'
+                . 'mysql',
             $actual
         );
-        $this->assertTag(
-            PMA_getTagArray('<input type="text" id="text_dbname" name="dbname" />'),
+        $this->assertContains(
+            '<input type="text" id="text_dbname" name="dbname" />',
             $actual
         );
         $this->assertContains(
@@ -2238,35 +2230,28 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         // Test case 1
         $actual = PMA_displayTablesInEditPrivs('testdb', array());
-        $this->assertTag(
-            PMA_getTagArray('<input type="hidden" name="dbname" value="testdb"/>'),
+        $this->assertContains(
+            '<input type="hidden" name="dbname"',
             $actual
         );
-        $this->assertTag(
-            PMA_getTagArray(
-                '<label for="text_tablename">',
-                array('content' => 'Add privileges on the following table:')
-            ),
+        $this->assertContains(
+            '<label for="text_tablename">'
+                . 'Add privileges on the following table:',
             $actual
         );
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="text" id="text_tablename" name="tablename" />'
-            ),
+        $this->assertContains(
+            '<input type="text" id="text_tablename" name="tablename" />',
             $actual
         );
-        $this->assertTag(
-            PMA_getTagArray('<select name="pred_tablename" class="autosubmit">'),
+        $this->assertContains(
+            '<select name="pred_tablename" class="autosubmit">',
             $actual
         );
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="" selected="selected">',
-                array('content' => 'Use text field:')
-            ),
+        $this->assertContains(
+            '<option value="" selected="selected">'
+                . 'Use text field:',
             $actual
         );
-        // assertTag doesn't seems to work with content having escaped html chars
         $this->assertContains(
             '<option value="t&lt;bl">t&lt;bl</option>', $actual
         );
