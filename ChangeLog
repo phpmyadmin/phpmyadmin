@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.4.7.0 (not yet released)
+- bug #4876 Settings issues (Favorite tables shown twice in Settings)
 
 4.4.6.0 (2015-05-07)
 - bug #4890 webkitStorageInfo and webkitIndexedDB is deprecated
