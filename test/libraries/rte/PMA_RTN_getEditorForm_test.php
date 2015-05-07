@@ -75,7 +75,10 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
-        $this->assertTag($matcher, PMA_RTN_getParameterRow($data, $index), false);
+        $this->assertContains(
+            $matcher,
+            PMA_RTN_getParameterRow($data, $index)
+        );
     }
 
     /**
@@ -115,62 +118,27 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
             array(
                 $data,
                 0,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_param_dir[0]'
-                    )
-                )
+                "<select name='item_param_dir[0]'"
             ),
             array(
                 $data,
                 0,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_param_name[0]'
-                    )
-                )
+                "<input name='item_param_name[0]'"
             ),
             array(
                 $data,
                 0,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_param_type[0]'
-                    )
-                )
+                "<select name='item_param_type[0]'"
             ),
             array(
                 $data,
                 0,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_param_length[0]'
-                    )
-                )
+                "<select name='item_param_opts_num[0]'"
             ),
             array(
                 $data,
                 0,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_param_opts_num[0]'
-                    )
-                )
-            ),
-            array(
-                $data,
-                0,
-                array(
-                    'tag' => 'a',
-                    'attributes' => array(
-                        'class' => 'routine_param_remove_anchor'
-                    )
-                )
+                "<a href='#' class='routine_param_remove_anchor'"
             ),
         );
     }
@@ -190,7 +158,10 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
-        $this->assertTag($matcher, PMA_RTN_getParameterRow($data), false);
+        $this->assertContains(
+            $matcher,
+            PMA_RTN_getParameterRow($data)
+        );
     }
 
     /**
@@ -229,58 +200,24 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_param_dir[%s]'
-                    )
-                )
+                "<select name='item_param_dir[%s]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_param_name[%s]'
-                    )
-                )
+                "<input name='item_param_name[%s]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_param_type[%s]'
-                    )
-                )
+                "<select name='item_param_dir[%s]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_param_length[%s]'
-                    )
-                )
+                "<select name='item_param_opts_num[%s]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_param_opts_num[%s]'
-                    )
-                )
-            ),
-            array(
-                $data,
-                array(
-                    'tag' => 'a',
-                    'attributes' => array(
-                        'class' => 'routine_param_remove_anchor'
-                    )
-                )
-            ),
+                "<a href='#' class='routine_param_remove_anchor'"
+            )
         );
     }
 
@@ -299,7 +236,10 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
-        $this->assertTag($matcher, PMA_RTN_getEditorForm('add', '', $data), false);
+        $this->assertContains(
+            $matcher,
+            PMA_RTN_getEditorForm('add', '', $data)
+        );
     }
 
     /**
@@ -338,149 +278,68 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'add_item'
-                    )
-                )
+                "<input name='add_item'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_name'
-                    )
-                )
+                "<input type='text' name='item_name'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_type'
-                    )
-                )
+                "<input name='item_type'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'routine_changetype'
-                    )
-                )
-            ),
-
-            array(
-                $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'routine_addparameter'
-                    )
-                )
+                "name='routine_changetype'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'routine_removeparameter'
-                    )
-                )
+                "name='routine_addparameter'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_returntype'
-                    )
-                )
+                "name='routine_removeparameter'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_returnlength'
-                    )
-                )
+                "select name='item_returntype'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_returnopts_num'
-                    )
-                )
+                "name='item_returnlength'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'textarea',
-                    'attributes' => array(
-                        'name' => 'item_definition'
-                    )
-                )
+                "select name='item_returnopts_num'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_isdeterministic'
-                    )
-                )
+                "<textarea name='item_definition'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_definer'
-                    )
-                )
+                "name='item_isdeterministic'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_securitytype'
-                    )
-                )
+                "name='item_definer'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_sqldataaccess'
-                    )
-                )
+                "select name='item_securitytype'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_comment'
-                    )
-                )
+                "select name='item_sqldataaccess'"
             ),
-           array(
+            array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'editor_process_add'
-                    )
-                )
+                "name='item_comment'"
             ),
+            array(
+                $data,
+                "name='editor_process_add'"
+            )
 
         );
     }
@@ -500,8 +359,9 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
-        $this->assertTag(
-            $matcher, PMA_RTN_getEditorForm('edit', 'change', $data), false
+        $this->assertContains(
+            $matcher,
+            PMA_RTN_getEditorForm('edit', 'change', $data)
         );
     }
 
@@ -541,151 +401,68 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'edit_item'
-                    )
-                )
+                "name='edit_item'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_name'
-                    )
-                )
+                "name='item_name'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_type',
-                        'value' => 'FUNCTION'
-                    )
-                )
+                "<input name='item_type' type='hidden' value='FUNCTION'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'routine_changetype'
-                    )
-                )
-            ),
-
-            array(
-                $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'routine_addparameter'
-                    )
-                )
+                "name='routine_changetype'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'routine_removeparameter'
-                    )
-                )
+                "name='routine_addparameter'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_returntype'
-                    )
-                )
+                "name='routine_removeparameter'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_returnlength'
-                    )
-                )
+                "name='item_returntype'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_returnopts_num'
-                    )
-                )
+                "name='item_returnlength'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'textarea',
-                    'attributes' => array(
-                        'name' => 'item_definition'
-                    )
-                )
+                "name='item_returnopts_num'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_isdeterministic'
-                    )
-                )
+                "<textarea name='item_definition'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_definer'
-                    )
-                )
+                "name='item_isdeterministic'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_securitytype'
-                    )
-                )
+                "name='item_definer'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_sqldataaccess'
-                    )
-                )
+                "<select name='item_securitytype'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_comment'
-                    )
-                )
+                "<select name='item_sqldataaccess'"
             ),
-           array(
+            array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'editor_process_edit'
-                    )
-                )
+                "name='item_comment'"
             ),
-
+            array(
+                $data,
+                "name='editor_process_edit'"
+            )
         );
     }
 
@@ -704,10 +481,9 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = true;
         PMA_RTN_setGlobals();
-        $this->assertTag(
+        $this->assertContains(
             $matcher,
-            PMA_RTN_getEditorForm('edit', 'remove', $data),
-            false
+            PMA_RTN_getEditorForm('edit', 'remove', $data)
         );
     }
 
@@ -747,149 +523,68 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'edit_item'
-                    )
-                )
+                "name='edit_item'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_name'
-                    )
-                )
+                "name='item_name'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_type'
-                    )
-                )
+                "<select name='item_type'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'routine_addparameter'
-                    )
-                )
+                "name='routine_addparameter'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'routine_removeparameter'
-                    )
-                )
+                "name='routine_removeparameter'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_returntype'
-                    )
-                )
+                "<select name='item_returntype'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_returnlength'
-                    )
-                )
+                "name='item_returnlength'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_returnopts_num'
-                    )
-                )
+                "<select name='item_returnopts_num'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'textarea',
-                    'attributes' => array(
-                        'name' => 'item_definition'
-                    )
-                )
+                "<textarea name='item_definition'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_isdeterministic'
-                    )
-                )
+                "name='item_isdeterministic'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_definer'
-                    )
-                )
+                "name='item_definer'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_securitytype'
-                    )
-                )
+                "<select name='item_securitytype'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'item_sqldataaccess'
-                    )
-                )
+                "<select name='item_sqldataaccess'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_comment'
-                    )
-                )
+                "name='item_comment'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'ajax_request'
-                    )
-                )
+                "name='ajax_request'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'editor_process_edit'
-                    )
-                )
+                "name='editor_process_edit'"
             ),
-
         );
     }
 
@@ -908,10 +603,9 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
-        $this->assertTag(
+        $this->assertContains(
             $matcher,
-            PMA_RTN_getEditorForm('edit', 'change', $data),
-            false
+            PMA_RTN_getEditorForm('edit', 'change', $data)
         );
     }
 
@@ -951,13 +645,7 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_type',
-                        'value' => 'PROCEDURE'
-                    )
-                )
+                "<input name='item_type' type='hidden' value='PROCEDURE'"
             ),
         );
     }

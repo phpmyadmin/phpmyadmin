@@ -1,10 +1,10 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.4.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-03-30 08:55-0400\n"
-"PO-Revision-Date: 2015-03-30 18:31+0200\n"
+"POT-Creation-Date: 2015-05-05 15:46-0400\n"
+"PO-Revision-Date: 2015-05-06 16:56+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/hu/>\n"
@@ -66,11 +66,11 @@ msgstr "Tábla megjegyzések:"
 #: libraries/plugins/export/ExportTexytext.class.php:361
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:969
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:992
-#: libraries/tbl_columns_definition_form.lib.php:609
+#: libraries/tbl_columns_definition_form.lib.php:634
 #: libraries/tbl_indexes.lib.php:377 libraries/tbl_printview.lib.php:476
 #: libraries/tbl_relation.lib.php:231 libraries/tbl_relation.lib.php:342
-#: libraries/tbl_relation.lib.php:373 libraries/tbl_relation.lib.php:607
-#: libraries/tbl_relation.lib.php:617 libraries/tracking.lib.php:877
+#: libraries/tbl_relation.lib.php:373 libraries/tbl_relation.lib.php:609
+#: libraries/tbl_relation.lib.php:619 libraries/tracking.lib.php:877
 #: libraries/tracking.lib.php:966
 msgid "Column"
 msgstr "Oszlop"
@@ -93,7 +93,7 @@ msgstr "Oszlop"
 #: libraries/rte/rte_routines.lib.php:1627
 #: libraries/server_privileges.lib.php:2258 libraries/structure.lib.php:847
 #: libraries/structure.lib.php:1295
-#: libraries/tbl_columns_definition_form.lib.php:294
+#: libraries/tbl_columns_definition_form.lib.php:319
 #: libraries/tbl_printview.lib.php:477 libraries/tracking.lib.php:878
 #: libraries/tracking.lib.php:963
 msgid "Type"
@@ -112,7 +112,7 @@ msgstr "Típus"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:972
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:995
 #: libraries/structure.lib.php:1298
-#: libraries/tbl_columns_definition_form.lib.php:315
+#: libraries/tbl_columns_definition_form.lib.php:340
 #: libraries/tbl_printview.lib.php:478 libraries/tracking.lib.php:880
 #: libraries/tracking.lib.php:969
 msgid "Null"
@@ -130,7 +130,7 @@ msgstr "Nulla"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:996
 #: libraries/replication_gui.lib.php:147 libraries/structure.lib.php:223
 #: libraries/structure.lib.php:1299
-#: libraries/tbl_columns_definition_form.lib.php:306
+#: libraries/tbl_columns_definition_form.lib.php:331
 #: libraries/tbl_printview.lib.php:479 libraries/tracking.lib.php:881
 msgid "Default"
 msgstr "Alapértelmezett"
@@ -154,19 +154,19 @@ msgstr "Hivatkozás"
 #: libraries/plugins/export/ExportTexytext.class.php:369
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:986
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:999
-#: libraries/tbl_columns_definition_form.lib.php:325
+#: libraries/tbl_columns_definition_form.lib.php:350
 #: libraries/tbl_printview.lib.php:483
 msgid "Comments"
 msgstr "Megjegyzések"
 
 #: db_datadict.php:152 libraries/display_structure.inc.php:164
-#: libraries/structure.lib.php:1495 libraries/structure.lib.php:2216
-#: libraries/structure.lib.php:2226 libraries/tbl_printview.lib.php:110
+#: libraries/structure.lib.php:1495 libraries/structure.lib.php:2228
+#: libraries/structure.lib.php:2238 libraries/tbl_printview.lib.php:110
 #: libraries/tracking.lib.php:917
 msgid "Primary"
 msgstr "Elsődleges"
 
-#: db_datadict.php:157 js/messages.php:275 libraries/Index.class.php:519
+#: db_datadict.php:157 js/messages.php:282 libraries/Index.class.php:519
 #: libraries/Index.class.php:558 libraries/Index.class.php:970
 #: libraries/central_columns.lib.php:833
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.lib.php:423
@@ -189,7 +189,7 @@ msgstr "Elsődleges"
 msgid "No"
 msgstr "Nem"
 
-#: db_datadict.php:157 js/messages.php:399 libraries/Index.class.php:520
+#: db_datadict.php:157 js/messages.php:406 libraries/Index.class.php:520
 #: libraries/Index.class.php:557 libraries/Index.class.php:970
 #: libraries/central_columns.lib.php:833
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:79
@@ -212,7 +212,7 @@ msgstr "Nem"
 #: libraries/server_privileges.lib.php:2969
 #: libraries/server_privileges.lib.php:3308
 #: libraries/server_privileges.lib.php:3333 libraries/structure.lib.php:1386
-#: libraries/structure.lib.php:2795 libraries/tbl_printview.lib.php:118
+#: libraries/structure.lib.php:2807 libraries/tbl_printview.lib.php:118
 #: libraries/tracking.lib.php:924 libraries/tracking.lib.php:999
 #: libraries/tracking.lib.php:1004 libraries/user_preferences.lib.php:293
 #: prefs_manage.php:136
@@ -269,13 +269,13 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3030
 #: libraries/server_privileges.lib.php:3041
 #: libraries/server_privileges.lib.php:4131 libraries/structure.lib.php:825
-#: libraries/tbl_relation.lib.php:325 libraries/tbl_relation.lib.php:591
+#: libraries/tbl_relation.lib.php:325 libraries/tbl_relation.lib.php:593
 msgid "Table"
 msgstr "Tábla"
 
 #: db_printview.php:49 libraries/build_html_for_db.lib.php:33
 #: libraries/import.lib.php:193 libraries/structure.lib.php:836
-#: libraries/structure.lib.php:1843 libraries/structure.lib.php:2043
+#: libraries/structure.lib.php:1854 libraries/structure.lib.php:2055
 #: libraries/tbl_printview.lib.php:198
 msgid "Rows"
 msgstr "Sorok"
@@ -359,8 +359,8 @@ msgstr "Létrehozva"
 msgid "Updated"
 msgstr "Frissítve"
 
-#: db_tracking.php:129 js/messages.php:205 libraries/Menu.class.php:545
-#: libraries/Util.class.php:4135 libraries/rte/rte_events.lib.php:404
+#: db_tracking.php:129 js/messages.php:212 libraries/Menu.class.php:545
+#: libraries/Util.class.php:4141 libraries/rte/rte_events.lib.php:404
 #: libraries/rte/rte_list.lib.php:78
 #: libraries/server_status_processes.lib.php:93 libraries/tracking.lib.php:278
 msgid "Status"
@@ -487,23 +487,23 @@ msgid "Point:"
 msgstr "Pont:"
 
 #: gis_data_editor.php:214 gis_data_editor.php:241 gis_data_editor.php:297
-#: gis_data_editor.php:370 js/messages.php:387
+#: gis_data_editor.php:370 js/messages.php:394
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:217 gis_data_editor.php:245 gis_data_editor.php:301
-#: gis_data_editor.php:376 js/messages.php:388
+#: gis_data_editor.php:376 js/messages.php:395
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:239 gis_data_editor.php:295 gis_data_editor.php:368
-#: js/messages.php:390
+#: js/messages.php:397
 #, php-format
 msgid "Point %d"
 msgstr "%d. pont"
 
 #: gis_data_editor.php:252 gis_data_editor.php:308 gis_data_editor.php:386
-#: js/messages.php:396
+#: js/messages.php:403
 msgid "Add a point"
 msgstr "Pont hozzáadása"
 
@@ -525,7 +525,7 @@ msgstr "Belső gyűrű %d:"
 msgid "Add a linestring"
 msgstr "Új sorvég hozzáadása"
 
-#: gis_data_editor.php:312 gis_data_editor.php:391 js/messages.php:397
+#: gis_data_editor.php:312 gis_data_editor.php:391 js/messages.php:404
 msgid "Add an inner ring"
 msgstr "Belső gyűrű hozzáadása"
 
@@ -542,13 +542,13 @@ msgstr "Sokszög hozzáadása"
 msgid "Add geometry"
 msgstr "Geometria hozzáadása"
 
-#: gis_data_editor.php:409 js/messages.php:254
-#: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1684
+#: gis_data_editor.php:409 js/messages.php:261
+#: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1685
 #: libraries/TableSearch.class.php:1238 libraries/browse_foreigners.lib.php:54
 #: libraries/core.lib.php:610 libraries/display_change_password.lib.php:109
 #: libraries/display_create_table.lib.php:72
 #: libraries/display_export.lib.php:303 libraries/display_export.lib.php:309
-#: libraries/display_import.lib.php:369 libraries/index.lib.php:40
+#: libraries/display_import.lib.php:375 libraries/index.lib.php:40
 #: libraries/insert_edit.lib.php:1539 libraries/insert_edit.lib.php:1576
 #: libraries/normalization.lib.php:148 libraries/normalization.lib.php:785
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
@@ -570,7 +570,7 @@ msgstr "Geometria hozzáadása"
 #: libraries/server_privileges.lib.php:4376
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:339 libraries/sql_query_form.lib.php:398
-#: libraries/sql_query_form.lib.php:466 libraries/structure.lib.php:1717
+#: libraries/sql_query_form.lib.php:466 libraries/structure.lib.php:1728
 #: libraries/tbl_chart.lib.php:296
 #: libraries/tbl_columns_definition_form.lib.php:193
 #: libraries/tbl_indexes.lib.php:473 libraries/tracking.lib.php:532
@@ -595,7 +595,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "Sikerült"
 
-#: import.php:58 js/messages.php:453
+#: import.php:58 js/messages.php:460
 msgid "Failed"
 msgstr "Nem sikerült"
 
@@ -681,9 +681,6 @@ msgstr ""
 
 #: import.php:665
 #, php-format
-#| msgid ""
-#| "Script timeout passed, if you want to finish import, please resubmit same "
-#| "file and import will resume."
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
@@ -700,7 +697,7 @@ msgstr ""
 "jelenti, hogy a phpMyAdmin nem tudja befejezni ezt az importálást, ha Ön nem "
 "növeli meg a PHP időkorlátozását."
 
-#: import_status.php:97 js/messages.php:333 libraries/Util.class.php:735
+#: import_status.php:97 js/messages.php:340 libraries/Util.class.php:735
 #: libraries/export.lib.php:460
 #: libraries/plugins/schema/Export_Relation_Schema.class.php:294
 #: user_password.php:197
@@ -928,228 +925,228 @@ msgstr ""
 "A kiszolgáló Suhosinnal fut. Kérjük, hogy a lehetséges problémáknak nézzen "
 "utána a %sdokumentációban%s."
 
-#: js/messages.php:29 libraries/import.lib.php:125 sql.php:143
+#: js/messages.php:36 libraries/import.lib.php:125 sql.php:143
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "A \"DROP DATABASE\" utasítást letiltották."
 
-#: js/messages.php:35
+#: js/messages.php:42
 msgid "Confirm"
 msgstr "Megerősítés"
 
-#: js/messages.php:36
+#: js/messages.php:43
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Valóban végre szeretné hajtani: „%s”?"
 
-#: js/messages.php:37 libraries/mult_submits.lib.php:417
+#: js/messages.php:44 libraries/mult_submits.lib.php:417
 msgid "You are about to DESTROY a complete database!"
 msgstr "Ön a teljes adatbázis MEGSEMMISÍTÉSÉRE készül!"
 
-#: js/messages.php:38
+#: js/messages.php:45
 msgid "You are about to DESTROY a complete table!"
 msgstr "Ön a teljes tábla MEGSEMMISÍTÉSÉRE készül!"
 
-#: js/messages.php:39
+#: js/messages.php:46
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "Ön a teljes tábla KIÜRÍTÉSÉRE készül!"
 
-#: js/messages.php:40
+#: js/messages.php:47
 msgid "Delete tracking data for this table?"
 msgstr "Törli a tábla nyomkövetési adatait?"
 
-#: js/messages.php:41
+#: js/messages.php:48
 msgid "Delete tracking data for these tables?"
 msgstr "Törli a táblák nyomkövetési adatait?"
 
-#: js/messages.php:42
+#: js/messages.php:49
 msgid "Delete tracking data for this version?"
 msgstr "Törli a verzió nyomkövetési adatait?"
 
-#: js/messages.php:43
+#: js/messages.php:50
 msgid "Delete tracking data for these versions?"
 msgstr "Törli a verziók nyomkövetési adatait?"
 
-#: js/messages.php:44
+#: js/messages.php:51
 msgid "Delete entry from tracking report?"
 msgstr "Nyomkövetési bejegyzés törlése a jelentésből?"
 
-#: js/messages.php:45
+#: js/messages.php:52
 msgid "Deleting tracking data"
 msgstr "Nyomkövetési adatok törlése"
 
-#: js/messages.php:46
+#: js/messages.php:53
 msgid "Dropping Primary Key/Index"
 msgstr "Elsődleges kulcs/index törlése"
 
-#: js/messages.php:47
+#: js/messages.php:54
 msgid "Dropping Foreign key."
 msgstr "Idegen kulcs eldobása."
 
-#: js/messages.php:48
+#: js/messages.php:55
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Ez a művelet sokáig eltarthat. Mindenképp folytatja?"
 
-#: js/messages.php:49
+#: js/messages.php:56
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Valóban törölni szeretné a következő felhasználói csoportot: \"%s\"?"
 
-#: js/messages.php:50
+#: js/messages.php:57
 #, php-format
 msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Valóban törölni szeretné a következő keresést: „%s”?"
 
-#: js/messages.php:51
+#: js/messages.php:58
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
 "Mentetlen változtatásai vannak, biztosan el szeretné hagyni ezt az oldalt?"
 
-#: js/messages.php:52
+#: js/messages.php:59
 msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Valóban vissza szeretné vonni a kijelölt felhasználókat?"
 
-#: js/messages.php:53
+#: js/messages.php:60
 msgid "Do you really want to delete this central column?"
 msgstr "Valóban törölni szeretné ezt a központi oszlopot?"
 
-#: js/messages.php:56
+#: js/messages.php:63
 msgid "Save & Close"
 msgstr "Mentés és bezárás"
 
-#: js/messages.php:57 libraries/config/FormDisplay.tpl.php:395
+#: js/messages.php:64 libraries/config/FormDisplay.tpl.php:395
 #: libraries/insert_edit.lib.php:1543 prefs_manage.php:359
 #: prefs_manage.php:370
 msgid "Reset"
 msgstr "Visszaállítás"
 
-#: js/messages.php:58
+#: js/messages.php:65
 msgid "Reset All"
 msgstr "Összes visszaállítása"
 
-#: js/messages.php:61
+#: js/messages.php:68
 msgid "Missing value in the form!"
 msgstr "Érték hiányzik az űrlapban!"
 
-#: js/messages.php:62
+#: js/messages.php:69
 msgid "Select at least one of the options!"
 msgstr "Legalább egy lehetőséget válasszon ki!"
 
-#: js/messages.php:63
+#: js/messages.php:70
 msgid "Please enter a valid number!"
 msgstr "Adjon meg egy érvényes számot!"
 
-#: js/messages.php:64
+#: js/messages.php:71
 msgid "Please enter a valid length!"
 msgstr "Adjon meg egy érvényes hosszt!"
 
-#: js/messages.php:65
+#: js/messages.php:72
 msgid "Add Index"
 msgstr "Index hozzáadása"
 
-#: js/messages.php:66
+#: js/messages.php:73
 msgid "Edit Index"
 msgstr "Index szerkesztése"
 
-#: js/messages.php:67 libraries/tbl_indexes.lib.php:462
+#: js/messages.php:74 libraries/tbl_indexes.lib.php:462
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "%s oszlop hozzáadása az indexhez"
 
-#: js/messages.php:68
+#: js/messages.php:75
 msgid "Create single-column index"
 msgstr "Egyoszlopos index létrehozása"
 
-#: js/messages.php:69
+#: js/messages.php:76
 msgid "Create composite index"
 msgstr "Összetett index létrehozása"
 
-#: js/messages.php:70
+#: js/messages.php:77
 msgid "Composite with:"
 msgstr "Összetétel ezzel:"
 
-#: js/messages.php:71
+#: js/messages.php:78
 msgid "Please select column(s) for the index."
 msgstr "Válasszon oszlopokat az indexhez."
 
-#: js/messages.php:74 libraries/structure.lib.php:1678
+#: js/messages.php:81 libraries/structure.lib.php:1678
 msgid "You have to add at least one column."
 msgstr "Legalább egy oszlopot kell hozzáadnia."
 
-#: js/messages.php:77 libraries/insert_edit.lib.php:1541
+#: js/messages.php:84 libraries/insert_edit.lib.php:1541
 #: libraries/tbl_columns_definition_form.lib.php:159
-#: libraries/tbl_indexes.lib.php:472 libraries/tbl_relation.lib.php:651
+#: libraries/tbl_indexes.lib.php:472 libraries/tbl_relation.lib.php:653
 msgid "Preview SQL"
 msgstr "SQL előnézete"
 
-#: js/messages.php:80
+#: js/messages.php:87
 msgid "Simulate query"
 msgstr "Lekérdezés szimulálása"
 
-#: js/messages.php:81
+#: js/messages.php:88
 msgid "Matched rows:"
 msgstr "Illeszkedő sorok:"
 
-#: js/messages.php:82 libraries/Util.class.php:638 libraries/sql.lib.php:300
+#: js/messages.php:89 libraries/Util.class.php:638 libraries/sql.lib.php:300
 msgid "SQL query:"
 msgstr "SQL lekérdezés:"
 
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:86 libraries/tbl_chart.lib.php:215
+#: js/messages.php:93 libraries/tbl_chart.lib.php:215
 msgid "Y Values"
 msgstr "Y érték"
 
-#: js/messages.php:89
+#: js/messages.php:96
 msgid "The host name is empty!"
 msgstr "A gépnév üres!"
 
-#: js/messages.php:90
+#: js/messages.php:97
 msgid "The user name is empty!"
 msgstr "Üres a felhasználónév!"
 
-#: js/messages.php:91 libraries/server_privileges.lib.php:1774
+#: js/messages.php:98 libraries/server_privileges.lib.php:1774
 #: user_password.php:110
 msgid "The password is empty!"
 msgstr "Üres a jelszó mező!"
 
-#: js/messages.php:92 libraries/server_privileges.lib.php:1772
+#: js/messages.php:99 libraries/server_privileges.lib.php:1772
 #: user_password.php:113
 msgid "The passwords aren't the same!"
 msgstr "Nem egyeznek a jelszavak!"
 
-#: js/messages.php:93
+#: js/messages.php:100
 msgid "Removing Selected Users"
 msgstr "A kijelölt felhasználók törlése"
 
-#: js/messages.php:94 js/messages.php:149 libraries/tracking.lib.php:457
+#: js/messages.php:101 js/messages.php:156 libraries/tracking.lib.php:457
 #: libraries/tracking.lib.php:827
 msgid "Close"
 msgstr "Bezárás"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:97 libraries/ServerStatusData.class.php:205
+#: js/messages.php:104 libraries/ServerStatusData.class.php:205
 #: libraries/server_status_queries.lib.php:146
 msgid "Other"
 msgstr "Egyéb"
 
 #. l10n: Thousands separator
-#: js/messages.php:99 libraries/Util.class.php:1394
+#: js/messages.php:106 libraries/Util.class.php:1394
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:101 libraries/Util.class.php:1396
+#: js/messages.php:108 libraries/Util.class.php:1396
 msgid "."
 msgstr "."
 
-#: js/messages.php:103
+#: js/messages.php:110
 msgid "Connections / Processes"
 msgstr "Kapcsolatok / Folyamatok"
 
-#: js/messages.php:106
+#: js/messages.php:113
 msgid "Local monitor configuration incompatible!"
 msgstr "A helyi megfigyelés beállításai nem kompatibilisek!"
 
-#: js/messages.php:107
+#: js/messages.php:114
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -1161,205 +1158,205 @@ msgstr ""
 "nem működik többé. Állítsa vissza az alapértelmezést a <i>Beállítások</i> "
 "menüben."
 
-#: js/messages.php:109
+#: js/messages.php:116
 msgid "Query cache efficiency"
 msgstr "Lekérdezési gyorsítótár hatékonysága"
 
-#: js/messages.php:110
+#: js/messages.php:117
 msgid "Query cache usage"
 msgstr "Lekérdezési gyorsítótár használat"
 
-#: js/messages.php:111
+#: js/messages.php:118
 msgid "Query cache used"
 msgstr "Lekérdezési gyorsítótárat használatban"
 
-#: js/messages.php:113
+#: js/messages.php:120
 msgid "System CPU Usage"
 msgstr "Rendszer CPU használat"
 
-#: js/messages.php:114
+#: js/messages.php:121
 msgid "System memory"
 msgstr "Rendszermemória"
 
-#: js/messages.php:115
+#: js/messages.php:122
 msgid "System swap"
 msgstr "Rendszer lapozófájl"
 
-#: js/messages.php:117
+#: js/messages.php:124
 msgid "Average load"
 msgstr "Átlagos terhelés"
 
-#: js/messages.php:118
+#: js/messages.php:125
 msgid "Total memory"
 msgstr "Teljes memória"
 
-#: js/messages.php:119
+#: js/messages.php:126
 msgid "Cached memory"
 msgstr "Gyorsítótárazott memória"
 
-#: js/messages.php:120
+#: js/messages.php:127
 msgid "Buffered memory"
 msgstr "Puffer memória"
 
-#: js/messages.php:121
+#: js/messages.php:128
 msgid "Free memory"
 msgstr "Szabad memória"
 
-#: js/messages.php:122
+#: js/messages.php:129
 msgid "Used memory"
 msgstr "Használt memória"
 
-#: js/messages.php:124
+#: js/messages.php:131
 msgid "Total Swap"
 msgstr "Teljes lapozófájl"
 
-#: js/messages.php:125
+#: js/messages.php:132
 msgid "Cached Swap"
 msgstr "Gyorsítótárazott lapozófájl"
 
-#: js/messages.php:126
+#: js/messages.php:133
 msgid "Used Swap"
 msgstr "Használt lapozófájl"
 
-#: js/messages.php:127
+#: js/messages.php:134
 msgid "Free Swap"
 msgstr "Szabad lapozófájl"
 
-#: js/messages.php:129
+#: js/messages.php:136
 msgid "Bytes sent"
 msgstr "Elküldött bájtok"
 
-#: js/messages.php:130
+#: js/messages.php:137
 msgid "Bytes received"
 msgstr "Fogadott bájtok"
 
-#: js/messages.php:131 libraries/server_status.lib.php:225
+#: js/messages.php:138 libraries/server_status.lib.php:225
 msgid "Connections"
 msgstr "Kapcsolatok"
 
-#: js/messages.php:132 libraries/ServerStatusData.class.php:373
+#: js/messages.php:139 libraries/ServerStatusData.class.php:373
 #: libraries/server_status_processes.lib.php:151
 msgid "Processes"
 msgstr "Folyamatok"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:135 libraries/Util.class.php:1338
+#: js/messages.php:142 libraries/Util.class.php:1338
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:136 libraries/Util.class.php:1340
+#: js/messages.php:143 libraries/Util.class.php:1340
 #: libraries/server_status_monitor.lib.php:217
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:137 libraries/Util.class.php:1342
+#: js/messages.php:144 libraries/Util.class.php:1342
 #: libraries/display_export.lib.php:691
 #: libraries/server_status_monitor.lib.php:218
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:138 libraries/Util.class.php:1344
+#: js/messages.php:145 libraries/Util.class.php:1344
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:139 libraries/Util.class.php:1346
+#: js/messages.php:146 libraries/Util.class.php:1346
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:140 libraries/Util.class.php:1348
+#: js/messages.php:147 libraries/Util.class.php:1348
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:141 libraries/Util.class.php:1350
+#: js/messages.php:148 libraries/Util.class.php:1350
 msgid "EiB"
 msgstr "EiB"
 
-#: js/messages.php:142
+#: js/messages.php:149
 #, php-format
 msgid "%d table(s)"
 msgstr "%d tábla"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:145
+#: js/messages.php:152
 msgid "Questions"
 msgstr "Kérdések"
 
-#: js/messages.php:146 libraries/server_status.lib.php:134
+#: js/messages.php:153 libraries/server_status.lib.php:134
 msgid "Traffic"
 msgstr "Forgalom"
 
-#: js/messages.php:147 libraries/Menu.class.php:579
-#: libraries/Util.class.php:4139 libraries/server_status_monitor.lib.php:257
+#: js/messages.php:154 libraries/Menu.class.php:579
+#: libraries/Util.class.php:4145 libraries/server_status_monitor.lib.php:257
 msgid "Settings"
 msgstr "Beállítások"
 
-#: js/messages.php:148
+#: js/messages.php:155
 msgid "Add chart to grid"
 msgstr "Diagram hozzáadása"
 
-#: js/messages.php:150
+#: js/messages.php:157
 msgid "Please add at least one variable to the series!"
 msgstr "Legalább egy változót adjon meg a sorozathoz!"
 
-#: js/messages.php:151 libraries/DisplayResults.class.php:1371
+#: js/messages.php:158 libraries/DisplayResults.class.php:1372
 #: libraries/TableSearch.class.php:876 libraries/TableSearch.class.php:1045
-#: libraries/config.values.php:69 libraries/db_designer.lib.php:981
+#: libraries/config.values.php:69 libraries/db_designer.lib.php:986
 #: libraries/display_export.lib.php:587
 #: libraries/plugins/export/ExportSql.class.php:1899
 #: libraries/server_privileges.lib.php:2932
 #: libraries/server_status_monitor.lib.php:236
 #: libraries/server_status_processes.lib.php:301
-#: libraries/tbl_columns_definition_form.lib.php:760
+#: libraries/tbl_columns_definition_form.lib.php:785
 msgid "None"
 msgstr "Nincs"
 
-#: js/messages.php:152
+#: js/messages.php:159
 msgid "Resume monitor"
 msgstr "Megfigyelés visszakapcsolása"
 
-#: js/messages.php:153
+#: js/messages.php:160
 msgid "Pause monitor"
 msgstr "Megfigyelés megállítása"
 
-#: js/messages.php:154 libraries/server_status_processes.lib.php:37
+#: js/messages.php:161 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
 msgstr "Automatikus frissítés indítása"
 
-#: js/messages.php:155
+#: js/messages.php:162
 msgid "Stop auto refresh"
 msgstr "Automatikus frissítés leállítása"
 
-#: js/messages.php:157
+#: js/messages.php:164
 msgid "general_log and slow_query_log are enabled."
 msgstr "A general_log és a slow_query_log engedélyezve vannak."
 
-#: js/messages.php:158
+#: js/messages.php:165
 msgid "general_log is enabled."
 msgstr "A general_log engedélyezve van."
 
-#: js/messages.php:159
+#: js/messages.php:166
 msgid "slow_query_log is enabled."
 msgstr "A slow_query_log engedélyezve van."
 
-#: js/messages.php:160
+#: js/messages.php:167
 msgid "slow_query_log and general_log are disabled."
 msgstr "A slow_query_log és a general_log titlva vannak."
 
-#: js/messages.php:161
+#: js/messages.php:168
 msgid "log_output is not set to TABLE."
 msgstr "log_output nincs beállítva a TÁBLÁHOZ."
 
-#: js/messages.php:162
+#: js/messages.php:169
 msgid "log_output is set to TABLE."
 msgstr "log_output be van állítva a TÁBLÁHOZ."
 
-#: js/messages.php:163
+#: js/messages.php:170
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -1370,12 +1367,12 @@ msgstr ""
 "lekérdezéseket naplózza, amelyek %d másodpercnél hosszabb ideig tartanak. "
 "Ajánlott a long_query_time beállítása 0-2 másodpercre a rendszertől függően."
 
-#: js/messages.php:164
+#: js/messages.php:171
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "A long_query_time %d másodpercre van beállítva."
 
-#: js/messages.php:165
+#: js/messages.php:172
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -1384,30 +1381,30 @@ msgstr ""
 "alapértelmezettre a kiszolgáló újraindításakor:"
 
 #. l10n: %s is FILE or TABLE
-#: js/messages.php:167
+#: js/messages.php:174
 #, php-format
 msgid "Set log_output to %s"
 msgstr "A log_output beállítása ehhez: %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: js/messages.php:169
+#: js/messages.php:176
 #, php-format
 msgid "Enable %s"
 msgstr "%s engedélyezése"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: js/messages.php:171
+#: js/messages.php:178
 #, php-format
 msgid "Disable %s"
 msgstr "%s letiltása"
 
 #. l10n: %d seconds
-#: js/messages.php:173
+#: js/messages.php:180
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "A long_query_time beállítása %d másodpercre."
 
-#: js/messages.php:175
+#: js/messages.php:182
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -1416,58 +1413,58 @@ msgstr ""
 "rendszergazdaként vagy vegye fel a kapcsolatot az adatbázis "
 "adminisztrátorával."
 
-#: js/messages.php:178
+#: js/messages.php:185
 msgid "Change settings"
 msgstr "Beállítások megváltoztatása"
 
-#: js/messages.php:179
+#: js/messages.php:186
 msgid "Current settings"
 msgstr "Jelenlegi beállítások"
 
-#: js/messages.php:181 libraries/server_status_monitor.lib.php:174
+#: js/messages.php:188 libraries/server_status_monitor.lib.php:174
 msgid "Chart Title"
 msgstr "Diagramcím"
 
 #. l10n: As in differential values
-#: js/messages.php:183
+#: js/messages.php:190
 msgid "Differential"
 msgstr "Megkülönböztető"
 
-#: js/messages.php:184
+#: js/messages.php:191
 #, php-format
 msgid "Divided by %s"
 msgstr "Osztva %s -el"
 
-#: js/messages.php:185
+#: js/messages.php:192
 msgid "Unit"
 msgstr "Egység"
 
-#: js/messages.php:187
+#: js/messages.php:194
 msgid "From slow log"
 msgstr "a slow naplóból"
 
-#: js/messages.php:188
+#: js/messages.php:195
 msgid "From general log"
 msgstr "az általános naplóból"
 
-#: js/messages.php:190
+#: js/messages.php:197
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 "Az adatbázis neve nem ismert ennél a lekérdezésnél a kiszolgáló naplójában."
 
-#: js/messages.php:192
+#: js/messages.php:199
 msgid "Analysing logs"
 msgstr "Naplók elemzése"
 
-#: js/messages.php:193
+#: js/messages.php:200
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Elemzés és naplók betöltése. Ez eltarthat egy ideig."
 
-#: js/messages.php:194
+#: js/messages.php:201
 msgid "Cancel request"
 msgstr "Kérés elvetése"
 
-#: js/messages.php:195
+#: js/messages.php:202
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -1478,7 +1475,7 @@ msgstr ""
 "rendezési kritériumként, ezért a lekérdezések más tulajdonságai, mint "
 "például a lekérdezés kezdete, eltérőek lehetnek."
 
-#: js/messages.php:196
+#: js/messages.php:203
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -1488,31 +1485,31 @@ msgstr ""
 "történt INSERT lekérdezések is egy csoportba kerültek, tekintet nélkül a "
 "beszúrt adatokra."
 
-#: js/messages.php:197
+#: js/messages.php:204
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "A naplóadatok betöltve. Végrehajtott lekérdezések ebben az időszakban:"
 
-#: js/messages.php:199
+#: js/messages.php:206
 msgid "Jump to Log table"
 msgstr "Ugrás a naplótáblához"
 
-#: js/messages.php:200
+#: js/messages.php:207
 msgid "No data found"
 msgstr "Nincs adat"
 
-#: js/messages.php:201
+#: js/messages.php:208
 msgid "Log analysed, but no data found in this time span."
 msgstr "A napló megvizsgálva, de nincs adat az adott időszakban."
 
-#: js/messages.php:203
+#: js/messages.php:210
 msgid "Analyzing…"
 msgstr "Elemzés…"
 
-#: js/messages.php:204
+#: js/messages.php:211
 msgid "Explain output"
 msgstr "A kimenet magyarázata"
 
-#: js/messages.php:206 js/messages.php:705
+#: js/messages.php:213 js/messages.php:712
 #: libraries/plugins/export/ExportHtmlword.class.php:471
 #: libraries/plugins/export/ExportOdt.class.php:587
 #: libraries/plugins/export/ExportTexytext.class.php:426
@@ -1521,60 +1518,60 @@ msgstr "A kimenet magyarázata"
 msgid "Time"
 msgstr "Idő"
 
-#: js/messages.php:207
+#: js/messages.php:214
 msgid "Total time:"
 msgstr "Teljes idő:"
 
-#: js/messages.php:208
+#: js/messages.php:215
 msgid "Profiling results"
 msgstr "Eredmények elemzése"
 
-#: js/messages.php:209
+#: js/messages.php:216
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tábla"
 
-#: js/messages.php:210
+#: js/messages.php:217
 msgid "Chart"
 msgstr "Diagram"
 
 #. l10n: A collection of available filters
-#: js/messages.php:213
+#: js/messages.php:220
 msgid "Log table filter options"
 msgstr "Naplótábla szűrőbeállításai"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:215
+#: js/messages.php:222
 msgid "Filter"
 msgstr "Szűrő"
 
-#: js/messages.php:216
+#: js/messages.php:223
 msgid "Filter queries by word/regexp:"
 msgstr "Lekérdezések szűrése szó/reguláris kifejezés alapján:"
 
-#: js/messages.php:217
+#: js/messages.php:224
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 "Lekérdezések csoportosítása, változóadat figyelmen kívül hagyása a WHERE "
 "feltételben"
 
-#: js/messages.php:218
+#: js/messages.php:225
 msgid "Sum of grouped rows:"
 msgstr "A csoportosított sorok összege:"
 
-#: js/messages.php:219
+#: js/messages.php:226
 msgid "Total:"
 msgstr "Összesen:"
 
-#: js/messages.php:221
+#: js/messages.php:228
 msgid "Loading logs"
 msgstr "Naplók betöltése"
 
-#: js/messages.php:222
+#: js/messages.php:229
 msgid "Monitor refresh failed"
 msgstr "A megfigyelés frissítése sikertelen"
 
-#: js/messages.php:223
+#: js/messages.php:230
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -1584,281 +1581,280 @@ msgstr ""
 "Valószínűleg a munkamenet lejárt. Az oldal újratöltése, és a belépési adatok "
 "újbóli megadása segíthet."
 
-#: js/messages.php:224
+#: js/messages.php:231
 msgid "Reload page"
 msgstr "Oldal újratöltése"
 
-#: js/messages.php:226
+#: js/messages.php:233
 msgid "Affected rows:"
 msgstr "Érintett sorok:"
 
-#: js/messages.php:229
+#: js/messages.php:236
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "A beállítófájl feldolgozása nem sikerült. Nem tűnik érvényes JSON kódnak."
 
-#: js/messages.php:231
+#: js/messages.php:238
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "A grafikon felépítése az importált beállításokkal sikertelen. Eredet "
 "beállítások visszaállítása…"
 
-#: js/messages.php:232 libraries/Menu.class.php:344
+#: js/messages.php:239 libraries/Menu.class.php:344
 #: libraries/Menu.class.php:447 libraries/Menu.class.php:575
-#: libraries/Util.class.php:4138 libraries/Util.class.php:4153
-#: libraries/Util.class.php:4170 libraries/config/messages.inc.php:225
+#: libraries/Util.class.php:4144 libraries/Util.class.php:4159
+#: libraries/Util.class.php:4176 libraries/config/messages.inc.php:225
 #: libraries/display_import.lib.php:105
 #: libraries/server_status_monitor.lib.php:318 prefs_manage.php:236
 #: setup/frames/menu.inc.php:26
 msgid "Import"
 msgstr "Importálás"
 
-#: js/messages.php:233
+#: js/messages.php:240
 msgid "Import monitor configuration"
 msgstr "Megfigyelési beállítások importálása"
 
-#: js/messages.php:234
+#: js/messages.php:241
 msgid "Please select the file you want to import."
 msgstr "Válassza ki a fájlt, amelyet importálni szeretne."
 
-#: js/messages.php:235
+#: js/messages.php:242
 msgid "No files available on server for import!"
 msgstr "Nincs elérhető fájl a kiszolgálón az importáláshoz!"
 
-#: js/messages.php:237
+#: js/messages.php:244
 msgid "Analyse Query"
 msgstr "Lekérdezés elemzése"
 
-#: js/messages.php:241
+#: js/messages.php:248
 msgid "Advisor system"
 msgstr "Tanácsadó rendszer"
 
-#: js/messages.php:242
+#: js/messages.php:249
 msgid "Possible performance issues"
 msgstr "Lehetséges teljesítmény problémák"
 
-#: js/messages.php:243
+#: js/messages.php:250
 msgid "Issue"
 msgstr "Kiadás"
 
-#: js/messages.php:244
+#: js/messages.php:251
 msgid "Recommendation"
 msgstr "Javaslat"
 
-#: js/messages.php:245
+#: js/messages.php:252
 msgid "Rule details"
 msgstr "Szabály részletek"
 
-#: js/messages.php:246
+#: js/messages.php:253
 msgid "Justification"
 msgstr "Indoklás"
 
-#: js/messages.php:247
+#: js/messages.php:254
 msgid "Used variable / formula"
 msgstr "Használt változó / képlet"
 
-#: js/messages.php:248
+#: js/messages.php:255
 msgid "Test"
 msgstr "Teszt"
 
-#: js/messages.php:251
+#: js/messages.php:258
 msgid "Formatting SQL..."
 msgstr "SQL formázása…"
 
-#: js/messages.php:255 libraries/db_designer.lib.php:828
-#: libraries/db_designer.lib.php:877 libraries/db_designer.lib.php:1021
-#: libraries/db_designer.lib.php:1083 libraries/db_designer.lib.php:1172
-#: libraries/db_designer.lib.php:1241 libraries/db_designer.lib.php:1318
-#: libraries/db_designer.lib.php:1361 libraries/server_variables.lib.php:157
+#: js/messages.php:262 libraries/db_designer.lib.php:833
+#: libraries/db_designer.lib.php:882 libraries/db_designer.lib.php:1026
+#: libraries/db_designer.lib.php:1088 libraries/db_designer.lib.php:1177
+#: libraries/db_designer.lib.php:1246 libraries/db_designer.lib.php:1323
+#: libraries/db_designer.lib.php:1366 libraries/server_variables.lib.php:157
 msgid "Cancel"
 msgstr "Mégse"
 
-#: js/messages.php:258 libraries/navigation/NavigationHeader.class.php:57
+#: js/messages.php:265 libraries/navigation/NavigationHeader.class.php:57
 #: libraries/server_status_monitor.lib.php:123
 msgid "Loading…"
 msgstr "Betöltés…"
 
-#: js/messages.php:259
+#: js/messages.php:266
 msgid "Request Aborted!!"
 msgstr "Kérés megszakítva!"
 
-#: js/messages.php:260
+#: js/messages.php:267
 msgid "Processing Request"
 msgstr "Kérés feldolgozása"
 
-#: js/messages.php:261
-#| msgid "Request Aborted!!"
+#: js/messages.php:268
 msgid "Request Failed!!"
 msgstr "A kérés sikertelen!"
 
-#: js/messages.php:262
+#: js/messages.php:269
 msgid "Error in Processing Request"
 msgstr "Hiba a kérés feldolgozásában"
 
-#: js/messages.php:263
+#: js/messages.php:270
 #, php-format
 msgid "Error code: %s"
 msgstr "Hibakód: %s"
 
-#: js/messages.php:264
+#: js/messages.php:271
 #, php-format
 msgid "Error text: %s"
 msgstr "Hibaüzenet: %s"
 
-#: js/messages.php:265 libraries/db_common.inc.php:63
+#: js/messages.php:272 libraries/db_common.inc.php:63
 #: libraries/db_table_exists.lib.php:30 libraries/server_databases.lib.php:451
 msgid "No databases selected."
 msgstr "Nincs kiválasztott adatbázis."
 
-#: js/messages.php:266
+#: js/messages.php:273
 msgid "Dropping Column"
 msgstr "Oszlop törlése"
 
-#: js/messages.php:267
+#: js/messages.php:274
 msgid "Adding Primary Key"
 msgstr "Elsődleges kulcs hozzáadása"
 
-#: js/messages.php:268 libraries/db_designer.lib.php:825
-#: libraries/db_designer.lib.php:1019 libraries/db_designer.lib.php:1081
-#: libraries/db_designer.lib.php:1170 libraries/db_designer.lib.php:1239
-#: libraries/db_designer.lib.php:1316
+#: js/messages.php:275 libraries/db_designer.lib.php:830
+#: libraries/db_designer.lib.php:1024 libraries/db_designer.lib.php:1086
+#: libraries/db_designer.lib.php:1175 libraries/db_designer.lib.php:1244
+#: libraries/db_designer.lib.php:1321
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:269
+#: js/messages.php:276
 msgid "Click to dismiss this notification"
 msgstr "Kattintson az értesítés elutasításához"
 
-#: js/messages.php:272
+#: js/messages.php:279
 msgid "Renaming Databases"
 msgstr "Adatbázis(ok) átnevezése"
 
-#: js/messages.php:273
+#: js/messages.php:280
 msgid "Copying Database"
 msgstr "Adatbázis másolása"
 
-#: js/messages.php:274
+#: js/messages.php:281
 msgid "Changing Charset"
 msgstr "Karakterkészlet változtatása"
 
-#: js/messages.php:278 libraries/mult_submits.lib.php:432
+#: js/messages.php:285 libraries/mult_submits.lib.php:432
 msgid "Foreign key check:"
 msgstr "Idegen kulcs ellenőrzése:"
 
-#: js/messages.php:279 libraries/mult_submits.lib.php:445
+#: js/messages.php:286 libraries/mult_submits.lib.php:445
 msgid "(Enabled)"
 msgstr "(Engedélyezve)"
 
-#: js/messages.php:280 libraries/mult_submits.lib.php:445
+#: js/messages.php:287 libraries/mult_submits.lib.php:445
 msgid "(Disabled)"
 msgstr "(Letiltva)"
 
-#: js/messages.php:281
+#: js/messages.php:288
 msgid "Failed to get real row count."
 msgstr "A valódi sorok számának lekérése sikertelen."
 
-#: js/messages.php:284
+#: js/messages.php:291
 msgid "Searching"
 msgstr "Keresés"
 
-#: js/messages.php:285
+#: js/messages.php:292
 msgid "Hide search results"
 msgstr "Keresési eredmények elrejtése"
 
-#: js/messages.php:286
+#: js/messages.php:293
 msgid "Show search results"
 msgstr "Keresési eredmények megjelenítése"
 
-#: js/messages.php:287
+#: js/messages.php:294
 msgid "Browsing"
 msgstr "Böngészés"
 
-#: js/messages.php:288
+#: js/messages.php:295
 msgid "Deleting"
 msgstr "Törlés"
 
-#: js/messages.php:291
+#: js/messages.php:298
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 "A tárolt függvény meghatározásának tqartalmaznia kell VISSZATÉRÉSI utasítást!"
 
-#: js/messages.php:294 libraries/rte/rte_routines.lib.php:811
+#: js/messages.php:301 libraries/rte/rte_routines.lib.php:811
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET szerkesztő"
 
-#: js/messages.php:295
+#: js/messages.php:302
 #, php-format
 msgid "Values for column %s"
 msgstr "„%s” oszlop értékei"
 
-#: js/messages.php:296
+#: js/messages.php:303
 msgid "Values for a new column"
 msgstr "Az új oszlop értékei"
 
-#: js/messages.php:297
+#: js/messages.php:304
 msgid "Enter each value in a separate field."
 msgstr "Minden értéket külön mezőben adjon meg."
 
-#: js/messages.php:298
+#: js/messages.php:305
 #, php-format
 msgid "Add %d value(s)"
 msgstr "%d érték hozzáadása"
 
-#: js/messages.php:301
+#: js/messages.php:308
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Megjegyzés: Ha a fájl több táblát tartalmaz, akkor azok egyesítve lesznek."
 
-#: js/messages.php:304
+#: js/messages.php:311
 msgid "Hide query box"
 msgstr "SQL-lekérdezési panelek elrejtése"
 
-#: js/messages.php:305
+#: js/messages.php:312
 msgid "Show query box"
 msgstr "Lekérdezési doboz megjelenítése"
 
-#: js/messages.php:306 libraries/Console.class.php:96
-#: libraries/Console.class.php:179 libraries/DisplayResults.class.php:3295
-#: libraries/Index.class.php:675 libraries/Util.class.php:664
-#: libraries/Util.class.php:1189 libraries/Util.class.php:3423
-#: libraries/Util.class.php:3424 libraries/central_columns.lib.php:781
-#: libraries/config/messages.inc.php:761
+#: js/messages.php:313 libraries/Console.class.php:88
+#: libraries/Console.class.php:172 libraries/DisplayResults.class.php:3315
+#: libraries/DisplayResults.class.php:4729 libraries/Index.class.php:675
+#: libraries/Util.class.php:664 libraries/Util.class.php:1189
+#: libraries/Util.class.php:3429 libraries/Util.class.php:3430
+#: libraries/central_columns.lib.php:781 libraries/config/messages.inc.php:761
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:233 setup/frames/index.inc.php:179
 msgid "Edit"
 msgstr "Módosítás"
 
-#: js/messages.php:307 libraries/DisplayResults.class.php:825
-#: libraries/DisplayResults.class.php:833
+#: js/messages.php:314 libraries/DisplayResults.class.php:826
+#: libraries/DisplayResults.class.php:834
 #, php-format
 msgid "%d is not valid row number."
 msgstr "A(z) %d érvénytelen sorszám."
 
-#: js/messages.php:308 libraries/TableSearch.class.php:927
+#: js/messages.php:315 libraries/TableSearch.class.php:927
 #: libraries/TableSearch.class.php:1259 libraries/sql.lib.php:243
 #: tbl_change.php:153
 msgid "Browse foreign values"
 msgstr "Az idegen kulcsok böngészése"
 
-#: js/messages.php:309
+#: js/messages.php:316
 msgid "No auto-saved query"
 msgstr "Nincs automatikusan mentett lekérdezés"
 
-#: js/messages.php:312 libraries/normalization.lib.php:849
+#: js/messages.php:319 libraries/normalization.lib.php:849
 msgid "Pick"
 msgstr "Kiválasztás"
 
-#: js/messages.php:313
+#: js/messages.php:320
 msgid "Column selector"
 msgstr "Oszlopkiválasztó"
 
-#: js/messages.php:314
+#: js/messages.php:321
 msgid "Search this list"
 msgstr "Keresés a listában"
 
-#: js/messages.php:315
+#: js/messages.php:322
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -1868,15 +1864,15 @@ msgstr ""
 "adatbázis központi oszlopainak listája tartalmaz-e olyan oszlopokat, amelyek "
 "nincsenek a jelenlegi táblában."
 
-#: js/messages.php:316
+#: js/messages.php:323
 msgid "See more"
 msgstr "Több megtekintése"
 
-#: js/messages.php:317
+#: js/messages.php:324
 msgid "Are you sure?"
 msgstr "Biztos benne?"
 
-#: js/messages.php:318
+#: js/messages.php:325
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
@@ -1884,52 +1880,52 @@ msgstr ""
 "Ez a művelet megváltoztathatja néhány oszlop meghatározását.<br/>Biztosan "
 "folytatni szeretné?"
 
-#: js/messages.php:319
+#: js/messages.php:326
 msgid "Continue"
 msgstr "Folytatás"
 
-#: js/messages.php:322 libraries/structure.lib.php:2168
-#: libraries/structure.lib.php:2171
+#: js/messages.php:329 libraries/structure.lib.php:2180
+#: libraries/structure.lib.php:2183
 msgid "Add primary key"
 msgstr "Elsődleges kulcs hozzáadása"
 
-#: js/messages.php:323
+#: js/messages.php:330
 msgid "Primary key added."
 msgstr "Elsődleges kulcs hozzáadva."
 
-#: js/messages.php:324 libraries/normalization.lib.php:174
+#: js/messages.php:331 libraries/normalization.lib.php:174
 msgid "Taking you to next step…"
 msgstr "Átvitel a következő lépésre…"
 
-#: js/messages.php:325
+#: js/messages.php:332
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "A normalizálás első lépése befejeződött a következő táblánál: „%s”."
 
-#: js/messages.php:326 libraries/normalization.lib.php:422
+#: js/messages.php:333 libraries/normalization.lib.php:422
 #: libraries/normalization.lib.php:469 libraries/normalization.lib.php:552
 #: libraries/normalization.lib.php:612
 msgid "End of step"
 msgstr "Lépés vége"
 
-#: js/messages.php:327
+#: js/messages.php:334
 msgid "Second step of normalization (2NF)"
 msgstr "A normalizálás második lépése (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:328 js/messages.php:574 libraries/normalization.lib.php:264
+#: js/messages.php:335 js/messages.php:581 libraries/normalization.lib.php:264
 msgid "Done"
 msgstr "Kész"
 
-#: js/messages.php:329
+#: js/messages.php:336
 msgid "Confirm partial dependencies"
 msgstr "Részleges függőségek megerősítése"
 
-#: js/messages.php:330
+#: js/messages.php:337
 msgid "Selected partial dependencies are as follows:"
 msgstr "A kijelölt részleges függőségek a következők:"
 
-#: js/messages.php:331
+#: js/messages.php:338
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -1937,21 +1933,21 @@ msgstr ""
 "Megjegyzés: a, b -> d,f azt jelenti, hogy az „a” és „b” oszlopok értékei "
 "együtt meghatározzák a „d” és „f” oszlopok értékét."
 
-#: js/messages.php:332
+#: js/messages.php:339
 msgid "No partial dependencies selected!"
 msgstr "Nincsenek részleges függőségek kiválasztva!"
 
-#: js/messages.php:334
+#: js/messages.php:341
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "Mutassa meg a táblában lévő adatok alapján a lehetséges részleges "
 "függőségeket"
 
-#: js/messages.php:335
+#: js/messages.php:342
 msgid "Hide partial dependencies list"
 msgstr "Részleges függőségek listájának elrejtése"
 
-#: js/messages.php:336
+#: js/messages.php:343
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -1959,171 +1955,171 @@ msgstr ""
 "Maradjon ülve! Az adatok méretétől és a tábla oszlopszámától függően "
 "eltarthat néhány másodpercig."
 
-#: js/messages.php:337
+#: js/messages.php:344
 msgid "Step"
 msgstr "Lépés"
 
-#: js/messages.php:338
+#: js/messages.php:345
 msgid "The following actions will be performed:"
 msgstr "A következő műveletek lesznek végrehajtva:"
 
-#: js/messages.php:339
+#: js/messages.php:346
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "%s oszlopok ELDOBÁSA a következő táblából: %s"
 
-#: js/messages.php:340
+#: js/messages.php:347
 msgid "Create the following table"
 msgstr "A következő tábla létrehozása"
 
-#: js/messages.php:343
+#: js/messages.php:350
 msgid "Third step of normalization (3NF)"
 msgstr "A normalizálás harmadik lépése (3NF)"
 
-#: js/messages.php:344
+#: js/messages.php:351
 msgid "Confirm transitive dependencies"
 msgstr "Tranzitív függőségek megerősítése"
 
-#: js/messages.php:345
+#: js/messages.php:352
 msgid "Selected dependencies are as follows:"
 msgstr "A kijelölt függőségek a következők:"
 
-#: js/messages.php:346
+#: js/messages.php:353
 msgid "No dependencies selected!"
 msgstr "Nincsenek függőségek kiválasztva!"
 
-#: js/messages.php:349 libraries/insert_edit.lib.php:1452
+#: js/messages.php:356 libraries/insert_edit.lib.php:1452
 #: libraries/server_variables.lib.php:155
 #: libraries/tbl_columns_definition_form.lib.php:160
 #: libraries/tbl_gis_visualization.lib.php:238
-#: libraries/tbl_relation.lib.php:652 setup/frames/config.inc.php:42
+#: libraries/tbl_relation.lib.php:654 setup/frames/config.inc.php:42
 #: setup/frames/index.inc.php:279
 msgid "Save"
 msgstr "Mentés"
 
-#: js/messages.php:352
+#: js/messages.php:359
 msgid "Hide search criteria"
 msgstr "Keresési kritériumok elrejtése"
 
-#: js/messages.php:353
+#: js/messages.php:360
 msgid "Show search criteria"
 msgstr "Keresési kritériumok megjelenítése"
 
-#: js/messages.php:354
+#: js/messages.php:361
 msgid "Range search"
 msgstr "Tartomány keresés"
 
-#: js/messages.php:355
+#: js/messages.php:362
 msgid "Column maximum:"
 msgstr "Oszlop maximum:"
 
-#: js/messages.php:356
+#: js/messages.php:363
 msgid "Column minimum:"
 msgstr "Oszlop minimum:"
 
-#: js/messages.php:357
+#: js/messages.php:364
 msgid "Minimum value:"
 msgstr "Legkisebb érték:"
 
-#: js/messages.php:358
+#: js/messages.php:365
 msgid "Maximum value:"
 msgstr "Legnagyobb érték:"
 
-#: js/messages.php:361
+#: js/messages.php:368
 msgid "Hide find and replace criteria"
 msgstr "Keresési és csere kritériumok elrejtése"
 
-#: js/messages.php:362
+#: js/messages.php:369
 msgid "Show find and replace criteria"
 msgstr "Keresési és csere kritériumok megjelenítése"
 
-#: js/messages.php:366
+#: js/messages.php:373
 msgid "Each point represents a data row."
 msgstr "Minden pont egy adatsort ábrázol."
 
-#: js/messages.php:368
+#: js/messages.php:375
 msgid "Hovering over a point will show its label."
 msgstr "Egy pont fölé mutatás megjeleníti annak címkéjét."
 
-#: js/messages.php:370
+#: js/messages.php:377
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "A nagyításhoz jelöljön ki egy területet az egérrel."
 
-#: js/messages.php:372
+#: js/messages.php:379
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Kattints a nagyítás visszaállítása gombra, hogy visszatérj az eredeti "
 "állapotra."
 
-#: js/messages.php:374
+#: js/messages.php:381
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Kattintson az adat területére a megjelenítéshez és a rekord esetleges "
 "szerkesztéséhez."
 
-#: js/messages.php:376
+#: js/messages.php:383
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "A terület a jobb alsó sarok húzásával átméretezhető."
 
-#: js/messages.php:378
+#: js/messages.php:385
 msgid "Select two columns"
 msgstr "Válasszon két oszlopot"
 
-#: js/messages.php:380
+#: js/messages.php:387
 msgid "Select two different columns"
 msgstr "Válasszon két különböző oszlopot"
 
-#: js/messages.php:382
+#: js/messages.php:389
 msgid "Data point content"
 msgstr "Adatmutató tartalma"
 
-#: js/messages.php:385 js/messages.php:515 js/messages.php:531
+#: js/messages.php:392 js/messages.php:522 js/messages.php:538
 #: libraries/Error_Handler.class.php:348 libraries/insert_edit.lib.php:2561
 #: libraries/tbl_indexes.lib.php:396 libraries/tbl_indexes.lib.php:433
 msgid "Ignore"
 msgstr "Kihagyás"
 
-#: js/messages.php:386 libraries/DisplayResults.class.php:3298
+#: js/messages.php:393 libraries/DisplayResults.class.php:3318
 msgid "Copy"
 msgstr "Másolás"
 
-#: js/messages.php:389
+#: js/messages.php:396
 msgid "Point"
 msgstr "Pont"
 
-#: js/messages.php:391
+#: js/messages.php:398
 msgid "Linestring"
 msgstr "Karakterlánc"
 
-#: js/messages.php:392
+#: js/messages.php:399
 msgid "Polygon"
 msgstr "Sokszög"
 
-#: js/messages.php:393 libraries/DisplayResults.class.php:1667
+#: js/messages.php:400 libraries/DisplayResults.class.php:1668
 msgid "Geometry"
 msgstr "Geometria"
 
-#: js/messages.php:394
+#: js/messages.php:401
 msgid "Inner Ring"
 msgstr "Belső gyűrű"
 
-#: js/messages.php:395
+#: js/messages.php:402
 msgid "Outer Ring"
 msgstr "Külső gyűrű"
 
-#: js/messages.php:398
+#: js/messages.php:405
 msgid "Shift + Click on function name to apply to all rows."
 msgstr "Shift + kattintás a függvénynévre az összes sorra való alkalmazáshoz."
 
-#: js/messages.php:400
+#: js/messages.php:407
 msgid "Do you want to copy encryption key?"
 msgstr "Szeretné másolni a titkosítási kulcsot?"
 
-#: js/messages.php:401
+#: js/messages.php:408
 msgid "Encryption key"
 msgstr "Titkosítási kulcs"
 
-#: js/messages.php:405
+#: js/messages.php:412
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -2131,24 +2127,24 @@ msgstr ""
 "Azt jelzi, hogy módosításokat végzett ezen az oldalon; megerősítést fog "
 "kérni a módosítások elhagyása előtt"
 
-#: js/messages.php:410
+#: js/messages.php:417
 msgid "Select referenced key"
 msgstr "Válassza ki a hivatkozott kulcsot"
 
-#: js/messages.php:411
+#: js/messages.php:418
 msgid "Select Foreign Key"
 msgstr "Idegen kulcs kiválasztása"
 
-#: js/messages.php:412
+#: js/messages.php:419
 msgid "Please select the primary key or a unique key!"
 msgstr "Válassza ki az elsődleges kulcsot vagy egy egyedi kulcsot!"
 
-#: js/messages.php:413 libraries/db_designer.lib.php:329
-#: libraries/db_designer.lib.php:332
+#: js/messages.php:420 libraries/db_designer.lib.php:331
+#: libraries/db_designer.lib.php:334
 msgid "Choose column to display"
 msgstr "Válassza ki a megjelenítendő oszlopot"
 
-#: js/messages.php:415
+#: js/messages.php:422
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -2156,66 +2152,66 @@ msgstr ""
 "Nem mentette a változtatásokat az elrendezésben. Mentés nélkül ezek el "
 "fognak veszni. Így is folytatni szeretné?"
 
-#: js/messages.php:418
+#: js/messages.php:425
 msgid "Page name"
 msgstr "Oldal neve"
 
-#: js/messages.php:419
+#: js/messages.php:426
 msgid "Save page"
 msgstr "Oldal mentése"
 
-#: js/messages.php:420 libraries/db_designer.lib.php:281
-#: libraries/db_designer.lib.php:284
+#: js/messages.php:427 libraries/db_designer.lib.php:283
+#: libraries/db_designer.lib.php:286
 msgid "Open page"
 msgstr "Oldal megnyitása"
 
-#: js/messages.php:421
+#: js/messages.php:428
 msgid "Delete page"
 msgstr "Oldal törlése"
 
-#: js/messages.php:422 libraries/db_designer.lib.php:244
+#: js/messages.php:429 libraries/db_designer.lib.php:244
 msgid "Untitled"
 msgstr "Névtelen"
 
-#: js/messages.php:423
+#: js/messages.php:430
 msgid "Please select a page to continue"
 msgstr "Válasszon egy oldalt a folytatáshoz"
 
-#: js/messages.php:424
+#: js/messages.php:431
 msgid "Please enter a valid page name"
 msgstr "Adjon meg egy érvényes oszlopnevet"
 
-#: js/messages.php:425
+#: js/messages.php:432
 msgid "Do you want to save the changes to the current page?"
 msgstr "Szeretné menteni a jelenlegi oldal módosításait?"
 
-#: js/messages.php:426
+#: js/messages.php:433
 msgid "Successfully deleted the page"
 msgstr "Az oldal sikeresen törölve"
 
-#: js/messages.php:427
+#: js/messages.php:434
 msgid "Export relational schema"
 msgstr "Kapcsolati séma exportálása"
 
-#: js/messages.php:428
+#: js/messages.php:435
 msgid "Modifications have been saved"
 msgstr "A módosítások mentése megtörtént"
 
-#: js/messages.php:431
+#: js/messages.php:438
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "Lehetőség hozzáadása a következő oszlophoz: „%s”."
 
-#: js/messages.php:432
+#: js/messages.php:439
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d objektum létrehozva."
 
-#: js/messages.php:435
+#: js/messages.php:442
 msgid "Press escape to cancel editing."
 msgstr "Nyomja meg az Escape billentyűt a szerkesztés megszakításához."
 
-#: js/messages.php:436
+#: js/messages.php:443
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -2223,15 +2219,15 @@ msgstr ""
 "Egy vagy több adat szerkesztve lett de nem lett még elmentve. Biztos benne, "
 "hogy mentés nélkül kívánja elhagyni az oldalt?"
 
-#: js/messages.php:437
+#: js/messages.php:444
 msgid "Drag to reorder."
 msgstr "Húzza az elemeket az újrarendezéshez."
 
-#: js/messages.php:438
+#: js/messages.php:445
 msgid "Click to sort results by this column."
 msgstr "Kattintson az eredmények rendezéséhez ezen oszlop szerint."
 
-#: js/messages.php:439
+#: js/messages.php:446
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
@@ -2241,28 +2237,28 @@ msgstr ""
 "DESC váltogatása.<br />- Oszlop eltávolítása az ORDER BY kikötésből Ctrl"
 "+kattintás vagy Alt+kattintás (Mac: Shift+Option+kattintás) használatával"
 
-#: js/messages.php:440
+#: js/messages.php:447
 msgid "Click to mark/unmark."
 msgstr "Kattintson a kijelöléshez / kijelölés megszüntetéséhez."
 
-#: js/messages.php:441
+#: js/messages.php:448
 msgid "Double-click to copy column name."
 msgstr "Az oszlopnév másolásához kattintson duplán."
 
-#: js/messages.php:443
+#: js/messages.php:450
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 "Kattintson a legördülő nyílra<br />az oszlop láthatóságának ki/"
 "bekapcsolásához."
 
-#: js/messages.php:445 libraries/DisplayResults.class.php:929
-#: libraries/browse_foreigners.lib.php:253
-#: libraries/browse_foreigners.lib.php:306
+#: js/messages.php:452 libraries/DisplayResults.class.php:930
+#: libraries/browse_foreigners.lib.php:257
+#: libraries/browse_foreigners.lib.php:310
 #: libraries/server_privileges.lib.php:3478
 msgid "Show all"
 msgstr "Összes megjelenítése"
 
-#: js/messages.php:446
+#: js/messages.php:453
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -2271,13 +2267,13 @@ msgstr ""
 "rendelt funkciók mint Szerkesztés, Másolás és Törlés nem feltétlenül lesznek "
 "elérhetők mentés után."
 
-#: js/messages.php:447
+#: js/messages.php:454
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Adjon meg egy érvényes hexadecimális szöveget. Az érvényes karakterek: 0-9, "
 "A-F."
 
-#: js/messages.php:448
+#: js/messages.php:455
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -2285,126 +2281,126 @@ msgstr ""
 "Valóban meg szeretné nézni az összes sort? Egy nagy tábla esetén ez "
 "összeomlaszthatja a böngészőt."
 
-#: js/messages.php:451
+#: js/messages.php:458
 msgid "cancel"
 msgstr "mégse"
 
-#: js/messages.php:452 libraries/server_status.lib.php:269
+#: js/messages.php:459 libraries/server_status.lib.php:269
 msgid "Aborted"
 msgstr "Megszakítva"
 
-#: js/messages.php:454
+#: js/messages.php:461
 msgid "Success"
 msgstr "Sikerült"
 
-#: js/messages.php:455
+#: js/messages.php:462
 msgid "Import status"
 msgstr "Importálás állapota"
 
-#: js/messages.php:456 libraries/navigation/Navigation.class.php:107
+#: js/messages.php:463 libraries/navigation/Navigation.class.php:107
 msgid "Drop files here"
 msgstr "Ejtse ide a fájlokat"
 
-#: js/messages.php:457
+#: js/messages.php:464
 msgid "Select database first"
 msgstr "Először válasszon adatbázist"
 
-#: js/messages.php:462
+#: js/messages.php:469
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr "Az elemek nagy része szerkeszthetővé válik<br />dupla kattintással."
 
-#: js/messages.php:465
+#: js/messages.php:472
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "Az elem szerkeszthetővé <br />válik kattintással."
 
-#: js/messages.php:470
+#: js/messages.php:477
 msgid "Go to link:"
 msgstr "Ugrás a hivatkozáshoz:"
 
-#: js/messages.php:471
+#: js/messages.php:478
 msgid "Copy column name."
 msgstr "Oszlopnév másolása."
 
-#: js/messages.php:472
+#: js/messages.php:479
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "A vágólapra való másoláshoz kattintson jobb egérgombbal az oszlop nevére."
 
-#: js/messages.php:475
+#: js/messages.php:482
 msgid "Generate password"
 msgstr "Jelszó generálása"
 
-#: js/messages.php:476 libraries/replication_gui.lib.php:889
+#: js/messages.php:483 libraries/replication_gui.lib.php:889
 msgid "Generate"
 msgstr "Generálás"
 
-#: js/messages.php:477
+#: js/messages.php:484
 msgid "Change Password"
 msgstr "Jelszó megváltoztatása"
 
-#: js/messages.php:480
+#: js/messages.php:487
 msgid "More"
 msgstr "Több"
 
-#: js/messages.php:483
+#: js/messages.php:490
 msgid "Show Panel"
 msgstr "Panel megjelenítése"
 
-#: js/messages.php:484
+#: js/messages.php:491
 msgid "Hide Panel"
 msgstr "Panel elrejtése"
 
-#: js/messages.php:485
+#: js/messages.php:492
 msgid "Show hidden navigation tree items."
 msgstr "Rejtett navigációs faszerkezet elemeinek megjelenítése."
 
-#: js/messages.php:486 libraries/config/messages.inc.php:429
+#: js/messages.php:493 libraries/config/messages.inc.php:429
 #: libraries/navigation/NavigationTree.class.php:1335
 msgid "Link with main panel"
 msgstr "Hozzákapcsolás a fő panelhez"
 
-#: js/messages.php:487 libraries/navigation/NavigationTree.class.php:1338
+#: js/messages.php:494 libraries/navigation/NavigationTree.class.php:1338
 msgid "Unlink from main panel"
 msgstr "Eltávolítás a fő panelről"
 
-#: js/messages.php:488
+#: js/messages.php:495
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
 "A kiszolgálón lévő összes adatbázis szűréséhez nyomja meg azt Entert a "
 "keresési kifejezés után"
 
-#: js/messages.php:489
+#: js/messages.php:496
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 "Az adatbázisban lévő összes %s szűréséhez nyomja meg azt Entert a keresési "
 "kifejezés után"
 
-#: js/messages.php:490
+#: js/messages.php:497
 msgid "tables"
 msgstr "táblák"
 
-#: js/messages.php:491
+#: js/messages.php:498
 msgid "views"
 msgstr "nézetek"
 
-#: js/messages.php:492
+#: js/messages.php:499
 msgid "procedures"
 msgstr "eljárások"
 
-#: js/messages.php:493
+#: js/messages.php:500
 msgid "events"
 msgstr "események"
 
-#: js/messages.php:494
+#: js/messages.php:501
 msgid "functions"
 msgstr "függvények"
 
-#: js/messages.php:497
+#: js/messages.php:504
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "A kért oldal nem található az Előzményekben, talán már lejárt."
 
-#: js/messages.php:500 setup/lib/index.lib.php:160
+#: js/messages.php:507 setup/lib/index.lib.php:160
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2414,42 +2410,42 @@ msgstr ""
 "%s, kiadás dátuma: %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:502
+#: js/messages.php:509
 msgid ", latest stable version:"
 msgstr ", utolsó stabil verzió:"
 
-#: js/messages.php:503
+#: js/messages.php:510
 msgid "up to date"
 msgstr "friss"
 
-#: js/messages.php:505 libraries/DisplayResults.class.php:4824
+#: js/messages.php:512 libraries/DisplayResults.class.php:4844
 #: view_create.php:182
 msgid "Create view"
 msgstr "Nézet létrehozása"
 
-#: js/messages.php:508
+#: js/messages.php:515
 msgid "Send Error Report"
 msgstr "Hibajelentés küldése"
 
-#: js/messages.php:509
+#: js/messages.php:516
 msgid "Submit Error Report"
 msgstr "Hibajelentés beküldése"
 
-#: js/messages.php:511
+#: js/messages.php:518
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "Végzetes JavaScript hiba történt. Szeretne hibajelentést küldeni?"
 
-#: js/messages.php:513
+#: js/messages.php:520
 msgid "Change Report Settings"
 msgstr "Jelentés beállítások megváltoztatása"
 
-#: js/messages.php:514
+#: js/messages.php:521
 msgid "Show Report Details"
 msgstr "Jelentés részleteinek megjelenítése"
 
-#: js/messages.php:517
+#: js/messages.php:524
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -2457,7 +2453,7 @@ msgstr ""
 "Az exportálás nem teljes a PHP szinten lévő alacsony végrehajtási időkorlát "
 "miatt!"
 
-#: js/messages.php:521
+#: js/messages.php:528
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2467,33 +2463,33 @@ msgstr ""
 "Elküldéskor a mezők egy része mellőzve lehet a PHP max_input_vars beállítása "
 "miatt."
 
-#: js/messages.php:527 js/messages.php:539
+#: js/messages.php:534 js/messages.php:546
 msgid "Some errors have been detected on the server!"
 msgstr "Hibák észlelhetők a kiszolgálón!"
 
-#: js/messages.php:529
+#: js/messages.php:536
 msgid "Please look at the bottom of this window."
 msgstr "Nézze meg ennek az ablaknak az alját."
 
-#: js/messages.php:534 libraries/Error_Handler.class.php:353
+#: js/messages.php:541 libraries/Error_Handler.class.php:353
 msgid "Ignore All"
 msgstr "Összes mellőzése"
 
-#: js/messages.php:541
+#: js/messages.php:548
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "A beállítások szerint jelenleg elküldés alatt vannak, legyen türelemmel."
 
-#: js/messages.php:548
+#: js/messages.php:555
 msgid "Execute this query again?"
 msgstr "Végrehajtja ismét ezt a lekérdezést?"
 
-#: js/messages.php:549
+#: js/messages.php:556
 msgid "Do you really want to delete this bookmark?"
 msgstr "Valóban törölni szeretné ezt a könyvjelzőt?"
 
-#: js/messages.php:550
+#: js/messages.php:557
 msgid ""
 "Your web browser does not support local storage of settings or the quota "
 "limit has been reached, some features may not work properly for you. In "
@@ -2504,255 +2500,255 @@ msgstr ""
 "működni. Safari böngészőben a „Privát módú böngészés” okoz gyakran ilyen "
 "problémát."
 
-#: js/messages.php:578
+#: js/messages.php:585
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Előző"
 
-#: js/messages.php:583
+#: js/messages.php:590
 msgctxt "Next month"
 msgid "Next"
 msgstr "Következő"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:586
+#: js/messages.php:593
 msgid "Today"
 msgstr "Ma"
 
-#: js/messages.php:590
+#: js/messages.php:597
 msgid "January"
 msgstr "Január"
 
-#: js/messages.php:591
+#: js/messages.php:598
 msgid "February"
 msgstr "Február"
 
-#: js/messages.php:592
+#: js/messages.php:599
 msgid "March"
 msgstr "Március"
 
-#: js/messages.php:593
+#: js/messages.php:600
 msgid "April"
 msgstr "Április"
 
-#: js/messages.php:594
+#: js/messages.php:601
 msgid "May"
 msgstr "Május"
 
-#: js/messages.php:595
+#: js/messages.php:602
 msgid "June"
 msgstr "Június"
 
-#: js/messages.php:596
+#: js/messages.php:603
 msgid "July"
 msgstr "Július"
 
-#: js/messages.php:597
+#: js/messages.php:604
 msgid "August"
 msgstr "Augusztus"
 
-#: js/messages.php:598
+#: js/messages.php:605
 msgid "September"
 msgstr "Szeptember"
 
-#: js/messages.php:599
+#: js/messages.php:606
 msgid "October"
 msgstr "Október"
 
-#: js/messages.php:600
+#: js/messages.php:607
 msgid "November"
 msgstr "November"
 
-#: js/messages.php:601
+#: js/messages.php:608
 msgid "December"
 msgstr "December"
 
 #. l10n: Short month name
-#: js/messages.php:608 libraries/Util.class.php:1554
+#: js/messages.php:615 libraries/Util.class.php:1554
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:610 libraries/Util.class.php:1556
+#: js/messages.php:617 libraries/Util.class.php:1556
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:612 libraries/Util.class.php:1558
+#: js/messages.php:619 libraries/Util.class.php:1558
 msgid "Mar"
 msgstr "Már"
 
 #. l10n: Short month name
-#: js/messages.php:614 libraries/Util.class.php:1560
+#: js/messages.php:621 libraries/Util.class.php:1560
 msgid "Apr"
 msgstr "Ápr"
 
 #. l10n: Short month name
-#: js/messages.php:616 libraries/Util.class.php:1562
+#: js/messages.php:623 libraries/Util.class.php:1562
 msgctxt "Short month name"
 msgid "May"
 msgstr "Máj"
 
 #. l10n: Short month name
-#: js/messages.php:618 libraries/Util.class.php:1564
+#: js/messages.php:625 libraries/Util.class.php:1564
 msgid "Jun"
 msgstr "Jún"
 
 #. l10n: Short month name
-#: js/messages.php:620 libraries/Util.class.php:1566
+#: js/messages.php:627 libraries/Util.class.php:1566
 msgid "Jul"
 msgstr "Júl"
 
 #. l10n: Short month name
-#: js/messages.php:622 libraries/Util.class.php:1568
+#: js/messages.php:629 libraries/Util.class.php:1568
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:624 libraries/Util.class.php:1570
+#: js/messages.php:631 libraries/Util.class.php:1570
 msgid "Sep"
 msgstr "Sze"
 
 #. l10n: Short month name
-#: js/messages.php:626 libraries/Util.class.php:1572
+#: js/messages.php:633 libraries/Util.class.php:1572
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:628 libraries/Util.class.php:1574
+#: js/messages.php:635 libraries/Util.class.php:1574
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:630 libraries/Util.class.php:1576
+#: js/messages.php:637 libraries/Util.class.php:1576
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:636
+#: js/messages.php:643
 msgid "Sunday"
 msgstr "Vasárnap"
 
-#: js/messages.php:637
+#: js/messages.php:644
 msgid "Monday"
 msgstr "Hétfő"
 
-#: js/messages.php:638
+#: js/messages.php:645
 msgid "Tuesday"
 msgstr "Kedd"
 
-#: js/messages.php:639
+#: js/messages.php:646
 msgid "Wednesday"
 msgstr "Szerda"
 
-#: js/messages.php:640
+#: js/messages.php:647
 msgid "Thursday"
 msgstr "Csütörtök"
 
-#: js/messages.php:641
+#: js/messages.php:648
 msgid "Friday"
 msgstr "Péntek"
 
-#: js/messages.php:642
+#: js/messages.php:649
 msgid "Saturday"
 msgstr "Szombat"
 
 #. l10n: Short week day name
-#: js/messages.php:649
+#: js/messages.php:656
 msgid "Sun"
 msgstr "Vas"
 
 #. l10n: Short week day name
-#: js/messages.php:651 libraries/Util.class.php:1581
+#: js/messages.php:658 libraries/Util.class.php:1581
 msgid "Mon"
 msgstr "Hét"
 
 #. l10n: Short week day name
-#: js/messages.php:653 libraries/Util.class.php:1583
+#: js/messages.php:660 libraries/Util.class.php:1583
 msgid "Tue"
 msgstr "Ked"
 
 #. l10n: Short week day name
-#: js/messages.php:655 libraries/Util.class.php:1585
+#: js/messages.php:662 libraries/Util.class.php:1585
 msgid "Wed"
 msgstr "Sze"
 
 #. l10n: Short week day name
-#: js/messages.php:657 libraries/Util.class.php:1587
+#: js/messages.php:664 libraries/Util.class.php:1587
 msgid "Thu"
 msgstr "Csü"
 
 #. l10n: Short week day name
-#: js/messages.php:659 libraries/Util.class.php:1589
+#: js/messages.php:666 libraries/Util.class.php:1589
 msgid "Fri"
 msgstr "Pén"
 
 #. l10n: Short week day name
-#: js/messages.php:661 libraries/Util.class.php:1591
+#: js/messages.php:668 libraries/Util.class.php:1591
 msgid "Sat"
 msgstr "Szo"
 
 #. l10n: Minimal week day name
-#: js/messages.php:668
+#: js/messages.php:675
 msgid "Su"
 msgstr "Va"
 
 #. l10n: Minimal week day name
-#: js/messages.php:670
+#: js/messages.php:677
 msgid "Mo"
 msgstr "Hé"
 
 #. l10n: Minimal week day name
-#: js/messages.php:672
+#: js/messages.php:679
 msgid "Tu"
 msgstr "Ke"
 
 #. l10n: Minimal week day name
-#: js/messages.php:674
+#: js/messages.php:681
 msgid "We"
 msgstr "Sze"
 
 #. l10n: Minimal week day name
-#: js/messages.php:676
+#: js/messages.php:683
 msgid "Th"
 msgstr "Cs"
 
 #. l10n: Minimal week day name
-#: js/messages.php:678
+#: js/messages.php:685
 msgid "Fr"
 msgstr "Pé"
 
 #. l10n: Minimal week day name
-#: js/messages.php:680
+#: js/messages.php:687
 msgid "Sa"
 msgstr "Szo"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:684
+#: js/messages.php:691
 msgid "Wk"
 msgstr "Hét"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:691
+#: js/messages.php:698
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:694
+#: js/messages.php:701
 msgctxt "Year suffix"
 msgid "none"
 msgstr "nincs"
 
-#: js/messages.php:706
+#: js/messages.php:713
 msgid "Hour"
 msgstr "Óra"
 
-#: js/messages.php:707
+#: js/messages.php:714
 msgid "Minute"
 msgstr "Perc"
 
-#: js/messages.php:708
+#: js/messages.php:715
 msgid "Second"
 msgstr "másodperc"
 
@@ -2837,29 +2833,29 @@ msgstr "A konfigurációs fájl helytelen írási engedéllyel rendelkezik!"
 msgid "Font size"
 msgstr "Betűméret"
 
-#: libraries/Console.class.php:93 libraries/Console.class.php:175
+#: libraries/Console.class.php:85 libraries/Console.class.php:168
 msgid "Collapse"
 msgstr "Összecsukás"
 
-#: libraries/Console.class.php:94 libraries/Console.class.php:177
+#: libraries/Console.class.php:86 libraries/Console.class.php:170
 msgid "Expand"
 msgstr "Kinyitás"
 
-#: libraries/Console.class.php:95 libraries/Console.class.php:178
+#: libraries/Console.class.php:87 libraries/Console.class.php:171
 msgid "Requery"
 msgstr "Újra lekérdezés"
 
-#: libraries/Console.class.php:97 libraries/DbSearch.class.php:365
-#: libraries/DisplayResults.class.php:3366
-#: libraries/DisplayResults.class.php:4693
-#: libraries/central_columns.lib.php:783 libraries/db_designer.lib.php:875
+#: libraries/Console.class.php:89 libraries/DbSearch.class.php:365
+#: libraries/DisplayResults.class.php:3386
+#: libraries/DisplayResults.class.php:4713
+#: libraries/central_columns.lib.php:783 libraries/db_designer.lib.php:880
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:390 libraries/tracking.lib.php:476
 #: setup/frames/index.inc.php:183 setup/frames/index.inc.php:291
 msgid "Delete"
 msgstr "Törlés"
 
-#: libraries/Console.class.php:99 libraries/Console.class.php:185
+#: libraries/Console.class.php:91 libraries/Console.class.php:178
 #: libraries/Menu.class.php:214 libraries/config/messages.inc.php:776
 #: libraries/plugins/export/ExportHtmlword.class.php:149
 #: libraries/plugins/export/ExportOdt.class.php:193
@@ -2871,75 +2867,75 @@ msgstr "Törlés"
 #: libraries/server_privileges.lib.php:3041
 #: libraries/server_privileges.lib.php:4117
 #: libraries/server_status_processes.lib.php:81
-#: libraries/tbl_relation.lib.php:302 libraries/tbl_relation.lib.php:539
+#: libraries/tbl_relation.lib.php:302 libraries/tbl_relation.lib.php:541
 msgid "Database"
 msgstr "Adatbázis"
 
-#: libraries/Console.class.php:108
+#: libraries/Console.class.php:100
 #, php-format
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
 msgstr[0] "Összesen %d könyvjelző"
 msgstr[1] "Összesen %d könyvjelző"
 
-#: libraries/Console.class.php:116
+#: libraries/Console.class.php:108
 msgid "private"
 msgstr "személyes"
 
-#: libraries/Console.class.php:120 libraries/bookmark.lib.php:87
+#: libraries/Console.class.php:112 libraries/bookmark.lib.php:87
 msgid "shared"
 msgstr "megosztott"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
-#: libraries/Console.class.php:124
+#: libraries/Console.class.php:116
 #, php-format
 msgid "%1$s, %2$s and %3$s bookmarks included"
 msgstr "%1$s, %2$s és %3$s könyvjelzők felvéve"
 
-#: libraries/Console.class.php:130
+#: libraries/Console.class.php:122
 msgid "No bookmarks"
 msgstr "Nincsenek könyvjelzők"
 
-#: libraries/Console.class.php:180
+#: libraries/Console.class.php:173
 msgid "Explain"
 msgstr "Magyarázat"
 
-#: libraries/Console.class.php:181 libraries/Util.class.php:1262
+#: libraries/Console.class.php:174 libraries/Util.class.php:1262
 #: libraries/sql.lib.php:333
 msgid "Profiling"
 msgstr "Adatgyűjtés"
 
-#: libraries/Console.class.php:183
+#: libraries/Console.class.php:176
 msgid "Bookmark"
 msgstr "Könyvjelző"
 
-#: libraries/Console.class.php:184
+#: libraries/Console.class.php:177
 msgid "Query failed"
 msgstr "Lekérdezés sikertelen"
 
-#: libraries/Console.class.php:188
+#: libraries/Console.class.php:181
 msgid "Queried time"
 msgstr "Lekérdezés ideje"
 
-#: libraries/Console.class.php:195
+#: libraries/Console.class.php:188
 msgid "SQL Query Console"
 msgstr "SQL lekérdezés konzol"
 
-#: libraries/Console.class.php:196
+#: libraries/Console.class.php:189
 msgid "Console"
 msgstr "Konzol"
 
-#: libraries/Console.class.php:199 libraries/sql_query_form.lib.php:234
+#: libraries/Console.class.php:192 libraries/sql_query_form.lib.php:234
 #: setup/frames/index.inc.php:298
 msgid "Clear"
 msgstr "Törlés"
 
-#: libraries/Console.class.php:202
+#: libraries/Console.class.php:195
 msgid "History"
 msgstr "Előzmények"
 
-#: libraries/Console.class.php:205 libraries/Console.class.php:300
-#: libraries/DisplayResults.class.php:1603 libraries/TableSearch.class.php:788
+#: libraries/Console.class.php:198 libraries/Console.class.php:293
+#: libraries/DisplayResults.class.php:1604 libraries/TableSearch.class.php:788
 #: libraries/import.lib.php:1261 libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
@@ -2960,71 +2956,71 @@ msgstr "Előzmények"
 #: libraries/plugins/import/ImportMediawiki.class.php:60
 #: libraries/plugins/import/ImportOds.class.php:59
 #: libraries/plugins/import/ImportShp.class.php:57
-#: libraries/plugins/import/ImportSql.class.php:146
+#: libraries/plugins/import/ImportSql.class.php:148
 #: libraries/plugins/import/ImportXml.class.php:58
-#: libraries/rte/rte_routines.lib.php:992 libraries/structure.lib.php:1828
+#: libraries/rte/rte_routines.lib.php:992 libraries/structure.lib.php:1839
 #: libraries/tbl_indexes.lib.php:314
 msgid "Options"
 msgstr "Beállítások"
 
-#: libraries/Console.class.php:209 libraries/Console.class.php:262
+#: libraries/Console.class.php:202 libraries/Console.class.php:255
 msgid "Bookmarks"
 msgstr "Könyvjelzők"
 
-#: libraries/Console.class.php:218
+#: libraries/Console.class.php:211
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Nyomja meg a Ctrl+Enter billentyűket a lekérdezés végrehajtásához"
 
-#: libraries/Console.class.php:239
+#: libraries/Console.class.php:232
 msgid "During current session"
 msgstr "Jelenlegi munkamenet közben"
 
-#: libraries/Console.class.php:266 libraries/Util.class.php:1231
+#: libraries/Console.class.php:259 libraries/Util.class.php:1231
 #: libraries/config/messages.inc.php:763
 #: libraries/server_status_processes.lib.php:249
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Frissítés"
 
-#: libraries/Console.class.php:269
+#: libraries/Console.class.php:262
 msgid "Add"
 msgstr "Hozzáadás"
 
-#: libraries/Console.class.php:278
+#: libraries/Console.class.php:271
 msgid "Add bookmark"
 msgstr "Könyvjelző hozzáadása"
 
-#: libraries/Console.class.php:282
+#: libraries/Console.class.php:275
 msgid "Label"
 msgstr "Címke"
 
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:277
 msgid "Target database"
 msgstr "Cél adatbázis"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:280
 msgid "Share this bookmark"
 msgstr "Könyvjelző megosztása"
 
-#: libraries/Console.class.php:304
+#: libraries/Console.class.php:297
 msgid "Set default"
 msgstr "Alapértelmezett beállítása"
 
-#: libraries/Console.class.php:308
+#: libraries/Console.class.php:301
 msgid "Always expand query messages"
 msgstr "Mindig nyissa ki a lekérdezés üzeneteit"
 
-#: libraries/Console.class.php:310
+#: libraries/Console.class.php:303
 msgid "Show query history at start"
 msgstr "Lekérdezés előzmények megjelenítése indításkor"
 
-#: libraries/Console.class.php:312
+#: libraries/Console.class.php:305
 msgid "Show current browsing query"
 msgstr "Az aktuális böngészés lekérdezéseinek megjelenítése"
 
-#: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1355
-#: libraries/DisplayResults.class.php:2145
-#: libraries/DisplayResults.class.php:2151 libraries/TableSearch.class.php:847
+#: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1356
+#: libraries/DisplayResults.class.php:2148
+#: libraries/DisplayResults.class.php:2154 libraries/TableSearch.class.php:847
 #: libraries/config.values.php:70 libraries/operations.lib.php:590
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
@@ -3033,9 +3029,9 @@ msgstr "Az aktuális böngészés lekérdezéseinek megjelenítése"
 msgid "Ascending"
 msgstr "Növekvő"
 
-#: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1367
-#: libraries/DisplayResults.class.php:2141
-#: libraries/DisplayResults.class.php:2155 libraries/TableSearch.class.php:848
+#: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1368
+#: libraries/DisplayResults.class.php:2144
+#: libraries/DisplayResults.class.php:2158 libraries/TableSearch.class.php:848
 #: libraries/config.values.php:71 libraries/operations.lib.php:593
 #: libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
@@ -3196,8 +3192,8 @@ msgstr[0] "%1$s találat ebben: <strong>%2$s</strong>"
 msgstr[1] "%1$s találat ebben: <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:354 libraries/Menu.class.php:303
-#: libraries/Util.class.php:3196 libraries/Util.class.php:3412
-#: libraries/Util.class.php:3413 libraries/Util.class.php:4164
+#: libraries/Util.class.php:3202 libraries/Util.class.php:3418
+#: libraries/Util.class.php:3419 libraries/Util.class.php:4170
 #: libraries/navigation/Nodes/Node_Table.class.php:51
 #: libraries/navigation/Nodes/Node_Table.class.php:288
 #: libraries/structure.lib.php:1480
@@ -3233,124 +3229,124 @@ msgstr "Belső táblák:"
 msgid "Inside column:"
 msgstr "Mezőben:"
 
-#: libraries/DisplayResults.class.php:802
+#: libraries/DisplayResults.class.php:803
 msgid "Save edited data"
 msgstr "A módosított adatok mentése"
 
-#: libraries/DisplayResults.class.php:808
+#: libraries/DisplayResults.class.php:809
 msgid "Restore column order"
 msgstr "Oszlopsorrend visszaállítása"
 
-#: libraries/DisplayResults.class.php:856
+#: libraries/DisplayResults.class.php:857
 #: libraries/central_columns.lib.php:620
 msgid "Filter rows"
 msgstr "Sorok szűrése"
 
-#: libraries/DisplayResults.class.php:858
+#: libraries/DisplayResults.class.php:859
 #: libraries/central_columns.lib.php:622
 msgid "Search this table"
 msgstr "Keresés a táblában"
 
-#: libraries/DisplayResults.class.php:886 libraries/Util.class.php:2464
-#: libraries/Util.class.php:2467
+#: libraries/DisplayResults.class.php:887 libraries/Util.class.php:2470
+#: libraries/Util.class.php:2473
 msgctxt "First page"
 msgid "Begin"
 msgstr "Kezdet"
 
-#: libraries/DisplayResults.class.php:889 libraries/Util.class.php:2465
-#: libraries/Util.class.php:2468 libraries/server_bin_log.lib.php:170
+#: libraries/DisplayResults.class.php:890 libraries/Util.class.php:2471
+#: libraries/Util.class.php:2474 libraries/server_bin_log.lib.php:170
 #: libraries/server_bin_log.lib.php:172
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Előző"
 
-#: libraries/DisplayResults.class.php:955 libraries/Util.class.php:2496
-#: libraries/Util.class.php:2506 libraries/server_bin_log.lib.php:204
+#: libraries/DisplayResults.class.php:956 libraries/Util.class.php:2502
+#: libraries/Util.class.php:2512 libraries/server_bin_log.lib.php:204
 #: libraries/server_bin_log.lib.php:206
 msgctxt "Next page"
 msgid "Next"
 msgstr "Következő"
 
-#: libraries/DisplayResults.class.php:985 libraries/Util.class.php:2497
-#: libraries/Util.class.php:2507
+#: libraries/DisplayResults.class.php:986 libraries/Util.class.php:2503
+#: libraries/Util.class.php:2513
 msgctxt "Last page"
 msgid "End"
 msgstr "Vége"
 
-#: libraries/DisplayResults.class.php:1028
+#: libraries/DisplayResults.class.php:1029
 msgid "All"
 msgstr "Mind"
 
-#: libraries/DisplayResults.class.php:1038
+#: libraries/DisplayResults.class.php:1039
 #: libraries/display_export.lib.php:338 libraries/tbl_chart.lib.php:290
 msgid "Number of rows:"
 msgstr "Sorok száma:"
 
-#: libraries/DisplayResults.class.php:1313
+#: libraries/DisplayResults.class.php:1314
 msgid "Sort by key"
 msgstr "Kulcs szerinti rendezés"
 
-#: libraries/DisplayResults.class.php:1609
-#: libraries/DisplayResults.class.php:1717
+#: libraries/DisplayResults.class.php:1610
+#: libraries/DisplayResults.class.php:1718
 msgid "Partial texts"
 msgstr "Részleges szövegek"
 
-#: libraries/DisplayResults.class.php:1610
-#: libraries/DisplayResults.class.php:1721
+#: libraries/DisplayResults.class.php:1611
+#: libraries/DisplayResults.class.php:1722
 msgid "Full texts"
 msgstr "Teljes szövegek"
 
-#: libraries/DisplayResults.class.php:1626
+#: libraries/DisplayResults.class.php:1627
 msgid "Relational key"
 msgstr "Relációs kulcs"
 
-#: libraries/DisplayResults.class.php:1627
+#: libraries/DisplayResults.class.php:1628
 msgid "Relational display column"
 msgstr "Relációs megjelenítési oszlop"
 
-#: libraries/DisplayResults.class.php:1640
+#: libraries/DisplayResults.class.php:1641
 msgid "Show binary contents"
 msgstr "Bináris tartalom megjelenítése"
 
-#: libraries/DisplayResults.class.php:1646
+#: libraries/DisplayResults.class.php:1647
 msgid "Show BLOB contents"
 msgstr "BLOB-tartalom megjelenítése"
 
-#: libraries/DisplayResults.class.php:1658
+#: libraries/DisplayResults.class.php:1659
 msgid "Hide browser transformation"
 msgstr "Böngészőátalakítás elrejtése"
 
-#: libraries/DisplayResults.class.php:1668
+#: libraries/DisplayResults.class.php:1669
 msgid "Well Known Text"
 msgstr "Jól ismert szöveg"
 
-#: libraries/DisplayResults.class.php:1669
+#: libraries/DisplayResults.class.php:1670
 msgid "Well Known Binary"
 msgstr "Jól ismert bináris"
 
-#: libraries/DisplayResults.class.php:3340
-#: libraries/DisplayResults.class.php:3356
+#: libraries/DisplayResults.class.php:3360
+#: libraries/DisplayResults.class.php:3376
 msgid "The row has been deleted."
 msgstr "A sor törlése megtörtént."
 
-#: libraries/DisplayResults.class.php:3393
-#: libraries/DisplayResults.class.php:4693
+#: libraries/DisplayResults.class.php:3413
+#: libraries/DisplayResults.class.php:4713
 #: libraries/server_status_processes.lib.php:295
 msgid "Kill"
 msgstr "Leállít"
 
-#: libraries/DisplayResults.class.php:4108
+#: libraries/DisplayResults.class.php:4128
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Becsült érték lehet. Lásd [doc@faq3-11]GyIK 3.11[/doc]."
 
-#: libraries/DisplayResults.class.php:4165 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4185 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql_query_form.lib.php:89
-#: libraries/tbl_relation.lib.php:1036 tbl_find_replace.php:51
+#: libraries/tbl_relation.lib.php:1038 tbl_find_replace.php:51
 #: tbl_operations.php:200 tbl_row_action.php:121 view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "Az SQL-lekérdezés végrehajtása sikerült."
 
-#: libraries/DisplayResults.class.php:4551 libraries/structure.lib.php:692
+#: libraries/DisplayResults.class.php:4571 libraries/structure.lib.php:692
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -3359,54 +3355,49 @@ msgstr ""
 "Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a %"
 "sdokumentációban%s."
 
-#: libraries/DisplayResults.class.php:4564
+#: libraries/DisplayResults.class.php:4584
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Sorok megjelenítése %1s-%2s"
 
-#: libraries/DisplayResults.class.php:4579
+#: libraries/DisplayResults.class.php:4599
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d összesen, %2$d a lekérdezésben"
 
-#: libraries/DisplayResults.class.php:4584
+#: libraries/DisplayResults.class.php:4604
 #, php-format
 msgid "%d total"
 msgstr "összesen %d"
 
-#: libraries/DisplayResults.class.php:4596 libraries/sql.lib.php:1507
+#: libraries/DisplayResults.class.php:4616 libraries/sql.lib.php:1507
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "A lekérdezés %01.4f másodpercig tartott."
 
-#: libraries/DisplayResults.class.php:4698
-#: libraries/DisplayResults.class.php:4705 libraries/Util.class.php:4573
-#: libraries/Util.class.php:4579 libraries/mult_submits.inc.php:45
+#: libraries/DisplayResults.class.php:4718
+#: libraries/DisplayResults.class.php:4725 libraries/Util.class.php:4579
+#: libraries/Util.class.php:4585 libraries/mult_submits.inc.php:45
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:312
 #: libraries/structure.lib.php:314
 msgid "With selected:"
 msgstr "A kijelöltekkel végzendő művelet:"
 
-#: libraries/DisplayResults.class.php:4702
-#: libraries/DisplayResults.class.php:4704 libraries/Util.class.php:4575
-#: libraries/Util.class.php:4576 libraries/server_privileges.lib.php:1196
+#: libraries/DisplayResults.class.php:4722
+#: libraries/DisplayResults.class.php:4724 libraries/Util.class.php:4581
+#: libraries/Util.class.php:4582 libraries/server_privileges.lib.php:1196
 #: libraries/server_privileges.lib.php:1197
 #: libraries/server_user_groups.lib.php:231 libraries/structure.lib.php:299
 #: libraries/structure.lib.php:300
 msgid "Check All"
 msgstr "Mind kijelölése"
 
-#: libraries/DisplayResults.class.php:4709 libraries/structure.lib.php:1486
-#: libraries/structure.lib.php:2210
-msgid "Change"
-msgstr "Módosítás"
-
-#: libraries/DisplayResults.class.php:4722
-#: libraries/DisplayResults.class.php:4993 libraries/Menu.class.php:336
+#: libraries/DisplayResults.class.php:4742
+#: libraries/DisplayResults.class.php:5013 libraries/Menu.class.php:336
 #: libraries/Menu.class.php:438 libraries/Menu.class.php:571
-#: libraries/Util.class.php:3425 libraries/Util.class.php:3426
-#: libraries/Util.class.php:4137 libraries/Util.class.php:4152
-#: libraries/Util.class.php:4169 libraries/config/messages.inc.php:219
+#: libraries/Util.class.php:3431 libraries/Util.class.php:3432
+#: libraries/Util.class.php:4143 libraries/Util.class.php:4158
+#: libraries/Util.class.php:4175 libraries/config/messages.inc.php:219
 #: libraries/display_export.lib.php:167
 #: libraries/server_privileges.lib.php:2102
 #: libraries/server_privileges.lib.php:2179
@@ -3417,29 +3408,29 @@ msgstr "Módosítás"
 msgid "Export"
 msgstr "Exportálás"
 
-#: libraries/DisplayResults.class.php:4879
+#: libraries/DisplayResults.class.php:4899
 msgid "Query results operations"
 msgstr "Műveletek a lekérdezési eredménnyel"
 
-#: libraries/DisplayResults.class.php:4917 libraries/Header.class.php:378
+#: libraries/DisplayResults.class.php:4937 libraries/Header.class.php:378
 #: libraries/structure.lib.php:320 libraries/structure.lib.php:393
 #: libraries/structure.lib.php:1621
 msgid "Print view"
 msgstr "Nyomtatási nézet"
 
-#: libraries/DisplayResults.class.php:4935
+#: libraries/DisplayResults.class.php:4955
 msgid "Print view (with full texts)"
 msgstr "Nyomtatási nézet (teljes szöveggel)"
 
-#: libraries/DisplayResults.class.php:5006 libraries/tbl_chart.lib.php:351
+#: libraries/DisplayResults.class.php:5026 libraries/tbl_chart.lib.php:351
 msgid "Display chart"
 msgstr "Diagram megjelenítése"
 
-#: libraries/DisplayResults.class.php:5031
+#: libraries/DisplayResults.class.php:5051
 msgid "Visualize GIS data"
 msgstr "GIS data megjelenítése"
 
-#: libraries/DisplayResults.class.php:5267
+#: libraries/DisplayResults.class.php:5288
 msgid "Link not found!"
 msgstr "Nem található a hivatkozás!"
 
@@ -3521,7 +3512,7 @@ msgstr "Git információ hiányzik!"
 msgid "Open new phpMyAdmin window"
 msgstr "Új phpMyAdmin ablak nyitása"
 
-#: libraries/Header.class.php:444
+#: libraries/Header.class.php:445
 msgid "Click on the bar to scroll to top of page"
 msgstr "Kattintson a sávra az oldal tetejére való görgetéshez"
 
@@ -3548,7 +3539,7 @@ msgid "Keyname"
 msgstr "Kulcsnév"
 
 #: libraries/Index.class.php:649 libraries/structure.lib.php:1499
-#: libraries/structure.lib.php:2220 libraries/structure.lib.php:2230
+#: libraries/structure.lib.php:2232 libraries/structure.lib.php:2242
 #: libraries/tracking.lib.php:964
 msgid "Unique"
 msgstr "Egyedi"
@@ -3566,8 +3557,8 @@ msgstr "Számosság"
 #: libraries/central_columns.lib.php:658 libraries/mysql_charsets.lib.php:45
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:766
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:851
-#: libraries/structure.lib.php:1296 libraries/structure.lib.php:1836
-#: libraries/tbl_columns_definition_form.lib.php:313
+#: libraries/structure.lib.php:1296 libraries/structure.lib.php:1847
+#: libraries/tbl_columns_definition_form.lib.php:338
 #: libraries/tracking.lib.php:879 libraries/tracking.lib.php:968
 msgid "Collation"
 msgstr "Illesztés"
@@ -3587,10 +3578,10 @@ msgstr "Az elsődleges kulcs eldobása megtörtént."
 msgid "Index %s has been dropped."
 msgstr "A(z) %s index eldobása megtörtént."
 
-#: libraries/Index.class.php:709 libraries/Util.class.php:3419
-#: libraries/Util.class.php:3420 libraries/server_databases.lib.php:146
+#: libraries/Index.class.php:709 libraries/Util.class.php:3425
+#: libraries/Util.class.php:3426 libraries/server_databases.lib.php:146
 #: libraries/structure.lib.php:328 libraries/structure.lib.php:1490
-#: libraries/structure.lib.php:2212 libraries/structure.lib.php:2214
+#: libraries/structure.lib.php:2224 libraries/structure.lib.php:2226
 #: libraries/tbl_relation.lib.php:454
 msgid "Drop"
 msgstr "Eldobás"
@@ -3617,14 +3608,14 @@ msgid "View"
 msgstr "Nézet"
 
 #: libraries/Menu.class.php:309 libraries/Menu.class.php:417
-#: libraries/Util.class.php:3192 libraries/Util.class.php:3199
-#: libraries/Util.class.php:3418 libraries/Util.class.php:4148
-#: libraries/Util.class.php:4165 libraries/config/setup.forms.php:305
+#: libraries/Util.class.php:3198 libraries/Util.class.php:3205
+#: libraries/Util.class.php:3424 libraries/Util.class.php:4154
+#: libraries/Util.class.php:4171 libraries/config/setup.forms.php:305
 #: libraries/config/setup.forms.php:345 libraries/config/setup.forms.php:371
 #: libraries/config/user_preferences.forms.php:203
 #: libraries/config/user_preferences.forms.php:243
 #: libraries/config/user_preferences.forms.php:269
-#: libraries/db_designer.lib.php:482 libraries/import.lib.php:1293
+#: libraries/db_designer.lib.php:487 libraries/import.lib.php:1293
 #: libraries/navigation/Nodes/Node_Column.class.php:42
 #: libraries/navigation/Nodes/Node_Database.class.php:49
 #: libraries/navigation/Nodes/Node_Table.class.php:39
@@ -3636,9 +3627,9 @@ msgid "Structure"
 msgstr "Szerkezet"
 
 #: libraries/Menu.class.php:317 libraries/Menu.class.php:421
-#: libraries/Menu.class.php:541 libraries/Util.class.php:3193
-#: libraries/Util.class.php:3200 libraries/Util.class.php:4134
-#: libraries/Util.class.php:4149 libraries/Util.class.php:4166
+#: libraries/Menu.class.php:541 libraries/Util.class.php:3199
+#: libraries/Util.class.php:3206 libraries/Util.class.php:4140
+#: libraries/Util.class.php:4155 libraries/Util.class.php:4172
 #: libraries/config/messages.inc.php:288
 #: libraries/navigation/Nodes/Node_Table.class.php:48
 #: libraries/navigation/Nodes/Node_Table.class.php:285
@@ -3646,17 +3637,17 @@ msgid "SQL"
 msgstr "SQL"
 
 #: libraries/Menu.class.php:320 libraries/Menu.class.php:424
-#: libraries/Util.class.php:3194 libraries/Util.class.php:3201
-#: libraries/Util.class.php:3414 libraries/Util.class.php:3415
-#: libraries/Util.class.php:4150 libraries/Util.class.php:4167
+#: libraries/Util.class.php:3200 libraries/Util.class.php:3207
+#: libraries/Util.class.php:3420 libraries/Util.class.php:3421
+#: libraries/Util.class.php:4156 libraries/Util.class.php:4173
 #: libraries/navigation/Nodes/Node_Table.class.php:42
 #: libraries/navigation/Nodes/Node_Table.class.php:279
 msgid "Search"
 msgstr "Keresés"
 
-#: libraries/Menu.class.php:330 libraries/Util.class.php:3195
-#: libraries/Util.class.php:3416 libraries/Util.class.php:3417
-#: libraries/Util.class.php:4168
+#: libraries/Menu.class.php:330 libraries/Util.class.php:3201
+#: libraries/Util.class.php:3422 libraries/Util.class.php:3423
+#: libraries/Util.class.php:4174
 #: libraries/navigation/Nodes/Node_Table.class.php:45
 #: libraries/navigation/Nodes/Node_Table.class.php:282
 #: libraries/sql_query_form.lib.php:266 libraries/sql_query_form.lib.php:269
@@ -3664,7 +3655,7 @@ msgid "Insert"
 msgstr "Beszúrás"
 
 #: libraries/Menu.class.php:354 libraries/Menu.class.php:459
-#: libraries/Util.class.php:4155 libraries/Util.class.php:4171
+#: libraries/Util.class.php:4161 libraries/Util.class.php:4177
 #: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:2259
 #: libraries/server_privileges.lib.php:3043
 #: libraries/server_privileges.lib.php:4006
@@ -3672,20 +3663,20 @@ msgid "Privileges"
 msgstr "Jogok"
 
 #: libraries/Menu.class.php:363 libraries/Menu.class.php:371
-#: libraries/Menu.class.php:451 libraries/Util.class.php:3202
-#: libraries/Util.class.php:4154 libraries/Util.class.php:4172
+#: libraries/Menu.class.php:451 libraries/Util.class.php:3208
+#: libraries/Util.class.php:4160 libraries/Util.class.php:4178
 #: view_operations.php:92
 msgid "Operations"
 msgstr "Műveletek"
 
 #: libraries/Menu.class.php:376 libraries/Menu.class.php:484
-#: libraries/Util.class.php:4159 libraries/Util.class.php:4173
+#: libraries/Util.class.php:4165 libraries/Util.class.php:4179
 #: libraries/relation.lib.php:248
 msgid "Tracking"
 msgstr "Követés"
 
 #: libraries/Menu.class.php:389 libraries/Menu.class.php:478
-#: libraries/Util.class.php:4158 libraries/Util.class.php:4174
+#: libraries/Util.class.php:4164 libraries/Util.class.php:4180
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:557
 #: libraries/plugins/export/ExportOdt.class.php:685
@@ -3701,16 +3692,16 @@ msgstr "Eseményindítók"
 msgid "Database seems to be empty!"
 msgstr "Üresnek tűnik az adatbázis!"
 
-#: libraries/Menu.class.php:431 libraries/Util.class.php:4151
+#: libraries/Menu.class.php:431 libraries/Util.class.php:4157
 msgid "Query"
 msgstr "Lekérdezés"
 
-#: libraries/Menu.class.php:464 libraries/Util.class.php:4156
+#: libraries/Menu.class.php:464 libraries/Util.class.php:4162
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "Eljárások"
 
-#: libraries/Menu.class.php:471 libraries/Util.class.php:4157
+#: libraries/Menu.class.php:471 libraries/Util.class.php:4163
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:907
 #: libraries/plugins/export/ExportXml.class.php:107
@@ -3718,52 +3709,52 @@ msgstr "Eljárások"
 msgid "Events"
 msgstr "Események"
 
-#: libraries/Menu.class.php:490 libraries/Util.class.php:4160
+#: libraries/Menu.class.php:490 libraries/Util.class.php:4166
 msgid "Designer"
 msgstr "Tervező"
 
-#: libraries/Menu.class.php:500 libraries/Util.class.php:4161
+#: libraries/Menu.class.php:500 libraries/Util.class.php:4167
 msgid "Central columns"
 msgstr "Központi oszlopok"
 
-#: libraries/Menu.class.php:537 libraries/Util.class.php:4133
+#: libraries/Menu.class.php:537 libraries/Util.class.php:4139
 #: libraries/config/messages.inc.php:233
 #: libraries/navigation/NavigationTree.class.php:1185
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:4117
 msgid "Databases"
 msgstr "Adatbázisok"
 
-#: libraries/Menu.class.php:561 libraries/Util.class.php:4136
+#: libraries/Menu.class.php:561 libraries/Util.class.php:4142
 msgid "Users"
 msgstr "Felhasználók"
 
 #: libraries/Menu.class.php:588 libraries/ServerStatusData.class.php:194
-#: libraries/Util.class.php:4140 libraries/server_common.lib.php:36
+#: libraries/Util.class.php:4146 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "Bináris napló"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:199
-#: libraries/Util.class.php:4141 libraries/server_common.lib.php:42
+#: libraries/Util.class.php:4147 libraries/server_common.lib.php:42
 #: libraries/structure.lib.php:175 libraries/structure.lib.php:829
 msgid "Replication"
 msgstr "Többszörözés"
 
 #: libraries/Menu.class.php:599 libraries/ServerStatusData.class.php:261
-#: libraries/Util.class.php:4142 libraries/server_engines.lib.php:108
+#: libraries/Util.class.php:4148 libraries/server_engines.lib.php:108
 #: libraries/server_engines.lib.php:112
 msgid "Variables"
 msgstr "Változók"
 
-#: libraries/Menu.class.php:603 libraries/Util.class.php:4143
+#: libraries/Menu.class.php:603 libraries/Util.class.php:4149
 msgid "Charsets"
 msgstr "Karakterkészlet"
 
-#: libraries/Menu.class.php:608 libraries/Util.class.php:4144
+#: libraries/Menu.class.php:608 libraries/Util.class.php:4150
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
 msgstr "Bővítmények"
 
-#: libraries/Menu.class.php:612 libraries/Util.class.php:4145
+#: libraries/Menu.class.php:612 libraries/Util.class.php:4151
 msgid "Engines"
 msgstr "Motorok"
 
@@ -3795,8 +3786,8 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "A(z) %1$d sor beszúrása megtörtént."
 msgstr[1] "A(z) %1$d sor beszúrása megtörtént."
 
-#: libraries/PDF.class.php:70 libraries/Util.class.php:2453
-#: libraries/browse_foreigners.lib.php:290
+#: libraries/PDF.class.php:70 libraries/Util.class.php:2459
+#: libraries/browse_foreigners.lib.php:294
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:848
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:872
 #: libraries/select_lang.lib.php:605
@@ -3816,7 +3807,7 @@ msgid "Could not save favorite table!"
 msgstr "Nem sikerült elmenteni a kedvenc táblát!"
 
 #: libraries/RecentFavoriteTable.class.php:212
-#: libraries/structure.lib.php:2888
+#: libraries/structure.lib.php:2900
 msgid "Remove from Favorites"
 msgstr "Eltávolítás a kedvencek közül"
 
@@ -3912,7 +3903,7 @@ msgstr "Rendezés"
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:120
-#: libraries/structure.lib.php:3082
+#: libraries/structure.lib.php:3094
 msgid "Tables"
 msgstr "Tábla"
 
@@ -4072,16 +4063,16 @@ msgstr ""
 msgid "Function"
 msgstr "Függvény"
 
-#: libraries/TableSearch.class.php:188 libraries/db_designer.lib.php:958
-#: libraries/db_designer.lib.php:978 libraries/db_designer.lib.php:1131
-#: libraries/db_designer.lib.php:1144 libraries/db_designer.lib.php:1223
-#: libraries/db_designer.lib.php:1290
+#: libraries/TableSearch.class.php:188 libraries/db_designer.lib.php:963
+#: libraries/db_designer.lib.php:983 libraries/db_designer.lib.php:1136
+#: libraries/db_designer.lib.php:1149 libraries/db_designer.lib.php:1228
+#: libraries/db_designer.lib.php:1295
 msgid "Operator"
 msgstr "Operátor"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1294
-#: libraries/db_designer.lib.php:942 libraries/db_designer.lib.php:1007
-#: libraries/db_designer.lib.php:1160 libraries/db_designer.lib.php:1306
+#: libraries/db_designer.lib.php:947 libraries/db_designer.lib.php:1012
+#: libraries/db_designer.lib.php:1165 libraries/db_designer.lib.php:1311
 #: libraries/insert_edit.lib.php:1570 libraries/replication_gui.lib.php:532
 #: libraries/rte/rte_routines.lib.php:1631
 #: libraries/server_status_variables.lib.php:220
@@ -4602,73 +4593,73 @@ msgstr "Vas"
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y. %B %d. %H:%M"
 
-#: libraries/Util.class.php:1949
+#: libraries/Util.class.php:1956
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s nap, %s óra, %s perc, %s másodperc"
 
-#: libraries/Util.class.php:2042
+#: libraries/Util.class.php:2049
 msgid "Missing parameter:"
 msgstr "Hiányzó paraméter:"
 
-#: libraries/Util.class.php:2574
+#: libraries/Util.class.php:2580
 #, php-format
 msgid "Jump to database \"%s\"."
 msgstr "Ugrás a(z) \"%s\" adatbázishoz."
 
-#: libraries/Util.class.php:2599
+#: libraries/Util.class.php:2605
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "A(z) %s funkcióra egy ismert hiba van hatással, lásd itt: %s"
 
-#: libraries/Util.class.php:2810
+#: libraries/Util.class.php:2816
 msgid "Click to toggle"
 msgstr "Kattintson a váltáshoz"
 
-#: libraries/Util.class.php:3331 libraries/sql_query_form.lib.php:435
+#: libraries/Util.class.php:3337 libraries/sql_query_form.lib.php:435
 #: prefs_manage.php:246
 msgid "Browse your computer:"
 msgstr "Számítógép tallózása:"
 
-#: libraries/Util.class.php:3356
+#: libraries/Util.class.php:3362
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Válasszon a webkiszolgáló feltöltési könyvtárából <b> %s </b>:"
 
-#: libraries/Util.class.php:3385 libraries/insert_edit.lib.php:1167
+#: libraries/Util.class.php:3391 libraries/insert_edit.lib.php:1167
 #: libraries/sql_query_form.lib.php:445
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Nem elérhető a feltöltésekhez megadott könyvtár."
 
-#: libraries/Util.class.php:3396
+#: libraries/Util.class.php:3402
 msgid "There are no files to upload!"
 msgstr "Nincsenek feltöltendő fájlok!"
 
-#: libraries/Util.class.php:3421 libraries/Util.class.php:3422
+#: libraries/Util.class.php:3427 libraries/Util.class.php:3428
 #: libraries/structure.lib.php:326
 msgid "Empty"
 msgstr "Kiürítés"
 
-#: libraries/Util.class.php:3427 libraries/Util.class.php:3428
+#: libraries/Util.class.php:3433 libraries/Util.class.php:3434
 msgid "Execute"
 msgstr "Végrehajtás"
 
-#: libraries/Util.class.php:3973
+#: libraries/Util.class.php:3979
 msgid "Print"
 msgstr "Nyomtatás"
 
-#: libraries/Util.class.php:4078 libraries/structure.lib.php:869
-#: libraries/structure.lib.php:1889 libraries/tbl_printview.lib.php:243
+#: libraries/Util.class.php:4084 libraries/structure.lib.php:869
+#: libraries/structure.lib.php:1901 libraries/tbl_printview.lib.php:243
 msgid "Creation"
 msgstr "Létrehozás"
 
-#: libraries/Util.class.php:4084 libraries/structure.lib.php:876
-#: libraries/structure.lib.php:1897 libraries/tbl_printview.lib.php:254
+#: libraries/Util.class.php:4090 libraries/structure.lib.php:876
+#: libraries/structure.lib.php:1909 libraries/tbl_printview.lib.php:254
 msgid "Last update"
 msgstr "Utolsó frissítés"
 
-#: libraries/Util.class.php:4090 libraries/structure.lib.php:883
-#: libraries/structure.lib.php:1905 libraries/tbl_printview.lib.php:265
+#: libraries/Util.class.php:4096 libraries/structure.lib.php:883
+#: libraries/structure.lib.php:1917 libraries/tbl_printview.lib.php:265
 msgid "Last check"
 msgstr "Utolsó ellenőrzés"
 
@@ -4684,7 +4675,7 @@ msgstr "Keresés:"
 msgid "Description"
 msgstr "Leírás"
 
-#: libraries/browse_foreigners.lib.php:221
+#: libraries/browse_foreigners.lib.php:225
 msgid "Use this value"
 msgstr "Ezen érték használata"
 
@@ -4695,14 +4686,14 @@ msgstr "Ezen érték használata"
 #: libraries/config/user_preferences.forms.php:251
 #: libraries/config/user_preferences.forms.php:274
 #: libraries/config/user_preferences.forms.php:279
-#: libraries/server_privileges.lib.php:1162 libraries/structure.lib.php:2333
+#: libraries/server_privileges.lib.php:1162 libraries/structure.lib.php:2345
 #: libraries/tbl_printview.lib.php:308
 msgid "Data"
 msgstr "Adatok"
 
 #: libraries/build_html_for_db.lib.php:48 libraries/engines/innodb.lib.php:171
 #: libraries/server_databases.lib.php:173 libraries/server_status.lib.php:185
-#: libraries/server_status.lib.php:296 libraries/structure.lib.php:2355
+#: libraries/server_status.lib.php:296 libraries/structure.lib.php:2367
 #: libraries/tbl_printview.lib.php:340
 msgid "Total"
 msgstr "Összesen"
@@ -4774,14 +4765,14 @@ msgstr "NEM"
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:989
 #: libraries/rte/rte_routines.lib.php:1626 libraries/structure.lib.php:1294
-#: libraries/tbl_columns_definition_form.lib.php:293
+#: libraries/tbl_columns_definition_form.lib.php:318
 #: setup/frames/index.inc.php:162
 msgid "Name"
 msgstr "Név"
 
 #: libraries/central_columns.lib.php:656
 #: libraries/rte/rte_routines.lib.php:991
-#: libraries/tbl_columns_definition_form.lib.php:296
+#: libraries/tbl_columns_definition_form.lib.php:321
 msgid "Length/Values"
 msgstr "Hossz/Értékek"
 
@@ -4820,11 +4811,11 @@ msgstr "Új oszlop hozzáadása"
 msgid "on update CURRENT_TIMESTAMP"
 msgstr "frissítéskor CURRENT_TIMESTAMP"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid "Failed to read configuration file!"
 msgstr "A beállítófájl olvasása meghiúsult!"
 
-#: libraries/common.inc.php:581
+#: libraries/common.inc.php:583
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4832,12 +4823,12 @@ msgstr ""
 "Ez általában azt jelenti, hogy szintaktikai hiba áll fenn, ellenőrizze az "
 "alább látható hibákat."
 
-#: libraries/common.inc.php:588
+#: libraries/common.inc.php:590
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nem lehetett betölteni az alapértelmezett konfigurációt innen: %1$s"
 
-#: libraries/common.inc.php:596
+#: libraries/common.inc.php:598
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -4845,26 +4836,26 @@ msgstr ""
 "A [code]$cfg['PmaAbsoluteUri'][/code] utasítás értékét a konfigurációs "
 "fájlban KELL megadni!"
 
-#: libraries/common.inc.php:631
+#: libraries/common.inc.php:633
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Érvénytelen kiszolgálóindex: %s"
 
-#: libraries/common.inc.php:642
+#: libraries/common.inc.php:644
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "A(z) %1$s kiszolgáló gépneve érvénytelen. Nézze át a beállításokat."
 
-#: libraries/common.inc.php:658
+#: libraries/common.inc.php:660
 #, php-format
 msgid "Server %d"
 msgstr "Kiszolgáló %d"
 
-#: libraries/common.inc.php:855
+#: libraries/common.inc.php:857
 msgid "Invalid authentication method set in configuration:"
 msgstr "Érvénytelen hitelesítési mód került beállításra a konfigurációban:"
 
-#: libraries/common.inc.php:990
+#: libraries/common.inc.php:992
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -4876,24 +4867,24 @@ msgstr ""
 "beállításait. A phpMyAdmin jelenleg az adatbázis-kiszolgáló alapértelmezett "
 "időzónáját használja."
 
-#: libraries/common.inc.php:1020
+#: libraries/common.inc.php:1022
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Frissítenie kell %s %s vagy újabb verzióra."
 
-#: libraries/common.inc.php:1110
+#: libraries/common.inc.php:1116
 msgid "Error: Token mismatch"
 msgstr "Hiba: Token eltérés"
 
-#: libraries/common.inc.php:1142
+#: libraries/common.inc.php:1148
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS felülírási kísérlet"
 
-#: libraries/common.inc.php:1149
+#: libraries/common.inc.php:1155
 msgid "possible exploit"
 msgstr "lehetséges kiaknázás"
 
-#: libraries/common.inc.php:1158
+#: libraries/common.inc.php:1164
 msgid "numeric key detected"
 msgstr "numerikus kulcs észlelve"
 
@@ -5580,7 +5571,7 @@ msgid "Character set of the file"
 msgstr "A fájl karakterkészlete"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:128
-#: libraries/sql_query_form.lib.php:237 libraries/structure.lib.php:1817
+#: libraries/sql_query_form.lib.php:237 libraries/structure.lib.php:1828
 #: libraries/tbl_printview.lib.php:183
 msgid "Format"
 msgstr "Formátum"
@@ -5685,7 +5676,7 @@ msgstr "Feliratkulcs"
 #: libraries/config/messages.inc.php:138 libraries/config/messages.inc.php:151
 #: libraries/config/messages.inc.php:184
 #: libraries/plugins/export/ExportOdt.class.php:488
-#: libraries/tbl_columns_definition_form.lib.php:332
+#: libraries/tbl_columns_definition_form.lib.php:357
 msgid "MIME type"
 msgstr "MIME-típus"
 
@@ -5941,12 +5932,16 @@ msgid "Page titles"
 msgstr "Oldalcímek"
 
 #: libraries/config/messages.inc.php:251
+#| msgid ""
+#| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
+#| "documentation[/doc] for magic strings that can be used to get special "
+#| "values."
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
+"for magic strings that can be used to get special values."
 msgstr ""
 "Megadhatja a böngésző fejlécében megjelenített címet. Hivatkozzon a "
-"[doc@cfg_TitleTable]dokumentációra[/doc] a mágikus parancsok végett, amiket "
+"[doc@faq6-27]dokumentációra[/doc] a mágikus parancsok végett, amiket "
 "speciális értékek megjelenítésére használhat."
 
 #: libraries/config/messages.inc.php:255
@@ -6075,7 +6070,7 @@ msgstr ""
 "Válassza ki, melyik részletek jelenjenek meg az adatbázis szerkezetben "
 "(táblák listája)."
 
-#: libraries/config/messages.inc.php:299 libraries/structure.lib.php:3264
+#: libraries/config/messages.inc.php:299 libraries/structure.lib.php:3276
 msgid "Table structure"
 msgstr "Táblaszerkezet"
 
@@ -6458,12 +6453,15 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "A szűrődoboz megjelenítéséhez szükséges minimális adatbázisok száma"
 
 #: libraries/config/messages.inc.php:456
+#| msgid ""
+#| "Group items in the navigation tree (determined by the separator defined "
+#| "below)."
 msgid ""
-"Group items in the navigation tree (determined by the separator defined "
-"below)."
+"Group items in the navigation tree (determined by the separator defined in "
+"the Databases and Tables tabs above)."
 msgstr ""
-"Elemek csoportosítása a navigációs faszerkezetben (lent megadott elválasztó "
-"által meghatározva)."
+"Elemek csoportosítása a navigációs faszerkezetben (a lenti Adatbázisok és "
+"táblák lapon megadott elválasztó által meghatározva)."
 
 #: libraries/config/messages.inc.php:458
 msgid "Group items in the tree"
@@ -7683,7 +7681,7 @@ msgstr "A %s kiterjesztés hiányzik. Kérem ellenőrizze a PHP beállításokat
 msgid "possible deep recursion attack"
 msgstr "lehetséges mély rekurziós támadás"
 
-#: libraries/core.lib.php:934 libraries/mult_submits.inc.php:304
+#: libraries/core.lib.php:941 libraries/mult_submits.inc.php:304
 #: tbl_replace.php:307
 msgid "No change"
 msgstr "Nincs változás"
@@ -7733,140 +7731,140 @@ msgstr "Nem sikerült betölteni a séma bővítményeket, ellenőrizze a telep�
 msgid "Select Export Relational Type"
 msgstr "Export relációs típusának kiválasztása"
 
-#: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:258
+#: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:259
 msgid "Show/Hide tables list"
 msgstr "Táblák listájának megjelenítése vagy elrejtése"
 
-#: libraries/db_designer.lib.php:262 libraries/db_designer.lib.php:266
+#: libraries/db_designer.lib.php:263 libraries/db_designer.lib.php:268
 msgid "View in fullscreen"
 msgstr "Teljes képernyős megjelenítés"
 
-#: libraries/db_designer.lib.php:265
+#: libraries/db_designer.lib.php:267
 msgid "Exit fullscreen"
 msgstr "Kilépés a teljes képernyő módból"
 
-#: libraries/db_designer.lib.php:273 libraries/db_designer.lib.php:276
+#: libraries/db_designer.lib.php:275 libraries/db_designer.lib.php:278
 msgid "New page"
 msgstr "Új oldal"
 
-#: libraries/db_designer.lib.php:289 libraries/db_designer.lib.php:292
+#: libraries/db_designer.lib.php:291 libraries/db_designer.lib.php:294
 msgid "Save position"
 msgstr "Pozíció mentése"
 
-#: libraries/db_designer.lib.php:297 libraries/db_designer.lib.php:300
+#: libraries/db_designer.lib.php:299 libraries/db_designer.lib.php:302
 msgid "Save positions as"
 msgstr "Pozíciók mentése másként"
 
-#: libraries/db_designer.lib.php:305 libraries/db_designer.lib.php:308
+#: libraries/db_designer.lib.php:307 libraries/db_designer.lib.php:310
 msgid "Delete pages"
 msgstr "Oldalak törlése"
 
-#: libraries/db_designer.lib.php:314 libraries/db_designer.lib.php:316
+#: libraries/db_designer.lib.php:316 libraries/db_designer.lib.php:318
 #: libraries/display_create_table.lib.php:55
 msgid "Create table"
 msgstr "Tábla létrehozása"
 
-#: libraries/db_designer.lib.php:321 libraries/db_designer.lib.php:324
-#: libraries/db_designer.lib.php:788
+#: libraries/db_designer.lib.php:323 libraries/db_designer.lib.php:326
+#: libraries/db_designer.lib.php:793
 msgid "Create relation"
 msgstr "Kapcsolat létrehozása"
 
-#: libraries/db_designer.lib.php:337 libraries/db_designer.lib.php:339
+#: libraries/db_designer.lib.php:339 libraries/db_designer.lib.php:341
 msgid "Reload"
 msgstr "Újratöltés"
 
-#: libraries/db_designer.lib.php:344 libraries/db_designer.lib.php:346
+#: libraries/db_designer.lib.php:346 libraries/db_designer.lib.php:348
 msgid "Help"
 msgstr "Súgó"
 
-#: libraries/db_designer.lib.php:351 libraries/db_designer.lib.php:354
+#: libraries/db_designer.lib.php:353 libraries/db_designer.lib.php:356
 msgid "Angular links"
 msgstr "Összeférhetetlen hivatkozások"
 
-#: libraries/db_designer.lib.php:351 libraries/db_designer.lib.php:354
+#: libraries/db_designer.lib.php:353 libraries/db_designer.lib.php:356
 msgid "Direct links"
 msgstr "Közvetlen hivatkozások"
 
-#: libraries/db_designer.lib.php:359 libraries/db_designer.lib.php:361
+#: libraries/db_designer.lib.php:361 libraries/db_designer.lib.php:363
 msgid "Snap to grid"
 msgstr "Rácshoz illesztés"
 
-#: libraries/db_designer.lib.php:365 libraries/db_designer.lib.php:368
+#: libraries/db_designer.lib.php:367 libraries/db_designer.lib.php:371
 msgid "Small/Big All"
 msgstr "Mind kicsi/nagy"
 
-#: libraries/db_designer.lib.php:373 libraries/db_designer.lib.php:376
+#: libraries/db_designer.lib.php:376 libraries/db_designer.lib.php:379
 msgid "Toggle small/big"
 msgstr "Kicsi/nagy kapcsoló"
 
-#: libraries/db_designer.lib.php:381 libraries/db_designer.lib.php:384
+#: libraries/db_designer.lib.php:384 libraries/db_designer.lib.php:387
 msgid "Toggle relation lines"
 msgstr "Relációs vonalak átállítása"
 
-#: libraries/db_designer.lib.php:391 libraries/db_designer.lib.php:394
+#: libraries/db_designer.lib.php:394 libraries/db_designer.lib.php:397
 msgid "Export schema"
 msgstr "Séma exportálása"
 
-#: libraries/db_designer.lib.php:400 libraries/db_designer.lib.php:404
+#: libraries/db_designer.lib.php:403 libraries/db_designer.lib.php:407
 msgid "Build Query"
 msgstr "Lekérdezés készítése"
 
-#: libraries/db_designer.lib.php:409 libraries/db_designer.lib.php:412
+#: libraries/db_designer.lib.php:412 libraries/db_designer.lib.php:415
 msgid "Move Menu"
 msgstr "Menü áthelyezése"
 
-#: libraries/db_designer.lib.php:416 libraries/db_designer.lib.php:419
+#: libraries/db_designer.lib.php:419 libraries/db_designer.lib.php:422
 msgid "Pin text"
 msgstr "Szöveg rögzítése"
 
-#: libraries/db_designer.lib.php:458
+#: libraries/db_designer.lib.php:461
 msgid "Hide/Show all"
 msgstr "Minden elrejtése/megjelenítése"
 
-#: libraries/db_designer.lib.php:466
+#: libraries/db_designer.lib.php:470
 msgid "Hide/Show Tables with no relation"
 msgstr "A kapcsolat nélküli táblák megjelenítése/elrejtése"
 
-#: libraries/db_designer.lib.php:494 libraries/insert_edit.lib.php:227
+#: libraries/db_designer.lib.php:499 libraries/insert_edit.lib.php:227
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
 msgid "Hide"
 msgstr "Elrejtés"
 
-#: libraries/db_designer.lib.php:521
+#: libraries/db_designer.lib.php:526
 msgid "Number of tables:"
 msgstr "Táblák száma:"
 
-#: libraries/db_designer.lib.php:869
+#: libraries/db_designer.lib.php:874
 msgid "Delete relation"
 msgstr "Kapcsolat törlése"
 
-#: libraries/db_designer.lib.php:926 libraries/db_designer.lib.php:990
+#: libraries/db_designer.lib.php:931 libraries/db_designer.lib.php:995
 msgid "Relation operator"
 msgstr "Kapcsolat operátor"
 
-#: libraries/db_designer.lib.php:936 libraries/db_designer.lib.php:1000
-#: libraries/db_designer.lib.php:1154 libraries/db_designer.lib.php:1300
+#: libraries/db_designer.lib.php:941 libraries/db_designer.lib.php:1005
+#: libraries/db_designer.lib.php:1159 libraries/db_designer.lib.php:1305
 msgid "Except"
 msgstr "kivéve"
 
-#: libraries/db_designer.lib.php:942 libraries/db_designer.lib.php:1008
-#: libraries/db_designer.lib.php:1160 libraries/db_designer.lib.php:1306
+#: libraries/db_designer.lib.php:947 libraries/db_designer.lib.php:1013
+#: libraries/db_designer.lib.php:1165 libraries/db_designer.lib.php:1311
 msgid "subquery"
 msgstr "allekérdezés"
 
-#: libraries/db_designer.lib.php:948 libraries/db_designer.lib.php:1065
+#: libraries/db_designer.lib.php:953 libraries/db_designer.lib.php:1070
 msgid "Rename to"
 msgstr "Átnevezés"
 
-#: libraries/db_designer.lib.php:951 libraries/db_designer.lib.php:1071
+#: libraries/db_designer.lib.php:956 libraries/db_designer.lib.php:1076
 msgid "New name"
 msgstr "Új név"
 
-#: libraries/db_designer.lib.php:955 libraries/db_designer.lib.php:1217
+#: libraries/db_designer.lib.php:960 libraries/db_designer.lib.php:1222
 msgid "Aggregate"
 msgstr "Összegzés"
 
-#: libraries/db_designer.lib.php:1352
+#: libraries/db_designer.lib.php:1357
 msgid "Active options"
 msgstr "Aktív beállítások"
 
@@ -7966,7 +7964,7 @@ msgstr "Adatbázis(ok):"
 msgid "Table(s):"
 msgstr "Táblá(k):"
 
-#: libraries/display_export.lib.php:272 libraries/display_import.lib.php:334
+#: libraries/display_export.lib.php:272 libraries/display_import.lib.php:340
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
 msgstr "Formátum:"
@@ -7983,7 +7981,7 @@ msgstr ""
 "Görgessen lefelé, hogy kitöltse a kijelölt formátumhoz tartozó beállításokat "
 "és hogy figyelmen kívül hagyja a más formátumokhoz tartozó beállításokat."
 
-#: libraries/display_export.lib.php:291 libraries/display_import.lib.php:351
+#: libraries/display_export.lib.php:291 libraries/display_import.lib.php:357
 msgid "Encoding Conversion:"
 msgstr "Karakterkódolás-átalakítás:"
 
@@ -8163,19 +8161,19 @@ msgstr ""
 msgid "File to Import:"
 msgstr "Az importálandó fájl:"
 
-#: libraries/display_import.lib.php:232 libraries/display_import.lib.php:243
+#: libraries/display_import.lib.php:232 libraries/display_import.lib.php:249
 msgid "You may also drag and drop a file on any page."
 msgstr "Továbbá behúzhat és beejthet egy fájlt bármely oldalra."
 
-#: libraries/display_import.lib.php:246
+#: libraries/display_import.lib.php:252
 msgid "File uploads are not allowed on this server."
 msgstr "A fájlfeltöltések nem engedélyezettek ezen a kiszolgálón."
 
-#: libraries/display_import.lib.php:270
+#: libraries/display_import.lib.php:276
 msgid "Partial Import:"
 msgstr "Részleges importálás:"
 
-#: libraries/display_import.lib.php:277
+#: libraries/display_import.lib.php:283
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -8183,7 +8181,7 @@ msgstr ""
 "Az előző importálás időtúllépés miatt leállt, újraküldés után a(z) %d "
 "pozíciótól folytatódik."
 
-#: libraries/display_import.lib.php:291
+#: libraries/display_import.lib.php:297
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be a good way to import large "
@@ -8193,7 +8191,7 @@ msgstr ""
 "közel van a PHP időkorlát leteltéhez. <i>(Nagy fájlok importálásakor jól "
 "jöhet, azonban meg tudja szakítani a tranzakciót.)</i>"
 
-#: libraries/display_import.lib.php:301
+#: libraries/display_import.lib.php:307
 msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
@@ -8201,11 +8199,11 @@ msgstr ""
 "Ennyi számú lekérdezés (SQL esetén) vagy sor (más formátumoknál) kihagyása "
 "az elsőtől kezdve:"
 
-#: libraries/display_import.lib.php:340
+#: libraries/display_import.lib.php:346
 msgid "Format-Specific Options:"
 msgstr "Formátum specifikus beállítások:"
 
-#: libraries/display_import.lib.php:448
+#: libraries/display_import.lib.php:454
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
@@ -8215,29 +8213,29 @@ msgstr ""
 "olyan hiba, amely a WebKit-alapú (Safari, Google Chrome, Arora stb.) "
 "böngészők esetében fordul elő."
 
-#: libraries/display_import.lib.php:454
+#: libraries/display_import.lib.php:460
 #, php-format
 msgid "%s of %s"
 msgstr "%s %s-ból/ből"
 
-#: libraries/display_import.lib.php:455
+#: libraries/display_import.lib.php:461
 msgid "Uploading your import file…"
 msgstr "Az importfájl feltöltése…"
 
-#: libraries/display_import.lib.php:456
+#: libraries/display_import.lib.php:462
 #, php-format
 msgid "%s/sec."
 msgstr "%s/sec."
 
-#: libraries/display_import.lib.php:457
+#: libraries/display_import.lib.php:463
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Kb. %MIN perc %SEC másodperc maradt még."
 
-#: libraries/display_import.lib.php:458
+#: libraries/display_import.lib.php:464
 msgid "About %SEC sec. remaining."
 msgstr "Kb. %SEC másodperc maradt még."
 
-#: libraries/display_import.lib.php:460
+#: libraries/display_import.lib.php:466
 msgid "The file is being processed, please be patient."
 msgstr "Fájl feldolgozása folyamatban, kis türelmet kérünk."
 
@@ -9150,9 +9148,9 @@ msgid "New"
 msgstr "új"
 
 #: libraries/navigation/Nodes/Node_Index.class.php:32
-#: libraries/structure.lib.php:1503 libraries/structure.lib.php:2218
-#: libraries/structure.lib.php:2228 libraries/structure.lib.php:2339
-#: libraries/tbl_columns_definition_form.lib.php:321
+#: libraries/structure.lib.php:1503 libraries/structure.lib.php:2230
+#: libraries/structure.lib.php:2240 libraries/structure.lib.php:2351
+#: libraries/tbl_columns_definition_form.lib.php:346
 #: libraries/tbl_printview.lib.php:315
 msgid "Index"
 msgstr "Index"
@@ -9192,7 +9190,7 @@ msgstr "új"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:129
-#: libraries/structure.lib.php:3088
+#: libraries/structure.lib.php:3100
 msgid "Views"
 msgstr "Nézetek"
 
@@ -9620,7 +9618,7 @@ msgid "Repair table"
 msgstr "Tábla javítása"
 
 #: libraries/operations.lib.php:1130 libraries/structure.lib.php:333
-#: libraries/structure.lib.php:1760
+#: libraries/structure.lib.php:1771
 msgid "Optimize table"
 msgstr "Tábla optimalizálása"
 
@@ -10350,15 +10348,15 @@ msgstr "A MySQL térbeli kiterjesztése nem támogatja az ESRI típust: \"%s\"."
 msgid "The imported file does not contain any data!"
 msgstr "Az importált fájl nem tartalmaz semmilyen adatot!"
 
-#: libraries/plugins/import/ImportSql.class.php:167
+#: libraries/plugins/import/ImportSql.class.php:169
 msgid "SQL compatibility mode:"
 msgstr "SQL kompatibilitási mód:"
 
-#: libraries/plugins/import/ImportSql.class.php:179
+#: libraries/plugins/import/ImportSql.class.php:181
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Ne használja az <code>AUTO_INCREMENT</code>-et nulla értékekhez"
 
-#: libraries/plugins/import/ImportSql.class.php:193
+#: libraries/plugins/import/ImportSql.class.php:195
 msgid "Read as multibytes"
 msgstr "Olvasás multibájtként"
 
@@ -10443,7 +10441,7 @@ msgstr "Tartalomjegyzék"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:971
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:994
 #: libraries/structure.lib.php:1297
-#: libraries/tbl_columns_definition_form.lib.php:314
+#: libraries/tbl_columns_definition_form.lib.php:339
 msgid "Attributes"
 msgstr "Tulajdonságok"
 
@@ -10648,11 +10646,11 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr ""
 "Szintaxis kiemeléssel ellátott CodeMirror szerkesztő XML-hez (és HTML-hez)."
 
-#: libraries/plugins/transformations/output/Text_Plain_Json.class.php:40
+#: libraries/plugins/transformations/output/Text_Plain_Json.class.php:44
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "JSON-ként formázza a szöveget szintaxis kiemeléssel."
 
-#: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:40
+#: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:44
 msgid "Formats text as XML with syntax highlighting."
 msgstr "XML-ként formázza a szöveget szintaxis kiemeléssel."
 
@@ -11587,7 +11585,7 @@ msgstr "Pozíció"
 msgid "Original position"
 msgstr "Eredeti pozíció"
 
-#: libraries/server_bin_log.lib.php:133 libraries/structure.lib.php:2324
+#: libraries/server_bin_log.lib.php:133 libraries/structure.lib.php:2336
 msgid "Information"
 msgstr "Információ"
 
@@ -13597,7 +13595,7 @@ msgstr ""
 "Becsült érték lehet. Kattintson a számra a pontos érték lekéréséhez. Lásd "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/structure.lib.php:862 libraries/structure.lib.php:2346
+#: libraries/structure.lib.php:862 libraries/structure.lib.php:2358
 #: libraries/tbl_printview.lib.php:324
 msgid "Overhead"
 msgstr "Felülírás"
@@ -13616,21 +13614,25 @@ msgstr "Nincs"
 msgid "Column %s has been dropped."
 msgstr "A(z) %s oszlop eldobása megtörtént."
 
-#: libraries/structure.lib.php:1510 libraries/structure.lib.php:2222
-#: libraries/structure.lib.php:2232
+#: libraries/structure.lib.php:1486 libraries/structure.lib.php:2222
+msgid "Change"
+msgstr "Módosítás"
+
+#: libraries/structure.lib.php:1510 libraries/structure.lib.php:2234
+#: libraries/structure.lib.php:2244
 msgid "Spatial"
 msgstr "Térbeli"
 
-#: libraries/structure.lib.php:1520 libraries/structure.lib.php:2224
-#: libraries/structure.lib.php:2234
+#: libraries/structure.lib.php:1520 libraries/structure.lib.php:2236
+#: libraries/structure.lib.php:2246
 msgid "Fulltext"
 msgstr "Teljes szöveg"
 
-#: libraries/structure.lib.php:1528 libraries/structure.lib.php:2146
+#: libraries/structure.lib.php:1528 libraries/structure.lib.php:2158
 msgid "Add to central columns"
 msgstr "Hozzáadás a központi oszlopokhoz"
 
-#: libraries/structure.lib.php:1533 libraries/structure.lib.php:2136
+#: libraries/structure.lib.php:1533 libraries/structure.lib.php:2148
 msgid "Remove from central columns"
 msgstr "Eltávolítás a központi oszlopokból"
 
@@ -13668,106 +13670,106 @@ msgstr "%s oszlop hozzáadása"
 msgid "at beginning of table"
 msgstr "a tábla elejénél"
 
-#: libraries/structure.lib.php:1710
-#: libraries/tbl_columns_definition_form.lib.php:827
+#: libraries/structure.lib.php:1719
+#: libraries/tbl_columns_definition_form.lib.php:852
 #, php-format
 msgid "after %s"
 msgstr "%s után"
 
-#: libraries/structure.lib.php:1805
+#: libraries/structure.lib.php:1816
 msgid "Row statistics"
 msgstr "Sor statisztikája"
 
-#: libraries/structure.lib.php:1810 libraries/tbl_printview.lib.php:186
+#: libraries/structure.lib.php:1821 libraries/tbl_printview.lib.php:186
 msgid "static"
 msgstr "statikus"
 
-#: libraries/structure.lib.php:1812 libraries/tbl_printview.lib.php:188
+#: libraries/structure.lib.php:1823 libraries/tbl_printview.lib.php:188
 msgid "dynamic"
 msgstr "dinamikus"
 
-#: libraries/structure.lib.php:1823
+#: libraries/structure.lib.php:1834
 msgid "partitioned"
 msgstr "particionált"
 
-#: libraries/structure.lib.php:1860 libraries/tbl_printview.lib.php:209
+#: libraries/structure.lib.php:1871 libraries/tbl_printview.lib.php:209
 msgid "Row length"
 msgstr "Sor hossza"
 
-#: libraries/structure.lib.php:1873 libraries/tbl_printview.lib.php:223
+#: libraries/structure.lib.php:1885 libraries/tbl_printview.lib.php:223
 msgid "Row size"
 msgstr "Sor mérete"
 
-#: libraries/structure.lib.php:1881 libraries/tbl_printview.lib.php:232
+#: libraries/structure.lib.php:1893 libraries/tbl_printview.lib.php:232
 msgid "Next autoindex"
 msgstr "Következő automatikus index"
 
-#: libraries/structure.lib.php:2016 libraries/structure.lib.php:2094
-#: libraries/structure.lib.php:2100 libraries/structure.lib.php:2115
+#: libraries/structure.lib.php:2028 libraries/structure.lib.php:2106
+#: libraries/structure.lib.php:2112 libraries/structure.lib.php:2127
 #, php-format
 msgid "An index has been added on %s."
 msgstr "Az index hozzáadása a(z) %s mezőn megtörtént."
 
-#: libraries/structure.lib.php:2086
+#: libraries/structure.lib.php:2098
 #, php-format
 msgid "A primary key has been added on %s."
 msgstr "Az elsődleges kulcs hozzáadása a(z) %s mezőn megtörtént."
 
-#: libraries/structure.lib.php:2165 libraries/structure.lib.php:2236
+#: libraries/structure.lib.php:2177 libraries/structure.lib.php:2248
 msgid "Distinct values"
 msgstr "Különböző értékek"
 
-#: libraries/structure.lib.php:2174 libraries/structure.lib.php:2177
+#: libraries/structure.lib.php:2186 libraries/structure.lib.php:2189
 msgid "Add index"
 msgstr "Index hozzáadása"
 
-#: libraries/structure.lib.php:2180 libraries/structure.lib.php:2183
+#: libraries/structure.lib.php:2192 libraries/structure.lib.php:2195
 msgid "Add unique index"
 msgstr "Elsődleges kulcs hozzáadása"
 
-#: libraries/structure.lib.php:2186 libraries/structure.lib.php:2189
+#: libraries/structure.lib.php:2198 libraries/structure.lib.php:2201
 msgid "Add SPATIAL index"
 msgstr "SPATIAL Index hozzáadása"
 
-#: libraries/structure.lib.php:2192 libraries/structure.lib.php:2195
+#: libraries/structure.lib.php:2204 libraries/structure.lib.php:2207
 msgid "Add FULLTEXT index"
 msgstr "FULLTEXT index hozzáadása"
 
-#: libraries/structure.lib.php:2329
+#: libraries/structure.lib.php:2341
 msgid "Space usage"
 msgstr "Területhasználat"
 
-#: libraries/structure.lib.php:2349 libraries/tbl_printview.lib.php:331
+#: libraries/structure.lib.php:2361 libraries/tbl_printview.lib.php:331
 msgid "Effective"
 msgstr "Hatásos"
 
-#: libraries/structure.lib.php:2588 libraries/tbl_indexes.lib.php:61
+#: libraries/structure.lib.php:2600 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:92
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "A(z) %1$s tábla módosítása sikerült."
 
-#: libraries/structure.lib.php:2601 libraries/tracking.lib.php:1085
+#: libraries/structure.lib.php:2613 libraries/tracking.lib.php:1085
 msgid "Query error"
 msgstr "Lekérdezési hiba"
 
-#: libraries/structure.lib.php:2737
+#: libraries/structure.lib.php:2749
 msgid "The columns have been moved successfully."
 msgstr "Az oszlop mozgatása sikeresen megtörtént."
 
-#: libraries/structure.lib.php:2889
+#: libraries/structure.lib.php:2901
 msgid "Add to Favorites"
 msgstr "Hozzáadás a kedvencekhez"
 
-#: libraries/structure.lib.php:2939
+#: libraries/structure.lib.php:2951
 msgid "Favorite List is full!"
 msgstr "A kedvencek listája tele van!"
 
-#: libraries/structure.lib.php:3029
+#: libraries/structure.lib.php:3041
 msgid "Showing create queries"
 msgstr "Létrehozás lekérdezések megjelenítése"
 
-#: libraries/structure.lib.php:3269
+#: libraries/structure.lib.php:3281
 msgid "Relation view"
 msgstr "Kapcsolati nézet"
 
@@ -13879,7 +13881,7 @@ msgstr "PARTITION definíció:"
 msgid "Table name"
 msgstr "Tábla neve"
 
-#: libraries/tbl_columns_definition_form.lib.php:299
+#: libraries/tbl_columns_definition_form.lib.php:324
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or a "
@@ -13891,7 +13893,7 @@ msgstr ""
 "(\"'\") akar ezekben az értékekben használni, akkor fordított perjellel "
 "kezdje (például '\\\\xyz' vagy 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.lib.php:309
+#: libraries/tbl_columns_definition_form.lib.php:334
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
@@ -13899,15 +13901,15 @@ msgstr ""
 "Írjon be egy értéket az alapértelmezett értékekhez, fordított perjel, escape "
 "karakter vagy idézőjelek nélkül, a következő formátum használatával: a"
 
-#: libraries/tbl_columns_definition_form.lib.php:328
+#: libraries/tbl_columns_definition_form.lib.php:353
 msgid "Move column"
 msgstr "Oszlop mozgatása"
 
-#: libraries/tbl_columns_definition_form.lib.php:336
+#: libraries/tbl_columns_definition_form.lib.php:361
 msgid "List of available transformations and their options"
 msgstr "Elérhető átalakítások és azok beállításainak listája"
 
-#: libraries/tbl_columns_definition_form.lib.php:341
+#: libraries/tbl_columns_definition_form.lib.php:366
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -13919,51 +13921,51 @@ msgstr ""
 "beszúrni az értékekbe, akkor kezdje fordított perjellel (például: '\\\\xyz' "
 "vagy 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.lib.php:349
+#: libraries/tbl_columns_definition_form.lib.php:374
 #: transformation_overview.php:41
 msgid "Browser display transformation"
 msgstr "Böngésző megjelenítés átalakítás"
 
-#: libraries/tbl_columns_definition_form.lib.php:351
+#: libraries/tbl_columns_definition_form.lib.php:376
 msgid "Browser display transformation options"
 msgstr "Böngésző megjelenítés átalakítási beállítások"
 
-#: libraries/tbl_columns_definition_form.lib.php:354
+#: libraries/tbl_columns_definition_form.lib.php:379
 #: transformation_overview.php:42
 msgid "Input transformation"
 msgstr "Bemenet átalakítás"
 
-#: libraries/tbl_columns_definition_form.lib.php:356
+#: libraries/tbl_columns_definition_form.lib.php:381
 msgid "Input transformation options"
 msgstr "Bemenet átalakítás beállításai"
 
-#: libraries/tbl_columns_definition_form.lib.php:597
+#: libraries/tbl_columns_definition_form.lib.php:622
 #, php-format
 msgid "Referenced by %s."
 msgstr "Hivatkozó: %s."
 
-#: libraries/tbl_columns_definition_form.lib.php:605
+#: libraries/tbl_columns_definition_form.lib.php:630
 msgid "Is a foreign key."
 msgstr "Egy idegen kulcs-e."
 
-#: libraries/tbl_columns_definition_form.lib.php:632
+#: libraries/tbl_columns_definition_form.lib.php:657
 msgid "Pick from Central Columns"
 msgstr "Válasszon a központi oszlopokból"
 
-#: libraries/tbl_columns_definition_form.lib.php:818
+#: libraries/tbl_columns_definition_form.lib.php:843
 msgid "first"
 msgstr "első"
 
-#: libraries/tbl_columns_definition_form.lib.php:1099
+#: libraries/tbl_columns_definition_form.lib.php:1124
 msgid "Edit ENUM/SET values"
 msgstr "ENUM/SET értékek szerkesztése"
 
-#: libraries/tbl_columns_definition_form.lib.php:1124
+#: libraries/tbl_columns_definition_form.lib.php:1149
 msgctxt "for default"
 msgid "None"
 msgstr "Nincs"
 
-#: libraries/tbl_columns_definition_form.lib.php:1125
+#: libraries/tbl_columns_definition_form.lib.php:1150
 msgid "As defined:"
 msgstr "Mint meghatározva:"
 
@@ -14097,23 +14099,23 @@ msgstr "A(z) %s idegen kulcs megszorítás el lett dobva"
 msgid "Constraint name"
 msgstr "Megkötés neve"
 
-#: libraries/tbl_relation.lib.php:526
+#: libraries/tbl_relation.lib.php:528
 msgid "+ Add column"
 msgstr "+ Oszlop hozzáadása"
 
-#: libraries/tbl_relation.lib.php:670
+#: libraries/tbl_relation.lib.php:672
 msgid "Choose column to display:"
 msgstr "Válassza ki a megjelenítendő oszlopot:"
 
-#: libraries/tbl_relation.lib.php:827
+#: libraries/tbl_relation.lib.php:829
 msgid "Display column was successfully updated."
 msgstr "A megjelenített oszlop sikeresen frissítve."
 
-#: libraries/tbl_relation.lib.php:911
+#: libraries/tbl_relation.lib.php:913
 msgid "Internal relations were successfully updated."
 msgstr "A belső kapcsolatok sikeresen frissítve."
 
-#: libraries/tbl_relation.lib.php:1176
+#: libraries/tbl_relation.lib.php:1178
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -14928,16 +14930,20 @@ msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "A MySQL kézikönyv csak a hivatalos MySQL kiadás számára akkurátus."
 
 #: libraries/advisory_rules.txt:132
-msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr "Percona dokumentáció: http://www.percona.com/docs/wiki/"
+#| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
+msgid ""
+"Percona documentation is at http://www.percona.com/software/documentation/"
+msgstr "Percona dokumentáció: http://www.percona.com/software/documentation/"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
 msgstr "'percona' a version_comment-ben találva"
 
 #: libraries/advisory_rules.txt:139
-msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr "Drizzle dokumentáció: http://docs.drizzle.org/"
+#| msgid "Drizzle documentation is at http://docs.drizzle.org/"
+msgid ""
+"Drizzle documentation is at http://www.drizzle.org/content/documentation/"
+msgstr "Drizzle dokumentáció: http://www.drizzle.org/content/documentation/"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -15762,15 +15768,19 @@ msgid "Too many connections are aborted."
 msgstr "Túl sok kapcsolat lett megszakítva."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
+#| msgid ""
+#| "Connections are usually aborted when they cannot be authorized. <a href="
+#| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+#| "source-of-aborted_connects/\">This article</a> might help you track down "
+#| "the source."
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">This article</a> might help you track down the "
-"source."
+"\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"A nem azonosítható kapcsolatok általában meg lesznek szakítva. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Ez a cikk</a> segíthet."
+"A nem azonosítható kapcsolatok általában meg lesznek szakítva. <a href=\""
+"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Ez a cikk</a> segíthet a forrás lekövetéséhez."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -15895,11 +15905,21 @@ msgstr "Az InnoDB naplófájl mérete túlságosan nagy."
 
 #: libraries/advisory_rules.txt:447
 #, php-format
+#| msgid ""
+#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
+#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
+#| "slows down the recovery time after a database crash considerably. See "
+#| "also <a href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-"
+#| "proper-innodb_log_file_size/\">this Article</a>. You need to shutdown the "
+#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
+#| "the server, then check the error logs if everything went fine. See also "
+#| "<a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
+#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
 "of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down "
 "the recovery time after a database crash considerably. See also <a href="
-"\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"\"http://www.percona.com/blog/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
 "remove the InnoDB log files, set the new value in my.cnf, start the server, "
 "then check the error logs if everything went fine. See also <a href=\"http://"
@@ -15909,13 +15929,13 @@ msgstr ""
 "Általában elegendő az {innodb_log_file_size} beállítása 25%%-ra a "
 "{innodb_buffer_pool_size} nagyságához képest. Egy nagyon nagy "
 "{innodb_log_file_size} jelentősen lassítja a helyreállási időt egy "
-"összeomlás után. Lásd <a href=\"http://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">ezt a cikket</a>. A "
-"kiszolgálót le kell állítani, az InnoDB naplófájlokat ki kell törölni, új "
-"értéket kell beállítani a my.cnf fájlban, ezután lehet elindítani a "
-"szervert, majd meg kell nézni a naplófájlokban, hogy minden jól ment-e. Lásd "
-"még: <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-"increase-innodblogfilesize-proper-way.html\">ezt a blog bejegyzést</a>"
+"összeomlás után. Lásd <a href=\"http://www.percona.com/blog/2006/07/03"
+"/choosing-proper-innodb_log_file_size/\">ezt a cikket</a>. A kiszolgálót le "
+"kell állítani, az InnoDB naplófájlokat ki kell törölni, új értéket kell "
+"beállítani a my.cnf fájlban, ezután lehet elindítani a szervert, majd meg "
+"kell nézni a naplófájlokban, hogy minden jól ment-e. Lásd még: <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">ezt a blog bejegyzést</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -15932,6 +15952,17 @@ msgstr "Az InnoDB pufferterülete túlságosan kicsi."
 
 #: libraries/advisory_rules.txt:454
 #, php-format
+#| msgid ""
+#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
+#| "tables. Assign all your remaining memory to this buffer. For database "
+#| "servers that use solely InnoDB as storage engine and have no other "
+#| "services (e.g. a web server) running, you may set this as high as 80%% of "
+#| "your available memory. If that is not the case, you need to carefully "
+#| "assess the memory consumption of your other services and non-InnoDB-"
+#| "Tables and set this variable accordingly. If it is set too high, your "
+#| "system will start swapping, which decreases performance significantly. "
+#| "See also <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/"
+#| "choosing-innodb_buffer_pool_size/\">this article</a>"
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -15941,8 +15972,8 @@ msgid ""
 "memory consumption of your other services and non-InnoDB-Tables and set this "
 "variable accordingly. If it is set too high, your system will start "
 "swapping, which decreases performance significantly. See also <a href="
-"\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">this article</a>"
+"\"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
+"\">this article</a>"
 msgstr ""
 "Az InnoDB pufferkészlet mély hatást gyakorol az InnoDB táblák működésére. A "
 "fennmaradó memóriát ehhez a pufferhez kell rendelni. Azon adatbázis-"
@@ -15952,8 +15983,8 @@ msgstr ""
 "akkor gondosan értékelje át a memória-felhasználás mértékét a más "
 "szolgáltatások és a nem-InnoDB-táblák számára, és állítsuk át a változó "
 "értékét ennek megfelelően. Ha az érték túl magas, a rendszer teljesítménye "
-"jelentősen csökken. Lásd <a href=\"http://www.mysqlperformanceblog."
-"com/2007/11/03/choosing-innodb_buffer_pool_size/\">ezt a cikket</a>"
+"jelentősen csökken. Lásd <a href=\"http://www.percona.com/blog/2007/11/03"
+"/choosing-innodb_buffer_pool_size/\">ezt a cikket</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format

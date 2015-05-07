@@ -334,7 +334,8 @@ $strConfigImport_csv_col_names_name = __('Lines terminated with');
 $strConfigImport_csv_enclosed_name = __('Columns enclosed with');
 $strConfigImport_csv_escaped_name = __('Columns escaped with');
 $strConfigImport_csv_ignore_name = __('Do not abort on INSERT error');
-$strConfigImport_csv_replace_name = __('Replace table data with file');
+$strConfigImport_csv_replace_name = __('Add ON DUPLICATE KEY UPDATE');
+$strConfigImport_csv_replace_desc = __('Update data when duplicate keys found on import');
 $strConfigImport_csv_terminated_name = __('Columns terminated with');
 $strConfigImport_format_desc = __(
     'Default format; be aware that this list depends on location (database, table) '
@@ -345,7 +346,8 @@ $strConfigImport_ldi_enclosed_name = __('Columns enclosed with');
 $strConfigImport_ldi_escaped_name = __('Columns escaped with');
 $strConfigImport_ldi_ignore_name = __('Do not abort on INSERT error');
 $strConfigImport_ldi_local_option_name = __('Use LOCAL keyword');
-$strConfigImport_ldi_replace_name = __('Replace table data with file');
+$strConfigImport_ldi_replace_name = __('Add ON DUPLICATE KEY UPDATE');
+$strConfigImport_ldi_replace_desc = __('Update data when duplicate keys found on import');
 $strConfigImport_ldi_terminated_name = __('Columns terminated with');
 $strConfigImport_ods_col_names_name = __('Column names in first row');
 $strConfigImport_ods_empty_rows_name = __('Do not import empty rows');
@@ -453,7 +455,7 @@ $strConfigNavigationTreeDisplayItemFilterMinimum_name
 $strConfigNavigationTreeDisplayDbFilterMinimum_name
     = __('Minimum number of databases to display the database filter box');
 $strConfigNavigationTreeEnableGrouping_desc = __(
-    'Group items in the navigation tree (determined by the separator defined below).'
+    'Group items in the navigation tree (determined by the separator defined in the Databases and Tables tabs above).'
 );
 $strConfigNavigationTreeEnableGrouping_name = __('Group items in the tree');
 $strConfigNavigationTreeDbSeparator_desc

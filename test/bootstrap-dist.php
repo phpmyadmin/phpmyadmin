@@ -122,34 +122,6 @@ if (PMA_HAS_RUNKIT && $GLOBALS['runkit_internal_override']) {
 }
 
 /**
- * Return the tag array to be used with assertTag by parsing
- * a given HTML element
- *
- * @param string $elementHTML HTML for element to be parsed
- * @param array  $arr         Additional array elements like content, parent
- *
- * @return array              Tag array to be used with assertTag
- */
-function PMA_getTagArray($elementHTML, $arr = array())
-{
-
-    // get attributes
-    preg_match_all("/\s+(.*?)\=\s*\"(.*?)\"/is", $elementHTML, $matches);
-    foreach ($matches[1] as $key => $val) {
-        $arr['attributes'][trim($val)] = trim($matches[2][$key]);
-    }
-    $matches = array();
-
-    // get tag
-    preg_match("/^\<(.*?)(\s|\>)/i", $elementHTML, $matches);
-    if (isset($matches[1])) {
-        $arr['tag'] = trim($matches[1]);
-    }
-
-    return $arr;
-}
-
-/**
  * Overrides date function
  *
  * @return boolean whether function was overridden or not
