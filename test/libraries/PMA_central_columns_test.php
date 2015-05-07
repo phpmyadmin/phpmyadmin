@@ -413,8 +413,8 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $result = PMA_getHTMLforEditingPage(
             array("col1", "col2"), 'phpmyadmin'
         );
-        $this->assertTag(
-            array('tag' => 'form'),
+        $this->assertContains(
+            '<form',
             $result
         );
         $header_cells = array(
@@ -749,10 +749,13 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             define("PMA_USR_BROWSER_AGENT", "other");
         }
         $result = PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir);
-        $this->assertTag(array('tag'=>"input", "class"=>"checkall_box"), $result);
+        $this->assertContains(
+            '<input type="checkbox" id="tableslistcontainer_checkall" class="checkall_box"',
+            $result
+        );
         $this->assertContains("With selected:", $result);
-        $this->assertTag(
-            array('tag'=>"button", "class"=>"change_central_columns"),
+        $this->assertContains(
+            '<button class="mult_submit change_central_columns"',
             $result
         );
     }
