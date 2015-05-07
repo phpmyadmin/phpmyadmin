@@ -58,7 +58,10 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
-        $this->assertTag($matcher, PMA_RTN_getExecuteForm($data), false);
+        $this->assertContains(
+            $matcher,
+            PMA_RTN_getExecuteForm($data)
+        );
     }
 
     /**
@@ -136,77 +139,35 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_name'
-                    )
-                )
+                "name='item_name'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'funcs[foo]'
-                    )
-                )
+                "name='funcs[foo]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'params[foo]',
-                        'class' => 'datefield'
-                    )
-                )
+                "<input class='datefield' type='text' name='params[foo]' />"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'funcs[fob]'
-                    )
-                )
+                "name='funcs[fob]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'params[fob]',
-                        'class' => 'datetimefield'
-                    )
-                )
+                "<input class='datetimefield' type='text' name='params[fob]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'params[fod][]'
-                    ),
-                )
+                "name='params[fod][]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'params[foe][]'
-                    ),
-                )
+                "name='params[foe][]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'execute_routine'
-                    )
-                )
+                "name='execute_routine'"
             ),
         );
     }
@@ -225,7 +186,10 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = true;
         PMA_RTN_setGlobals();
-        $this->assertTag($matcher, PMA_RTN_getExecuteForm($data), false);
+        $this->assertContains(
+            $matcher,
+            PMA_RTN_getExecuteForm($data)
+        );
     }
 
     /**
@@ -303,21 +267,11 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'execute_routine'
-                    )
-                )
+                "name='execute_routine'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'ajax_request'
-                    )
-                )
+                "name='ajax_request'"
             ),
         );
     }
