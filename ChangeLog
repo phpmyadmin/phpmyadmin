@@ -29,6 +29,7 @@ phpMyAdmin - ChangeLog
 + rfe #1661 Support checksum table
 + rfe #1380 Support for Paramaters with raw SQL
 + rfe #1146 Show original size of truncated columns
++ rfe #1413 Explain analyzer
 
 4.4.6.0 (not yet released)
 - bug #4890 webkitStorageInfo and webkitIndexedDB is deprecated

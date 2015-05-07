@@ -1160,19 +1160,32 @@ class PMA_Util
                 $explain_params = $url_params;
                 if ($is_select) {
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
-                    $_message = __('Explain SQL');
+                    $explain_link = ' ['
+                        . self::linkOrButton(
+                            'import.php' . PMA_URL_getCommon($explain_params),
+                            __('Explain SQL')
+                        ) . ']';
                 } elseif (preg_match(
                     '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
                 )) {
                     $explain_params['sql_query']
                         = /*overload*/mb_substr($sql_query, 8);
-                    $_message = __('Skip Explain SQL');
-                }
-                if (isset($explain_params['sql_query']) && isset($_message)) {
                     $explain_link = ' ['
                         . self::linkOrButton(
                             'import.php' . PMA_URL_getCommon($explain_params),
-                            $_message
+                            __('Skip Explain SQL')
+                        ) . ']';
+                    $url = 'https://mariadb.org/explain_analyzer/analyze/'
+                        . '?client=phpMyAdmin&raw_explain='
+                        . urlencode(self::generateRowQueryOutput($sql_query));
+                    $explain_link .= ' ['
+                        . self::linkOrButton(
+                            'url.php?url=' . urlencode($url),
+                            sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
+                            array(),
+                            true,
+                            false,
+                            '_blank'
                         ) . ']';
                 }
             } //show explain
@@ -1290,6 +1303,43 @@ class PMA_Util
 
         return $retval;
     } // end of the 'getMessage()' function
+
+    /**
+     * Execute an EXPLAIN query and formats results similar to MySQL command line utility.
+     *
+     * @param string $sqlQuery EXPLAIN query
+     *
+     * @return string query resuls
+     */
+    private static function generateRowQueryOutput($sqlQuery)
+    {
+        $ret = '';
+        $result = $GLOBALS['dbi']->query($sqlQuery);
+        if ($result) {
+            $devider = '+';
+            $columnNames = '|';
+            $fieldsMeta = $GLOBALS['dbi']->getFieldsMeta($result);
+            foreach ($fieldsMeta as $meta) {
+                $devider .= '---+';
+                $columnNames .= ' ' . $meta->name . ' |';
+            }
+            $devider .= "\n";
+
+            $ret .= $devider . $columnNames . "\n" . $devider;
+            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+                $values = '|';
+                foreach ($row as $value) {
+                    if (is_null($value)) {
+                        $value = 'NULL';
+                    }
+                    $values .= ' ' . $value . ' |';
+                }
+                $ret .= $values . "\n";
+            }
+            $ret .= $devider;
+        }
+        return $ret;
+    }
 
     /**
      * Verifies if current MySQL server supports profiling

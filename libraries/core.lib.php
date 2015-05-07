@@ -859,6 +859,8 @@ function PMA_isAllowedDomain($url)
         'dev.mysql.com','bugs.mysql.com',
         /* drizzle.org domains */
         'www.drizzle.org',
+        /* mariadb domains */
+        'mariadb.org',
         /* php.net domains */
         'php.net',
         /* Github domains*/
