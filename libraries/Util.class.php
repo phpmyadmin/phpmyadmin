@@ -1911,6 +1911,9 @@ class PMA_Util
             $url_parts   = parse_url($url);
 
             if ($new_form) {
+                if ($target) {
+                    $target = ' target="' . $target . '"';
+                }
                 $ret = '<form action="' . $url_parts['path'] . '" class="link"'
                      . ' method="post"' . $target . ' style="display: inline;">';
                 $subname_open   = '';
