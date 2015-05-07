@@ -52,7 +52,7 @@ abstract class AbstractImportCsv extends ImportPlugin
         // create common items and add them to the group
         $leaf = new BoolPropertyItem();
         $leaf->setName("replace");
-        $leaf->setText(__('Replace table data with file'));
+        $leaf->setText(__('Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)'));
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("terminated");
