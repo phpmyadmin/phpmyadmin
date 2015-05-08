@@ -1455,7 +1455,7 @@ class PMA_DbQbe
         $html_output .= '<form action="db_qbe.php" method="post" class="lock-page">';
         $html_output .= PMA_URL_getHiddenInputs(array('db' => $this->_db));
         // get SQL query
-        $html_output .= '<div class="floatleft">';
+        $html_output .= '<div class="floatleft" style="width:50%">';
         $html_output .= '<fieldset>';
         $html_output .= '<legend>'
             . sprintf(
