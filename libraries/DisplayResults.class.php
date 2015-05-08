@@ -478,6 +478,38 @@ class PMA_DisplayResults
     }
 
     /**
+     * Defines the parts to display for statements not related to data
+     *
+     * @param array $displayParts the parts to display
+     *
+     * @return array $displayParts the modified display parts
+     *
+     * @access  private
+     *
+     */
+    private function _setDisplayPartsForNonData($displayParts)
+    {
+        // Statement is a "SELECT COUNT", a
+        // "CHECK/ANALYZE/REPAIR/OPTIMIZE/CHECKSUM", an "EXPLAIN" one or
+        // contains a "PROC ANALYSE" part
+        $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
+        $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
+        $displayParts['sort_lnk']  = (string) '0';
+        $displayParts['nav_bar']   = (string) '0';
+        $displayParts['ins_row']   = (string) '0';
+        $displayParts['bkm_form']  = (string) '1';
+
+        if ($this->__get('is_maint')) {
+            $displayParts['text_btn']  = (string) '1';
+        } else {
+            $displayParts['text_btn']  = (string) '0';
+        }
+        $displayParts['pview_lnk'] = (string) '1';
+
+        return $displayParts;
+    }
+
+    /**
      * Defines the parts to display for the results of a SQL query
      *
      * @param array   $displayParts the parts to display (see a few
@@ -513,25 +545,11 @@ class PMA_DisplayResults
         } elseif ($this->__get('is_count') || $this->__get('is_analyse')
             || $this->__get('is_maint') || $this->__get('is_explain')
         ) {
-            // 2.1 Statement is a "SELECT COUNT", a
-            //     "CHECK/ANALYZE/REPAIR/OPTIMIZE/CHECKSUM", an "EXPLAIN" one or
-            //     contains a "PROC ANALYSE" part
-            $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
-            $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
-            $displayParts['sort_lnk']  = (string) '0';
-            $displayParts['nav_bar']   = (string) '0';
-            $displayParts['ins_row']   = (string) '0';
-            $displayParts['bkm_form']  = (string) '1';
-
-            if ($this->__get('is_maint')) {
-                $displayParts['text_btn']  = (string) '1';
-            } else {
-                $displayParts['text_btn']  = (string) '0';
-            }
-            $displayParts['pview_lnk'] = (string) '1';
+            $displayParts = $this->_setDisplayPartsForNonData($displayParts);
 
         } elseif ($this->__get('is_show')) {
             $displayParts = $this->_setDisplayPartsForShow($displayParts);
+
         } else {
             // 2.3 Other statements (ie "SELECT" ones) -> updates
             //     $displayParts['edit_lnk'], $displayParts['del_lnk'] and
