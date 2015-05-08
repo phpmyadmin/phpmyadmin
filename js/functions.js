@@ -35,6 +35,11 @@ var codemirror_editor = false;
 var codemirror_inline_editor = false;
 
 /**
+ * @var sql_autocomplete_in_progress bool shows if Table/Column name autocomplete AJAX is in progress
+ */
+var sql_autocomplete_in_progress = false;
+
+/**
  * @var sql_autocomplete object containing list of columns in each table
  */
 var sql_autocomplete = false;
@@ -1733,11 +1738,15 @@ AJAX.registerOnload('functions.js', function () {
  * "inputRead" event handler for CodeMirror SQL query editors for autocompletion
  */
 function codemirrorAutocompleteOnInputRead(instance) {
-    if (!instance.options.hintOptions.tables || !sql_autocomplete){
+    if (!sql_autocomplete_in_progress
+        && (!instance.options.hintOptions.tables || !sql_autocomplete)) {
+
         if (!sql_autocomplete) {
             // Reset after teardown
             instance.options.hintOptions.tables = false;
             instance.options.hintOptions.defaultTable = '';
+
+            sql_autocomplete_in_progress = true;
 
             var href = 'db_sql_autocomplete.php';
             var params = {
@@ -1782,6 +1791,9 @@ function codemirrorAutocompleteOnInputRead(instance) {
                         instance.options.hintOptions.tables = result;
                         instance.options.hintOptions.defaultTable = sql_autocomplete_default_table;
                     }
+                },
+                complete: function () {
+                    sql_autocomplete_in_progress = false;
                 }
             });
         }
