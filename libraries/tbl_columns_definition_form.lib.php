@@ -338,6 +338,7 @@ function PMA_getHeaderCells($is_backup, $columnMeta, $mimework)
     $header_cells[] = __('Collation');
     $header_cells[] = __('Attributes');
     $header_cells[] = __('Null');
+    $header_cells[] = __('Realign Privileges');
 
     // We could remove this 'if' and let the key information be shown and
     // editable. However, for this to work, structure.lib.php must be modified
@@ -982,6 +983,24 @@ function PMA_getHtmlForIndexTypeOption($columnNumber, $columnMeta, $type, $key)
     return $html;
 }
 
+/**
+ * Function to get html for column Realign Privileges
+ *
+ * @param int $columnNumber column number
+ * @param int $ci           cell index
+ * @param int $ci_offset    cell index offset
+ *
+ * @return string
+ */
+function PMA_getHtmlForColumnRealignPrivileges($columnNumber, $ci, $ci_offset)
+{
+    $html = '<input name="field_realign_privileges[' . $columnNumber . ']"'
+        . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"'
+        . ' checked="checked"'
+        . ' type="checkbox" value="NULL" class="allow_null"/>';
+
+    return $html;
+}
 
 /**
  * Function to get html for column null
@@ -1313,6 +1332,12 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
     // column NULL
     $content_cell[$ci] = PMA_getHtmlForColumnNull(
         $columnNumber, $ci, $ci_offset, isset($columnMeta) ? $columnMeta : null
+    );
+    $ci++;
+
+    // column Realign Privileges
+    $content_cell[$ci] = PMA_getHtmlForColumnRealignPrivileges(
+        $columnNumber, $ci, $ci_offset
     );
     $ci++;
 

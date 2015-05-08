@@ -116,6 +116,12 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
         PMA_duplicateBookmarks($_error, $GLOBALS['db']);
 
         if (! $_error && $move) {
+            if (isset($_REQUEST['realign_privileges'])
+                && ! empty($_REQUEST['realign_privileges'])
+            ) {
+                PMA_RealignPrivileges_moveDB($GLOBALS['db'], $_REQUEST['newname']);
+            }
+
             /**
              * cleanup pmadb stuff for this db
              */
@@ -134,6 +140,12 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
             $message->addParam($GLOBALS['db']);
             $message->addParam($_REQUEST['newname']);
         } elseif (! $_error) {
+            if (isset($_REQUEST['realign_privileges'])
+                && ! empty($_REQUEST['realign_privileges'])
+            ) {
+                PMA_RealignPrivileges_copyDB($GLOBALS['db'], $_REQUEST['newname']);
+            }
+
             $message = PMA_Message::success(
                 __('Database %1$s has been copied to %2$s.')
             );
