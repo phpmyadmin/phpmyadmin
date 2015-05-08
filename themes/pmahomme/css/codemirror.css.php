@@ -309,6 +309,17 @@ span.cm-number {
     color: teal;
 }
 
+.autocomplete-column-name {
+    display: inline-block;
+}
+
+.autocomplete-column-hint {
+    display: inline-block;
+    float: right;
+    color: #666;
+    margin-left: 1em;
+}
+
 /* CodeMirror Hints styling */
 .CodeMirror-hints {
   position: absolute;
