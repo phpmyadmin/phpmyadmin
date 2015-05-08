@@ -3010,13 +3010,6 @@ class PMA_DisplayResults
 
             }
 
-            $_url_params = array(
-                'db'            => $this->__get('db'),
-                'table'         => $this->__get('table'),
-                'where_clause'  => $where_clause,
-                'transform_key' => $meta->name,
-            );
-
             /*
              * The result set can have columns from more than one table,
              * this is why we have to check for the unique conditions
@@ -3036,7 +3029,7 @@ class PMA_DisplayResults
                 $uniqueConditionMap[$meta->orgtable] = $unique_conditions;
             }
 
-            $transform_url_params = array(
+            $_url_params = array(
                 'db'            => $this->__get('db'),
                 'table'         => $meta->orgtable,
                 'where_clause'  => $uniqueConditionMap[$meta->orgtable][0],
@@ -3045,11 +3038,10 @@ class PMA_DisplayResults
 
             if (! empty($sql_query)) {
                 $_url_params['sql_query'] = $url_sql_query;
-                $transform_url_params['sql_query'] = $url_sql_query;
             }
 
             $transform_options['wrapper_link']
-                = PMA_URL_getCommon($transform_url_params);
+                = PMA_URL_getCommon($_url_params);
 
             $display_params = $this->__get('display_params');
 
@@ -3699,9 +3691,8 @@ class PMA_DisplayResults
         // Display as [GEOMETRY - (size)]
         if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
             $geometry_text = $this->_handleNonPrintableContents(
-                strtoupper(self::GEOMETRY_FIELD),
-                (isset($column) ? $column : ''), $transformation_plugin,
-                $transform_options, $default_function, $meta
+                strtoupper(self::GEOMETRY_FIELD), $column, $transformation_plugin,
+                $transform_options, $default_function, $meta, $_url_params
             );
 
             $cell = $this->_buildValueDisplay(
@@ -4507,7 +4498,7 @@ class PMA_DisplayResults
             $column_for_first_row = $this->_handleNonPrintableContents(
                 $meta->type, $row[$sorted_column_index],
                 $transformation_plugin, $transform_options,
-                $default_function, $meta, null
+                $default_function, $meta
             );
 
         } else {
@@ -4533,7 +4524,7 @@ class PMA_DisplayResults
             $column_for_last_row = $this->_handleNonPrintableContents(
                 $meta->type, $row[$sorted_column_index],
                 $transformation_plugin, $transform_options,
-                $default_function, $meta, null
+                $default_function, $meta
             );
 
         } else {
