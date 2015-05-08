@@ -478,6 +478,95 @@ class PMA_DisplayResults
     }
 
     /**
+     * Defines the parts to display for statements not related to data
+     *
+     * @param array $displayParts the parts to display
+     *
+     * @return array $displayParts the modified display parts
+     *
+     * @access  private
+     *
+     */
+    private function _setDisplayPartsForNonData($displayParts)
+    {
+        // Statement is a "SELECT COUNT", a
+        // "CHECK/ANALYZE/REPAIR/OPTIMIZE/CHECKSUM", an "EXPLAIN" one or
+        // contains a "PROC ANALYSE" part
+        $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
+        $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
+        $displayParts['sort_lnk']  = (string) '0';
+        $displayParts['nav_bar']   = (string) '0';
+        $displayParts['ins_row']   = (string) '0';
+        $displayParts['bkm_form']  = (string) '1';
+
+        if ($this->__get('is_maint')) {
+            $displayParts['text_btn']  = (string) '1';
+        } else {
+            $displayParts['text_btn']  = (string) '0';
+        }
+        $displayParts['pview_lnk'] = (string) '1';
+
+        return $displayParts;
+    }
+
+    /**
+     * Defines the parts to display for other statements (probably SELECT)
+     *
+     * @param array $displayParts the parts to display
+     *
+     * @return array $displayParts the modified display parts
+     *
+     * @access  private
+     *
+     */
+    private function _setDisplayPartsForSelect($displayParts)
+    {
+        // Other statements (ie "SELECT" ones) -> updates
+        // $displayParts['edit_lnk'], $displayParts['del_lnk'] and
+        // $displayParts['text_btn'] (keeps other default values)
+
+        $fields_meta = $this->__get('fields_meta');
+        $prev_table = '';
+        $displayParts['text_btn']  = (string) '1';
+        $number_of_columns = $this->__get('fields_cnt');
+
+        for ($i = 0; $i < $number_of_columns; $i++) {
+
+            $is_link = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
+                || ($displayParts['sort_lnk'] != '0')
+                || ($displayParts['ins_row'] != '0');
+
+            // Displays edit/delete/sort/insert links?
+            if ($is_link
+                && $prev_table != ''
+                && $fields_meta[$i]->table != ''
+                && $fields_meta[$i]->table != $prev_table
+            ) {
+                // don't display links
+                $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
+                $displayParts['del_lnk']  = self::NO_EDIT_OR_DELETE;
+                /**
+                 * @todo May be problematic with same field names
+                 * in two joined table.
+                 */
+                // $displayParts['sort_lnk'] = (string) '0';
+                $displayParts['ins_row']  = (string) '0';
+                if ($displayParts['text_btn'] == '1') {
+                    break;
+                }
+            } // end if
+
+            // Always display print view link
+            $displayParts['pview_lnk'] = (string) '1';
+            if ($fields_meta[$i]->table != '') {
+                $prev_table = $fields_meta[$i]->table;
+            }
+        } // end for
+        return $displayParts;
+    }
+
+    /**
      * Defines the parts to display for the results of a SQL query
      *
      * @param array   $displayParts the parts to display (see a few
@@ -503,7 +592,6 @@ class PMA_DisplayResults
         $table = $this->__get('table');
         $unlim_num_rows = $this->__get('unlim_num_rows');
         $num_rows = $this->__get('num_rows');
-        $fields_meta = $this->__get('fields_meta');
         $printview = $this->__get('printview');
 
         // 2. Updates the display parts
@@ -513,67 +601,14 @@ class PMA_DisplayResults
         } elseif ($this->__get('is_count') || $this->__get('is_analyse')
             || $this->__get('is_maint') || $this->__get('is_explain')
         ) {
-            // 2.1 Statement is a "SELECT COUNT", a
-            //     "CHECK/ANALYZE/REPAIR/OPTIMIZE/CHECKSUM", an "EXPLAIN" one or
-            //     contains a "PROC ANALYSE" part
-            $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
-            $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
-            $displayParts['sort_lnk']  = (string) '0';
-            $displayParts['nav_bar']   = (string) '0';
-            $displayParts['ins_row']   = (string) '0';
-            $displayParts['bkm_form']  = (string) '1';
-
-            if ($this->__get('is_maint')) {
-                $displayParts['text_btn']  = (string) '1';
-            } else {
-                $displayParts['text_btn']  = (string) '0';
-            }
-            $displayParts['pview_lnk'] = (string) '1';
+            $displayParts = $this->_setDisplayPartsForNonData($displayParts);
 
         } elseif ($this->__get('is_show')) {
             $displayParts = $this->_setDisplayPartsForShow($displayParts);
+
         } else {
-            // 2.3 Other statements (ie "SELECT" ones) -> updates
-            //     $displayParts['edit_lnk'], $displayParts['del_lnk'] and
-            //     $displayParts['text_btn'] (keeps other default values)
-            $prev_table = '';
-            $displayParts['text_btn']  = (string) '1';
-
-            for ($i = 0; $i < $this->__get('fields_cnt'); $i++) {
-
-                $is_link = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                    || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
-                    || ($displayParts['sort_lnk'] != '0')
-                    || ($displayParts['ins_row'] != '0');
-
-                // 2.3.2 Displays edit/delete/sort/insert links?
-                if ($is_link
-                    && $prev_table != ''
-                    && $fields_meta[$i]->table != ''
-                    && $fields_meta[$i]->table != $prev_table
-                ) {
-                    // don't display links
-                    $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
-                    $displayParts['del_lnk']  = self::NO_EDIT_OR_DELETE;
-                    /**
-                     * @todo May be problematic with same field names
-                     * in two joined table.
-                     */
-                    // $displayParts['sort_lnk'] = (string) '0';
-                    $displayParts['ins_row']  = (string) '0';
-                    if ($displayParts['text_btn'] == '1') {
-                        break;
-                    }
-                } // end if (2.3.2)
-
-                // 2.3.3 Always display print view link
-                $displayParts['pview_lnk']    = (string) '1';
-                if ($fields_meta[$i]->table != '') {
-                    $prev_table = $fields_meta[$i]->table;
-                }
-
-            } // end for
-        } // end if..elseif...else (2.1 -> 2.3)
+            $displayParts = $this->_setDisplayPartsForSelect($displayParts);
+        } // end if..elseif...else
 
         // 3. Gets the total number of rows if it is unknown
         if (isset($unlim_num_rows) && $unlim_num_rows != '') {
@@ -5218,7 +5253,10 @@ class PMA_DisplayResults
         }
 
         /* Create link to download */
-        if (! empty($this->__get('db')) && ! empty($meta->orgtable)) {
+
+        // in PHP < 5.5, empty() only checks variables
+        $tmpdb = $this->__get('db');
+        if (! empty($tmpdb) && ! empty($meta->orgtable)) {
             $result = '<a href="tbl_get_field.php'
                 . PMA_URL_getCommon($url_params)
                 . '" class="disableAjax">'
