@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug #4876 Settings issues (Favorite tables shown twice in Settings)
 - bug #4896 Non-styled error page when following results link
 - bug #4894 Deleting without confirmation
+- bug #4858 Issues with SQL autocomplete
 
 4.4.6.0 (2015-05-07)
 - bug #4890 webkitStorageInfo and webkitIndexedDB is deprecated
