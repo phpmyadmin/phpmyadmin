@@ -368,7 +368,7 @@ function PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen)
  * @param array   $column                description of column in given table
  * @param boolean $is_upload             upload or no
  * @param string  $column_name_appendix  the name attribute
- * @param string  $onChangeClause        onchange clause for fields 
+ * @param string  $onChangeClause        onchange clause for fields
  * @param array   $no_support_types      list of datatypes that are not (yet)
  *                                       handled by PMA
  * @param integer $tabindex_for_function +3000
@@ -510,7 +510,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param array   $column                description of column in given table
  * @param string  $backup_field          hidden input field
  * @param string  $column_name_appendix  the name attribute
- * @param string  $onChangeClause        onchange clause for fields 
+ * @param string  $onChangeClause        onchange clause for fields
  * @param integer $tabindex              tab index
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
@@ -636,7 +636,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
  * @param array   $column               description of column in given table
  * @param string  $backup_field         hidden input field
  * @param string  $column_name_appendix the name attribute
- * @param string  $onChangeClause       onchange clause for fields 
+ * @param string  $onChangeClause       onchange clause for fields
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
@@ -686,7 +686,7 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
  *
  * @param string  $backup_field         hidden input field
  * @param string  $column_name_appendix the name attribute
- * @param string  $onChangeClause       onchange clause for fields 
+ * @param string  $onChangeClause       onchange clause for fields
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
@@ -726,7 +726,7 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
  * @param array   $column                column information
  * @param string  $backup_field          hidden input field
  * @param string  $column_name_appendix  the name attribute
- * @param string  $onChangeClause        onchange clause for fields 
+ * @param string  $onChangeClause        onchange clause for fields
  * @param integer $tabindex              tab index
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
@@ -787,7 +787,7 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
  * @param array   $extracted_columnspec associative array containing type,
  *                                      spec_in_brackets and possibly
  *                                      enum_set_values (another array)
- * @param string  $onChangeClause       onchange clause for fields 
+ * @param string  $onChangeClause       onchange clause for fields
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
@@ -853,7 +853,7 @@ function PMA_getColumnEnumValues($column, $extracted_columnspec)
  *
  * @param array   $column               description of column in given table
  * @param string  $column_name_appendix the name attribute
- * @param string  $onChangeClause       onchange clause for fields 
+ * @param string  $onChangeClause       onchange clause for fields
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
@@ -893,7 +893,7 @@ function PMA_getDropDownDependingOnLength(
  * Get HTML radio button for less than 20 string length
  *
  * @param string  $column_name_appendix the name attribute
- * @param string  $onChangeClause       onchange clause for fields 
+ * @param string  $onChangeClause       onchange clause for fields
  * @param integer $tabindex             tab index
  * @param array   $column               description of column in given table
  * @param integer $tabindex_for_value   offset for the values tabindex
@@ -941,7 +941,7 @@ function PMA_getRadioButtonDependingOnLength(
  *                                      enum_set_values (another array)
  * @param string  $backup_field         hidden input field
  * @param string  $column_name_appendix the name attribute
- * @param string  $onChangeClause       onchange clause for fields 
+ * @param string  $onChangeClause       onchange clause for fields
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
@@ -1013,7 +1013,7 @@ function PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec)
  * @param integer $biggest_max_file_size biggest max file size for uploading
  * @param string  $backup_field          hidden input field
  * @param string  $column_name_appendix  the name attribute
- * @param string  $onChangeClause        onchange clause for fields 
+ * @param string  $onChangeClause        onchange clause for fields
  * @param integer $tabindex              tab index
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
@@ -1096,7 +1096,7 @@ function PMA_getBinaryAndBlobColumn(
  * @param string  $column_name_appendix the name attribute
  * @param string  $special_chars        special characters
  * @param integer $fieldsize            html field size
- * @param string  $onChangeClause       onchange clause for fields 
+ * @param string  $onChangeClause       onchange clause for fields
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
@@ -1227,7 +1227,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  *                                       in the config.inc.php script
  * @param string  $backup_field          hidden input field
  * @param string  $column_name_appendix  the name attribute
- * @param string  $onChangeClause        onchange clause for fields 
+ * @param string  $onChangeClause        onchange clause for fields
  * @param integer $tabindex              tab index
  * @param string  $special_chars         special characters
  * @param integer $tabindex_for_value    offset for the values tabindex

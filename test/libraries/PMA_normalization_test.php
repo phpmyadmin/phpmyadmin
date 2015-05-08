@@ -164,12 +164,12 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
             '<h4',
             $result
         );
-            
+
         $this->assertContains(
             '<p',
             $result
         );
-            
+
         $this->assertContains(
             "<select id='selectNonAtomicCol'",
             $result
