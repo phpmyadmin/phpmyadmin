@@ -5604,7 +5604,7 @@ class PMA_DisplayResults
             $ajax = PMA_Response::getInstance()->isAjax() ? ' ajax' : '';
             $ret .= 'center" ' . ' >'
                . PMA_Util::linkOrButton(
-                   $del_url, $del_str, array('class' => 'delete_row' . $ajax), false
+                   $del_url, $del_str, array('class' => 'delete_row requireConfirm' . $ajax), false
                )
                . '<div class="hide">' . $js_conf . '</div>'
                . '</td>';
