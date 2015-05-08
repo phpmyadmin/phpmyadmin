@@ -1467,7 +1467,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $transformation_plugin = new Text_Plain_Link();
         $meta = new StdClass();
         $meta->type = 'BLOB';
-        $url_params = array('db' => 'foo');
+        $meta->orgtable = 'bar';
+        $url_params = array('db' => 'foo', 'table' => 'bar');
 
         return array(
             array(
@@ -1481,8 +1482,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="tbl_get_field.php?db=foo&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8'
+                '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
+                . '&amp;lang=en&amp;collation_connection=utf-8'
                 . '&amp;token=token" class="disableAjax">31303031</a>'
             ),
             array(
@@ -1496,8 +1497,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="tbl_get_field.php?db=foo&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8'
+                '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
+                . '&amp;lang=en&amp;collation_connection=utf-8'
                 . '&amp;token=token" class="disableAjax">[BLOB - 4 B]</a>'
             ),
             array(
@@ -1600,7 +1601,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $meta2->decimals = 0;
         $meta2->name = 'varchar';
         $meta2->orgname = 'varchar';
-        $url_params = array('db' => 'foo');
+        $url_params = array('db' => 'foo', 'table' => 'tbl');
 
         return array(
             array(
@@ -1619,7 +1620,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 0,
                 'binary',
                 '<td class="left   hex"><a href="tbl_get_field.php?'
-                . 'db=foo&amp;server=0&amp;lang=en'
+                . 'db=foo&amp;table=tbl&amp;server=0&amp;lang=en'
                 . '&amp;collation_connection=utf-8'
                 . '&amp;token=token" '
                 . 'class="disableAjax">[BLOB - 4 B]</a></td>'

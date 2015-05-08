@@ -5227,7 +5227,7 @@ class PMA_DisplayResults
         }
 
         /* Create link to download */
-        if (count($url_params) > 0) {
+        if (! empty($this->__get('db')) && ! empty($meta->orgtable)) {
             $result = '<a href="tbl_get_field.php'
                 . PMA_URL_getCommon($url_params)
                 . '" class="disableAjax">'
