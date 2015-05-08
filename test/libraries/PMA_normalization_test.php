@@ -479,7 +479,7 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $result = PMA_getHtmlForNormalizetable();
         $this->assertContains(
             '<form method="post" action="normalization.php"'
-                . ' name="normalize" id="normalizeTable"',
+            . ' name="normalize" id="normalizeTable"',
             $result
         );
         $this->assertContains(

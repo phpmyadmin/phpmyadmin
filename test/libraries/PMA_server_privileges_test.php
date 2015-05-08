@@ -2115,7 +2115,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             '<img src="imageb_usredit.png" title="Edit Privileges" '
-                . 'alt="Edit Privileges" />',
+            . 'alt="Edit Privileges" />',
             $actual[1]
         );
         $this->assertContains(
@@ -2157,7 +2157,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             '<legend data-submenu-label="Table">'
-                . 'Table-specific privileges',
+            . 'Table-specific privileges',
             $actual[0]
         );
         $this->assertEquals(array(), $actual[1]);
@@ -2167,8 +2167,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey(0, $actual);
         $this->assertArrayHasKey(1, $actual);
         $this->assertContains(
-                '<legend data-submenu-label="Database">'
-                    . 'Database-specific privileges',
+            '<legend data-submenu-label="Database">'
+            . 'Database-specific privileges',
             $actual[0]
         );
     }
@@ -2189,7 +2189,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $actual = PMA_getHtmlForSelectDbInEditPrivs(array('pmadb'));
         $this->assertContains(
             '<label for="text_dbname">'
-                . 'Add privileges on the following database(s):',
+            . 'Add privileges on the following database(s):',
             $actual
         );
         $this->assertContains(
@@ -2197,13 +2197,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-            '<option value="testdb">'
-                . 'testdb',
+            '<option value="testdb">testdb',
             $actual
         );
         $this->assertContains(
-            '<option value="mysql">'
-                . 'mysql',
+            '<option value="mysql">mysql',
             $actual
         );
         $this->assertContains(
@@ -2234,8 +2232,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-            '<label for="text_tablename">'
-                . 'Add privileges on the following table:',
+            '<label for="text_tablename">Add privileges on the following table:',
             $actual
         );
         $this->assertContains(
@@ -2247,8 +2244,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-            '<option value="" selected="selected">'
-                . 'Use text field:',
+            '<option value="" selected="selected">Use text field:',
             $actual
         );
         $this->assertContains(
