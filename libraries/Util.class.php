@@ -1177,7 +1177,7 @@ class PMA_Util
                         ) . ']';
                     $url = 'https://mariadb.org/explain_analyzer/analyze/'
                         . '?client=phpMyAdmin&raw_explain='
-                        . urlencode(self::generateRowQueryOutput($sql_query));
+                        . urlencode(self::_generateRowQueryOutput($sql_query));
                     $explain_link .= ' ['
                         . self::linkOrButton(
                             'url.php?url=' . urlencode($url),
@@ -1311,7 +1311,7 @@ class PMA_Util
      *
      * @return string query resuls
      */
-    private static function generateRowQueryOutput($sqlQuery)
+    private static function _generateRowQueryOutput($sqlQuery)
     {
         $ret = '';
         $result = $GLOBALS['dbi']->query($sqlQuery);
