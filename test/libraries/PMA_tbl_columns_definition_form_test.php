@@ -142,7 +142,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input type="text" name="comment" size="40" maxlength="60" '
-                . 'value="c&amp;d" class="textfield"',
+            . 'value="c&amp;d" class="textfield"',
             $result
         );
 
@@ -158,13 +158,13 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<option value="utf8_bin" title="Unicode (multilingual), Binary">'
-                . 'utf8_bin</option>',
+            . 'utf8_bin</option>',
             $result
         );
 
         $this->assertContains(
             '<textarea name="partition_definition" id="partitiondefinition" '
-                . 'cols="10" rows="15" dir="text_dir">partition&gt;</textarea>',
+            . 'cols="10" rows="15" dir="text_dir">partition&gt;</textarea>',
             $result
         );
     }
@@ -207,13 +207,13 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input type="text" name="table" size="40" maxlength="64" '
-                . 'value="tablename" class="textfield" ',
+            . 'value="tablename" class="textfield" ',
             $result
         );
 
         $this->assertContains(
             '<input type="number" id="added_fields" name="added_fields" '
-                . 'size="2" value="1" min="1" onfocus="this.select()"',
+            . 'size="2" value="1" min="1" onfocus="this.select()"',
             $result
         );
 
@@ -293,7 +293,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<form method="post" action="tbl_create.php" '
-                . 'class="create_table_form ajax lock-page">',
+            . 'class="create_table_form ajax lock-page">',
             $result
         );
 
@@ -591,8 +591,8 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input id="field_2_0" type="text" name="field_name[2]" '
-                . 'maxlength="64" class="textfield" title="Column" size="10" '
-                . 'value="fieldname" />',
+            . 'maxlength="64" class="textfield" title="Column" size="10" '
+            . 'value="fieldname" />',
             $result
         );
     }
@@ -644,7 +644,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input id="field_2_0" type="text" name="field_transformation_'
-                . 'options[2]" size="16" class="textfield" value="transops" />',
+            . 'options[2]" size="16" class="textfield" value="transops" />',
             $result
         );
     }
@@ -716,8 +716,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<select id="field_2_0" name="field_move_to[2]" size="1" '
-                . 'width="5em">',
+            '<select id="field_2_0" name="field_move_to[2]" size="1" width="5em">',
             $result
         );
 
@@ -758,7 +757,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input id="field_2_1" type="text" name="field_comments[2]" '
-                . 'size="12" value="fieldnamecomment&lt;" class="textfield" />',
+            . 'size="12" value="fieldnamecomment&lt;" class="textfield" />',
             $result
         );
     }
@@ -780,7 +779,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input name="field_extra[2]" id="field_2_1" checked="checked" '
-                . 'type="checkbox" value="AUTO_INCREMENT" />',
+            . 'type="checkbox" value="AUTO_INCREMENT" />',
             $result
         );
     }
@@ -865,7 +864,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input name="field_null[2]" id="field_2_2" checked="checked" '
-                . 'type="checkbox" value="NULL" class="allow_null"/>',
+            . 'type="checkbox" value="NULL" class="allow_null"/>',
             $result
         );
     }
@@ -914,8 +913,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<select style="width: 7em;" name="field_attribute[2]" '
-                . 'id="field_2_2">',
+            '<select style="width: 7em;" name="field_attribute[2]" id="field_2_2">',
             $result
         );
 
@@ -964,7 +962,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input id="field_2_2" type="text" name="field_length[2]" size="10" '
-                . 'value="8" class="textfield" />',
+            . 'value="8" class="textfield" />',
             $result
         );
 
@@ -993,7 +991,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<select name="field_default_type[2]" id="field_2_2" '
-                . 'class="default_type">',
+            . 'class="default_type">',
             $result
         );
 
@@ -1004,7 +1002,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input type="text" name="field_default_value[2]" size="12" '
-                . 'value="2222" class="textfield default_value" />',
+            . 'value="2222" class="textfield default_value" />',
             $result
         );
     }
