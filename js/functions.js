@@ -1763,6 +1763,16 @@ function codemirrorAutocompleteOnInputRead(instance) {
                 'server': PMA_commonParams.get('server'),
                 'db': PMA_commonParams.get('db')
             };
+
+            var columnHintRender = function(elem, self, data) {
+                $('<div class="autocomplete-column-name">')
+                    .text(data.columnName)
+                    .appendTo(elem);
+                $('<div class="autocomplete-column-hint">')
+                    .text(data.columnHint)
+                    .appendTo(elem);
+            }
+
             $.ajax({
                 type: 'POST',
                 url: href,
@@ -1781,7 +1791,7 @@ function codemirrorAutocompleteOnInputRead(instance) {
                                 };
                                 for (var column in columns) {
                                     if (columns.hasOwnProperty(column)) {
-                                        var displayText = column + ' | ' + columns[column].Type;
+                                        var displayText = columns[column].Type;
                                         if (columns[column].Key == 'PRI') {
                                             displayText += ' | Primary';
                                         } else if (columns[column].Key == 'UNI') {
@@ -1789,7 +1799,10 @@ function codemirrorAutocompleteOnInputRead(instance) {
                                         }
                                         table.columns.push({
                                             text: column,
-                                            displayText: displayText
+                                            displayText: column + " | " +  displayText,
+                                            columnName: column,
+                                            columnHint: displayText,
+                                            render: columnHintRender
                                         });
                                     }
                                 }
