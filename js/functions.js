@@ -1769,12 +1769,12 @@ function codemirrorAutocompleteOnInputRead(instance) {
                 data: params,
                 success: function (data) {
                     if (data.success) {
-                        sql_autocomplete = $.parseJSON(data.tables);
+                        var tables = $.parseJSON(data.tables);
                         sql_autocomplete_default_table = PMA_commonParams.get('table');
-                        var result = [];
-                        for (var table in sql_autocomplete) {
-                            if (sql_autocomplete.hasOwnProperty(table)) {
-                                var columns = sql_autocomplete[table];
+                        sql_autocomplete = [];
+                        for (var table in tables) {
+                            if (tables.hasOwnProperty(table)) {
+                                var columns = tables[table];
                                 table = {
                                     text: table,
                                     columns: []
@@ -1794,9 +1794,9 @@ function codemirrorAutocompleteOnInputRead(instance) {
                                     }
                                 }
                             }
-                            result.push(table);
+                            sql_autocomplete.push(table);
                         }
-                        instance.options.hintOptions.tables = result;
+                        instance.options.hintOptions.tables = sql_autocomplete;
                         instance.options.hintOptions.defaultTable = sql_autocomplete_default_table;
                     }
                 },
