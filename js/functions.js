@@ -1771,7 +1771,7 @@ function codemirrorAutocompleteOnInputRead(instance) {
                 $('<div class="autocomplete-column-hint">')
                     .text(data.columnHint)
                     .appendTo(elem);
-            }
+            };
 
             $.ajax({
                 type: 'POST',
