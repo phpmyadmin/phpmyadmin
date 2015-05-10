@@ -896,6 +896,13 @@ $cfg['NavigationLinkWithMainPanel'] = true;
 $cfg['NavigationDisplayLogo'] = true;
 
 /**
+ * logo displayed in the navigation panel
+ *
+ * @global string $cfg['NavigationLogo']
+ */
+$cfg['NavigationLogo'] = 'logo_left.png';
+
+/**
  * where should logo link point to (can also contain an external URL)
  *
  * @global string $cfg['NavigationLogoLink']
