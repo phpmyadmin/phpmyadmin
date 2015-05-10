@@ -161,6 +161,30 @@ class PMA_Config
     }
 
     /**
+     * Sets the client platform based on user agent
+     *
+     * @param string $user_agent the user agent
+     *
+     * @return void
+     */
+    private function _setClientPlatform($user_agent)
+    {
+        if (/*overload*/mb_strstr($user_agent, 'Win')) {
+            $this->set('PMA_USR_OS', 'Win');
+        } elseif (/*overload*/mb_strstr($user_agent, 'Mac')) {
+            $this->set('PMA_USR_OS', 'Mac');
+        } elseif (/*overload*/mb_strstr($user_agent, 'Linux')) {
+            $this->set('PMA_USR_OS', 'Linux');
+        } elseif (/*overload*/mb_strstr($user_agent, 'Unix')) {
+            $this->set('PMA_USR_OS', 'Unix');
+        } elseif (/*overload*/mb_strstr($user_agent, 'OS/2')) {
+            $this->set('PMA_USR_OS', 'OS/2');
+        } else {
+            $this->set('PMA_USR_OS', 'Other');
+        }
+    }
+
+    /**
      * Determines platform (OS), browser and version of the user
      * Based on a phpBuilder article:
      *
@@ -177,19 +201,7 @@ class PMA_Config
         }
 
         // 1. Platform
-        if (/*overload*/mb_strstr($HTTP_USER_AGENT, 'Win')) {
-            $this->set('PMA_USR_OS', 'Win');
-        } elseif (/*overload*/mb_strstr($HTTP_USER_AGENT, 'Mac')) {
-            $this->set('PMA_USR_OS', 'Mac');
-        } elseif (/*overload*/mb_strstr($HTTP_USER_AGENT, 'Linux')) {
-            $this->set('PMA_USR_OS', 'Linux');
-        } elseif (/*overload*/mb_strstr($HTTP_USER_AGENT, 'Unix')) {
-            $this->set('PMA_USR_OS', 'Unix');
-        } elseif (/*overload*/mb_strstr($HTTP_USER_AGENT, 'OS/2')) {
-            $this->set('PMA_USR_OS', 'OS/2');
-        } else {
-            $this->set('PMA_USR_OS', 'Other');
-        }
+        $this->_setClientPlatform($HTTP_USER_AGENT);
 
         // 2. browser and version
         // (must check everything else before Mozilla)
