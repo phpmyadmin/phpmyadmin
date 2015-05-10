@@ -5256,7 +5256,7 @@ class PMA_DisplayResults
 
         // in PHP < 5.5, empty() only checks variables
         $tmpdb = $this->__get('db');
-        if (! empty($tmpdb) && ! empty($meta->orgtable)) {
+        if ((count($url_params) > 0) && (! empty($tmpdb) && ! empty($meta->orgtable))) {
             $result = '<a href="tbl_get_field.php'
                 . PMA_URL_getCommon($url_params)
                 . '" class="disableAjax">'
