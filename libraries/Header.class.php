@@ -441,9 +441,11 @@ class PMA_Header
                     $retval .= $this->_menu->getDisplay();
                     $retval .= '<span id="lock_page_icon"></span>';
                     $retval .= sprintf(
-                        '<a id="goto_pagetop" href="#" title="%s">%s</a>',
-                        __('Click on the bar to scroll to top of page'),
-                        PMA_Util::getImage('s_top.png')
+                        '<a id="goto_pagetop" href="#">%s</a>',
+                        PMA_Util::getImage(
+                            's_top.png',
+                            __('Click on the bar to scroll to top of page')
+                        )
                     );
                 }
                 $retval .= $this->_console->getDisplay();
