@@ -476,6 +476,7 @@ AJAX.registerOnload('sql.js', function () {
         function submitShowAllForm() {
             var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true';
             PMA_ajaxShowMessage();
+            AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
     });
