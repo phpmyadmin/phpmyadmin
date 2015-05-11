@@ -768,13 +768,13 @@ class PMA_Config
             return null;
         }
         $handle = curl_init($link);
+        PMA_Util::configureCurl($handle);
         curl_setopt($handle, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($handle, CURLOPT_HEADER, 1);
         curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
         curl_setopt($handle, CURLOPT_TIMEOUT, 5);
         if (! defined('TESTSUITE')) {
             session_write_close();
