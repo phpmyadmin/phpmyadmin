@@ -331,7 +331,7 @@ if (isset($_COOKIE)
  * check HTTPS connection
  */
 if ($GLOBALS['PMA_Config']->get('ForceSSL')
-    && ! $GLOBALS['PMA_Config']->get('is_https')
+    && ! $GLOBALS['PMA_Config']->detectHttps()
 ) {
     // grab SSL URL
     $url = $GLOBALS['PMA_Config']->getSSLUri();
