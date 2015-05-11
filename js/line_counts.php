@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
 define('LINE_COUNTS', true);
 $LINE_COUNT = array();
 
-$LINE_COUNT["error_report.js"] = 338;
+$LINE_COUNT["error_report.js"] = 340;
 $LINE_COUNT["functions.js"] = 4545;
 $LINE_COUNT["db_central_columns.js"] = 200;
 $LINE_COUNT["jquery/jquery-ui-timepicker-addon.js"] = 2223;

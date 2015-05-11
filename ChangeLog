@@ -1,6 +1,11 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.4.6.0 (2015-05-07)
+- bug #4890 webkitStorageInfo and webkitIndexedDB is deprecated
+- bug #4892 Undefined variable: unique_conditions
+- bug #4891 CSV Import ignores "Replace table data with file" checkbox
+
 4.4.5.0 (2015-05-05)
 - bug       Table overhead stats: missing space before the unit
 - bug       Fix resize icon in Designer

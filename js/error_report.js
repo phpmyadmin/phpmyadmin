@@ -257,9 +257,11 @@ var ErrorReport = {
      */
     wrap_global_functions: function () {
         for (var key in window) {
-            var global = window[key];
-            if (typeof(global) === "function" && key.indexOf("PMA_") === 0) {
-                window[key] = ErrorReport.wrap_function(global);
+            if (key.indexOf("PMA_") === 0) {
+                var global = window[key];
+                if (typeof(global) === "function") {
+                    window[key] = ErrorReport.wrap_function(global);
+                }
             }
         }
     },

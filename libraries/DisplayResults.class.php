@@ -2839,7 +2839,7 @@ class PMA_DisplayResults
 
         $row_info = $this->_getRowInfoForSpecialLinks($row, $col_order);
 
-        $previousMetaOrgTable = '';
+        $uniqueConditionMap = array();
 
         $columnCount = $this->__get('fields_cnt');
         for ($currentColumn = 0;
@@ -2993,8 +2993,7 @@ class PMA_DisplayResults
              * costly and does not need to be called if we already know
              * the conditions for the current table.
              */
-
-            if ($meta->orgtable != $previousMetaOrgTable) {
+            if (! isset($uniqueConditionMap[$meta->orgtable])) {
                 $unique_conditions = PMA_Util::getUniqueCondition(
                     $dt_result,
                     $this->__get('fields_cnt'),
@@ -3003,13 +3002,13 @@ class PMA_DisplayResults
                     false,
                     $meta->orgtable
                 );
-                $previousMetaOrgTable = $meta->orgtable;
+                $uniqueConditionMap[$meta->orgtable] = $unique_conditions;
             }
 
             $transform_url_params = array(
                 'db'            => $this->__get('db'),
                 'table'         => $meta->orgtable,
-                'where_clause'  => $unique_conditions[0],
+                'where_clause'  => $uniqueConditionMap[$meta->orgtable][0],
                 'transform_key' => $meta->orgname
             );
 
