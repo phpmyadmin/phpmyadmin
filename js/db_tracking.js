@@ -46,10 +46,12 @@ AJAX.registerOnload('db_tracking.js', function () {
             var question = PMA_messages.strDeleteTrackingDataMultiple;
             $button.PMA_confirm(question, $form.attr('action'), function (url) {
                 PMA_ajaxShowMessage(PMA_messages.strDeletingTrackingData);
+                AJAX.source = $form;
                 $.post(url, submitData, AJAX.responseHandler);
             });
         } else {
             PMA_ajaxShowMessage();
+            AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
     });
@@ -63,6 +65,7 @@ AJAX.registerOnload('db_tracking.js', function () {
         var $form = $button.parent('form');
         var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
+        AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });
 
@@ -75,6 +78,7 @@ AJAX.registerOnload('db_tracking.js', function () {
         var question = PMA_messages.strDeleteTrackingData;
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strDeletingTrackingData);
+            AJAX.source = $anchor;
             $.get(url, {'ajax_page_request': true, 'ajax_request': true}, AJAX.responseHandler);
         });
     });

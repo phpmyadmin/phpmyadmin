@@ -37,6 +37,7 @@ phpMyAdmin - ChangeLog
 - bug #4894 Deleting without confirmation
 - bug #4858 Issues with SQL autocomplete
 - bug #4897 Column hint in SQL autocomplete is sometimes not shown
+- bug #4898 JS error after selecting a field and press Enter
 
 4.4.6.0 (2015-05-07)
 - bug #4890 webkitStorageInfo and webkitIndexedDB is deprecated
