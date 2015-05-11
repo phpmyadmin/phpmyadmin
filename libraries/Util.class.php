@@ -4246,6 +4246,7 @@ class PMA_Util
                 );
             }
         }
+        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
         return $curl_handle;
     }
     /**
