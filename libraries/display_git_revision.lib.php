@@ -74,7 +74,7 @@ function PMA_printGitRevision()
             . sprintf(
                 __('authored on %1$s by %2$s'),
                 PMA_Util::localisedDate(strtotime($author['date'])),
-                '<a href="' . PMA_linkURL('mailto:' . htmlspecialchars$author['email'])) . '">'
+                '<a href="' . PMA_linkURL('mailto:' . htmlspecialchars($author['email'])) . '">'
                 . htmlspecialchars($author['name']) . '</a>'
             )
             : ''),
