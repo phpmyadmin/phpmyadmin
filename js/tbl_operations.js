@@ -5,6 +5,7 @@ AJAX.registerTeardown('tbl_operations.js', function () {
     $(document).off('submit', "#copyTable.ajax");
     $(document).off('submit', "#moveTableForm");
     $(document).off('submit', "#tableOptionsForm");
+    $(document).off('submit', "#partitionsForm");
     $(document).off('click', "#tbl_maintenance li a.maintain_action.ajax");
     $(document).off('click', "#drop_tbl_anchor.ajax");
     $(document).off('click', "#drop_view_anchor.ajax");
@@ -139,6 +140,52 @@ AJAX.registerOnload('tbl_operations.js', function () {
             }
         }); // end $.post()
     });//end of table maintenance ajax click
+
+    /**
+     * Ajax action for submitting the "Partition Maintenance"
+     * Also, asks for confirmation when DROP partition is submitted
+     */
+    $(document).on('submit', "#partitionsForm", function (event) {
+        event.preventDefault();
+        var $form = $(this);
+        var db = $form.find('input[name=db]').val();
+        var tbl = $form.find('input[name=table]').val();
+        PMA_prepareForAjaxRequest($form);
+        var question = PMA_messages.strDropPartitionWarning;
+        var processingString = PMA_messages.strProcessingRequest;
+
+        if($('#partition_operation_DROP').is(':checked')) {
+            $(this).PMA_confirm(question, $form.attr('action'), function (url) {
+                $.post($form.attr('action'), $form.serialize(), function (data) {
+                    if (typeof data !== 'undefined' && data.success === true) {
+                        PMA_commonParams.set('db', db);
+                        PMA_commonParams.set('table', tbl);
+                        PMA_commonActions.refreshMain(false, function () {
+                            $('#page_content').html(data.message);
+                            PMA_highlightSQL($('#page_content'));
+                        });
+                    } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                    }
+                });
+            });
+        }
+        else {
+            PMA_ajaxShowMessage(processingString);
+            $.post($form.attr('action'), $form.serialize(), function (data) {
+                if (typeof data !== 'undefined' && data.success === true) {
+                    PMA_commonParams.set('db', db);
+                    PMA_commonParams.set('table', tbl);
+                    PMA_commonActions.refreshMain(false, function () {
+                        $('#page_content').html(data.message);
+                        PMA_highlightSQL($('#page_content'));
+                    });
+                } else {
+                PMA_ajaxShowMessage(data.error, false);
+                }
+            });
+        }
+    });
 
     $(document).on('click', "#drop_tbl_anchor.ajax", function (event) {
         event.preventDefault();

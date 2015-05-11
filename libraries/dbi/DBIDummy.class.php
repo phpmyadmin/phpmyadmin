@@ -520,6 +520,11 @@ $GLOBALS['dummy_queries'] = array(
             array(1),
         )
     ),
+    array(
+        'query' => 'SELECT `PARTITION_METHOD` FROM `INFORMATION_SCHEMA`.`PARTITIONS` '
+            . 'WHERE `TABLE_SCHEMA` = "db" AND `TABLE_NAME` = "table"',
+        'result' => array()
+    ),
 );
 /**
  * Current database.

@@ -42,6 +42,7 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
             'ServerDefault' => 1,
             'ActionLinksMode' => 'icons',
         );
+        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['server'] = 1;
     }
 

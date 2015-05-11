@@ -61,6 +61,7 @@ $js_messages['strConfirmNavigation'] = __('You have unsaved changes; are you sur
 $js_messages['strDropUserWarning'] = __('Do you really want to revoke the selected user(s) ?');
 $js_messages['strDeleteCentralColumnWarning'] = __('Do you really want to delete this central column?');
 $js_messages['strDropRTEitems'] = __('Do you really want to delete the selected items?');
+$js_messages['strDropPartitionWarning'] = __('Do you really want to DROP the selected partition(s)? This will also DELETE the data related to the selected partition(s)!');
 
 /* For modal dialog buttons */
 $js_messages['strSaveAndClose'] = __('Save & Close');
