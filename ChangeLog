@@ -31,6 +31,7 @@ phpMyAdmin - ChangeLog
 + rfe #1146 Show original size of truncated columns
 + rfe #1413 Explain analyzer
 + rfe #1485 Add "Drop partition" option to partition tools
++ rfe #1668 Procedures window shift-click should select multiple rows
 
 4.4.7.0 (not yet released)
 - bug #4876 Settings issues (Favorite tables shown twice in Settings)

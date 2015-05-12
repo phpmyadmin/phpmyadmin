@@ -178,7 +178,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     );
     $type_link = "item_type={$routine['ROUTINE_TYPE']}";
 
-    $retval  = "        <tr class='noclick $rowclass'>\n";
+    $retval  = "        <tr class='$rowclass'>\n";
     $retval .= "            <td>\n";
     $retval .= '                <input type="checkbox"'
         . ' class="checkall" name="item_name[]"'
@@ -296,7 +296,7 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
 {
     global $ajax_class, $url_query, $db, $table, $titles;
 
-    $retval  = "        <tr class='noclick $rowclass'>\n";
+    $retval  = "        <tr class='$rowclass'>\n";
     $retval .= "            <td>\n";
     $retval .= '                <input type="checkbox"'
         . ' class="checkall" name="item_name[]"'
@@ -380,7 +380,7 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
         PMA_Util::backquote($event['EVENT_NAME'])
     );
 
-    $retval  = "        <tr class='noclick $rowclass'>\n";
+    $retval  = "        <tr class='$rowclass'>\n";
     $retval .= "            <td>\n";
     $retval .= '                <input type="checkbox"'
         . ' class="checkall" name="item_name[]"'
