@@ -778,6 +778,7 @@ AJAX.registerOnload('functions.js', function () {
 
     $(document).on('click', 'input:checkbox.checkall', function (e) {
         var $tr = $(this).closest('tr');
+        var $table = $(this).closest('table');
 
         // make the table unselectable (to prevent default highlighting when shift+click)
         //$tr.parents('table').noSelect();
@@ -807,7 +808,7 @@ AJAX.registerOnload('functions.js', function () {
             }
 
             // remember the last clicked row
-            last_clicked_row = last_click_checked ? $('tr.odd:not(.noclick), tr.even:not(.noclick)').index($tr) : -1;
+            last_clicked_row = last_click_checked ? $table.find('tr.odd:not(.noclick), tr.even:not(.noclick)').index($tr) : -1;
             last_shift_clicked_row = -1;
         } else {
             // handle the shift click
@@ -832,7 +833,7 @@ AJAX.registerOnload('functions.js', function () {
             }
 
             // handle new shift click
-            var curr_row = $('tr.odd:not(.noclick), tr.even:not(.noclick)').index($tr);
+            var curr_row = $table.find('tr.odd:not(.noclick), tr.even:not(.noclick)').index($tr);
             if (curr_row >= last_clicked_row) {
                 start = last_clicked_row;
                 end = curr_row;
