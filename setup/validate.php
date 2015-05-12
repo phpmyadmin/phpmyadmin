@@ -16,8 +16,10 @@ require './libraries/config/Validator.class.php';
 
 header('Content-type: application/json');
 
-$vids = explode(',', filter_input(INPUT_POST, 'id'));
-$values = json_decode(filter_input(INPUT_POST, 'values'));
+$ids = isset($_POST['id']) ? $_POST['id'] : null;
+$vids = explode(',', $ids);
+$vals = isset($_POST['values']) ? $_POST['values'] : null;
+$values = json_decode($vals);
 if (!($values instanceof stdClass)) {
     PMA_fatalError(__('Wrong data'));
 }

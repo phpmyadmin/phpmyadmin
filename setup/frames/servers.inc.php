@@ -19,8 +19,8 @@ require_once './setup/lib/form_processing.lib.php';
 
 require './libraries/config/setup.forms.php';
 
-$mode = filter_input(INPUT_GET, 'mode');
-$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+$mode = isset($_GET['mode']) ? $_GET['mode'] : null;
+$id = PMA_isValid($_GET['id'], 'numeric') ? $_GET['id'] : null;
 
 $cf = $GLOBALS['ConfigFile'];
 $server_exists = !empty($id) && $cf->get("Servers/$id") !== null;

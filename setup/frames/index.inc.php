@@ -174,12 +174,12 @@ if ($cf->getServerCount() > 0) {
         echo '<td>' . htmlspecialchars($cf->getServerDSN($id)) . '</td>';
         echo '<td style="white-space: nowrap">';
         echo '<small>';
-        echo '<a href="?page=servers' . $separator
-            . 'mode=edit' . $separator . 'id=' . $id . '">'
+        echo '<a href="' . PMA_URL_getCommon() . $separator . 'page=servers'
+            . $separator . 'mode=edit' . $separator . 'id=' . $id . '">'
             . __('Edit') . '</a>';
         echo ' | ';
-        echo '<a href="?page=servers' . $separator
-            . 'mode=remove' . $separator . 'id=' . $id . '">'
+        echo '<a href="' . PMA_URL_getCommon() . $separator . 'page=servers'
+            . $separator . 'mode=remove' . $separator . 'id=' . $id . '">'
             . __('Delete') . '</a>';
         echo '</small>';
         echo '</td>';
@@ -308,7 +308,6 @@ echo '<div id="footer">';
 echo '<a href="http://www.phpmyadmin.net/">' . __('phpMyAdmin homepage') . '</a>';
 echo '<a href="http://sourceforge.net/donate/index.php?group_id=23067">'
     .  __('Donate') . '</a>';
-echo '<a href="?version_check=1' . $separator
-    . 'token=' . $_SESSION[' PMA_token '] . '">'
+echo '<a href="' .  PMA_URL_getCommon() . $separator . 'version_check=1">'
     . __('Check for latest version') . '</a>';
 echo '</div>';

@@ -19,8 +19,8 @@ require_once './setup/lib/form_processing.lib.php';
 
 require './libraries/config/setup.forms.php';
 
-$formset_id = filter_input(INPUT_GET, 'formset');
-$mode = filter_input(INPUT_GET, 'mode');
+$formset_id = isset($_GET['formset']) ? $_GET['formset'] : null;
+$mode = isset($_GET['mode']) ? $_GET['mode'] : null;
 if (! isset($forms[$formset_id])) {
     PMA_fatalError(__('Incorrect formset, check $formsets array in setup/frames/form.inc.php!'));
 }
