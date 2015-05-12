@@ -1277,6 +1277,8 @@ class PMA_DisplayResults
 
             $table_headers_html .= $drop_down_html;
 
+        } else {
+            $unsorted_sql_query = '';
         }
 
         // Output data needed for grid editing
