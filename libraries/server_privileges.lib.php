@@ -2283,8 +2283,7 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
     foreach ($privMap as $current_user => $val) {
         foreach ($val as $current_host => $current_privileges) {
             $nbPrivileges = count($current_privileges);
-            $html_output .= '<tr class="noclick '
-                . ($odd_row ? 'odd' : 'even') . '">';
+            $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
 
             $value = htmlspecialchars($current_user . '&amp;#27;' . $current_host);
             $html_output .= '<td';
