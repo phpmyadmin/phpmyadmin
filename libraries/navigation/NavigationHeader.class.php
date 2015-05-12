@@ -81,14 +81,9 @@ class PMA_NavigationHeader
         }
 
         $logo = 'phpMyAdmin';
-        if (@file_exists($GLOBALS['pmaThemeImage'] . $GLOBALS['cfg']['NavigationLogo'])) {
-            $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . $GLOBALS['cfg']['NavigationLogo'] . '" '
-                . 'alt="' . $logo . '" id="imgpmalogo" />';
-        } elseif ($GLOBALS['cfg']['NavigationLogo'] != 'logo_left.png' && @file_exists($GLOBALS['pmaThemeImage'] . 'logo_left.png')) {
-            $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'logo_left.png" '
-                . 'alt="' . $logo . '" id="imgpmalogo" />';
-        } elseif (@file_exists($GLOBALS['pmaThemeImage'] . 'pma_logo2.png')) {
-            $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png" '
+        $logo_path = $GLOBALS['pmaThemeImage'] . $GLOBALS['cfg']['NavigationLogo'];
+        if (@file_exists($logo_path)) {
+            $logo = '<img src="' . $logo_path . '" '
                 . 'alt="' . $logo . '" id="imgpmalogo" />';
         }
         $retval .= '<div id="pmalogo">';
