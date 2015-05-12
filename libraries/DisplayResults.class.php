@@ -741,7 +741,7 @@ class PMA_DisplayResults
     /**
      * Possibly return a page selector for table navigation
      *
-     * @param array $table_navigation_html the current navigation HTML
+     * @param string $table_navigation_html the current navigation HTML
      *
      * @return array ($table_navigation_html, $nbTotalPage)
      *
