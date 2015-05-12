@@ -1935,13 +1935,13 @@ class PMA_DisplayResults
      * Prepare parameters and html for sorted table header fields
      *
      * @param array   $fields_meta                 set of field properties
-     * @param array   $sort_expression             sort expression
-     * @param array   $sort_expression_nodirection sort expression without direction
+     * @param string  $sort_expression             sort expression
+     * @param string  $sort_expression_nodirection sort expression without direction
      * @param integer $column_index                the index of the column
      * @param string  $unsorted_sql_query          the unsorted sql query
      * @param integer $session_max_rows            maximum rows resulted by sql
      * @param string  $comments                    comment for row
-     * @param array   $sort_direction              sort direction
+     * @param string  $sort_direction              sort direction
      * @param boolean $col_visib                   column is visible(false)
      *        array                                column isn't visible(string array)
      * @param string  $col_visib_j                 element of $col_visib array
@@ -2032,13 +2032,13 @@ class PMA_DisplayResults
     /**
      * Prepare parameters and html for sorted table header fields
      *
-     * @param array   $sort_expression             sort expression
-     * @param array   $sort_expression_nodirection sort expression without direction
+     * @param string  $sort_expression             sort expression
+     * @param string  $sort_expression_nodirection sort expression without direction
      * @param string  $sort_tbl                    The name of the table to which
      *                                             the current column belongs to
      * @param string  $name_to_use_in_sort         The current column under
      *                                             consideration
-     * @param array   $sort_direction              sort direction
+     * @param string  $sort_direction              sort direction
      * @param array   $fields_meta                 set of field properties
      * @param integer $column_index                The index number to current column
      *
