@@ -1045,8 +1045,9 @@ class PMA_Config
         if (!PMA_DRIZZLE) {
             // just to shorten the lines
             $collation = 'collation_connection';
-            if (isset($_COOKIE['pma_collation_connection'])
-                || isset($_POST[$collation])
+            if (isset($GLOBALS[$collation])
+                && (isset($_COOKIE['pma_collation_connection'])
+                    || isset($_POST[$collation]))
             ) {
                 if ((! isset($config_data[$collation])
                     && $GLOBALS[$collation] != 'utf8_general_ci')
