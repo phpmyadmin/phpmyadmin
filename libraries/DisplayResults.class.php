@@ -2825,7 +2825,7 @@ class PMA_DisplayResults
             }
             $table_body_html .= $this->_getRowValues(
                 $dt_result, $row, $row_no, $col_order, $map,
-                $grid_edit_class, $col_visib, $where_clause,
+                $grid_edit_class, $col_visib,
                 $url_sql_query, $analyzed_sql
             );
 
@@ -2935,7 +2935,6 @@ class PMA_DisplayResults
      * @param string  $grid_edit_class the class for all editable columns
      * @param boolean $col_visib       column is visible(false)
      *        array                    column isn't visible(string array)
-     * @param string  $where_clause    where clause
      * @param string  $url_sql_query   the analyzed sql query
      * @param array   $analyzed_sql    the analyzed query
      *
@@ -2947,7 +2946,7 @@ class PMA_DisplayResults
      */
     private function _getRowValues(
         &$dt_result, $row, $row_no, $col_order, $map,
-        $grid_edit_class, $col_visib, $where_clause,
+        $grid_edit_class, $col_visib,
         $url_sql_query, $analyzed_sql
     ) {
 
