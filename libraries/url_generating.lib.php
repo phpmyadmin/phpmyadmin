@@ -231,6 +231,7 @@ function PMA_URL_getCommon()
     if (isset($GLOBALS['server'])
         && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
         && ! isset($params['server'])
+        && ! defined('PMA_SETUP')
     ) {
         $params['server'] = $GLOBALS['server'];
     }

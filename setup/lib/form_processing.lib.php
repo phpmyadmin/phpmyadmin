@@ -15,7 +15,7 @@
  */
 function PMA_Process_formset(FormDisplay $form_display)
 {
-    if (filter_input(INPUT_GET, 'mode') == 'revert') {
+    if (isset($_GET['mode']) && $_GET['mode'] == 'revert') {
         // revert erroneous fields to their default values
         $form_display->fixErrors();
         PMA_generateHeader303();
@@ -35,10 +35,10 @@ function PMA_Process_formset(FormDisplay $form_display)
 
     // form has errors, show warning
     $separator = PMA_URL_getArgSeparator('html');
-    $page = filter_input(INPUT_GET, 'page');
-    $formset = filter_input(INPUT_GET, 'formset');
+    $page = isset($_GET['page']) ? $_GET['page'] : null;
+    $formset = isset($_GET['formset']) ? $_GET['formset'] : null;
     $formset = $formset ? "{$separator}formset=$formset" : '';
-    $formId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    $formId = PMA_isValid($_GET['id'], 'numeric') ? $_GET['id'] : null;
     if ($formId === null && $page == 'servers') {
         // we've just added a new server, get its id
         $formId = $form_display->getConfigFile()->getServerCount();
@@ -48,15 +48,18 @@ function PMA_Process_formset(FormDisplay $form_display)
     <div class="error">
         <h4><?php echo __('Warning') ?></h4>
         <?php echo __('Submitted form contains errors') ?><br />
-        <a href="?page=<?php echo $page . $formset . $formId . $separator ?>mode=revert">
+        <a href="?<?php echo PMA_URL_getCommon() . $separator ?>
+            page=<?php echo $page . $formset . $formId . $separator ?>mode=revert">
             <?php echo __('Try to revert erroneous fields to their default values')
             ?>
         </a>
     </div>
     <?php $form_display->displayErrors() ?>
-    <a class="btn" href="index.php"><?php echo __('Ignore errors') ?></a>
+    <a class="btn" href="index.php?<?php echo PMA_URL_getCommon() ?>">
+        <?php echo __('Ignore errors') ?></a>
     &nbsp;
-    <a class="btn" href="?page=<?php echo $page . $formset . $formId
+    <a class="btn" href="?<?php echo PMA_URL_getCommon() . $separator ?>
+        page=<?php echo $page . $formset . $formId
         . $separator ?>mode=edit"><?php echo __('Show form') ?></a>
     <?php
 }
