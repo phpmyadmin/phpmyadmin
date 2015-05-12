@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 - bug       Honor proxy settings when getting Git commit information
 - bug       Missing title on link
 - bug #4512 ForceSSL Redirect Check
+- bug       Undefined index collation_connection
 
 4.4.6.0 (2015-05-07)
 - bug #4890 webkitStorageInfo and webkitIndexedDB is deprecated
