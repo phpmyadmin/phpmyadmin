@@ -301,7 +301,7 @@ function PMA_getHtmlForTableVersionDetails(
             . '&amp;submit_delete_version=true';
         $checkbox_id = 'selected_versions_' . htmlspecialchars($version['version']);
 
-        $html .= '<tr class="noclick ' . $style . '">';
+        $html .= '<tr class="' . $style . '">';
         $html .= '<td class="center">';
         $html .= '<input type="checkbox" name="selected_versions[]"'
             . ' class="checkall" id="' . $checkbox_id . '"'
