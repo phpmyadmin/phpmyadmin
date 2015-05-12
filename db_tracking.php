@@ -162,7 +162,7 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
         $checkbox_id = "selected_tbl_"
             . htmlspecialchars($version_data['table_name']);
         ?>
-        <tr class="noclick <?php echo $style;?>">
+        <tr class="<?php echo $style;?>">
             <td class="center">
                 <input type="checkbox" name="selected_tbl[]"
                 class="checkall" id="<?php echo $checkbox_id;?>"
@@ -303,7 +303,7 @@ if (count($my_tables) > 0) {
             $my_link .= PMA_Util::getIcon('eye.png', __('Track table'));
             $my_link .= '</a>';
             ?>
-            <tr class="noclick <?php echo $style;?>">
+            <tr class="<?php echo $style;?>">
             <td class="center">
                 <input type="checkbox" name="selected_tbl[]"
                     class="checkall" id="<?php echo $checkbox_id;?>"
