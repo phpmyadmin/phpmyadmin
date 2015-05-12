@@ -739,6 +739,56 @@ class PMA_DisplayResults
 
 
     /**
+     * Possibly return a page selector for table navigation
+     *
+     * @param array $table_navigation_html the current navigation HTML
+     *
+     * @return array ($table_navigation_html, $nbTotalPage)
+     *
+     * @access  private
+     *
+     */
+    private function _getHtmlPageSelector($table_navigation_html)
+    {
+        $pageNow = @floor(
+            $_SESSION['tmpval']['pos']
+            / $_SESSION['tmpval']['max_rows']
+        ) + 1;
+
+        $nbTotalPage = @ceil(
+            $this->__get('unlim_num_rows')
+            / $_SESSION['tmpval']['max_rows']
+        );
+
+        if ($nbTotalPage > 1) {
+            $table_navigation_html .= '<td>';
+            $_url_params = array(
+                'db'                 => $this->__get('db'),
+                'table'              => $this->__get('table'),
+                'sql_query'          => $this->__get('sql_query'),
+                'goto'               => $this->__get('goto'),
+                'is_browse_distinct' => $this->__get('is_browse_distinct'),
+            );
+
+            //<form> to keep the form alignment of button < and <<
+            // and also to know what to execute when the selector changes
+            $table_navigation_html .= '<form action="sql.php'
+                . PMA_URL_getCommon($_url_params)
+                . '" method="post">';
+
+            $table_navigation_html .= PMA_Util::pageselector(
+                'pos',
+                $_SESSION['tmpval']['max_rows'],
+                $pageNow, $nbTotalPage, 200, 5, 5, 20, 10
+            );
+
+            $table_navigation_html .= '</form>'
+                . '</td>';
+        }
+        return array($table_navigation_html, $nbTotalPage);
+    }
+
+    /**
      * Get a navigation bar to browse among the results of a SQL query
      *
      * @param integer $pos_next  the offset for the "next" page
@@ -781,45 +831,12 @@ class PMA_DisplayResults
         $nbTotalPage = 1;
         //page redirection
         // (unless we are showing all records)
-        if ($_SESSION['tmpval']['max_rows'] != self::ALL_ROWS) { //if1
-
-            $pageNow = @floor(
-                $_SESSION['tmpval']['pos']
-                / $_SESSION['tmpval']['max_rows']
-            ) + 1;
-
-            $nbTotalPage = @ceil(
-                $this->__get('unlim_num_rows')
-                / $_SESSION['tmpval']['max_rows']
-            );
-
-            if ($nbTotalPage > 1) { //if2
-
-                $table_navigation_html .= '<td>';
-                $_url_params = array(
-                    'db'                 => $this->__get('db'),
-                    'table'              => $this->__get('table'),
-                    'sql_query'          => $this->__get('sql_query'),
-                    'goto'               => $this->__get('goto'),
-                    'is_browse_distinct' => $this->__get('is_browse_distinct'),
-                );
-
-                //<form> to keep the form alignment of button < and <<
-                // and also to know what to execute when the selector changes
-                $table_navigation_html .= '<form action="sql.php'
-                    . PMA_URL_getCommon($_url_params)
-                    . '" method="post">';
-
-                $table_navigation_html .= PMA_Util::pageselector(
-                    'pos',
-                    $_SESSION['tmpval']['max_rows'],
-                    $pageNow, $nbTotalPage, 200, 5, 5, 20, 10
-                );
-
-                $table_navigation_html .= '</form>'
-                    . '</td>';
-            } //_if2
-        } //_if1
+        if ($_SESSION['tmpval']['max_rows'] != self::ALL_ROWS) {
+            list(
+                $table_navigation_html,
+                $nbTotalPage
+            ) = $this->_getHtmlPageSelector($table_navigation_html); 
+        }
 
         $showing_all = false;
         if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
