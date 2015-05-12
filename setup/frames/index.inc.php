@@ -144,8 +144,8 @@ PMA_displayFormTop(
     <td><?php echo htmlspecialchars($cf->getServerDSN($id)) ?></td>
     <td style="white-space: nowrap">
         <small>
-        <a href="<?php echo "?page=servers{$separator}mode=edit{$separator}id=$id" ?>"><?php echo __('Edit') ?></a>
-        | <a href="<?php echo "?page=servers{$separator}mode=remove{$separator}id=$id" ?>"><?php echo __('Delete') ?></a>
+        <a href="<?php echo "?" . PMA_generate_common_url() . $separator . "page=servers{$separator}mode=edit{$separator}id=$id" ?>"><?php echo __('Edit') ?></a>
+        | <a href="<?php echo "?" . PMA_generate_common_url() . $separator . "page=servers{$separator}mode=remove{$separator}id=$id" ?>"><?php echo __('Delete') ?></a>
         </small>
     </td>
 </tr>
