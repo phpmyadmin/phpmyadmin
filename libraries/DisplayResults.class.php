@@ -1128,6 +1128,112 @@ class PMA_DisplayResults
 
 
     /**
+     * Get the headers of the results table, for all of the columns
+     *
+     * @param array   $displayParts                which elements to display
+     * @param array   $analyzed_sql                the analyzed query
+     * @param string  $sort_expression             sort expression
+     * @param string  $sort_expression_nodirection sort expression
+     *                                             without direction
+     * @param string  $sort_direction              sort direction
+     * @param boolean $is_limited_display          with limited operations
+     *                                             or not
+     * @param string  $unsorted_sql_query          query without the sort part
+     *
+     * @return string html content
+     *
+     * @access private
+     *
+     * @see    getTableHeaders()
+     */
+    private function _getTableHeadersForColumns(
+        $displayParts, $analyzed_sql,
+        $sort_expression, $sort_expression_nodirection,
+        $sort_direction, $is_limited_display, $unsorted_sql_query
+    ) {
+        $html = '';
+
+        // required to generate sort links that will remember whether the
+        // "Show all" button has been clicked
+        $sql_md5 = md5($this->__get('sql_query'));
+        $session_max_rows = $is_limited_display
+            ? 0
+            : $_SESSION['tmpval']['query'][$sql_md5]['max_rows'];
+
+        // Following variable are needed for use in isset/empty or
+        // use with array indexes/safe use in the for loop
+        $highlight_columns = $this->__get('highlight_columns');
+        $fields_meta = $this->__get('fields_meta');
+
+        // Prepare Display column comments if enabled
+        // ($GLOBALS['cfg']['ShowBrowseComments']).
+        $comments_map = $this->_getTableCommentsArray($analyzed_sql);
+
+        list($col_order, $col_visib) = $this->_getColumnParams($analyzed_sql);
+
+        // optimize: avoid calling a method on each iteration
+        $number_of_columns = $this->__get('fields_cnt');
+
+        for ($j = 0; $j < $number_of_columns; $j++) {
+
+            // assign $i with the appropriate column order
+            $i = $col_order ? $col_order[$j] : $j;
+
+            //  See if this column should get highlight because it's used in the
+            //  where-query.
+            $condition_field = (isset($highlight_columns[$fields_meta[$i]->name])
+                || isset(
+                    $highlight_columns[PMA_Util::backquote($fields_meta[$i]->name)])
+                )
+                ? true
+                : false;
+
+            // Prepare comment-HTML-wrappers for each row, if defined/enabled.
+            $comments = $this->_getCommentForRow($comments_map, $fields_meta[$i]);
+            $display_params = $this->__get('display_params');
+
+            if (($displayParts['sort_lnk'] == '1') && ! $is_limited_display) {
+
+                list($order_link, $sorted_header_html)
+                    = $this->_getOrderLinkAndSortedHeaderHtml(
+                        $fields_meta[$i], $sort_expression,
+                        $sort_expression_nodirection, $i, $unsorted_sql_query,
+                        $session_max_rows, $comments,
+                        $sort_direction, $col_visib,
+                        $col_visib[$j]
+                    );
+
+                $html .= $sorted_header_html;
+
+                $display_params['desc'][] = '    <th '
+                    . 'class="draggable'
+                    . ($condition_field ? ' condition' : '')
+                    . '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
+                    . '">' . "\n" . $order_link . $comments . '    </th>' . "\n";
+            } else {
+                // Results can't be sorted
+                $html
+                    .= $this->_getDraggableClassForNonSortableColumns(
+                        $col_visib, $col_visib[$j], $condition_field,
+                        $fields_meta[$i], $comments
+                    );
+
+                $display_params['desc'][] = '    <th '
+                    . 'class="draggable'
+                    . ($condition_field ? ' condition"' : '')
+                    . '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
+                    . '">' . '        '
+                    . htmlspecialchars($fields_meta[$i]->name)
+                    . $comments . '    </th>';
+            } // end else
+
+            $this->__set('display_params', $display_params);
+
+        } // end for
+        return $html;
+    }
+
+    /**
      * Get the headers of the results table
      *
      * @param array   &$displayParts               which elements to display
@@ -1152,19 +1258,10 @@ class PMA_DisplayResults
     ) {
 
         $table_headers_html = '';
-        // Following variable are needed for use in isset/empty or
+        // Needed for use in isset/empty or
         // use with array indexes/safe use in foreach
-        $fields_meta = $this->__get('fields_meta');
-        $highlight_columns = $this->__get('highlight_columns');
         $printview = $this->__get('printview');
         $display_params = $this->__get('display_params');
-
-        // required to generate sort links that will remember whether the
-        // "Show all" button has been clicked
-        $sql_md5 = md5($this->__get('sql_query'));
-        $session_max_rows = $is_limited_display
-            ? 0
-            : $_SESSION['tmpval']['query'][$sql_md5]['max_rows'];
 
         if ($analyzed_sql == '') {
             $analyzed_sql = array();
@@ -1230,74 +1327,16 @@ class PMA_DisplayResults
         // 2.0 If sorting links should be used, checks if the query is a "JOIN"
         //     statement (see 2.1.3)
 
-        // 2.0.1 Prepare Display column comments if enabled
-        //       ($GLOBALS['cfg']['ShowBrowseComments']).
-        $comments_map = $this->_getTableCommentsArray($analyzed_sql);
-
         // See if we have to highlight any header fields of a WHERE query.
         // Uses SQL-Parser results.
         $this->_setHighlightedColumnGlobalField($analyzed_sql);
 
-        list($col_order, $col_visib) = $this->_getColumnParams($analyzed_sql);
-
-        for ($j = 0; $j < $this->__get('fields_cnt'); $j++) {
-
-            // assign $i with appropriate column order
-            $i = $col_order ? $col_order[$j] : $j;
-
-            //  See if this column should get highlight because it's used in the
-            //  where-query.
-            $condition_field = (isset($highlight_columns[$fields_meta[$i]->name])
-                || isset(
-                    $highlight_columns[PMA_Util::backquote($fields_meta[$i]->name)])
-                )
-                ? true
-                : false;
-
-            // 2.0 Prepare comment-HTML-wrappers for each row, if defined/enabled.
-            $comments = $this->_getCommentForRow($comments_map, $fields_meta[$i]);
-
-            $display_params = $this->__get('display_params');
-
-            if (($displayParts['sort_lnk'] == '1') && ! $is_limited_display) {
-
-                list($order_link, $sorted_header_html)
-                    = $this->_getOrderLinkAndSortedHeaderHtml(
-                        $fields_meta[$i], $sort_expression,
-                        $sort_expression_nodirection, $i, $unsorted_sql_query,
-                        $session_max_rows, $comments,
-                        $sort_direction, $col_visib,
-                        $col_visib[$j]
-                    );
-
-                $table_headers_html .= $sorted_header_html;
-
-                $display_params['desc'][] = '    <th '
-                    . 'class="draggable'
-                    . ($condition_field ? ' condition' : '')
-                    . '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
-                    . '">' . "\n" . $order_link . $comments . '    </th>' . "\n";
-            } else {
-                // 2.2 Results can't be sorted
-
-                $table_headers_html
-                    .= $this->_getDraggableClassForNonSortableColumns(
-                        $col_visib, $col_visib[$j], $condition_field,
-                        $fields_meta[$i], $comments
-                    );
-
-                $display_params['desc'][] = '    <th '
-                    . 'class="draggable'
-                    . ($condition_field ? ' condition"' : '')
-                    . '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
-                    . '">' . "\n" . '        '
-                    . htmlspecialchars($fields_meta[$i]->name)
-                    . "\n" . $comments . '    </th>';
-            } // end else (2.2)
-
-            $this->__set('display_params', $display_params);
-
-        } // end for
+        // Get the headers for all of the columns
+        $table_headers_html .= $this->_getTableHeadersForColumns(
+            $displayParts, $analyzed_sql, $sort_expression,
+            $sort_expression_nodirection, $sort_direction,
+            $is_limited_display, $unsorted_sql_query
+        );
 
         // Display column at rightside - checkboxes or empty column
         if (! $printview) {
