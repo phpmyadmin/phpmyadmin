@@ -148,8 +148,6 @@ AJAX.registerOnload('tbl_operations.js', function () {
     $(document).on('submit', "#partitionsForm", function (event) {
         event.preventDefault();
         var $form = $(this);
-        var db = $form.find('input[name=db]').val();
-        var tbl = $form.find('input[name=table]').val();
 
         if ($('#partition_operation_DROP').is(':checked')) {
             var question = PMA_messages.strDropPartitionWarning;
@@ -166,20 +164,10 @@ AJAX.registerOnload('tbl_operations.js', function () {
         }
 
         function submitParitionMaintenance() {
-            PMA_prepareForAjaxRequest($form);
+            var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true';
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.post($form.attr('action'), $form.serialize(), function (data) {
-                if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_commonParams.set('db', db);
-                    PMA_commonParams.set('table', tbl);
-                    PMA_commonActions.refreshMain(false, function () {
-                        $('#page_content').html(data.message);
-                        PMA_highlightSQL($('#page_content'));
-                    });
-                } else {
-                    PMA_ajaxShowMessage(data.error, false);
-                }
-            });
+            AJAX.source = $form;
+            $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
     });
 
