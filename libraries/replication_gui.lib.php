@@ -139,13 +139,19 @@ function PMA_getHtmlForSlaveConfiguration(
 ) {
     $html  = '<fieldset>';
     $html .= '<legend>' . __('Slave replication') . '</legend>';
-    if ($GLOBALS['server_slave_multi_replication']) {
+    /**
+     * check for multi-master replication functionality
+     */
+    $server_slave_multi_replication = $GLOBALS['dbi']->fetchResult(
+        'SHOW ALL SLAVES STATUS'
+    );
+    if ($server_slave_multi_replication) {
         $html .= __('Master connection:');
         $html .= '<form method="get" action="server_replication.php">';
         $html .= PMA_URL_getHiddenInputs($GLOBALS['url_params']);
         $html .= ' <select name="master_connection">';
         $html .= '<option value="">' . __('Default') . '</option>';
-        foreach ($GLOBALS['server_slave_multi_replication'] as $server) {
+        foreach ($server_slave_multi_replication as $server) {
             $html .= '<option' . (isset($_REQUEST['master_connection']) && $_REQUEST['master_connection'] == $server['Connection_name'] ?
                 ' selected="selected"' : '') . '>' . $server['Connection_name']
                 . '</option>';
