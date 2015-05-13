@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 
 4.4.6.1 (Not yet released)
 - bug #4899 [security] CSRF vulnerability in setup
+- bug #4900 [security] Vulnerability allowing man-in-the-middle attack
 
 4.4.6.0 (2015-05-07)
 - bug #4890 webkitStorageInfo and webkitIndexedDB is deprecated
