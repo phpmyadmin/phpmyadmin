@@ -1605,10 +1605,11 @@ function PMA_getQueryAndResultForPartition()
         . $_REQUEST['partition_operation']
         . ' PARTITION ';
 
-        if($_REQUEST['partition_operation'] == 'COALESCE')
-            $sql_query .= count($_REQUEST['partition_name']);
-        else
-            $sql_query .= implode(', ', $_REQUEST['partition_name']) . ';';
+    if ($_REQUEST['partition_operation'] == 'COALESCE') {
+        $sql_query .= count($_REQUEST['partition_name']);
+    } else {
+        $sql_query .= implode(', ', $_REQUEST['partition_name']) . ';';
+    }
 
     $result = $GLOBALS['dbi']->query($sql_query);
 
