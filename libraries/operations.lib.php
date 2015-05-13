@@ -1262,35 +1262,6 @@ function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $htmlId)
 }
 
 /**
- * Adds COALESCE or DROP option to choices array depeding on Partition method used
- *
- * @param array  $choices original common choices array
- * @param string $db      Database for the partition maintenance
- * @param string $table   Table for the partition maintenance
- *
- * @return array $choices new complete choices array
- */
-function PMA_addOptionToDropOrCoalescePartition($choices, $db, $table)
-{
-    $partition_method = $GLOBALS['dbi']->fetchResult(
-        'SELECT `PARTITION_METHOD` FROM `INFORMATION_SCHEMA`.`PARTITIONS` '
-        . 'WHERE `TABLE_SCHEMA` = "' . $db . '" '
-        . 'AND `TABLE_NAME` = "' . $table . '"'
-    );
-
-    if (! empty($partition_method)) {
-        if ($partition_method[0] == 'KEY' || $partition_method[0] == 'HASH') {
-            $choices['COALESCE'] = __('Coalesce');
-        }
-        else {
-            $choices['DROP'] = __('Drop');
-        }
-    }
-
-    return $choices;
-}
-
-/**
  * Get HTML snippet for partition maintenance
  *
  * @param array $partition_names array of partition names for a specific db/table
@@ -1308,7 +1279,15 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         'REPAIR' => __('Repair')
     );
 
-    $choices = PMA_addOptionToDropOrCoalescePartition($choices, $GLOBALS['db'], $GLOBALS['table']);
+    $partition_method = PMA_Partition::getPartitionMethod(
+        $GLOBALS['db'], $GLOBALS['table']
+    );
+    // add COALESCE or DROP option to choices array depeding on Partition method
+    if ($partition_method == 'KEY' || $partition_method == 'HASH') {
+        $choices['COALESCE'] = __('Coalesce');
+    } else {
+        $choices['DROP'] = __('Drop');
+    }
 
     $html_output = '<div class="operations_half_width">'
         . '<form id="partitionsForm" class="ajax" '

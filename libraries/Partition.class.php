@@ -39,6 +39,29 @@ class PMA_Partition
     }
 
     /**
+     * returns the partition method used by the table.
+     *
+     * @param string $db    database name
+     * @param string $table table name
+     *
+     * @return string partition method
+     */
+    static public function getPartitionMethod($db, $table)
+    {
+        if (self::havePartitioning()) {
+            $partition_method = $GLOBALS['dbi']->fetchResult(
+                "SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS`"
+                . " WHERE `TABLE_SCHEMA` = '" . PMA_Util::sqlAddSlashes($db) . "'"
+                . " AND `TABLE_NAME` = '" . PMA_Util::sqlAddSlashes($table) . "'"
+            );
+            if (! empty($partition_method)) {
+                return $partition_method[0];
+            }
+        }
+        return null;
+    }
+
+    /**
      * checks if MySQL server supports partitioning
      *
      * @static
