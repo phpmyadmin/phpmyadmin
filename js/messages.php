@@ -63,6 +63,7 @@ $js_messages['strDeleteCentralColumnWarning'] = __('Do you really want to delete
 $js_messages['strDropRTEitems'] = __('Do you really want to delete the selected items?');
 $js_messages['strDropPartitionWarning'] = __('Do you really want to DROP the selected partition(s)? This will also DELETE the data related to the selected partition(s)!');
 $js_messages['strCoalescePartitionWarning'] = __('Do you really want to COALESCE %d partition(s)?');
+$js_messages['strTruncatePartitionWarning'] = __('Do you really want to TRUNCATE the selected partition(s)?');
 
 /* For modal dialog buttons */
 $js_messages['strSaveAndClose'] = __('Save & Close');

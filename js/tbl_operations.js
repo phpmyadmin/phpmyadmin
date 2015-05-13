@@ -159,6 +159,11 @@ AJAX.registerOnload('tbl_operations.js', function () {
             $form.PMA_confirm(question, $form.attr('action'), function (url) {
                 submitParitionMaintenance();
             });
+        } else if ($('#partition_operation_TRUNCATE').is(':checked')) {
+            var question = PMA_messages.strTruncatePartitionWarning;
+            $form.PMA_confirm(question, $form.attr('action'), function (url) {
+                submitParitionMaintenance();
+            });
         } else {
             submitParitionMaintenance();
         }

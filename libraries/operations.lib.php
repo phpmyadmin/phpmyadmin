@@ -1276,7 +1276,8 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         'CHECK' => __('Check'),
         'OPTIMIZE' => __('Optimize'),
         'REBUILD' => __('Rebuild'),
-        'REPAIR' => __('Repair')
+        'REPAIR' => __('Repair'),
+        'TRUNCATE' => __('Truncate')
     );
 
     $partition_method = PMA_Partition::getPartitionMethod(
