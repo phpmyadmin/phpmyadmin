@@ -835,7 +835,7 @@ class PMA_DisplayResults
             list(
                 $table_navigation_html,
                 $nbTotalPage
-            ) = $this->_getHtmlPageSelector($table_navigation_html); 
+            ) = $this->_getHtmlPageSelector($table_navigation_html);
         }
 
         $showing_all = false;
@@ -4600,7 +4600,7 @@ class PMA_DisplayResults
         $column_for_first_row = /*overload*/mb_strtoupper(
             /*overload*/mb_substr(
                 $column_for_first_row, 0, $GLOBALS['cfg']['LimitChars']
-            )
+            ) . '...'
         );
 
         // fetch last row of the result set
@@ -4626,7 +4626,7 @@ class PMA_DisplayResults
         $column_for_last_row = /*overload*/mb_strtoupper(
             /*overload*/mb_substr(
                 $column_for_last_row, 0, $GLOBALS['cfg']['LimitChars']
-            )
+            ) . '...'
         );
 
         // reset to first row for the loop in _getTableBody()

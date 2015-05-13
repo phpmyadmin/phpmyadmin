@@ -3138,7 +3138,7 @@ class PMA_Util
             $displayed_type .= htmlspecialchars(
                 /*overload*/mb_substr(
                     $printtype, 0, $GLOBALS['cfg']['LimitChars']
-                )
+                ) . '...'
             );
             $displayed_type .= '</abbr>';
         }
