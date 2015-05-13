@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.3.13.1 (Not yet released)
+4.3.13.1 (2015-05-13)
 - bug #4899 [security] CSRF vulnerability in setup
 - bug #4900 [security] Vulnerability allowing man-in-the-middle attack
 
