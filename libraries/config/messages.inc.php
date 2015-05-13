@@ -439,6 +439,8 @@ $strConfigNavigationLinkWithMainPanel_desc = __('Link with main panel by highlig
 $strConfigNavigationLinkWithMainPanel_name = __('Link with main panel');
 $strConfigNavigationDisplayLogo_desc = __('Show logo in navigation panel.');
 $strConfigNavigationDisplayLogo_name = __('Display logo');
+$strConfigNavigationLogo_desc = __('Filename of the logo displayed in the navigation panel.');
+$strConfigNavigationLogo_name = __('Logo filename');
 $strConfigNavigationLogoLink_desc
     = __('URL where logo in the navigation panel will point to.');
 $strConfigNavigationLogoLink_name = __('Logo link URL');

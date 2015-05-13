@@ -1529,6 +1529,14 @@ Navigation panel setup
     Defines whether or not to display the phpMyAdmin logo at the top of
     the navigation panel.
 
+.. config:option:: $cfg['NavigationLogo']
+
+    :type: string
+    :default: ``'logo_left.png'``
+
+    Defines the filename of the logo displayed at the top of the
+    navigation panel.
+
 .. config:option:: $cfg['NavigationLogoLink']
 
     :type: string
@@ -2020,8 +2028,8 @@ Languages
     :default: ``'utf8_general_ci'``
 
     Defines the default connection collation to use, if not user-defined.
-    See the `MySQL documentation for charsets 
-    <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_ 
+    See the `MySQL documentation for charsets
+    <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_
     for list of possible values. This setting is
     ignored when connected to Drizzle server.
 
