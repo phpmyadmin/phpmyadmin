@@ -5326,6 +5326,47 @@ class PMA_DisplayResults
 
 
     /**
+     * Retrieves the associated foreign key info for a data cell
+     *
+     * @param array  $map              the list of relations
+     * @param object $meta             the meta-information about the field
+     * @param string $where_comparison data for the where clause
+     *
+     * @return string  formatted data
+     *
+     * @access  private
+     *
+     */
+    private function _getFromForeign($map, $meta, $where_comparison)
+    {
+        $dispsql = 'SELECT '
+            . PMA_Util::backquote($map[$meta->name][2])
+            . ' FROM '
+            . PMA_Util::backquote($map[$meta->name][3])
+            . '.'
+            . PMA_Util::backquote($map[$meta->name][0])
+            . ' WHERE '
+            . PMA_Util::backquote($map[$meta->name][1])
+            . $where_comparison;
+
+        $dispresult = $GLOBALS['dbi']->tryQuery(
+            $dispsql,
+            null,
+            PMA_DatabaseInterface::QUERY_STORE
+        );
+
+        if ($dispresult && $GLOBALS['dbi']->numRows($dispresult) > 0) {
+            list($dispval) = $GLOBALS['dbi']->fetchRow($dispresult, 0);
+        } else {
+            $dispval = __('Link not found!');
+        }
+
+        @$GLOBALS['dbi']->freeResult($dispresult);
+
+        return $dispval;
+    }
+
+    /**
      * Prepares the displayable content of a data cell in Browse mode,
      * taking into account foreign key description field and transformations
      *
@@ -5413,33 +5454,11 @@ class PMA_DisplayResults
             if (isset($map[$meta->name][2])
                 && /*overload*/mb_strlen($map[$meta->name][2])
             ) {
-
-                $dispsql = 'SELECT '
-                    . PMA_Util::backquote($map[$meta->name][2])
-                    . ' FROM '
-                    . PMA_Util::backquote($map[$meta->name][3])
-                    . '.'
-                    . PMA_Util::backquote($map[$meta->name][0])
-                    . ' WHERE '
-                    . PMA_Util::backquote($map[$meta->name][1])
-                    . $where_comparison;
-
-                $dispresult = $GLOBALS['dbi']->tryQuery(
-                    $dispsql,
-                    null,
-                    PMA_DatabaseInterface::QUERY_STORE
+                $dispval = $this->_getFromForeign(
+                    $map, $meta, $where_comparison
                 );
-
-                if ($dispresult && $GLOBALS['dbi']->numRows($dispresult) > 0) {
-                    list($dispval) = $GLOBALS['dbi']->fetchRow($dispresult, 0);
-                } else {
-                    $dispval = __('Link not found!');
-                }
-
-                @$GLOBALS['dbi']->freeResult($dispresult);
-
             } else {
-                $dispval     = '';
+                $dispval = '';
             } // end if... else...
 
             if (isset($printview) && ($printview == '1')) {
