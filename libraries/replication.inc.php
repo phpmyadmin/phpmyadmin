@@ -11,11 +11,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * get master replication from server
- */
-$server_master_replication = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS');
-
-/**
  * check for multi-master replication functionality
  */
 $server_slave_multi_replication = $GLOBALS['dbi']->fetchResult(
@@ -125,6 +120,13 @@ foreach ($replication_types as $type) {
     }
     if ($GLOBALS['replication_info'][$type]['status']) {
         if ($type == "master") {
+
+            /**
+             * get master replication from server
+             */
+            $server_master_replication = $GLOBALS['dbi']->fetchResult(
+                'SHOW MASTER STATUS'
+            );
             PMA_fillReplicationInfo(
                 $type, 'Do_DB', $server_master_replication[0],
                 'Binlog_Do_DB'
