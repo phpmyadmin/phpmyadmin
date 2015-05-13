@@ -48,7 +48,7 @@ class PMA_Partition
      */
     static public function getPartitionMethod($db, $table)
     {
-        if (self::havePartitioning()) {
+        if (PMA_Partition::havePartitioning()) {
             $partition_method = $GLOBALS['dbi']->fetchResult(
                 "SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS`"
                 . " WHERE `TABLE_SCHEMA` = '" . PMA_Util::sqlAddSlashes($db) . "'"
