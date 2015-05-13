@@ -45,6 +45,7 @@ phpMyAdmin - ChangeLog
 - bug #4512 ForceSSL Redirect Check
 - bug       Undefined index collation_connection
 - bug       Error when the reporting server is down
+- bug       Escape database and table names for partition maintenance
 
 4.4.6.0 (2015-05-07)
 - bug #4890 webkitStorageInfo and webkitIndexedDB is deprecated
