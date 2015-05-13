@@ -1316,7 +1316,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
 
     $html_output .= '<div class="clearfloat" />';
     $html_output .= PMA_Util::getRadioFields(
-        'partition_operation', $choices, '', false, true, 'floatleft'
+        'partition_operation', $choices, 'ANALYZE', false, true, 'floatleft'
     );
     $this_url_params = array_merge(
         $url_params,
