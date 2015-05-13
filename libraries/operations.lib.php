@@ -1300,10 +1300,15 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         . '</legend>';
 
     $html_select = '<select name="partition_name[]" multiple="multiple">' . "\n";
+    $first = true;
     foreach ($partition_names as $one_partition) {
         $one_partition = htmlspecialchars($one_partition);
-        $html_select .= '<option value="' . $one_partition . '">'
-            . $one_partition . '</option>' . "\n";
+        $html_select .= '<option value="' . $one_partition . '"';
+        if ($first) {
+            $html_select .= ' selected="selected"';
+            $first = false;
+        }
+        $html_select .=  '>' . $one_partition . '</option>' . "\n";
     }
     $html_select .= '</select>' . "\n";
     $html_output .= sprintf(__('Partition %s'), $html_select);
