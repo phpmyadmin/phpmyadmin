@@ -1300,7 +1300,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         . '</legend>';
 
     $html_select = '<select id="partition_name" name="partition_name[]"'
-        . ' multiple="multiple">' . "\n";
+        . ' multiple="multiple" required="required">' . "\n";
     $first = true;
     foreach ($partition_names as $one_partition) {
         $one_partition = htmlspecialchars($one_partition);
