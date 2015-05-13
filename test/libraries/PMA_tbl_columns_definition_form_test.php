@@ -161,12 +161,6 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             . 'utf8_bin</option>',
             $result
         );
-
-        $this->assertContains(
-            '<textarea name="partition_definition" id="partitiondefinition" '
-            . 'cols="10" rows="15" dir="text_dir">partition&gt;</textarea>',
-            $result
-        );
     }
 
     /**
