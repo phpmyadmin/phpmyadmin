@@ -1299,7 +1299,8 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         . PMA_Util::showMySQLDocu('partitioning_maintenance')
         . '</legend>';
 
-    $html_select = '<select name="partition_name[]" multiple="multiple">' . "\n";
+    $html_select = '<select id="partition_name" name="partition_name[]"'
+        . ' multiple="multiple">' . "\n";
     $first = true;
     foreach ($partition_names as $one_partition) {
         $one_partition = htmlspecialchars($one_partition);

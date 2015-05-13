@@ -156,6 +156,11 @@ AJAX.registerOnload('tbl_operations.js', function () {
             $form.PMA_confirm(question, $form.attr('action'), function (url) {
                 submitParitionMaintenance();
             });
+        } else if ($('#partition_operation_COALESCE').is(':checked')) {
+            var question = PMA_sprintf(PMA_messages.strCoalescePartitionWarning, $("#partition_name :selected").length);
+            $form.PMA_confirm(question, $form.attr('action'), function (url) {
+                submitParitionMaintenance();
+            });
         } else {
             submitParitionMaintenance();
         }
