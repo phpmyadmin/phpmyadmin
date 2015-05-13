@@ -154,7 +154,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         var question = PMA_messages.strDropPartitionWarning;
         var processingString = PMA_messages.strProcessingRequest;
 
-        if($('#partition_operation_DROP').is(':checked')) {
+        if ($('#partition_operation_DROP').is(':checked')) {
             $(this).PMA_confirm(question, $form.attr('action'), function (url) {
                 $.post($form.attr('action'), $form.serialize(), function (data) {
                     if (typeof data !== 'undefined' && data.success === true) {
@@ -165,12 +165,11 @@ AJAX.registerOnload('tbl_operations.js', function () {
                             PMA_highlightSQL($('#page_content'));
                         });
                     } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                        PMA_ajaxShowMessage(data.error, false);
                     }
                 });
             });
-        }
-        else {
+        } else {
             PMA_ajaxShowMessage(processingString);
             $.post($form.attr('action'), $form.serialize(), function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -181,7 +180,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
                         PMA_highlightSQL($('#page_content'));
                     });
                 } else {
-                PMA_ajaxShowMessage(data.error, false);
+                    PMA_ajaxShowMessage(data.error, false);
                 }
             });
         }
