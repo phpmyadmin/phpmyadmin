@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:49-0400\n"
-"PO-Revision-Date: 2015-04-15 23:57+0200\n"
+"PO-Revision-Date: 2015-05-14 16:38+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -2324,10 +2324,9 @@ msgstr ""
 "questa operazione potrebbe mandare il browser in crash."
 
 #: js/messages.php:461
-#, fuzzy
 #| msgid "Original string"
 msgid "Original length"
-msgstr "Stringa originale"
+msgstr "Lunghezza originale"
 
 #: js/messages.php:464
 msgid "cancel"
@@ -6120,8 +6119,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Specifica il testo per la barra del titolo del browser. Puoi consultare la "
-"[doc@faq6-27]documentazione[/doc] per vedere delle stringhe che possono "
+"Specifica il testo per la barra del titolo nel browser. Puoi consultare la "
+"[doc@faq6-27]documentation[/doc] per vedere delle stringhe che possono "
 "essere utilizzate per ottenere dei valori speciali."
 
 #: libraries/config/messages.inc.php:261
@@ -9849,10 +9848,9 @@ msgid "Check table"
 msgstr "Controlla tabella"
 
 #: libraries/operations.lib.php:1109 libraries/structure.lib.php:339
-#, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
-msgstr "Controlla tabella"
+msgstr "Checksum tabella"
 
 #: libraries/operations.lib.php:1124
 msgid "Defragment table"
@@ -10445,10 +10443,9 @@ msgid "It appears your database uses functions;"
 msgstr "Il tuo database sembra utilizzare le funzioni;"
 
 #: libraries/plugins/export/ExportSql.class.php:975
-#, fuzzy
 #| msgid "Metadata for %s"
 msgid "Metadata"
-msgstr "Metadati per %s"
+msgstr "Metadati"
 
 #: libraries/plugins/export/ExportSql.class.php:1049
 #, php-format
@@ -10858,7 +10855,6 @@ msgstr ""
 "pixel. La proporzione originale é mantenuta."
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
@@ -10866,8 +10862,8 @@ msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
 msgstr ""
-"Converte un indirizzo di rete Internet (IPv4) in una stringa nel formato "
-"puntato dell'Internet standard."
+"Converte un indirizzo di rete Internet (IPv4) memorizzato come BIGINT in una "
+"stringa nel formato Internet standard a punti."
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
 msgid ""
@@ -10943,6 +10939,7 @@ msgstr ""
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.class.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr ""
+"Converte un indirizzo di rete Internet in formato (IPv4/IPv6) in binario"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -10957,7 +10954,6 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr "Editor CodeMirror per XML (e HTML) con evidenziazione della sintassi."
 
 #: libraries/plugins/transformations/output/Text_Plain_Binarytoip.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
@@ -10965,8 +10961,8 @@ msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
-"Converte un indirizzo di rete Internet (IPv4) in una stringa nel formato "
-"puntato dell'Internet standard."
+"Converte un indirizzo di rete Internet memorizzato come stringa binaria in "
+"una stringa nel formato standard Internet (IPv4/IPv6)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:47
 msgid "Formats text as JSON with syntax highlighting."
@@ -13809,10 +13805,9 @@ msgid "Get auto-saved query"
 msgstr "Ottieni la query auto-memorizzata"
 
 #: libraries/sql_query_form.lib.php:246
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "Parametri errati!"
+msgstr "Parametri Bind"
 
 #: libraries/sql_query_form.lib.php:292
 msgid "Bookmark this SQL query:"
@@ -13935,10 +13930,9 @@ msgid "Show create"
 msgstr "Mostra crea"
 
 #: libraries/structure.lib.php:347
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Prefix"
-msgstr "Aggiungi prefisso"
+msgstr "Prefisso"
 
 #: libraries/structure.lib.php:349
 msgid "Add prefix to table"
