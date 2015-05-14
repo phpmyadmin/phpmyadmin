@@ -38,7 +38,7 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
         // case 1
         $formDisplay = $this->getMockBuilder('FormDisplay')
             ->disableOriginalConstructor()
-            ->setMethods(array('process', 'display'))
+            ->setMethods(array('process', 'getDisplay'))
             ->getMock();
 
         $formDisplay->expects($this->once())
@@ -47,7 +47,7 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(false));
 
         $formDisplay->expects($this->once())
-            ->method('display')
+            ->method('getDisplay')
             ->with(true, true);
 
         PMA_Process_formset($formDisplay);

@@ -190,13 +190,14 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['strConfigForm_foobar'] = 'foobar123';
 
-        $this->expectOutputString(
+        $result = $this->object->displayErrors();
+
+        $this->assertEquals(
             '<dl><dt>Servers_test2_name</dt>' .
             '<dd>e1</dd></dl><dl><dt>foobar123</dt><dd>' .
-            'e2</dd><dd>e3</dd></dl>'
+            'e2</dd><dd>e3</dd></dl>',
+            $result
         );
-
-        $this->object->displayErrors();
     }
 
     /**

@@ -115,7 +115,7 @@ if (isset($_POST['submit_export'])
             );
             $msg->display();
             echo '<div class="config-form">';
-            $form_display->displayErrors();
+            echo $form_display->displayErrors();
             echo '</div>';
             echo '<form action="prefs_manage.php" method="post">';
             echo PMA_URL_getHiddenInputs() . "\n";

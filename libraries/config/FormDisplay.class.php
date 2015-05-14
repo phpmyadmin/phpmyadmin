@@ -213,23 +213,25 @@ class FormDisplay
      *
      * @return void
      */
-    public function display($tabbed_form = false, $show_restore_default = false)
+    public function getDisplay($tabbed_form = false, $show_restore_default = false)
     {
         static $js_lang_sent = false;
+
+        $htmlOutput = '';
 
         $js = array();
         $js_default = array();
         $tabbed_form = $tabbed_form && (count($this->_forms) > 1);
         $validators = PMA_Validator::getValidators($this->_configFile);
 
-        PMA_displayFormTop();
+        $htmlOutput .= PMA_displayFormTop();
 
         if ($tabbed_form) {
             $tabs = array();
             foreach ($this->_forms as $form) {
                 $tabs[$form->name] = PMA_lang("Form_$form->name");
             }
-            PMA_displayTabsTop($tabs);
+            $htmlOutput .= PMA_displayTabsTop($tabs);
         }
 
         // validate only when we aren't displaying a "new server" form
@@ -256,7 +258,7 @@ class FormDisplay
                 : '';
             $form_errors = isset($this->_errors[$form->name])
                 ? $this->_errors[$form->name] : null;
-            PMA_displayFieldsetTop(
+            $htmlOutput .= PMA_displayFieldsetTop(
                 PMA_lang("Form_$form->name"),
                 $form_desc,
                 $form_errors,
@@ -272,7 +274,7 @@ class FormDisplay
                     ? !isset($this->_userprefsDisallow[$path])
                     : null;
                 // display input
-                $this->_displayFieldInput(
+                $htmlOutput .= $this->_displayFieldInput(
                     $form,
                     $field,
                     $path,
@@ -287,13 +289,13 @@ class FormDisplay
                     PMA_addJsValidate($translated_path, $validators[$path], $js);
                 }
             }
-            PMA_displayFieldsetBottom();
+            $htmlOutput .= PMA_displayFieldsetBottom();
         }
 
         if ($tabbed_form) {
-            PMA_displayTabsBottom();
+            $htmlOutput .= PMA_displayTabsBottom();
         }
-        PMA_displayFormBottom();
+        $htmlOutput .= PMA_displayFormBottom();
 
         // if not already done, send strings used for validation to JavaScript
         if (! $js_lang_sent) {
@@ -308,7 +310,9 @@ class FormDisplay
 
         $js[] = "$.extend(defaultValues, {\n\t"
             . implode(",\n\t", $js_default) . '})';
-        PMA_displayJavascript($js);
+        $htmlOutput .= PMA_displayJavascript($js);
+
+        return $htmlOutput;
     }
 
     /**
@@ -384,7 +388,7 @@ class FormDisplay
         case 'group':
             // :group:end is changed to :group:end:{unique id} in Form class
             if (/*overload*/mb_substr($field, 7, 4) != 'end:') {
-                PMA_displayGroupHeader(/*overload*/mb_substr($field, 7));
+                echo PMA_displayGroupHeader(/*overload*/mb_substr($field, 7));
             } else {
                 PMA_displayGroupFooter();
             }
@@ -436,7 +440,7 @@ class FormDisplay
         }
         $js_default[] = $js_line;
 
-        PMA_displayInput(
+        return PMA_displayInput(
             $translated_path, $name, $type, $value,
             $description, $value_is_default, $opts
         );
@@ -454,6 +458,8 @@ class FormDisplay
             return;
         }
 
+        $htmlOutput = '';
+
         foreach ($this->_errors as $system_path => $error_list) {
             if (isset($this->_systemPaths[$system_path])) {
                 $path = $this->_systemPaths[$system_path];
@@ -461,8 +467,9 @@ class FormDisplay
             } else {
                 $name = $GLOBALS["strConfigForm_$system_path"];
             }
-            PMA_displayErrors($name, $error_list);
+            $htmlOutput .= PMA_displayErrors($name, $error_list);
         }
+        return $htmlOutput;
     }
 
     /**
