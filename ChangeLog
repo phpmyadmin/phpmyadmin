@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - bug       Error when the reporting server is down
 - bug       Escape database and table names for partition maintenance
 - bug       Invalid value for CURLOPT_SSL_VERIFYPEER
+- bug #4367 Import status infinite loop
 
 4.4.6.1 (2015-05-13)
 - bug #4899 [security] CSRF vulnerability in setup
