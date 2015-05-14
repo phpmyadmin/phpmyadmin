@@ -123,7 +123,7 @@ class PMA_Console
             }
             unset($count_bookmarks, $private_message, $shared_message);
             $output .= '</span></div>';
-            foreach ($bookmarks as $key => $val) {
+            foreach ($bookmarks as $val) {
                 $output .= '<div class="message collapsed bookmark" bookmarkid="'
                 .  $val['id'] . '" targetdb="' . htmlspecialchars($val['db'])
                 .  '"><div class="action_content">'
