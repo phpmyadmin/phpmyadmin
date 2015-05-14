@@ -525,6 +525,12 @@ $GLOBALS['dummy_queries'] = array(
             . 'WHERE `TABLE_SCHEMA` = "db" AND `TABLE_NAME` = "table"',
         'result' => array()
     ),
+    array(
+        'query' => "SHOW PLUGINS",
+        'result' => array(
+            array('Name' => 'partition')
+        )
+    ),
 );
 /**
  * Current database.
