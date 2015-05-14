@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:49-0400\n"
-"PO-Revision-Date: 2015-04-17 14:32+0200\n"
-"Last-Translator: Ondra Šimeček <ondrasek.simecek@gmail.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"cs/>\n"
+"PO-Revision-Date: 2015-05-14 15:44+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Czech "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -1937,13 +1937,12 @@ msgid "Selected partial dependencies are as follows:"
 msgstr "Byly zvoleny následující částečné závislosti:"
 
 #: js/messages.php:342
-#, fuzzy
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"Poznámka: a,b -> d,f zahrnuje hodnoty sloupců 'a' a 'b' kombinaci dohromady "
-"může určit hodnoty sloupce 'd' a sloupce 'f'."
+"Poznámka: a,b -> d,f zahrnuje hodnoty sloupců a a b kombinaci dohromady může "
+"určit hodnoty sloupce d a sloupce f."
 
 #: js/messages.php:343
 msgid "No partial dependencies selected!"
@@ -2488,11 +2487,9 @@ msgid "Ignore All"
 msgstr "Ignorovat vše"
 
 #: js/messages.php:554
-#, fuzzy
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
-"Podle vašeho nastavení jsou aktuálně předkládány, prosím buďte trpěliví."
+msgstr "Podle vašeho nastavení jsou právě odesílány, prosím buďte trpěliví."
 
 #: js/messages.php:561
 msgid "Execute this query again?"
@@ -6065,7 +6062,6 @@ msgid "Page titles"
 msgstr "Jména stránek"
 
 #: libraries/config/messages.inc.php:257
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -6074,8 +6070,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Zadejte titulek který zobrazí prohlížeč. V [doc@cfg_TitleTable]dokumentaci[/"
-"doc] naleznete jaké proměnné můžete použít."
+"Zadejte titulek který zobrazí prohlížeč. V [doc@faq6-27]dokumentaci[/doc] "
+"naleznete jaké proměnné můžete použít."
 
 #: libraries/config/messages.inc.php:261
 msgid "Security"
@@ -6818,7 +6814,6 @@ msgid "Relational display"
 msgstr "Relační zobrazení"
 
 #: libraries/config/messages.inc.php:552
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
 msgstr "Pro zobrazení Nastavení"
@@ -7847,10 +7842,9 @@ msgid "Save to selected page"
 msgstr "Uložit k vybrané stránce"
 
 #: libraries/db_designer.lib.php:78
-#, fuzzy
 #| msgid "Create a page and export to it."
 msgid "Create a page and save to it"
-msgstr "Vytvořit stránku a uložit jí"
+msgstr "Vytvořit stránku a uložit do ní"
 
 #: libraries/db_designer.lib.php:102
 msgid "New page name"
@@ -9211,14 +9205,14 @@ msgstr ""
 "ovlivnit výkon. Zvažte deaktivování seskupování položek v navigačním panelu."
 
 #: libraries/navigation/NavigationTree.class.php:871
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "nalezen %s další výsledek"
-msgstr[1] "nalezeny %s další výsledky"
-msgstr[2] "nalezeno %s dalších výsledků"
+msgstr[0] "nalezen %s výsledek"
+msgstr[1] "nalezeny %s výsledky"
+msgstr[2] "nalezeno %s výsledků"
 
 #: libraries/navigation/NavigationTree.class.php:1281
 msgid "Filter databases by name or regex"
@@ -9918,10 +9912,9 @@ msgid "Please enter correct captcha!"
 msgstr "Zadejte, prosím, správný kód!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Nepodařilo se přihlášení k MySQL serveru"
+msgstr "Nemáte povolení se přihlásit k tomuto MySQL serveru!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:101
 msgid "Wrong username/password. Access denied."
@@ -14152,10 +14145,9 @@ msgstr "Transformace při prohlížení"
 
 #: libraries/tbl_columns_definition_form.lib.php:379
 #: transformation_overview.php:42
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "Transformace při prohlížení"
+msgstr "Transformace při zadávání"
 
 #: libraries/tbl_columns_definition_form.lib.php:381
 #, fuzzy
