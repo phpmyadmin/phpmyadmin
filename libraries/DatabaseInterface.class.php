@@ -11,6 +11,7 @@ if (! defined('PHPMYADMIN')) {
 
 require_once './libraries/logging.lib.php';
 require_once './libraries/Index.class.php';
+require_once './libraries/SystemDatabase.class.php';
 
 /**
  * Main interface for database interactions
@@ -46,7 +47,7 @@ class PMA_DatabaseInterface
      *
      * @param PMA_DBI_Extension $ext Object to be used for database queries
      */
-    public function __construct(PMA_DBI_Extension $ext)
+    function __construct($ext)
     {
         $this->_extension = $ext;
     }
@@ -1148,6 +1149,50 @@ class PMA_DatabaseInterface
             $a[$GLOBALS['callback_sort_by']], $b[$GLOBALS['callback_sort_by']]
         );
     } // end of the '_usortComparisonCallback()' method
+
+    /**
+     * returns detailed array with all columns for sql
+     *
+     * @param string $sql_query    target SQL query to get columns
+     * @param array  $view_columns alias for columns
+     *
+     * @return array
+     */
+    public function getColumnMapFromSql($sql_query, $view_columns = array())
+    {
+        $result = $this->tryQuery($sql_query);
+
+        if ($result === false) {
+            return array();
+        }
+
+        $meta = $this->getFieldsMeta(
+            $result
+        );
+
+        $nbFields = count($meta);
+        if ($nbFields <= 0) {
+            return array();
+        }
+
+        $column_map = array();
+        $nbColumns = count($view_columns);
+
+        for ($i=0; $i < $nbFields; $i++) {
+
+            $map = array();
+            $map['table_name'] = $meta[$i]->table;
+            $map['refering_column'] = $meta[$i]->name;
+
+            if ($nbColumns > 1) {
+                $map['real_column'] = $view_columns[$i];
+            }
+
+            $column_map[] = $map;
+        }
+
+        return $column_map;
+    }
 
     /**
      * returns detailed array with all columns for given table in database,
@@ -2861,6 +2906,16 @@ class PMA_DatabaseInterface
         } else {
             return 'KILL ' . $process . ';';
         }
+    }
+
+    /**
+     * Get the phpmyadmin database manager
+     *
+     * @return PMA\SystemDatabase
+     */
+    public function getSystemDatabase()
+    {
+        return new PMA\SystemDatabase($this);
     }
 }
 ?>
