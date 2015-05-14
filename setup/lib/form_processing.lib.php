@@ -48,19 +48,18 @@ function PMA_Process_formset(FormDisplay $form_display)
     <div class="error">
         <h4><?php echo __('Warning') ?></h4>
         <?php echo __('Submitted form contains errors') ?><br />
-        <a href="<?php echo PMA_URL_getCommon() . $separator ?>
-            page=<?php echo $page . $formset . $formId . $separator ?>mode=revert">
-            <?php echo __('Try to revert erroneous fields to their default values')
-            ?>
+        <a href="<?php echo PMA_URL_getCommon() . $separator ?>page=<?php echo $page . $formset . $formId . $separator ?>mode=revert">
+            <?php echo __('Try to revert erroneous fields to their default values') ?>
         </a>
     </div>
     <?php $form_display->displayErrors() ?>
     <a class="btn" href="index.php<?php echo PMA_URL_getCommon() ?>">
-        <?php echo __('Ignore errors') ?></a>
+        <?php echo __('Ignore errors') ?>
+    </a>
     &nbsp;
-    <a class="btn" href="<?php echo PMA_URL_getCommon() . $separator ?>
-        page=<?php echo $page . $formset . $formId
-        . $separator ?>mode=edit"><?php echo __('Show form') ?></a>
+    <a class="btn" href="<?php echo PMA_URL_getCommon() . $separator ?>page=<?php echo $page . $formset . $formId . $separator ?>mode=edit">
+        <?php echo __('Show form') ?>
+    </a>
     <?php
 }
 

@@ -78,17 +78,17 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<a href="?page=&amp;mode=revert">',
+            '<a href="?lang=en&amp;token=token&amp;page=&amp;mode=revert">',
             $result
         );
 
         $this->assertContains(
-            '<a class="btn" href="index.php">',
+            '<a class="btn" href="index.php?lang=en&amp;token=token">',
             $result
         );
 
         $this->assertContains(
-            '<a class="btn" href="?page=&amp;mode=edit">',
+            '<a class="btn" href="?lang=en&amp;token=token&amp;page=&amp;mode=edit">',
             $result
         );
 
