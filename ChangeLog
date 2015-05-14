@@ -16,6 +16,10 @@ phpMyAdmin - ChangeLog
 - bug       Escape database and table names for partition maintenance
 - bug       Invalid value for CURLOPT_SSL_VERIFYPEER
 
+4.4.6.1 (2015-05-13)
+- bug #4899 [security] CSRF vulnerability in setup
+- bug #4900 [security] Vulnerability allowing man-in-the-middle attack
+
 4.4.6.0 (2015-05-07)
 - bug #4890 webkitStorageInfo and webkitIndexedDB is deprecated
 - bug #4892 Undefined variable: unique_conditions
