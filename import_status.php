@@ -51,6 +51,7 @@ if (version_compare(PHP_VERSION, '5.4.0', '>=')
 define('PMA_MINIMUM_COMMON', 1);
 
 require_once 'libraries/common.inc.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/display_import_ajax.lib.php';
 
 /*
@@ -86,9 +87,23 @@ if (isset($_GET["message"]) && $_GET["message"]) {
     // which is set inside import.php
     usleep(300000);
 
+    $maximumTime = ini_get('max_execution_time');
+    $timestamp = time();
     // wait until message is available
     while ($_SESSION['Import_message']['message'] == null) {
+        // close session before sleeping
+        session_write_close();
+        // sleep
         usleep(250000); // 0.25 sec
+        // reopen session
+        session_start();
+
+        if ((time() - $timestamp) > $maximumTime) {
+            $_SESSION['Import_message']['message'] = PMA_Message::error(
+                __('Could not load the progress of the import.')
+            )->getDisplay();
+            break;
+        }
     }
 
     echo $_SESSION['Import_message']['message'];
