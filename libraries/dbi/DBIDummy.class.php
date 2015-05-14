@@ -521,8 +521,8 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
-        'query' => 'SELECT `PARTITION_METHOD` FROM `INFORMATION_SCHEMA`.`PARTITIONS` '
-            . 'WHERE `TABLE_SCHEMA` = "db" AND `TABLE_NAME` = "table"',
+        'query' => "SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS` '
+            . 'WHERE `TABLE_SCHEMA` = 'db' AND `TABLE_NAME` = 'table'",
         'result' => array()
     ),
     array(
