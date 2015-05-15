@@ -5004,6 +5004,48 @@ class PMA_DisplayResults
     }
 
     /**
+     * Get printview links for results operations 
+     *
+     * @param string $url_query   url query
+     * @param array  $_url_params url parameters
+     *
+     * @return string $html
+     *
+     * @access  private
+     */
+    private function _getPrintviewLinks($url_query, $_url_params)
+    {
+        $html = PMA_Util::linkOrButton(
+            'sql.php' . $url_query,
+            PMA_Util::getIcon(
+                'b_print.png', __('Print view'), true
+            ),
+            array('target' => 'print_view'),
+            true,
+            true,
+            'print_view'
+        );
+
+        if ($_SESSION['tmpval']['pftext']) {
+            $_url_params['pftext'] = self::DISPLAY_FULL_TEXT;
+
+            $html .= PMA_Util::linkOrButton(
+                'sql.php' . PMA_URL_getCommon($_url_params),
+                PMA_Util::getIcon(
+                    'b_print.png',
+                    __('Print view (with full texts)'), true
+                ),
+                array('target' => 'print_view'),
+                true,
+                true,
+                'print_view'
+            );
+        }
+
+        return $html;
+    }
+
+    /**
      * Get operations that are available on results.
      *
      * @param array   $displayParts the parts to display
@@ -5054,39 +5096,9 @@ class PMA_DisplayResults
 
         // Displays "printable view" link if required
         if ($displayParts['pview_lnk'] == '1') {
-
-            $results_operations_html
-                .= PMA_Util::linkOrButton(
-                    'sql.php' . $url_query,
-                    PMA_Util::getIcon(
-                        'b_print.png', __('Print view'), true
-                    ),
-                    array('target' => 'print_view'),
-                    true,
-                    true,
-                    'print_view'
-                )
-                . "\n";
-
-            if ($_SESSION['tmpval']['pftext']) {
-
-                $_url_params['pftext'] = self::DISPLAY_FULL_TEXT;
-
-                $results_operations_html
-                    .= PMA_Util::linkOrButton(
-                        'sql.php' . PMA_URL_getCommon($_url_params),
-                        PMA_Util::getIcon(
-                            'b_print.png',
-                            __('Print view (with full texts)'), true
-                        ),
-                        array('target' => 'print_view'),
-                        true,
-                        true,
-                        'print_view'
-                    )
-                    . "\n";
-                unset($_url_params['pftext']);
-            }
+            $results_operations_html .= $this->_getPrintviewLinks(
+                $url_query, $_url_params
+            );
         } // end displays "printable view"
 
         // Export link
