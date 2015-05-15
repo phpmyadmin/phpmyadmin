@@ -722,7 +722,7 @@ function Edit_pages()
                 PMA_ajaxRemoveMessage($msgbox);
 
                 if (! pmd_tables_enabled) {
-                    Create_page_list(function (options) {
+                    Create_page_list(db, function (options) {
                         $("#page_edit_dialog #selected_page").append(options);
                     });
                 }
@@ -802,7 +802,7 @@ function Delete_pages()
             PMA_ajaxRemoveMessage($msgbox);
 
             if (! pmd_tables_enabled) {
-                Create_page_list(function (options) {
+                Create_page_list(db, function (options) {
                     $("#page_delete_dialog #selected_page").append(options);
                 });
             }
@@ -901,7 +901,7 @@ function Save_as()
             PMA_ajaxRemoveMessage($msgbox);
 
             if (! pmd_tables_enabled) {
-                Create_page_list(function (options) {
+                Create_page_list(db, function (options) {
                     $("#page_save_as_dialog #selected_page").append(options);
                 });
             }
@@ -1016,7 +1016,7 @@ function Load_page(page) {
             .click();
     } else {
         if (page === null) {
-            Show_tables_in_landing_page();
+            Show_tables_in_landing_page(db);
         } else if (page > -1) {
             Load_HTML_for_page(page);
         } else if (page === -1) {
