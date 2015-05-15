@@ -341,6 +341,8 @@ class FormDisplay
         $name = PMA_langName($system_path);
         $description = PMA_langName($system_path, 'desc', '');
 
+        $htmlOutput = '';
+
         $value = $this->_configFile->get($work_path);
         $value_default = $this->_configFile->getDefault($system_path);
         $value_is_default = false;
@@ -388,7 +390,7 @@ class FormDisplay
         case 'group':
             // :group:end is changed to :group:end:{unique id} in Form class
             if (/*overload*/mb_substr($field, 7, 4) != 'end:') {
-                echo PMA_displayGroupHeader(/*overload*/mb_substr($field, 7));
+                $htmlOutput .= PMA_displayGroupHeader(/*overload*/mb_substr($field, 7));
             } else {
                 PMA_displayGroupFooter();
             }
@@ -440,7 +442,7 @@ class FormDisplay
         }
         $js_default[] = $js_line;
 
-        return PMA_displayInput(
+        return $htmlOutput . PMA_displayInput(
             $translated_path, $name, $type, $value,
             $description, $value_is_default, $opts
         );
