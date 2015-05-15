@@ -384,22 +384,27 @@ function PMA_displayGroupFooter()
 /**
  * Displays bottom part of a fieldset
  *
+ * @param bool $show_buttons whether show submit and reset button
+ *
  * @return void
  */
-function PMA_displayFieldsetBottom()
+function PMA_displayFieldsetBottom($show_buttons)
 {
     $colspan = 2;
     if (defined('PMA_SETUP')) {
         $colspan++;
     }
-    $htmlOutput = '<tr>';
-    $htmlOutput .= '<td colspan="' . $colspan . '" class="lastrow">';
-    $htmlOutput .= '<input type="submit" name="submit_save" value="'
-        . __('Apply') . '" class="green" />';
-    $htmlOutput .= '<input type="button" name="submit_reset" value="'
-        . __('Reset') . '" />';
-    $htmlOutput .= '</td>';
-    $htmlOutput .= '</tr>';
+    $htmlOutput = '';
+    if ($show_buttons) {
+        $htmlOutput .= '<tr>';
+        $htmlOutput .= '<td colspan="' . $colspan . '" class="lastrow">';
+        $htmlOutput .= '<input type="submit" name="submit_save" value="'
+            . __('Apply') . '" class="green" />';
+        $htmlOutput .= '<input type="button" name="submit_reset" value="'
+            . __('Reset') . '" />';
+        $htmlOutput .= '</td>';
+        $htmlOutput .= '</tr>';
+    }
     $htmlOutput .= '</table>';
     $htmlOutput .= '</fieldset>';
     return $htmlOutput;
@@ -475,9 +480,11 @@ function PMA_displayJavascript($js_array)
     if (empty($js_array)) {
         return;
     }
-    $htmlOutput = '<script type="text/javascript">' . "\n";
-    $htmlOutput .= implode(";\n", $js_array) . ";\n";
-    $htmlOutput .= '</script>' . "\n";
+    $htmlOutput = '<script type="text/javascript">' . "\n"
+        . 'AJAX.registerOnload("config.js", function() {' . "\n"
+        . implode(";\n", $js_array) . ";\n"
+        . '});' . "\n"
+        . '</script>' . "\n";
     return $htmlOutput;
 }
 

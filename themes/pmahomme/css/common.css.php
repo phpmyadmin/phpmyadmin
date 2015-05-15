@@ -1146,7 +1146,7 @@ div#tablestatistics table {
     color: #fff;
 }
 
-#goto_pagetop, #lock_page_icon {
+#goto_pagetop, #lock_page_icon, #page_settings_icon {
     position: fixed;
     padding: .25em .25em .2em;
     top: 0;
@@ -1158,8 +1158,18 @@ div#tablestatistics table {
     <?php echo $right; ?>: 0;
 }
 
-#lock_page_icon {
+#page_settings_icon {
     <?php echo $right; ?>: 2em;
+    cursor: pointer;
+    display: none;
+}
+
+#lock_page_icon {
+    <?php echo $right; ?>: 4em;
+}
+
+.page_settings_modal {
+    display: none;
 }
 
 #span_table_comment {
