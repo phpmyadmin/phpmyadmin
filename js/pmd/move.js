@@ -17,6 +17,8 @@ AJAX.registerTeardown('pmd/move.js', function () {
     if ($.FullScreen.supported) {
         $(document).unbind($.FullScreen.prefix + 'fullscreenchange');
     }
+
+    $('#selflink').show();
 });
 
 AJAX.registerOnload('pmd/move.js', function () {
@@ -36,6 +38,8 @@ AJAX.registerOnload('pmd/move.js', function () {
     } else {
         $('#toggleFullscreen').hide();
     }
+
+    $('#selflink').hide();
 });
 
 // Below is the function to bind onbeforeunload events with the content_frame as well as the top window.
