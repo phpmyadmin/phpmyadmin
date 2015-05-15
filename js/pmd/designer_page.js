@@ -91,13 +91,21 @@ function Delete_page(page_id, callback)
 function Load_first_page(db, callback)
 {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
+        var firstPage = null;
         for (var i = 0; i < pages.length; i++) {
             var page = pages[i];
             if (page.db_name == db) {
-                callback(page);
-                return;
+                // give preference to a page having same name as the db
+                if (page.page_descr == db) {
+                    callback(page);
+                    return;
+                }
+                if (firstPage == null) {
+                    firstPage = page;
+                }
             }
         }
+        callback(firstPage);
     });
 }
 
