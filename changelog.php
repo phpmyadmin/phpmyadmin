@@ -33,7 +33,10 @@ if (is_readable($filename)) {
     }
 } else {
     printf(
-        __('The %s file is not available on this system, please visit www.phpmyadmin.net for more information.'),
+        __(
+            'The %s file is not available on this system, please visit '
+            . 'www.phpmyadmin.net for more information.'
+        ),
         $filename
     );
     exit;
