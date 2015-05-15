@@ -38,8 +38,10 @@ class ConfigGenerator
             . ' */' . $crlf . $crlf;
 
         //servers
-        $ret .= self::getServerPart($cf, $crlf, $conf['Servers']);
-        unset($conf['Servers']);
+        if (! empty($conf['Servers'])) {
+            $ret .= self::getServerPart($cf, $crlf, $conf['Servers']);
+            unset($conf['Servers']);
+        }
 
         // other settings
         $persistKeys = $cf->getPersistKeysMap();
