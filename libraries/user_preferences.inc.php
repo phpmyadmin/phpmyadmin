@@ -10,7 +10,7 @@ if (!defined('PHPMYADMIN')) {
 }
 // build user preferences menu
 
-$form_param = filter_input(INPUT_GET, 'form');
+$form_param = isset($_GET['form']) ? $_GET['form'] : null;
 if (! isset($forms[$form_param])) {
     $forms_keys = array_keys($forms);
     $form_param = array_shift($forms_keys);

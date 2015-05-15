@@ -23,7 +23,8 @@ PMA_userprefsPageInit($cf);
 
 $error = '';
 if (isset($_POST['submit_export'])
-    && filter_input(INPUT_POST, 'export_type') == 'text_file'
+    && isset($_POST['export_type'])
+    && $_POST['export_type'] == 'text_file'
 ) {
     // export to JSON file
     PMA_Response::getInstance()->disable();
@@ -41,7 +42,8 @@ if (isset($_POST['submit_export'])
 } else if (isset($_POST['submit_import'])) {
     // load from JSON file
     $json = '';
-    if (filter_input(INPUT_POST, 'import_type') == 'text_file'
+    if (isset($_POST['import_type'])
+        && $_POST['import_type'] == 'text_file'
         && isset($_FILES['import_file'])
         && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
         && is_uploaded_file($_FILES['import_file']['tmp_name'])
@@ -70,14 +72,14 @@ if (isset($_POST['submit_export'])
         }
     } else {
         // read from POST value (json)
-        $json = filter_input(INPUT_POST, 'json');
+        $json = isset($_POST['json']) ? $_POST['json'] : null;
     }
 
     // hide header message
     $_SESSION['userprefs_autoload'] = true;
 
     $config = json_decode($json, true);
-    $return_url = filter_input(INPUT_POST, 'return_url');
+    $return_url = isset($_POST['return_url']) ? $_POST['return_url'] : null;
     if (! is_array($config)) {
         $error = __('Could not import configuration');
     } else {
