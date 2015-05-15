@@ -495,7 +495,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'del_lnk' => 'dr',
                     'sort_lnk' => '0',
                     'nav_bar' => '1',
-                    'ins_row' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
                     'pview_lnk' => '1'
@@ -763,7 +762,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'del_lnk' => 'dr',
                     'sort_lnk' => '0',
                     'nav_bar' => '1',
-                    'ins_row' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
                     'pview_lnk' => '1'
@@ -840,7 +838,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'del_lnk' => 'dr',
                     'sort_lnk' => '0',
                     'nav_bar' => '1',
-                    'ins_row' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
                     'pview_lnk' => '1'
@@ -915,7 +912,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'del_lnk' => 'dr',
                     'sort_lnk' => '0',
                     'nav_bar' => '1',
-                    'ins_row' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
                     'pview_lnk' => '1'
@@ -1016,7 +1012,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'del_lnk' => 'dr',
                     'sort_lnk' => '0',
                     'nav_bar' => '1',
-                    'ins_row' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
                     'pview_lnk' => '1'

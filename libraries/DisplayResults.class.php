@@ -420,7 +420,6 @@ class PMA_DisplayResults
         $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
         $displayParts['sort_lnk']  = (string) '0';
         $displayParts['nav_bar']   = (string) '0';
-        $displayParts['ins_row']   = (string) '0';
         $displayParts['bkm_form']  = (string) '0';
         $displayParts['text_btn']  = (string) '0';
         $displayParts['pview_lnk'] = (string) '0';
@@ -469,7 +468,6 @@ class PMA_DisplayResults
         // Other settings
         $displayParts['sort_lnk']  = (string) '0';
         $displayParts['nav_bar']   = (string) '0';
-        $displayParts['ins_row']   = (string) '0';
         $displayParts['bkm_form']  = (string) '1';
         $displayParts['text_btn']  = (string) '1';
         $displayParts['pview_lnk'] = (string) '1';
@@ -496,7 +494,6 @@ class PMA_DisplayResults
         $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
         $displayParts['sort_lnk']  = (string) '0';
         $displayParts['nav_bar']   = (string) '0';
-        $displayParts['ins_row']   = (string) '0';
         $displayParts['bkm_form']  = (string) '1';
 
         if ($this->__get('is_maint')) {
@@ -534,8 +531,7 @@ class PMA_DisplayResults
 
             $is_link = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
-                || ($displayParts['sort_lnk'] != '0')
-                || ($displayParts['ins_row'] != '0');
+                || ($displayParts['sort_lnk'] != '0');
 
             // Displays edit/delete/sort/insert links?
             if ($is_link
@@ -551,7 +547,6 @@ class PMA_DisplayResults
                  * in two joined table.
                  */
                 // $displayParts['sort_lnk'] = (string) '0';
-                $displayParts['ins_row']  = (string) '0';
                 if ($displayParts['text_btn'] == '1') {
                     break;
                 }
@@ -5057,17 +5052,32 @@ class PMA_DisplayResults
             return $results_operations_html;
         }
 
-        if (($displayParts['ins_row'] == '1')
-            || ($displayParts['pview_lnk'] == '1')
-        ) {
-            // Displays "printable view" link if required
-            if ($displayParts['pview_lnk'] == '1') {
+        // Displays "printable view" link if required
+        if ($displayParts['pview_lnk'] == '1') {
+
+            $results_operations_html
+                .= PMA_Util::linkOrButton(
+                    'sql.php' . $url_query,
+                    PMA_Util::getIcon(
+                        'b_print.png', __('Print view'), true
+                    ),
+                    array('target' => 'print_view'),
+                    true,
+                    true,
+                    'print_view'
+                )
+                . "\n";
+
+            if ($_SESSION['tmpval']['pftext']) {
+
+                $_url_params['pftext'] = self::DISPLAY_FULL_TEXT;
 
                 $results_operations_html
                     .= PMA_Util::linkOrButton(
-                        'sql.php' . $url_query,
+                        'sql.php' . PMA_URL_getCommon($_url_params),
                         PMA_Util::getIcon(
-                            'b_print.png', __('Print view'), true
+                            'b_print.png',
+                            __('Print view (with full texts)'), true
                         ),
                         array('target' => 'print_view'),
                         true,
@@ -5075,28 +5085,9 @@ class PMA_DisplayResults
                         'print_view'
                     )
                     . "\n";
-
-                if ($_SESSION['tmpval']['pftext']) {
-
-                    $_url_params['pftext'] = self::DISPLAY_FULL_TEXT;
-
-                    $results_operations_html
-                        .= PMA_Util::linkOrButton(
-                            'sql.php' . PMA_URL_getCommon($_url_params),
-                            PMA_Util::getIcon(
-                                'b_print.png',
-                                __('Print view (with full texts)'), true
-                            ),
-                            array('target' => 'print_view'),
-                            true,
-                            true,
-                            'print_view'
-                        )
-                        . "\n";
-                    unset($_url_params['pftext']);
-                }
-            } // end displays "printable view"
-        }
+                unset($_url_params['pftext']);
+            }
+        } // end displays "printable view"
 
         // Export link
         // (the url_query has extra parameters that won't be used to export)
