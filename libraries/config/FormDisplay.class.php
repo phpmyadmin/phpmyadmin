@@ -205,52 +205,22 @@ class FormDisplay
     }
 
     /**
-     * Outputs HTML for forms
+     * Outputs HTML for the forms under the menu tab 
      *
-     * @param bool $tabbed_form          if true, use a form with tabs
-     * @param bool $show_restore_default whether show "restore default" button
-     *                                   besides the input field
+     * @param bool  $show_restore_default whether to show "restore default"
+     *                                    button besides the input field
+     * @param array &$js_default          stores JavaScript code
+     *                                    to be displayed
+     * @param array &$js                  will be updated with javascript code
      *
-     * @return void
+     * @return $htmlOutput 
      */
-    public function getDisplay($tabbed_form = false, $show_restore_default = false)
-    {
-        static $js_lang_sent = false;
-
+    private function _displayForms(
+        $show_restore_default, array &$js_default, array &$js
+    ) {
         $htmlOutput = '';
-
-        $js = array();
-        $js_default = array();
-        $tabbed_form = $tabbed_form && (count($this->_forms) > 1);
         $validators = PMA_Validator::getValidators($this->_configFile);
 
-        $htmlOutput .= PMA_displayFormTop();
-
-        if ($tabbed_form) {
-            $tabs = array();
-            foreach ($this->_forms as $form) {
-                $tabs[$form->name] = PMA_lang("Form_$form->name");
-            }
-            $htmlOutput .= PMA_displayTabsTop($tabs);
-        }
-
-        // validate only when we aren't displaying a "new server" form
-        $is_new_server = false;
-        foreach ($this->_forms as $form) {
-            /* @var $form Form */
-            if ($form->index === 0) {
-                $is_new_server = true;
-                break;
-            }
-        }
-        if (! $is_new_server) {
-            $this->_validate();
-        }
-
-        // user preferences
-        $this->_loadUserprefsInfo();
-
-        // display forms
         foreach ($this->_forms as $form) {
             /* @var $form Form */
             $form_desc = isset($GLOBALS["strConfigForm_{$form->name}_desc"])
@@ -291,6 +261,58 @@ class FormDisplay
             }
             $htmlOutput .= PMA_displayFieldsetBottom();
         }
+        return $htmlOutput;
+    }
+
+    /**
+     * Outputs HTML for forms
+     *
+     * @param bool $tabbed_form          if true, use a form with tabs
+     * @param bool $show_restore_default whether show "restore default" button
+     *                                   besides the input field
+     *
+     * @return void
+     */
+    public function getDisplay($tabbed_form = false, $show_restore_default = false)
+    {
+        static $js_lang_sent = false;
+
+        $htmlOutput = '';
+
+        $js = array();
+        $js_default = array();
+        $tabbed_form = $tabbed_form && (count($this->_forms) > 1);
+
+        $htmlOutput .= PMA_displayFormTop();
+
+        if ($tabbed_form) {
+            $tabs = array();
+            foreach ($this->_forms as $form) {
+                $tabs[$form->name] = PMA_lang("Form_$form->name");
+            }
+            $htmlOutput .= PMA_displayTabsTop($tabs);
+        }
+
+        // validate only when we aren't displaying a "new server" form
+        $is_new_server = false;
+        foreach ($this->_forms as $form) {
+            /* @var $form Form */
+            if ($form->index === 0) {
+                $is_new_server = true;
+                break;
+            }
+        }
+        if (! $is_new_server) {
+            $this->_validate();
+        }
+
+        // user preferences
+        $this->_loadUserprefsInfo();
+
+        // display forms
+        $htmlOutput .= $this->_displayForms(
+            $show_restore_default, $js_default, $js
+        );
 
         if ($tabbed_form) {
             $htmlOutput .= PMA_displayTabsBottom();
