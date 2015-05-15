@@ -1,6 +1,6 @@
-function Show_tables_in_landing_page()
+function Show_tables_in_landing_page(db)
 {
-    Load_first_page(function (page) {
+    Load_first_page(db, function (page) {
         if (page) {
             Load_HTML_for_page(page.pg_nr);
             selected_page = page.pg_nr;
@@ -59,13 +59,16 @@ function Save_table_positions(positions, callback)
     DesignerOfflineDB.addObject('table_coords', positions, callback);
 }
 
-function Create_page_list(callback)
+function Create_page_list(db, callback)
 {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
         var html = "";
         for (var p = 0; p < pages.length; p++) {
-            html += '<option value="' + pages[p].pg_nr + '">';
-            html += escapeHtml(pages[p].page_descr) + '</option>';
+            var page = pages[p];
+            if (page.db_name == db) {
+                html += '<option value="' + page.pg_nr + '">';
+                html += escapeHtml(page.page_descr) + '</option>';
+            }
         }
         if (typeof callback !== 'undefined') {
             callback(html);
@@ -85,9 +88,17 @@ function Delete_page(page_id, callback)
     });
 }
 
-function Load_first_page(callback)
+function Load_first_page(db, callback)
 {
-    DesignerOfflineDB.loadFirstObject('pdf_pages', callback);
+    DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
+        for (var i = 0; i < pages.length; i++) {
+            var page = pages[i];
+            if (page.db_name == db) {
+                callback(page);
+                return;
+            }
+        }
+    });
 }
 
 function Show_new_page_tables(check)
