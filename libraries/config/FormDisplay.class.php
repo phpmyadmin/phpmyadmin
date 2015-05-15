@@ -213,7 +213,7 @@ class FormDisplay
      *                                    to be displayed
      * @param array &$js                  will be updated with javascript code
      *
-     * @return $htmlOutput
+     * @return string $htmlOutput
      */
     private function _displayForms(
         $show_restore_default, array &$js_default, array &$js
