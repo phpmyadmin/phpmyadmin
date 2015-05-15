@@ -478,6 +478,7 @@ function setRestoreDefaultBtn(field, display)
 }
 
 AJAX.registerOnload('config.js', function () {
+    configInlineParams();
     // register validators and mark custom values
     var $elements = $('input[id], select[id], textarea[id]');
     $('input[id], select[id], textarea[id]').each(function () {
