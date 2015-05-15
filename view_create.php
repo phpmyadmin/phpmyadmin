@@ -8,10 +8,8 @@
  * @package PhpMyAdmin
  */
 
-/**
- *
- */
 require_once './libraries/common.inc.php';
+require_once './libraries/SystemDatabase.class.php';
 
 /**
  * Runs common work
@@ -95,15 +93,19 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
             $view_columns = explode(',', $_REQUEST['view']['column_names']);
         }
 
-        $column_map = PMA_getColumnMap($_REQUEST['view']['as'], $view_columns);
-        $pma_tranformation_data = PMA_getExistingTransformationData($GLOBALS['db']);
+        $column_map = $GLOBALS['dbi']->getColumnMapFromSql(
+            $_REQUEST['view']['as'], $view_columns
+        );
+        $pma_transformation_data = $GLOBALS['dbi']->getSystemDatabase()->getExistingTransformationData(
+            $GLOBALS['db']
+        );
 
-        if ($pma_tranformation_data !== false) {
+        if ($pma_transformation_data !== false) {
 
             // SQL for store new transformation details of VIEW
-            $new_transformations_sql = PMA_getNewTransformationDataSql(
-                $pma_tranformation_data, $column_map, $_REQUEST['view']['name'],
-                $GLOBALS['db']
+            $new_transformations_sql = $GLOBALS['dbi']->getSystemDatabase()->getNewTransformationDataSql(
+                $pma_transformation_data, $column_map,
+                $_REQUEST['view']['name'], $GLOBALS['db']
             );
 
             // Store new transformations
@@ -112,7 +114,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
             }
 
         }
-        unset($pma_tranformation_data);
+        unset($pma_transformation_data);
 
         if (! isset($_REQUEST['ajax_dialog'])) {
             $message = PMA_Message::success();
