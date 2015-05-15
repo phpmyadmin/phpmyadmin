@@ -205,7 +205,7 @@ class FormDisplay
     }
 
     /**
-     * Outputs HTML for the forms under the menu tab 
+     * Outputs HTML for the forms under the menu tab
      *
      * @param bool  $show_restore_default whether to show "restore default"
      *                                    button besides the input field
@@ -213,7 +213,7 @@ class FormDisplay
      *                                    to be displayed
      * @param array &$js                  will be updated with javascript code
      *
-     * @return $htmlOutput 
+     * @return $htmlOutput
      */
     private function _displayForms(
         $show_restore_default, array &$js_default, array &$js
