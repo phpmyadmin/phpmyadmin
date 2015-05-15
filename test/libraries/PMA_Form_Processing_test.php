@@ -111,7 +111,7 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
         PMA_Process_formset($formDisplay);
 
         $this->assertEquals(
-            array('HTTP/1.1 303 See Other', 'Location: index.php'),
+            array('HTTP/1.1 303 See Other', 'Location: index.php?lang=en&amp;token=token'),
             $GLOBALS['header']
         );
 
