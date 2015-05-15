@@ -70,7 +70,9 @@ $max_rows = $GLOBALS['cfg']['MaxRows'];
 if (isset($_REQUEST['edit_central_columns_page'])) {
     $selected_fld = $_REQUEST['selected_fld'];
     $selected_db = $_REQUEST['db'];
-    $edit_central_column_page = PMA_getHTMLforEditingPage($selected_fld, $selected_db);
+    $edit_central_column_page = PMA_getHTMLforEditingPage(
+        $selected_fld, $selected_db
+    );
     $response->addHTML($edit_central_column_page);
     exit;
 }

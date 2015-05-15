@@ -31,7 +31,7 @@ function PMA_removeRequestVars(&$whitelist)
             unset($_REQUEST[$key], $_GET[$key], $_POST[$key], $GLOBALS[$key]);
             continue;
         }
-        
+
         // allowed stuff could be compromised so escape it
         // we require it to be a string
         if (isset($_REQUEST[$key]) && ! is_string($_REQUEST[$key])) {
