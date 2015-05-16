@@ -557,8 +557,10 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             "<script type=\"text/javascript\">\n" .
+            "function configInlineParams() {\n".
             "var i = 1;\n" .
             "i++;\n" .
+            "};\n".
             "</script>\n",
             $result
         );

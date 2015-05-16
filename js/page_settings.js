@@ -25,6 +25,9 @@ function show_settings() {
         width: 700,
         minHeight: 250,
         modal: true,
+        open: function() {
+            $(this).dialog('option', 'maxHeight', $(window).height() - $(this).offset().top);
+        },
         buttons: {
             "Apply": function() {
                 $('.config-form').submit();
