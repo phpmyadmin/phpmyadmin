@@ -1,6 +1,25 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.4.7.0 (2015-05-16)
+- bug #4876 Settings issues (Favorite tables shown twice in Settings)
+- bug #4896 Non-styled error page when following results link
+- bug #4894 Deleting without confirmation
+- bug #4858 Issues with SQL autocomplete
+- bug #4897 Column hint in SQL autocomplete is sometimes not shown
+- bug #4898 JS error after selecting a field and press Enter
+- bug       Honor proxy settings when getting Git commit information
+- bug       Missing title on link
+- bug #4512 ForceSSL Redirect Check
+- bug       Undefined index collation_connection
+- bug       Error when the reporting server is down
+- bug       Escape database and table names for partition maintenance
+- bug       Invalid value for CURLOPT_SSL_VERIFYPEER
+- bug #4367 Import status infinite loop
+- bug #4902 Designer: Loading does not work
+- bug #4904 Setup: Overview > Display does not work
+- bug #4906 Designer: pages from all databases
+
 4.4.6.1 (2015-05-13)
 - bug #4899 [security] CSRF vulnerability in setup
 - bug #4900 [security] Vulnerability allowing man-in-the-middle attack

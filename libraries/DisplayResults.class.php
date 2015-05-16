@@ -5172,7 +5172,10 @@ class PMA_DisplayResults
         }
 
         /* Create link to download */
-        if (count($url_params) > 0) {
+
+        // in PHP < 5.5, empty() only checks variables
+        $tmpdb = $this->__get('db');
+        if ((count($url_params) > 0) && (! empty($tmpdb) && ! empty($meta->orgtable))) {
             $result = '<a href="tbl_get_field.php'
                 . PMA_URL_getCommon($url_params)
                 . '" class="disableAjax">'
@@ -5550,7 +5553,7 @@ class PMA_DisplayResults
             $ajax = PMA_Response::getInstance()->isAjax() ? ' ajax' : '';
             $ret .= 'center" ' . ' >'
                . PMA_Util::linkOrButton(
-                   $del_url, $del_str, array('class' => 'delete_row' . $ajax), false
+                   $del_url, $del_str, array('class' => 'delete_row requireConfirm' . $ajax), false
                )
                . '<div class="hide">' . $js_conf . '</div>'
                . '</td>';

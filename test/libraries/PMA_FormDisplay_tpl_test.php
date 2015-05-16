@@ -198,7 +198,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<span class="disabled-notice">',
+            '<span class="disabled-notice"',
             $result
         );
 
@@ -220,8 +220,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<a class="restore-default" href="#test/path" ' .
-            'style="display:none">',
+            '<a class="restore-default" href="#test/path"',
             $result
         );
 

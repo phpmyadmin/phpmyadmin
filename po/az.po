@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-03-29 00:53+0200\n"
+"PO-Revision-Date: 2015-05-15 01:49+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/4-"
-"4/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/az/>\n"
+"Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: az\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -1690,7 +1690,7 @@ msgstr "İlkin açar əlavə olunur"
 #: libraries/db_designer.lib.php:1175 libraries/db_designer.lib.php:1244
 #: libraries/db_designer.lib.php:1321
 msgid "OK"
-msgstr "Müveffeqiyyetle"
+msgstr "Tamam"
 
 #: js/messages.php:276
 msgid "Click to dismiss this notification"
@@ -4255,6 +4255,8 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Dəyişən uzunluq (%s) sətri, ən çox sətir ölçüsü effektiv maksimum uzunluq "
+"mövzusudur"
 
 #: libraries/Types.class.php:358
 msgid ""
@@ -4269,12 +4271,16 @@ msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Ən çox 65,535 (2^16 - 1) simvol uzunluğunda TEXT sütunu, baytlarda dəyərin "
+"uzunluğunu göstərən iki-baytlıq prefiks ilə saxlanılır"
 
 #: libraries/Types.class.php:362
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Ən çox 16,777,215 (2^24 - 1) simvol uzunluğunda TEXT sütunu, baytlarda "
+"dəyərin uzunluğunu göstərən üç-baytlıq prefiksdə saxlanır"
 
 #: libraries/Types.class.php:364
 msgid ""
@@ -4282,42 +4288,56 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"Ən çox 4,294,967,295 or 4GiB (2^32 - 1) simvol uzunluğunda TEXT sütunu, "
+"baytlarda dəyərin uzunluğunu göstərən dörd-baytlıq prefiks ilə saxlanır"
 
 #: libraries/Types.class.php:366
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"CHAR tipinə bənzəyir, amma ikili olmayan simvol sətirləri əvəzinə ikili bayt "
+"sətirləri saxlayır"
 
 #: libraries/Types.class.php:368
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"VARCHAR tipinə bənzəyir, amma ikili olmayan simvol sətirləri əvəzinə ikili "
+"bayt sətirləri saxlayır"
 
 #: libraries/Types.class.php:370
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"Ən çox 255 (2^8 - 1) bayt uzunluğunda BLOB sütünü, dəyərin uzunluğunu "
+"göstərən bir-baytlıq prefiks ilə saxlanılır"
 
 #: libraries/Types.class.php:372
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"Ən çox 16,777,215 (2^24 - 1) bayt uzunluğunda BLOB sütünü, dəyərin "
+"uzunluğunu göstərən üç-baytlıq prefiks ilə saxlanılır"
 
 #: libraries/Types.class.php:374 libraries/Types.class.php:796
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"Ən çox 65,535 (2^16 - 1) bayt uzunluğunda BLOB sütünü, dəyərin uzunluğunu "
+"göstərən iki-baytlıq prefiks ilə saxlanılır"
 
 #: libraries/Types.class.php:376
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"Ən çox 4,294,967,295 və ya 4GiB (2^32 - 1) bayt uzunluğunda BLOB sütünü, "
+"dəyərin uzunluğunu göstərən dörd-baytlıq prefiks ilə saxlanılır"
 
 #: libraries/Types.class.php:378
 msgid ""
@@ -4327,7 +4347,7 @@ msgstr ""
 
 #: libraries/Types.class.php:380
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "64 üzvə qədər olan bir qrupdan seçilən tək bir dəyərdir"
 
 #: libraries/Types.class.php:382
 msgid "A type that can store a geometry of any type"
@@ -4807,7 +4827,7 @@ msgstr "Söndürülüb"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "düymə"
 
 #: libraries/config.values.php:99
 msgid "display column"
@@ -4885,38 +4905,38 @@ msgstr "Genişlədilmiş əlavələr"
 
 #: libraries/config.values.php:195
 msgid "both of the above"
-msgstr ""
+msgstr "yuxarıdakının ikisidə"
 
 #: libraries/config.values.php:196
 msgid "neither of the above"
-msgstr ""
+msgstr "yuxarıdakından heç biri"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:565
 msgid "Not a positive number!"
-msgstr ""
+msgstr "Müsbət ədəd deyil!"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:587
 msgid "Not a non-negative number!"
-msgstr ""
+msgstr "Mənfi olmayan ədəd deyil!"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:543
 msgid "Not a valid port number!"
-msgstr ""
+msgstr "Uyğun port nömrəsi deyil!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:609
 #: libraries/config/Validator.class.php:605
 msgid "Incorrect value!"
-msgstr ""
+msgstr "Yanlış dəyər!"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:621
 #, php-format
 msgid "Value must be equal or lower than %s!"
-msgstr ""
+msgstr "Dəyər %s dəyərindən az və ya bərabər olmalıdır!"
 
 #: libraries/config/FormDisplay.class.php:571
 #, php-format
@@ -4934,7 +4954,7 @@ msgstr "istifadə oluna bilməz"
 #: libraries/config/FormDisplay.class.php:774
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" üçün %s genişlənməsi lazımdır"
 
 #: libraries/config/FormDisplay.class.php:793
 #, php-format
@@ -4949,11 +4969,11 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:813
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "maksimum %s"
 
 #: libraries/config/FormDisplay.tpl.php:216
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr ""
+msgstr "Bu seçim deaktiv edilib, konfiqurasiyanıza tətbiq edilməyəcək."
 
 #: libraries/config/FormDisplay.tpl.php:310
 #, php-format
@@ -4963,11 +4983,11 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:315
 #: libraries/config/messages.inc.php:541
 msgid "Restore default value"
-msgstr ""
+msgstr "Susmaya görə olan dəyəri geri qaytar"
 
 #: libraries/config/FormDisplay.tpl.php:329
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Bu dəyəri fərdiləşdirmək üçün istifadəçilərə icazə ver"
 
 #: libraries/config/FormDisplay.tpl.php:393
 msgid "Apply"
@@ -4976,6 +4996,7 @@ msgstr "Təsdiqlə"
 #: libraries/config/ServerConfigChecks.class.php:168
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
+"Əgər baza serveriniz dəstəkləyirsə SSL qoşulmasını istifadə etməlisiniz."
 
 #: libraries/config/ServerConfigChecks.class.php:205
 msgid "You allow for connecting to the server without a password."

@@ -702,7 +702,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . 'FROM%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2B'
                 . 'been%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Df597309d3a06'
                 . '6c3c81a6cb015a79636d&amp;token=f597309d3a066c3c81a6cb015a79636d" '
-                . 'class="delete_row"><span class="nowrap"><img src="themes/dot.'
+                . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
                 . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
                 . 'Delete</span></a>' . "\n"
                 . '<div class="hide">DELETE FROM `Data`.`customer` WHERE '
@@ -820,7 +820,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2B'
                 . 'deleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446d'
                 . 'fa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" '
-                . 'class="delete_row"><span class="nowrap"><img src="themes/dot.'
+                . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
                 . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
                 . 'Delete</span></a>' . "\n"
                 . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1'
@@ -875,7 +875,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '60new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted'
                 . '%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c'
                 . '1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" class="delete'
-                . '_row"><span class="nowrap"><img src="themes/dot.gif" title='
+                . '_row requireConfirm"><span class="nowrap"><img src="themes/dot.gif" title='
                 . '"Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>'
                 . "\n" . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'
                 . '`id` = 1</div></td><td class="center"  ><span class="nowrap">'
@@ -1467,7 +1467,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $transformation_plugin = new Text_Plain_Link();
         $meta = new StdClass();
         $meta->type = 'BLOB';
-        $url_params = array('db' => 'foo');
+        $meta->orgtable = 'bar';
+        $url_params = array('db' => 'foo', 'table' => 'bar');
 
         return array(
             array(
@@ -1481,8 +1482,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="tbl_get_field.php?db=foo&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8'
+                '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
+                . '&amp;lang=en&amp;collation_connection=utf-8'
                 . '&amp;token=token" class="disableAjax">31303031</a>'
             ),
             array(
@@ -1496,8 +1497,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="tbl_get_field.php?db=foo&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8'
+                '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
+                . '&amp;lang=en&amp;collation_connection=utf-8'
                 . '&amp;token=token" class="disableAjax">[BLOB - 4 B]</a>'
             ),
             array(
@@ -1600,7 +1601,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $meta2->decimals = 0;
         $meta2->name = 'varchar';
         $meta2->orgname = 'varchar';
-        $url_params = array('db' => 'foo');
+        $url_params = array('db' => 'foo', 'table' => 'tbl');
 
         return array(
             array(
@@ -1619,7 +1620,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 0,
                 'binary',
                 '<td class="left   hex"><a href="tbl_get_field.php?'
-                . 'db=foo&amp;server=0&amp;lang=en'
+                . 'db=foo&amp;table=tbl&amp;server=0&amp;lang=en'
                 . '&amp;collation_connection=utf-8'
                 . '&amp;token=token" '
                 . 'class="disableAjax">[BLOB - 4 B]</a></td>'
