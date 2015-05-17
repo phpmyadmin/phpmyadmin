@@ -263,13 +263,14 @@ class AuthenticationHttp extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      *
-     * @return boolean   always true (no return indeed)
+     * @return bool true
      */
     public function authFails()
     {
         $error = $GLOBALS['dbi']->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
             PMA_fatalError($error);
+            return true;
         }
 
         $this->authForm();
