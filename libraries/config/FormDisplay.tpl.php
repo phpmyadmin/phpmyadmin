@@ -13,7 +13,7 @@
  * @param string $method        'post' or 'get'
  * @param array  $hidden_fields array of form hidden fields (key: field name)
  *
- * @return void
+ * @return string
  */
 function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = null)
 {
@@ -46,7 +46,7 @@ function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = n
  *
  * @param array $tabs tab names
  *
- * @return void
+ * @return string
  */
 function PMA_displayTabsTop($tabs)
 {
@@ -70,7 +70,7 @@ function PMA_displayTabsTop($tabs)
  * @param array  $errors      error messages to display
  * @param array  $attributes  optional extra attributes of fieldset
  *
- * @return void
+ * @return string
  */
 function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
     $attributes = array()
@@ -127,7 +127,7 @@ function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
  * @param bool   $value_is_default whether value is default
  * @param array  $opts             see above description
  *
- * @return void
+ * @return string
  */
 function PMA_displayInput($path, $name, $type, $value, $description = '',
     $value_is_default = true, $opts = null
@@ -348,7 +348,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
  *
  * @param string $header_text Text of header
  *
- * @return void
+ * @return string|void
  */
 function PMA_displayGroupHeader($header_text)
 {
@@ -384,7 +384,7 @@ function PMA_displayGroupFooter()
 /**
  * Displays bottom part of a fieldset
  *
- * @return void
+ * @return string
  */
 function PMA_displayFieldsetBottom()
 {
@@ -408,7 +408,7 @@ function PMA_displayFieldsetBottom()
 /**
  * Displays simple bottom part of a fieldset (without submit buttons)
  *
- * @return void
+ * @return string
  */
 function PMA_displayFieldsetBottomSimple()
 {
@@ -420,7 +420,7 @@ function PMA_displayFieldsetBottomSimple()
 /**
  * Closes form tabs
  *
- * @return void
+ * @return string
  */
 function PMA_displayTabsBottom()
 {
@@ -431,7 +431,7 @@ function PMA_displayTabsBottom()
 /**
  * Displays bottom part of the form
  *
- * @return void
+ * @return string
  */
 function PMA_displayFormBottom()
 {
@@ -468,7 +468,7 @@ function PMA_addJsValidate($field_id, $validators, &$js_array)
  *
  * @param array $js_array lines of javascript code
  *
- * @return void
+ * @return string
  */
 function PMA_displayJavascript($js_array)
 {
@@ -487,7 +487,7 @@ function PMA_displayJavascript($js_array)
  * @param string $name       name of item with errors
  * @param array  $error_list list of errors to show
  *
- * @return void
+ * @return string HTML for errors
  */
 function PMA_displayErrors($name, $error_list)
 {

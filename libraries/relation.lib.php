@@ -1878,7 +1878,7 @@ function PMA_getDefaultPMATableNames()
 /**
  * Create a table named phpmyadmin to be used as configuration storage
  *
- * @return void
+ * @return bool
  */
 function PMA_createPMADatabase()
 {
