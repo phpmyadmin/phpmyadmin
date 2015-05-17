@@ -186,8 +186,8 @@ class PMA_Console
                         . '</div><span class="query">'
                         . htmlspecialchars($record['sqlquery'])
                         . '</span></div>';
-                }
             }
+        }
         return $output;
     }
 
