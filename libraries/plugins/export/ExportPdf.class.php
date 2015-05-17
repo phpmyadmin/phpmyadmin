@@ -252,7 +252,7 @@ class ExportPdf extends ExportPlugin
      *                                export types which use this parameter
      * @param bool   $do_mime     whether to include mime comments
      * @param bool   $dates       whether to include creation/update/check dates
-     * @param bool   $aliases     aliases for db/table/columns
+     * @param array  $aliases     aliases for db/table/columns
      *
      * @return bool Whether it succeeded
      */

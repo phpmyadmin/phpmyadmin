@@ -416,7 +416,7 @@ class PMA_ExportPdf extends PMA_PDF
      *                                export types which use this parameter
      * @param bool   $do_mime     whether to include mime comments
      * @param bool   $view        whether we're handling a view
-     * @param bool   $aliases     aliases of db/table/columns
+     * @param array  $aliases     aliases of db/table/columns
      *
      * @return void
      */

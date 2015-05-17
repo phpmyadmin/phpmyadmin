@@ -329,10 +329,17 @@ class SqlFormatter
         );
     }
 
+    /**
+     * Get quoted string
+     *
+     * @param $string String to quote
+     *
+     * @return string String quoted
+     */
     protected static function getQuotedString($string)
     {
         $ret = null;
-        
+
         // This checks for the following patterns:
         // 1. backtick quoted string using `` to escape
         // 2. square bracket quoted string (SQL Server) using ]] to escape
@@ -1076,6 +1083,11 @@ class SqlFormatter
         }
     }
 
+    /**
+     * Check if the script is ran by CLI
+     *
+     * @return bool
+     */
     private static function is_cli()
     {
         if (isset(self::$cli)) return self::$cli;
