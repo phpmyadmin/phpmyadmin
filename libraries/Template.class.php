@@ -12,7 +12,8 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PMA
  */
-class Template {
+class Template
+{
 
     protected $name = null;
 
