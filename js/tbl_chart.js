@@ -33,7 +33,7 @@ function PMA_queryChart(data, columnNames, settings) {
         return;
     }
 
-    var jqPlotSettings = {
+    var plotSettings = {
         title : {
             text : settings.title,
             escapeHtml: true
@@ -140,7 +140,7 @@ function PMA_queryChart(data, columnNames, settings) {
     }
 
     // draw the chart and return the chart object
-    chart.draw(dataTable, jqPlotSettings);
+    chart.draw(dataTable, plotSettings);
     return chart;
 }
 
@@ -240,38 +240,22 @@ AJAX.registerTeardown('tbl_chart.js', function () {
     $('input[name="yaxis_label"]').unbind('keyup');
     $('#resizer').unbind('resizestop');
     $('#saveChart').unbind('click');
+    $('#tblchartform').unbind('submit');
 });
 
 AJAX.registerOnload('tbl_chart.js', function () {
 
-    // from jQuery UI
-    $('#resizer').resizable({
-        minHeight: 240,
-        minWidth: 300
-    })
-    .width($('#div_view_options').width() - 50);
-
+    // handle manual resize
     $('#resizer').bind('resizestop', function (event, ui) {
         // make room so that the handle will still appear
         $('#querychart').height($('#resizer').height() * 0.96);
         $('#querychart').width($('#resizer').width() * 0.96);
-        currentChart.redraw({
-            resetAxes : true
-        });
+        if (currentChart !== null) {
+            currentChart.redraw({
+                resetAxes : true
+            });
+        }
     });
-
-    currentSettings = {
-        type : 'line',
-        width : $('#resizer').width() - 20,
-        height : $('#resizer').height() - 20,
-        xaxisLabel : $('input[name="xaxis_label"]').val(),
-        yaxisLabel : $('input[name="yaxis_label"]').val(),
-        title : $('input[name="chartTitle"]').val(),
-        stackSeries : false,
-        mainAxis : parseInt($('select[name="chartXAxis"]').val(), 10),
-        selectedSeries : getSelectedSeries(),
-        seriesColumn : null
-    };
 
     // handle chart type changes
     $('input[name="chartType"]').click(function () {
@@ -336,16 +320,6 @@ AJAX.registerOnload('tbl_chart.js', function () {
         }
     });
 
-    var vals = $('input[name="dateTimeCols"]').val().split(' ');
-    $.each(vals, function (i, v) {
-        dateTimeCols.push(parseInt(v, 10));
-    });
-
-    vals = $('input[name="numericCols"]').val().split(' ');
-    $.each(vals, function (i, v) {
-        numericCols.push(parseInt(v, 10));
-    });
-
     // handle changing the x-axis
     $('select[name="chartXAxis"]').change(function () {
         onXAxisChange();
@@ -370,18 +344,80 @@ AJAX.registerOnload('tbl_chart.js', function () {
         drawChart();
     });
 
-    // handle manual changes to the chart axis labels
+    // handle manual changes to the chart x-axis labels
     $('input[name="xaxis_label"]').keyup(function () {
         currentSettings.xaxisLabel = $(this).val();
         drawChart();
     });
+
+    // handle manual changes to the chart y-axis labels
     $('input[name="yaxis_label"]').keyup(function () {
         currentSettings.yaxisLabel = $(this).val();
         drawChart();
     });
 
+    // handle chart saving
     $('#saveChart').click(function() {
         saveChartAsImage();
+    });
+
+    // handler for ajax form submission
+    $('#tblchartform').submit(function (event) {
+
+        var $form = $(this);
+        if (codemirror_editor) {
+            $form[0].elements.sql_query.value = codemirror_editor.getValue();
+        }
+        if (!checkSqlQuery($form[0])) {
+            return false;
+        }
+
+        var $msgbox = PMA_ajaxShowMessage();
+        PMA_prepareForAjaxRequest($form);
+        $.post($form.attr('action'), $form.serialize(), function (data) {
+            if (typeof data !== 'undefined' &&
+                    data.success === true &&
+                    typeof data.chartData !== 'undefined') {
+                chart_data = jQuery.parseJSON(data.chartData);
+                drawChart();
+                PMA_ajaxRemoveMessage($msgbox);
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
+        }, "json"); // end $.post()
+
+        return false;
+    });
+
+    // from jQuery UI
+    $('#resizer').resizable({
+        minHeight: 240,
+        minWidth: 300
+    })
+    .width($('#div_view_options').width() - 50)
+    .trigger('resizestop');
+
+    currentSettings = {
+        type : 'line',
+        width : $('#resizer').width() - 20,
+        height : $('#resizer').height() - 20,
+        xaxisLabel : $('input[name="xaxis_label"]').val(),
+        yaxisLabel : $('input[name="yaxis_label"]').val(),
+        title : $('input[name="chartTitle"]').val(),
+        stackSeries : false,
+        mainAxis : parseInt($('select[name="chartXAxis"]').val(), 10),
+        selectedSeries : getSelectedSeries(),
+        seriesColumn : null
+    };
+
+    var vals = $('input[name="dateTimeCols"]').val().split(' ');
+    $.each(vals, function (i, v) {
+        dateTimeCols.push(parseInt(v, 10));
+    });
+
+    vals = $('input[name="numericCols"]').val().split(' ');
+    $.each(vals, function (i, v) {
+        numericCols.push(parseInt(v, 10));
     });
 
     onXAxisChange();
@@ -389,44 +425,3 @@ AJAX.registerOnload('tbl_chart.js', function () {
 
     $("#tblchartform").submit();
 });
-
-/**
- * Ajax Event handler for 'Go' button click
- *
- */
-$(document).on('submit', "#tblchartform", function (event) {
-
-    var $form = $(this);
-    if (codemirror_editor) {
-        $form[0].elements.sql_query.value = codemirror_editor.getValue();
-    }
-    if (!checkSqlQuery($form[0])) {
-        return false;
-    }
-    // remove any div containing a previous error message
-    $('.error').remove();
-    var $msgbox = PMA_ajaxShowMessage();
-    PMA_prepareForAjaxRequest($form);
-
-    $.post($form.attr('action'), $form.serialize(), function (data) {
-        if (typeof data !== 'undefined' && data.success === true) {
-            $('.success').fadeOut();
-            if (typeof data.chartData != 'undefined') {
-                chart_data = jQuery.parseJSON(data.chartData);
-                drawChart();
-                $('div#querychart').height($('div#resizer').height() * 0.96);
-                $('div#querychart').width($('div#resizer').width() * 0.96);
-                currentChart.redraw({
-                    resetAxes : true
-                });
-                $('#querychart').show();
-            }
-        } else {
-            PMA_ajaxRemoveMessage($msgbox);
-            PMA_ajaxShowMessage(data.error, false);
-        }
-        PMA_ajaxRemoveMessage($msgbox);
-    }, "json"); // end $.post()
-
-    return false;
-}); // end
