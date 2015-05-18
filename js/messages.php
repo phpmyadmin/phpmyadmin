@@ -266,6 +266,10 @@ $js_messages['strFormatting'] = __('Formatting SQL...');
 $js_messages['strGo'] = __('Go');
 $js_messages['strCancel'] = __('Cancel');
 
+/* For page-related settings */
+$js_messages['strPageSettings'] = _('Page-related settings');
+$js_messages['strApply'] = _('Apply');
+
 /* For Ajax Notifications */
 $js_messages['strLoading'] = __('Loading…');
 $js_messages['strAbortedRequest'] = __('Request Aborted!!');

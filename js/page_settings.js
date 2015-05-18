@@ -1,7 +1,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * @fileoverview    function used for page related settings
- * @name            Page related settings
+ * @fileoverview    function used for page-related settings
+ * @name            Page-related settings
  *
  * @requires    jQuery
  * @requires    jQueryUI
@@ -19,22 +19,24 @@ AJAX.registerOnload('page_settings.js', function () {
 });
 
 function show_settings() {
+    var buttons = {};
+    buttons[PMA_messages.strApply] = function() {
+        $('.config-form').submit();
+    }
+
+    buttons[PMA_messages.strCancel] = function () {
+        $(this).dialog('close');
+    }
+
     $('.page_settings_modal')
     .dialog({
-        title: "Page related settings",
+        title: PMA_messages.strPageSettings,
         width: 700,
         minHeight: 250,
         modal: true,
         open: function() {
             $(this).dialog('option', 'maxHeight', $(window).height() - $(this).offset().top);
         },
-        buttons: {
-            "Apply": function() {
-                $('.config-form').submit();
-            },
-            "Cancel": function () {
-                $(this).dialog('close');
-            }
-        }
+        buttons: buttons
     });
 }
