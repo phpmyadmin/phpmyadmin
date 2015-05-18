@@ -241,6 +241,8 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
             . '</th>';
     }
 
+    $html_output .= '<th></th>';
+
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
         $html_output .= '<th class="value tbl_creation">' . "\n"
             . '        '
@@ -753,15 +755,30 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
         );
     }
 
+    $comment = $current_table['Comment'];
+    $html_output .= '<td>';
+    if (/*overload*/mb_strlen($comment) > $GLOBALS['cfg']['LimitChars']) {
+        $html_output .= '<abbr title="' . htmlspecialchars($comment) . '">';
+        $html_output .= htmlspecialchars(
+            /*overload*/mb_substr(
+                $comment, 0, $GLOBALS['cfg']['LimitChars']
+            ) . '...'
+        );
+        $comment .= '</abbr>';
+    } else {
+        $html_output .= htmlspecialchars($comment);
+    }
+    $html_output .= '</td>';
+
     $html_output .= PMA_getHtmlForStructureTime(
         $create_time, 'ShowDbStructureCreation', 'tbl_creation'
-    )
-        . PMA_getHtmlForStructureTime(
-            $update_time, 'ShowDbStructureLastUpdate', 'tbl_last_update'
-        )
-        . PMA_getHtmlForStructureTime(
-            $check_time, 'ShowDbStructureLastCheck', 'tbl_last_check'
-        );
+    );
+    $html_output .= PMA_getHtmlForStructureTime(
+        $update_time, 'ShowDbStructureLastUpdate', 'tbl_last_update'
+    );
+    $html_output .= PMA_getHtmlForStructureTime(
+        $check_time, 'ShowDbStructureLastCheck', 'tbl_last_check'
+    );
 
     return array($html_output, $approx_rows);
 }
@@ -782,6 +799,7 @@ function PMA_getHtmlForViewTable($is_show_stats)
         $html_output .= '<td class="value">-</td>'
             . '<td class="value">-</td>';
     }
+    $html_output .= '<td></td>';
     return $html_output;
 }
 
@@ -864,12 +882,20 @@ function PMA_tableHeader($db_is_system_schema = false, $replication = false)
         $html_output .= '<th>'
             . PMA_sortableTableHeader(__('Size'), 'size', 'DESC')
             . '</th>' . "\n";
+        $cnt++;
+
         // larger values are more interesting so default sort order is DESC
         $html_output .= '<th>'
             . PMA_sortableTableHeader(__('Overhead'), 'overhead', 'DESC')
             . '</th>' . "\n";
-        $cnt += 2;
+        $cnt++;
     }
+
+    $html_output .= '<th>'
+        . PMA_sortableTableHeader(__('Comment'), 'comment')
+        . '</th>' . "\n";
+    $cnt++;
+
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
         // newer values are more interesting so default sort order is DESC
         $html_output .= '<th>'
