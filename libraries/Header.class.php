@@ -445,9 +445,9 @@ class PMA_Header
                     $retval .= $this->_menu->getDisplay();
                     $retval .= '<span id="lock_page_icon"></span>';
                     $retval .= '<span id="page_settings_icon">'
-                        .PMA_Util::getImage(
+                        . PMA_Util::getImage(
                             's_cog.png',
-                            __('Page related settings')
+                            __('Page-related settings')
                         )
                         . '</span>';
                     $retval .= sprintf(

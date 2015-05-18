@@ -212,7 +212,7 @@ class FormDisplay
      * @param array &$js_default          stores JavaScript code
      *                                    to be displayed
      * @param array &$js                  will be updated with javascript code
-     * @param bool $show_buttons         whether show submit and reset button
+     * @param bool  $show_buttons         whether show submit and reset button
      *
      * @return string $htmlOutput
      */
@@ -268,12 +268,12 @@ class FormDisplay
     /**
      * Outputs HTML for forms
      *
-     * @param bool $tabbed_form          if true, use a form with tabs
-     * @param bool $show_restore_default whether show "restore default" button
-     *                                   besides the input field
-     * @param bool $show_buttons         whether show submit and reset button
-     * @param string $form_action        action attribute for the form
-     * @param array  $hidden_fields      array of form hidden fields (key: field name)
+     * @param bool   $tabbed_form          if true, use a form with tabs
+     * @param bool   $show_restore_default whether show "restore default" button
+     *                                     besides the input field
+     * @param bool   $show_buttons         whether show submit and reset button
+     * @param string $form_action          action attribute for the form
+     * @param array  $hidden_fields        array of form hidden fields (key: field name)
      *
      * @return string HTML for forms
      */

@@ -26,5 +26,3 @@ $forms['Edit']['Edit'] = $forms['Main_panel']['Edit'];
 
 $forms['TableStructure'] = array();
 $forms['TableStructure']['TableStructure'] = $forms['Main_panel']['TableStructure'];
-
-?>

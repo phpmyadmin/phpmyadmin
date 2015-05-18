@@ -8,25 +8,15 @@
  * @required    js/functions.js
  */
 
-AJAX.registerTeardown('page_settings.js', function () {
-    $('#page_settings_icon').css('display', 'none');
-    $('#page_settings_icon').unbind('click');
-});
-
-AJAX.registerOnload('page_settings.js', function () {
-    $('#page_settings_icon').css('display', 'inline');
-    $('#page_settings_icon').bind('click', show_settings);
-});
-
 function show_settings() {
     var buttons = {};
     buttons[PMA_messages.strApply] = function() {
         $('.config-form').submit();
-    }
+    };
 
     buttons[PMA_messages.strCancel] = function () {
         $(this).dialog('close');
-    }
+    };
 
     $('.page_settings_modal')
     .dialog({
@@ -40,3 +30,13 @@ function show_settings() {
         buttons: buttons
     });
 }
+
+AJAX.registerTeardown('page_settings.js', function () {
+    $('#page_settings_icon').css('display', 'none');
+    $('#page_settings_icon').unbind('click');
+});
+
+AJAX.registerOnload('page_settings.js', function () {
+    $('#page_settings_icon').css('display', 'inline');
+    $('#page_settings_icon').bind('click', show_settings);
+});

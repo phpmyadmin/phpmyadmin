@@ -21,8 +21,8 @@ require 'libraries/config/page_settings.forms.php';
  *
  * @package PhpMyAdmin
  */
-class PMA_PageSettings {
-
+class PMA_PageSettings
+{
     /**
      * Is class initiated
      *
@@ -37,15 +37,16 @@ class PMA_PageSettings {
      *
      * @param string $formGroupName The name of config form group to display
      */
-    function __construct($formGroupName) {
+    public function __construct($formGroupName)
+    {
         global $forms;
 
         if (self::$_initiated) {
-            return false;
+            return;
         }
 
         if (empty($forms[$formGroupName])) {
-            return false;
+            return;
         }
         self::$_initiated = true;
 
@@ -74,7 +75,8 @@ class PMA_PageSettings {
      *
      * @return void
      */
-    private function _processPageSettings(&$form_display, &$cf, &$error) {
+    private function _processPageSettings(&$form_display, &$cf, &$error)
+    {
         if ($form_display->process(false) && !$form_display->hasErrors()) {
             // save settings
             $result = PMA_saveUserprefs($cf->getConfigArray());
@@ -82,7 +84,7 @@ class PMA_PageSettings {
                 // reload config
                 $GLOBALS['PMA_Config']->loadUserPreferences();
                 $hash = ltrim(filter_input(INPUT_POST, 'tab_hash'), '#');
-                header('Location: '.$_SERVER['REQUEST_URI']);
+                header('Location: ' . $_SERVER['REQUEST_URI']);
                 exit();
             } else {
                 $error = $result;
@@ -95,7 +97,8 @@ class PMA_PageSettings {
      *
      * @return void
      */
-    private function _displayPageSettings(&$form_display, &$error) {
+    private function _displayPageSettings(&$form_display, &$error)
+    {
         $response = PMA_Response::getInstance();
         $header   = $response->getHeader();
         $scripts  = $header->getScripts();
@@ -116,23 +119,27 @@ class PMA_PageSettings {
         }
 
         $response->addHTML('<div class="page_settings_modal">');
-        $response->addHTML($form_display->getDisplay(
-            true,
-            true,
-            false,
-            $response->getFooter()->getSelfUrl('unencoded'),
-            array(
-                'submit_save' => 'Submit'
+        $response->addHTML(
+            $form_display->getDisplay(
+                true,
+                true,
+                false,
+                $response->getFooter()->getSelfUrl('unencoded'),
+                array(
+                    'submit_save' => 'Submit'
+                )
             )
-        ));
+        );
         $response->addHTML('</div>');
     }
 
     /**
      * Group to show for Page-related settings
      * @param string $formGroupName The name of config form group to display
+     * @return PMA_PageSettings|false
      */
-    public static function showGroup($formGroupName) {
+    public static function showGroup($formGroupName)
+    {
         if (!self::$_initiated) {
             return new PMA_PageSettings($formGroupName);
         }
