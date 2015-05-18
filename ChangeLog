@@ -34,7 +34,9 @@ phpMyAdmin - ChangeLog
 + rfe #1668 Procedures window shift-click should select multiple rows
 + rfe #1669 Designer: "Sticky" menu option
 
-4.4.7.0 (not yet released)
+4.4.8.0 (not yet released)
+
+4.4.7.0 (2015-05-16)
 - bug #4876 Settings issues (Favorite tables shown twice in Settings)
 - bug #4896 Non-styled error page when following results link
 - bug #4894 Deleting without confirmation

@@ -5004,7 +5004,7 @@ class PMA_DisplayResults
     }
 
     /**
-     * Get printview links for results operations 
+     * Get printview links for results operations
      *
      * @param string $url_query   url query
      * @param array  $_url_params url parameters

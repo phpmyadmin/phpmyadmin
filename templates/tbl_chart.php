@@ -113,7 +113,10 @@ global $url_query, $url_params, $keys,
                 <select name="chartSeriesColumn" id="select_seriesColumn" disabled>
                     <?php foreach ($keys as $idx => $key) : ?>
                         <option value="<?php echo htmlspecialchars($idx);
-                        if ($idx == 1) { echo ' selected="selected"'; } $seriesColumn = $idx; ?>"><?php echo htmlspecialchars($key); ?></option>
+                        if ($idx == 1) : echo ' selected="selected"'; endif;
+                        $seriesColumn = $idx; ?>">
+                            <?php echo htmlspecialchars($key); ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
                 <label for="select_valueColumn">

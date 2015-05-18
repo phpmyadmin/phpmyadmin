@@ -5,22 +5,49 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-class Template {
+/**
+ * Class Template
+ *
+ * Handle template using
+ *
+ * @package PMA
+ */
+class Template
+{
 
     protected $name = null;
 
     const BASE_PATH = 'templates/';
 
+    /**
+     * Template constructor
+     *
+     * @param string $name Template name
+     */
     protected function __construct($name)
     {
         $this->name = $name;
     }
 
+    /**
+     * Template getter
+     *
+     * @param string $name Template name
+     *
+     * @return Template
+     */
     public static function get($name)
     {
         return new Template($name);
     }
 
+    /**
+     * Render template
+     *
+     * @param array $data Variables to provides for template
+     *
+     * @return string
+     */
     public function render($data = array())
     {
         $template = static::BASE_PATH . $this->name . '.php';

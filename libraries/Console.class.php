@@ -150,6 +150,48 @@ class PMA_Console
     }
 
     /**
+     * Gets the history
+     *
+     * @param string $tpl_query_actions the template for query actions
+     *
+     * @return string $output the generated HTML for history
+     *
+     * @access  private
+     *
+     */
+    private function _getHistory($tpl_query_actions)
+    {
+        $output = '';
+
+        $_sql_history = PMA_getHistory($GLOBALS['cfg']['Server']['user']);
+        if ($_sql_history) {
+            foreach (array_reverse($_sql_history) as $record) {
+                $isSelect = preg_match(
+                    '@^SELECT[[:space:]]+@i', $record['sqlquery']
+                );
+                $output .= '<div class="message history collapsed hide'
+                        . ($isSelect ? ' select' : '')
+                        . '" targetdb="'
+                        . htmlspecialchars($record['db'])
+                        . '" targettable="' . htmlspecialchars($record['table'])
+                        . '"><div class="action_content">'
+                        . sprintf(
+                            $tpl_query_actions,
+                            htmlspecialchars($record['db']),
+                            (isset($record['timevalue'])
+                                ? $record['timevalue']
+                                : __('During current session')
+                            )
+                        )
+                        . '</div><span class="query">'
+                        . htmlspecialchars($record['sqlquery'])
+                        . '</span></div>';
+            }
+        }
+        return $output;
+    }
+
+    /**
      * Renders the console
      *
      * @access public
@@ -214,32 +256,7 @@ class PMA_Console
                     .  __('Press Enter to execute query') . '</span>'
                     .  '</span></div>';
 
-            // History support
-            $_sql_history = PMA_getHistory($GLOBALS['cfg']['Server']['user']);
-            if ($_sql_history) {
-                foreach (array_reverse($_sql_history) as $record) {
-                    $isSelect = preg_match(
-                        '@^SELECT[[:space:]]+@i', $record['sqlquery']
-                    );
-                    $output .= '<div class="message history collapsed hide'
-                            . ($isSelect ? ' select' : '')
-                            . '" targetdb="'
-                            . htmlspecialchars($record['db'])
-                            . '" targettable="' . htmlspecialchars($record['table'])
-                            . '"><div class="action_content">'
-                            . sprintf(
-                                $tpl_query_actions,
-                                htmlspecialchars($record['db']),
-                                (isset($record['timevalue'])
-                                    ? $record['timevalue']
-                                    : __('During current session')
-                                )
-                            )
-                            . '</div><span class="query">'
-                            . htmlspecialchars($record['sqlquery'])
-                            . '</span></div>';
-                }
-            }
+            $output .= $this->_getHistory($tpl_query_actions);
 
             $output .= '</div>'; // .console_message_container
             $output .= '<div class="query_input">'
