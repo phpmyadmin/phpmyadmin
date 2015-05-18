@@ -299,7 +299,7 @@ function validateField(id, type, onKeyUp, params)
 function getFieldValidators(field_id, onKeyUpOnly)
 {
     // look for field bound validator
-    var name = field_id.match(/[^-]+$/)[0];
+    var name = field_id && field_id.match(/[^-]+$/)[0];
     if (typeof validators._field[name] != 'undefined') {
         return [[validators._field[name], null]];
     }
@@ -478,6 +478,9 @@ function setRestoreDefaultBtn(field, display)
 }
 
 AJAX.registerOnload('config.js', function () {
+    if (typeof configInlineParams === 'function') {
+        configInlineParams();
+    }
     // register validators and mark custom values
     var $elements = $('input[id], select[id], textarea[id]');
     $('input[id], select[id], textarea[id]').each(function () {

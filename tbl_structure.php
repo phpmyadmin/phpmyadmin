@@ -12,6 +12,9 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
+require_once 'libraries/config/page_settings.class.php';
+
+PMA_PageSettings::showGroup('TableStructure');
 
 /**
  * Function implementations for this script
