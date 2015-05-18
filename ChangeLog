@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.4.8.0 (not yet released)
+- bug       Allow accessing visual query builder when pmadb is not configured
 
 4.4.7.0 (2015-05-16)
 - bug #4876 Settings issues (Favorite tables shown twice in Settings)

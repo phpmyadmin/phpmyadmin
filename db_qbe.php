@@ -108,26 +108,24 @@ unset($message_to_display);
 // create new qbe search instance
 $db_qbe = new PMA_DBQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
 
+$url = 'db_designer.php' . PMA_URL_getCommon(
+    array_merge(
+        $url_params,
+        array('query' => 1)
+    )
+);
+$response->addHTML(
+    PMA_Message::notice(
+        sprintf(
+            __('Switch to %svisual builder%s'),
+            '<a href="' . $url . '">',
+            '</a>'
+        )
+    )
+);
+
 /**
  * Displays the Query by example form
  */
-if ($cfgRelation['pdfwork']) {
-    $url = 'db_designer.php' . PMA_URL_getCommon(
-        array_merge(
-            $url_params,
-            array('query' => 1)
-        )
-    );
-    $response->addHTML(
-        PMA_Message::notice(
-            sprintf(
-                __('Switch to %svisual builder%s'),
-                '<a href="' . $url . '">',
-                '</a>'
-            )
-        )
-    );
-}
-
 $response->addHTML($db_qbe->getSelectionForm());
 ?>
