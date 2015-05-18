@@ -86,8 +86,8 @@ global $url_query, $url_params, $keys,
                     foreach ($keys as $idx => $key) {
                         if (in_array($fields_meta[$idx]->type, $numeric_types)) {
                             echo $idx . ' ';
-                    }
-                }?>"
+                        }
+                    }?>"
                 />
             </div>
             <div style="float:left; padding-left:40px;">
