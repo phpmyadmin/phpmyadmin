@@ -10,9 +10,9 @@
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/page_settings.lib.php';
+require_once 'libraries/config/page_settings.class.php';
 
-PMA_PageSettings('Sql_queries');
+PMA_PageSettings::showGroup('Sql_queries');
 
 /**
  * Runs common work

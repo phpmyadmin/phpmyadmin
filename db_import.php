@@ -7,9 +7,9 @@
  */
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/page_settings.lib.php';
+require_once 'libraries/config/page_settings.class.php';
 
-PMA_PageSettings('Import');
+PMA_PageSettings::showGroup('Import');
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();

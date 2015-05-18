@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Page related settings
+ * Page-related settings
  *
  * @package PhpMyAdmin
  */
@@ -17,7 +17,7 @@ require 'libraries/config/user_preferences.forms.php';
 require 'libraries/config/page_settings.forms.php';
 
 /**
- * Page related settings
+ * Page-related settings
  *
  * @package PhpMyAdmin
  */
@@ -25,9 +25,12 @@ class PMA_PageSettings {
 
     /**
      * Is class initiated
-     * @var initiated
+     *
+     * @access private
+     * @static
+     * @var bool
      */
-    static $initiated = false;
+    private static $_initiated = false;
 
     /**
      * Constructor
@@ -37,14 +40,14 @@ class PMA_PageSettings {
     function __construct($formGroupName) {
         global $forms;
 
-        if (PMA_PageSettings::$initiated) {
+        if (self::$_initiated) {
             return false;
         }
 
         if (empty($forms[$formGroupName])) {
             return false;
         }
-        PMA_PageSettings::$initiated = true;
+        self::$_initiated = true;
 
         $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
         PMA_userprefsPageInit($cf);
@@ -88,7 +91,7 @@ class PMA_PageSettings {
     }
 
     /**
-     * Display page related settings
+     * Display page-related settings
      *
      * @return void
      */
@@ -124,16 +127,15 @@ class PMA_PageSettings {
         ));
         $response->addHTML('</div>');
     }
-}
 
-/**
- * Wrapper for PMA_PageSettings class
- *
- * @param string $formGroupName The name of config form group to display
- */
-function PMA_PageSettings($formGroupName) {
-    if (!PMA_PageSettings::$initiated) {
-        return new PMA_PageSettings($formGroupName);
+    /**
+     * Group to show for Page-related settings
+     * @param string $formGroupName The name of config form group to display
+     */
+    public static function showGroup($formGroupName) {
+        if (!self::$_initiated) {
+            return new PMA_PageSettings($formGroupName);
+        }
+        return false;
     }
-    return false;
 }
