@@ -2501,7 +2501,7 @@ function PMA_getUserLink(
         $html .= PMA_Util::getIcon('b_tblexport.png', __('Export'));
         break;
     }
-    $html . '</a>';
+    $html .= '</a>';
 
     return $html;
 }
