@@ -273,7 +273,8 @@ class FormDisplay
      *                                     besides the input field
      * @param bool   $show_buttons         whether show submit and reset button
      * @param string $form_action          action attribute for the form
-     * @param array  $hidden_fields        array of form hidden fields (key: field name)
+     * @param array  $hidden_fields        array of form hidden fields (key: field
+     *                                     name)
      *
      * @return string HTML for forms
      */

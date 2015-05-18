@@ -56,7 +56,9 @@ class PMA_PageSettings
         $form_display = new FormDisplay($cf);
         foreach ($forms[$formGroupName] as $form_name => $form) {
             // skip Developer form if no setting is available
-            if ($form_name == 'Developer' && !$GLOBALS['cfg']['UserprefsDeveloperTab']) {
+            if ($form_name == 'Developer'
+                && !$GLOBALS['cfg']['UserprefsDeveloperTab']
+            ) {
                 continue;
             }
             $form_display->registerForm($form_name, $form, 1);
@@ -73,6 +75,10 @@ class PMA_PageSettings
     /**
      * Process response to form
      *
+     * @param FormDisplay $form_display Form
+     * @param ConfigFile  $cf           Configuration file
+     * @param PMA_Message $error        Error message
+     *
      * @return void
      */
     private function _processPageSettings(&$form_display, &$cf, &$error)
@@ -83,7 +89,6 @@ class PMA_PageSettings
             if ($result === true) {
                 // reload config
                 $GLOBALS['PMA_Config']->loadUserPreferences();
-                $hash = ltrim(filter_input(INPUT_POST, 'tab_hash'), '#');
                 header('Location: ' . $_SERVER['REQUEST_URI']);
                 exit();
             } else {
@@ -94,6 +99,9 @@ class PMA_PageSettings
 
     /**
      * Display page-related settings
+     *
+     * @param FormDisplay $form_display Form
+     * @param PMA_Message $error        Error message
      *
      * @return void
      */
@@ -112,7 +120,10 @@ class PMA_PageSettings
             // form has errors
             $response->addHTML(
                 '<div class="error config-form">'
-                . '<b>' . __('Cannot save settings, submitted configuration form contains errors!') . '</b>'
+                . '<b>' . __(
+                    'Cannot save settings, submitted configuration form contains '
+                    . 'errors!'
+                ) . '</b>'
                 . $form_display->displayErrors()
                 . '</div>'
             );
