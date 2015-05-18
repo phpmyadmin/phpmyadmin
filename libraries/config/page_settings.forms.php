@@ -15,4 +15,7 @@ if (!is_array($forms)) {
     $forms = array();
 }
 
+$forms['Browse'] = array();
+$forms['Browse']['Browse'] = $forms['Main_panel']['Browse'];
+
 ?>

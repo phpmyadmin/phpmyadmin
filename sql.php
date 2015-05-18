@@ -18,6 +18,10 @@ require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
 require_once 'libraries/sqlparser.lib.php';
+require_once 'libraries/config/page_settings.class.php';
+
+PMA_PageSettings::showGroup('Browse');
+
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();

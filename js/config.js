@@ -299,7 +299,7 @@ function validateField(id, type, onKeyUp, params)
 function getFieldValidators(field_id, onKeyUpOnly)
 {
     // look for field bound validator
-    var name = field_id.match(/[^-]+$/)[0];
+    var name = field_id && field_id.match(/[^-]+$/)[0];
     if (typeof validators._field[name] != 'undefined') {
         return [[validators._field[name], null]];
     }

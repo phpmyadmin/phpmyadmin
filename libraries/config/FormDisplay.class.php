@@ -290,7 +290,6 @@ class FormDisplay
 
         $js = array();
         $js_default = array();
-        $tabbed_form = $tabbed_form && (count($this->_forms) > 1);
 
         $htmlOutput .= PMA_displayFormTop($form_action, 'post', $hidden_fields);
 
