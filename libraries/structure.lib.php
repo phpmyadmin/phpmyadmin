@@ -863,33 +863,33 @@ function PMA_tableHeader($db_is_system_schema = false, $replication = false)
         // larger values are more interesting so default sort order is DESC
         $html_output .= '<th>'
             . PMA_sortableTableHeader(__('Size'), 'size', 'DESC')
-            . '</th>' . "\n"
+            . '</th>' . "\n";
         // larger values are more interesting so default sort order is DESC
-            . '<th>'
+        $html_output .= '<th>'
             . PMA_sortableTableHeader(__('Overhead'), 'overhead', 'DESC')
             . '</th>' . "\n";
         $cnt += 2;
     }
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
-        // larger values are more interesting so default sort order is DESC
+        // newer values are more interesting so default sort order is DESC
         $html_output .= '<th>'
             . PMA_sortableTableHeader(__('Creation'), 'creation', 'DESC')
             . '</th>' . "\n";
-        $cnt += 2;
+        $cnt++;
     }
     if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
-        // larger values are more interesting so default sort order is DESC
+        // newer values are more interesting so default sort order is DESC
         $html_output .= '<th>'
             . PMA_sortableTableHeader(__('Last update'), 'last_update', 'DESC')
             . '</th>' . "\n";
-        $cnt += 2;
+        $cnt++;
     }
     if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
-        // larger values are more interesting so default sort order is DESC
+        // newer values are more interesting so default sort order is DESC
         $html_output .= '<th>'
             . PMA_sortableTableHeader(__('Last check'), 'last_check', 'DESC')
             . '</th>' . "\n";
-        $cnt += 2;
+        $cnt++;
     }
     $html_output .= '</tr>' . "\n";
     $html_output .= '</thead>' . "\n";
