@@ -271,7 +271,7 @@ class FormDisplay
      * @param bool $show_restore_default whether show "restore default" button
      *                                   besides the input field
      *
-     * @return void
+     * @return string HTML for forms
      */
     public function getDisplay($tabbed_form = false, $show_restore_default = false)
     {
@@ -354,7 +354,7 @@ class FormDisplay
      * @param array     &$js_default          array which stores JavaScript code
      *                                        to be displayed
      *
-     * @return void
+     * @return string|void HTML for input field
      */
     private function _displayFieldInput(
         Form $form, $field, $system_path, $work_path,
@@ -473,7 +473,7 @@ class FormDisplay
     /**
      * Displays errors
      *
-     * @return void
+     * @return string HTML for errors
      */
     public function displayErrors()
     {
@@ -493,6 +493,7 @@ class FormDisplay
             }
             $htmlOutput .= PMA_displayErrors($name, $error_list);
         }
+
         return $htmlOutput;
     }
 

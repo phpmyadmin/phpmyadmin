@@ -661,15 +661,10 @@ function PMA_exportDatabase(
 
     // export metadata related to this db
     if (isset($GLOBALS['sql_metadata'])) {
-        // Types of metatada to export.
+        // Types of metadata to export.
         // In the future these can be allowed to be selected by the user
         $metadataTypes = PMA_getMetadataTypesToExport();
-
-        if (! $export_plugin->exportMetadata(
-            $db, $tables, $metadataTypes
-        )) {
-            return;
-        }
+        $export_plugin->exportMetadata($db, $tables, $metadataTypes);
     }
 }
 
@@ -790,15 +785,10 @@ function PMA_exportTable(
     }
 
     if (isset($GLOBALS['sql_metadata'])) {
-        // Types of metatada to export.
+        // Types of metadata to export.
         // In the future these can be allowed to be selected by the user
         $metadataTypes = PMA_getMetadataTypesToExport();
-
-        if (! $export_plugin->exportMetadata(
-            $db, $table, $metadataTypes
-        )) {
-            return;
-        }
+        $export_plugin->exportMetadata($db, $table, $metadataTypes);
     }
 }
 
