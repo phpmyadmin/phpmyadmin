@@ -341,6 +341,7 @@ var AJAX = {
                     .not('#floating_menubar')
                     .not('#goto_pagetop')
                     .not('#lock_page_icon')
+                    .not('#page_settings_icon')
                     .not('#page_content')
                     .not('#selflink')
                     .not('#session_debug')

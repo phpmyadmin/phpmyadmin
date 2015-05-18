@@ -10,6 +10,9 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/config/page_settings.class.php';
+
+PMA_PageSettings::showGroup('Export');
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
