@@ -18,4 +18,13 @@ if (!is_array($forms)) {
 $forms['Browse'] = array();
 $forms['Browse']['Browse'] = $forms['Main_panel']['Browse'];
 
+$forms['DbStructure'] = array();
+$forms['DbStructure']['DbStructure'] = $forms['Main_panel']['DbStructure'];
+
+$forms['Edit'] = array();
+$forms['Edit']['Edit'] = $forms['Main_panel']['Edit'];
+
+$forms['TableStructure'] = array();
+$forms['TableStructure']['TableStructure'] = $forms['Main_panel']['TableStructure'];
+
 ?>
