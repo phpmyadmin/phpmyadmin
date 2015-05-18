@@ -212,11 +212,12 @@ class FormDisplay
      * @param array &$js_default          stores JavaScript code
      *                                    to be displayed
      * @param array &$js                  will be updated with javascript code
+     * @param bool  $show_buttons         whether show submit and reset button
      *
      * @return string $htmlOutput
      */
     private function _displayForms(
-        $show_restore_default, array &$js_default, array &$js
+        $show_restore_default, array &$js_default, array &$js, $show_buttons
     ) {
         $htmlOutput = '';
         $validators = PMA_Validator::getValidators($this->_configFile);
@@ -259,7 +260,7 @@ class FormDisplay
                     PMA_addJsValidate($translated_path, $validators[$path], $js);
                 }
             }
-            $htmlOutput .= PMA_displayFieldsetBottom();
+            $htmlOutput .= PMA_displayFieldsetBottom($show_buttons);
         }
         return $htmlOutput;
     }
@@ -267,23 +268,30 @@ class FormDisplay
     /**
      * Outputs HTML for forms
      *
-     * @param bool $tabbed_form          if true, use a form with tabs
-     * @param bool $show_restore_default whether show "restore default" button
-     *                                   besides the input field
+     * @param bool   $tabbed_form          if true, use a form with tabs
+     * @param bool   $show_restore_default whether show "restore default" button
+     *                                     besides the input field
+     * @param bool   $show_buttons         whether show submit and reset button
+     * @param string $form_action          action attribute for the form
+     * @param array  $hidden_fields        array of form hidden fields (key: field name)
      *
      * @return string HTML for forms
      */
-    public function getDisplay($tabbed_form = false, $show_restore_default = false)
-    {
+    public function getDisplay(
+        $tabbed_form = false,
+        $show_restore_default = false,
+        $show_buttons = true,
+        $form_action = null,
+        $hidden_fields = null
+    ) {
         static $js_lang_sent = false;
 
         $htmlOutput = '';
 
         $js = array();
         $js_default = array();
-        $tabbed_form = $tabbed_form && (count($this->_forms) > 1);
 
-        $htmlOutput .= PMA_displayFormTop();
+        $htmlOutput .= PMA_displayFormTop($form_action, 'post', $hidden_fields);
 
         if ($tabbed_form) {
             $tabs = array();
@@ -311,7 +319,7 @@ class FormDisplay
 
         // display forms
         $htmlOutput .= $this->_displayForms(
-            $show_restore_default, $js_default, $js
+            $show_restore_default, $js_default, $js, $show_buttons
         );
 
         if ($tabbed_form) {

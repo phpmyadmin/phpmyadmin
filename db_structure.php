@@ -10,6 +10,9 @@
  *
  */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/config/page_settings.class.php';
+
+PMA_PageSettings::showGroup('DbStructure');
 
 /**
  * Function implementations for this script

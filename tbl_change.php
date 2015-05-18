@@ -12,6 +12,9 @@
  * Gets the variables sent or posted to this script and displays the header
  */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/config/page_settings.class.php';
+
+PMA_PageSettings::showGroup('Edit');
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
