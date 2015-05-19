@@ -2176,7 +2176,7 @@ class PMA_DatabaseInterface
                 $query .= " AND `ROUTINE_TYPE` = '" . $which . "'";
             }
             if (! empty($name)) {
-                $query .= " AND `SPECIFIC_NAME` " . PMA_Util::getCollateForIS()
+                $query .= " AND `SPECIFIC_NAME`"
                     . " = '" . PMA_Util::sqlAddSlashes($name) . "'";
             }
             $result = $this->fetchResult($query);
@@ -2268,8 +2268,8 @@ class PMA_DatabaseInterface
                 . " WHERE `EVENT_SCHEMA` " . PMA_Util::getCollateForIS()
                 . " = '" . PMA_Util::sqlAddSlashes($db) ."'";
             if (! empty($name)) {
-                $query .= " AND `EVENT_NAME` " . PMA_Util::getCollateForIS()
-                . " = '" . PMA_Util::sqlAddSlashes($name) . "'";
+                $query .= " AND `EVENT_NAME`"
+                    . " = '" . PMA_Util::sqlAddSlashes($name) . "'";
             }
         } else {
             $query = "SHOW EVENTS FROM " . PMA_Util::backquote($db);
@@ -2326,8 +2326,8 @@ class PMA_DatabaseInterface
                 . ' \'' . PMA_Util::sqlAddSlashes($db) . '\'';
 
             if (! empty($table)) {
-                $query .= " AND EVENT_OBJECT_TABLE = '"
-                    . PMA_Util::sqlAddSlashes($table) . "';";
+                $query .= " AND EVENT_OBJECT_TABLE " . PMA_Util::getCollateForIS()
+                    . " = '" . PMA_Util::sqlAddSlashes($table) . "';";
             }
         } else {
             $query = "SHOW TRIGGERS FROM " . PMA_Util::backquote($db);
