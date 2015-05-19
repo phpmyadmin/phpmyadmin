@@ -2139,13 +2139,15 @@ class PMA_DatabaseInterface
 
     /**
      * returns details about the PROCEDUREs or FUNCTIONs for a specific database
+     * or details about a specific routine
      *
      * @param string $db    db name
      * @param string $which PROCEDURE | FUNCTION or null for both
+     * @param string $name  name of the routine (to fetch a specific routine)
      *
      * @return array information about ROCEDUREs or FUNCTIONs
      */
-    public function getRoutines($db, $which = null)
+    public function getRoutines($db, $which = null, $name = '')
     {
         if (PMA_DRIZZLE) {
             // Drizzle doesn't support functions and procedures
@@ -2173,6 +2175,10 @@ class PMA_DatabaseInterface
             if (PMA_isValid($which, array('FUNCTION','PROCEDURE'))) {
                 $query .= " AND `ROUTINE_TYPE` = '" . $which . "'";
             }
+            if (! empty($name)) {
+                $query .= " AND `SPECIFIC_NAME` " . PMA_Util::getCollateForIS()
+                    . " = '" . PMA_Util::sqlAddSlashes($name) . "'";
+            }
             $result = $this->fetchResult($query);
             if ($result) {
                 $routines = $result;
@@ -2181,6 +2187,10 @@ class PMA_DatabaseInterface
             if ($which == 'FUNCTION' || $which == null) {
                 $query = "SHOW FUNCTION STATUS"
                     . " WHERE `Db` = '" . PMA_Util::sqlAddSlashes($db) . "'";
+                if (! empty($name)) {
+                    $query .= " AND `Name` = '"
+                        . PMA_Util::sqlAddSlashes($name) . "'";
+                }
                 $result = $this->fetchResult($query);
                 if ($result) {
                     $routines = array_merge($routines, $result);
@@ -2189,6 +2199,10 @@ class PMA_DatabaseInterface
             if ($which == 'PROCEDURE' || $which == null) {
                 $query = "SHOW PROCEDURE STATUS"
                     . " WHERE `Db` = '" . PMA_Util::sqlAddSlashes($db) . "'";
+                if (! empty($name)) {
+                    $query .= " AND `Name` = '"
+                        . PMA_Util::sqlAddSlashes($name) . "'";
+                }
                 $result = $this->fetchResult($query);
                 if ($result) {
                     $routines = array_merge($routines, $result);

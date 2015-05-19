@@ -433,18 +433,10 @@ function PMA_RTN_handleEditor()
         if ($GLOBALS['is_ajax_request']) {
             $response = PMA_Response::getInstance();
             if ($message->isSuccess()) {
-                $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`,"
-                    . " `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-                $where    = "ROUTINE_SCHEMA " . PMA_Util::getCollateForIS() . "="
-                    . "'" . PMA_Util::sqlAddSlashes($db) . "' "
-                    . "AND ROUTINE_NAME='"
-                    . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'"
-                    . "AND ROUTINE_TYPE='"
-                    . PMA_Util::sqlAddSlashes($_REQUEST['item_type']) . "'";
-                $routine  = $GLOBALS['dbi']->fetchSingleRow(
-                    "SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES`"
-                    . " WHERE $where;"
+                $routines = $GLOBALS['dbi']->getRoutines(
+                    $db, $_REQUEST['item_type'], $_REQUEST['item_name']
                 );
+                $routine = $routines[0];
                 $response->addJSON(
                     'name',
                     htmlspecialchars(

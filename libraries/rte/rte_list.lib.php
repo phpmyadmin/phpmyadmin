@@ -217,20 +217,25 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     // Also, information_schema might be hiding the ROUTINE_DEFINITION
     // but a routine with no input parameters can be nonetheless executed.
 
-    // Check if he routine has any input parameters. If it does,
+    // Check if the routine has any input parameters. If it does,
     // we will show a dialog to get values for these parameters,
     // otherwise we can execute it directly.
-    $routine_details = PMA_RTN_getDataFromName(
-        $routine['name'],
-        $routine['type'],
-        false
+    $params = PMA_RTN_parseAllParameters(
+        PMA_SQP_parse(
+            $GLOBALS['dbi']->getDefinition(
+                $db,
+                $routine['type'],
+                $routine['name']
+            )
+        ),
+        $routine['type']
     );
     if ($routine !== false) {
         if (PMA_Util::currentUserHasPrivilege('EXECUTE', $db)) {
             $execute_action = 'execute_routine';
-            for ($i = 0; $i < $routine_details['item_num_params']; $i++) {
-                if ($routine_details['item_type'] == 'PROCEDURE'
-                    && $routine_details['item_param_dir'][$i] == 'OUT'
+            for ($i = 0; $i < $params['num']; $i++) {
+                if ($routine['type'] == 'PROCEDURE'
+                    && $params['dir'][$i] == 'OUT'
                 ) {
                     continue;
                 }
