@@ -109,7 +109,19 @@ if (isset($_REQUEST['submitoptions'])) {
     $warning_messages = array();
 
     if (isset($_REQUEST['new_name'])) {
+        // Get original names before rename operation
+        $oldTable = $pma_table->getName();
+        $oldDb = $pma_table->getDbName();
+
         if ($pma_table->rename($_REQUEST['new_name'])) {
+            if (isset($_REQUEST['realign_privileges'])
+                && ! empty($_REQUEST['realign_privileges'])
+            ) {
+                PMA_RealignPrivileges_renameOrMoveTable(
+                    $oldDb, $oldTable, $_REQUEST['db'], $_REQUEST['new_name']
+                );
+            }
+
             $_message .= $pma_table->getLastMessage();
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();

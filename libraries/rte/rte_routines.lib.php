@@ -307,6 +307,22 @@ function PMA_RTN_handleEditor()
                         $db, $_REQUEST['item_original_type'],
                         $_REQUEST['item_original_name']
                     );
+                    // Backup the Old Privileges before dropping
+                    // if $_REQUEST['item_realign_privileges'] set
+                    $privilegesBackup = array();
+                    if (isset($_REQUEST['item_realign_privileges'])
+                        && ! empty($_REQUEST['item_realign_privileges'])
+                    ) {
+                        $privilegesBackupQuery = 'SELECT * FROM `mysql`.`procs_priv`'
+                            . ' where Routine_name = "' . $_REQUEST['item_original_name']
+                            . '" AND Routine_type = "' . $_REQUEST['item_original_type']
+                            . '";';
+
+                        $privilegesBackup = $GLOBALS['dbi']->fetchResult(
+                            $privilegesBackupQuery, 0
+                        );
+                    }
+
                     $drop_routine = "DROP {$_REQUEST['item_original_type']} "
                         . PMA_Util::backquote($_REQUEST['item_original_name'])
                         . ";\n";
@@ -341,9 +357,41 @@ function PMA_RTN_handleEditor()
                                 $errors
                             );
                         } else {
-                            $message = PMA_Message::success(
-                                __('Routine %1$s has been modified.')
-                            );
+                            // Default value
+                            $resultRealign = false;
+
+                            // Insert all the previous privileges
+                            // but with the new name and the new type
+                            foreach ($privilegesBackup as $priv) {
+                                $realignProcPrivilege = 'INSERT INTO '
+                                    . PMA_Util::backquote('mysql') . '.'
+                                    . PMA_Util::backquote('procs_priv')
+                                    . ' VALUES("' . $priv[0] . '", "'
+                                    . $priv[1]. '", "' . $priv[2] . '", "'
+                                    . $_REQUEST['item_name'] . '", "'
+                                    . $_REQUEST['item_type'] . '", "'
+                                    . $priv[5] . '", "'
+                                    . $priv[6] . '", "'
+                                    . $priv[7] . '");';
+                                $resultRealign = $GLOBALS['dbi']->query(
+                                    $realignProcPrivilege
+                                );
+                            }
+                            if ($resultRealign) {
+                                // Flush the Privileges
+                                $flushPrivQuery = 'FLUSH PRIVILEGES;';
+                                $GLOBALS['dbi']->query($flushPrivQuery);
+
+                                $message = PMA_Message::success(
+                                    __(
+                                        'Routine %1$s has been modified. Privileges have been realigned.'
+                                    )
+                                );
+                            } else {
+                                $message = PMA_Message::success(
+                                    __('Routine %1$s has been modified.')
+                                );
+                            }
                             $message->addParam(
                                 PMA_Util::backquote($_REQUEST['item_name'])
                             );
@@ -1059,6 +1107,15 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "    <td><input type='checkbox' name='item_isdeterministic'"
         . $routine['item_isdeterministic'] . " /></td>";
     $retval .= "</tr>";
+    if (isset($_REQUEST['edit_item'])
+        && ! empty($_REQUEST['edit_item'])
+    ) {
+        $retval .= "<tr>";
+        $retval .= "    <td>" . __('Realign Privileges') . "</td>";
+        $retval .= "    <td><input type='checkbox' name='item_realign_privileges'"
+            . $routine['item_realign_privileges'] . " checked /></td>";
+        $retval .= "</tr>";
+    }
     $retval .= "<tr>";
     $retval .= "    <td>" . __('Definer') . "</td>";
     $retval .= "    <td><input type='text' name='item_definer'";

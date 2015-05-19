@@ -76,7 +76,12 @@ function PMA_getHtmlForRenameDatabase($db)
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
         . 'maxlength="64" size="30" class="textfield" value="" '
-        . 'required="required" />'
+        . 'required="required" />';
+    $html_output .= '<input type="checkbox" name="realign_privileges" value="1"'
+        . 'id="checkbox_realign_privileges" checked="checked" />';
+    $html_output .= '<label for="checkbox_realign_privileges">'
+        . __('Realign Privileges') . '</label><br />';
+    $html_output .= ''
         . '</fieldset>'
         . '<fieldset class="tblFooters">'
         . '<input id="rename_db_input" type="submit" value="' . __('Go') . '" />'
@@ -198,6 +203,10 @@ function PMA_getHtmlForCopyDatabase($db)
         . 'id="checkbox_constraints" />';
     $html_output .= '<label for="checkbox_constraints">'
         . __('Add constraints') . '</label><br />';
+    $html_output .= '<input type="checkbox" name="realign_privileges" value="1"'
+        . 'id="checkbox_privileges" checked="checked" />';
+    $html_output .= '<label for="checkbox_privileges">'
+        . __('Realign Privileges') . '</label><br />';
     $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
         . 'id="checkbox_switch"'
         . ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true')
@@ -523,6 +532,139 @@ function PMA_handleTheViews($views, $move, $db)
 }
 
 /**
+ * Realign the privileges after Renaming the db
+ *
+ * @param string $oldDb   Database name before renaming
+ * @param string $newname New Database name requested
+ *
+ * @return void
+ */
+function PMA_RealignPrivileges_moveDB($oldDb, $newname)
+{
+    $GLOBALS['dbi']->selectDb('mysql');
+
+    // For Db specific privileges
+    $query_db_specific = 'UPDATE ' . PMA_Util::backquote('db')
+        . 'SET Db = "' . $newname
+        . '" where Db = "' . $oldDb . '";';
+    $GLOBALS['dbi']->query($query_db_specific);
+
+    // For table specific privileges
+    $query_table_specific = 'UPDATE ' . PMA_Util::backquote('tables_priv')
+        . 'SET Db = "' . $newname
+        . '" where Db = "' . $oldDb . '";';
+    $GLOBALS['dbi']->query($query_table_specific);
+
+    // For column specific privileges
+    $query_col_specific = 'UPDATE ' . PMA_Util::backquote('columns_priv')
+        . 'SET Db = "' . $newname
+        . '" where Db = "' . $oldDb . '";';
+    $GLOBALS['dbi']->query($query_col_specific);
+
+    // For procedures specific privileges
+    $query_proc_specific = 'UPDATE ' . PMA_Util::backquote('procs_priv')
+        . 'SET Db = "' . $newname
+        . '" where Db = "' . $oldDb . '";';
+    $GLOBALS['dbi']->query($query_proc_specific);
+
+    // Finally FLUSH the new privileges
+    $flush_query = "FLUSH PRIVILEGES;";
+    $GLOBALS['dbi']->query($flush_query);
+
+}
+
+/**
+ * Realign the privileges after Copying the db
+ *
+ * @param string $oldDb   Database name before copying
+ * @param string $newname New Database name requested
+ *
+ * @return void
+ */
+function PMA_RealignPrivileges_copyDB($oldDb, $newname)
+{
+
+    $GLOBALS['dbi']->selectDb('mysql');
+
+    $query_db_specific_old = 'SELECT * FROM '
+        . PMA_Util::backquote('db') . ' WHERE '
+        . 'Db = "' . $oldDb . '";';
+
+    $old_privs_db = $GLOBALS['dbi']->fetchResult($query_db_specific_old, 0);
+
+    foreach ($old_privs_db as $old_priv) {
+        $newDb_db_privs_query = 'INSERT INTO '
+            . PMA_Util::backquote('db') . ' VALUES("'
+            . $old_priv[0] . '", "' . $newname . '", "' . $old_priv[2] . '", "'
+            . $old_priv[3] . '", "' . $old_priv[4] . '", "' . $old_priv[5] . '", "'
+            . $old_priv[6] . '", "' . $old_priv[7] . '", "' . $old_priv[8] . '", "'
+            . $old_priv[9] . '", "' . $old_priv[10] . '", "' . $old_priv[11] . '", "'
+            . $old_priv[12] . '", "' . $old_priv[13] . '", "' . $old_priv[14] . '", "'
+            . $old_priv[15] . '", "' . $old_priv[16] . '", "' . $old_priv[17] . '", "'
+            . $old_priv[18] . '", "' . $old_priv[19] . '", "' . $old_priv[20] . '", "'
+            . $old_priv[21] . '");';
+
+        $GLOBALS['dbi']->query($newDb_db_privs_query);
+    }
+
+    // For Table Specific privileges
+    $query_table_specific_old = 'SELECT * FROM '
+        . PMA_Util::backquote('tables_priv') . ' WHERE '
+        . 'Db = "' . $oldDb . '";';
+
+    $old_privs_table = $GLOBALS['dbi']->fetchResult($query_table_specific_old, 0);
+
+    foreach ($old_privs_table as $old_priv) {
+        $newDb_table_privs_query = 'INSERT INTO '
+            . PMA_Util::backquote('tables_priv') . ' VALUES("'
+            . $old_priv[0] . '", "' . $newname . '", "' . $old_priv[2] . '", "'
+            . $old_priv[3] . '", "' . $old_priv[4] . '", "' . $old_priv[5] . '", "'
+            . $old_priv[6] . '", "' . $old_priv[7] . '");';
+
+        $GLOBALS['dbi']->query($newDb_table_privs_query);
+    }
+
+    // For Column Specific privileges
+    $query_col_specific_old = 'SELECT * FROM '
+        . PMA_Util::backquote('columns_priv') . ' WHERE '
+        . 'Db = "' . $oldDb . '";';
+
+    $old_privs_col = $GLOBALS['dbi']->fetchResult($query_col_specific_old, 0);
+
+    foreach ($old_privs_col as $old_priv) {
+        $newDb_col_privs_query = 'INSERT INTO '
+            . PMA_Util::backquote('columns_priv') . ' VALUES("'
+            . $old_priv[0] . '", "' . $newname . '", "' . $old_priv[2] . '", "'
+            . $old_priv[3] . '", "' . $old_priv[4] . '", "' . $old_priv[5] . '", "'
+            . $old_priv[6] . '");';
+
+        $GLOBALS['dbi']->query($newDb_col_privs_query);
+    }
+
+    // For Procedure Specific privileges
+    $query_proc_specific_old = 'SELECT * FROM '
+        . PMA_Util::backquote('procs_priv') . ' WHERE '
+        . 'Db = "' . $oldDb . '";';
+
+    $old_privs_proc = $GLOBALS['dbi']->fetchResult($query_proc_specific_old, 0);
+
+    foreach ($old_privs_proc as $old_priv) {
+        $newDb_proc_privs_query = 'INSERT INTO '
+            . PMA_Util::backquote('procs_priv') . ' VALUES("'
+            . $old_priv[0] . '", "' . $newname . '", "' . $old_priv[2] . '", "'
+            . $old_priv[3] . '", "' . $old_priv[4] . '", "' . $old_priv[5] . '", "'
+            . $old_priv[6] . '", "' . $old_priv[7] .'");';
+
+        $GLOBALS['dbi']->query($newDb_proc_privs_query);
+    }
+
+    // Finally FLUSH the new privileges
+    $flush_query = "FLUSH PRIVILEGES;";
+    $GLOBALS['dbi']->query($flush_query);
+
+}
+
+/**
  * Create all accumulated constraints
  *
  * @param array $sqlConstratints array of sql constraints for the database
@@ -645,6 +787,10 @@ function PMA_getHtmlForMoveTable()
         . '<label for="checkbox_auto_increment_mv">'
         . __('Add AUTO_INCREMENT value')
         . '</label><br />'
+        . '<input type="checkbox" name="realign_privileges" value="1" '
+        . 'id="checkbox_privileges_tables_move" checked="checked" />'
+        . '<label for="checkbox_privileges_tables_move">'
+        . __('Realign Privileges') . '</label><br />'
         . '</fieldset>';
 
     $html_output .= '<fieldset class="tblFooters">'
@@ -837,6 +983,13 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
             . '</tr> ';
     } // end if (MYISAM|INNODB)
 
+    $html_output .= '<tr><td>'
+        . '<label for="checkbox_privileges_table_options">'
+        . __('Realign Privileges') . '</label></td>'
+        . '<td><input type="checkbox" name="realign_privileges" value="1" '
+        . 'id="checkbox_privileges_table_options" checked="checked" /></td>'
+        . '</tr>';
+
     $possible_row_formats = PMA_getPossibleRowFormat();
 
     // for MYISAM there is also COMPRESSED but it can be set only by the
@@ -988,7 +1141,11 @@ function PMA_getHtmlForCopytable()
         . '<input type="checkbox" name="sql_auto_increment" '
         . 'value="1" id="checkbox_auto_increment_cp" />'
         . '<label for="checkbox_auto_increment_cp">'
-        . __('Add AUTO_INCREMENT value') . '</label><br />';
+        . __('Add AUTO_INCREMENT value') . '</label><br />'
+        . '<input type="checkbox" name="realign_privileges" value="1"'
+        . 'id="checkbox_realign_privileges" checked="checked" />'
+        . '<label for="checkbox_realign_privileges">'
+        . __('Realign Privileges') . '</label><br />';
 
     // display "Add constraints" choice only if there are
     // foreign keys
@@ -1618,6 +1775,91 @@ function PMA_getQueryAndResultForPartition()
     return array($sql_query, $result);
 }
 
+/**
+ * Realign the privileges after renaming/moving a table
+ *
+ * @param string $oldDb    Database name before table renaming/moving table
+ * @param string $oldTable Table name before table renaming/moving table
+ * @param string $newDb    Database name after table renaming/ moving table
+ * @param string $newTable Table name after table renaming/moving table
+ *
+ * @return void
+ */
+function PMA_RealignPrivileges_renameOrMoveTable($oldDb, $oldTable, $newDb, $newTable)
+{
+    $GLOBALS['dbi']->selectDb('mysql');
+
+    // For table specific privileges
+    $query_table_specific = 'UPDATE ' . PMA_Util::backquote('tables_priv')
+        . 'SET Db = "' . $newDb . '", Table_name = "' . $newTable
+        . '" where Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
+    $GLOBALS['dbi']->query($query_table_specific);
+
+    // For column specific privileges
+    $query_col_specific = 'UPDATE ' . PMA_Util::backquote('columns_priv')
+        . 'SET Db = "' . $newDb . '", Table_name = "' . $newTable
+        . '" where Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
+    $GLOBALS['dbi']->query($query_col_specific);
+
+    // Finally FLUSH the new privileges
+    $flush_query = "FLUSH PRIVILEGES;";
+    $GLOBALS['dbi']->query($flush_query);
+
+}
+
+/**
+ * Realign the privileges after copying a table
+ *
+ * @param string $oldDb    Database name before table copying
+ * @param string $oldTable Table name before table copying
+ * @param string $newDb    Database name after table copying
+ * @param string $newTable Table name after table copying
+ *
+ * @return void
+ */
+function PMA_RealignPrivileges_copyTable($oldDb, $oldTable, $newDb, $newTable)
+{
+    $GLOBALS['dbi']->selectDb('mysql');
+
+    // For Table Specific privileges
+    $query_table_specific_old = 'SELECT * FROM '
+        . PMA_Util::backquote('tables_priv') . ' where '
+        . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
+
+    $old_privs_table = $GLOBALS['dbi']->fetchResult($query_table_specific_old, 0);
+
+    foreach ($old_privs_table as $old_priv) {
+        $newDb_table_privs_query = 'INSERT INTO '
+            . PMA_Util::backquote('tables_priv') . ' VALUES("'
+            . $old_priv[0] . '", "' . $newDb . '", "' . $old_priv[2] . '", "'
+            . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5] . '", "'
+            . $old_priv[6] . '", "' . $old_priv[7] . '");';
+
+        $GLOBALS['dbi']->query($newDb_table_privs_query);
+    }
+
+    // For Column Specific privileges
+    $query_col_specific_old = 'SELECT * FROM '
+        . PMA_Util::backquote('columns_priv') . ' WHERE '
+        . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
+
+    $old_privs_col = $GLOBALS['dbi']->fetchResult($query_col_specific_old, 0);
+
+    foreach ($old_privs_col as $old_priv) {
+        $newDb_col_privs_query = 'INSERT INTO '
+            . PMA_Util::backquote('columns_priv') . ' VALUES("'
+            . $old_priv[0] . '", "' . $newDb . '", "' . $old_priv[2] . '", "'
+            . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5] . '", "'
+            . $old_priv[6] . '");';
+
+        $GLOBALS['dbi']->query($newDb_col_privs_query);
+    }
+
+    // Finally FLUSH the new privileges
+    $flush_query = "FLUSH PRIVILEGES;";
+    $GLOBALS['dbi']->query($flush_query);
+
+}
 
 /**
  * Move or copy a table
@@ -1658,15 +1900,41 @@ function PMA_moveOrCopyTable($db, $table)
                 $_REQUEST['what'], isset($_REQUEST['submit_move']), 'one_table'
             );
 
-            if (isset($_REQUEST['submit_move'])) {
-                $message = PMA_Message::success(
-                    __('Table %s has been moved to %s.')
-                );
+            if (isset($_REQUEST['realign_privileges'])
+                && ! empty($_REQUEST['realign_privileges'])
+            ) {
+                if (isset($_REQUEST['submit_move'])) {
+                    PMA_RealignPrivileges_renameOrMoveTable(
+                        $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name']
+                    );
+                } else {
+                    PMA_RealignPrivileges_copyTable(
+                        $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name']
+                    );
+                }
+
+                if (isset($_REQUEST['submit_move'])) {
+                    $message = PMA_Message::success(
+                        __('Table %s has been moved to %s. Privileges have been realigned.')
+                    );
+                } else {
+                    $message = PMA_Message::success(
+                        __('Table %s has been copied to %s. Privileges have been realigned.')
+                    );
+                }
+
             } else {
-                $message = PMA_Message::success(
-                    __('Table %s has been copied to %s.')
-                );
+                if (isset($_REQUEST['submit_move'])) {
+                    $message = PMA_Message::success(
+                        __('Table %s has been moved to %s.')
+                    );
+                } else {
+                    $message = PMA_Message::success(
+                        __('Table %s has been copied to %s.')
+                    );
+                }
             }
+
             $old = PMA_Util::backquote($db) . '.'
                 . PMA_Util::backquote($table);
             $message->addParam($old);
