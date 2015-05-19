@@ -2162,7 +2162,7 @@ class PMA_DatabaseInterface
                 . " `LAST_ALTERED` AS `Modified`,"
                 . " `CREATED` AS `Created`,"
                 . " `SECURITY_TYPE` AS `Security_type`,"
-                . " '' AS `Comment`,"
+                . " `ROUTINE_COMMENT` AS `Comment`,"
                 . " `CHARACTER_SET_CLIENT` AS `character_set_client`,"
                 . " `COLLATION_CONNECTION` AS `collation_connection`,"
                 . " `DATABASE_COLLATION` AS `Database Collation`,"
