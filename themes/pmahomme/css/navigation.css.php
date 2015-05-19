@@ -185,8 +185,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     padding-bottom: 4px;
     clear: both;
     min-height: 16px;
-    border-bottom-left-radius: 3px;
-    border-top-left-radius: 3px;
 }
 #pma_navigation_tree img {
     margin: 0;
@@ -301,6 +299,7 @@ li.fast_filter span {
     cursor: pointer;
     font-weight: bold;
     color: #800;
+    font-size: 0.7em;
 }
 /* IE10+ has its own reset X */
 html.ie li.fast_filter span {
