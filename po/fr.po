@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-19 07:58-0400\n"
-"PO-Revision-Date: 2015-05-03 11:42+0200\n"
+"PO-Revision-Date: 2015-05-19 14:57+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -1032,10 +1032,9 @@ msgid "Do you really want to delete this central column?"
 msgstr "Voulez-vous vraiment supprimer cette colonne centrale ?"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Voulez-vous vraiment supprimer la recherche «%s» ?"
+msgstr "Voulez-vous vraiment supprimer les éléments sélectionnés ?"
 
 #: js/messages.php:64
 msgid ""
@@ -1044,10 +1043,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Voulez-vous vraiment supprimer la recherche «%s» ?"
+msgstr "Voulez-vous vraiment tronquer les partitions sélectionnées ?"
 
 #: js/messages.php:68
 msgid "Save & Close"
@@ -1713,10 +1711,9 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #: js/messages.php:270 libraries/Header.class.php:450
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Changer les paramètres"
+msgstr "Paramètres liés à la page"
 
 #: js/messages.php:271 libraries/config/FormDisplay.tpl.php:402
 msgid "Apply"
