@@ -2235,11 +2235,12 @@ class PMA_DatabaseInterface
     /**
      * returns details about the EVENTs for a specific database
      *
-     * @param string $db    db name
+     * @param string $db   db name
+     * @param string $name event name
      *
      * @return array information about EVENTs
      */
-    public function getEvents($db)
+    public function getEvents($db, $name = '')
     {
         if (PMA_DRIZZLE) {
             // Drizzle doesn't support events
@@ -2266,8 +2267,16 @@ class PMA_DatabaseInterface
                 . " FROM `information_schema`.`EVENTS`"
                 . " WHERE `EVENT_SCHEMA` " . PMA_Util::getCollateForIS()
                 . " = '" . PMA_Util::sqlAddSlashes($db) ."'";
+            if (! empty($name)) {
+                $query .= " AND `EVENT_NAME` " . PMA_Util::getCollateForIS()
+                . " = '" . PMA_Util::sqlAddSlashes($name) . "'";
+            }
         } else {
             $query = "SHOW EVENTS FROM " . PMA_Util::backquote($db);
+            if (! empty($name)) {
+                $query .= " AND `Name` = '"
+                    . PMA_Util::sqlAddSlashes($name) . "'";
+            }
         }
 
         $result = array();

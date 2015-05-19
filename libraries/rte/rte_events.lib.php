@@ -179,14 +179,8 @@ function PMA_EVN_handleEditor()
         if ($GLOBALS['is_ajax_request']) {
             $response = PMA_Response::getInstance();
             if ($message->isSuccess()) {
-                $columns = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
-                $where   = "EVENT_SCHEMA " . PMA_Util::getCollateForIS() . "="
-                    . "'" . PMA_Util::sqlAddSlashes($db) . "' "
-                    . "AND EVENT_NAME='"
-                    . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'";
-                $query   = "SELECT " . $columns
-                    . " FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE " . $where . ";";
-                $event   = $GLOBALS['dbi']->fetchSingleRow($query);
+                $events = $GLOBALS['dbi']->getEvents($db, $_REQUEST['item_name']);
+                $event = $events[0];
                 $response->addJSON(
                     'name',
                     htmlspecialchars(
