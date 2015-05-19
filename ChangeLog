@@ -35,6 +35,7 @@ phpMyAdmin - ChangeLog
 + rfe #1669 Designer: "Sticky" menu option
 + rfe #1671 Directly show table comments in structure view
 + rfe #1559 Page-related settings
++ rfe #657  Alter privileges when renaming or copying a database
 
 4.4.8.0 (not yet released)
 - bug       Allow accessing visual query builder when pmadb is not configured
