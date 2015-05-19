@@ -2219,6 +2219,65 @@ class PMA_DatabaseInterface
     }
 
     /**
+     * returns details about the EVENTs for a specific database
+     *
+     * @param string $db    db name
+     *
+     * @return array information about EVENTs
+     */
+    public function getEvents($db)
+    {
+        if (PMA_DRIZZLE) {
+            // Drizzle doesn't support events
+            return array();
+        }
+
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $query = "SELECT"
+                . " `EVENT_SCHEMA` AS `Db`,"
+                . " `EVENT_NAME` AS `Name`,"
+                . " `DEFINER` AS `Definer`,"
+                . " `TIME_ZONE` AS `Time zone`,"
+                . " `EVENT_TYPE` AS `Type`,"
+                . " `EXECUTE_AT` AS `Execute at`,"
+                . " `INTERVAL_VALUE` AS `Interval value`,"
+                . " `INTERVAL_FIELD` AS `Interval field`,"
+                . " `STARTS` AS `Starts`,"
+                . " `ENDS` AS `Ends`,"
+                . " `STATUS` AS `Status`,"
+                . " `ORIGINATOR` AS `Originator`,"
+                . " `CHARACTER_SET_CLIENT` AS `character_set_client`,"
+                . " `COLLATION_CONNECTION` AS `collation_connection`, "
+                . "`DATABASE_COLLATION` AS `Database Collation`"
+                . " FROM `information_schema`.`EVENTS`"
+                . " WHERE `EVENT_SCHEMA` " . PMA_Util::getCollateForIS()
+                . " = '" . PMA_Util::sqlAddSlashes($db) ."'";
+        } else {
+            $query = "SHOW EVENTS FROM " . PMA_Util::backquote($db);
+        }
+
+        $result = array();
+        if ($events = $this->fetchResult($query)) {
+            foreach ($events as $event) {
+                $one_result = array();
+                $one_result['name'] = $event['Name'];
+                $one_result['type'] = $event['Type'];
+                $one_result['status'] = $event['Status'];
+                $result[] = $one_result;
+            }
+        }
+
+        // Sort results by name
+        $name = array();
+        foreach ($result as $value) {
+            $name[] = $value['name'];
+        }
+        array_multisort($name, SORT_ASC, $result);
+
+        return $result;
+    }
+
+    /**
      * returns details about the TRIGGERs for a specific table or database
      *
      * @param string $db        db name

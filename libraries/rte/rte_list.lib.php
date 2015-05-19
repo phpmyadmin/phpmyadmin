@@ -375,25 +375,25 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
 
     $sql_drop = sprintf(
         'DROP EVENT IF EXISTS %s',
-        PMA_Util::backquote($event['EVENT_NAME'])
+        PMA_Util::backquote($event['name'])
     );
 
     $retval  = "        <tr class='$rowclass'>\n";
     $retval .= "            <td>\n";
     $retval .= '                <input type="checkbox"'
         . ' class="checkall" name="item_name[]"'
-        . ' value="' . htmlspecialchars($event['EVENT_NAME']) . '" />';
+        . ' value="' . htmlspecialchars($event['name']) . '" />';
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     $retval .= "                <span class='drop_sql hide'>"
         . htmlspecialchars($sql_drop) . "</span>\n";
     $retval .= "                <strong>\n";
     $retval .= "                    "
-        . htmlspecialchars($event['EVENT_NAME']) . "\n";
+        . htmlspecialchars($event['name']) . "\n";
     $retval .= "                </strong>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    $retval .= "                 {$event['STATUS']}\n";
+    $retval .= "                 {$event['status']}\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     if (PMA_Util::currentUserHasPrivilege('EVENT', $db)) {
@@ -402,7 +402,7 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
                                          . $url_query
                                          . '&amp;edit_item=1'
                                          . '&amp;item_name='
-                                         . urlencode($event['EVENT_NAME'])
+                                         . urlencode($event['name'])
                                          . '">' . $titles['Edit'] . "</a>\n";
     } else {
         $retval .= "                {$titles['NoEdit']}\n";
@@ -414,7 +414,7 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
                                      . $url_query
                                      . '&amp;export_item=1'
                                      . '&amp;item_name='
-                                     . urlencode($event['EVENT_NAME'])
+                                     . urlencode($event['name'])
                                      . '">' . $titles['Export'] . "</a>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
@@ -431,7 +431,7 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
     }
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    $retval .= "                 {$event['EVENT_TYPE']}\n";
+    $retval .= "                 {$event['type']}\n";
     $retval .= "            </td>\n";
     $retval .= "        </tr>\n";
 
