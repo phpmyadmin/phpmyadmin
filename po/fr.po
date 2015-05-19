@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-19 07:58-0400\n"
-"PO-Revision-Date: 2015-05-19 19:24+0200\n"
+"PO-Revision-Date: 2015-05-19 20:12+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -1041,6 +1041,8 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Voulez-vous vraiment supprimer les partitions sélectionnées ? Cela va "
+"également supprimer les données associées aux partitions sélectionnées !"
 
 #: js/messages.php:65
 #| msgid "Do you really want to delete the search \"%s\"?"
@@ -6372,11 +6374,13 @@ msgstr "Ne pas arrêter l'importation lors d'une erreur d'énoncé INSERT"
 
 #: libraries/config/messages.inc.php:345 libraries/config/messages.inc.php:357
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Ajouter ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:346 libraries/config/messages.inc.php:358
 msgid "Update data when duplicate keys found on import"
 msgstr ""
+"Mettre à jour les données lorsque des clés dupliquées sont trouvées lors de "
+"l'importation"
 
 #: libraries/config/messages.inc.php:349
 msgid ""
@@ -9188,7 +9192,7 @@ msgstr "Roumain"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Sinhalese"
-msgstr ""
+msgstr "Cingalais"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovak"
@@ -9936,7 +9940,7 @@ msgstr "Réparer"
 
 #: libraries/operations.lib.php:1437
 msgid "Truncate"
-msgstr ""
+msgstr "Tronquer"
 
 #: libraries/operations.lib.php:1445
 #| msgid "Collapse"
@@ -10570,6 +10574,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Mettre à jour les données lorsque des clés dupliquées sont trouvées lors de "
+"l'importation (Ajouter ON DUPLICATE KEY UPDATE)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -15358,6 +15364,9 @@ msgid ""
 "Percona documentation is at <a href=\"http://www.percona.com/software/"
 "documentation/\">http://www.percona.com/software/documentation/</a>"
 msgstr ""
+"La documentation de Percona est disponible sur <a href=\""
+"http://www.percona.com/software/documentation/\"> "
+"http://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -15368,6 +15377,9 @@ msgid ""
 "Drizzle documentation is at <a href=\"http://www.drizzle.org/content/"
 "documentation/\">http://www.drizzle.org/content/documentation/</a>"
 msgstr ""
+"La documentation de Drizzle est disponible sur <a href=\""
+"http://www.drizzle.org/content/documentation/\"> "
+"http://www.drizzle.org/content/documentation/</a>"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
