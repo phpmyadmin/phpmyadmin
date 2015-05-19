@@ -338,7 +338,13 @@ function PMA_getHeaderCells($is_backup, $columnMeta, $mimework)
     $header_cells[] = __('Collation');
     $header_cells[] = __('Attributes');
     $header_cells[] = __('Null');
-    $header_cells[] = __('Realign Privileges');
+
+    // Only for 'Edit' Column(s)
+    if (isset($_REQUEST['change_column'])
+        && ! empty($_REQUEST['change_column'])
+    ) {
+        $header_cells[] = __('Realign Privileges');
+    }
 
     // We could remove this 'if' and let the key information be shown and
     // editable. However, for this to work, structure.lib.php must be modified
@@ -1336,10 +1342,15 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
     $ci++;
 
     // column Realign Privileges
-    $content_cell[$ci] = PMA_getHtmlForColumnRealignPrivileges(
-        $columnNumber, $ci, $ci_offset
-    );
-    $ci++;
+    // Only for 'Edit' Column(s)
+    if (isset($_REQUEST['change_column'])
+        && ! empty($_REQUEST['change_column'])
+    ) {
+        $content_cell[$ci] = PMA_getHtmlForColumnRealignPrivileges(
+            $columnNumber, $ci, $ci_offset
+        );
+        $ci++;
+    }
 
     // column indexes
     // See my other comment about  this 'if'.
