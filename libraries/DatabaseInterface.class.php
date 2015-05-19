@@ -2142,11 +2142,10 @@ class PMA_DatabaseInterface
      *
      * @param string $db    db name
      * @param string $which PROCEDURE | FUNCTION or null for both
-     * @param object $link  mysql link
      *
      * @return array information about ROCEDUREs or FUNCTIONs
      */
-    public function getRoutines($db, $which = null, $link = null)
+    public function getRoutines($db, $which = null)
     {
         if (PMA_DRIZZLE) {
             // Drizzle doesn't support functions and procedures
