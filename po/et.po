@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-19 07:58-0400\n"
-"PO-Revision-Date: 2015-05-19 14:59+0200\n"
+"PO-Revision-Date: 2015-05-19 15:00+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
@@ -4690,7 +4690,7 @@ msgstr "Jäta SQL selgitus vahele"
 #: libraries/Util.class.php:1184
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Analüüsi ja seleta kohal %s"
 
 #: libraries/Util.class.php:1215
 msgid "Without PHP Code"
