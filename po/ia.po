@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-19 07:58-0400\n"
-"PO-Revision-Date: 2015-05-06 12:13+0200\n"
+"PO-Revision-Date: 2015-05-19 22:12+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -1045,10 +1045,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to delete the selected items?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Tu es vermente secur que tu vole deler le elementos seligite?"
+msgstr "Tu vermente vole TRUNCAR le partition(es) seligite?"
 
 #: js/messages.php:68
 msgid "Save & Close"
@@ -7867,11 +7866,11 @@ msgid "Enable Zero Configuration mode"
 msgstr "Habilita modo de Configuration Zero"
 
 #: libraries/config/page_settings.class.php:124
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
-"Il non pote salveguardar preferentias, le forma submittite contine errores!"
+"Il non pote salveguardar preferentias, le configuration submittite contine "
+"errores!"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -9788,10 +9787,9 @@ msgstr ""
 #: libraries/operations.lib.php:793 libraries/operations.lib.php:988
 #: libraries/operations.lib.php:1148 libraries/rte/rte_routines.lib.php:1100
 #: libraries/tbl_columns_definition_form.lib.php:341
-#, fuzzy
 #| msgid "Reloading Privileges"
 msgid "Realign Privileges"
-msgstr "Recargante privilegios"
+msgstr "Realinea privilegios"
 
 #: libraries/operations.lib.php:112
 #, php-format
@@ -12504,10 +12502,9 @@ msgid "Sent"
 msgstr "Inviate"
 
 #: libraries/server_status.lib.php:232
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Max. concurrent connections"
-msgstr "Connexiones persistente"
+msgstr "Max.Connexiones concurrente"
 
 #: libraries/server_status.lib.php:242
 msgid "Failed attempts"
@@ -14665,7 +14662,6 @@ msgid "Series column:"
 msgstr "Columna de series:"
 
 #: templates/tbl_chart.php:123
-#, fuzzy
 #| msgid "Value column:"
 msgid "Value Column:"
 msgstr "Columna de valor:"
