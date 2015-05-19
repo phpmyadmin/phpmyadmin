@@ -173,37 +173,35 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
 
     $sql_drop = sprintf(
         'DROP %s IF EXISTS %s',
-        $routine['ROUTINE_TYPE'],
-        PMA_Util::backquote($routine['SPECIFIC_NAME'])
+        $routine['type'],
+        PMA_Util::backquote($routine['name'])
     );
-    $type_link = "item_type={$routine['ROUTINE_TYPE']}";
+    $type_link = "item_type={$routine['type']}";
 
     $retval  = "        <tr class='$rowclass'>\n";
     $retval .= "            <td>\n";
     $retval .= '                <input type="checkbox"'
         . ' class="checkall" name="item_name[]"'
-        . ' value="' . htmlspecialchars($routine['SPECIFIC_NAME']) . '" />';
+        . ' value="' . htmlspecialchars($routine['name']) . '" />';
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     $retval .= "                <span class='drop_sql hide'>"
         . htmlspecialchars($sql_drop) . "</span>\n";
     $retval .= "                <strong>\n";
     $retval .= "                    "
-        . htmlspecialchars($routine['SPECIFIC_NAME']) . "\n";
+        . htmlspecialchars($routine['name']) . "\n";
     $retval .= "                </strong>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     // Since editing a procedure involved dropping and recreating, check also for
     // CREATE ROUTINE privilege to avoid lost procedures.
-    if ($routine['ROUTINE_DEFINITION'] !== null
-        && PMA_Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
-    ) {
+    if (PMA_Util::currentUserHasPrivilege('CREATE ROUTINE', $db)) {
         $retval .= '                <a ' . $ajax_class['edit']
                                          . ' href="db_routines.php'
                                          . $url_query
                                          . '&amp;edit_item=1'
                                          . '&amp;item_name='
-                                         . urlencode($routine['SPECIFIC_NAME'])
+                                         . urlencode($routine['name'])
                                          . '&amp;' . $type_link
                                          . '">' . $titles['Edit'] . "</a>\n";
     } else {
@@ -223,8 +221,8 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     // we will show a dialog to get values for these parameters,
     // otherwise we can execute it directly.
     $routine_details = PMA_RTN_getDataFromName(
-        $routine['SPECIFIC_NAME'],
-        $routine['ROUTINE_TYPE'],
+        $routine['name'],
+        $routine['type'],
         false
     );
     if ($routine !== false) {
@@ -244,7 +242,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
                                              . $url_query
                                              . '&amp;' . $execute_action . '=1'
                                              . '&amp;item_name='
-                                             . urlencode($routine['SPECIFIC_NAME'])
+                                             . urlencode($routine['name'])
                                              . '&amp;' . $type_link
                                              . '">' . $titles['Execute'] . "</a>\n";
         } else {
@@ -259,7 +257,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
                                      . $url_query
                                      . '&amp;export_item=1'
                                      . '&amp;item_name='
-                                     . urlencode($routine['SPECIFIC_NAME'])
+                                     . urlencode($routine['name'])
                                      . '&amp;' . $type_link
                                      . '">' . $titles['Export'] . "</a>\n";
     $retval .= "            </td>\n";
@@ -273,11 +271,11 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
                                          . '" >' . $titles['Drop'] . "</a>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    $retval .= "                 {$routine['ROUTINE_TYPE']}\n";
+    $retval .= "                 {$routine['type']}\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     $retval .= "                "
-        . htmlspecialchars($routine['DTD_IDENTIFIER']) . "\n";
+        . htmlspecialchars($routine['returns']) . "\n";
     $retval .= "            </td>\n";
     $retval .= "        </tr>\n";
 

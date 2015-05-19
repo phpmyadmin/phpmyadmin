@@ -53,16 +53,10 @@ function PMA_RTN_main($type)
     /**
      * Display a list of available routines
      */
-    $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, ";
-    $columns .= "`DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-    $where    = "ROUTINE_SCHEMA " . PMA_Util::getCollateForIS() . "="
-        . "'" . PMA_Util::sqlAddSlashes($db) . "'";
-    if (PMA_isValid($type, array('FUNCTION','PROCEDURE'))) {
-        $where .= " AND `ROUTINE_TYPE`='" . $type . "'";
+    if (! PMA_isValid($type, array('FUNCTION','PROCEDURE'))) {
+        $type = null;
     }
-    $items    = $GLOBALS['dbi']->fetchResult(
-        "SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;"
-    );
+    $items = $GLOBALS['dbi']->getRoutines($db, $type);
     echo PMA_RTE_getList('routine', $items);
     /**
      * Display the form for adding a new routine, if the user has the privileges.

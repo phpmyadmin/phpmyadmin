@@ -2138,6 +2138,88 @@ class PMA_DatabaseInterface
     }
 
     /**
+     * returns details about the PROCEDUREs or FUNCTIONs for a specific database
+     *
+     * @param string $db    db name
+     * @param string $which PROCEDURE | FUNCTION or null for both
+     * @param object $link  mysql link
+     *
+     * @return array information about ROCEDUREs or FUNCTIONs
+     */
+    public function getRoutines($db, $which = null, $link = null)
+    {
+        if (PMA_DRIZZLE) {
+            // Drizzle doesn't support functions and procedures
+            return array();
+        }
+
+        $routines = array();
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $query = "SELECT"
+                . " `ROUTINE_SCHEMA` AS `Db`,"
+                . " `SPECIFIC_NAME` AS `Name`,"
+                . " `ROUTINE_TYPE` AS `Type`,"
+                . " `DEFINER` AS `Definer`,"
+                . " `LAST_ALTERED` AS `Modified`,"
+                . " `CREATED` AS `Created`,"
+                . " `SECURITY_TYPE` AS `Security_type`,"
+                . " '' AS `Comment`,"
+                . " `CHARACTER_SET_CLIENT` AS `character_set_client`,"
+                . " `COLLATION_CONNECTION` AS `collation_connection`,"
+                . " `DATABASE_COLLATION` AS `Database_Collation`,"
+                . " `DTD_IDENTIFIER`"
+                . " FROM `information_schema`.`ROUTINES`"
+                . " WHERE `ROUTINE_SCHEMA` " . PMA_Util::getCollateForIS()
+                . " = '" . PMA_Util::sqlAddSlashes($db) ."'";
+            if (PMA_isValid($which, array('FUNCTION','PROCEDURE'))) {
+                $query .= " AND `ROUTINE_TYPE` = '" . $which . "'";
+            }
+            $result = $this->fetchResult($query);
+            if ($result) {
+                $routines = $result;
+            }
+        } else {
+            if ($which == 'FUNCTION' || $which == null) {
+                $query = "SHOW FUNCTION STATUS"
+                    . " WHERE `Db` = '" . PMA_Util::sqlAddSlashes($db) . "'";
+                $result = $this->fetchResult($query);
+                if ($result) {
+                    $routines = array_merge($routines, $result);
+                }
+            }
+            if ($which == 'PROCEDURE' || $which == null) {
+                $query = "SHOW PROCEDURE STATUS"
+                    . " WHERE `Db` = '" . PMA_Util::sqlAddSlashes($db) . "'";
+                $result = $this->fetchResult($query);
+                if ($result) {
+                    $routines = array_merge($routines, $result);
+                }
+            }
+        }
+
+        $ret = array();
+        foreach ($routines as $routine) {
+            $one_result = array();
+            $one_result['db'] = $routine['Db'];
+            $one_result['name'] = $routine['Name'];
+            $one_result['type'] = $routine['Type'];
+            $one_result['definer'] = $routine['Definer'];
+            $one_result['returns'] = isset($routine['DTD_IDENTIFIER'])
+                ? $routine['DTD_IDENTIFIER'] : "";
+            $ret[] = $one_result;
+        }
+
+        // Sort results by name
+        $name = array();
+        foreach ($ret as $value) {
+            $name[] = $value['name'];
+        }
+        array_multisort($name, SORT_ASC, $ret);
+
+        return($ret);
+    }
+
+    /**
      * returns details about the TRIGGERs for a specific table or database
      *
      * @param string $db        db name
