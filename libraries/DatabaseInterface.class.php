@@ -2165,7 +2165,7 @@ class PMA_DatabaseInterface
                 . " '' AS `Comment`,"
                 . " `CHARACTER_SET_CLIENT` AS `character_set_client`,"
                 . " `COLLATION_CONNECTION` AS `collation_connection`,"
-                . " `DATABASE_COLLATION` AS `Database_Collation`,"
+                . " `DATABASE_COLLATION` AS `Database Collation`,"
                 . " `DTD_IDENTIFIER`"
                 . " FROM `information_schema`.`ROUTINES`"
                 . " WHERE `ROUTINE_SCHEMA` " . PMA_Util::getCollateForIS()
