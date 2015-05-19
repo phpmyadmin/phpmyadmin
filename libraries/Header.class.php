@@ -443,6 +443,7 @@ class PMA_Header
                 $retval .= $this->_getWarnings();
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $retval .= $this->_menu->getDisplay();
+                    $retval .= '<span id="page_nav_icons">';
                     $retval .= '<span id="lock_page_icon"></span>';
                     $retval .= '<span id="page_settings_icon">'
                         . PMA_Util::getImage(
@@ -457,6 +458,7 @@ class PMA_Header
                             __('Click on the bar to scroll to top of page')
                         )
                     );
+                    $retval .= '</span>';
                 }
                 $retval .= $this->_console->getDisplay();
                 $retval .= '<div id="page_content">';

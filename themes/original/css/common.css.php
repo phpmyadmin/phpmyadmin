@@ -820,20 +820,26 @@ div#tablestatistics table {
     white-space:        nowrap;
 }
 
-#goto_pagetop, #lock_page_icon {
+#page_nav_icons {
     position: fixed;
-    padding: .1em .3em;
     top: 0;
+    <?php echo $right; ?>: 0;
     z-index: 99;
+    padding: .1em 0;
+}
+
+#goto_pagetop, #lock_page_icon, #page_settings_icon {
+    padding: .3em;
     background: white;
 }
 
-#goto_pagetop {
-    <?php echo $right; ?>: 0;
+#page_settings_icon {
+    cursor: pointer;
+    display: none;
 }
 
-#lock_page_icon {
-    <?php echo $right; ?>: 2em;
+.page_settings_modal {
+    display: none;
 }
 
 #span_table_comment {
