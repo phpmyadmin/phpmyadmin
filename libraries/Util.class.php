@@ -4566,9 +4566,14 @@ class PMA_Util
      */
     public static function getCollateForIS()
     {
-        $lowerCaseTableNames = $GLOBALS['dbi']->fetchValue(
-            "SHOW VARIABLES LIKE 'lower_case_table_names'", 0, 1
-        );
+        if (self::cacheExists('lower_case_table_names')) {
+            $lowerCaseTableNames = self::cacheGet('lower_case_table_names');
+        } else {
+            $lowerCaseTableNames = $GLOBALS['dbi']->fetchValue(
+                "SHOW VARIABLES LIKE 'lower_case_table_names'", 0, 1
+            );
+            self::cacheSet('lower_case_table_names', $lowerCaseTableNames);
+        }
 
         if ($lowerCaseTableNames === '0') {
             return "COLLATE utf8_bin";
