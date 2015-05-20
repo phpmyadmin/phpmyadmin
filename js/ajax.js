@@ -652,21 +652,6 @@ AJAX.registerOnload('functions.js', function () {
 });
 
 /**
- * Unbind all event handlers before tearing down a page
- */
-AJAX.registerTeardown('functions.js', function () {
-    $('#page_content').off('keyup change',
-        'form.lock-page textarea, ' +
-        'form.lock-page input[type="text"], ' +
-        'form.lock-page input[type="number"], ' +
-        'form.lock-page select, ' +
-        'form.lock-page input[type="checkbox"], ' +
-        'form.lock-page input[type="radio"]'
-    );
-    $('form.lock-page').off('reset');
-});
-
-/**
  * An implementation of a client-side page cache.
  * This object also uses the cache to provide a simple microhistory,
  * that is the ability to use the back and forward buttons in the browser
