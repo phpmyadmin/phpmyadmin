@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-19 07:58-0400\n"
-"PO-Revision-Date: 2015-05-15 01:49+0200\n"
+"PO-Revision-Date: 2015-05-21 01:04+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/az/>\n"
+"Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: az\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -8963,16 +8963,16 @@ msgstr ""
 #: libraries/navigation/NodeFactory.class.php:41
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Uyğun olmayan sinif adı \"%1$s\", susmaya görə \"Node\" istifadə olunur"
 
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "\"%1$s\" sinfi daxil edilmədi, \"%2$s\" fayl tapılmadı"
 
 #: libraries/navigation/Nodes/Node.class.php:786
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Genişlət/Daralt"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:27
@@ -8983,7 +8983,7 @@ msgstr "Sütunlar"
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:41
 msgid "Database operations"
@@ -9065,18 +9065,20 @@ msgstr ""
 
 #: libraries/normalization.lib.php:115 libraries/normalization.lib.php:791
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Normallaşdırmanın ilk addımı (1NF)"
 
 #: libraries/normalization.lib.php:118 libraries/normalization.lib.php:169
 #: libraries/normalization.lib.php:217 libraries/normalization.lib.php:255
 msgid "Step 1."
-msgstr ""
+msgstr "Addım 1."
 
 #: libraries/normalization.lib.php:120
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Birdən çox sütuna bölünə bilən hər hansı bir sütunununuz varmı? Məsələn: "
+"ünvanlar küçə, şəhər, ölkə və poçt koduna ayrıla bilər."
 
 #: libraries/normalization.lib.php:127
 msgid "Show me the central list of columns that are not already in this table"
@@ -9098,7 +9100,7 @@ msgstr "Belə sütun yoxdur"
 
 #: libraries/normalization.lib.php:145
 msgid "split into "
-msgstr ""
+msgstr "böl "
 
 #: libraries/normalization.lib.php:166
 msgid "Have a primary key"
@@ -9145,10 +9147,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:230
-#, fuzzy
 #| msgid "Removing Selected Users"
 msgid "Remove selected"
-msgstr "Seçilən İstifadəçilər Silinir"
+msgstr "Seçilənləri sil"
 
 #: libraries/normalization.lib.php:231
 msgid "No redundant column"
@@ -9156,7 +9157,7 @@ msgstr "Lazımsız sütun yoxdur"
 
 #: libraries/normalization.lib.php:254
 msgid "Move repeating groups"
-msgstr ""
+msgstr "Təkrarlanan qrupları daşı"
 
 #: libraries/normalization.lib.php:257
 msgid ""
@@ -9175,11 +9176,11 @@ msgstr ""
 
 #: libraries/normalization.lib.php:271
 msgid "No repeating group"
-msgstr ""
+msgstr "Təkrarlanan qrup yoxdur"
 
 #: libraries/normalization.lib.php:300
 msgid "Step 2."
-msgstr ""
+msgstr "Addım 2."
 
 #: libraries/normalization.lib.php:300
 msgid "Find partial dependencies"
@@ -9208,6 +9209,8 @@ msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
+"Zəhmət olmasa aşağıdakı sual(lar)ı düzgün normallaşdırma üçün diqqətlə "
+"cavablayın."
 
 #: libraries/normalization.lib.php:340
 msgid "+ Show me the possible partial dependencies based on data in the table"
