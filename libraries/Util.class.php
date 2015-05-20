@@ -2937,15 +2937,21 @@ class PMA_Util
     /**
      * Gets cached information from the session
      *
-     * @param string $var variable name
+     * @param string  $var      variable name
+     * @param Closure $callback callback to fetch the value
      *
      * @return mixed
      */
-    public static function cacheGet($var)
+    public static function cacheGet($var, $callback = null)
     {
-        if (isset($_SESSION['cache']['server_' . $GLOBALS['server']][$var])) {
+        if (self::cacheExists($var)) {
             return $_SESSION['cache']['server_' . $GLOBALS['server']][$var];
         } else {
+            if ($callback) {
+                $val = $callback();
+                self::cacheSet($var, $val);
+                return $val;
+            }
             return null;
         }
     }
@@ -4566,14 +4572,14 @@ class PMA_Util
      */
     public static function getCollateForIS()
     {
-        if (self::cacheExists('lower_case_table_names')) {
-            $lowerCaseTableNames = self::cacheGet('lower_case_table_names');
-        } else {
-            $lowerCaseTableNames = $GLOBALS['dbi']->fetchValue(
-                "SHOW VARIABLES LIKE 'lower_case_table_names'", 0, 1
-            );
-            self::cacheSet('lower_case_table_names', $lowerCaseTableNames);
-        }
+        $lowerCaseTableNames = self::cacheGet(
+            'lower_case_table_names',
+            function () {
+                return $GLOBALS['dbi']->fetchValue(
+                    "SHOW VARIABLES LIKE 'lower_case_table_names'", 0, 1
+                );
+            }
+        );
 
         if ($lowerCaseTableNames === '0') {
             return "COLLATE utf8_bin";
