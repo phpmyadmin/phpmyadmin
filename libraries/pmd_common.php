@@ -331,7 +331,7 @@ function PMA_deletePage($pg)
         );
     }
 
-    return $success;
+    return (boolean) $success;
 }
 
 /**
