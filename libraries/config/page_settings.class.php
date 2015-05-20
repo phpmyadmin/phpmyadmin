@@ -87,8 +87,7 @@ class PMA_PageSettings
             // save settings
             $result = PMA_saveUserprefs($cf->getConfigArray());
             if ($result === true) {
-                // reload config
-                $GLOBALS['PMA_Config']->loadUserPreferences();
+                // reload page
                 header('Location: ' . $_SERVER['REQUEST_URI']);
                 exit();
             } else {
