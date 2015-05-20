@@ -927,6 +927,48 @@ class PMA_Config
     }
 
     /**
+     * Saves the connection collation
+     *
+     * @param array $config_data configuration data from user preferences
+     *
+     * @return void
+     */
+    private function _saveConnectionCollation($config_data)
+    {
+        if (!PMA_DRIZZLE) {
+            // just to shorten the lines
+            $collation = 'collation_connection';
+            if (isset($GLOBALS[$collation])
+                && (isset($_COOKIE['pma_collation_connection'])
+                || isset($_POST[$collation]))
+            ) {
+                if ((! isset($config_data[$collation])
+                    && $GLOBALS[$collation] != 'utf8_general_ci')
+                    || isset($config_data[$collation])
+                    && $GLOBALS[$collation] != $config_data[$collation]
+                ) {
+                    $this->setUserValue(
+                        null,
+                        $collation,
+                        $GLOBALS[$collation],
+                        'utf8_general_ci'
+                    );
+                }
+            } else {
+                // read collation from settings
+                if (isset($config_data[$collation])) {
+                    $GLOBALS[$collation]
+                        = $config_data[$collation];
+                    $this->setCookie(
+                        'pma_collation_connection',
+                        $GLOBALS[$collation]
+                    );
+                }
+            }
+        }
+    }
+
+    /**
      * Loads user preferences and merges them with current config
      * must be called after control connection has been established
      *
@@ -1042,37 +1084,7 @@ class PMA_Config
         }
 
         // save connection collation
-        if (!PMA_DRIZZLE) {
-            // just to shorten the lines
-            $collation = 'collation_connection';
-            if (isset($GLOBALS[$collation])
-                && (isset($_COOKIE['pma_collation_connection'])
-                || isset($_POST[$collation]))
-            ) {
-                if ((! isset($config_data[$collation])
-                    && $GLOBALS[$collation] != 'utf8_general_ci')
-                    || isset($config_data[$collation])
-                    && $GLOBALS[$collation] != $config_data[$collation]
-                ) {
-                    $this->setUserValue(
-                        null,
-                        $collation,
-                        $GLOBALS[$collation],
-                        'utf8_general_ci'
-                    );
-                }
-            } else {
-                // read collation from settings
-                if (isset($config_data['collation_connection'])) {
-                    $GLOBALS['collation_connection']
-                        = $config_data['collation_connection'];
-                    $this->setCookie(
-                        'pma_collation_connection',
-                        $GLOBALS['collation_connection']
-                    );
-                }
-            }
-        }
+        $this->_saveConnectionCollation($config_data);
     }
 
     /**
