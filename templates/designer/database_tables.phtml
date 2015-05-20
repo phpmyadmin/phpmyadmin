@@ -102,18 +102,18 @@
                                 if (strstr($tab_column[$t_n]["TYPE"][$j], 'char')
                                     || strstr($tab_column[$t_n]["TYPE"][$j], 'text')
                                 ) {
-                                    $type = '_char';
+                                    $type .= '_char';
                                 } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'int')
                                     || strstr($tab_column[$t_n]["TYPE"][$j], 'float')
                                     || strstr($tab_column[$t_n]["TYPE"][$j], 'double')
                                     || strstr($tab_column[$t_n]["TYPE"][$j], 'decimal')
                                 ) {
-                                    $type = '_int';
+                                    $type .= '_int';
                                 } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'date')
                                     || strstr($tab_column[$t_n]["TYPE"][$j], 'time')
                                     || strstr($tab_column[$t_n]["TYPE"][$j], 'year')
                                 ) {
-                                    $type = '_date';
+                                    $type .= '_date';
                                 }
                                 ?>
                                 <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath($type); ?>.png" alt="*" />
