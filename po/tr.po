@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-19 07:58-0400\n"
-"PO-Revision-Date: 2015-05-19 21:33+0200\n"
+"PO-Revision-Date: 2015-05-20 08:41+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -1034,12 +1034,13 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Seçilen bölüm(leri)ü gerçekten KALDIRMAK istiyor musunuz? Bu aynı zamanda "
+"seçilen bölüm(ler) ile ilgili veriyi SİLECEK!"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "\"%s\" aramasını silmek istediğinize emin misiniz?"
+msgstr "Seçilen bölüm(leri)ü gerçekten KESMEK istiyor musunuz?"
 
 #: js/messages.php:68
 msgid "Save & Close"
@@ -1702,10 +1703,9 @@ msgid "Cancel"
 msgstr "İptal"
 
 #: js/messages.php:270 libraries/Header.class.php:450
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Değiştirme ayarları"
+msgstr "Sayfa ile ilgili ayarlar"
 
 #: js/messages.php:271 libraries/config/FormDisplay.tpl.php:402
 msgid "Apply"
@@ -6332,11 +6332,11 @@ msgstr "EKLEME hatasında durdurma"
 
 #: libraries/config/messages.inc.php:345 libraries/config/messages.inc.php:357
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "ON DUPLICATE KEY UPDATE ekle"
 
 #: libraries/config/messages.inc.php:346 libraries/config/messages.inc.php:358
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "İçe aktarmada kopya anahtarlar bulunduğunda veriyi günceller"
 
 #: libraries/config/messages.inc.php:349
 msgid ""
@@ -7790,10 +7790,10 @@ msgid "Enable Zero Configuration mode"
 msgstr "Sıfır Yapılandırması kipini etkinleştir"
 
 #: libraries/config/page_settings.class.php:124
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Ayarlar kaydedilemiyor, gönderilmiş form hatalar içeriyor!"
+msgstr ""
+"Ayarlar kaydedilemiyor, gönderilmiş yapılandırma formu hatalar içeriyor!"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -9125,7 +9125,7 @@ msgstr "Romence"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Sinhalese"
-msgstr ""
+msgstr "Seylanca"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovak"
@@ -9170,10 +9170,9 @@ msgid "multilingual"
 msgstr "çokdilli"
 
 #: libraries/mysql_charsets.lib.php:273
-#, fuzzy
 #| msgid "File name"
 msgid "Vietnamese"
-msgstr "Dosya adı"
+msgstr "Vietnamca"
 
 #: libraries/mysql_charsets.lib.php:300
 msgid "Central European"
@@ -9706,10 +9705,9 @@ msgstr "Veritabanını şuna yeniden adlandır:"
 #: libraries/operations.lib.php:793 libraries/operations.lib.php:988
 #: libraries/operations.lib.php:1148 libraries/rte/rte_routines.lib.php:1100
 #: libraries/tbl_columns_definition_form.lib.php:341
-#, fuzzy
 #| msgid "Reloading Privileges"
 msgid "Realign Privileges"
-msgstr "Yetkiler Yeniden Yükleniyor"
+msgstr "Yetkileri Yeniden Sıraya Koy"
 
 #: libraries/operations.lib.php:112
 #, php-format
@@ -9864,13 +9862,12 @@ msgstr "Onar"
 
 #: libraries/operations.lib.php:1437
 msgid "Truncate"
-msgstr ""
+msgstr "Kes"
 
 #: libraries/operations.lib.php:1445
-#, fuzzy
 #| msgid "Collapse"
 msgid "Coalesce"
-msgstr "Daralt"
+msgstr "Birleştir"
 
 #: libraries/operations.lib.php:1456
 msgid "Partition maintenance"
@@ -9898,16 +9895,16 @@ msgid "Can't copy table to same one!"
 msgstr "Tablo aynısına kopyalanamıyor!"
 
 #: libraries/operations.lib.php:1918
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been realigned."
-msgstr "%s tablosu %s üzerine taşındı."
+msgstr "%s tablosu %s üzerine taşındı. Yetkiler yeniden sıraya kondu."
 
 #: libraries/operations.lib.php:1922
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been realigned."
-msgstr "%s tablosu %s üzerine kopyalandı."
+msgstr "%s tablosu %s üzerine kopyalandı. Yetkiler yeniden sıraya kondu."
 
 #: libraries/operations.lib.php:1929
 #, php-format
@@ -10496,6 +10493,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"İçe aktarmada kopya anahtarlar bulunduğunda veriyi günceller (ON DUPLICATE "
+"KEY UPDATE ekle)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -11626,10 +11625,10 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Üzgünüm, kaldırılmış yordamı geri yükleme başarısız oldu."
 
 #: libraries/rte/rte_routines.lib.php:381
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Routine %1$s has been modified. Privileges have been realigned."
-msgstr "Yordam %1$s değiştirildi."
+msgstr "Yordam %1$s değiştirildi. Yetkiler yeniden sıraya kondu."
 
 #: libraries/rte/rte_routines.lib.php:386
 #, php-format
@@ -12569,7 +12568,6 @@ msgid "Sent"
 msgstr "Gönderilen"
 
 #: libraries/server_status.lib.php:232
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
 msgstr "En fazla eşzamanlı bağlantı"
@@ -14042,11 +14040,12 @@ msgid "Effective"
 msgstr "Etkili"
 
 #: libraries/structure.lib.php:2641
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been realigned."
-msgstr "%1$s tablosu başarılı olarak değiştirildi."
+msgstr ""
+"%1$s tablosu başarılı olarak değiştirildi. Yetkiler yeniden sıraya kondu."
 
 #: libraries/structure.lib.php:2645 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:92
@@ -14947,10 +14946,9 @@ msgid "Series column:"
 msgstr "Seri sütunu:"
 
 #: templates/tbl_chart.php:123
-#, fuzzy
 #| msgid "Value column:"
 msgid "Value Column:"
-msgstr "Değer sütunu:"
+msgstr "Değer Sütunu:"
 
 #: templates/tbl_chart.php:142
 msgid "Save chart as image"
@@ -15235,6 +15233,8 @@ msgid ""
 "Percona documentation is at <a href=\"http://www.percona.com/software/"
 "documentation/\">http://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Percona belgeleri <a href=\"http://www.percona.com/software/documentation/\""
+">http://www.percona.com/software/documentation/</a> adresindedir"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -15245,6 +15245,8 @@ msgid ""
 "Drizzle documentation is at <a href=\"http://www.drizzle.org/content/"
 "documentation/\">http://www.drizzle.org/content/documentation/</a>"
 msgstr ""
+"Drizzle belgeleri <a href=\"http://www.drizzle.org/content/documentation/\""
+">http://www.drizzle.org/content/documentation/</a> adresindedir"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -16043,7 +16045,6 @@ msgid "Too many connections are aborted."
 msgstr "Çok fazla bağlantı durduruldu."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -16054,10 +16055,9 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Bağlantılar genellikle izin verilmediklerinde durdurulurlar. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Bu makale</a> kaynağın izini aramakta yardımcı "
-"olabilir."
+"Bağlantılar genellikle izin verilmediklerinde durdurulurlar. <a href=\""
+"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Bu makale</a> kaynağın izini aramakta yardımcı olabilir."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -16180,7 +16180,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB günlük dosyası boyutu yetersiz şekilde büyük."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -16205,12 +16205,12 @@ msgstr ""
 "Genellikle {innodb_log_file_size} değerini {innodb_buffer_pool_size} "
 "boyutunun %%25'ine ayarlamak yeterlidir. Çok büyük innodb_log_file_size, "
 "veritabanı çökmesinden sonra kurtarma zamanını oldukça yavaşlatır. Aynı "
-"zamanda <a href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-"
-"proper-innodb_log_file_size/\">bu Makaleye</a> bakın. Sunucuyu kapatmanız, "
-"InnoDB günlük dosyalarını kaldırmanız, my.cnf içindeki yeni değeri "
-"ayarlamanız, sunucuyu başlatmanız gerekir, ondan sonra herşeyin iyi "
-"gittiğini anlamak için hata günlüklerini kontrol etmelisiniz. Aynı zamanda "
-"<a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"zamanda <a href=\"http://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">bu Makaleye</a> bakın. Sunucuyu kapatmanız, InnoDB "
+"günlük dosyalarını kaldırmanız, my.cnf içindeki yeni değeri ayarlamanız, "
+"sunucuyu başlatmanız gerekir, ondan sonra herşeyin iyi gittiğini anlamak "
+"için hata günlüklerini kontrol etmelisiniz. Aynı zamanda <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">bu blog girişine</a> bakın"
 
 #: libraries/advisory_rules.txt:448
@@ -16227,7 +16227,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoD arabellek havuzunuz oldukça küçük."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -16253,14 +16253,14 @@ msgid ""
 msgstr ""
 "InnoDB arabellek havuzu InnoDB tabloları için performansta derin etki yapar. "
 "Tüm kalan belleğinizi bu arabelleğe atayın. Veritabanı sunucuları için "
-"depolama motoru olarak sadece InnoDB kullanın ve başka çalışan hizmetler "
-"(örn. web sunucusu) olmasın, bunu kullanılabilir belleğin %%80'nine kadar "
+"depolama motoru olarak sadece InnoDB kullanın ve başka çalışan hizmetler ("
+"örn. web sunucusu) olmasın, bunu kullanılabilir belleğin %%80'nine kadar "
 "ayarlayabilirsiniz. Eğer durum bu değilse, diğer hizmetlerinizin ve InnoDB-"
 "Tabloları olmayanların bellek tüketimini dikkatlice değerlendirmeniz ve "
 "dolayısıyla bu değişkeni ayarlamanız gerekir. Eğer çok yükseğe ayarlanırsa, "
 "sisteminiz önemli derecede performansı düşüren değiş tokuşa başlayacaktır. "
-"Aynı zamanda <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/"
-"choosing-innodb_buffer_pool_size/\">bu makaleye</a> bakın"
+"Aynı zamanda <a href=\"http://www.percona.com/blog/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">bu makaleye</a> bakın"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
