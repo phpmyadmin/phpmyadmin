@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-19 07:58-0400\n"
-"PO-Revision-Date: 2015-05-06 20:57+0200\n"
+"PO-Revision-Date: 2015-05-20 16:41+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -711,7 +711,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Voortgang van de import kon niet worden geladen."
 
 #: import_status.php:112 js/messages.php:351 libraries/Util.class.php:735
 #: libraries/export.lib.php:460
@@ -1030,22 +1030,22 @@ msgid "Do you really want to delete this central column?"
 msgstr "Weet u zeker dat u deze centrale kolom wilt verwijderen?"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Weet u zeker dat u opzoeking \"%s\" wil verwijderen?"
+msgstr "Weet u zeker dat u de geselecteerde items wilt verwijderen?"
 
 #: js/messages.php:64
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Wilt u echt de geselecteerde partitie(s) verwijderen? Dit verwijderd ook "
+"alle data gerelateerd aan deze partitie(s)!"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Weet u zeker dat u opzoeking \"%s\" wil verwijderen?"
+msgstr "Weet u zeker dat u de geselecteerde partitiie(s) wilt afbreken?"
 
 #: js/messages.php:68
 msgid "Save & Close"
@@ -1712,10 +1712,9 @@ msgid "Cancel"
 msgstr "Annuleren"
 
 #: js/messages.php:270 libraries/Header.class.php:450
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Instellingen wijzigen"
+msgstr "Pagina gerelateerde instellingen"
 
 #: js/messages.php:271 libraries/config/FormDisplay.tpl.php:402
 msgid "Apply"
@@ -4750,7 +4749,7 @@ msgstr "Uitleg SQL overslaan"
 #: libraries/Util.class.php:1184
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Analyseer uitleg op %s"
 
 #: libraries/Util.class.php:1215
 msgid "Without PHP Code"
@@ -6367,11 +6366,12 @@ msgstr "Breek een handeling niet af bij een INSERT-fout"
 
 #: libraries/config/messages.inc.php:345 libraries/config/messages.inc.php:357
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Voeg ON DUPLICATE KEY UPDATE toe"
 
 #: libraries/config/messages.inc.php:346 libraries/config/messages.inc.php:358
 msgid "Update data when duplicate keys found on import"
 msgstr ""
+"Werk data bij wanneer identieke sleutelvelden worden gevonden bij importeren"
 
 #: libraries/config/messages.inc.php:349
 msgid ""
@@ -6655,7 +6655,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Minimale aantal databases waarbij een filterveld wordt getoond"
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6663,8 +6662,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Groepeer elementen in een boomstructuur (scheidingsteken zoals hieronder "
-"aangegeven)."
+"Groepeer elementen in een boomstructuur ( op basis van het scheidingsteken "
+"zoals gedefinieerd in de Databases en Tabellen tabs hier boven)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Group items in the tree"
@@ -7836,11 +7835,11 @@ msgid "Enable Zero Configuration mode"
 msgstr "'Zonder configuratie'-modus inschakelen"
 
 #: libraries/config/page_settings.class.php:124
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
-"Instellingen werden niet opgeslagen, het verstuurde formulier bevat fouten!"
+"Instellingen kunnen niet  worden opgeslagen, het verstuurde configuratie "
+"formulier bevat fouten!"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -9184,7 +9183,7 @@ msgstr "Roemeens"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Sinhalese"
-msgstr ""
+msgstr "Singalees"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovak"
@@ -9229,10 +9228,9 @@ msgid "multilingual"
 msgstr "meertalig"
 
 #: libraries/mysql_charsets.lib.php:273
-#, fuzzy
 #| msgid "File name"
 msgid "Vietnamese"
-msgstr "Bestandsnaam"
+msgstr "Vietnamees"
 
 #: libraries/mysql_charsets.lib.php:300
 msgid "Central European"
@@ -9777,10 +9775,9 @@ msgstr "Hernoem database naar"
 #: libraries/operations.lib.php:793 libraries/operations.lib.php:988
 #: libraries/operations.lib.php:1148 libraries/rte/rte_routines.lib.php:1100
 #: libraries/tbl_columns_definition_form.lib.php:341
-#, fuzzy
 #| msgid "Reloading Privileges"
 msgid "Realign Privileges"
-msgstr "Rechten worden herladen"
+msgstr "Rechten opnieuw toekennen"
 
 #: libraries/operations.lib.php:112
 #, php-format
@@ -9935,13 +9932,12 @@ msgstr "Repareren"
 
 #: libraries/operations.lib.php:1437
 msgid "Truncate"
-msgstr ""
+msgstr "Afbreken"
 
 #: libraries/operations.lib.php:1445
-#, fuzzy
 #| msgid "Collapse"
 msgid "Coalesce"
-msgstr "Samenvouwen"
+msgstr "Samenvoegen"
 
 #: libraries/operations.lib.php:1456
 msgid "Partition maintenance"
@@ -9969,16 +9965,16 @@ msgid "Can't copy table to same one!"
 msgstr "Kan de tabel niet naar dezelfde kopiëren!"
 
 #: libraries/operations.lib.php:1918
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been realigned."
-msgstr "Tabel %s is verplaatst naar %s."
+msgstr "Tabel %s is verplaatst naar %s. Rechten zijn opnieuw toegewezen."
 
 #: libraries/operations.lib.php:1922
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been realigned."
-msgstr "Tabel %s is gekopieerd naar %s."
+msgstr "Tabel %s is gekopieerd naar %s. Rechten zijn opnieuw toegewezen."
 
 #: libraries/operations.lib.php:1929
 #, php-format
@@ -10567,6 +10563,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Werk data bij wanneer dubbele sleutelvelden worden gevonden bij import (voeg "
+"ON DUPLICATE KEY UPDATE toe)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -11707,10 +11705,10 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Het terugzetten van de verwijderde routine is mislukt."
 
 #: libraries/rte/rte_routines.lib.php:381
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Routine %1$s has been modified. Privileges have been realigned."
-msgstr "Routine %1$s werd gewijzigd."
+msgstr "Routine %1$s werd gewijzigd. Rechten zijn opnieuw toegewezen."
 
 #: libraries/rte/rte_routines.lib.php:386
 #, php-format
@@ -12668,7 +12666,6 @@ msgid "Sent"
 msgstr "Verzonden"
 
 #: libraries/server_status.lib.php:232
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
 msgstr "Max. gelijktijdige verbindingen"
@@ -14160,11 +14157,11 @@ msgid "Effective"
 msgstr "Effectief"
 
 #: libraries/structure.lib.php:2641
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been realigned."
-msgstr "Tabel %1$s is succesvol bijgewerkt."
+msgstr "Tabel %1$s is succesvol bijgewerkt. Rechten zijn opnieuw toegewezen."
 
 #: libraries/structure.lib.php:2645 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:92
@@ -15074,7 +15071,6 @@ msgid "Series column:"
 msgstr "Kolom met series:"
 
 #: templates/tbl_chart.php:123
-#, fuzzy
 #| msgid "Value column:"
 msgid "Value Column:"
 msgstr "Kolom met waarden:"
@@ -15369,6 +15365,9 @@ msgid ""
 "Percona documentation is at <a href=\"http://www.percona.com/software/"
 "documentation/\">http://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Percona documentation is te vinden op <a href=\""
+"http://www.percona.com/software/documentation/\""
+">http://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -15379,6 +15378,9 @@ msgid ""
 "Drizzle documentation is at <a href=\"http://www.drizzle.org/content/"
 "documentation/\">http://www.drizzle.org/content/documentation/</a>"
 msgstr ""
+"Drizzle documentatie is te vinden op <a href=\""
+"http://www.drizzle.org/content/documentation/\""
+">http://www.drizzle.org/content/documentation/</a>"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -16206,7 +16208,6 @@ msgid "Too many connections are aborted."
 msgstr "Te veel verbindingen werden afgebroken."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -16218,9 +16219,8 @@ msgid ""
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
 "Verbindingen worden meestal afgebroken wanneer deze niet toegelaten zijn. <a "
-"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Dit artikel</a> kan u helpen om de oorzaak te "
-"vinden."
+"href=\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
+"of-aborted_connects/\">Dit artikel</a> kan u helpen om de oorzaak te vinden."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -16349,7 +16349,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Het InnoDB-logboek is veel te groot."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -16374,14 +16374,14 @@ msgstr ""
 "Doorgaans is het voldoende om {innodb_log_file_size} in te stellen op 25%% "
 "van {innodb_buffer_pool_size}. \n"
 "Een grote {innodb_log_file_size} verlengt de hersteltijd na een database-"
-"crash enorm. Bekijk ook <a href=\"http://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">dit artikel</a>.\n"
+"crash enorm. Bekijk ook  <a href=\"http://www.percona.com/blog/2006/07/03"
+"/choosing-proper-innodb_log_file_size/\">dit artikel</a>.\n"
 "De server moet uitgeschakeld worden, de InnoDB-logbestanden moeten worden "
 "verwijderd, de nieuwe waarde moet worden ingesteld in my.cnf, de server "
 "herstart en dan moeten de foutenlogboeken bekeken worden om te zien of alles "
-"goed gegaan is. Bekijk ook <a href=\"http://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">deze blog</"
-"a>"
+"goed gegaan is. Bekijk ook <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">deze blog</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -16397,7 +16397,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Uw InnoDB-bufferpool is betrekkelijk klein."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -16429,9 +16429,9 @@ msgstr ""
 "zorgvuldig het geheugengebruik van de andere diensten en niet-InnoDB-"
 "tabellen inschatten en deze waarde gepast instellen. Als deze te hoog wordt "
 "ingesteld, kan het systeem swapgeheugen gaan gebruiken, waardoor de "
-"prestaties sterk verminderd worden. Bekijk ook <a href=\"http://www."
-"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">dit "
-"artikel</a>"
+"prestaties sterk verminderd worden. Bekijk ook <a href=\""
+"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">"
+"dit artikel</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
