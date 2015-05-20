@@ -102,6 +102,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
          * @var    the_form    object referring to the export form
          */
         var $form = $(this);
+        var field_cnt = $form.find('input[name=orig_num_fields]').val();
 
         /*
          * First validate the form; if there is a problem, avoid submitting it
@@ -110,35 +111,71 @@ AJAX.registerOnload('tbl_structure.js', function () {
          * this is why we pass $form[0] as a parameter (the jQuery object
          * is actually an array of DOM elements)
          */
-        if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
+        if (checkTableEditForm($form[0], field_cnt)) {
             // OK, form passed validation step
+
             PMA_prepareForAjaxRequest($form);
             if (PMA_checkReservedWordColumns($form)) {
                 //User wants to submit the form
-                $msg = PMA_ajaxShowMessage();
-                $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
-                    if ($(".sqlqueryresults").length !== 0) {
-                        $(".sqlqueryresults").remove();
-                    } else if ($(".error:not(.tab)").length !== 0) {
-                        $(".error:not(.tab)").remove();
-                    }
-                    if (typeof data.success != 'undefined' && data.success === true) {
-                        $("#page_content")
-                            .empty()
-                            .append(data.message)
-                            .show();
-                        PMA_highlightSQL($('#page_content'));
-                        $(".result_query .notice").remove();
-                        reloadFieldForm();
-                        $form.remove();
-                        PMA_ajaxRemoveMessage($msg);
-                        PMA_init_slider();
-                        PMA_reloadNavigation();
-                    } else {
-                        PMA_ajaxShowMessage(data.error, false);
-                    }
-                }); // end $.post()
+
+                // If Collation is changed, Warn and Confirm
+                if (checkIfConfirmRequired($form, field_cnt)){
+                    var question = sprintf(
+                        PMA_messages.strChangeColumnCollation, 'http://wiki.phpmyadmin.net/pma/Garbled_data'
+                    );
+                    $form.PMA_confirm(question, $form.attr('action'), function (url) {
+                        submitForm();
+                    });
+                } else {
+                    submitForm();
+                }
             }
+        }
+
+        function submitForm(){
+            $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
+                if ($(".sqlqueryresults").length !== 0) {
+                    $(".sqlqueryresults").remove();
+                } else if ($(".error:not(.tab)").length !== 0) {
+                    $(".error:not(.tab)").remove();
+                }
+                if (typeof data.success != 'undefined' && data.success === true) {
+                    $("#page_content")
+                        .empty()
+                        .append(data.message)
+                        .show();
+                    PMA_highlightSQL($('#page_content'));
+                    $(".result_query .notice").remove();
+                    reloadFieldForm();
+                    $form.remove();
+                    PMA_ajaxRemoveMessage($msg);
+                    PMA_init_slider();
+                    PMA_reloadNavigation();
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+            }); // end $.post()
+        }
+
+        function checkIfConfirmRequired($form, $field_cnt) {
+            var i = 0, id, elm, val, name_orig, elm_orig, val_orig;
+            var checkRequired = false;
+            for (i = 0; i < field_cnt; i++) {
+                id = "#field_" + i + "_5";
+                elm = $(id);
+                val = elm.val();
+
+                name_orig = "input[name=field_collation_orig\\[" + i + "\\]]";
+                elm_orig = $form.find(name_orig);
+                val_orig = elm_orig.val();
+
+                if (val && val_orig && val !== val_orig){
+                    checkRequired = true;
+                    break;
+                }
+            }
+            return checkRequired;
         }
     }); // end change table button "do_save_data"
 
