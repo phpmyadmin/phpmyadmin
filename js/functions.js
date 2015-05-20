@@ -4092,7 +4092,28 @@ AJAX.registerTeardown('functions.js', function () {
         codemirror_editor = false;
     }
 });
+AJAX.registerOnload('functions.js', function () {
+    // initializes all lock-page elements lock-id and
+    // val-hash data property
+    $('#page_content form.lock-page textarea, ' +
+            '#page_content form.lock-page input[type="text"], '+
+            '#page_content form.lock-page input[type="number"], '+
+            '#page_content form.lock-page select').each(function (i) {
+        $(this).data('lock-id', i);
+        // val-hash is the hash of default value of the field
+        // so that it can be compared with new value hash
+        // to check whether field was modified or not.
+        $(this).data('val-hash', AJAX.hash($(this).val()));
+    });
 
+    // initializes lock-page elements (input types checkbox and radio buttons)
+    // lock-id and val-hash data property
+    $('#page_content form.lock-page input[type="checkbox"], ' +
+            '#page_content form.lock-page input[type="radio"]').each(function (i) {
+        $(this).data('lock-id', i);
+        $(this).data('val-hash', AJAX.hash($(this).is(":checked")));
+    });
+});
 /**
  * jQuery plugin to cancel selection in HTML code.
  */
