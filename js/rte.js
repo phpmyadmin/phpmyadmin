@@ -170,20 +170,7 @@ RTE.COMMON = {
                  *           to the Export textarea.
                  */
                 var $elm = $ajaxDialog.find('textarea');
-                /**
-                 * @var opts Options to pass to the codemirror editor
-                 */
-                var opts = {
-                    lineNumbers: true,
-                    matchBrackets: true,
-                    extraKeys: {"Ctrl-Space": "autocomplete"},
-                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
-                    indentUnit: 4,
-                    mode: "text/x-mysql",
-                    lineWrapping: true
-                };
-                CodeMirror.fromTextArea($elm[0], opts)
-                    .on("inputRead", codemirrorAutocompleteOnInputRead);
+                PMA_getSQLEditor($elm);
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
@@ -373,22 +360,8 @@ RTE.COMMON = {
                  *                 the Definition textarea.
                  */
                 var $elm = $('textarea[name=item_definition]').last();
-                /**
-                 * @var opts Options to pass to the codemirror editor
-                 */
-                var opts = {
-                    lineNumbers: true,
-                    matchBrackets: true,
-                    extraKeys: {"Ctrl-Space": "autocomplete"},
-                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
-                    indentUnit: 4,
-                    mode: "text/x-mysql",
-                    lineWrapping: true
-                };
-                if (typeof CodeMirror != 'undefined') {
-                    that.syntaxHiglighter = CodeMirror.fromTextArea($elm[0], opts);
-                    that.syntaxHiglighter.on("inputRead", codemirrorAutocompleteOnInputRead);
-                }
+                that.syntaxHiglighter = PMA_getSQLEditor($elm);
+
                 // Execute item-specific code
                 that.postDialogShow(data);
             } else {

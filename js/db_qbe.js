@@ -28,7 +28,7 @@ AJAX.registerTeardown('db_qbe.js', function () {
 
 AJAX.registerOnload('db_qbe.js', function () {
 
-    bindCodeMirrorToQueryEditor();
+    PMA_getSQLEditor($('#textSqlquery'));
 
     /**
      * Ajax event handlers for 'Select saved search'
@@ -64,34 +64,3 @@ AJAX.registerOnload('db_qbe.js', function () {
         $('#action').val('delete');
     });
 });
-
-/**
- * Binds the CodeMirror to the query editor text area.
- */
-function bindCodeMirrorToQueryEditor() {
-    var $query_editor = $('#textSqlquery');
-    if ($query_editor.length > 0) {
-        if (typeof CodeMirror !== 'undefined') {
-            var codemirror_query_editor = CodeMirror.fromTextArea($query_editor[0], {
-                lineNumbers: true,
-                matchBrackets: true,
-                extraKeys: {"Ctrl-Space": "autocomplete"},
-                hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
-                indentUnit: 4,
-                mode: "text/x-mysql",
-                lineWrapping: true
-            });
-            codemirror_query_editor.on("inputRead", codemirrorAutocompleteOnInputRead);
-            codemirror_query_editor.focus();
-            $(codemirror_query_editor.getWrapperElement()).bind(
-                'keydown',
-                catchKeypressesFromSqlTextboxes
-            );
-        } else {
-            $query_editor.focus().bind(
-                'keydown',
-                catchKeypressesFromSqlTextboxes
-            );
-        }
-    }
-}

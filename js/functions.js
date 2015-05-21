@@ -93,6 +93,46 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
 });
 
 /**
+ * Creates an SQL editor which supports auto completing etc.
+ *
+ * @param $textarea jQuery object wrapping the textarea to be made the editor
+ * @param options   optional options for CodeMirror
+ */
+function PMA_getSQLEditor($textarea, options) {
+    if ($textarea.length > 0 && typeof CodeMirror !== 'undefined') {
+
+        // merge options for CodeMirror
+        var defaults = {
+            lineNumbers: true,
+            matchBrackets: true,
+            extraKeys: {"Ctrl-Space": "autocomplete"},
+            hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
+            indentUnit: 4,
+            mode: "text/x-mysql",
+            lineWrapping: true
+        };
+        $.extend(true, defaults, options);
+
+        // create CodeMirror editor
+        var codemirrorEditor = CodeMirror.fromTextArea($textarea[0], defaults);
+        // allow resizing
+        $(codemirrorEditor.getWrapperElement())
+            .css('resize', 'vertical')
+            .resizable({
+                handles: 'n, s',
+                resize: function() {
+                    codemirrorEditor.setSize($(this).width(), $(this).height());
+                }
+            });
+        // enable autocomplete
+        codemirrorEditor.on("inputRead", codemirrorAutocompleteOnInputRead);
+
+        return codemirrorEditor;
+    }
+    return null;
+}
+
+/**
  * Clear text selection
  */
 function PMA_clearSelection() {
@@ -1853,37 +1893,17 @@ function bindCodeMirrorToInlineEditor() {
     var $inline_editor = $('#sql_query_edit');
     if ($inline_editor.length > 0) {
         if (typeof CodeMirror !== 'undefined') {
-            var height = $('#sql_query_edit').css('height');
-            codemirror_inline_editor = CodeMirror.fromTextArea($inline_editor[0], {
-                lineNumbers: true,
-                matchBrackets: true,
-                extraKeys: {"Ctrl-Space": "autocomplete"},
-                hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
-                indentUnit: 4,
-                mode: "text/x-mysql",
-                lineWrapping: true
-            });
-            $(codemirror_inline_editor.getWrapperElement())
-            .css('resize', 'vertical')
-            .resizable({
-                handles: 'n, s',
-                resize: function() {
-                    codemirror_inline_editor.setSize($(this).width(), $(this).height());
-                }
-            });
-            codemirror_inline_editor.on("inputRead", codemirrorAutocompleteOnInputRead);
+            var height = $inline_editor.css('height');
+            codemirror_inline_editor = PMA_getSQLEditor($inline_editor);
             codemirror_inline_editor.getWrapperElement().style.height = height;
             codemirror_inline_editor.refresh();
             codemirror_inline_editor.focus();
-            $(codemirror_inline_editor.getWrapperElement()).bind(
-                'keydown',
-                catchKeypressesFromSqlTextboxes
-            );
+            $(codemirror_inline_editor.getWrapperElement())
+                .bind('keydown', catchKeypressesFromSqlTextboxes);
         } else {
-            $inline_editor.focus().bind(
-                'keydown',
-                catchKeypressesFromSqlTextboxes
-            );
+            $inline_editor
+                .focus()
+                .bind('keydown', catchKeypressesFromSqlTextboxes);
         }
     }
 }
@@ -4067,31 +4087,11 @@ AJAX.registerOnload('functions.js', function () {
     var $elm = $('#sqlquery');
     if ($elm.length > 0) {
         if (typeof CodeMirror != 'undefined') {
-            // for codemirror
-            codemirror_editor = CodeMirror.fromTextArea($elm[0], {
-                lineNumbers: true,
-                matchBrackets: true,
-                extraKeys: {"Ctrl-Space": "autocomplete"},
-                hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
-                indentUnit: 4,
-                mode: "text/x-mysql",
-                lineWrapping: true
-            });
-            $(codemirror_editor.getWrapperElement())
-            .css('resize', 'vertical')
-            .resizable({
-                handles: 'n, s',
-                resize: function() {
-                    codemirror_editor.setSize($(this).width(), $(this).height());
-                }
-            });
-            codemirror_editor.on("inputRead", codemirrorAutocompleteOnInputRead);
-            codemirror_editor.on("blur", updateQueryParameters);
+            codemirror_editor = PMA_getSQLEditor($elm);
             codemirror_editor.focus();
-            $(codemirror_editor.getWrapperElement()).bind(
-                'keydown',
-                catchKeypressesFromSqlTextboxes
-            );
+            $(codemirror_editor.getWrapperElement())
+                .bind('keydown', catchKeypressesFromSqlTextboxes);
+            codemirror_editor.on("blur", updateQueryParameters);
         } else {
             // without codemirror
             $elm.focus()
@@ -4291,24 +4291,7 @@ AJAX.registerOnload('functions.js', function () {
         }); // end $(document).on()
     }
 
-    var $elm = $('textarea[name="view[as]"]');
-    if ($elm.length > 0) {
-        if (typeof CodeMirror != 'undefined') {
-            syntaxHighlighter = CodeMirror.fromTextArea(
-                $elm[0],
-                {
-                    lineNumbers: true,
-                    matchBrackets: true,
-                    extraKeys: {"Ctrl-Space": "autocomplete"},
-                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
-                    indentUnit: 4,
-                    mode: "text/x-mysql",
-                    lineWrapping: true
-                }
-            );
-            syntaxHighlighter.on("inputRead", codemirrorAutocompleteOnInputRead);
-        }
-    }
+    syntaxHighlighter = PMA_getSQLEditor($('textarea[name="view[as]"]'));
 
     $(document).on('change', '#fkc_checkbox', function () {
         if ($(this).prop("checked")) {
@@ -4357,19 +4340,7 @@ function PMA_createViewDialog($this)
                 }
             });
             // Attach syntax highlighted editor
-            if (typeof CodeMirror !== 'undefined') {
-                var $elm = $dialog.find('textarea');
-                syntaxHighlighter = CodeMirror.fromTextArea($elm[0], {
-                    lineNumbers: true,
-                    matchBrackets: true,
-                    extraKeys: {"Ctrl-Space": "autocomplete"},
-                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
-                    indentUnit: 4,
-                    mode: "text/x-mysql",
-                    lineWrapping: true
-                });
-                syntaxHighlighter.on("inputRead", codemirrorAutocompleteOnInputRead);
-            }
+            syntaxHighlighter = PMA_getSQLEditor($dialog.find('textarea'));
             $('input:visible[type=text]', $dialog).first().focus();
         } else {
             PMA_ajaxShowMessage(data.error);

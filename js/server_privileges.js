@@ -259,18 +259,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                     });
                     PMA_ajaxRemoveMessage($msgbox);
                     // Attach syntax highlighted editor to export dialog
-                    if (typeof CodeMirror != 'undefined') {
-                        CodeMirror.fromTextArea(
-                            $ajaxDialog.find('textarea')[0],
-                            {
-                                lineNumbers: true,
-                                matchBrackets: true,
-                                indentUnit: 4,
-                                mode: "text/x-mysql",
-                                lineWrapping: true
-                            }
-                        );
-                    }
+                    PMA_getSQLEditor($ajaxDialog.find('textarea'));
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
@@ -278,18 +267,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         ); //end $.post
     });
     // if exporting non-ajax, highlight anyways
-    if ($("textarea.export").length > 0 && typeof CodeMirror != 'undefined') {
-        CodeMirror.fromTextArea(
-            $('textarea.export')[0],
-            {
-                lineNumbers: true,
-                matchBrackets: true,
-                indentUnit: 4,
-                mode: "text/x-mysql",
-                lineWrapping: true
-            }
-        );
-    }
+    PMA_getSQLEditor($('textarea.export'));
 
     $(document).on('click', "a.export_user_anchor.ajax", function (event) {
         event.preventDefault();
@@ -315,18 +293,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                 });
                 PMA_ajaxRemoveMessage($msgbox);
                 // Attach syntax highlighted editor to export dialog
-                if (typeof CodeMirror != 'undefined') {
-                    CodeMirror.fromTextArea(
-                        $ajaxDialog.find('textarea')[0],
-                        {
-                            lineNumbers: true,
-                            matchBrackets: true,
-                            indentUnit: 4,
-                            mode: "text/x-mysql",
-                            lineWrapping: true
-                        }
-                    );
-                }
+                PMA_getSQLEditor($ajaxDialog.find('textarea'));
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
