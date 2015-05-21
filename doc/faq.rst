@@ -2039,6 +2039,33 @@ involve a manual verification at one point.
 
 * Move the new id column via Structure > Move columns
 
+.. _faq6_39:
+
+6.39 What is "Adjust Privileges" Option and How to use it?
+-----------------------------------------------------------
+
+When renaming/copying/moving a Database/Table/Column/Procedure,
+MySQL does not adjust the original privileges relating to these objects
+on its own.
+
+For Example: An User 'root'@'localhost' has a 'SELECT' privilege on a
+column named 'id'. Now, if this column is now renamed to 'id_new', MySQL,
+on its own, would **not** adjust the column privileges to the new column name.
+
+** Note : **
+
+* While adjusting privileges for a Database, the privileges of all table-related
+  privileges, all column-related privileges and all procedure-related privileges
+  for the tables, columns and procedures inside that database are also adjusted
+  to the Database's new name.
+
+* Similarly, while adjusting privileges for a Table, the privileges of all
+  column-related privileges for the columns inside the table are also adjusted
+  to the Table's new name.
+
+Thus, if you want to replicate the Database/ Table/ Column/ Procedure as it is
+while renaming/copying/moving these objects, make sure you have checked this option.
+
 .. _faqproject:
 
 phpMyAdmin project

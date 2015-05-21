@@ -343,7 +343,7 @@ function PMA_getHeaderCells($is_backup, $columnMeta, $mimework)
     if (isset($_REQUEST['change_column'])
         && ! empty($_REQUEST['change_column'])
     ) {
-        $header_cells[] = __('Realign Privileges');
+        $header_cells[] = __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39');
     }
 
     // We could remove this 'if' and let the key information be shown and
@@ -990,7 +990,7 @@ function PMA_getHtmlForIndexTypeOption($columnNumber, $columnMeta, $type, $key)
 }
 
 /**
- * Function to get html for column Realign Privileges
+ * Function to get html for column Adjust Privileges
  *
  * @param int $columnNumber column number
  * @param int $ci           cell index
@@ -998,9 +998,9 @@ function PMA_getHtmlForIndexTypeOption($columnNumber, $columnMeta, $type, $key)
  *
  * @return string
  */
-function PMA_getHtmlForColumnRealignPrivileges($columnNumber, $ci, $ci_offset)
+function PMA_getHtmlForColumnAdjustPrivileges($columnNumber, $ci, $ci_offset)
 {
-    $html = '<input name="field_realign_privileges[' . $columnNumber . ']"'
+    $html = '<input name="field_adjust_privileges[' . $columnNumber . ']"'
         . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"'
         . ' checked="checked"'
         . ' type="checkbox" value="NULL" class="allow_null"/>';
@@ -1341,12 +1341,12 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
     );
     $ci++;
 
-    // column Realign Privileges
+    // column Adjust Privileges
     // Only for 'Edit' Column(s)
     if (isset($_REQUEST['change_column'])
         && ! empty($_REQUEST['change_column'])
     ) {
-        $content_cell[$ci] = PMA_getHtmlForColumnRealignPrivileges(
+        $content_cell[$ci] = PMA_getHtmlForColumnAdjustPrivileges(
             $columnNumber, $ci, $ci_offset
         );
         $ci++;

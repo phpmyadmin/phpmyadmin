@@ -116,10 +116,10 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
         PMA_duplicateBookmarks($_error, $GLOBALS['db']);
 
         if (! $_error && $move) {
-            if (isset($_REQUEST['realign_privileges'])
-                && ! empty($_REQUEST['realign_privileges'])
+            if (isset($_REQUEST['adjust_privileges'])
+                && ! empty($_REQUEST['adjust_privileges'])
             ) {
-                PMA_RealignPrivileges_moveDB($GLOBALS['db'], $_REQUEST['newname']);
+                PMA_adjustPrivileges_moveDB($GLOBALS['db'], $_REQUEST['newname']);
             }
 
             /**
@@ -140,10 +140,10 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
             $message->addParam($GLOBALS['db']);
             $message->addParam($_REQUEST['newname']);
         } elseif (! $_error) {
-            if (isset($_REQUEST['realign_privileges'])
-                && ! empty($_REQUEST['realign_privileges'])
+            if (isset($_REQUEST['adjust_privileges'])
+                && ! empty($_REQUEST['adjust_privileges'])
             ) {
-                PMA_RealignPrivileges_copyDB($GLOBALS['db'], $_REQUEST['newname']);
+                PMA_adjustPrivileges_copyDB($GLOBALS['db'], $_REQUEST['newname']);
             }
 
             $message = PMA_Message::success(
