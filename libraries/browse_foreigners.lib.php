@@ -29,6 +29,10 @@ function PMA_getHtmlForOneKey($horizontal_count, $header, $odd_row, $keys,
     $horizontal_count++;
     $output = '';
 
+    // whether the key name corresponds to the selected value in the form
+    $rightKeynameIsSelected = false;
+    $leftKeynameIsSelected = false;
+
     if ($GLOBALS['cfg']['RepeatCells'] > 0
         && $horizontal_count > $GLOBALS['cfg']['RepeatCells']
     ) {
@@ -101,7 +105,7 @@ function PMA_getHtmlForOneKey($horizontal_count, $header, $odd_row, $keys,
  * @param string $field         field
  * @param array  $foreignData   foreign column data
  * @param string $fieldkey      field key
- * @param array  $current_value current columns's value
+ * @param string $current_value current columns's value
  *
  * @return string
  */
@@ -180,10 +184,6 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
     $horizontal_count = 0;
     $odd_row = true;
     $indexByDescription = 0;
-
-    // whether the key name corresponds to the selected value in the form
-    $rightKeynameIsSelected = false;
-    $leftKeynameIsSelected = false;
 
     foreach ($keys as $indexByKeyname => $value) {
         list(
