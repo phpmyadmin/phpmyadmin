@@ -17,11 +17,9 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 .CodeMirror {
   height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
 }
-
 #inline_editor_outer .CodeMirror {
     height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 0.4); ?>em;
 }
-
 span.cm-keyword, span.cm-statement-verb {
     color: #909;
 }
@@ -55,14 +53,15 @@ span.cm-separator {
 span.cm-number {
     color: teal;
 }
-
 .autocomplete-column-name {
     display: inline-block;
 }
-
 .autocomplete-column-hint {
     display: inline-block;
     float: right;
     color: #666;
     margin-left: 1em;
+}
+.CodeMirror-hints {
+    z-index: 200;
 }
