@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug       Allow accessing visual query builder when pmadb is not configured
 - bug #4893 Nav tree line alignment issue
 - bug #4911 Lock page icon is not shown after fresh reload
+- bug #4912 "Highlight pointer" and "Row marker" doesn't work properly
 
 4.4.7.0 (2015-05-16)
 - bug #4876 Settings issues (Favorite tables shown twice in Settings)
