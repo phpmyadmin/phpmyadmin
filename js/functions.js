@@ -835,11 +835,7 @@ AJAX.registerOnload('functions.js', function () {
                     checked = !checked;
                     $checkbox.prop('checked', checked).trigger('change');
                 }
-                if (checked) {
-                    $tr.addClass('marked');
-                } else {
-                    $tr.removeClass('marked');
-                }
+                $tr.toggleClass('marked', checked);
                 last_click_checked = checked;
             } else {
                 // normal data table, just toggle class
