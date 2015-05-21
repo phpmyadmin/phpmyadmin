@@ -98,7 +98,7 @@
                             <?php if (isset($tables_pk_or_unique_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]])) : ?>
                                 <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/FieldKey_small.png'); ?>" alt="*" />
                             <?php else :
-                                $type = 'pma/Field_small';
+                                $type = 'pmd/Field_small';
                                 if (strstr($tab_column[$t_n]["TYPE"][$j], 'char')
                                     || strstr($tab_column[$t_n]["TYPE"][$j], 'text')
                                 ) {
