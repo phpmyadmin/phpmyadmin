@@ -1,0 +1,27 @@
+<div class="panel">
+    <div style="clear:both;">
+    </div>
+    <div id="ab">
+    </div>
+    <div style="clear:both;">
+    </div>
+</div>
+<a class="trigger" href="#">
+    <?php echo __('Active options'); ?>
+</a>
+<div id="filter">
+</div>
+<div id="box">
+    <span id="boxtitle">
+    </span>
+    <form method="post" action="db_qbe.php">
+        <textarea cols="80" name="sql_query" id="textSqlquery" rows="15">
+        </textarea>
+        <div id="tblfooter">
+            <input type="submit" name="submit_sql" class="btn" />
+            <input type="button" name="cancel" value="<?php echo __('Cancel'); ?>" onclick="closebox()" class="btn" />
+            <?php echo MA_URL_getHiddenInputs($_GET['db']); ?>
+        </div>
+    </p>
+</form>
+</div>
