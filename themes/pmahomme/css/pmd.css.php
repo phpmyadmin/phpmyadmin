@@ -571,6 +571,7 @@ h2.active {
 
 .side-menu.right {
     float: right;
+    right: 0;
 }
 
 .side-menu .hide {
