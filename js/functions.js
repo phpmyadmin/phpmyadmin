@@ -1863,8 +1863,16 @@ function bindCodeMirrorToInlineEditor() {
                 mode: "text/x-mysql",
                 lineWrapping: true
             });
+            $(codemirror_inline_editor.getWrapperElement())
+            .css('resize', 'vertical')
+            .resizable({
+                handles: 'n, s',
+                resize: function() {
+                    codemirror_inline_editor.setSize($(this).width(), $(this).height());
+                }
+            });
             codemirror_inline_editor.on("inputRead", codemirrorAutocompleteOnInputRead);
-            codemirror_inline_editor.getScrollerElement().style.height = height;
+            codemirror_inline_editor.getWrapperElement().style.height = height;
             codemirror_inline_editor.refresh();
             codemirror_inline_editor.focus();
             $(codemirror_inline_editor.getWrapperElement()).bind(
@@ -4068,6 +4076,14 @@ AJAX.registerOnload('functions.js', function () {
                 indentUnit: 4,
                 mode: "text/x-mysql",
                 lineWrapping: true
+            });
+            $(codemirror_editor.getWrapperElement())
+            .css('resize', 'vertical')
+            .resizable({
+                handles: 'n, s',
+                resize: function() {
+                    codemirror_editor.setSize($(this).width(), $(this).height());
+                }
             });
             codemirror_editor.on("inputRead", codemirrorAutocompleteOnInputRead);
             codemirror_editor.on("blur", updateQueryParameters);
