@@ -1184,7 +1184,7 @@ class PMA_NavigationTree
         $retval .= '<div id="pma_navigation_db_select">';
         $retval .= '<form action="index.php">';
         $retval .= PMA_getHiddenFields($url_params);
-        $retval .= '<select name="db" id="navi_db_select">'
+        $retval .= '<select name="db" class="hide" id="navi_db_select">'
             . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
             . '(' . __('Databases') . ') ...</option>' . "\n";
         $selected = $GLOBALS['db'];

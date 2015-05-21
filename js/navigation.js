@@ -686,7 +686,7 @@ function PMA_showCurrentNavigation() {
             }
         }
     } else if ($('#navi_db_select').length && $('#navi_db_select').val()) {
-        $('#navi_db_select').val('').trigger('change');
+        $('#navi_db_select').val('').hide().trigger('change');
     }
     PMA_showFullName($('#pma_navigation_tree'));
 
@@ -867,6 +867,9 @@ function PMA_reloadNavigation(callback, paths) {
 
 function PMA_selectCurrentDb() {
     if ($('#navi_db_select').length) {
+        if (PMA_commonParams.get('db')) { // db selected
+            $('#navi_db_select').show();
+        }
         $('#navi_db_select').val(PMA_commonParams.get('db'));
         if ($('#navi_db_select').val() !== PMA_commonParams.get('db')) {
             return false;
