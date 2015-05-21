@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-19 07:58-0400\n"
-"PO-Revision-Date: 2015-04-22 13:28+0200\n"
-"Last-Translator: João Rodrigues <geral@jonilive.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/pt/>\n"
+"PO-Revision-Date: 2015-05-21 12:08+0200\n"
+"Last-Translator: Alexandre Badalo <alexandre.badalo@sapo.pt>\n"
+"Language-Team: Portuguese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -339,13 +339,15 @@ msgstr "Acesso Negado!"
 #: db_tracking.php:39 db_tracking.php:64
 #, fuzzy
 msgid "Tracking data deleted successfully."
-msgstr "Relações"
+msgstr "Controle de dados excluídos com sucesso."
 
 #: db_tracking.php:48
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Versão %1$s foi criado para as tabelas selecionadas, rastreamento ativo para "
+"elas."
 
 #: db_tracking.php:79
 msgid "No tables selected."
@@ -394,10 +396,9 @@ msgid "Show"
 msgstr "Mostrar"
 
 #: db_tracking.php:139 db_tracking.php:231
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "Apagando dados de tracking"
+msgstr "Excluir rastreamento"
 
 #: db_tracking.php:140
 msgid "Versions"
@@ -693,7 +694,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Import terminou com sucesso, %d queries executados."
 
 #: import.php:706
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -701,7 +702,7 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Script timeout atingido, se pretender concluir o import, por favor volte a "
+"Tempo limite atingido, se pretender concluir o import, por favor volte a "
 "submeter o mesmo ficheiro que o import continuará."
 
 #: import.php:716
