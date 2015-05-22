@@ -1164,7 +1164,11 @@ div#tablestatistics table {
     display: none;
 }
 
-.page_settings_modal {
+#page_settings_modal {
+    display: none;
+}
+
+#pma_navigation_settings {
     display: none;
 }
 

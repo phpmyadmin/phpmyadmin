@@ -205,6 +205,8 @@ class PMA_Header
         $this->_scripts->addFile('navigation.js');
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
+        $this->_scripts->addFile('config.js');
+        $this->_scripts->addFile('page_settings.js');
         $this->_scripts->addCode($this->getJsParamsCode());
     }
 

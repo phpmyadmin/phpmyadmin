@@ -8,7 +8,7 @@
  * @required    js/functions.js
  */
 
-function show_settings() {
+function showSettings(selector) {
     var buttons = {};
     buttons[PMA_messages.strApply] = function() {
         $('.config-form').submit();
@@ -18,7 +18,7 @@ function show_settings() {
         $(this).dialog('close');
     };
 
-    $('.page_settings_modal')
+    $(selector)
     .dialog({
         title: PMA_messages.strPageSettings,
         width: 700,
@@ -31,12 +31,24 @@ function show_settings() {
     });
 }
 
+function showPageSettings() {
+    showSettings('#page_settings_modal');
+}
+
+function showNaviSettings() {
+    showSettings('#pma_navigation_settings');
+}
+
 AJAX.registerTeardown('page_settings.js', function () {
     $('#page_settings_icon').css('display', 'none');
     $('#page_settings_icon').unbind('click');
+    $('#pma_navigation_settings_icon').unbind('click');
 });
 
 AJAX.registerOnload('page_settings.js', function () {
-    $('#page_settings_icon').css('display', 'inline');
-    $('#page_settings_icon').bind('click', show_settings);
+    if ($('#page_settings_modal').length) {
+        $('#page_settings_icon').css('display', 'inline');
+        $('#page_settings_icon').bind('click', showPageSettings);
+    }
+    $('#pma_navigation_settings_icon').bind('click', showNaviSettings);
 });

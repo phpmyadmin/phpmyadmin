@@ -423,7 +423,7 @@ function validate_field(field, isKeyUp, errors)
             args = [];
         }
         args.unshift(isKeyUp);
-        result = functions[i][0].apply(field[0], args);
+        result = functions[i][0].apply($field[0], args);
         if (result !== true) {
             if (typeof result == 'string') {
                 result = [result];
@@ -477,9 +477,22 @@ function setRestoreDefaultBtn(field, display)
     $el[display ? 'show' : 'hide']();
 }
 
-AJAX.registerOnload('config.js', function () {
-    if (typeof configInlineParams === 'function') {
-        configInlineParams();
+function loadInlineConfig() {
+    if (!Array.isArray(configInlineParams)) {
+        return;
+    }
+    for (var i = 0; i < configInlineParams.length; ++i) {
+        if (typeof configInlineParams[i] === 'function') {
+            configInlineParams[i]();
+        }
+    }
+}
+
+function setupValidation() {
+    validate = {};
+    configScriptLoaded = true;
+    if (configScriptLoaded && typeof configInlineParams !== "undefined") {
+        loadInlineConfig();
     }
     // register validators and mark custom values
     var $elements = $('input[id], select[id], textarea[id]');
@@ -522,6 +535,10 @@ AJAX.registerOnload('config.js', function () {
     } else if ($check_page_refresh) {
         $check_page_refresh.val('1');
     }
+}
+
+AJAX.registerOnload('config.js', function () {
+    setupValidation();
 });
 
 //
@@ -539,27 +556,42 @@ AJAX.registerOnload('config.js', function () {
  */
 function setTab(tab_id)
 {
-    $('ul.tabs li').removeClass('active').find('a[href=#' + tab_id + ']').parent().addClass('active');
-    $('div.tabs_contents fieldset').hide().filter('#' + tab_id).show();
-    location.hash = 'tab_' + tab_id;
-    $('form.config-form input[name=tab_hash]').val(location.hash);
+    $('ul.tabs').each(function() {
+        $this = $(this);
+        if (!$this.find('li a[href=#' + tab_id + ']').length) {
+            return;
+        }
+        $this.find('li').removeClass('active').find('a[href=#' + tab_id + ']').parent().addClass('active');
+        $this.parent().find('div.tabs_contents fieldset').hide().filter('#' + tab_id).show();
+        location.hash = 'tab_' + tab_id;
+        $this.parent().find('input[name=tab_hash]').val(location.hash);
+    });
+}
+
+function setupConfigTabs() {
+    var forms = $('form.config-form');
+    forms.each(function() {
+        $this = $(this);
+        var $tabs = $this.find('ul.tabs');
+        if (!$tabs.length) {
+            return;
+        }
+        // add tabs events and activate one tab (the first one or indicated by location hash)
+        $tabs.find('li').removeClass('active');
+        $tabs.find('a')
+            .click(function (e) {
+                e.preventDefault();
+                setTab($(this).attr('href').substr(1));
+            })
+            .filter(':first')
+            .parent()
+            .addClass('active');
+        $this.find('div.tabs_contents fieldset').hide().filter(':first').show();
+    });
 }
 
 AJAX.registerOnload('config.js', function () {
-    var $tabs = $('ul.tabs');
-    if (!$tabs.length) {
-        return;
-    }
-    // add tabs events and activate one tab (the first one or indicated by location hash)
-    $tabs.find('a')
-        .click(function (e) {
-            e.preventDefault();
-            setTab($(this).attr('href').substr(1));
-        })
-        .filter(':first')
-        .parent()
-        .addClass('active');
-    $('div.tabs_contents fieldset').hide().filter(':first').show();
+    setupConfigTabs();
 
     // tab links handling, check each 200ms
     // (works with history in FF, further browser support here would be an overkill)
@@ -615,7 +647,7 @@ function restoreField(field_id)
     setFieldValue($field, getFieldType($field), defaultValues[field_id]);
 }
 
-AJAX.registerOnload('config.js', function () {
+function setupRestoreField() {
     $('div.tabs_contents')
         .delegate('.restore-default, .set-value', 'mouseenter', function () {
             $(this).css('opacity', 1);
@@ -640,6 +672,10 @@ AJAX.registerOnload('config.js', function () {
         .find('.restore-default, .set-value')
         // inline-block for IE so opacity inheritance works
         .css({display: 'inline-block', opacity: 0.25});
+}
+
+AJAX.registerOnload('config.js', function () {
+    setupRestoreField();
 });
 
 //

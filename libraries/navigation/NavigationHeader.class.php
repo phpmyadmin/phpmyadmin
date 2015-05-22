@@ -189,6 +189,17 @@ class PMA_NavigationHeader
         $retval .= PMA_Util::getNavigationLink(
             '#',
             $showText,
+            __('Navigation panel settings'),
+            $showIcon,
+            's_cog.png',
+            'pma_navigation_settings_icon',
+            false,
+            '',
+            defined('PMA_disableNaviSettings') ? array('hide') : array()
+        );
+        $retval .= PMA_Util::getNavigationLink(
+            '#',
+            $showText,
             __('Reload navigation panel'),
             $showIcon,
             's_reload.png',
