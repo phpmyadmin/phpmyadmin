@@ -38,9 +38,6 @@ function PMA_analyseShowGrant()
         $GLOBALS['is_create_db_priv'] = PMA_Util::cacheGet(
             'is_create_db_priv'
         );
-        $GLOBALS['is_process_priv'] = PMA_Util::cacheGet(
-            'is_process_priv'
-        );
         $GLOBALS['is_reload_priv'] = PMA_Util::cacheGet(
             'is_reload_priv'
         );
@@ -58,7 +55,6 @@ function PMA_analyseShowGrant()
 
     // defaults
     $GLOBALS['is_create_db_priv']  = false;
-    $GLOBALS['is_process_priv']    = true;
     $GLOBALS['is_reload_priv']     = false;
     $GLOBALS['db_to_create']       = '';
     $GLOBALS['dbs_where_create_table_allowed'] = array();
@@ -169,7 +165,6 @@ function PMA_analyseShowGrant()
     // must also cacheUnset() them in
     // libraries/plugins/auth/AuthenticationCookie.class.php
     PMA_Util::cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv']);
-    PMA_Util::cacheSet('is_process_priv', $GLOBALS['is_process_priv']);
     PMA_Util::cacheSet('is_reload_priv', $GLOBALS['is_reload_priv']);
     PMA_Util::cacheSet('db_to_create', $GLOBALS['db_to_create']);
     PMA_Util::cacheSet(
@@ -185,7 +180,6 @@ if (!PMA_DRIZZLE) {
     // todo: for simple_user_policy only database with user's login can be created
     // (unless logged in as root)
     $GLOBALS['is_create_db_priv'] = $GLOBALS['is_superuser'];
-    $GLOBALS['is_process_priv']   = false;
     $GLOBALS['is_reload_priv']    = false;
     $GLOBALS['db_to_create']      = '';
     $GLOBALS['dbs_where_create_table_allowed'] = array('*');
