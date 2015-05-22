@@ -304,7 +304,7 @@ Todo now:
         - in doc/conf.py (if it exists) the line
               " version = '2.7.1-dev' "
 
- 8. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones
+ 8. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones and set it to the default one
 
  9. tweet from @phpmya a link to the release notes (see item 5 above); your account should be added to TweetDeck to ease this posting
 
