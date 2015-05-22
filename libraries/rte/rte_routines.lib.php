@@ -302,12 +302,13 @@ function PMA_RTN_handleEditor()
                         $_REQUEST['item_original_name']
                     );
                     // Backup the Old Privileges before dropping
-                    // if $_REQUEST['item_realign_privileges'] set
+                    // if $_REQUEST['item_adjust_privileges'] set
                     $privilegesBackup = array();
-                    if (isset($_REQUEST['item_realign_privileges'])
-                        && ! empty($_REQUEST['item_realign_privileges'])
+                    if (isset($_REQUEST['item_adjust_privileges'])
+                        && ! empty($_REQUEST['item_adjust_privileges'])
                     ) {
-                        $privilegesBackupQuery = 'SELECT * FROM `mysql`.`procs_priv`'
+                        $privilegesBackupQuery = 'SELECT * FROM ' . PMA_Util::backquote('mysql')
+                            . '.' . PMA_Util::backquote('procs_priv')
                             . ' where Routine_name = "' . $_REQUEST['item_original_name']
                             . '" AND Routine_type = "' . $_REQUEST['item_original_type']
                             . '";';
@@ -352,12 +353,12 @@ function PMA_RTN_handleEditor()
                             );
                         } else {
                             // Default value
-                            $resultRealign = false;
+                            $resultAdjust = false;
 
                             // Insert all the previous privileges
                             // but with the new name and the new type
                             foreach ($privilegesBackup as $priv) {
-                                $realignProcPrivilege = 'INSERT INTO '
+                                $adjustProcPrivilege = 'INSERT INTO '
                                     . PMA_Util::backquote('mysql') . '.'
                                     . PMA_Util::backquote('procs_priv')
                                     . ' VALUES("' . $priv[0] . '", "'
@@ -367,18 +368,18 @@ function PMA_RTN_handleEditor()
                                     . $priv[5] . '", "'
                                     . $priv[6] . '", "'
                                     . $priv[7] . '");';
-                                $resultRealign = $GLOBALS['dbi']->query(
-                                    $realignProcPrivilege
+                                $resultAdjust = $GLOBALS['dbi']->query(
+                                    $adjustProcPrivilege
                                 );
                             }
-                            if ($resultRealign) {
+                            if ($resultAdjust) {
                                 // Flush the Privileges
                                 $flushPrivQuery = 'FLUSH PRIVILEGES;';
                                 $GLOBALS['dbi']->query($flushPrivQuery);
 
                                 $message = PMA_Message::success(
                                     __(
-                                        'Routine %1$s has been modified. Privileges have been realigned.'
+                                        'Routine %1$s has been modified. Privileges have been adjusted.'
                                     )
                                 );
                             } else {
@@ -1097,9 +1098,11 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         && ! empty($_REQUEST['edit_item'])
     ) {
         $retval .= "<tr>";
-        $retval .= "    <td>" . __('Realign Privileges') . "</td>";
-        $retval .= "    <td><input type='checkbox' name='item_realign_privileges'"
-            . $routine['item_realign_privileges'] . " checked /></td>";
+        $retval .= "    <td>" . __('Adjust Privileges');
+        $retval .= PMA_Util::showDocu('faq', 'faq6-39');
+        $retval .= "</td>";
+        $retval .= "    <td><input type='checkbox' name='item_adjust_privileges'"
+            . " value='1' checked /></td>";
         $retval .= "</tr>";
     }
     $retval .= "<tr>";

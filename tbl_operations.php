@@ -114,10 +114,10 @@ if (isset($_REQUEST['submitoptions'])) {
         $oldDb = $pma_table->getDbName();
 
         if ($pma_table->rename($_REQUEST['new_name'])) {
-            if (isset($_REQUEST['realign_privileges'])
-                && ! empty($_REQUEST['realign_privileges'])
+            if (isset($_REQUEST['adjust_privileges'])
+                && ! empty($_REQUEST['adjust_privileges'])
             ) {
-                PMA_RealignPrivileges_renameOrMoveTable(
+                PMA_AdjustPrivileges_renameOrMoveTable(
                     $oldDb, $oldTable, $_REQUEST['db'], $_REQUEST['new_name']
                 );
             }

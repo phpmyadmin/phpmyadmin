@@ -77,10 +77,11 @@ function PMA_getHtmlForRenameDatabase($db)
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
         . 'maxlength="64" size="30" class="textfield" value="" '
         . 'required="required" />';
-    $html_output .= '<input type="checkbox" name="realign_privileges" value="1"'
-        . 'id="checkbox_realign_privileges" checked="checked" />';
-    $html_output .= '<label for="checkbox_realign_privileges">'
-        . __('Realign Privileges') . '</label><br />';
+    $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
+        . 'id="checkbox_adjust_privileges" checked="checked" />';
+    $html_output .= '<label for="checkbox_adjust_privileges">'
+        . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+        . '</label><br />';
     $html_output .= ''
         . '</fieldset>'
         . '<fieldset class="tblFooters">'
@@ -203,10 +204,11 @@ function PMA_getHtmlForCopyDatabase($db)
         . 'id="checkbox_constraints" />';
     $html_output .= '<label for="checkbox_constraints">'
         . __('Add constraints') . '</label><br />';
-    $html_output .= '<input type="checkbox" name="realign_privileges" value="1"'
+    $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
         . 'id="checkbox_privileges" checked="checked" />';
     $html_output .= '<label for="checkbox_privileges">'
-        . __('Realign Privileges') . '</label><br />';
+        . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+        . '</label><br />';
     $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
         . 'id="checkbox_switch"'
         . ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true')
@@ -532,14 +534,14 @@ function PMA_handleTheViews($views, $move, $db)
 }
 
 /**
- * Realign the privileges after Renaming the db
+ * Adjust the privileges after Renaming the db
  *
  * @param string $oldDb   Database name before renaming
  * @param string $newname New Database name requested
  *
  * @return void
  */
-function PMA_RealignPrivileges_moveDB($oldDb, $newname)
+function PMA_AdjustPrivileges_moveDB($oldDb, $newname)
 {
     $GLOBALS['dbi']->selectDb('mysql');
 
@@ -574,14 +576,14 @@ function PMA_RealignPrivileges_moveDB($oldDb, $newname)
 }
 
 /**
- * Realign the privileges after Copying the db
+ * Adjust the privileges after Copying the db
  *
  * @param string $oldDb   Database name before copying
  * @param string $newname New Database name requested
  *
  * @return void
  */
-function PMA_RealignPrivileges_copyDB($oldDb, $newname)
+function PMA_AdjustPrivileges_copyDB($oldDb, $newname)
 {
 
     $GLOBALS['dbi']->selectDb('mysql');
@@ -787,10 +789,11 @@ function PMA_getHtmlForMoveTable()
         . '<label for="checkbox_auto_increment_mv">'
         . __('Add AUTO_INCREMENT value')
         . '</label><br />'
-        . '<input type="checkbox" name="realign_privileges" value="1" '
+        . '<input type="checkbox" name="adjust_privileges" value="1" '
         . 'id="checkbox_privileges_tables_move" checked="checked" />'
         . '<label for="checkbox_privileges_tables_move">'
-        . __('Realign Privileges') . '</label><br />'
+        . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+        . '</label><br />'
         . '</fieldset>';
 
     $html_output .= '<fieldset class="tblFooters">'
@@ -985,8 +988,9 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
 
     $html_output .= '<tr><td>'
         . '<label for="checkbox_privileges_table_options">'
-        . __('Realign Privileges') . '</label></td>'
-        . '<td><input type="checkbox" name="realign_privileges" value="1" '
+        . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+        . '</label></td>'
+        . '<td><input type="checkbox" name="adjust_privileges" value="1" '
         . 'id="checkbox_privileges_table_options" checked="checked" /></td>'
         . '</tr>';
 
@@ -1142,10 +1146,11 @@ function PMA_getHtmlForCopytable()
         . 'value="1" id="checkbox_auto_increment_cp" />'
         . '<label for="checkbox_auto_increment_cp">'
         . __('Add AUTO_INCREMENT value') . '</label><br />'
-        . '<input type="checkbox" name="realign_privileges" value="1"'
-        . 'id="checkbox_realign_privileges" checked="checked" />'
-        . '<label for="checkbox_realign_privileges">'
-        . __('Realign Privileges') . '</label><br />';
+        . '<input type="checkbox" name="adjust_privileges" value="1"'
+        . 'id="checkbox_adjust_privileges" checked="checked" />'
+        . '<label for="checkbox_adjust_privileges">'
+        . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+        . '</label><br />';
 
     // display "Add constraints" choice only if there are
     // foreign keys
@@ -1776,7 +1781,7 @@ function PMA_getQueryAndResultForPartition()
 }
 
 /**
- * Realign the privileges after renaming/moving a table
+ * Adjust the privileges after renaming/moving a table
  *
  * @param string $oldDb    Database name before table renaming/moving table
  * @param string $oldTable Table name before table renaming/moving table
@@ -1785,7 +1790,7 @@ function PMA_getQueryAndResultForPartition()
  *
  * @return void
  */
-function PMA_RealignPrivileges_renameOrMoveTable($oldDb, $oldTable, $newDb, $newTable)
+function PMA_AdjustPrivileges_renameOrMoveTable($oldDb, $oldTable, $newDb, $newTable)
 {
     $GLOBALS['dbi']->selectDb('mysql');
 
@@ -1808,7 +1813,7 @@ function PMA_RealignPrivileges_renameOrMoveTable($oldDb, $oldTable, $newDb, $new
 }
 
 /**
- * Realign the privileges after copying a table
+ * Adjust the privileges after copying a table
  *
  * @param string $oldDb    Database name before table copying
  * @param string $oldTable Table name before table copying
@@ -1817,7 +1822,7 @@ function PMA_RealignPrivileges_renameOrMoveTable($oldDb, $oldTable, $newDb, $new
  *
  * @return void
  */
-function PMA_RealignPrivileges_copyTable($oldDb, $oldTable, $newDb, $newTable)
+function PMA_AdjustPrivileges_copyTable($oldDb, $oldTable, $newDb, $newTable)
 {
     $GLOBALS['dbi']->selectDb('mysql');
 
@@ -1900,26 +1905,26 @@ function PMA_moveOrCopyTable($db, $table)
                 $_REQUEST['what'], isset($_REQUEST['submit_move']), 'one_table'
             );
 
-            if (isset($_REQUEST['realign_privileges'])
-                && ! empty($_REQUEST['realign_privileges'])
+            if (isset($_REQUEST['adjust_privileges'])
+                && ! empty($_REQUEST['adjust_privileges'])
             ) {
                 if (isset($_REQUEST['submit_move'])) {
-                    PMA_RealignPrivileges_renameOrMoveTable(
+                    PMA_AdjustPrivileges_renameOrMoveTable(
                         $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name']
                     );
                 } else {
-                    PMA_RealignPrivileges_copyTable(
+                    PMA_AdjustPrivileges_copyTable(
                         $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name']
                     );
                 }
 
                 if (isset($_REQUEST['submit_move'])) {
                     $message = PMA_Message::success(
-                        __('Table %s has been moved to %s. Privileges have been realigned.')
+                        __('Table %s has been moved to %s. Privileges have been adjusted.')
                     );
                 } else {
                     $message = PMA_Message::success(
-                        __('Table %s has been copied to %s. Privileges have been realigned.')
+                        __('Table %s has been copied to %s. Privileges have been adjusted.')
                     );
                 }
 
