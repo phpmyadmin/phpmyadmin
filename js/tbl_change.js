@@ -219,7 +219,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     else if (theType.substring(0,7) === "varchar") {
         charExceptionHandling = theType.substring(8,9);
     }
-    if (target.name.substring(0, 6) === "fields") {
+    if (target.name && target.name.substring(0, 6) === "fields") {
         // validate for date time
         if (theType == "datetime" || theType == "time" || theType == "date" || theType == "timestamp") {
             $this_input.rules("add", {
