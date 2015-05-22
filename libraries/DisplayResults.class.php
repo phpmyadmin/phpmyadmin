@@ -1127,7 +1127,7 @@ class PMA_DisplayResults
      *
      * @param array   $displayParts                which elements to display
      * @param array   $analyzed_sql                the analyzed query
-     * @param string  $sort_expression             sort expression
+     * @param array   $sort_expression             sort expression
      * @param string  $sort_expression_nodirection sort expression
      *                                             without direction
      * @param string  $sort_direction              sort direction
@@ -1233,7 +1233,7 @@ class PMA_DisplayResults
      *
      * @param array   &$displayParts               which elements to display
      * @param array   $analyzed_sql                the analyzed query
-     * @param string  $sort_expression             sort expression
+     * @param array   $sort_expression             sort expression
      * @param string  $sort_expression_nodirection sort expression
      *                                             without direction
      * @param string  $sort_direction              sort direction
@@ -1265,9 +1265,13 @@ class PMA_DisplayResults
         // can the result be sorted?
         if ($displayParts['sort_lnk'] == '1') {
 
+            // At this point, $sort_expression is an array but we only verify
+            // the first element in case we could find that the table is
+            // sorted by one of the choices listed in the
+            // "Sort by key" drop-down
             list($unsorted_sql_query, $drop_down_html)
                 = $this->_getUnsortedSqlAndSortByKeyDropDown(
-                    $analyzed_sql, $sort_expression
+                    $analyzed_sql, $sort_expression[0]
                 );
 
             $table_headers_html .= $drop_down_html;
@@ -1930,7 +1934,7 @@ class PMA_DisplayResults
      * Prepare parameters and html for sorted table header fields
      *
      * @param array   $fields_meta                 set of field properties
-     * @param string  $sort_expression             sort expression
+     * @param array   $sort_expression             sort expression
      * @param string  $sort_expression_nodirection sort expression without direction
      * @param integer $column_index                the index of the column
      * @param string  $unsorted_sql_query          the unsorted sql query
@@ -2027,7 +2031,7 @@ class PMA_DisplayResults
     /**
      * Prepare parameters and html for sorted table header fields
      *
-     * @param string  $sort_expression             sort expression
+     * @param array   $sort_expression             sort expression
      * @param string  $sort_expression_nodirection sort expression without direction
      * @param string  $sort_tbl                    The name of the table to which
      *                                             the current column belongs to
