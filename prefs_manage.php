@@ -375,3 +375,10 @@ if (file_exists('setup/index.php')) {
     </div>
     <br class="clearfloat" />
 </div>
+
+<?php
+if ($response->isAjax()) {
+    $response->addJSON('_disableNaviSettings', true);
+} else {
+    define('PMA_disableNaviSettings', true);
+}

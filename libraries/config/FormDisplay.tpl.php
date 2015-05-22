@@ -481,9 +481,13 @@ function PMA_displayJavascript($js_array)
         return;
     }
     $htmlOutput = '<script type="text/javascript">' . "\n"
-        . 'function configInlineParams() {' . "\n"
+        . 'if (typeof configInlineParams === "undefined"'
+        . ' || !Array.isArray(configInlineParams)) configInlineParams = [];' . "\n"
+        . 'configInlineParams.push(function() {' . "\n"
         . implode(";\n", $js_array) . ";\n"
-        . '};' . "\n"
+        . '});' . "\n"
+        . 'if (typeof configScriptLoaded !== "undefined"'
+        . ' && configInlineParams) loadInlineConfig();' . "\n"
         . '</script>' . "\n";
     return $htmlOutput;
 }

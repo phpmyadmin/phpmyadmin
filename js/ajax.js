@@ -333,6 +333,12 @@ var AJAX = {
                 } else if (data._menuHash) {
                     AJAX.cache.menus.replace(AJAX.cache.menus.get(data._menuHash));
                 }
+                if (data._disableNaviSettings) {
+                    PMA_disableNaviSettings();
+                }
+                else {
+                    PMA_ensureNaviSettings(data._selflink);
+                }
 
                 // Remove all containers that may have
                 // been added outside of #page_content

@@ -4528,6 +4528,7 @@ class PMA_Util
      * @param string  $linkId      Value to use for the ID attribute
      * @param boolean $disableAjax Whether to disable ajax page loading for this link
      * @param string  $linkTarget  The name of the target frame for the link
+     * @param string  $classes     HTML classes to apply
      *
      * @return string HTML code for one link
      */
@@ -4539,7 +4540,8 @@ class PMA_Util
         $icon,
         $linkId = '',
         $disableAjax = false,
-        $linkTarget = ''
+        $linkTarget = '',
+        $classes = array()
     ) {
         $retval = '<a href="' . $link . '"';
         if (! empty($linkId)) {
@@ -4549,7 +4551,10 @@ class PMA_Util
             $retval .= ' target="' . $linkTarget . '"';
         }
         if ($disableAjax) {
-            $retval .= ' class="disableAjax"';
+            $classes[] = 'disableAjax';
+        }
+        if (!empty($classes)) {
+            $retval .= ' class="' . join(" ", $classes) . '"';
         }
         $retval .= ' title="' . $text . '">';
         if ($showIcon) {

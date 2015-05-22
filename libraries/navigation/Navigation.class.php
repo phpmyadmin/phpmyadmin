@@ -60,6 +60,11 @@ class PMA_Navigation
         if (! PMA_Response::getInstance()->isAjax()) {
             // closes the tags that were opened by the navigation header
             $retval .= '</div>'; // pma_navigation_tree
+            $retval .= '<div id="pma_navi_settings_container">';
+            if (!defined('PMA_disableNaviSettings')) {
+                $retval .= PMA_PageSettings::getNaviSettings();
+            }
+            $retval .= '</div>'; //pma_navi_settings_container
             $retval .= '</div>'; // pma_navigation_content
             $retval .= $this->_getDropHandler();
             $retval .= '</div>'; // pma_navigation

@@ -824,6 +824,46 @@ function PMA_showCurrentNavigation() {
 }
 
 /**
+ * Disable navigation panel settings
+ *
+ * @return void
+ */
+function PMA_disableNaviSettings() {
+    $('#pma_navigation_settings_icon').addClass('hide');
+    $('#pma_navigation_settings').remove();
+}
+
+/**
+ * Ensure that navigation panel settings is properly setup.
+ * If not, set it up
+ *
+ * @return void
+ */
+function PMA_ensureNaviSettings(selflink) {
+    $('#pma_navigation_settings_icon').removeClass('hide');
+
+    if (!$('#pma_navigation_settings').length) {
+        var params = {
+            getNaviSettings: true
+        };
+        var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+        $.post(url, params, function (data) {
+            if (typeof data !== 'undefined' && data.success) {
+                $('#pma_navi_settings_container').html(data.message);
+                setupRestoreField();
+                setupValidation();
+                setupConfigTabs();
+                $('#pma_navigation_settings').find('form').attr('action', selflink);
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        });
+    } else {
+        $('#pma_navigation_settings').find('form').attr('action', selflink);
+    }
+}
+
+/**
  * Reloads the whole navigation tree while preserving its state
  *
  * @param  function     the callback function
