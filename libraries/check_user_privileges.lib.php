@@ -175,7 +175,16 @@ function PMA_analyseShowGrant()
 } // end function
 
 if (!PMA_DRIZZLE) {
-    PMA_analyseShowGrant();
+    $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
+    if ($user == '@') { // MySQL is started with --skip-grant-tables
+        $GLOBALS['is_create_db_priv'] = true;
+        $GLOBALS['is_reload_priv']    = true;
+        $GLOBALS['db_to_create']      = '';
+        $GLOBALS['dbs_where_create_table_allowed'] = array('*');
+        $GLOBALS['dbs_to_test']       = false;
+    } else {
+        PMA_analyseShowGrant();
+    }
 } else {
     // todo: for simple_user_policy only database with user's login can be created
     // (unless logged in as root)

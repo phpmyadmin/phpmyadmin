@@ -3907,6 +3907,10 @@ class PMA_Util
             return false;
         }
 
+        if ($user == '@') { // MySQL is started with --skip-grant-tables
+            return true;
+        }
+
         $user = explode('@', $user);
         $username  = "''";
         $username .= str_replace("'", "''", $user[0]);
