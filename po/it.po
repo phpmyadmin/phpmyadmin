@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-19 07:58-0400\n"
-"PO-Revision-Date: 2015-05-14 16:38+0200\n"
+"PO-Revision-Date: 2015-05-22 07:57+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -6674,7 +6674,6 @@ msgstr ""
 "database"
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6683,7 +6682,7 @@ msgid ""
 "the Databases and Tables tabs above)."
 msgstr ""
 "Raggruppa gli elementi nell'albero della navigazione (determinato dal "
-"separatore definito più sotto)."
+"separatore definito nella sezione Database e Tabelle qui sopra)."
 
 #: libraries/config/messages.inc.php:468
 msgid "Group items in the tree"
@@ -16242,7 +16241,6 @@ msgid "Too many connections are aborted."
 msgstr "Sono state interrotte troppe connessioni."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -16254,9 +16252,9 @@ msgid ""
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
 "Le connessioni vengono di solito interrotte quando non possono essere "
-"autorizzate. <a href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-"
-"track-down-the-source-of-aborted_connects/\">Questo articolo</a> potrebbe "
-"essere d'aiuto per tracciare il sorgente."
+"autorizzate. <a href=\"http://www.percona.com/blog/2008/08/23/how-to-track-"
+"down-the-source-of-aborted_connects/\">Questo articolo</a> essere d'aiuto "
+"per tracciare il sorgente."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -16384,7 +16382,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "La dimensione del file di log InnoDB è eccessivamente grande."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -16406,16 +16404,17 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
-"Solitamente è sufficiente impostare {innodb_log_file_size} al 25%% della "
+"Di solito è sufficiente impostare {innodb_log_file_size} al 25%% della "
 "dimensione di {innodb_buffer_pool_size}. Un {innodb_log_file_size} molto "
 "grande rallenta considerevolmente il tempo di ripristino in seguito ad un "
-"crash del database. Vedere anche <a href=\"http://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">questo articolo</a>. "
-"È necessario fermare il server, rimuovere i file log InnoDB, impostare il "
-"nuovo valore in my.cnf, avviare il server, quindi controllare nei log degli "
-"errori se tutto è andato correttamente. Consultare anche <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">questo articolo di blog</a>"
+"crash del database. Vedere anche <a href=\""
+"http://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/"
+"\">questo articolo</a>. È necessario fare uno shutdown del server, rimuovere "
+"i file log InnoDB, impostare il nuovo valore in my.cnf, avviare il server, "
+"quindi controllare nei log degli errori se tutto è andato a buon fine. "
+"Consultare anche <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">questo articolo di blog</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -16431,7 +16430,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Il vostro buffer pool InnoDB è abbastanza piccolo."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -16458,14 +16457,14 @@ msgstr ""
 "Il buffer pool InnoDB ha un impatto notevole sulla prestazione delle tabelle "
 "InnoDB. Assegnate tutta la memoria restante a questo buffer. Per server di "
 "database che utilizzano esclusivamente InnoDB come motore di memorizzazione "
-"e non ci sono altri servizi (come un server web) attivi, potreste impostare "
-"questo valore fino all'80%% della memoria disponibile. Se questo non è il "
-"caso, dovreste sistemare con attenzione il consumo di memoria degli altri "
-"servizi e delle tabelle non-InnoDB e impostare questa variabile di "
-"conseguenza. Se viene impostata a un valore troppo alto, il sistema inizierà "
-"a fare swapping, diminuendo le prestazioni in maniera significativa. V. "
-"anche <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">questo articolo</a>"
+"e che non hanno altri servizi attivi (come ad esempio un server web), "
+"potreste impostare questo valore fino all'80%% della memoria disponibile. Se "
+"questo non è il caso, dovete valutare con attenzione il consumo di memoria "
+"degli altri servizi e delle tabelle non-InnoDB e impostare questa variabile "
+"di conseguenza. Se viene impostata a un valore troppo alto, il sistema "
+"inizierà a fare swapping, diminuendo le prestazioni in maniera "
+"significativa. Vedi anche <a href=\"http://www.percona.com/blog/2007/11/03"
+"/choosing-innodb_buffer_pool_size/\">questo articolo</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
