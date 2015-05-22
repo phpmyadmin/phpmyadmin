@@ -44,6 +44,35 @@ function getFieldType(field)
 }
 
 /**
+ * Enables or disables the "restore default value" button
+ *
+ * @param {Element} field
+ * @param {boolean} display
+ */
+function setRestoreDefaultBtn(field, display)
+{
+    var $el = $(field).closest('td').find('.restore-default img');
+    $el[display ? 'show' : 'hide']();
+}
+
+/**
+ * Marks field depending on its value (system default or custom)
+ *
+ * @param {Element} field
+ */
+function markField(field)
+{
+    var $field = $(field);
+    var type = getFieldType($field);
+    var isDefault = checkFieldDefault($field, type);
+
+    // checkboxes uses parent <span> for marking
+    var $fieldMarker = (type == 'checkbox') ? $field.parent() : $field;
+    setRestoreDefaultBtn($field, !isDefault);
+    $fieldMarker[isDefault ? 'removeClass' : 'addClass']('custom');
+}
+
+/**
  * Sets field value
  *
  * value must be of type:
@@ -446,35 +475,6 @@ function validate_field_and_fieldset(field, isKeyUp)
     validate_field($field, isKeyUp, errors);
     validate_fieldset($field.closest('fieldset'), isKeyUp, errors);
     displayErrors(errors);
-}
-
-/**
- * Marks field depending on its value (system default or custom)
- *
- * @param {Element} field
- */
-function markField(field)
-{
-    var $field = $(field);
-    var type = getFieldType($field);
-    var isDefault = checkFieldDefault($field, type);
-
-    // checkboxes uses parent <span> for marking
-    var $fieldMarker = (type == 'checkbox') ? $field.parent() : $field;
-    setRestoreDefaultBtn($field, !isDefault);
-    $fieldMarker[isDefault ? 'removeClass' : 'addClass']('custom');
-}
-
-/**
- * Enables or disables the "restore default value" button
- *
- * @param {Element} field
- * @param {boolean} display
- */
-function setRestoreDefaultBtn(field, display)
-{
-    var $el = $(field).closest('td').find('.restore-default img');
-    $el[display ? 'show' : 'hide']();
 }
 
 function loadInlineConfig() {
