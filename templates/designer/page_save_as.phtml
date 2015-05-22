@@ -1,0 +1,33 @@
+<?php
+$cfgRelation = PMA_getRelationsParam();
+$choices = array(
+    'same' => __('Save to selected page'),
+    'new' => __('Create a page and save to it')
+);
+?>
+<form action="db_designer.php" method="post" name="save_as_pages" id="save_as_pages" class="ajax">
+    <?php echo PMA_URL_getHiddenInputs($db); ?>
+    <fieldset id="page_save_as_options">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="hidden" name="operation" value="savePage" />
+                        <?php echo PMA_getHtmlForPageSelector($cfgRelation, $db); ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <?php echo PMA_Util::getRadioFields('save_page', $choices, 'same', true); ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="selected_value"><?php echo __('New page name'); ?></label>
+                        <input type="text" name="selected_value" id="selected_value" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</form>
