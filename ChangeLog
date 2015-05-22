@@ -46,6 +46,7 @@ phpMyAdmin - ChangeLog
 - bug #4911 Lock page icon is not shown after fresh reload
 - bug #4912 "Highlight pointer" and "Row marker" doesn't work properly
 - bug       Browse foreigners window goes out of the window
+- bug #4918 Date field popup dialog position bug
 
 4.4.7.0 (2015-05-16)
 - bug #4876 Settings issues (Favorite tables shown twice in Settings)
