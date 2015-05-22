@@ -2041,29 +2041,31 @@ involve a manual verification at one point.
 
 .. _faq6_39:
 
-6.39 What is "Adjust Privileges" Option and How to use it?
------------------------------------------------------------
+6.39 What is the "Adjust Privileges" option when renaming, copying, or moving a database, table, column, or procedure?
+----------------------------------------------------------------------------------------------------------------------
 
-When renaming/copying/moving a Database/Table/Column/Procedure,
+When renaming/copying/moving a database/table/column/procedure,
 MySQL does not adjust the original privileges relating to these objects
-on its own.
+on its own. By selecting this option, phpMyAdmin will adjust the privilege
+table so that users have the same privileges on the new items.
 
-For Example: An User 'root'@'localhost' has a 'SELECT' privilege on a
+For example: A user 'bob'@'localhost' has a 'SELECT' privilege on a
 column named 'id'. Now, if this column is renamed to 'id_new'; MySQL,
 on its own, would **not** adjust the column privileges to the new column name.
+phpMyAdmin can make this adjustment for you automatically.
 
-Notes :
+Notes:
 
-* While adjusting privileges for a Database, the privileges of all *table-related
+* While adjusting privileges for a database, the privileges of all *table-related
   privileges*, all *column-related privileges* and all *procedure-related privileges*
   for the tables, columns and procedures inside that database are also adjusted
-  to the Database's new name.
+  to the database's new name.
 
-* Similarly, while adjusting privileges for a Table, the privileges of all
+* Similarly, while adjusting privileges for a table, the privileges of all
   *column-related privileges* for the columns inside the table are also adjusted
-  to the Table's new name.
+  to the table's new name.
 
-Thus, if you want to replicate the Database/ Table/ Column/ Procedure as it is
+Thus, if you want to replicate the database/table/column/procedure as it is
 while renaming/copying/moving these objects, make sure you have checked this option.
 
 .. _faqproject:
