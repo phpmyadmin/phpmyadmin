@@ -1248,7 +1248,7 @@ class PMA_DisplayResults
      */
     private function _getTableHeaders(
         &$displayParts, $analyzed_sql,
-        $sort_expression = '', $sort_expression_nodirection = '',
+        $sort_expression = array(), $sort_expression_nodirection = '',
         $sort_direction = '', $is_limited_display = false
     ) {
 
