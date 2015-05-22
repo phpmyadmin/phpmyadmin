@@ -60,6 +60,10 @@ class PMA_PageSettings
             return;
         }
 
+        if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
+            return;
+        }
+
         if (!empty($elemId)) {
             $this->_elemId = $elemId;
         }
