@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - bug #4893 Nav tree line alignment issue
 - bug #4911 Lock page icon is not shown after fresh reload
 - bug #4912 "Highlight pointer" and "Row marker" doesn't work properly
+- bug       Browse foreigners window goes out of the window
 
 4.4.7.0 (2015-05-16)
 - bug #4876 Settings issues (Favorite tables shown twice in Settings)
