@@ -1,4 +1,11 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * hold PMA\SystemDatabase class
+ *
+ * @package PMA
+ */
+
 namespace PMA;
 
 if (! defined('PHPMYADMIN')) {
@@ -7,6 +14,11 @@ if (! defined('PHPMYADMIN')) {
 
 require_once 'libraries/database_interface.inc.php';
 
+/**
+ * Class SystemDatabase
+ *
+ * @package PMA
+ */
 class SystemDatabase {
 
     /**
@@ -68,9 +80,9 @@ class SystemDatabase {
         // Need to store new transformation details for VIEW
         $new_transformations_sql = sprintf(
             "INSERT INTO %s.%s ("
-                . "`db_name`, `table_name`, `column_name`, "
-                . "`comment`, `mimetype`, `transformation`, "
-                . "`transformation_options`) VALUES",
+            . "`db_name`, `table_name`, `column_name`, "
+            . "`comment`, `mimetype`, `transformation`, "
+            . "`transformation_options`) VALUES",
             \PMA_Util::backquote($cfgRelation['db']),
             \PMA_Util::backquote($cfgRelation['column_info'])
         );

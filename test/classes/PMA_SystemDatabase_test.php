@@ -1,5 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Tests for libraries/SystemDatabase.class.php
+ *
+ * @package PhpMyAdmin-test
+ */
 
 require_once 'libraries/SystemDatabase.class.php';
 

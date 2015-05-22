@@ -13,8 +13,13 @@ require_once 'libraries/Template.class.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Template_test extends PHPUnit_Framework_TestCase
+class PMA_Template_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test for render
+     *
+     * @return void
+     */
     public function testStaticRender()
     {
         $this->assertEquals(
@@ -23,6 +28,11 @@ class PMA_Template_test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for render
+     *
+     * @return void
+     */
     public function testDynamicRender()
     {
         $this->assertEquals(
@@ -35,6 +45,11 @@ class PMA_Template_test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for trim
+     *
+     * @return void
+     */
     public function testTrim()
     {
         $html = file_get_contents(PMA\Template::BASE_PATH.'test/trim.phtml');
