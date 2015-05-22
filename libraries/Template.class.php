@@ -66,6 +66,7 @@ class Template
      * Render template
      *
      * @param array $data Variables to provides for template
+     * @param bool  $trim Trim content
      *
      * @return string
      */

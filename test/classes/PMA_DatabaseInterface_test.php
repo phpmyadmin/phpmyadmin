@@ -21,7 +21,7 @@ require_once 'libraries/SystemDatabase.class.php';
 class PMA_DatabaseInterface_Test extends PHPUnit_Framework_TestCase
 {
 
-    private $dbi;
+    private $_dbi;
 
     /**
      * Configures test parameters.
@@ -57,7 +57,7 @@ class PMA_DatabaseInterface_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $this->dbi = new PMA_DatabaseInterface($extension);
+        $this->_dbi = new PMA_DatabaseInterface($extension);
     }
 
     /**
@@ -73,7 +73,7 @@ class PMA_DatabaseInterface_Test extends PHPUnit_Framework_TestCase
             "view_columns1", "view_columns2"
         );
 
-        $column_map = $this->dbi->getColumnMapFromSql(
+        $column_map = $this->_dbi->getColumnMapFromSql(
             $sql_query, $view_columns
         );
 
@@ -103,7 +103,7 @@ class PMA_DatabaseInterface_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetSystemDatabase()
     {
-        $sd = $this->dbi->getSystemDatabase();
+        $sd = $this->_dbi->getSystemDatabase();
         $this->assertInstanceOf('PMA\\SystemDatabase', $sd);
     }
 }

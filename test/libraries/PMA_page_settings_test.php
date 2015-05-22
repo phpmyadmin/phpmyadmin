@@ -18,9 +18,10 @@ require_once 'libraries/config/page_settings.class.php';
  */
 class PMA_PageSettings_Test extends PHPUnit_Framework_TestCase
 {
-
     /**
      * Setup tests
+     *
+     * @return void
      */
     public function setUp()
     {
@@ -29,6 +30,8 @@ class PMA_PageSettings_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test showGroup when group passed does not exist
+     *
+     * @return void
      */
     public function testShowGroupNonExistent()
     {
@@ -39,6 +42,8 @@ class PMA_PageSettings_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test showGroup with a known group name
+     *
+     * @return void
      */
     public function testShowGroupBrowse()
     {
@@ -70,6 +75,8 @@ class PMA_PageSettings_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test getNaviSettings
+     *
+     * @return void
      */
     function testGetNaviSettings()
     {

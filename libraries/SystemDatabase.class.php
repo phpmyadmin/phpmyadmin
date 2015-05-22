@@ -19,23 +19,23 @@ require_once 'libraries/database_interface.inc.php';
  *
  * @package PMA
  */
-class SystemDatabase {
-
+class SystemDatabase
+{
     /**
      * @var \PMA_DatabaseInterface
      */
-    protected $_dbi;
+    protected $dbi;
 
     /**
      * Get instance of SystemDatabase
      *
-     * @param \PMA_DatabaseInterface Database interface for the system database
+     * @param \PMA_DatabaseInterface $dbi Database interface for the system database
      *
      * @return SystemDatabase
      */
     function __construct(\PMA_DatabaseInterface $dbi)
     {
-        $this->_dbi = $dbi;
+        $this->dbi = $dbi;
     }
 
     /**
@@ -59,7 +59,7 @@ class SystemDatabase {
             \PMA_Util::sqlAddSlashes($db)
         );
 
-        return $this->_dbi->tryQuery($pma_transformation_sql);
+        return $this->dbi->tryQuery($pma_transformation_sql);
     }
 
     /**
@@ -90,7 +90,7 @@ class SystemDatabase {
         $column_count = 0;
         $add_comma = false;
 
-        while ($data_row = $this->_dbi->fetchAssoc($pma_transformation_data)) {
+        while ($data_row = $this->dbi->fetchAssoc($pma_transformation_data)) {
 
             foreach ($column_map as $column) {
 
