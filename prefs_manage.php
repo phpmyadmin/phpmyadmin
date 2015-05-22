@@ -380,5 +380,5 @@ if (file_exists('setup/index.php')) {
 if ($response->isAjax()) {
     $response->addJSON('_disableNaviSettings', true);
 } else {
-    define('PMA_disableNaviSettings', true);
+    define('PMA_DISABLE_NAVI_SETTINGS', true);
 }
