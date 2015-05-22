@@ -362,7 +362,7 @@ function PMA_RTN_handleEditor()
                                     . PMA_Util::backquote('mysql') . '.'
                                     . PMA_Util::backquote('procs_priv')
                                     . ' VALUES("' . $priv[0] . '", "'
-                                    . $priv[1]. '", "' . $priv[2] . '", "'
+                                    . $priv[1] . '", "' . $priv[2] . '", "'
                                     . $_REQUEST['item_name'] . '", "'
                                     . $_REQUEST['item_type'] . '", "'
                                     . $priv[5] . '", "'

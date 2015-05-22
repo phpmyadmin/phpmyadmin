@@ -52,7 +52,7 @@ class PMA_Template_Test extends PHPUnit_Framework_TestCase
      */
     public function testTrim()
     {
-        $html = file_get_contents(PMA\Template::BASE_PATH.'test/trim.phtml');
+        $html = file_get_contents(PMA\Template::BASE_PATH . 'test/trim.phtml');
 
         $this->assertEquals(
             'outer <element>value</element> value',

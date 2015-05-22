@@ -2171,7 +2171,7 @@ class PMA_DatabaseInterface
                 . " `DTD_IDENTIFIER`"
                 . " FROM `information_schema`.`ROUTINES`"
                 . " WHERE `ROUTINE_SCHEMA` " . PMA_Util::getCollateForIS()
-                . " = '" . PMA_Util::sqlAddSlashes($db) ."'";
+                . " = '" . PMA_Util::sqlAddSlashes($db) . "'";
             if (PMA_isValid($which, array('FUNCTION','PROCEDURE'))) {
                 $query .= " AND `ROUTINE_TYPE` = '" . $which . "'";
             }
@@ -2266,7 +2266,7 @@ class PMA_DatabaseInterface
                 . "`DATABASE_COLLATION` AS `Database Collation`"
                 . " FROM `information_schema`.`EVENTS`"
                 . " WHERE `EVENT_SCHEMA` " . PMA_Util::getCollateForIS()
-                . " = '" . PMA_Util::sqlAddSlashes($db) ."'";
+                . " = '" . PMA_Util::sqlAddSlashes($db) . "'";
             if (! empty($name)) {
                 $query .= " AND `EVENT_NAME`"
                     . " = '" . PMA_Util::sqlAddSlashes($name) . "'";

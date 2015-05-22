@@ -655,7 +655,7 @@ function PMA_AdjustPrivileges_copyDB($oldDb, $newname)
             . PMA_Util::backquote('procs_priv') . ' VALUES("'
             . $old_priv[0] . '", "' . $newname . '", "' . $old_priv[2] . '", "'
             . $old_priv[3] . '", "' . $old_priv[4] . '", "' . $old_priv[5] . '", "'
-            . $old_priv[6] . '", "' . $old_priv[7] .'");';
+            . $old_priv[6] . '", "' . $old_priv[7] . '");';
 
         $GLOBALS['dbi']->query($newDb_proc_privs_query);
     }
