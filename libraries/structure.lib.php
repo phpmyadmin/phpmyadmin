@@ -2548,7 +2548,7 @@ function PMA_updateColumns($db, $table)
     $field_cnt = count($_REQUEST['field_name']);
     $changes = array();
     $pmatable = new PMA_Table($table, $db);
-    $realign_privileges = array();
+    $adjust_privileges = array();
 
     for ($i = 0; $i < $field_cnt; $i++) {
         if (PMA_columnNeedsAlterTable($i)) {
@@ -2590,10 +2590,10 @@ function PMA_updateColumns($db, $table)
                 $pmatable->removeUiProp(PMA_Table::PROP_SORTED_COLUMN);
             }
 
-            if (isset($_REQUEST['field_realign_privileges'][$i])
-                && ! empty($_REQUEST['field_realign_privileges'][$i])
+            if (isset($_REQUEST['field_adjust_privileges'][$i])
+                && ! empty($_REQUEST['field_adjust_privileges'][$i])
             ) {
-                    $realign_privileges[$_REQUEST['field_orig'][$i]] = $_REQUEST['field_name'][$i];
+                    $adjust_privileges[$_REQUEST['field_orig'][$i]] = $_REQUEST['field_name'][$i];
             }
         }
     } // end for
@@ -2634,11 +2634,11 @@ function PMA_updateColumns($db, $table)
         $result    = $GLOBALS['dbi']->tryQuery($sql_query);
 
         if ($result !== false) {
-            $changed_privileges = PMA_realignColumnPrivileges($db, $table, $realign_privileges);
+            $changed_privileges = PMA_adjustColumnPrivileges($db, $table, $adjust_privileges);
 
             if ($changed_privileges) {
                 $message = PMA_Message::success(
-                    __('Table %1$s has been altered successfully. Privileges have been realigned.')
+                    __('Table %1$s has been altered successfully. Privileges have been adjusted.')
                 );
             } else {
                 $message = PMA_Message::success(
@@ -2703,31 +2703,31 @@ function PMA_updateColumns($db, $table)
 }
 
 /**
- * Realigns the Privileges for all the columns whose names have changed
+ * Adjusts the Privileges for all the columns whose names have changed
  *
- * @param string $db                 database name
- * @param string $table              table name
- * @param array  $realign_privileges assoc array of old col names mapped to new cols
+ * @param string $db                database name
+ * @param string $table             table name
+ * @param array  $adjust_privileges assoc array of old col names mapped to new cols
  *
- * @return boolean $changed  boolean whether atleast one column privileges realigned
+ * @return boolean $changed  boolean whether atleast one column privileges adjusted
  */
-function PMA_realignColumnPrivileges($db, $table, $realign_privileges)
+function PMA_adjustColumnPrivileges($db, $table, $adjust_privileges)
 {
     $changed = false;
 
     $GLOBALS['dbi']->selectDb('mysql');
 
     // For Column specific privileges
-    foreach ($realign_privileges as $oldCol => $newCol) {
-        $query_realign_col_privileges = 'UPDATE '
+    foreach ($adjust_privileges as $oldCol => $newCol) {
+        $query_adjust_col_privileges = 'UPDATE '
             . PMA_Util::backquote('columns_priv') . ' '
             . 'SET Column_name = "' . $newCol . '" '
             . 'WHERE Db = "' . $db . '" AND Table_name = "' . $table
             . '" AND Column_name = "' . $oldCol . '";';
 
-        $GLOBALS['dbi']->query($query_realign_col_privileges);
+        $GLOBALS['dbi']->query($query_adjust_col_privileges);
 
-        // i.e. if atleast one column privileges realigned
+        // i.e. if atleast one column privileges adjusted
         $changed = true;
     }
 
