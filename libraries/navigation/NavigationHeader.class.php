@@ -195,7 +195,7 @@ class PMA_NavigationHeader
             'pma_navigation_settings_icon',
             false,
             '',
-            defined('PMA_disableNaviSettings') ? array('hide') : array()
+            defined('PMA_DISABLE_NAVI_SETTINGS') ? array('hide') : array()
         );
         $retval .= PMA_Util::getNavigationLink(
             '#',

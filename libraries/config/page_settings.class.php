@@ -143,8 +143,8 @@ class PMA_PageSettings
     /**
      * Display page-related settings
      *
-     * @param FormDisplay $form_display Form
-     * @param PMA_Message $error        Error message
+     * @param FormDisplay &$form_display Form
+     * @param PMA_Message &$error        Error message
      *
      * @return string
      */

@@ -94,5 +94,5 @@ echo $form_display->getDisplay(true, true);
 if ($response->isAjax()) {
     $response->addJSON('_disableNaviSettings', true);
 } else {
-    define('PMA_disableNaviSettings', true);
+    define('PMA_DISABLE_NAVI_SETTINGS', true);
 }
