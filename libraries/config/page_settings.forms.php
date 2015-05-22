@@ -23,6 +23,7 @@ $forms['DbStructure']['DbStructure'] = $forms['Main_panel']['DbStructure'];
 
 $forms['Edit'] = array();
 $forms['Edit']['Edit'] = $forms['Main_panel']['Edit'];
+$forms['Edit']['Text_fields'] = $forms['Features']['Text_fields'];
 
 $forms['TableStructure'] = array();
 $forms['TableStructure']['TableStructure'] = $forms['Main_panel']['TableStructure'];
