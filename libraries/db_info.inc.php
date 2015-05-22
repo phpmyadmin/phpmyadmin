@@ -219,7 +219,7 @@ if (! isset($sot_ready)) {
     $tables = array_merge(
         $groupTable,
         $GLOBALS['dbi']->getTablesFull(
-            $db, $groupWithSeparator, ($groupWithSeparator != false), null,
+            $db, $groupWithSeparator, ($groupWithSeparator !== false), null,
             $limit_offset, $limit_count, $sort, $sort_order, $tbl_type
         )
     );
