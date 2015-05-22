@@ -22,10 +22,13 @@ require_once 'libraries/Template.class.php';
  */
 function PMA_getHtmlForPageSelector($cfgRelation, $db)
 {
-    return PMA\Template::get('designer/page_selector')->render(array(
-        'db' => $db,
-        'cfgRelation' => $cfgRelation
-    ));
+    return PMA\Template::get('designer/page_selector')
+        ->render(
+            array(
+                'db' => $db,
+                'cfgRelation' => $cfgRelation
+            )
+        );
 }
 
 /**
@@ -38,10 +41,13 @@ function PMA_getHtmlForPageSelector($cfgRelation, $db)
  */
 function PMA_getHtmlForEditOrDeletePages($db, $operation)
 {
-    return PMA\Template::get('designer/edit_delete_pages')->render(array(
-        'db' => $db,
-        'operation' => $operation
-    ));
+    return PMA\Template::get('designer/edit_delete_pages')
+        ->render(
+            array(
+                'db' => $db,
+                'operation' => $operation
+            )
+        );
 }
 
 /**
@@ -53,9 +59,12 @@ function PMA_getHtmlForEditOrDeletePages($db, $operation)
  */
 function PMA_getHtmlForPageSaveAs($db)
 {
-    return PMA\Template::get('designer/page_save_as')->render(array(
-        'db' => $db
-    ));
+    return PMA\Template::get('designer/page_save_as')
+        ->render(
+            array(
+                'db' => $db
+            )
+        );
 }
 
 /**
@@ -108,11 +117,14 @@ function PMA_getHtmlForSchemaExport($db, $page)
         )->getDisplay();
     }
 
-    return PMA\Template::get('designer/schema_export')->render(array(
-        'db' => $db,
-        'page' => $page,
-        'export_list' => $export_list
-    ));
+    return PMA\Template::get('designer/schema_export')
+        ->render(
+            array(
+                'db' => $db,
+                'page' => $page,
+                'export_list' => $export_list
+            )
+        );
 }
 
 /**
@@ -128,12 +140,15 @@ function PMA_getHtmlForSchemaExport($db, $page)
 function PMA_getHtmlForJSFields(
     $script_tables, $script_contr, $script_display_field, $display_page
 ) {
-    return PMA\Template::get('designer/js_fields')->render(array(
-        'script_tables' => $script_tables,
-        'script_contr' => $script_contr,
-        'script_display_field' => $script_display_field,
-        'display_page' => $display_page
-    ));
+    return PMA\Template::get('designer/js_fields')
+        ->render(
+            array(
+                'script_tables' => $script_tables,
+                'script_contr' => $script_contr,
+                'script_display_field' => $script_display_field,
+                'display_page' => $display_page
+            )
+        );
 }
 
 /**
@@ -146,10 +161,13 @@ function PMA_getHtmlForJSFields(
  */
 function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
 {
-    return PMA\Template::get('designer/side_menu')->render(array(
-        'visualBuilder' => $visualBuilder,
-        'selected_page' => $selected_page
-    ));
+    return PMA\Template::get('designer/side_menu')
+        ->render(
+            array(
+                'visualBuilder' => $visualBuilder,
+                'selected_page' => $selected_page
+            )
+        );
 }
 
 /**
@@ -172,10 +190,13 @@ function PMA_getHTMLCanvas()
  */
 function PMA_getHTMLTableList($tab_pos, $display_page)
 {
-    return PMA\Template::get('designer/table_list')->render(array(
-        'tab_pos' => $tab_pos,
-        'display_page' => $display_page
-    ));
+    return PMA\Template::get('designer/table_list')
+        ->render(
+            array(
+                'tab_pos' => $tab_pos,
+                'display_page' => $display_page
+            )
+        );
 }
 
 /**
@@ -192,13 +213,16 @@ function PMA_getHTMLTableList($tab_pos, $display_page)
 function PMA_getDatabaseTables(
     $tab_pos, $display_page, $tab_column, $tables_all_keys, $tables_pk_or_unique_keys
 ) {
-    return PMA\Template::get('designer/database_tables')->render(array(
-        'tab_pos' => $tab_pos,
-        'display_page' => $display_page,
-        'tab_column' => $tab_column,
-        'tables_all_keys' => $tables_all_keys,
-        'tables_pk_or_unique_keys' => $tables_pk_or_unique_keys
-    ));
+    return PMA\Template::get('designer/database_tables')
+        ->render(
+            array(
+                'tab_pos' => $tab_pos,
+                'display_page' => $display_page,
+                'tab_column' => $tab_column,
+                'tables_all_keys' => $tables_all_keys,
+                'tables_pk_or_unique_keys' => $tables_pk_or_unique_keys
+            )
+        );
 }
 
 /**

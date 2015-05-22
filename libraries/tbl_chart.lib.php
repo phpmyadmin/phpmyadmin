@@ -31,13 +31,16 @@ use PMA\Template;
 function PMA_getHtmlForTableChartDisplay($url_query, $url_params, $keys,
     $fields_meta, $numeric_types, $numeric_column_count, $sql_query
 ) {
-       return Template::get('tbl_chart')->render(array(
-           'url_query' => $url_query,
-           'url_params' => $url_params,
-           'keys' => $keys,
-           'fields_meta' => $fields_meta,
-           'numeric_types' => $numeric_types,
-           'numeric_column_count' => $numeric_column_count,
-           'sql_query' => $sql_query
-       ));
+    return Template::get('tbl_chart')
+        ->render(
+            array(
+                'url_query' => $url_query,
+                'url_params' => $url_params,
+                'keys' => $keys,
+                'fields_meta' => $fields_meta,
+                'numeric_types' => $numeric_types,
+                'numeric_column_count' => $numeric_column_count,
+                'sql_query' => $sql_query
+            )
+        );
 }

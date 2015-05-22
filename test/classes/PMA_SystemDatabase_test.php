@@ -40,23 +40,25 @@ class PMA_SystemDatabaseTest extends PHPUnit_Framework_TestCase
             'table_info' => 'table_info',
             'relwork' => 'relwork',
             'commwork' => 'commwork',
-            'displaywork' => 'displaywork',
             'pdfwork' => 'pdfwork',
             'column_info' => 'column_info',
             'relation' => 'relation',
-            'relwork' => 'relwork',
         );
 
         $dbi->expects($this->any())
             ->method('fetchAssoc')
-            ->will($this->returnValue(array(
-                'table_name' => "table_name",
-                'column_name' => "column_name",
-                'comment' => "comment",
-                'mimetype' => "mimetype",
-                'transformation' => "transformation",
-                'transformation_options' => "transformation_options",
-            )));
+            ->will(
+                $this->returnValue(
+                    array(
+                        'table_name' => "table_name",
+                        'column_name' => "column_name",
+                        'comment' => "comment",
+                        'mimetype' => "mimetype",
+                        'transformation' => "transformation",
+                        'transformation_options' => "transformation_options",
+                    )
+                )
+            );
 
         $this->sysDb = new PMA\SystemDatabase($dbi);
     }

@@ -47,13 +47,15 @@ class PMA_DatabaseInterface_Test extends PHPUnit_Framework_TestCase
         $meta2->table = "meta2_table";
         $meta2->name = "meta2_name";
 
-        $getFieldsMeta = array($meta1, $meta2);
-
         $extension->expects($this->any())
             ->method('getFieldsMeta')
-            ->will($this->returnValue(array(
-                $meta1, $meta2
-            )));
+            ->will(
+                $this->returnValue(
+                    array(
+                        $meta1, $meta2
+                    )
+                )
+            );
 
         $this->dbi = new PMA_DatabaseInterface($extension);
     }

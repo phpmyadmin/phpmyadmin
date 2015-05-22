@@ -27,9 +27,11 @@ class PMA_Template_test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             'value',
-            PMA\Template::get('test/echo')->render(array(
-                'variable' => 'value'
-            ))
+            PMA\Template::get('test/echo')->render(
+                array(
+                    'variable' => 'value'
+                )
+            )
         );
     }
 
