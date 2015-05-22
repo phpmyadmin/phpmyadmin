@@ -119,7 +119,7 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
             if (isset($_REQUEST['adjust_privileges'])
                 && ! empty($_REQUEST['adjust_privileges'])
             ) {
-                PMA_adjustPrivileges_moveDB($GLOBALS['db'], $_REQUEST['newname']);
+                PMA_AdjustPrivileges_moveDB($GLOBALS['db'], $_REQUEST['newname']);
             }
 
             /**
@@ -143,7 +143,7 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
             if (isset($_REQUEST['adjust_privileges'])
                 && ! empty($_REQUEST['adjust_privileges'])
             ) {
-                PMA_adjustPrivileges_copyDB($GLOBALS['db'], $_REQUEST['newname']);
+                PMA_AdjustPrivileges_copyDB($GLOBALS['db'], $_REQUEST['newname']);
             }
 
             $message = PMA_Message::success(

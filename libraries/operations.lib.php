@@ -1909,11 +1909,11 @@ function PMA_moveOrCopyTable($db, $table)
                 && ! empty($_REQUEST['adjust_privileges'])
             ) {
                 if (isset($_REQUEST['submit_move'])) {
-                    PMA_adjustPrivileges_renameOrMoveTable(
+                    PMA_AdjustPrivileges_renameOrMoveTable(
                         $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name']
                     );
                 } else {
-                    PMA_adjustPrivileges_copyTable(
+                    PMA_AdjustPrivileges_copyTable(
                         $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name']
                     );
                 }

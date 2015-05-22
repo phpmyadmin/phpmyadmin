@@ -117,7 +117,7 @@ if (isset($_REQUEST['submitoptions'])) {
             if (isset($_REQUEST['adjust_privileges'])
                 && ! empty($_REQUEST['adjust_privileges'])
             ) {
-                PMA_adjustPrivileges_renameOrMoveTable(
+                PMA_AdjustPrivileges_renameOrMoveTable(
                     $oldDb, $oldTable, $_REQUEST['db'], $_REQUEST['new_name']
                 );
             }
