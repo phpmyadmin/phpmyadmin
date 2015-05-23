@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-03-30 20:54+0200\n"
+"PO-Revision-Date: 2015-05-23 11:18+0200\n"
 "Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/4-4/de/"
-">\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.3\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1001,14 +1001,12 @@ msgstr "Diese Operation könnte einige Zeit beanspruchen. Trotzdem fortfahren?"
 #: js/messages.php:56
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr ""
-"Möchten Sie die wirklich die Benutzergruppe \"%s\" unwiderruflich löschen?"
+msgstr "Möchten Sie wirklich die Benutzergruppe \"%s\" unwiderruflich löschen?"
 
 #: js/messages.php:57
 #, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr ""
-"Möchten Sie die wirklich die Suchanfrage \"%s\" unwiderruflich löschen?"
+msgstr "Möchten Sie wirklich die Suchanfrage \"%s\" unwiderruflich löschen?"
 
 #: js/messages.php:58
 msgid "You have unsaved changes; are you sure you want to leave this page?"
@@ -1018,7 +1016,7 @@ msgstr ""
 
 #: js/messages.php:59
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Möchten Sie die wirklich die ausgewählten Benutzer löschen?"
+msgstr "Möchten Sie wirklich die ausgewählten Benutzer löschen?"
 
 #: js/messages.php:60
 msgid "Do you really want to delete this central column?"
@@ -5991,7 +5989,6 @@ msgid "Page titles"
 msgstr "Seitentitel"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -6001,7 +5998,7 @@ msgid ""
 "for magic strings that can be used to get special values."
 msgstr ""
 "Text für die Browser-Titelleiste. Weitere Informationen über Schlüsselwörter "
-"und Variablennamen in der [doc@cfg_TitleTable]Dokumentation[/doc]."
+"und Variablennamen in der [doc@faq6-27]Dokumentation[/doc]."
 
 #: libraries/config/messages.inc.php:255
 msgid "Query window"
@@ -6513,7 +6510,6 @@ msgstr ""
 "Minimale Anzahl der Datenbanken, die im Datenbank-Filterfeld angezeigt werden"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6521,8 +6517,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Elemente im Navigationsbaum gruppieren (wie vom unten definierten "
-"Trennzeichen bestimmt)."
+"Elemente im Navigationsbaum gruppieren (wue vom im obigen „Datenbanken und "
+"Tabellen“-Reiter definierten Trennzeichen bestimmt)."
 
 #: libraries/config/messages.inc.php:458
 msgid "Group items in the tree"
@@ -15076,23 +15072,24 @@ msgstr ""
 "Die MySQL-Anleitung ist nur für offizielle MySQL-Binärversionen akkurat."
 
 #: libraries/advisory_rules.txt:132
-#, fuzzy
 #| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid ""
 "Percona documentation is at http://www.percona.com/software/documentation/"
 msgstr ""
-"Die Percona-Dokumentation finden Sie unter http://www.percona.com/docs/wiki/"
+"Die Percona-Dokumentation finden Sie unter "
+"http://www.percona.com/software/documentation/"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
 msgstr "'percona' in version_comment gefunden"
 
 #: libraries/advisory_rules.txt:139
-#, fuzzy
 #| msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgid ""
 "Drizzle documentation is at http://www.drizzle.org/content/documentation/"
-msgstr "Die Drizzle-Dokumentation finden Sie unter http://docs.drizzle.org/"
+msgstr ""
+"Die Drizzle-Dokumentation finden Sie unter "
+"http://www.drizzle.org/content/documentation/"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -15925,7 +15922,6 @@ msgid "Too many connections are aborted."
 msgstr "Zu viele Verbindungen werden abgebrochen."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -15937,9 +15933,9 @@ msgid ""
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
 "Verbindungen sind in der Regel abgebrochen, wenn sie nicht autorisiert "
-"werden können. <a href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-"
-"to-track-down-the-source-of-aborted_connects/\">Dieser Artikel</a> könnte "
-"Ihnen helfen der Quelle auf die Spur zu kommen."
+"werden können. <a href=\"http://www.percona.com/blog/2008/08/23/how-to-track-"
+"down-the-source-of-aborted_connects/\">Dieser Artikel</a> könnte Ihnen "
+"helfen der Quelle auf die Spur zu kommen."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -16067,7 +16063,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Die InnoDB Protokollgröße ist nicht ausreichend groß."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -16092,13 +16088,13 @@ msgstr ""
 "Es üblicherweise ausreichend {innodb_log_file_size} auf 25%% der Größe von "
 "{Innodb_buffer_pool_size} einzustellen. Eine sehr große "
 "{innodb_log_file_size} verlangsamt die Wiederherstellungszeit nach einem "
-"Datenbank Absturz erheblich. Siehe auch <a href=\"http://www."
-"mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
+"Datenbank Absturz erheblich. Siehe auch <a href=\""
+"http://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/"
 "\">diesen Artikels</a>. Sie müssen den Server herunterfahren, die InnoDB-"
 "Logdateien löschen, den neuen Wert in my.cnf eintragen, den Server neu "
 "starten und dann das Fehlerprotokoll überprüfen ob alles gut ging. Siehe "
-"auch <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-"increase-innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
+"auch <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01"
+"/increase-innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -16114,7 +16110,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Ihr InnoDB Pufferpool ist recht klein."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -16147,9 +16143,9 @@ msgstr ""
 "den Speicherverbrauch von anderen Diensten und nicht-InnoDB-Tabellen "
 "bewerten und stellen Sie diese Variable entsprechend ein. Wenn der Wert zu "
 "hoch ist, startet Ihr System Speicher auf die Festplatte auszulagen, was die "
-"Leistung erheblich senkt. Siehe auch <a href=\"http://www."
-"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">diesen Artikel</a>"
+"Leistung erheblich senkt. Siehe auch <a href=\""
+"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">"
+"diesen Artikel</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
