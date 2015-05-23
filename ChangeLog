@@ -40,6 +40,7 @@ phpMyAdmin - ChangeLog
 - bug #4913 GROUP_CONCAT shown as GROUPBY_CONCAT in CodeMirror autocomplete
 + rfe #1242 Work with --skip-grant-tables
 - bug #4922 "Sort by key" drop-down value is lost
++ rfe #1673 Browse: improve display of right-aligned data
 
 4.4.8.0 (not yet released)
 - bug       Allow accessing visual query builder when pmadb is not configured
