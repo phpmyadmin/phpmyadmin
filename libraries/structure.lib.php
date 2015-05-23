@@ -2631,7 +2631,27 @@ function PMA_updateColumns($db, $table)
             PMA_previewSQL(count($changes) > 0 ? $sql_query : '');
         }
 
-        $result    = $GLOBALS['dbi']->tryQuery($sql_query);
+        $changedToBlob = array();
+        // While changing the Column Collation
+        // First change to BLOB
+        for ($i = 0; $i < $field_cnt; $i++ ) {
+            if (isset($_REQUEST['field_collation'][$i])
+                && isset($_REQUEST['field_collation_orig'][$i])
+                && $_REQUEST['field_collation'][$i] !== $_REQUEST['field_collation_orig'][$i]
+            ) {
+                $secondary_query = 'ALTER TABLE ' . PMA_Util::backquote($table)
+                        . ' CHANGE ' . PMA_Util::backquote($_REQUEST['field_name'][$i])
+                        . ' ' . PMA_Util::backquote($_REQUEST['field_name'][$i])
+                        . ' BLOB;';
+                $GLOBALS['dbi']->query($secondary_query);
+                $changedToBlob[$i] = true;
+            } else {
+                $changedToBlob[$i] = false;
+            }
+        }
+
+        // Then make the requested changes
+        $result = $GLOBALS['dbi']->tryQuery($sql_query);
 
         if ($result !== false) {
             $changed_privileges = PMA_adjustColumnPrivileges($db, $table, $adjust_privileges);
@@ -2652,11 +2672,55 @@ function PMA_updateColumns($db, $table)
             );
         } else {
             // An error happened while inserting/updating a table definition
+
+            // Save the Original Error
+            $orig_error = $GLOBALS['dbi']->getError();
+            $changes_revert = array();
+
+            // Change back to Orignal Collation and data type
+            for ($i = 0; $i < $field_cnt; $i++) {
+                if ($changedToBlob[$i]) {
+                    $changes_revert[] = 'CHANGE ' . PMA_Table::generateAlter(
+                        isset($_REQUEST['field_orig'][$i])
+                        ? $_REQUEST['field_orig'][$i]
+                        : '',
+                        $_REQUEST['field_name'][$i],
+                        $_REQUEST['field_type_orig'][$i],
+                        $_REQUEST['field_length_orig'][$i],
+                        $_REQUEST['field_attribute_orig'][$i],
+                        isset($_REQUEST['field_collation_orig'][$i])
+                        ? $_REQUEST['field_collation_orig'][$i]
+                        : '',
+                        isset($_REQUEST['field_null_orig'][$i])
+                        ? $_REQUEST['field_null_orig'][$i]
+                        : 'NOT NULL',
+                        $_REQUEST['field_default_type_orig'][$i],
+                        $_REQUEST['field_default_value_orig'][$i],
+                        isset($_REQUEST['field_extra_orig'][$i])
+                        ? $_REQUEST['field_extra_orig'][$i]
+                        : false,
+                        isset($_REQUEST['field_comments_orig'][$i])
+                        ? $_REQUEST['field_comments_orig'][$i]
+                        : '',
+                        isset($_REQUEST['field_move_to_orig'][$i])
+                        ? $_REQUEST['field_move_to_orig'][$i]
+                        : ''
+                    );
+                }
+            }
+
+            $revert_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
+            $revert_query .= implode(', ', $changes_revert) . '';
+            $revert_query .= ';';
+
+            // Column reverted back to original
+            $GLOBALS['dbi']->query($revert_query);
+
             $response->isSuccess(false);
             $response->addJSON(
                 'message',
                 PMA_Message::rawError(
-                    __('Query error') . ':<br />' . $GLOBALS['dbi']->getError()
+                    __('Query error') . ':<br />' . $orig_error
                 )
             );
             $regenerate = true;
