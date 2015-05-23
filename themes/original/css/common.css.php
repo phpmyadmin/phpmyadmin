@@ -203,6 +203,7 @@ th.center, td.center {
 
 th.right, td.right {
     text-align: right;
+    padding-right: 1em;
 }
 
 tr.vtop, th.vtop, td.vtop {
