@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-19 07:58-0400\n"
-"PO-Revision-Date: 2015-05-23 18:52+0200\n"
-"Last-Translator: P <plamen_mbx@yahoo.com>\n"
+"PO-Revision-Date: 2015-05-23 22:10+0200\n"
+"Last-Translator: Valentin Mladenov <hudsonvsm@gmail.com>\n"
 "Language-Team: Bulgarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
@@ -696,8 +696,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Времето за изчакване на скрипта изтече, ако искате да завършите импорта го "
-"пуснете отново и той ще си продължи."
+"Времето за изчакване на скрипта изтече, ако искате да завършите импорта,моля "
+"пуснете отново същия файл и той ще си продължи."
 
 #: import.php:716
 msgid ""
@@ -838,7 +838,6 @@ msgid "List of changes"
 msgstr "Списък с промени"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -850,11 +849,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"Вашият конфигурационен файл съдържа настройки (root без парола), "
-"съответстващи на привилегированата сметка на MySQL по подразбиране. Вашият "
-"MySQL сървър е стартиран така и може лесно да бъде хакнат, наистина трябва "
-"да оправите тази дупка в сигурността като зададете парола на потребителя "
-"'root'."
+"Свързан сте като потребител 'root' без парола, който отговаря за основния "
+"привилегирован потребител на MySQL. Вашият MySQL сървър стартиран така е "
+"отворен за хакерски атаки, наистина трябва да оправите тази дупка в "
+"сигурността като зададете парола на потребителя 'root'."
 
 #: index.php:464
 msgid ""
@@ -1926,11 +1924,13 @@ msgid "Search this list"
 msgstr "Търсене в този списък"
 
 #: js/messages.php:333
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Няма колони в централният списък. Уверете се, че списъкът от Централни "
+"колони на базата данни% има колони, които не присъстват в настоящата таблица."
 
 #: js/messages.php:334
 msgid "See more"
@@ -2447,11 +2447,15 @@ msgstr "Премахване от главния панел"
 #: js/messages.php:508
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"За да филтрирате всички бази данни на сървъра, натиснете Enter, след като "
+"въведете филтър"
 
 #: js/messages.php:509
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"За да филтрирате всички %s в базата данни, натиснете Enter, след като "
+"въведете филтър"
 
 #: js/messages.php:510
 msgid "tables"
