@@ -2640,9 +2640,9 @@ function PMA_updateColumns($db, $table)
                 && $_REQUEST['field_collation'][$i] !== $_REQUEST['field_collation_orig'][$i]
             ) {
                 $secondary_query = 'ALTER TABLE ' . PMA_Util::backquote($table)
-                        . ' CHANGE ' . PMA_Util::backquote($_REQUEST['field_name'][$i])
-                        . ' ' . PMA_Util::backquote($_REQUEST['field_name'][$i])
-                        . ' BLOB;';
+                    . ' CHANGE ' . PMA_Util::backquote($_REQUEST['field_name'][$i])
+                    . ' ' . PMA_Util::backquote($_REQUEST['field_name'][$i])
+                    . ' BLOB;';
                 $GLOBALS['dbi']->query($secondary_query);
                 $changedToBlob[$i] = true;
             } else {

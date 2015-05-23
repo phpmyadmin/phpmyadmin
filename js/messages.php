@@ -64,9 +64,11 @@ $js_messages['strDropRTEitems'] = __('Do you really want to delete the selected 
 $js_messages['strDropPartitionWarning'] = __('Do you really want to DROP the selected partition(s)? This will also DELETE the data related to the selected partition(s)!');
 $js_messages['strTruncatePartitionWarning'] = __('Do you really want to TRUNCATE the selected partition(s)?');
 $js_messages['strChangeColumnCollation'] = __(
-        'This operation will attempt to convert your data to the new collation. In rare cases,
-        especially where a character doesn\'t exist in the new collation, this process could cause the data to appear incorrectly under the new collation;
-        in this case we suggest you revert to the original collation and refer to the tips at '
+        'This operation will attempt to convert your data to the new collation. In '
+        . 'rare cases, especially where a character doesn\'t exist in the new '
+        . 'collation, this process could cause the data to appear incorrectly under '
+        . 'the new collation; in this case we suggest you revert to the original '
+        . 'collation and refer to the tips at '
     )
     . '<a href="%s" target="garbled_data_wiki">' . __('Garbled Data') . '</a>.'
     . '<br/><br/>'
