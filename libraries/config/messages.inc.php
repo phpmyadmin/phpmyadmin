@@ -309,6 +309,7 @@ $strConfigForm_DisplayRelationalSchema = __('Display relational schema');
 $strConfigForm_DisplayRelationalSchema_desc = '';
 $strConfigPDFDefaultPageSize_name = __('Paper size');
 $strConfigPDFDefaultPageSize_desc = '';
+$strConfigForm_Databases = __('Databases');
 $strConfigForm_Text_fields = __('Text fields');
 $strConfigForm_Text_fields_desc = __('Customize text input fields.');
 $strConfigForm_Texy = __('Texy! text');
