@@ -43,6 +43,7 @@ PMA_noCacheHeader();
 <script type="text/javascript" src="ajax.js"></script>
 <script type="text/javascript" src="../js/config.js"></script>
 <script type="text/javascript" src="scripts.js"></script>
+<script type="text/javascript" src="../js/messages.php"></script>
 </head>
 <body>
 <h1><span class="blue">php</span><span class="orange">MyAdmin</span>  setup</h1>
