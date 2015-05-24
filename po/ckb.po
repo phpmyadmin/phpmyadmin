@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-19 07:58-0400\n"
-"PO-Revision-Date: 2014-10-29 18:21+0200\n"
+"PO-Revision-Date: 2015-05-24 02:24+0200\n"
 "Last-Translator: Aso Naderi <aso.naderi@gmail.com>\n"
-"Language-Team: Kurdish Sorani <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/ckb/>\n"
+"Language-Team: Kurdish Sorani "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ckb/>\n"
+"Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ckb\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.3\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -30,17 +30,17 @@ msgstr ""
 
 #: db_central_columns.php:106
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "لیستەی بنەڕەتیی خانەکانی بنکەی دراوە بەتاڵن."
 
 #: db_central_columns.php:131
 msgid "Click to sort."
 msgstr "ڕیزکردن."
 
 #: db_central_columns.php:150
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "پیشاندانی %1$s - %2$s"
+msgstr "پیشاندانی خانەکان %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -49,7 +49,7 @@ msgstr "بنکەی دراوەی %1$s درووستکرا."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment"
-msgstr "تێبینی بنکەی دراوە:"
+msgstr "تێبینی بنکەی دراوە"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:988
@@ -266,15 +266,13 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "بنکەی دراوەی %1$s ڕوونووس کرا بۆ بنکەی دراوەی %2$s."
 
 #: db_operations.php:271
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"ڕێکخستنەکانی بیرگەی phpMyAdmin ناچالاک کراوە. بۆ دۆزینەوەی کلیک لەمە بکە %"
-"shere%s."
+msgstr "بیرۆکەی ڕێکخستنەکانی PhpMyAdmin ناچالاک کراوە. %sبزانە بۆچی%s."
 
 #: db_printview.php:48 db_tracking.php:125 db_tracking.php:287
 #: libraries/Menu.class.php:241 libraries/config/messages.inc.php:792
@@ -346,19 +344,19 @@ msgstr "ڕێگەنەدرا بە بینین!"
 
 #: db_tracking.php:39 db_tracking.php:64
 msgid "Tracking data deleted successfully."
-msgstr ""
+msgstr "زانیارییەکانی لێکۆڵینەوە بە سەرکەوتویی سڕانەوە."
 
 #: db_tracking.php:48
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"وەشانی %1$s درووست کرا بۆ خشتە هەڵبژاردراوەکان، لێکۆڵینەوەیان بۆ چالاک کراوە."
 
 #: db_tracking.php:79
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "هیچ بنکەیەکی زانیاری هەڵنەبژێراوە."
+msgstr "هیچ خشتەیەک هەڵنەبژێردراوە."
 
 #: db_tracking.php:114
 msgid "Tracked tables"
@@ -403,10 +401,9 @@ msgid "Show"
 msgstr "پیشاندان"
 
 #: db_tracking.php:139 db_tracking.php:231
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "سڕینەوەی شوێنپێی دراوەکان"
+msgstr "سڕینەوەی لێکۆڵینەوە"
 
 #: db_tracking.php:140
 msgid "Versions"
@@ -548,10 +545,10 @@ msgid "Add an inner ring"
 msgstr "زیاد کردنی ئەڵقەیەکی ناوەکی"
 
 #: gis_data_editor.php:333
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "فرە گۆشە"
+msgstr "فرەگۆشە %d:"
 
 #: gis_data_editor.php:397
 msgid "Add a polygon"
@@ -603,7 +600,6 @@ msgid "Output"
 msgstr "دەرچە"
 
 #: gis_data_editor.php:415
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -611,22 +607,21 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"\"GeomFromText\" لە ستوونی \"فرمان\" هەڵبژێرە و ڕیزبەندی خوارەوە لە خانەی "
-"\"نرخ\" داخڵ بکە"
+"\"GeomFromText\" لە ستوونی \"فرمان\" هەڵبژێرە و ڕیزبەندی خوارەوە لە خانەی \""
+"نرخ\" داخڵ بکە."
 
 #: import.php:54
-#, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "ڕێگەنەدرا بە بینین!"
+msgstr "سەرکەوتووبوو"
 
 #: import.php:58 js/messages.php:473
 msgid "Failed"
-msgstr ""
+msgstr "سەرکەوتوو نەبوو"
 
 #: import.php:62
 msgid "Incomplete params"
-msgstr ""
+msgstr "ڕاگەێینی ناتەواو"
 
 #: import.php:185
 #, php-format
@@ -651,13 +646,14 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"ناتوانرا پەڕگەی بارکراو بگوێزرێتەوە چوونکە  open_basedir چالاکە بەبێ توانای "
+"کارکردن لەگەڵ %s بوخچەی کارکردن لەگەڵ پەڕگە کاتییەکان (temporary files)."
 
 #: import.php:487 import.php:548 libraries/File.class.php:418
 #: libraries/File.class.php:512
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "ناتوانیت پەڕگە بخوێنیتەوە"
+msgstr "نەتوانرا پەڕگە بخوێنرێتەوە!"
 
 #: import.php:497 import.php:508 import.php:529 import.php:540
 #: libraries/File.class.php:578
@@ -679,23 +675,22 @@ msgstr ""
 "لە ڕێژە دیاری کراوەکە زیاترە. سەردانی  [doc@faq1-16]FAQ 1.16[/doc] بکەن."
 
 #: import.php:574
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
-msgstr "ناکرێت فایلەکانی نوسە بگۆڕدرێن بە بێ نوسەى کتێبخانەی تایبەت بەم کارە"
+msgstr "ناکرێت فایلەکانی نوسە بگۆڕدرێن بە بێ نوسەى کتێبخانەی تایبەت بەم کارە!"
 
 #: import.php:614 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "هەڵە لە بارکردنی پێوەکراەکان, تکایە فۆناغەکانی دامەزراندن بپشکنن!"
 
 #: import.php:671 libraries/sql.lib.php:884 libraries/sql.lib.php:1665
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "شوێندۆز  %s دروستکرا"
+msgstr "شوێندۆز  %s دروستکرا."
 
 #: import.php:680
 #, php-format
@@ -703,7 +698,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "داخڵ کردنی زانیاریەکان بە سەرکەوتوویی بە کۆتا هات، %d پرسگە دامەزرا ."
 
 #: import.php:706
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -711,18 +706,17 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"کاتی جێ بە جێ کردنی کردار بە کۆتا هاتووە، ئەگەر دەتانەوێت کردارەکە بە کۆتا "
-"بینن، فایلی مەبەست دووبارە تۆمار بکەن تاکوو درێژە بە داخڵ کردنی زانیاریەکان "
-"بدەن."
+"بەشە کاتیی ئەم هەنگاوە تێپەڕیی، ئەگەر دەتەوێت پرۆسەکە بەردەوام بێت، دووبارە %"
+"sهەمان پەڕگە%s باربکەوە و بەردەوام دەبێت."
 
 #: import.php:716
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"'CKB' IS AN INVALID TARGET LANGUAGE . EXAMPLE: LANGPAIR=EN|IT USING 2 LETTER "
-"ISO OR RFC3066 LIKE ZH-CN. ALMOST ALL LANGUAGES SUPPORTED BUT SOME MAY HAVE "
-"نیە CONTENT"
+"لە دواترین هەنگاودا نەتوانرا هیچ داتایەک ئامادە بکرێت بۆ هێنان بۆ بنکەی "
+"دراوە. زۆر جارێک ئەو کێشەیە پەیوەندی بە php time limits هەیە کە پێویستە "
+"زۆرتر بکرێت بۆ ئەوەی PhpMyAdmin بتوانێت بە سەرکەوتوویی پرۆسەکە جێبەجێ بکات."
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
@@ -814,10 +808,9 @@ msgid "PHP extension:"
 msgstr "پێوەکراوەکانی php:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP version:"
-msgstr "پێوەکراوەکانی php"
+msgstr "وەشانی PHP:"
 
 #: index.php:356
 msgid "Show PHP information"
@@ -862,6 +855,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
+"ئێوە بە هەژماری بنەڕەتیی root ـەوە پەیوەندیتان کردووە بە ڕاژەکاری MySQL. ئەو "
+"شێوازە پەیوەندیکردنە جێی مەترسییە و پێمان باشە وشەی نهێنی root‌ بگۆڕیت و "
+"دواتر پەیوەندییەکە درووست بکەیتەوە بۆ کەمکردنەوەی ئەگەری درووستبوونی "
+"کێشەیەکی پاراستن."
 
 #: index.php:464
 msgid ""
@@ -869,6 +866,9 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"لە PHP ڕاژەکارەکەتان mbstring.func_overload چالاک کراوە. ئەو ڕێکخستنە بە "
+"درووستی لەگەڵ PhpMyAdmin کار ناکات و لەوانەیە ببێتە هۆکاری تێکچوونی هەندێک "
+"داتای بنکەی دراوە!"
 
 #: index.php:479
 msgid ""
@@ -894,6 +894,7 @@ msgstr ""
 #: index.php:520
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
+"پەڕگەی ڕێکخستنەکان ئێستا پێویستی بە وشەیەکی نهێنی هەیە (blowfish_secret)."
 
 #: index.php:531
 msgid ""
@@ -902,6 +903,11 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
+"بوخچەی [code]config[/code], کە بەکار دەبرێت بۆ دامەزراندنی PhpMyAdmin تا "
+"ئێستا لەسەر ئەم ڕاژەکارە ماوە، مانەوەی ئەو بوخچەیە لەوانەیە ببێتە هۆکاری "
+"درووستبوونی کێشەی پاراستن و ئەگەری تێکچوونی دامەزراندنی ئێستای PhpMyAdmin. "
+"تکایە بوخچەی ناوبراو بسڕنەوە ئەگەر دامەزراندنی PhpMyAdmin بە سەرکەوتوویی "
+"کۆتایی هاتووە."
 
 #: index.php:542
 #, fuzzy, php-format
@@ -918,7 +924,7 @@ msgstr ""
 #: index.php:549
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
-msgstr ""
+msgstr "یان دەتوانیت لە تابی کرداری هەر بنکەی دراوەیەکدا ڕێکی بخەیت"
 
 #: index.php:597
 #, php-format
@@ -926,6 +932,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"وەشانی MySQL ی تایبەت بە PHP ڕاژەکارەکەت  %s جیاوازیی هەیە لەگەڵ وەشانی "
+"ڕاژەکاری MySQL %s. ئەوەش لەوانەیە ببێتە هۆکاری ناسەقامگیری لە کارەکاندا."
 
 #: index.php:621
 #, php-format
@@ -960,28 +968,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "تۆ دەتەوێت خشتەکە بەتەواوی بسڕیتەوە!"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "سڕینەوە داتا شوێنکەوتووەکان لەم خشتەیەدا"
+msgstr "سڕینەوە داتا شوێنکەوتووەکان لە ئەم خشتەدا؟"
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "سڕینەوە داتا شوێنکەوتووەکان لەم خشتەیەدا"
+msgstr "سڕینەوە داتا شوێنکەوتووەکانی ئەم خشانە؟"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "سڕینەوە داتا شوێنکەوتووەکان لەم خشتەیەدا"
+msgstr "سڕینەوە داتا شوێنکەوتووەکانی ئەم وەشانە؟"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "سڕینەوە داتا شوێنکەوتووەکان لەم خشتەیەدا"
+msgstr "سڕینەوە داتا شوێنکەوتووەکانی ئەم وەشانانە؟"
 
 #: js/messages.php:53
 #, fuzzy
@@ -1061,41 +1065,37 @@ msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \"%s\"؟"
 
 #: js/messages.php:68
 msgid "Save & Close"
-msgstr ""
+msgstr "پاشەکەوتکردن و داخستن"
 
 #: js/messages.php:69 libraries/config/FormDisplay.tpl.php:404
 #: libraries/insert_edit.lib.php:1543 prefs_manage.php:361
 #: prefs_manage.php:372
 msgid "Reset"
-msgstr ""
+msgstr "سەرلەنوێ"
 
 #: js/messages.php:70
-#, fuzzy
 #| msgid "Select All"
 msgid "Reset All"
-msgstr "هەڵبژاردنی هەموو"
+msgstr "پەشیمانبوونەوە لە هەموو"
 
 #: js/messages.php:73
 msgid "Missing value in the form!"
 msgstr "بیرچوونی نرخێک لە فۆڕمەکە!"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "لانی کەم یەکێک لە وشەکان"
+msgstr "لانیکەم یەک هەڵبژاردە هەڵبژێرە!"
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid number!"
-msgstr "%d ژمارەی ڕیزی نادروستە."
+msgstr "تکایە ژمارەیەکی درووست بنووسە!"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid length!"
-msgstr "%d ژمارەی ڕیزی نادروستە."
+msgstr "تکایە درێژییەکی درووست بنووسە!"
 
 #: js/messages.php:77
 msgid "Add Index"
@@ -1106,14 +1106,14 @@ msgid "Edit Index"
 msgstr "چاکردنی نیشاندەر"
 
 #: js/messages.php:79 libraries/tbl_indexes.lib.php:462
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "ئەستوون(ەکان)ی %d زیادبکە بۆ نیشاندەر"
+msgstr "خانەکانی %s زۆر بکە بۆ پێڕست"
 
 #: js/messages.php:80
 msgid "Create single-column index"
-msgstr ""
+msgstr "درووستکردنی پێڕستی یەک خانەیی"
 
 #: js/messages.php:81
 msgid "Create composite index"
@@ -1124,10 +1124,9 @@ msgid "Composite with:"
 msgstr ""
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Add %d column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "ئەستوون(ەکان)ی %d زیادبکە بۆ نیشاندەر"
+msgstr "خانە هەڵبژێرە بۆ پێڕست."
 
 #: js/messages.php:86 libraries/structure.lib.php:1710
 msgid "You have to add at least one column."
@@ -1146,10 +1145,9 @@ msgid "Simulate query"
 msgstr "لە داواکاری"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "ڕیزە کارتێکراوەکان:"
+msgstr "ریزە هاوتاکان:"
 
 #: js/messages.php:94 libraries/Util.class.php:638 libraries/sql.lib.php:300
 #, fuzzy
@@ -1431,11 +1429,14 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log چالاکە, بەڵام تەنیا ئەو داوکارییانە تۆمار دەکات کە زۆرتر لە %"
+"d چرکە بخایەنن. باشترە کە کاتیی  long_query_time کەم بکرێتەوە بۆ 0 تا 2 چرکە،"
+" بەپێی تواناکانی ڕاژەکار."
 
 #: js/messages.php:176
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time ڕێکخراوە بۆ to %d چرکە."
 
 #: js/messages.php:177
 msgid ""
@@ -1463,10 +1464,10 @@ msgstr "ناچالاککردن %s"
 
 #. l10n: %d seconds
 #: js/messages.php:185
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "long_query_time دانێ بۆ %ds"
+msgstr "long_query_time ڕێکبخە بۆ %d."
 
 #: js/messages.php:187
 msgid ""
@@ -1611,7 +1612,7 @@ msgstr ""
 
 #: js/messages.php:230
 msgid "Sum of grouped rows:"
-msgstr ""
+msgstr "کۆی گشتیی ڕیزە گرووپ کراوەکان:"
 
 #: js/messages.php:231
 msgid "Total:"
@@ -1643,6 +1644,8 @@ msgstr "ڕیزە کارتێکراوەکان:"
 #: js/messages.php:241
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
+"نەتوانرا پەڕگەی ڕێکخستنەکان بخوێنرێتەوە، وادیارە کۆدەکانی JSON بە درووستی "
+"نەنووسراون."
 
 #: js/messages.php:243
 msgid ""
@@ -1738,7 +1741,7 @@ msgstr "ئامادەکردن…"
 
 #: js/messages.php:275
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "داواکاریی پوچەڵ کرایەوە!!"
 
 #: js/messages.php:276
 msgid "Processing Request"
@@ -1746,7 +1749,7 @@ msgstr "کردنەوەی داواکاری"
 
 #: js/messages.php:277
 msgid "Request Failed!!"
-msgstr ""
+msgstr "داواکاریی سەرکەوتوو نەبوو!!"
 
 #: js/messages.php:278
 msgid "Error in Processing Request"
@@ -1812,7 +1815,7 @@ msgstr "(ناچالاکە)"
 
 #: js/messages.php:297
 msgid "Failed to get real row count."
-msgstr ""
+msgstr "نەتوانرا ژمارەی ڕیزەکان بە درووستی بهێنرێت."
 
 #: js/messages.php:300
 msgid "Searching"
@@ -1868,10 +1871,9 @@ msgid "Values for a new column"
 msgstr "نرخ بۆ ستونی نوێ"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "هەر نرخێک لە خانەی جیا بنووسە"
+msgstr "هەر نرخێک لە خانەی جیا بنووسە."
 
 #: js/messages.php:315
 #, php-format
@@ -1930,19 +1932,17 @@ msgstr "گۆڕاوەکان"
 
 #: js/messages.php:330 libraries/normalization.lib.php:867
 msgid "Pick"
-msgstr ""
+msgstr "هەڵبژێرە"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "No rows selected"
 msgid "Column selector"
-msgstr "هیچ ڕیزێک هەڵنەبژێراوە"
+msgstr "خانە دەستنیشانکەر"
 
 #: js/messages.php:332
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
-msgstr "گەڕان لە بنکەی دراو"
+msgstr "گەڕان لە ئەم لیستە"
 
 #: js/messages.php:333
 #, php-format
@@ -1952,14 +1952,13 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:334
-#, fuzzy
 #| msgid "Free memory"
 msgid "See more"
-msgstr "یادی بەتاڵ"
+msgstr "بینینی زۆرتر"
 
 #: js/messages.php:335
 msgid "Are you sure?"
-msgstr ""
+msgstr "ئایا دڵنیایت؟"
 
 #: js/messages.php:336
 msgid ""
@@ -1968,10 +1967,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
-msgstr "بەشداری کردن"
+msgstr "بەردەوامبوون"
 
 #: js/messages.php:340 libraries/structure.lib.php:2212
 #: libraries/structure.lib.php:2215
@@ -1983,10 +1981,9 @@ msgid "Primary key added."
 msgstr ""
 
 #: js/messages.php:342 libraries/normalization.lib.php:173
-#, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "ڕاپۆرتە شوێنکەتووەکان"
+msgstr "هەنگاوی داهاتووت…"
 
 #: js/messages.php:343
 #, php-format
