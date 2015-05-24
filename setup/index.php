@@ -40,6 +40,12 @@ PMA_noCacheHeader();
 <script type="text/javascript" src="../js/jquery/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="../js/jquery/jquery-ui-1.11.2.min.js">
 </script>
+<script>
+    // Dummy PMA_messages
+    if (typeof PMA_messages === 'undefined') {
+        PMA_messages = {};
+    }
+</script>
 <script type="text/javascript" src="ajax.js"></script>
 <script type="text/javascript" src="../js/config.js"></script>
 <script type="text/javascript" src="scripts.js"></script>
