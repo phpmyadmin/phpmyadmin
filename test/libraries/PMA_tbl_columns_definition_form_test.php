@@ -36,8 +36,6 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['DBG'] = null;
-        $GLOBALS['cfg']['TextareaCols'] = 10;
-        $GLOBALS['cfg']['TextareaRows'] = 15;
         $GLOBALS['pmaThemeImage'] = 'image';
 
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
