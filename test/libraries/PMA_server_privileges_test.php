@@ -595,8 +595,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             = PMA_getListForExportUserDefinition($username, $hostname);
 
         //validate 1: $export
-        $result = '<textarea class="export" cols="' . $GLOBALS['cfg']['TextareaCols']
-        . '" rows="' . $GLOBALS['cfg']['TextareaRows'];
         $this->assertContains(
             'grant user2 delete',
             $export
@@ -606,7 +604,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $export
         );
         $this->assertContains(
-            $result,
+            '<textarea class="export"',
             $export
         );
 
