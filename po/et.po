@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-24 06:17-0400\n"
-"PO-Revision-Date: 2015-05-19 15:04+0200\n"
+"PO-Revision-Date: 2015-05-25 16:27+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1042,6 +1042,11 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"See operatsioon proovib teisendada su andmed uude sortimisse. Harvadel "
+"juhtudel, peamiselt siis, kui uues sortimises puudub tähemärk, võivad andmed "
+"selle protsessi tulemusel uues sortimises ilmuda vigaselt. Sellisel juhul "
+"soovitame pöörduda tagasi vana sortimise juurde ja vaadata nõuandeid "
+"aadressil "
 
 #: js/messages.php:73
 msgid "Garbled Data"
@@ -1049,7 +1054,7 @@ msgstr ""
 
 #: js/messages.php:75
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "Kas sa oled kindel, et soovid vahetada sortimist ja teisendada andmed?"
 
 #: js/messages.php:78
 msgid "Save & Close"
@@ -9030,10 +9035,9 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmini dokumentatsioon"
 
 #: libraries/navigation/NavigationHeader.class.php:192
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation panel settings"
-msgstr "Navigeerimise paneel"
+msgstr "Navigeerimispaneeli seaded"
 
 #: libraries/navigation/NavigationHeader.class.php:203
 msgid "Reload navigation panel"
@@ -9487,10 +9491,9 @@ msgstr "Andmebaasi uus nimi"
 #: libraries/operations.lib.php:795 libraries/operations.lib.php:991
 #: libraries/operations.lib.php:1152 libraries/rte/rte_routines.lib.php:1101
 #: libraries/tbl_columns_definition_form.lib.php:346
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Adjust Privileges"
-msgstr "Muuda õigusi"
+msgstr "Kohanda õiguseid"
 
 #: libraries/operations.lib.php:113
 #, php-format
@@ -9683,7 +9686,7 @@ msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabel %s liigutati andmebaasi %s. Õiguseid on vastavalt kohandatud."
 
 #: libraries/operations.lib.php:1927
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been copied to %s. Privileges have been realigned."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabel %s kopeeriti andmebaasi %s. Õiguseid kohandati vastavalt."
@@ -11394,7 +11397,7 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Vabanda, me ei suutnud kustutatud funktsiooni taastada."
 
 #: libraries/rte/rte_routines.lib.php:382
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified. Privileges have been realigned."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Funktsiooni %1$s on muudetud. Õiguseid on vastavalt kohandatud."
