@@ -855,6 +855,77 @@ function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
 }
 
 /**
+ * Get HTML for the rename table part of table options
+ *
+ * @return string $html_output
+ */
+function PMA_getHtmlForRenameTable()
+{
+    $html_output = '<tr><td>' . __('Rename table to') . '</td>'
+        . '<td>'
+        . '<input type="text" size="20" name="new_name" maxlength="64" '
+        . 'value="' . htmlspecialchars($GLOBALS['table'])
+        . '" required="required" />'
+        . '</td>'
+        . '</tr>';
+    return $html_output;
+}
+
+/**
+ * Get HTML for the table comments part of table options
+ *
+ * @param string $current_value of the table comments 
+ *
+ * @return string $html_output
+ */
+function PMA_getHtmlForTableComments($current_value)
+{
+    $html_output = '<tr><td>' . __('Table comments') . '</td>'
+        . '<td><input type="text" name="comment" maxlength="60" size="30"'
+        . 'value="' . htmlspecialchars($current_value) . '" />'
+        . '<input type="hidden" name="prev_comment" value="'
+        . htmlspecialchars($current_value) . '" />'
+        . '</td>'
+        . '</tr>';
+    return $html_output;
+}
+
+/**
+ * Get HTML for the PACK KEYS part of table options
+ *
+ * @param string $current_value of the pack keys option
+ *
+ * @return string $html_output
+ */
+function PMA_getHtmlForPackKeys($current_value)
+{
+    $html_output = '<tr>'
+        . '<td><label for="new_pack_keys">PACK_KEYS</label></td>'
+        . '<td><select name="new_pack_keys" id="new_pack_keys">';
+
+    $html_output .= '<option value="DEFAULT"';
+    if ($current_value == 'DEFAULT') {
+        $html_output .= 'selected="selected"';
+    }
+    $html_output .= '>DEFAULT</option>
+            <option value="0"';
+    if ($current_value == '0') {
+        $html_output .= 'selected="selected"';
+    }
+    $html_output .= '>0</option>
+            <option value="1" ';
+    if ($current_value == '1') {
+        $html_output .= 'selected="selected"';
+    }
+    $html_output .= '>1</option>'
+        . '</select>'
+        . '</td>'
+        . '</tr>';
+
+    return $html_output;
+}
+
+/**
  * Get HTML fieldset for Table option, it contains HTML table for options
  *
  * @param string  $comment            Comment
@@ -883,23 +954,8 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         . '<legend>' . __('Table options') . '</legend>';
 
     $html_output .= '<table>';
-    //Change table name
-    $html_output .= '<tr><td>' . __('Rename table to') . '</td>'
-        . '<td>'
-        . '<input type="text" size="20" name="new_name" maxlength="64" '
-        . 'value="' . htmlspecialchars($GLOBALS['table'])
-        . '" required="required" />'
-        . '</td>'
-        . '</tr>';
-
-    //Table comments
-    $html_output .= '<tr><td>' . __('Table comments') . '</td>'
-        . '<td><input type="text" name="comment" maxlength="60" size="30"'
-        . 'value="' . htmlspecialchars($comment) . '" />'
-        . '<input type="hidden" name="prev_comment" value="'
-        . htmlspecialchars($comment) . '" />'
-        . '</td>'
-        . '</tr>';
+    $html_output .= PMA_getHtmlForRenameTable(); 
+    $html_output .= PMA_getHtmlForTableComments($comment);
 
     //Storage engine
     $html_output .= '<tr><td>' . __('Storage Engine')
@@ -923,28 +979,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         . '</tr>';
 
     if ($is_myisam_or_aria || $is_isam) {
-        $html_output .= '<tr>'
-            . '<td><label for="new_pack_keys">PACK_KEYS</label></td>'
-            . '<td><select name="new_pack_keys" id="new_pack_keys">';
-
-        $html_output .= '<option value="DEFAULT"';
-        if ($pack_keys == 'DEFAULT') {
-            $html_output .= 'selected="selected"';
-        }
-        $html_output .= '>DEFAULT</option>
-                <option value="0"';
-        if ($pack_keys == '0') {
-            $html_output .= 'selected="selected"';
-        }
-        $html_output .= '>0</option>
-                <option value="1" ';
-        if ($pack_keys == '1') {
-            $html_output .= 'selected="selected"';
-        }
-        $html_output .= '>1</option>'
-            . '</select>'
-            . '</td>'
-            . '</tr>';
+        $html_output .= PMA_getHtmlForPackKeys($pack_keys);
     } // end if (MYISAM|ISAM)
 
     if ($is_myisam_or_aria) {
