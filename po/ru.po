@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-24 06:17-0400\n"
-"PO-Revision-Date: 2014-12-24 03:16+0200\n"
-"Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ru/>\n"
+"PO-Revision-Date: 2015-05-25 09:34+0200\n"
+"Last-Translator: Хомутов Иван Сергеевич <khomutov.ivan@mail.ru>\n"
+"Language-Team: Russian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.3\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -34,10 +34,10 @@ msgid "Click to sort."
 msgstr "Кликните для сортировки."
 
 #: db_central_columns.php:150
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "Отображение строк %1$s - %2$s"
+msgstr "Отображение строк %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
@@ -339,23 +339,21 @@ msgid "Access denied!"
 msgstr "В доступе отказано!"
 
 #: db_tracking.php:39 db_tracking.php:64
-#, fuzzy
 #| msgid "Tracking data definition successfully deleted"
 msgid "Tracking data deleted successfully."
-msgstr "Данные слежения успешно удалены"
+msgstr "Данные слежения успешно удалены."
 
 #: db_tracking.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %1$s was created, tracking for %2$s is active."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "Версия %1$s создана, отслеживание %2$s включено."
+msgstr "Версия %1$s для выбранных таблиц создана, отслеживание включено."
 
 #: db_tracking.php:79
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Ни одна база данных не выбрана."
+msgstr "Ни одна таблица не выбрана."
 
 #: db_tracking.php:114
 msgid "Tracked tables"
@@ -400,10 +398,9 @@ msgid "Show"
 msgstr "Показать"
 
 #: db_tracking.php:139 db_tracking.php:231
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "Удаление данных слежения"
+msgstr "Удалить отслеживание"
 
 #: db_tracking.php:140
 msgid "Versions"
@@ -690,7 +687,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Импорт успешно завершён, выполнено %d запросов."
 
 #: import.php:706
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -698,8 +695,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Достигнут временной лимит выполнения скрипта. Для завершения импорта "
-"повторно отправьте тот же файл."
+"Достигнут временной лимит выполнения скрипта. Для завершения импорта, "
+"пожалуйста повторно отправьте тот же файл и импорт будет возобновлен."
 
 #: import.php:716
 msgid ""
@@ -800,7 +797,6 @@ msgid "PHP extension:"
 msgstr "PHP расширение:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "Версия PHP:"
@@ -842,7 +838,6 @@ msgid "List of changes"
 msgstr "Список изменений"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -854,10 +849,10 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"Ваш конфигурационный файл содержит настройки MySQL по-умолчанию, согласно "
-"которым для привилегированного пользователя 'root' не задан пароль. Такие "
-"настройки делают MySQL-сервер уязвимым для несанкционированного доступа, "
-"поэтому настоятельно рекомендуется установить пароль для пользователя 'root'."
+"Вы подключились как 'root' без ввода пароля, что характерно для стандартных "
+"настроек MySQL аккаунта. MySQL сервер, запущенный с данными настройками, "
+"открыт для вторжений. Вам следует исправить данную погрешность, установив "
+"пароль для пользователя 'root'."
 
 #: index.php:464
 msgid ""
@@ -880,7 +875,6 @@ msgstr ""
 "что может привести к непредсказуемым результатам."
 
 #: index.php:495
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -892,10 +886,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Значение PHP параметра [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] меньше, чем "
-"длительность хранения cookie, определённая в phpMyAdmin. По этой причине "
-"сессия входа закончится быстрее установленной в phpMyAdmin."
+"Значение PHP параметра "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] меньше, чем длительность "
+"хранения cookie, определённая в phpMyAdmin. По этой причине сессия входа "
+"может закончиться быстрее установленной в phpMyAdmin."
 
 #: index.php:508
 msgid ""
@@ -986,28 +981,24 @@ msgid "Delete tracking data for this table?"
 msgstr "Удалить данные слежения за таблицей?"
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Удалить данные слежения за таблицей"
+msgstr "Удалить данные слежения за таблицами?"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Удалить данные слежения за таблицей"
+msgstr "Удалить данные слежения для этой версии?"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Удалить данные слежения за таблицей"
+msgstr "Удалить данные слежения для этих версий?"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Удалить строку данных слежения за таблицей"
+msgstr "Удалить данные из отчета слежения?"
 
 #: js/messages.php:54
 msgid "Deleting tracking data"
@@ -1046,10 +1037,9 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Вы действительно хотите отозвать выбранного(ых) пользователя(ей)?"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "Вы действительно хотите удалить эту закладку?"
+msgstr "Вы действительно хотите удалить эту центральную колонку?"
 
 #: js/messages.php:63
 #, fuzzy
@@ -1738,7 +1728,7 @@ msgstr "Тест"
 
 #: js/messages.php:273
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "Форматирование SQL..."
 
 #: js/messages.php:277 libraries/server_variables.lib.php:157
 #: templates/designer/aggregate_query_panel.phtml:63
@@ -1776,10 +1766,9 @@ msgid "Processing Request"
 msgstr "Обработка запроса"
 
 #: js/messages.php:287
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request Failed!!"
-msgstr "Запрос отменён!"
+msgstr "Запрос не выполнен!"
 
 #: js/messages.php:288
 msgid "Error in Processing Request"
@@ -1952,7 +1941,7 @@ msgstr "Обзор внешних значений"
 
 #: js/messages.php:336
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Нет автосохраненных запросов"
 
 #: js/messages.php:337
 #, fuzzy, php-format
@@ -2241,6 +2230,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Показывает, что были произведены изменения на странице. Для отмены изменений "
+"потребуется подтверждение"
 
 #: js/messages.php:438
 msgid "Select referenced key"
@@ -2351,7 +2342,6 @@ msgid "Click to sort results by this column."
 msgstr "Кликните для сортировки результатов по данному столбцу."
 
 #: js/messages.php:468
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2360,9 +2350,9 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Удерживайте Shift и кликните для добавления столбца в класс ORDER BY или "
-"переключения ASC/DESC.<br />- Удерживайте Control и кликните для удаления "
-"столбца из класса ORDER BY"
+"Удерживая Shift, кликните для добавления столбца в класс ORDER BY или "
+"переключения ASC/DESC.<br />- Удерживая Ctrl или Alt (для Mac: удерживая "
+"Shift и Option), кликните для удаления столбца из класса ORDER BY"
 
 #: js/messages.php:469
 msgid "Click to mark/unmark."
@@ -2403,6 +2393,8 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Вы действительно хотите отобразить все строки? При большом количестве данных "
+"возможно отключение браузера."
 
 #: js/messages.php:478
 #, fuzzy
@@ -2497,41 +2489,40 @@ msgstr "Отсоединить от основной панели"
 #: js/messages.php:518
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Для фильтрации по всем базам данных, нажмите Enter после ввода поискового "
+"запроса"
 
 #: js/messages.php:519
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Для фильтрации по всем %s в базе данных, нажмите Enter после ввода "
+"поискового запроса"
 
 #: js/messages.php:520
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Таблицы"
+msgstr "таблицам"
 
 #: js/messages.php:521
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Представления"
+msgstr "представлениям"
 
 #: js/messages.php:522
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Процедуры"
+msgstr "процедурам"
 
 #: js/messages.php:523
-#, fuzzy
 #| msgid "event"
 msgid "events"
-msgstr "событие"
+msgstr "событиям"
 
 #: js/messages.php:524
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "Функции"
+msgstr "функциям"
 
 #: js/messages.php:527
 msgid "The requested page was not found in the history, it may have expired."
@@ -2635,6 +2626,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Ваш браузер не поддерживает настройку из локальных источников, либо превышен "
+"допустимый лимит. Некоторые функции могут работать некорректно. В браузере "
+"Safary, данная проблема возникает из-за включенного \"Private Mode Browsing\""
+"."
 
 #: js/messages.php:608
 msgctxt "Previous month"
@@ -4342,22 +4337,19 @@ msgid "Value"
 msgstr "Значение"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "Поиск в таблице"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "Поиск с приближением"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
-msgstr "Поиск и замена"
+msgstr "Найти и заменить"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1342
 msgid "Edit/Insert"
@@ -4857,11 +4849,10 @@ msgid "Create PHP Code"
 msgstr "PHP-код"
 
 #: libraries/Util.class.php:1287
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Редактировать индекс"
+msgstr "Построчное редактирование"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1629
@@ -5064,10 +5055,9 @@ msgid "Length/Values"
 msgstr "Длина/Значения"
 
 #: libraries/central_columns.lib.php:705
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Атрибуты"
+msgstr "Атрибут"
 
 #: libraries/central_columns.lib.php:709
 #: libraries/central_columns.lib.php:1207
@@ -5152,6 +5142,10 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"Невозможно использовать тайм зону %1$s для сервера %2$d. Пожалуйста, "
+"проверьте настройки для [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
+"phpMyAdmin в настоящий момент использует тайм зону, настроенную на сервере "
+"по-умолчанию."
 
 #: libraries/common.inc.php:1034
 #, php-format
@@ -5217,13 +5211,12 @@ msgstr "Недоступно"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "ключ"
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Таблица с описаниями полей"
+msgstr "отобразить колонку"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5404,7 +5397,7 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Ключ должен содержать символы алфавита, цифры [em]и[/em] знаки."
 
 #: libraries/config/ServerConfigChecks.class.php:371
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5420,10 +5413,10 @@ msgid ""
 msgstr ""
 "Данный %sпараметр%s должен быть отключен, так как позволяет атакующему "
 "совершать перебор учетных данных к любому серверу MySQL. При необходимости "
-"активации данного параметра, используйте %sсписок доверенных прокси%s. "
-"Однако, защита по IP может быть ненадежной, если ваш IP не является "
-"выделенным и кроме вас принадлежит тысячам пользователей того же Интернет "
-"Провайдера."
+"активации данного параметра, используйте %sсписок доверенных логинов для "
+"MySQL сервера%s или %sсписок доверенных прокси%s. Однако, защита по IP через "
+"доверенные прокси может быть ненадежной, если ваш IP не является выделенным "
+"и кроме вас принадлежит тысячам пользователей того же Интернет Провайдера."
 
 #: libraries/config/ServerConfigChecks.class.php:381
 msgid ""
