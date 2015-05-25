@@ -3978,8 +3978,7 @@ function PMA_getDataForDBInfo()
  */
 function PMA_getListForExportUserDefinition($username, $hostname)
 {
-    $export = '<textarea class="export" cols="' . $GLOBALS['cfg']['TextareaCols']
-        . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
+    $export = '<textarea class="export" cols="60" rows="15">';
 
     if (isset($_REQUEST['selected_usr'])) {
         // export privileges for selected users

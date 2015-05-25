@@ -131,9 +131,7 @@ function PMA_getHtmlForTableConfigurations()
             . '<tr>'
             . '<td>'
             . '<textarea name="partition_definition" id="partitiondefinition"'
-            . ' cols="' . $GLOBALS['cfg']['TextareaCols'] . '"'
-            . ' rows="' . $GLOBALS['cfg']['TextareaRows'] . '"'
-            . ' dir="' . $GLOBALS['text_dir'] . '">'
+            . ' cols="40" rows="15" dir="' . $GLOBALS['text_dir'] . '">'
             . (isset($_REQUEST['partition_definition'])
                 ? htmlspecialchars($_REQUEST['partition_definition'])
                 : '')

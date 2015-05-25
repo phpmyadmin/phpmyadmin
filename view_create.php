@@ -247,8 +247,7 @@ $htmlString .= '<tr><td class="nowrap">' . __('Column names') . '</td>'
 
 $htmlString .= '<tr><td class="nowrap">AS</td>'
     . '<td>'
-    . '<textarea name="view[as]" rows="' . $cfg['TextareaRows'] . '"'
-    . ' cols="' . $cfg['TextareaCols'] . '" dir="' . $text_dir . '"';
+    . '<textarea name="view[as]" rows="15" cols="40" dir="' . $text_dir . '"';
 if ($GLOBALS['cfg']['TextareaAutoSelect'] || true) {
     $htmlString .= ' onclick="selectContent(this, sql_box_locked, true)"';
 }
