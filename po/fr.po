@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-24 06:17-0400\n"
-"PO-Revision-Date: 2015-05-19 20:12+0200\n"
+"PO-Revision-Date: 2015-05-25 13:59+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.3\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -711,7 +711,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Impossible de charger l'état d'avancement de l'importation."
 
 #: import_status.php:112 js/messages.php:361 libraries/Util.class.php:735
 #: libraries/export.lib.php:460
@@ -1055,6 +1055,11 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Cette opération va tenter de convertir vos données dans le nouveau "
+"classement. Dans de rares cas, particulièrement où un caractère n'existe pas "
+"dans le nouveau classement, ce processus pourrait causer un mauvais "
+"affichage des données dans le nouveau classement; dans ce cas nous vous "
+"suggérons de revenir au classement original et de consulter les conseils à "
 
 #: js/messages.php:73
 msgid "Garbled Data"
