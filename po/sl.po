@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-24 06:17-0400\n"
-"PO-Revision-Date: 2015-05-20 22:48+0200\n"
+"PO-Revision-Date: 2015-05-25 22:53+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:37 license.php:28
@@ -1048,6 +1048,11 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Poseg bo poskušal pretvoriti vaše podatke v nova pravila za razvrščanje "
+"znakov. V redkih izjemah, še posebej, ko znak v novi razvrstitvi ne obstaja, "
+"lahko poseg povzroči, da se podatki v novi razvrstitvi ne prikažejo pravilno;"
+" v tem primeru vam predlagamo, da podatke povrnete v izvorno razvrščanje in "
+"si ogledate namige na "
 
 #: js/messages.php:73
 msgid "Garbled Data"
@@ -1056,6 +1061,8 @@ msgstr ""
 #: js/messages.php:75
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
+"Ste preričani, da želite spremeniti pravilo za razvrščanje znakov in "
+"pretvoriti podatke?"
 
 #: js/messages.php:78
 msgid "Save & Close"
@@ -9565,10 +9572,9 @@ msgstr "Preimenuj zbirko podatkov v"
 #: libraries/operations.lib.php:795 libraries/operations.lib.php:991
 #: libraries/operations.lib.php:1152 libraries/rte/rte_routines.lib.php:1101
 #: libraries/tbl_columns_definition_form.lib.php:346
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Adjust Privileges"
-msgstr "Uredi privilegije"
+msgstr "Prilagodi privilegije"
 
 #: libraries/operations.lib.php:113
 #, php-format
@@ -9755,10 +9761,10 @@ msgid "Can't copy table to same one!"
 msgstr "Tabele ne morete kopirati same vase!"
 
 #: libraries/operations.lib.php:1923
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been moved to %s. Privileges have been realigned."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "Tabelo %s smo premaknili na %s. Privilegije smo ponovno poravnali."
+msgstr "Tabelo %s smo premaknili na %s. Privilegije smo prilagodili."
 
 #: libraries/operations.lib.php:1927
 #, fuzzy, php-format
