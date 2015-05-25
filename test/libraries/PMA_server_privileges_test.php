@@ -588,8 +588,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     {
         $username = "PMA_username";
         $hostname = "PMA_hostname";
-        $GLOBALS['cfg']['TextareaCols'] = 'TextareaCols';
-        $GLOBALS['cfg']['TextareaRows'] = 'TextareaCols';
 
         list($title, $export)
             = PMA_getListForExportUserDefinition($username, $hostname);
