@@ -67,7 +67,7 @@ function PMA_handleCreateOrEditIndex($db, $table, $index)
             $response->addJSON(
                 'message', PMA_Util::getMessage($message, $sql_query, 'success')
             );
-            $response->addJSON('index_table', PMA_Index::getView($table, $db));
+            $response->addJSON('index_table', PMA_Index::getHtmlForIndexes($table, $db));
         } else {
             include 'tbl_structure.php';
         }

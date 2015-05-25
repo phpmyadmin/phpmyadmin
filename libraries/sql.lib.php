@@ -1198,7 +1198,7 @@ function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
     ) {
         PMA_relationsCleanupColumn($db, $table, $dropped_column);
         // to refresh the list of indexes (Ajax mode)
-        $extra_data['indexes_list'] = PMA_Index::getView($table, $db);
+        $extra_data['indexes_list'] = PMA_Index::getHtmlForIndexes($table, $db);
     }
 
     return $extra_data;
@@ -1409,7 +1409,7 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
 
         // Update Indexes list.
         if (isset($_REQUEST['index_change'])) {
-            $extra_data['indexes_list'] = PMA_Index::getView($table, $db);
+            $extra_data['indexes_list'] = PMA_Index::getHtmlForIndexes($table, $db);
         }
     }
 

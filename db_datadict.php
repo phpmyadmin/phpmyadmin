@@ -195,7 +195,7 @@ foreach ($tables as $table) {
     echo '</table>';
     // display indexes information
     if (count(PMA_Index::getFromTable($table, $db)) > 0) {
-        echo PMA_Index::getView($table, $db, true);
+        echo PMA_Index::getHtmlForIndexes($table, $db, true);
     }
     echo '</div>';
 } //ends main while

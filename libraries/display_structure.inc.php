@@ -248,7 +248,7 @@ if (! $tbl_is_view
     //return the list of index
     $response->addJSON(
         'indexes_list',
-        PMA_Index::getView($GLOBALS['table'], $GLOBALS['db'])
+        PMA_Index::getHtmlForIndexes($GLOBALS['table'], $GLOBALS['db'])
     );
     $response->addHTML(PMA_getHtmlForDisplayIndexes());
 }

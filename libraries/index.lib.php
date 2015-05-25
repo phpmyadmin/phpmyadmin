@@ -24,7 +24,7 @@ function PMA_getHtmlForDisplayIndexes()
     $html_output .= PMA_Util::getDivForSliderEffect(
         'indexes', __('Indexes')
     );
-    $html_output .= PMA_Index::getView($GLOBALS['table'], $GLOBALS['db']);
+    $html_output .= PMA_Index::getHtmlForIndexes($GLOBALS['table'], $GLOBALS['db']);
     $html_output .= '<fieldset class="tblFooters" style="text-align: left;">'
         . '<form action="tbl_indexes.php" method="post">';
     $html_output .= PMA_URL_getHiddenInputs(

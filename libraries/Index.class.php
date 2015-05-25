@@ -658,7 +658,7 @@ class PMA_Index
      *
      * @access  public
      */
-    static public function getView($table, $schema, $print_mode = false)
+    static public function getHtmlForIndexes($table, $schema, $print_mode = false)
     {
         $indexes = PMA_Index::getFromTable($table, $schema);
 

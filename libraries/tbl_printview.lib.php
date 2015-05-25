@@ -497,7 +497,7 @@ function PMA_getHtmlForTableStructure(
         /**
          * Displays indexes
          */
-        $html .= PMA_Index::getView($table, $db, true);
+        $html .= PMA_Index::getHtmlForIndexes($table, $db, true);
 
         /**
          * Displays Space usage and row statistics
