@@ -695,8 +695,6 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Достигнут временной лимит выполнения скрипта. Для завершения импорта, "
-"пожалуйста повторно отправьте тот же файл и импорт будет возобновлен."
 
 #: import.php:716
 msgid ""
