@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-24 06:17-0400\n"
-"PO-Revision-Date: 2015-05-20 16:41+0200\n"
+"PO-Revision-Date: 2015-05-25 14:20+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.3\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -1053,14 +1053,20 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Deze actie probeert uw data te converteren naar de nieuwe vergelijking. In "
+"zeldzame gevallen, in het bijzonder als het letterteken niet bestaat in de "
+"nieuwe vergelijking, kan deze actie er voor zorgen dat de data incorrect "
+"weergegeven wordt; in dat geval adviseren we om de actie terug te draaien en "
+"verwijzen we naar de tips op "
 
 #: js/messages.php:73
 msgid "Garbled Data"
-msgstr ""
+msgstr "Verminkte data"
 
 #: js/messages.php:75
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
+"Weet u zeker dat u deze vergelijking wil wijzigen en de data converteren?"
 
 #: js/messages.php:78
 msgid "Save & Close"
@@ -9183,10 +9189,9 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin-documentatie"
 
 #: libraries/navigation/NavigationHeader.class.php:192
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation panel settings"
-msgstr "Navigatiepaneel"
+msgstr "Navigatiepaneel instellingen"
 
 # Zowel "frame" als "window" vertalen naar "venster".
 #: libraries/navigation/NavigationHeader.class.php:203
@@ -9650,10 +9655,9 @@ msgstr "Hernoem database naar"
 #: libraries/operations.lib.php:795 libraries/operations.lib.php:991
 #: libraries/operations.lib.php:1152 libraries/rte/rte_routines.lib.php:1101
 #: libraries/tbl_columns_definition_form.lib.php:346
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Adjust Privileges"
-msgstr "Rechten bewerken"
+msgstr "Aanpassen rechten"
 
 #: libraries/operations.lib.php:113
 #, php-format
@@ -9840,10 +9844,10 @@ msgid "Can't copy table to same one!"
 msgstr "Kan de tabel niet naar dezelfde kopiëren!"
 
 #: libraries/operations.lib.php:1923
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been moved to %s. Privileges have been realigned."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "Tabel %s is verplaatst naar %s. Rechten zijn opnieuw toegewezen."
+msgstr "Tabel %s is verplaatst naar %s. Rechten zijn aangepast."
 
 #: libraries/operations.lib.php:1927
 #, fuzzy, php-format
@@ -11580,10 +11584,10 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Het terugzetten van de verwijderde routine is mislukt."
 
 #: libraries/rte/rte_routines.lib.php:382
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified. Privileges have been realigned."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Routine %1$s werd gewijzigd. Rechten zijn opnieuw toegewezen."
+msgstr "Routine %1$s werd gewijzigd. Rechten zijn aangepast."
 
 #: libraries/rte/rte_routines.lib.php:387
 #, php-format
@@ -14031,12 +14035,12 @@ msgid "Effective"
 msgstr "Effectief"
 
 #: libraries/structure.lib.php:2661
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Table %1$s has been altered successfully. Privileges have been realigned."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Tabel %1$s is succesvol bijgewerkt. Rechten zijn opnieuw toegewezen."
+msgstr "Tabel %1$s is succesvol bijgewerkt. Rechten zijn aangepast."
 
 #: libraries/structure.lib.php:2665 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:92
