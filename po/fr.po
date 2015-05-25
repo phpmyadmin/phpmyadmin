@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-24 06:17-0400\n"
-"PO-Revision-Date: 2015-05-25 13:59+0200\n"
+"PO-Revision-Date: 2015-05-25 15:11+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -1063,11 +1063,13 @@ msgstr ""
 
 #: js/messages.php:73
 msgid "Garbled Data"
-msgstr ""
+msgstr "Données déformées"
 
 #: js/messages.php:75
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
+"Êtes-vous certain de vouloir modifier le classement et de convertir les "
+"données ?"
 
 #: js/messages.php:78
 msgid "Save & Close"
@@ -4787,7 +4789,7 @@ msgstr "Ne pas expliquer SQL"
 #: libraries/Util.class.php:1184
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Analyser les explications au %s"
 
 #: libraries/Util.class.php:1215
 msgid "Without PHP Code"
