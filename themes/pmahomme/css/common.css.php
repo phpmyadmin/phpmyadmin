@@ -325,12 +325,10 @@ input.button:disabled {
 textarea {
     overflow: visible;
     margin: 6px;
-    height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
 }
 
 textarea.char {
     margin: 6px;
-    height: <?php echo ceil($GLOBALS['cfg']['CharTextareaRows'] * 1.2); ?>em;
 }
 
 fieldset, .preview_sql {
