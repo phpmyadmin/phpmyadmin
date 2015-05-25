@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-24 06:17-0400\n"
-"PO-Revision-Date: 2015-05-25 15:11+0200\n"
+"PO-Revision-Date: 2015-05-25 16:29+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.3\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -9852,10 +9852,10 @@ msgid "Can't copy table to same one!"
 msgstr "On ne peut copier la table sur elle-même !"
 
 #: libraries/operations.lib.php:1923
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been moved to %s. Privileges have been realigned."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "La table %s a été déplacée vers %s. Les privilèges ont été réajustés."
+msgstr "La table %s a été déplacée vers %s. Les privilèges ont été ajustés."
 
 #: libraries/operations.lib.php:1927
 #, fuzzy, php-format
@@ -14040,13 +14040,13 @@ msgid "Effective"
 msgstr "Effectif"
 
 #: libraries/structure.lib.php:2661
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Table %1$s has been altered successfully. Privileges have been realigned."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr ""
-"La table %1$s a été modifiée avec succès. Les privilèges ont été réajustés."
+"La table %1$s a été modifiée avec succès. Les privilèges ont été ajustés."
 
 #: libraries/structure.lib.php:2665 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:92
