@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-24 06:17-0400\n"
-"PO-Revision-Date: 2015-05-04 16:10+0200\n"
-"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"PO-Revision-Date: 2015-05-25 20:50+0200\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1021,10 +1021,9 @@ msgid "Do you really want to delete this central column?"
 msgstr "Naozaj chcete odstrániť tento centrálny stĺpec?"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Naozaj chcete odstrániť vyhľadávanie \"%s\"?"
+msgstr "Naozaj chcete odstrániť zvolené položky?"
 
 #: js/messages.php:64
 msgid ""
@@ -6070,7 +6069,6 @@ msgid "Page titles"
 msgstr "Mená stránok"
 
 #: libraries/config/messages.inc.php:257
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to "
 #| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
@@ -6080,8 +6078,8 @@ msgid ""
 "for magic strings that can be used to get special values."
 msgstr ""
 "Zadajte titulku, ktorú bude zobrazovať prehliadač. V "
-"[doc@cfg_TitleTable]documentácii[/doc] nájdete špeciálne reťazce, ktoré "
-"môžete použiť na získanie špeciálnych hodnôt."
+"[doc@faq6-27]documentácii[/doc] nájdete špeciálne reťazce, ktoré môžete "
+"použiť na získanie špeciálnych hodnôt."
 
 #: libraries/config/messages.inc.php:261
 msgid "Security"
@@ -7544,7 +7542,6 @@ msgid "Login cookie validity warning"
 msgstr "Varovanie o platnosti prihlasovacej cookie"
 
 #: libraries/config/messages.inc.php:781
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)."
@@ -7553,14 +7550,13 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Veľkosť editačného okna (počet stĺpcov). Táto hodnota bude zväčšená pre okná "
-"SQL dopytov (*2) a pre dopytové okno (*1,25)."
+"SQL dopytov (*2)."
 
 #: libraries/config/messages.inc.php:782
 msgid "Textarea columns"
 msgstr "Stĺpce s textovou oblasťou"
 
 #: libraries/config/messages.inc.php:783
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)."
@@ -7569,7 +7565,7 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Veľkosť editačného okna (počet riadkov). Táto hodnota bude zväčšená pre okná "
-"SQL dopytov (*2) a pre dopytové okno (*1,25)."
+"SQL dopytov (*2)."
 
 #: libraries/config/messages.inc.php:784
 msgid "Textarea rows"
