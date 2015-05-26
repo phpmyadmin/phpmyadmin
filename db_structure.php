@@ -10,9 +10,6 @@
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/page_settings.class.php';
-
-PMA_PageSettings::showGroup('DbStructure');
 
 /**
  * Function implementations for this script
@@ -72,6 +69,10 @@ if (!PMA_DRIZZLE) {
 } else {
     $GLOBALS['replication_info']['slave']['status'] = false;
 }
+
+
+require_once 'libraries/config/page_settings.class.php';
+PMA_PageSettings::showGroup('DbStructure');
 
 require_once 'libraries/bookmark.lib.php';
 
