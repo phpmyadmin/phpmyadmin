@@ -28,6 +28,9 @@ PHP
 * To support XML and Open Document Spreadsheet importing, you need the
   `libxml <http://www.php.net/libxml>`_ extension.
 
+* To support reCAPTCHA on the login page, you need the
+  `openssl <http://www.php.net/openssl>`_ extension.
+
 * Performance suggestion: install the ``ctype`` extension.
 
 .. seealso:: :ref:`faq1_31`, :ref:`authentication_modes`
