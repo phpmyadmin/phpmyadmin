@@ -179,12 +179,14 @@ if (!empty($submit_mult) && !empty($what)) {
         isset($original_url_query)? $original_url_query : null
     );
 
+    $response = PMA_Response::getInstance();
+
     if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
-        echo PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params);
+        $response->addHTML(PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params));
     } elseif ($what == 'add_prefix_tbl') {
-        echo PMA_getHtmlForAddPrefixTable($action, $_url_params);
+        $response->addHTML(PMA_getHtmlForAddPrefixTable($action, $_url_params));
     } else {
-        echo PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query);
+        $response->addHTML(PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query));
     }
     exit;
 
