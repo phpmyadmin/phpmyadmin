@@ -813,7 +813,7 @@ function PMA_getHtmlForMoveTable()
  * @param string  $tbl_storage_engine table storage engine
  * @param boolean $is_myisam_or_aria  whether MYISAM | ARIA or not
  * @param boolean $is_isam            whether ISAM or not
- * @param array   $pack_keys          pack keys
+ * @param string  $pack_keys          pack keys
  * @param string  $auto_increment     value of auto increment
  * @param string  $delay_key_write    delay key write
  * @param string  $transactional      value of transactional
@@ -933,7 +933,7 @@ function PMA_getHtmlForPackKeys($current_value)
  * @param string  $tbl_storage_engine table storage engine
  * @param boolean $is_myisam_or_aria  whether MYISAM | ARIA or not
  * @param boolean $is_isam            whether ISAM or not
- * @param array   $pack_keys          pack keys
+ * @param string  $pack_keys          pack keys
  * @param string  $delay_key_write    delay key write
  * @param string  $auto_increment     value of auto increment
  * @param string  $transactional      value of transactional
