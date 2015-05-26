@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-15 03:53+0200\n"
-"Last-Translator: LNDDYL <lnddyl@outlook.com>\n"
+"PO-Revision-Date: 2015-05-26 13:54+0200\n"
+"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -31,10 +31,10 @@ msgid "Click to sort."
 msgstr "點選排序。"
 
 #: db_central_columns.php:129
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "顯示第 %1$s - %2$s 列"
+msgstr "顯示第 %1$s - %2$s 列。"
 
 #: db_create.php:61
 #, php-format
@@ -382,10 +382,9 @@ msgid "Show"
 msgstr "顯示"
 
 #: db_tracking.php:139 db_tracking.php:231
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "刪除追蹤資料中"
+msgstr "刪除追蹤資料"
 
 #: db_tracking.php:140
 msgid "Versions"
@@ -666,15 +665,14 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "匯入成功完成，共執行了 %d 個查詢指令。"
 
 #: import.php:665
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
-msgstr ""
-"Script 執行已逾時，若要繼續完成匯入，請重新送出相同檔案，匯入動作會繼續執行。"
+msgstr "Script 執行已逾時，若要繼續完成匯入，請%s重新上傳原來的檔案%s，匯入動作會繼續執行。"
 
 #: import.php:675
 msgid ""
@@ -769,7 +767,6 @@ msgid "PHP extension:"
 msgstr "PHP 擴充套件:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "PHP 版本："
@@ -811,7 +808,6 @@ msgid "List of changes"
 msgstr "版本沿革"
 
 #: index.php:447
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -823,9 +819,8 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"您的設定檔當中使用了 (無設定密碼的 root) 的設定，該設定是 MySQL 預設的管理帳"
-"號。若您繼續使用預設 MySQL 管理帳號執行伺服器，可能會導致伺服器被入侵，強烈建"
-"議您設定管理者帳號 'root' 的密碼以避免這個安全性的漏洞。"
+"您使用 'root' 且未使用密碼來連線，該帳號是 MySQL 預設的管理帳號。若您繼續使用預設 MySQL 管理帳號執行伺服器，可能會導致伺服器被入侵，"
+"強烈建議您設定管理者帳號 'root' 的密碼以避免此安全漏洞。"
 
 #: index.php:464
 msgid ""
@@ -847,7 +842,6 @@ msgstr ""
 "誤。"
 
 #: index.php:495
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -859,10 +853,10 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"您在 PHP 設定參數中 [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 所設定的時間"
-"短於您在 phpMyAdmin 中設定的 Cookies 有效期間，因此您的登入連線有效期間將會比"
-"您在 phpMyAdmin 中設定的時間要更短。"
+"您在 PHP 設定參數中 "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] 所設定的時間短於您在 phpMyAdmin 中設定的 "
+"Cookies 有效期間，因此您的登入連線有效期間可能比您在 phpMyAdmin 中設定的時間要更短。"
 
 #: index.php:508
 msgid ""
@@ -898,7 +892,7 @@ msgstr ""
 #: index.php:549
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
-msgstr ""
+msgstr "或者前往任一個資料庫的 '操作' 頁籤設定。"
 
 #: index.php:597
 #, php-format
@@ -942,34 +936,29 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "您正要清空(TRUNCATE)整張資料表!"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "刪除此資料表的追蹤資料"
+msgstr "刪除此資料表的追蹤資料？"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "刪除此資料表的追蹤資料"
+msgstr "刪除這些資料表的追蹤資料？"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "刪除此資料表的追蹤資料"
+msgstr "刪除此版本的追蹤資料？"
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "刪除此資料表的追蹤資料"
+msgstr "刪除這些版本的追蹤資料？"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "刪除報表的追蹤資料列"
+msgstr "刪除追蹤報表的項目？"
 
 #: js/messages.php:52
 msgid "Deleting tracking data"
@@ -1006,10 +995,9 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "您確定要解除(Revoke)己選擇使用者的權限？"
 
 #: js/messages.php:60
-#, fuzzy
 #| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "您真的要刪除此書籤？"
+msgstr "您確定要刪除此中央欄位？"
 
 #: js/messages.php:63
 msgid "Save & Close"
@@ -1647,7 +1635,7 @@ msgstr "檢驗方式"
 
 #: js/messages.php:258
 msgid "Formatting SQL..."
-msgstr ""
+msgstr "格式化 SQL..."
 
 #: js/messages.php:262 libraries/db_designer.lib.php:833
 #: libraries/db_designer.lib.php:882 libraries/db_designer.lib.php:1026
@@ -1671,7 +1659,6 @@ msgid "Processing Request"
 msgstr "請求處理中"
 
 #: js/messages.php:268
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request Failed!!"
 msgstr "請求失敗!!"
@@ -1826,7 +1813,7 @@ msgstr "瀏覽關聯的值"
 
 #: js/messages.php:316
 msgid "No auto-saved query"
-msgstr ""
+msgstr "無自動儲存的查詢"
 
 #: js/messages.php:319 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -1845,7 +1832,7 @@ msgstr "搜尋此清單"
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
-msgstr ""
+msgstr "無欄位於中央清單。請確定資料庫 %s 的中央欄位清單中的欄位不存在於目前的資料表。"
 
 #: js/messages.php:323
 msgid "See more"
@@ -1910,7 +1897,7 @@ msgstr "己選擇部份相依如下："
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
-msgstr ""
+msgstr "注意：a, b -> d,f 代表 a 與 b 的欄位值合併後可以決定欄位 d 與欄位 f 的值。"
 
 #: js/messages.php:339
 msgid "No partial dependencies selected!"
@@ -2094,7 +2081,7 @@ msgstr "加密金鑰"
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
-msgstr ""
+msgstr "代表您已對此頁做了變更，在您放棄這些變更前會先提示您"
 
 #: js/messages.php:417
 msgid "Select referenced key"
@@ -2198,6 +2185,8 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
+"Shift+滑鼠點選 來將此欄位加入 ORDER BY 子句或者切換 ASC/DESC。<br />- Ctrl+滑鼠點選 或 Alt+滑鼠點選 "
+"(Mac: Shift+Option+滑鼠點選) 來從 ORDER BY 子句中移除欄位"
 
 #: js/messages.php:447
 msgid "Click to mark/unmark."
@@ -2234,7 +2223,7 @@ msgstr "請輸入一個有效的十六進位字串。有效的字元為 0-9, A-F
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
-msgstr ""
+msgstr "您確定要顯示所有資料列？使用在大型的資料表可能會造成瀏覽器當機。"
 
 #: js/messages.php:458
 msgid "cancel"
@@ -2319,39 +2308,34 @@ msgstr "取消連結主面板"
 
 #: js/messages.php:495
 msgid "To filter all databases on server, press Enter after a search term"
-msgstr ""
+msgstr "要搜尋伺服器上的所有資料庫，請在輸入關鍵字後按 Enter"
 
 #: js/messages.php:496
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
-msgstr ""
+msgstr "要搜尋資料庫中所有的 %s，請在輸入關鍵字後按 Enter"
 
 #: js/messages.php:497
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
 msgstr "資料表"
 
 #: js/messages.php:498
-#, fuzzy
 #| msgid "Views"
 msgid "views"
 msgstr "檢視表"
 
 #: js/messages.php:499
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Procedure"
+msgstr "程序"
 
 #: js/messages.php:500
-#, fuzzy
 #| msgid "event"
 msgid "events"
 msgstr "事件"
 
 #: js/messages.php:501
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
 msgstr "函數"
@@ -2450,6 +2434,8 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"您的網頁瀏覽器不支援本地儲存設定或空間額度已達上限，您的部份功能可能無法正常執行。若在 Safari 發現此問題可能是使用 \"Private Mode "
+"Browsing\" 所造成。"
 
 # 這應該是使用於選擇日期的月曆
 #: js/messages.php:585
@@ -2776,7 +2762,7 @@ msgstr "無法讀取已存在的設定檔 %s。"
 
 #: libraries/Config.class.php:1197
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr "設定檔權限錯誤，其他人不應擁有寫入權！"
+msgstr "設定檔權限錯誤，檔案不應開啟所有寫入權！"
 
 #: libraries/Config.class.php:1782
 msgid "Font size"
@@ -2836,10 +2822,10 @@ msgstr "已共享"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:116
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "書籤%1$s, %2$s 以及 %3$s已被收錄。"
+msgstr "已包含 %1$s、%2$s 與 %3$s 書籤"
 
 #: libraries/Console.class.php:122
 msgid "No bookmarks"
@@ -4007,19 +3993,16 @@ msgid "Value"
 msgstr "值"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "資料表搜尋"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
-msgstr "圖表搜尋"
+msgstr "縮放搜尋"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "搜尋與取代"
@@ -4485,11 +4468,10 @@ msgid "Create PHP Code"
 msgstr "產生 PHP 程式碼"
 
 #: libraries/Util.class.php:1274
-#, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "編輯索引"
+msgstr "行內編輯"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1579
@@ -4682,7 +4664,6 @@ msgid "Length/Values"
 msgstr "長度/值"
 
 #: libraries/central_columns.lib.php:660
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
 msgstr "屬性"
@@ -4831,13 +4812,12 @@ msgstr "已關閉"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "鍵"
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "顯示欄位表"
+msgstr "顯示欄位"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5199,10 +5179,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "無法登入 MySQL 伺服器"
+msgstr "限制登入 MySQL 伺服器"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -6208,17 +6187,16 @@ msgstr "記憶體限制"
 
 #: libraries/config/messages.inc.php:424
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "將導覽面版的資料庫樹狀選單更改為下拉式選單"
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "顯示隱藏的導覽樹項目。"
+msgstr "以樹狀顯示資料庫導覽面版"
 
 #: libraries/config/messages.inc.php:428
 msgid "Link with main panel by highlighting the current database or table."
-msgstr "透過高亮標記目前的資料庫或表格以和主控台聯結"
+msgstr "在主控台明顯標示目前的資料庫或資料表。"
 
 #: libraries/config/messages.inc.php:430
 msgid "Show logo in navigation panel."
@@ -6259,10 +6237,9 @@ msgid "Target for quick access icon"
 msgstr "快速存取圖示要顯示的目標頁面"
 
 #: libraries/config/messages.inc.php:445
-#, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "快速存取圖示要顯示的目標頁面"
+msgstr "第二快速存取圖示的目標頁面"
 
 #: libraries/config/messages.inc.php:448
 msgid ""
@@ -6279,14 +6256,13 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "設定顯示搜尋框的資料庫數量下限"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
-msgstr "將導覽樹內的項目分組 (依後面定義的分隔符號來分組)。"
+msgstr "將導覽樹內的項目分組 (依上方 資料庫與資料表 頁籤定義的分隔符號來分組)。"
 
 #: libraries/config/messages.inc.php:458
 msgid "Group items in the tree"
@@ -6321,17 +6297,15 @@ msgid "Enable highlighting"
 msgstr "開啟加強標示"
 
 #: libraries/config/messages.inc.php:470
-#, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "是否關閉資料庫展開功能。"
+msgstr "是否於導覽面版中提供樹狀選單的展開功能。"
 
 #: libraries/config/messages.inc.php:472
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "資料表導覽欄"
+msgstr "開啟導覽樹展開功能"
 
 #: libraries/config/messages.inc.php:474
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6487,7 +6461,7 @@ msgstr "記住資料表的排序"
 
 #: libraries/config/messages.inc.php:536
 msgid "Default sort order for tables with a primary key."
-msgstr "預設使用主鍵來排序表格"
+msgstr "預設使用主鍵來排序表格。"
 
 #: libraries/config/messages.inc.php:537
 msgid "Primary key default sort order"
@@ -6513,10 +6487,9 @@ msgid "Relational display"
 msgstr "關聯顯示欄位"
 
 #: libraries/config/messages.inc.php:544
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "伺服器顯示選項。"
+msgstr "顯示用選項"
 
 #: libraries/config/messages.inc.php:545
 msgid "Grid editing: save all edited cells at once"
@@ -6555,10 +6528,9 @@ msgid "Allow root login"
 msgstr "允許 root 使用者登入"
 
 #: libraries/config/messages.inc.php:554
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "連線階段值"
+msgstr "連線階段時區"
 
 #: libraries/config/messages.inc.php:555
 msgid ""
@@ -6735,10 +6707,9 @@ msgid ""
 msgstr "不使用 QBE 查詢功能請留空，建議值：[kbd]pma__savedsearches[/kbd]。"
 
 #: libraries/config/messages.inc.php:623
-#, fuzzy
 #| msgid "Central columns"
 msgid "Central columns table"
-msgstr "中央欄位"
+msgstr "中央欄位資料表"
 
 #: libraries/config/messages.inc.php:625
 #, fuzzy
@@ -6834,10 +6805,9 @@ msgstr ""
 "如果不想要自動使用最近的資料表本欄位請留空，建議設定: [kbd]pma_config[/kbd]。"
 
 #: libraries/config/messages.inc.php:660
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites table"
-msgstr "我的最愛的資料表"
+msgstr "最愛的資料表"
 
 #: libraries/config/messages.inc.php:662
 msgid ""
@@ -7184,10 +7154,9 @@ msgid ""
 msgstr "關閉在資料表欄位是 MySQL 保留字時，結構頁面內顯示的預設警告訊息。"
 
 #: libraries/config/messages.inc.php:769
-#, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "登入 Cookie 有效期限"
+msgstr "登入 Cookie 有效期警告"
 
 #: libraries/config/messages.inc.php:771
 msgid ""
@@ -7488,10 +7457,9 @@ msgid "Select Export Relational Type"
 msgstr "選擇要匯出關聯類型"
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:259
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "顯示資料表:"
+msgstr "顯示/隱藏資料表清單"
 
 #: libraries/db_designer.lib.php:263 libraries/db_designer.lib.php:268
 msgid "View in fullscreen"
@@ -8773,12 +8741,12 @@ msgid ""
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:871
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "找到 %s 個其他結果"
+msgstr[0] "找到 %s 筆結果"
 
 #: libraries/navigation/NavigationTree.class.php:1210
 #, fuzzy
@@ -8913,7 +8881,7 @@ msgstr "新增"
 
 #: libraries/normalization.lib.php:114
 msgid "Make all columns atomic"
-msgstr "將所有欄位設定為不可分割。"
+msgstr "將所有欄位設定為不可分割"
 
 #: libraries/normalization.lib.php:116 libraries/normalization.lib.php:773
 msgid "First step of normalization (1NF)"
@@ -8937,11 +8905,10 @@ msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
 #: libraries/normalization.lib.php:131
-#, fuzzy
 msgid ""
 "Select a column which can be split into more than one. (on select of 'no "
 "such column', it'll move to next step)"
-msgstr "選擇一個可以被切割為一個以上的欄位"
+msgstr "選擇一個可切割為一個以上的欄位。 (選擇 '沒有這個欄位'，將會進行下一階段)"
 
 #: libraries/normalization.lib.php:138 normalization.php:19
 msgid "Select one…"
@@ -8992,12 +8959,14 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"您是否有欄位可由其他已有的欄位合併組成？舉例，若您有 first_name、last_name 與 full_name 的欄位，合併 "
+"first_name 與 last_name 便可組成 full_name，代表該欄位是多餘的。"
 
 #: libraries/normalization.lib.php:221
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
-msgstr ""
+msgstr "檢查是否有多餘的欄位並點選移除。若無多餘的欄位，請點選 '無多餘欄位'"
 
 #: libraries/normalization.lib.php:226
 msgid "Remove selected"
@@ -9008,9 +8977,8 @@ msgid "No redundant column"
 msgstr "無多餘欄位"
 
 #: libraries/normalization.lib.php:248
-#, fuzzy
 msgid "Move repeating groups"
-msgstr "移動重複的分組。"
+msgstr "移動重複群組"
 
 #: libraries/normalization.lib.php:251
 msgid ""
@@ -9020,17 +8988,19 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"您是否有兩個或多個欄位是非常相關的並且當中所有欄位重複相同的屬性可組成一個群組？舉例，一張儲存書籍的資料表可能含有 "
+"book_id、author1、author2、author3 等以此類推的欄位即是重複群組，在這個例子中應該要建立一張新資料表 (book_id, "
+"author)。"
 
 #: libraries/normalization.lib.php:259
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
-msgstr ""
+msgstr "檢查所有欄位是可組成重複群組。 若沒有這樣的群組，請點選 '無重複群組'"
 
 #: libraries/normalization.lib.php:265
-#, fuzzy
 msgid "No repeating group"
-msgstr "沒有重複的分組"
+msgstr "無重複群組"
 
 #: libraries/normalization.lib.php:291
 msgid "Step 2."
@@ -9153,7 +9123,7 @@ msgstr "改進資料表結構 (正規化)："
 
 #: libraries/normalization.lib.php:771
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "請選擇您想要完成的正規化階段"
 
 #: libraries/normalization.lib.php:774
 msgid "Second step of normalization (1NF+2NF)"
@@ -9457,10 +9427,9 @@ msgid "Please enter correct captcha!"
 msgstr "請輸入正確的驗證碼！"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:422
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "無法登入 MySQL 伺服器"
+msgstr "您不被允許登入此 MySQL 伺服器！"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:101
 msgid "Wrong username/password. Access denied."
@@ -10008,10 +9977,9 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "不要在零值使用自動遞增 (<code>AUTO_INCREMENT</code>)"
 
 #: libraries/plugins/import/ImportSql.class.php:195
-#, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "讀缺失數"
+msgstr "以多位元讀取"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -10193,7 +10161,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:79
 msgid "Image preview here"
-msgstr ""
+msgstr "圖片預覽於此"
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
@@ -10280,16 +10248,14 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr ""
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:44
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "將文字以 SQL 語法醒目提示顯示。"
+msgstr "將文字以 JSON 語法醒目提示顯示。"
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:44
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "將文字以 SQL 語法醒目提示顯示。"
+msgstr "將文字以 XML 語法醒目提示顯示。"
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -10435,11 +10401,11 @@ msgid "Quick steps to setup advanced features:"
 msgstr "快速設定進階功能:"
 
 #: libraries/relation.lib.php:323
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr "透過 <code>examples/create_tables.sql</code> 建立必需的資料表。"
+msgstr "使用 <code>%screate_tables.sql</code> 建立需要的資料表。"
 
 #: libraries/relation.lib.php:331
 msgid "Create a pma user and give access to these tables."
@@ -10465,7 +10431,7 @@ msgstr "無說明"
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr ""
+msgstr "於目前資料庫%s建立%s phpMyAdmin 設定儲存空間。"
 
 #: libraries/relation.lib.php:1982
 #, fuzzy, php-format
@@ -10541,10 +10507,9 @@ msgid "Slave replication"
 msgstr "次要(Slave)備援伺服器"
 
 #: libraries/replication_gui.lib.php:143
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "不安全的連線"
+msgstr "主要(Master)伺服器連線："
 
 #: libraries/replication_gui.lib.php:209
 msgid "Slave SQL Thread not running!"
@@ -11199,7 +11164,7 @@ msgstr "沒有事件可供顯示。"
 
 #: libraries/select_lang.lib.php:613
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "忽略不支援的語言代碼。"
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
 msgid "Current Server:"
@@ -11478,14 +11443,13 @@ msgstr "使用者群組"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "持續連線"
+msgstr "需要已加密的 SSL 連線。"
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "需要 SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
@@ -13172,10 +13136,9 @@ msgid "Improve table structure"
 msgstr "改進資料表結構"
 
 #: libraries/structure.lib.php:1655
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "追蹤資料表"
+msgstr "追蹤檢視表"
 
 #: libraries/structure.lib.php:1696
 #: libraries/tbl_columns_definition_form.lib.php:187
@@ -13184,10 +13147,9 @@ msgid "Add %s column(s)"
 msgstr "增加 %s 個欄位"
 
 #: libraries/structure.lib.php:1705
-#, fuzzy
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
-msgstr "於表開頭"
+msgstr "於資料表開始"
 
 #: libraries/structure.lib.php:1719
 #: libraries/tbl_columns_definition_form.lib.php:852
@@ -13289,10 +13251,9 @@ msgid "Showing create queries"
 msgstr "顯示建立查詢"
 
 #: libraries/structure.lib.php:3281
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
-msgstr "關聯清單"
+msgstr "關聯圖"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -13391,10 +13352,9 @@ msgid "Storage Engine:"
 msgstr "儲存引擎:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "連線"
+msgstr "連線："
 
 #: libraries/tbl_columns_definition_form.lib.php:127
 msgid "PARTITION definition:"
@@ -13529,24 +13489,22 @@ msgid ""
 msgstr "“PRIMARY”<b>必須</b>而且<b>只能</b>作爲主鍵的名稱！"
 
 #: libraries/tbl_indexes.lib.php:305
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "索引快取大小"
+msgstr "索引選擇："
 
 #: libraries/tbl_indexes.lib.php:321
 msgid "Key block size:"
-msgstr ""
+msgstr "鍵值區塊大小："
 
 #: libraries/tbl_indexes.lib.php:334
 msgid "Index type:"
 msgstr "索引類型:"
 
 #: libraries/tbl_indexes.lib.php:346
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "使用者:"
+msgstr "分析器："
 
 #: libraries/tbl_indexes.lib.php:358
 msgid "Comment:"
@@ -13625,16 +13583,14 @@ msgid "Choose column to display:"
 msgstr "選擇要顯示的欄位:"
 
 #: libraries/tbl_relation.lib.php:829
-#, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "已中止程序 %s。"
+msgstr "顯示欄位已成功更新。"
 
 #: libraries/tbl_relation.lib.php:913
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relations were successfully updated."
-msgstr "已新增內部關聯。"
+msgstr "內部關聯已成功更新。"
 
 #: libraries/tbl_relation.lib.php:1178
 #, php-format
@@ -13647,10 +13603,10 @@ msgid "Create version %1$s of %2$s"
 msgstr "建立 %2$s 的追蹤版本 %1$s"
 
 #: libraries/tracking.lib.php:74
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Create version %1$s"
-msgstr "建立版本"
+msgstr "建立版本 %1$s"
 
 #: libraries/tracking.lib.php:79
 msgid "Track these data definition statements:"
@@ -13683,10 +13639,9 @@ msgid "Deactivate now"
 msgstr "立即停用"
 
 #: libraries/tracking.lib.php:287 libraries/tracking.lib.php:350
-#, fuzzy
 #| msgid "Create version"
 msgid "Delete version"
-msgstr "建立版本"
+msgstr "刪除版本"
 
 #: libraries/tracking.lib.php:460
 msgid "Tracking statements"
@@ -13786,10 +13741,10 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "已停用 %1$s 版本 %2$s 的追蹤。"
 
 #: libraries/tracking.lib.php:1306
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "Version %1$s of %2$s was deleted."
-msgstr "建立 %2$s 的追蹤版本 %1$s"
+msgstr "共 %2$s 中的 %1$s 的版本已刪除。"
 
 #: libraries/tracking.lib.php:1337
 #, php-format
@@ -14130,11 +14085,11 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "列：%1$s，欄：%2$s，錯誤：%3$s"
 
 #: tbl_structure.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "欄位名稱 '%s' 是 MySQL 保留字。"
+msgstr[0] "名稱 '%s' 是 MySQL 保留字。"
 
 #: tbl_structure.php:114
 msgid "No column selected."
@@ -15160,7 +15115,6 @@ msgid "Too many connections are aborted."
 msgstr "有太多的連線發生中斷。"
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -15171,9 +15125,8 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"連線通常會因此無法取得授權而中斷，請參考 <a href=\"http://www."
-"mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-"
-"aborted_connects/\">此文章</a> 可能對您追查連線中斷的原因有所幫助。"
+"連線通常會因此無法取得授權而中斷，請參考 <a href=\"http://www.percona.com/blog/2008/08/23/how-to-"
+"track-down-the-source-of-aborted_connects/\">此文章</a> 可能對您追查連線中斷的原因有所幫助。"
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -15284,7 +15237,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB 記錄檔大小不足。"
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -15306,14 +15259,13 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
-"通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25%% 就已足"
-"夠。過大的 {innodb_log_file_size} 會增加資料庫當機後資料還原的時間，請參考 "
-"<a href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">此篇文章</a>。修改這個數值必須關閉伺服器並刪除所有已"
-"存在的 InnoDB 的記錄檔，在 my.cnf 設定檔中設定新的值，然後啟動伺服器並檢查錯"
-"誤記錄查看是否一切順利。請參考 <a href=\"http://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">此部落格文"
-"章</a>"
+"通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25%% 就已足夠。過大的 "
+"{innodb_log_file_size} 會增加資料庫當機後資料還原的時間，請參考 <a href=\""
+"http://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/"
+"\">此篇文章</a>。修改這個數值必須關閉伺服器並刪除所有已存在的 InnoDB 的記錄檔，在 my.cnf "
+"設定檔中設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參考 <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
