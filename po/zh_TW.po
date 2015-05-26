@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-24 06:17-0400\n"
-"PO-Revision-Date: 2015-05-26 13:48+0200\n"
+"PO-Revision-Date: 2015-05-26 13:56+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
@@ -14832,6 +14832,8 @@ msgid ""
 "Percona documentation is at <a href=\"http://www.percona.com/software/"
 "documentation/\">http://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Percona 說明文件位於 <a href=\"http://www.percona.com/software/documentation/\""
+">http://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -14842,6 +14844,8 @@ msgid ""
 "Drizzle documentation is at <a href=\"http://www.drizzle.org/content/"
 "documentation/\">http://www.drizzle.org/content/documentation/</a>"
 msgstr ""
+"Drizzle 說明文件位於 <a href=\"http://www.drizzle.org/content/documentation/\""
+">http://www.drizzle.org/content/documentation/</a>"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -15573,7 +15577,6 @@ msgid "Too many connections are aborted."
 msgstr "有太多的連線發生中斷。"
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -15584,9 +15587,8 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"連線通常會因此無法取得授權而中斷，請參考 <a href=\"http://www."
-"mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-"
-"aborted_connects/\">此文章</a> 可能對您追查連線中斷的原因有所幫助。"
+"連線通常會因此無法取得授權而中斷，請參考 <a href=\"http://www.percona.com/blog/2008/08/23/how-to-"
+"track-down-the-source-of-aborted_connects/\">此文章</a> 可能對您追查連線中斷的原因有所幫助。"
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -15697,7 +15699,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB 記錄檔大小不足。"
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -15719,14 +15721,13 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
-"通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25%% 就已足"
-"夠。過大的 {innodb_log_file_size} 會增加資料庫當機後資料還原的時間，請參考 "
-"<a href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">此篇文章</a>。修改這個數值必須關閉伺服器並刪除所有已"
-"存在的 InnoDB 的記錄檔，在 my.cnf 設定檔中設定新的值，然後啟動伺服器並檢查錯"
-"誤記錄查看是否一切順利。請參考 <a href=\"http://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">此部落格文"
-"章</a>"
+"通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25%% 就已足夠。過大的 "
+"{innodb_log_file_size} 會增加資料庫當機後資料還原的時間，請參考 <a href=\""
+"http://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/"
+"\">此篇文章</a>。修改這個數值必須關閉伺服器並刪除所有已存在的 InnoDB 的記錄檔，在 my.cnf "
+"設定檔中設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參考 <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
