@@ -122,6 +122,10 @@ if (isset($_REQUEST['submitoptions'])) {
                 );
             }
 
+            // Reselect the original DB
+            $GLOBALS['db'] = $oldDb;
+            $GLOBALS['dbi']->selectDb($oldDb);
+
             $_message .= $pma_table->getLastMessage();
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
