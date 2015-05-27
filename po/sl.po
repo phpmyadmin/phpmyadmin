@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-20 22:45+0200\n"
+"PO-Revision-Date: 2015-05-27 22:44+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/sl/>\n"
@@ -7265,33 +7265,33 @@ msgstr "Pokaži obrazec za ustvarjanje zbirke podatkov"
 #: libraries/config/messages.inc.php:738
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
-"Prikaži ali skrij stolpec, ki prikazuje Časovni žig nastanka za vse tabele."
+"Prikaži ali skrij stolpec, ki prikazuje časovni žig nastanka vseh tabel."
 
 #: libraries/config/messages.inc.php:739
 msgid "Show Creation timestamp"
-msgstr "Prikaži Časovni žig nastanka"
+msgstr "Prikaži časovni žig nastanka"
 
 #: libraries/config/messages.inc.php:740
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
-"Prikaži ali skrij stolpec, ki prikazuje Časovni žig zadnje spremembe za vse "
-"tabele."
+"Prikaži ali skrij stolpec, ki prikazuje časovni žig zadnje spremembe vseh "
+"tabel."
 
 #: libraries/config/messages.inc.php:741
 msgid "Show Last update timestamp"
-msgstr "Časovni žig zadnje spremembe"
+msgstr "Prikaži časovni žig zadnje spremembe"
 
 #: libraries/config/messages.inc.php:742
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
-"Prikaži ali skrij stolpec, ki prikazuje Časovni žig zadnjega preverjanja za "
-"vse tabele."
+"Prikaži ali skrij stolpec, ki prikazuje časovni žig zadnjega preverjanja "
+"vseh tabel."
 
 #: libraries/config/messages.inc.php:743
 msgid "Show Last check timestamp"
-msgstr "Časovni žig zadnjega preverjanja"
+msgstr "Prikaži časovni žig zadnjega preverjanja"
 
 #: libraries/config/messages.inc.php:744
 msgid ""
