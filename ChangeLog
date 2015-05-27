@@ -42,6 +42,7 @@ phpMyAdmin - ChangeLog
 - bug #4922 "Sort by key" drop-down value is lost
 + rfe #1673 Browse: improve display of right-aligned data
 - bug #4921 Textarea rows settings ignored Features > Text fields
++ rfe #1672 MIME types should be lower case
 
 4.4.8.0 (not yet released)
 - bug       Allow accessing visual query builder when pmadb is not configured

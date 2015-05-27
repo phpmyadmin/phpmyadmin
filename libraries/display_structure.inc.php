@@ -107,7 +107,7 @@ foreach ($fields as $row) {
         && isset($mime_map[$row['Field']]['mimetype'])
     ) {
         $type_mime = '<br />MIME: '
-        . str_replace('_', '/', $mime_map[$row['Field']]['mimetype']);
+        . strtolower(str_replace('_', '/', $mime_map[$row['Field']]['mimetype']));
     } else {
         $type_mime = '';
     }

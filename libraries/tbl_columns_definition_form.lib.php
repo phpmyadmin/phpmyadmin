@@ -757,7 +757,7 @@ function PMA_getHtmlForMimeType($columnNumber, $ci, $ci_offset,
                 : '');
             $html .= '    <option value="'
                 . str_replace('/', '_', $mimetype) . '" ' . $checked . '>'
-                . htmlspecialchars($mimetype) . '</option>';
+                . htmlspecialchars(strtolower($mimetype)) . '</option>';
         }
     }
 
@@ -807,7 +807,9 @@ function PMA_getHtmlForTransformation($columnNumber, $ci, $ci_offset,
             $name = PMA_getTransformationName(
                 $available_mime[$type . '_file'][$mimekey]
             );
-            $name .= ' (' . $transform . ')';
+            $parts = explode(":", $transform);
+            $name .= ' (' . strtolower($parts[0]) . ":" . $parts[1] . ')';
+
             $html .= '<option value="'
                 . $available_mime[$type . '_file'][$mimekey] . '" '
                 . $checked . ' title="' . htmlspecialchars($tooltip) . '">'
