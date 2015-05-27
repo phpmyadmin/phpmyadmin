@@ -749,7 +749,8 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input id="field_2_1" type="text" name="field_comments[2]" '
-            . 'size="12" maxlength="1024" value="fieldnamecomment&lt;" class="textfield" />',
+            . 'size="12" maxlength="1024" value="fieldnamecomment&lt;" '
+            . 'class="textfield" />',
             $result
         );
     }
