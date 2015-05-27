@@ -360,7 +360,7 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         . '</strong>'
         . '</div>'
         . '<input type="text" name="index[Index_comment]" '
-        . 'id="input_index_comment" size="30"'
+        . 'id="input_index_comment" size="30" maxlength="1024"'
         . 'value="' . htmlspecialchars($index->getComment()) . '" />'
         . '</div>';
 
