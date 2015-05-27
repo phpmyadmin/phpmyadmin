@@ -1036,6 +1036,13 @@ $cfg['ShowCreateDb'] = true;
  */
 
 /**
+ * show comment column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureComment']
+ */
+$cfg['ShowDbStructureComment'] = false;
+
+/**
  * show creation timestamp column in database structure (true|false)?
  *
  * @global boolean $cfg['ShowDbStructureCreation']

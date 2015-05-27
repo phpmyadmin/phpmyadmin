@@ -105,6 +105,7 @@ $forms['Main_panel']['Startup'] = array(
     'ShowStats',
     'ShowServerInfo');
 $forms['Main_panel']['DbStructure'] = array(
+    'ShowDbStructureComment',
     'ShowDbStructureCreation',
     'ShowDbStructureLastUpdate',
     'ShowDbStructureLastCheck');

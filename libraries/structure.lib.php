@@ -241,7 +241,9 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
             . '</th>';
     }
 
-    $html_output .= '<th></th>';
+    if ($GLOBALS['cfg']['ShowDbStructureComment']) {
+        $html_output .= '<th></th>';
+    }
 
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
         $html_output .= '<th class="value tbl_creation">' . "\n"
@@ -755,20 +757,22 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
         );
     }
 
-    $comment = $current_table['Comment'];
-    $html_output .= '<td>';
-    if (/*overload*/mb_strlen($comment) > $GLOBALS['cfg']['LimitChars']) {
-        $html_output .= '<abbr title="' . htmlspecialchars($comment) . '">';
-        $html_output .= htmlspecialchars(
-            /*overload*/mb_substr(
-                $comment, 0, $GLOBALS['cfg']['LimitChars']
-            ) . '...'
-        );
-        $comment .= '</abbr>';
-    } else {
-        $html_output .= htmlspecialchars($comment);
+    if ($GLOBALS['cfg']['ShowDbStructureComment']) {
+        $comment = $current_table['Comment'];
+        $html_output .= '<td>';
+        if (/*overload*/mb_strlen($comment) > $GLOBALS['cfg']['LimitChars']) {
+            $html_output .= '<abbr title="' . htmlspecialchars($comment) . '">';
+            $html_output .= htmlspecialchars(
+                /*overload*/mb_substr(
+                    $comment, 0, $GLOBALS['cfg']['LimitChars']
+                ) . '...'
+            );
+            $comment .= '</abbr>';
+        } else {
+            $html_output .= htmlspecialchars($comment);
+        }
+        $html_output .= '</td>';
     }
-    $html_output .= '</td>';
 
     $html_output .= PMA_getHtmlForStructureTime(
         $create_time, 'ShowDbStructureCreation', 'tbl_creation'
@@ -799,7 +803,9 @@ function PMA_getHtmlForViewTable($is_show_stats)
         $html_output .= '<td class="value">-</td>'
             . '<td class="value">-</td>';
     }
-    $html_output .= '<td></td>';
+    if ($GLOBALS['cfg']['ShowDbStructureComment']) {
+        $html_output .= '<td></td>';
+    }
     return $html_output;
 }
 
@@ -891,10 +897,12 @@ function PMA_tableHeader($db_is_system_schema = false, $replication = false)
         $cnt++;
     }
 
-    $html_output .= '<th>'
-        . PMA_sortableTableHeader(__('Comment'), 'comment')
-        . '</th>' . "\n";
-    $cnt++;
+    if ($GLOBALS['cfg']['ShowDbStructureComment']) {
+        $html_output .= '<th>'
+            . PMA_sortableTableHeader(__('Comment'), 'comment')
+            . '</th>' . "\n";
+        $cnt++;
+    }
 
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
         // newer values are more interesting so default sort order is DESC
