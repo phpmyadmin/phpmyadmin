@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-27 08:08-0400\n"
-"PO-Revision-Date: 2015-05-25 22:53+0200\n"
+"PO-Revision-Date: 2015-05-27 22:43+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:37 license.php:28
@@ -708,7 +708,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Ne morem naložiti napredka nalaganja."
 
 #: import_status.php:112 js/messages.php:361 libraries/Util.class.php:735
 #: libraries/export.lib.php:460
@@ -7470,34 +7470,31 @@ msgid "Show create database form"
 msgstr "Pokaži obrazec za ustvarjanje zbirke podatkov"
 
 #: libraries/config/messages.inc.php:749
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
-msgstr ""
-"Prikaži ali skrij stolpec, ki prikazuje Časovni žig nastanka za vse tabele."
+msgstr "Prikaži ali skrij stolpec, ki prikazuje pripombe vseh tabel."
 
 #: libraries/config/messages.inc.php:750
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Pripomba tabele"
+msgstr "Prikaži pripombe tabele"
 
 #: libraries/config/messages.inc.php:751
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
-"Prikaži ali skrij stolpec, ki prikazuje Časovni žig nastanka za vse tabele."
+"Prikaži ali skrij stolpec, ki prikazuje časovni žig nastanka vseh tabel."
 
 #: libraries/config/messages.inc.php:752
 msgid "Show Creation timestamp"
-msgstr "Prikaži Časovni žig nastanka"
+msgstr "Prikaži časovni žig nastanka"
 
 #: libraries/config/messages.inc.php:753
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
-"Prikaži ali skrij stolpec, ki prikazuje Časovni žig zadnje spremembe za vse "
-"tabele."
+"Prikaži ali skrij stolpec, ki prikazuje časovni žig zadnje spremembe vseh "
+"tabel."
 
 #: libraries/config/messages.inc.php:754
 msgid "Show Last update timestamp"
@@ -7507,8 +7504,8 @@ msgstr "Časovni žig zadnje spremembe"
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
-"Prikaži ali skrij stolpec, ki prikazuje Časovni žig zadnjega preverjanja za "
-"vse tabele."
+"Prikaži ali skrij stolpec, ki prikazuje časovni žig zadnjega preverjanja "
+"vseh tabel."
 
 #: libraries/config/messages.inc.php:756
 msgid "Show Last check timestamp"
@@ -13909,12 +13906,12 @@ msgid "Effective"
 msgstr "Učinkovito"
 
 #: libraries/structure.lib.php:2678
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Table %1$s has been altered successfully. Privileges have been realigned."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Tabelo %1$s smo uspešno spremenili. Privilegije smo ponovno poravnali."
+msgstr "Tabelo %1$s smo uspešno spremenili. Privilegije smo prilagodili."
 
 #: libraries/structure.lib.php:2682 libraries/tbl_indexes.lib.php:61
 #: tbl_addfield.php:92
