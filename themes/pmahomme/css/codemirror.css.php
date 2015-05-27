@@ -20,6 +20,11 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #inline_editor_outer .CodeMirror {
     height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 0.4); ?>em;
 }
+.insertRowTable .CodeMirror {
+    height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 0.6); ?>em;
+    width: <?php echo ceil($GLOBALS['cfg']['TextareaCols'] * 0.6); ?>em;
+    border: 1px solid #a9a9a9;
+}
 span.cm-keyword, span.cm-statement-verb {
     color: #909;
 }
