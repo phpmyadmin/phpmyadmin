@@ -831,7 +831,7 @@ function PMA_getHtmlForRepairtable(
     $db_is_system_schema
 ) {
     return '<td colspan="'
-        . ($colspan_for_structure - ($db_is_system_schema ? 5 : 8)) . '"'
+        . ($colspan_for_structure - ($db_is_system_schema ? 6 : 9)) . '"'
         . 'class="center">'
         . __('in use')
         . '</td>';
