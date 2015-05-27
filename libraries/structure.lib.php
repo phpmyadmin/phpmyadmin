@@ -796,15 +796,24 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
  */
 function PMA_getHtmlForViewTable($is_show_stats)
 {
-    $html_output = '<td class="value">-</td>'
-        . '<td>' . __('View') . '</td>'
-        . '<td>---</td>';
+    $html_output  = '<td class="value tbl_rows">-</td>';
+    $html_output .= '<td class="nowrap">' . __('View') . '</td>';
+    $html_output .= '<td class="nowrap">---</td>';
     if ($is_show_stats) {
-        $html_output .= '<td class="value">-</td>'
-            . '<td class="value">-</td>';
+        $html_output .= '<td class="value tbl_size">-</td>';
+        $html_output .= '<td class="value tbl_overhead">-</td>';
     }
     if ($GLOBALS['cfg']['ShowDbStructureComment']) {
         $html_output .= '<td></td>';
+    }
+    if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
+        $html_output .= '<td class="value tbl_creation">-</td>';
+    }
+    if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
+        $html_output .= '<td class="value tbl_last_update">-</td>';
+    }
+    if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
+        $html_output .= '<td class="value tbl_last_check">-</td>';
     }
     return $html_output;
 }
