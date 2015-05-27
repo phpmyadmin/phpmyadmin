@@ -661,7 +661,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $avail_mime = array(
             'transformation' => array(
-                'foo' => 'bar'
+                'foo' => 'text/plain: bar'
             ),
             'transformation_file' => array(
                 'foo' => 'Text_Plain_Preappend.class.php'
