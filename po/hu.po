@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-27 08:08-0400\n"
-"PO-Revision-Date: 2015-05-19 18:01+0200\n"
+"PO-Revision-Date: 2015-05-27 15:23+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -6368,11 +6368,11 @@ msgstr "Ne legyen megszakítás INSERT hiba esetén"
 
 #: libraries/config/messages.inc.php:346 libraries/config/messages.inc.php:358
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "ON DUPLICATE KEY UPDATE hozzáadása"
 
 #: libraries/config/messages.inc.php:347 libraries/config/messages.inc.php:359
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "Adatok frissítése, ha kettőzött kulcsok találhatók importáláskor"
 
 #: libraries/config/messages.inc.php:350
 msgid ""
@@ -6654,7 +6654,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "A szűrődoboz megjelenítéséhez szükséges minimális adatbázisok száma"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6662,8 +6661,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Elemek csoportosítása a navigációs faszerkezetben (lent megadott elválasztó "
-"által meghatározva)."
+"Elemek csoportosítása a navigációs faszerkezetben (a fenti Adatbázisok és "
+"táblák lapon megadott elválasztó által meghatározva)."
 
 #: libraries/config/messages.inc.php:469
 msgid "Group items in the tree"
@@ -7486,19 +7485,17 @@ msgid "Show create database form"
 msgstr "Az adatbázis létrehozása űrlap megjelenítése"
 
 #: libraries/config/messages.inc.php:749
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
-"A létrehozás időbélyegét megjelenítő oszlop megjelenítése vagy elrejtése "
-"minden táblánál."
+"A megjegyzéseket megjelenítő oszlop megjelenítése vagy elrejtése minden "
+"táblánál."
 
 #: libraries/config/messages.inc.php:750
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Tábla megjegyzése"
+msgstr "Tábla megjegyzéseinek megjelenítése"
 
 #: libraries/config/messages.inc.php:751
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -9160,10 +9157,9 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin dokumentáció"
 
 #: libraries/navigation/NavigationHeader.class.php:192
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation panel settings"
-msgstr "Navigációs keret"
+msgstr "Navigációs panel beállításai"
 
 #: libraries/navigation/NavigationHeader.class.php:203
 msgid "Reload navigation panel"
@@ -9624,10 +9620,9 @@ msgstr "Adatbázis átnevezése:"
 #: libraries/operations.lib.php:795 libraries/operations.lib.php:1026
 #: libraries/operations.lib.php:1187 libraries/rte/rte_routines.lib.php:1101
 #: libraries/tbl_columns_definition_form.lib.php:344
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Adjust Privileges"
-msgstr "Jogok szerkesztése"
+msgstr "Jogosultságok módosítása"
 
 #: libraries/operations.lib.php:113
 #, php-format
@@ -9814,19 +9809,19 @@ msgid "Can't copy table to same one!"
 msgstr "Nem másolható ugyanabba a tábla!"
 
 #: libraries/operations.lib.php:1958
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been moved to %s. Privileges have been realigned."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr ""
-"A(z) %s tábla áthelyezésre került ide: %s. A jogosultságok újraigazítása "
+"A(z) %s tábla áthelyezésre került ide: %s. A jogosultságok módosítása "
 "megtörtént."
 
 #: libraries/operations.lib.php:1962
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been copied to %s. Privileges have been realigned."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr ""
-"A(z) %s tábla átmásolásra került ide: %s. A jogosultságok újraigazítása "
+"A(z) %s tábla átmásolásra került ide: %s. A jogosultságok módosítása "
 "megtörtént."
 
 #: libraries/operations.lib.php:1969
@@ -11555,12 +11550,11 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Elnézést, nem sikerült visszaállítani az eldobott eljárást."
 
 #: libraries/rte/rte_routines.lib.php:382
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified. Privileges have been realigned."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr ""
-"A(z) %1$s eljárás módosítása megtörtént. A jogosultságok újra lettek "
-"igazítva."
+"A(z) %1$s eljárás módosítása megtörtént. A jogosultságok módosítva lettek."
 
 #: libraries/rte/rte_routines.lib.php:387
 #, php-format
@@ -13988,13 +13982,13 @@ msgid "Effective"
 msgstr "Hatásos"
 
 #: libraries/structure.lib.php:2678
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Table %1$s has been altered successfully. Privileges have been realigned."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr ""
-"A(z) %1$s tábla sikeresen módosítva lett. A jogosultságok újraigazítása "
+"A(z) %1$s tábla sikeresen módosítva lett. A jogosultságok módosítása "
 "megtörtént."
 
 #: libraries/structure.lib.php:2682 libraries/tbl_indexes.lib.php:61
