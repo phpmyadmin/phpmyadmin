@@ -73,6 +73,16 @@ $js_messages['strChangeColumnCollation'] = __(
     . '<a href="%s" target="garbled_data_wiki">' . __('Garbled Data') . '</a>.'
     . '<br/><br/>'
     . __('Are you sure you wish to change the collation and convert the data?');
+$js_messages['strChangeAllColumnCollationsWarning'] = __(
+    'Through this operation, MySQL attempts to map the data values between collations. '
+    . 'If the character sets are incompatible, '
+    . 'there may be data loss and this lost data may <b>NOT</b> be recoverable simply '
+    . 'by changing back the column collation(s).'
+    . '<b> To convert existing data, it is suggested to use the column(s) editing feature '
+    . '(the "Change" Link) on the table structure page. </b>'
+)
+. '<br/><br/>'
+. __('Are you sure you wish to change all the column collations and convert the data?');
 
 /* For modal dialog buttons */
 $js_messages['strSaveAndClose'] = __('Save & Close');
