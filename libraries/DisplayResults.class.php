@@ -5017,43 +5017,32 @@ class PMA_DisplayResults
     }
 
     /**
-     * Get printview links for results operations
+     * Get printview link for results operations
      *
-     * @param string $url_query   url query
-     * @param array  $_url_params url parameters
+     * @param string $url_query url query
      *
      * @return string $html
      *
      * @access  private
      */
-    private function _getPrintviewLinks($url_query, $_url_params)
+    private function _getPrintviewLinks($url_query)
     {
-        $html = PMA_Util::linkOrButton(
-            'sql.php' . $url_query,
-            PMA_Util::getIcon(
-                'b_print.png', __('Print view'), true
-            ),
-            array('target' => 'print_view'),
-            true,
-            true,
-            'print_view'
-        );
-
-        if ($_SESSION['tmpval']['pftext']) {
-            $_url_params['pftext'] = self::DISPLAY_FULL_TEXT;
-
-            $html .= PMA_Util::linkOrButton(
-                'sql.php' . PMA_URL_getCommon($_url_params),
-                PMA_Util::getIcon(
-                    'b_print.png',
-                    __('Print view (with full texts)'), true
-                ),
-                array('target' => 'print_view'),
-                true,
-                true,
-                'print_view'
-            );
-        }
+        $html = '<form action="sql_printview.php' . $url_query . '" method="POST" target="print_view" >'
+            . '<input type="hidden" name="columns_sent" id="columns_sent" />'
+            . '<input type="hidden" name="rows_sent" id="rows_sent" />'
+            . '<input type="hidden" name="sql_query_sent" id="sql_query_sent" />'
+            . '<input type="hidden" name="num_rows_sent" id="num_rows_sent" />'
+            . '<input type="hidden" name="notice_sent" id="notice_sent" />'
+            . '<input type="hidden" name="index_start_sent" id="index_start_sent" />'
+            . '<input type="hidden" name="num_max_sent" id="num_max_sent" />'
+            . '<a id="printView" target="print_view" >'
+            . PMA_Util::getIcon(
+                'b_print.png',
+                __('Print view'),
+                true
+            )
+            . '</a>'
+            . '</form>';
 
         return $html;
     }
@@ -5110,7 +5099,7 @@ class PMA_DisplayResults
         // Displays "printable view" link if required
         if ($displayParts['pview_lnk'] == '1') {
             $results_operations_html .= $this->_getPrintviewLinks(
-                $url_query, $_url_params
+                $url_query
             );
         } // end displays "printable view"
 

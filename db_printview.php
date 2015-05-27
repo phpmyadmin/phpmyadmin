@@ -6,9 +6,6 @@
  * @package PhpMyAdmin
  */
 
-/**
- *
- */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/db_printview.lib.php';
 
@@ -35,140 +32,190 @@ $cfgRelation = PMA_getRelationsParam();
 $tables = $GLOBALS['dbi']->getTablesFull($db);
 $num_tables = count($tables);
 
-echo '<br />';
+$response->addHTML('<br />');
 
 // 1. No table
 if ($num_tables == 0) {
-    echo __('No tables found in database.');
+    $response->addHTML(__('No tables found in database.'));
 } else {
-    // 2. Shows table information
-    echo '<table>';
-    echo '<thead>';
-    echo '<tr>';
-    echo '<th>' . __('Table') . '</th>';
-    echo '<th>' . __('Rows') . '</th>';
-    echo '<th>' . __('Type') . '</th>';
+    $table_html = '<table>';
+    $table_html .= '<thead>';
+    $table_html .= '<tr>';
+    $table_html .= '<th>' . __('Table') . '</th>';
+    $table_html .= '<th>' . __('Rows') . '</th>';
+    $table_html .= '<th>' . __('Type') . '</th>';
     if ($cfg['ShowStats']) {
-        echo '<th>' . __('Size') . '</th>';
+        $table_html .= '<th>' . __('Size') . '</th>';
     }
-    echo '<th>' . __('Comments') . '</th>';
-    echo '</tr>';
-    echo '</thead>';
-    echo '<tbody>';
-    $sum_entries = $sum_size = 0;
+    $table_html .= '<th>' . __('Comments') . '</th>';
+    $table_html .= '</tr>';
+    $table_html .= '</thead>';
+
+    $table_html .= '<tbody>';
+
+    $table_html .= '<tr>';
+
+    $i = 0;
+    $j = 0;
+    $k = 0;
+
+    $rows = json_decode($_REQUEST['rows_sent'], true);
     $odd_row = true;
-    foreach ($tables as $sts_data) {
-        if (PMA_Table::isMerge($db, $sts_data['TABLE_NAME'])
-            || /*overload*/mb_strtoupper($sts_data['ENGINE']) == 'FEDERATED'
-        ) {
-            $merged_size = true;
-        } else {
-            $merged_size = false;
-        }
-        $sum_entries += $sts_data['TABLE_ROWS'];
-        echo '<tr class="' .  ($odd_row ? 'odd' : 'even') . '">';
-        echo '<th>';
-        echo htmlspecialchars($sts_data['TABLE_NAME']);
-        echo '</th>';
+    $table_name = '';
+    $count_tables = count($rows);
 
-        if (isset($sts_data['TABLE_ROWS'])) {
-            echo '<td class="right">';
-            if ($merged_size) {
-                echo '<i>';
-                echo PMA_Util::formatNumber($sts_data['TABLE_ROWS'], 0);
-                echo '</i>';
+    $column_heads_orig = json_decode($_REQUEST['columns_sent'], true);
+    // Add 6 to the count because 6 'Action' buttons
+    $column_count = count($column_heads_orig) + 6;
+
+    foreach ($rows as $row) {
+        $table_html .= '<tr class="' .  ($odd_row ? 'odd' : 'even') . '">';
+
+        foreach ($row as $value) {
+            // 0 - Checkbox - SKIP
+            // 1 - Table Name
+            // 2-8 - Action Button Links - SKIP
+            // 9 - Rows
+            // 10 - Engine Type
+            // 11 - Collation - SKIP
+            // 12 - Size
+            // 13 - Overhead - SKIP
+            // 14 - Comments
+            // 15-17 - Creation/ Last Update/ Last Check time
+            if ($j == 1) {
+                $table_html .= '<th>';
+                $table_html .= htmlspecialchars($value);
+                $table_html .= '</th>';
+
+                $table_name = $value;
+
+                if (PMA_Table::isMerge($db, $value)) {
+                    $merged_size = true;
+                } else {
+                    $merged_size = false;
+                }
+                $j++;
+            } elseif ($j == 0 || ($j >=2 && $j <= 8)) {
+                $j++;
+                continue;
+            } elseif ($j == 9) {
+                if (isset($value)) {
+                    $table_html .= '<td class="right">';
+                    if ($merged_size) {
+                        $table_html .= '<i>';
+                        $table_html .= PMA_Util::formatNumber($value, 0);
+                        $table_html .= '</i>';
+                    } else {
+                        $table_html .= PMA_Util::formatNumber($value, 0);
+                    }
+                    $table_html .= '</td>';
+                    $engine_to_be_printed = true;
+                } else {
+                    $engine_to_be_printed = false;
+                }
+                $j++;
+            } elseif ($j == 10) {
+                if ($engine_to_be_printed) {
+                    $table_html .= '<td class="nowrap">';
+                    $table_html .= $value;
+                    $table_html .= '</td>';
+                } else {
+                    $table_html .= '<td colspan="3" class="center">';
+                    if (! PMA_Table::isView($db, $table_name)) {
+                        $table_html .= __('in use');
+                    }
+                    $table_html .= '</td>';
+                }
+                $j++;
+            } elseif ($j == 12) {
+                $table_html .= '<td>';
+                $table_html .= $value;
+                $table_html .= '</td>';
+                $j++;
+            } elseif ($j == 14) {
+                $table_html .= '<td>';
+                if (! empty($value)) {
+                    $table_html .= htmlspecialchars($value);
+                    $needs_break = '<br />';
+                } else {
+                    $needs_break = '';
+                }
+                $j++;
+                if ($j == $count_tables) {
+                    $table_html .= '</td>';
+                    $table_html .= '</tr>';
+                    break;
+                }
+            } elseif (($j == 17 || $j == 16 || $j == 15) && (! empty($value))) {
+                if ($j == 15) {
+                    $table_html .= $needs_break;
+                    $table_html .= '<table width="100%">';
+                }
+
+                if ($value !== '-') {
+                    $table_html .= PMA_getHtmlForOneDate(
+                        __($column_heads_orig[$j - 6]),
+                        $value
+                    );
+                }
+
+                $j++;
+                if ($j >= $column_count) {
+                    $table_html .= '</table>';
+                    $table_html .= '</td>';
+                    $table_html .= '</tr>';
+                    break;
+                }
             } else {
-                echo PMA_Util::formatNumber($sts_data['TABLE_ROWS'], 0);
+                $j++;
             }
-            echo '</td>';
-            echo '<td class="nowrap">';
-            echo $sts_data['ENGINE'];
-            echo '</td>';
-            if ($cfg['ShowStats']) {
-                $tblsize =  $sts_data['Data_length'] + $sts_data['Index_length'];
-                $sum_size += $tblsize;
-                list($formated_size, $unit)
-                    =  PMA_Util::formatByteDown($tblsize, 3, 1);
-                echo '<td class="right nowrap">';
-                echo $formated_size . ' ' . $unit;
-                echo '</td>';
-            } // end if
-        } else {
-            echo '<td colspan="3" class="center">';
-            if (! PMA_Table::isView($db, $sts_data['TABLE_NAME'])) {
-                echo __('in use');
-            }
-            echo '</td>';
         }
-        echo '<td>';
-        if (! empty($sts_data['Comment'])) {
-            echo htmlspecialchars($sts_data['Comment']);
-            $needs_break = '<br />';
-        } else {
-            $needs_break = '';
-        }
-
-        if (! empty($sts_data['Create_time'])
-            || ! empty($sts_data['Update_time'])
-            || ! empty($sts_data['Check_time'])
-        ) {
-            echo $needs_break;
-            echo '<table width="100%">';
-
-            if (! empty($sts_data['Create_time'])) {
-                echo PMA_getHtmlForOneDate(
-                    __('Creation:'),
-                    $sts_data['Create_time']
-                );
-            }
-
-            if (! empty($sts_data['Update_time'])) {
-                echo PMA_getHtmlForOneDate(
-                    __('Last update:'),
-                    $sts_data['Update_time']
-                );
-            }
-
-            if (! empty($sts_data['Check_time'])) {
-                echo PMA_getHtmlForOneDate(
-                    __('Last check:'),
-                    $sts_data['Check_time']
-                );
-            }
-            echo '</table>';
-        }
-        echo '</td>';
-        echo '</tr>';
+        $j = 0;
+        $odd_row = !($odd_row);
+        $table_html .= '</tr>';
     }
-    echo '<tr>';
-    echo '<th class="center">';
-    printf(
-        _ngettext('%s table', '%s tables', $num_tables),
-        PMA_Util::formatNumber($num_tables, 0)
-    );
-    echo '</th>';
-    echo '<th class="right nowrap">';
-    echo PMA_Util::formatNumber($sum_entries, 0);
-    echo '</th>';
-    echo '<th class="center">';
-    echo '--';
-    echo '</th>';
-    if ($cfg['ShowStats']) {
-        list($sum_formated, $unit)
-            = PMA_Util::formatByteDown($sum_size, 3, 1);
-        echo '<th class="right nowrap">';
-        echo $sum_formated . ' ' . $unit;
-        echo '</th>';
+
+    $summary_row = json_decode($_REQUEST['summary'], true);
+    $summary_html = '<tr>';
+
+    $s = 0;
+
+    foreach ($summary_row as $value) {
+        // 0 - blank - SKIP
+        // 1 - Number of Tables
+        // 2 - Sum Label - SKIP
+        // 3, 4, 6 - Rows, Engine, Size
+        // 7 - Blank
+        if ($s == 0 || $s == 2 || $s == 5) {
+            $s++;
+            continue;
+        } elseif ($s == 1) {
+            $summary_html .= '<th>';
+            $summary_html .= $value;
+            $summary_html .= '</th>';
+            $s++;
+        } elseif ($s >= 3 && $s <= 6 && $s != 5) {
+            $summary_html .= '<th>';
+            $summary_html .= $value;
+            $summary_html .= '</th>';
+            $s++;
+        } else {
+            $summary_html .= '<th></th>';
+            $s++;
+            if ($s >= 7) {
+                break;
+            }
+        }
     }
-    echo '<th></th>';
-    echo '</tr>';
-    echo '</tbody>';
-    echo '</table>';
+
+    $summary_html .= '</tr>';
+    $table_html .= $summary_html;
+    $table_html .= '</tbody>';
+    $table_html .= '</table>';
+    $response->addHTML($table_html);
+
 }
-
 /**
  * Displays the footer
  */
-echo PMA_Util::getButton();
-
-echo "<div id='PMA_disable_floating_menubar'></div>\n";
+$response->addHTML(PMA_Util::getButton());
