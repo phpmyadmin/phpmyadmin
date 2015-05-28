@@ -1577,6 +1577,13 @@ function PMA_getHtmlForEditView($url_params)
         . " AND TABLE_NAME='" . PMA_Util::sqlAddSlashes($GLOBALS['table']) . "';";
     $item = $GLOBALS['dbi']->fetchSingleRow($query);
 
+    $query = "SHOW CREATE TABLE " . PMA_Util::backquote($GLOBALS['db'])
+        . "." . PMA_Util::backquote($GLOBALS['table']);
+    $createView = $GLOBALS['dbi']->fetchValue($query, 0, 'Create View');
+    // get algorithm from $createView of the form CREATE ALGORITHM=<ALGORITHM> DE...
+    $parts = explode(" ", substr($createView, 17));
+    $item['ALGORITHM'] = $parts[0];
+
     $view = array(
         'operation' => 'alter',
         'definer' => $item['DEFINER'],
@@ -1584,6 +1591,7 @@ function PMA_getHtmlForEditView($url_params)
         'name' => $GLOBALS['table'],
         'as' => $item['VIEW_DEFINITION'],
         'with' => $item['CHECK_OPTION'],
+        'algorithm' => $item['ALGORITHM'],
     );
     $url  = 'view_create.php' . PMA_URL_getCommon($url_params) . '&amp;';
     $url .= implode(

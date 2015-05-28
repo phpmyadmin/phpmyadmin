@@ -970,33 +970,56 @@ class PMA_Table
 
             // add indexes to the table
             if (!empty($GLOBALS['sql_indexes'])) {
-                $parsed_sql =  PMA_SQP_parse($GLOBALS['sql_indexes']);
-                $i = 0;
 
-                while ($parsed_sql[$i]['type'] != $table_delimiter) {
-                    $i++;
-                }
+                $index_queries = array();
+                $sql_indexes = $GLOBALS['sql_indexes'];
+                $GLOBALS['sql_indexes'] = '';
 
-                $parsed_sql[$i]['data'] = $target;
-
+                $parsed_sql = PMA_SQP_parse($sql_indexes);
                 $cnt = $parsed_sql['len'] - 1;
+                $k = 0;
 
-                for ($j = $i; $j < $cnt; $j++) {
-                    $dataUpper = /*overload*/mb_strtoupper($parsed_sql[$j]['data']);
-                    if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
-                        && $dataUpper == 'CONSTRAINT'
-                    ) {
-                        if ($parsed_sql[$j+1]['type'] == $table_delimiter) {
-                            $parsed_sql[$j+1]['data'] = '';
-                        }
+                for ($j = 0; $j < $cnt; $j++) {
+                    if ($parsed_sql[$j]['type'] == 'punct_queryend') {
+                        $index_queries[] = substr(
+                            $sql_indexes, $k, $parsed_sql[$j]['pos'] - $k
+                        );
+                        $k = $parsed_sql[$j]['pos'];
                     }
                 }
-                $GLOBALS['sql_indexes'] = PMA_SQP_format(
-                    $parsed_sql, 'query_only'
-                );
-                if ($mode == 'one_table' || $mode == 'db_copy') {
-                    $GLOBALS['dbi']->query($GLOBALS['sql_indexes']);
+
+                foreach ($index_queries as $index_query) {
+
+                    $parsed_sql = PMA_SQP_parse($index_query);
+                    $i = 0;
+
+                    while ($parsed_sql[$i]['type'] != $table_delimiter) {
+                        $i++;
+                    }
+
+                    $parsed_sql[$i]['data'] = $target;
+
+                    $cnt = $parsed_sql['len'] - 1;
+
+                    for ($j = $i; $j < $cnt; $j++) {
+                        $dataUpper = /*overload*/mb_strtoupper($parsed_sql[$j]['data']);
+                        if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
+                            && $dataUpper == 'CONSTRAINT'
+                        ) {
+                            if ($parsed_sql[$j+1]['type'] == $table_delimiter) {
+                                $parsed_sql[$j+1]['data'] = '';
+                            }
+                        }
+                    }
+
+                    $sql_index = PMA_SQP_format($parsed_sql, 'query_only');
+                    if ($mode == 'one_table' || $mode == 'db_copy') {
+                        $GLOBALS['dbi']->query($sql_index);
+                    }
+
+                    $GLOBALS['sql_indexes'] .= $sql_index;
                 }
+
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_indexes'];
                 if ($mode == 'one_table' || $mode == 'db_copy') {
                     unset($GLOBALS['sql_indexes']);

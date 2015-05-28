@@ -617,6 +617,7 @@ function browseForeignDialog($this_a)
         $dialog = $('<div>').append(data.message).dialog({
             title: PMA_messages.strBrowseForeignValues,
             width: Math.min($(window).width() - 100, 700),
+            maxHeight: $(window).height() - 100,
             dialogClass: 'browse_foreign_modal',
             close: function (ev, ui) {
                 // remove event handlers attached to elements related to dialog
@@ -625,9 +626,6 @@ function browseForeignDialog($this_a)
                 $(formId).off('submit');
                 // remove dialog itself
                 $(this).remove();
-            },
-            create: function () {
-                $(this).css('maxHeight', $(window).height() - 100);
             },
             modal: true
         });

@@ -141,7 +141,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         $result = PMA_getHtmlForTableConfigurations();
 
         $this->assertContains(
-            '<input type="text" name="comment" size="40" maxlength="80" '
+            '<input type="text" name="comment" size="40" maxlength="2048" '
                 . 'value="c&amp;d" class="textfield"',
             $result
         );

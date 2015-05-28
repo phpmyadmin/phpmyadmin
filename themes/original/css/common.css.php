@@ -281,38 +281,30 @@ table tr.even {
     text-align:         <?php echo $left; ?>;
 }
 
-<?php if ($GLOBALS['cfg']['BrowseMarkerEnable']) { ?>
-    /* marked table rows */
-    td.marked,
-    table tr.marked td,
-    table tr.marked th,
-    table tr.marked {
-        background:   <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
-        color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
-    }
-    <?php
+/* marked table rows */
+td.marked:not(.nomarker),
+table tr.marked:not(.nomarker) td,
+table tr.marked:not(.nomarker) th,
+table tr.marked:not(.nomarker) {
+    background:   <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+    color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
-?>
 
-<?php if ($GLOBALS['cfg']['BrowsePointerEnable']) { ?>
-    /* hovered items */
-    .odd:hover,
-    .even:hover,
-    .hover {
-        background: <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
-        color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
-    }
-
-    /* hovered table rows */
-    table tr.odd:hover th,
-    table tr.even:hover th,
-    table tr.hover th {
-        background:   <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
-        color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
-    }
-    <?php
+/* hovered items */
+.odd:not(.nopointer):hover,
+.even:not(.nopointer):hover,
+.hover:not(.nopointer) {
+    background: <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
-?>
+
+/* hovered table rows */
+table tr.odd:not(.nopointer):hover th,
+table tr.even:not(.nopointer):hover th,
+table tr.hover:not(.nopointer) th {
+    background:   <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
+    color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+}
 
 /**
  * marks table rows/cells if the db field is in a where condition
@@ -2283,11 +2275,6 @@ fieldset .disabled-field td {
 .cEdit .edit_area_loading {
     background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
     height: 10em;
-}
-
-.cEdit .edit_area_right {
-    position: absolute;
-    right: 0;
 }
 
 .cEdit .goto_link {
