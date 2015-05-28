@@ -1630,7 +1630,8 @@ function PMA_getHtmlForEditView($url_params)
         . "." . PMA_Util::backquote($GLOBALS['table']);
     $createView = $GLOBALS['dbi']->fetchValue($query, 0, 'Create View');
     // get algorithm from $createView of the form CREATE ALGORITHM=<ALGORITHM> DE...
-    $item['ALGORITHM'] = explode(" ", substr($createView, 17))[0];
+    $parts = explode(" ", substr($createView, 17));
+    $item['ALGORITHM'] = $parts[0];
 
     $view = array(
         'operation' => 'alter',
