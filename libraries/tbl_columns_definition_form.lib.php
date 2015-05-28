@@ -83,8 +83,10 @@ function PMA_getHtmlForTableConfigurations()
         . '</th>'
         . '</tr>';
 
+    $commentLength = PMA_MYSQL_INT_VERSION >= 50503 ? 2048 : 60;
     $html .= '<tr>'
-        . '<td><input type="text" name="comment" size="40" maxlength="60"'
+        . '<td><input type="text" name="comment"'
+        . ' size="40" maxlength="' . $commentLength . '"'
         . ' value="'
         . (isset($_REQUEST['comment'])
         ? htmlspecialchars($_REQUEST['comment'])
