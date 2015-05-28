@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Function to get html for one relational key 
+ * Function to get html for one relational key
  *
  * @param integer $horizontal_count   the current horizontal count
  * @param string  $header             table header

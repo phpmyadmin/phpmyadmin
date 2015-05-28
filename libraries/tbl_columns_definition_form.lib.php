@@ -894,7 +894,7 @@ function PMA_getHtmlForColumnComment($columnNumber, $ci, $ci_offset, $columnMeta
     $maxLength = PMA_MYSQL_INT_VERSION >= 50503 ? 1024 : 255;
     $html = '<input id="field_' . $columnNumber . '_' . ($ci - $ci_offset)
         . '"' . ' type="text" name="field_comments[' . $columnNumber
-        . ']" size="12" maxlength="' . $maxLength. '"'
+        . ']" size="12" maxlength="' . $maxLength . '"'
         . ' value="' . (isset($columnMeta['Field'])
                 && is_array($comments_map)
                 && isset($comments_map[$columnMeta['Field']])
