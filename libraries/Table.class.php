@@ -971,7 +971,7 @@ class PMA_Table
             // add indexes to the table
             if (!empty($GLOBALS['sql_indexes'])) {
 
-                $index_queries = [];
+                $index_queries = array();
                 $sql_indexes = $GLOBALS['sql_indexes'];
                 $GLOBALS['sql_indexes'] = '';
 
