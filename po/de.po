@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-23 11:18+0200\n"
+"PO-Revision-Date: 2015-05-26 22:07+0200\n"
 "Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/de/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -6517,7 +6517,7 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Elemente im Navigationsbaum gruppieren (wue vom im obigen „Datenbanken und "
+"Elemente im Navigationsbaum gruppieren (wie vom im obigen „Datenbanken und "
 "Tabellen“-Reiter definierten Trennzeichen bestimmt)."
 
 #: libraries/config/messages.inc.php:458
