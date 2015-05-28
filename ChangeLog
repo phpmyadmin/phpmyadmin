@@ -55,6 +55,7 @@ phpMyAdmin - ChangeLog
 - bug #4924 Recaptcha failure
 - bug #4930 Database copy doesn't work for tables with more than one FULLTEXT index
 - bug #4929 Edit view structure doesn't load the algorithm
+- bug #4923 Do not limit table comments to 60 characters
 
 4.4.7.0 (2015-05-16)
 - bug #4876 Settings issues (Favorite tables shown twice in Settings)

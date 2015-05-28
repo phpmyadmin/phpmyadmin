@@ -874,19 +874,22 @@ function PMA_getHtmlForRenameTable()
 /**
  * Get HTML for the table comments part of table options
  *
- * @param string $current_value of the table comments 
+ * @param string $current_value of the table comments
  *
  * @return string $html_output
  */
 function PMA_getHtmlForTableComments($current_value)
 {
+    $commentLength = PMA_MYSQL_INT_VERSION >= 50503 ? 2048 : 60;
     $html_output = '<tr><td>' . __('Table comments') . '</td>'
-        . '<td><input type="text" name="comment" maxlength="60" size="30"'
+        . '<td><input type="text" name="comment" '
+        . 'maxlength="' . $commentLength . '" size="30"'
         . 'value="' . htmlspecialchars($current_value) . '" />'
         . '<input type="hidden" name="prev_comment" value="'
         . htmlspecialchars($current_value) . '" />'
         . '</td>'
         . '</tr>';
+
     return $html_output;
 }
 
@@ -954,7 +957,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         . '<legend>' . __('Table options') . '</legend>';
 
     $html_output .= '<table>';
-    $html_output .= PMA_getHtmlForRenameTable(); 
+    $html_output .= PMA_getHtmlForRenameTable();
     $html_output .= PMA_getHtmlForTableComments($comment);
 
     //Storage engine
