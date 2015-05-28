@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-27 08:08-0400\n"
-"PO-Revision-Date: 2015-05-28 10:44+0200\n"
-"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
+"PO-Revision-Date: 2015-05-28 10:50+0200\n"
+"Last-Translator: Christoffer Haugom <ph3n1x.nobody@gmail.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nb/>\n"
 "Language: nb\n"
@@ -1818,7 +1818,7 @@ msgstr "(Deaktivert)"
 
 #: js/messages.php:307
 msgid "Failed to get real row count."
-msgstr "Klarte ikke å hente antall rader."
+msgstr "Klarte ikke hente ekte antall rader."
 
 #: js/messages.php:310
 msgid "Searching"
