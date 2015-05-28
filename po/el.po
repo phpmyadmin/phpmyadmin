@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-27 08:08-0400\n"
-"PO-Revision-Date: 2015-05-26 09:27+0200\n"
+"PO-Revision-Date: 2015-05-28 07:46+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -7524,19 +7524,17 @@ msgid "Show create database form"
 msgstr "Εμφάνιση φόρμας δημιουργίας βάσης δεδομένων"
 
 #: libraries/config/messages.inc.php:749
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
-"Εμφάνιση ή απόκρυψη μιας στήλης εμφανίζοντας τη χρονοσφραγίδα Δημιουργίας "
-"για όλους τους πίνακες."
+"Εμφάνιση ή απόκρυψη μιας στήλης που εμφανίζει τα σχόλια για όλους του "
+"πίνακες."
 
 #: libraries/config/messages.inc.php:750
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Σχόλια πίνακα"
+msgstr "Προβολή σχολίων πίνακα"
 
 #: libraries/config/messages.inc.php:751
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -9667,10 +9665,9 @@ msgstr "Μετονομασία βάσης δεδομένων σε"
 #: libraries/operations.lib.php:795 libraries/operations.lib.php:1026
 #: libraries/operations.lib.php:1187 libraries/rte/rte_routines.lib.php:1101
 #: libraries/tbl_columns_definition_form.lib.php:344
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Adjust Privileges"
-msgstr "Επεξεργασία Δικαιωμάτων"
+msgstr "Προσαρμογή Δικαιωμάτων"
 
 #: libraries/operations.lib.php:113
 #, php-format
@@ -9862,10 +9859,10 @@ msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Ο πίνακας %s μεταφέρθηκε στο %s. Τα προνόμια έχουν προσαρμοστεί."
 
 #: libraries/operations.lib.php:1962
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been copied to %s. Privileges have been realigned."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "Ο πίνακας %s αντιγράφηκε στο %s. Τα προνόμια έχουν επανευθυγραμμιστεί."
+msgstr "Ο πίνακας %s αντιγράφηκε στο %s. Τα προνόμια έχουν προσαρμοστεί."
 
 #: libraries/operations.lib.php:1969
 #, php-format
