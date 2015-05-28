@@ -1,7 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.4.8.0 (not yet released)
+4.4.9.0 (not yet released)
+
+4.4.8.0 (2015-05-28)
 - bug       Allow accessing visual query builder when pmadb is not configured
 - bug #4893 Nav tree line alignment issue
 - bug #4911 Lock page icon is not shown after fresh reload
