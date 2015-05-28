@@ -168,17 +168,12 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for table navigation
      *
-     * @param integer $pos_next  the offset for the "next" page
-     * @param integer $pos_prev  the offset for the "previous" page
-     * @param boolean $is_innodb the table type is innoDb or not
-     * @param string  $output    output from the _getTableNavigation method
-     *
      * @return void
      *
      * @dataProvider providerForTestGetTableNavigation
      */
     public function testGetTableNavigation(
-        $pos_next, $pos_prev, $is_innodb, $output
+        // $pos_next, $pos_prev, $is_innodb, $output
     ) {
         $_SESSION['tmpval']['max_rows'] = '20';
         $_SESSION['tmpval']['pos'] = true;
