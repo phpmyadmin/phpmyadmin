@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-27 08:08-0400\n"
-"PO-Revision-Date: 2015-05-28 10:50+0200\n"
-"Last-Translator: Christoffer Haugom <ph3n1x.nobody@gmail.com>\n"
+"PO-Revision-Date: 2015-05-28 11:01+0200\n"
+"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nb/>\n"
 "Language: nb\n"
@@ -7065,7 +7065,7 @@ msgstr "Aktiver utheving"
 #: libraries/config/messages.inc.php:481
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
+msgstr "Enten å tilby muligheten for tre ekspansjon i navigasjonspanelet ."
 
 #: libraries/config/messages.inc.php:483
 #, fuzzy
