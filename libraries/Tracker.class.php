@@ -438,7 +438,7 @@ class PMA_Tracker
 
         $result = PMA_queryAsControlUser($sql_query);
 
-        return $result;
+        return (boolean) $result;
     }
 
     /**
