@@ -83,8 +83,10 @@ function PMA_getHtmlForTableConfigurations()
         . '</th>'
         . '</tr>';
 
+    $commentLength = PMA_MYSQL_INT_VERSION >= 50503 ? 2048 : 60;
     $html .= '<tr>'
-        . '<td><input type="text" name="comment" size="40" maxlength="80"'
+        . '<td><input type="text" name="comment"'
+        . ' size="40" maxlength="' . $commentLength . '"'
         . ' value="'
         . (isset($_REQUEST['comment'])
         ? htmlspecialchars($_REQUEST['comment'])
@@ -238,7 +240,7 @@ function PMA_getHtmlForTableFieldDefinitions($header_cells, $content_cells)
 }
 
 /**
- * Function to get html for the hidden fields containing index creation info 
+ * Function to get html for the hidden fields containing index creation info
  *
  * @param string $index_type the index type
  *
@@ -248,7 +250,7 @@ function PMA_getHtmlForHiddenIndexInfo($index_type)
 {
     $html = '<input type="hidden" name="' . $index_type . '" value="';
     if (! empty($_REQUEST[$index_type])) {
-        // happens when an index has been set on a column, 
+        // happens when an index has been set on a column,
         // and a column is added to the table creation dialog
         //
         // this contains a JSON-encoded string
@@ -259,7 +261,7 @@ function PMA_getHtmlForHiddenIndexInfo($index_type)
     $html .= '">';
 
     return $html;
-}    
+}
 
 /**
  * Function to get html for the create table or field add view
