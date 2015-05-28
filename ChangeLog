@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - bug #4918 Date field popup dialog position bug
 - bug       In /setup, PMA_messages is not defined
 - bug #4924 Recaptcha failure
+- bug #4930 Database copy doesn't work for tables with more than one FULLTEXT index
 
 4.4.7.0 (2015-05-16)
 - bug #4876 Settings issues (Favorite tables shown twice in Settings)
