@@ -100,7 +100,7 @@ function Swekey_Auth_error()
     function Swekey_GetValidKey()
     {
         var valids = "<?php
-    foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value) {
+        foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value) {
                 echo $key . ',';
     }
         ?>";
@@ -136,9 +136,9 @@ function Swekey_Auth_error()
 
     setTimeout("timedCheck()",1000);
     </script>
-     <?php
+        <?php
 
-    if (! empty($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY'])) {
+        if (! empty($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY'])) {
         return null;
     }
 
