@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-27 08:08-0400\n"
-"PO-Revision-Date: 2015-05-26 13:56+0200\n"
+"PO-Revision-Date: 2015-05-28 05:21+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"Language-Team: Chinese (Taiwan) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -1021,7 +1021,7 @@ msgstr "部份資料"
 
 #: js/messages.php:75
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "您確定您要更改編碼與排序(Collation)並轉換資料？"
 
 #: js/messages.php:78
 msgid "Save & Close"
@@ -4776,12 +4776,12 @@ msgstr "檢查權限"
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr ""
+msgstr "設定儲存空間尚未預備供欄位中央清單功能使用。"
 
 #: libraries/central_columns.lib.php:283
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "中央清單不存在欄位 %1$s ，無法新增！"
 
 #: libraries/central_columns.lib.php:298
 msgid "Could not add columns!"
@@ -4791,7 +4791,7 @@ msgstr "無法新增欄位！"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr ""
+msgstr "中央清單不存在欄位 %1$s ，無法移除！"
 
 #: libraries/central_columns.lib.php:385
 msgid "Could not remove columns!"
@@ -4907,6 +4907,9 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"無法於伺服器 %2$d 使用時區 %1$s。請檢查您於設定檔的 "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em] 設定。phpMyAdmin "
+"目前使用資料庫伺服器的預設時區。"
 
 #: libraries/common.inc.php:1034
 #, php-format
