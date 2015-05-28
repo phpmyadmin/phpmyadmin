@@ -981,7 +981,9 @@ class PMA_Table
 
                 for ($j = 0; $j < $cnt; $j++) {
                     if ($parsed_sql[$j]['type'] == 'punct_queryend') {
-                        $index_queries[] = substr($sql_indexes, $k, $parsed_sql[$j]['pos']);
+                        $index_queries[] = substr(
+                            $sql_indexes, $k, $parsed_sql[$j]['pos'] - $k
+                        );
                         $k = $parsed_sql[$j]['pos'];
                     }
                 }
