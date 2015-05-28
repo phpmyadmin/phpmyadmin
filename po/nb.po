@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-27 08:08-0400\n"
-"PO-Revision-Date: 2015-04-08 21:44+0200\n"
-"Last-Translator: Espen Frøyshov <efroys@gmail.com>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/nb/>\n"
+"PO-Revision-Date: 2015-05-28 10:44+0200\n"
+"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
+"Language-Team: Norwegian Bokmål "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nb/>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.3-dev\n"
 
@@ -44,7 +44,7 @@ msgstr "Databasen %1$s er opprettet."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment"
-msgstr "Databasekommentar:"
+msgstr "Databasekommentar"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:988
@@ -683,7 +683,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importen er fullført, %d spørringer utført."
 
 #: import.php:706
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -691,8 +691,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Skripttids-avbrudd. Hvis du ønsker å fortsette vil importen gjennopptas når "
-"du laster opp filen en gang til."
+"Skripttids-avbrudd. Hvis du ønsker å fortsette vil importen %sgjennopptas "
+"når du laster opp filen%s en gang til."
 
 #: import.php:716
 msgid ""
@@ -705,7 +705,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Kan ikke laste importprogresjon."
 
 #: import_status.php:112 js/messages.php:361 libraries/Util.class.php:735
 #: libraries/export.lib.php:460
@@ -864,7 +864,6 @@ msgstr ""
 "strenger korrekt, dette kan medføre uønskede resultater."
 
 #: index.php:495
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -876,10 +875,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login might "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP-parameteret [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] er lavere enn "
-"cookie gyldighet konfigurert i phpMyAdmin. På grunn av dette så vil "
-"innlogging utløpe raskere enn det som er satt i phpMyAdmin."
+"PHP-parameteret "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] er lavere enn cookie gyldighet "
+"konfigurert i phpMyAdmin. På grunn av dette så kan innlogging utløpe raskere "
+"enn det som er satt i phpMyAdmin."
 
 #: index.php:508
 msgid ""
@@ -1027,10 +1027,9 @@ msgid "Do you really want to delete this central column?"
 msgstr "Vil du virkelig slette denne sentrale kolonnen?"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Vil du virkelig slette søket \"%s\"?"
+msgstr "Vil du virkelig slette de valgte element?"
 
 #: js/messages.php:64
 msgid ""
@@ -1039,10 +1038,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Vil du virkelig slette søket \"%s\"?"
+msgstr "Vil du virkelig slette den valgte partisjon(er)?"
 
 #: js/messages.php:67
 msgid ""
@@ -1729,10 +1727,9 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 #: js/messages.php:280 libraries/Header.class.php:453
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Endre innstillinger"
+msgstr "Side-relaterte innstillinger"
 
 #: js/messages.php:281 libraries/config/FormDisplay.tpl.php:402
 msgid "Apply"
@@ -1930,10 +1927,10 @@ msgid "No auto-saved query"
 msgstr "Ingen autolagret spørring"
 
 #: js/messages.php:337
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Variabler"
+msgstr "Variabel %d:"
 
 #: js/messages.php:340 libraries/normalization.lib.php:867
 msgid "Pick"
@@ -2094,10 +2091,9 @@ msgid "Show search criteria"
 msgstr "Vis søkekriterier"
 
 #: js/messages.php:382
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "Tabellsøk"
+msgstr "Områdesøk"
 
 #: js/messages.php:383
 msgid "Column maximum:"
@@ -2246,17 +2242,15 @@ msgstr "Sidenummer"
 
 #: js/messages.php:447 templates/designer/side_menu.phtml:56
 #: templates/designer/side_menu.phtml:59
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "Velg side"
+msgstr "Lagre side"
 
 #: js/messages.php:448 templates/designer/side_menu.phtml:63
 #: templates/designer/side_menu.phtml:66
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page as"
-msgstr "Velg side"
+msgstr "Lagre side som"
 
 #: js/messages.php:449 templates/designer/side_menu.phtml:49
 #: templates/designer/side_menu.phtml:52
@@ -2264,28 +2258,24 @@ msgid "Open page"
 msgstr "Åpne siden"
 
 #: js/messages.php:450
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Velg side"
+msgstr "Slett side"
 
 #: js/messages.php:451 templates/designer/side_menu.phtml:10
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "Enhet"
+msgstr "Ikke navngitt"
 
 #: js/messages.php:452
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Vennligst velg en side for redigering"
+msgstr "Vennligst velg en side for å fortsette"
 
 #: js/messages.php:453
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
-msgstr "Vennligst tast inn et gyldig tall!"
+msgstr "Vennligst tast inn et gyldig side navn"
 
 #: js/messages.php:454
 msgid "Do you want to save the changes to the current page?"
@@ -2296,10 +2286,9 @@ msgid "Successfully deleted the page"
 msgstr ""
 
 #: js/messages.php:456
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Rediger eller eksporter relasjonsskjema"
+msgstr "Eksporter relasjonsskjema"
 
 #: js/messages.php:457
 msgid "Modifications have been saved"
@@ -10285,7 +10274,7 @@ msgstr "(enkeltvis)"
 
 #: libraries/operations.lib.php:767
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Flytt tabell til (database<b>.</b>tabell):"
+msgstr "Flytt tabell til (database<b>.</b>tabell)"
 
 #: libraries/operations.lib.php:864
 msgid "Rename table to"
@@ -10305,7 +10294,7 @@ msgstr "Lagringsmotor"
 
 #: libraries/operations.lib.php:1149
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Kopier tabell til (database<b>.</b>tabell):"
+msgstr "Kopier tabell til (database<b>.</b>tabell)"
 
 #: libraries/operations.lib.php:1211
 msgid "Switch to copied table"
@@ -14822,10 +14811,9 @@ msgid "Improve table structure"
 msgstr "Foreslå tabellstruktur"
 
 #: libraries/structure.lib.php:1704
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Overvåk tabell"
+msgstr "Spor visning"
 
 #: libraries/structure.lib.php:1745
 #: libraries/tbl_columns_definition_form.lib.php:186
