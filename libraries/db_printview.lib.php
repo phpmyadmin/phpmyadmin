@@ -22,7 +22,7 @@ function PMA_getHtmlForOneDate($title, $date)
     $html = '<tr>'
         . '<td class="right">' . $title . '</td>'
         . '<td class="right">'
-        . PMA_Util::localisedDate(strtotime($date))
+        . $date
         . '</td>'
         . '</tr>';
     return $html;

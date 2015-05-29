@@ -405,12 +405,18 @@ function PMA_getHtmlForCheckTablesHavingOverheadlink($overhead_check)
 function PMA_getHtmlForTablePrintViewLink($url_query)
 {
     return '<p>'
-        . '<a href="db_printview.php' . $url_query . '" target="print_view">'
+        . '<form action="db_printview.php' . $url_query . '" method="POST" target="print_view" >'
+        . '<input type="hidden" name="columns_sent" id="columns_sent" />'
+        . '<input type="hidden" name="rows_sent" id="rows_sent" />'
+        . '<input type="hidden" name="summary" id="summary" />'
+        . '<a id="printView" target="print_view" >'
         . PMA_Util::getIcon(
             'b_print.png',
             __('Print view'),
             true
-        ) . '</a>';
+        )
+        . '</a>'
+        . '</form>';
 }
 
 /**

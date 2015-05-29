@@ -89,6 +89,7 @@ AJAX.registerTeardown('sql.js', function () {
     $('input#bkm_label').unbind('keyup');
     $(document).off('makegrid', ".sqlqueryresults");
     $(document).off('stickycolumns', ".sqlqueryresults");
+    $(document).off('click', "#printView");
     $("#togglequerybox").unbind('click');
     $(document).off('click', "#button_submit_query");
     $(document).off('change', '#id_bookmark')
@@ -201,6 +202,123 @@ AJAX.registerOnload('sql.js', function () {
             PMA_makegrid(this);
         });
     });
+
+    /**
+     * Click Event handler for 'Print View'
+     */
+    $(document).on('click', "#printView", function (event) {
+        event.preventDefault();
+        /**
+         * @var $tables_results    Object containing reference to the HTML Table
+         */
+        var $tables_results = $('table.table_results');
+        var i = 0;
+
+        /**
+         * @var $thead    Object containing reference to the Table header
+         */
+        var $thead;
+        /**
+         * @var $tbody    Object containing reference to the Table body
+         */
+        var $tbody;
+
+        $tables_results.children().each(function(){
+            if (i === 0) {
+                $thead = $(this);
+            } else if (i == 1) {
+                $tbody = $(this);
+            }
+            i++;
+        });
+
+        /**
+         * @var no_of_columns    Integer with Number of Columns Heads present in table
+         */
+        var no_of_columns = 0;
+        /**
+         * @var columns    Array of Column Heads
+         */
+        var columns = [];
+        var skip = -1;
+
+        // If Actions like Grid Edit, Edit, Copy, Delete are enabled
+        // and not a query like SHOW DATABASES;
+        if ($('.notice').text() === '' && ! $thead.children().first().children('th').first().attr('colspan')) {
+            $thead.children().first().children('th').each(function(){
+                if(! $(this).hasClass('column_action')) {
+                    if ($(this).text() !== '') {
+                        columns[no_of_columns++] = $(this).text().trim();
+                    }
+                }
+            });
+        // If a query like SHOW DATABASES;
+        } else if ($thead.children().first().children('th').first().attr('colspan') == 1) {
+            $thead.children().next().children('th').each(function(){
+                if(! $(this).hasClass('column_action')) {
+                    if ($(this).text() !== '') {
+                        columns[no_of_columns++] = $(this).text().trim();
+                    }
+                }
+            });
+        // If Actions like Grid edit, Edit, Copy etc. are NOT Enabled
+        } else if ($('.notice').text() !== '') {
+            $thead.children().next().children('th').each(function(){
+                if(! $(this).hasClass('column_action')) {
+                    if ($(this).text() !== '') {
+                        columns[no_of_columns++] = $(this).text().trim();
+                    }
+                }
+            });
+        // In all other suituations
+        } else {
+            $thead.children().first().children('th').each(function(){
+                if(! $(this).hasClass('column_action')) {
+                    if ($(this).text() !== '') {
+                        columns[no_of_columns++] = $(this).text().trim();
+                    }
+                }
+            });
+        }
+
+        /**
+         * @var no_of_rows    Integer with Number of Rows Heads present in table
+         */
+        var no_of_rows = 0;
+        /**
+         * @var rows    Array of arrays of Rows' values
+         */
+        var rows = [];
+        var j = 0;
+
+        $tbody.children().each(function(){
+            rows[no_of_rows] = new Array(no_of_columns);
+            $(this).children().each(function(){
+                if ($('.notice').text() === '') {
+                    if (j !== skip && $(this).hasClass('data')) {
+                        rows[no_of_rows][j++] = $(this).text().trim();
+                    }
+                } else {
+                    if (j !== skip) {
+                        rows[no_of_rows][j++] = $(this).text().trim();
+                    }
+                }
+            });
+            j = 0;
+            no_of_rows++;
+        });
+
+        // Assign proper values to hidden inputs before submitting
+        $('#index_start_sent').val($('[name=pos] option:selected').val());
+        $('#num_max_sent').val($('[name=session_max_rows] option:selected').val());
+        $('#num_rows_sent').val(no_of_rows);
+        $('#sql_query_sent').val($('.sql-highlight').text());
+        $('#notice_sent').val($('.notice').text());
+        $('#columns_sent').val(JSON.stringify(columns));
+        $('#rows_sent').val(JSON.stringify(rows));
+
+        $(this).closest('form').submit();
+    }); //end of Print View action
 
     /*
      * Attach a custom event for sticky column headings which will be

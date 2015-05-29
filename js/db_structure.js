@@ -26,6 +26,7 @@ AJAX.registerTeardown('db_structure.js', function () {
     $(document).off('click', "a.drop_table_anchor.ajax");
     $(document).off('click', '#real_end_input');
     $(document).off('click', "a.favorite_table_anchor.ajax");
+    $(document).off('click', "#printView");
     $('a.real_row_count').off('click');
     $('a.row_count_sum').off('click');
     $('select[name=submit_mult]').unbind('change');
@@ -344,6 +345,93 @@ AJAX.registerOnload('db_structure.js', function () {
             }); // end $.get()
         }); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
+
+    /**
+     * Click Event handler for 'Print View'
+     */
+    $(document).on('click', "#printView", function (event) {
+        event.preventDefault();
+        /**
+         * @var $tables_list    Object containing reference to the HTML Table
+         */
+        var $tables_list = $('table.data');
+        var i = 0;
+
+        /**
+         * @var $thead    Object containing reference to the Table header
+         */
+        var $thead;
+        /**
+         * @var $tbody    Object containing reference to the Table body
+         */
+        var $tbody;
+        /**
+         * @var $tsummary    Object containing reference to the Summary Row
+         */
+        var $summary;
+
+        $tables_list.children().each(function(){
+            if (i === 0) {
+                $thead = $(this);
+            } else if (i == 1) {
+                $tbody = $(this);
+            } else {
+                $summary = $(this);
+            }
+            i++;
+        });
+
+        /**
+         * @var no_of_columns    Integer with Number of Columns Heads present in table
+         */
+        var no_of_columns = 0;
+        /**
+         * @var columns    Array of Column Heads
+         */
+        var columns = [];
+        var skip = -1;
+        $thead.children().first().children().each(function(){
+            if($(this).attr('colspan') !== 7) {
+                columns[no_of_columns++] = $(this).text().trim();
+            }
+        });
+        /**
+         * @var no_of_rows    Integer with Number of Rows Heads present in table
+         */
+        var no_of_rows = 0;
+        /**
+         * @var rows    Array of arrays of Rows' values
+         */
+        var rows = [];
+        var j = 0;
+
+        $tbody.children().each(function(){
+            rows[no_of_rows] = new Array(no_of_columns);
+            $(this).children().each(function(){
+                if (j !== skip) {
+                    rows[no_of_rows][j++] = $(this).text().trim();
+                }
+            });
+            j = 0;
+            no_of_rows++;
+        });
+
+        var k = 0;
+        /**
+         * @var summary_row    Array of Summary Values
+         */
+        var summary_row = [];
+        $summary.children().first().children().each(function(){
+            summary_row[k++] = $(this).text().trim();
+        });
+
+        // Assign proper values to hidden inputs before submitting
+        $('#columns_sent').val(JSON.stringify(columns));
+        $('#rows_sent').val(JSON.stringify(rows));
+        $('#summary').val(JSON.stringify(summary_row));
+
+        $(this).closest('form').submit();
+    }); //end of Print View action
 
     //Calculate Real End for InnoDB
     /**
