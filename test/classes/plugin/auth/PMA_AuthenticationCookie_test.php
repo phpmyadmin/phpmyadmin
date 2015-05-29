@@ -435,6 +435,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $_POST["g-recaptcha-response"] = '';
+        $_REQUEST['pma_username'] = 'testPMAUser';
 
         $this->assertFalse(
             $this->object->authCheck()
