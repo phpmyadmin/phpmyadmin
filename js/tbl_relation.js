@@ -39,10 +39,12 @@ function getDropdownValues($dropdown) {
     var foreign = '';
     // if the changed dropdown is for foreign key constraints
     if ($dropdown.is('select[name^="destination_foreign"]')) {
+        $databaseDd = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_db"]');
         $tableDd  = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_table"]');
         $columnDd = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_column"]');
         foreign = '_foreign';
     } else { // internal relations
+        $databaseDd = $dropdown.parent().find('select[name^="destination_db"]');
         $tableDd  = $dropdown.parent().find('select[name^="destination_table"]');
         $columnDd = $dropdown.parent().find('select[name^="destination_column"]');
     }
@@ -57,8 +59,7 @@ function getDropdownValues($dropdown) {
             return;
         }
     } else { // if a table selector
-        foreignDb = $dropdown.parent().parent().parent()
-            .find('select[name^="destination' + foreign + '_db"]').val();
+        foreignDb = $databaseDd.val();
         foreignTable = $dropdown.val();
          // if no table is selected empty the column dropdown
         if (foreignTable === '') {
