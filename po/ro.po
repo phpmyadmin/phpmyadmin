@@ -1,3 +1,4 @@
+
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
@@ -704,8 +705,6 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Durata maximă de execuție a scriptului a fost depășită, dacă doriți să "
-"terminați importul, retrimiteți același fișier și importul va continua."
 
 #: import.php:716
 msgid ""
