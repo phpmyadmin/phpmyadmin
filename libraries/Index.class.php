@@ -690,7 +690,7 @@ class PMA_Index
         $r .= '<thead>';
         $r .= '<tr>';
         if (! $print_mode) {
-            $r .= '<th colspan="2">' . __('Action') . '</th>';
+            $r .= '<th colspan="2" class="print_ignore">' . __('Action') . '</th>';
         }
         $r .= '<th>' . __('Keyname') . '</th>';
         $r .= '<th>' . __('Type') . '</th>';
@@ -714,7 +714,7 @@ class PMA_Index
             if (! $print_mode) {
                 $this_params = $GLOBALS['url_params'];
                 $this_params['index'] = $index->getName();
-                $r .= '<td class="edit_index';
+                $r .= '<td class="edit_index print_ignore';
                 $r .= ' ajax';
                 $r .= '" ' . $row_span . '>'
                    . '    <a class="';
@@ -747,7 +747,7 @@ class PMA_Index
 
                 }
 
-                $r .= '<td ' . $row_span . '>';
+                $r .= '<td ' . $row_span . ' class="print_ignore">';
                 $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
                     . ' value="' . $js_msg . '" />';
                 $r .= '    <a class="drop_primary_key_index_anchor';

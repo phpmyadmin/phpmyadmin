@@ -658,6 +658,9 @@ class PMA_Header
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'phpmyadmin.css.php?'
                 . 'nocache=' . $theme_id . $GLOBALS['text_dir'] . '" />';
+            // load Print view's CSS latest, so that it overrides all other CSS while 'printing'
+            $retval .= '<link rel="stylesheet" type="text/css" href="'
+                . $basedir . 'printview.css" />';
         }
 
         return $retval;
