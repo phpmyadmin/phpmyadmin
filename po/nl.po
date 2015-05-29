@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-27 08:08-0400\n"
-"PO-Revision-Date: 2015-05-25 14:20+0200\n"
+"PO-Revision-Date: 2015-05-29 17:34+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -7517,18 +7517,15 @@ msgid "Show create database form"
 msgstr "Toon formulier om een nieuwe database aan te maken"
 
 #: libraries/config/messages.inc.php:749
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
-msgstr ""
-"Toon of verberg een kolom met het tijdstip van aanmaken voor alle tabellen."
+msgstr "Toon of verberg een kolom met het commentaar voor alle tabellen."
 
 #: libraries/config/messages.inc.php:750
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Tabelopmerkingen"
+msgstr "Tabel opmerkingen"
 
 #: libraries/config/messages.inc.php:751
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -9858,10 +9855,10 @@ msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabel %s is verplaatst naar %s. Rechten zijn aangepast."
 
 #: libraries/operations.lib.php:1962
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been copied to %s. Privileges have been realigned."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "Tabel %s is gekopieerd naar %s. Rechten zijn opnieuw toegewezen."
+msgstr "Tabel %s is gekopieerd naar %s. Rechten zijn aangepast."
 
 #: libraries/operations.lib.php:1969
 #, php-format
