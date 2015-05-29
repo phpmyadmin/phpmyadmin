@@ -1560,7 +1560,7 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
     $html_output = '';
     if (!isset($GLOBALS['show_as_php'])) {
 
-        if (isset($GLOBALS['reload']) && $GLOBALS['reload'] == 1) {
+        if (! empty($GLOBALS['reload'])) {
             $extra_data['reload'] = 1;
             $extra_data['db'] = $GLOBALS['db'];
         }

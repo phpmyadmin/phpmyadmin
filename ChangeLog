@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 + rfe #1673 Browse: improve display of right-aligned data
 - bug #4921 Textarea rows settings ignored Features > Text fields
 + rfe #1672 MIME types should be lower case
+- bug #4872 Drop table doesn't remove the table name from navigation bar
 
 4.4.9.0 (not yet released)
 - bug #4920 relation view doesn't list fields of table in other database

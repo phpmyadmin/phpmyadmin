@@ -100,6 +100,7 @@ if (!isset($_SESSION['is_multi_query'])) {
     $_SESSION['is_multi_query'] = false;
 }
 
+$ajax_reload = array();
 // Are we just executing plain query or sql file?
 // (eg. non import, but query box/window run)
 if (! empty($sql_query)) {
@@ -138,6 +139,7 @@ if (! empty($sql_query)) {
     // refresh navigation and main panels
     if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
         $GLOBALS['reload'] = true;
+        $ajax_reload['reload'] = true;
     }
 
     // refresh navigation panel only
@@ -145,7 +147,7 @@ if (! empty($sql_query)) {
         '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
         $sql_query
     )) {
-        $ajax_reload = array('reload' => true);
+        $ajax_reload['reload'] = true;
     }
 
     // do a dynamic reload if table is RENAMED
@@ -155,7 +157,7 @@ if (! empty($sql_query)) {
         $sql_query,
         $rename_table_names
     )) {
-        $ajax_reload = array('reload' => true);
+        $ajax_reload['reload'] = true;
         $ajax_reload['table_name'] = PMA_Util::unQuote($rename_table_names[2]);
     }
 
@@ -343,6 +345,7 @@ if (! empty($_REQUEST['id_bookmark'])) {
             $import_text
         )) {
             $GLOBALS['reload'] = true;
+            $ajax_reload['reload'] = true;
         }
 
         // refresh navigation panel only
@@ -351,9 +354,6 @@ if (! empty($_REQUEST['id_bookmark'])) {
             $import_text
         )
         ) {
-            if (! isset($ajax_reload)) {
-                $ajax_reload = array();
-            }
             $ajax_reload['reload'] = true;
         }
         break;
@@ -766,12 +766,6 @@ if ($go_sql) {
         );
     }
 
-    if (!isset($ajax_reload)) {
-        $ajax_reload = array();
-    }
-    if (isset($table)) {
-        $ajax_reload['table_name'] = $table;
-    }
     $response = PMA_Response::getInstance();
     $response->addJSON('ajax_reload', $ajax_reload);
     $response->addHTML($html_output);
