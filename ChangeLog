@@ -46,6 +46,7 @@ phpMyAdmin - ChangeLog
 
 4.4.9.0 (not yet released)
 - bug #4920 relation view doesn't list fields of table in other database
+- bug #4905 Sorting by an alias
 
 4.4.8.0 (2015-05-28)
 - bug       Allow accessing visual query builder when pmadb is not configured
