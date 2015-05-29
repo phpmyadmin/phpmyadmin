@@ -643,22 +643,21 @@ class PMA_Header
         $theme_id   = $GLOBALS['PMA_Config']->getThemeUniqueValue();
         $theme_path = $GLOBALS['pmaThemePath'];
 
-        if ($this->_isPrintView) {
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
+        // load jQuery's CSS prior to our theme's CSS, to let the theme
+        // override jQuery's CSS
+        $retval .= '<link rel="stylesheet" type="text/css" href="'
+            . $theme_path . '/jquery/jquery-ui-1.11.2.css" />';
+        $retval .= '<link rel="stylesheet" type="text/css" href="'
+            . $basedir . 'js/codemirror/lib/codemirror.css" />';
+        $retval .= '<link rel="stylesheet" type="text/css" href="'
+            . $basedir . 'js/codemirror/addon/hint/show-hint.css" />';
+        $retval .= '<link rel="stylesheet" type="text/css" href="'
+            . $basedir . 'phpmyadmin.css.php?'
+            . 'nocache=' . $theme_id . $GLOBALS['text_dir'] . '" />';
+
+        // load Print's CSS latest, so that it overrides all other CSS while 'printing'
+        $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'print.css" />';
-        } else {
-            // load jQuery's CSS prior to our theme's CSS, to let the theme
-            // override jQuery's CSS
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $theme_path . '/jquery/jquery-ui-1.11.2.css" />';
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/codemirror/lib/codemirror.css" />';
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/codemirror/addon/hint/show-hint.css" />';
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'phpmyadmin.css.php?'
-                . 'nocache=' . $theme_id . $GLOBALS['text_dir'] . '" />';
-        }
 
         return $retval;
     }
