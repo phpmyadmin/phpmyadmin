@@ -323,50 +323,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
 
-        // We already have one correct captcha.
-        $skip = false;
-        if (  isset($_SESSION['last_valid_captcha'])
-            && $_SESSION['last_valid_captcha']
-        ) {
-            $skip = true;
-        }
-
-        // Verify Captcha if it is required.
-        if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
-            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-            && !$skip
-        ) {
-            if (! empty($_POST["g-recaptcha-response"])) {
-
-                include_once 'libraries/plugins/auth/recaptcha/recaptchalib.php';
-                $reCaptcha = new ReCaptcha(
-                    $GLOBALS['cfg']['CaptchaLoginPrivateKey']
-                );
-
-                // verify captcha status.
-                $resp = $reCaptcha->verifyResponse(
-                    $_SERVER["REMOTE_ADDR"],
-                    $_POST["g-recaptcha-response"]
-                );
-
-                // Check if the captcha entered is valid, if not stop the login.
-                if ($resp == null || ! $resp->success) {
-                    $conn_error = __('Entered captcha is wrong, try again!');
-                    $_SESSION['last_valid_captcha'] = false;
-                    return false;
-                } else {
-                    $_SESSION['last_valid_captcha'] = true;
-                }
-            } else {
-                if (! isset($_SESSION['last_valid_captcha'])
-                    || ! $_SESSION['last_valid_captcha']
-                ) {
-                    $conn_error = __('Please enter correct captcha!');
-                    return false;
-                }
-            }
-        }
-
         if (! empty($_REQUEST['old_usr'])) {
             // The user wants to be logged out
             // -> delete his choices that were stored in session
@@ -398,6 +354,51 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         if (! empty($_REQUEST['pma_username'])) {
+
+            // We already have one correct captcha.
+            $skip = false;
+            if (isset($_SESSION['last_valid_captcha'])
+                && $_SESSION['last_valid_captcha']
+            ) {
+                $skip = true;
+            }
+
+            // Verify Captcha if it is required.
+            if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+                && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+                && ! $skip
+            ) {
+                if (! empty($_POST["g-recaptcha-response"])) {
+
+                    include_once 'libraries/plugins/auth/recaptcha/recaptchalib.php';
+                    $reCaptcha = new ReCaptcha(
+                        $GLOBALS['cfg']['CaptchaLoginPrivateKey']
+                    );
+
+                    // verify captcha status.
+                    $resp = $reCaptcha->verifyResponse(
+                        $_SERVER["REMOTE_ADDR"],
+                        $_POST["g-recaptcha-response"]
+                    );
+
+                    // Check if the captcha entered is valid, if not stop the login.
+                    if ($resp == null || ! $resp->success) {
+                        $conn_error = __('Entered captcha is wrong, try again!');
+                        $_SESSION['last_valid_captcha'] = false;
+                        return false;
+                    } else {
+                        $_SESSION['last_valid_captcha'] = true;
+                    }
+                } else {
+                    if (! isset($_SESSION['last_valid_captcha'])
+                        || ! $_SESSION['last_valid_captcha']
+                    ) {
+                        $conn_error = __('Please enter correct captcha!');
+                        return false;
+                    }
+                }
+            }
+
             // The user just logged in
             $GLOBALS['PHP_AUTH_USER'] = $_REQUEST['pma_username'];
             $GLOBALS['PHP_AUTH_PW']   = empty($_REQUEST['pma_password'])
