@@ -3258,6 +3258,7 @@ AJAX.registerOnload('functions.js', function () {
         var params = {
             'ajax_request' : true,
             'token' : PMA_commonParams.get('token'),
+            'server' : PMA_commonParams.get('server'),
             'db' : PMA_commonParams.get('db'),
             'cur_table' : PMA_commonParams.get('table'),
             'getColumnList':true
