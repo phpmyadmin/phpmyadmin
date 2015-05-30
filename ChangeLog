@@ -44,6 +44,7 @@ phpMyAdmin - ChangeLog
 - bug #4921 Textarea rows settings ignored Features > Text fields
 + rfe #1672 MIME types should be lower case
 - bug #4872 Drop table doesn't remove the table name from navigation bar
++ rfe #1675 MySQL and MariaDB functions INET6_ATON and INET6_NTOA
 
 4.4.9.0 (not yet released)
 - bug #4920 relation view doesn't list fields of table in other database
