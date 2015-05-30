@@ -240,6 +240,11 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '<input type="button" value="' . __('Get auto-saved query') . '" id="saved"'
         . ' class="button sqlbutton" />';
 
+    // Disable/Enable foreign key checks
+    $html .= '<div>';
+    $html .= PMA_Util::getFKCheckbox();
+    $html .= '</div>';
+
     // parameter binding
     $html .= '<div>';
     $html .= '<input type="checkbox" name="parameterized" id="parameterized" />';

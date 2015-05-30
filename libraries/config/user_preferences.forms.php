@@ -70,7 +70,8 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'MaxCharactersInDisplayedSQL',
     'RetainQueryBox',
     'CodemirrorEnable',
-    'EnableAutocompleteForTablesAndColumns');
+    'EnableAutocompleteForTablesAndColumns',
+    'DefaultForeignKeyChecks');
 $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/Edit',
     'SQLQuery/Explain',
@@ -146,8 +147,7 @@ $forms['Import']['Import_defaults'] = array(
     'Import/format',
     'Import/charset',
     'Import/allow_interrupt',
-    'Import/skip_queries',
-    'Import/disable_foreign_keys'
+    'Import/skip_queries'
 );
 $forms['Import']['Sql'] = array(
     'Import/sql_compatibility',

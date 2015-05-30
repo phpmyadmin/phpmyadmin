@@ -434,22 +434,7 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
     // Display option to disable foreign key checks while dropping tables
     if ($what === 'drop_tbl' || $what === 'empty_tbl' || $what === 'row_delete') {
         $html .= '<div id="foreignkeychk">';
-        $html .= '<label for="fkc_checkbox">';
-        $html .= __('Foreign key check:');
-        $html .= '</label>';
-        $html .= '<span class="checkbox">';
-        $html .= '<input type="checkbox" name="fk_check" value="1" '
-            . 'id="fkc_checkbox"';
-        $default_fk_check_value = $GLOBALS['dbi']->fetchValue(
-            'SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1
-        ) == 'ON';
-        if ($default_fk_check_value) {
-            $html .= ' checked="checked"';
-        }
-        $html .= '/></span>';
-        $html .= '<label id="fkc_status" for="fkc_checkbox">';
-        $html .= ($default_fk_check_value) ? __('(Enabled)') : __('(Disabled)');
-        $html .= '</label>';
+        $html .= PMA_Util::getFKCheckbox();
         $html .= '</div>';
     }
     $html .= '<input id="buttonYes" type="submit" name="mult_btn" value="'

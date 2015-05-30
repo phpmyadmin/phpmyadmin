@@ -1216,6 +1216,12 @@ $cfg['ForeignKeyDropdownOrder'] = array('content-id', 'id-content');
  */
 $cfg['ForeignKeyMaxLimit'] = 100;
 
+/**
+ * Whether to disable foreign key checks while importing
+ *
+ * @global boolean $cfg['DefaultForeignKeyChecks']
+ */
+$cfg['DefaultForeignKeyChecks'] = 'default';
 
 /*******************************************************************************
  * For the export features...
@@ -2136,13 +2142,6 @@ $cfg['Import']['allow_interrupt'] = true;
  * @global integer $cfg['Import']['skip_queries']
  */
 $cfg['Import']['skip_queries'] = 0;
-
-/**
- * Whether to disable foreign key checks while importing
- *
- * @global boolean $cfg['Import']['disable_foreign_keys']
- */
-$cfg['Import']['disable_foreign_keys'] = false;
 
 /**
  *
