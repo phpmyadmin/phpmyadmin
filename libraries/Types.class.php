@@ -474,7 +474,7 @@ class PMA_Types_MySQL extends PMA_Types
     {
         switch ($class) {
         case 'CHAR':
-            return array(
+            $ret = array(
                 'AES_DECRYPT',
                 'AES_ENCRYPT',
                 'BIN',
@@ -487,6 +487,7 @@ class PMA_Types_MySQL extends PMA_Types
                 'DES_ENCRYPT',
                 'ENCRYPT',
                 'HEX',
+                'INET6_NTOA',
                 'INET_NTOA',
                 'LOAD_FILE',
                 'LOWER',
@@ -509,6 +510,12 @@ class PMA_Types_MySQL extends PMA_Types
                 'UUID',
                 'VERSION',
             );
+
+            if ((/*overload*/mb_strpos(PMA_MYSQL_STR_VERSION, 'MariaDB') !== false &&
+                 PMA_MYSQL_INT_VERSION < 100012) || PMA_MYSQL_INT_VERSION < 50603) {
+              $ret = array_diff($ret, array('INET6_NTOA'));
+            }
+            return $ret;
 
         case 'DATE':
             return array(
@@ -551,6 +558,7 @@ class PMA_Types_MySQL extends PMA_Types
                 'EXP',
                 'FLOOR',
                 'HOUR',
+                'INET6_ATON',
                 'INET_ATON',
                 'LENGTH',
                 'LN',
@@ -583,6 +591,11 @@ class PMA_Types_MySQL extends PMA_Types
                 'WEEKOFYEAR',
                 'YEARWEEK',
             );
+
+            if ((/*overload*/mb_strpos(PMA_MYSQL_STR_VERSION, 'MariaDB') !== false &&
+                 PMA_MYSQL_INT_VERSION < 100012) || PMA_MYSQL_INT_VERSION < 50603) {
+              $ret = array_diff($ret, array('INET6_ATON'));
+            }
             return $ret;
 
         case 'SPATIAL':
