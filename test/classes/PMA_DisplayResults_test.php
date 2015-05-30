@@ -499,7 +499,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array('`new`.`id`' => '= 1'),
                 '[%_PMA_CHECKBOX_DIR_%]',
                 'odd',
-                '<td class="odd" class="center"><input type'
+                '<td class="odd" class="center print_ignore"><input type'
                 . '="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name='
                 . '"rows_to_delete[0]" class="multi_checkbox checkall" value="%60'
                 . 'new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_'
@@ -560,7 +560,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '"Edit" class="icon ic_b_edit" /> Edit</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
-                '<td class="odd edit_row_anchor center"  >'
+                '<td class="odd edit_row_anchor center print_ignore"  >'
                 . '<span class="nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -623,7 +623,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
                 'odd',
-                '<td class="odd center"  ><span class='
+                '<td class="odd center print_ignore"  ><span class='
                 . '"nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -688,7 +688,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
                 'odd',
-                '<td class="odd center"  >' . "\n"
+                '<td class="odd center print_ignore"  >' . "\n"
                 . '<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE'
                 . '+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D'
                 . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
@@ -783,11 +783,11 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                '<td  class="center"><input type="checkbox" id="id_rows_to_delete0_'
+                '<td  class="center print_ignore"><input type="checkbox" id="id_rows_to_delete0_'
                 . 'left" name="rows_to_delete[0]" class="multi_checkbox checkall" '
                 . 'value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class='
                 . '"condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;'
-                . '}" />    </td><td class="edit_row_anchor center"  ><span class='
+                . '}" />    </td><td class="edit_row_anchor center print_ignore"  ><span class='
                 . '"nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
@@ -796,7 +796,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
-                . 'id%60+%3D+1" /></span></td><td class="center"  ><span class'
+                . 'id%60+%3D+1" /></span></td><td class="center print_ignore"  ><span class'
                 . '="nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
@@ -805,7 +805,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
                 . 'class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
-                . '%60+%3D+1" /></span></td><td class="center"  >' . "\n"
+                . '%60+%3D+1" /></span></td><td class="center print_ignore"  >' . "\n"
                 . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
                 . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3F'
@@ -859,7 +859,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                '<td class="center"  >' . "\n"
+                '<td class="center print_ignore"  >' . "\n"
                 . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
                 . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
@@ -870,7 +870,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '_row requireConfirm"><span class="nowrap"><img src="themes/dot.gif" title='
                 . '"Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>'
                 . "\n" . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'
-                . '`id` = 1</div></td><td class="center"  ><span class="nowrap">'
+                . '`id` = 1</div></td><td class="center print_ignore"  ><span class="nowrap">'
                 . "\n" . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_'
                 . 'query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_'
@@ -878,7 +878,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . 'class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
                 . 'class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
-                . '%60+%3D+1" /></span></td><td class="edit_row_anchor center"  >'
+                . '%60+%3D+1" /></span></td><td class="edit_row_anchor center print_ignore"  >'
                 . '<span class="nowrap">' . "\n"
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
@@ -887,7 +887,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 . '"nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class'
                 . '="icon ic_b_edit" /> Edit</span></a>' . "\n"
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
-                . 'id%60+%3D+1" /></span></td><td  class="center"><input type='
+                . 'id%60+%3D+1" /></span></td><td  class="center print_ignore"><input type='
                 . '"checkbox" id="id_rows_to_delete0_right" name="rows_to_delete'
                 . '[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60'
                 . '+%3D+1"  /><input type="hidden" class="condition_array" value="'
@@ -933,7 +933,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                '<td  class="center"><input type="checkbox" id="id_rows_to_'
+                '<td  class="center print_ignore"><input type="checkbox" id="id_rows_to_'
                 . 'delete0_left" name="rows_to_delete[0]" class="multi_checkbox '
                 . 'checkall" value="%60new%60.%60id%60+%3D+1"  /><input type='
                 . '"hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:'
@@ -1033,7 +1033,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 null,
-                '<td  class="center"><input type="checkbox" id="id_rows_to_'
+                '<td  class="center print_ignore"><input type="checkbox" id="id_rows_to_'
                 . 'delete0_left" name="rows_to_delete[0]" class="multi_checkbox '
                 . 'checkall" value="%60new%60.%60id%60+%3D+1"  /><input type='
                 . '"hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:'
