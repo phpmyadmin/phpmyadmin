@@ -1,0 +1,91 @@
+<?php
+$primary = PMA_Index::getPrimary($table, $db);
+foreach ($columns as $row):
+    $extracted_columnspec = PMA_Util::extractColumnSpec($row['Type']);
+    $type = $extracted_columnspec['print_type'];
+
+    if (! isset($row['Default'])) {
+        if ($row['Null'] != ''  && $row['Null'] != 'NO') {
+            $row['Default'] = '<i>NULL</i>';
+        }
+    } else {
+        $row['Default'] = htmlspecialchars($row['Default']);
+    }
+    $field_name = htmlspecialchars($row['Field']);
+
+    if (! $tbl_is_view) {
+        // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having
+        // the NULL attribute, but SHOW CREATE TABLE says the contrary.
+        // Believe the latter.
+        /**
+         * @todo merge this logic with the one in tbl_structure.php
+         * or move it in a function similar to $GLOBALS['dbi']->getColumnsFull()
+         * but based on SHOW CREATE TABLE because information_schema
+         * cannot be trusted in this case (MySQL bug)
+         */
+        $analyzed_for_field
+            = $analyzed_sql[0]['create_table_fields'][$field_name];
+        if (! empty($analyzed_for_field['type'])
+            && $analyzed_for_field['type'] == 'TIMESTAMP'
+            && $analyzed_for_field['timestamp_not_null']
+        ) {
+            $row['Null'] = '';
+        }
+    } ?>
+    <tr>
+        <td>
+            <?php
+            echo $field_name;
+            if ($primary && $primary->hasColumn($field_name)): ?>
+                <em>(<?php echo __('Primary'); ?>)</em>
+            <?php endif; ?>
+        </td>
+
+        <td>
+            <?php echo htmlspecialchars($type); ?>
+            <bdo dir="ltr"></bdo>
+        </td>
+
+        <td>
+            <?php echo (($row['Null'] == '' || $row['Null'] == 'NO')
+                    ? __('No')
+                    : __('Yes')); ?>&nbsp;
+        </td>
+
+        <td>
+            <?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;
+        </td>
+
+        <?php if ($have_rel): ?>
+            <td>
+                <?php
+                $foreigner = PMA_searchColumnInForeigners($res_rel, $field_name);
+                if ($foreigner) {
+                    echo htmlspecialchars(
+                        $foreigner['foreign_table'] . ' -> ' . $foreigner['foreign_field']
+                    );
+                } ?>&nbsp;
+            </td>
+        <?php endif; ?>
+
+        <td>
+            <?php
+            $comments = PMA_getComments($db, $table);
+            if (isset($comments[$field_name])) {
+                echo htmlspecialchars($comments[$field_name]);
+            } ?>&nbsp;
+        </td>
+
+        <?php if ($cfgRelation['mimework']):
+            $mime_map = PMA_getMIME($db, $table, true); ?>
+
+            <td>
+                <?php if (isset($mime_map[$field_name])) {
+                    echo htmlspecialchars(
+                        str_replace('_', '/', $mime_map[$field_name]['mimetype'])
+                    );
+                } ?>&nbsp;
+            </td>
+        <?php endif; ?>
+    </tr>
+<?php endforeach; ?>

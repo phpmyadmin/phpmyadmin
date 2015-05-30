@@ -1,0 +1,21 @@
+<table id="table_columns" class="noclick">
+<caption class="tblHeaders"><?php echo __('Structure'); echo PMA_Util::showMySQLDocu('CREATE_TABLE'); ?>
+</caption>
+<tr>
+    <?php foreach ($header_cells as $header_val): ?>
+        <th><?php echo $header_val; ?></th>
+    <?php endforeach; ?>
+</tr>
+    <?php $odd_row = true;?>
+    <?php foreach($content_cells as $content_row): ?>
+        <tr class="<?php echo ($odd_row ? 'odd' : 'even'); ?>">
+        <?php $odd_row = !$odd_row; ?>
+        <?php if (is_array($content_row)): ?>
+            <?php foreach($content_row as $content_row_val): ?>
+                <td class="center"><?php echo $content_row_val; ?></td>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<br />

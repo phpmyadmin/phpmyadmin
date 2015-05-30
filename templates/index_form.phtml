@@ -1,0 +1,240 @@
+<form action="tbl_indexes.php"
+      method="post"
+      name="index_frm"
+      id="index_frm"
+      class="ajax"
+      onsubmit="if (typeof(this.elements['index[Key_name]'].disabled) != 'undefined') this.elements['index[Key_name]'].disabled = false;">
+
+    <?php echo PMA_URL_getHiddenInputs($form_params); ?>
+
+    <fieldset id="index_edit_fields">
+        <div class="index_info">
+            <div>
+                <div class="label">
+                    <strong>
+                        <label for="input_index_name">
+                            <?php echo __('Index name:') . PMA_Util::showHint(
+                                PMA_Message::notice(
+                                    __(
+                                        '"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!'
+                                    )
+                                )
+                            ); ?>
+                        </label>
+                    </strong>
+                </div>
+
+                <input type="text"
+                       name="index[Key_name]"
+                       id="input_index_name"
+                       size="25"
+                       maxlength="64"
+                       value="<?php echo htmlspecialchars($index->getName()); ?>"
+                       onfocus="this.select()" />
+            </div>
+
+            <div>
+                <div class="label">
+                    <strong>
+                        <label for="select_index_choice">
+                            <?php echo __('Index choice:') . PMA_Util::showMySQLDocu('ALTER_TABLE'); ?>
+                        </label>
+                    </strong>
+                </div>
+
+                <?php echo $index->generateIndexChoiceSelector(isset($_REQUEST['create_edit_table'])); ?>
+            </div>
+
+            <?php echo PMA_Util::getDivForSliderEffect(
+                'indexoptions', __('Options')
+            ); ?>
+
+            <div>
+
+                <div class="label">
+                    <strong>
+                        <label for="input_key_block_size">
+                            <?php echo __('Key block size:'); ?>
+                        </label>
+                    </strong>
+                </div>
+
+                <input type="text"
+                       name="index[Key_block_size]"
+                       id="input_key_block_size"
+                       size="30"
+                       value="<?php echo htmlspecialchars($index->getKeyBlockSize()) ?>" />
+            </div>
+
+            <div>
+
+                <div class="label">
+                    <strong>
+                        <label for="select_index_type">
+                            <?php echo __('Index type:') . PMA_Util::showMySQLDocu('ALTER_TABLE'); ?>
+                        </label>
+                    </strong>
+                </div>
+
+                <?php echo $index->generateIndexTypeSelector(); ?>
+            </div>
+
+            <div>
+                <div class="label">
+                    <strong>
+                        <label for="input_parser">
+                            <?php echo __('Parser:'); ?>
+                        </label>
+                    </strong>
+                </div>
+
+                <input type="text"
+                       name="index[Parser]"
+                       id="input_parse"
+                       size="30"
+                       value="<?php echo htmlspecialchars($index->getParser()) ?>" />
+            </div>
+
+            <div>
+                <div class="label">
+                    <strong>
+                        <label for="input_index_comment">
+                            <?php echo __('Comment:'); ?>
+                        </label>
+                    </strong>
+                </div>
+
+                <input type="text"
+                       name="index[Index_comment]"
+                       id="input_index_comment"
+                       size="30"
+                       maxlength="1024"
+                       value="<?php echo htmlspecialchars($index->getComment()) ?>" />
+            </div>
+        </div>
+        <!-- end of indexoptions div -->
+
+        <div class="clearfloat"></div>
+
+        <table id="index_columns">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        <?php echo __('Column') ?>
+                    </th>
+                    <th>
+                        <?php echo __('Size') ?>
+                    </th>
+                </tr>
+            </thead>
+            <?php $odd_row = true;
+            $spatial_types = array(
+                'geometry',
+                'point',
+                'linestring',
+                'polygon',
+                'multipoint',
+                'multilinestring',
+                'multipolygon',
+                'geomtrycollection'
+            ); ?>
+            <tbody>
+
+                <?php /* @var $column PMA_Index_Column */
+                foreach ($index->getColumns() as $column): ?>
+
+                    <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>noclick">
+                        <td>
+                            <span class="drag_icon" title="<?php echo __('Drag to reorder') ?>"></span>
+                        </td>
+                        <td>
+                            <select name="index[columns][names][]">
+                                <option value="">
+                                    -- <?php echo __('Ignore'); ?> --
+                                </option>
+
+                                <?php
+                                foreach ($fields as $field_name => $field_type):
+                                    if (($index->getChoice() != 'FULLTEXT'
+                                            || preg_match('/(char|text)/i', $field_type))
+                                        && ($index->getChoice() != 'SPATIAL'
+                                            || in_array($field_type, $spatial_types))): ?>
+
+                                        <option value="<?php echo htmlspecialchars($field_name) ?>"
+                                                <?php if ($field_name == $column->getName()) echo 'selected="selected"'; ?>>
+
+                                            <?php echo htmlspecialchars($field_name); ?> [<?php echo htmlspecialchars($field_type); ?>]
+                                        </option>
+                                    <?php endif;
+                                endforeach; ?>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text"
+                                   size="5"
+                                   onfocus="this.select()"name="index[columns][sub_parts][]"
+                                   value="<?php if ($index->getChoice() != 'SPATIAL') echo $column->getSubPart(); ?>"/>
+                        </td>
+                    </tr>
+
+                    <?php
+                    $odd_row = !$odd_row;
+
+                endforeach;
+
+                for ($i = 0; $i < $add_fields; $i++): ?>
+
+                    <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>noclick">
+                        <td>
+                            <span class="drag_icon" title="<?php echo __('Drag to reorder') ?>"></span>
+                        </td>
+                        <td>
+                            <select name="index[columns][names][]">
+                                <option value="">-- <?php echo __('Ignore') ?> --</option>
+
+                                <?php
+                                $j = 0;
+                                foreach ($fields as $field_name => $field_type):
+                                    if (isset($_REQUEST['create_edit_table'])) {
+                                        $col_index = $field_type[1];
+                                        $field_type = $field_type[0];
+                                    } ?>
+
+                                    <option value="<?php echo htmlspecialchars((isset($col_index)) ? $col_index : $field_name); ?>"
+                                            <?php echo ($j++ == $i ? 'selected="selected"' : ''); ?>>
+                                        <?php echo htmlspecialchars($field_name) ?> [<?php echo htmlspecialchars($field_type); ?>]
+                                    </option>
+                                    <?php echo "\n";
+                                endforeach; ?>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text"
+                                   size="5"
+                                   onfocus="this.select()"
+                                   name="index[columns][sub_parts][]"
+                                   value="" />
+                        </td>
+                    </tr>
+                    <?php
+                    $odd_row = !$odd_row;
+                 endfor; ?>
+
+            </tbody>
+        </table>
+        <div class="add_more">
+
+            <div class="slider"></div>
+            <div class="add_fields hide">
+                <input type="submit"
+                       id="add_fields"
+                       value="<?php echo sprintf(__('Add %s column(s) to index'), 1); ?>" />
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="tblFooters">
+        <button type="submit" id="preview_index_frm"><?php echo __('Preview SQL'); ?></button>
+        <input type="submit" id="save_index_frm" value="<?php echo __('Go'); ?>" />
+    </fieldset>
+</form>

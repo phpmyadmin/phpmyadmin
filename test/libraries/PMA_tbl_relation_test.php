@@ -87,24 +87,28 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
             PMA_generateRelationalDropdown('name', $values)
         );
 
-        // test for options and escaping
-        $this->assertContains(
-            '<option value="&lt;alue2">&lt;alue2</option>',
-            PMA_generateRelationalDropdown('name', $values)
-        );
-
-        // test for selected option
-        $this->assertContains(
-            '<option value="value1" selected="selected">value1</option>',
-            PMA_generateRelationalDropdown('name', $values, 'value1')
-        );
-
-        // test for selected value not found in values array and its escaping
-        $this->assertContains(
-            '<option value="valu&lt;4" selected="selected">valu&lt;4'
-            . '</option></select>',
-            PMA_generateRelationalDropdown('name', $values, 'valu<4')
-        );
+        /**
+         * @todo Find out a better method to test for HTML
+         *
+         * // test for options and escaping
+         * $this->assertContains(
+         *     '<option value="&lt;alue2">&lt;alue2</option>',
+         *     PMA_generateRelationalDropdown('name', $values)
+         * );
+         *
+         * // test for selected option
+         * $this->assertContains(
+         *     '<option value="value1" selected="selected">value1</option>',
+         *     PMA_generateRelationalDropdown('name', $values, 'value1')
+         * );
+         *
+         * // test for selected value not found in values array and its escaping
+         * $this->assertContains(
+         *     '<option value="valu&lt;4" selected="selected">valu&lt;4'
+         *     . '</option></select>',
+         *     PMA_generateRelationalDropdown('name', $values, 'valu<4')
+         * );
+         */
     }
 
     /**
@@ -237,24 +241,6 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
             $tbl_storage_engine, $existrel, $existrel_foreign, $options_array
         );
 
-        //case 1: PMA_getHtmlForInternalRelationForm
-        $this->assertContains(
-            PMA_getHtmlForInternalRelationForm(
-                $columns, $tbl_storage_engine,
-                $existrel, $db
-            ),
-            $html
-        );
-
-        //case 2: PMA_getHtmlForForeignKeyForm
-        $this->assertContains(
-            PMA_getHtmlForForeignKeyForm(
-                $columns, $existrel_foreign, $db,
-                $tbl_storage_engine, $options_array
-            ),
-            $html
-        );
-
         $this->assertContains(
             PMA_URL_getHiddenInputs($db, $table),
             $html
@@ -295,48 +281,6 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //case 5: PMA_getHtmlForDisplayFieldInfos
-        $this->assertContains(
-            PMA_getHtmlForDisplayFieldInfos($db, $table, $save_row),
-            $html
-        );
-
-        //case 6: PMA_getHtmlForCommonFormFooter
-        $this->assertContains(
-            PMA_getHtmlForCommonFormFooter(),
-            $html
-        );
-    }
-
-    /**
-     * Tests for PMA_getHtmlForDisplayFieldInfos() method.
-     *
-     * @return void
-     * @test
-     */
-    public function testPMAGetHtmlForDisplayFieldInfos()
-    {
-        $db = "pma_db";
-        $table = "pma_table";
-        $save_row = array(
-            array("Field" => "Field1"),
-            array("Field" => "Field2"),
-        );
-
-        $html = PMA_getHtmlForDisplayFieldInfos($db, $table, $save_row);
-
-        $this->assertContains(
-            __('Choose column to display:'),
-            $html
-        );
-        $this->assertContains(
-            htmlspecialchars($save_row[0]['Field']),
-            $html
-        );
-        $this->assertContains(
-            htmlspecialchars($save_row[1]['Field']),
-            $html
-        );
     }
 
     /**

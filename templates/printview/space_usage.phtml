@@ -1,0 +1,42 @@
+<table cellspacing="0" cellpadding="0">
+    <tr>
+        <!-- Space usage -->
+        <td class="vtop">
+            <big><?php echo __('Space usage:'); ?></big>
+            <table width="100%">
+                <tr>
+                    <td style="padding-right: 10px"><?php echo __('Data'); ?></td>
+                    <td class="right"><?php echo $data_size; ?></td>
+                    <td><?php echo $data_unit; ?></td>
+                </tr>
+                <?php if (isset($index_size)): ?>
+                    <tr>
+                        <td style="padding-right: 10px"><?php echo __('Index'); ?></td>
+                        <td class="right"><?php echo $index_size; ?></td>
+                        <td><?php echo $index_unit; ?></td>
+                    </tr>
+                <? endif;
+                if (isset($free_size)): ?>
+                    <tr style="color: #bb0000">
+                        <td style="padding-right: 10px">
+                            <?php echo __('Overhead'); ?>
+                        </td>
+                        <td class="right"><?php echo $free_size; ?></td>
+                        <td><?php echo $free_unit; ?></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-right: 10px">
+                            <?php echo __('Effective'); ?>
+                        </td>
+                        <td class="right"><?php echo $effect_size; ?></td>
+                        <td><?php echo $effect_unit; ?></td>
+                    </tr>
+                <? endif;
+                if (isset($tot_size) && $mergetable == false): ?>
+                    <tr>
+                        <td style="padding-right: 10px"><?php echo __('Total'); ?></td>
+                        <td class="right"><?php echo $tot_size; ?></td>
+                        <td><?php echo $tot_unit; ?></td>
+                    </tr>
+                <?php endif; ?>
+            </table>

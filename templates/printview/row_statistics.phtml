@@ -1,0 +1,92 @@
+<td width="20">&nbsp;</td>
+
+<!-- Rows Statistic -->
+<td class="vtop">
+    <big><?php echo __('Row Statistics:') ?></big>
+    <table width="100%">
+        <?php if (isset($showtable['Row_format'])): ?>
+            <tr>
+                <td><?php echo __('Format') ?></td>
+                <td class="<?php echo $cell_align_left ?>">
+                    <?php
+                    if ($showtable['Row_format'] == 'Fixed')
+                        echo __('static');
+                    elseif ($showtable['Row_format'] == 'Dynamic')
+                        echo __('dynamic');
+                    else
+                        echo $showtable['Row_format']; ?>
+                </td>
+            </tr>
+        <?php endif;
+        if (isset($showtable['Rows'])): ?>
+            <tr>
+                <td><?php echo __('Rows') ?></td>
+                <td class="right">
+                    <?php
+                    echo PMA_Util::formatNumber($showtable['Rows'], 0); ?>
+                </td>
+            </tr>
+        <?php endif;
+        if (isset($showtable['Avg_row_length'])
+            && $showtable['Avg_row_length'] > 0
+        ): ?>
+            <tr>
+                <td><?php echo __('Row length') ?>&nbsp;&oslash;</td>
+                <td>
+                    <?php echo PMA_Util::formatNumber(
+                        $showtable['Avg_row_length'], 0
+                    ); ?>
+                </td>
+            </tr>
+        <?php endif;
+        if (isset($showtable['Data_length'])
+            && $showtable['Rows'] > 0
+            && $mergetable == false
+        ): ?>
+            <tr>
+                <td><?php echo __('Row size') ?>&nbsp;&oslash;</td>
+                <td class="right">
+                    <?php echo $avg_size ?> <?php echo $avg_unit; ?>
+                </td>
+            </tr>
+        <?php endif;
+        if (isset($showtable['Auto_increment'])): ?>
+            <tr>
+                <td><?php echo __('Next autoindex') ?> </td>
+                <td class="right">
+                    <?php echo PMA_Util::formatNumber(
+                        $showtable['Auto_increment'], 0
+                    ); ?>
+                </td>
+            </tr>
+        <?php endif;
+        if (isset($showtable['Create_time'])): ?>
+            <tr>
+                <td><?php echo __('Creation') ?></td>
+                <td class="right">
+                    <?php echo PMA_Util::localisedDate(
+                        strtotime($showtable['Create_time'])
+                    ); ?>
+                </td>
+            </tr>
+        <?php endif;
+        if (isset($showtable['Update_time'])): ?>
+            <tr>
+                <td><?php echo __('Last update') ?></td>
+                <td class="right">
+                    <?php echo PMA_Util::localisedDate(
+                        strtotime($showtable['Update_time'])
+                    ); ?>
+                </td>
+            </tr>
+        <?php endif;
+        if (isset($showtable['Check_time'])): ?>
+            <tr>
+                <td><?php echo __('Last check') ?></td>
+                <td class="right">
+                    <?php echo PMA_Util::localisedDate(
+                        strtotime($showtable['Check_time'])
+                    ); ?>
+                </td>
+            </tr>
+        <?php endif; ?>

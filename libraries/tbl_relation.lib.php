@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 
+require_once 'libraries/Template.class.php';
+
 /**
  * Generate dropdown choices
  *
@@ -21,20 +23,12 @@
 function PMA_generateDropdown(
     $dropdown_question, $select_name, $choices, $selected_value
 ) {
-    $html_output = (! empty($dropdown_question) ?
-        htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;' : '')
-        . '<select name="' . htmlspecialchars($select_name) . '">' . "\n";
-
-    foreach ($choices as $one_value => $one_label) {
-        $html_output .= '<option value="' . htmlspecialchars($one_value) . '"';
-        if ($selected_value == $one_value) {
-            $html_output .= ' selected="selected" ';
-        }
-        $html_output .= '>' . htmlspecialchars($one_label) . '</option>' . "\n";
-    }
-    $html_output .= '</select>' . "\n";
-
-    return $html_output;
+    return PMA\Template::get('tbl_relation/dropdown_generate')->render(array(
+        'dropdown_question' => $dropdown_question,
+        'select_name' => $select_name,
+        'choices' => $choices,
+        'selected_value' => $selected_value
+    ));
 }
 
 /**
@@ -143,25 +137,12 @@ function PMA_getSQLToCreateForeignKey($table, $field, $foreignDb, $foreignTable,
 function PMA_generateRelationalDropdown(
     $name, $values = array(), $foreign = false, $title = ''
 ) {
-    $html_output = '<select name="' . $name . '" title="' . $title . '">';
-    $html_output .= '<option value=""></option>';
-
-    $seen_key = false;
-    foreach ($values as $value) {
-        $html_output .= '<option value="' . htmlspecialchars($value) . '"';
-        if ($foreign && $value == $foreign) {
-            $html_output .= ' selected="selected"';
-            $seen_key = true;
-        }
-        $html_output .= '>' . htmlspecialchars($value) . '</option>';
-    }
-
-    if (is_string($foreign) && ! $seen_key) {
-        $html_output .= '<option value="' . htmlspecialchars($foreign) . '"'
-            . ' selected="selected">' . htmlspecialchars($foreign) . '</option>';
-    }
-    $html_output .= '</select>';
-    return $html_output;
+    return PMA\Template::get('tbl_relation/relational_dropdown')->render(array(
+        'name' => $name,
+        'title' => $title,
+        'values' => $values,
+        'foreign' => $foreign
+    ));
 }
 
 /**
@@ -181,80 +162,16 @@ function PMA_generateRelationalDropdown(
 function PMA_getHtmlForCommonForm($db, $table, $columns, $cfgRelation,
     $tbl_storage_engine, $existrel, $existrel_foreign, $options_array
 ) {
-    $html_output = PMA_getHtmlForCommonFormHeader($db, $table);
-
-    if ($cfgRelation['relwork']) {
-        $html_output .= PMA_getHtmlForInternalRelationForm(
-            $columns, $tbl_storage_engine, $existrel, $db
-        );
-    }
-
-    if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
-        $html_output .= PMA_getHtmlForForeignKeyForm(
-            $columns, $existrel_foreign,
-            $db, $tbl_storage_engine, $options_array
-        );
-    } // end if (InnoDB)
-
-    if ($cfgRelation['displaywork']) {
-        $html_output .= PMA_getHtmlForDisplayFieldInfos(
-            $db, $table,
-            array_values($columns)
-        );
-    }
-
-    $html_output .= PMA_getHtmlForCommonFormFooter();
-
-    return $html_output;
-}
-
-/**
- * Function to get html for Internal relations form
- *
- * @param array  $columns            columns
- * @param string $tbl_storage_engine table storage engine
- * @param array  $existrel           db, table, column
- * @param string $db                 current database
- *
- * @return string
- */
-function PMA_getHtmlForInternalRelationForm($columns, $tbl_storage_engine,
-    $existrel, $db
-) {
-    $save_row = array_values($columns);
-    $saved_row_cnt  = count($save_row);
-
-    $html_output = '<fieldset>'
-        . '<legend>' . __('Internal relations') . '</legend>'
-        . '<table id="internal_relations" class="relationalTable">';
-
-    $html_output .= '<tr><th>' . __('Column') . '</th>';
-
-    $html_output .= '<th>' . __('Internal relation');
-    if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
-        $html_output .= PMA_Util::showHint(
-            __(
-                'An internal relation is not necessary when a corresponding'
-                . ' FOREIGN KEY relation exists.'
-            )
-        );
-    }
-
-    $html_output .= '</th>';
-
-    $odd_row = true;
-    for ($i = 0; $i < $saved_row_cnt; $i++) {
-        $html_output .= PMA_getHtmlForInternalRelationRow(
-            $save_row, $i, $odd_row,
-            $existrel, $db
-        );
-        $odd_row = ! $odd_row;
-    }
-
-    $html_output .= '</table>';
-    $html_output .= '</fieldset>';
-
-    return $html_output;
+    return PMA\Template::get('tbl_relation/common_form')->render(array(
+        'db' => $db,
+        'table' => $table,
+        'columns' => $columns,
+        'cfgRelation' => $cfgRelation,
+        'tbl_storage_engine' => $tbl_storage_engine,
+        'existrel' => $existrel,
+        'existrel_foreign' => $existrel_foreign,
+        'options_array' => $options_array
+    ));
 }
 
 /**
@@ -277,15 +194,6 @@ function PMA_getHtmlForInternalRelationRow($save_row, $i, $odd_row,
     $myfield_md5 = md5($myfield);
     $myfield_html = htmlspecialchars($myfield);
 
-    $html_output = '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
-        . '<td class="vmiddle">'
-        . '<strong>' . $myfield_html . '</strong>'
-        . '<input type="hidden" name="fields_name[' . $myfield_md5 . ']"'
-        . ' value="' . $myfield_html . '"/>'
-        . '</td>';
-
-    $html_output .= '<td>';
-
     $foreign_table = false;
     $foreign_column = false;
 
@@ -295,13 +203,6 @@ function PMA_getHtmlForInternalRelationRow($save_row, $i, $odd_row,
     } else {
         $foreign_db = $db;
     }
-    $html_output .= PMA_generateRelationalDropdown(
-        'destination_db[' . $myfield_md5 . ']',
-        $GLOBALS['pma']->databases,
-        $foreign_db,
-        __('Database')
-    );
-    // end of database dropdown
 
     // table dropdown
     $tables = array();
@@ -318,13 +219,6 @@ function PMA_getHtmlForInternalRelationRow($save_row, $i, $odd_row,
             $tables[] = $row[0];
         }
     }
-    $html_output .= PMA_generateRelationalDropdown(
-        'destination_table[' . $myfield_md5 . ']',
-        $tables,
-        $foreign_table,
-        __('Table')
-    );
-    // end of table dropdown
 
     // column dropdown
     $columns = array();
@@ -335,77 +229,17 @@ function PMA_getHtmlForInternalRelationRow($save_row, $i, $odd_row,
         $table_obj = new PMA_Table($foreign_table, $foreign_db);
         $columns = $table_obj->getUniqueColumns(false, false);
     }
-    $html_output .= PMA_generateRelationalDropdown(
-        'destination_column[' . $myfield_md5 . ']',
-        $columns,
-        $foreign_column,
-        __('Column')
-    );
-    // end of column dropdown
 
-    $html_output .= '</td>';
-    $html_output .= '</tr>';
-
-    return $html_output;
-}
-
-/**
- * Function to get html for Foreign key form
- *
- * @param array  $columns            columns
- * @param array  $existrel_foreign   db, table, column
- * @param string $db                 current database
- * @param string $tbl_storage_engine table storage engine
- * @param array  $options_array      options array
- *
- * @return string
- */
-function PMA_getHtmlForForeignKeyForm($columns, $existrel_foreign, $db,
-    $tbl_storage_engine, $options_array
-) {
-    $html_output = '<fieldset>'
-        . '<legend>' . __('Foreign key constraints') . '</legend>'
-        . '<table id="foreign_keys" class="relationalTable">';
-
-    $html_output .= '<tr><th>' . __('Actions') . '</th>';
-    $html_output .= '<th>' . __('Constraint properties') . '</th>'
-        . '<th>'
-        . __('Column')
-        . PMA_Util::showHint(
-            __(
-                'Only columns with index will be displayed. You can define an'
-                . ' index below.'
-            )
-        )
-        . '</th>';
-    $html_output .= '<th colspan="3">' . __('Foreign key constraint')
-        . ' (' . $tbl_storage_engine . ')';
-    $html_output .= '</th></tr>';
-
-    $odd_row = true;
-    $i = 0;
-    foreach ($existrel_foreign as $key => $one_key) {
-        $html_output .= PMA_getHtmlForForeignKeyRow(
-            $one_key, $odd_row, $columns, $i++, $options_array, $tbl_storage_engine,
-            $db
-        );
-        $odd_row = ! $odd_row;
-    }
-    $html_output .= PMA_getHtmlForForeignKeyRow(
-        array(), $odd_row, $columns, $i++, $options_array, $tbl_storage_engine,
-        $db
-    );
-
-    $html_output .= '<tr>'
-        . '<td colspan="5"><a class="formelement clearfloat'
-        . ' add_foreign_key" href="">'
-        . __('+ Add constraint')
-        . '</td>';
-    $html_output .= '</tr>';
-    $html_output .= '</table>'
-        . '</fieldset>';
-
-    return $html_output;
+    return PMA\Template::get('tbl_relation/internal_relational_row')->render(array(
+        'myfield_md5' => $myfield_md5,
+        'myfield_html' => $myfield_html,
+        'odd_row' => $odd_row,
+        'foreign_db' => $foreign_db,
+        'foreign_table' => $foreign_table,
+        'tables' => $tables,
+        'foreign_column' => $foreign_column,
+        'columns' => $columns
+    ));
 }
 
 /**
@@ -424,9 +258,8 @@ function PMA_getHtmlForForeignKeyForm($columns, $existrel_foreign, $db,
 function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
     $options_array, $tbl_storage_engine, $db
 ) {
-    $html_output = '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
-    // Drop key anchor.
-    $html_output .= '<td>';
+    $js_msg = '';
+    $this_params = null;
     if (isset($one_key['constraint'])) {
         $drop_fk_query = 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
             . ' DROP FOREIGN KEY '
@@ -444,51 +277,15 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
             . ' DROP FOREIGN KEY '
             . $one_key['constraint'] . ';'
         );
-
-        $html_output .= '<input type="hidden" class="drop_foreign_key_msg"'
-            . ' value="' . $js_msg . '" />';
-        $html_output .= '    <a class="drop_foreign_key_anchor';
-        $html_output .= ' ajax';
-        $html_output .= '" href="sql.php' . PMA_URL_getCommon($this_params)
-           . '" >'
-           . PMA_Util::getIcon('b_drop.png', __('Drop'))  . '</a>';
     }
-    $html_output .= '</td>';
-    $html_output .= '<td>';
-    $html_output .= '<span class="formelement clearfloat">';
-    $constraint_name = isset($one_key['constraint'])
-        ? $one_key['constraint'] : '';
-    $html_output .= '<input type="text" name="constraint_name[' . $i . ']"'
-        . ' value="' . htmlspecialchars($constraint_name) . '"'
-        . ' placeholder="' . __('Constraint name') . '" maxlength="64" />';
-    $html_output .= '</span>' . "\n";
 
-    $html_output .= '<div class="floatleft">';
-    $html_output .= '<span class="formelement">';
     // For ON DELETE and ON UPDATE, the default action
     // is RESTRICT as per MySQL doc; however, a SHOW CREATE TABLE
     // won't display the clause if it's set as RESTRICT.
     $on_delete = isset($one_key['on_delete'])
         ? $one_key['on_delete'] : 'RESTRICT';
-    $html_output .= PMA_generateDropdown(
-        'ON DELETE',
-        'on_delete[' . $i . ']',
-        $options_array,
-        $on_delete
-    );
-    $html_output .= '</span>' . "\n";
-
-    $html_output .= '<span class="formelement">' . "\n";
     $on_update = isset($one_key['on_update'])
         ? $one_key['on_update'] : 'RESTRICT';
-    $html_output .= PMA_generateDropdown(
-        'ON UPDATE',
-        'on_update[' . $i . ']',
-        $options_array,
-        $on_update
-    );
-    $html_output .= '</span>';
-    $html_output .= '</div>';
 
     $column_array = array();
     $column_array[''] = '';
@@ -498,52 +295,10 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
         }
     }
 
-    $html_output .= '</span>' . "\n";
-    $html_output .= '</td>';
-    $html_output .= '<td>';
-    if (isset($one_key['index_list'])) {
-        foreach ($one_key['index_list'] as $key => $column) {
-            $html_output .= '<span class="formelement clearfloat">';
-            $html_output .= PMA_generateDropdown(
-                '',
-                'foreign_key_fields_name[' . $i . '][]',
-                $column_array,
-                $column
-            );
-            $html_output .= '</span>';
-        }
-    } else {
-        $html_output .= '<span class="formelement clearfloat">';
-        $html_output .= PMA_generateDropdown(
-            '',
-            'foreign_key_fields_name[' . $i . '][]',
-            $column_array,
-            ''
-        );
-        $html_output .= '</span>';
-    }
-
-    $html_output .= '<a class="formelement clearfloat add_foreign_key_field"'
-        . ' href="" data-index="' . $i . '">'
-        . __('+ Add column')
-        . '</a>';
-    $html_output .= '</td>';
-    $html_output .= '<td>';
     $foreign_table = false;
-
     // foreign database dropdown
     $foreign_db = (isset($one_key['ref_db_name'])) ? $one_key['ref_db_name'] : $db;
-    $html_output .= '<span class="formelement clearfloat">';
-    $html_output .= PMA_generateRelationalDropdown(
-        'destination_foreign_db[' . $i . ']',
-        $GLOBALS['pma']->databases,
-        $foreign_db,
-        __('Database')
-    );
-    // end of foreign database dropdown
-    $html_output .= '</td>';
-    $html_output .= '<td>';
-    // foreign table dropdown
+
     $tables = array();
     if ($foreign_db) {
         $foreign_table = isset($one_key['ref_table_name'])
@@ -585,108 +340,21 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
             }
         }
     }
-    $html_output .= '<span class="formelement clearfloat">';
-    $html_output .= PMA_generateRelationalDropdown(
-        'destination_foreign_table[' . $i . ']',
-        $tables,
-        $foreign_table,
-        __('Table')
-    );
-    $html_output .= '</span>';
-    // end of foreign table dropdown
-    $html_output .= '</td>';
-    $html_output .= '<td>';
-    // foreign column dropdown
-    if ($foreign_db && $foreign_table) {
-        foreach ($one_key['ref_index_list'] as $foreign_column) {
-            $table_obj = new PMA_Table($foreign_table, $foreign_db);
-            $columns = $table_obj->getUniqueColumns(false, false);
-            $html_output .= '<span class="formelement clearfloat">';
-            $html_output .= PMA_generateRelationalDropdown(
-                'destination_foreign_column[' . $i . '][]',
-                $columns,
-                $foreign_column,
-                __('Column')
-            );
-            $html_output .= '</span>';
-        }
-    } else {
-        $html_output .= '<span class="formelement clearfloat">';
-        $html_output .= PMA_generateRelationalDropdown(
-            'destination_foreign_column[' . $i . '][]',
-            array(),
-            '',
-            __('Column')
-        );
-        $html_output .= '</span>';
-    }
-    // end of foreign column dropdown
-    $html_output .= '</td>';
-    $html_output .= '</tr>';
 
-    return $html_output;
-}
-
-/**
- * Function to get html for the common form header
- *
- * @param string $db    current database
- * @param string $table current table
- *
- * @return string
- */
-function PMA_getHtmlForCommonFormHeader($db, $table)
-{
-    return '<form method="post" action="tbl_relation.php">' . "\n"
-    . PMA_URL_getHiddenInputs($db, $table);
-}
-
-/**
- * Function to get html for the common form footer
- *
- * @return string
- */
-function PMA_getHtmlForCommonFormFooter()
-{
-    return '<fieldset class="tblFooters">'
-        . '<input type="button" class="preview_sql" value="'
-        . __('Preview SQL') . '" />'
-        . '<input type="submit" value="' . __('Save') . '" />'
-        . '</fieldset>'
-        . '</form>';
-}
-
-/**
- * Function to get html for display field infos
- *
- * @param string $db       current database
- * @param string $table    current table
- * @param array  $save_row save row
- *
- * @return string
- */
-function PMA_getHtmlForDisplayFieldInfos($db, $table, $save_row)
-{
-    $disp = PMA_getDisplayField($db, $table);
-    $html_output = '<fieldset>'
-        . '<label>' . __('Choose column to display:') . '</label>'
-        . '<select name="display_field">'
-        . '<option value="">---</option>';
-
-    foreach ($save_row as $row) {
-        $html_output .= '<option value="'
-            . htmlspecialchars($row['Field']) . '"';
-        if (isset($disp) && $row['Field'] == $disp) {
-            $html_output .= ' selected="selected"';
-        }
-        $html_output .= '>' . htmlspecialchars($row['Field'])
-            . '</option>' . "\n";
-    } // end while
-
-    $html_output .= '</select>'
-        . '</fieldset>';
-
-    return $html_output;
+    return PMA\Template::get('tbl_relation/foreign_key_row')->render(array(
+        'odd_row' => $odd_row,
+        'js_msg' => $js_msg,
+        'one_key' => $one_key,
+        'this_params' => $this_params,
+        'on_delete' => $on_delete,
+        'on_update' => $on_update,
+        'column_array' => $column_array,
+        'foreign_db' => $foreign_db,
+        'foreign_table' => $foreign_table,
+        'tables' => $tables,
+        'i' => $i,
+        'options_array' => $options_array
+    ));
 }
 
 /**

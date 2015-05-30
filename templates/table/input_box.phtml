@@ -1,0 +1,135 @@
+<?php
+// Get inputbox based on different column types
+// (Foreign key, geometrical, enum)
+if ($_foreigners
+    && PMA_searchColumnInForeigners($_foreigners, $column_name)): ?>
+    <?php if (is_array($foreignData['disp_row'])): ?>
+        <select name="criteriaValues[<?php echo $column_index; ?>]"
+                id="<?php echo $column_id . $column_index; ?>">
+            <?php echo PMA_foreignDropdown(
+                $foreignData['disp_row'], $foreignData['foreign_field'],
+                $foreignData['foreign_display'], '', $foreignMaxLimit
+            ); ?>
+        </select>
+    <?php elseif ($foreignData['foreign_link'] == true): ?>
+        <input type="text"
+               id="<?php echo $column_id . $column_index; ?>"
+               name="criteriaValues[<?php echo $column_index; ?>]"
+               id="field_<?php echo md5($column_name); ?>[<?php echo $column_index; ?>]"
+               class="textfield"
+               <?php if (isset($criteriaValues[$column_index])
+                   && is_string($criteriaValues[$column_index])
+               ): ?>
+                   value="<?php echo $criteriaValues[$column_index]; ?>"
+               <?php endif; ?> />
+        <a class="ajax browse_foreign"
+           href="browse_foreigners.php<?php
+               echo PMA_URL_getCommon(
+                   array('db' => $db, 'table' => $table)
+               );
+           ?>&amp;field=<?php
+               echo urlencode($column_name);
+           ?>&amp;fieldkey=<?php
+               echo $column_index;
+           ?>&amp;fromsearch=1">
+            <?php echo str_replace("'", "\\'", $titles['Browse']); ?>
+        </a>
+    <?php endif; ?>
+
+<?php elseif (in_array($column_type, PMA_Util::getGISDatatypes())): ?>
+    <input type="text"
+           name="criteriaValues[<?php echo $column_index; ?>]"
+           size="40"
+           class="textfield"
+           id="field_<?php echo $column_index; ?>" />
+    <?php if ($in_fbs): ?>
+
+        <?php
+        $edit_url = 'gis_data_editor.php' . PMA_URL_getCommon();
+        $edit_str = PMA_Util::getIcon('b_edit.png', __('Edit/Insert'));
+        ?>
+
+        <span class="open_search_gis_editor">
+            <?php echo PMA_Util::linkOrButton(
+                $edit_url, $edit_str, array(), false, false, '_blank'
+            ); ?>
+        </span>
+    <?php endif; ?>
+
+<?php elseif (strncasecmp($column_type, 'enum', 4) == 0
+    || (strncasecmp($column_type, 'set', 3) == 0
+        && $in_zoom_search_edit)
+): ?>
+
+    <?php
+    $in_zoom_search_edit = false;
+    $column_type = htmlspecialchars($column_type);
+    $value = explode(', ', str_replace("'", '', /*overload*/mb_substr($column_type, 5, -1)));
+    $cnt_value = count($value);
+    /*
+     * Enum in edit mode   --> dropdown
+     * Enum in search mode --> multiselect
+     * Set in edit mode    --> multiselect
+     * Set in search mode  --> input (skipped here, so the 'else'
+     *                                 section would handle it)
+     */
+    ?>
+
+    <?php if ((strncasecmp($column_type, 'enum', 4) && ! $in_zoom_search_edit)
+        || (strncasecmp($column_type, 'set', 3) && $in_zoom_search_edit)
+    ): ?>
+        <select name="criteriaValues[<?php echo $column_index; ?>]"
+                id="<?php echo $column_id . $column_index; ?>">
+    <?php else: ?>
+        <select name="criteriaValues[<?php echo $column_index; ?>]"
+                id="<?php echo $column_id . $column_index; ?>"
+                multiple="multiple"
+                size="<?php echo min(3, $cnt_value); ?>">
+    <?php endif; ?>
+
+        <!-- Add select options-->
+        <?php for ($j = 0; $j < $cnt_value; $j++): ?>
+            <?php if (isset($criteriaValues[$column_index])
+                && is_array($criteriaValues[$column_index])
+                && in_array($value[$j], $criteriaValues[$column_index])
+            ): ?>
+                <option value="<?php echo $value[$j]; ?>"
+                        selected>
+                    <?php echo $value[$j]; ?>
+                </option>
+            <?php else: ?>
+                <option value="<?php echo $value[$j]; ?>">
+                    <?php echo $value[$j]; ?>
+                </option>
+            <?php endif; ?>
+        <?php endfor; ?>
+    </select>
+
+<?php else: ?>
+<!-- other cases-->
+
+    <?php
+    $the_class = 'textfield';
+
+    if ($column_type == 'date') {
+        $the_class .= ' datefield';
+    } elseif ($column_type == 'datetime'
+        || substr($column_type, 0, 9) == 'timestamp'
+    ) {
+        $the_class .= ' datetimefield';
+    } elseif (substr($column_type, 0, 3) == 'bit') {
+        $the_class .= ' bit';
+    }
+    ?>
+    <input type="text"
+           name="criteriaValues[<?php echo $column_index; ?>]"
+           size="40"
+           class="<?php echo $the_class; ?>"
+           id="<?php echo $column_id .  $column_index; ?>"
+           <?php if (isset($criteriaValues[$column_index])
+               && is_string($criteriaValues[$column_index])
+           ): ?>
+               value="<?php echo $criteriaValues[$column_index]; ?>"
+           <?php endif; ?>/>
+
+<?php endif; ?>

@@ -1,9 +1,4 @@
-<?php
-require_once 'libraries/url_generating.lib.php';
-global $url_query, $url_params, $keys,
-       $fields_meta, $numeric_types,
-       $numeric_column_count, $sql_query, $seriesColumn;
-?>
+<?php require_once 'libraries/url_generating.lib.php'; ?>
 <script type="text/javascript">
     pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
     url_query = '<?php echo $url_query; ?>';
