@@ -563,7 +563,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            'executed_2',
+            true,
             PMA_Tracker::changeTrackingData(
                 'pma_db',
                 'pma_table',
