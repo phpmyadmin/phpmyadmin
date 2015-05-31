@@ -391,7 +391,7 @@ function PMA_getHtmlForGetAllRealRowLink($hidden_fields)
         . __('Get all Real Row Counts(Only for views)')
         . '" >'
         . __('Get All Row Counts')
-        . '</a>'
+        . '</a>';
     $html_output .= '</div>';
 
     return $html_output;
