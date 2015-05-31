@@ -50,7 +50,6 @@ script:
     fi
 
 after_script:
-  - if [ -f build/logs/clover.xml ] ; then php vendor/bin/ocular code-coverage:upload --format=php-clover build/logs/clover.xml || true ; fi
   - if [ -f vendor/bin/coveralls ] ; then php vendor/bin/coveralls -v || true ; fi
   - if [ -f php.log ] ; then cat php.log ; fi
 
