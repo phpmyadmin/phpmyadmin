@@ -101,6 +101,7 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', 'th.column_heading.marker');
     $(window).unbind('scroll');
     $(document).off("keyup", ".filter_rows");
+    $(document).off('click', "#printView");
     if (codemirror_editor) {
         codemirror_editor.off('change');
     } else {
@@ -190,6 +191,16 @@ AJAX.registerOnload('sql.js', function () {
             .parent()
             .toggle($(this).val().length > 0);
     }).trigger('keyup');
+
+    /**
+     * Attach Event Handler for 'Print View'
+     */
+    $(document).on('click', "#printView", function (event) {
+        event.preventDefault();
+
+        // Print the page
+        printPage();
+    }); //end of Print View action
 
     /**
      * Attach the {@link makegrid} function to a custom event, which will be

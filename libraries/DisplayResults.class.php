@@ -807,7 +807,7 @@ class PMA_DisplayResults
         $html_sql_query = htmlspecialchars($this->__get('sql_query'));
 
         // Navigation bar
-        $table_navigation_html .= '<table class="navigation nospacing nopadding">'
+        $table_navigation_html .= '<table class="navigation nospacing nopadding print_ignore">'
             . '<tr>'
             . '<td class="navigation_separator"></td>';
 
@@ -1427,7 +1427,7 @@ class PMA_DisplayResults
 
         $drop_down_html = '';
 
-        $drop_down_html .= '<form action="sql.php" method="post">' . "\n"
+        $drop_down_html .= '<form action="sql.php" method="post" class="print_ignore">' . "\n"
             . PMA_URL_getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
@@ -1537,7 +1537,7 @@ class PMA_DisplayResults
                 = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
 
-            $button_html .= '<th colspan="' . $this->__get('fields_cnt') . '">'
+            $button_html .= '<th class="print_ignore" colspan="' . $this->__get('fields_cnt') . '">'
                 . '</th>'
                 . '</tr>'
                 . '<tr>';
@@ -1553,7 +1553,7 @@ class PMA_DisplayResults
                 = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
 
-            $button_html .= '<th class="column_action" ' . $colspan . '>'
+            $button_html .= '<th class="column_action print_ignore" ' . $colspan . '>'
                 . $full_or_partial_text_link . '</th>';
 
         } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
@@ -1706,7 +1706,7 @@ class PMA_DisplayResults
         $options_html .= '<form method="post" action="sql.php" '
             . 'name="displayOptionsForm"';
 
-        $options_html .= ' class="ajax" ';
+        $options_html .= ' class="ajax print_ignore" ';
 
         $options_html .= '>';
         $url_params = array(
@@ -4845,7 +4845,7 @@ class PMA_DisplayResults
         &$dt_result, $analyzed_sql, $del_link
     ) {
 
-        $links_html = '';
+        $links_html = '<div class="print_ignore" >';
         $url_query = $this->__get('url_query');
         $delete_text = ($del_link == self::DELETE_ROW) ? __('Delete') : __('Kill');
 
@@ -4885,7 +4885,7 @@ class PMA_DisplayResults
             );
         }
 
-        $links_html .= "\n";
+        $links_html .= "</div>\n";
 
         $links_html .= '<input type="hidden" name="sql_query"'
             . ' value="' . htmlspecialchars($this->__get('sql_query')) . '" />'
@@ -5020,41 +5020,22 @@ class PMA_DisplayResults
     /**
      * Get printview links for results operations
      *
-     * @param string $url_query   url query
-     * @param array  $_url_params url parameters
-     *
      * @return string $html
      *
      * @access  private
      */
-    private function _getPrintviewLinks($url_query, $_url_params)
+    private function _getPrintviewLinks()
     {
         $html = PMA_Util::linkOrButton(
-            'sql.php' . $url_query,
+            '#',
             PMA_Util::getIcon(
                 'b_print.png', __('Print view'), true
             ),
-            array('target' => 'print_view'),
+            array('id' => 'printView'),
             true,
             true,
             'print_view'
         );
-
-        if ($_SESSION['tmpval']['pftext']) {
-            $_url_params['pftext'] = self::DISPLAY_FULL_TEXT;
-
-            $html .= PMA_Util::linkOrButton(
-                'sql.php' . PMA_URL_getCommon($_url_params),
-                PMA_Util::getIcon(
-                    'b_print.png',
-                    __('Print view (with full texts)'), true
-                ),
-                array('target' => 'print_view'),
-                true,
-                true,
-                'print_view'
-            );
-        }
 
         return $html;
     }
@@ -5080,7 +5061,7 @@ class PMA_DisplayResults
         $results_operations_html = '';
         $fields_meta = $this->__get('fields_meta'); // To safe use in foreach
         $header_shown = false;
-        $header = '<fieldset><legend>' . __('Query results operations')
+        $header = '<fieldset class="print_ignore" ><legend>' . __('Query results operations')
             . '</legend>';
 
         $_url_params = array(
@@ -5110,9 +5091,7 @@ class PMA_DisplayResults
 
         // Displays "printable view" link if required
         if ($displayParts['pview_lnk'] == '1') {
-            $results_operations_html .= $this->_getPrintviewLinks(
-                $url_query, $_url_params
-            );
+            $results_operations_html .= $this->_getPrintviewLinks();
         } // end displays "printable view"
 
         // Export link
@@ -5601,7 +5580,7 @@ class PMA_DisplayResults
                 $ret .= 'class="' . $class . '"';
             }
 
-            $ret .= ' class="center">'
+            $ret .= ' class="center print_ignore">'
                 . '<input type="checkbox" id="id_rows_to_delete'
                 . $row_no . $id_suffix
                 . '" name="rows_to_delete[' . $row_no . ']"'
@@ -5640,7 +5619,7 @@ class PMA_DisplayResults
         $ret = '';
         if (! empty($edit_url)) {
 
-            $ret .= '<td class="' . $class . ' center" ' . ' ><span class="nowrap">'
+            $ret .= '<td class="' . $class . ' center print_ignore" ' . ' ><span class="nowrap">'
                . PMA_Util::linkOrButton(
                    $edit_url, $edit_str, array(), false
                );
@@ -5687,7 +5666,7 @@ class PMA_DisplayResults
                 $ret .= $class . ' ';
             }
 
-            $ret .= 'center" ' . ' ><span class="nowrap">'
+            $ret .= 'center print_ignore" ' . ' ><span class="nowrap">'
                . PMA_Util::linkOrButton(
                    $copy_url, $copy_str, array(), false
                );
@@ -5733,7 +5712,7 @@ class PMA_DisplayResults
                 $ret .= $class . ' ';
             }
             $ajax = PMA_Response::getInstance()->isAjax() ? ' ajax' : '';
-            $ret .= 'center" ' . ' >'
+            $ret .= 'center print_ignore" ' . ' >'
                . PMA_Util::linkOrButton(
                    $del_url, $del_str, array('class' => 'delete_row requireConfirm' . $ajax), false
                )

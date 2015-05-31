@@ -341,7 +341,7 @@ $response->addHTML('</div><hr />');
 /* DATABASE WORK */
 /* Printable view of a table */
 $response->addHTML(
-    PMA_getHtmlForTablePrintViewLink($url_query)
+    PMA_getHtmlForTablePrintViewLink()
     . PMA_getHtmlForDataDictionaryLink($url_query)
 );
 
