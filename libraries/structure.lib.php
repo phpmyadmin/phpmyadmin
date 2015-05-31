@@ -373,6 +373,25 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
 
     $html_output .= '</select>'
         . implode("\n", $hidden_fields) . "\n";
+
+    return $html_output;
+}
+
+/**
+ * Get HTML for "Get All Row Counts" link
+ *
+ * @param array   $hidden_fields       hidden fields
+ *
+ * @return string $html_output
+ */
+function PMA_getHtmlForGetAllRealRowLink($hidden_fields)
+{
+    $html_output .= '<a href="#" id="getAllRowCounts" '
+        . 'title="'
+        . __('Get all Real Row Counts(Only for views)')
+        . '" >'
+        . __('Get All Row Counts')
+        . '</a>'
     $html_output .= '</div>';
 
     return $html_output;

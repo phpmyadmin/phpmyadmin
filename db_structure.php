@@ -323,6 +323,12 @@ $response->addHTML(
         $db_is_system_schema, $hidden_fields
     )
 );
+// Get all real row counts link
+$response->addHTML(
+    PMA_getHtmlForGetAllRealRowLink(
+        $hidden_fields
+    )
+);
 $response->addHTML('</form>'); //end of form
 
 // display again the table list navigator

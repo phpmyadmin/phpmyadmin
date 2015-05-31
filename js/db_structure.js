@@ -26,6 +26,7 @@ AJAX.registerTeardown('db_structure.js', function () {
     $(document).off('click', "a.drop_table_anchor.ajax");
     $(document).off('click', '#real_end_input');
     $(document).off('click', "a.favorite_table_anchor.ajax");
+    $(document).off('click', '#getAllRowCounts');
     $('a.real_row_count').off('click');
     $('a.row_count_sum').off('click');
     $('select[name=submit_mult]').unbind('change');
@@ -344,6 +345,18 @@ AJAX.registerOnload('db_structure.js', function () {
             }); // end $.get()
         }); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
+
+    /**
+     * Attach Event Handler for 'Get all real row counts'
+     */
+    $(document).on('click', "#getAllRowCounts", function (event) {
+        event.preventDefault();
+
+        // Click all the links which fetch
+        // real row counts
+        $('a.real_row_count').click();
+
+    }); //end of Get all real row counts action
 
     //Calculate Real End for InnoDB
     /**
