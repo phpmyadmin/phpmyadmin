@@ -1,0 +1,16 @@
+<tr class="<?php echo ($odd_row ? 'odd' : 'even'); ?>">
+    <td class="vmiddle">
+        <strong><?php echo $myfield_html; ?></strong>
+        <input type="hidden" name="fields_name[<?php echo $myfield_md5; ?>]"
+               value="<?php echo $myfield_html; ?>"/>
+    </td>
+
+    <td>
+        <?php echo PMA_generateRelationalDropdown('destination_db[' . $myfield_md5 . ']',
+            $GLOBALS['pma']->databases, $foreign_db, __('Database')); ?>
+        <?php echo PMA_generateRelationalDropdown('destination_table[' . $myfield_md5 . ']',
+            $tables, $foreign_table, __('Table')); ?>
+        <?php PMA_generateRelationalDropdown('destination_column[' . $myfield_md5 . ']',
+            $columns, $foreign_column, __('Column')); ?>
+    </td>
+</tr>

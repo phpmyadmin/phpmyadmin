@@ -1,0 +1,33 @@
+<table style="width: 100%;">
+    <thead>
+        <tr>
+            <th><?php echo __('Column'); ?></th>
+            <th><?php echo __('Type'); ?></th>
+            <th><?php echo __('Null'); ?></th>
+            <th><?php echo __('Default'); ?></th>
+            <?php if ($have_rel): ?>
+                <th><?php echo __('Links to'); ?></th>
+            <?php endif; ?>
+                <th><?php echo __('Comments'); ?></th>
+            <?php if ($cfgRelation['mimework']): ?>
+                <th>MIME</th>
+            <?php endif; ?>
+        </tr>
+    </thead>
+    <tbody>
+        <?php echo PMA_getHtmlForPrintViewColumns(
+            $tbl_is_view, $columns, $analyzed_sql, $have_rel,
+            $res_rel, $db, $table, $cfgRelation
+        ); ?>
+    </tbody>
+</table>
+<?php if (! $tbl_is_view && !$GLOBALS['dbi']->isSystemSchema($db)): ?>
+    <!-- Display indexes -->
+    <?php echo PMA_Index::getHtmlForIndexes($table, $db, true); ?>
+    <!-- Displays Space usage and row statistics -->
+    <?php if ($cfg['ShowStats']): ?>
+        <?php echo PMA_getHtmlForSpaceUsageAndRowStatistics(
+            $showtable, $db, $table, $cell_align_left
+        ); ?>
+    <?php endif; ?>
+<?php endif; ?>
