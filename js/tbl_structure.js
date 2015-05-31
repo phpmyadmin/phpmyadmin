@@ -80,6 +80,7 @@ AJAX.registerTeardown('tbl_structure.js', function () {
     $(document).off('click', "a.drop_column_anchor.ajax");
     $(document).off('click', "a.add_key.ajax");
     $(document).off('click', "#move_columns_anchor");
+    $(document).off('click', "#printView");
     $(document).off('submit', ".append_fields_form.ajax");
     $('body').off('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]');
 });
@@ -242,6 +243,18 @@ AJAX.registerOnload('tbl_structure.js', function () {
             }); // end $.get()
         }); // end $.PMA_confirm()
     }); //end of Drop Column Anchor action
+
+    /**
+     * Attach Event Handler for 'Print View'
+     */
+    $(document).on('click', "#printView", function (event) {
+        event.preventDefault();
+
+        // Unhide the indexes
+        $("a.ajax[href^=#indexes]").click();
+        // Print the page
+        printPage();
+    }); //end of Print View action
 
     /**
      * Ajax Event handler for adding keys

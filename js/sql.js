@@ -91,6 +91,7 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('stickycolumns', ".sqlqueryresults");
     $("#togglequerybox").unbind('click');
     $(document).off('click', "#button_submit_query");
+    $(document).off('click', "#printView");
     $(document).off('change', '#id_bookmark')
     $("input[name=bookmark_variable]").unbind("keypress");
     $(document).off('submit', "#sqlqueryform.ajax");
@@ -190,6 +191,16 @@ AJAX.registerOnload('sql.js', function () {
             .parent()
             .toggle($(this).val().length > 0);
     }).trigger('keyup');
+
+    /**
+     * Attach Event Handler for 'Print View'
+     */
+    $(document).on('click', "#printView", function (event) {
+        event.preventDefault();
+
+        // Print the page
+        printPage();
+    }); //end of Print View action
 
     /**
      * Attach the {@link makegrid} function to a custom event, which will be

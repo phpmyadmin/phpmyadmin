@@ -163,7 +163,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     $check_time_all, $approx_rows
 ) {
     $html_output = '<tbody id="tbl_summary_row">'
-        . '<tr><th></th>';
+        . '<tr><th class="print_ignore"></th>';
     $html_output .= '<th class="tbl_num nowrap">';
     $html_output .= sprintf(
         _ngettext('%s table', '%s tables', $num_tables),
@@ -178,7 +178,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     if ($GLOBALS['cfg']['NumFavoriteTables'] == 0) {
         $sum_colspan--;
     }
-    $html_output .= '<th colspan="' . $sum_colspan . '">'
+    $html_output .= '<th colspan="' . $sum_colspan . '" class="print_ignore" >'
         . __('Sum')
         . '</th>';
 
@@ -294,7 +294,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
 function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
     $overhead_check, $db_is_system_schema, $hidden_fields
 ) {
-    $html_output = '<div class="clearfloat">';
+    $html_output = '<div class="clearfloat print_ignore">';
     $html_output .= '<img class="selectallarrow" '
         . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
         . 'width="38" height="22" alt="' . __('With selected:') . '" />';
@@ -404,7 +404,7 @@ function PMA_getHtmlForCheckTablesHavingOverheadlink($overhead_check)
  */
 function PMA_getHtmlForTablePrintViewLink($url_query)
 {
-    return '<p>'
+    return '<p class="print_ignore" id="printView">'
         . '<a href="db_printview.php' . $url_query . '" target="print_view">'
         . PMA_Util::getIcon(
             'b_print.png',
@@ -506,7 +506,7 @@ function PMA_getHtmlForStructureTableRow(
     $html_output .= ($table_is_view ? ' is_view' : '')
         . '" id="row_tbl_' . $curr . '">';
 
-    $html_output .= '<td class="center">'
+    $html_output .= '<td class="center print_ignore">'
         . '<input type="checkbox" name="selected_tbl[]" class="checkall" '
         . 'value="' . htmlspecialchars($current_table['TABLE_NAME']) . '" '
         . 'id="checkbox_tbl_' . $curr . '" /></td>';
@@ -528,16 +528,16 @@ function PMA_getHtmlForStructureTableRow(
     }
     //Favorite table anchor.
     if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
-        $html_output .= '<td class="center">'
+        $html_output .= '<td class="center print_ignore">'
             . PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
             . '</td>';
     }
 
-    $html_output .= '<td class="center">' . $browse_table . '</td>';
-    $html_output .= '<td class="center">'
+    $html_output .= '<td class="center print_ignore">' . $browse_table . '</td>';
+    $html_output .= '<td class="center print_ignore">'
         . '<a href="tbl_structure.php' . $tbl_url_query . '">'
         . $titles['Structure'] . '</a></td>';
-    $html_output .= '<td class="center">' . $search_table . '</td>';
+    $html_output .= '<td class="center print_ignore">' . $search_table . '</td>';
 
     if (! $db_is_system_schema) {
         $html_output .= PMA_getHtmlForInsertEmptyDropActionLinks(
@@ -591,12 +591,12 @@ function PMA_getHtmlForStructureTableRow(
 function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view,
     $titles, $empty_table, $current_table, $drop_query, $drop_message
 ) {
-    $html_output = '<td class="insert_table center">'
+    $html_output = '<td class="insert_table center print_ignore">'
         . '<a href="tbl_change.php' . $tbl_url_query . '">'
         . $titles['Insert']
         . '</a></td>';
-    $html_output .= '<td class="center">' . $empty_table . '</td>';
-    $html_output .= '<td class="center">';
+    $html_output .= '<td class="center print_ignore">' . $empty_table . '</td>';
+    $html_output .= '<td class="center print_ignore">';
     $html_output .= '<a ';
     $html_output .= 'class="ajax drop_table_anchor';
     if ($table_is_view || $current_table['ENGINE'] == null) {
@@ -860,7 +860,7 @@ function PMA_tableHeader($db_is_system_schema = false, $replication = false)
 
     $html_output = '<table class="data">' . "\n"
         . '<thead>' . "\n"
-        . '<tr><th></th>' . "\n"
+        . '<tr><th class="print_ignore"></th>' . "\n"
         . '<th>'
         . PMA_sortableTableHeader(__('Table'), 'table')
         . '</th>' . "\n";
@@ -869,7 +869,7 @@ function PMA_tableHeader($db_is_system_schema = false, $replication = false)
             . '        ' . __('Replication') . "\n"
             . '</th>';
     }
-    $html_output .= '<th colspan="' . $action_colspan . '">' . "\n"
+    $html_output .= '<th colspan="' . $action_colspan . '" class="print_ignore">' . "\n"
         . '        ' . __('Action') . "\n"
         . '</th>'
         // larger values are more interesting so default sort order is DESC
@@ -1339,7 +1339,7 @@ function PMA_getHtmlForTableStructureHeader(
 ) {
     $html_output = '<thead>';
     $html_output .= '<tr>';
-    $html_output .= '<th></th>'
+    $html_output .= '<th class="print_ignore"></th>'
         . '<th>#</th>'
         . '<th>' . __('Name') . '</th>'
         . '<th>' . __('Type') . '</th>'
@@ -1359,7 +1359,7 @@ function PMA_getHtmlForTableStructureHeader(
             $colspan--;
         }
         $html_output .= '<th colspan="' . $colspan . '" '
-            . 'class="action">' . __('Action') . '</th>';
+            . 'class="action print_ignore">' . __('Action') . '</th>';
     }
     $html_output .= '</tr>'
         . '</thead>';
@@ -1398,7 +1398,7 @@ function PMA_getHtmlTableStructureRow($row, $rownum,
     $field_charset, $attribute, $tbl_is_view, $db_is_system_schema,
     $url_query, $field_encoded, $titles, $table
 ) {
-    $html_output = '<td class="center">'
+    $html_output = '<td class="center print_ignore">'
         . '<input type="checkbox" class="checkall" name="selected_fld[]" '
         . 'value="' . htmlspecialchars($row['Field']) . '" '
         . 'id="checkbox_row_' . $rownum . '"/>'
@@ -1478,13 +1478,13 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_system_schema,
     $html_output = '';
 
     if (! $tbl_is_view && ! $db_is_system_schema) {
-        $html_output .= '<td class="edit center">'
+        $html_output .= '<td class="edit center print_ignore">'
             . '<a class="change_column_anchor ajax"'
             . ' href="tbl_structure.php'
             . $url_query . '&amp;field=' . $field_encoded
             . '&amp;change_column=1">'
             . $titles['Change'] . '</a>' . '</td>';
-        $html_output .= '<td class="drop center">'
+        $html_output .= '<td class="drop center print_ignore">'
             . '<a class="drop_column_anchor ajax"'
             . ' href="sql.php' . $url_query . '&amp;sql_query='
             . urlencode(
@@ -1520,7 +1520,9 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_system_schema,
 function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
     $tbl_is_view, $db_is_system_schema, $tbl_storage_engine
 ) {
-    $html_output = PMA_Util::getWithSelected(
+    $html_output = '<div class="print_ignore" >';
+
+    $html_output .= PMA_Util::getWithSelected(
         $pmaThemeImage, $text_dir, "fieldsForm"
     );
 
@@ -1584,6 +1586,8 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
             );
         }
     }
+    $html_output .= '</div>';
+
     return $html_output;
 }
 
@@ -1673,8 +1677,8 @@ function PMA_getHtmlForEditView($url_params)
 function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
     $db_is_system_schema
 ) {
-    $html_output = '<a href="tbl_printview.php' . $url_query
-        . '" target="print_view">'
+    $html_output = '<a href="#"'
+        . '" target="print_view" id="printView" >'
         . PMA_Util::getIcon('b_print.png', __('Print view'), true)
         . '</a>';
 
@@ -2015,7 +2019,7 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
     ) {
         $html_output .= $titles['No' . $action];
     } else {
-        $html_output .= '<a rel="samepage" class="ajax add_key';
+        $html_output .= '<a rel="samepage" class="ajax add_key print_ignore';
         if ($hasLinkClass) {
             $html_output .= ' add_primary_key_anchor"';
         } else if ($action=='Index') {
@@ -2145,7 +2149,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     $primary, $field_name, $url_query, $titles, $row, $rownum,
     $columns_with_unique_index, $isInCentralColumns
 ) {
-    $html_output = '<td><ul class="table-structure-actions resizable-menu">';
+    $html_output = '<td class="print_ignore"><ul class="table-structure-actions resizable-menu">';
     $html_output .= PMA_getHtmlForActionRowInStructureTable(
         $type, $tbl_storage_engine,
         'primary nowrap',
