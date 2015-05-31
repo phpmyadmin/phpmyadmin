@@ -1280,9 +1280,9 @@ Generic settings
     :type: string
     :default: ``'default'``
 
-    Default values for checkbox for foreign key checks, to disable/enable
-    foreign key checks for certain queries. Value can be either of ``'default'``,
-    ``'enable'`` or ``'disable'``. If set to ``'default'``, the value of
+    Default value of the checkbox for foreign key checks, to disable/enable
+    foreign key checks for certain queries. The possible values are ``'default'``,
+    ``'enable'`` or ``'disable'``. If set to ``'default'``, the value of the
     MySQL variable ``FOREIGN_KEY_CHECKS`` is used.
 
 .. config:option:: $cfg['AllowUserDropDatabase']
