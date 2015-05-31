@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-25 12:01+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2015-05-31 02:17+0200\n"
+"Last-Translator: Хомутов Иван Сергеевич <khomutov.ivan@mail.ru>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/ru/>\n"
 "Language: ru\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.3\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -680,7 +680,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Импорт успешно завершён, выполнено %d запросов."
 
 #: import.php:665
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -689,7 +689,7 @@ msgid ""
 "same file%s and import will resume."
 msgstr ""
 "Достигнут временной лимит выполнения скрипта. Для завершения импорта, "
-"пожалуйста повторно отправьте тот же файл и импорт будет возобновлен."
+"пожалуйста %sповторно отправьте тот же файл%s и импорт будет возобновлен."
 
 #: import.php:675
 msgid ""
@@ -5979,7 +5979,6 @@ msgid "Page titles"
 msgstr "Заголовки страниц"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -5989,7 +5988,7 @@ msgid ""
 "for magic strings that can be used to get special values."
 msgstr ""
 "Определите текст заголовка браузера. Для ввода особых значений используйте "
-"подставные строки, которые описаны в [doc@cfg_TitleTable]документации[/doc]."
+"подставные строки, которые описаны в [doc@faq6-27]документация[/doc]."
 
 #: libraries/config/messages.inc.php:255
 msgid "Query window"
