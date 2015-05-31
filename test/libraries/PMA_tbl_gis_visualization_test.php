@@ -72,63 +72,6 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForUseOpenStreetMaps() method.
-     *
-     * @return void
-     * @test
-     */
-    public function testPMAGetHtmlForUseOpenStreetMaps()
-    {
-        $isSelected = true;
-
-        $html = PMA_getHtmlForUseOpenStreetMaps($isSelected);
-
-        $this->assertContains(
-            '<input type="checkbox" name="visualizationSettings[choice]"',
-            $html
-        );
-        $this->assertContains(
-            __("Use OpenStreetMaps as Base Layer"),
-            $html
-        );
-    }
-
-    /**
-     * Tests for PMA_getHtmlForSelect() method.
-     *
-     * @return void
-     * @test
-     */
-    public function testPMAGetHtmlForSelect()
-    {
-        $column = "labelColumn";
-        $columnCandidates = array("option1", "option2", "option3");
-        $visualizationSettings = array("labelColumn" => "option3", "height" => "10");
-
-        $html = PMA_getHtmlForSelect(
-            $column, $columnCandidates, $visualizationSettings
-        );
-
-        $this->assertContains(
-            '<label for="' . $column . '">',
-            $html
-        );
-
-        $this->assertContains(
-            __("Label column"),
-            $html
-        );
-
-        $output = PMA_getHtmlForOptionsList(
-            $columnCandidates, array($visualizationSettings[$column])
-        );
-        $this->assertContains(
-            $output,
-            $html
-        );
-    }
-
-    /**
      * Tests for PMA_getHtmlForGisVisualization() method.
      *
      * @return void
@@ -162,26 +105,15 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $this->assertContains(
-            PMA_URL_getHiddenInputs($url_params),
-            $html
-        );
 
-        $output = PMA_getHtmlForSelect(
-            "labelColumn", $labelCandidates, $visualizationSettings
-        );
-        $this->assertContains(
-            $output,
-            $html
-        );
-
-        $output = PMA_getHtmlForSelect(
-            "spatialColumn", $spatialCandidates, $visualizationSettings
-        );
-        $this->assertContains(
-            $output,
-            $html
-        );
+        /**
+         * @todo Find out a better method to test for HTML
+         *
+         * $this->assertContains(
+         *     PMA_URL_getHiddenInputs($url_params),
+         *     $html
+         * );
+         */
 
         $this->assertContains(
             htmlspecialchars($sql_query),

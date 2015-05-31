@@ -1,0 +1,27 @@
+<select name="field_default_type[<?php echo $columnNumber; ?>]"
+        id="field_<?php echo $columnNumber; ?>_<?php echo($ci - $ci_offset); ?>"
+        class="default_type">
+    <?php foreach ($default_options as $key => $value): ?>
+        <option value="<?php echo $key; ?>"
+                <?php if (isset($columnMeta['DefaultType']) && $columnMeta['DefaultType'] == $key): ?>
+                    selected="selected"
+                <?php endif; ?>>
+            <?php echo $value; ?>
+        </option>
+    <?php endforeach; ?>
+</select>
+<br />
+<?php if ($GLOBALS['cfg']['CharEditing'] == 'textarea'): ?>
+    <textarea name="field_default_value[<?php echo $columnNumber; ?>]"
+              cols="15"
+              class="textfield
+              default_value">
+        <?php echo $default_value; ?>
+    </textarea>
+<?php else: ?>
+    <input type="text"
+           name="field_default_value[<?php echo $columnNumber; ?>]"
+           size="12"
+           value="<?php echo $default_value ?>"
+           class="textfield default_value" />
+<?php endif; ?>
