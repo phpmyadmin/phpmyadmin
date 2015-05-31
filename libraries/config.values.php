@@ -128,6 +128,11 @@ $cfg_db['SendErrorReports'] = array(
     'always'   => __('Always send error reports'),
     'never' => __('Never send error reports')
 );
+$cfg_db['DefaultForeignKeyChecks'] = array(
+    'default'   => __('Server default'),
+    'enable'    => __('Enable'),
+    'disable'   => __('Disable')
+);
 $cfg_db['Import']['format'] = array(
     'csv',    // CSV
     'docsql', // DocSQL

@@ -217,17 +217,11 @@ if (!empty($submit_mult) && !empty($what)) {
         $GLOBALS['dbi']->freeResult($result);
     }
 
-    if (! isset($_REQUEST['fk_check'])
-        && ($query_type == 'drop_tbl'
+    if ($query_type == 'drop_tbl'
         || $query_type == 'empty_tbl'
-        || $query_type == 'row_delete')
+        || $query_type == 'row_delete'
     ) {
-        $default_fk_check_value = $GLOBALS['dbi']->fetchValue(
-            'SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1
-        ) == 'ON';
-
-        // for disabling foreign key checks while dropping tables
-        $GLOBALS['dbi']->query('SET FOREIGN_KEY_CHECKS = 0;');
+        $default_fk_check_value = PMA_Util::handleDisableFKCheckInit();
     }
 
     list(
@@ -277,13 +271,11 @@ if (!empty($submit_mult) && !empty($what)) {
             $message = PMA_Message::error($GLOBALS['dbi']->getError());
         }
     }
-    if (! isset($_REQUEST['fk_check'])
-        && ($query_type == 'drop_tbl'
+    if ($query_type == 'drop_tbl'
         || $query_type == 'empty_tbl'
-        || $query_type == 'row_delete')
-        && $default_fk_check_value
+        || $query_type == 'row_delete'
     ) {
-        $GLOBALS['dbi']->query('SET FOREIGN_KEY_CHECKS = 1;');
+        PMA_Util::handleDisableFKCheckCleanup($default_fk_check_value);
     }
     if ($rebuild_database_list) {
         // avoid a problem with the database list navigator

@@ -212,6 +212,10 @@ $strConfigForeignKeyDropdownOrder_name = __('Foreign key dropdown order');
 $strConfigForeignKeyMaxLimit_desc
     = __('A dropdown will be used if fewer items are present.');
 $strConfigForeignKeyMaxLimit_name = __('Foreign key limit');
+$strConfigDefaultForeignKeyChecks_desc = __(
+    'Default value for foreign key checks checkbox for some queries.'
+);
+$strConfigDefaultForeignKeyChecks_name = __('Foreign key checks');
 $strConfigForm_Browse = __('Browse mode');
 $strConfigForm_Browse_desc = __('Customize browse mode.');
 $strConfigForm_CodeGen = 'CodeGen';
@@ -334,10 +338,6 @@ $strConfigImport_allow_interrupt_desc = __(
     . 'transactions.'
 );
 $strConfigImport_allow_interrupt_name = __('Partial import: allow interrupt');
-$strConfigImport_disable_foreign_keys_desc = __(
-    'Temporarily disable foreign key checks while importing'
-);
-$strConfigImport_disable_foreign_keys_name = __('Disable foreign key checks');
 $strConfigImport_charset_name = __('Character set of the file');
 $strConfigImport_csv_col_names_name = __('Lines terminated with');
 $strConfigImport_csv_enclosed_name = __('Columns enclosed with');

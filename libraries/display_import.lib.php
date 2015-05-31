@@ -337,12 +337,7 @@ function PMA_getHtmlForImportOptionsOther()
     $html  = '   <div class="importoptions">';
     $html .= '       <h3>' . __('Other Options:') . '</h3>';
     $html .= '       <div class="formelementrow">';
-    $html .= '           <input type="checkbox" name="disable_foreign_keys"';
-    $html .= '               value="yes" id="checkbox_disable_foreign_keys" ';
-    $html .= PMA_pluginCheckboxCheck('Import', 'disable_foreign_keys') . '/>';
-    $html .= '           <label for="checkbox_disable_foreign_keys">';
-    $html .= __('Disable foreign key check');
-    $html .= '           </label>';
+    $html .= PMA_Util::getFKCheckbox();
     $html .= '       </div>';
     $html .= '   </div>';
 
