@@ -57,17 +57,17 @@ var PMA_console = {
      */
     initialize: function() {
 
-        if($('#pma_console').length === 0) {
+        if ($('#pma_console').length === 0) {
             return;
         }
 
         PMA_console.isEnabled = true;
 
         // Cookie var checks and init
-        if(! $.cookie('pma_console_height')) {
+        if (! $.cookie('pma_console_height')) {
             $.cookie('pma_console_height', 92);
         }
-        if(! $.cookie('pma_console_mode')) {
+        if (! $.cookie('pma_console_mode')) {
             $.cookie('pma_console_mode', 'info');
         }
 
@@ -93,24 +93,24 @@ var PMA_console = {
         PMA_console.$requestForm.bind('submit', AJAX.requestHandler);
 
         // Event binds shouldn't run again
-        if(PMA_console.isInitialized === false) {
+        if (PMA_console.isInitialized === false) {
 
             // Load config first
             var tempConfig = JSON.parse($.cookie('pma_console_config'));
-            if(tempConfig) {
-                if(tempConfig.alwaysExpand === true) {
+            if (tempConfig) {
+                if (tempConfig.alwaysExpand === true) {
                     $('#pma_console_options input[name=always_expand]').prop('checked', true);
                 }
-                if(tempConfig.startHistory === true) {
+                if (tempConfig.startHistory === true) {
                     $('#pma_console_options input[name=start_history]').prop('checked', true);
                 }
-                if(tempConfig.currentQuery === true) {
+                if (tempConfig.currentQuery === true) {
                     $('#pma_console_options input[name=current_query]').prop('checked', true);
                 }
-                if(ConsoleEnterExecutes === true) {
+                if (ConsoleEnterExecutes === true) {
                     $('#pma_console_options input[name=enter_executes]').prop('checked', true);
                 }
-                if(tempConfig.darkTheme === true) {
+                if (tempConfig.darkTheme === true) {
                     $('#pma_console_options input[name=dark_theme]').prop('checked', true);
                     $('#pma_console>.content').addClass('console_dark_theme');
                 }
@@ -128,7 +128,7 @@ var PMA_console = {
             PMA_console.$consoleToolbar.children('.console_switch').click(PMA_console.toggle);
             $(document).keydown(function(event) {
                 // Ctrl + Alt + C
-                if(event.ctrlKey && event.altKey && event.keyCode === 67) {
+                if (event.ctrlKey && event.altKey && event.keyCode === 67) {
                     PMA_console.toggle();
                 }
             });
@@ -189,7 +189,7 @@ var PMA_console = {
                     PMA_console.ajaxCallback(data);
                 } catch (e) {
                     console.log("Invalid JSON!" + e.message);
-                    if(AJAX.xhr.status === 0 && AJAX.xhr.statusText !== 'abort') {
+                    if (AJAX.xhr.status === 0 && AJAX.xhr.statusText !== 'abort') {
                         PMA_ajaxShowMessage($('<div />',{class:'error',html:PMA_messages.strRequestFailed+' ( '+AJAX.xhr.statusText+' )'}));
                         AJAX.active = false;
                         AJAX.xhr = null;
@@ -224,14 +224,14 @@ var PMA_console = {
      * @return void
      */
     execute: function(queryString, options) {
-        if(typeof(queryString) != 'string' || ! /[a-z]|[A-Z]/.test(queryString)){
+        if (typeof(queryString) != 'string' || ! /[a-z]|[A-Z]/.test(queryString)) {
             return;
         }
         PMA_console.$requestForm.children('textarea').val(queryString);
         PMA_console.$requestForm.children('[name=server]').attr('value', PMA_commonParams.get('server'));
-        if(options && options.db) {
+        if (options && options.db) {
             PMA_console.$requestForm.children('[name=db]').val(options.db);
-            if(options.table) {
+            if (options.table) {
                 PMA_console.$requestForm.children('[name=table]').val(options.table);
             } else {
                 PMA_console.$requestForm.children('[name=table]').val('');
@@ -241,7 +241,7 @@ var PMA_console = {
                 (PMA_commonParams.get('db').length > 0 ? PMA_commonParams.get('db') : ''));
         }
         PMA_console.$requestForm.find('[name=profiling]').remove();
-        if(options && options.profiling === true) {
+        if (options && options.profiling === true) {
             PMA_console.$requestForm.append('<input name="profiling" value="on">');
         }
         if (! confirmQuery(PMA_console.$requestForm[0], PMA_console.$requestForm.children('textarea')[0])) {
@@ -253,11 +253,11 @@ var PMA_console = {
         PMA_consoleInput.clear();
     },
     ajaxCallback: function(data) {
-        if(data && data.console_message_id) {
+        if (data && data.console_message_id) {
             PMA_consoleMessages.updateQuery(data.console_message_id, data.success,
                 (data._reloadQuerywindow ? data._reloadQuerywindow : false));
-        } else if( data && data._reloadQuerywindow) {
-            if(data._reloadQuerywindow.sql_query.length > 0) {
+        } else if ( data && data._reloadQuerywindow) {
+            if (data._reloadQuerywindow.sql_query.length > 0) {
                 PMA_consoleMessages.appendQuery(data._reloadQuerywindow, 'successed')
                     .$message.addClass(PMA_console.config.currentQuery ? '' : 'hide');
             }
@@ -272,7 +272,7 @@ var PMA_console = {
         $.cookie('pma_console_mode', 'collapse');
         var pmaConsoleHeight = $.cookie('pma_console_height');
 
-        if(pmaConsoleHeight < 32) {
+        if (pmaConsoleHeight < 32) {
             $.cookie('pma_console_height', 92);
         }
         PMA_console.$consoleToolbar.addClass('collapsed');
@@ -296,13 +296,13 @@ var PMA_console = {
 
         var pmaConsoleHeight = $.cookie('pma_console_height');
 
-        if(pmaConsoleHeight < 32) {
+        if (pmaConsoleHeight < 32) {
             $.cookie('pma_console_height', 32);
             PMA_console.collapse();
             return;
         }
         PMA_console.$consoleContent.css({display:'block'});
-        if(PMA_console.$consoleToolbar.hasClass('collapsed')) {
+        if (PMA_console.$consoleToolbar.hasClass('collapsed')) {
             PMA_console.$consoleToolbar.removeClass('collapsed');
         }
         PMA_console.$consoleAllContents.height(pmaConsoleHeight);
@@ -310,7 +310,7 @@ var PMA_console = {
         PMA_console.$consoleContent.animate({'margin-bottom': 0},
             'fast', 'easeOutQuart', function() {
                 $(window).trigger('resize');
-                if(inputFocus) {
+                if (inputFocus) {
                     PMA_consoleInput.focus();
                 }
             });
@@ -363,7 +363,7 @@ var PMA_console = {
      */
     showCard: function(cardSelector) {
         var $card = null;
-        if(typeof(cardSelector) !== 'string') {
+        if (typeof(cardSelector) !== 'string') {
             if (cardSelector.length > 0) {
                 $card = cardSelector;
             } else {
@@ -372,13 +372,13 @@ var PMA_console = {
         } else {
             $card = $("#pma_console " + cardSelector);
         }
-        if($card.length === 0) {
+        if ($card.length === 0) {
             return;
         }
         $card.parent().children('.mid_layer').show().fadeTo(0, 0.15);
         $card.addClass('show');
         PMA_consoleInput.blur();
-        if($card.parents('.card').length > 0) {
+        if ($card.parents('.card').length > 0) {
             PMA_console.showCard($card.parents('.card'));
         }
     },
@@ -389,10 +389,10 @@ var PMA_console = {
      * @return void
      */
     hideCard: function($targetCard) {
-        if(! $targetCard) {
+        if (! $targetCard) {
             $('#pma_console .mid_layer').fadeOut(140);
             $('#pma_console .card').removeClass('show');
-        } else if($targetCard.length > 0) {
+        } else if ($targetCard.length > 0) {
             $targetCard.parent().find('.mid_layer').fadeOut(140);
             $targetCard.find('.card').removeClass('show');
             $targetCard.removeClass('show');
@@ -413,7 +413,7 @@ var PMA_console = {
         };
         $.cookie('pma_console_config', JSON.stringify(PMA_console.config));
         /*Setting the dark theme of the console*/
-        if(PMA_console.config.darkTheme) {
+        if (PMA_console.config.darkTheme) {
             $('#pma_console>.content').addClass('console_dark_theme');
         } else {
             $('#pma_console>.content').removeClass('console_dark_theme');
@@ -440,7 +440,7 @@ var PMA_consoleResizer = {
      * @return void
      */
     _mousedown: function(event) {
-        if($.cookie('pma_console_mode') !== 'show') {
+        if ($.cookie('pma_console_mode') !== 'show') {
             return;
         }
         PMA_consoleResizer._posY = event.pageY;
@@ -448,7 +448,7 @@ var PMA_consoleResizer = {
         $(document).mousemove(PMA_consoleResizer._mousemove);
         $(document).mouseup(PMA_consoleResizer._mouseup);
         // Disable text selection while resizing
-        $(document).bind('selectstart', function(){ return false; });
+        $(document).bind('selectstart', function() { return false; });
     },
     /**
      * Mousemove event handler for bind to resizer
@@ -461,13 +461,13 @@ var PMA_consoleResizer = {
         }
         PMA_consoleResizer._resultHeight = PMA_consoleResizer._height + (PMA_consoleResizer._posY -event.pageY);
         // Content min-height is 32, if adjusting height small than it we'll move it out of the page
-        if(PMA_consoleResizer._resultHeight <= 32) {
+        if (PMA_consoleResizer._resultHeight <= 32) {
             PMA_console.$consoleAllContents.height(32);
             PMA_console.$consoleContent.css('margin-bottom', PMA_consoleResizer._resultHeight - 32);
         }
         else {
             // Logic below makes viewable area always at bottom when adjusting height and content already at bottom
-            if(PMA_console.$consoleContent.scrollTop() + PMA_console.$consoleContent.innerHeight() + 16
+            if (PMA_console.$consoleContent.scrollTop() + PMA_console.$consoleContent.innerHeight() + 16
                 >= PMA_console.$consoleContent.prop('scrollHeight')) {
                 PMA_console.$consoleAllContents.height(PMA_consoleResizer._resultHeight);
                 PMA_console.scrollBottom();
@@ -531,10 +531,10 @@ var PMA_consoleInput = {
      */
     initialize: function() {
         // _cm object can't be reinitialize
-        if(PMA_consoleInput._inputs !== null) {
+        if (PMA_consoleInput._inputs !== null) {
             return;
         }
-        if(typeof CodeMirror !== 'undefined') {
+        if (typeof CodeMirror !== 'undefined') {
             PMA_consoleInput._codemirror = true;
         }
         PMA_consoleInput._inputs = [];
@@ -795,7 +795,7 @@ var PMA_consoleMessages = {
      * @return object, {message_id, $message}
      */
     append: function(msgString, msgType) {
-        if(typeof(msgString) !== 'string') {
+        if (typeof(msgString) !== 'string') {
             return false;
         }
         // Generate an ID for each message, we can find them later
@@ -808,7 +808,7 @@ var PMA_consoleMessages = {
         switch(msgType) {
             case 'query':
                 $newMessage.append('<div class="query highlighted"></div>');
-                if(PMA_consoleInput._codemirror) {
+                if (PMA_consoleInput._codemirror) {
                     CodeMirror.runMode(msgString,
                         'text/x-sql', $newMessage.children('.query')[0]);
                 } else {
@@ -838,15 +838,15 @@ var PMA_consoleMessages = {
      */
     appendQuery: function(queryData, state) {
         var targetMessage = PMA_consoleMessages.append(queryData.sql_query, 'query');
-        if(! targetMessage) {
+        if (! targetMessage) {
             return false;
         }
-        if(queryData.db && queryData.table) {
+        if (queryData.db && queryData.table) {
             targetMessage.$message.attr('targetdb', queryData.db);
             targetMessage.$message.attr('targettable', queryData.table);
             targetMessage.$message.find('.text.targetdb span').text(queryData.db);
         }
-        if(PMA_console.isSelect(queryData.sql_query)) {
+        if (PMA_console.isSelect(queryData.sql_query)) {
             targetMessage.$message.addClass('select');
         }
         switch(state) {
@@ -865,7 +865,7 @@ var PMA_consoleMessages = {
     _msgEventBinds: function($targetMessage) {
         // Leave unbinded elements, remove binded.
         $targetMessage = $targetMessage.filter(':not(.binded)');
-        if($targetMessage.length === 0) {
+        if ($targetMessage.length === 0) {
             return;
         }
         $targetMessage.addClass('binded');
@@ -885,7 +885,7 @@ var PMA_consoleMessages = {
         $targetMessage.find('.action.requery').click(function () {
             var query = $(this).parent().siblings('.query').text();
             var $message = $(this).closest('.message');
-            if(confirm(PMA_messages.strConsoleRequeryConfirm + '\n'
+            if (confirm(PMA_messages.strConsoleRequeryConfirm + '\n'
                 + (query.length<100 ? query : query.slice(0, 100) + '...'))) {
                 PMA_console.execute(query, {db: $message.attr('targetdb'), table: $message.attr('targettable')});
             }
@@ -906,7 +906,7 @@ var PMA_consoleMessages = {
         });
         $targetMessage.find('.action.delete_bookmark').click(function () {
             var $message = $(this).closest('.message');
-            if(confirm(PMA_messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
+            if (confirm(PMA_messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
                 $.post('import.php',
                     {token: PMA_commonParams.get('token'),
                     server: PMA_commonParams.get('server'),
@@ -931,7 +931,7 @@ var PMA_consoleMessages = {
                 {db: $message.attr('targetdb'),
                 table: $message.attr('targettable')});
         });
-        if(PMA_consoleInput._codemirror) {
+        if (PMA_consoleInput._codemirror) {
             $targetMessage.find('.query:not(.highlighted)').each(function(index, elem) {
                     CodeMirror.runMode($(elem).text(),
                         'text/x-sql', elem);
@@ -941,26 +941,26 @@ var PMA_consoleMessages = {
     },
     msgAppend: function(msgId, msgString, msgType) {
         var $targetMessage = $('#pma_console .content .console_message_container .message[msgid=' + msgId +']');
-        if($targetMessage.length === 0 || isNaN(parseInt(msgId)) || typeof(msgString) !== 'string') {
+        if ($targetMessage.length === 0 || isNaN(parseInt(msgId)) || typeof(msgString) !== 'string') {
             return false;
         }
         $targetMessage.append('<div>' + msgString + '</div>');
     },
     updateQuery: function(msgId, isSuccessed, queryData) {
         var $targetMessage = $('#pma_console .console_message_container .message[msgid=' + parseInt(msgId) +']');
-        if($targetMessage.length === 0 || isNaN(parseInt(msgId))) {
+        if ($targetMessage.length === 0 || isNaN(parseInt(msgId))) {
             return false;
         }
         $targetMessage.removeClass('pending failed successed');
-        if(isSuccessed) {
+        if (isSuccessed) {
             $targetMessage.addClass('successed');
-            if(queryData) {
+            if (queryData) {
                 $targetMessage.children('.query').text('');
                 $targetMessage.removeClass('select');
-                if(PMA_console.isSelect(queryData.sql_query)) {
+                if (PMA_console.isSelect(queryData.sql_query)) {
                     $targetMessage.addClass('select');
                 }
-                if(PMA_consoleInput._codemirror) {
+                if (PMA_consoleInput._codemirror) {
                     CodeMirror.runMode(queryData.sql_query, 'text/x-sql', $targetMessage.children('.query')[0]);
                 } else {
                     $targetMessage.children('.query').text(queryData.sql_query);
@@ -980,7 +980,7 @@ var PMA_consoleMessages = {
      */
     initialize: function() {
         PMA_consoleMessages._msgEventBinds($('#pma_console .message:not(.binded)'));
-        if(PMA_console.config.startHistory) {
+        if (PMA_console.config.startHistory) {
             PMA_consoleMessages.showHistory();
         }
         PMA_consoleMessages.showInstructions(PMA_console.config.enterExecutes);
@@ -1020,7 +1020,7 @@ var PMA_consoleBookmarks = {
             server: PMA_commonParams.get('server'),
             console_bookmark_refresh: 'refresh'},
             function(data) {
-                if(data.console_message_bookmark) {
+                if (data.console_message_bookmark) {
                     $('#pma_bookmarks .content.bookmark').html(data.console_message_bookmark);
                     PMA_consoleMessages._msgEventBinds($('#pma_bookmarks .message:not(.binded)'));
                 }
@@ -1033,7 +1033,7 @@ var PMA_consoleBookmarks = {
      * @return void
      */
     initialize: function() {
-        if($('#pma_bookmarks').length === 0) {
+        if ($('#pma_bookmarks').length === 0) {
             return;
         }
         $('#pma_console .button.bookmarks').click(function() {
