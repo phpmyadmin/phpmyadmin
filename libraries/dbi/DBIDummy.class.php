@@ -544,6 +544,9 @@ $GLOBALS['cfg']['DBG']['sql'] = false;
 if (! defined('PMA_DRIZZLE')) {
     define('PMA_DRIZZLE', 0);
 }
+if (! defined('PMA_MARIADB')) {
+    define('PMA_MARIADB', 0);
+}
 
 /**
  * Fake database driver for testing purposes

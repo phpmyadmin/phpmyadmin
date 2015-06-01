@@ -1694,6 +1694,10 @@ class PMA_DatabaseInterface
                     PMA_Util::cacheGet('PMA_MYSQL_VERSION_COMMENT')
                 );
                 define(
+                    'PMA_MARIADB',
+                    PMA_Util::cacheGet('PMA_MARIADB')
+                );
+                define(
                     'PMA_DRIZZLE',
                     PMA_Util::cacheGet('PMA_DRIZZLE')
                 );
@@ -1739,6 +1743,16 @@ class PMA_DatabaseInterface
                 PMA_Util::cacheSet(
                     'PMA_MYSQL_VERSION_COMMENT',
                     PMA_MYSQL_VERSION_COMMENT
+                );
+                /* Detect MariaDB */
+                if (mb_strpos(PMA_MYSQL_STR_VERSION, 'MariaDB') !== false) {
+                    define('PMA_MARIADB', true);
+                } else {
+                    define('PMA_MARIADB', false);
+                }
+                PMA_Util::cacheSet(
+                    'PMA_MARIADB',
+                    PMA_MARIADB
                 );
 
                 /* Detect Drizzle - it does not support charsets */
