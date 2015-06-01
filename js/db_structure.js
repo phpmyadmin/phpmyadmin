@@ -26,6 +26,7 @@ AJAX.registerTeardown('db_structure.js', function () {
     $(document).off('click', "a.drop_table_anchor.ajax");
     $(document).off('click', '#real_end_input');
     $(document).off('click', "a.favorite_table_anchor.ajax");
+    $(document).off('click', '#printView');
     $('a.real_row_count').off('click');
     $('a.row_count_sum').off('click');
     $('select[name=submit_mult]').unbind('change');
@@ -182,31 +183,6 @@ function PMA_fetchRealRowCount($target)
 }
 
 AJAX.registerOnload('db_structure.js', function () {
-    /**
-     * Handler for the print view multisubmit.
-     * All other multi submits can be handled via ajax, but this one needs
-     * special treatment as the results need to open in another browser window
-     */
-    $('#tablesForm').submit(function (event) {
-        var $form = $(this);
-        if ($form.find('select[name=submit_mult]').val() === 'print') {
-            event.preventDefault();
-            event.stopPropagation();
-            $('form#clone').remove();
-            var $clone = $form
-                .clone()
-                .hide()
-                .appendTo('body');
-            $clone
-                .find('select[name=submit_mult]')
-                .val('print');
-            $clone
-                .attr('target', 'printview')
-                .attr('id', 'clone')
-                .submit();
-        }
-    });
-
 /**
  * function to open the confirmation dialog for making table consistent with central list
  *
@@ -348,6 +324,16 @@ AJAX.registerOnload('db_structure.js', function () {
             }); // end $.get()
         }); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
+
+    /**
+     * Attach Event Handler for 'Print View'
+     */
+    $(document).on('click', "#printView", function (event) {
+        event.preventDefault();
+
+        // Print the page
+        printPage();
+    }); //end of Print View action
 
     //Calculate Real End for InnoDB
     /**

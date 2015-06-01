@@ -57,56 +57,52 @@ if (! empty($submit_mult)
     } elseif (! empty($_POST['selected_tbl'])) {
         // coming from database structure view - do something with
         // selected tables
-        if ($submit_mult == 'print') {
-            include './tbl_printview.php';
-        } else {
-            $selected = $_POST['selected_tbl'];
-            switch ($submit_mult) {
-            case 'add_prefix_tbl':
-            case 'replace_prefix_tbl':
-            case 'copy_tbl_change_prefix':
-            case 'drop_db':
-            case 'drop_tbl':
-            case 'empty_tbl':
-                $what = $submit_mult;
-                break;
-            case 'check_tbl':
-            case 'optimize_tbl':
-            case 'repair_tbl':
-            case 'analyze_tbl':
-            case 'checksum_tbl':
-                $query_type = $submit_mult;
-                unset($submit_mult);
-                $mult_btn   = __('Yes');
-                break;
-            case 'export':
-                unset($submit_mult);
-                include 'db_export.php';
-                exit;
-                break;
-            case 'show_create':
-                $show_create = PMA_getHtmlShowCreate($GLOBALS['db'], $selected);
-                // Send response to client.
-                $response = PMA_Response::getInstance();
-                $response->addJSON('message', $show_create);
-                exit;
-            case 'sync_unique_columns_central_list':
-                include_once 'libraries/central_columns.lib.php';
-                $centralColsError = PMA_syncUniqueColumns($selected);
-                break;
-            case 'delete_unique_columns_central_list':
-                include_once 'libraries/central_columns.lib.php';
-                $centralColsError = PMA_deleteColumnsFromList($selected);
-                break;
-            case 'make_consistent_with_central_list':
-                include_once 'libraries/central_columns.lib.php';
-                $centralColsError = PMA_makeConsistentWithList(
-                    $GLOBALS['db'],
-                    $selected
-                );
-                break;
-            } // end switch
-        }
+        $selected = $_POST['selected_tbl'];
+        switch ($submit_mult) {
+        case 'add_prefix_tbl':
+        case 'replace_prefix_tbl':
+        case 'copy_tbl_change_prefix':
+        case 'drop_db':
+        case 'drop_tbl':
+        case 'empty_tbl':
+            $what = $submit_mult;
+            break;
+        case 'check_tbl':
+        case 'optimize_tbl':
+        case 'repair_tbl':
+        case 'analyze_tbl':
+        case 'checksum_tbl':
+            $query_type = $submit_mult;
+            unset($submit_mult);
+            $mult_btn   = __('Yes');
+            break;
+        case 'export':
+            unset($submit_mult);
+            include 'db_export.php';
+            exit;
+            break;
+        case 'show_create':
+            $show_create = PMA_getHtmlShowCreate($GLOBALS['db'], $selected);
+            // Send response to client.
+            $response = PMA_Response::getInstance();
+            $response->addJSON('message', $show_create);
+            exit;
+        case 'sync_unique_columns_central_list':
+            include_once 'libraries/central_columns.lib.php';
+            $centralColsError = PMA_syncUniqueColumns($selected);
+            break;
+        case 'delete_unique_columns_central_list':
+            include_once 'libraries/central_columns.lib.php';
+            $centralColsError = PMA_deleteColumnsFromList($selected);
+            break;
+        case 'make_consistent_with_central_list':
+            include_once 'libraries/central_columns.lib.php';
+            $centralColsError = PMA_makeConsistentWithList(
+                $GLOBALS['db'],
+                $selected
+            );
+            break;
+        } // end switch
     } elseif (isset($selected_fld) && !empty($selected_fld)) {
         // coming from table structure view - do something with
         // selected columns

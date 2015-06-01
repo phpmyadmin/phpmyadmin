@@ -1259,7 +1259,7 @@ class PMA_Util
             }
             $retval .= '</div>';
 
-            $retval .= '<div class="tools">';
+            $retval .= '<div class="tools print_ignore">';
             $retval .= '<form action="sql.php" method="post">';
             $retval .= PMA_URL_getHiddenInputs(
                 $GLOBALS['db'], $GLOBALS['table']

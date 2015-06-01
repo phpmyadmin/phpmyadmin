@@ -209,7 +209,7 @@ $response->addHTML(
 );
 
 $response->addHTML(
-    '</form><hr />'
+    '</form><hr class="print_ignore"/>'
 );
 $response->addHTML(
     PMA_getHtmlDivForMoveColumnsDialog()
