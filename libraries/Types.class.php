@@ -1037,7 +1037,7 @@ class PMA_Types_Drizzle extends PMA_Types
             '-',
             'ENUM',
         );
-        if (PMA_MYSQL_INT_VERSION >= 20120130) {
+        if (PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 70132) {
             $types_string[] = '-';
             $types_string[] = 'IPV6';
         }
