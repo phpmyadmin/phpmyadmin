@@ -1275,6 +1275,16 @@ Generic settings
     middle-clicking for pasting the clipboard contents in some Linux
     distributions (such as Ubuntu) is not supported by all browsers.
 
+.. config:option:: $cfg['DefaultForeignKeyChecks']
+
+    :type: string
+    :default: ``'default'``
+
+    Default value of the checkbox for foreign key checks, to disable/enable
+    foreign key checks for certain queries. The possible values are ``'default'``,
+    ``'enable'`` or ``'disable'``. If set to ``'default'``, the value of the
+    MySQL variable ``FOREIGN_KEY_CHECKS`` is used.
+
 .. config:option:: $cfg['AllowUserDropDatabase']
 
     :type: boolean
@@ -2019,8 +2029,8 @@ Languages
     :default: ``'utf8_general_ci'``
 
     Defines the default connection collation to use, if not user-defined.
-    See the `MySQL documentation for charsets 
-    <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_ 
+    See the `MySQL documentation for charsets
+    <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_
     for list of possible values. This setting is
     ignored when connected to Drizzle server.
 
@@ -2817,4 +2827,3 @@ Developer
 
     Enable to let server present itself as demo server.
     This is used for <http://demo.phpmyadmin.net/>.
-

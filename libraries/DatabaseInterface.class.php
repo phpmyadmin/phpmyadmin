@@ -1651,6 +1651,20 @@ class PMA_DatabaseInterface
     }
 
     /**
+     * Set foreign key check variable in session
+     *
+     * @param bool $value Turn it on or off
+     *
+     * @return void
+     */
+    public function setForeignKeyCheck($value) {
+        $current_fk_check_value = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
+        if ($current_fk_check_value == $value) return;
+
+        $this->query('SET FOREIGN_KEY_CHECKS = ' . ($value ? 1 : 0) . ';');
+    }
+
+    /**
      * Function called just after a connection to the MySQL database server has
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.

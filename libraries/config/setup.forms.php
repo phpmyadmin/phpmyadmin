@@ -160,7 +160,8 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'MaxCharactersInDisplayedSQL',
     'RetainQueryBox',
     'CodemirrorEnable',
-    'EnableAutocompleteForTablesAndColumns');
+    'EnableAutocompleteForTablesAndColumns',
+    'DefaultForeignKeyChecks');
 $forms['Sql_queries']['Sql_box'] = array('SQLQuery' => array(
     'Edit',
     'Explain',
@@ -246,8 +247,7 @@ $forms['Import']['Import_defaults'] = array('Import' => array(
     'format',
     'charset',
     'allow_interrupt',
-    'skip_queries',
-    'disable_foreign_keys'));
+    'skip_queries'));
 $forms['Import']['Sql'] = array('Import' => array(
     'sql_compatibility',
     'sql_no_auto_value_on_zero'));

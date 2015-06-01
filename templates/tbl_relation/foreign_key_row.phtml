@@ -1,0 +1,115 @@
+<tr class="<?php echo ($odd_row ? 'odd' : 'even'); ?>">
+    <!-- Drop key anchor -->
+    <td>
+        <?php if (isset($one_key['constraint'])): ?>
+            <input type="hidden"
+                   class="drop_foreign_key_msg"
+                   value="<?php echo $js_msg; ?>" />
+            <a class="drop_foreign_key_anchor ajax"
+               href="sql.php<?php echo PMA_URL_getCommon($this_params); ?>" >
+                <?php echo PMA_Util::getIcon('b_drop.png', __('Drop')); ?>
+            </a>
+        <?php endif; ?>
+    </td>
+    <td>
+        <span class="formelement clearfloat">
+            <input type="text" name="constraint_name[<?php echo $i; ?>]"
+                   value="<?php if (isset($one_key['constraint']))
+                       echo htmlspecialchars($one_key['constraint']); ?>"
+                   placeholder="<?php echo __('Constraint name'); ?>"
+                   maxlength="64" />
+        </span>
+        <div class="floatleft">
+            <span class="formelement">
+                <?php echo PMA_generateDropdown(
+                    'ON DELETE',
+                    'on_delete[' . $i . ']',
+                    $options_array,
+                    $on_delete
+                ); ?>
+            </span>
+            <span class="formelement">
+                <?php echo PMA_generateDropdown(
+                    'ON UPDATE',
+                    'on_update[' . $i . ']',
+                    $options_array,
+                    $on_update
+                ); ?>
+            </span>
+        </div>
+    </td>
+    <td>
+        <?php if (isset($one_key['index_list'])): ?>
+            <?php foreach ($one_key['index_list'] as $key => $column): ?>
+                <span class="formelement clearfloat">
+                    <?php echo PMA_generateDropdown(
+                        '',
+                        'foreign_key_fields_name[' . $i . '][]',
+                        $column_array,
+                        $column
+                    ); ?>
+                </span>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <span class="formelement clearfloat">
+                <?php echo PMA_generateDropdown(
+                    '',
+                    'foreign_key_fields_name[' . $i . '][]',
+                    $column_array,
+                    ''
+                );?>
+            </span>
+        <?php endif; ?>
+        <a class="formelement clearfloat add_foreign_key_field"
+           href=""
+           data-index="<?php echo $i; ?>">
+            <?php echo __('+ Add column'); ?>
+        </a>
+    </td>
+    <td>
+        <span class="formelement clearfloat">
+            <?php echo PMA_generateRelationalDropdown(
+                'destination_foreign_db[' . $i . ']',
+                $GLOBALS['pma']->databases,
+                $foreign_db,
+                __('Database')
+            ); ?>
+    </td>
+    <td>
+        <span class="formelement clearfloat">
+            <?php echo PMA_generateRelationalDropdown(
+                'destination_foreign_table[' . $i . ']',
+                $tables,
+                $foreign_table,
+                __('Table')
+            ); ?>
+        </span>
+    </td>
+    <td>
+        <?php if ($foreign_db && $foreign_table): ?>
+            <?php foreach ($one_key['ref_index_list'] as $foreign_column): ?>
+                <?php
+                $table_obj = new PMA_Table($foreign_table, $foreign_db);
+                $columns = $table_obj->getUniqueColumns(false, false);
+                ?>
+                <span class="formelement clearfloat">
+                    <?php echo PMA_generateRelationalDropdown(
+                        'destination_foreign_column[' . $i . '][]',
+                        $columns,
+                        $foreign_column,
+                        __('Column')
+                    );?>
+                </span>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <span class="formelement clearfloat">
+                <?php echo PMA_generateRelationalDropdown(
+                    'destination_foreign_column[' . $i . '][]',
+                    array(),
+                    '',
+                    __('Column')
+                ); ?>
+            </span>
+        <?php endif; ?>
+    </td>
+</tr>

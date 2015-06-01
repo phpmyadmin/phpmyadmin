@@ -9,6 +9,7 @@
 /*
  * Include to test.
  */
+require_once 'libraries/Template.class.php';
 require_once 'libraries/tbl_indexes.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Index.class.php';
@@ -241,7 +242,7 @@ class PMA_TblIndexTest extends PHPUnit_Framework_TestCase
 
         //generateIndexSelector
         $this->assertContains(
-            $index->generateIndexChoiceSelector(false),
+            PMA\Template::trim($index->generateIndexChoiceSelector(false)),
             $html
         );
 

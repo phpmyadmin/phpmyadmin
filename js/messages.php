@@ -300,10 +300,10 @@ $js_messages['strCopyingDatabase'] = __('Copying Database');
 $js_messages['strChangingCharset'] = __('Changing Charset');
 $js_messages['strNo'] = __('No');
 
+/* For Foreign key checks */
+$js_messages['strForeignKeyCheck'] = __('Enable foreign key checks');
+
 /* For db_stucture.js */
-$js_messages['strForeignKeyCheck'] = __('Foreign key check:');
-$js_messages['strForeignKeyCheckEnabled'] = __('(Enabled)');
-$js_messages['strForeignKeyCheckDisabled'] = __('(Disabled)');
 $js_messages['strErrorRealRowCount'] = __('Failed to get real row count.');
 
 /* For db_search.js */

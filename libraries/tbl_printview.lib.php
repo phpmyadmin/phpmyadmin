@@ -9,6 +9,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/Template.class.php';
+
 /**
  * return html for tables' info
  *
@@ -18,21 +20,10 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getHtmlForTablesInfo($the_tables)
 {
-    $html = '';
-    $multi_tables     = (count($the_tables) > 1);
-
-    if ($multi_tables) {
-        $tbl_list     = '';
-        foreach ($the_tables as $table) {
-            $tbl_list .= (empty($tbl_list) ? '' : ', ')
-                      . PMA_Util::backquote($table);
-        }
-        $html .= '<strong>' .  __('Showing tables:') . ' '
-            . htmlspecialchars($tbl_list) . '</strong>' . "\n";
-        $html .= '<hr />' . "\n";
-    } // end if
-
-    return $html;
+    return PMA\Template::get('printview/tables_info')
+        ->render(array(
+            'tables' => $the_tables
+        ));
 }
 
 
@@ -43,10 +34,7 @@ function PMA_getHtmlForTablesInfo($the_tables)
  */
 function PMA_getHtmlForPrintViewFooter()
 {
-    $html  = PMA_Util::getButton();
-    $html .= "<div id='PMA_disable_floating_menubar'></div>\n";
-
-    return $html;
+    return PMA\Template::get('printview/footer')->render();
 }
 
 /**
@@ -67,93 +55,16 @@ function PMA_getHtmlForPrintViewColumns(
     $tbl_is_view, $columns, $analyzed_sql, $have_rel,
     $res_rel, $db, $table, $cfgRelation
 ) {
-    $html = '';
-    $primary = PMA_Index::getPrimary($table, $db);
-    foreach ($columns as $row) {
-        $extracted_columnspec = PMA_Util::extractColumnSpec($row['Type']);
-        $type = $extracted_columnspec['print_type'];
-
-        if (! isset($row['Default'])) {
-            if ($row['Null'] != ''  && $row['Null'] != 'NO') {
-                $row['Default'] = '<i>NULL</i>';
-            }
-        } else {
-            $row['Default'] = htmlspecialchars($row['Default']);
-        }
-        $field_name = htmlspecialchars($row['Field']);
-
-        if (! $tbl_is_view) {
-            // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having
-            // the NULL attribute, but SHOW CREATE TABLE says the contrary.
-            // Believe the latter.
-            /**
-             * @todo merge this logic with the one in tbl_structure.php
-             * or move it in a function similar to $GLOBALS['dbi']->getColumnsFull()
-             * but based on SHOW CREATE TABLE because information_schema
-             * cannot be trusted in this case (MySQL bug)
-             */
-            $analyzed_for_field
-                = $analyzed_sql[0]['create_table_fields'][$field_name];
-            if (! empty($analyzed_for_field['type'])
-                && $analyzed_for_field['type'] == 'TIMESTAMP'
-                && $analyzed_for_field['timestamp_not_null']
-            ) {
-                $row['Null'] = '';
-            }
-        }
-
-        $html .= "\n";
-        $html .= '<tr><td>';
-
-        $html .= '    ' . $field_name . "\n";
-        if ($primary && $primary->hasColumn($field_name)) {
-            $html .= '    <em>(' . __('Primary') . ')</em>';
-        }
-        $html .= "\n";
-        $html .= '</td>';
-        $html .= '<td>' . htmlspecialchars($type) . '<bdo dir="ltr"></bdo></td>';
-        $html .= '<td>';
-        $html .= (($row['Null'] == '' || $row['Null'] == 'NO')
-            ? __('No')
-            : __('Yes'));
-        $html .= '&nbsp;</td>';
-        $html .= '<td>';
-        if (isset($row['Default'])) {
-            $html .= $row['Default'];
-        }
-        $html .= '&nbsp;</td>';
-        if ($have_rel) {
-            $html .= '    <td>';
-            $foreigner = PMA_searchColumnInForeigners($res_rel, $field_name);
-            if ($foreigner) {
-                $html .= htmlspecialchars(
-                    $foreigner['foreign_table']
-                    . ' -> ' . $foreigner['foreign_field']
-                );
-            }
-            $html .= '&nbsp;</td>' . "\n";
-        }
-        $html .= '    <td>';
-        $comments = PMA_getComments($db, $table);
-        if (isset($comments[$field_name])) {
-            $html .= htmlspecialchars($comments[$field_name]);
-        }
-        $html .= '&nbsp;</td>' . "\n";
-        if ($cfgRelation['mimework']) {
-            $mime_map = PMA_getMIME($db, $table, true);
-
-            $html .= '    <td>';
-            if (isset($mime_map[$field_name])) {
-                $html .= htmlspecialchars(
-                    str_replace('_', '/', $mime_map[$field_name]['mimetype'])
-                );
-            }
-            $html .= '&nbsp;</td>' . "\n";
-        }
-        $html .= '</tr>';
-    } // end foreach
-
-    return $html;
+    return PMA\Template::get('printview/columns')->render(array(
+        'tbl_is_view' => $tbl_is_view,
+        'columns' => $columns,
+        'analyzed_sql' => $analyzed_sql,
+        'have_rel' => $have_rel,
+        'res_rel' => $res_rel,
+        'db' => $db,
+        'table' => $table,
+        'cfgRelation' => $cfgRelation
+    ));
 }
 
 /**
@@ -170,108 +81,14 @@ function PMA_getHtmlForPrintViewColumns(
 function PMA_getHtmlForRowStatistics(
     $showtable, $cell_align_left, $avg_size, $avg_unit, $mergetable
 ) {
-    $html  = '<td width="20">&nbsp;</td>';
-
-    // Rows Statistic
-    $html .= "\n";
-    $html .= '<td class="vtop">';
-    $html .= '<big>' . __('Row Statistics:') . '</big>';
-    $html .= '<table width="100%">';
-    if (isset($showtable['Row_format'])) {
-        $html .= "\n";
-        $html .= '<tr>';
-        $html .= '<td>' . __('Format') . '</td>';
-        $html .= '<td class="' . $cell_align_left . '">';
-        if ($showtable['Row_format'] == 'Fixed') {
-            $html .= __('static');
-        } elseif ($showtable['Row_format'] == 'Dynamic') {
-            $html .= __('dynamic');
-        } else {
-            $html .= $showtable['Row_format'];
-        }
-        $html .= '</td>';
-        $html .= '</tr>';
-    }
-    if (isset($showtable['Rows'])) {
-        $html .= "\n";
-        $html .= '<tr>';
-        $html .= '<td>' . __('Rows') . '</td>';
-        $html .= '<td class="right">';
-        $html .= PMA_Util::formatNumber($showtable['Rows'], 0);
-        $html .= '</td>';
-        $html .= '</tr>';
-    }
-    if (isset($showtable['Avg_row_length'])
-        && $showtable['Avg_row_length'] > 0
-    ) {
-        $html .= "\n";
-        $html .= '<tr>';
-        $html .= '<td>' . __('Row length') . '&nbsp;&oslash;</td>';
-        $html .= '<td>';
-        $html .= PMA_Util::formatNumber(
-            $showtable['Avg_row_length'], 0
-        );
-        $html .= '</td>';
-        $html .= '</tr>';
-    }
-    if (isset($showtable['Data_length'])
-        && $showtable['Rows'] > 0
-        && $mergetable == false
-    ) {
-        $html .= "\n";
-        $html .= '<tr>';
-        $html .= '<td>' . __('Row size') . '&nbsp;&oslash;</td>';
-        $html .= '<td class="right">';
-        $html .= $avg_size . ' ' . $avg_unit;
-        $html .= '</td>';
-        $html .= '</tr>';
-    }
-    if (isset($showtable['Auto_increment'])) {
-        $html .= "\n";
-        $html .= '<tr>';
-        $html .= '<td>' . __('Next autoindex') . ' </td>';
-        $html .= '<td class="right">';
-        $html .= PMA_Util::formatNumber(
-            $showtable['Auto_increment'], 0
-        );
-        $html .= '</td>';
-        $html .= '</tr>';
-    }
-    if (isset($showtable['Create_time'])) {
-        $html .= "\n";
-        $html .= '<tr>';
-        $html .= '<td>' . __('Creation') . '</td>';
-        $html .= '<td class="right">';
-        $html .= PMA_Util::localisedDate(
-            strtotime($showtable['Create_time'])
-        );
-        $html .= '</td>';
-        $html .= '</tr>';
-    }
-    if (isset($showtable['Update_time'])) {
-        $html .= "\n";
-        $html .= '<tr>';
-        $html .= '<td>' . __('Last update') . '</td>';
-        $html .= '<td class="right">';
-        $html .= PMA_Util::localisedDate(
-            strtotime($showtable['Update_time'])
-        );
-        $html .= '</td>';
-        $html .= '</tr>';
-    }
-    if (isset($showtable['Check_time'])) {
-        $html .= "\n";
-        $html .= '<tr>';
-        $html .= '<td>' . __('Last check') . '</td>';
-        $html .= '<td class="right">';
-        $html .= PMA_Util::localisedDate(
-            strtotime($showtable['Check_time'])
-        );
-        $html .= '</td>';
-        $html .= '</tr>';
-    }
-
-    return $html;
+    return PMA\Template::get('printview/row_statistics')
+        ->render(array(
+            'showtable' => $showtable,
+            'cell_align_left' => $cell_align_left,
+            'avg_size' => $avg_size,
+            'avg_unit' => $avg_unit,
+            'mergetable' => $mergetable
+        ));
 }
 
 /**
@@ -296,56 +113,20 @@ function PMA_getHtmlForSpaceUsage(
     $free_size, $free_unit, $effect_size, $effect_unit,
     $tot_size, $tot_unit, $mergetable
 ) {
-    $html  = '<table cellspacing="0" cellpadding="0">';
-    $html .= "\n";
-    $html .= '<tr>';
-
-    // Space usage
-    $html .= '<td class="vtop">';
-    $html .= '<big>' . __('Space usage:') . '</big>';
-    $html .= '<table width="100%">';
-    $html .= '<tr>';
-    $html .= '<td style="padding-right: 10px">' . __('Data') . '</td>';
-    $html .= '<td class="right">' . $data_size . '</td>';
-    $html .= '<td>' . $data_unit . '</td>';
-    $html .= '</tr>';
-    if (isset($index_size)) {
-        $html .= "\n";
-        $html .= '<tr>';
-        $html .= '<td style="padding-right: 10px">' . __('Index') . '</td>';
-        $html .= '<td class="right">' . $index_size . '</td>';
-        $html .= '<td>' . $index_unit . '</td>';
-        $html .= '</tr>';
-    }
-    if (isset($free_size)) {
-        $html .= "\n";
-        $html .= '<tr style="color: #bb0000">';
-        $html .= '<td style="padding-right: 10px">';
-        $html .= __('Overhead');
-        $html .= '</td>';
-        $html .= '<td class="right">' . $free_size . '</td>';
-        $html .= '<td>' . $free_unit . '</td>';
-        $html .= '</tr>';
-        $html .= '<tr>';
-        $html .= '<td style="padding-right: 10px">';
-        $html .= __('Effective');
-        $html .= '</td>';
-        $html .= '<td class="right">' . $effect_size . '</td>';
-        $html .= '<td>' . $effect_unit . '</td>';
-        $html .= '</tr>';
-    }
-    if (isset($tot_size) && $mergetable == false) {
-        $html .= "\n";
-        $html .= '<tr>';
-        $html .= '<td style="padding-right: 10px">' . __('Total') . '</td>';
-        $html .= '<td class="right">' . $tot_size . '</td>';
-        $html .= '<td>' . $tot_unit . '</td>';
-        $html .= '</tr>';
-    }
-    $html .= "\n";
-    $html .= '</table>';
-
-    return $html;
+    return PMA\Template::get('printview/space_usage')
+        ->render(array(
+            'data_size' => $data_size,
+            'data_unit' => $data_unit,
+            'index_size' => $index_size,
+            'index_unit' => $index_unit,
+            'free_size' => $free_size,
+            'free_unit' => $free_unit,
+            'effect_size' => $effect_size,
+            'effect_unit' => $effect_unit,
+            'tot_size' => $tot_size,
+            'tot_unit' => $tot_unit,
+            'mergetable' => $mergetable
+        ));
 }
 /**
  * return html for Space Usage And Row Statistic
@@ -360,7 +141,6 @@ function PMA_getHtmlForSpaceUsage(
 function PMA_getHtmlForSpaceUsageAndRowStatistics(
     $showtable, $db, $table, $cell_align_left
 ) {
-    $html = '';
     $nonisam = false;
     if (isset($showtable['Type'])
         && ! preg_match('@ISAM|HEAP@i', $showtable['Type'])
@@ -376,73 +156,57 @@ function PMA_getHtmlForSpaceUsageAndRowStatistics(
             $showtable['Data_length']
         );
         if ($mergetable == false) {
-            list($index_size, $index_unit)
-                = PMA_Util::formatByteDown(
-                    $showtable['Index_length']
-                );
+            list($index_size, $index_unit) = PMA_Util::formatByteDown(
+                $showtable['Index_length']
+            );
         }
         if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
-            list($free_size, $free_unit)
-                = PMA_Util::formatByteDown(
-                    $showtable['Data_free']
-                );
-            list($effect_size, $effect_unit)
-                = PMA_Util::formatByteDown(
-                    $showtable['Data_length'] + $showtable['Index_length']
-                    - $showtable['Data_free']
-                );
+            list($free_size, $free_unit) = PMA_Util::formatByteDown(
+                $showtable['Data_free']
+            );
+            list($effect_size, $effect_unit) = PMA_Util::formatByteDown(
+                $showtable['Data_length'] + $showtable['Index_length']
+                - $showtable['Data_free']
+            );
         } else {
             unset($free_size);
             unset($free_unit);
-            list($effect_size, $effect_unit)
-                = PMA_Util::formatByteDown(
-                    $showtable['Data_length'] + $showtable['Index_length']
-                );
+            list($effect_size, $effect_unit) = PMA_Util::formatByteDown(
+                $showtable['Data_length'] + $showtable['Index_length']
+            );
         }
         list($tot_size, $tot_unit) = PMA_Util::formatByteDown(
             $showtable['Data_length'] + $showtable['Index_length']
         );
-        $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
+        $num_rows = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
         if ($num_rows > 0) {
-            list($avg_size, $avg_unit)
-                = PMA_Util::formatByteDown(
-                    ($showtable['Data_length'] + $showtable['Index_length'])
-                    / $showtable['Rows'],
-                    6,
-                    1
-                );
+            list($avg_size, $avg_unit) = PMA_Util::formatByteDown(
+                ($showtable['Data_length'] + $showtable['Index_length'])
+                / $showtable['Rows'],
+                6, 1
+            );
         }
 
-        // Displays them
-        $html .= '<br /><br />';
-        $html .= PMA_getHtmlForSpaceUsage(
-            $data_size, $data_unit,
-            isset($index_size)? $index_size : null,
-            isset($index_unit)? $index_unit : null,
-            isset($free_size)? $free_size : null,
-            isset($free_unit)? $free_unit : null,
-            isset($effect_size)? $effect_size : null,
-            isset($effect_unit)? $effect_unit : null,
-            isset($tot_size)? $tot_size : null,
-            isset($tot_unit)? $tot_unit : null,
-            $mergetable
-        );
-
-        $html .= '</td>';
-        $html .= PMA_getHtmlForRowStatistics(
-            $showtable, $cell_align_left,
-            isset($avg_size)? $avg_size: 0,
-            isset($avg_unit)? $avg_unit: 0,
-            $mergetable
-        );
-        $html .= "\n";
-        $html .= '</table>';
-        $html .= '</td>';
-        $html .= '</tr>';
-        $html .= '</table>';
-    } // end if ($nonisam == false)
-
-    return $html;
+        return PMA\Template::get(
+            'printview/space_usage_and_row_statistics'
+        )->render(array(
+            'data_size' => $data_size,
+            'data_unit' => $data_unit,
+            'index_size' => $index_size,
+            'index_unit' => $index_unit,
+            'free_size' => $free_size,
+            'free_unit' => $free_unit,
+            'effect_size' => $effect_size,
+            'effect_unit' => $effect_unit,
+            'tot_size' => $tot_size,
+            'tot_unit' => $tot_unit,
+            'mergetable' => $mergetable,
+            'showtable' => $showtable,
+            'cell_align_left' => $cell_align_left,
+            'avg_size' => $avg_size,
+            'avg_unit' => $avg_unit
+        ));
+    }
 }
 
 /**
@@ -467,50 +231,20 @@ function PMA_getHtmlForTableStructure(
     $res_rel, $db, $table, $cfgRelation,
     $cfg, $showtable, $cell_align_left
 ) {
-    /**
-     * Displays the table structure
-     */
-    $html  = '<table style="width: 100%;">';
-    $html .= '<thead>';
-    $html .= '<tr>';
-    $html .= '<th>' . __('Column') . '</th>';
-    $html .= '<th>' . __('Type') . '</th>';
-    $html .= '<th>' . __('Null') . '</th>';
-    $html .= '<th>' . __('Default') . '</th>';
-    if ($have_rel) {
-        $html .= '<th>' . __('Links to') . '</th>' . "\n";
-    }
-    $html .= '    <th>' . __('Comments') . '</th>' . "\n";
-    if ($cfgRelation['mimework']) {
-        $html .= '    <th>MIME</th>' . "\n";
-    }
-    $html .= '</tr>';
-    $html .= '</thead>';
-    $html .= '<tbody>';
-    $html .= PMA_getHtmlForPrintViewColumns(
-        $tbl_is_view, $columns, $analyzed_sql, $have_rel,
-        $res_rel, $db, $table, $cfgRelation
-    );
-    $html .= '</tbody>';
-    $html .= '</table>';
-    if (! $tbl_is_view && !$GLOBALS['dbi']->isSystemSchema($db)) {
-        /**
-         * Displays indexes
-         */
-        $html .= PMA_Index::getHtmlForIndexes($table, $db, true);
-
-        /**
-         * Displays Space usage and row statistics
-         *
-         */
-        if ($cfg['ShowStats']) {
-            $html .= PMA_getHtmlForSpaceUsageAndRowStatistics(
-                $showtable, $db, $table, $cell_align_left
-            );
-        } // end if ($cfg['ShowStats'])
-    }
-
-    return $html;
+    return PMA\Template::get('printview/tables_structure')
+        ->render(array(
+            'have_rel' => $have_rel,
+            'tbl_is_view' => $tbl_is_view,
+            'columns' => $columns,
+            'analyzed_sql' => $analyzed_sql,
+            'res_rel' => $res_rel,
+            'db' => $db,
+            'table' => $table,
+            'cfgRelation' => $cfgRelation,
+            'cfg' => $cfg,
+            'showtable' => $showtable,
+            'cell_align_left' => $cell_align_left
+        ));
 }
 
 /**
@@ -527,20 +261,13 @@ function PMA_getHtmlForTableStructure(
 function PMA_getHtmlForTablesDetail(
     $the_tables, $db, $cfg, $cfgRelation, $cell_align_left
 ) {
-    $html = '';
     $tables_cnt = count($the_tables);
     $multi_tables = (count($the_tables) > 1);
     $counter = 0;
+    $html = '';
+    $template = PMA\Template::get('printview/tables_detail');
 
     foreach ($the_tables as $table) {
-        if ($counter + 1 >= $tables_cnt) {
-            $breakstyle = '';
-        } else {
-            $breakstyle = ' style="page-break-after: always;"';
-        }
-        $counter++;
-        $html .= '<div' . $breakstyle . '>' . "\n";
-        $html .= '<h1>' . htmlspecialchars($table) . '</h1>' . "\n";
 
         /**
          * Gets table informations
@@ -574,29 +301,28 @@ function PMA_getHtmlForTablesDetail(
         $res_rel  = PMA_getForeigners($db, $table);
         $have_rel = (bool) count($res_rel);
 
-        /**
-         * Displays the comments of the table if MySQL >= 3.23
-         */
-        if (!empty($show_comment)) {
-            $html .= __('Table comments:') . ' '
-                . htmlspecialchars($show_comment) . '<br /><br />';
-        }
-
-        $html .= PMA_getHtmlForTableStructure(
-            $have_rel, $tbl_is_view, $columns, $analyzed_sql,
-            $res_rel, $db, $table, $cfgRelation,
-            $cfg, $showtable, $cell_align_left
-        );
+        $html .= $template->render(array(
+            'counter' => $counter,
+            'tables_cnt' => $tables_cnt,
+            'table' => $table,
+            'show_comment' => $show_comment,
+            'have_rel' => $have_rel,
+            'tbl_is_view' => $tbl_is_view,
+            'columns' => $columns,
+            'analyzed_sql' => $analyzed_sql,
+            'res_rel' => $res_rel,
+            'db' => $db,
+            'cfgRelation' => $cfgRelation,
+            'cfg' => $cfg,
+            'showtable' => $showtable,
+            'cell_align_left' => $cell_align_left,
+            'multi_tables' => $multi_tables
+        ));
 
         if ($multi_tables) {
             unset($num_rows, $show_comment);
-            $html .= '<hr />' . "\n";
-        } // end if
-        $html .= '</div>' . "\n";
-
+        }
     } // end while
-
     return $html;
 }
-
 ?>

@@ -1,0 +1,26 @@
+                    <!-- Displays them -->
+                    <br /><br />
+                    <?php echo PMA_getHtmlForSpaceUsage(
+                        $data_size, $data_unit,
+                        isset($index_size)? $index_size : null,
+                        isset($index_unit)? $index_unit : null,
+                        isset($free_size)? $free_size : null,
+                        isset($free_unit)? $free_unit : null,
+                        isset($effect_size)? $effect_size : null,
+                        isset($effect_unit)? $effect_unit : null,
+                        isset($tot_size)? $tot_size : null,
+                        isset($tot_unit)? $tot_unit : null,
+                        $mergetable
+                    ); ?>
+
+                    </td>
+                <?php PMA_getHtmlForRowStatistics(
+                    $showtable, $cell_align_left,
+                    isset($avg_size)? $avg_size: 0,
+                    isset($avg_unit)? $avg_unit: 0,
+                    $mergetable
+                ); ?>
+            </table>
+        </td>
+    </tr>
+</table>
