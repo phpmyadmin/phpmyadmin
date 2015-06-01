@@ -146,6 +146,7 @@ $overhead_size  = (double) 0;
 
 $hidden_fields = array();
 $odd_row       = true;
+$overall_approx_rows = false;
 // Instance of PMA_RecentFavoriteTable class.
 $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
 foreach ($tables as $keyname => $current_table) {
@@ -301,6 +302,7 @@ foreach ($tables as $keyname => $current_table) {
         (isset ($check_time) ? $check_time : ''),
         $is_show_stats, $ignored, $do, $colspan_for_structure
     );
+    $overall_approx_rows = $overall_approx_rows || $approx_rows;
     $response->addHTML($html_output);
 
 } // end foreach
@@ -312,7 +314,7 @@ $response->addHTML(
         $num_tables, $GLOBALS['replication_info']['slave']['status'],
         $db_is_system_schema, $sum_entries, $db_collation, $is_show_stats, $sum_size,
         $overhead_size, $create_time_all, $update_time_all, $check_time_all,
-        isset($approx_rows) ? $approx_rows : false
+        $overall_approx_rows
     )
 );
 $response->addHTML('</table>');
