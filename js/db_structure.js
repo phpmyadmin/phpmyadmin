@@ -126,7 +126,11 @@ function PMA_adjustTotals() {
     // Update summary with new data
     var $summary = $("#tbl_summary_row");
     $summary.find('.tbl_num').text(PMA_sprintf(PMA_messages.strNTables, tableSum));
-    $summary.find('.row_count_sum').text(strRowSum);
+    if (rowSumApproximated) {
+        $summary.find('.row_count_sum').text(strRowSum);
+    } else {
+        $summary.find('.tbl_rows').text(strRowSum);
+    }
     $summary.find('.tbl_size').text(sizeSum + " " + byteUnits[size_magnitude]);
     $summary.find('.tbl_overhead').text(overheadSum + " " + byteUnits[overhead_magnitude]);
 }
