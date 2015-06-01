@@ -47,6 +47,7 @@ phpMyAdmin - ChangeLog
 + rfe #1675 MySQL and MariaDB functions INET6_ATON and INET6_NTOA
 - bug       Link to get real row counts of all the views in a db, at once
 - bug #4932 Drizzle version numbers
++ rfe #701  Rewrite print view using CSS; fixes print view failures on multi-query statements
 
 4.4.9.0 (not yet released)
 - bug #4920 relation view doesn't list fields of table in other database
