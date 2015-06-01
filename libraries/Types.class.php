@@ -511,9 +511,10 @@ class PMA_Types_MySQL extends PMA_Types
                 'VERSION',
             );
 
-            if ((/*overload*/mb_strpos(PMA_MYSQL_STR_VERSION, 'MariaDB') !== false &&
-                 PMA_MYSQL_INT_VERSION < 100012) || PMA_MYSQL_INT_VERSION < 50603) {
-              $ret = array_diff($ret, array('INET6_NTOA'));
+            if ((PMA_MARIADB && PMA_MYSQL_INT_VERSION < 100012)
+                || PMA_MYSQL_INT_VERSION < 50603
+            ) {
+                $ret = array_diff($ret, array('INET6_NTOA'));
             }
             return $ret;
 
@@ -591,10 +592,10 @@ class PMA_Types_MySQL extends PMA_Types
                 'WEEKOFYEAR',
                 'YEARWEEK',
             );
-
-            if ((/*overload*/mb_strpos(PMA_MYSQL_STR_VERSION, 'MariaDB') !== false &&
-                 PMA_MYSQL_INT_VERSION < 100012) || PMA_MYSQL_INT_VERSION < 50603) {
-              $ret = array_diff($ret, array('INET6_ATON'));
+            if ((PMA_MARIADB && PMA_MYSQL_INT_VERSION < 100012)
+                || PMA_MYSQL_INT_VERSION < 50603
+            ) {
+                $ret = array_diff($ret, array('INET6_ATON'));
             }
             return $ret;
 
