@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-31 07:27-0400\n"
-"PO-Revision-Date: 2015-05-30 21:58+0200\n"
-"Last-Translator: Patrik Kollmann <parkourpotex@gmail.com>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"PO-Revision-Date: 2015-06-02 21:45+0200\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -715,7 +715,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Nemôžem načítať priebeh importu."
 
 #: import_status.php:112 js/messages.php:361 libraries/Util.class.php:735
 #: libraries/export.lib.php:460
@@ -1055,7 +1055,7 @@ msgstr ""
 
 #: js/messages.php:73
 msgid "Garbled Data"
-msgstr ""
+msgstr "Skomolené údaje"
 
 #: js/messages.php:75
 msgid "Are you sure you wish to change the collation and convert the data?"
@@ -1807,10 +1807,9 @@ msgid "Changing Charset"
 msgstr "Mením znakovú sadu"
 
 #: js/messages.php:304 libraries/Util.class.php:3211
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Vypnúť kontrolu cudzích kľúčov"
+msgstr "Povoliť kontrolu cudzích kľúčov"
 
 #: js/messages.php:307
 msgid "Failed to get real row count."
@@ -3046,7 +3045,7 @@ msgstr "zdieľaný"
 #: libraries/Console.class.php:116
 #, php-format
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr ""
+msgstr "Zahrnuté záložky %1$s, %2$s a %3$s"
 
 #: libraries/Console.class.php:122
 msgid "No bookmarks"
@@ -5009,10 +5008,9 @@ msgid "Never send error reports"
 msgstr "Nikdy neodosielať chybové hlásenia"
 
 #: libraries/config.values.php:132
-#, fuzzy
 #| msgid "Set default"
 msgid "Server default"
-msgstr "Nastaviť predvolené"
+msgstr "Prednastavené serverom"
 
 #: libraries/config.values.php:133
 #, fuzzy
@@ -5860,10 +5858,9 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/config/messages.inc.php:218
-#, fuzzy
 #| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Kontrola cudzích kľúčov:"
+msgstr "Kontrola cudzích kľúčov"
 
 #: libraries/config/messages.inc.php:219
 msgid "Browse mode"
@@ -6500,7 +6497,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Minimálny počet databáz pre zobrazenie filtra databáz"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6508,8 +6504,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Zoskupovať položky v navigačnom paneli (určené oddeľovačom nastaveným "
-"nižšie)."
+"Zoskupovať položky v navigačnom paneli (určené oddeľovačom nastaveným v "
+"záložke Databázy a tabuľky vyššie)."
 
 #: libraries/config/messages.inc.php:469
 msgid "Group items in the tree"
@@ -7316,18 +7312,15 @@ msgid "Show create database form"
 msgstr "Zobraziť formulár na vytvorenie databázy"
 
 #: libraries/config/messages.inc.php:749
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
-msgstr ""
-"Zobraziť/Skryť stĺpec s Časovou značkou vytvorenia vo všetkých tabuľkách."
+msgstr "Zobraziť/Skryť stĺpec zobrazujúci komentáre pre všetky tabuľky."
 
 #: libraries/config/messages.inc.php:750
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Komentár k tabuľke"
+msgstr "Zobraziť komentáre tabuľky"
 
 #: libraries/config/messages.inc.php:751
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -7443,12 +7436,13 @@ msgid "Skip locked tables"
 msgstr "Preskočiť zamknuté tabuľky"
 
 #: libraries/config/messages.inc.php:778
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr "Vypne varovanie na hlavnej stránke ak sa používa Suhosin."
+msgstr ""
+"Vypne štandardné varovanie, ktoré je zobrazované na hlavnej stránke ak je "
+"zistený Suhosin."
 
 #: libraries/config/messages.inc.php:779
 msgid "Suhosin warning"
@@ -8877,10 +8871,9 @@ msgid "multilingual"
 msgstr "mnohojazyčný"
 
 #: libraries/mysql_charsets.lib.php:273
-#, fuzzy
 #| msgid "File name"
 msgid "Vietnamese"
-msgstr "Meno súboru"
+msgstr "Vietnamčina"
 
 #: libraries/mysql_charsets.lib.php:300
 msgid "Central European"
@@ -8964,10 +8957,9 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin Dokumentácia"
 
 #: libraries/navigation/NavigationHeader.class.php:192
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation panel settings"
-msgstr "Navigačný panel"
+msgstr "Nastavenia navigačného panela"
 
 #: libraries/navigation/NavigationHeader.class.php:203
 msgid "Reload navigation panel"
@@ -9374,7 +9366,6 @@ msgstr "Premenovať databázu na"
 #: libraries/operations.lib.php:795 libraries/operations.lib.php:1029
 #: libraries/operations.lib.php:1190 libraries/rte/rte_routines.lib.php:1101
 #: libraries/tbl_columns_definition_form.lib.php:124
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Adjust Privileges"
 msgstr "Upraviť oprávnenia"
@@ -9568,16 +9559,16 @@ msgid "Can't copy table to same one!"
 msgstr "Nedá sa skopírovať tabuľka sama do seba!"
 
 #: libraries/operations.lib.php:1961
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "Tabuľka %s bola presunutá do %s."
+msgstr "Tabuľka %s bola presunutá do %s. Oprávnenia boli upravené."
 
 #: libraries/operations.lib.php:1965
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "Tabuľka %s bola skorírovaná do %s."
+msgstr "Tabuľka %s bola skopírovaná do %s. Oprávnenia boli upravené."
 
 #: libraries/operations.lib.php:1972
 #, php-format
@@ -9922,10 +9913,9 @@ msgid "Dumping data"
 msgstr "Sťahujem dáta pre tabuľku"
 
 #: libraries/plugins/export/ExportPdf.class.php:285
-#, fuzzy
 #| msgid "structure"
 msgid "View structure"
-msgstr "štruktúra"
+msgstr "Zobraziť štruktúru"
 
 #: libraries/plugins/export/ExportPdf.class.php:288
 #, fuzzy
@@ -9953,10 +9943,9 @@ msgstr ""
 "Zahrnúť čas vytorenia, poslednej aktualizácie a poslednej kontroly databáz"
 
 #: libraries/plugins/export/ExportSql.class.php:161
-#, fuzzy
 #| msgid "Export method"
 msgid "Export metadata"
-msgstr "Metóda exportu"
+msgstr "Exportovať metadáta"
 
 #: libraries/plugins/export/ExportSql.class.php:176
 msgid ""
@@ -10072,16 +10061,15 @@ msgid "It appears your database uses functions;"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:975
-#, fuzzy
 #| msgid "Metadata Headers"
 msgid "Metadata"
-msgstr "Hlavičky metadát"
+msgstr "Metadáta"
 
 #: libraries/plugins/export/ExportSql.class.php:1052
-#, fuzzy, php-format
+#, php-format
 #| msgid "Metadata Headers"
 msgid "Metadata for %s"
-msgstr "Hlavičky metadát"
+msgstr "Metadáta pre %s"
 
 #: libraries/plugins/export/ExportSql.class.php:1428
 msgid "It appears your database uses views;"
@@ -10149,10 +10137,9 @@ msgid "Purpose:"
 msgstr ""
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:500
-#, fuzzy
 #| msgid "MIME type"
 msgid "MIME"
-msgstr "MIME typ"
+msgstr "MIME"
 
 #: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid ""
