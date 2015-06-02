@@ -1619,25 +1619,21 @@ class ExportSql extends ExportPlugin
                             );
                             $tmp_str = $sql_lines[$j];
                             if (! $sql_backquotes) {
-                                $matches = array();
-                                $matched = preg_match(
+                                $tmp_str = preg_replace_callback(
                                     '/REFERENCES[\s]([\S]*)[\s]\(([\S]*)\)/',
-                                    $tmp_str,
-                                    $matches
+                                    function ($matches) {
+                                        global $compat, $sql_backquotes;
+
+                                        $refTable = PMA_Util::backquoteCompat(
+                                            $matches[1], $compat, $sql_backquotes
+                                        );
+                                        $refColumn = PMA_Util::backquoteCompat(
+                                            $matches[2], $compat, $sql_backquotes
+                                        );
+                                        return 'REFERENCES ' . $refTable . ' (' . $refColumn . ')';
+                                    },
+                                    $tmp_str
                                 );
-                                if ($matched) {
-                                    $refTable = PMA_Util::backquoteCompat(
-                                        $matches[1], $compat, $sql_backquotes
-                                    );
-                                    $refColumn = PMA_Util::backquoteCompat(
-                                        $matches[2], $compat, $sql_backquotes
-                                    );
-                                    $tmp_str = preg_replace(
-                                        '/REFERENCES[\s]([\S]*)[\s]\(([\S]*)\)/',
-                                        'REFERENCES ' . $refTable . ' (' . $refColumn . ')',
-                                        $tmp_str
-                                    );
-                                }
                             }
                             if ($posConstraint === false) {
                                 $tmp_str = preg_replace(
