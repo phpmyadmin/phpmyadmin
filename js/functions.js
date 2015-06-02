@@ -3969,6 +3969,7 @@ function PMA_init_slider()
                 }
                 $this[visible ? 'hide' : 'show']('blind', function () {
                     $wrapper.toggle(!visible);
+                    $wrapper.parent().toggleClass("print_ignore", visible);
                     PMA_set_status_label($this);
                 });
                 return false;

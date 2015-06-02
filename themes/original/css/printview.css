@@ -109,7 +109,7 @@
         display: none;
     }
 
-    .sticky_columns {
+    .sticky_columns tr {
         display: none;
     }
 
