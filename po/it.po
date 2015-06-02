@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-31 07:27-0400\n"
-"PO-Revision-Date: 2015-06-02 11:52+0200\n"
+"PO-Revision-Date: 2015-06-02 11:56+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -5958,6 +5958,8 @@ msgstr "Limite di chiavi esterne"
 #: libraries/config/messages.inc.php:216
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Valore di default per il checkbox dei controlli di chiave esterna per alcune "
+"query."
 
 #: libraries/config/messages.inc.php:218
 #| msgid "Foreign key check:"
@@ -10408,6 +10410,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Aggiorna i dati quando vengono trovate chiavi duplicate durante "
+"l'importazione (aggiungi ON DUPLICATE KEY UPDATE)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -15475,6 +15479,9 @@ msgid ""
 "Percona documentation is at <a href=\"http://www.percona.com/software/"
 "documentation/\">http://www.percona.com/software/documentation/</a>"
 msgstr ""
+"La documentazione su Percona si trova qui <a href=\""
+"http://www.percona.com/software/documentation/\""
+">http://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -15485,6 +15492,9 @@ msgid ""
 "Drizzle documentation is at <a href=\"http://www.drizzle.org/content/"
 "documentation/\">http://www.drizzle.org/content/documentation/</a>"
 msgstr ""
+"La documentazione su Drizzle si trova qui <a href=\""
+"http://www.drizzle.org/content/documentation/\""
+">http://www.drizzle.org/content/documentation/</a>"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
