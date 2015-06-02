@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - bug #4905 Sorting by an alias
 - bug #4931 False error before entering reCAPTCHA
 - bug #4909 central column with multiple server
+- bug #4937 Custom export with backquotes off is not working
 
 4.4.8.0 (2015-05-28)
 - bug       Allow accessing visual query builder when pmadb is not configured

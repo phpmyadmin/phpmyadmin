@@ -1443,11 +1443,33 @@ class ExportSql extends ExportPlugin
                                 $sql_lines[$j],
                                 'CONSTRAINT'
                             );
+                            $tmp_str = $sql_lines[$j];
+                            if (! $sql_backquotes) {
+                                $matches = array();
+                                $matched = preg_match(
+                                    '/REFERENCES[\s]([\S]*)[\s]\(([\S]*)\)/',
+                                    $tmp_str,
+                                    $matches
+                                );
+                                if ($matched) {
+                                    $refTable = PMA_Util::backquoteCompat(
+                                        $matches[1], $compat, $sql_backquotes
+                                    );
+                                    $refColumn = PMA_Util::backquoteCompat(
+                                        $matches[2], $compat, $sql_backquotes
+                                    );
+                                    $tmp_str = preg_replace(
+                                        '/REFERENCES[\s]([\S]*)[\s]\(([\S]*)\)/',
+                                        'REFERENCES ' . $refTable . ' (' . $refColumn . ')',
+                                        $tmp_str
+                                    );
+                                }
+                            }
                             if ($posConstraint === false) {
                                 $tmp_str = preg_replace(
                                     '/(FOREIGN[\s]+KEY)/',
                                     '  ADD \1',
-                                    $sql_lines[$j]
+                                    $tmp_str
                                 );
 
                                 $sql_constraints_query .= $tmp_str;
@@ -1457,7 +1479,7 @@ class ExportSql extends ExportPlugin
                                 $tmp_str = preg_replace(
                                     '/(CONSTRAINT)/',
                                     '  ADD \1',
-                                    $sql_lines[$j]
+                                    $tmp_str
                                 );
 
                                 $sql_constraints_query .= $tmp_str;
