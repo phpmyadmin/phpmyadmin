@@ -660,7 +660,7 @@ class PMA_Header
                 . 'nocache=' . $theme_id . $GLOBALS['text_dir'] . '" />';
             // load Print view's CSS last, so that it overrides all other CSS while 'printing'
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . '/css/printview.css" />';
+                . $theme_path . '/css/printview.css" />';
         }
 
         return $retval;
