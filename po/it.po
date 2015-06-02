@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-31 07:27-0400\n"
-"PO-Revision-Date: 2015-06-01 09:53+0200\n"
+"PO-Revision-Date: 2015-06-02 11:56+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -1063,14 +1063,19 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Questa operazione cercherà di convertire i tuoi dati nella nuova collazione. "
+"In casi rari, specialmente quando un carattere non esiste nella nuova "
+"collazione, questo processo potrebbe causare una rappresentazione non "
+"corretta del carattere; in questo caso suggeriamo di tornare alla vecchia "
+"collazione e di far riferimento alla pagina dei suggeimenti "
 
 #: js/messages.php:73
 msgid "Garbled Data"
-msgstr ""
+msgstr "Dati Confusi"
 
 #: js/messages.php:75
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "Sei sicuro di voler cambiare la collazione e convertire i dati?"
 
 #: js/messages.php:78
 msgid "Save & Close"
@@ -4668,7 +4673,7 @@ msgstr "Non Spiegare SQL"
 #: libraries/Util.class.php:1184
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Spiegazione Analisi a %s"
 
 #: libraries/Util.class.php:1215
 msgid "Without PHP Code"
@@ -5953,6 +5958,8 @@ msgstr "Limite di chiavi esterne"
 #: libraries/config/messages.inc.php:216
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Valore di default per il checkbox dei controlli di chiave esterna per alcune "
+"query."
 
 #: libraries/config/messages.inc.php:218
 #| msgid "Foreign key check:"
@@ -6315,11 +6322,13 @@ msgstr "Non interrompere su errore durante un operazione di INSERT"
 
 #: libraries/config/messages.inc.php:346 libraries/config/messages.inc.php:358
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Aggiungi ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:347 libraries/config/messages.inc.php:359
 msgid "Update data when duplicate keys found on import"
 msgstr ""
+"Aggiorna i dati quando vengono trovate chiavi duplicate durante "
+"l'importazione"
 
 #: libraries/config/messages.inc.php:350
 msgid ""
@@ -9016,7 +9025,7 @@ msgstr "Rumeno"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Sinhalese"
-msgstr ""
+msgstr "Cingalese"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovak"
@@ -9767,7 +9776,7 @@ msgstr "Ripara"
 
 #: libraries/operations.lib.php:1480
 msgid "Truncate"
-msgstr ""
+msgstr "Tronca"
 
 #: libraries/operations.lib.php:1490
 msgid "Coalesce"
@@ -10401,6 +10410,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Aggiorna i dati quando vengono trovate chiavi duplicate durante "
+"l'importazione (aggiungi ON DUPLICATE KEY UPDATE)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -15468,6 +15479,9 @@ msgid ""
 "Percona documentation is at <a href=\"http://www.percona.com/software/"
 "documentation/\">http://www.percona.com/software/documentation/</a>"
 msgstr ""
+"La documentazione su Percona si trova qui <a href=\""
+"http://www.percona.com/software/documentation/\""
+">http://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -15478,6 +15492,9 @@ msgid ""
 "Drizzle documentation is at <a href=\"http://www.drizzle.org/content/"
 "documentation/\">http://www.drizzle.org/content/documentation/</a>"
 msgstr ""
+"La documentazione su Drizzle si trova qui <a href=\""
+"http://www.drizzle.org/content/documentation/\""
+">http://www.drizzle.org/content/documentation/</a>"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
