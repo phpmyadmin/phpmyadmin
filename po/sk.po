@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-30 21:58+0200\n"
-"Last-Translator: Patrik Kollmann <parkourpotex@gmail.com>\n"
+"PO-Revision-Date: 2015-06-02 21:45+0200\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/sk/>\n"
 "Language: sk\n"
@@ -2866,7 +2866,7 @@ msgstr "zdieľaný"
 #: libraries/Console.class.php:116
 #, php-format
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr ""
+msgstr "Zahrnuté záložky %1$s, %2$s a %3$s"
 
 #: libraries/Console.class.php:122
 msgid "No bookmarks"
@@ -6378,7 +6378,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Minimálny počet databáz pre zobrazenie filtra databáz"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6386,8 +6385,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Zoskupovať položky v navigačnom paneli (určené oddeľovačom nastaveným "
-"nižšie)."
+"Zoskupovať položky v navigačnom paneli (určené oddeľovačom nastaveným v "
+"záložke Databázy a tabuľky vyššie)."
 
 #: libraries/config/messages.inc.php:458
 msgid "Group items in the tree"
