@@ -49,6 +49,164 @@ class PMA_ServerStatusData
     }
 
     /**
+     * Gets the allocations for constructor
+     *
+     * @return array
+     */
+    private function _getAllocations()
+    {
+        return array(
+            // variable name => section
+            // variable names match when they begin with the given string
+
+            'Com_'              => 'com',
+            'Innodb_'           => 'innodb',
+            'Ndb_'              => 'ndb',
+            'Handler_'          => 'handler',
+            'Qcache_'           => 'qcache',
+            'Threads_'          => 'threads',
+            'Slow_launch_threads' => 'threads',
+
+            'Binlog_cache_'     => 'binlog_cache',
+            'Created_tmp_'      => 'created_tmp',
+            'Key_'              => 'key',
+
+            'Delayed_'          => 'delayed',
+            'Not_flushed_delayed_rows' => 'delayed',
+
+            'Flush_commands'    => 'query',
+            'Last_query_cost'   => 'query',
+            'Slow_queries'      => 'query',
+            'Queries'           => 'query',
+            'Prepared_stmt_count' => 'query',
+
+            'Select_'           => 'select',
+            'Sort_'             => 'sort',
+
+            'Open_tables'       => 'table',
+            'Opened_tables'     => 'table',
+            'Open_table_definitions' => 'table',
+            'Opened_table_definitions' => 'table',
+            'Table_locks_'      => 'table',
+
+            'Rpl_status'        => 'repl',
+            'Slave_'            => 'repl',
+
+            'Tc_'               => 'tc',
+
+            'Ssl_'              => 'ssl',
+
+            'Open_files'        => 'files',
+            'Open_streams'      => 'files',
+            'Opened_files'      => 'files',
+        );
+    }
+
+    /**
+     * Gets the sections for constructor
+     *
+     * @return array
+     */
+    private function _getSections()
+    {
+        return array(
+            // section => section name (description)
+            'com'           => 'Com',
+            'query'         => __('SQL query'),
+            'innodb'        => 'InnoDB',
+            'ndb'           => 'NDB',
+            'handler'       => __('Handler'),
+            'qcache'        => __('Query cache'),
+            'threads'       => __('Threads'),
+            'binlog_cache'  => __('Binary log'),
+            'created_tmp'   => __('Temporary data'),
+            'delayed'       => __('Delayed inserts'),
+            'key'           => __('Key cache'),
+            'select'        => __('Joins'),
+            'repl'          => __('Replication'),
+            'sort'          => __('Sorting'),
+            'table'         => __('Tables'),
+            'tc'            => __('Transaction coordinator'),
+            'files'         => __('Files'),
+            'ssl'           => 'SSL',
+            'other'         => __('Other')
+        );
+    }
+
+    /**
+     * Gets the links for constructor
+     *
+     * @return array
+     */
+    private function _getLinks()
+    {
+        $links = array();
+        // variable or section name => (name => url)
+
+        $links['table'][__('Flush (close) all tables')] = $this->selfUrl
+            . PMA_URL_getCommon(
+                array(
+                    'flush' => 'TABLES'
+                )
+            );
+        $links['table'][__('Show open tables')]
+            = 'sql.php' . PMA_URL_getCommon(
+                array(
+                    'sql_query' => 'SHOW OPEN TABLES',
+                    'goto' => $this->selfUrl,
+                )
+            );
+
+        if ($GLOBALS['replication_info']['master']['status']) {
+            $links['repl'][__('Show slave hosts')]
+                = 'sql.php' . PMA_URL_getCommon(
+                    array(
+                        'sql_query' => 'SHOW SLAVE HOSTS',
+                        'goto' => $this->selfUrl,
+                    )
+                );
+            $links['repl'][__('Show master status')] = '#replication_master';
+        }
+        if ($GLOBALS['replication_info']['slave']['status']) {
+            $links['repl'][__('Show slave status')] = '#replication_slave';
+        }
+
+        $links['repl']['doc'] = 'replication';
+
+        $links['qcache'][__('Flush query cache')]
+            = $this->selfUrl
+            . PMA_URL_getCommon(
+                array(
+                    'flush' => 'QUERY CACHE'
+                )
+            );
+        $links['qcache']['doc'] = 'query_cache';
+
+        $links['threads']['doc'] = 'mysql_threads';
+
+        $links['key']['doc'] = 'myisam_key_cache';
+
+        $links['binlog_cache']['doc'] = 'binary_log';
+
+        $links['Slow_queries']['doc'] = 'slow_query_log';
+
+        $links['innodb'][__('Variables')]
+            = 'server_engines.php?engine=InnoDB&amp;'
+            . PMA_URL_getCommon(array(), 'html', '');
+        $links['innodb'][__('InnoDB Status')]
+            = 'server_engines.php'
+            . PMA_URL_getCommon(
+                array(
+                    'engine' => 'InnoDB',
+                    'page' => 'Status'
+                )
+            );
+        $links['innodb']['doc'] = 'innodb';
+
+        return($links);
+    }
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -136,140 +294,14 @@ class PMA_ServerStatusData
         /**
          * split variables in sections
          */
-        $allocations = array(
-            // variable name => section
-            // variable names match when they begin with the given string
+        $allocations = $this->_getAllocations();
 
-            'Com_'              => 'com',
-            'Innodb_'           => 'innodb',
-            'Ndb_'              => 'ndb',
-            'Handler_'          => 'handler',
-            'Qcache_'           => 'qcache',
-            'Threads_'          => 'threads',
-            'Slow_launch_threads' => 'threads',
-
-            'Binlog_cache_'     => 'binlog_cache',
-            'Created_tmp_'      => 'created_tmp',
-            'Key_'              => 'key',
-
-            'Delayed_'          => 'delayed',
-            'Not_flushed_delayed_rows' => 'delayed',
-
-            'Flush_commands'    => 'query',
-            'Last_query_cost'   => 'query',
-            'Slow_queries'      => 'query',
-            'Queries'           => 'query',
-            'Prepared_stmt_count' => 'query',
-
-            'Select_'           => 'select',
-            'Sort_'             => 'sort',
-
-            'Open_tables'       => 'table',
-            'Opened_tables'     => 'table',
-            'Open_table_definitions' => 'table',
-            'Opened_table_definitions' => 'table',
-            'Table_locks_'      => 'table',
-
-            'Rpl_status'        => 'repl',
-            'Slave_'            => 'repl',
-
-            'Tc_'               => 'tc',
-
-            'Ssl_'              => 'ssl',
-
-            'Open_files'        => 'files',
-            'Open_streams'      => 'files',
-            'Opened_files'      => 'files',
-        );
-
-        $sections = array(
-            // section => section name (description)
-            'com'           => 'Com',
-            'query'         => __('SQL query'),
-            'innodb'        => 'InnoDB',
-            'ndb'           => 'NDB',
-            'handler'       => __('Handler'),
-            'qcache'        => __('Query cache'),
-            'threads'       => __('Threads'),
-            'binlog_cache'  => __('Binary log'),
-            'created_tmp'   => __('Temporary data'),
-            'delayed'       => __('Delayed inserts'),
-            'key'           => __('Key cache'),
-            'select'        => __('Joins'),
-            'repl'          => __('Replication'),
-            'sort'          => __('Sorting'),
-            'table'         => __('Tables'),
-            'tc'            => __('Transaction coordinator'),
-            'files'         => __('Files'),
-            'ssl'           => 'SSL',
-            'other'         => __('Other')
-        );
+        $sections = $this->_getSections();
 
         /**
          * define some needful links/commands
          */
-        // variable or section name => (name => url)
-        $links = array();
-
-        $links['table'][__('Flush (close) all tables')] = $this->selfUrl
-            . PMA_URL_getCommon(
-                array(
-                    'flush' => 'TABLES'
-                )
-            );
-        $links['table'][__('Show open tables')]
-            = 'sql.php' . PMA_URL_getCommon(
-                array(
-                    'sql_query' => 'SHOW OPEN TABLES',
-                    'goto' => $this->selfUrl,
-                )
-            );
-
-        if ($GLOBALS['replication_info']['master']['status']) {
-            $links['repl'][__('Show slave hosts')]
-                = 'sql.php' . PMA_URL_getCommon(
-                    array(
-                        'sql_query' => 'SHOW SLAVE HOSTS',
-                        'goto' => $this->selfUrl,
-                    )
-                );
-            $links['repl'][__('Show master status')] = '#replication_master';
-        }
-        if ($GLOBALS['replication_info']['slave']['status']) {
-            $links['repl'][__('Show slave status')] = '#replication_slave';
-        }
-
-        $links['repl']['doc'] = 'replication';
-
-        $links['qcache'][__('Flush query cache')]
-            = $this->selfUrl
-            . PMA_URL_getCommon(
-                array(
-                    'flush' => 'QUERY CACHE'
-                )
-            );
-        $links['qcache']['doc'] = 'query_cache';
-
-        $links['threads']['doc'] = 'mysql_threads';
-
-        $links['key']['doc'] = 'myisam_key_cache';
-
-        $links['binlog_cache']['doc'] = 'binary_log';
-
-        $links['Slow_queries']['doc'] = 'slow_query_log';
-
-        $links['innodb'][__('Variables')]
-            = 'server_engines.php?engine=InnoDB&amp;'
-            . PMA_URL_getCommon(array(), 'html', '');
-        $links['innodb'][__('InnoDB Status')]
-            = 'server_engines.php'
-            . PMA_URL_getCommon(
-                array(
-                    'engine' => 'InnoDB',
-                    'page' => 'Status'
-                )
-            );
-        $links['innodb']['doc'] = 'innodb';
+        $links = $this->_getLinks();
 
         // Variable to contain all com_ variables (query statistics)
         $used_queries = array();
