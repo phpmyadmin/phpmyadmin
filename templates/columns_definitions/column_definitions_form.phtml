@@ -1,6 +1,6 @@
 <form method="post"
       action="<?php echo $action; ?>"
-      class="<?php echo ($action == 'tbl_create.php' ? 'create_table' : 'append_fields'); ?> _form ajax lock-page">
+      class="<?php echo ($action == 'tbl_create.php' ? 'create_table' : 'append_fields'); ?>_form ajax lock-page">
     <?php echo PMA_URL_getHiddenInputs($form_params); ?>
     <input type="hidden"
            name="primary_indexes"
