@@ -737,6 +737,9 @@ class ExportSql extends ExportPlugin
                 // by default we use the connection charset
                 $set_names = $mysql_charset_map['utf-8'];
             }
+            if ($set_names == 'utf8' && PMA_MYSQL_INT_VERSION > 50503) {
+                $set_names = 'utf8mb4';
+            }
             $head .=  $crlf
                 . '/*!40101 SET @OLD_CHARACTER_SET_CLIENT='
                 . '@@CHARACTER_SET_CLIENT */;' . $crlf
