@@ -101,9 +101,9 @@ if (! isset($_REQUEST['displayVisualization'])) {
     }
 }
 
-$svg_support = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8)
+$svgSupport = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8)
     ? false : true;
-$format = $svg_support ? 'svg' : 'png';
+$format = $svgSupport ? 'svg' : 'png';
 
 // get the chart and settings after chart generation
 $visualization = PMA_GIS_visualizationResults(
@@ -116,7 +116,7 @@ $visualization = PMA_GIS_visualizationResults(
 
 $html = PMA_getHtmlForGisVisualization(
     $url_params, $labelCandidates, $spatialCandidates,
-    $visualizationSettings, $sql_query, $visualization, $svg_support,
+    $visualizationSettings, $sql_query, $visualization, $svgSupport,
     $data
 );
 

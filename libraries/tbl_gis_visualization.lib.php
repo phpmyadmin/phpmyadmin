@@ -136,14 +136,14 @@ function PMA_GIS_saveToFile($data, $visualizationSettings, $format, $fileName)
  * @param array   $visualizationSettings visualization settings
  * @param String  $sql_query             the sql query
  * @param String  $visualization         HTML and js code for the visualization
- * @param boolean $svg_support           whether svg download format is supported
+ * @param boolean $svgSupport            whether svg download format is supported
  * @param array   $data                  array of visualizing data
  *
  * @return string HTML code for the GIS visualization
  */
 function PMA_getHtmlForGisVisualization(
     $url_params, $labelCandidates, $spatialCandidates, $visualizationSettings,
-    $sql_query, $visualization, $svg_support, $data
+    $sql_query, $visualization, $svgSupport, $data
 ) {
     $url_params['sql_query'] = $sql_query;
     $downloadUrl = 'tbl_gis_visualization.php' . PMA_URL_getCommon($url_params)
@@ -157,7 +157,7 @@ function PMA_getHtmlForGisVisualization(
         'visualizationSettings' => $visualizationSettings,
         'sql_query' => $sql_query,
         'visualization' => $visualization,
-        'svg_support' => $svg_support,
+        'svgSupport' => $svgSupport,
         'data' => $data
     ));
 }
