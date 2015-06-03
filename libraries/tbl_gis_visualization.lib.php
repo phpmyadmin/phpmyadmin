@@ -146,7 +146,6 @@ function PMA_getHtmlForGisVisualization(
     $sql_query, $visualization, $svg_support, $data
 ) {
     $url_params['sql_query'] = $sql_query;
-    $url_params['saveToFile'] = 'download';
     $url = 'tbl_gis_visualization.php' . PMA_URL_getCommon($url_params);
 
     return PMA\Template::get('gis_visualization/gis_visualization')->render(array(
