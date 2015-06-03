@@ -418,7 +418,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     $('body').on('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]', function (e) {
         e.preventDefault();
         var $button = $(this);
-        var $form = $button.parent('form');
+        var $form = $button.parents('form');
         var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
         AJAX.source = $form;
