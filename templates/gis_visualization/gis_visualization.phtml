@@ -49,14 +49,14 @@
                     </span>
                     <ul>
                         <li class="warp_link">
-                            <a href="<?php echo $url . '&fileFormat=png'; ?>" class="disableAjax">PNG</a>
+                            <a href="<?php echo $url . '&saveToFile=download&fileFormat=png'; ?>" class="disableAjax">PNG</a>
                         </li>
                         <li class="warp_link">
-                            <a href="<?php echo $url . '&fileFormat=pdf'; ?>" class="disableAjax">PDF</a>
+                            <a href="<?php echo $url . '&saveToFile=download&fileFormat=pdf'; ?>" class="disableAjax">PDF</a>
                         </li>
                         <?php if ($svg_support): ?>
                             <li class="warp_link">
-                                <a href="<?php echo $url . '&fileFormat=svg'; ?>" class="disableAjax">SVG</a>
+                                <a href="<?php echo $url . '&saveToFile=download&fileFormat=svg'; ?>" class="disableAjax">SVG</a>
                             </li>
                         <?php endif; ?>
                     </ul>
