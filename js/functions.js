@@ -80,6 +80,11 @@ var indexes = [];
 var fulltext_indexes = [];
 
 /**
+ * @var spatial_indexes array to hold 'Spatial' columns.
+ */
+var spatial_indexes = [];
+
+/**
  * Make sure that ajax requests will not be cached
  * by appending a random variable to their parameters
  */

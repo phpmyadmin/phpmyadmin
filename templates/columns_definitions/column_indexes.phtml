@@ -23,5 +23,10 @@
             <?php echo ((isset($columnMeta['Key']) && $columnMeta['Key'] == 'FULLTEXT') ? 'selected="selected"' : '');?>>
             FULLTEXT
         </option>
+        <option value="spatial_<?php echo $columnNumber; ?>"
+                title="<?php echo __("Spatial"); ?>"
+            <?php echo ((isset($columnMeta['Key']) && $columnMeta['Key'] == 'SPATIAL') ? 'selected="selected"' : '');?>>
+            SPATIAL
+        </option>
     <?php endif; ?>
 </select>

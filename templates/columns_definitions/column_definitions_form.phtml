@@ -24,12 +24,14 @@
     <input type="hidden"
            name="fulltext_indexes"
            value="<?php if (! empty($_REQUEST['fulltext_indexes'])) {
-                      // happens when an index has been set on a column,
-                      // and a column is added to the table creation dialog
-                      //
-                      // this contains a JSON-encoded string
                       echo htmlspecialchars($_REQUEST['fulltext_indexes']);
                     } else echo '[]'; ?>">
+    <input type="hidden"
+           name="spatial_indexes"
+           value="<?php if (! empty($_REQUEST['spatial_indexes'])) {
+                      echo htmlspecialchars($_REQUEST['spatial_indexes']);
+                    } else echo '[]'; ?>">
+
     <?php if ($action == 'tbl_create.php'): ?>
         <div id="table_name_col_no_outer">'
         <table id="table_name_col_no">

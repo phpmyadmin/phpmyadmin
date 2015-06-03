@@ -92,6 +92,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     unique_indexes = [];
     indexes = [];
     fulltext_indexes = [];
+    spatial_indexes = [];
 
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form

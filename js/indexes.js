@@ -512,6 +512,9 @@ function PMA_getIndexArray(index_choice)
     case 'fulltext':
         source_array = fulltext_indexes;
         break;
+    case 'spatial':
+        source_array = spatial_indexes;
+        break;
     default:
         return null;
     }
@@ -548,6 +551,7 @@ AJAX.registerOnload('indexes.js', function () {
     unique_indexes = [];
     indexes = [];
     fulltext_indexes = [];
+    spatial_indexes = [];
 
     // for table creation form
     var $engine_selector = $('.create_table_form select[name=tbl_storage_engine]');

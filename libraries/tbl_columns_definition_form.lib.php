@@ -232,6 +232,9 @@ function PMA_getRowDataForRegeneration($columnNumber, $submit_fulltext)
             case 'fulltext':
                 $columnMeta['Key'] = 'FULLTEXT';
                 break;
+            case 'spatial':
+                $columnMeta['Key'] = 'SPATIAL';
+                break;
             }
         }
     }

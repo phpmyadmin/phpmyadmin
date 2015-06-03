@@ -22,10 +22,11 @@ function PMA_getIndexedColumns()
     $field_index    = json_decode($_REQUEST['indexes'], true);
     $field_unique   = json_decode($_REQUEST['unique_indexes'], true);
     $field_fulltext = json_decode($_REQUEST['fulltext_indexes'], true);
+    $field_spatial = json_decode($_REQUEST['spatial_indexes'], true);
 
     return array(
         $field_cnt, $field_primary, $field_index, $field_unique,
-        $field_fulltext
+        $field_fulltext, $field_spatial
     );
 }
 
@@ -238,7 +239,7 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
 {
     $sql_statement = "";
     list($field_cnt, $field_primary, $field_index,
-            $field_unique, $field_fulltext
+            $field_unique, $field_fulltext, $field_spatial
             ) = PMA_getIndexedColumns();
     $definitions = PMA_buildColumnCreationStatement(
         $field_cnt, $is_create_tbl
@@ -265,6 +266,11 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
     // Builds the FULLTEXT statements
     $definitions = PMA_mergeIndexStatements(
         $definitions, $is_create_tbl, $field_fulltext, "FULLTEXT"
+    );
+
+    // Builds the SPATIAL statements
+    $definitions = PMA_mergeIndexStatements(
+        $definitions, $is_create_tbl, $field_spatial, "SPATIAL"
     );
 
     if (count($definitions)) {
