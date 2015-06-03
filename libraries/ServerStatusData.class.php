@@ -209,8 +209,8 @@ class PMA_ServerStatusData
     /**
      * Calculate some values
      *
-     * @param array $server_status
-     * @param array $server_variables
+     * @param array $server_status    contains results of SHOW GLOBAL STATUS
+     * @param array $server_variables contains results of SHOW GLOBAL VARIABLES
      *
      * @return array $server_status
      */
