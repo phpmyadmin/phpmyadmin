@@ -7,10 +7,10 @@
                 <label for="labelColumn">
                     <?php echo __("Label column"); ?>
                 </label>
-                <select name="<?php echo $visualizationSettings['labelColumn']; ?>" id="labelColumn" class="autosubmit">
+                <select name="visualizationSettings[labelColumn]" id="labelColumn" class="autosubmit">
                     <option value=""><?php echo __("-- None --"); ?></option>
                     <?php foreach ($labelCandidates as $value): ?>
-                        <option value="<?php echo $value; ?>" <?php echo ((in_array($value, array($visualizationSettings['labelColumn']), true) ? 'selected="selected' : '')); ?>>
+                        <option value="<?php echo $value; ?>" <?php echo ($value == $visualizationSettings['labelColumn'] ? 'selected="selected"' : ''); ?>>
                             <?php echo $value; ?>
                         </option>
                     <?php endforeach; ?>
@@ -18,9 +18,9 @@
                 <label for="spatialColumn">
                     <?php echo __("Spatial column"); ?>
                 </label>
-                <select name="<?php echo $visualizationSettings['spatialColumn']; ?>" id="spatialColumn" class="autosubmit">
+                <select name="visualizationSettings[spatialColumn]" id="spatialColumn" class="autosubmit">
                     <?php foreach ($spatialCandidates as $value): ?>
-                        <option value="<?php echo $value; ?>" <?php echo ((in_array($value, array($visualizationSettings['spatialColumn']), true) ? 'selected="selected' : '')); ?>>
+                        <option value="<?php echo $value; ?>" <?php echo ($value == $visualizationSettings['spatialColumn'] ? 'selected="selected"' : ''); ?>>
                             <?php echo $value; ?>
                         </option>
                     <?php endforeach; ?>
@@ -30,7 +30,7 @@
                     <tr>
                         <td class="choice" colspan="2">
                             <input type="checkbox"
-                                   name="<?php echo $visualizationSettings['choice']; ?>"
+                                   name="visualizationSettings[choice]"
                                    id="choice" value="useBaseLayer"
                                    <?php if (isset($visualizationSettings['choice'])) echo 'checked="checked"' ?>/>
                             <label for="choice">
