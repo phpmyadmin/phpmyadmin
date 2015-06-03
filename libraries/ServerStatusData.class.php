@@ -207,38 +207,15 @@ class PMA_ServerStatusData
     }
 
     /**
-     * Constructor
+     * Calculate some values
+     *
+     * @param array $server_status    contains results of SHOW GLOBAL STATUS
+     * @param array $server_variables contains results of SHOW GLOBAL VARIABLES
+     *
+     * @return array $server_status
      */
-    public function __construct()
+    private function _calculateValues($server_status, $server_variables)
     {
-        $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
-        /**
-         * get status from server
-         */
-        $server_status = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL STATUS', 0, 1);
-        if (PMA_DRIZZLE) {
-            // Drizzle doesn't put query statistics into variables, add it
-            $sql = "SELECT concat('Com_', variable_name), variable_value "
-                . "FROM data_dictionary.GLOBAL_STATEMENTS";
-            $statements = $GLOBALS['dbi']->fetchResult($sql, 0, 1);
-            $server_status = array_merge($server_status, $statements);
-        }
-
-        /**
-         * for some calculations we require also some server settings
-         */
-        $server_variables = $GLOBALS['dbi']->fetchResult(
-            'SHOW GLOBAL VARIABLES', 0, 1
-        );
-
-        /**
-         * cleanup of some deprecated values
-         */
-        $server_status = self::cleanDeprecated($server_status);
-
-        /**
-         * calculate some values
-         */
         // Key_buffer_fraction
         if (isset($server_status['Key_blocks_unused'])
             && isset($server_variables['key_cache_block_size'])
@@ -290,6 +267,45 @@ class PMA_ServerStatusData
                 = 100 - $server_status['Threads_created']
                 / $server_status['Connections'] * 100;
         }
+        return $server_status;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
+        /**
+         * get status from server
+         */
+        $server_status = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL STATUS', 0, 1);
+        if (PMA_DRIZZLE) {
+            // Drizzle doesn't put query statistics into variables, add it
+            $sql = "SELECT concat('Com_', variable_name), variable_value "
+                . "FROM data_dictionary.GLOBAL_STATEMENTS";
+            $statements = $GLOBALS['dbi']->fetchResult($sql, 0, 1);
+            $server_status = array_merge($server_status, $statements);
+        }
+
+        /**
+         * for some calculations we require also some server settings
+         */
+        $server_variables = $GLOBALS['dbi']->fetchResult(
+            'SHOW GLOBAL VARIABLES', 0, 1
+        );
+
+        /**
+         * cleanup of some deprecated values
+         */
+        $server_status = self::cleanDeprecated($server_status);
+
+        /**
+         * calculate some values
+         */
+        $server_status = $this->_calculateValues(
+            $server_status, $server_variables
+        );
 
         /**
          * split variables in sections

@@ -102,7 +102,7 @@ function Swekey_Auth_error()
         var valids = "<?php
         foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value) {
                 echo $key . ',';
-    }
+        }
         ?>";
         var connected_keys = Swekey_ListKeyIds().split(",");
         for (i in connected_keys) {
@@ -139,15 +139,15 @@ function Swekey_Auth_error()
         <?php
 
         if (! empty($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY'])) {
-        return null;
-    }
+            return null;
+        }
 
-    if (count($_SESSION['SWEKEY']['VALID_SWEKEYS']) == 0) {
-        return sprintf(
-            __('File %s does not contain any key id'),
-            $GLOBALS['cfg']['Server']['auth_swekey_config']
-        );
-    }
+        if (count($_SESSION['SWEKEY']['VALID_SWEKEYS']) == 0) {
+            return sprintf(
+                __('File %s does not contain any key id'),
+                $GLOBALS['cfg']['Server']['auth_swekey_config']
+            );
+        }
 
     include_once "libraries/plugins/auth/swekey/swekey.php";
 
