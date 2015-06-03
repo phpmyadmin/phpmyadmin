@@ -10,7 +10,7 @@
                              && ($mime_map[$columnMeta['Field']]['mimetype'] == str_replace('/', '_', $mimetype))
                                     ? 'selected ' : '');?>
             <option value="<?php echo str_replace('/', '_', $mimetype)?>" <?php echo $checked; ?>>
-                <?php echo htmlspecialchars($mimetype); ?>
+                <?php echo htmlspecialchars(strtolower($mimetype)); ?>
             </option>
         <?php endforeach; ?>
     <?php endif; ?>

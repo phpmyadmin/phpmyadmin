@@ -12,9 +12,10 @@
                 $tooltip = PMA_getTransformationDescription(
                     $available_mime[$type . '_file'][$mimekey], false
                 );
+                $parts = explode(":", $transform);
                 $name = PMA_getTransformationName(
                     $available_mime[$type . '_file'][$mimekey]
-                ) . ' (' . $transform . ')';
+                ) . ' (' . strtolower($parts[0]) . ":" . $parts[1] . ')';
             ?>
             <option value="<?php echo $available_mime[$type . '_file'][$mimekey]; ?>"
                     <?php echo $checked; ?>
