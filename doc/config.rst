@@ -1190,7 +1190,8 @@ Generic settings
     :type: boolean
     :default: false
 
-    Whether to force using https while accessing phpMyAdmin.
+    Whether to force using https while accessing phpMyAdmin. In a reverse
+    proxy setup, setting this to ``true`` is not supported.
 
     .. note::
 
