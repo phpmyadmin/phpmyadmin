@@ -23,12 +23,14 @@ require_once 'libraries/Template.class.php';
 function PMA_generateDropdown(
     $dropdown_question, $select_name, $choices, $selected_value
 ) {
-    return PMA\Template::get('tbl_relation/dropdown_generate')->render(array(
-        'dropdown_question' => $dropdown_question,
-        'select_name' => $select_name,
-        'choices' => $choices,
-        'selected_value' => $selected_value
-    ));
+    return PMA\Template::get('tbl_relation/dropdown_generate')->render(
+        array(
+            'dropdown_question' => $dropdown_question,
+            'select_name' => $select_name,
+            'choices' => $choices,
+            'selected_value' => $selected_value
+        )
+    );
 }
 
 /**
@@ -137,12 +139,14 @@ function PMA_getSQLToCreateForeignKey($table, $field, $foreignDb, $foreignTable,
 function PMA_generateRelationalDropdown(
     $name, $values = array(), $foreign = false, $title = ''
 ) {
-    return PMA\Template::get('tbl_relation/relational_dropdown')->render(array(
-        'name' => $name,
-        'title' => $title,
-        'values' => $values,
-        'foreign' => $foreign
-    ));
+    return PMA\Template::get('tbl_relation/relational_dropdown')->render(
+        array(
+            'name' => $name,
+            'title' => $title,
+            'values' => $values,
+            'foreign' => $foreign
+        )
+    );
 }
 
 /**
@@ -162,16 +166,18 @@ function PMA_generateRelationalDropdown(
 function PMA_getHtmlForCommonForm($db, $table, $columns, $cfgRelation,
     $tbl_storage_engine, $existrel, $existrel_foreign, $options_array
 ) {
-    return PMA\Template::get('tbl_relation/common_form')->render(array(
-        'db' => $db,
-        'table' => $table,
-        'columns' => $columns,
-        'cfgRelation' => $cfgRelation,
-        'tbl_storage_engine' => $tbl_storage_engine,
-        'existrel' => $existrel,
-        'existrel_foreign' => $existrel_foreign,
-        'options_array' => $options_array
-    ));
+    return PMA\Template::get('tbl_relation/common_form')->render(
+        array(
+            'db' => $db,
+            'table' => $table,
+            'columns' => $columns,
+            'cfgRelation' => $cfgRelation,
+            'tbl_storage_engine' => $tbl_storage_engine,
+            'existrel' => $existrel,
+            'existrel_foreign' => $existrel_foreign,
+            'options_array' => $options_array
+        )
+    );
 }
 
 /**
@@ -230,16 +236,18 @@ function PMA_getHtmlForInternalRelationRow($save_row, $i, $odd_row,
         $columns = $table_obj->getUniqueColumns(false, false);
     }
 
-    return PMA\Template::get('tbl_relation/internal_relational_row')->render(array(
-        'myfield_md5' => $myfield_md5,
-        'myfield_html' => $myfield_html,
-        'odd_row' => $odd_row,
-        'foreign_db' => $foreign_db,
-        'foreign_table' => $foreign_table,
-        'tables' => $tables,
-        'foreign_column' => $foreign_column,
-        'columns' => $columns
-    ));
+    return PMA\Template::get('tbl_relation/internal_relational_row')->render(
+        array(
+            'myfield_md5' => $myfield_md5,
+            'myfield_html' => $myfield_html,
+            'odd_row' => $odd_row,
+            'foreign_db' => $foreign_db,
+            'foreign_table' => $foreign_table,
+            'tables' => $tables,
+            'foreign_column' => $foreign_column,
+            'columns' => $columns
+        )
+    );
 }
 
 /**
@@ -341,20 +349,22 @@ function PMA_getHtmlForForeignKeyRow($one_key, $odd_row, $columns, $i,
         }
     }
 
-    return PMA\Template::get('tbl_relation/foreign_key_row')->render(array(
-        'odd_row' => $odd_row,
-        'js_msg' => $js_msg,
-        'one_key' => $one_key,
-        'this_params' => $this_params,
-        'on_delete' => $on_delete,
-        'on_update' => $on_update,
-        'column_array' => $column_array,
-        'foreign_db' => $foreign_db,
-        'foreign_table' => $foreign_table,
-        'tables' => $tables,
-        'i' => $i,
-        'options_array' => $options_array
-    ));
+    return PMA\Template::get('tbl_relation/foreign_key_row')->render(
+        array(
+            'odd_row' => $odd_row,
+            'js_msg' => $js_msg,
+            'one_key' => $one_key,
+            'this_params' => $this_params,
+            'on_delete' => $on_delete,
+            'on_update' => $on_update,
+            'column_array' => $column_array,
+            'foreign_db' => $foreign_db,
+            'foreign_table' => $foreign_table,
+            'tables' => $tables,
+            'i' => $i,
+            'options_array' => $options_array
+        )
+    );
 }
 
 /**

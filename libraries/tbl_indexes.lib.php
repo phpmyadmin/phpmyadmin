@@ -265,11 +265,13 @@ function PMA_getFormParameters($db, $table)
  */
 function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
 {
-    return PMA\Template::get('index_form')->render(array(
-        'fields' => $fields,
-        'index' => $index,
-        'form_params' => $form_params,
-        'add_fields' => $add_fields
-    ));
+    return PMA\Template::get('index_form')->render(
+        array(
+            'fields' => $fields,
+            'index' => $index,
+            'form_params' => $form_params,
+            'add_fields' => $add_fields
+        )
+    );
 }
 ?>

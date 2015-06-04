@@ -149,16 +149,18 @@ function PMA_getHtmlForGisVisualization(
     $downloadUrl = 'tbl_gis_visualization.php' . PMA_URL_getCommon($url_params)
         . '&saveToFile=true';
 
-    return PMA\Template::get('gis_visualization/gis_visualization')->render(array(
-        'url_params' => $url_params,
-        'downloadUrl' => $downloadUrl,
-        'labelCandidates' => $labelCandidates,
-        'spatialCandidates' => $spatialCandidates,
-        'visualizationSettings' => $visualizationSettings,
-        'sql_query' => $sql_query,
-        'visualization' => $visualization,
-        'svgSupport' => $svgSupport,
-        'data' => $data
-    ));
+    return PMA\Template::get('gis_visualization/gis_visualization')->render(
+        array(
+            'url_params' => $url_params,
+            'downloadUrl' => $downloadUrl,
+            'labelCandidates' => $labelCandidates,
+            'spatialCandidates' => $spatialCandidates,
+            'visualizationSettings' => $visualizationSettings,
+            'sql_query' => $sql_query,
+            'visualization' => $visualization,
+            'svgSupport' => $svgSupport,
+            'data' => $data
+        )
+    );
 }
 ?>
