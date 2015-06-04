@@ -73,12 +73,14 @@ function PMA_getFormsParameters(
 function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cells,
     $header_cells
 ) {
-    return PMA\Template::get('columns_definitions/column_definitions_form')->render(array(
-        'action' => $action,
-        'form_params' => $form_params,
-        'content_cells' => $content_cells,
-        'header_cells' => $header_cells
-    ));
+    return PMA\Template::get('columns_definitions/column_definitions_form')->render(
+        array(
+            'action' => $action,
+            'form_params' => $form_params,
+            'content_cells' => $content_cells,
+            'header_cells' => $header_cells
+        )
+    );
 }
 
 /**
@@ -464,12 +466,14 @@ function PMA_getHtmlForColumnType($columnNumber, $ci, $ci_offset,
 ) {
     $select_id = 'field_' . $columnNumber . '_' . ($ci - $ci_offset);
 
-    return PMA\Template::get('columns_definitions/column_type')->render(array(
-        'columnNumber' => $columnNumber,
-        'columnMeta' => $columnMeta,
-        'type_upper' => $type_upper,
-        'select_id' => $select_id
-    ));
+    return PMA\Template::get('columns_definitions/column_type')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'columnMeta' => $columnMeta,
+            'type_upper' => $type_upper,
+            'select_id' => $select_id
+        )
+    );
 }
 
 /**
@@ -497,13 +501,15 @@ function PMA_getHtmlForTransformationOption($columnNumber, $ci, $ci_offset,
                 )
                 : '';
 
-    return PMA\Template::get('columns_definitions/transformation_option')->render(array(
-        'columnNumber' => $columnNumber,
-        'ci' => $ci,
-        'ci_offset' => $ci_offset,
-        'options_key' => $options_key,
-        'val' => $val
-    ));
+    return PMA\Template::get('columns_definitions/transformation_option')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'ci' => $ci,
+            'ci_offset' => $ci_offset,
+            'options_key' => $options_key,
+            'val' => $val
+        )
+    );
 }
 
 /**
@@ -521,14 +527,16 @@ function PMA_getHtmlForTransformationOption($columnNumber, $ci, $ci_offset,
 function PMA_getHtmlForMimeType($columnNumber, $ci, $ci_offset,
     $available_mime, $columnMeta, $mime_map
 ) {
-    return PMA\Template::get('columns_definitions/mime_type')->render(array(
-        'columnNumber' => $columnNumber,
-        'ci' => $ci,
-        'ci_offset' => $ci_offset,
-        'available_mime' => $available_mime,
-        'columnMeta' => $columnMeta,
-        'mime_map' => $mime_map
-    ));
+    return PMA\Template::get('columns_definitions/mime_type')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'ci' => $ci,
+            'ci_offset' => $ci_offset,
+            'available_mime' => $available_mime,
+            'columnMeta' => $columnMeta,
+            'mime_map' => $mime_map
+        )
+    );
 }
 
 /**
@@ -550,15 +558,17 @@ function PMA_getHtmlForTransformation($columnNumber, $ci, $ci_offset,
 ) {
     $type = $type_prefix . 'transformation';
 
-    return PMA\Template::get('columns_definitions/transformation')->render(array(
-        'columnNumber' => $columnNumber,
-        'ci' => $ci,
-        'ci_offset' => $ci_offset,
-        'available_mime' => $available_mime,
-        'columnMeta' => $columnMeta,
-        'mime_map' => $mime_map,
-        'type' => $type
-    ));
+    return PMA\Template::get('columns_definitions/transformation')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'ci' => $ci,
+            'ci_offset' => $ci_offset,
+            'available_mime' => $available_mime,
+            'columnMeta' => $columnMeta,
+            'mime_map' => $mime_map,
+            'type' => $type
+        )
+    );
 }
 
 /**
@@ -583,14 +593,16 @@ function PMA_getHtmlForMoveColumn($columnNumber, $ci, $ci_offset, $move_columns,
         }
     }
 
-    return PMA\Template::get('columns_definitions/move_column')->render(array(
-        'columnNumber' => $columnNumber,
-        'ci' => $ci,
-        'ci_offset' => $ci_offset,
-        'columnMeta' => $columnMeta,
-        'move_columns' => $move_columns,
-        'current_index' => $current_index
-    ));
+    return PMA\Template::get('columns_definitions/move_column')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'ci' => $ci,
+            'ci_offset' => $ci_offset,
+            'columnMeta' => $columnMeta,
+            'move_columns' => $move_columns,
+            'current_index' => $current_index
+        )
+    );
 }
 
 /**
@@ -607,13 +619,15 @@ function PMA_getHtmlForMoveColumn($columnNumber, $ci, $ci_offset, $move_columns,
 function PMA_getHtmlForColumnComment($columnNumber, $ci, $ci_offset, $columnMeta,
     $comments_map
 ) {
-    return PMA\Template::get('columns_definitions/column_comment')->render(array(
-        'columnNumber' => $columnNumber,
-        'ci' => $ci,
-        'ci_offset' => $ci_offset,
-        'columnMeta' => $columnMeta,
-        'comments_map' => $comments_map
-    ));
+    return PMA\Template::get('columns_definitions/column_comment')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'ci' => $ci,
+            'ci_offset' => $ci_offset,
+            'columnMeta' => $columnMeta,
+            'comments_map' => $comments_map
+        )
+    );
 }
 
 /**
@@ -629,12 +643,14 @@ function PMA_getHtmlForColumnComment($columnNumber, $ci, $ci_offset, $columnMeta
 function PMA_getHtmlForColumnAutoIncrement($columnNumber, $ci, $ci_offset,
     $columnMeta
 ) {
-    return PMA\Template::get('columns_definitions/column_auto_increment')->render(array(
-        'columnNumber' => $columnNumber,
-        'ci' => $ci,
-        'ci_offset' => $ci_offset,
-        'columnMeta' => $columnMeta
-    ));
+    return PMA\Template::get('columns_definitions/column_auto_increment')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'ci' => $ci,
+            'ci_offset' => $ci_offset,
+            'columnMeta' => $columnMeta
+        )
+    );
 }
 
 /**
@@ -649,12 +665,14 @@ function PMA_getHtmlForColumnAutoIncrement($columnNumber, $ci, $ci_offset,
  */
 function PMA_getHtmlForColumnIndexes($columnNumber, $ci, $ci_offset, $columnMeta)
 {
-    return PMA\Template::get('columns_definitions/column_indexes')->render(array(
-        'columnNumber' => $columnNumber,
-        'ci' => $ci,
-        'ci_offset' => $ci_offset,
-        'columnMeta' => $columnMeta
-    ));
+    return PMA\Template::get('columns_definitions/column_indexes')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'ci' => $ci,
+            'ci_offset' => $ci_offset,
+            'columnMeta' => $columnMeta
+        )
+    );
 }
 
 /**
@@ -668,11 +686,13 @@ function PMA_getHtmlForColumnIndexes($columnNumber, $ci, $ci_offset, $columnMeta
  */
 function PMA_getHtmlForColumnAdjustPrivileges($columnNumber, $ci, $ci_offset)
 {
-    return PMA\Template::get('columns_definitions/column_adjust_privileges')->render(array(
-        'columnNumber' => $columnNumber,
-        'ci' => $ci,
-        'ci_offset' => $ci_offset
-    ));
+    return PMA\Template::get('columns_definitions/column_adjust_privileges')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'ci' => $ci,
+            'ci_offset' => $ci_offset
+        )
+    );
 }
 
 /**
@@ -687,12 +707,14 @@ function PMA_getHtmlForColumnAdjustPrivileges($columnNumber, $ci, $ci_offset)
  */
 function PMA_getHtmlForColumnNull($columnNumber, $ci, $ci_offset, $columnMeta)
 {
-    return PMA\Template::get('columns_definitions/column_null')->render(array(
-        'columnNumber' => $columnNumber,
-        'ci' => $ci,
-        'ci_offset' => $ci_offset,
-        'columnMeta' => $columnMeta
-    ));
+    return PMA\Template::get('columns_definitions/column_null')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'ci' => $ci,
+            'ci_offset' => $ci_offset,
+            'columnMeta' => $columnMeta
+        )
+    );
 }
 
 /**
@@ -707,12 +729,14 @@ function PMA_getHtmlForColumnNull($columnNumber, $ci, $ci_offset, $columnMeta)
  */
 function PMA_getHtmlForColumnExtra($columnNumber, $ci, $ci_offset, $columnMeta)
 {
-    return PMA\Template::get('columns_definitions/column_extra')->render(array(
-        'columnNumber' => $columnNumber,
-        'ci' => $ci,
-        'ci_offset' => $ci_offset,
-        'columnMeta' => $columnMeta
-    ));
+    return PMA\Template::get('columns_definitions/column_extra')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'ci' => $ci,
+            'ci_offset' => $ci_offset,
+            'columnMeta' => $columnMeta
+        )
+    );
 }
 
 /**
@@ -812,13 +836,15 @@ function PMA_getHtmlForColumnCollation($columnNumber, $ci, $ci_offset, $columnMe
 function PMA_getHtmlForColumnLength($columnNumber, $ci, $ci_offset,
     $length_values_input_size, $length_to_display
 ) {
-    return PMA\Template::get('columns_definitions/column_length')->render(array(
-        'columnNumber' => $columnNumber,
-        'ci' => $ci,
-        'ci_offset' => $ci_offset,
-        'length_values_input_size' => $length_values_input_size,
-        'length_to_display' => $length_to_display
-    ));
+    return PMA\Template::get('columns_definitions/column_length')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'ci' => $ci,
+            'ci_offset' => $ci_offset,
+            'length_values_input_size' => $length_values_input_size,
+            'length_to_display' => $length_to_display
+        )
+    );
 }
 
 /**
@@ -864,14 +890,16 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
         ? htmlspecialchars($columnMeta['DefaultValue'])
         : '';
 
-    return PMA\Template::get('columns_definitions/column_default')->render(array(
-        'columnNumber' => $columnNumber,
-        'ci' => $ci,
-        'ci_offset' => $ci_offset,
-        'default_value' => $default_value,
-        'default_options' => $default_options,
-        'column_meta' => $columnMeta
-    ));
+    return PMA\Template::get('columns_definitions/column_default')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'ci' => $ci,
+            'ci_offset' => $ci_offset,
+            'default_value' => $default_value,
+            'default_options' => $default_options,
+            'column_meta' => $columnMeta
+        )
+    );
 }
 
 /**
