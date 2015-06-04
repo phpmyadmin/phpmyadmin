@@ -54,10 +54,14 @@ function PMA_gzencodeNeeded()
      * and gz compression was not asked via $cfg['OBGzip']
      * but transparent compression does not apply when saving to server
      */
+    $chromeAndGreaterThan43 = PMA_USR_BROWSER_AGENT == 'CHROME'
+        && PMA_USR_BROWSER_VER >= 43; // see bug #4942
+
     if (@function_exists('gzencode')
         && ((! @ini_get('zlib.output_compression')
         && ! PMA_isGzHandlerEnabled())
-        || $GLOBALS['save_on_server'])
+        || $GLOBALS['save_on_server']
+        || $chromeAndGreaterThan43)
     ) {
         return true;
     } else {
