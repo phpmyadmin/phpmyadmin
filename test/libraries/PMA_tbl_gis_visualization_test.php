@@ -105,7 +105,6 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-
         /**
          * @todo Find out a better method to test for HTML
          *

@@ -591,7 +591,6 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             $result
         );
 
-
         /**
          * @todo Find out a better method to test for HTML
          *
