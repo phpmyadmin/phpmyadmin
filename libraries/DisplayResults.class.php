@@ -1848,7 +1848,8 @@ class PMA_DisplayResults
         // FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
 
         $sort_tbl = (isset($fields_meta->table)
-            && /*overload*/mb_strlen($fields_meta->table))
+            && /*overload*/mb_strlen($fields_meta->table)
+            && $fields_meta->orgname == $fields_meta->name)
             ? PMA_Util::backquote(
                 $fields_meta->table
             ) . '.'

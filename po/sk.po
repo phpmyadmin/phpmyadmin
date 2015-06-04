@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-25 20:49+0200\n"
+"PO-Revision-Date: 2015-06-02 21:45+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/sk/>\n"
@@ -2866,7 +2866,7 @@ msgstr "zdieľaný"
 #: libraries/Console.class.php:116
 #, php-format
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr ""
+msgstr "Zahrnuté záložky %1$s, %2$s a %3$s"
 
 #: libraries/Console.class.php:122
 msgid "No bookmarks"
@@ -6378,7 +6378,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Minimálny počet databáz pre zobrazenie filtra databáz"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6386,8 +6385,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Zoskupovať položky v navigačnom paneli (určené oddeľovačom nastaveným "
-"nižšie)."
+"Zoskupovať položky v navigačnom paneli (určené oddeľovačom nastaveným v "
+"záložke Databázy a tabuľky vyššie)."
 
 #: libraries/config/messages.inc.php:458
 msgid "Group items in the tree"
@@ -13222,10 +13221,9 @@ msgid "Sum"
 msgstr "Celkom"
 
 #: libraries/structure.lib.php:316
-#, fuzzy
 #| msgid "Show color"
 msgid "Show create"
-msgstr "Zobraziť farbu"
+msgstr "Zobraziť vytvorenie"
 
 #: libraries/structure.lib.php:340
 msgid "Add prefix to table"
@@ -15351,6 +15349,15 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"Špeciálne na systéme ktorý zapisuje veľa do tabuliek InnoDB mali by ste "
+"nastaviť {innodb_log_file_size} na 25%% z {innodb_buffer_pool_size}. Čím "
+"vyššie číslo, tím dlhšie sa bude obnovovať ak databáza crashne, takže toto "
+"číslo by nemalo byť vyššie než 256 MiB. Všimnite si že nemôžete jednoducho "
+"zmeniť hodnotu. Musíte vypnúť server, vymazať log súbory InnoDB, nastaviť "
+"novú hodnotu v my.cnf, zapnúť server, skontrolovať či nenastali v logu či je "
+"všetko v poriadku. Taktiež pozrite <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">tento príspevok</a>"
 
 #: libraries/advisory_rules.txt:441
 #, php-format

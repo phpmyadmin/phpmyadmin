@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-04-07 21:02+0200\n"
-"Last-Translator: Alecsandru Prună <alecs.pruna@outlook.com>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/4-4/"
-"ro/>\n"
+"PO-Revision-Date: 2015-05-29 12:40+0200\n"
+"Last-Translator: Costel Cocerhan <costa1988sv@gmail.com>\n"
+"Language-Team: Romanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/ro/>\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
 "X-Generator: Weblate 2.3-dev\n"
@@ -689,7 +689,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importul s-a terminat cu succes, %d interogări executate."
 
 #: import.php:665
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -697,8 +697,6 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Durata maximă de execuție a scriptului a fost depășită. Dacă doriți să "
-"terminați importul, retrimiteți același fișier și importul va continua."
 
 #: import.php:675
 msgid ""
@@ -795,10 +793,9 @@ msgid "PHP extension:"
 msgstr "Extensie PHP:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "Versiune PHP"
+msgstr "Versiune PHP:"
 
 #: index.php:356
 msgid "Show PHP information"
