@@ -32,7 +32,7 @@ class PMA_ServerStatusData
     public $links;
     public $db_isLocal;
     public $section;
-    public $categoryUsed;
+    public $sectionUsed;
     public $selfUrl;
 
     /**
@@ -276,13 +276,13 @@ class PMA_ServerStatusData
      * @param array $server_status contains results of SHOW GLOBAL STATUS
      * @param array $allocations   allocations for sections
      * @param array $allocationMap map variables to their section
-     * @param array $categoryUsed  is a section used?
+     * @param array $sectionUsed   is a section used?
      * @param array $used_queries  used queries
      *
-     * @return array ($allocationMap, $categoryUsed, $used_queries)
+     * @return array ($allocationMap, $sectionUsed, $used_queries)
      */
     private function _sortVariables(
-        $server_status, $allocations, $allocationMap, $categoryUsed,
+        $server_status, $allocations, $allocationMap, $sectionUsed,
         $used_queries
     ) {
         foreach ($server_status as $name => $value) {
@@ -290,7 +290,7 @@ class PMA_ServerStatusData
             foreach ($allocations as $filter => $section) {
                 if (/*overload*/mb_strpos($name, $filter) !== false) {
                     $allocationMap[$name] = $section;
-                    $categoryUsed[$section] = true;
+                    $sectionUsed[$section] = true;
                     $section_found = true;
                     if ($section == 'com' && $value > 0) {
                         $used_queries[$name] = $value;
@@ -300,10 +300,10 @@ class PMA_ServerStatusData
             }
             if (! $section_found) {
                 $allocationMap[$name] = 'other';
-                $categoryUsed['other'] = true;
+                $sectionUsed['other'] = true;
             }
         }
-        return array($allocationMap, $categoryUsed, $used_queries);
+        return array($allocationMap, $sectionUsed, $used_queries);
     }
 
     /**
@@ -352,13 +352,13 @@ class PMA_ServerStatusData
         $allocationMap = array();
 
         // Variable to mark used sections
-        $categoryUsed = array();
+        $sectionUsed = array();
 
         // sort vars into arrays
         list(
-            $allocationMap, $categoryUsed, $used_queries
+            $allocationMap, $sectionUsed, $used_queries
         ) = $this->_sortVariables(
-            $server_status, $allocations, $allocationMap, $categoryUsed,
+            $server_status, $allocations, $allocationMap, $sectionUsed,
             $used_queries
         );
 
@@ -392,7 +392,7 @@ class PMA_ServerStatusData
         $this->used_queries = $used_queries;
         $this->allocationMap = $allocationMap;
         $this->links = $links;
-        $this->categoryUsed = $categoryUsed;
+        $this->sectionUsed = $sectionUsed;
     }
 
     /**
