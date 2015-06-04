@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #4909 central column with multiple server
 - bug #4937 Custom export with backquotes off is not working
 - bug #4908 Reverse proxy: infinite internal redirect (added warning in doc)
+- bug #4942 Export to gzip saves plain text under Chrome
 
 4.4.8.0 (2015-05-28)
 - bug       Allow accessing visual query builder when pmadb is not configured
