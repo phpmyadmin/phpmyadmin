@@ -32,7 +32,7 @@ class PMA_ServerStatusData
     public $links;
     public $db_isLocal;
     public $section;
-    public $categoryUsed;
+    public $sectionUsed;
     public $selfUrl;
 
     /**
@@ -271,14 +271,49 @@ class PMA_ServerStatusData
     }
 
     /**
+     * Sort variables into arrays
+     *
+     * @param array $server_status contains results of SHOW GLOBAL STATUS
+     * @param array $allocations   allocations for sections
+     * @param array $allocationMap map variables to their section
+     * @param array $sectionUsed   is a section used?
+     * @param array $used_queries  used queries
+     *
+     * @return array ($allocationMap, $sectionUsed, $used_queries)
+     */
+    private function _sortVariables(
+        $server_status, $allocations, $allocationMap, $sectionUsed,
+        $used_queries
+    ) {
+        foreach ($server_status as $name => $value) {
+            $section_found = false;
+            foreach ($allocations as $filter => $section) {
+                if (/*overload*/mb_strpos($name, $filter) !== false) {
+                    $allocationMap[$name] = $section;
+                    $sectionUsed[$section] = true;
+                    $section_found = true;
+                    if ($section == 'com' && $value > 0) {
+                        $used_queries[$name] = $value;
+                    }
+                    break; // Only exits inner loop
+                }
+            }
+            if (! $section_found) {
+                $allocationMap[$name] = 'other';
+                $sectionUsed['other'] = true;
+            }
+        }
+        return array($allocationMap, $sectionUsed, $used_queries);
+    }
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
-        /**
-         * get status from server
-         */
+
+        // get status from server
         $server_status = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL STATUS', 0, 1);
         if (PMA_DRIZZLE) {
             // Drizzle doesn't put query statistics into variables, add it
@@ -288,35 +323,25 @@ class PMA_ServerStatusData
             $server_status = array_merge($server_status, $statements);
         }
 
-        /**
-         * for some calculations we require also some server settings
-         */
+        // for some calculations we require also some server settings
         $server_variables = $GLOBALS['dbi']->fetchResult(
             'SHOW GLOBAL VARIABLES', 0, 1
         );
 
-        /**
-         * cleanup of some deprecated values
-         */
+        // cleanup of some deprecated values
         $server_status = self::cleanDeprecated($server_status);
 
-        /**
-         * calculate some values
-         */
+        // calculate some values
         $server_status = $this->_calculateValues(
             $server_status, $server_variables
         );
 
-        /**
-         * split variables in sections
-         */
+        // split variables in sections
         $allocations = $this->_getAllocations();
 
         $sections = $this->_getSections();
 
-        /**
-         * define some needful links/commands
-         */
+        // define some needful links/commands
         $links = $this->_getLinks();
 
         // Variable to contain all com_ variables (query statistics)
@@ -327,27 +352,15 @@ class PMA_ServerStatusData
         $allocationMap = array();
 
         // Variable to mark used sections
-        $categoryUsed = array();
+        $sectionUsed = array();
 
         // sort vars into arrays
-        foreach ($server_status as $name => $value) {
-            $section_found = false;
-            foreach ($allocations as $filter => $section) {
-                if (/*overload*/mb_strpos($name, $filter) !== false) {
-                    $allocationMap[$name] = $section;
-                    $categoryUsed[$section] = true;
-                    $section_found = true;
-                    if ($section == 'com' && $value > 0) {
-                        $used_queries[$name] = $value;
-                    }
-                    break; // Only exits inner loop
-                }
-            }
-            if (!$section_found) {
-                $allocationMap[$name] = 'other';
-                $categoryUsed['other'] = true;
-            }
-        }
+        list(
+            $allocationMap, $sectionUsed, $used_queries
+        ) = $this->_sortVariables(
+            $server_status, $allocations, $allocationMap, $sectionUsed,
+            $used_queries
+        );
 
         if (PMA_DRIZZLE) {
             $used_queries = $GLOBALS['dbi']->fetchResult(
@@ -379,7 +392,7 @@ class PMA_ServerStatusData
         $this->used_queries = $used_queries;
         $this->allocationMap = $allocationMap;
         $this->links = $links;
-        $this->categoryUsed = $categoryUsed;
+        $this->sectionUsed = $sectionUsed;
     }
 
     /**

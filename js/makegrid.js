@@ -604,8 +604,17 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                     g.currentEditCell = cell;
                     $(g.cEdit).find('.edit_box').focus();
+                    moveCursorToEnd($(g.cEdit).find('.edit_box'));
                     $(g.cEdit).find('*').removeProp('disabled');
                 }
+            }
+
+            function moveCursorToEnd(input) {
+                var originalValue = input.val();
+                var originallength = originalValue.length;
+                input.val('');
+                input.blur().focus().val(originalValue);
+                input[0].setSelectionRange(originallength, originallength);
             }
         },
 
@@ -617,11 +626,17 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
          *              or just specify "true", if we want to replace the edited field with the new value.
          * @param field Optional, the edited <td>. If not specified, the function will
          *              use currently edited <td> from g.currentEditCell.
+         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
+         *              and a <td> to which the grid_edit should move
          */
-        hideEditCell: function (force, data, field) {
+        hideEditCell: function (force, data, field, options) {
             if (g.isCellEditActive && !force) {
                 // cell is being edited, save or post the edited data
-                g.saveOrPostEditedCell();
+                if (options !== undefined) {
+                    g.saveOrPostEditedCell(options);
+                } else {
+                    g.saveOrPostEditedCell();
+                }
                 return;
             }
 
@@ -1077,8 +1092,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
         /**
          * Post the content of edited cell.
+         *
+         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
+         *              and a <td> to which the grid_edit should move
          */
-        postEditedCell: function () {
+        postEditedCell: function (options) {
             if (g.isSaving) {
                 return;
             }
@@ -1285,7 +1303,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 .find('input').removeProp('disabled');  // enable the save button back
                         }
                         if (typeof data !== 'undefined' && data.success === true) {
-                            PMA_ajaxShowMessage(data.message);
+                            if (typeof options === 'undefined' || ! options.move) {
+                                PMA_ajaxShowMessage(data.message);
+                            }
 
                             // update where_clause related data in each edited row
                             $(g.t).find('td.to_be_saved').parents('tr').each(function () {
@@ -1359,6 +1379,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             }
                         }
                     }
+            }).done(function(){
+                if (options !== undefined && options.move) {
+                    g.showEditCell(options.cell);
+                }
             }); // end $.ajax()
         },
 
@@ -1442,20 +1466,54 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
         /**
          * Save or post currently edited cell, depending on the "saveCellsAtOnce" configuration.
+         *
+         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
+         *              and a <td> to which the grid_edit should move
          */
-        saveOrPostEditedCell: function () {
+        saveOrPostEditedCell: function (options) {
             var saved = g.saveEditedCell();
+            // Check if $cfg['SaveCellsAtOnce'] is false
             if (!g.saveCellsAtOnce) {
+                // Check if need_to_post is true
                 if (saved) {
-                    g.postEditedCell();
+                    // Check if this function called from 'move' functions
+                    if (options !== undefined && options.move) {
+                        g.postEditedCell(options);
+                    } else {
+                        g.postEditedCell();
+                    }
+                // need_to_post is false
                 } else {
-                    g.hideEditCell(true);
+                    // Check if this function called from 'move' functions
+                    if (options !== undefined && options.move) {
+                        g.hideEditCell(true);
+                        g.showEditCell(options.cell);
+                    // NOT called from 'move' functions
+                    } else {
+                        g.hideEditCell(true);
+                    }
                 }
+            // $cfg['SaveCellsAtOnce'] is true
             } else {
+                // If need_to_post
                 if (saved) {
-                    g.hideEditCell(true, true);
+                    // If this function called from 'move' functions
+                    if (options !== undefined && options.move) {
+                        g.hideEditCell(true, true, false, options);
+                        g.showEditCell(options.cell);
+                    // NOT called from 'move' functions
+                    } else {
+                        g.hideEditCell(true, true);
+                    }
                 } else {
-                    g.hideEditCell(true);
+                    // If this function called from 'move' functions
+                    if (options !== undefined && options.move) {
+                        g.hideEditCell(true, false, false, options);
+                        g.showEditCell(options.cell);
+                    // NOT called from 'move' functions
+                    } else {
+                        g.hideEditCell(true);
+                    }
                 }
             }
         },
@@ -1691,6 +1749,187 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         },
 
         /**
+         * Move currently Editing Cell to Up
+         */
+        moveUp: function(e) {
+            e.preventDefault();
+            var $this_field = $(g.currentEditCell);
+            var field_name = getFieldName($(g.t), $this_field);
+
+            var where_clause = $this_field.parents('tr').first().find('.where_clause').val();
+            if (typeof where_clause === 'undefined') {
+                where_clause = '';
+            }
+            where_clause = PMA_urldecode(where_clause);
+            var found = false;
+            var $found_row;
+            var $prev_row;
+            var j = 0;
+
+            $this_field.parents('tr').first().parents('tbody').children().each(function(){
+                if (PMA_urldecode($(this).find('.where_clause').val()) == where_clause) {
+                    found = true;
+                    $found_row = $(this);
+                }
+                if (!found) {
+                    $prev_row = $(this);
+                }
+            });
+
+            var new_cell;
+
+            if (found && $prev_row) {
+                $prev_row.children('td').each(function(){
+                    if (getFieldName($(g.t), $(this)) == field_name) {
+                        new_cell = this;
+                    }
+                });
+            }
+
+            if (new_cell) {
+                g.hideEditCell(false, false, false, {move : true, cell : new_cell});
+            }
+        },
+
+        /**
+         * Move currently Editing Cell to Down
+         */
+        moveDown: function(e) {
+            e.preventDefault();
+
+            var $this_field = $(g.currentEditCell);
+            var field_name = getFieldName($(g.t), $this_field);
+
+            var where_clause = $this_field.parents('tr').first().find('.where_clause').val();
+            if (typeof where_clause === 'undefined') {
+                where_clause = '';
+            }
+            where_clause = PMA_urldecode(where_clause);
+            var found = false;
+            var $found_row;
+            var $next_row;
+            var j = 0;
+            var next_row_found = false;
+            $this_field.parents('tr').first().parents('tbody').children().each(function(){
+                if (PMA_urldecode($(this).find('.where_clause').val()) == where_clause) {
+                    found = true;
+                    $found_row = $(this);
+                }
+                if (found) {
+                    if (j >= 1 && ! next_row_found) {
+                        $next_row = $(this);
+                        next_row_found = true;
+                    } else {
+                        j++;
+                    }
+                }
+            });
+
+            var new_cell;
+            if (found && $next_row) {
+                $next_row.children('td').each(function(){
+                    if (getFieldName($(g.t), $(this)) == field_name) {
+                        new_cell = this;
+                    }
+                });
+            }
+
+            if (new_cell) {
+                g.hideEditCell(false, false, false, {move : true, cell : new_cell});
+            }
+        },
+
+        /**
+         * Move currently Editing Cell to Left
+         */
+        moveLeft: function(e) {
+            e.preventDefault();
+
+            var $this_field = $(g.currentEditCell);
+            var field_name = getFieldName($(g.t), $this_field);
+
+            var where_clause = $this_field.parents('tr').first().find('.where_clause').val();
+            if (typeof where_clause === 'undefined') {
+                where_clause = '';
+            }
+            where_clause = PMA_urldecode(where_clause);
+            var found = false;
+            var $found_row;
+            var j = 0;
+            $this_field.parents('tr').first().parents('tbody').children().each(function(){
+                if (PMA_urldecode($(this).find('.where_clause').val()) == where_clause) {
+                    found = true;
+                    $found_row = $(this);
+                }
+            });
+
+            var left_cell;
+            var cell_found = false;
+            if (found) {
+                $found_row.children('td.grid_edit').each(function(){
+                    if (getFieldName($(g.t), $(this)) === field_name) {
+                        cell_found = true;
+                    }
+                    if (!cell_found) {
+                        left_cell = this;
+                    }
+                });
+            }
+
+            if (left_cell) {
+                g.hideEditCell(false, false, false, {move : true, cell : left_cell});
+            }
+        },
+
+        /**
+         * Move currently Editing Cell to Right
+         */
+        moveRight: function(e) {
+            e.preventDefault();
+
+            var $this_field = $(g.currentEditCell);
+            var field_name = getFieldName($(g.t), $this_field);
+
+            var where_clause = $this_field.parents('tr').first().find('.where_clause').val();
+            if (typeof where_clause === 'undefined') {
+                where_clause = '';
+            }
+            where_clause = PMA_urldecode(where_clause);
+            var found = false;
+            var $found_row;
+            var j = 0;
+            $this_field.parents('tr').first().parents('tbody').children().each(function(){
+                if (PMA_urldecode($(this).find('.where_clause').val()) == where_clause) {
+                    found = true;
+                    $found_row = $(this);
+                }
+            });
+
+            var right_cell;
+            var cell_found = false;
+            var next_cell_found = false;
+            if (found) {
+                $found_row.children('td.grid_edit').each(function(){
+                    if (getFieldName($(g.t), $(this)) === field_name) {
+                        cell_found = true;
+                    }
+                    if (cell_found) {
+                        if (j >= 1 && ! next_cell_found) {
+                            right_cell = this;
+                            next_cell_found = true;
+                        } else {
+                            j++;
+                        }
+                    }
+                });
+            }
+
+            if (right_cell) {
+                g.hideEditCell(false, false, false, {move : true, cell : right_cell});
+            }
+        },
+
+        /**
          * Initialize grid editing feature.
          */
         initGridEdit: function () {
@@ -1702,6 +1941,18 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     g.showEditCell(cell);
                 }
                 e.stopPropagation();
+            }
+
+            function handleCtrlNavigation(e) {
+                if ((e.ctrlKey && e.which == 38 ) || (e.altKey && e.which == 38)) {
+                    g.moveUp(e);
+                } else if ((e.ctrlKey && e.which == 40)  || (e.altKey && e.which == 40)) {
+                    g.moveDown(e);
+                } else if ((e.ctrlKey && e.which == 37 ) || (e.altKey && e.which == 37)) {
+                    g.moveLeft(e);
+                } else if ((e.ctrlKey && e.which == 39)  || (e.altKey && e.which == 39)) {
+                    g.moveRight(e);
+                }
             }
 
             // create cell edit wrapper element
@@ -1782,6 +2033,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     }
                 });
 
+            $(g.cEditStd).on('keydown', 'input.edit_box, select', handleCtrlNavigation);
+
             $(g.cEditStd).find('.edit_box').focus(function (e) {
                 g.showEditArea();
             });
@@ -1798,6 +2051,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     e.preventDefault();
                 }
             });
+
+            $(g.cEditTextarea).on('keydown', 'textarea.edit_box, select', handleCtrlNavigation);
+
             $(g.cEditTextarea).find('.edit_box').focus(function (e) {
                 g.showEditArea();
             });

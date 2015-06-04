@@ -57,7 +57,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
     $retval .= '<option value="">' . __('Filter by category…') . '</option>';
 
     foreach ($ServerStatusData->sections as $section_id => $section_name) {
-        if (isset($ServerStatusData->categoryUsed[$section_id])) {
+        if (isset($ServerStatusData->sectionUsed[$section_id])) {
             if (! empty($_REQUEST['filterCategory'])
                 && $_REQUEST['filterCategory'] == $section_id
             ) {
