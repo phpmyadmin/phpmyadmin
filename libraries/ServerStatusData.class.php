@@ -271,65 +271,20 @@ class PMA_ServerStatusData
     }
 
     /**
-     * Constructor
+     * Sort variables into arrays
+     *
+     * @param array $server_status contains results of SHOW GLOBAL STATUS
+     * @param array $allocations   allocations for sections
+     * @param array $allocationMap map variables to their section
+     * @param array $categoryUsed  is a section used?
+     * @param array $used_queries  used queries
+     *
+     * @return array ($allocationMap, $categoryUsed, $used_queries)
      */
-    public function __construct()
-    {
-        $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
-        /**
-         * get status from server
-         */
-        $server_status = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL STATUS', 0, 1);
-        if (PMA_DRIZZLE) {
-            // Drizzle doesn't put query statistics into variables, add it
-            $sql = "SELECT concat('Com_', variable_name), variable_value "
-                . "FROM data_dictionary.GLOBAL_STATEMENTS";
-            $statements = $GLOBALS['dbi']->fetchResult($sql, 0, 1);
-            $server_status = array_merge($server_status, $statements);
-        }
-
-        /**
-         * for some calculations we require also some server settings
-         */
-        $server_variables = $GLOBALS['dbi']->fetchResult(
-            'SHOW GLOBAL VARIABLES', 0, 1
-        );
-
-        /**
-         * cleanup of some deprecated values
-         */
-        $server_status = self::cleanDeprecated($server_status);
-
-        /**
-         * calculate some values
-         */
-        $server_status = $this->_calculateValues(
-            $server_status, $server_variables
-        );
-
-        /**
-         * split variables in sections
-         */
-        $allocations = $this->_getAllocations();
-
-        $sections = $this->_getSections();
-
-        /**
-         * define some needful links/commands
-         */
-        $links = $this->_getLinks();
-
-        // Variable to contain all com_ variables (query statistics)
-        $used_queries = array();
-
-        // Variable to map variable names to their respective section name
-        // (used for js category filtering)
-        $allocationMap = array();
-
-        // Variable to mark used sections
-        $categoryUsed = array();
-
-        // sort vars into arrays
+    private function _sortVariables(
+        $server_status, $allocations, $allocationMap, $categoryUsed,
+        $used_queries
+    ) {
         foreach ($server_status as $name => $value) {
             $section_found = false;
             foreach ($allocations as $filter => $section) {
@@ -343,11 +298,69 @@ class PMA_ServerStatusData
                     break; // Only exits inner loop
                 }
             }
-            if (!$section_found) {
+            if (! $section_found) {
                 $allocationMap[$name] = 'other';
                 $categoryUsed['other'] = true;
             }
         }
+        return array($allocationMap, $categoryUsed, $used_queries);
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
+
+        // get status from server
+        $server_status = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL STATUS', 0, 1);
+        if (PMA_DRIZZLE) {
+            // Drizzle doesn't put query statistics into variables, add it
+            $sql = "SELECT concat('Com_', variable_name), variable_value "
+                . "FROM data_dictionary.GLOBAL_STATEMENTS";
+            $statements = $GLOBALS['dbi']->fetchResult($sql, 0, 1);
+            $server_status = array_merge($server_status, $statements);
+        }
+
+        // for some calculations we require also some server settings
+        $server_variables = $GLOBALS['dbi']->fetchResult(
+            'SHOW GLOBAL VARIABLES', 0, 1
+        );
+
+        // cleanup of some deprecated values
+        $server_status = self::cleanDeprecated($server_status);
+
+        // calculate some values
+        $server_status = $this->_calculateValues(
+            $server_status, $server_variables
+        );
+
+        // split variables in sections
+        $allocations = $this->_getAllocations();
+
+        $sections = $this->_getSections();
+
+        // define some needful links/commands
+        $links = $this->_getLinks();
+
+        // Variable to contain all com_ variables (query statistics)
+        $used_queries = array();
+
+        // Variable to map variable names to their respective section name
+        // (used for js category filtering)
+        $allocationMap = array();
+
+        // Variable to mark used sections
+        $categoryUsed = array();
+
+        // sort vars into arrays
+        list(
+            $allocationMap, $categoryUsed, $used_queries
+        ) = $this->_sortVariables(
+            $server_status, $allocations, $allocationMap, $categoryUsed,
+            $used_queries
+        );
 
         if (PMA_DRIZZLE) {
             $used_queries = $GLOBALS['dbi']->fetchResult(
