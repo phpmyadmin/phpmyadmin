@@ -1,7 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.4.9.0 (not yet released)
+4.4.10.0 (not yet released)
+
+4.4.9.0 (2015-06-04)
 - bug #4920 relation view doesn't list fields of table in other database
 - bug #4905 Sorting by an alias
 - bug #4931 False error before entering reCAPTCHA
