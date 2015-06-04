@@ -30,42 +30,6 @@ function PMA_shutdownDuringExport()
 }
 
 /**
- * Detect ob_gzhandler
- *
- * @return bool
- */
-function PMA_isGzHandlerEnabled()
-{
-    return in_array('ob_gzhandler', ob_list_handlers());
-}
-
-/**
- * Detect whether gzencode is needed; it might not be needed if
- * the server is already compressing by itself
- *
- * @return bool Whether gzencode is needed
- */
-function PMA_gzencodeNeeded()
-{
-    /*
-     * We should gzencode only if the function exists
-     * but we don't want to compress twice, therefore
-     * gzencode only if transparent compression is not enabled
-     * and gz compression was not asked via $cfg['OBGzip']
-     * but transparent compression does not apply when saving to server
-     */
-    if (@function_exists('gzencode')
-        && ((! @ini_get('zlib.output_compression')
-        && ! PMA_isGzHandlerEnabled())
-        || $GLOBALS['save_on_server'])
-    ) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-/**
  * Output handler for all exports, if needed buffering, it stores data into
  * $dump_buffer, otherwise it prints them out.
  *
@@ -103,7 +67,7 @@ function PMA_exportOutputHandler($line)
                     );
                 }
                 if ($GLOBALS['compression'] == 'gzip'
-                    && PMA_gzencodeNeeded()
+                    && @function_exists('gzencode')
                 ) {
                     // as a gzipped file
                     // without the optional parameter level because it bugs
@@ -406,7 +370,7 @@ function PMA_compressExport($dump_buffer, $compression, $filename)
             substr($filename, 0, -4)
         );
         $dump_buffer = $zipfile->file();
-    } elseif ($compression == 'gzip' && PMA_gzencodeNeeded()) {
+    } elseif ($compression == 'gzip' && @function_exists('gzencode')) {
         // without the optional parameter level because it bugs
         $dump_buffer = gzencode($dump_buffer);
     }
