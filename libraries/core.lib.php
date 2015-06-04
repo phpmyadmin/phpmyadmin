@@ -709,7 +709,9 @@ function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
     header('Content-Type: ' . $mimetype);
     // inform the server that compression has been done,
     // to avoid a double compression (for example with Apache + mod_deflate)
-    if (strpos($mimetype, 'gzip') !== false) {
+    $notChromeOrLessThan43 = PMA_USR_BROWSER_AGENT != 'CHROME' // see bug #4942
+        || (PMA_USR_BROWSER_AGENT == 'CHROME' && PMA_USR_BROWSER_VER < 43);
+    if (strpos($mimetype, 'gzip') !== false && $notChromeOrLessThan43) {
         header('Content-Encoding: gzip');
     }
     header('Content-Transfer-Encoding: binary');
