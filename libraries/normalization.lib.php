@@ -100,10 +100,12 @@ function PMA_getHtmlForCreateNewColumn(
     }
 
     return PMA\Template::get('columns_definitions/table_fields_definitions')
-        ->render(array(
-            'header_cells' => $header_cells,
-            'content_cells' => $content_cells
-        ));
+        ->render(
+            array(
+                'header_cells' => $header_cells,
+                'content_cells' => $content_cells
+            )
+        );
 }
 /**
  * build the html for step 1.1 of normalization

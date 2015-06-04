@@ -221,8 +221,8 @@ class PMA_TableSearch
         $column_index, $titles, $foreignMaxLimit, $criteriaValues, $in_fbs = false,
         $in_zoom_search_edit = false
     ) {
-        return PMA\Template::get('table/input_box')
-            ->render(array(
+        return PMA\Template::get('table/input_box')->render(
+            array(
                 'str' => '',
                 'column_type' => (string) $column_type,
                 'column_id' => ($in_zoom_search_edit) ? 'edit_fieldID_' : 'fieldID_',
@@ -237,7 +237,8 @@ class PMA_TableSearch
                 'db' => $this->_db,
                 'titles' => $titles,
                 'in_fbs' => $in_fbs
-            ));
+            )
+        );
     }
 
     /**
