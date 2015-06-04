@@ -790,14 +790,16 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
     $attribute_types = $GLOBALS['PMA_Types']->getAttributes();
     $cnt_attribute_types = count($attribute_types);
 
-    return PMA\Template::get('columns_definitions/column_attribute')->render(array(
-        'columnNumber' => $columnNumber,
-        'ci' => $ci,
-        'ci_offset' => $ci_offset,
-        'attribute_types' => $attribute_types,
-        'cnt_attribute_types' => $cnt_attribute_types,
-        'attribute' => $attribute
-    ));
+    return PMA\Template::get('columns_definitions/column_attribute')->render(
+        array(
+            'columnNumber' => $columnNumber,
+            'ci' => $ci,
+            'ci_offset' => $ci_offset,
+            'attribute_types' => $attribute_types,
+            'cnt_attribute_types' => $cnt_attribute_types,
+            'attribute' => $attribute
+        )
+    );
 }
 
 /**

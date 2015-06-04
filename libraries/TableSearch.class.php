@@ -765,15 +765,17 @@ class PMA_TableSearch
             $result = $GLOBALS['dbi']->fetchResult($sql_query, 0);
         }
 
-        return PMA\Template::get('table/replace_preview')->render(array(
-            'db' => $this->_db,
-            'table' => $this->_table,
-            'columnIndex' => $columnIndex,
-            'find' => $find,
-            'replaceWith' => $replaceWith,
-            'useRegex' => $useRegex,
-            'result' => $result
-        ));
+        return PMA\Template::get('table/replace_preview')->render(
+            array(
+                'db' => $this->_db,
+                'table' => $this->_table,
+                'columnIndex' => $columnIndex,
+                'find' => $find,
+                'replaceWith' => $replaceWith,
+                'useRegex' => $useRegex,
+                'result' => $result
+            )
+        );
     }
 
     /**
