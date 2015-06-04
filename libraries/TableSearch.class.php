@@ -567,14 +567,15 @@ class PMA_TableSearch
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
         //Gets column's comparison operators depending on column type
-        $func = PMA\Template::get('table/column_comparison_operators')
-            ->render(array(
+        $func = PMA\Template::get('table/column_comparison_operators')->render(
+            array(
                 'search_index' => $search_index,
                 'columnTypes' => $this->_columnTypes,
                 'column_index' => $column_index,
                 'columnNullFlags' => $this->_columnNullFlags,
                 'selected_operator' => $selected_operator
-            ));
+            )
+        );
         //Gets link to browse foreign data(if any) and criteria inputbox
         $foreignData = PMA_getForeignData(
             $this->_foreigners, $this->_columnNames[$column_index], false, '', ''
@@ -598,14 +599,15 @@ class PMA_TableSearch
      */
     public function getSecondaryTabs()
     {
-        return PMA\Template::get('table/secondary_tabs')
-            ->render(array(
+        return PMA\Template::get('table/secondary_tabs')->render(
+            array(
                 'url_params' => array(
                     'db' => $this->_db,
                     'table' => $this->_table
                 ),
                 'sub_tabs' => $this->_getSubTabs()
-            ));
+            )
+        );
     }
 
     /**
@@ -618,18 +620,20 @@ class PMA_TableSearch
      */
     public function getSelectionForm($goto, $dataLabel = null)
     {
-        return PMA\Template::get('table/selection_form')->render(array(
-            'searchType' => $this->_searchType,
-            'db' => $this->_db,
-            'table' => $this->_table,
-            'goto' => $goto,
-            'self' => $this,
-            'geomColumnFlag' => $this->_geomColumnFlag,
-            'columnNames' => $this->_columnNames,
-            'columnTypes' => $this->_columnTypes,
-            'columnCollations' => $this->_columnCollations,
-            'dataLabel' => $dataLabel
-        ));
+        return PMA\Template::get('table/selection_form')->render(
+            array(
+                'searchType' => $this->_searchType,
+                'db' => $this->_db,
+                'table' => $this->_table,
+                'goto' => $goto,
+                'self' => $this,
+                'geomColumnFlag' => $this->_geomColumnFlag,
+                'columnNames' => $this->_columnNames,
+                'columnTypes' => $this->_columnTypes,
+                'columnCollations' => $this->_columnCollations,
+                'dataLabel' => $dataLabel
+            )
+        );
     }
 
     /**
@@ -650,17 +654,19 @@ class PMA_TableSearch
             )
         );
 
-        return PMA\Template::get('table/zoom_result_form')->render(array(
-            '_db' => $this->_db,
-            '_table' => $this->_table,
-            '_columnNames' => $this->_columnNames,
-            '_foreigners' => $this->_foreigners,
-            '_columnNullFlags' => $this->_columnNullFlags,
-            '_columnTypes' => $this->_columnTypes,
-            'titles' => $titles,
-            'goto' => $goto,
-            'data' => $data
-        ));
+        return PMA\Template::get('table/zoom_result_form')->render(
+            array(
+                '_db' => $this->_db,
+                '_table' => $this->_table,
+                '_columnNames' => $this->_columnNames,
+                '_foreigners' => $this->_foreigners,
+                '_columnNullFlags' => $this->_columnNullFlags,
+                '_columnTypes' => $this->_columnTypes,
+                'titles' => $titles,
+                'goto' => $goto,
+                'data' => $data
+            )
+        );
     }
 
     /**
@@ -670,11 +676,12 @@ class PMA_TableSearch
      */
     function _getSearchAndReplaceHTML()
     {
-        return PMA\Template::get('table/search_and_replace')
-            ->render(array(
+        return PMA\Template::get('table/search_and_replace')->render(
+            array(
                 'columnNames' => $this->_columnNames,
                 'columnTypes' => $this->_columnTypes
-            ));
+            )
+        );
     }
 
     /**
