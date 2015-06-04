@@ -49,6 +49,7 @@ phpMyAdmin - ChangeLog
 - bug #4932 Drizzle version numbers
 + rfe #701  Rewrite print view using CSS; fixes print view failures on multi-query statements
 + rfe #1677 Support spatial indexes in table create form
++ rfe #1359 Use CTRL or ALT plus arrow keys for navigation in grid editor
 
 4.4.9.0 (not yet released)
 - bug #4920 relation view doesn't list fields of table in other database
