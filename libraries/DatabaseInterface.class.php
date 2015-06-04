@@ -1660,7 +1660,9 @@ class PMA_DatabaseInterface
     public function setForeignKeyCheck($value)
     {
         $current_fk_check_value = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
-        if ($current_fk_check_value == $value) return;
+        if ($current_fk_check_value == $value) {
+            return;
+        }
 
         $this->query('SET FOREIGN_KEY_CHECKS = ' . ($value ? 1 : 0) . ';');
     }
