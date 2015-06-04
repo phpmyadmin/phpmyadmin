@@ -3235,7 +3235,7 @@ class PMA_Util
     /**
      * Cleanup changes done for foreign key check
      *
-     * @param bool $default_fk_check_value
+     * @param bool $default_fk_check_value original value for 'FOREIGN_KEY_CHECKS'
      *
      * @return void
      */
