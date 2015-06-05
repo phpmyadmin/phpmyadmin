@@ -740,6 +740,42 @@ class PMA_Util
     } // end of the 'mysqlDie()' function
 
     /**
+     * Check the correct row count
+     *
+     * @param string $db    the db name
+     * @param array  $table the table infos
+     *
+     * @return int $rowCount the possibly modified row count
+     *
+     */
+    private static function _checkRowCount($db, $table)
+    {
+        // check for correct row count
+        if ($table['Rows'] === null) {
+            // Do not check exact row count here,
+            // if row count is invalid possibly the table is defect
+            // and this would break the navigation panel;
+            // but we can check row count if this is a view or the
+            // information_schema database
+            // since PMA_Table::countRecords() returns a limited row count
+            // in this case.
+
+            // set this because PMA_Table::countRecords() can use it
+            $tbl_is_view = $table['TABLE_TYPE'] == 'VIEW';
+
+            if ($tbl_is_view || $GLOBALS['dbi']->isSystemSchema($db)) {
+                $rowCount = PMA_Table::countRecords(
+                    $db,
+                    $table['Name'],
+                    false,
+                    $tbl_is_view
+                );
+            }
+        }
+        return $rowCount;
+    }
+
+    /**
      * returns array with tables of given db with extended information and grouped
      *
      * @param string   $db           name of db
@@ -777,28 +813,7 @@ class PMA_Util
         $table_groups = array();
 
         foreach ($tables as $table_name => $table) {
-            // check for correct row count
-            if ($table['Rows'] === null) {
-                // Do not check exact row count here,
-                // if row count is invalid possibly the table is defect
-                // and this would break left frame;
-                // but we can check row count if this is a view or the
-                // information_schema database
-                // since PMA_Table::countRecords() returns a limited row count
-                // in this case.
-
-                // set this because PMA_Table::countRecords() can use it
-                $tbl_is_view = $table['TABLE_TYPE'] == 'VIEW';
-
-                if ($tbl_is_view || $GLOBALS['dbi']->isSystemSchema($db)) {
-                    $table['Rows'] = PMA_Table::countRecords(
-                        $db,
-                        $table['Name'],
-                        false,
-                        true
-                    );
-                }
-            }
+            $table['Rows'] = self::_checkRowCount($db, $table);
 
             // in $group we save the reference to the place in $table_groups
             // where to store the table info
