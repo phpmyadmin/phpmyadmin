@@ -3839,7 +3839,7 @@ class PMA_Util
          * @todo Except for $cfg, no longer use globals but pass as parameters
          *       from higher levels
          */
-        global $cfg, $analyzed_sql, $data;
+        global $cfg, $data;
 
         $default_function   = '';
 
@@ -3852,8 +3852,6 @@ class PMA_Util
             }
         }
 
-        $analyzed_sql_field_array = $analyzed_sql[0]['create_table_fields']
-            [$field['Field']];
         // what function defined as default?
         // for the first timestamp we don't set the default function
         // if there is a default value for the timestamp
@@ -3864,9 +3862,8 @@ class PMA_Util
             && $field['first_timestamp']
             && empty($field['Default'])
             && empty($data)
-            && ! isset($analyzed_sql_field_array['on_update_current_timestamp'])
-            && ! (isset($analyzed_sql_field_array['default_value'])
-            && $analyzed_sql_field_array['default_value'] == 'NULL')
+            && $field['Extra'] != 'on update CURRENT_TIMESTAMP'
+            && $field['Null'] == 'NO'
         ) {
             $default_function = $cfg['DefaultFunctions']['first_timestamp'];
         }

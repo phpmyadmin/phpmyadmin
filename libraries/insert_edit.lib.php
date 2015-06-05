@@ -2632,7 +2632,6 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  *
  * @param array  $table_columns         table columns
  * @param int    $i                     row counter
- * @param array  $column                column
  * @param array  $comments_map          comments map
  * @param bool   $timestamp_seen        whether timestamp seen
  * @param array  $current_result        current result
@@ -2664,7 +2663,7 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  *
  * @return string
  */
-function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
+function PMA_getHtmlForInsertEditFormColumn($table_columns, $i,
     $comments_map, $timestamp_seen, $current_result, $chg_evt_handler,
     $jsvkey, $vkey, $insert_mode, $current_row, $odd_row, &$o_rows,
     &$tabindex, $columns_cnt, $is_upload, $tabindex_for_function,
@@ -2672,8 +2671,8 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
     $row_id, $titles, $biggest_max_file_size, $default_char_editing,
     $text_dir, $repopulate, $column_mime, $where_clause
 ) {
-    if (! isset($table_columns[$i]['processed'])) {
-        $column = $table_columns[$i];
+    $column = $table_columns[$i];
+    if (! isset($column['processed'])) {
         $column = PMA_analyzeTableColumnsArray(
             $column, $comments_map, $timestamp_seen
         );
@@ -2860,7 +2859,6 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
  *
  * @param array  $url_params            url parameters
  * @param array  $table_columns         table columns
- * @param array  $column                column
  * @param array  $comments_map          comments map
  * @param bool   $timestamp_seen        whether timestamp seen
  * @param array  $current_result        current result
@@ -2889,7 +2887,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
  * @return string
  */
 function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
-    $column, $comments_map, $timestamp_seen, $current_result, $chg_evt_handler,
+    $comments_map, $timestamp_seen, $current_result, $chg_evt_handler,
     $jsvkey, $vkey, $insert_mode, $current_row, &$o_rows, &$tabindex, $columns_cnt,
     $is_upload, $tabindex_for_function, $foreigners, $tabindex_for_null,
     $tabindex_for_value, $table, $db, $row_id, $titles,
@@ -2912,7 +2910,7 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
             $column_mime = $mime_map[$table_columns[$i]['Field']];
         }
         $html_output .= PMA_getHtmlForInsertEditFormColumn(
-            $table_columns, $i, $column, $comments_map, $timestamp_seen,
+            $table_columns, $i, $comments_map, $timestamp_seen,
             $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
             $current_row, $odd_row, $o_rows, $tabindex, $columns_cnt, $is_upload,
             $tabindex_for_function, $foreigners, $tabindex_for_null,

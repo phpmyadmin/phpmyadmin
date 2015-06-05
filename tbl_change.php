@@ -93,9 +93,6 @@ if (! empty($disp_message)) {
     $response->addHTML(PMA_Util::getMessage($disp_message, null));
 }
 
-// used as a global by PMA_Util::getDefaultFunctionForField()
-$analyzed_sql = PMA_Table::analyzeStructure($db, $table);
-
 $table_columns = PMA_getTableColumns($db, $table);
 
 // retrieve keys into foreign fields, if any
@@ -194,7 +191,7 @@ foreach ($rows as $row_id => $current_row) {
     }
 
     $html_output .= PMA_getHtmlForInsertEditRow(
-        $url_params, $table_columns, $column, $comments_map, $timestamp_seen,
+        $url_params, $table_columns, $comments_map, $timestamp_seen,
         $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
         $current_row, $o_rows, $tabindex, $columns_cnt,
         $is_upload, $tabindex_for_function, $foreigners, $tabindex_for_null,
