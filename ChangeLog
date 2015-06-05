@@ -53,7 +53,9 @@ phpMyAdmin - ChangeLog
 + rfe       Remove support for Shift + Click on function name to apply to all rows in insert/edit page
 + rfe #1634 Don't group tables in tree if the result has only one group
 
-4.4.9.0 (not yet released)
+4.4.10.0 (not yet released)
+
+4.4.9.0 (2015-06-04)
 - bug #4920 relation view doesn't list fields of table in other database
 - bug #4905 Sorting by an alias
 - bug #4931 False error before entering reCAPTCHA
