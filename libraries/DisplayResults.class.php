@@ -2759,21 +2759,6 @@ class PMA_DisplayResults
             $table_body_html .= '<tr class="' . implode(' ', $tr_class) . '">';
 
             // 1. Prepares the row
-            // 1.1 Results from a "SELECT" statement -> builds the
-            //     WHERE clause to use in links (a unique key if possible)
-            /**
-             * @todo $where_clause could be empty, for example a table
-             *       with only one field and it's a BLOB; in this case,
-             *       avoid to display the delete and edit links
-             */
-            list($where_clause, $clause_is_unique, $condition_array)
-                = PMA_Util::getUniqueCondition(
-                    $dt_result,
-                    $this->__get('fields_cnt'),
-                    $this->__get('fields_meta'),
-                    $row
-                );
-            $where_clause_html = urlencode($where_clause);
 
             // In print view these variable needs to be initialized
             $del_url = $del_str = $edit_anchor_class
@@ -2784,6 +2769,23 @@ class PMA_DisplayResults
             if (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
             ) {
+
+                // Results from a "SELECT" statement -> builds the
+                // WHERE clause to use in links (a unique key if possible)
+                /**
+                 * @todo $where_clause could be empty, for example a table
+                 *       with only one field and it's a BLOB; in this case,
+                 *       avoid to display the delete and edit links
+                 */
+                list($where_clause, $clause_is_unique, $condition_array)
+                    = PMA_Util::getUniqueCondition(
+                        $dt_result,
+                        $this->__get('fields_cnt'),
+                        $this->__get('fields_meta'),
+                        $row
+                    );
+                $where_clause_html = urlencode($where_clause);
+
                 // 1.2.1 Modify link(s) - update row case
                 if ($displayParts['edit_lnk'] == self::UPDATE_ROW) {
 
@@ -2839,17 +2841,21 @@ class PMA_DisplayResults
             );
 
             // 3. Displays the modify/delete links on the right if required
-            if (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
-                || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
+            if (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
             ) {
+                if (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
+                    || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
+                ) {
 
-                $table_body_html .= $this->_getPlacedLinks(
-                    self::POSITION_RIGHT, $del_url, $displayParts, $row_no,
-                    $where_clause, $where_clause_html, $condition_array,
-                    $edit_url, $copy_url, $edit_anchor_class,
-                    $edit_str, $copy_str, $del_str, $js_conf
-                );
+                    $table_body_html .= $this->_getPlacedLinks(
+                        self::POSITION_RIGHT, $del_url, $displayParts, $row_no,
+                        $where_clause, $where_clause_html, $condition_array,
+                        $edit_url, $copy_url, $edit_anchor_class,
+                        $edit_str, $copy_str, $del_str, $js_conf
+                    );
 
+                }
             } // end if (3)
 
             $table_body_html .= '</tr>';
