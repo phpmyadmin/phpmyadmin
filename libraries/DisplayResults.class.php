@@ -160,7 +160,10 @@ class PMA_DisplayResults
         'editable' => null,
 
         /** random unique ID to distinguish result set */
-        'unique_id' => null
+        'unique_id' => null,
+
+        /** where clauses for each row, each table in the row */
+        'whereClauseMap' => array(),
     );
 
     /**
@@ -2734,6 +2737,7 @@ class PMA_DisplayResults
 
         $odd_row = true;
 
+        $whereClauseMap = $this->__get('whereClauseMap');
         while ($row = $GLOBALS['dbi']->fetchRow($dt_result)) {
 
             // add repeating headers
@@ -2782,8 +2786,13 @@ class PMA_DisplayResults
                         $dt_result,
                         $this->__get('fields_cnt'),
                         $this->__get('fields_meta'),
-                        $row
+                        $row,
+                        false,
+                        $this->__get('table')
                     );
+                $whereClauseMap[$row_no][$this->__get('table')] = $where_clause;
+                $this->__set('whereClauseMap', $whereClauseMap);
+
                 $where_clause_html = urlencode($where_clause);
 
                 // 1.2.1 Modify link(s) - update row case
@@ -2976,7 +2985,7 @@ class PMA_DisplayResults
 
         $row_info = $this->_getRowInfoForSpecialLinks($row, $col_order);
 
-        $whereClauseMap = array();
+        $whereClauseMap = $this->__get('whereClauseMap');
 
         $columnCount = $this->__get('fields_cnt');
         for ($currentColumn = 0;
@@ -3122,7 +3131,7 @@ class PMA_DisplayResults
              * costly and does not need to be called if we already know
              * the conditions for the current table.
              */
-            if (! isset($whereClauseMap[$meta->orgtable])) {
+            if (! isset($whereClauseMap[$row_no][$meta->orgtable])) {
                 $unique_conditions = PMA_Util::getUniqueCondition(
                     $dt_result,
                     $this->__get('fields_cnt'),
@@ -3131,13 +3140,13 @@ class PMA_DisplayResults
                     false,
                     $meta->orgtable
                 );
-                $whereClauseMap[$meta->orgtable] = $unique_conditions[0];
+                $whereClauseMap[$row_no][$meta->orgtable] = $unique_conditions[0];
             }
 
             $_url_params = array(
                 'db'            => $this->__get('db'),
                 'table'         => $meta->orgtable,
-                'where_clause'  => $whereClauseMap[$meta->orgtable],
+                'where_clause'  => $whereClauseMap[$row_no][$meta->orgtable],
                 'transform_key' => $meta->orgname
             );
 
