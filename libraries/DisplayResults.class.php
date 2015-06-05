@@ -2976,7 +2976,7 @@ class PMA_DisplayResults
 
         $row_info = $this->_getRowInfoForSpecialLinks($row, $col_order);
 
-        $uniqueConditionMap = array();
+        $whereClauseMap = array();
 
         $columnCount = $this->__get('fields_cnt');
         for ($currentColumn = 0;
@@ -3122,7 +3122,7 @@ class PMA_DisplayResults
              * costly and does not need to be called if we already know
              * the conditions for the current table.
              */
-            if (! isset($uniqueConditionMap[$meta->orgtable])) {
+            if (! isset($whereClauseMap[$meta->orgtable])) {
                 $unique_conditions = PMA_Util::getUniqueCondition(
                     $dt_result,
                     $this->__get('fields_cnt'),
@@ -3131,13 +3131,13 @@ class PMA_DisplayResults
                     false,
                     $meta->orgtable
                 );
-                $uniqueConditionMap[$meta->orgtable] = $unique_conditions;
+                $whereClauseMap[$meta->orgtable] = $unique_conditions[0];
             }
 
             $_url_params = array(
                 'db'            => $this->__get('db'),
                 'table'         => $meta->orgtable,
-                'where_clause'  => $uniqueConditionMap[$meta->orgtable][0],
+                'where_clause'  => $whereClauseMap[$meta->orgtable],
                 'transform_key' => $meta->orgname
             );
 
