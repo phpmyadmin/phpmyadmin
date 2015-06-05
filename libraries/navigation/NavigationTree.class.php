@@ -676,24 +676,37 @@ class PMA_NavigationTree
                 }
             }
         }
+        // It is not a group if it has only one item
         foreach ($prefixes as $key => $value) {
             if ($value == 1) {
                 unset($prefixes[$key]);
-            } else if ($value > 500 && ! $this->_largeGroupWarning) {
-                trigger_error(
-                    __(
-                        'There are large item groups in navigation panel which '
-                        . 'may affect the performance. Consider disabling item '
-                        . 'grouping in the navigation panel.'
-                    ),
-                    E_USER_WARNING
-                );
-                $this->_largeGroupWarning = true;
+            }
+        }
+        // rfe #1634 Don't group if there's only one group and no other items
+        if (count($prefixes) == 1) {
+            $keys = array_keys($prefixes);
+            $key = $keys[0];
+            if ($prefixes[$key] == count($node->children) - 1) {
+                unset($prefixes[$key]);
             }
         }
         if (count($prefixes)) {
             $groups = array();
             foreach ($prefixes as $key => $value) {
+
+                // warn about large groups
+                if ($value > 500 && ! $this->_largeGroupWarning) {
+                    trigger_error(
+                        __(
+                            'There are large item groups in navigation panel which '
+                            . 'may affect the performance. Consider disabling item '
+                            . 'grouping in the navigation panel.'
+                        ),
+                        E_USER_WARNING
+                    );
+                    $this->_largeGroupWarning = true;
+                }
+
                 $groups[$key] = new Node(
                     $key,
                     Node::CONTAINER,
