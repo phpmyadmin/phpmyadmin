@@ -2847,7 +2847,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         // Test w/ input transformation
         $actual = PMA_getHtmlForInsertEditFormColumn(
-            $table_columns, 0, array(), array(), false, array(), '', '',
+            $table_columns, 0, array(), false, array(), '', '',
             '', false, array(), false, $o_rows, $tabindex, 0, false, 0,
             array(), 0, 0, 'table', 'db', 0, array(), 0, '', '',
             $repopulate, $column_mime, ''
@@ -2902,7 +2902,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             md5('qwerty') => '12-10-14'
         );
         $actual = PMA_getHtmlForInsertEditFormColumn(
-            $table_columns, 0, array(), array(), false, array(), '', '',
+            $table_columns, 0, array(), false, array(), '', '',
             '', true, array(), false, $o_rows, $tabindex, 0, false, 0,
             array(), 0, 0, 'table', 'db', 0, array(), 0, '', '',
             $repopulate, array(), ''
@@ -2949,7 +2949,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             )
         );
         $actual = PMA_getHtmlForInsertEditRow(
-            array(), $table_columns, array(), array(), false, array(), '', '',
+            array(), $table_columns, array(), false, array(), '', '',
             '', false, array(), $o_rows, $tabindex, 1, false, 0,
             array(), 0, 0, 'table', 'db', 0, array(), 0, '',
             array(), array('wc')
