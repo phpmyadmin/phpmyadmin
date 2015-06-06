@@ -591,7 +591,7 @@ class PMA_Util
      *
      * @return string
      *
-     * @global string $table the curent table
+     * @global string $table the current table
      * @global string $db    the current db
      *
      * @access public
