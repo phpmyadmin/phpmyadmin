@@ -750,7 +750,8 @@ class PMA_Util
      */
     private static function _checkRowCount($db, $table)
     {
-        // check for correct row count
+        $rowCount = 0;
+
         if ($table['Rows'] === null) {
             // Do not check exact row count here,
             // if row count is invalid possibly the table is defect
