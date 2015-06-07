@@ -1824,7 +1824,6 @@ function PMA_getHtmlForIndexesProblems($query_type, $selectedTables, $db)
  * @param string             $pmaThemeImage        uri of the theme image
  * @param int                $unlim_num_rows       unlimited number of rows
  * @param int                $num_rows             number of rows
- * @param string             $full_sql_query       full sql query
  * @param string             $disp_query           display query
  * @param string             $disp_message         display message
  * @param array              $profiling_results    profiling results
@@ -1843,7 +1842,7 @@ function PMA_getHtmlForIndexesProblems($query_type, $selectedTables, $db)
 function PMA_getQueryResponseForResultsReturned($result,
     $analyzed_sql_results, $db, $table, $message, $sql_data,
     $displayResultsObject, $pmaThemeImage,
-    $unlim_num_rows, $num_rows,  $full_sql_query, $disp_query,
+    $unlim_num_rows, $num_rows, $disp_query,
     $disp_message, $profiling_results, $query_type, $selectedTables, $sql_query,
     $complete_query
 ) {
@@ -2154,7 +2153,6 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
             $pmaThemeImage,
             $unlim_num_rows,
             $num_rows,
-            $full_sql_query,
             isset($disp_query) ? $disp_query : null,
             isset($disp_message) ? $disp_message : null,
             $profiling_results,
