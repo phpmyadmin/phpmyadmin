@@ -4029,48 +4029,6 @@ class PMA_DisplayResults
     } // end of the '_getDataCellForNonNumericColumns()' function
 
     /**
-     * Get checkboxes for multiple row data operations
-     *
-     * @param string $dir          _left / _right
-     * @param array  $displayParts which elements to display
-     *
-     * @return String $checkBoxes_html html content
-     *
-     * @access private
-     */
-    private function _getCheckBoxesForMultipleRowOperations($dir, $displayParts)
-    {
-
-        $checkBoxes_html = '';
-        $cell_displayed = 0;
-        $display_params = $this->__get('display_params');
-
-        foreach ($display_params['row_delete'] as $val) {
-
-            if (($cell_displayed != 0)
-                && ($_SESSION['tmpval']['repeat_cells'] != 0)
-                && !($cell_displayed % $_SESSION['tmpval']['repeat_cells'])
-            ) {
-
-                $checkBoxes_html .= '<th'
-                    . (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                        && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
-                        ? ' rowspan="4"'
-                        : ''
-                    . '></th>' . "\n";
-
-            }
-
-            $checkBoxes_html .= str_replace('[%_PMA_CHECKBOX_DIR_%]', $dir, $val);
-            $cell_displayed++;
-        } // end while
-
-        return $checkBoxes_html;
-
-    } // end of the '_getCheckBoxesForMultipleRowOperations' function
-
-
-    /**
      * Checks the posted options for viewing query results
      * and sets appropriate values in the session.
      *
