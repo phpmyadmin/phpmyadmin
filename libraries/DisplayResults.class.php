@@ -2479,7 +2479,7 @@ class PMA_DisplayResults
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
 
             $right_column_html .= "\n"
-                . '<th class="column_action" ' . $colspan . '>'
+                . '<th class="column_action print_ignore" ' . $colspan . '>'
                 . $full_or_partial_text_link
                 . '</th>';
 
@@ -2496,7 +2496,7 @@ class PMA_DisplayResults
                 = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
 
-            $right_column_html .= "\n" . '<td ' . $colspan . '></td>';
+            $right_column_html .= "\n" . '<td class="print_ignore" ' . $colspan . '></td>';
         }
 
         $this->__set('display_params', $display_params);
