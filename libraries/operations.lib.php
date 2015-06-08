@@ -1184,12 +1184,7 @@ function PMA_getHtmlForCopytable()
         . '<input type="checkbox" name="sql_auto_increment" '
         . 'value="1" id="checkbox_auto_increment_cp" />'
         . '<label for="checkbox_auto_increment_cp">'
-        . __('Add AUTO_INCREMENT value') . '</label><br />'
-        . '<input type="checkbox" name="adjust_privileges" value="1"'
-        . 'id="checkbox_adjust_privileges" checked="checked" />'
-        . '<label for="checkbox_adjust_privileges">'
-        . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
-        . '</label><br />';
+        . __('Add AUTO_INCREMENT value') . '</label><br />';
 
     // display "Add constraints" choice only if there are
     // foreign keys
@@ -1199,6 +1194,13 @@ function PMA_getHtmlForCopytable()
         $html_output .= '<label for="checkbox_constraints">'
             . __('Add constraints') . '</label><br />';
     } // endif
+
+    $html_output .= '<br />';
+    $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
+        . 'id="checkbox_adjust_privileges" checked="checked" />'
+        . '<label for="checkbox_adjust_privileges">'
+        . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+        . '</label><br />';
 
     if (isset($_COOKIE['pma_switch_to_new'])
         && $_COOKIE['pma_switch_to_new'] == 'true'
