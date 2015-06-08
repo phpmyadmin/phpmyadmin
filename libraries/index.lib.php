@@ -19,7 +19,11 @@ require_once 'libraries/Index.class.php';
  */
 function PMA_getHtmlForDisplayIndexes()
 {
-    $html_output = '<div id="index_div" class="ajax print_ignore" >';
+    $html_output = '<div id="index_div" class="ajax';
+    if ($GLOBALS['cfg']['InitialSlidersState'] != 'disabled') {
+        $html_output .= ' print_ignore';
+    }
+    $html_output .= '" >';
 
     $html_output .= PMA_Util::getDivForSliderEffect(
         'indexes', __('Indexes')
