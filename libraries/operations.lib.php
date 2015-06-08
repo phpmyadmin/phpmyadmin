@@ -204,6 +204,7 @@ function PMA_getHtmlForCopyDatabase($db)
         . 'id="checkbox_constraints" />';
     $html_output .= '<label for="checkbox_constraints">'
         . __('Add constraints') . '</label><br />';
+    $html_output .= '<br />';
     $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
         . 'id="checkbox_privileges" checked="checked" />';
     $html_output .= '<label for="checkbox_privileges">'
