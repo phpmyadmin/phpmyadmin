@@ -23,8 +23,8 @@ if (! defined('PHPMYADMIN')) {
  * @param string $sort_order        sort order string
  * @param bool   $is_superuser      User status
  * @param Array  $cfg               configuration
- * @param string $replication_types replication types
- * @param string $replication_info  replication info
+ * @param array  $replication_types replication types
+ * @param array  $replication_info  replication info
  * @param string $url_query         url query
  *
  * @return string
@@ -194,10 +194,10 @@ function PMA_getHtmlForTableFooter(
  *
  * @param array  $databases         GBI return databases
  * @param bool   $is_superuser      User status
- * @param Array  $url_query         Url query
- * @param string $column_order      column order
- * @param string $replication_types replication types
- * @param string $replication_info  replication info
+ * @param string $url_query         Url query
+ * @param array  $column_order      column order
+ * @param array  $replication_types replication types
+ * @param array  $replication_info  replication info
  *
  * @return Array
  */
@@ -345,7 +345,7 @@ function PMA_getHtmlForColumnOrderWithSort(
 /**
  * Returns the html for Enable Statistics
  *
- * @param bool   $url_query Url query
+ * @param string $url_query Url query
  * @param string $html      html for database list
  *
  * @return string
