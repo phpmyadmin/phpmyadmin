@@ -862,11 +862,13 @@ function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
  */
 function PMA_getHtmlForRenameTable()
 {
-    $html_output = '<tr><td>' . __('Rename table to') . '</td>'
+    $html_output = '<tr><td class="vmiddle">' . __('Rename table to') . '</td>'
         . '<td>'
         . '<input type="text" size="20" name="new_name" maxlength="64" '
         . 'value="' . htmlspecialchars($GLOBALS['table'])
         . '" required="required" />'
+        . '</td></tr>'
+        . '<tr><td></td><td>'
         . '<input type="checkbox" name="adjust_privileges" value="1" '
         . 'id="checkbox_privileges_table_options" checked="checked" />'
         . '<label for="checkbox_privileges_table_options">'
@@ -887,7 +889,7 @@ function PMA_getHtmlForRenameTable()
 function PMA_getHtmlForTableComments($current_value)
 {
     $commentLength = PMA_MYSQL_INT_VERSION >= 50503 ? 2048 : 60;
-    $html_output = '<tr><td>' . __('Table comments') . '</td>'
+    $html_output = '<tr><td class="vmiddle">' . __('Table comments') . '</td>'
         . '<td><input type="text" name="comment" '
         . 'maxlength="' . $commentLength . '" size="30"'
         . 'value="' . htmlspecialchars($current_value) . '" />'
@@ -909,7 +911,7 @@ function PMA_getHtmlForTableComments($current_value)
 function PMA_getHtmlForPackKeys($current_value)
 {
     $html_output = '<tr>'
-        . '<td><label for="new_pack_keys">PACK_KEYS</label></td>'
+        . '<td class="vmiddle"><label for="new_pack_keys">PACK_KEYS</label></td>'
         . '<td><select name="new_pack_keys" id="new_pack_keys">';
 
     $html_output .= '<option value="DEFAULT"';
@@ -967,7 +969,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
     $html_output .= PMA_getHtmlForTableComments($comment);
 
     //Storage engine
-    $html_output .= '<tr><td>' . __('Storage Engine')
+    $html_output .= '<tr><td class="vmiddle">' . __('Storage Engine')
         . PMA_Util::showMySQLDocu('Storage_engines')
         . '</td>'
         . '<td>'
@@ -978,7 +980,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         . '</tr>';
 
     //Table character set
-    $html_output .= '<tr><td>' . __('Collation') . '</td>'
+    $html_output .= '<tr><td class="vmiddle">' . __('Collation') . '</td>'
         . '<td>'
         . PMA_generateCharsetDropdownBox(
             PMA_CSDROPDOWN_COLLATION,
@@ -1022,7 +1024,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
     if (/*overload*/mb_strlen($auto_increment) > 0
         && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
     ) {
-        $html_output .= '<tr><td>'
+        $html_output .= '<tr><td class="vmiddle">'
             . '<label for="auto_increment_opt">AUTO_INCREMENT</label></td>'
             . '<td><input type="number" name="new_auto_increment" '
             . 'id="auto_increment_opt"'
@@ -1041,7 +1043,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
     if (isset($possible_row_formats[$tbl_storage_engine])) {
         $current_row_format
             = /*overload*/mb_strtoupper($GLOBALS['showtable']['Row_format']);
-        $html_output .= '<tr><td>'
+        $html_output .= '<tr><td class="vmiddle">'
             . '<label for="new_row_format">ROW_FORMAT</label></td>'
             . '<td>';
         $html_output .= PMA_Util::getDropdown(
@@ -1069,11 +1071,14 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
 function PMA_getHtmlForTableRow($attribute, $label, $val)
 {
     return '<tr>'
-        . '<td><label for="' . $attribute . '">' . $label . '</label></td>'
-        . '<td><input type="checkbox" name="' . $attribute . '"'
-        . ' id="' . $attribute . '"'
-        . ' value="1"'
-        . ((!empty($val) && $val == 1) ? ' checked="checked"' : '') . '/></td>'
+        . '<td class="vmiddle">'
+        . '<label for="' . $attribute . '">' . $label . '</label>'
+        . '</td>'
+        . '<td>'
+        . '<input type="checkbox" name="' . $attribute . '" id="' . $attribute . '"'
+        . ' value="1"' . ((!empty($val) && $val == 1) ? ' checked="checked"' : '')
+        . '/>'
+        . '</td>'
         . '</tr>';
 }
 
