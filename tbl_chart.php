@@ -7,7 +7,8 @@
  */
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/tbl_chart.lib.php';
+require_once 'libraries/Template.class.php';
+use PMA\Template;
 
 /*
  * Execute the query and return the result
@@ -133,9 +134,14 @@ $url_params['reload'] = 1;
 /**
  * Displays the page
  */
-$htmlString = PMA_getHtmlForTableChartDisplay(
-    $url_query, $url_params, $keys, $fields_meta, $numeric_types,
-    $numeric_column_count, $sql_query
-);
-
-$response->addHTML($htmlString);
+$response->addHTML(Template::get('tbl_chart')->render(
+    array(
+        'url_query' => $url_query,
+        'url_params' => $url_params,
+        'keys' => $keys,
+        'fields_meta' => $fields_meta,
+        'numeric_types' => $numeric_types,
+        'numeric_column_count' => $numeric_column_count,
+        'sql_query' => $sql_query
+    )
+));
