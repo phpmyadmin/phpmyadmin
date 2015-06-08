@@ -867,6 +867,11 @@ function PMA_getHtmlForRenameTable()
         . '<input type="text" size="20" name="new_name" maxlength="64" '
         . 'value="' . htmlspecialchars($GLOBALS['table'])
         . '" required="required" />'
+        . '<input type="checkbox" name="adjust_privileges" value="1" '
+        . 'id="checkbox_privileges_table_options" checked="checked" />'
+        . '<label for="checkbox_privileges_table_options">'
+        . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+        . '</label>'
         . '</td>'
         . '</tr>';
     return $html_output;
@@ -1024,14 +1029,6 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
             . 'value="' . $auto_increment . '" /></td>'
             . '</tr> ';
     } // end if (MYISAM|INNODB)
-
-    $html_output .= '<tr><td>'
-        . '<label for="checkbox_privileges_table_options">'
-        . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
-        . '</label></td>'
-        . '<td><input type="checkbox" name="adjust_privileges" value="1" '
-        . 'id="checkbox_privileges_table_options" checked="checked" /></td>'
-        . '</tr>';
 
     $possible_row_formats = PMA_getPossibleRowFormat();
 
