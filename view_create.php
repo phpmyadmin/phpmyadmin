@@ -85,8 +85,6 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
 
     if ($GLOBALS['dbi']->tryQuery($sql_query)) {
 
-        include_once './libraries/tbl_views.lib.php';
-
         // If different column names defined for VIEW
         $view_columns = array();
         if (isset($_REQUEST['view']['column_names'])) {
