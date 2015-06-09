@@ -57,7 +57,7 @@
     <select name="orderByColumn"><option value="--nil--"></option>
         <?php foreach ($columnNames as $each_field): ?>
             <option value="<?php echo htmlspecialchars($each_field); ?>">
-                <?php htmlspecialchars($each_field); ?>
+                <?php echo htmlspecialchars($each_field); ?>
             </option>
         <?php endforeach; ?>
     </select>
