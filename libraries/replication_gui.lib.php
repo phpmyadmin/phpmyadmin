@@ -369,9 +369,10 @@ function PMA_getHtmlForReplicationDbMultibox()
         $multi_values .= $current_db . '</option>';
     } // end while
 
-    $multi_values .= '</select>';
-    $multi_values .= '<br /><a href="#" id="db_reset_href">';
-    $multi_values .= __('Uncheck All') . '</a>';
+    $multi_values .= '</select><br />';
+    $multi_values .= '<a href="#" id="db_select_href">' . __('Select All') . '</a>';
+    $multi_values .= '&nbsp;/&nbsp;';
+    $multi_values .= '<a href="#" id="db_reset_href">' . __('Unselect All') . '</a>';
 
     return $multi_values;
 }
