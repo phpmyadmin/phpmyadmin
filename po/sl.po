@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-27 22:44+0200\n"
+"PO-Revision-Date: 2015-06-03 20:58+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/sl/>\n"
@@ -11272,12 +11272,12 @@ msgstr "Oprostite, zavržene rutine nam ni uspelo obnoviti."
 #: libraries/rte/rte_routines.lib.php:345
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Rutina %1$s je bila spremenjena."
+msgstr "Rutino %1$s smo spremenili."
 
 #: libraries/rte/rte_routines.lib.php:366
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr "Rutina %1$s je bila ustvarjena."
+msgstr "Rutino %1$s smo ustvarili."
 
 #: libraries/rte/rte_routines.lib.php:451
 msgid "Edit routine"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-28 11:01+0200\n"
+"PO-Revision-Date: 2015-06-04 19:48+0200\n"
 "Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/nb/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1865,6 +1865,8 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Ingen kolonner i sentral listen. Sørg for at sentral kolonne liste for "
+"databasen %s ikke har kolonner som er til stede i den aktuelle tabellen."
 
 #: js/messages.php:323
 msgid "See more"
@@ -2124,6 +2126,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Indikerer at du har gjort endringer til denne siden; du vil bli bedt om "
+"bekreftelse før du forlater endringer"
 
 #: js/messages.php:417
 msgid "Select referenced key"
@@ -2186,11 +2190,11 @@ msgstr "Vennligst tast inn et gyldig side navn"
 
 #: js/messages.php:432
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Ønsker du å lagre endringene i den gjeldende siden?"
 
 #: js/messages.php:433
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Slettet side"
 
 #: js/messages.php:434
 #| msgid "Edit or export relational schema"
@@ -2232,7 +2236,6 @@ msgid "Click to sort results by this column."
 msgstr "Klikk for å sortere resultatene etter denne kolonnen."
 
 #: js/messages.php:446
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2241,9 +2244,9 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Shift + Klikk for å legge denne kolonnen til sorteringsrekkefølgen eller "
-"veksle mellom stigende/synkende <br /> - Ctrl + Klikk for å fjerne kolonnen "
-"fra sorteringsrekkefølgen"
+"Shift + Klikk for å legge denne kolonnen til BESTILLT AV-ledd eller veksle "
+"mellom STIGENDE/ SYNKENDE<br /> - Ctrl + klikk eller Alt + klikk (Mac: Shift "
+"+ Option + Klikk). For å fjerne kolonnen fra BESTILLT AV-leddet"
 
 #: js/messages.php:447
 msgid "Click to mark/unmark."
@@ -2275,19 +2278,20 @@ msgstr ""
 
 #: js/messages.php:454
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
-msgstr ""
+msgstr "Skriv inn en gyldig heksadesimal streng. Gyldige tegn er 0-9, A-F."
 
 #: js/messages.php:455
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Ønsker du virkelig å se alle radene? For et stort bord kan dette krasje "
+"nettleseren."
 
 #: js/messages.php:458
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
-msgstr "Avbryt"
+msgstr "avbryt"
 
 #: js/messages.php:459 libraries/server_status.lib.php:269
 msgid "Aborted"
@@ -2295,25 +2299,22 @@ msgstr "Avbrutt"
 
 #: js/messages.php:461
 msgid "Success"
-msgstr ""
+msgstr "Vellykket"
 
 #: js/messages.php:462
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Importinnstillinger"
+msgstr "Import status"
 
 #: js/messages.php:463 libraries/navigation/Navigation.class.php:107
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Loggfilterskel"
+msgstr "Legg filene her"
 
 #: js/messages.php:464
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
-msgstr "Velg tabeller"
+msgstr "Velg database først"
 
 #: js/messages.php:469
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2365,55 +2366,48 @@ msgstr "Vis skjulte elementer i navigasjonstreet."
 
 #: js/messages.php:493 libraries/config/messages.inc.php:429
 #: libraries/navigation/NavigationTree.class.php:1335
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Tilpasse hovedpanelet"
+msgstr "Lenke med hovedpanelet"
 
 #: js/messages.php:494 libraries/navigation/NavigationTree.class.php:1338
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Tilpasse hovedpanelet"
+msgstr "Fjern lenke fra hovedpanelet"
 
 #: js/messages.php:495
 msgid "To filter all databases on server, press Enter after a search term"
-msgstr ""
+msgstr "Å filtrere alle databaser på serveren, trykker Enter etter et søkeord"
 
 #: js/messages.php:496
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
-msgstr ""
+msgstr "Slik filtrerer du alle %s i databasen, trykk Enter etter et søkeord"
 
 #: js/messages.php:497
-#, fuzzy
 #| msgid "Tables"
 msgid "tables"
-msgstr "Tabeller"
+msgstr "tabeller"
 
 #: js/messages.php:498
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "Visning"
+msgstr "visning"
 
 #: js/messages.php:499
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
-msgstr "Prosedyrer"
+msgstr "prosedyrer"
 
 #: js/messages.php:500
-#, fuzzy
 #| msgid "Event"
 msgid "events"
-msgstr "Hendelse"
+msgstr "hendelse"
 
 #: js/messages.php:501
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
-msgstr "Funsjoner"
+msgstr "funksjoner"
 
 #: js/messages.php:504
 msgid "The requested page was not found in the history, it may have expired."
@@ -2483,34 +2477,31 @@ msgstr ""
 
 #: js/messages.php:534 js/messages.php:546
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Noen feil har blitt oppdaget på serveren!"
 
 #: js/messages.php:536
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Vennligst se nederst i dette vinduet."
 
 #: js/messages.php:541 libraries/Error_Handler.class.php:353
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
-msgstr "Ignorer"
+msgstr "Ignorer alle"
 
 #: js/messages.php:548
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
+msgstr "I henhold til dine innstillinger, blir de sendt i dag, vær tålmodig."
 
 #: js/messages.php:555
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Vis denne spørring her igjen"
+msgstr "Utfør denne spørring igjen?"
 
 #: js/messages.php:556
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Vil du virkelig slette søket \"%s\"?"
+msgstr "Vil du virkelig slette dette bokmerket?"
 
 #: js/messages.php:557
 msgid ""
