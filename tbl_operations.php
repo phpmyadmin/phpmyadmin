@@ -178,6 +178,16 @@ if (isset($_REQUEST['submitoptions'])) {
         unset($table_alters);
         $warning_messages = PMA_getWarningMessagesArray();
     }
+
+    if (isset($_REQUEST['tbl_collation'])
+        && ! empty($_REQUEST['tbl_collation'])
+        && isset($_REQUEST['change_all_collations'])
+        && ! empty($_REQUEST['change_all_collations'])
+    ) {
+        PMA_changeAllColumnsCollation(
+            $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['tbl_collation']
+        );
+    }
 }
 /**
  * Reordering the table has been requested by the user

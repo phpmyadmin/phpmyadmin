@@ -78,10 +78,35 @@ AJAX.registerOnload('tbl_operations.js', function () {
         event.stopPropagation();
         var $form = $(this);
         var $tblNameField = $form.find('input[name=new_name]');
+        var $tblCollationField = $form.find('select[name=tbl_collation]');
+        var collationOrigValue = $('select[name="tbl_collation"] option[selected]').val();
+        var $changeAllColumnCollationsCheckBox = $('#checkbox_change_all_collations');
+        var question = PMA_messages.strChangeAllColumnCollationsWarning;
+
         if ($tblNameField.val() !== $tblNameField[0].defaultValue) {
             // reload page and navigation if the table has been renamed
             PMA_prepareForAjaxRequest($form);
             var tbl = $tblNameField.val();
+
+            if ($tblCollationField.val() !== collationOrigValue && $changeAllColumnCollationsCheckBox.is(':checked')) {
+                $form.PMA_confirm(question, $form.attr('action'), function (url) {
+                    submitOptionsForm();
+                });
+            } else {
+                submitOptionsForm();
+            }
+        } else {
+
+            if ($tblCollationField.val() !== collationOrigValue && $changeAllColumnCollationsCheckBox.is(':checked')) {
+                $form.PMA_confirm(question, $form.attr('action'), function (url) {
+                    $form.removeClass('ajax').submit().addClass('ajax');
+                });
+            } else {
+                $form.removeClass('ajax').submit().addClass('ajax');
+            }
+        }
+
+        function submitOptionsForm() {
             $.post($form.attr('action'), $form.serialize(), function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_commonParams.set('table', tbl);
@@ -93,8 +118,6 @@ AJAX.registerOnload('tbl_operations.js', function () {
                     PMA_ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
-        } else {
-            $form.removeClass('ajax').submit().addClass('ajax');
         }
     });
 
