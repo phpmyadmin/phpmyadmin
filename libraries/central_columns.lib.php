@@ -565,23 +565,24 @@ function PMA_updateMultipleColumn()
     $col_name = $_POST['field_name'];
     $orig_col_name = $_POST['orig_col_name'];
     $col_default = $_POST['field_default_type'];
-    $col_extra = $_POST['col_extra'];
     $col_length = $_POST['field_length'];
     $col_attribute = $_POST['field_attribute'];
     $col_type = $_POST['field_type'];
     $collation = $_POST['field_collation'];
     $col_isNull = array();
+    $col_extra = array();
     $num_central_fields = count($orig_col_name);
     for ($i = 0; $i < $num_central_fields ; $i++) {
-        $col_isNull[$i] = isset($_POST['field_null'][$i])?1:0;
+        $col_isNull[$i] = isset($_POST['field_null'][$i]) ? 1 : 0;
+        $col_extra[$i] = isset($_POST['col_extra'][$i])
+            ? $_POST['col_extra'][$i] : '';
+
         if ($col_default[$i] == 'NONE') {
             $col_default[$i] = "";
         } else if ($col_default[$i] == 'USER_DEFINED') {
             $col_default[$i] = $_POST['field_default_value'][$i];
         }
-        if (! isset($_POST['col_extra'][$i])) {
-            $col_extra[$i] =  '';
-        }
+
         $message = PMA_updateOneColumn(
             $db, $orig_col_name[$i], $col_name[$i], $col_type[$i],
             $col_attribute[$i], $col_length[$i], $col_isNull[$i], $collation[$i],
