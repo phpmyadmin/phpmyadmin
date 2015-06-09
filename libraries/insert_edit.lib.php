@@ -1502,7 +1502,7 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
                 '@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@',
                 $where_clause[$i]
             ) == 1);
-            if ($is_numeric == true) {
+            if ($is_numeric === true) {
                 break;
             }
         }
