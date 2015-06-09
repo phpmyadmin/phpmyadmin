@@ -275,7 +275,7 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
             }
         }
     }
-    if ($existingCols) {
+    if (! empty($existingCols)) {
         $existingCols = implode(",", array_unique($existingCols));
         $message = PMA_Message::notice(
             sprintf(
@@ -292,7 +292,7 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
         );
     }
     $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
-    if ($insQuery) {
+    if (! empty($insQuery)) {
         foreach ($insQuery as $query) {
             if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
                 $message = PMA_Message::error(__('Could not add columns!'));
@@ -365,7 +365,7 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
             }
         }
     }
-    if ($colNotExist) {
+    if (! empty($colNotExist)) {
             $colNotExist = implode(",", array_unique($colNotExist));
             $message = PMA_Message::notice(
                 sprintf(
@@ -488,7 +488,7 @@ function PMA_getCentralColumnsFromTable($db, $table, $allFields=false)
     }
     $cols = trim($cols, ',');
     $has_list = PMA_findExistingColNames($db, $cols, $allFields);
-    if (isset($has_list) && $has_list) {
+    if (! empty($has_list)) {
         return (array)$has_list;
     } else {
         return array();
