@@ -501,8 +501,12 @@ if ($import_file != 'none' && ! $error) {
         }
         break;
     case 'application/gzip':
-        if ($cfg['GZipDump'] && @function_exists('gzopen')) {
-            $import_handle = @gzopen($import_file, 'r');
+        if ($cfg['GZipDump'] && (@function_exists('gzopen') || @function_exists('gzopen64')) ) {
+            if (@function_exists('gzopen64')) {
+                $import_handle = @gzopen64($import_file, 'r');
+            } else {
+                $import_handle = @gzopen($import_file, 'r');
+            }            
         } else {
             $message = PMA_Message::error(
                 __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
