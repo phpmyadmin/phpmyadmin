@@ -68,5 +68,6 @@ AJAX.registerOnload('replication.js', function () {
     });
     $('#db_reset_href').click(function () {
         $('#db_select option:selected').prop('selected', false);
+        $('#db_select').trigger('change');
     });
 });
