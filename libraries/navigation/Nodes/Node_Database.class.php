@@ -40,8 +40,12 @@ class Node_Database extends Node
             's_db.png',
             __('Database operations')
         );
+
+        $script_name = PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+        );
         $this->links = array(
-            'text' => $GLOBALS['cfg']['DefaultTabDatabase']
+            'text' => $script_name
                     . '?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_operations.php?server=' . $GLOBALS['server']

@@ -32,36 +32,39 @@ class Node_Table extends Node_DatabaseChild
     {
         parent::__construct($name, $type, $is_group);
         $this->icon = array();
-        $this->_addIcon($GLOBALS['cfg']['NavigationTreeDefaultTabTable']);
-        $this->_addIcon($GLOBALS['cfg']['NavigationTreeDefaultTabTable2']);
-        switch($GLOBALS['cfg']['DefaultTabTable']) {
-        case 'tbl_structure.php':
-            $this->title = __('Structure');
-            break;
-        case 'tbl_select.php':
-            $this->title = __('Search');
-            break;
-        case 'tbl_change.php':
-            $this->title = __('Insert');
-            break;
-        case 'tbl_sql.php':
-            $this->title = __('SQL');
-            break;
-        case 'sql.php':
-            $this->title = __('Browse');
-            break;
-        }
+        $this->_addIcon(
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table'
+            )
+        );
+        $this->_addIcon(
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table'
+            )
+        );
+        $title = PMA_Util::getTitleForTarget(
+            $GLOBALS['cfg']['DefaultTabTable']
+        );
+        $this->title = $title;
+
+        $script_name = PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+        );
         $this->links = array(
-            'text' => $GLOBALS['cfg']['DefaultTabTable']
+            'text' => $script_name
                     . '?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
                     . '&amp;pos=0&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => array(
-                $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
+                PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table'
+                )
                 . '?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s&amp;token='
                 . $_SESSION[' PMA_token '],
-                $GLOBALS['cfg']['NavigationTreeDefaultTabTable2']
+                PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table'
+                )
                 . '?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s&amp;token='
                 . $_SESSION[' PMA_token ']

@@ -161,7 +161,9 @@ function PMA_getHtmlForSqlQueryFormInsert(
         // prepare for db related
         $db     = $GLOBALS['db'];
         // if you want navigation:
-        $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+        $tmp_db_link = '<a href="' . PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+        )
             . PMA_URL_getCommon(array('db' => $db)) . '"';
         $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
@@ -182,7 +184,9 @@ function PMA_getHtmlForSqlQueryFormInsert(
             $db, $GLOBALS['table'], null, true
         );
 
-        $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+        $tmp_db_link = '<a href="' . PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+        )
             . PMA_URL_getCommon(array('db' => $db)) . '"';
         $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';

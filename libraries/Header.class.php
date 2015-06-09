@@ -230,7 +230,9 @@ class PMA_Header
 
         $params = array(
             'common_query' => PMA_URL_getCommon(array(), 'text'),
-            'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
+            'opendb_url' => PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            ),
             'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 1 : 0,
             'collation_connection' => $GLOBALS['collation_connection'],
             'lang' => $GLOBALS['lang'],

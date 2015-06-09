@@ -54,7 +54,9 @@ if (isset($_POST['replace'])) {
 }
 
 if (! isset($goto)) {
-    $goto = $GLOBALS['cfg']['DefaultTabTable'];
+    $goto = PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabTable'], 'table'
+    );
 }
 // Defines the url to return to in case of error in the next sql statement
 $params = array('db' => $db, 'table' => $table);
