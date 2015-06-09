@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-06-04 19:48+0200\n"
-"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
+"PO-Revision-Date: 2015-06-09 13:19+0200\n"
+"Last-Translator: Børge Holm-Wennberg <borge947@gmail.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/nb/>\n"
 "Language: nb\n"
@@ -7417,7 +7417,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:647
 #: libraries/display_create_database.lib.php:31
 msgid "Database name"
-msgstr "Ddatabasenavn"
+msgstr "Databasenavn"
 
 #: libraries/config/messages.inc.php:649
 #, fuzzy
