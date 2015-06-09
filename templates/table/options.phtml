@@ -63,10 +63,15 @@
     </select>
 
     <?php echo PMA_Util::getRadioFields(
-        'order', array(
-        'ASC' => __('Ascending'),
-        'DESC' => __('Descending')
-    ), 'ASC', false, true, "formelement"
+        'order',
+        array(
+            'ASC' => __('Ascending'),
+            'DESC' => __('Descending')
+        ),
+        'ASC',
+        false,
+        true,
+        "formelement"
     ); ?>
 
 </fieldset>
