@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.4.10.0 (not yet released)
+- bug #4950 Issues in database selection for replication
 
 4.4.9.0 (2015-06-04)
 - bug #4920 relation view doesn't list fields of table in other database
@@ -11,7 +12,6 @@ phpMyAdmin - ChangeLog
 - bug #4937 Custom export with backquotes off is not working
 - bug #4908 Reverse proxy: infinite internal redirect (added warning in doc)
 - bug #4942 Export to gzip saves plain text under Chrome
-- bug #4950 Issues in database selection for replication
 
 4.4.8.0 (2015-05-28)
 - bug       Allow accessing visual query builder when pmadb is not configured
