@@ -331,7 +331,7 @@ if (isset($_COOKIE)
  * check HTTPS connection
  */
 if ($GLOBALS['PMA_Config']->get('ForceSSL')
-    && ! $GLOBALS['PMA_Config']->get('is_https')
+    && ! $GLOBALS['PMA_Config']->detectHttps()
 ) {
     // grab SSL URL
     $url = $GLOBALS['PMA_Config']->getSSLUri();
@@ -487,7 +487,7 @@ if ($token_mismatch) {
         'pma_lang', 'pma_collation_connection',
         /* Possible login form */
         'pma_servername', 'pma_username', 'pma_password',
-        'recaptcha_challenge_field', 'recaptcha_response_field',
+        'g-recaptcha-response',
         /* Needed to send the correct reply */
         'ajax_request',
         /* Permit to log out even if there is a token mismatch */

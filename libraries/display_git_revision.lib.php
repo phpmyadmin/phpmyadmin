@@ -66,7 +66,7 @@ function PMA_printGitRevision()
         . sprintf(
             __('committed on %1$s by %2$s'),
             PMA_Util::localisedDate(strtotime($committer['date'])),
-            '<a href="' . PMA_linkURL('mailto:' . $committer['email']) . '">'
+            '<a href="' . PMA_linkURL('mailto:' . htmlspecialchars($committer['email'])) . '">'
             . htmlspecialchars($committer['name']) . '</a>'
         )
         . ($author != $committer
@@ -74,7 +74,7 @@ function PMA_printGitRevision()
             . sprintf(
                 __('authored on %1$s by %2$s'),
                 PMA_Util::localisedDate(strtotime($author['date'])),
-                '<a href="' . PMA_linkURL('mailto:' . $author['email']) . '">'
+                '<a href="' . PMA_linkURL('mailto:' . htmlspecialchars($author['email'])) . '">'
                 . htmlspecialchars($author['name']) . '</a>'
             )
             : ''),

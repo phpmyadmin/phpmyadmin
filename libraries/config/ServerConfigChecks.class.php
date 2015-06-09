@@ -371,38 +371,38 @@ class ServerConfigChecks
         $sAllowArbitraryServerWarn = __('This %soption%s should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use %srestrict login to MySQL server%s or %strusted proxies list%s. However, IP-based protection with trusted proxies list may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
         $sAllowArbitraryServerWarn = sprintf(
             $sAllowArbitraryServerWarn,
-            '[a@?page=form&amp;formset=Features#tab_Security]',
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;formset=Features#tab_Security]',
             '[/a]',
-            '[a@?page=form&amp;formset=Features#tab_Security]',
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;formset=Features#tab_Security]',
             '[/a]',
-            '[a@?page=form&amp;formset=Features#tab_Security]',
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;formset=Features#tab_Security]',
             '[/a]'
         );
         $sBlowfishSecretMsg = __('You didn\'t have blowfish secret set and have enabled [kbd]cookie[/kbd] authentication, so a key was automatically generated for you. It is used to encrypt cookies; you don\'t need to remember it.');
         $sBZipDumpWarning = __('%sBzip2 compression and decompression%s requires functions (%s) which are unavailable on this system.');
         $sBZipDumpWarning = sprintf(
             $sBZipDumpWarning,
-            '[a@?page=form&amp;formset=Features#tab_Import_export]',
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;formset=Features#tab_Import_export]',
             '[/a]', '%s'
         );
         $sDirectoryNotice = __('This value should be double checked to ensure that this directory is neither world accessible nor readable or writable by other users on your server.');
         $sForceSSLNotice = __('This %soption%s should be enabled if your web server supports it.');
         $sForceSSLNotice = sprintf(
             $sForceSSLNotice,
-            '[a@?page=form&amp;formset=Features#tab_Security]',
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;formset=Features#tab_Security]',
             '[/a]'
         );
         $sGZipDumpWarning = __('%sGZip compression and decompression%s requires functions (%s) which are unavailable on this system.');
         $sGZipDumpWarning = sprintf(
             $sGZipDumpWarning,
-            '[a@?page=form&amp;formset=Features#tab_Import_export]',
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;formset=Features#tab_Import_export]',
             '[/a]',
             '%s'
         );
         $sLoginCookieValidityWarn = __('%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause random session invalidation (currently session.gc_maxlifetime is %d).');
         $sLoginCookieValidityWarn = sprintf(
             $sLoginCookieValidityWarn,
-            '[a@?page=form&amp;formset=Features#tab_Security]',
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;formset=Features#tab_Security]',
             '[/a]',
             '[a@' . PMA_getPHPDocLink(
                 'session.configuration.php#ini.session.gc-maxlifetime'
@@ -413,41 +413,42 @@ class ServerConfigChecks
         $sLoginCookieValidityWarn2 = __('%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.');
         $sLoginCookieValidityWarn2 = sprintf(
             $sLoginCookieValidityWarn2,
-            '[a@?page=form&amp;formset=Features#tab_Security]',
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;formset=Features#tab_Security]',
             '[/a]'
         );
         $sLoginCookieValidityWarn3 = __('If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not 0, %sLogin cookie validity%s must be set to a value less or equal to it.');
         $sLoginCookieValidityWarn3 = sprintf(
             $sLoginCookieValidityWarn3,
-            '[a@?page=form&amp;formset=Features#tab_Security]',
-            '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]',
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;formset=Features#tab_Security]',
+            '[/a]',
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;formset=Features#tab_Security]',
             '[/a]'
         );
         $sSecurityInfoMsg = __('If you feel this is necessary, use additional protection settings - %shost authentication%s settings and %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
         $sSecurityInfoMsg = sprintf(
             $sSecurityInfoMsg,
-            '[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]',
+            '[a@?page=servers' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;mode=edit&amp;id=%1$d#tab_Server_config]',
             '[/a]',
-            '[a@?page=form&amp;formset=Features#tab_Security]',
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;formset=Features#tab_Security]',
             '[/a]'
         );
         $sServerAuthConfigMsg = __('You set the [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows or guesses your phpMyAdmin URL can directly access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]http[/kbd].');
         $sServerAuthConfigMsg = sprintf(
             $sServerAuthConfigMsg,
-            '[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]',
+            '[a@?page=servers' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;mode=edit&amp;id=%1$d#tab_Server]',
             '[/a]'
         );
         $sZipDumpExportWarn = __('%sZip compression%s requires functions (%s) which are unavailable on this system.');
         $sZipDumpExportWarn = sprintf(
             $sZipDumpExportWarn,
-            '[a@?page=form&amp;formset=Features#tab_Import_export]',
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;formset=Features#tab_Import_export]',
             '[/a]',
             '%s'
         );
         $sZipDumpImportWarn = __('%sZip decompression%s requires functions (%s) which are unavailable on this system.');
         $sZipDumpImportWarn = sprintf(
             $sZipDumpImportWarn,
-            '[a@?page=form&amp;formset=Features#tab_Import_export]',
+            '[a@?page=form' . PMA_URL_getCommon(array(), 'html', '&') . '&amp;formset=Features#tab_Import_export]',
             '[/a]',
             '%s'
         );

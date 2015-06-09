@@ -32,7 +32,6 @@ $forms['Features']['General'] = array(
     'DisableMultiTableMaintenance',
     'MaxDbList',
     'MaxTableList',
-    'NumFavoriteTables',
     'ShowHint',
     'SendErrorReports'
 );

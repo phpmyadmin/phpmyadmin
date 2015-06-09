@@ -754,7 +754,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                 // empty all edit area, then rebuild it based on $td classes
                 $editArea.empty();
-                $editArea.removeClass('edit_area_right');
 
                 // remember this instead of testing more than once
                 var is_null = $td.is('.null');
@@ -1068,10 +1067,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     if ($editArea.children().length > 0) {
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     }
-                }
-                if ($(g.cEdit).offset().left + $editArea.outerWidth() > $(document.body).width()) {
-                    $editArea.addClass('edit_area_right');
-                    $editArea.css('top','');
                 }
                 if ($editArea.children().length > 0 && !is_null) {
                     $editArea.show();

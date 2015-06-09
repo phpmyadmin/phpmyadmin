@@ -222,7 +222,7 @@ function Swekey_HttpGet($url, &$response_code)
             }
 
             curl_setopt($sess, CURLOPT_SSL_VERIFYHOST, '2');
-            curl_setopt($sess, CURLOPT_SSL_VERIFYPEER, '2');
+            curl_setopt($sess, CURLOPT_SSL_VERIFYPEER, '1');
             curl_setopt($sess, CURLOPT_CONNECTTIMEOUT, '20');
             curl_setopt($sess, CURLOPT_TIMEOUT, '20');
         } else {

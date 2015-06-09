@@ -1,6 +1,51 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.4.9.0 (2015-06-04)
+- bug #4920 relation view doesn't list fields of table in other database
+- bug #4905 Sorting by an alias
+- bug #4931 False error before entering reCAPTCHA
+- bug #4909 central column with multiple server
+- bug #4937 Custom export with backquotes off is not working
+- bug #4908 Reverse proxy: infinite internal redirect (added warning in doc)
+- bug #4942 Export to gzip saves plain text under Chrome
+
+4.4.8.0 (2015-05-28)
+- bug       Allow accessing visual query builder when pmadb is not configured
+- bug #4893 Nav tree line alignment issue
+- bug #4911 Lock page icon is not shown after fresh reload
+- bug #4912 "Highlight pointer" and "Row marker" doesn't work properly
+- bug       Browse foreigners window goes out of the window
+- bug #4918 Date field popup dialog position bug
+- bug       In /setup, PMA_messages is not defined
+- bug #4924 Recaptcha failure
+- bug #4930 Database copy doesn't work for tables with more than one FULLTEXT index
+- bug #4929 Edit view structure doesn't load the algorithm
+- bug #4923 Do not limit table comments to 60 characters
+
+4.4.7.0 (2015-05-16)
+- bug #4876 Settings issues (Favorite tables shown twice in Settings)
+- bug #4896 Non-styled error page when following results link
+- bug #4894 Deleting without confirmation
+- bug #4858 Issues with SQL autocomplete
+- bug #4897 Column hint in SQL autocomplete is sometimes not shown
+- bug #4898 JS error after selecting a field and press Enter
+- bug       Honor proxy settings when getting Git commit information
+- bug       Missing title on link
+- bug #4512 ForceSSL Redirect Check
+- bug       Undefined index collation_connection
+- bug       Error when the reporting server is down
+- bug       Escape database and table names for partition maintenance
+- bug       Invalid value for CURLOPT_SSL_VERIFYPEER
+- bug #4367 Import status infinite loop
+- bug #4902 Designer: Loading does not work
+- bug #4904 Setup: Overview > Display does not work
+- bug #4906 Designer: pages from all databases
+
+4.4.6.1 (2015-05-13)
+- bug #4899 [security] CSRF vulnerability in setup
+- bug #4900 [security] Vulnerability allowing man-in-the-middle attack
+
 4.4.6.0 (2015-05-07)
 - bug #4890 webkitStorageInfo and webkitIndexedDB is deprecated
 - bug #4892 Undefined variable: unique_conditions

@@ -1848,7 +1848,8 @@ class PMA_DisplayResults
         // FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
 
         $sort_tbl = (isset($fields_meta->table)
-            && /*overload*/mb_strlen($fields_meta->table))
+            && /*overload*/mb_strlen($fields_meta->table)
+            && $fields_meta->orgname == $fields_meta->name)
             ? PMA_Util::backquote(
                 $fields_meta->table
             ) . '.'
@@ -2621,11 +2622,18 @@ class PMA_DisplayResults
                 );
             }
 
-            $alternating_color_class = ($odd_row ? 'odd' : 'even');
+            $tr_class = array();
+            if ($GLOBALS['cfg']['BrowsePointerEnable'] != true) {
+                $tr_class[] = 'nopointer';
+            }
+            if ($GLOBALS['cfg']['BrowseMarkerEnable'] != true) {
+                $tr_class[] = 'nomarker';
+            }
+            $tr_class[] = ($odd_row ? 'odd' : 'even');
             $odd_row = ! $odd_row;
 
             // pointer code part
-            $table_body_html .= '<tr class="' . $alternating_color_class . '">';
+            $table_body_html .= '<tr class="' . implode(' ', $tr_class) . '">';
 
             // 1. Prepares the row
             // 1.1 Results from a "SELECT" statement -> builds the
@@ -5172,7 +5180,10 @@ class PMA_DisplayResults
         }
 
         /* Create link to download */
-        if (count($url_params) > 0) {
+
+        // in PHP < 5.5, empty() only checks variables
+        $tmpdb = $this->__get('db');
+        if ((count($url_params) > 0) && (! empty($tmpdb) && ! empty($meta->orgtable))) {
             $result = '<a href="tbl_get_field.php'
                 . PMA_URL_getCommon($url_params)
                 . '" class="disableAjax">'
@@ -5550,7 +5561,7 @@ class PMA_DisplayResults
             $ajax = PMA_Response::getInstance()->isAjax() ? ' ajax' : '';
             $ret .= 'center" ' . ' >'
                . PMA_Util::linkOrButton(
-                   $del_url, $del_str, array('class' => 'delete_row' . $ajax), false
+                   $del_url, $del_str, array('class' => 'delete_row requireConfirm' . $ajax), false
                )
                . '<div class="hide">' . $js_conf . '</div>'
                . '</td>';

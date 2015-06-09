@@ -30,8 +30,8 @@ class PMA_Partition
         if (PMA_Partition::havePartitioning()) {
             return $GLOBALS['dbi']->fetchResult(
                 "SELECT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS`"
-                . " WHERE `TABLE_SCHEMA` = '" . $db
-                . "' AND `TABLE_NAME` = '" . $table . "'"
+                . " WHERE `TABLE_SCHEMA` = '" . PMA_Util::sqlAddSlashes($db)
+                . "' AND `TABLE_NAME` = '" . PMA_Util::sqlAddSlashes($table) . "'"
             );
         } else {
             return array();

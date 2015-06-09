@@ -33,7 +33,7 @@ AJAX.registerOnload('pmd/init.js', function () {
     if (! pmd_tables_enabled) {
         DesignerOfflineDB.open(function(success) {
             if (success) {
-                Show_tables_in_landing_page();
+                Show_tables_in_landing_page(db);
             }
         });
     }

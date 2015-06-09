@@ -1797,15 +1797,6 @@ class PMA_Util
             $tag_params['target'] = htmlentities($target);
         }
 
-        $tag_params_strings = array();
-        foreach ($tag_params as $par_name => $par_value) {
-            // htmlspecialchars() only on non javascript
-            $par_value = /*overload*/mb_substr($par_name, 0, 2) == 'on'
-                ? $par_value
-                : htmlspecialchars($par_value);
-            $tag_params_strings[] = $par_name . '="' . $par_value . '"';
-        }
-
         $displayed_message = '';
         // Add text if not already added
         if (stristr($message, '<img')
@@ -1841,6 +1832,15 @@ class PMA_Util
         if (($url_length <= $GLOBALS['cfg']['LinkLengthLimit'])
             && $in_suhosin_limits
         ) {
+            $tag_params_strings = array();
+            foreach ($tag_params as $par_name => $par_value) {
+                // htmlspecialchars() only on non javascript
+                $par_value = /*overload*/mb_substr($par_name, 0, 2) == 'on'
+                    ? $par_value
+                    : htmlspecialchars($par_value);
+                $tag_params_strings[] = $par_name . '="' . $par_value . '"';
+            }
+
             // no whitespace within an <a> else Safari will make it part of the link
             $ret = "\n" . '<a href="' . $url . '" '
                 . implode(' ', $tag_params_strings) . '>'
@@ -1849,11 +1849,6 @@ class PMA_Util
             // no spaces (line breaks) at all
             // or after the hidden fields
             // IE will display them all
-
-            // add class=link to submit button
-            if (empty($tag_params['class'])) {
-                $tag_params['class'] = 'link';
-            }
 
             if (! isset($query_parts)) {
                 $query_parts = self::splitURLQuery($url);
@@ -1886,7 +1881,22 @@ class PMA_Util
                     . htmlspecialchars(urldecode($eachval)) . '" />';
             } // end while
 
-            $ret .= "\n" . '<a href="' . $submit_link . '" class="formLinkSubmit" '
+            if (empty($tag_params['class'])) {
+                $tag_params['class'] = 'formLinkSubmit';
+            } else {
+                $tag_params['class'] .= ' formLinkSubmit';
+            }
+
+            $tag_params_strings = array();
+            foreach ($tag_params as $par_name => $par_value) {
+                // htmlspecialchars() only on non javascript
+                $par_value = /*overload*/mb_substr($par_name, 0, 2) == 'on'
+                    ? $par_value
+                    : htmlspecialchars($par_value);
+                $tag_params_strings[] = $par_name . '="' . $par_value . '"';
+            }
+
+            $ret .= "\n" . '<a href="' . $submit_link . '" '
                 . implode(' ', $tag_params_strings) . '>'
                 . $message . ' ' . $displayed_message . '</a>' . "\n";
 
@@ -4236,6 +4246,7 @@ class PMA_Util
                 );
             }
         }
+        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
         return $curl_handle;
     }
     /**

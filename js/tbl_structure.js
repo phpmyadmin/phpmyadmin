@@ -233,6 +233,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage();
+            AJAX.source = $this;
             $.get(url, {'ajax_request' : true, 'ajax_page_request' : true}, AJAX.responseHandler);
         }); // end $.PMA_confirm()
     }); //end Add key
@@ -372,6 +373,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var $form = $button.parent('form');
         var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
+        AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });
 });

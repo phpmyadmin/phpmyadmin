@@ -114,7 +114,7 @@ class PMA_Config
      */
     function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.4.6');
+        $this->set('PMA_VERSION', '4.4.9');
         /**
          * @deprecated
          */
@@ -752,13 +752,11 @@ class PMA_Config
             return null;
         }
         $ch = curl_init($link);
+        PMA_Util::configureCurl($ch);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($ch, CURLOPT_HEADER, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
         curl_setopt($ch, CURLOPT_TIMEOUT, 5);
         if (! defined('TESTSUITE')) {
             session_write_close();
@@ -1029,8 +1027,9 @@ class PMA_Config
         if (!PMA_DRIZZLE) {
             // just to shorten the lines
             $collation = 'collation_connection';
-            if (isset($_COOKIE['pma_collation_connection'])
-                || isset($_POST[$collation])
+            if (isset($GLOBALS[$collation])
+                && (isset($_COOKIE['pma_collation_connection'])
+                    || isset($_POST[$collation]))
             ) {
                 if ((! isset($config_data[$collation])
                     && $GLOBALS[$collation] != 'utf8_general_ci')

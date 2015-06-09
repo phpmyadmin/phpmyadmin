@@ -197,7 +197,7 @@ function PMA_sendErrorReport($report)
             )
         );
         $context = PMA_Util::handleContext($context);
-        $response = file_get_contents(
+        $response = @file_get_contents(
             SUBMISSION_URL,
             false,
             stream_context_create($context)

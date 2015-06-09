@@ -743,8 +743,10 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         . '</tr>';
 
     //Table comments
+    $commentLength = PMA_MYSQL_INT_VERSION >= 50503 ? 2048 : 60;
     $html_output .= '<tr><td>' . __('Table comments') . '</td>'
-        . '<td><input type="text" name="comment" maxlength="60" size="30"'
+        . '<td><input type="text" name="comment"'
+        . ' maxlength="' . $commentLength . '" size="30"'
         . 'value="' . htmlspecialchars($comment) . '" />'
         . '<input type="hidden" name="prev_comment" value="'
         . htmlspecialchars($comment) . '" />'
