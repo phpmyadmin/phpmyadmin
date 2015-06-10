@@ -38,7 +38,7 @@ abstract class ImportPlugin
     /**
      * Gets the import specific format plugin properties
      *
-     * @return array
+     * @return ImportPluginProperties
      */
     public function getProperties()
     {

@@ -3493,8 +3493,8 @@ class PMA_Util
      * Prepare the form used to select a file to import from the server upload
      * directory
      *
-     * @param array  $import_list array of import plugins
-     * @param string $uploaddir   upload directory
+     * @param ImportPlugin[] $import_list array of import plugins
+     * @param string         $uploaddir   upload directory
      *
      * @return String
      */

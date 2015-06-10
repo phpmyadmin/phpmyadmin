@@ -210,8 +210,8 @@ function PMA_getHtmlForImportCharset()
 /**
  * Prints Html For Display Import options : file property
  *
- * @param int   $max_upload_size Max upload size
- * @param Array $import_list     import list
+ * @param int            $max_upload_size Max upload size
+ * @param ImportPlugin[] $import_list     import list
  *
  * @return string
  */
@@ -347,7 +347,7 @@ function PMA_getHtmlForImportOptionsOther()
 /**
  * Prints Html For Display Import options : Format
  *
- * @param Array $import_list import list
+ * @param ImportPlugin[] $import_list import list
  *
  * @return string
  */
@@ -398,14 +398,14 @@ function PMA_getHtmlForImportOptionsSubmit()
 /**
  * Prints Html For Display Import
  *
- * @param int    $upload_id       The selected upload id
- * @param String $import_type     Import type: server, database, table
- * @param String $db              Selected DB
- * @param String $table           Selected Table
- * @param int    $max_upload_size Max upload size
- * @param Array  $import_list     Import list
- * @param String $timeout_passed  Timeout passed
- * @param String $offset          Timeout offset
+ * @param int            $upload_id       The selected upload id
+ * @param String         $import_type     Import type: server, database, table
+ * @param String         $db              Selected DB
+ * @param String         $table           Selected Table
+ * @param int            $max_upload_size Max upload size
+ * @param ImportPlugin[] $import_list     Import list
+ * @param String         $timeout_passed  Timeout passed
+ * @param String         $offset          Timeout offset
  *
  * @return string
  */
