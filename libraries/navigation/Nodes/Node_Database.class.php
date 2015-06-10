@@ -437,12 +437,15 @@ class Node_Database extends Node
             $handle = $GLOBALS['dbi']->tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                    if ($pos <= 0 && $count < $maxItems) {
-                        $retval[] = $arr[0];
-                        $count++;
+                if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                        if ($count < $maxItems) {
+                            $retval[] = $arr[0];
+                            $count++;
+                        } else {
+                            break;
+                        }
                     }
-                    $pos--;
                 }
             }
         }
@@ -519,12 +522,15 @@ class Node_Database extends Node
             $handle = $GLOBALS['dbi']->tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                    if ($pos <= 0 && $count < $maxItems) {
-                        $retval[] = $arr['Name'];
-                        $count++;
+                if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                        if ($count < $maxItems) {
+                            $retval[] = $arr['Name'];
+                            $count++;
+                        } else {
+                            break;
+                        }
                     }
-                    $pos--;
                 }
             }
         }
@@ -599,12 +605,15 @@ class Node_Database extends Node
             $handle = $GLOBALS['dbi']->tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                    if ($pos <= 0 && $count < $maxItems) {
-                        $retval[] = $arr['Name'];
-                        $count++;
+                if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                        if ($count < $maxItems) {
+                            $retval[] = $arr['Name'];
+                            $count++;
+                        } else {
+                            break;
+                        }
                     }
-                    $pos--;
                 }
             }
         }

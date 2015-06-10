@@ -180,12 +180,15 @@ class Node_Table extends Node_DatabaseChild
             }
 
             $count = 0;
-            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                if ($pos <= 0 && $count < $maxItems) {
-                    $retval[] = $arr['Field'];
-                    $count++;
+            if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($count < $maxItems) {
+                        $retval[] = $arr['Field'];
+                        $count++;
+                    } else {
+                        break;
+                    }
                 }
-                $pos--;
             }
             break;
         case 'indexes':
@@ -234,12 +237,15 @@ class Node_Table extends Node_DatabaseChild
             }
 
             $count = 0;
-            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                if ($pos <= 0 && $count < $maxItems) {
-                    $retval[] = $arr['Trigger'];
-                    $count++;
+            if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($count < $maxItems) {
+                        $retval[] = $arr['Trigger'];
+                        $count++;
+                    } else {
+                        break;
+                    }
                 }
-                $pos--;
             }
             break;
         default:
