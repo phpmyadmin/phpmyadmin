@@ -989,6 +989,15 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         . '</td>'
         . '</tr>';
 
+    // Change all Column collations
+    $html_output .= '<tr><td>'
+        . '<label for="checkbox_change_all_collations">'
+        . __('Change all column collations')
+        . '</label></td>'
+        . '<td><input type="checkbox" name="change_all_collations" value="1" '
+        . 'id="checkbox_change_all_collations" /></td>'
+        . '</tr>';
+
     if ($is_myisam_or_aria || $is_isam) {
         $html_output .= PMA_getHtmlForPackKeys($pack_keys);
     } // end if (MYISAM|ISAM)
@@ -1907,6 +1916,30 @@ function PMA_AdjustPrivileges_copyTable($oldDb, $oldTable, $newDb, $newTable)
     $flush_query = "FLUSH PRIVILEGES;";
     $GLOBALS['dbi']->query($flush_query);
 
+}
+
+/**
+ * Change all collations and character sets of all columns in table
+ *
+ * @param string $db            Database name
+ * @param string $table         Table name
+ * @param string $tbl_collation Collation Name
+ *
+ * @return void
+ */
+function PMA_changeAllColumnsCollation($db, $table, $tbl_collation)
+{
+    $GLOBALS['dbi']->selectDb($db);
+
+    $change_all_collations_query = 'ALTER TABLE ' . $table
+        . ' CONVERT TO';
+
+    list($charset) = explode('_', $tbl_collation);
+
+    $change_all_collations_query .= ' CHARACTER SET ' . $charset
+        . ($charset == $tbl_collation ? '' : ' COLLATE ' . $tbl_collation);
+
+    $GLOBALS['dbi']->query($change_all_collations_query);
 }
 
 /**

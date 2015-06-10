@@ -1497,11 +1497,12 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
             $where_clause = array($where_clause);
         }
         for ($i = 0, $nb = count($where_clause); $i < $nb; $i++) {
-            $is_numeric = preg_match(
+            // preg_match() returns 1 if there is a match
+            $is_numeric = (preg_match(
                 '@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@',
                 $where_clause[$i]
-            );
-            if ($is_numeric == true) {
+            ) == 1);
+            if ($is_numeric === true) {
                 break;
             }
         }

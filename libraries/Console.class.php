@@ -164,7 +164,7 @@ class PMA_Console
         $output = '';
 
         $_sql_history = PMA_getHistory($GLOBALS['cfg']['Server']['user']);
-        if ($_sql_history) {
+        if (! empty($_sql_history)) {
             foreach (array_reverse($_sql_history) as $record) {
                 $isSelect = preg_match(
                     '@^SELECT[[:space:]]+@i', $record['sqlquery']
