@@ -2632,7 +2632,7 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  * Function to get html for each insert/edit column
  *
  * @param array  $table_columns         table columns
- * @param int    $i                     row counter
+ * @param int    $column_number         column index in table_columns
  * @param array  $comments_map          comments map
  * @param bool   $timestamp_seen        whether timestamp seen
  * @param array  $current_result        current result
@@ -2664,7 +2664,7 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  *
  * @return string
  */
-function PMA_getHtmlForInsertEditFormColumn($table_columns, $i,
+function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
     $comments_map, $timestamp_seen, $current_result, $chg_evt_handler,
     $jsvkey, $vkey, $insert_mode, $current_row, $odd_row, &$o_rows,
     &$tabindex, $columns_cnt, $is_upload, $tabindex_for_function,
@@ -2672,7 +2672,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i,
     $row_id, $titles, $biggest_max_file_size, $default_char_editing,
     $text_dir, $repopulate, $column_mime, $where_clause
 ) {
-    $column = $table_columns[$i];
+    $column = $table_columns[$column_number];
     if (! isset($column['processed'])) {
         $column = PMA_analyzeTableColumnsArray(
             $column, $comments_map, $timestamp_seen
@@ -2688,7 +2688,9 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i,
         = PMA_Util::extractColumnSpec($column['Type']);
 
     if (-1 === $column['len']) {
-        $column['len'] = $GLOBALS['dbi']->fieldLen($current_result, $i);
+        $column['len'] = $GLOBALS['dbi']->fieldLen(
+            $current_result, $column_number
+        );
         // length is unknown for geometry fields,
         // make enough space to edit very simple WKTs
         if (-1 === $column['len']) {
@@ -2753,7 +2755,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i,
         unset($tmp);
     }
 
-    $idindex = ($o_rows * $columns_cnt) + $i + 1;
+    $idindex = ($o_rows * $columns_cnt) + $column_number + 1;
     $tabindex = $idindex;
 
     // Get a list of data types that are not yet supported.
@@ -2905,13 +2907,13 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
     if (isset($where_clause_array[$row_id])) {
         $where_clause = $where_clause_array[$row_id];
     }
-    for ($i = 0; $i < $columns_cnt; $i++) {
+    for ($column_number = 0; $column_number < $columns_cnt; $column_number++) {
         $column_mime = array();
-        if (isset($mime_map[$table_columns[$i]['Field']])) {
-            $column_mime = $mime_map[$table_columns[$i]['Field']];
+        if (isset($mime_map[$table_columns[$column_number]['Field']])) {
+            $column_mime = $mime_map[$table_columns[$column_number]['Field']];
         }
         $html_output .= PMA_getHtmlForInsertEditFormColumn(
-            $table_columns, $i, $comments_map, $timestamp_seen,
+            $table_columns, $column_number, $comments_map, $timestamp_seen,
             $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
             $current_row, $odd_row, $o_rows, $tabindex, $columns_cnt, $is_upload,
             $tabindex_for_function, $foreigners, $tabindex_for_null,
