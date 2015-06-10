@@ -209,7 +209,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
 
     list($legend, $query, $columns_list) = PMA_initQueryForm($query);
 
-    if (count($columns_list)) {
+    if (! empty($columns_list)) {
         $sqlquerycontainer_id = 'sqlquerycontainer';
     } else {
         $sqlquerycontainer_id = 'sqlquerycontainerfull';
@@ -231,7 +231,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '<div id="querymessage"></div>';
     // Add buttons to generate query easily for
     // select all, single select, insert, update and delete
-    if (count($columns_list)) {
+    if (! empty($columns_list)) {
         $html .= '<input type="button" value="SELECT *" id="selectall"'
             . ' class="button sqlbutton" />';
         $html .= '<input type="button" value="SELECT" id="select"'
@@ -266,7 +266,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
 
     $html .= '</div>' . "\n";
 
-    if (count($columns_list)) {
+    if (! empty($columns_list)) {
         $html .= '<div id="tablefieldscontainer">'
             . '<label>' . __('Columns') . '</label>'
             . '<select id="tablefields" name="dummy" '
