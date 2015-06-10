@@ -46,7 +46,7 @@ if (isset($_REQUEST['do_save_data'])) {
 
         PMA_Response::getInstance()->addJSON(
             'sql_data',
-            PMA\Template::get('preview_sql.phtml')
+            PMA\Template::get('preview_sql')
                 ->render(array(
                     'query_data' => $sql_query
                 ))
