@@ -168,4 +168,7 @@
         background: #dfdfdf;
     }
 
+    .column_attribute {
+        font-size: 100%;
+    }
 }

@@ -905,12 +905,6 @@ form.login select {
     font-size: 70%;
 }
 
-@media print {
-    .column_attribute {
-        font-size: 100%;
-    }
-}
-
 /******************************************************************************/
 /* specific elements */
 
