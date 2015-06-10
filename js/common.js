@@ -172,7 +172,7 @@ PMA_DROP_IMPORT = {
     /**
      * @var  string array, allowed extensions for compressed files
      */
-    allowedCompressedExtensions: ['gzip', 'bzip2', 'zip'],
+    allowedCompressedExtensions: ['gz', 'bz2', 'zip'],
     /**
      * @var obj array to store message returned by import_status.php
      */
