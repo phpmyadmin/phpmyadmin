@@ -3111,5 +3111,18 @@ class PMA_DatabaseInterface
     {
         return new PMA\SystemDatabase($this);
     }
+
+    /**
+     * Get a table with database name and table name
+     *
+     * @param $db_name
+     * @param $table_name
+     *
+     * @return PMA_Table
+     */
+    public function getTable($db_name, $table_name)
+    {
+        return new PMA_Table($table_name, $db_name, $this);
+    }
 }
 ?>
