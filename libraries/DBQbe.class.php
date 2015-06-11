@@ -1385,13 +1385,14 @@ class PMA_DbQbe
                     . PMA_getRelatives($all_tables, $master);
 
             } // end if (count($all_tables) > 0)
+
+            // In case relations are not defined, just generate the FROM clause
+            // from the list of tables, however we don't generate any JOIN
+            if (empty($from_clause)) {
+                $from_clause = implode(', ', $all_tables);
+            }
         } // end count($_POST['criteriaColumn']) > 0
 
-        // In case relations are not defined, just generate the FROM clause
-        // from the list of tables, however we don't generate any JOIN
-        if (empty($from_clause) && isset($all_tables)) {
-            $from_clause = implode(', ', $all_tables);
-        }
         return $from_clause;
     }
 
