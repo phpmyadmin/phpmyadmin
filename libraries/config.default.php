@@ -3065,4 +3065,11 @@ $cfg['maxRowPlotLimit'] = 500;
  */
 $cfg['ShowGitRevision'] = true;
 
+
+/**
+ * Allow to check for the latest version available
+ *
+ * @global boolean $cfg['CheckVersion']
+ */
+$cfg['CheckVersion'] = true;
 ?>
