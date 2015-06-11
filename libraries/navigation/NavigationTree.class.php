@@ -318,6 +318,13 @@ class PMA_NavigationTree
      */
     private function _buildPathPart($path, $type2, $pos2, $type3, $pos3)
     {
+        if (empty($pos2)) {
+            $pos2 = 0;
+        }
+        if (empty($pos3)) {
+            $pos3 = 0;
+        }
+
         $retval = true;
         if (count($path) <= 1) {
             return $retval;
