@@ -124,6 +124,67 @@ function PMA_getHtmlForSqlQueryForm(
 }
 
 /**
+ * Get initial values for Sql Query Form Insert
+ *
+ * @param string $query query to display in the textarea
+ *
+ * @return array ($legend, $query, $columns_list)
+ *
+ * @usedby  PMA_getHtmlForSqlQueryFormInsert()
+ */
+function PMA_initQueryForm($query)
+{
+    $columns_list    = array();
+    if (! /*overload*/mb_strlen($GLOBALS['db'])) {
+        // prepare for server related
+        $legend = sprintf(
+            __('Run SQL query/queries on server %s'),
+            '&quot;' . htmlspecialchars(
+                ! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose'])
+                ? $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose']
+                : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']
+            ) . '&quot;'
+        );
+    } elseif (! /*overload*/mb_strlen($GLOBALS['table'])) {
+        // prepare for db related
+        $db     = $GLOBALS['db'];
+        // if you want navigation:
+        $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+            . PMA_URL_getCommon(array('db' => $db)) . '"';
+        $tmp_db_link .= '>'
+            . htmlspecialchars($db) . '</a>';
+        $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
+        if (empty($query)) {
+            $query = PMA_Util::expandUserString(
+                $GLOBALS['cfg']['DefaultQueryDatabase'], 'backquote'
+            );
+        }
+    } else {
+        $db     = $GLOBALS['db'];
+        // Get the list and number of fields
+        // we do a try_query here, because we could be in the query window,
+        // trying to synchronize and the table has not yet been created
+        $columns_list = $GLOBALS['dbi']->getColumns(
+            $db, $GLOBALS['table'], null, true
+        );
+
+        $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+            . PMA_URL_getCommon(array('db' => $db)) . '"';
+        $tmp_db_link .= '>'
+            . htmlspecialchars($db) . '</a>';
+        $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
+        if (empty($query)) {
+            $query = PMA_Util::expandUserString(
+                $GLOBALS['cfg']['DefaultQueryTable'], 'backquote'
+            );
+        }
+    }
+    $legend .= ': ' . PMA_Util::showMySQLDocu('SELECT');
+
+    return array($legend, $query, $columns_list);
+}
+
+/**
  * return HTML for Sql Query Form Insert
  *
  * @param string $query     query to display in the textarea
@@ -146,58 +207,9 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $locking = '';
     $height = $GLOBALS['cfg']['TextareaRows'] * 2;
 
-    $fields_list    = array();
-    if (! /*overload*/mb_strlen($GLOBALS['db'])) {
-        // prepare for server related
-        $legend = sprintf(
-            __('Run SQL query/queries on server %s'),
-            '&quot;' . htmlspecialchars(
-                ! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose'])
-                ? $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose']
-                : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']
-            ) . '&quot;'
-        );
-    } elseif (! /*overload*/mb_strlen($GLOBALS['table'])) {
-        // prepare for db related
-        $db     = $GLOBALS['db'];
-        // if you want navigation:
-        $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
-            . PMA_URL_getCommon(array('db' => $db)) . '"';
-        $tmp_db_link .= '>'
-            . htmlspecialchars($db) . '</a>';
-        // else use
-        // $tmp_db_link = htmlspecialchars($db);
-        $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
-        if (empty($query)) {
-            $query = PMA_Util::expandUserString(
-                $GLOBALS['cfg']['DefaultQueryDatabase'], 'backquote'
-            );
-        }
-    } else {
-        $db     = $GLOBALS['db'];
-        // Get the list and number of fields
-        // we do a try_query here, because we could be in the query window,
-        // trying to synchronize and the table has not yet been created
-        $fields_list = $GLOBALS['dbi']->getColumns(
-            $db, $GLOBALS['table'], null, true
-        );
+    list($legend, $query, $columns_list) = PMA_initQueryForm($query);
 
-        $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
-            . PMA_URL_getCommon(array('db' => $db)) . '"';
-        $tmp_db_link .= '>'
-            . htmlspecialchars($db) . '</a>';
-        // else use
-        // $tmp_db_link = htmlspecialchars($db);
-        $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
-        if (empty($query)) {
-            $query = PMA_Util::expandUserString(
-                $GLOBALS['cfg']['DefaultQueryTable'], 'backquote'
-            );
-        }
-    }
-    $legend .= ': ' . PMA_Util::showMySQLDocu('SELECT');
-
-    if (count($fields_list)) {
+    if (! empty($columns_list)) {
         $sqlquerycontainer_id = 'sqlquerycontainer';
     } else {
         $sqlquerycontainer_id = 'sqlquerycontainerfull';
@@ -219,7 +231,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '<div id="querymessage"></div>';
     // Add buttons to generate query easily for
     // select all, single select, insert, update and delete
-    if (count($fields_list)) {
+    if (! empty($columns_list)) {
         $html .= '<input type="button" value="SELECT *" id="selectall"'
             . ' class="button sqlbutton" />';
         $html .= '<input type="button" value="SELECT" id="select"'
@@ -254,13 +266,13 @@ function PMA_getHtmlForSqlQueryFormInsert(
 
     $html .= '</div>' . "\n";
 
-    if (count($fields_list)) {
+    if (! empty($columns_list)) {
         $html .= '<div id="tablefieldscontainer">'
             . '<label>' . __('Columns') . '</label>'
             . '<select id="tablefields" name="dummy" '
             . 'size="' . ($GLOBALS['cfg']['TextareaRows'] - 2) . '" '
             . 'multiple="multiple" ondblclick="insertValueQuery()">';
-        foreach ($fields_list as $field) {
+        foreach ($columns_list as $field) {
             $html .= '<option value="'
                 . PMA_Util::backquote(htmlspecialchars($field['Field'])) . '"';
             if (isset($field['Field'])
