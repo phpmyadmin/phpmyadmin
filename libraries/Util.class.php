@@ -4391,6 +4391,10 @@ class PMA_Util
      */
     public static function getLatestVersion()
     {
+        if (!$GLOBALS['cfg']['CheckVersion']) {
+            return [];
+        }
+
         // wait 3s at most for server response, it's enough to get information
         // from a working server
         $connection_timeout = 3;
