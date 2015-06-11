@@ -1449,8 +1449,8 @@ class PMA_DbQbe
         $html_output .= '<table class="data" style="width: 100%;">';
         // Get table's <tr> elements
         $html_output .= $this->_getColumnNamesRow();
-        $html_output .= $this->_getSortRow();
         $html_output .= $this->_getShowRow();
+        $html_output .= $this->_getSortRow();
         $html_output .= $this->_getCriteriaInputboxRow();
         $html_output .= $this->_getInsDelAndOrCriteriaRows();
         $html_output .= $this->_getModifyColumnsRow();
