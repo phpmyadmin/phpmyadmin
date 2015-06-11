@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-11 09:31-0400\n"
-"PO-Revision-Date: 2015-05-28 09:57+0200\n"
+"PO-Revision-Date: 2015-06-11 18:17+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -1798,10 +1798,9 @@ msgid "Changing Charset"
 msgstr "Modificante insimul de characteres"
 
 #: js/messages.php:314 libraries/Util.class.php:3227
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Dishabilita le verificationes sur le clave estranie"
+msgstr "Habilita le verificationes sur le clave estranie"
 
 #: js/messages.php:317
 msgid "Failed to get real row count."
@@ -5065,22 +5064,19 @@ msgid "Never send error reports"
 msgstr "Jammais invia reportos de error"
 
 #: libraries/config.values.php:132
-#, fuzzy
 #| msgid "Set default"
 msgid "Server default"
-msgstr "Fixa le valores predefinite"
+msgstr "Valores predefinite per le servitor"
 
 #: libraries/config.values.php:133
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
-msgstr "Habilitate"
+msgstr "Habilita"
 
 #: libraries/config.values.php:134
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "Dishabilita"
+msgstr "Dishabiita"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -5957,10 +5953,9 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/config/messages.inc.php:218
-#, fuzzy
 #| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Controlo de clave externe:"
+msgstr "Verificationes de clave externe"
 
 #: libraries/config/messages.inc.php:219
 msgid "Browse mode"
@@ -7439,19 +7434,15 @@ msgid "Show create database form"
 msgstr "Monstra modulo pro crear base de datos"
 
 #: libraries/config/messages.inc.php:749
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
-msgstr ""
-"Monstra o cela un columna monstrante le marca de tempore de creation pro "
-"omne tabellas."
+msgstr "Monstra o cela un columna monstrante le le commentos pro omne tabellas."
 
 #: libraries/config/messages.inc.php:750
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Commentos de tabella"
+msgstr "Monstra le commentos de tabella"
 
 #: libraries/config/messages.inc.php:751
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -9595,10 +9586,9 @@ msgstr ""
 #: libraries/operations.lib.php:796 libraries/operations.lib.php:875
 #: libraries/operations.lib.php:1213 libraries/rte/rte_routines.lib.php:1101
 #: libraries/tbl_columns_definition_form.lib.php:126
-#, fuzzy
 #| msgid "Privileges"
 msgid "Adjust Privileges"
-msgstr "Permissiones"
+msgstr "Adapta Permissiones"
 
 #: libraries/operations.lib.php:113
 #, php-format
@@ -9673,10 +9663,9 @@ msgid "Storage Engine"
 msgstr ""
 
 #: libraries/operations.lib.php:995
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "Face omne columnas atomic"
+msgstr "Modifica omne collation de columna"
 
 #: libraries/operations.lib.php:1164
 msgid "Copy table to (database<b>.</b>table)"
