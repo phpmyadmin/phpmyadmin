@@ -708,20 +708,24 @@ class PMA_DbQbe
      *
      * @param integer $column_number Column Number (0,1,2) or more
      * @param array   $selected      Selected criteria column name
+     * @param bool    $last_column   Whether this is the last column
      *
      * @return string HTML for modification cell
      */
-    private function _getAndOrColCell($column_number, $selected = null)
-    {
+    private function _getAndOrColCell(
+        $column_number, $selected = null, $last_column = false
+    ) {
         $html_output = '<td class="center">';
-        $html_output .= '<strong>' . __('Or:') . '</strong>';
-        $html_output .= '<input type="radio"'
-            . ' name="criteriaAndOrColumn[' . $column_number . ']"'
-            . ' value="or"' . $selected['or'] . ' />';
-        $html_output .= '&nbsp;&nbsp;<strong>' . __('And:') . '</strong>';
-        $html_output .= '<input type="radio"'
-            . ' name="criteriaAndOrColumn[' . $column_number . ']"'
-            . ' value="and"' . $selected['and'] . ' />';
+        if (! $last_column) {
+            $html_output .= '<strong>' . __('Or:') . '</strong>';
+            $html_output .= '<input type="radio"'
+                . ' name="criteriaAndOrColumn[' . $column_number . ']"'
+                . ' value="or"' . $selected['or'] . ' />';
+            $html_output .= '&nbsp;&nbsp;<strong>' . __('And:') . '</strong>';
+            $html_output .= '<input type="radio"'
+                . ' name="criteriaAndOrColumn[' . $column_number . ']"'
+                . ' value="and"' . $selected['and'] . ' />';
+        }
         $html_output .= '<br />' . __('Ins');
         $html_output .= '<input type="checkbox"'
             . ' name="criteriaColumnInsert[' . $column_number . ']" />';
@@ -779,7 +783,8 @@ class PMA_DbQbe
             }
             $html_output .= $this->_getAndOrColCell(
                 $new_column_count,
-                $checked_options
+                $checked_options,
+                ($column_index + 1 == $this->_criteria_column_count)
             );
             $new_column_count++;
         } // end for
