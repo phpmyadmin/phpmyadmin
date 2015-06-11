@@ -215,7 +215,7 @@ function PMA_SQP_parse($sql)
     static $PMA_SQPdata_function_name, $PMA_SQPdata_forbidden_word;
     global $mysql_charsets, $mysql_collations_flat;
 
-    /** @var PMA_String $pmaString */
+    /* @var $pmaString PMA_String */
     $pmaString = $GLOBALS['PMA_String'];
 
     // Convert all line feeds to Unix style
