@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-11 09:31-0400\n"
-"PO-Revision-Date: 2015-06-02 07:21+0200\n"
+"PO-Revision-Date: 2015-06-11 18:03+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -1038,15 +1038,22 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Μέσω αυτής της διαδικασίας, η MySQLεπιχειρεί να χαρτογραφήσει τις τιμές "
+"δεδομένων μεταξύ συνθέσεων. Αν τα σύνολα χαρακτήρων είναι ασύμβατα, ίσως "
+"υπάρχει απώλεια δεδομένων και αυτή η απώλεια δεδομένων ίσως <b>ΔΕΝ</b> είναι "
+"αναστρέψιμη απλά αλλάζοντας τη(ις) σύνθεση(εις) στήλης. <b>Για να "
+"μετατρέψετε υπάρχοντα δεδομένα, σας προτείνεται να χρησιμοποιήσετε το "
+"χαρακτηριστικό επεξεργασίας στήλη(ων) (τον Σύνδεσμο «Αλλαγή») στη σελίδα "
+"δομής πίνακα.</b>"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Are you sure you wish to change the collation and convert the data?"
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Θέλετε, σίγουρα, να αλλάξετε τη σύνθεση και να μετατρέψετε τα δεδομενα;"
+"Θέλετε, σίγουρα, να αλλάξετε όλες τις συνθέσεις στηλών και να μετατρέψετε τα "
+"δεδομενα;"
 
 #: js/messages.php:88
 msgid "Save & Close"
@@ -9650,10 +9657,9 @@ msgid "Storage Engine"
 msgstr "Μηχανή αποθήκευσης"
 
 #: libraries/operations.lib.php:995
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "Κάνει όλες τις στήλες ατομικές"
+msgstr "Αλλαγή όλων των συνθέσεων στηλών"
 
 #: libraries/operations.lib.php:1164
 msgid "Copy table to (database<b>.</b>table)"
