@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-11 09:31-0400\n"
-"PO-Revision-Date: 2015-06-09 00:06+0200\n"
+"PO-Revision-Date: 2015-06-11 23:26+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1029,16 +1029,21 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Ezzel a művelettel a MySQL kísérletet tesz az adatértékek leképezésére az "
+"illesztések között. Ha a karakterkészletek összeférhetetlenek, akkor "
+"adatvesztés léphet fel, és ez az elveszett adat <b>NEM</b> állítható vissza "
+"egyszerűen az oszlop illesztéseinek visszaállításával. <b>A meglévő adatok "
+"átalakításához javasolt a táblaszerkezet oldalon lévő oszlopszerkesztés "
+"funkció (a „Módosítás” hivatkozás).</b>"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Are you sure you wish to change the collation and convert the data?"
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Biztosan módosítani szeretné az illesztést és át szeretné alakítani az "
-"adatokat?"
+"Biztosan módosítani szeretné az összes oszlopillesztést és át szeretné "
+"alakítani az adatokat?"
 
 #: js/messages.php:88
 msgid "Save & Close"
@@ -9606,10 +9611,9 @@ msgid "Storage Engine"
 msgstr "Tárolómotor"
 
 #: libraries/operations.lib.php:995
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "Minden oszlop atomivá tétele"
+msgstr "Minden oszlopillesztés módosítása"
 
 #: libraries/operations.lib.php:1164
 msgid "Copy table to (database<b>.</b>table)"
