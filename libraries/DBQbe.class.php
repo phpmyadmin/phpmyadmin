@@ -1375,7 +1375,7 @@ class PMA_DbQbe
                 }
             } // end while
 
-            if (isset($_POST['useJoins'])) {
+            if (! isset($_POST['doNotUseJoins'])) {
                 // Create LEFT JOINS out of Relations
                 if (count($all_tables) > 0) {
                     // Get tables and columns with valid where clauses
@@ -1444,12 +1444,13 @@ class PMA_DbQbe
         }
 
         $html_output .= '<br />';
-        $html_output .= '<input type="checkbox" id="useJoins" name="useJoins" value="true"';
-        if (isset($_REQUEST['useJoins'])) {
+        $html_output .= '<input type="checkbox" id="doNotUseJoins"'
+            . ' name="doNotUseJoins" value="true"';
+        if (isset($_REQUEST['doNotUseJoins'])) {
             $html_output .= ' checked="checked"';
         }
         $html_output .= ' />';
-        $html_output .= '<label for="useJoins" />' . __('Use joins') . '</label>';
+        $html_output .= '<label for="doNotUseJoins" />' . __('Do not use joins') . '</label>';
 
         $html_output .= '<table class="data" style="width: 100%;">';
         // Get table's <tr> elements
