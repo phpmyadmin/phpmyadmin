@@ -78,8 +78,9 @@ $cfg['SaveDir'] = '';
 /**
  * Whether to display icons or text or both icons and text in table row
  * action segment. Value can be either of 'icons', 'text' or 'both'.
+ * default = 'both'
  */
-//$cfg['RowActionType'] = 'both';
+//$cfg['RowActionType'] = 'icons';
 
 /**
  * Defines whether a user should be displayed a "show all (records)"
@@ -91,20 +92,21 @@ $cfg['SaveDir'] = '';
 /**
  * Number of rows displayed when browsing a result set. If the result
  * set contains more rows, "Previous" and "Next".
- * default = 30
+ * Possible values: 25, 50, 100, 250, 500
+ * default = 25
  */
 //$cfg['MaxRows'] = 50;
 
 /**
- * disallow editing of binary fields
+ * Disallow editing of binary fields
  * valid values are:
  *   false    allow editing
  *   'blob'   allow editing except for BLOB fields
  *   'noblob' disallow editing except for BLOB fields
  *   'all'    disallow editing
- * default = blob
+ * default = 'blob'
  */
-//$cfg['ProtectBinary'] = 'false';
+//$cfg['ProtectBinary'] = false;
 
 /**
  * Default language to use, if not browser-defined or user-defined
@@ -133,17 +135,19 @@ $cfg['SaveDir'] = '';
 
 /**
  * When using DB-based query history, how many entries should be kept?
- *
  * default = 25
  */
 //$cfg['QueryHistoryMax'] = 100;
 
 /**
- * Should error reporting be enabled for JavaScript errors
+ * Whether or not to query the user before sending the error report to
+ * the phpMyAdmin team when a JavaScript error occurs
  *
+ * Available options
+ * ('ask' | 'always' | 'never')
  * default = 'ask'
  */
-//$cfg['SendErrorReports'] = 'ask';
+//$cfg['SendErrorReports'] = 'always';
 
 /*
  * You can find more configuration options in the documentation
