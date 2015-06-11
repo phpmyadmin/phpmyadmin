@@ -10,18 +10,18 @@
  * @package PhpMyAdmin
  */
 
-/*
+/**
  * This is needed for cookie based authentication to encrypt password in
  * cookie
  */
 $cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 
-/*
+/**
  * Servers configuration
  */
 $i = 0;
 
-/*
+/**
  * First server
  */
 $i++;
@@ -33,7 +33,7 @@ $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 
-/*
+/**
  * phpMyAdmin configuration storage settings.
  */
 
@@ -65,11 +65,11 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
 /* Contrib / Swekey authentication */
 // $cfg['Servers'][$i]['auth_swekey_config'] = '/etc/swekey-pma.conf';
 
-/*
+/**
  * End of servers configuration
  */
 
-/*
+/**
  * Directories for saving/loading files from server
  */
 $cfg['UploadDir'] = '';
@@ -149,7 +149,7 @@ $cfg['SaveDir'] = '';
  */
 //$cfg['SendErrorReports'] = 'always';
 
-/*
+/**
  * You can find more configuration options in the documentation
  * in the doc/ folder or at <http://docs.phpmyadmin.net/>.
  */
