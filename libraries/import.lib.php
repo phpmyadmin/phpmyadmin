@@ -136,7 +136,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                 && ((! empty($import_run_buffer['sql'])
                 && preg_match($pattern, $import_run_buffer['sql']))
                 || ($executed_queries == 1
-                && ! isset($_REQUEST['fk_checks'])))
+                && ! empty($_REQUEST['fk_checks'])))
             ) {
                 $go_sql = true;
                 if (! $sql_query_disabled) {
