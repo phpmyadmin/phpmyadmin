@@ -1377,34 +1377,132 @@ class PMA_DbQbe
 
             if (! isset($_POST['doNotUseJoins'])) {
                 // Create LEFT JOINS out of Relations
-                if (count($all_tables) > 0) {
-                    // Get tables and columns with valid where clauses
-                    $valid_where_clauses = $this->_getWhereClauseTablesAndColumns();
-                    $where_clause_tables = $valid_where_clauses['where_clause_tables'];
-                    $where_clause_columns = $valid_where_clauses['where_clause_columns'];
-                    // Get master table
-                    $master = $this->_getMasterTable(
-                        $all_tables, $all_columns,
-                        $where_clause_columns, $where_clause_tables
-                    );
-                    $from_clause = PMA_Util::backquote($master)
-                        . PMA_getRelatives($all_tables, $master);
-
-                } // end if (count($all_tables) > 0)
-            }
-
-            // In case relations are not defined, just generate the FROM clause
-            // from the list of tables, however we don't generate any JOIN
-            if (empty($from_clause)) {
-                $backQuoted = array();
-                foreach ($all_tables as $table) {
-                    $backQuoted[] = PMA_Util::backquote($table);
-                }
-                $from_clause = implode(', ', $backQuoted);
+                $from_clause = $this->_getJoinForFromClause($all_tables, $all_columns);
+            } else {
+                // Create cartesian product
+                $from_clause = implode(", ", array_map('PMA_Util::backquote', $all_tables));
             }
         } // end count($_POST['criteriaColumn']) > 0
 
         return $from_clause;
+    }
+
+    /**
+     * Formulates the WHERE clause by JOINing tables
+     *
+     * @param array $allTables  Tables involved in the search
+     * @param array $allColumns Columns involved in the search
+     *
+     * @return string table name
+     */
+    private function _getJoinForFromClause($allTables, $allColumns) {
+
+        // $relations[master_table][foreign_table] => clause
+        $relations = array();
+
+        // Fill $relations with inter table relationship data
+        foreach ($allTables as $oneTable) {
+            $relations[$oneTable] = array();
+
+            $foreigners = PMA_getForeigners($GLOBALS['db'], $oneTable);
+            foreach ($foreigners as $field => $foreigner) {
+                // Foreign keys data
+                if ($field == 'foreign_keys_data') {
+                    foreach ($foreigner as $oneKey) {
+                        $clauses = array();
+                        // There may be multiple column relations
+                        foreach ($oneKey['index_list'] as $index => $oneField) {
+                            $clauses[] = PMA_Util::backquote($oneTable) . "."
+                                . PMA_Util::backquote($oneField) . " = "
+                                . PMA_Util::backquote($oneKey['ref_table_name']) . "."
+                                . PMA_Util::backquote($oneKey['ref_index_list'][$index]);
+                        }
+                        // Combine multiple column relations with AND
+                        $relations[$oneTable][$oneKey['ref_table_name']]
+                            = implode(" AND ", $clauses);
+                    }
+                } else { // Internal relations
+                    $relations[$oneTable][$foreigner['foreign_table']]
+                        = PMA_Util::backquote($oneTable) . "."
+                        . PMA_Util::backquote($field) . " = "
+                        . PMA_Util::backquote($foreigner['foreign_table']) . "."
+                        . PMA_Util::backquote($foreigner['foreign_field']);
+                }
+            }
+        }
+
+        // Get tables and columns with valid where clauses
+        $validWhereClauses = $this->_getWhereClauseTablesAndColumns();
+        $whereClauseTables = $validWhereClauses['where_clause_tables'];
+        $whereClauseColumns = $validWhereClauses['where_clause_columns'];
+
+        // Get master table
+        $master = $this->_getMasterTable(
+            $allTables, $allColumns,
+            $whereClauseColumns, $whereClauseTables
+        );
+
+        // Will incldue master tables and all tables that can be combined into
+        // a cluster by their relation
+        $finalized = array();
+        // Add master tables
+        $finalized[$master] = '';
+
+        while (true) {
+            $added = false;
+            foreach ($relations as $masterTable => $foreignData) {
+                foreach ($foreignData as $foreignTable => $clause) {
+                    if (! isset($finalized[$masterTable])
+                        && isset($finalized[$foreignTable])
+                    ) {
+                        $finalized[$masterTable] = $clause;
+                        $added = true;
+
+                        // We are done if all tables are in $finalized
+                        if (count($finalized) == count($allTables)) {
+                            break 3;
+                        }
+                    } else if (! isset($finalized[$foreignTable])
+                        && isset($finalized[$masterTable])
+                        && in_array($foreignTable, $allTables)
+                    ) {
+                        $finalized[$foreignTable] = $clause;
+                        $added = true;
+
+                        // We are done if all tables are in $finalized
+                        if (count($finalized) == count($allTables)) {
+                            break 3;
+                        }
+                    }
+                }
+            }
+            // If no new tables were added during this iteration, break;
+            if (! $added) {
+                break;
+            }
+        }
+
+        // Tables that can not be combined with the table cluster
+        // that includes master table
+        $unfinalized = array_diff($allTables, array_keys($finalized));
+        // Add these tables are cartesian product before joined tables
+        $join = implode(', ', array_map('PMA_Util::backquote', $unfinalized));
+
+        $first = true;
+        // Add joined tables
+        foreach ($finalized as $table => $clause) {
+            if ($first) {
+                if (! empty($join)) {
+                    $join .= ", ";
+                }
+                $join .= PMA_Util::backquote($table);
+                $first = false;
+            } else {
+                $join .= "\n    LEFT JOIN " . PMA_Util::backquote($table) . " ON " . $clause;
+            }
+        }
+
+        return $join;
     }
 
     /**
