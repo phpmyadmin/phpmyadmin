@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-31 07:27-0400\n"
-"PO-Revision-Date: 2015-03-16 19:34+0200\n"
-"Last-Translator: Jonas <jonas.den.smarte@gmail.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"da/>\n"
+"PO-Revision-Date: 2015-06-10 23:07+0200\n"
+"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -694,7 +694,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importen er korrekt gennemført, %d forespørgsler udført."
 
 #: import.php:691
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -702,8 +702,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Script timeout nået, hvis du vil afslutte importen, indsend venligst samme "
-"fil igen og importen vil blive genoptaget."
+"Tidsudløb for skriptet blev nået. Hvis du vil afslutte importen, så %"
+"sindsend venligst den samme fil igen%s og importen vil blive genoptaget."
 
 #: import.php:701
 msgid ""
@@ -716,7 +716,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Kunne ikke indlæse hvor langt importen er nået."
 
 #: import_status.php:112 js/messages.php:361 libraries/Util.class.php:735
 #: libraries/export.lib.php:460
@@ -1032,22 +1032,22 @@ msgid "Do you really want to delete this central column?"
 msgstr "Er du sikker på at du vil slette denne centrale kolonne?"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Er du sikker på at du vil slette søgningen \"%s\"?"
+msgstr "Er du sikker på at du vil slette de valgte elementer?"
 
 #: js/messages.php:64
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Er du sikker på, at du vil foretage DROP på de valgte partitioner? Dette vil "
+"også SLETTE de data som er knyttet til de valgte partitioner!"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Er du sikker på at du vil slette søgningen \"%s\"?"
+msgstr "Er du sikker på at du vil TRUNKERE de valgte partitioner?"
 
 #: js/messages.php:67
 msgid ""
@@ -1057,14 +1057,22 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Denne handling vil forsøge at konvertere dine data til den nye "
+"sorteringsrækkefølge. I sjældne tilfælde, særligt hvor et tegn ikke findes i "
+"den nye sorteringsrækkefølge, kan denne proces føre til at dataene vises "
+"forkert under den ny rækkefølge; i disse tilfælde anbefaler vi at du går "
+"tilbage til den oprindelige sorteringsrækkefølge og konsulterer "
+"vejledningstips på "
 
 #: js/messages.php:73
 msgid "Garbled Data"
-msgstr ""
+msgstr "Forvanskede data"
 
 #: js/messages.php:75
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
+"Er du sikker på du ønsker at ændre sorteringsrækkefølgen og konvertere "
+"dataene?"
 
 #: js/messages.php:78
 msgid "Save & Close"
@@ -1732,10 +1740,9 @@ msgid "Cancel"
 msgstr "Annuller"
 
 #: js/messages.php:280 libraries/Header.class.php:453
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Ændre indstillinger"
+msgstr "Siderelaterede indstillinger"
 
 #: js/messages.php:281 libraries/config/FormDisplay.tpl.php:402
 msgid "Apply"
@@ -1755,10 +1762,9 @@ msgid "Processing Request"
 msgstr "Udfører forespørgsel"
 
 #: js/messages.php:287
-#, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request Failed!!"
-msgstr "Forespørgsel afbrudt!"
+msgstr "Forespørgsel mislykkedes!"
 
 #: js/messages.php:288
 msgid "Error in Processing Request"
@@ -1813,10 +1819,9 @@ msgid "Changing Charset"
 msgstr "Ændrer tegnsæt"
 
 #: js/messages.php:304 libraries/Util.class.php:3211
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Slå fremmednøgle-checks fra"
+msgstr "Slå fremmednøgle-checks til"
 
 #: js/messages.php:307
 msgid "Failed to get real row count."
@@ -1930,10 +1935,10 @@ msgid "No auto-saved query"
 msgstr "Ingen automatisk gemt forespørgsel"
 
 #: js/messages.php:337
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Variabel"
+msgstr "Variabel %d:"
 
 #: js/messages.php:340 libraries/normalization.lib.php:875
 msgid "Pick"
@@ -2253,10 +2258,9 @@ msgstr "Gem side"
 
 #: js/messages.php:448 templates/designer/side_menu.phtml:63
 #: templates/designer/side_menu.phtml:66
-#, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "Gem side"
+msgstr "Gem side som"
 
 #: js/messages.php:449 templates/designer/side_menu.phtml:49
 #: templates/designer/side_menu.phtml:52
@@ -2376,10 +2380,9 @@ msgstr ""
 "til at gå ned."
 
 #: js/messages.php:478
-#, fuzzy
 #| msgid "Original string"
 msgid "Original length"
-msgstr "Original tekststreng"
+msgstr "Oprindelige længde"
 
 #: js/messages.php:481
 msgid "cancel"
@@ -2855,73 +2858,63 @@ msgstr "Sekund"
 
 #: js/messages.php:749
 msgid "This field is required"
-msgstr ""
+msgstr "Dette felt er påkrævet"
 
 #: js/messages.php:750
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Brug tekstfelt"
+msgstr "Ret venligst dette felt"
 
 #: js/messages.php:751
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Angiv venligst et gyldigt sidenavn"
+msgstr "Angiv en gyldig e-mailadresse"
 
 #: js/messages.php:752
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Angiv venligst et gyldigt nummer!"
+msgstr "Angiv en gyldig URL-adresse"
 
 #: js/messages.php:753
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Angiv venligst et gyldigt sidenavn"
+msgstr "Indtast en gyldig dato"
 
 #: js/messages.php:754
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Angiv venligst et gyldigt sidenavn"
+msgstr "Indtast en gyldig dato (ISO)"
 
 #: js/messages.php:755
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Angiv venligst et gyldigt nummer!"
+msgstr "Angiv et gyldigt tal"
 
 #: js/messages.php:756
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Angiv venligst et gyldigt nummer!"
+msgstr "Indtast et gyldigt kreditkortnummer"
 
 #: js/messages.php:757
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Angiv venligst en gyldig længde!"
+msgstr "Angiv kun tal"
 
 #: js/messages.php:758
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Angiv venligst et gyldigt sidenavn"
+msgstr "Angiv samme værdi igen"
 
 #: js/messages.php:759
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter no more than {0} characters"
-msgstr "Angiv venligst korrekt captcha!"
+msgstr "Angiv venligst ikke mere end {0} tegn"
 
 #: js/messages.php:760
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter at least {0} characters"
-msgstr "Angiv venligst korrekt captcha!"
+msgstr "Angiv mindst {0} tegn"
 
 #: js/messages.php:761
 msgid "Please enter a value between {0} and {1} characters long"
