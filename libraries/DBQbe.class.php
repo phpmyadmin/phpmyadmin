@@ -1370,26 +1370,32 @@ class PMA_DbQbe
                 }
             } // end while
 
-            // Create LEFT JOINS out of Relations
-            if (count($all_tables) > 0) {
-                // Get tables and columns with valid where clauses
-                $valid_where_clauses = $this->_getWhereClauseTablesAndColumns();
-                $where_clause_tables = $valid_where_clauses['where_clause_tables'];
-                $where_clause_columns = $valid_where_clauses['where_clause_columns'];
-                // Get master table
-                $master = $this->_getMasterTable(
-                    $all_tables, $all_columns,
-                    $where_clause_columns, $where_clause_tables
-                );
-                $from_clause = PMA_Util::backquote($master)
-                    . PMA_getRelatives($all_tables, $master);
+            if (isset($_POST['useJoins'])) {
+                // Create LEFT JOINS out of Relations
+                if (count($all_tables) > 0) {
+                    // Get tables and columns with valid where clauses
+                    $valid_where_clauses = $this->_getWhereClauseTablesAndColumns();
+                    $where_clause_tables = $valid_where_clauses['where_clause_tables'];
+                    $where_clause_columns = $valid_where_clauses['where_clause_columns'];
+                    // Get master table
+                    $master = $this->_getMasterTable(
+                        $all_tables, $all_columns,
+                        $where_clause_columns, $where_clause_tables
+                    );
+                    $from_clause = PMA_Util::backquote($master)
+                        . PMA_getRelatives($all_tables, $master);
 
-            } // end if (count($all_tables) > 0)
+                } // end if (count($all_tables) > 0)
+            }
 
             // In case relations are not defined, just generate the FROM clause
             // from the list of tables, however we don't generate any JOIN
             if (empty($from_clause)) {
-                $from_clause = implode(', ', $all_tables);
+                $backQuoted = array();
+                foreach ($all_tables as $table) {
+                    $backQuoted[] = PMA_Util::backquote($table);
+                }
+                $from_clause = implode(', ', $backQuoted);
             }
         } // end count($_POST['criteriaColumn']) > 0
 
@@ -1431,6 +1437,14 @@ class PMA_DbQbe
         if ($GLOBALS['cfgRelation']['savedsearcheswork']) {
             $html_output .= $this->_getSavedSearchesField();
         }
+
+        $html_output .= '<br />';
+        $html_output .= '<input type="checkbox" id="useJoins" name="useJoins" value="true"';
+        if (isset($_REQUEST['useJoins'])) {
+            $html_output .= ' checked="checked"';
+        }
+        $html_output .= ' />';
+        $html_output .= '<label for="useJoins" />' . __('Use joins') . '</label>';
 
         $html_output .= '<table class="data" style="width: 100%;">';
         // Get table's <tr> elements
