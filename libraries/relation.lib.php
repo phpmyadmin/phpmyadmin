@@ -1411,8 +1411,7 @@ function PMA_getRelatives($all_tables, $master)
         while ($row = $GLOBALS['dbi']->fetchAssoc($relations)) {
             $found_table                = $row[$to . '_table'];
             if (isset($remaining_tables[$found_table])) {
-                $left_join_with = PMA_Util::backquote($GLOBALS['db']) . '.'
-                        . PMA_Util::backquote($row[$to . '_table']);
+                $left_join_with = PMA_Util::backquote($row[$to . '_table']);
                 $on_condition = PMA_Util::backquote($row[$from . '_table']) . '.'
                     . PMA_Util::backquote($row[$from . '_field']) . ' = '
                     . PMA_Util::backquote($row[$to . '_table']) . '.'
@@ -1446,8 +1445,7 @@ function PMA_getRelatives($all_tables, $master)
                 && ($one_key['ref_table_name'] == $master
                 || $one_key['ref_table_name'] == $one_table)
             ) {
-                $left_join_with = PMA_Util::backquote($GLOBALS['db']) . '.'
-                    . PMA_Util::backquote($one_table);
+                $left_join_with = PMA_Util::backquote($one_table);
                 if (! isset($left_joins[$left_join_with])) {
                     $left_joins[$left_join_with] = array(
                         'left_join_with' =>$left_join_with,
