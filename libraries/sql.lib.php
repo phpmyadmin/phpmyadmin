@@ -2086,7 +2086,7 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
 
     include_once 'libraries/DisplayResults.class.php';
 
-    // Hnadle disable/enable foreign key checks
+    // Handle disable/enable foreign key checks
     $default_fk_check = PMA_Util::handleDisableFKCheckInit();
 
     // Handle remembered sorting order, only for single table query
@@ -2166,7 +2166,7 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
         );
     }
 
-    // Hnadle disable/enable foreign key checks
+    // Handle disable/enable foreign key checks
     PMA_Util::handleDisableFKCheckCleanup($default_fk_check);
 
     return $html_output;
