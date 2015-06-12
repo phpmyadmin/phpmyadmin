@@ -1621,8 +1621,10 @@ class PMA_DbQbe
         // Will incldue master tables and all tables that can be combined into
         // a cluster by their relation
         $finalized = array();
-        // Add master tables
-        $finalized[$master] = '';
+        if (mb_strlen($master) > 0) {
+            // Add master tables
+            $finalized[$master] = '';
+        }
 
         while (true) {
             $added = false;
