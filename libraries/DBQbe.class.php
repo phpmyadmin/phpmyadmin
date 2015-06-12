@@ -422,14 +422,7 @@ class PMA_DbQbe
      */
     private function _getSortOrderSelectCell($columnNumber, $sortOrder)
     {
-        $totalColumnCount = $this->_criteria_column_count;
-        if (! empty($this->_criteriaColumnInsert)) {
-            $totalColumnCount += count($this->_criteriaColumnInsert);
-        }
-        if (! empty($this->_criteriaColumnDelete)) {
-            $totalColumnCount -= count($this->_criteriaColumnDelete);
-        }
-
+        $totalColumnCount = $this->_getNewColumnCount();
         $html_output  = '<td class="center">';
         $html_output .= '<select name="criteriaSortOrder[' . $columnNumber . ']">';
         $html_output .= '<option value="1000">'
@@ -444,6 +437,23 @@ class PMA_DbQbe
         $html_output .= '</select>';
         $html_output .= '</td>';
         return $html_output;
+    }
+
+    /**
+     * Returns the new column count after adding and removing columns as instructed
+     *
+     * @return int new column count
+     */
+    private function _getNewColumnCount()
+    {
+        $totalColumnCount = $this->_criteria_column_count;
+        if (! empty($this->_criteriaColumnInsert)) {
+            $totalColumnCount += count($this->_criteriaColumnInsert);
+        }
+        if (! empty($this->_criteriaColumnDelete)) {
+            $totalColumnCount -= count($this->_criteriaColumnDelete);
+        }
+        return $totalColumnCount;
     }
 
     /**
