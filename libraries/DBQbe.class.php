@@ -143,6 +143,13 @@ class PMA_DbQbe
      */
     private $_curSort;
     /**
+     * Current criteria sort order
+     *
+     * @access private
+     * @var array
+     */
+    private $_curSortOrder;
+    /**
      * Current criteria Show options
      *
      * @access private
@@ -406,6 +413,40 @@ class PMA_DbQbe
     }
 
     /**
+     * Provides select options list containing sort order
+     *
+     * @param integer $columnNumber Column Number (0,1,2) or more
+     * @param integer $sortOrder    Sort order
+     *
+     * @return string HTML for select options
+     */
+    private function _getSortOrderSelectCell($columnNumber, $sortOrder)
+    {
+        $totalColumnCount = $this->_criteria_column_count;
+        if (! empty($this->_criteriaColumnInsert)) {
+            $totalColumnCount += count($this->_criteriaColumnInsert);
+        }
+        if (! empty($this->_criteriaColumnDelete)) {
+            $totalColumnCount -= count($this->_criteriaColumnDelete);
+        }
+
+        $html_output  = '<td class="center">';
+        $html_output .= '<select name="criteriaSortOrder[' . $columnNumber . ']">';
+        $html_output .= '<option value="1000">'
+            . '&nbsp;</option>';
+        for ($a = 1; $a <= $totalColumnCount; $a++) {
+            $html_output .= '<option value="' . $a . '"';
+            if ($a == $sortOrder) {
+                $html_output .= ' selected="selected"';
+            }
+            $html_output .= '>' . $a . '</option>';
+        }
+        $html_output .= '</select>';
+        $html_output .= '</td>';
+        return $html_output;
+    }
+
+    /**
      * Provides search form's row containing column select options
      *
      * @return string HTML for search table's row
@@ -451,6 +492,11 @@ class PMA_DbQbe
         return $html_output;
     }
 
+    /**
+     * Provides search form's row containing column aliases
+     *
+     * @return string HTML for search table's row
+     */
     private function _getColumnAliasRow()
     {
         $html_output = '<tr class="even noclick">';
@@ -537,28 +583,74 @@ class PMA_DbQbe
             ) {
                 $_REQUEST['criteriaSort'][$colInd] = '';
             } //end if
-            // Set asc_selected
-            if (isset($_REQUEST['criteriaSort'][$colInd])
-                && $_REQUEST['criteriaSort'][$colInd] == 'ASC'
-            ) {
+
+            $asc_selected = ''; $desc_selected = '';
+            if (isset($_REQUEST['criteriaSort'][$colInd])) {
                 $this->_curSort[$new_column_count]
                     = $_REQUEST['criteriaSort'][$colInd];
-                $asc_selected = ' selected="selected"';
+                // Set asc_selected
+                if ($_REQUEST['criteriaSort'][$colInd] == 'ASC') {
+                    $asc_selected = ' selected="selected"';
+                } // end if
+                // Set desc selected
+                if ($_REQUEST['criteriaSort'][$colInd] == 'DESC') {
+                    $desc_selected = ' selected="selected"';
+                } // end if
             } else {
-                $asc_selected = '';
-            } // end if
-            // Set desc selected
-            if (isset($_REQUEST['criteriaSort'][$colInd])
-                && $_REQUEST['criteriaSort'][$colInd] == 'DESC'
-            ) {
-                $this->_curSort[$new_column_count]
-                    = $_REQUEST['criteriaSort'][$colInd];
-                $desc_selected = ' selected="selected"';
-            } else {
-                $desc_selected = '';
-            } // end if
+                $this->_curSort[$new_column_count] = '';
+            }
+
             $html_output .= $this->_getSortSelectCell(
                 $new_column_count, $asc_selected, $desc_selected
+            );
+            $new_column_count++;
+        } // end for
+        $html_output .= '</tr>';
+        return $html_output;
+    }
+
+    /**
+     * Provides search form's row containing sort order
+     *
+     * @return string HTML for search table's row
+     */
+    private function _getSortOrder()
+    {
+        $html_output = '<tr class="even noclick">';
+        $html_output .= '<th>' . __('Sort order:') . '</th>';
+        $new_column_count = 0;
+
+        for (
+        $colInd = 0;
+        $colInd < $this->_criteria_column_count;
+        $colInd++
+        ) {
+            if (! empty($this->_criteriaColumnInsert)
+                && isset($this->_criteriaColumnInsert[$colInd])
+                && $this->_criteriaColumnInsert[$colInd] == 'on'
+            ) {
+                $html_output .= $this->_getSortOrderSelectCell(
+                    $new_column_count, null
+                );
+                $new_column_count++;
+            } // end if
+
+            if (! empty($this->_criteriaColumnDelete)
+                && isset($this->_criteriaColumnDelete[$colInd])
+                && $this->_criteriaColumnDelete[$colInd] == 'on'
+            ) {
+                continue;
+            }
+
+            $sortOrder = null;
+            if (! empty($_REQUEST['criteriaSortOrder'][$colInd])) {
+                $sortOrder
+                    = $this->_curSortOrder[$new_column_count]
+                    = $_REQUEST['criteriaSortOrder'][$colInd];
+            }
+
+            $html_output .= $this->_getSortOrderSelectCell(
+                $new_column_count, $sortOrder
             );
             $new_column_count++;
         } // end for
@@ -1157,6 +1249,15 @@ class PMA_DbQbe
         $orderby_clause = '';
         $orderby_clauses = array();
 
+        // Create copy of instance variables
+        $field = $this->_curField;
+        $sort = $this->_curSort;
+        $sortOrder = $this->_curSortOrder;
+        if (count($field) == count($sort) && count($field) == count($sortOrder)) {
+            // Sort all three arrays based on sort order
+            array_multisort($sortOrder, $sort, $field);
+        }
+
         for (
             $column_index = 0;
             $column_index < $this->_criteria_column_count;
@@ -1165,19 +1266,19 @@ class PMA_DbQbe
             // if all columns are chosen with * selector,
             // then sorting isn't available
             // Fix for Bug #570698
-            if (empty($this->_curField[$column_index])
-                && empty($this->_curSort[$column_index])
+            if (empty($field[$column_index])
+                && empty($sort[$column_index])
             ) {
                 continue;
             }
 
-            if (/*overload*/mb_substr($this->_curField[$column_index], -2) == '.*') {
+            if (/*overload*/mb_substr($field[$column_index], -2) == '.*') {
                 continue;
             }
 
-            if (! empty($this->_curSort[$column_index])) {
-                $orderby_clauses[] = $this->_curField[$column_index] . ' '
-                    . $this->_curSort[$column_index];
+            if (! empty($sort[$column_index])) {
+                $orderby_clauses[] = $field[$column_index] . ' '
+                    . $sort[$column_index];
             }
         } // end for
         if ($orderby_clauses) {
@@ -1609,6 +1710,7 @@ class PMA_DbQbe
         $html_output .= $this->_getColumnAliasRow();
         $html_output .= $this->_getShowRow();
         $html_output .= $this->_getSortRow();
+        $html_output .= $this->_getSortOrder();
         $html_output .= $this->_getCriteriaInputboxRow();
         $html_output .= $this->_getInsDelAndOrCriteriaRows();
         $html_output .= $this->_getModifyColumnsRow();
