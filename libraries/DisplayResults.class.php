@@ -2213,7 +2213,7 @@ class PMA_DisplayResults
             // Another query to test this:
             // SELECT p.*, FROM_UNIXTIME(p.temps) FROM mytable AS p
             // (and try clicking on each column's header twice)
-            $noSortTable = /*overload*/mb_strpos(
+            $noSortTable = empty($sort_tbl) || /*overload*/mb_strpos(
                 $sort_expression_nodirection[$index_in_expression], $sort_tbl
             ) === false;
             $noOpenParenthesis = /*overload*/mb_strpos(
