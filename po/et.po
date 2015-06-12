@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-11 09:31-0400\n"
-"PO-Revision-Date: 2015-06-01 08:27+0200\n"
+"PO-Revision-Date: 2015-06-12 08:25+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -1025,14 +1025,20 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Selle tegevuse käigus proovib MySQL teisendada ühest sortimisest teise. Kui "
+"märgistikud ei ühildu, siis võib tekkida andmete kadu ja see kadu <b>EI</b> "
+"pruugi olla tagasivõetav minnes tagasi veeru algsele sortimisele. <b>"
+"Olemasolevate andmete teisendamiseks on soovitatav kasutada veeru muutmise "
+"funktsionaalsust (viit \"Muuda\") selle tabeli struktuuri leheküljel.</b>"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Are you sure you wish to change the collation and convert the data?"
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
-msgstr "Kas sa oled kindel, et soovid vahetada sortimist ja teisendada andmed?"
+msgstr ""
+"Kas sa oled kindel, et soovid vahetada kõikide veergude sortimist ja "
+"teisendada andmed?"
 
 #: js/messages.php:88
 msgid "Save & Close"
@@ -9480,10 +9486,9 @@ msgid "Storage Engine"
 msgstr "Varundusmootor"
 
 #: libraries/operations.lib.php:995
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "Muuda kõik veerud atomaarseks"
+msgstr "Vaheta kõigi veergude sortimist"
 
 #: libraries/operations.lib.php:1164
 msgid "Copy table to (database<b>.</b>table)"
