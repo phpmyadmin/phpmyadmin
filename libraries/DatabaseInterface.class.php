@@ -3115,8 +3115,8 @@ class PMA_DatabaseInterface
     /**
      * Get a table with database name and table name
      *
-     * @param $db_name
-     * @param $table_name
+     * @param string $db_name    DB name
+     * @param string $table_name Table name
      *
      * @return PMA_Table
      */

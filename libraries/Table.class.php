@@ -74,9 +74,9 @@ class PMA_Table
     /**
      * Constructor
      *
-     * @param string $table_name table name
-     * @param string $db_name database name
-     * @param PMA_DatabaseInterface $dbi database interface for the table
+     * @param string                $table_name table name
+     * @param string                $db_name    database name
+     * @param PMA_DatabaseInterface $dbi        database interface for the table
      */
     function __construct($table_name, $db_name, PMA_DatabaseInterface $dbi = null)
     {
@@ -1625,7 +1625,7 @@ class PMA_Table
         $server_id = $GLOBALS['server'];
 
         // set session variable if it's still undefined
-        if (! isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name][$this->_name])) {
+        if (!isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name][$this->_name])) {
             // check whether we can get from pmadb
             $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name]
             [$this->_name] = $cfgRelation['uiprefswork']
@@ -1819,11 +1819,14 @@ class PMA_Table
     public function getNameAndTypeOfTheColumns()
     {
         $columns = array();
-        foreach ($this->_dbi->getColumnsFull($this->_db_name, $this->_name) as $row) {
+        foreach ($this->_dbi->getColumnsFull(
+            $this->_db_name, $this->_name
+        ) as $row) {
             if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
-                $tmp[2] = /*overload*/mb_substr(
-                    preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1
-                );
+                $tmp[2] = /*overload*/
+                    mb_substr(
+                        preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1
+                    );
                 $columns[$row['Field']] = $tmp[1] . '('
                     . str_replace(',', ', ', $tmp[2]) . ')';
             } else {
@@ -1836,7 +1839,8 @@ class PMA_Table
     /**
      * Get index with index name
      *
-     * @param $index
+     * @param string $index Index name
+     *
      * @return PMA_Index
      */
     public function getIndex($index)
@@ -1890,7 +1894,9 @@ class PMA_Table
             case 'INDEX':
             case 'SPATIAL':
                 if ($index->getName() == 'PRIMARY') {
-                    $error = PMA_Message::error(__('Can\'t rename index to PRIMARY!'));
+                    $error = PMA_Message::error(
+                        __('Can\'t rename index to PRIMARY!')
+                    );
                 }
                 $sql_query .= sprintf(
                     ' ADD %s ',

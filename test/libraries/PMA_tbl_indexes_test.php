@@ -122,7 +122,9 @@ class PMA_TblIndexTest extends PHPUnit_Framework_TestCase
          * );
          * $add_fields = 3;
          *
-         * $html = PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields);
+         * $html = PMA_getHtmlForIndexForm(
+         *     $fields, $index, $form_params, $add_fields
+         * );
          *
          * //PMA_URL_getHiddenInputs
          * $this->assertContains(

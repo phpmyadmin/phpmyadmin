@@ -140,14 +140,17 @@ $url_params['reload'] = 1;
 /**
  * Displays the page
  */
-$response->addHTML(Template::get('tbl_chart')->render(
-    array(
-        'url_query' => $url_query,
-        'url_params' => $url_params,
-        'keys' => $keys,
-        'fields_meta' => $fields_meta,
-        'numeric_types' => $numeric_types,
-        'numeric_column_count' => $numeric_column_count,
-        'sql_query' => $sql_query
-    )
-));
+$response->addHTML(
+    Template::get('tbl_chart')
+        ->render(
+            array(
+                'url_query' => $url_query,
+                'url_params' => $url_params,
+                'keys' => $keys,
+                'fields_meta' => $fields_meta,
+                'numeric_types' => $numeric_types,
+                'numeric_column_count' => $numeric_column_count,
+                'sql_query' => $sql_query
+            )
+        )
+);
