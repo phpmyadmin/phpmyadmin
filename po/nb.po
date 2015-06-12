@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-11 09:31-0400\n"
-"PO-Revision-Date: 2015-06-12 17:02+0200\n"
+"PO-Revision-Date: 2015-06-12 17:12+0200\n"
 "Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nb/>\n"
@@ -4027,7 +4027,6 @@ msgid "SQL query"
 msgstr "SQL-spørring"
 
 #: libraries/ServerStatusData.class.php:118
-#, fuzzy
 msgid "Handler"
 msgstr "Behandler"
 
@@ -4125,20 +4124,20 @@ msgid "Advisor"
 msgstr "Rådgiver"
 
 #: libraries/ServerStatusData.class.php:494
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "Sekund"
-msgstr[1] "Sekund"
+msgstr[0] "%d sekund"
+msgstr[1] "%d sekunder"
 
 #: libraries/ServerStatusData.class.php:499
-#, fuzzy, php-format
+#, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "Minutt"
-msgstr[1] "Minutt"
+msgstr[0] "%d minutt"
+msgstr[1] "%d minutter"
 
 #: libraries/StorageEngine.class.php:272
 msgid ""
@@ -4235,19 +4234,16 @@ msgid "No index parts defined!"
 msgstr "Ingen indeksdeler definert!"
 
 #: libraries/TableSearch.class.php:184
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "Tabellsøk"
 
 #: libraries/TableSearch.class.php:191
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "Utvidet søk"
 
 #: libraries/TableSearch.class.php:196 templates/table/selection_form.phtml:59
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "Finn og erstatt"
@@ -4710,10 +4706,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Katalogen du anga for opplasting kan ikke nåes."
 
 #: libraries/Util.class.php:3546
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "Det er ingen filer å laste opp"
+msgstr "Det er ingen filer å laste opp!"
 
 #: libraries/Util.class.php:3571 libraries/Util.class.php:3572
 #: libraries/structure.lib.php:329
@@ -4821,10 +4816,9 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/central_columns.lib.php:298
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Kunne ikke lagre konfigurasjonen"
+msgstr "Kunne ikke legge til kolonner!"
 
 #: libraries/central_columns.lib.php:373
 #, php-format
@@ -4833,10 +4827,9 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:385
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not remove columns!"
-msgstr "Kunne ikke lagre tabell"
+msgstr "Kunne ikke fjerne kolonner!"
 
 #: libraries/central_columns.lib.php:530
 msgid "YES"
@@ -4869,10 +4862,9 @@ msgid "Length/Values"
 msgstr "Lengde/Sett*"
 
 #: libraries/central_columns.lib.php:706
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Attributter"
+msgstr "Attributt"
 
 #: libraries/central_columns.lib.php:710
 #: libraries/central_columns.lib.php:1208
@@ -4880,20 +4872,18 @@ msgid "A_I"
 msgstr ""
 
 #: libraries/central_columns.lib.php:750
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Velg tabeller"
+msgstr "Velg en tabell"
 
 #: libraries/central_columns.lib.php:804 libraries/structure.lib.php:1746
 msgid "Add column"
 msgstr "Legg til kolonne(r)"
 
 #: libraries/central_columns.lib.php:816
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Velg to kolonner"
+msgstr "Velg en kolonne."
 
 #: libraries/central_columns.lib.php:1148
 #, fuzzy
@@ -15890,10 +15880,9 @@ msgid "Replace with:"
 msgstr "Erstatt med:"
 
 #: templates/table/search_and_replace.phtml:22
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "som \"regular expression\""
+msgstr "Bruk \"regulert uttrykk\""
 
 #: templates/table/selection_form.phtml:12
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
