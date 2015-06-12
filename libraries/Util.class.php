@@ -1291,11 +1291,6 @@ class PMA_Util
                     'profiling', __('Profiling'), isset($_SESSION['profiling']), true
                 );
             }
-
-            // Pass default foreign_key_checks
-            $default_fk_check_value = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
-            $retval .= '<input type="hidden" disabled name="default_fk_check_value"'
-                . 'value="' . ($default_fk_check_value ? 'true' : 'false') . '"/>';
             $retval .= '</form>';
 
             /**
@@ -3206,6 +3201,15 @@ class PMA_Util
         }
     }
 
+    public static function getDefaultFKCheckValue() {
+        if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'enable') {
+            return true;
+        } else if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
+            return false;
+        }
+        return ($GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON');
+    }
+
     /**
     * Get HTML for Foreign key check checkbox
     *
@@ -3213,13 +3217,7 @@ class PMA_Util
     */
     public static function getFKCheckbox()
     {
-        if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'enable') {
-            $checked = true;
-        } else if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
-            $checked = false;
-        } else {
-            $checked = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
-        }
+        $checked = self::getDefaultFKCheckValue();
         $html = '<input type="hidden" name="fk_checks" value="0" />';
         $html .= '<input type="checkbox" name="fk_checks"'
             . ' id="fk_checks" value="1"'
