@@ -129,6 +129,13 @@ class PMA_DbQbe
      */
     private $_curField;
     /**
+     * Current alias
+     *
+     * @access private
+     * @var array
+     */
+    private $_curAlias;
+    /**
      * Current criteria Sort options
      *
      * @access private
@@ -440,6 +447,54 @@ class PMA_DbQbe
             $new_column_count++;
         } // end for
         $this->_new_column_count = $new_column_count;
+        $html_output .= '</tr>';
+        return $html_output;
+    }
+
+    private function _getColumnAliasRow()
+    {
+        $html_output = '<tr class="even noclick">';
+        $html_output .= '<th>' . __('Alias:') . '</th>';
+        $new_column_count = 0;
+
+        for (
+        $colInd = 0;
+        $colInd < $this->_criteria_column_count;
+        $colInd++
+        ) {
+            if (! empty($this->_criteriaColumnInsert)
+                && isset($this->_criteriaColumnInsert[$colInd])
+                && $this->_criteriaColumnInsert[$colInd] == 'on'
+            ) {
+                $html_output .= '<td class="center">';
+                $html_output .= '<input type="text"'
+                    . ' name="criteriaAlias[' . $new_column_count . ']"'
+                    . ' value="" />';
+                $html_output .= '</td>';
+                $new_column_count++;
+            } // end if
+
+            if (! empty($this->_criteriaColumnDelete)
+                && isset($this->_criteriaColumnDelete[$colInd])
+                && $this->_criteriaColumnDelete[$colInd] == 'on'
+            ) {
+                continue;
+            }
+
+            $tmp_alias = '';
+            if (! empty($_REQUEST['criteriaAlias'][$colInd])) {
+                $tmp_alias
+                    = $this->_curAlias[$new_column_count]
+                    = $_REQUEST['criteriaAlias'][$colInd];
+            }// end if
+
+            $html_output .= '<td class="center">';
+            $html_output .= '<input type="text"'
+                . ' name="criteriaAlias[' . $new_column_count . ']"'
+                . ' value="' . htmlspecialchars($tmp_alias) . '" />';
+            $html_output .= '</td>';
+            $new_column_count++;
+        } // end for
         $html_output .= '</tr>';
         return $html_output;
     }
@@ -983,7 +1038,12 @@ class PMA_DbQbe
                 && isset($this->_curShow[$column_index])
                 && $this->_curShow[$column_index] == 'on'
             ) {
-                $select_clauses[] = $this->_curField[$column_index];
+                $select = $this->_curField[$column_index];
+                if (! empty($this->_curAlias[$column_index])) {
+                    $select .= " AS "
+                        . PMA_Util::backquote($this->_curAlias[$column_index]);
+                }
+                $select_clauses[] = $select;
             }
         } // end for
         if ($select_clauses) {
@@ -1487,7 +1547,7 @@ class PMA_DbQbe
         // Tables that can not be combined with the table cluster
         // that includes master table
         $unfinalized = array_diff($allTables, array_keys($finalized));
-        // Add these tables are cartesian product before joined tables
+        // Add these tables as cartesian product before joined tables
         $join = implode(', ', array_map('PMA_Util::backquote', $unfinalized));
 
         $first = true;
@@ -1546,6 +1606,7 @@ class PMA_DbQbe
         $html_output .= '<table class="data" style="width: 100%;">';
         // Get table's <tr> elements
         $html_output .= $this->_getColumnNamesRow();
+        $html_output .= $this->_getColumnAliasRow();
         $html_output .= $this->_getShowRow();
         $html_output .= $this->_getSortRow();
         $html_output .= $this->_getCriteriaInputboxRow();
