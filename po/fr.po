@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-11 09:31-0400\n"
-"PO-Revision-Date: 2015-06-01 12:05+0200\n"
+"PO-Revision-Date: 2015-06-12 13:02+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -1040,16 +1040,22 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Par cette opération, MySQL tente de mapper les valeurs de données entre les "
+"classements. Si les jeux de caractères sont incompatibles, il peut y avoir "
+"perte de données et ces données perdues peuvent <b>NE PAS</b> être "
+"récupérables simplement en changeant la colonne de classement. <b>Pour "
+"convertir les données existantes, il est conseillé d'utiliser le mode "
+"d'édition de colonne (le lien \"Modifier\") sur la page de structure de "
+"table.</b>"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Are you sure you wish to change the collation and convert the data?"
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Êtes-vous certain de vouloir modifier le classement et de convertir les "
-"données ?"
+"Êtes-vous certain de vouloir modifier le classement de toutes les colonnes "
+"et de convertir les données ?"
 
 #: js/messages.php:88
 msgid "Save & Close"
@@ -9653,10 +9659,9 @@ msgid "Storage Engine"
 msgstr "Moteur de stockage"
 
 #: libraries/operations.lib.php:995
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "Rendre toutes les colonnes atomiques"
+msgstr "Changer le classement de toutes les colonnes"
 
 #: libraries/operations.lib.php:1164
 msgid "Copy table to (database<b>.</b>table)"
