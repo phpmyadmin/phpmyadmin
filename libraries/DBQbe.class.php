@@ -1253,7 +1253,10 @@ class PMA_DbQbe
         $field = $this->_curField;
         $sort = $this->_curSort;
         $sortOrder = $this->_curSortOrder;
-        if (count($field) == count($sort) && count($field) == count($sortOrder)) {
+        if ($sortOrder
+            && count($sortOrder) == count($sort)
+            && count($sortOrder) == count($field)
+        ) {
             // Sort all three arrays based on sort order
             array_multisort($sortOrder, $sort, $field);
         }
