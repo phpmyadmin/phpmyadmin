@@ -61,9 +61,13 @@ if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
 if (! empty($_REQUEST['db'])) {
     $page = null;
     if (! empty($_REQUEST['table'])) {
-        $page = $GLOBALS['cfg']['DefaultTabTable'];
+        $page = PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+        );
     } else {
-        $page = $GLOBALS['cfg']['DefaultTabDatabase'];
+        $page = PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+        );
     }
     include $page;
     exit;

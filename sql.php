@@ -54,9 +54,13 @@ if (! empty($goto)) {
     }
 } else {
     if (empty($table)) {
-        $goto = $cfg['DefaultTabDatabase'];
+        $goto = PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+        );
     } else {
-        $goto = $cfg['DefaultTabTable'];
+        $goto = PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+        );
     }
     $is_gotofile  = true;
 } // end if

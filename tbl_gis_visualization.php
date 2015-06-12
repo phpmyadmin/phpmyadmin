@@ -10,7 +10,9 @@ require_once 'libraries/common.inc.php';
 
 // Runs common work
 require_once 'libraries/db_common.inc.php';
-$url_params['goto'] = $cfg['DefaultTabDatabase'];
+$url_params['goto'] = PMA_Util::getScriptNameForOption(
+    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+);
 $url_params['back'] = 'sql.php';
 
 // Import visualization functions

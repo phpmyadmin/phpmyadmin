@@ -59,7 +59,7 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
 
         $GLOBALS['table'] = "table";
         $GLOBALS['replication_info']['master']['status'] = false;
