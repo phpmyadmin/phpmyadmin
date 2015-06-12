@@ -958,25 +958,25 @@ $cfg['NavigationTreeDisplayDbFilterMinimum'] = 30;
  * target of the navigation panel quick access icon
  *
  * Possible values:
- * 'tbl_structure.php' = fields list
- * 'tbl_sql.php' = SQL form
- * 'tbl_select.php' = search page
- * 'tbl_change.php' = insert row page
- * 'sql.php' = browse page
+ * 'structure.php' = fields list
+ * 'sql' = SQL form
+ * 'search' = search page
+ * 'insert' = insert row page
+ * 'browse' = browse page
  *
  * @global string $cfg['NavigationTreeDefaultTabTable']
  */
-$cfg['NavigationTreeDefaultTabTable'] = 'tbl_structure.php';
+$cfg['NavigationTreeDefaultTabTable'] = 'structure';
 
 /**
  * target of the navigation panel quick second access icon
  *
  * Possible values:
- * 'tbl_structure.php' = fields list
- * 'tbl_sql.php' = SQL form
- * 'tbl_select.php' = search page
- * 'tbl_change.php' = insert row page
- * 'sql.php' = browse page
+ * 'structure' = fields list
+ * 'sql' = SQL form
+ * 'search' = search page
+ * 'insert' = insert row page
+ * 'browse' = browse page
  * '' = no link
  *
  * @global string $cfg['NavigationTreeDefaultTabTable2']
@@ -1285,39 +1285,39 @@ $cfg['PropertiesNumColumns'] = 1;
 
 /**
  * Possible values:
- * 'index.php' = the welcome page
+ * 'welcome' = the welcome page
  * (recommended for multiuser setups)
- * 'server_databases.php' = list of databases
- * 'server_status.php' = runtime information
- * 'server_variables.php' = MySQL server variables
- * 'server_privileges.php' = user management
+ * 'databases' = list of databases
+ * 'status' = runtime information
+ * 'variables' = MySQL server variables
+ * 'privileges' = user management
  *
  * @global string $cfg['DefaultTabServer']
  */
-$cfg['DefaultTabServer'] = 'index.php';
+$cfg['DefaultTabServer'] = 'welcome';
 
 /**
  * Possible values:
- * 'db_structure.php' = tables list
- * 'db_sql.php' = SQL form
- * 'db_search.php' = search query
- * 'db_operations.php' = operations on database
+ * 'structure' = tables list
+ * 'sql' = SQL form
+ * 'search' = search query
+ * 'operations' = operations on database
  *
  * @global string $cfg['DefaultTabDatabase']
  */
-$cfg['DefaultTabDatabase'] = 'db_structure.php';
+$cfg['DefaultTabDatabase'] = 'structure';
 
 /**
  * Possible values:
- * 'tbl_structure.php' = fields list
- * 'tbl_sql.php' = SQL form
- * 'tbl_select.php' = search page
- * 'tbl_change.php' = insert row page
- * 'sql.php' = browse page
+ * 'structure' = fields list
+ * 'sql' = SQL form
+ * 'search' = search page
+ * 'insert' = insert row page
+ * 'browse' = browse page
  *
  * @global string $cfg['DefaultTabTable']
  */
-$cfg['DefaultTabTable'] = 'sql.php';
+$cfg['DefaultTabTable'] = 'browse';
 
 /**
  * Whether to display image or text or both image and text in table row

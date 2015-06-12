@@ -36,19 +36,19 @@ $cfg_db['OBGzip'] = array('auto', true, false);
 $cfg_db['MemoryLimit'] = 'short_string';
 $cfg_db['NavigationLogoLinkWindow'] = array('main', 'new');
 $cfg_db['NavigationTreeDefaultTabTable'] = array(
-    'tbl_structure.php', // fields list
-    'tbl_sql.php',       // SQL form
-    'tbl_select.php',    // search page
-    'tbl_change.php',    // insert row page
-    'sql.php'            // browse page
+    'structure' => __('Structure'), // fields list
+    'sql' => __('SQL'),             // SQL form
+    'search' => __('Search'),       // search page
+    'insert' => __('Insert'),       // insert row page
+    'browse' => __('Browse')        // browse page
 );
 $cfg_db['NavigationTreeDefaultTabTable2'] = array(
     '', //don't display
-    'tbl_structure.php', // fields list
-    'tbl_sql.php',       // SQL form
-    'tbl_select.php',    // search page
-    'tbl_change.php',    // insert row page
-    'sql.php'            // browse page
+    'structure' => __('Structure'), // fields list
+    'sql' => __('SQL'),             // SQL form
+    'search' => __('Search'),       // search page
+    'insert' => __('Insert'),       // insert row page
+    'browse' => __('Browse')        // browse page
 );
 $cfg_db['NavigationTreeDbSeparator'] = 'short_string';
 $cfg_db['NavigationTreeTableSeparator'] = 'short_string';
@@ -99,24 +99,24 @@ $cfg_db['RelationalDisplay'] = array(
     'D' => __('display column')
 );
 $cfg_db['DefaultTabServer'] = array(
-    'index.php',               // the welcome page (recommended for multiuser setups)
-    'server_databases.php',    // list of databases
-    'server_status.php',       // runtime information
-    'server_variables.php',    // MySQL server variables
-    'server_privileges.php'    // user management
+    'welcome' => __('Welcome'),        // the welcome page (recommended for multiuser setups)
+    'databases' => __('Databases'),    // list of databases
+    'status' => __('Status'),          // runtime information
+    'variables' => __('Variables'),    // MySQL server variables
+    'privileges' => __('Privileges')   // user management
 );
 $cfg_db['DefaultTabDatabase'] = array(
-    'db_structure.php',   // tables list
-    'db_sql.php',         // SQL form
-    'db_search.php',      // search query
-    'db_operations.php'   // operations on database
+    'structure' => __('Structure'),   // tables list
+    'sql' => __('SQL'),               // SQL form
+    'search' => __('Search'),         // search query
+    'operations' => __('Operations')  // operations on database
 );
 $cfg_db['DefaultTabTable'] = array(
-    'tbl_structure.php', // fields list
-    'tbl_sql.php',       // SQL form
-    'tbl_select.php',    // search page
-    'tbl_change.php',    // insert row page
-    'sql.php'            // browse page
+    'structure' => __('Structure'),  // fields list
+    'sql' => __('SQL'),              // SQL form
+    'search' => __('Search'),        // search page
+    'insert' => __('Insert'),        // insert row page
+    'browse' => __('Browse')         // browse page
 );
 $cfg_db['InitialSlidersState'] = array(
     'open'     => __('Open'),

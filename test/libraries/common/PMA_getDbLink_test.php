@@ -62,7 +62,11 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['db'] = 'test_db';
         $database = $GLOBALS['db'];
         $this->assertEquals(
-            '<a href="' . $cfg['DefaultTabDatabase'] . '?db=' . $database
+            '<a href="'
+            . PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            )
+            . '?db=' . $database
             . '&amp;server=99&amp;lang=en&amp;token=token" '
             . 'title="Jump to database &quot;'
             . htmlspecialchars($database) . '&quot;.">'
@@ -81,7 +85,10 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
         global $cfg;
         $database = 'test_database';
         $this->assertEquals(
-            '<a href="' . $cfg['DefaultTabDatabase'] . '?db=' . $database
+            '<a href="' . PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            )
+            . '?db=' . $database
             . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
             . htmlspecialchars($database) . '&quot;.">'
             . htmlspecialchars($database) . '</a>',
@@ -99,7 +106,11 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
         global $cfg;
         $database = 'test&data\'base';
         $this->assertEquals(
-            '<a href="' . $cfg['DefaultTabDatabase'] . '?db='
+            '<a href="'
+            . PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            )
+            . '?db='
             . htmlspecialchars(urlencode($database))
             . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
             . htmlspecialchars($database) . '&quot;.">'
