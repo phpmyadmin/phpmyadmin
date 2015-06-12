@@ -254,7 +254,8 @@ class PMA_Header
             'pftext' => $pftext,
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
-            'logged_in' => isset($GLOBALS['userlink']) ? true : false
+            'logged_in' => isset($GLOBALS['userlink']) ? true : false,
+            'default_fk_check_value' => PMA_Util::getDefaultFKCheckValue() ? 1 : 0
         );
         if (isset($GLOBALS['cfg']['Server'])
             && isset($GLOBALS['cfg']['Server']['auth_type'])
