@@ -1375,10 +1375,12 @@ class PMA_DbQbe
                 }
             } // end while
 
-            if (! isset($_POST['doNotUseJoins'])) {
-                // Create LEFT JOINS out of Relations
-                $from_clause = $this->_getJoinForFromClause($all_tables, $all_columns);
-            } else {
+            // Create LEFT JOINS out of Relations
+            $from_clause = $this->_getJoinForFromClause($all_tables, $all_columns);
+
+            // In case relations are not defined, just generate the FROM clause
+            // from the list of tables, however we don't generate any JOIN
+            if (empty($from_clause)) {
                 // Create cartesian product
                 $from_clause = implode(", ", array_map('PMA_Util::backquote', $all_tables));
             }
@@ -1540,15 +1542,6 @@ class PMA_DbQbe
         if ($GLOBALS['cfgRelation']['savedsearcheswork']) {
             $html_output .= $this->_getSavedSearchesField();
         }
-
-        $html_output .= '<br />';
-        $html_output .= '<input type="checkbox" id="doNotUseJoins"'
-            . ' name="doNotUseJoins" value="true"';
-        if (isset($_REQUEST['doNotUseJoins'])) {
-            $html_output .= ' checked="checked"';
-        }
-        $html_output .= ' />';
-        $html_output .= '<label for="doNotUseJoins" />' . __('Do not use joins') . '</label>';
 
         $html_output .= '<table class="data" style="width: 100%;">';
         // Get table's <tr> elements
