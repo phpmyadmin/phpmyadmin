@@ -126,6 +126,10 @@ $GLOBALS['dummy_queries'] = array(
         'result' => array(),
     ),
     array(
+        'query' => 'SHOW SESSION VARIABLES LIKE \'FOREIGN_KEY_CHECKS\';',
+        'result' => array('foreign_key_checks', 'ON'),
+    ),
+    array(
         'query' => 'SHOW TABLES FROM `pma_test`;',
         'result' => array(
             array('table1'),
