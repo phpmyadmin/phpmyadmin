@@ -52,18 +52,21 @@ class Parser
     public static $KEYWORD_PARSERS = array(
 
         // Meta-keywords.
+        /*
         '_ARRAY'        => 'SqlParser\\Fragments\\ArrayFragment',
         '_CALL'         => 'SqlParser\\Fragments\\CallKeyword',
         '_CREATE_DEF'   => 'SqlParser\\Fragments\\CreateDefFragment',
-        '_DATA_TYPE'    => 'SqlParser\\Fragments\\CreateDefFragment',
+        '_DATA_TYPE'    => 'SqlParser\\Fragments\\DataTypeFragment',
         '_FIELD'        => 'SqlParser\\Fragments\\FieldFragment',
         '_FIELD_DEF'    => 'SqlParser\\Fragments\\FieldDefFragment',
+        '_PARAM_DEF'    => 'SqlParser\\Fragments\\ParamDefFragment',
         '_OPTIONS'      => 'SqlParser\\Fragments\\OptionsFragment',
         '_RENAME'       => 'SqlParser\\Fragments\\RenameKeyword',
         '_SELECT'       => 'SqlParser\\Fragments\\SelectKeyword',
+        */
 
         'FROM'          => 'SqlParser\\Fragments\\FromKeyword',
-        'GROUP'         => 'SqlParser\\Fragments\\GroupFragment',
+        'GROUP'         => 'SqlParser\\Fragments\\OrderKeyword',
         'HAVING'        => 'SqlParser\\Fragments\\WhereKeyword',
         'INTO'          => 'SqlParser\\Fragments\\IntoKeyword',
         'JOIN'          => 'SqlParser\\Fragments\\JoinKeyword',
