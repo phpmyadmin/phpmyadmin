@@ -20,7 +20,7 @@
         <div id="tblfooter">
             <input type="submit" name="submit_sql" class="btn" />
             <input type="button" name="cancel" value="<?php echo __('Cancel'); ?>" onclick="closebox()" class="btn" />
-            <?php echo MA_URL_getHiddenInputs($_GET['db']); ?>
+            <?php echo PMA_URL_getHiddenInputs($_GET['db']); ?>
         </div>
         <p></p>
     </form>
