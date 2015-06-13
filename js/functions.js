@@ -1692,6 +1692,14 @@ function getForeignKeyCheckbox() {
     return html;
 }
 
+function getJSConfirmCommonParam(elem) {
+    return {
+        'is_js_confirmed' : 1,
+        'ajax_request' : true,
+        'fk_checks': $(elem).find('#fk_checks').is(':checked') ? 1 : 0
+    };
+}
+
 /**
  * Unbind all event handlers before tearing down a page
  */

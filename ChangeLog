@@ -55,6 +55,7 @@ phpMyAdmin - ChangeLog
 - bug #4946 When hide table structure actions is false, action should be in a row
 + rfe #726  Batch changing the collation of each column in a table
 + rfe #1594 Use plain English descriptors instead of script names for icon link destinations
++ rfe #1541 Disable foreign key checks for some operations
 
 4.4.10.0 (not yet released)
 - bug #4950 Issues in database selection for replication
