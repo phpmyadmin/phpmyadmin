@@ -694,14 +694,12 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     // Get required data
     $retval['item_name'] = $routine['SPECIFIC_NAME'];
     $retval['item_type'] = $routine['ROUTINE_TYPE'];
-    $parsed_query = PMA_SQP_parse(
-        $GLOBALS['dbi']->getDefinition(
-            $db,
-            $routine['ROUTINE_TYPE'],
-            $routine['SPECIFIC_NAME']
-        )
-    );
-    $params = PMA_RTN_parseAllParameters($parsed_query, $routine['ROUTINE_TYPE']);
+    $parser = new SqlParser\Parser($GLOBALS['dbi']->getDefinition(
+        $db,
+        $routine['ROUTINE_TYPE'],
+        $routine['SPECIFIC_NAME']
+    ));
+    $params = SqlParser\Utils\Routine::getParameters($parser->statements[0]);
     $retval['item_num_params']      = $params['num'];
     $retval['item_param_dir']       = $params['dir'];
     $retval['item_param_name']      = $params['name'];
