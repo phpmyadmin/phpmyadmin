@@ -907,9 +907,7 @@ class PMA_Util
         }
 
         if (! $do_it) {
-            global $PMA_SQPdata_forbidden_word;
-            $eltNameUpper = /*overload*/mb_strtoupper($a_name);
-            if (!in_array($eltNameUpper, $PMA_SQPdata_forbidden_word)) {
+            if (!SqlParser\Context::isKeyword($a_name)) {
                 return $a_name;
             }
         }
@@ -954,9 +952,7 @@ class PMA_Util
         }
 
         if (! $do_it) {
-            global $PMA_SQPdata_forbidden_word;
-            $eltNameUpper = /*overload*/mb_strtoupper($a_name);
-            if (!in_array($eltNameUpper, $PMA_SQPdata_forbidden_word)) {
+            if (!SqlParser\Context::isKeyword($a_name)) {
                 return $a_name;
             }
         }
