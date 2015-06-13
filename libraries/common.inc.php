@@ -1057,6 +1057,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          * SQL Parser code
          */
         include_once './libraries/sqlparser.lib.php';
+        include_once './libraries/sql-parser/autoload.php';
 
         /**
          * the PMA_List_Database class
