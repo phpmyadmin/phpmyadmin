@@ -1291,11 +1291,6 @@ class PMA_Util
                     'profiling', __('Profiling'), isset($_SESSION['profiling']), true
                 );
             }
-
-            // Pass default foreign_key_checks
-            $default_fk_check_value = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
-            $retval .= '<input type="hidden" disabled name="default_fk_check_value"'
-                . 'value="' . ($default_fk_check_value ? 'true' : 'false') . '"/>';
             $retval .= '</form>';
 
             /**
@@ -2657,7 +2652,10 @@ class PMA_Util
             $database = self::unescapeMysqlWildcards($database);
         }
 
-        return '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+        return '<a href="'
+            . PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            )
             . PMA_URL_getCommon(array('db' => $database)) . '" title="'
             . htmlspecialchars(
                 sprintf(
@@ -3206,6 +3204,15 @@ class PMA_Util
         }
     }
 
+    public static function getDefaultFKCheckValue() {
+        if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'enable') {
+            return true;
+        } else if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
+            return false;
+        }
+        return ($GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON');
+    }
+
     /**
     * Get HTML for Foreign key check checkbox
     *
@@ -3213,13 +3220,7 @@ class PMA_Util
     */
     public static function getFKCheckbox()
     {
-        if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'enable') {
-            $checked = true;
-        } else if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
-            $checked = false;
-        } else {
-            $checked = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
-        }
+        $checked = self::getDefaultFKCheckValue();
         $html = '<input type="hidden" name="fk_checks" value="0" />';
         $html .= '<input type="checkbox" name="fk_checks"'
             . ' id="fk_checks" value="1"'
@@ -3333,18 +3334,26 @@ class PMA_Util
      *                       $cfg['NavigationTreeDefaultTabTable2'],
      *                       $cfg['DefaultTabTable'] or $cfg['DefaultTabDatabase']
      *
-     * @return array
+     * @return string Title for the $cfg value
      */
     public static function getTitleForTarget($target)
     {
         $mapping = array(
+            'structure' =>  __('Structure'),
+            'sql' => __('SQL'),
+            'search' =>__('Search'),
+            'insert' =>__('Insert'),
+            'browse' => __('Browse'),
+            'operations' => __('Operations'),
+
+            // For backward compatiblity
+
             // Values for $cfg['DefaultTabTable']
             'tbl_structure.php' =>  __('Structure'),
             'tbl_sql.php' => __('SQL'),
             'tbl_select.php' =>__('Search'),
             'tbl_change.php' =>__('Insert'),
             'sql.php' => __('Browse'),
-
             // Values for $cfg['DefaultTabDatabase']
             'db_structure.php' => __('Structure'),
             'db_sql.php' => __('SQL'),
@@ -3352,6 +3361,91 @@ class PMA_Util
             'db_operations.php' => __('Operations'),
         );
         return isset($mapping[$target]) ? $mapping[$target] : false;
+    }
+
+    /**
+     * Get the script name corresponding to a plain English config word
+     * in order to append in links on navigation and main panel
+     *
+     * @param string $target   a valid value for $cfg['NavigationTreeDefaultTabTable'],
+     *                         $cfg['NavigationTreeDefaultTabTable2'],
+     *                         $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
+     *                         $cfg['DefaultTabServer']
+     * @param string $location one out of 'server', 'table', 'database'
+     *
+     * @return string script name corresponding to the config word
+     */
+    public static function getScriptNameForOption($target, $location)
+    {
+        $retval = '';
+
+        if ($location == 'server') {
+            // Values for $cfg['DefaultTabServer']
+            switch ($target) {
+            case 'welcome':
+                $retval = 'index.php';
+                break;
+            case 'databases':
+                $retval = 'server_databases.php';
+                break;
+            case 'status':
+                $retval = 'server_status.php';
+                break;
+            case 'variables':
+                $retval = 'server_variables.php';
+                break;
+            case 'privileges':
+                $retval = 'server_privileges.php';
+                break;
+            default:
+                $retval = $target;
+            }
+        } elseif ($location == 'database') {
+            // Values for $cfg['DefaultTabDatabase']
+            switch ($target) {
+            case 'structure':
+                $retval = 'db_structure.php';
+                break;
+            case 'sql':
+                $retval = 'db_sql.php';
+                break;
+            case 'search':
+                $retval = 'db_search.php';
+                break;
+            case 'operations':
+                $retval = 'db_operations.php';
+                break;
+            default:
+                $retval = $target;
+            }
+        } elseif ($location == 'table') {
+            // Values for $cfg['DefaultTabTable'],
+            // $cfg['NavigationTreeDefaultTabTable'] and
+            // $cfg['NavigationTreeDefaultTabTable2']
+            switch ($target) {
+            case 'structure':
+                $retval = 'tbl_structure.php';
+                break;
+            case 'sql':
+                $retval = 'tbl_sql.php';
+                break;
+            case 'search':
+                $retval = 'tbl_select.php';
+                break;
+            case 'insert':
+                $retval = 'tbl_change.php';
+                break;
+            case 'browse':
+                $retval = 'sql.php';
+                break;
+            default:
+                $retval = $target;
+            }
+        } else {
+            $retval = $target;
+        }
+
+        return $retval;
     }
 
     /**

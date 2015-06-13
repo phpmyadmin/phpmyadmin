@@ -69,7 +69,7 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
         $not_only_options = false;
         $omit_fieldset = false;
 
-        $GLOBALS['cfg']['DefaultTabServer'] = "DefaultTabServer";
+        $GLOBALS['cfg']['DefaultTabServer'] = "welcome";
 
         $GLOBALS['cfg']['Servers'] = array(
             '0' => array(
@@ -119,7 +119,9 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
 
         //$GLOBALS['cfg']['DefaultTabServer']
         $this->assertContains(
-            $GLOBALS['cfg']['DefaultTabServer'],
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabServer'], 'server'
+            ),
             $html
         );
 

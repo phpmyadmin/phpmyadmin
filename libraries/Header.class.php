@@ -230,7 +230,9 @@ class PMA_Header
 
         $params = array(
             'common_query' => PMA_URL_getCommon(array(), 'text'),
-            'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
+            'opendb_url' => PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            ),
             'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 1 : 0,
             'collation_connection' => $GLOBALS['collation_connection'],
             'lang' => $GLOBALS['lang'],
@@ -254,7 +256,8 @@ class PMA_Header
             'pftext' => $pftext,
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
-            'logged_in' => isset($GLOBALS['userlink']) ? true : false
+            'logged_in' => isset($GLOBALS['userlink']) ? true : false,
+            'default_fk_check_value' => PMA_Util::getDefaultFKCheckValue() ? 1 : 0
         );
         if (isset($GLOBALS['cfg']['Server'])
             && isset($GLOBALS['cfg']['Server']['auth_type'])

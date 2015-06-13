@@ -64,10 +64,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['cfg']['PmaAbsoluteUri'] = "PmaAbsoluteUri";
-        $GLOBALS['cfg']['DefaultTabTable'] = "db_structure.php";
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = "db_structure.php";
+        $GLOBALS['cfg']['DefaultTabTable'] = "structure";
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = "structure";
         $GLOBALS['cfg']['Confirm'] = "Confirm";
         $GLOBALS['cfg']['ShowHint'] = true;
 
@@ -1672,7 +1672,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            $GLOBALS['cfg']['DefaultTabDatabase'],
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            ),
             $html
         );
         $item = PMA_URL_getCommon(
@@ -1696,7 +1698,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            $GLOBALS['cfg']['DefaultTabTable'],
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabTable'], 'table'
+            ),
             $html
         );
         $item = PMA_URL_getCommon(

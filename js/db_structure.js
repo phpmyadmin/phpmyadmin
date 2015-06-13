@@ -243,14 +243,21 @@ AJAX.registerOnload('db_structure.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages.strTruncateTableStrongWarning + ' ' +
-            PMA_sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name));
+        var question = PMA_messages.strTruncateTableStrongWarning + ' '
+            + PMA_sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name))
+            + getForeignKeyCheckbox();
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
 
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
-            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function (data) {
+            var params = {
+                'is_js_confirmed' : 1,
+                'ajax_request' : true,
+                'fk_checks': $(this).find('#fk_checks').is(':checked') ? 1 : 0
+            };
+
+            $.get(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     // Adjust table statistics
@@ -305,12 +312,19 @@ AJAX.registerOnload('db_structure.js', function () {
             question =
                 PMA_sprintf(PMA_messages.strDoYouReally, 'DROP VIEW ' + escapeHtml(curr_table_name));
         }
+        question += getForeignKeyCheckbox();
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
 
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
-            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function (data) {
+            var params = {
+                'is_js_confirmed' : 1,
+                'ajax_request' : true,
+                'fk_checks': $(this).find('#fk_checks').is(':checked') ? 1 : 0
+            };
+
+            $.get(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     toggleRowColors($curr_row.next());

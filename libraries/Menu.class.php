@@ -191,7 +191,9 @@ class PMA_Menu
         }
         $retval .= sprintf(
             $item,
-            $GLOBALS['cfg']['DefaultTabServer'],
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabServer'], 'server'
+            ),
             PMA_URL_getCommon(),
             htmlspecialchars($server_info),
             __('Server')
@@ -208,7 +210,9 @@ class PMA_Menu
             }
             $retval .= sprintf(
                 $item,
-                $GLOBALS['cfg']['DefaultTabDatabase'],
+                PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                ),
                 PMA_URL_getCommon(array('db' => $this->_db)),
                 htmlspecialchars($this->_db),
                 __('Database')
@@ -231,7 +235,9 @@ class PMA_Menu
                 }
                 $retval .= sprintf(
                     $item,
-                    $GLOBALS['cfg']['DefaultTabTable'],
+                    PMA_Util::getScriptNameForOption(
+                        $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    ),
                     PMA_URL_getCommon(
                         array(
                             'db' => $this->_db, 'table' => $this->_table

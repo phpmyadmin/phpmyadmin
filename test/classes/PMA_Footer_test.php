@@ -60,7 +60,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = '1';
         $_GET['reload_left_frame'] = '1';
         $GLOBALS['focus_querywindow'] = 'main_pane_left';

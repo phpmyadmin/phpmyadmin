@@ -1676,6 +1676,23 @@ function pdfPaperSize(format, axis)
 }
 
 /**
+ * Get checkbox for foreign key checks
+ *
+ * @return string
+ */
+function getForeignKeyCheckbox() {
+    default_fk_check_value = PMA_commonParams.get('default_fk_check_value');
+    var html = "";
+    html    += "<div>";
+    html    += "<input type=\"hidden\" name=\"fk_checks\" value=\"0\" />";
+    html    += "<input type=\"checkbox\" name=\"fk_checks\""
+        + " id=\"fk_checks\"" + (default_fk_check_value ? " checked=\"checked\"" : "") + " />";
+    html    += "<label for=\"fk_checks\">" + PMA_messages.strForeignKeyCheck + "</label>";
+    html    += "</div>";
+    return html;
+}
+
+/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('functions.js', function () {
@@ -1723,15 +1740,9 @@ AJAX.registerOnload('functions.js', function () {
         var sql_query  = $form.find("input[name='sql_query']").val().trim();
         var $inner_sql = $(this).parent().prev().find('code.sql');
         var old_text   = $inner_sql.html();
-        var default_fk_check_value = $form.find("input[name='default_fk_check_value']").val() == 'true';
 
         var new_content = "<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">" + sql_query + "</textarea>\n";
-        new_content    += "<div>";
-        new_content    += "<input type=\"hidden\" name=\"fk_checks\" value=\"0\" />";
-        new_content    += "<input type=\"checkbox\" name=\"fk_checks\""
-            + " id=\"fk_checks\"" + (default_fk_check_value ? " checked=\"checked\"" : "") + " />";
-        new_content    += "<label for=\"fk_checks\">" + PMA_messages.strForeignKeyCheck + "</label>";
-        new_content    += "</div>";
+        new_content    += getForeignKeyCheckbox();
         new_content    += "<input type=\"submit\" id=\"sql_query_edit_save\" class=\"button btnSave\" value=\"" + PMA_messages.strGo + "\"/>\n";
         new_content    += "<input type=\"button\" id=\"sql_query_edit_discard\" class=\"button btnDiscard\" value=\"" + PMA_messages.strCancel + "\"/>\n";
         var $editor_area = $('div#inline_editor');

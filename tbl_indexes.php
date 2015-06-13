@@ -47,9 +47,11 @@ if (isset($_REQUEST['do_save_data'])) {
         PMA_Response::getInstance()->addJSON(
             'sql_data',
             PMA\Template::get('preview_sql')
-                ->render(array(
-                    'query_data' => $sql_query
-                ))
+                ->render(
+                    array(
+                        'query_data' => $sql_query
+                    )
+                )
         );
     } elseif (!$error) {
 
@@ -121,7 +123,8 @@ if (isset($_REQUEST['create_index'])) {
 }
 
 $response = PMA_Response::getInstance();
-$response->addHTML(PMA\Template::get('index_form')
+$response->addHTML(
+    PMA\Template::get('index_form')
     ->render(
         array(
             'fields' => $fields,
