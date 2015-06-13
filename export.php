@@ -284,14 +284,15 @@ if (!defined('TESTSUITE')) {
     // Merge SQL Query aliases with Export aliases from
     // export page, Export page aliases are given more
     // preference over SQL Query aliases.
+    $parser = SqlParser\Parser($sql_query);
     if (!empty($_REQUEST['aliases'])) {
         $aliases = PMA_mergeAliases(
-            PMA_SQP_getAliasesFromQuery($sql_query, $db),
+            SqlParser\Misc::getAliases($parser->statements[0], $db),
             $_REQUEST['aliases']
         );
         $_SESSION['tmpval']['aliases'] = $_REQUEST['aliases'];
     } else {
-        $aliases = PMA_SQP_getAliasesFromQuery($sql_query, $db);
+        $aliases = SqlParser\Misc::getAliases($parser->statements[0], $db);
     }
 
     /**
