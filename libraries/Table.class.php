@@ -1823,7 +1823,7 @@ class PMA_Table
         foreach ($columns as $column) {
             $temp = explode('.', $column);
             $column_name = $temp[2];
-            if (PMA_SQP_isKeyWord($column_name)) {
+            if (SqlParser\Context::isKeyword($column_name, true)) {
                 $return[] = $column_name;
             }
         }
