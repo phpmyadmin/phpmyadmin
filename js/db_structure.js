@@ -251,11 +251,7 @@ AJAX.registerOnload('db_structure.js', function () {
 
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
-            var params = {
-                'is_js_confirmed' : 1,
-                'ajax_request' : true,
-                'fk_checks': $(this).find('#fk_checks').is(':checked') ? 1 : 0
-            };
+            var params = getJSConfirmCommonParam(this);
 
             $.get(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -318,11 +314,7 @@ AJAX.registerOnload('db_structure.js', function () {
 
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
-            var params = {
-                'is_js_confirmed' : 1,
-                'ajax_request' : true,
-                'fk_checks': $(this).find('#fk_checks').is(':checked') ? 1 : 0
-            };
+            var params = getJSConfirmCommonParam(this);
 
             $.get(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {

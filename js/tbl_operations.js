@@ -203,12 +203,15 @@ AJAX.registerOnload('tbl_operations.js', function () {
         question += PMA_sprintf(
             PMA_messages.strDoYouReally,
             'DROP TABLE ' + escapeHtml(PMA_commonParams.get('table'))
-        );
+        ) + getForeignKeyCheckbox();
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
 
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
+
+            var params = getJSConfirmCommonParam(this);
+
+            $.get(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
@@ -269,10 +272,13 @@ AJAX.registerOnload('tbl_operations.js', function () {
         question += PMA_sprintf(
             PMA_messages.strDoYouReally,
             'TRUNCATE ' + escapeHtml(PMA_commonParams.get('table'))
-        );
+        ) + getForeignKeyCheckbox();
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
+
+            var params = getJSConfirmCommonParam(this);
+
+            $.get(url, params, function (data) {
                 if ($(".sqlqueryresults").length !== 0) {
                     $(".sqlqueryresults").remove();
                 }
