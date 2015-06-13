@@ -69,7 +69,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['ssl'] = false;
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION

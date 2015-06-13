@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-11 09:31-0400\n"
-"PO-Revision-Date: 2015-05-31 16:18+0200\n"
+"PO-Revision-Date: 2015-06-12 18:12+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -1034,14 +1034,13 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Are you sure you wish to change the collation and convert the data?"
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Karşılaştırmayı değiştirmek ve verileri dönüştürmek istediğinizden emin "
-"misiniz?"
+"Tüm sütun karşılaştırmalarını değiştirmek ve verileri dönüştürmek "
+"istediğinizden emin misiniz?"
 
 #: js/messages.php:88
 msgid "Save & Close"
@@ -5019,22 +5018,19 @@ msgid "Never send error reports"
 msgstr "Hata raporlarını asla gönderme"
 
 #: libraries/config.values.php:132
-#, fuzzy
 #| msgid "Set default"
 msgid "Server default"
-msgstr "Varsayılana ayarla"
+msgstr "Sunucu varsayılanı"
 
 #: libraries/config.values.php:133
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
-msgstr "Etkinleştirildi"
+msgstr "Etkinleştir"
 
 #: libraries/config.values.php:134
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "Etkisizleştirildi"
+msgstr "Etkisizleştir"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -5902,10 +5898,9 @@ msgstr ""
 "kontrol eder."
 
 #: libraries/config/messages.inc.php:218
-#, fuzzy
 #| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Dış anahtar kontrolü:"
+msgstr "Dış anahtar kontrolleri"
 
 #: libraries/config/messages.inc.php:219
 msgid "Browse mode"
@@ -6546,7 +6541,6 @@ msgstr ""
 "Veritabanı süzgeci kutusunu görüntülemek için en az veritabanı sayısıdır"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6554,8 +6548,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Gezinti ağacındaki öğeleri gruplar (aşağıda tanımlanan ayıraç tarafından "
-"belirlenir)."
+"Gezinti ağacındaki öğeleri gruplar (Veritabanları ve Tablolar sekmeleri "
+"üzerini tanımlanan ayıraç tarafından belirlenir)."
 
 #: libraries/config/messages.inc.php:469
 msgid "Group items in the tree"
@@ -9588,10 +9582,9 @@ msgid "Storage Engine"
 msgstr "Depolama Motoru"
 
 #: libraries/operations.lib.php:995
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "Tüm sütunları çok küçük yap"
+msgstr "Tüm sütun karşılaştırmalarını değiştir"
 
 #: libraries/operations.lib.php:1164
 msgid "Copy table to (database<b>.</b>table)"

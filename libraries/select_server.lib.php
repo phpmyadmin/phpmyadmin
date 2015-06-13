@@ -31,7 +31,10 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
 
     if ($not_only_options) {
         $retval .= '<form method="post" action="'
-            . $GLOBALS['cfg']['DefaultTabServer'] . '" class="disableAjax">';
+            . PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabServer'], 'server'
+            )
+            . '" class="disableAjax">';
         $retval .= PMA_getHiddenFields(array('token' => $_SESSION[' PMA_token ']));
 
         if (! $omit_fieldset) {
@@ -84,7 +87,9 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
             } else {
 
                 $retval .= '<a class="disableAjax item" href="'
-                    . $GLOBALS['cfg']['DefaultTabServer']
+                    . PMA_Util::getScriptNameForOption(
+                        $GLOBALS['cfg']['DefaultTabServer'], 'server'
+                    )
                     . PMA_URL_getCommon(array('server' => $key))
                     . '" >' . htmlspecialchars($label) . '</a>';
             }

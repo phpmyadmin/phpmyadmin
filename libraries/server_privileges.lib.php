@@ -2060,7 +2060,9 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
             . '    '
             . sprintf(
                 __('Users having access to "%s"'),
-                '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+                '<a href="' . PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                )
                 . PMA_URL_getCommon(array('db' => $db)) . '">'
                 .  htmlspecialchars($db)
                 . '</a>'
@@ -2124,7 +2126,9 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
             . PMA_Util::getIcon('b_usrcheck.png')
             . sprintf(
                 __('Users having access to "%s"'),
-                '<a href="' . $GLOBALS['cfg']['DefaultTabTable']
+                '<a href="' . PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                )
                 . PMA_URL_getCommon(
                     array(
                         'db' => $db,
@@ -2757,7 +2761,9 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
 function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
 {
     $html_output = '[ ' . __('Database')
-        . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+        . ' <a href="' . PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+        )
         . PMA_URL_getCommon(
             array(
                 'db' => $url_dbname,
@@ -2773,7 +2779,9 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
 
     if (/*overload*/mb_strlen($tablename)) {
         $html_output .= ' [ ' . __('Table') . ' <a href="'
-            . $GLOBALS['cfg']['DefaultTabTable']
+            . PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabTable'], 'table'
+            )
             . PMA_URL_getCommon(
                 array(
                     'db' => $url_dbname,

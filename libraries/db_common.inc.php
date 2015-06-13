@@ -27,7 +27,10 @@ if ($db_is_system_schema) {
  * Defines the urls to return to in case of error in a sql statement
  */
 $err_url_0 = 'index.php' . PMA_URL_getCommon();
-$err_url   = $cfg['DefaultTabDatabase']
+
+$err_url = PMA_Util::getScriptNameForOption(
+    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+)
     . PMA_URL_getCommon(array('db' => $db));
 
 /** @var PMA_String $pmaString */

@@ -159,7 +159,9 @@ class AuthenticationConfig extends AuthenticationPlugin
         <tr>
             <td>' . "\n";
         echo '<a href="'
-            . $GLOBALS['cfg']['DefaultTabServer']
+            . PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabServer'], 'server'
+            )
             . PMA_URL_getCommon(array()) . '" class="button disableAjax">'
             . __('Retry to connect')
             . '</a>' . "\n";

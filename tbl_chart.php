@@ -81,17 +81,23 @@ $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
  * Runs common work
  */
 if (/*overload*/mb_strlen($GLOBALS['table'])) {
-    $url_params['goto'] = $cfg['DefaultTabTable'];
+    $url_params['goto'] = PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabTable'], 'table'
+    );
     $url_params['back'] = 'tbl_sql.php';
     include 'libraries/tbl_common.inc.php';
     include 'libraries/tbl_info.inc.php';
 } elseif (/*overload*/mb_strlen($GLOBALS['db'])) {
-    $url_params['goto'] = $cfg['DefaultTabDatabase'];
+    $url_params['goto'] = PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+    );
     $url_params['back'] = 'sql.php';
     include 'libraries/db_common.inc.php';
     include 'libraries/db_info.inc.php';
 } else {
-    $url_params['goto'] = $cfg['DefaultTabServer'];
+    $url_params['goto'] = PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabServer'], 'server'
+    );
     $url_params['back'] = 'sql.php';
     include 'libraries/server_common.inc.php';
 }
@@ -134,14 +140,17 @@ $url_params['reload'] = 1;
 /**
  * Displays the page
  */
-$response->addHTML(Template::get('tbl_chart')->render(
-    array(
-        'url_query' => $url_query,
-        'url_params' => $url_params,
-        'keys' => $keys,
-        'fields_meta' => $fields_meta,
-        'numeric_types' => $numeric_types,
-        'numeric_column_count' => $numeric_column_count,
-        'sql_query' => $sql_query
-    )
-));
+$response->addHTML(
+    Template::get('tbl_chart')
+        ->render(
+            array(
+                'url_query' => $url_query,
+                'url_params' => $url_params,
+                'keys' => $keys,
+                'fields_meta' => $fields_meta,
+                'numeric_types' => $numeric_types,
+                'numeric_column_count' => $numeric_column_count,
+                'sql_query' => $sql_query
+            )
+        )
+);
