@@ -3204,7 +3204,13 @@ class PMA_Util
         }
     }
 
-    public static function getDefaultFKCheckValue() {
+    /**
+     * Get HTML for Foreign key check value
+     *
+     * @return bool
+     */
+    public static function getDefaultFKCheckValue()
+    {
         if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'enable') {
             return true;
         } else if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {

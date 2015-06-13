@@ -106,8 +106,8 @@ class SystemDatabase
                     $db,
                     $view_name,
                     isset($column['real_column'])
-                        ? $column['real_column']
-                        : $column['refering_column'],
+                    ? $column['real_column']
+                    : $column['refering_column'],
                     $data_row['comment'],
                     $data_row['mimetype'],
                     $data_row['transformation'],

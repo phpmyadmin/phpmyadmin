@@ -1879,33 +1879,33 @@ class PMA_Table
 
         // Builds the new one
         switch ($index->getChoice()) {
-            case 'PRIMARY':
-                if ($index->getName() == '') {
-                    $index->setName('PRIMARY');
-                } elseif ($index->getName() != 'PRIMARY') {
-                    $error = PMA_Message::error(
-                        __('The name of the primary key must be "PRIMARY"!')
-                    );
-                }
-                $sql_query .= ' ADD PRIMARY KEY';
-                break;
-            case 'FULLTEXT':
-            case 'UNIQUE':
-            case 'INDEX':
-            case 'SPATIAL':
-                if ($index->getName() == 'PRIMARY') {
-                    $error = PMA_Message::error(
-                        __('Can\'t rename index to PRIMARY!')
-                    );
-                }
-                $sql_query .= sprintf(
-                    ' ADD %s ',
-                    $index->getChoice()
+        case 'PRIMARY':
+            if ($index->getName() == '') {
+                $index->setName('PRIMARY');
+            } elseif ($index->getName() != 'PRIMARY') {
+                $error = PMA_Message::error(
+                    __('The name of the primary key must be "PRIMARY"!')
                 );
-                if ($index->getName()) {
-                    $sql_query .= PMA_Util::backquote($index->getName());
-                }
-                break;
+            }
+            $sql_query .= ' ADD PRIMARY KEY';
+            break;
+        case 'FULLTEXT':
+        case 'UNIQUE':
+        case 'INDEX':
+        case 'SPATIAL':
+            if ($index->getName() == 'PRIMARY') {
+                $error = PMA_Message::error(
+                    __('Can\'t rename index to PRIMARY!')
+                );
+            }
+            $sql_query .= sprintf(
+                ' ADD %s ',
+                $index->getChoice()
+            );
+            if ($index->getName()) {
+                $sql_query .= PMA_Util::backquote($index->getName());
+            }
+            break;
         } // end switch
 
         $index_fields = array();
