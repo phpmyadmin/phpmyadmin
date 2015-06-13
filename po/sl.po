@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-11 09:31-0400\n"
-"PO-Revision-Date: 2015-06-03 20:59+0200\n"
+"PO-Revision-Date: 2015-06-13 11:41+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -1031,16 +1031,21 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"S posegom bo MySQL poskušal preslikati vrednosti podatkov med pravili za "
+"razvrščanje znakov. Če nabora znakov nista skladna, lahko pride do izgube "
+"podatkov in te izgube <b>NI</b> mogoče preprosto povrniti s preklopom na "
+"stara pravila za razvrščanje znakov. <b>Da pretvorite obstoječe podatke, "
+"predlagamo, da uporabite funkcionalnost urejanja stolpcev (povezava "
+"»Spremeni«) na strani strukture tabele.</b>"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Are you sure you wish to change the collation and convert the data?"
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Ste preričani, da želite spremeniti pravilo za razvrščanje znakov in "
-"pretvoriti podatke?"
+"Ste preričani, da želite spremeniti vsa pravila za razvrščanje znakov v "
+"stolpcih in pretvoriti podatke?"
 
 #: js/messages.php:88
 msgid "Save & Close"
@@ -5033,10 +5038,9 @@ msgid "Server default"
 msgstr "Privzeto na strežniku"
 
 #: libraries/config.values.php:133
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
-msgstr "Omogočeno"
+msgstr "Omogoči"
 
 #: libraries/config.values.php:134
 msgid "Disable"
@@ -5896,12 +5900,13 @@ msgstr "Omejitev tujih ključev"
 #: libraries/config/messages.inc.php:216
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Polje za privzeto vrednost za preverjanja tujih ključev pri nekaterih "
+"poizvedbah."
 
 #: libraries/config/messages.inc.php:218
-#, fuzzy
 #| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Preverjanje tujih ključev:"
+msgstr "Preverjanja tujih ključev"
 
 #: libraries/config/messages.inc.php:219
 msgid "Browse mode"
@@ -9564,10 +9569,9 @@ msgid "Storage Engine"
 msgstr "Pogon skladiščenja"
 
 #: libraries/operations.lib.php:995
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "Naredi vse stolpce atomske"
+msgstr "Spremeni vsa pravila za razvrščanje znakov v stolpcih"
 
 #: libraries/operations.lib.php:1164
 msgid "Copy table to (database<b>.</b>table)"
