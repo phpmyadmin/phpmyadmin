@@ -609,7 +609,7 @@ AJAX.registerOnload('sql.js', function () {
     $('body').on('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]', function (e) {
         e.preventDefault();
         var $button = $(this);
-        var $form = $button.parent('form');
+        var $form = $button.closest('form');
         var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
