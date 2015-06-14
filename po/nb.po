@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-06-14 19:07+0200\n"
-"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
+"PO-Revision-Date: 2015-06-14 19:09+0200\n"
+"Last-Translator: Børge Holm-Wennberg <borge947@gmail.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/nb/>\n"
 "Language: nb\n"
@@ -8586,10 +8586,9 @@ msgid "Select table"
 msgstr "Velg tabeller"
 
 #: libraries/display_export.lib.php:802
-#, fuzzy
 #| msgid "Database name"
 msgid "New database name"
-msgstr "Ddatabasenavn"
+msgstr "Databasenavn"
 
 #: libraries/display_export.lib.php:826
 #, fuzzy
