@@ -1684,8 +1684,8 @@ class PMA_DbQbe
                 $first = false;
             } else {
                 $join .= "\n    LEFT JOIN " . PMA_Util::backquote(
-                        $table
-                    ) . " ON " . $clause;
+                    $table
+                ) . " ON " . $clause;
             }
         }
 
