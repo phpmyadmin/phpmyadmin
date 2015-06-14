@@ -93,7 +93,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
 require_once './libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
-// Gets tables informations
+// Gets tables information
 require_once './libraries/tbl_info.inc.php';
 
 if (! isset($goto)) {

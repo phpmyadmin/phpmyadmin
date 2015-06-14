@@ -55,7 +55,7 @@ require_once 'libraries/Partition.class.php';
 $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 
 /**
- * Gets tables informations
+ * Gets tables information
  */
 require 'libraries/tbl_info.inc.php';
 

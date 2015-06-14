@@ -164,7 +164,7 @@ $url_params['back'] = 'tbl_structure.php';
 
 
 /**
- * Gets tables informations
+ * Gets tables information
  */
 require_once 'libraries/tbl_info.inc.php';
 

@@ -92,7 +92,7 @@ if ($num_tables == 0) {
 }
 
 // else
-// 2. Shows table informations
+// 2. Shows table information
 
 /**
  * Displays the tables list
