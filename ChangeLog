@@ -57,6 +57,7 @@ phpMyAdmin - ChangeLog
 - bug #4510 QBE generates wrong query
 + rfe #1594 Use plain English descriptors instead of script names for icon link destinations
 + rfe #1541 Disable foreign key checks for some operations
+- bug #4957 "With selected" links doesn't work in table browse
 
 4.4.10.0 (not yet released)
 - bug #4950 Issues in database selection for replication
