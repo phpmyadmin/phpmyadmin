@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-06-09 13:19+0200\n"
-"Last-Translator: Børge Holm-Wennberg <borge947@gmail.com>\n"
+"PO-Revision-Date: 2015-06-14 19:07+0200\n"
+"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/nb/>\n"
 "Language: nb\n"
@@ -2850,10 +2850,9 @@ msgid "Expand"
 msgstr ""
 
 #: libraries/Console.class.php:87 libraries/Console.class.php:171
-#, fuzzy
 #| msgid "in query"
 msgid "Requery"
-msgstr "i spørring"
+msgstr "Spør igjen"
 
 #: libraries/Console.class.php:89 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3386
@@ -2882,12 +2881,12 @@ msgid "Database"
 msgstr "Database"
 
 #: libraries/Console.class.php:100
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete relation"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Slett relasjon"
-msgstr[1] "Slett relasjon"
+msgstr[0] "Totalt %d bokmerke"
+msgstr[1] "Totalt %d bokmerker"
 
 #: libraries/Console.class.php:108
 msgid "private"
@@ -2899,22 +2898,20 @@ msgstr "delt"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:116
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "Bokmerket er slettet."
+msgstr "%1$s, %2$s og %3$s bokmerker er inkludert"
 
 #: libraries/Console.class.php:122
-#, fuzzy
 #| msgid "Delete relation"
 msgid "No bookmarks"
-msgstr "Slett relasjon"
+msgstr "Ingen bokmerker"
 
 #: libraries/Console.class.php:173
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Forklar SQL"
+msgstr "Forklar"
 
 #: libraries/Console.class.php:174 libraries/Util.class.php:1262
 #: libraries/sql.lib.php:333
@@ -2922,28 +2919,24 @@ msgid "Profiling"
 msgstr "Profilering"
 
 #: libraries/Console.class.php:176
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
-msgstr "Bokmerketabell"
+msgstr "Bokmerke"
 
 #: libraries/Console.class.php:177
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Spørringsmellomlager"
+msgstr "Spørring feilet"
 
 #: libraries/Console.class.php:181
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
-msgstr "Spørringens utførelsestid"
+msgstr "Spørringens tidsforbruk"
 
 #: libraries/Console.class.php:188
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL spørringsboks"
+msgstr "SQL spørrings konsoll"
 
 #: libraries/Console.class.php:189
 msgid "Console"
@@ -2955,10 +2948,9 @@ msgid "Clear"
 msgstr "Fjern"
 
 #: libraries/Console.class.php:195
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
-msgstr "SQL-historie"
+msgstr "Historikk"
 
 #: libraries/Console.class.php:198 libraries/Console.class.php:293
 #: libraries/DisplayResults.class.php:1604 libraries/TableSearch.class.php:788
@@ -2990,21 +2982,18 @@ msgid "Options"
 msgstr "Innstillinger"
 
 #: libraries/Console.class.php:202 libraries/Console.class.php:255
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Bokmerketabell"
+msgstr "Bokmerker"
 
 #: libraries/Console.class.php:211
-#, fuzzy
 msgid "Press Ctrl+Enter to execute query"
-msgstr "SQL spørringer"
+msgstr "Tast Ctrl+Enter for å utføre spørring"
 
 #: libraries/Console.class.php:232
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Hopp over nåværende feil"
+msgstr "Gjennom gjeldende sesjon"
 
 #: libraries/Console.class.php:259 libraries/Util.class.php:1231
 #: libraries/config/messages.inc.php:763
@@ -3014,48 +3003,42 @@ msgid "Refresh"
 msgstr "Oppdater"
 
 #: libraries/Console.class.php:262
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "og"
+msgstr "Legg til"
 
 #: libraries/Console.class.php:271
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
-msgstr "Slett relasjon"
+msgstr "Legg til bokmerke"
 
 #: libraries/Console.class.php:275
-#, fuzzy
 #| msgid "Label"
 msgid "Label"
-msgstr "Navn"
+msgstr "Etikett"
 
 #: libraries/Console.class.php:277
 msgid "Target database"
 msgstr "Måldatabase"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
-msgstr "Slett relasjon"
+msgstr "Del dette bokmerke"
 
 #: libraries/Console.class.php:297
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Set default"
-msgstr "Gjennopprett standard verdi"
+msgstr "Angi standard"
 
 #: libraries/Console.class.php:301
 msgid "Always expand query messages"
 msgstr ""
 
 #: libraries/Console.class.php:303
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "SQL spørringshistorietabell"
+msgstr "Vis spørringshistorikk ved oppstart"
 
 #: libraries/Console.class.php:305
 msgid "Show current browsing query"
@@ -3354,7 +3337,6 @@ msgid "Show BLOB contents"
 msgstr "Vis BLOB innhold"
 
 #: libraries/DisplayResults.class.php:1659
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
 msgstr "Skjul nettlesertransformasjon"
@@ -3480,16 +3462,14 @@ msgid "Too many error messages, some are not displayed."
 msgstr "For mange feilmeldinger, noen vises ikke."
 
 #: libraries/Error_Handler.class.php:336
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
-msgstr "Importer"
+msgstr "Rapporter"
 
 #: libraries/Error_Handler.class.php:341 libraries/error_report.lib.php:373
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Automatisk opprette versjoner"
+msgstr "Automatisk send rapport neste gang"
 
 #: libraries/File.class.php:225
 msgid "File was not an uploaded file."
@@ -3759,10 +3739,9 @@ msgid "Designer"
 msgstr "Designer"
 
 #: libraries/Menu.class.php:500 libraries/Util.class.php:4167
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Central columns"
-msgstr "CHAR textarea kolonner"
+msgstr "Senter kolonner"
 
 #: libraries/Menu.class.php:537 libraries/Util.class.php:4139
 #: libraries/config/messages.inc.php:233
@@ -3913,7 +3892,6 @@ msgid "SQL query"
 msgstr "SQL-spørring"
 
 #: libraries/ServerStatusData.class.php:191
-#, fuzzy
 msgid "Handler"
 msgstr "Behandler"
 
@@ -4011,20 +3989,20 @@ msgid "Advisor"
 msgstr "Rådgiver"
 
 #: libraries/ServerStatusData.class.php:433
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "Sekund"
-msgstr[1] "Sekund"
+msgstr[0] "%d sekund"
+msgstr[1] "%d sekunder"
 
 #: libraries/ServerStatusData.class.php:438
-#, fuzzy, php-format
+#, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "Minutt"
-msgstr[1] "Minutt"
+msgstr[0] "%d minutt"
+msgstr[1] "%d minutter"
 
 #: libraries/StorageEngine.class.php:272
 msgid ""
@@ -4131,19 +4109,16 @@ msgid "Value"
 msgstr "Verdi"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "Tabellsøk"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "Utvidet søk"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "Finn og erstatt"
@@ -4212,10 +4187,9 @@ msgid "Replace with:"
 msgstr "Erstatt med:"
 
 #: libraries/TableSearch.class.php:1370
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "som \"regular expression\""
+msgstr "Bruk \"regulert uttrykk\""
 
 #: libraries/TableSearch.class.php:1473
 msgid "Find and replace - preview"
@@ -4633,11 +4607,10 @@ msgid "Create PHP Code"
 msgstr "Lag PHP kode"
 
 #: libraries/Util.class.php:1274
-#, fuzzy
 #| msgid "Edit mode"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Redigeringsmodus"
+msgstr "Rediger innenfor"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1579
@@ -4690,10 +4663,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Katalogen du anga for opplasting kan ikke nåes."
 
 #: libraries/Util.class.php:3402
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "Det er ingen filer å laste opp"
+msgstr "Det er ingen filer å laste opp!"
 
 #: libraries/Util.class.php:3427 libraries/Util.class.php:3428
 #: libraries/structure.lib.php:326
@@ -4791,10 +4763,9 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/central_columns.lib.php:298
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Kunne ikke lagre konfigurasjonen"
+msgstr "Kunne ikke legge til kolonner!"
 
 #: libraries/central_columns.lib.php:373
 #, php-format
@@ -4803,10 +4774,9 @@ msgid ""
 msgstr ""
 
 #: libraries/central_columns.lib.php:385
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not remove columns!"
-msgstr "Kunne ikke lagre tabell"
+msgstr "Kunne ikke fjerne kolonner!"
 
 #: libraries/central_columns.lib.php:530
 msgid "YES"
@@ -4836,10 +4806,9 @@ msgid "Length/Values"
 msgstr "Lengde/Sett*"
 
 #: libraries/central_columns.lib.php:660
-#, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "Attributter"
+msgstr "Attributt"
 
 #: libraries/central_columns.lib.php:664
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:974
@@ -4849,42 +4818,37 @@ msgid "Extra"
 msgstr "Ekstra"
 
 #: libraries/central_columns.lib.php:685
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Velg tabeller"
+msgstr "Velg en tabell"
 
 #: libraries/central_columns.lib.php:739 libraries/structure.lib.php:1689
 msgid "Add column"
 msgstr "Legg til kolonne(r)"
 
 #: libraries/central_columns.lib.php:751
-#, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Velg to kolonner"
+msgstr "Velg en kolonne."
 
 #: libraries/central_columns.lib.php:842 libraries/central_columns.lib.php:989
-#, fuzzy
 #| msgid "Autoextend increment"
 msgid "auto_increment"
-msgstr "Autoforstørrende økning"
+msgstr "Auto_økning"
 
 #: libraries/central_columns.lib.php:955
-#, fuzzy
 #| msgid "Add column"
 msgid "Add new column"
-msgstr "Legg til kolonne(r)"
+msgstr "Legg til ny kolonne"
 
 #: libraries/central_columns.lib.php:991
 msgid "on update CURRENT_TIMESTAMP"
 msgstr ""
 
 #: libraries/common.inc.php:581
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "Kunne ikke lese konfigurasjonsfilen"
+msgstr "Kunne ikke lese konfigurasjonsfilen!"
 
 #: libraries/common.inc.php:583
 msgid ""
@@ -5001,10 +4965,9 @@ msgid "key"
 msgstr ""
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Display columns table"
 msgid "display column"
-msgstr "Visningskolonnetabell"
+msgstr "vis kolonne"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5086,39 +5049,35 @@ msgstr "ingen av de overstående"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:565
-#, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
-msgstr "Ikke et positivt nummer"
+msgstr "Ikke et positivt nummer!"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:587
-#, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
-msgstr "Ikke et ikke-negativt nummer"
+msgstr "Ikke et ikke-negativt nummer!"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:543
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
-msgstr "Ikke et gyldig portnummer"
+msgstr "Ikke et gyldig portnummer!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:609
 #: libraries/config/Validator.class.php:605
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "Ugyldig verdi"
+msgstr "Ugyldig verdi!"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:621
-#, fuzzy, php-format
+#, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
-msgstr "Verdien må være lik eller mindre enn %s"
+msgstr "Verdien må være mindre enn eller lik %s!"
 
 #: libraries/config/FormDisplay.class.php:571
 #, php-format
@@ -5177,26 +5136,24 @@ msgid "Apply"
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:168
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "You should use SSL connections if your database server supports it."
-msgstr "Du bør bruke SSL tilkobling dersom din webtjener har støtte for det"
+msgstr ""
+"Du bør bruke SSL tilkobling dersom din database server har støtte for det."
 
 #: libraries/config/ServerConfigChecks.class.php:205
 msgid "You allow for connecting to the server without a password."
 msgstr "Du tillater tilkobling til tjeneren uten passord."
 
 #: libraries/config/ServerConfigChecks.class.php:343
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "Nøkkelen er for kort, den bør ha minst 8 tegn"
+msgstr "Nøkkelen er for kort, den bør ha minst 8 tegn."
 
 #: libraries/config/ServerConfigChecks.class.php:350
-#, fuzzy
 #| msgid " should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "Nøkkelen bør inneholde tall, bokstaver [em]og[/em] spesielle tegn"
+msgstr "Nøkkelen bør inneholde tall, bokstaver [em]og[/em] spesielle tegn."
 
 #: libraries/config/ServerConfigChecks.class.php:371
 #, fuzzy, php-format
