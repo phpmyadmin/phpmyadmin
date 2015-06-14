@@ -4700,7 +4700,7 @@ class PMA_Util
      * @param string  $linkId      Value to use for the ID attribute
      * @param boolean $disableAjax Whether to disable ajax page loading for this link
      * @param string  $linkTarget  The name of the target frame for the link
-     * @param string  $classes     HTML classes to apply
+     * @param array   $classes     HTML classes to apply
      *
      * @return string HTML code for one link
      */
