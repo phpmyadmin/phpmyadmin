@@ -80,9 +80,8 @@ function PMA_RTN_main($type)
 } // end PMA_RTN_main()
 
 /**
- * This function parses a string containing one parameter of a routine,
- * as returned by PMA_RTN_parseAllParameters() and returns an array containing
- * the information about this parameter.
+ * This function parses a string containing one parameter of a routine
+ * and returns an array containing the information about this parameter.
  *
  * @param string $value A string containing one parameter of a routine
  *
@@ -155,80 +154,6 @@ function PMA_RTN_parseOneParameter($value)
 
     return $retval;
 } // end PMA_RTN_parseOneParameter()
-
-/**
- * This function looks through the contents of a parsed
- * SHOW CREATE [PROCEDURE | FUNCTION] query and extracts
- * information about the routine's parameters.
- *
- * @param array  $parsed_query Parsed query, returned by by PMA_SQP_parse()
- * @param string $routine_type Routine type: 'PROCEDURE' or 'FUNCTION'
- *
- * @return array   Information about the parameters of a routine.
- */
-function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
-{
-    $retval = array();
-    $retval['num'] = 0;
-
-    if ($parsed_query) {
-        // First get the list of parameters from the query
-        $buffer = '';
-        $params = array();
-        $fetching = false;
-        $depth = 0;
-        for ($i = 0; $i < $parsed_query['len']; $i++) {
-            if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
-                && $parsed_query[$i]['data'] == $routine_type
-            ) {
-                $fetching = true;
-            } else if ($fetching == true
-                && $parsed_query[$i]['type'] == 'punct_bracket_open_round'
-            ) {
-                $depth++;
-                if ($depth > 1) {
-                    $buffer .= $parsed_query[$i]['data'] . ' ';
-                }
-            } else if ($fetching == true
-                && $parsed_query[$i]['type'] == 'punct_bracket_close_round'
-            ) {
-                $depth--;
-                if ($depth > 0) {
-                    $buffer .= $parsed_query[$i]['data'] . ' ';
-                } else {
-                    break;
-                }
-            } else if ($parsed_query[$i]['type'] == 'punct_listsep' && $depth == 1) {
-                $params[] = $buffer;
-                $retval['num']++;
-                $buffer = '';
-            } else if ($fetching == true && $depth > 0) {
-                $buffer .= $parsed_query[$i]['data'] . ' ';
-            }
-        }
-        if (! empty($buffer)) {
-            $params[] = $buffer;
-            $retval['num']++;
-        }
-        // Now parse each parameter individually
-        foreach ($params as $key => $value) {
-            list($retval['dir'][],
-                 $retval['name'][],
-                 $retval['type'][],
-                 $retval['length'][],
-                 $retval['opts'][]) = PMA_RTN_parseOneParameter($value);
-        }
-    }
-    // Since some indices of $retval may be still undefined, we fill
-    // them each with an empty array to avoid E_ALL errors in PHP.
-    foreach (array('dir', 'name', 'type', 'length', 'opts') as $key => $index) {
-        if (! isset($retval[$index])) {
-            $retval[$index] = array();
-        }
-    }
-
-    return $retval;
-} // end PMA_RTN_parseAllParameters()
 
 /**
  * This function looks through the contents of a parsed
