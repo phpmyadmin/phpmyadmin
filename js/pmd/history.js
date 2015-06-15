@@ -731,14 +731,28 @@ function build_query(formtitle, fadin)
     } else {
         q_select += "* ";
     }
+
     q_select += "\nFROM " + query_from();
-    if (query_where() !== "") {
-        q_select += "\nWHERE ";
-        q_select += query_where();
+
+    var q_where = query_where();
+    if (q_where !== "") {
+        q_select += "\nWHERE " + q_where;
     }
-    if (query_groupby() !== "") { q_select += "\nGROUP BY " + query_groupby(); }
-    if (query_having() !== "") { q_select += "\nHAVING " + query_having(); }
-    if (query_orderby() !== "") { q_select += "\nORDER BY " + query_orderby(); }
+
+    var q_groupby = query_groupby();
+    if (q_groupby !== "") {
+        q_select += "\nGROUP BY " + q_groupby;
+    }
+
+    var q_having = query_having();
+    if (q_having !== "") {
+        q_select += "\nHAVING " + q_having;
+    }
+
+    var q_orderby = query_orderby();
+    if (q_orderby !== "") {
+        q_select += "\nORDER BY " + q_orderby;
+    }
 
     /**
      * @var button_options Object containing options
