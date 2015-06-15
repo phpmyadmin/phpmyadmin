@@ -731,18 +731,22 @@ function build_query(formtitle, fadin)
 {
     var q_select = "SELECT ";
     var temp;
-    for (var i = 0;i < select_field.length; i++) {
-        temp = check_aggregate(select_field[i]);
-        if (temp !== "") {
-            q_select += temp;
-            temp = check_rename(select_field[i]);
-            q_select += temp + ", ";
-        } else {
-            temp = check_rename(select_field[i]);
-            q_select += select_field[i] + temp + ", ";
+    if (select_field.length > 0) {
+        for (var i = 0; i < select_field.length; i++) {
+            temp = check_aggregate(select_field[i]);
+            if (temp !== "") {
+                q_select += temp;
+                temp = check_rename(select_field[i]);
+                q_select += temp + ", ";
+            } else {
+                temp = check_rename(select_field[i]);
+                q_select += select_field[i] + temp + ", ";
+            }
         }
+        q_select = q_select.substring(0, q_select.length - 2);
+    } else {
+        q_select += "* ";
     }
-    q_select = q_select.substring(0, q_select.length - 2);
     q_select += "\nFROM " + query_from();
     if (query_where() !== "") {
         q_select += "\nWHERE";
