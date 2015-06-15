@@ -91,7 +91,7 @@ class ParamDefFragment extends Fragment
                 if (($token->value === 'IN') || ($token->value === 'OUT') || ($token->value === 'INOUT')) {
                     $expr->inOut = $token->value;
                     ++$list->idx;
-                } else if ($token->value === ')') {
+                } elseif ($token->value === ')') {
                     ++$list->idx;
                     break;
                 } else {

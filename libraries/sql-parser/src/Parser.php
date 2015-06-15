@@ -122,7 +122,7 @@ class Parser
      * @param mixed $list
      * @param bool $strict
      */
-    public function __construct($list, $strict = false)
+    public function __construct($list = null, $strict = false)
     {
         if ((is_string($list)) || ($list instanceof UtfString)) {
             $lexer = new Lexer($list, $strict);
@@ -130,8 +130,12 @@ class Parser
         } elseif ($list instanceof TokensList) {
             $this->list = $list;
         }
+
         $this->strict = $strict;
-        $this->parse();
+
+        if ($list !== null) {
+            $this->parse();
+        }
     }
 
     /**

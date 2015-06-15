@@ -684,7 +684,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
             }
             $routine['DTD_IDENTIFIER'] = $dtd;
         }
-        $returnparam = PMA_RTN_parseOneParameter($routine['DTD_IDENTIFIER']);
+        $returnparam = SqlParser\Utils\Routine::getReturnType($routine['DTD_IDENTIFIER']);
         $retval['item_returntype']      = $returnparam[2];
         $retval['item_returnlength']    = $returnparam[3];
         $retval['item_returnopts_num']  = $returnparam[4];

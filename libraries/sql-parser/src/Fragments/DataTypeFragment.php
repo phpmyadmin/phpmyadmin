@@ -88,7 +88,9 @@ class DataTypeFragment extends Fragment
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
                     $size = ArrayFragment::parse($parser, $list);
-                    $ret->size = $size->array;
+                    foreach ($size->tokens as $token) {
+                        $ret->size[] = $token->token;
+                    }
                     $ret->tokens = array_merge($ret->tokens, $size->tokens);
                     ++$list->idx;
                 }

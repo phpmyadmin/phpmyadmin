@@ -68,7 +68,7 @@ class Misc
         }
 
         foreach ($tree->expr as $expr) {
-            if ((empty($expr->column)) || (empty($expr->alias)) ){
+            if ((empty($expr->column)) || (empty($expr->alias))) {
                 continue;
             }
 
@@ -87,5 +87,4 @@ class Misc
 
         return $retval;
     }
-
 }

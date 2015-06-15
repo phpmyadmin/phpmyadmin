@@ -223,13 +223,17 @@ class Token
                 }
                 return $ret;
             case Token::TYPE_STRING:
-                return mb_substr($this->token, 1, -1); // trims quotes
+                $quote = $this->token[0];
+                $str = str_replace($quote . $quote, $quote, $this->token);
+                return mb_substr($str, 1, -1); // trims quotes
             case Token::TYPE_SYMBOL:
                 $str = $this->token;
                 if ((isset($str[0])) && ($str[0] === '@')) {
                     $str = mb_substr($str, 1);
                 }
                 if ((isset($str[0])) && (($str[0] === '`') || ($str[0] === '"') || ($str[0] === '\''))) {
+                    $quote = $str[0];
+                    $str = str_replace($quote . $quote, $quote, $str);
                     $str = mb_substr($str, 1, -1);
                 }
                 return $str;

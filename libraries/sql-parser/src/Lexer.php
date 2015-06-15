@@ -135,7 +135,7 @@ class Lexer
         // Another example is `parseComment`.
 
         $tokens = new TokensList();
-        $lastToken = NULL;
+        $lastToken = null;
 
         for ($this->last = 0, $lastIdx = 0; $this->last < $this->len; $lastIdx = ++$this->last) {
             /** @var Token The new token. */
@@ -153,8 +153,8 @@ class Lexer
                 if ($this->delimiter !== $this->str[$this->last]) {
                     $this->error('Unexpected character.', $this->str[$this->last], $this->last);
                 }
-            } else if (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_VARIABLE) &&
-                    ($lastToken !== NULL)) {
+            } elseif (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_VARIABLE) &&
+                    ($lastToken !== null)) {
                 // Handles ```... FROM 'user'@'%' ...```.
                 if ((($lastToken->type === Token::TYPE_SYMBOL) && ($lastToken->flags & Token::FLAG_SYMBOL_BACKTICK)) ||
                        ($lastToken->type === Token::TYPE_STRING)) {
