@@ -574,10 +574,10 @@ function query_where()
     for (i = 0; i < history_array.length;i++) {
         if (history_array[i].get_type() == "Where") {
             if (history_array[i].get_and_or() === 0) {
-                and += "( " + history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ")";
+                and += "( `" + history_array[i].get_column_name() + "` " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ")";
                 and += " AND ";
             } else {
-                or += "( " + history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ")";
+                or += "( `" + history_array[i].get_column_name() + "` " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ")";
                 or += " OR ";
             }
         }
