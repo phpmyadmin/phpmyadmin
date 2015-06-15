@@ -653,7 +653,7 @@ function query_from()
     from_array = unique(from_array);
     tab_left = from_array;
     temp = tab_left.shift();
-    quer = temp;
+    quer = '`' + temp + '`';
     tab_used.push(temp);
     // if master table (key2) matches with tab used get all keys and check if tab_left matches
     // after this check if master table (key2) matches with tab left then check if any foreign matches with master .
@@ -667,7 +667,7 @@ function query_from()
                             parts1 = contr[K][key][key2][key3][0].split(".");
                             if (found(tab_left, parts1[1]) > 0) {
                                 query += "\n" + 'LEFT JOIN ';
-                                query += '`' + parts1[0] + '`.`' + parts1[1] + '` ON ';
+                                query += '`' + parts1[1] + '` ON ';
                                 query += '`' + parts[1] + '`.`' + key3 + '` = ';
                                 query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
                                 t_tab_left.push(parts1[1]);
@@ -691,7 +691,7 @@ function query_from()
                             parts1 = contr[K][key][key2][key3][0].split(".");
                             if (found(tab_used, parts1[1]) > 0) {
                                 query += "\n" + 'LEFT JOIN ';
-                                query += '`' + parts[0] + '`.`' + parts[1] + '` ON ';
+                                query += '`' + parts[1] + '` ON ';
                                 query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
                                 query += '`' + parts[1] + '`.`' + key3 + '` ';
                                 t_tab_left.push(parts[1]);
