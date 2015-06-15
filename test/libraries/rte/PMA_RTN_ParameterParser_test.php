@@ -62,57 +62,5 @@ class PMA_RTN_ParameterParser_Test extends PHPUnit_Framework_TestCase
             ),
         );
     }
-
-    /**
-     * Test for PMA_RTN_parseOneParameter
-     *
-     * @param string $source Source
-     * @param array  $target Expected output
-     *
-     * @return void
-     *
-     * @dataProvider paramProvider
-     */
-    public function testParseOneParameter($source, $target)
-    {
-        PMA_RTN_setGlobals();
-        $this->assertEquals($target, PMA_RTN_parseOneParameter($source));
-    }
-
-    /**
-     * Data provider for testParseOneParameter
-     *
-     * @return array
-     */
-    public function paramProvider()
-    {
-        return array(
-            array('`foo` TEXT', array('', 'foo', 'TEXT', '', '')),
-            array('`foo` INT(20)', array('', 'foo', 'INT', '20', '')),
-            array('DECIMAL(5,5)', array('', '', 'DECIMAL', '5,5', '')),
-            array(
-                'IN `fo``fo` INT UNSIGNED',
-                array('IN', 'fo`fo', 'INT', '', 'UNSIGNED')
-            ),
-            array(
-                'OUT bar VARCHAR(1) CHARSET utf8',
-                array('OUT', 'bar', 'VARCHAR', '1', 'utf8')
-            ),
-            array(
-                '`"baz\'\'` ENUM(\'a\', \'b\') CHARSET latin1',
-                array('', '"baz\'\'', 'ENUM', '\'a\',\'b\'', 'latin1')
-            ),
-            array(
-                'INOUT `foo` DECIMAL(5,2) UNSIGNED ZEROFILL',
-                array('INOUT', 'foo', 'DECIMAL', '5,2', 'UNSIGNED ZEROFILL')
-            ),
-            array(
-                '`foo``s func` SET(\'test\'\'esc"\',   \'more\\\'esc\')',
-                array(
-                    '', 'foo`s func', 'SET', '\'test\'\'esc"\',\'more\\\'esc\'', ''
-                )
-            )
-        );
-    }
 }
 ?>
