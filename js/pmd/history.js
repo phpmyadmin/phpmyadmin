@@ -10,7 +10,7 @@
 var history_array = []; // Global array to store history objects
 var select_field = [];  // Global array to store informaation for columns which are used in select clause
 var g_index;
-var vqb_editor;
+var vqb_editor = null;
 
 /**
  * function for panel, hides and shows toggle_container <div>,which is for history elements uses {@link JQuery}.
@@ -796,6 +796,8 @@ function build_query(formtitle, fadin)
 
 AJAX.registerTeardown('pmd/history.js', function () {
     vqb_editor = null;
+    history_array = [];
+    select_field = [];
     $("#ok_edit_rename").unbind('click');
     $("#ok_edit_having").unbind('click');
     $("#ok_edit_Aggr").unbind('click');
