@@ -755,7 +755,6 @@ function build_query(formtitle, fadin)
     if (query_groupby() !== "") { q_select += "\nGROUP BY " + query_groupby(); }
     if (query_having() !== "") { q_select += "\nHAVING " + query_having(); }
     if (query_orderby() !== "") { q_select += "\nORDER BY " + query_orderby(); }
-    var box = document.getElementById('box');
 
     /**
      * @var button_options Object containing options
@@ -774,7 +773,7 @@ function build_query(formtitle, fadin)
         $('#vqb_form').submit();
     };
 
-    var $ajaxDialog = $(box).dialog({
+    var $ajaxDialog = $('#box').dialog({
         width: 500,
         buttons: button_options,
         modal: true,
