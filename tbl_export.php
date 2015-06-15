@@ -20,7 +20,7 @@ $scripts  = $header->getScripts();
 $scripts->addFile('export.js');
 
 /**
- * Gets tables informations and displays top links
+ * Gets tables information and displays top links
  */
 require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_export.php&amp;back=tbl_export.php';
@@ -44,7 +44,7 @@ if (! empty($sql_query)) {
         // If a table alias is used, get rid of it since
         // where clauses are on real table name
         if ($analyzed_sql[0]['table_ref'][0]['table_alias']) {
-            // Exporting seleted rows is only allowed for queries involving
+            // Exporting selected rows is only allowed for queries involving
             // a single table. So we can safely assume that there is only one
             // table in 'table_ref' array.
             $temp_sql_array = preg_split('/\bfrom\b/i', $sql_query);

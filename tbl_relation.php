@@ -38,7 +38,7 @@ $scripts->addFile('tbl_relation.js');
 $scripts->addFile('indexes.js');
 
 /**
- * Gets tables informations
+ * Gets tables information
  */
 require_once 'libraries/tbl_info.inc.php';
 

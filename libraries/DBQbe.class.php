@@ -541,7 +541,7 @@ class PMA_DbQbe
             if (! empty($_REQUEST['criteriaAlias'][$colInd])) {
                 $tmp_alias
                     = $this->_curAlias[$new_column_count]
-                    = $_REQUEST['criteriaAlias'][$colInd];
+                        = $_REQUEST['criteriaAlias'][$colInd];
             }// end if
 
             $html_output .= '<td class="center">';
@@ -656,7 +656,7 @@ class PMA_DbQbe
             if (! empty($_REQUEST['criteriaSortOrder'][$colInd])) {
                 $sortOrder
                     = $this->_curSortOrder[$new_column_count]
-                    = $_REQUEST['criteriaSortOrder'][$colInd];
+                        = $_REQUEST['criteriaSortOrder'][$colInd];
             }
 
             $html_output .= $this->_getSortOrderSelectCell(
@@ -1556,7 +1556,9 @@ class PMA_DbQbe
             // from the list of tables, however we don't generate any JOIN
             if (empty($from_clause)) {
                 // Create cartesian product
-                $from_clause = implode(", ", array_map('PMA_Util::backquote', $all_tables));
+                $from_clause = implode(
+                    ", ", array_map('PMA_Util::backquote', $all_tables)
+                );
             }
         } // end count($_POST['criteriaColumn']) > 0
 
@@ -1571,7 +1573,8 @@ class PMA_DbQbe
      *
      * @return string table name
      */
-    private function _getJoinForFromClause($allTables, $allColumns) {
+    private function _getJoinForFromClause($allTables, $allColumns)
+    {
 
         // $relations[master_table][foreign_table] => clause
         $relations = array();
@@ -1590,8 +1593,12 @@ class PMA_DbQbe
                         foreach ($oneKey['index_list'] as $index => $oneField) {
                             $clauses[] = PMA_Util::backquote($oneTable) . "."
                                 . PMA_Util::backquote($oneField) . " = "
-                                . PMA_Util::backquote($oneKey['ref_table_name']) . "."
-                                . PMA_Util::backquote($oneKey['ref_index_list'][$index]);
+                                . PMA_Util::backquote(
+                                    $oneKey['ref_table_name']
+                                ) . "."
+                                . PMA_Util::backquote(
+                                    $oneKey['ref_index_list'][$index]
+                                );
                         }
                         // Combine multiple column relations with AND
                         $relations[$oneTable][$oneKey['ref_table_name']]
@@ -1676,7 +1683,9 @@ class PMA_DbQbe
                 $join .= PMA_Util::backquote($table);
                 $first = false;
             } else {
-                $join .= "\n    LEFT JOIN " . PMA_Util::backquote($table) . " ON " . $clause;
+                $join .= "\n    LEFT JOIN " . PMA_Util::backquote(
+                    $table
+                ) . " ON " . $clause;
             }
         }
 

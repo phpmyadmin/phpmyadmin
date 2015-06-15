@@ -65,7 +65,7 @@ foreach ($tables as $table) {
     echo '<h2>' . htmlspecialchars($table) . '</h2>' . "\n";
 
     /**
-     * Gets table informations
+     * Gets table information
      */
     $show_comment = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_COMMENT');
 

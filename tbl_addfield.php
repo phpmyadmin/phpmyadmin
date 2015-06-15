@@ -109,7 +109,7 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 if ($abort == false) {
     /**
-     * Gets tables informations
+     * Gets tables information
      */
     include_once 'libraries/tbl_common.inc.php';
     include_once 'libraries/tbl_info.inc.php';

@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-11 09:31-0400\n"
-"PO-Revision-Date: 2015-06-02 21:45+0200\n"
-"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"PO-Revision-Date: 2015-06-14 19:22+0200\n"
+"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -8633,7 +8633,7 @@ msgstr "Zobrazujem SQL dotaz"
 #: libraries/insert_edit.lib.php:1951 libraries/sql.lib.php:1427
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr ""
+msgstr "Vložený riadok id: %1$d"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:147
@@ -10626,7 +10626,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:263
 msgid "User preferences"
-msgstr ""
+msgstr "Užívateľské nastavenia"
 
 #: libraries/relation.lib.php:280
 msgid "Configurable menus"
@@ -11234,7 +11234,7 @@ msgstr "Návratové možnosti"
 
 #: libraries/rte/rte_routines.lib.php:1093
 msgid "Is deterministic"
-msgstr ""
+msgstr "Je deterministický"
 
 #: libraries/rte/rte_routines.lib.php:1114
 msgid "Security type"
@@ -11497,7 +11497,7 @@ msgstr[2] "%1$d databáz bolo úspešne zrušených."
 
 #: libraries/server_plugins.lib.php:32
 msgid "Modules"
-msgstr ""
+msgstr "Moduly"
 
 #: libraries/server_plugins.lib.php:70
 msgid "Begin"
@@ -11505,15 +11505,15 @@ msgstr "Začiatok"
 
 #: libraries/server_plugins.lib.php:77
 msgid "Plugin"
-msgstr ""
+msgstr "Doplnok"
 
 #: libraries/server_plugins.lib.php:78 libraries/server_plugins.lib.php:134
 msgid "Module"
-msgstr ""
+msgstr "Modul"
 
 #: libraries/server_plugins.lib.php:79 libraries/server_plugins.lib.php:136
 msgid "Library"
-msgstr ""
+msgstr "Knižnica"
 
 #: libraries/server_plugins.lib.php:80 libraries/server_plugins.lib.php:137
 #: libraries/tracking.lib.php:275
@@ -11522,7 +11522,7 @@ msgstr "Verzia"
 
 #: libraries/server_plugins.lib.php:81 libraries/server_plugins.lib.php:138
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: libraries/server_plugins.lib.php:82 libraries/server_plugins.lib.php:139
 msgid "License"
@@ -11710,7 +11710,7 @@ msgstr "Vyžaduje SSL šifrované spojenia."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
-msgstr ""
+msgstr "Vyžaduje SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
@@ -12369,7 +12369,7 @@ msgstr "Údaj"
 #. l10n: # = Amount of queries
 #: libraries/server_status_queries.lib.php:96 libraries/tracking.lib.php:877
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: libraries/server_status_variables.lib.php:44
 #: libraries/server_variables.lib.php:181
@@ -12382,7 +12382,7 @@ msgstr "Zobraziť iba varovné hodnoty"
 
 #: libraries/server_status_variables.lib.php:57
 msgid "Filter by category…"
-msgstr ""
+msgstr "Filter podľa kategórie…"
 
 #: libraries/server_status_variables.lib.php:78
 msgid "Show unformatted values"
@@ -13792,12 +13792,12 @@ msgstr ""
 
 #: libraries/tracking.lib.php:649
 msgid "SQL execution"
-msgstr ""
+msgstr "Vykonanie SQL"
 
 #: libraries/tracking.lib.php:654
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Exportovať ako %s"
 
 #: libraries/tracking.lib.php:680
 msgid "Data manipulation statement"
@@ -14035,7 +14035,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:90
 msgid "Insecure connection"
-msgstr ""
+msgstr "Nezabezpečené pripojenie"
 
 #: setup/frames/index.inc.php:119
 msgid "Configuration saved."
@@ -14049,11 +14049,11 @@ msgstr ""
 
 #: setup/frames/index.inc.php:133 setup/frames/menu.inc.php:19
 msgid "Overview"
-msgstr ""
+msgstr "Prehľad"
 
 #: setup/frames/index.inc.php:140
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr ""
+msgstr "Zobraz skryté správy (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:193
 msgid "There are no configured servers"
@@ -14081,7 +14081,7 @@ msgstr "Predvolený server"
 
 #: setup/frames/index.inc.php:269
 msgid "End of line"
-msgstr ""
+msgstr "Koniec riadku"
 
 #: setup/frames/index.inc.php:275
 msgid "Display"
@@ -14113,7 +14113,7 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:49
 msgid "Warning"
-msgstr ""
+msgstr "Upozornenie"
 
 #: setup/lib/form_processing.lib.php:50
 msgid "Submitted form contains errors"
@@ -14250,7 +14250,7 @@ msgstr ""
 
 #: templates/columns_definitions/move_column.phtml:7
 msgid "first"
-msgstr ""
+msgstr "prvý"
 
 #: templates/designer/aggregate_query_panel.phtml:22
 #: templates/designer/options_panel.phtml:100
@@ -14394,7 +14394,7 @@ msgstr ""
 #: templates/designer/side_menu.phtml:128
 #: templates/designer/side_menu.phtml:134
 msgid "Small/Big All"
-msgstr ""
+msgstr "Malé/Veľké všetko"
 
 #: templates/designer/side_menu.phtml:138
 #: templates/designer/side_menu.phtml:141
@@ -14580,7 +14580,7 @@ msgstr "Stĺpcový"
 #: templates/tbl_chart.phtml:20
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "Čiarový"
 
 #: templates/tbl_chart.phtml:22
 msgctxt "Chart type"

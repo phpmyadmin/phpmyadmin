@@ -26,7 +26,7 @@ $url_query .= '&amp;goto=view_operations.php&amp;back=view_operations.php';
 $url_params['goto'] = $url_params['back'] = 'view_operations.php';
 
 /**
- * Gets tables informations
+ * Gets tables information
  */
 
 require './libraries/tbl_info.inc.php';

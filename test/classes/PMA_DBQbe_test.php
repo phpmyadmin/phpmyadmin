@@ -272,9 +272,10 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
             . '</strong><input type="radio" name="criteriaAndOrColumn[1]" value='
             . '"and" checked="checked" /><br />Ins<input type="checkbox" name='
             . '"criteriaColumnInsert[1]" />&nbsp;&nbsp;Del<input type="checkbox" '
-            . 'name="criteriaColumnDelete[1]" /></td><td class="center"><br />Ins<input '
-            . 'type="checkbox" name="criteriaColumnInsert[2]" />&nbsp;&nbsp;Del'
-            . '<input type="checkbox" name="criteriaColumnDelete[2]" /></td></tr>',
+            . 'name="criteriaColumnDelete[1]" /></td><td class="center"><br />Ins'
+            . '<input type="checkbox" name="criteriaColumnInsert[2]" />&nbsp;&nbsp;'
+            . 'Del<input type="checkbox" name="criteriaColumnDelete[2]" /></td>'
+            . '</tr>',
             $this->_callProtectedFunction(
                 '_getModifyColumnsRow',
                 array()

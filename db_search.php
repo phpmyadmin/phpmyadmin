@@ -24,7 +24,7 @@ $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 
 require 'libraries/db_common.inc.php';
 
-// If config variable $GLOBALS['cfg']['Usedbsearch'] is on false : exit.
+// If config variable $GLOBALS['cfg']['UseDbSearch'] is on false : exit.
 if (! $GLOBALS['cfg']['UseDbSearch']) {
     PMA_Util::mysqlDie(
         __('Access denied!'), '', false, $err_url
