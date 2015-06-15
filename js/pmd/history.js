@@ -736,13 +736,13 @@ function build_query(formtitle, fadin)
         if (temp !== "") {
             q_select += temp;
             temp = check_rename(select_field[i]);
-            q_select += temp + ",";
+            q_select += temp + ", ";
         } else {
             temp = check_rename(select_field[i]);
-            q_select += select_field[i] + temp + ",";
+            q_select += select_field[i] + temp + ", ";
         }
     }
-    q_select = q_select.substring(0, q_select.length - 1);
+    q_select = q_select.substring(0, q_select.length - 2);
     q_select += "\nFROM " + query_from();
     if (query_where() !== "") {
         q_select += "\nWHERE";
