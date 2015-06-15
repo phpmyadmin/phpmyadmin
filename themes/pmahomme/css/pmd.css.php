@@ -398,15 +398,11 @@ a.M_butt:hover {
     position: fixed;
     top: 60px;
     <?php echo $right; ?>: 0;
-    display: none;
-    background: #FFF;
-    border: 1px solid gray;
-    width: 350 px;
+    width: 350px;
     max-height: 500px;
-    overflow:scroll;
-    padding: 30px;
-    padding-<?php echo $left; ?>: 30px;
-    color: #FFF;
+    display: none;
+    overflow: auto;
+    padding-top: 34px;
     z-index: 102;
 }
 
@@ -438,53 +434,10 @@ a.active.trigger:hover {
     background: #fff696 url(<?php echo $minusImg; ?>) 85% 55% no-repeat;
 }
 
-h2.tiger {
-    background-repeat: repeat-x;
-    padding: 1px;
-    font-weight: bold;
-    padding: 50px 20px 50px;
-    margin: 0 0 5px 0;
-    width: 250px;
-    float: <?php echo $left; ?>;
-    color : #333;
-    text-align: center;
-}
-
-h2.tiger a {
-    background-image: url(<?php echo $headerImg; ?>);
-    text-align: center;
-    text-decoration: none;
-    color : #333;
-    display: block;
-}
-
-h2.tiger a:hover {
-    color: #000;
-    background-image: url(<?php echo $headerLinkedImg; ?>);
-}
-
-h2.active {
-    background-image: url(<?php echo $headerImg ?>);
-    background-repeat: repeat-x;
-    padding: 1px;
-    background-position: left bottom;
-}
-
-.toggle_container {
-    margin: 0 0 5px;
-    padding: 0;
-    border-top: 1px solid #d6d6d6;
-    background: #FFF;
-    overflow: hidden;
-    font-size: 1.2em;
-    clear: both;
-}
-
 .toggle_container .block {
     background-color: #DBE4E8;
-    padding: 40px 15px 40px 15px; /*--Padding of Container--*/
-    border:1px solid #999;
-    color: #000;
+    border-top: 1px solid #999;
+    cursor: pointer;
 }
 
 .history_table {
@@ -495,6 +448,14 @@ h2.active {
 .history_table2 {
     text-align: center;
     background-color: #DBE4E8;
+}
+
+#ab {
+    min-width: 300px;
+}
+
+#ab .ui-accordion-content {
+    padding: 0;
 }
 
 #box {

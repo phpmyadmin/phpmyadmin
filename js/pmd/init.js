@@ -13,6 +13,7 @@ AJAX.registerOnload('pmd/init.js', function () {
     $(".trigger").click(function () {
         $(".panel").toggle("fast");
         $(this).toggleClass("active");
+        $('#ab').accordion("refresh");
         return false;
     });
     var tables_data = $.parseJSON($("#script_tables").html());

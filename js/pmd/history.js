@@ -13,22 +13,6 @@ var g_index;
 var vqb_editor = null;
 
 /**
- * function for panel, hides and shows toggle_container <div>,which is for history elements uses {@link JQuery}.
- *
- * @param index has value 1 or 0,decides wheter to hide toggle_container on load.
-**/
-
-function panel(index)
-{
-    if (!index) {
-        $(".toggle_container").hide();
-    }
-    $("h2.tiger").click(function () {
-        $(this).toggleClass("active").next().slideToggle("slow");
-    });
-}
-
-/**
  * To display details of objects(where,rename,Having,aggregate,groupby,orderby,having)
  *
  * @param index index of history_array where change is to be made
@@ -98,7 +82,7 @@ function display(init, finit)
     str = ''; // string to store Html code for history tab
     for (i = 0; i < history_array.length; i++) {
         temp = history_array[i].get_tab(); //+ '.' + history_array[i].get_obj_no(); for Self JOIN
-        str += '<h2 class="tiger"><a href="#">' + temp + '</a></h2>';
+        str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>';
         str += '<div class="toggle_container">\n';
         while ((history_array[i].get_tab()) == temp) { //+ '.' + history_array[i].get_obj_no()) == temp) {
             str += '<div class="block"> <table width ="250">';
@@ -118,10 +102,10 @@ function display(init, finit)
             if (i >= history_array.length) {
                 break;
             }
-            str += '</table></div><br/>';
+            str += '</table></div>';
         }
         i--;
-        str += '</div><br/>';
+        str += '</div>';
     }
     return str;
 }
@@ -143,7 +127,7 @@ function and_or(index)
     }
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(0, 0);
-    panel(1);
+    $('#ab').accordion("refresh");
 }
 
 /**
@@ -164,7 +148,7 @@ function history_delete(index)
     history_array.splice(index, 1);
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(0, 0);
-    panel(1);
+    $('#ab').accordion("refresh");
 }
 
 /**
@@ -257,7 +241,7 @@ function edit(type)
     }
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(0, 0);
-    panel(1);
+    $('#ab').accordion("refresh");
 }
 
 /**
@@ -820,4 +804,5 @@ AJAX.registerOnload('pmd/history.js', function () {
     $("#ok_edit_where").click(function() {
         edit('Where');
     });
+    $('#ab').accordion({collapsible : true, active : 'none'});
 });
