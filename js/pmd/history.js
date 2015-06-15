@@ -10,6 +10,7 @@
 var history_array = []; // Global array to store history objects
 var select_field = [];  // Global array to store informaation for columns which are used in select clause
 var g_index;
+var vqb_editor;
 
 /**
  * function for panel, hides and shows toggle_container <div>,which is for history elements uses {@link JQuery}.
@@ -621,26 +622,6 @@ function check_rename(id_this)
     return "";
 }
 
-function gradient(id, level)
-{
-    var box = document.getElementById(id);
-    box.style.opacity = level;
-    box.style.MozOpacity = level;
-    box.style.KhtmlOpacity = level;
-    box.style.filter = "alpha(opacity=" + level * 100 + ")";
-    box.style.display = "block";
-}
-
-
-function fadein(id)
-{
-    var level = 0;
-    while (level <= 1) {
-        setTimeout("gradient('" + id + "'," + level + ")", (level * 1000) + 10);
-        level += 0.01;
-    }
-}
-
  /**
   * This function builds from clause of query
   * makes automatic joins.
@@ -771,25 +752,50 @@ function build_query(formtitle, fadin)
     if (query_having() !== "") { q_select += "\nHAVING " + query_having(); }
     if (query_orderby() !== "") { q_select += "\nORDER BY " + query_orderby(); }
     var box = document.getElementById('box');
-    document.getElementById('filter').style.display = 'block';
-    var btitle = document.getElementById('boxtitle');
-    btitle.innerHTML = 'SELECT';//formtitle;
-    if (fadin) {
-        gradient("box", 0);
-        fadein("box");
-    } else {
-        box.style.display = 'block';
-    }
-    document.getElementById('textSqlquery').innerHTML = q_select;
-}
 
-function closebox()
-{
-    document.getElementById('box').style.display = 'none';
-    document.getElementById('filter').style.display = 'none';
+    /**
+     * @var button_options Object containing options
+     *                     for jQueryUI dialog buttons
+     */
+    var button_options = {};
+    button_options[PMA_messages.strClose] = function () {
+        $(this).dialog("close");
+    };
+    button_options[PMA_messages.strGo] = function () {
+        if (vqb_editor) {
+            var $elm = $ajaxDialog.find('textarea');
+            vqb_editor.save();
+            $elm.val(vqb_editor.getValue());
+        }
+        $('#vqb_form').submit();
+    };
+
+    var $ajaxDialog = $(box).dialog({
+        width: 500,
+        buttons: button_options,
+        modal: true,
+        title: 'SELECT'
+    });
+    // Attach syntax highlighted editor to query dialog
+    /**
+     * @var $elm jQuery object containing the reference
+     *           to the query textarea.
+     */
+    var $elm = $ajaxDialog.find('textarea');
+    if (! vqb_editor) {
+        vqb_editor = PMA_getSQLEditor($elm);
+    }
+    if (vqb_editor) {
+        vqb_editor.setValue(q_select);
+        vqb_editor.focus();
+    } else {
+        $elm.val(q_select);
+        $elm.focus();
+    }
 }
 
 AJAX.registerTeardown('pmd/history.js', function () {
+    vqb_editor = null;
     $("#ok_edit_rename").unbind('click');
     $("#ok_edit_having").unbind('click');
     $("#ok_edit_Aggr").unbind('click');

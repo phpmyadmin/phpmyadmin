@@ -497,58 +497,8 @@ h2.active {
     background-color: #DBE4E8;
 }
 
-#filter {
-    display: none;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: #CCA;
-    z-index: 10;
-    opacity: .5;
-    filter: alpha(opacity=50);
-}
-
 #box {
     display: none;
-    position: absolute;
-    top: 20%;
-    <?php echo $left; ?>: 30%;
-    width: 500px;
-    height: 220px;
-    padding: 48px;
-    margin: 0;
-    border: 1px solid #000;
-    background-color: #fff;
-    z-index: 101;
-    overflow: visible;
-}
-
-#boxtitle {
-    position: absolute;
-    float: center;
-    top: 0;
-    <?php echo $left; ?>: 0;
-    width: 593px;
-    height: 20px;
-    padding: 0;
-    padding-top: 4px;
-    margin: 0;
-    border-bottom: 4px solid #3CF;
-    background-color: #D0DCE0;
-    color: black;
-    font-weight: bold;
-    padding-<?php echo $left; ?>: 2px;
-    text-align: <?php echo $left; ?>;
-}
-
-#tblfooter {
-    background-color: #D3DCE3;
-    float: <?php echo $right; ?>;
-    padding-top: 10px;
-    color: black;
-    font-weight: normal;
 }
 
 #foreignkeychk {
