@@ -1693,6 +1693,15 @@ Main panel
     Defines whether to display informations about the current Git revision (if
     applicable) on the main panel.
 
+.. config:option:: $cfg['MysqlMinVersion']
+
+    :type: array
+
+    Defines the minimum supported MySQL version. The default is chosen
+    by the phpMyAdmin team; however this directive was asked by a developer
+    of the Plesk control panel to ease integration with older MySQL servers
+    (where most of the phpMyAdmin features work).
+
 Database structure
 ------------------
 
