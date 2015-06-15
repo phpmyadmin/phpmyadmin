@@ -102,8 +102,9 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
  *
  * @param $textarea jQuery object wrapping the textarea to be made the editor
  * @param options   optional options for CodeMirror
+ * @param resize    optional resizing ('vertical', 'horizontal', 'both')
  */
-function PMA_getSQLEditor($textarea, options) {
+function PMA_getSQLEditor($textarea, options, resize) {
     if ($textarea.length > 0 && typeof CodeMirror !== 'undefined') {
 
         // merge options for CodeMirror
@@ -121,10 +122,23 @@ function PMA_getSQLEditor($textarea, options) {
         // create CodeMirror editor
         var codemirrorEditor = CodeMirror.fromTextArea($textarea[0], defaults);
         // allow resizing
+        if (! resize) {
+            resize = 'vertical';
+        }
+        var handles = '';
+        if (resize == 'vertical') {
+            handles = 'n, s';
+        }
+        if (resize == 'both') {
+            handles = 'all';
+        }
+        if (resize == 'horizontal') {
+            handles = 'e, w';
+        }
         $(codemirrorEditor.getWrapperElement())
-            .css('resize', 'vertical')
+            .css('resize', resize)
             .resizable({
-                handles: 'n, s',
+                handles: handles,
                 resize: function() {
                     codemirrorEditor.setSize($(this).width(), $(this).height());
                 }

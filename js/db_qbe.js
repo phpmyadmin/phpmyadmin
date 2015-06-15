@@ -28,7 +28,7 @@ AJAX.registerTeardown('db_qbe.js', function () {
 
 AJAX.registerOnload('db_qbe.js', function () {
 
-    PMA_getSQLEditor($('#textSqlquery'));
+    PMA_getSQLEditor($('#textSqlquery'), {}, 'both');
 
     /**
      * Ajax event handlers for 'Select saved search'
