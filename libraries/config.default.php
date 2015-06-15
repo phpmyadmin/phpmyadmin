@@ -3065,4 +3065,15 @@ $cfg['maxRowPlotLimit'] = 500;
  */
 $cfg['ShowGitRevision'] = true;
 
+/**
+ * MySQL minimal version required
+ *
+ * @global array $cfg['MysqlMinVersion']
+ */
+$cfg['MysqlMinVersion'] = array(
+    'internal' => 50500,
+    'human' => '5.5.0'
+);
+
+
 ?>

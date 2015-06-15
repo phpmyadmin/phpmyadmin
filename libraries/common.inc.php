@@ -1027,10 +1027,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /* Log success */
         PMA_logUser($cfg['Server']['user']);
 
-        if (PMA_MYSQL_INT_VERSION < 50500) {
+        if (PMA_MYSQL_INT_VERSION < $cfg['MysqlMinVersion']['internal']) {
             PMA_fatalError(
                 __('You should upgrade to %s %s or later.'),
-                array('MySQL', '5.5.0')
+                array('MySQL', $cfg['MysqlMinVersion']['human'])
             );
         }
 
