@@ -7,7 +7,7 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('config.js', function () {
-    $('input[id], select[id], textarea[id]').unbind('change').unbind('keyup');
+    $('.optbox input[id], .optbox select[id], .optbox textarea[id]').unbind('change').unbind('keyup');
     $('input[type=button][name=submit_reset]').unbind('click');
     $('div.tabs_contents').undelegate();
     $('#import_local_storage, #export_local_storage').unbind('click');
@@ -473,7 +473,7 @@ function validate_field_and_fieldset(field, isKeyUp)
     var $field = $(field);
     var errors = {};
     validate_field($field, isKeyUp, errors);
-    validate_fieldset($field.closest('fieldset'), isKeyUp, errors);
+    validate_fieldset($field.closest('fieldset.optbox'), isKeyUp, errors);
     displayErrors(errors);
 }
 
@@ -495,8 +495,8 @@ function setupValidation() {
         loadInlineConfig();
     }
     // register validators and mark custom values
-    var $elements = $('input[id], select[id], textarea[id]');
-    $('input[id], select[id], textarea[id]').each(function () {
+    var $elements = $('.optbox input[id], .optbox select[id], .optbox textarea[id]');
+    $('.optbox input[id], .optbox select[id], .optbox textarea[id]').each(function () {
         markField(this);
         var $el = $(this);
         $el.bind('change', function () {
@@ -527,7 +527,7 @@ function setupValidation() {
             validate_field($elements[i], false, errors);
         }
         // run all fieldset validators
-        $('fieldset').each(function () {
+        $('fieldset.optbox').each(function () {
             validate_fieldset(this, false, errors);
         });
 
