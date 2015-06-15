@@ -437,12 +437,12 @@ a.active.trigger:hover {
 .toggle_container .block {
     background-color: #DBE4E8;
     border-top: 1px solid #999;
-    cursor: pointer;
 }
 
 .history_table {
     text-align: center;
     background-color: #9999CC;
+    cursor: pointer;
 }
 
 .history_table2 {
