@@ -34,7 +34,7 @@ put phpMyAdmin-$REL-notes.html
 EOT
 
 # Upload to our file server
-sftp -P 10022 files@klutz.phpmyadmin.net <<EOT
+sftp -P 11022 files@klutz.phpmyadmin.net <<EOT
 cd /mnt/storage/files/phpMyAdmin
 mkdir $REL
 cd $REL
@@ -52,4 +52,4 @@ put phpMyAdmin-$REL-notes.html
 EOT
 
 # Sync files to CDN
-ssh -p 10022 files@klutz.phpmyadmin.net ./bin/sync-files-cdn
+ssh -p 11022 files@klutz.phpmyadmin.net ./bin/sync-files-cdn
