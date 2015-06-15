@@ -512,7 +512,7 @@ function query_groupby()
             str += history_array[i].get_column_name() + ", ";
         }
     }
-    str = str.substr(0, str.length - 1);
+    str = str.substr(0, str.length - 2);
     return str;
 }
 
