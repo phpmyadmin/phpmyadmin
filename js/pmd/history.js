@@ -733,7 +733,7 @@ function build_query(formtitle, fadin)
     }
     q_select += "\nFROM " + query_from();
     if (query_where() !== "") {
-        q_select += "\nWHERE";
+        q_select += "\nWHERE ";
         q_select += query_where();
     }
     if (query_groupby() !== "") { q_select += "\nGROUP BY " + query_groupby(); }
