@@ -743,9 +743,9 @@ function build_query(formtitle, fadin)
         }
     }
     q_select = q_select.substring(0, q_select.length - 1);
-    q_select += " FROM " + query_from();
+    q_select += "\nFROM " + query_from();
     if (query_where() !== "") {
-        q_select += "\n WHERE";
+        q_select += "\nWHERE";
         q_select += query_where();
     }
     if (query_groupby() !== "") { q_select += "\nGROUP BY " + query_groupby(); }
