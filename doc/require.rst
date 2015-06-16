@@ -49,6 +49,6 @@ phpMyAdmin supports MySQL-compatible databases.
 Web browser
 -----------
 
-To access phpMyAdmin you need a web browser with cookies and javascript
+To access phpMyAdmin you need a web browser with cookies and JavaScript
 enabled.
 
