@@ -631,7 +631,8 @@ function browseForeignDialog($this_a)
         });
     }).done(function () {
         var showAll = false;
-        $(tableId).on('click', 'td a.foreign_value', function () {
+        $(tableId).on('click', 'td a.foreign_value', function (e) {
+            e.preventDefault();
             var $input = $this_a.prev('input[type=text]');
             // Check if input exists or get CEdit edit_box
             if ($input.length === 0 ) {
