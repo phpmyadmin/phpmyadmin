@@ -7,6 +7,8 @@
  */
 
 require_once 'libraries/common.inc.php';
+require_once './libraries/gis/GIS_Visualization.class.php';
+require_once './libraries/gis/GIS_Factory.class.php';
 
 // Runs common work
 require_once 'libraries/db_common.inc.php';
@@ -14,9 +16,6 @@ $url_params['goto'] = PMA_Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
 );
 $url_params['back'] = 'sql.php';
-
-// Import visualization functions
-require_once 'libraries/tbl_gis_visualization.lib.php';
 
 $response = PMA_Response::getInstance();
 // Throw error if no sql query is set
@@ -69,19 +68,20 @@ if (isset($_REQUEST['session_max_rows'])) {
         $rows = $GLOBALS['cfg']['MaxRows'];
     }
 }
-$modified_query = PMA_GIS_modifyQuery($sql_query, $visualizationSettings, $rows, $pos);
-$modified_result = $GLOBALS['dbi']->tryQuery($modified_query);
-
-$data = array();
-while ($row = $GLOBALS['dbi']->fetchAssoc($modified_result)) {
-    $data[] = $row;
-}
 
 if (isset($_REQUEST['saveToFile'])) {
     $response->disable();
     $file_name = $visualizationSettings['spatialColumn'];
     $save_format = $_REQUEST['fileFormat'];
-    PMA_GIS_saveToFile($data, $visualizationSettings, $save_format, $file_name);
+//    PMA_GIS_saveToFile($data, $visualizationSettings, $save_format, $file_name);
+    $visualization = PMA_GIS_Visualization::get($sql_query, $visualizationSettings, $rows, $pos);
+    if ($format == 'svg') {
+        $visualization->toFileAsSvg($fileName);
+    } elseif ($format == 'png') {
+        $visualization->toFileAsPng($fileName);
+    } elseif ($format == 'pdf') {
+        $visualization->toFileAsPdf($fileName);
+    }
     exit();
 }
 
@@ -94,32 +94,52 @@ $scripts->addFile('OpenStreetMap.js');
 
 // If all the rows contain SRID, use OpenStreetMaps on the initial loading.
 if (! isset($_REQUEST['displayVisualization'])) {
+    $visualization = PMA_GIS_Visualization::get($sql_query, $visualizationSettings, $rows, $pos);
+    if ($visualization->hasSrid())
+        unset($visualizationSettings['choice']);
     $visualizationSettings['choice'] = 'useBaseLayer';
-    foreach ($data as $row) {
-        if ($row['srid'] == 0) {
-            unset($visualizationSettings['choice']);
-            break;
-        }
-    }
 }
 
 $svgSupport = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8)
     ? false : true;
 $format = $svgSupport ? 'svg' : 'png';
 
-// get the chart and settings after chart generation
-$visualization = PMA_GIS_visualizationResults(
-    $data, $visualizationSettings, $format
-);
+$visualization = PMA_GIS_Visualization::get($sql_query, $visualizationSettings, $rows, $pos);
+if ($visualizationSettings != null) {
+    foreach ($visualization->getSettings() as $setting => $val) {
+        if (! isset($visualizationSettings[$setting])) {
+            $visualizationSettings[$setting] = $val;
+        }
+    }
+}
+
+$result = null;
+if ($format == 'svg') {
+    $result = $visualization->asSvg();
+} elseif ($format == 'png') {
+    $result = $visualization->asPng();
+} elseif ($format == 'ol') {
+    $result = $visualization->asOl();
+}
 
 /**
  * Displays the page
  */
-
-$html = PMA_getHtmlForGisVisualization(
-    $url_params, $labelCandidates, $spatialCandidates,
-    $visualizationSettings, $sql_query, $visualization, $svgSupport,
-    $data
+$url_params['sql_query'] = $sql_query;
+$downloadUrl = 'tbl_gis_visualization.php' . PMA_URL_getCommon($url_params)
+    . '&saveToFile=true';
+$html = PMA\Template::get('gis_visualization/gis_visualization')->render(
+    array(
+        'url_params' => $url_params,
+        'downloadUrl' => $downloadUrl,
+        'labelCandidates' => $labelCandidates,
+        'spatialCandidates' => $spatialCandidates,
+        'visualizationSettings' => $visualizationSettings,
+        'sql_query' => $sql_query,
+        'visualization' => $result,
+        'svgSupport' => $svgSupport,
+        'drawOl' => $visualization->asOl()
+    )
 );
 
 $response->addHTML($html);

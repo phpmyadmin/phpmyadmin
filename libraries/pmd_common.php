@@ -477,8 +477,8 @@ function PMA_saveDisplayField($db, $table, $field)
         $field = '';
     }
 
-    include_once 'libraries/tbl_relation.lib.php';
-    PMA_handleUpdateForDisplayField($disp, $field, $db, $table, $cfgRelation);
+    $upd_query = new PMA_Table($table, $db, $GLOBALS['dbi']);
+    $upd_query->updateDisplayField($disp, $field, $cfgRelation);
 
     return true;
 }

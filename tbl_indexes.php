@@ -123,16 +123,13 @@ if (isset($_REQUEST['create_index'])) {
 }
 
 $response = PMA_Response::getInstance();
-$response->addHTML(
-    PMA\Template::get('index_form')
-    ->render(
-        array(
-            'fields' => $fields,
-            'index' => $index,
-            'form_params' => $form_params,
-            'add_fields' => $add_fields
-        )
-    )
+$response->addHTML(PMA\Template::get('index_form')
+    ->render(array(
+        'fields' => $fields,
+        'index' => $index,
+        'form_params' => $form_params,
+        'add_fields' => $add_fields
+    ))
 );
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();

@@ -34,7 +34,7 @@ function PMA_getHtmlForColumnsList(
         $columnTypeList = $types[$colTypeCategory];
     }
     $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
-    $columns = (array) $GLOBALS['dbi']->getColumns(
+    $columns = $GLOBALS['dbi']->getColumns(
         $db, $table, null,
         true, $GLOBALS['userlink']
     );
@@ -81,31 +81,38 @@ function PMA_getHtmlForCreateNewColumn(
     $content_cells = array();
     $available_mime = array();
     $mime_map = array();
-    $header_cells = PMA_getHeaderCells(
-        true, null, $cfgRelation['mimework']
-    );
     if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
         $mime_map = PMA_getMIME($db, $table);
         $available_mime = PMA_getAvailableMIMEtypes();
     }
     $comments_map = PMA_getComments($db, $table);
     for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
-        $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
-            $columnNumber, $columnMeta, '',
-            8, '', null, array(), null, null,
-            $comments_map, null, true,
-            array(), $cfgRelation,
-            isset($available_mime)?$available_mime:array(), $mime_map
+        $content_cells[$columnNumber] = array(
+            'columnNumber' => $columnNumber,
+            'columnMeta' => $columnMeta,
+            'type_upper' => '',
+            'length_values_input_size' => 8,
+            'length' => '',
+            'extracted_columnspec' => array(),
+            'submit_attribute' => null,
+            'analyzed_sql' => null,
+            'comments_map' => $comments_map,
+            'fields_meta' => null,
+            'is_backup' => true,
+            'move_columns' => array(),
+            'cfgRelation' => $cfgRelation,
+            'available_mime' => isset($available_mime)?$available_mime:array(),
+            'mime_map' => $mime_map
         );
     }
 
     return PMA\Template::get('columns_definitions/table_fields_definitions')
-        ->render(
-            array(
-                'header_cells' => $header_cells,
-                'content_cells' => $content_cells
-            )
-        );
+        ->render(array(
+            'is_backup' => true,
+            'fields_meta' => null,
+            'mimework' => $cfgRelation['mimework'],
+            'content_cells' => $content_cells
+        ));
 }
 /**
  * build the html for step 1.1 of normalization

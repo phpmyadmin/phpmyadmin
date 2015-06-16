@@ -10,6 +10,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/sql.lib.php';
+
 /**
  * Handles visualization of GIS data
  *
@@ -21,6 +23,8 @@ class PMA_GIS_Visualization
      * @var array   Raw data for the visualization
      */
     private $_data;
+
+    private $modified_sql;
 
     /**
      * @var array   Set of default settings values are here.
@@ -71,18 +75,49 @@ class PMA_GIS_Visualization
         return $this->_settings;
     }
 
+    public static function get($sql_query, $options, $row, $pos)
+    {
+        return new PMA_GIS_Visualization($sql_query, $options, $row, $pos);
+    }
+
+    public static function getByData($data, $options)
+    {
+        return new PMA_GIS_Visualization(null, $options, null, null, $data);
+    }
+
+    public function hasSrid()
+    {
+        foreach ($this->_data as $row) {
+            if ($row['srid'] == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Constructor. Stores user specified options.
      *
-     * @param array $data    Data for the visualization
-     * @param array $options Users specified options
+     * @param string  $sql_query SQL to fetch raw data for visualization
+     * @param array   $options   Users specified options
+     * @param integer $row       number of rows
+     * @param integer $pos       start position
+     * @param array   $data      raw data. If set, parameters other than $options will be ignored
      *
      * @access public
      */
-    public function __construct($data, $options)
+    private function __construct($sql_query, $options, $row, $pos, $data = null)
     {
         $this->_userSpecifiedSettings = $options;
-        $this->_data = $data;
+        if (isset($data))
+        {
+            $this->_data = $data;
+        }
+        else {
+            $this->modified_sql = $this->modifySqlQuery($sql_query, $row, $pos);
+            $this->_data = $this->fetchRawData();
+        }
+
     }
 
     /**
@@ -94,6 +129,68 @@ class PMA_GIS_Visualization
     protected function init()
     {
         $this->_handleOptions();
+    }
+
+    /**
+     * Returns sql for fetching raw data
+     *
+     * @param string $sql_query The SQL to modify.
+     * @param integer $rows     Number of rows.
+     * @param integer $pos      Start posistion.
+     *
+     * @return string the modified sql query.
+     */
+    private function modifySqlQuery($sql_query, $rows, $pos)
+    {
+        $modified_query = 'SELECT ';
+        // If label column is chosen add it to the query
+        if (! empty($this->_userSpecifiedSettings['labelColumn'])) {
+            $modified_query .= PMA_Util::backquote($this->_userSpecifiedSettings['labelColumn'])
+                . ', ';
+        }
+        // Wrap the spatial column with 'ASTEXT()' function and add it
+        $modified_query .= 'ASTEXT('
+            . PMA_Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
+            . ') AS ' . PMA_Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
+            . ', ';
+
+        // Get the SRID
+        $modified_query .= 'SRID('
+            . PMA_Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
+            . ') AS ' . PMA_Util::backquote('srid') . ' ';
+
+        // Append the original query as the inner query
+        $modified_query .= 'FROM (' . $sql_query . ') AS '
+            . PMA_Util::backquote('temp_gis');
+
+        // LIMIT clause
+        if (is_numeric($rows) && $rows > 0) {
+            $modified_query .= ' LIMIT ';
+            if (is_numeric($pos) && $pos >= 0) {
+                $modified_query .= $pos . ', ' . $rows;
+            } else {
+                $modified_query .= $rows;
+            }
+        }
+
+        return $modified_query;
+    }
+
+    /**
+     * Returns raw data for GIS visualization.
+     *
+     * @return string the raw data.
+     */
+    private function fetchRawData()
+    {
+        $modified_result = $GLOBALS['dbi']->tryQuery($this->modified_sql);
+
+        $data = array();
+        while ($row = $GLOBALS['dbi']->fetchAssoc($modified_result)) {
+            $data[] = $row;
+        }
+
+        return $data;
     }
 
     /**

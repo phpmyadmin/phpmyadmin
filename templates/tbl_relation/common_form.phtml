@@ -17,8 +17,15 @@
                     </th>
                     <?php $odd_row = true; ?>
                     <?php for ($i = 0; $i < $saved_row_cnt; $i++): ?>
-                        <?php echo PMA_getHtmlForInternalRelationRow(
-                            $save_row, $i, $odd_row, $existrel, $db);
+                        <?php echo PMA\Template::get('tbl_relation/internal_relational_row')->render(
+                            array(
+                                'save_row' => $save_row,
+                                'i' => $i,
+                                'odd_row' => $odd_row,
+                                'existrel' => $existrel,
+                                'db' => $db
+                            )
+                        );
                         $odd_row = ! $odd_row; ?>
                     <?php endfor; ?>
             </table>
@@ -44,25 +51,29 @@
                 </tr>
                 <?php $odd_row = true; $i = 0; ?>
                 <?php foreach ($existrel_foreign as $key => $one_key): ?>
-                    <?php echo PMA_getHtmlForForeignKeyRow(
-                        $one_key,
-                        $odd_row,
-                        $columns,
-                        $i++,
-                        $options_array,
-                        $tbl_storage_engine,
-                        $db
+                    <?php echo PMA\Template::get('tbl_relation/foreign_key_row')->render(
+                        array(
+                            'one_key' => $one_key,
+                            'odd_row' => $odd_row,
+                            'columns' => $columns,
+                            'i' => $i++,
+                            'options_array' => $options_array,
+                            'tbl_storage_engine' => $tbl_storage_engine,
+                            'db' => $db
+                        )
                     );
                     $odd_row = ! $odd_row;?>
                 <?php endforeach; ?>
-                <?php echo PMA_getHtmlForForeignKeyRow(
-                    array(),
-                    $odd_row,
-                    $columns,
-                    $i++,
-                    $options_array,
-                    $tbl_storage_engine,
-                    $db
+                <?php echo PMA\Template::get('tbl_relation/foreign_key_row')->render(
+                    array(
+                        'one_key' => array(),
+                        'odd_row' => $odd_row,
+                        'columns' => $columns,
+                        'i' => $i++,
+                        'options_array' => $options_array,
+                        'tbl_storage_engine' => $tbl_storage_engine,
+                        'db' => $db
+                    )
                 ); ?>
                 <tr>
                     <td colspan="5">

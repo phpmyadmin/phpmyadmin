@@ -22,7 +22,6 @@ function escape($variable)
 require_once 'libraries/common.inc.php';
 require_once 'libraries/gis/GIS_Factory.class.php';
 require_once 'libraries/gis/GIS_Visualization.class.php';
-require_once 'libraries/tbl_gis_visualization.lib.php';
 
 // Get data if any posted
 $gis_data = array();
@@ -89,10 +88,17 @@ $visualizationSettings = array(
     'spatialColumn' => 'wkt'
 );
 $data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
-$visualization = PMA_GIS_visualizationResults(
-    $data, $visualizationSettings, $format
-);
-$open_layers = PMA_GIS_visualizationResults($data, $visualizationSettings, 'ol');
+$_visualization = PMA_GIS_Visualization::getByData($data, $visualizationSettings);
+$visualization = null;
+if ($format == 'svg') {
+    $visualization = $_visualization->asSvg();
+} elseif ($format == 'png') {
+    $visualization = $_visualization->asPng();
+} elseif ($format == 'ol') {
+    $visualization = $_visualization->asOl();
+}
+
+$open_layers = PMA_GIS_Visualization::getByData($data, $visualizationSettings)->asOl();
 
 // If the call is to update the WKT and visualization make an AJAX response
 if (isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
