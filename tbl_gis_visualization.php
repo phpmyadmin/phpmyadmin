@@ -73,15 +73,8 @@ if (isset($_REQUEST['saveToFile'])) {
     $response->disable();
     $file_name = $visualizationSettings['spatialColumn'];
     $save_format = $_REQUEST['fileFormat'];
-//    PMA_GIS_saveToFile($data, $visualizationSettings, $save_format, $file_name);
     $visualization = PMA_GIS_Visualization::get($sql_query, $visualizationSettings, $rows, $pos);
-    if ($format == 'svg') {
-        $visualization->toFileAsSvg($fileName);
-    } elseif ($format == 'png') {
-        $visualization->toFileAsPng($fileName);
-    } elseif ($format == 'pdf') {
-        $visualization->toFileAsPdf($fileName);
-    }
+    $visualization->toFile($file_name, $save_format);
     exit();
 }
 
@@ -113,14 +106,7 @@ if ($visualizationSettings != null) {
     }
 }
 
-$result = null;
-if ($format == 'svg') {
-    $result = $visualization->asSvg();
-} elseif ($format == 'png') {
-    $result = $visualization->asPng();
-} elseif ($format == 'ol') {
-    $result = $visualization->asOl();
-}
+$result = $visualization->toImage($format);
 
 /**
  * Displays the page

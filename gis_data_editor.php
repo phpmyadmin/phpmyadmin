@@ -88,15 +88,7 @@ $visualizationSettings = array(
     'spatialColumn' => 'wkt'
 );
 $data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
-$_visualization = PMA_GIS_Visualization::getByData($data, $visualizationSettings);
-$visualization = null;
-if ($format == 'svg') {
-    $visualization = $_visualization->asSvg();
-} elseif ($format == 'png') {
-    $visualization = $_visualization->asPng();
-} elseif ($format == 'ol') {
-    $visualization = $_visualization->asOl();
-}
+$visualization = PMA_GIS_Visualization::getByData($data, $visualizationSettings)->toImage($format);
 
 $open_layers = PMA_GIS_Visualization::getByData($data, $visualizationSettings)->asOl();
 

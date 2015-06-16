@@ -452,6 +452,26 @@ class PMA_GIS_Visualization
         $pdf->Output($file_name, 'D');
     }
 
+    public function toImage($format) {
+        if ($format == 'svg') {
+            return $this->asSvg();
+        } elseif ($format == 'png') {
+            return $this->asPng();
+        } elseif ($format == 'ol') {
+            return $this->asOl();
+        }
+    }
+
+    public function toFile($filename, $format) {
+        if ($format == 'svg') {
+            $this->toFileAsSvg($filename);
+        } elseif ($format == 'png') {
+            $this->toFileAsPng($filename);
+        } elseif ($format == 'pdf') {
+            $this->toFileAsPdf($filename);
+        }
+    }
+
     /**
      * Calculates the scale, horizontal and vertical offset that should be used.
      *
