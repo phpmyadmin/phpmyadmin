@@ -65,6 +65,7 @@ phpMyAdmin - ChangeLog
 - bug #4953 cant drag sql.gz file onto import input
 - bug #4960 Table creation results in GET request with missing server parameter that invalidates the session
 - bug #4961 Javascript error when Designer is opened
+- bug #4962 Insert by foreign key scrolls page to top
 
 4.4.9.0 (2015-06-04)
 - bug #4920 relation view doesn't list fields of table in other database
