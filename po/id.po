@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-11 09:31-0400\n"
-"PO-Revision-Date: 2015-05-31 18:32+0200\n"
-"Last-Translator: Benny <tarzq28@gmail.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/id/>\n"
+"PO-Revision-Date: 2015-06-16 11:47+0200\n"
+"Last-Translator: Tommy Surbakti <tommy@surbakti.net>\n"
+"Language-Team: Indonesian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: changelog.php:37 license.php:28
@@ -755,10 +755,9 @@ msgid "PHP extension:"
 msgstr "Ekstensi PHP:"
 
 #: index.php:345
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "Versi PHP"
+msgstr "PHP Versi:"
 
 #: index.php:356
 msgid "Show PHP information"
@@ -1892,7 +1891,7 @@ msgstr "Menjelajahi nilai luar"
 
 #: js/messages.php:346
 msgid "No auto-saved query"
-msgstr ""
+msgstr "jangan otomatis simpan kueri"
 
 #: js/messages.php:347
 #, fuzzy, php-format
@@ -1901,7 +1900,6 @@ msgid "Variable %d:"
 msgstr "Variabel"
 
 #: js/messages.php:350 libraries/normalization.lib.php:877
-#, fuzzy
 msgid "Pick"
 msgstr "Pilih"
 
@@ -1976,7 +1974,6 @@ msgid "Done"
 msgstr "Selesai"
 
 #: js/messages.php:367
-#, fuzzy
 msgid "Confirm partial dependencies"
 msgstr "Konfirmasi dependensi parsial"
 
@@ -2005,21 +2002,18 @@ msgid "Hide partial dependencies list"
 msgstr "Sembunykan daftar dependensi parsial"
 
 #: js/messages.php:374
-#, fuzzy
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
-"Duduk ketat! Mungkin diperlukan beberapa detik tergantung pada ukuran data "
-"dan jumlah kolom tabel."
+"Santai! Mungkin diperlukan beberapa detik tergantung pada ukuran data dan "
+"jumlah kolom tabel."
 
 #: js/messages.php:375
-#, fuzzy
 msgid "Step"
 msgstr "Langkah"
 
 #: js/messages.php:376
-#, fuzzy
 msgid "The following actions will be performed:"
 msgstr "Tindakan berikut akan dilakukan:"
 
@@ -2029,30 +2023,26 @@ msgid "DROP columns %s from the table %s"
 msgstr "DROP kolom %s dari tabel %s"
 
 #: js/messages.php:378
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
-msgstr "Tambahkan hak akses pada tabel berikut"
+msgstr "Buat tabel"
 
 #: js/messages.php:381
 msgid "Third step of normalization (3NF)"
 msgstr "Tahap ketiga normalisasi (3NF)"
 
 #: js/messages.php:382
-#, fuzzy
 msgid "Confirm transitive dependencies"
 msgstr "Konfirmasi dependensi transitif"
 
 #: js/messages.php:383
-#, fuzzy
 msgid "Selected dependencies are as follows:"
 msgstr "Dependensi yang dipilih adalah sebagai berikut:"
 
 #: js/messages.php:384
-#, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Basis data belum dipilih."
+msgstr "Dependensi belum dipilih!"
 
 #: js/messages.php:387 libraries/central_columns.lib.php:1101
 #: libraries/insert_edit.lib.php:1452 libraries/server_variables.lib.php:155
@@ -2072,34 +2062,29 @@ msgid "Show search criteria"
 msgstr "Tampilkan kriteria pencarian"
 
 #: js/messages.php:392
-#, fuzzy
 #| msgid "Table Search"
 msgid "Range search"
-msgstr "Pencarian Tabel"
+msgstr "Jarak pencarian"
 
 #: js/messages.php:393
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Nama kolom: "
+msgstr "Jumlah kolom maksimal:"
 
 #: js/messages.php:394
-#, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Nama kolom: "
+msgstr "Jumlah kolom minimal:"
 
 #: js/messages.php:395
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "Tabel maksimum"
+msgstr "Nilai minimal:"
 
 #: js/messages.php:396
-#, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "Tabel maksimum"
+msgstr "Nilai maksimum:"
 
 #: js/messages.php:399
 msgid "Hide find and replace criteria"
@@ -2195,6 +2180,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Sebagai indikasi telah ada perubaha di halaman ini; konfirmasi akan "
+"ditampilkan untuk mengabaikan perubahan"
 
 #: js/messages.php:447
 msgid "Select referenced key"
@@ -2227,10 +2214,9 @@ msgstr "Nama halaman"
 
 #: js/messages.php:456 templates/designer/side_menu.phtml:56
 #: templates/designer/side_menu.phtml:59
-#, fuzzy
 #| msgid "Select page"
 msgid "Save page"
-msgstr "Pilih halaman"
+msgstr "Simpan halaman"
 
 #: js/messages.php:457 templates/designer/side_menu.phtml:63
 #: templates/designer/side_menu.phtml:66
@@ -2241,50 +2227,42 @@ msgstr "Pilih halaman"
 
 #: js/messages.php:458 templates/designer/side_menu.phtml:49
 #: templates/designer/side_menu.phtml:52
-#, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
-msgstr "Halaman yang bebas"
+msgstr "Buka halaman"
 
 #: js/messages.php:459
-#, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
-msgstr "Pilih halaman"
+msgstr "Hapus halaman"
 
 #: js/messages.php:460 templates/designer/side_menu.phtml:10
-#, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
-msgstr "Unit"
+msgstr "Belum ada nama"
 
 #: js/messages.php:461
-#, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "Harap pilih halaman untuk diubah"
+msgstr "Pilih halaman untuk lanjut"
 
 #: js/messages.php:462
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid page name"
-msgstr "Masukan angka yang valid"
+msgstr "Masukan halaman yang benar"
 
 #: js/messages.php:463
-#, fuzzy
 msgid "Do you want to save the changes to the current page?"
-msgstr "Apakah Anda ingin menyimpan perubahan ke halaman saat ini?"
+msgstr "Apakah Anda ingin menyimpan perubahan ke halaman ini?"
 
 #: js/messages.php:464
-#, fuzzy
 msgid "Successfully deleted the page"
-msgstr "Sukses menghapus laman"
+msgstr "Halaman berhasil dihapus"
 
 #: js/messages.php:465
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "Edit atau ekspor skema relasional"
+msgstr "Ekspor skema relasi"
 
 #: js/messages.php:466
 msgid "Modifications have been saved"
@@ -2321,7 +2299,6 @@ msgid "Click to sort results by this column."
 msgstr "KIik untuk menyortir hasil dari kolom ini."
 
 #: js/messages.php:477
-#, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 #| "<br />- Control+Click to remove column from ORDER BY clause"
@@ -2330,8 +2307,9 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"Shift+Klik untuk menambahkan kolom ini ke ORDER BY clause atau pindah ke ASC/"
-"DESC.<br />- Kontrol+Klik untuk menghapus kolom dari ORDER BY clause"
+"Shift+Klik untuk menambahkan kolom ini ke ORDER BY clause atau pindah ke "
+"ASC/DESC.<br />- Kontrol+Klik atau Alt+Click (Mac: Shift+Option+Click) untuk "
+"menghapus kolom dari ORDER BY clause"
 
 #: js/messages.php:478
 msgid "Click to mark/unmark."
@@ -2362,16 +2340,16 @@ msgstr ""
 "setelah disimpan."
 
 #: js/messages.php:485
-#, fuzzy
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
-msgstr ""
-"Masukkan heksadesimal string yang valid. Karakter yang valid adalah 0-9, A-F."
+msgstr "Masukkan string yang benar. Karakter yang benar adalah 0-9, A-F."
 
 #: js/messages.php:486
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Apakah anda ingin melihat semua baris? Tabel ukuran besar bisa membuat "
+"peramban lambat."
 
 #: js/messages.php:487
 #, fuzzy
@@ -2380,36 +2358,32 @@ msgid "Original length"
 msgstr "String asli"
 
 #: js/messages.php:490
-#, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Batal"
 
 #: js/messages.php:491 libraries/server_status.lib.php:269
 msgid "Aborted"
-msgstr "Pengguguran"
+msgstr "Batalkan"
 
 #: js/messages.php:493
 msgid "Success"
 msgstr "Sukses"
 
 #: js/messages.php:494
-#, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
-msgstr "Bawaan impor"
+msgstr "Impor status"
 
 #: js/messages.php:495 libraries/navigation/Navigation.class.php:112
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
-msgstr "Ambang berkas log"
+msgstr "Letakkan berkas disini"
 
 #: js/messages.php:496
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
-msgstr "Pilih tabel"
+msgstr "Pilih database dulu"
 
 #: js/messages.php:501
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2465,25 +2439,24 @@ msgstr "Tampilkan navigasi pohon item tersembunyi."
 
 #: js/messages.php:525 libraries/config/messages.inc.php:440
 #: libraries/navigation/NavigationTree.class.php:1368
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
-msgstr "Atur panel utama"
+msgstr "Link ke panel utama"
 
 #: js/messages.php:526 libraries/navigation/NavigationTree.class.php:1371
-#, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
-msgstr "Atur panel utama"
+msgstr "Unlink dari panel utama"
 
 #: js/messages.php:527
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Untuk membatasi semua database di server, tekan Enter setelah kata kunci"
 
 #: js/messages.php:528
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
-msgstr ""
+msgstr "Untuk memfilter %s di database, tekan Enter setelah kata kunci"
 
 #: js/messages.php:529
 #, fuzzy
@@ -2492,24 +2465,20 @@ msgid "tables"
 msgstr "Tabel"
 
 #: js/messages.php:530
-#, fuzzy
 #| msgid "Views"
 msgid "views"
-msgstr "View"
+msgstr "Tampilan"
 
 #: js/messages.php:531
-#, fuzzy
 #| msgid "Procedures"
 msgid "procedures"
 msgstr "Prosedur"
 
 #: js/messages.php:532
-#, fuzzy
 msgid "events"
-msgstr "event"
+msgstr "Kejadian"
 
 #: js/messages.php:533
-#, fuzzy
 #| msgid "Functions"
 msgid "functions"
 msgstr "Fungsi"
@@ -2584,39 +2553,33 @@ msgstr ""
 "PHP."
 
 #: js/messages.php:566 js/messages.php:578
-#, fuzzy
 msgid "Some errors have been detected on the server!"
-msgstr "Kesalahan telah terdeteksi di server!"
+msgstr "Kesalahan terdeteksi di server!"
 
 #: js/messages.php:568
-#, fuzzy
 msgid "Please look at the bottom of this window."
 msgstr "Silahkan lihat di bagian bawah jendela ini."
 
 #: js/messages.php:573 libraries/Error_Handler.class.php:350
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Abaikan"
 
 #: js/messages.php:580
-#, fuzzy
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "Sesuai pengaturan Anda, mereka sedang diajukan saat ini, harap bersabar."
 
 #: js/messages.php:587
-#, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Tampilkan ulang perintah SQL"
+msgstr "Jalankan kueri ini lagi?"
 
 #: js/messages.php:588
-#, fuzzy
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "Anda yakin akan menghapus grup pengguna \"%s\"?"
+msgstr "Anda yakin akan menghapus penanda ini?"
 
 #: js/messages.php:589
 msgid ""
