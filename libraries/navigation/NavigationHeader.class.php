@@ -125,7 +125,7 @@ class PMA_NavigationHeader
                 $GLOBALS['cfg']['NavigationLogoLink']
             );
             if (/*overload*/mb_substr($navLogoLinkLower, 0, 4) !== '://') {
-                $logoLink .= $GLOBALS['url_query'];
+                $logoLink .= PMA_URL_getCommon();
             } else {
                 $linkAttriks = 'target="_blank"';
             }
