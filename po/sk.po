@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-06-14 19:22+0200\n"
-"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
+"PO-Revision-Date: 2015-06-16 07:14+0200\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/sk/>\n"
 "Language: sk\n"
@@ -6618,10 +6618,9 @@ msgid "Relational display"
 msgstr "Relačné zobrazenie"
 
 #: libraries/config/messages.inc.php:544
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Nastavenie zobrazenia serverov."
+msgstr "Pre zobrazenie nastavení"
 
 #: libraries/config/messages.inc.php:545
 msgid "Grid editing: save all edited cells at once"
@@ -7681,15 +7680,15 @@ msgstr "Priame odkazy"
 
 #: libraries/db_designer.lib.php:361 libraries/db_designer.lib.php:363
 msgid "Snap to grid"
-msgstr ""
+msgstr "Prichytiť k mriežke"
 
 #: libraries/db_designer.lib.php:367 libraries/db_designer.lib.php:371
 msgid "Small/Big All"
-msgstr "Malé/Veľké všetko"
+msgstr "Všetko Malé/Veľké"
 
 #: libraries/db_designer.lib.php:376 libraries/db_designer.lib.php:379
 msgid "Toggle small/big"
-msgstr ""
+msgstr "Prepnúť malé/veľké"
 
 #: libraries/db_designer.lib.php:384 libraries/db_designer.lib.php:387
 msgid "Toggle relation lines"
@@ -10546,7 +10545,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:1687
 msgid "no description"
-msgstr "bez Popisu"
+msgstr "bez popisu"
 
 #: libraries/relation.lib.php:1975
 #, fuzzy, php-format
@@ -11588,7 +11587,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 cetrificate."
-msgstr "Vyžaduje validný X509 certifikát."
+msgstr "Vyžaduje platný X509 certifikát."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
