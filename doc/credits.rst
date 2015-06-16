@@ -37,7 +37,7 @@ Credits, in chronological order
 
 * Loïc Chapeaux <lolo\_at\_phpheaven.net>
 
-  * rewrote and optimized javascript, DHTML and DOM stuff
+  * rewrote and optimized JavaScript, DHTML and DOM stuff
 
   * rewrote the scripts so they fit the :term:`PEAR` coding standards and
     generate XHTML1.0 and CSS2 compliant codes
