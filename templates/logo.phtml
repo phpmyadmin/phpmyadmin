@@ -1,0 +1,15 @@
+<!-- LOGO START -->
+<?php if (false === $displayLogo) : ?>
+    <!-- LOGO END -->
+    <?php return; ?>
+<?php endif; ?>
+<div id="pmalogo">
+    <?php if (true === $useLogoLink) : ?>
+        <a href="<?php echo $logoLink; ?>" <?php echo $linkAttribs; ?>>
+    <?php endif; ?>
+    <?php echo $logo; ?>
+    <?php if (true === $useLogoLink) : ?>
+        </a>
+    <?php endif; ?>
+</div>
+<!-- LOGO END -->

@@ -1111,8 +1111,8 @@ Generic settings
     :type: boolean
     :default: true
 
-    Enables check for latest versions using javascript on main phpMyAdmin
-    page.
+    Enables check for latest versions using JavaScript on the main phpMyAdmin
+    page or by directly accessing :file:`version_check.php`.
 
     .. note::
 
@@ -1692,6 +1692,15 @@ Main panel
 
     Defines whether to display informations about the current Git revision (if
     applicable) on the main panel.
+
+.. config:option:: $cfg['MysqlMinVersion']
+
+    :type: array
+
+    Defines the minimum supported MySQL version. The default is chosen
+    by the phpMyAdmin team; however this directive was asked by a developer
+    of the Plesk control panel to ease integration with older MySQL servers
+    (where most of the phpMyAdmin features work).
 
 Database structure
 ------------------
