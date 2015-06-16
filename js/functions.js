@@ -2706,7 +2706,7 @@ AJAX.registerOnload('functions.js', function () {
                         // Redirect to table structure page on creation of new table
                         var params_12 = 'ajax_request=true&ajax_page_request=true';
                         params_12 += AJAX.cache.menus.getRequestParam();
-                        tblStruct_url = 'tbl_structure.php?db='+ data._params.db + '&token='+data._params.token +'&goto=db_structure.php&table='+data._params.table+'';
+                        tblStruct_url = 'tbl_structure.php?server=' + data._params.server + '&db='+ data._params.db + '&token='+data._params.token +'&goto=db_structure.php&table='+data._params.table+'';
                         $.get(tblStruct_url, params_12, AJAX.responseHandler);
                     } else {
                         PMA_ajaxShowMessage(

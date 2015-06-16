@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug #4950 Issues in database selection for replication
 - bug #4951 Trying to save chart as image crashes the browser
 - bug #4953 cant drag sql.gz file onto import input
+- bug #4960 Table creation results in GET request with missing server parameter that invalidates the session
 
 4.4.9.0 (2015-06-04)
 - bug #4920 relation view doesn't list fields of table in other database
