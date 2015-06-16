@@ -2042,7 +2042,6 @@ class PMA_Table
             $upd_query = null;
             // Map the fieldname's md5 back to its real name
             $master_field = $multi_edit_columns_name[$master_field_md5];
-            
             $foreign_table = $destination_table[$master_field_md5];
             $foreign_field = $destination_column[$master_field_md5];
             if (! empty($foreign_db)
