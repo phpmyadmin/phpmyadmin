@@ -218,11 +218,11 @@ for kit in $KITS ; do
                 echo "WARNING: ignoring compression '$comp', not known!"
                 ;;
         esac
-
-        # Cleanup
-        rm -f $name.tar
     done
 
+
+    # Cleanup
+    rm -f $name.tar
     # Remove directory with current dist set
     rm -rf $name
 done
