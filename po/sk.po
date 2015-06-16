@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-11 09:31-0400\n"
-"PO-Revision-Date: 2015-06-14 19:22+0200\n"
-"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
+"PO-Revision-Date: 2015-06-16 07:14+0200\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -6701,10 +6701,9 @@ msgid "Relational display"
 msgstr "Relačné zobrazenie"
 
 #: libraries/config/messages.inc.php:555
-#, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Nastavenie zobrazenia serverov."
+msgstr "Pre zobrazenie nastavení"
 
 #: libraries/config/messages.inc.php:556
 msgid "Grid editing: save all edited cells at once"
@@ -10669,7 +10668,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:1690
 msgid "no description"
-msgstr "bez Popisu"
+msgstr "bez popisu"
 
 #: libraries/relation.lib.php:1889
 msgid ""
@@ -14389,17 +14388,17 @@ msgstr "Priame odkazy"
 #: templates/designer/side_menu.phtml:122
 #: templates/designer/side_menu.phtml:124
 msgid "Snap to grid"
-msgstr ""
+msgstr "Prichytiť k mriežke"
 
 #: templates/designer/side_menu.phtml:128
 #: templates/designer/side_menu.phtml:134
 msgid "Small/Big All"
-msgstr "Malé/Veľké všetko"
+msgstr "Všetko Malé/Veľké"
 
 #: templates/designer/side_menu.phtml:138
 #: templates/designer/side_menu.phtml:141
 msgid "Toggle small/big"
-msgstr ""
+msgstr "Prepnúť malé/veľké"
 
 #: templates/designer/side_menu.phtml:145
 #: templates/designer/side_menu.phtml:148
