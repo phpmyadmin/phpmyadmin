@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-11 09:31-0400\n"
-"PO-Revision-Date: 2015-06-04 01:38+0200\n"
+"PO-Revision-Date: 2015-06-17 05:52+0200\n"
 "Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -1044,15 +1044,20 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Durch diese Operation versucht MySQL die Daten zwischen Kollationen "
+"umzuwandeln. Falls die Zeichensätze inkompatibel sind, kann es zu "
+"Datenverlust kommen und die verlorenen Daten sind eventuell <b>NICHT</b> "
+"einfach durch das Zurücksetzen der Spaltenkollation wiederherstellbar. <b>Um "
+"bestehende Daten umzuwandeln, wird empfohlen, den Spaltenänderungsmodus "
+"(„Bearbeiten“) auf der Tabellenstrukturseite zu verwenden.</b>"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Are you sure you wish to change the collation and convert the data?"
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Sind Sie sich sicher, dass Sie die Kollation ändern und die Daten "
+"Sind Sie sich sicher, dass Sie alle Spaltenkollationen ändern und die Daten "
 "konvertieren wollen?"
 
 #: js/messages.php:88
@@ -9677,10 +9682,9 @@ msgid "Storage Engine"
 msgstr "Tabellenformat"
 
 #: libraries/operations.lib.php:995
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "Alle Spalten atomar machen"
+msgstr "Alle Spaltenkollationen ändern"
 
 #: libraries/operations.lib.php:1164
 msgid "Copy table to (database<b>.</b>table)"
