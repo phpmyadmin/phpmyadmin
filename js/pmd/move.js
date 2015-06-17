@@ -1786,10 +1786,11 @@ function add_object()
         document.getElementById('h_operator').value = '---';
         p.value = ""; //make having
     }
-    if (document.getElementById('orderby').checked === true) {
-        history_array.push(new history(col_name, 'OrderBy', tab_name, h_tabs[downer + '.' + tab_name], "OrderBy"));
+    if (document.getElementById('orderby').value != '---') {
+        var oderby_obj = new orderby(document.getElementById('orderby').value);
+        history_array.push(new history(col_name, oderby_obj, tab_name, h_tabs[downer + '.' + tab_name], "OrderBy"));
         sum = sum + 1;
-        document.getElementById('orderby').checked = false;
+        document.getElementById('orderby').value = '---';
         //make orderby
     }
     PMA_ajaxShowMessage(PMA_sprintf(PMA_messages.strObjectsCreated, sum));

@@ -36,7 +36,7 @@ function detail(index)
         str = 'GroupBy ' + history_array[index].get_column_name();
     }
     if (type == "OrderBy") {
-        str = 'OrderBy ' + history_array[index].get_column_name();
+        str = 'OrderBy ' + history_array[index].get_column_name() + ' ' + history_array[index].get_obj().get_order();
     }
     if (type == "Having") {
         str = 'Having ';
@@ -338,6 +338,21 @@ var where = function (nrelation_operator, nquery) {
     this.setrelation_operator(nrelation_operator);
 };
 
+/**
+ * Orderby object closure
+ *
+ * @param norder order, ASC or DESC
+ */
+var orderby = function(norder) {
+    var order;
+    this.set_order = function(norder) {
+        order = norder;
+    };
+    this.get_order = function() {
+        return order;
+    }
+    this.set_order(norder);
+}
 
 /**
  * Having object closure, makes an object with all information of where
@@ -539,7 +554,8 @@ function query_orderby()
     var str = "";
     for (i = 0; i < history_array.length;i++) {
         if (history_array[i].get_type() == "OrderBy") {
-            str += "`" + history_array[i].get_column_name() + "`, ";
+            str += "`" + history_array[i].get_column_name() + "` "
+                + history_array[i].get_obj().get_order() + ", ";
         }
     }
     str = str.substr(0, str.length - 2);
