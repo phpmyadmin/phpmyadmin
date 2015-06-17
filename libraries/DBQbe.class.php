@@ -1608,7 +1608,7 @@ class PMA_DbQbe
         $join = '';
 
         // Tables that can not be combined with the table cluster
-        // that includes master table
+        // which includes master table
         $unfinalized = array_diff($searchTables, array_keys($finalized));
         if (count($unfinalized) > 0) {
 
@@ -1632,6 +1632,7 @@ class PMA_DbQbe
                             $tempSearchTables = $searchTables;
                             $tempSearchTables[] = $table;
 
+                            // Try joining with the added table
                             $this->_fillJoinClauses(
                                 $tempFinalized, $relations, $tempSearchTables
                             );
@@ -1639,14 +1640,15 @@ class PMA_DbQbe
                             $tempUnfinalized = array_diff(
                                 $tempSearchTables, array_keys($tempFinalized)
                             );
-
-                            // Take greedy approach, if the unfinalized count
-                            // drops we keep the new tables
+                            // Take greedy approach.
+                            // If the unfinalized count drops we keep the new table
+                            // and switch temporary varibles with the original ones
                             if (count($tempUnfinalized) < count($unfinalized)) {
                                 $finalized = $tempFinalized;
                                 $searchTables = $tempSearchTables;
                             }
 
+                            // We are done if no unfinalized tables anymore
                             if (count($tempUnfinalized) == 0) {
                                 break 3;
                             }
