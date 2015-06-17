@@ -20,6 +20,7 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('db_qbe.js', function () {
+    $(document).off('change', 'select[name^=criteriaColumn]');
     $(document).off('change', "#searchId");
     $(document).off('click', "#saveSearch");
     $(document).off('click', "#updateSearch");
@@ -29,6 +30,16 @@ AJAX.registerTeardown('db_qbe.js', function () {
 AJAX.registerOnload('db_qbe.js', function () {
 
     PMA_getSQLEditor($('#textSqlquery'), {}, 'both');
+
+    /**
+     * Ajax handler to check the corresponding 'show' checkbox when column is selected
+     */
+    $(document).on('change', 'select[name^=criteriaColumn]', function (event) {
+        if ($(this).val()) {
+            var index = (/\d+/).exec($(this).attr('name'));
+            $('input[name=criteriaShow\\[' + index + '\\]]').prop('checked', true);
+        }
+    });
 
     /**
      * Ajax event handlers for 'Select saved search'
