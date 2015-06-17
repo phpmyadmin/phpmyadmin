@@ -95,10 +95,16 @@ function display(init, finit)
             str += '<td style="padding-left: 5px;" class="right">' + PMA_getImage('b_sbrowse.png', 'column name') + '</td>' +
                 '<td width="175" style="padding-left: 5px">' + history_array[i].get_column_name() + '<td>';
             if (history_array[i].get_type() == "GroupBy" || history_array[i].get_type() == "OrderBy") {
-                str += '<td class="center">' + PMA_getImage('s_info.png', detail(i)) + '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td></td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', 'Delete') + '</td></tr></thead>';
+                str += '<td class="center">' + PMA_getImage('s_info.png', detail(i)) + '</td>' +
+                    '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
+                    '<td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', 'Delete') + '</td>';
             } else {
-                str += '<td class="center">' + PMA_getImage('s_info.png', detail(i)) + '</td><td title="' + detail(i) + '">' + history_array[i].get_type() + '</td><td <td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit.png', PMA_messages.strEdit) + '</td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'"               onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', 'Delete') + '</td></tr></thead>';
+                str += '<td class="center">' + PMA_getImage('s_info.png', detail(i)) + '</td>' +
+                    '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
+                    '<td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'"   onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit.png', PMA_messages.strEdit) + '</td>' +
+                    '<td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', 'Delete') + '</td>';
             }
+            str += '</tr></thead>';
             i++;
             if (i >= history_array.length) {
                 break;
