@@ -1602,36 +1602,8 @@ class PMA_DbQbe
             // Add master tables
             $finalized[$master] = '';
         }
-
-        while (true) {
-            $added = false;
-            foreach ($relations as $masterTable => $foreignData) {
-                foreach ($foreignData as $foreignTable => $clause) {
-                    if (! isset($finalized[$masterTable])
-                        && isset($finalized[$foreignTable])
-                    ) {
-                        $finalized[$masterTable] = $clause;
-                        $added = true;
-                    } elseif (! isset($finalized[$foreignTable])
-                        && isset($finalized[$masterTable])
-                        && in_array($foreignTable, $searchTables)
-                    ) {
-                        $finalized[$foreignTable] = $clause;
-                        $added = true;
-                    }
-                    if ($added) {
-                        // We are done if all tables are in $finalized
-                        if (count($finalized) == count($searchTables)) {
-                            break 3;
-                        }
-                    }
-                }
-            }
-            // If no new tables were added during this iteration, break;
-            if (! $added) {
-                break;
-            }
-        }
+        // Fill the $finalized array with JOIN clauses for each table
+        $this->_fillJoinClauses($finalized, $relations);
 
         // Tables that can not be combined with the table cluster
         // that includes master table
@@ -1694,6 +1666,48 @@ class PMA_DbQbe
                     . PMA_Util::backquote($field) . " = "
                     . PMA_Util::backquote($foreigner['foreign_table']) . "."
                     . PMA_Util::backquote($foreigner['foreign_field']);
+            }
+        }
+    }
+
+    /**
+     * Fills the $finalized arrays with JOIN clauses for each of the tables
+     *
+     * @param array $finalized    JOIN clauses for each table
+     * @param array $relations    Relations among tables
+     * @param array $searchTables Tables involved in the search
+     *
+     * @return void
+     */
+    private function _fillJoinClauses(&$finalized, $relations)
+    {
+        while (true) {
+            $added = false;
+            foreach ($relations as $masterTable => $foreignData) {
+                foreach ($foreignData as $foreignTable => $clause) {
+                    if (! isset($finalized[$masterTable])
+                        && isset($finalized[$foreignTable])
+                    ) {
+                        $finalized[$masterTable] = $clause;
+                        $added = true;
+                    } elseif (! isset($finalized[$foreignTable])
+                        && isset($finalized[$masterTable])
+                        && in_array($foreignTable, $searchTables)
+                    ) {
+                        $finalized[$foreignTable] = $clause;
+                        $added = true;
+                    }
+                    if ($added) {
+                        // We are done if all tables are in $finalized
+                        if (count($finalized) == count($searchTables)) {
+                            return;
+                        }
+                    }
+                }
+            }
+            // If no new tables were added during this iteration, break;
+            if (! $added) {
+                return;
             }
         }
     }
