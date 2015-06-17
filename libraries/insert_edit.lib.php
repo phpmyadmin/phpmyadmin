@@ -19,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
  * @param array      $where_clause_array array of where clauses
  * @param string     $err_url            error url
  *
- * @return array $_form_params array of insert/edit form parameters
+ * @return array $form_params array of insert/edit form parameters
  */
 function PMA_getFormParametersForInsertForm($db, $table, $where_clauses,
     $where_clause_array, $err_url

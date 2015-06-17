@@ -34,40 +34,42 @@
 
     <?php if ($action == 'tbl_create.php'): ?>
         <div id="table_name_col_no_outer">
-        <table id="table_name_col_no">
-        <tr class="vmiddle floatleft">
-        <td> <?php echo __('Table name'); ?>:&nbsp;
-        <input type="text"
-               name="table"
-               size="40"
-               maxlength="64"
-               value="<?php echo (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : ''); ?>"
-               class="textfield" autofocus required />
-        </td>
-        <td>
-            Add
-            <input type="number"
-                   id="added_fields"
-                   name="added_fields"
-                   size="2"
-                   value="1"
-                   min="1"
-                   onfocus="this.select()" />
-            column(s)
-            <input type="button"
-                   name="submit_num_fields"
-                   value="<?php echo __('Go'); ?>" />
-        </td>
-        </tr>
-        </table>
+            <table id="table_name_col_no">
+                <tr class="vmiddle floatleft">
+                    <td><?php echo __('Table name'); ?>:&nbsp;
+                    <input type="text"
+                           name="table"
+                           size="40"
+                           maxlength="64"
+                           value="<?php echo (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : ''); ?>"
+                           class="textfield" autofocus required />
+                    </td>
+                    <td>
+                        Add
+                        <input type="number"
+                               id="added_fields"
+                               name="added_fields"
+                               size="2"
+                               value="1"
+                               min="1"
+                               onfocus="this.select()" />
+                        column(s)
+                        <input type="button"
+                               name="submit_num_fields"
+                               value="<?php echo __('Go'); ?>" />
+                    </td>
+                </tr>
+            </table>
         </div>
     <?php endif; ?>
-    <?php if (is_array($content_cells) && is_array($header_cells)): ?>
+    <?php if (is_array($content_cells)): ?>
         <?php echo PMA\Template::get(
             'columns_definitions/table_fields_definitions'
         )->render(array(
-            'content_cells' => $content_cells,
-            'header_cells' => $header_cells
+            'is_backup' => $is_backup,
+            'fields_meta' => $fields_meta,
+            'mimework' => $mimework,
+            'content_cells' => $content_cells
         )); ?>
     <?php endif; ?>
     <?php if ($action == 'tbl_create.php'): ?>

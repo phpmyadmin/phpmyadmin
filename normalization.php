@@ -12,7 +12,6 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/normalization.lib.php';
-require_once 'libraries/tbl_columns_definition_form.lib.php';
 require_once 'libraries/Index.class.php';
 
 if (isset($_REQUEST['getColumns'])) {
