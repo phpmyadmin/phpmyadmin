@@ -1581,37 +1581,7 @@ class PMA_DbQbe
 
         // Fill $relations with inter table relationship data
         foreach ($searchTables as $oneTable) {
-            $relations[$oneTable] = array();
-
-            $foreigners = PMA_getForeigners($GLOBALS['db'], $oneTable);
-            foreach ($foreigners as $field => $foreigner) {
-                // Foreign keys data
-                if ($field == 'foreign_keys_data') {
-                    foreach ($foreigner as $oneKey) {
-                        $clauses = array();
-                        // There may be multiple column relations
-                        foreach ($oneKey['index_list'] as $index => $oneField) {
-                            $clauses[] = PMA_Util::backquote($oneTable) . "."
-                                . PMA_Util::backquote($oneField) . " = "
-                                . PMA_Util::backquote(
-                                    $oneKey['ref_table_name']
-                                ) . "."
-                                . PMA_Util::backquote(
-                                    $oneKey['ref_index_list'][$index]
-                                );
-                        }
-                        // Combine multiple column relations with AND
-                        $relations[$oneTable][$oneKey['ref_table_name']]
-                            = implode(" AND ", $clauses);
-                    }
-                } else { // Internal relations
-                    $relations[$oneTable][$foreigner['foreign_table']]
-                        = PMA_Util::backquote($oneTable) . "."
-                        . PMA_Util::backquote($field) . " = "
-                        . PMA_Util::backquote($foreigner['foreign_table']) . "."
-                        . PMA_Util::backquote($foreigner['foreign_field']);
-                }
-            }
+            $this->_loadRelationsForTable($relations, $oneTable);
         }
 
         // Get tables and columns with valid where clauses
@@ -1686,6 +1656,46 @@ class PMA_DbQbe
         }
 
         return $join;
+    }
+
+    /**
+     * Loads relations for a given table into the $relations array
+     *
+     * @param array  $relations array of relations
+     * @param string $oneTable  the table
+     *
+     * @return void
+     */
+    private function _loadRelationsForTable(&$relations, $oneTable)
+    {
+        $relations[$oneTable] = array();
+
+        $foreigners = PMA_getForeigners($GLOBALS['db'], $oneTable);
+        foreach ($foreigners as $field => $foreigner) {
+            // Foreign keys data
+            if ($field == 'foreign_keys_data') {
+                foreach ($foreigner as $oneKey) {
+                    $clauses = array();
+                    // There may be multiple column relations
+                    foreach ($oneKey['index_list'] as $index => $oneField) {
+                        $clauses[]
+                            = PMA_Util::backquote($oneTable) . "."
+                            . PMA_Util::backquote($oneField) . " = "
+                            . PMA_Util::backquote($oneKey['ref_table_name']) . "."
+                            . PMA_Util::backquote($oneKey['ref_index_list'][$index]);
+                    }
+                    // Combine multiple column relations with AND
+                    $relations[$oneTable][$oneKey['ref_table_name']]
+                        = implode(" AND ", $clauses);
+                }
+            } else { // Internal relations
+                $relations[$oneTable][$foreigner['foreign_table']]
+                    = PMA_Util::backquote($oneTable) . "."
+                    . PMA_Util::backquote($field) . " = "
+                    . PMA_Util::backquote($foreigner['foreign_table']) . "."
+                    . PMA_Util::backquote($foreigner['foreign_field']);
+            }
+        }
     }
 
     /**
