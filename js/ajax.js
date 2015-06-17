@@ -348,7 +348,6 @@ var AJAX = {
                     .not('#page_nav_icons')
                     .not('#page_content')
                     .not('#selflink')
-                    .not('#session_debug')
                     .not('#pma_header')
                     .not('#pma_footer')
                     .not('#pma_demo')
@@ -403,9 +402,6 @@ var AJAX = {
                 var msg = '';
                 if(data._errSubmitMsg){
                     msg = data._errSubmitMsg;
-                }
-                if (data._debug) {
-                    $('#session_debug').replaceWith(data._debug);
                 }
                 if (data._errors) {
                     $('<div/>', {id : 'pma_errors'})

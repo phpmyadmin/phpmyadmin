@@ -135,28 +135,26 @@ class PMA_DatabaseInterface
      */
     private function _dbgQuery($query, $link, $result, $time)
     {
-        $hash = md5($query);
-
-        if (isset($_SESSION['debug']['queries'][$hash])) {
-            $_SESSION['debug']['queries'][$hash]['count']++;
-        } else {
-            $_SESSION['debug']['queries'][$hash] = array();
-            $error_message = $this->getError($link);
-            if ($result == false && is_string($error_message)) {
-                $_SESSION['debug']['queries'][$hash]['error']
-                    = '<b style="color:red">'
-                    . htmlspecialchars($error_message) . '</b>';
-            }
-            $_SESSION['debug']['queries'][$hash]['count'] = 1;
-            $_SESSION['debug']['queries'][$hash]['query'] = htmlspecialchars($query);
-            $_SESSION['debug']['queries'][$hash]['time'] = $time;
+        $dbgInfo = array();
+        $error_message = $this->getError($link);
+        if ($result == false && is_string($error_message)) {
+            $dbgInfo['error']
+                = '<span style="color:red">'
+                . htmlspecialchars($error_message) . '</span>';
         }
+        $dbgInfo['count'] = 1;
+        $dbgInfo['query'] = htmlspecialchars($query);
+        $dbgInfo['time'] = $time;
+        // Get and slightly format backtrace
+        $dbgInfo['trace'] = debug_backtrace();
+        foreach ($dbgInfo['trace'] as $key => $step) {
+            if (isset($step['file'])) {
+                $dbgInfo['trace'][$key]['file'] = PMA_Error::relPath($step['file']);
+            }
+        }
+        $dbgInfo['hash'] = md5($query);
 
-        $_SESSION['debug']['queries'][$hash]['trace'][] = PMA_Error::formatBacktrace(
-            debug_backtrace(),
-            " ",
-            "\n"
-        );
+        $_SESSION['debug']['queries'][] = $dbgInfo;
     }
 
     /**

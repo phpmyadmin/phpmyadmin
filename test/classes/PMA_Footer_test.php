@@ -111,23 +111,23 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetDebugMessage()
     {
-
+        $GLOBALS['cfg']['DBG']['sql'] = true;
         $_SESSION['debug']['queries'] = array(
-            'abc' => array(
+            array(
                 'count' => 1,
                 'time' => 0.2,
                 'query' => 'SELECT * FROM `pma_bookmark` WHERE 1',
             ),
-            'def' => array(
+            array(
                 'count' => 1,
                 'time' => 2.5,
                 'query' => 'SELECT * FROM `db` WHERE 1',
             ),
         );
 
-        $this->assertRegExp(
-            '/<div id="session_debug">2 queries executed 2 times in 2.7 seconds'
-            . '<pre>/',
+        $this->assertEquals(
+            '{"queries":[{"count":1,"time":0.2,"query":"SELECT * FROM `pma_bookmark` WHERE 1"},'
+            . '{"count":1,"time":2.5,"query":"SELECT * FROM `db` WHERE 1"}]}',
             $this->object->getDebugMessage()
         );
     }
