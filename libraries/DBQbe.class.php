@@ -1575,7 +1575,6 @@ class PMA_DbQbe
      */
     private function _getJoinForFromClause($searchTables, $searchColumns)
     {
-
         // $relations[master_table][foreign_table] => clause
         $relations = array();
 
@@ -1603,13 +1602,68 @@ class PMA_DbQbe
             $finalized[$master] = '';
         }
         // Fill the $finalized array with JOIN clauses for each table
-        $this->_fillJoinClauses($finalized, $relations);
+        $this->_fillJoinClauses($finalized, $relations, $searchTables);
+
+        // JOIN clause
+        $join = '';
 
         // Tables that can not be combined with the table cluster
         // that includes master table
         $unfinalized = array_diff($searchTables, array_keys($finalized));
-        // Add these tables as cartesian product before joined tables
-        $join = implode(', ', array_map('PMA_Util::backquote', $unfinalized));
+        if (count($unfinalized) > 0) {
+
+            // We need to look for intermediary tables to JOIN unfinalized tables
+            // Heuristic to chose intermediary tables is to look for tables
+            // having relationships with unfinalized tables
+            foreach ($unfinalized as $oneTable) {
+
+                $references = PMA_getChildReferences($this->_db, $oneTable);
+                foreach ($references as $column => $columnReferences) {
+                    foreach ($columnReferences as $reference) {
+
+                        // Only from this schema
+                        if ($reference['table_schema'] == $this->_db) {
+                            $table = $reference['table_name'];
+
+                            $this->_loadRelationsForTable($relations, $table);
+
+                            // Make copies
+                            $tempFinalized = $finalized;
+                            $tempSearchTables = $searchTables;
+                            $tempSearchTables[] = $table;
+
+                            $this->_fillJoinClauses(
+                                $tempFinalized, $relations, $tempSearchTables
+                            );
+
+                            $tempUnfinalized = array_diff(
+                                $tempSearchTables, array_keys($tempFinalized)
+                            );
+
+                            // Take greedy approach, if the unfinalized count
+                            // drops we keep the new tables
+                            if (count($tempUnfinalized) < count($unfinalized)) {
+                                $finalized = $tempFinalized;
+                                $searchTables = $tempSearchTables;
+                            }
+
+                            if (count($tempUnfinalized) == 0) {
+                                break 3;
+                            }
+                        }
+                    }
+                }
+            }
+
+            $unfinalized = array_diff($searchTables, array_keys($finalized));
+            // If there are still unfinalized tables
+            if (count($unfinalized) > 0) {
+                // Add these tables as cartesian product before joined tables
+                $join .= implode(
+                    ', ', array_map('PMA_Util::backquote', $unfinalized)
+                );
+            }
+        }
 
         $first = true;
         // Add joined tables
@@ -1679,11 +1733,12 @@ class PMA_DbQbe
      *
      * @return void
      */
-    private function _fillJoinClauses(&$finalized, $relations)
+    private function _fillJoinClauses(&$finalized, $relations, $searchTables)
     {
         while (true) {
             $added = false;
-            foreach ($relations as $masterTable => $foreignData) {
+            foreach ($searchTables as $masterTable) {
+                $foreignData = $relations[$masterTable];
                 foreach ($foreignData as $foreignTable => $clause) {
                     if (! isset($finalized[$masterTable])
                         && isset($finalized[$foreignTable])
