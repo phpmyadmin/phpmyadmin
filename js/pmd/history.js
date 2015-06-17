@@ -538,9 +538,11 @@ function query_orderby()
     var i;
     var str = "";
     for (i = 0; i < history_array.length;i++) {
-        if (history_array[i].get_type() == "OrderBy") { str += history_array[i].get_column_name() + " , "; }
+        if (history_array[i].get_type() == "OrderBy") {
+            str += "`" + history_array[i].get_column_name() + "`, ";
+        }
     }
-    str = str.substr(0, str.length - 1);
+    str = str.substr(0, str.length - 2);
     return str;
 }
 
