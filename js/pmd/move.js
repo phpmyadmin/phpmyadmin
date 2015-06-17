@@ -1797,7 +1797,7 @@ function add_object()
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(init, history_array.length);
     Close_option();
-    panel(0);
+    $('#ab').accordion("refresh");
 }
 
 AJAX.registerTeardown('pmd/move.js', function () {

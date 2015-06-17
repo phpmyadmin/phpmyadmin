@@ -9,19 +9,11 @@
 <a class="trigger" href="#">
     <?php echo __('Active options'); ?>
 </a>
-<div id="filter">
-</div>
 <div id="box">
-    <span id="boxtitle">
-    </span>
-    <form method="post" action="db_qbe.php">
+    <form method="post" action="db_qbe.php" id="vqb_form">
         <textarea cols="80" name="sql_query" id="textSqlquery" rows="15">
         </textarea>
-        <div id="tblfooter">
-            <input type="submit" name="submit_sql" class="btn" />
-            <input type="button" name="cancel" value="<?php echo __('Cancel'); ?>" onclick="closebox()" class="btn" />
-            <?php echo PMA_URL_getHiddenInputs($_GET['db']); ?>
-        </div>
-        <p></p>
+        <input type="hidden" name="submit_sql" value="true">
+        <?php echo PMA_URL_getHiddenInputs($_GET['db']); ?>
     </form>
 </div>
