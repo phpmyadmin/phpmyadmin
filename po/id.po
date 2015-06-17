@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-06-16 11:47+0200\n"
+"PO-Revision-Date: 2015-06-17 06:05+0200\n"
 "Last-Translator: Tommy Surbakti <tommy@surbakti.net>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/id/>\n"
@@ -2522,6 +2522,9 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Peramban anda tidak mendukung penyimpanan lokal atau kuota telah tercapai, "
+"beberapa fitur mungkin tidak bekerja dengan sempurna. Di Safari, masalah ini "
+"terjadi karena \"Private Mode Browsing\" diaktifkan."
 
 #: js/messages.php:585
 msgctxt "Previous month"
@@ -2858,20 +2861,17 @@ msgid "Font size"
 msgstr "Ukuran huruf"
 
 #: libraries/Console.class.php:85 libraries/Console.class.php:168
-#, fuzzy
 msgid "Collapse"
-msgstr "Tutup"
+msgstr "Tampilkan"
 
 #: libraries/Console.class.php:86 libraries/Console.class.php:170
-#, fuzzy
 msgid "Expand"
 msgstr "Buka"
 
 #: libraries/Console.class.php:87 libraries/Console.class.php:171
-#, fuzzy
 #| msgid "subquery"
 msgid "Requery"
-msgstr "subkueri"
+msgstr "Kueri ulang"
 
 #: libraries/Console.class.php:89 libraries/DbSearch.class.php:365
 #: libraries/DisplayResults.class.php:3386
@@ -2900,11 +2900,11 @@ msgid "Database"
 msgstr "Basis data"
 
 #: libraries/Console.class.php:100
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete relation"
 msgid "Total %d bookmark"
 msgid_plural "Total %d bookmarks"
-msgstr[0] "Hapus relasi"
+msgstr[0] "Total %d"
 
 #: libraries/Console.class.php:108
 msgid "private"
@@ -2916,22 +2916,20 @@ msgstr "dibagi"
 
 #. l10n: First parameter will be replaced with the translation for Total and the number of bookmarks, second one with the translation for private and the third one, with the translation for shared
 #: libraries/Console.class.php:116
-#, fuzzy, php-format
+#, php-format
 #| msgid "The bookmark has been deleted."
 msgid "%1$s, %2$s and %3$s bookmarks included"
-msgstr "Markah telah dihapus."
+msgstr "%1$s, %2$s and %3$s bookmarks diikutsertakan"
 
 #: libraries/Console.class.php:122
-#, fuzzy
 #| msgid "Delete relation"
 msgid "No bookmarks"
-msgstr "Hapus relasi"
+msgstr "Tidak ada bookmark"
 
 #: libraries/Console.class.php:173
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
-msgstr "Jelaskan SQL"
+msgstr "Jelaskan"
 
 #: libraries/Console.class.php:174 libraries/Util.class.php:1262
 #: libraries/sql.lib.php:333
@@ -2939,25 +2937,21 @@ msgid "Profiling"
 msgstr "Profil"
 
 #: libraries/Console.class.php:176
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
-msgstr "Tabel markah"
+msgstr "Bookmarks"
 
 #: libraries/Console.class.php:177
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
-msgstr "Singgahan kueri"
+msgstr "Kueri gagal"
 
 #: libraries/Console.class.php:181
-#, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
 msgstr "Waktu eksekusi kueri"
 
 #: libraries/Console.class.php:188
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "SQL Query Console"
 msgstr "Kotak Kueri SQL"
@@ -2972,7 +2966,6 @@ msgid "Clear"
 msgstr "Bersihkan"
 
 #: libraries/Console.class.php:195
-#, fuzzy
 #| msgid "SQL history"
 msgid "History"
 msgstr "Riwayat"
@@ -3007,22 +3000,19 @@ msgid "Options"
 msgstr "Opsi"
 
 #: libraries/Console.class.php:202 libraries/Console.class.php:255
-#, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
-msgstr "Tabel markah"
+msgstr "Bookmark"
 
 #: libraries/Console.class.php:211
-#, fuzzy
 #| msgid "Execute every"
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Dieksekusi setiap"
+msgstr "Tekan Ctrl+Enter untuk menjalankan kueri"
 
 #: libraries/Console.class.php:232
-#, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
-msgstr "Lewati galat saat ini"
+msgstr "Sesi saat ini"
 
 #: libraries/Console.class.php:259 libraries/Util.class.php:1231
 #: libraries/config/messages.inc.php:763
@@ -3032,16 +3022,14 @@ msgid "Refresh"
 msgstr "Segarkan"
 
 #: libraries/Console.class.php:262
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "Dan"
+msgstr "Tambah"
 
 #: libraries/Console.class.php:271
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
-msgstr "Hapus relasi"
+msgstr "Tambah bookmark"
 
 #: libraries/Console.class.php:275
 msgid "Label"
@@ -3052,33 +3040,28 @@ msgid "Target database"
 msgstr "Basis data target"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
-msgstr "Hapus relasi"
+msgstr "Bagikan bookmark"
 
 #: libraries/Console.class.php:297
-#, fuzzy
 #| msgid "Reset to default"
 msgid "Set default"
 msgstr "Kembalikan nilai bawaan"
 
 #: libraries/Console.class.php:301
-#, fuzzy
 #| msgid "Always send error reports"
 msgid "Always expand query messages"
-msgstr "Selalu kirim laporan kesalahan"
+msgstr "Selalu tampilkan pesan kueri"
 
 #: libraries/Console.class.php:303
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
-msgstr "Tabel riwayat kueri SQL"
+msgstr "Tampilkan riwayat kueri di awal"
 
 #: libraries/Console.class.php:305
-#, fuzzy
 msgid "Show current browsing query"
-msgstr "Tampilkan permintaan browsing yang aktif"
+msgstr "Tampilkan kueri saat ini"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1356
 #: libraries/DisplayResults.class.php:2148
@@ -3497,16 +3480,14 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Terlalu banyak pesan kesalahan, sebagian tidak bisa ditampilkan."
 
 #: libraries/Error_Handler.class.php:336
-#, fuzzy
 #| msgid "Import"
 msgid "Report"
 msgstr "Laporan"
 
 #: libraries/Error_Handler.class.php:341 libraries/error_report.lib.php:373
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Buat versi secara otomatis"
+msgstr "Selanjutnya kirim laporan otomatis"
 
 #: libraries/File.class.php:225
 msgid "File was not an uploaded file."
@@ -3773,10 +3754,9 @@ msgid "Designer"
 msgstr "Desainer"
 
 #: libraries/Menu.class.php:500 libraries/Util.class.php:4167
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "Kolom textarea"
+msgstr "Tengah kolom"
 
 #: libraries/Menu.class.php:537 libraries/Util.class.php:4139
 #: libraries/config/messages.inc.php:233
@@ -4064,10 +4044,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Server MySQL ini tidak mendukung mesin penyimpanan %s."
 
 #: libraries/Table.class.php:397
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "status tabel tidak diketahui: "
+msgstr "status tabel tidak diketahui:"
 
 #: libraries/Table.class.php:777
 #, php-format
@@ -4098,10 +4077,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabel %1$s telah berubah nama menjadi %2$s."
 
 #: libraries/Table.class.php:1535
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "Tidak dapat menyimpan preferensi UI tabel"
+msgstr "Tidak dapat menyimpan preferensi UI tabel!"
 
 #: libraries/Table.class.php:1564
 #, php-format
@@ -4146,19 +4124,16 @@ msgid "Value"
 msgstr "Nilai"
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Table Search"
 msgid "Table search"
 msgstr "Pencarian Tabel"
 
 #: libraries/TableSearch.class.php:212
-#, fuzzy
 #| msgid "Zoom Search"
 msgid "Zoom search"
-msgstr "Pencarian Zum"
+msgstr "Perbesar pencarian"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1225
-#, fuzzy
 #| msgid "Find and Replace"
 msgid "Find and replace"
 msgstr "Cari dan Gantikan"
@@ -4227,10 +4202,9 @@ msgid "Replace with:"
 msgstr "Ganti dengan:"
 
 #: libraries/TableSearch.class.php:1370
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "persamaan reguler"
+msgstr "Gunakan regular expression"
 
 #: libraries/TableSearch.class.php:1473
 msgid "Find and replace - preview"
@@ -4600,9 +4574,8 @@ msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Alias untuk BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:780
-#, fuzzy
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr "Stores a Universally Unique Identifier (UUID)"
+msgstr "Simpan Universally Unique Identifier (UUID)"
 
 #: libraries/Types.class.php:786
 msgid ""
@@ -4657,11 +4630,10 @@ msgid "Create PHP Code"
 msgstr "Buat kode PHP"
 
 #: libraries/Util.class.php:1274
-#, fuzzy
 #| msgid "Edit mode"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Modus edit"
+msgstr "Edit dikotak"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1579
@@ -4715,10 +4687,9 @@ msgstr ""
 "Direktori yang telah ditetapkan untuk mengunggah tidak dapat dihubungi."
 
 #: libraries/Util.class.php:3402
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "Tidak ada arsip untuk diunggah"
+msgstr "Tidak ada arsip untuk diunggah!"
 
 # Imperative menu
 #: libraries/Util.class.php:3427 libraries/Util.class.php:3428
@@ -4806,7 +4777,6 @@ msgid "Check Privileges"
 msgstr "Periksa Hak Akses"
 
 #: libraries/central_columns.lib.php:155
-#, fuzzy
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
@@ -4818,10 +4788,9 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr "Tidak dapat menambahkan %1$s karena sudah ada dalam daftar pusat!"
 
 #: libraries/central_columns.lib.php:298
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "Konfigurasi tidak dapat disimpan"
+msgstr "Tidak dapat menambah kolom!"
 
 #: libraries/central_columns.lib.php:373
 #, fuzzy, php-format
