@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-06-03 20:58+0200\n"
+"PO-Revision-Date: 2015-06-13 11:55+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -14850,22 +14850,24 @@ msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "Priročnik MySQL je točen samo za uradne izdaje MySQL."
 
 #: libraries/advisory_rules.txt:132
-#, fuzzy
 #| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid ""
 "Percona documentation is at http://www.percona.com/software/documentation/"
-msgstr "Dokumentacija Percona se nahaja na http://www.percona.com/docs/wiki/"
+msgstr ""
+"Dokumentacija Percona se nahaja na "
+"http://www.percona.com/software/documentation/"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
 msgstr "našel sem 'percona' v version_comment"
 
 #: libraries/advisory_rules.txt:139
-#, fuzzy
 #| msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgid ""
 "Drizzle documentation is at http://www.drizzle.org/content/documentation/"
-msgstr "Dokumentacija Drizzle se nahaja na http://docs.drizzle.org/"
+msgstr ""
+"Dokumentacija Drizzle se nahaja na "
+"http://www.drizzle.org/content/documentation/"
 
 #: libraries/advisory_rules.txt:140
 #, php-format

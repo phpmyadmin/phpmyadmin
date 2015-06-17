@@ -1,6 +1,16 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.4.10.0 (2015-06-17)
+- bug #4950 Issues in database selection for replication
+- bug #4951 Trying to save chart as image crashes the browser
+- bug #4953 cant drag sql.gz file onto import input
+- bug #4960 Table creation results in GET request with missing server parameter that invalidates the session
+- bug #4961 Javascript error when Designer is opened
+- bug #4962 Insert by foreign key scrolls page to top
+- bug #4955 Clicking on the navi logo does not always work
+- bug       External URL for $cfg['NavigationLogoLink'] causes JavaScript error when clicked
+
 4.4.9.0 (2015-06-04)
 - bug #4920 relation view doesn't list fields of table in other database
 - bug #4905 Sorting by an alias
