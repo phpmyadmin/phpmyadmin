@@ -230,6 +230,12 @@ done
 # Cleanup
 rm -rf phpMyAdmin-${version}
 
+# Signing of files with default GPG key
+echo "* Signing files"
+for file in *.gz *.zip *.bz2 *.7z ; do
+    gpg --detach-sign --armor $file
+done
+
 
 echo ""
 echo ""
