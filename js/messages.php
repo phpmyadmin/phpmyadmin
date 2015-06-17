@@ -341,6 +341,7 @@ $js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, t
 $js_messages['strHideQueryBox'] = __('Hide query box');
 $js_messages['strShowQueryBox'] = __('Show query box');
 $js_messages['strEdit'] = __('Edit');
+$js_messages['strDelete'] = __('Delete');
 $js_messages['strNotValidRowNumber'] = __('%d is not valid row number.');
 $js_messages['strBrowseForeignValues'] = __('Browse foreign values');
 $js_messages['strNoAutoSavedQuery'] = __('No auto-saved query');
