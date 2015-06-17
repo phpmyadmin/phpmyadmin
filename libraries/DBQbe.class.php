@@ -1642,18 +1642,14 @@ class PMA_DbQbe
                     ) {
                         $finalized[$masterTable] = $clause;
                         $added = true;
-
-                        // We are done if all tables are in $finalized
-                        if (count($finalized) == count($allTables)) {
-                            break 3;
-                        }
-                    } else if (! isset($finalized[$foreignTable])
+                    } elseif (! isset($finalized[$foreignTable])
                         && isset($finalized[$masterTable])
                         && in_array($foreignTable, $allTables)
                     ) {
                         $finalized[$foreignTable] = $clause;
                         $added = true;
-
+                    }
+                    if ($added) {
                         // We are done if all tables are in $finalized
                         if (count($finalized) == count($allTables)) {
                             break 3;
