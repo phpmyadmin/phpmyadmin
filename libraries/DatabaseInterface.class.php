@@ -142,7 +142,6 @@ class PMA_DatabaseInterface
                 = '<span style="color:red">'
                 . htmlspecialchars($error_message) . '</span>';
         }
-        $dbgInfo['count'] = 1;
         $dbgInfo['query'] = htmlspecialchars($query);
         $dbgInfo['time'] = $time;
         // Get and slightly format backtrace

@@ -272,22 +272,29 @@ class PMA_Console
 
             // Debug SQL card
             $output .= '<div class="card" id="debug_console">';
-            $output .= '<div class="toolbar"><div class="switch_button">'
-                .  '<span>' . __('Debug SQL') . '</span>'
-                .  '</div></div>'; // Toolbar
+            $output .= '<div class="toolbar">'
+                . '<div class="switch_button">'
+                . '<span>' . __('Debug SQL') . '</span>'
+                . '</div>'
+                . '<div class="button group_queries">'
+                . '<span>' . __('Group queries') . '</span>'
+                . '</div>'
+                . '<div class="button ungroup_queries">'
+                . '<span>' . __('Ungroup queries') . '</span>'
+                . '</div>'
+                . '</div>'; // Toolbar
             $output .= '<div class="content debug">';
             $output .= '<div class="message welcome"></div>';
             $output .= '<div class="debugLog"></div>';
             $output .= '</div>'; // Content
             $output .= '<div class="templates">'
-                . '<div class="debug_query">'
+                . '<div class="debug_query action_content">'
                     . '<span class="action collapse">' . __('Collapse') . '</span> '
                     . '<span class="action expand">' . __('Expand') . '</span> '
                     . '<span class="action dbg_show_trace">' . __('Show trace') . '</span> '
                     . '<span class="action dbg_hide_trace">' . __('Hide trace') . '</span> '
-                    . '<span class="text time">' . __('Time taken:')
-                    . ' <span></span>s'
-                    . '</span>'
+                    . '<span class="text count hide">' . __('Count:') . ' <span></span></span>'
+                    . '<span class="text time">' . __('Time taken:') . ' <span></span>s</span>'
                 . '</div>'
                 . '</div>'; // Template
             $output .= '</div>'; // Debug SQL card
