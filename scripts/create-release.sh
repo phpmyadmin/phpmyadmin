@@ -234,6 +234,8 @@ rm -rf phpMyAdmin-${version}
 echo "* Signing files"
 for file in *.gz *.zip *.bz2 *.7z ; do
     gpg --detach-sign --armor $file
+    md5sum $file > $file.md5
+    sha1sum $file > $file.sha1
 done
 
 
