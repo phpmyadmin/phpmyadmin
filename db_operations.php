@@ -70,6 +70,7 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
 
         include_once "libraries/plugin_interface.lib.php";
         // remove all foreign key constraints, otherwise we can get errors
+        /* @var $export_sql_plugin ExportSql */
         $export_sql_plugin = PMA_getPlugin(
             "export",
             "sql",

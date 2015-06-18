@@ -167,6 +167,7 @@ if (!defined('TESTSUITE')) {
     PMA_Util::checkParameters(array('what', 'export_type'));
 
     // export class instance, not array of properties, as before
+    /* @var $export_plugin ExportPlugin */
     $export_plugin = PMA_getPlugin(
         "export",
         $what,

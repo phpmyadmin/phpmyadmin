@@ -817,6 +817,7 @@ class PMA_Table
         if ($what != 'dataonly') {
             include_once "libraries/plugin_interface.lib.php";
             // get Export SQL instance
+            /* @var $export_sql_plugin ExportSql */
             $export_sql_plugin = PMA_getPlugin(
                 "export",
                 "sql",

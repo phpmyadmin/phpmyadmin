@@ -603,6 +603,7 @@ $sql_data = array('valid_sql' => array(), 'valid_queries' => 0);
 if (! $error) {
     // Check for file existence
     include_once "libraries/plugin_interface.lib.php";
+    /* @var $import_plugin ImportPlugin */
     $import_plugin = PMA_getPlugin(
         "import",
         $format,

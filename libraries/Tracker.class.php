@@ -187,6 +187,7 @@ class PMA_Tracker
 
         // get Export SQL instance
         include_once "libraries/plugin_interface.lib.php";
+        /* @var $export_sql_plugin ExportSql */
         $export_sql_plugin = PMA_getPlugin(
             "export",
             "sql",
