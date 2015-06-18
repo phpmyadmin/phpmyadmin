@@ -1100,12 +1100,42 @@ var PMA_consoleBookmarks = {
 };
 
 var PMA_consoleDebug = {
+    _config: {
+        groupQueries: false
+    },
+    _lastDebugInfo: {
+        debugInfo: null,
+        url: null
+    },
     initialize: function() {
         // Try to get debug info after every AJAX request
         $( document ).ajaxSuccess(function(event, xhr, settings, data) {
             if (data._debug) {
                 PMA_consoleDebug.showLog(data._debug, settings.url);
             }
+        });
+
+        // Initialize config
+        this._initConfig();
+
+        if (this.configParam('groupQueries')) {
+            $('#debug_console').addClass('grouped');
+        } else {
+            $('#debug_console').addClass('ungrouped');
+        }
+
+        // Initialize actions in toolbar
+        $('#debug_console .button.group_queries').click(function() {
+            $('#debug_console').addClass('grouped');
+            $('#debug_console').removeClass('ungrouped');
+            PMA_consoleDebug.configParam('groupQueries', true);
+            PMA_consoleDebug.refresh();
+        });
+        $('#debug_console .button.ungroup_queries').click(function() {
+            $('#debug_console').addClass('ungrouped');
+            $('#debug_console').removeClass('grouped');
+            PMA_consoleDebug.configParam('groupQueries', false);
+            PMA_consoleDebug.refresh();
         });
 
         // Show SQL debug info for first page load
@@ -1117,6 +1147,19 @@ var PMA_consoleDebug = {
         }
         PMA_consoleDebug.showLog(debugSQLInfo);
     },
+    _initConfig: function() {
+        var config = JSON.parse($.cookie('pma_console_dbg_config'));
+        if (config) {
+            this._config = config;
+        }
+    },
+    configParam: function(name, value) {
+        if (typeof value === 'undefined') {
+            return this._config[name];
+        }
+        this._config[name] = value;
+        $.cookie('pma_console_dbg_config', JSON.stringify(this._config));
+    },
     _formatFunctionCall: function(dbgStep) {
         var functionName = '';
         if ('class' in dbgStep) {
@@ -1126,8 +1169,7 @@ var PMA_consoleDebug = {
         functionName += dbgStep.function;
         if (dbgStep.args.length) {
             functionName += '(...)';
-        }
-        else {
+        } else {
             functionName += '()';
         }
         return functionName;
@@ -1181,8 +1223,7 @@ var PMA_consoleDebug = {
                         .append(
                             $('<span>').text(step)
                         );
-                }
-                else {
+                } else {
                     if (typeof step.args === 'string' && step.args) {
                         step.args = [step.args];
                     }
@@ -1219,14 +1260,80 @@ var PMA_consoleDebug = {
         }
         return $traceElem;
     },
+    _formatQueryOrGroup: function(queryInfo) {
+        var grouped, queryText, totalTime, count, i;
+        if (Array.isArray(queryInfo)) {
+            // It is grouped
+            grouped = true;
+
+            queryText = queryInfo[0].query;
+
+            totalTime = 0;
+            for (i in queryInfo) {
+                totalTime += queryInfo[i].time;
+            }
+
+            count = queryInfo.length;
+        } else {
+            queryText = queryInfo.query;
+            totalTime = queryInfo.time;
+        }
+
+        var $query = $('<div class="message collapsed hide_trace">')
+            .append(
+                $('#debug_console .templates .debug_query').clone()
+            )
+            .append(
+                $('<div class="query">')
+                    .text(queryText)
+            );
+        if (grouped) {
+            $query.find('.text.count').removeClass('hide');
+            $query.find('.text.count span').text(count);
+        }
+        $query.find('.text.time span').text(totalTime);
+
+        if (grouped) {
+            var $singleQuery;
+            for (i in queryInfo) {
+                $singleQuery = $('<div class="message welcome trace">')
+                    .text( (parseInt(i) + 1) + '.' )
+                    .append(
+                        $('<span class="time">').text(
+                            PMA_messages.strConsoleDebugTimeTaken +
+                            ' ' + queryInfo[i].time + 's'
+                        )
+                    );
+                this._appendQueryExtraInfo(queryInfo[i], $singleQuery);
+                $query
+                    .append('<div class="message welcome trace">')
+                    .append($singleQuery);
+            }
+        } else {
+            this._appendQueryExtraInfo(queryInfo, $query);
+        }
+
+        return $query;
+    },
+    _appendQueryExtraInfo: function(query, $elem) {
+        if ('error' in query) {
+            $elem.append(
+                $('<div>').html(query.error)
+            );
+        }
+        $elem.append(this._formatBackTrace(query.trace));
+    },
     showLog: function(debugInfo, url) {
+        this._lastDebugInfo.debugInfo = debugInfo;
+        this._lastDebugInfo.url = url;
+
         $('#debug_console .debugLog').empty();
         $("#debug_console .debug>.welcome").empty();
+
         var debugJson = false;
         if (typeof debugInfo === "object" && 'queries' in debugInfo) {
             debugJson = debugInfo;
-        }
-        else if (typeof debugInfo === "string") {
+        } else if (typeof debugInfo === "string") {
             try {
                 debugJson = JSON.parse(debugInfo);
             } catch (e) {
@@ -1249,7 +1356,7 @@ var PMA_consoleDebug = {
 
         // Calculate total time and make unique query array
         var totalTime = 0;
-        var i, query;
+        var i;
         for (i = 0; i < totalExec; ++i) {
             totalTime += allQueries[i].time;
             if (!(allQueries[i].hash in uniqueQueries)) {
@@ -1281,29 +1388,21 @@ var PMA_consoleDebug = {
             );
         }
 
-        for (i = 0; i < totalExec; ++i) {
-            query = $('<div class="message collapsed hide_trace">')
-                .append(
-                    $('<div class="action_content">')
-                        .append(
-                            $('#debug_console .templates .debug_query').clone()
-                        )
-                )
-                .append(
-                    $('<div class="query">')
-                        .text(allQueries[i].query)
-                );
-            query.find('.text.time span').text(allQueries[i].time);
-            if ('error' in allQueries[i]) {
-                query.append(
-                    $('<div>').html(allQueries[i].error)
-                );
+        if (this.configParam('groupQueries')) {
+            for (i in uniqueQueries) {
+                $('#debug_console .debugLog').append(this._formatQueryOrGroup(uniqueQueries[i]));
             }
-            query.append(this._formatBackTrace(allQueries[i].trace));
-            $('#debug_console .debugLog').append(query);
+        } else {
+            for (i = 0; i < totalExec; ++i) {
+                $('#debug_console .debugLog').append(this._formatQueryOrGroup(allQueries[i]));
+            }
         }
 
         PMA_consoleMessages._msgEventBinds($('#debug_console .message:not(.binded)'));
+    },
+    refresh: function() {
+        var last = this._lastDebugInfo;
+        PMA_consoleDebug.showLog(last.debugInfo, last.url);
     }
 };
 
