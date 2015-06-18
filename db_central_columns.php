@@ -10,7 +10,6 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/tbl_columns_definition_form.lib.php';
 require_once 'libraries/central_columns.lib.php';
 
 if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {

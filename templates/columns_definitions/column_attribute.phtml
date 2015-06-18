@@ -1,9 +1,36 @@
+<?php
+$attribute_types = $GLOBALS['PMA_Types']->getAttributes();
+$cnt_attribute_types = count($attribute_types);
+
+$attribute = '';
+if (isset($submit_attribute) && $submit_attribute != false) {
+    $attribute = $submit_attribute;
+} elseif (isset($columnMeta['Extra'])
+    && $columnMeta['Extra'] == 'on update CURRENT_TIMESTAMP') {
+    $attribute = 'on update CURRENT_TIMESTAMP';
+} elseif (isset($extracted_columnspec['attribute'])) {
+    $attribute = $extracted_columnspec['attribute'];
+}
+
+// MySQL 4.1.2+ TIMESTAMP options
+// (if on_update_current_timestamp is set, then it's TRUE)
+if (isset($columnMeta['Field'])) {
+    // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
+    // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
+    // the latter.
+    $field = $analyzed_sql[0]['create_table_fields'][$columnMeta['Field']];
+    if (isset($field['on_update_current_timestamp'])) {
+        $attribute = 'on update CURRENT_TIMESTAMP';
+    }
+}
+$attribute = mb_strtoupper($attribute);
+?>
 <select style="width: 7em;"
         name="field_attribute[<?php echo $columnNumber; ?>]"
         id="field_<?php echo $columnNumber; ?>_<?php echo ($ci - $ci_offset); ?>">
     <?php for ($j = 0; $j < $cnt_attribute_types; $j++): ?>
         <option value="<?php echo $attribute_types[$j];?>"
-                <?php if (mb_strtoupper($attribute) == /*overload*/mb_strtoupper($attribute_types[$j])): ?>
+                <?php if ($attribute == /*overload*/mb_strtoupper($attribute_types[$j])): ?>
                     selected="selected"
                 <?php endif; ?>>
             <?php echo $attribute_types[$j]; ?>

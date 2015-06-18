@@ -18,7 +18,6 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/tbl_columns_definition_form.lib.php';
 require_once 'libraries/Types.class.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/normalization.lib.php';

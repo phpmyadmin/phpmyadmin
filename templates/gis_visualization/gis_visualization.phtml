@@ -76,7 +76,7 @@
             function drawOpenLayers()
             {
                 <?php if (! $GLOBALS['PMA_Config']->isHttps()): ?>
-                    <?php echo PMA_GIS_visualizationResults($data, $visualizationSettings, 'ol'); ?>
+                    <?php echo $drawOl; ?>
                 <?php endif; ?>
             }
         </script>

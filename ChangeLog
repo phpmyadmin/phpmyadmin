@@ -60,7 +60,9 @@ phpMyAdmin - ChangeLog
 - bug #4957 "With selected" links doesn't work in table browse
 - bug #4795 Query builder: missing joint for the intermediary table
 
-4.4.10.0 (not yet released)
+4.4.11.0 (not yet released)
+
+4.4.10.0 (2015-06-17)
 - bug #4950 Issues in database selection for replication
 - bug #4951 Trying to save chart as image crashes the browser
 - bug #4953 cant drag sql.gz file onto import input

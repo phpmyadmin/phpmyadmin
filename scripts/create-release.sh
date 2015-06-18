@@ -230,6 +230,12 @@ done
 # Cleanup
 rm -rf phpMyAdmin-${version}
 
+# Signing of files with default GPG key
+echo "* Signing files"
+for file in *.gz *.zip *.bz2 *.7z ; do
+    gpg --detach-sign --armor $file
+done
+
 
 echo ""
 echo ""
@@ -287,7 +293,7 @@ Todo now:
         - the -all-languages.zip file is the default for Windows and Others
         - the -all-languages.tar.gz file is the default for Solaris
         - the -all-languages.tar.bz2 file is the default for Mac OS X, Linux and BSD
- 5. add a SF news item to phpMyAdmin project; a good idea is to include a link to the release notes such as https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.3.7/phpMyAdmin-4.3.7-notes.html/view because this news item gets relayed via RSS to our Facebook page
+ 5. add a SF news item to phpMyAdmin project; a good idea is to include a link to the release notes such as https://files.phpmyadmin.net/phpMyAdmin/4.4.10/phpMyAdmin-4.4.10-notes.html
  6. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
