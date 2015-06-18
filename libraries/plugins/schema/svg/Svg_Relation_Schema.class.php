@@ -332,7 +332,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Svg(
-                    $this->diagram,
+                    $this->diagram, $this->db,
                     $table, $this->diagram->getFont(),
                     $this->diagram->getFontSize(), $this->pageNumber,
                     $this->_tablewidth, $this->showKeys, $this->tableDimension,
@@ -448,7 +448,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
     ) {
         if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new Table_Stats_Svg(
-                $this->diagram,
+                $this->diagram, $this->db,
                 $masterTable, $font, $fontSize, $this->pageNumber,
                 $this->_tablewidth, false, $tableDimension
             );
@@ -456,7 +456,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         }
         if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new Table_Stats_Svg(
-                $this->diagram,
+                $this->diagram, $this->db,
                 $foreignTable, $font, $fontSize, $this->pageNumber,
                 $this->_tablewidth, false, $tableDimension
             );

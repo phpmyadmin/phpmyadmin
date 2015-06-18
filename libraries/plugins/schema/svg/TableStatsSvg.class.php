@@ -33,6 +33,7 @@ class Table_Stats_Svg extends TableStats
      * The "Table_Stats_Svg" constructor
      *
      * @param object  $diagram          The current SVG image document
+     * @param string  $db               The database name
      * @param string  $tableName        The table name
      * @param string  $font             Font face
      * @param integer $fontSize         The font size
@@ -48,11 +49,11 @@ class Table_Stats_Svg extends TableStats
      *       Table_Stats_Svg::Table_Stats_setHeight
      */
     function __construct(
-        $diagram, $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
+        $diagram, $db, $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
         $showKeys = false, $tableDimension = false, $offline = false
     ) {
         parent::__construct(
-            $diagram, $GLOBALS['db'], $pageNumber, $tableName,
+            $diagram, $db, $pageNumber, $tableName,
             $showKeys, $tableDimension, $offline
         );
 

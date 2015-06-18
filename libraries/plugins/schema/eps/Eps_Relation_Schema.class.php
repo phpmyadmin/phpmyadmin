@@ -359,7 +359,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Eps(
-                    $this->diagram,
+                    $this->diagram, $this->db,
                     $table, $this->diagram->getFont(),
                     $this->diagram->getFontSize(), $this->pageNumber,
                     $this->_tablewidth, $this->showKeys,
@@ -458,14 +458,14 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
     ) {
         if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new Table_Stats_Eps(
-                $this->diagram, $masterTable, $font, $fontSize, $this->pageNumber,
-                $this->_tablewidth, false, $tableDimension
+                $this->diagram, $this->db, $masterTable, $font, $fontSize,
+                $this->pageNumber, $this->_tablewidth, false, $tableDimension
             );
         }
         if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new Table_Stats_Eps(
-                $this->diagram, $foreignTable, $font, $fontSize, $this->pageNumber,
-                $this->_tablewidth, false, $tableDimension
+                $this->diagram, $this->db, $foreignTable, $font, $fontSize,
+                $this->pageNumber, $this->_tablewidth, false, $tableDimension
             );
         }
         $this->_relations[] = new Relation_Stats_Eps(

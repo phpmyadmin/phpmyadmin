@@ -518,6 +518,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             if (! isset($this->_tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Pdf(
                     $this->diagram,
+                    $this->db,
                     $table,
                     null,
                     $this->pageNumber,
@@ -733,6 +734,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new Table_Stats_Pdf(
                 $this->diagram,
+                $this->db,
                 $masterTable,
                 null,
                 $this->pageNumber,
@@ -745,6 +747,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new Table_Stats_Pdf(
                 $this->diagram,
+                $this->db,
                 $foreignTable,
                 null,
                 $this->pageNumber,

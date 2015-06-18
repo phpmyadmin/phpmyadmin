@@ -30,6 +30,7 @@ class Table_Stats_Dia extends TableStats
      * The "Table_Stats_Dia" constructor
      *
      * @param object  $diagram    The current dia document
+     * @param string  $db         The database name
      * @param string  $tableName  The table name
      * @param integer $pageNumber The current page number (from the
      *                            $cfg['Servers'][$i]['table_coords'] table)
@@ -37,10 +38,10 @@ class Table_Stats_Dia extends TableStats
      * @param boolean $offline    Whether the coordinates are sent from the browser
      */
     function __construct(
-        $diagram, $tableName, $pageNumber, $showKeys = false, $offline = false
+        $diagram, $db, $tableName, $pageNumber, $showKeys = false, $offline = false
     ) {
         parent::__construct(
-            $diagram, $GLOBALS['db'], $pageNumber, $tableName, $showKeys, false, $offline
+            $diagram, $db, $pageNumber, $tableName, $showKeys, false, $offline
         );
 
         /**

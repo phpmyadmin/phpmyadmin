@@ -241,7 +241,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         foreach ($alltables as $table) {
             if (! isset($this->tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Dia(
-                    $this->diagram, $table, $this->pageNumber,
+                    $this->diagram, $this->db, $table, $this->pageNumber,
                     $this->showKeys, $this->offline
                 );
             }
@@ -323,12 +323,12 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
     ) {
         if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new Table_Stats_Dia(
-                $this->diagram, $masterTable, $this->pageNumber, $showKeys
+                $this->diagram, $this->db, $masterTable, $this->pageNumber, $showKeys
             );
         }
         if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new Table_Stats_Dia(
-                $this->diagram, $foreignTable, $this->pageNumber, $showKeys
+                $this->diagram, $this->db, $foreignTable, $this->pageNumber, $showKeys
             );
         }
         $this->_relations[] = new Relation_Stats_Dia(
