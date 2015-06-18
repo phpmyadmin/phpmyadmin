@@ -364,7 +364,8 @@ function PMA_display_git_revision()
             "server": PMA_commonParams.get('server'),
             "token": PMA_commonParams.get('token'),
             "git_revision": true,
-            "ajax_request": true
+            "ajax_request": true,
+            "no_debug": true
         },
         function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
