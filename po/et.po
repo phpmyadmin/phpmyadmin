@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-18 06:31-0400\n"
-"PO-Revision-Date: 2015-06-12 08:25+0200\n"
+"PO-Revision-Date: 2015-06-18 16:12+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2551,30 +2551,28 @@ msgstr "Kas sa soovid tõesti kustutada selle järjehoidja?"
 
 #: js/messages.php:591
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "SQL silumisinfo hankimisel esines vigu."
 
 #: js/messages.php:592
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enter executes queries in console"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Enter käivitab päringud konsoolil"
+msgstr "%s päringut käivitati %s korda %s sekundiga."
 
 #: js/messages.php:593
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "edastati %s argument(i)"
 
 #: js/messages.php:594
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show arguments"
-msgstr "Kuva tabeli kommentaarid"
+msgstr "Kuva argumendid"
 
 #: js/messages.php:595
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Peida otsingu tulemused"
+msgstr "Peida argumendid"
 
 #: js/messages.php:596
 msgid ""
@@ -3142,20 +3140,18 @@ msgid "Press Enter to execute query"
 msgstr "Vajuta päringu käivitamiseks Enter"
 
 #: libraries/Console.class.php:286
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "Näita loomist"
+msgstr "Kuva jälitusinfo"
 
 #: libraries/Console.class.php:287
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Peida paneel"
+msgstr "Peida jälitusinfo"
 
 #: libraries/Console.class.php:288
 msgid "Time taken:"
-msgstr ""
+msgstr "Aega kulus:"
 
 #: libraries/Console.class.php:304 libraries/Util.class.php:1260
 #: libraries/config/messages.inc.php:776
@@ -3240,17 +3236,16 @@ msgstr "Veerg:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Alias:"
 
 #: libraries/DBQbe.class.php:566
 msgid "Sort:"
 msgstr "Sorteeri:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "Sorteeri:"
+msgstr "Sortimise režiim:"
 
 #: libraries/DBQbe.class.php:679
 msgid "Show:"
@@ -5040,10 +5035,9 @@ msgid "display column"
 msgstr "näita veergu"
 
 #: libraries/config.values.php:102
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Tere tulemast %s'i"
+msgstr "Tere tulemast"
 
 #: libraries/config.values.php:122
 msgid "Open"
