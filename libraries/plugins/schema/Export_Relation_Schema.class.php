@@ -246,7 +246,7 @@ class PMA_Export_Relation_Schema
     protected function getTablesFromRequest()
     {
         $tables = array();
-        $dbLength = mb_strlen($GLOBALS['db']);
+        $dbLength = mb_strlen($this->db);
         foreach ($_REQUEST['t_h'] as $key => $value) {
             $tables[] = mb_substr($key, $dbLength + 1);
         }
@@ -262,7 +262,7 @@ class PMA_Export_Relation_Schema
      */
     protected function getFileName($extension)
     {
-        $filename = $GLOBALS['db'] . $extension;
+        $filename = $this->db . $extension;
         // Get the name of this page to use as filename
         if ($this->pageNumber != -1 && ! $this->offline) {
             $_name_sql = 'SELECT page_descr FROM '
