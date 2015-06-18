@@ -480,7 +480,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $this->diagram->SetTitle(
             sprintf(
                 __('Schema of the %s database'),
-                $GLOBALS['db']
+                $this->db
             )
         );
         $this->diagram->setCMargin(0);
@@ -565,7 +565,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         // and finding its foreigns is OK (then we can support innodb)
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = PMA_getForeigners($GLOBALS['db'], $one_table, '', 'both');
+            $exist_rel = PMA_getForeigners($this->db, $one_table, '', 'both');
             if (!$exist_rel) {
                 continue;
             }
@@ -895,7 +895,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 'L', 0, $this->diagram->PMA_links['doc'][$table]['-']
             );
             // $this->diagram->Ln(1);
-            $fields = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $table);
+            $fields = $GLOBALS['dbi']->getColumns($this->db, $table);
             foreach ($fields as $row) {
                 $this->diagram->SetX(20);
                 $field_name = $row['Field'];
@@ -942,15 +942,15 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $this->diagram->ln();
 
             $cfgRelation = PMA_getRelationsParam();
-            $comments = PMA_getComments($GLOBALS['db'], $table);
+            $comments = PMA_getComments($this->db, $table);
             if ($cfgRelation['mimework']) {
-                $mime_map = PMA_getMIME($GLOBALS['db'], $table, true);
+                $mime_map = PMA_getMIME($this->db, $table, true);
             }
 
             /**
              * Gets table information
              */
-            $showtable    = PMA_Table::sGetStatusInfo($GLOBALS['db'], $table);
+            $showtable    = PMA_Table::sGetStatusInfo($this->db, $table);
             $show_comment = isset($showtable['Comment'])
                 ? $showtable['Comment']
                 : '';
@@ -973,12 +973,12 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets fields properties
              */
-            $columns = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $table);
+            $columns = $GLOBALS['dbi']->getColumns($this->db, $table);
             // Check if we can use Relations
             if (!empty($cfgRelation['relation'])) {
                 // Find which tables are related with the current one and write it in
                 // an array
-                $res_rel = PMA_getForeigners($GLOBALS['db'], $table);
+                $res_rel = PMA_getForeigners($this->db, $table);
             } // end if
 
             /**
@@ -1080,7 +1080,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 $linksTo = '';
                 if ($foreigner) {
                     $linksTo = '-> ';
-                    if ($foreigner['foreign_db'] != $GLOBALS['db']) {
+                    if ($foreigner['foreign_db'] != $this->db) {
                         $linksTo .= $foreigner['foreign_db'] . '.';
                     }
                     $linksTo .= $foreigner['foreign_table']

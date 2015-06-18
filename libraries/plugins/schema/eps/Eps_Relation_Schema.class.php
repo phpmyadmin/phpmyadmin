@@ -345,7 +345,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $this->diagram->setTitle(
             sprintf(
                 __('Schema of the %s database - Page %s'),
-                $GLOBALS['db'],
+                $this->db,
                 $this->pageNumber
             )
         );
@@ -374,7 +374,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = PMA_getForeigners($GLOBALS['db'], $one_table, '', 'both');
+            $exist_rel = PMA_getForeigners($this->db, $one_table, '', 'both');
             if (!$exist_rel) {
                 continue;
             }
