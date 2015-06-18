@@ -585,8 +585,14 @@ $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
     . '" width="16" height="16" alt="ajax clock"/>'
     . '</div>';
 
+// For console
 $js_messages['strConsoleRequeryConfirm'] = __('Execute this query again?');
 $js_messages['strConsoleDeleteBookmarkConfirm'] = __('Do you really want to delete this bookmark?');
+$js_messages['strConsoleDebugError'] = __('Some error occurred while getting SQL debug info.');
+$js_messages['strConsoleDebugSummary'] = __('%s queries executed %s times in %s seconds.');
+$js_messages['strConsoleDebugArgsSummary'] = __('%s argument(s) passed');
+$js_messages['strConsoleDebugShowArgs'] = __('Show arguments');
+$js_messages['strConsoleDebugHideArgs'] = __('Hide arguments');
 $js_messages['strNoLocalStorage'] = __('Your web browser does not support local storage of settings or the quota limit has been reached, some features may not work properly for you. In Safari, such problem is commonly caused by "Private Mode Browsing".');
 
 echo "var PMA_messages = new Array();\n";

@@ -68,9 +68,6 @@ function loadChildNodes(isNode, $expandElem, callback) {
                     })
                     .slideDown('slow');
             }
-            if (data._debug){
-                $('#session_debug').replaceWith(data._debug);
-            }
             if (data._errors) {
                 $errors = $(data._errors);
                 if ($errors.children().length > 0) {
@@ -873,7 +870,8 @@ function PMA_ensureNaviSettings(selflink) {
  */
 function PMA_reloadNavigation(callback, paths) {
     var params = {
-        reload: true
+        reload: true,
+        no_debug: true
     };
     paths = paths || traverseNavigationForPaths();
     $.extend(params, paths);

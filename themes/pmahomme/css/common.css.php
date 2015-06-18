@@ -42,7 +42,7 @@ body#loginform {
     margin: 0;
 }
 
-#page_content, #session_debug {
+#page_content {
     margin: 0 .5em;
 }
 
@@ -2996,7 +2996,7 @@ table.show_create td {
     position: relative;
     margin-<?php echo $left; ?>: 240px;
 }
-#pma_console>.templates {
+#pma_console .templates {
     display: none;
 }
 #pma_console .mid_text,
@@ -3082,7 +3082,7 @@ table.show_create td {
     border-bottom: solid 1px #ccc;
     padding-bottom: .2em;
 }
-#pma_console .message.expanded .action_content {
+#pma_console .message.expanded>.action_content {
     position: relative;
 }
 #pma_console .message:before,
@@ -3174,8 +3174,11 @@ html.ie8 #pma_console .message .action_content {
 #pma_console .message .text {
     background: #fff;
 }
-#pma_console .message.collapsed:not(:hover) .action_content {
+#pma_console .message.collapsed>.action_content {
     display: none;
+}
+#pma_console .message.collapsed:hover>.action_content {
+    display: block;
 }
 #pma_console .message .bookmark_label {
     padding: 0 4px;
@@ -3246,6 +3249,38 @@ html.ie7 #pma_console .query_input {
 #pma_bookmarks .content.add_bookmark input[type=text] {
     margin: 0;
     padding: 2px 4px;
+}
+#pma_console .button.debug.hide {
+    display: none;
+}
+#debug_console .show_trace .trace,
+#debug_console .show_args .args {
+    display: block;
+}
+#debug_console .hide_trace .trace,
+#debug_console .hide_args .args,
+#debug_console .show_trace .action.dbg_show_trace,
+#debug_console .hide_trace .action.dbg_hide_trace,
+#debug_console .traceStep.hide_args .action.dbg_hide_args,
+#debug_console .traceStep.show_args .action.dbg_show_args {
+    display: none;
+}
+
+#debug_console .traceStep:after,
+#debug_console .debug>.welcome:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#debug_console .debug_summary {
+    float: left;
+}
+#debug_console .traceStep .file,
+#debug_console .script_name {
+    float: right;
+}
+#debug_console .traceStep .args pre {
+    margin: 0;
 }
 
 /* Code mirror console style*/

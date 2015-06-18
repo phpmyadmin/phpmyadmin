@@ -1845,7 +1845,8 @@ function codemirrorAutocompleteOnInputRead(instance) {
                 'ajax_request': true,
                 'token': PMA_commonParams.get('token'),
                 'server': PMA_commonParams.get('server'),
-                'db': PMA_commonParams.get('db')
+                'db': PMA_commonParams.get('db'),
+                'no_debug': true
             };
 
             var columnHintRender = function(elem, self, data) {
@@ -3940,6 +3941,7 @@ AJAX.registerOnload('functions.js', function () {
     if ($('#update_recent_tables').length) {
         $.get(
             $('#update_recent_tables').attr('href'),
+            {no_debug: true},
             function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     $('#pma_recent_list').html(data.list);
@@ -3957,7 +3959,8 @@ AJAX.registerOnload('functions.js', function () {
             data: {
                 favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
                     ? window.localStorage.favorite_tables
-                    : ''
+                    : '',
+                no_debug: true
             },
             success: function (data) {
                 // Update localStorage.
