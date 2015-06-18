@@ -153,10 +153,11 @@ var AJAX = {
          * @todo Fix Code mirror does not give correct full value (query)
          * in textarea, it returns only the change in content.
          */
+        var newHash = null;
         if (event.data.value == 1) {
-            var newHash = AJAX.hash($(this).val());
+            newHash = AJAX.hash($(this).val());
         } else {
-            var newHash = AJAX.hash($(this).is(":checked"));
+            newHash = AJAX.hash($(this).is(":checked"));
         }
         var oldHash = $(this).data('val-hash');
         // Set lock if old value != new value
