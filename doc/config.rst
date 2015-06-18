@@ -1546,7 +1546,7 @@ Navigation panel setup
 
     Enter :term:`URL` where logo in the navigation panel will point to. 
     For use especially with self made theme which changes this.
-    For external :term:`URL`s, you should include URL scheme as well.
+    For external URLs, you should include URL scheme as well.
 
 .. config:option:: $cfg['NavigationLogoLinkWindow']
 
