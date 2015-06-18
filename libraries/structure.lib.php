@@ -2485,7 +2485,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
     // verifies them
     // @todo: refactor tbl_columns_definition_form.inc.php so that it uses
     // function params
-    $GLOBALS['action'] = 'tbl_structure.php';
+    $GLOBALS['action'] = $action;
     $GLOBALS['num_fields'] = $num_fields;
 
     /**
