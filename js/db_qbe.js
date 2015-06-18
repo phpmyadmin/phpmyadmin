@@ -52,7 +52,7 @@ AJAX.registerOnload('db_qbe.js', function () {
     /**
      * Ajax event handlers for 'Create bookmark'
      */
-    $(document).on('click', "#saveSearch", function (event) {
+    $(document).on('click', "#saveSearch", function () {
         $('#action').val('create');
     });
 
