@@ -3009,9 +3009,7 @@ function PMA_displayTableBrowseForSelectedColumns($db, $table, $goto,
  */
 function PMA_checkFavoriteTable($db, $current_table)
 {
-    foreach (
-        $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $key => $value
-        ) {
+    foreach ($_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $value) {
         if ($value['db'] == $db && $value['table'] == $current_table) {
             return true;
         }
@@ -3208,7 +3206,7 @@ function PMA_getHtmlShowCreate($db, $db_objects)
     // for 'Tables'
     $odd2 = true;
     // Iterate through each object.
-    foreach ($db_objects as $key => $object) {
+    foreach ($db_objects as $object) {
         // Check if current object is a View or Table.
         $isView = PMA_Table::isView($db, $object);
         if ($isView) {
@@ -3319,7 +3317,7 @@ function PMA_getRealRowCountDb($db, $tables)
     // Array to store the results.
     $row_count_all = array();
     // Iterate over each table and fetch real row count.
-    foreach ($tables as $key => $table) {
+    foreach ($tables as $table) {
         $row_count = PMA_getRealRowCountTable($db, $table['TABLE_NAME']);
         array_push(
             $row_count_all,

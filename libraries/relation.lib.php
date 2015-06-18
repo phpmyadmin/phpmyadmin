@@ -1659,7 +1659,7 @@ function PMA_checkChildForeignReferences(
     ) {
         if (sizeof($child_references, 0) > 0) {
             $column_status['isReferenced'] = true;
-            foreach ($child_references as $row => $columns) {
+            foreach ($child_references as $columns) {
                 array_push(
                     $column_status['references'],
                     PMA_Util::backquote($columns['table_schema'])
@@ -1692,7 +1692,7 @@ function PMA_searchColumnInForeigners($foreigners, $column)
         return $foreigners[$column];
     } else {
         $foreigner = array();
-        foreach ($foreigners['foreign_keys_data'] as $key => $one_key) {
+        foreach ($foreigners['foreign_keys_data'] as $one_key) {
             $column_index = array_search($column, $one_key['index_list']);
             if ($column_index !== false) {
                 $foreigner['foreign_field']

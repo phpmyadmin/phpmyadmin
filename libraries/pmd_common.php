@@ -139,7 +139,7 @@ function PMA_getScriptContr()
         //echo "<br> INNO ";
         //print_r($row);
         if ($row !== false) {
-            foreach ($row['foreign_keys_data'] as $key => $one_key) {
+            foreach ($row['foreign_keys_data'] as $one_key) {
                 foreach ($one_key['index_list'] as $index => $one_field) {
                     $con['C_NAME'][$i] = '';
                     $con['DTN'][$i]    = urlencode($GLOBALS['db'] . "." . $val[0]);
