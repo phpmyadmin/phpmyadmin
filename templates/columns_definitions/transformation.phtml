@@ -10,7 +10,7 @@
                          && preg_match('@' . preg_quote($available_mime[$type . '_file'][$mimekey]) . '3?@i',
                                         $mime_map[$columnMeta['Field']][$type]) ? 'selected ' : '';
                 $tooltip = PMA_getTransformationDescription(
-                    $available_mime[$type . '_file'][$mimekey], false
+                    $available_mime[$type . '_file'][$mimekey]
                 );
                 $parts = explode(":", $transform);
                 $name = PMA_getTransformationName(

@@ -162,13 +162,11 @@ function PMA_getTransformationClassName($filename)
 /**
  * Returns the description of the transformation
  *
- * @param string  $file           transformation file
- * @param boolean $html_formatted whether the description should be formatted
- *                                as HTML
+ * @param string  $file transformation file
  *
  * @return String the description of the transformation
  */
-function PMA_getTransformationDescription($file, $html_formatted = true)
+function PMA_getTransformationDescription($file)
 {
     /* @var $class_name TransformationsInterface */
     $class_name = PMA_getTransformationClassName($file);
