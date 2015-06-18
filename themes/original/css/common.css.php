@@ -2928,8 +2928,20 @@ html.ie7 #pma_console .query_input {
     margin: 0;
     padding: 2px 4px;
 }
-#pma_console .button.debug.hide {
+#pma_console .button.hide,
+#pma_console .message span.text.hide {
     display: none;
+}
+#debug_console.grouped .ungroup_queries,
+#debug_console.ungrouped .group_queries {
+    display: inline-block;
+}
+#debug_console.ungrouped .ungroup_queries,
+#debug_console.grouped .group_queries {
+    display: none;
+}
+#debug_console .count {
+    margin-right: 8px;
 }
 #debug_console .show_trace .trace,
 #debug_console .show_args .args {
@@ -2945,6 +2957,7 @@ html.ie7 #pma_console .query_input {
 }
 
 #debug_console .traceStep:after,
+#debug_console .trace.welcome:after,
 #debug_console .debug>.welcome:after {
     content: "";
     display: table;
@@ -2952,6 +2965,9 @@ html.ie7 #pma_console .query_input {
 }
 #debug_console .debug_summary {
     float: left;
+}
+#debug_console .trace.welcome .time {
+    float: right;
 }
 #debug_console .traceStep .file,
 #debug_console .script_name {
