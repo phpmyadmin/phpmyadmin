@@ -2829,7 +2829,7 @@ Developer
     :default: false
 
     Enable logging queries and execution times to be
-    displayed in the bottom of main page (right frame).
+    displayed in the console's Debug SQL tab.
 
 .. config:option:: $cfg['DBG']['demo']
 
