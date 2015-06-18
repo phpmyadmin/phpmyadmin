@@ -328,11 +328,13 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      * Upon instantiation This starts writing the EPS document
      * user will be prompted for download as .eps extension
      *
+     * @param string $db database name
+     *
      * @see PMA_EPS
      */
-    function __construct()
+    function __construct($db)
     {
-        parent::__construct(new PMA_EPS());
+        parent::__construct($db, new PMA_EPS());
 
         $this->setShowColor(isset($_REQUEST['eps_show_color']));
         $this->setShowKeys(isset($_REQUEST['eps_show_keys']));

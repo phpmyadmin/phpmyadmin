@@ -218,11 +218,13 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * Upon instantiation This outputs the Dia XML document
      * that user can download
      *
+     * @param string $db database name
+     *
      * @see PMA_DIA,Table_Stats_Dia,Relation_Stats_Dia
      */
-    function __construct()
+    function __construct($db)
     {
-        parent::__construct(new PMA_DIA());
+        parent::__construct($db, new PMA_DIA());
 
         $this->setShowColor(isset($_REQUEST['dia_show_color']));
         $this->setShowKeys(isset($_REQUEST['dia_show_keys']));

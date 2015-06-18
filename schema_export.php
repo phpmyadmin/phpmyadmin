@@ -62,5 +62,5 @@ function PMA_processExportSchema($export_type)
     }
 
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
-    $export_plugin->exportSchema();
+    $export_plugin->exportSchema($GLOBALS['db']);
 }

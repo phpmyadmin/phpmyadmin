@@ -22,15 +22,18 @@ class PMA_Export_Relation_Schema
     /**
      * Constructor.
      *
+     * @param string $db      database name
      * @param object $diagram schema diagram
      */
-    function __construct($diagram)
+    function __construct($db, $diagram)
     {
+        $this->db = $db;
         $this->diagram = $diagram;
         $this->setPageNumber($_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
     }
 
+    protected $db;
     protected $diagram;
 
     protected $showColor;

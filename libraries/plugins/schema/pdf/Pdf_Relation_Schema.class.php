@@ -452,10 +452,12 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * The "PMA_Pdf_Relation_Schema" constructor
      *
+     * @param string $db database name
+     *
      * @access private
      * @see PMA_Schema_PDF
      */
-    function __construct()
+    function __construct($db)
     {
         $this->setShowGrid(isset($_REQUEST['pdf_show_grid']));
         $this->setShowColor(isset($_REQUEST['pdf_show_color']));
@@ -469,6 +471,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
         // Initializes a new document
         parent::__construct(
+            $db,
             new PMA_Schema_PDF(
                 $this->orientation, 'mm', $this->paper,
                 $this->pageNumber, $this->_withDoc

@@ -302,11 +302,13 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * Upon instantiation This starts writing the SVG XML document
      * user will be prompted for download as .svg extension
      *
+     * @param string $db database name
+     *
      * @see PMA_SVG
      */
-    function __construct()
+    function __construct($db)
     {
-        parent::__construct(new PMA_SVG());
+        parent::__construct($db, new PMA_SVG());
 
         $this->setShowColor(isset($_REQUEST['svg_show_color']));
         $this->setShowKeys(isset($_REQUEST['svg_show_keys']));
