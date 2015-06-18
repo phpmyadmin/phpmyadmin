@@ -734,7 +734,7 @@ function PMA_getHtmlFor3NFstep1($db, $tables)
         . 'in that case you don\'t have to select any.'
     );
     $cnt = 0;
-    foreach ($tables as $key=>$table) {
+    foreach ($tables as $table) {
         $primary = PMA_Index::getPrimary($table, $db);
         $primarycols = $primary->getColumns();
         $selectTdForm = "";
