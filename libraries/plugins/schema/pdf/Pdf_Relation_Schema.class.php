@@ -56,6 +56,7 @@ class PMA_Schema_PDF extends PMA_PDF
     private $_offline;
     private $_pageNumber;
     private $_withDoc;
+    private $_db;
 
     /**
      * Constructs PDF for schema export.
@@ -65,15 +66,17 @@ class PMA_Schema_PDF extends PMA_PDF
      * @param string  $paper       the format used for pages
      * @param int     $pageNumber  schema page number that is being exported
      * @param boolean $withDoc     with document dictionary
+     * @param string  $db          the database name
      *
      * @access public
      */
     public function __construct(
-        $orientation, $unit, $paper, $pageNumber, $withDoc
+        $orientation, $unit, $paper, $pageNumber, $withDoc, $db
     ) {
         parent::__construct($orientation, $unit, $paper);
         $this->_pageNumber = $pageNumber;
         $this->_withDoc = $withDoc;
+        $this->_db = $db;
     }
 
     /**
@@ -254,7 +257,7 @@ class PMA_Schema_PDF extends PMA_PDF
                 $test_query = 'SELECT * FROM '
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
-                    . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db'])
+                    . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($this->_db)
                     . '\' AND page_nr = \'' . $this->_pageNumber . '\'';
                 $test_rs = PMA_queryAsControlUser($test_query);
                 $pages = @$GLOBALS['dbi']->fetchAssoc($test_rs);
@@ -474,7 +477,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $db,
             new PMA_Schema_PDF(
                 $this->orientation, 'mm', $this->paper,
-                $this->pageNumber, $this->_withDoc
+                $this->pageNumber, $this->_withDoc, $db
             )
         );
         $this->diagram->SetTitle(
