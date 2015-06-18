@@ -167,6 +167,11 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     // the function drop-down that corresponds to this input field
     var $this_function = $("select[name='funcs[multi_edit][" + multi_edit + "][" +
         urlField + "]']");
+    var function_selected = false;
+    if (typeof $this_function.val() !== 'undefined' && $this_function.val().length > 0) {
+        function_selected = true;
+    }
+
     // check if it is textarea rather than input
     if ($this_input.length === 0) {
         $this_input = $("textarea[name='fields[multi_edit][" + multi_edit + "][" +
@@ -222,7 +227,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     else if (theType.substring(0,7) === "varchar") {
         charExceptionHandling = theType.substring(8,9);
     }
-    if ($this_function.val().length > 0) {
+    if (function_selected) {
         $this_input.removeAttr('min');
         $this_input.removeAttr('max');
         // @todo: put back attributes if corresponding function is deselected
@@ -231,7 +236,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     // explanation of the last condition:
     // if a function has been selected in the function drop-down,
     // do not validate the input field
-    if (target.name && target.name.substring(0, 6) === "fields" && $this_function.val().length === 0) {
+    if (target.name && target.name.substring(0, 6) === "fields" && ! function_selected) {
         // validate for date time
         if (theType == "datetime" || theType == "time" || theType == "date" || theType == "timestamp") {
             $this_input.rules("add", {
