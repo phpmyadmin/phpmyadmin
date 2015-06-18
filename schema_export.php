@@ -60,6 +60,7 @@ function PMA_processExportSchema($export_type)
     $export_type = PMA_securePath($export_type);
 
     // get the specific plugin
+    /* @var $export_plugin SchemaPlugin */
     $export_plugin = PMA_getPlugin(
         "schema",
         $export_type,
@@ -72,5 +73,5 @@ function PMA_processExportSchema($export_type)
     }
 
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
-    $export_plugin->exportSchema($GLOBALS['db']);
+    $export_plugin->exportSchema();
 }

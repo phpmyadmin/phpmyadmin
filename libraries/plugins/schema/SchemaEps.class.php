@@ -89,11 +89,9 @@ class SchemaEps extends SchemaPlugin
     /**
      * Exports the schema into EPS format.
      *
-     * @param string $db database name
-     *
      * @return bool Whether it succeeded
      */
-    public function exportSchema($db)
+    public function exportSchema()
     {
         $export = new PMA_Eps_Relation_Schema();
         $export->showOutput();
