@@ -232,7 +232,7 @@ rm -rf phpMyAdmin-${version}
 
 # Signing of files with default GPG key
 echo "* Signing files"
-for file in *.gz *.zip *.bz2 *.7z ; do
+for file in *.gz *.zip *.xz *.bz2 *.7z ; do
     gpg --detach-sign --armor $file
     md5sum $file > $file.md5
     sha1sum $file > $file.sha1
@@ -245,7 +245,7 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la *.gz *.zip *.bz2 *.7z
+ls -la *.gz *.zip *.xz *.bz2 *.7z
 
 cd ..
 
