@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-06-19 08:39-0400\n"
-"PO-Revision-Date: 2015-06-11 18:17+0200\n"
+"POT-Creation-Date: 2015-06-19 07:19-0400\n"
+"PO-Revision-Date: 2015-06-19 13:51+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2596,10 +2596,10 @@ msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
 #: js/messages.php:592
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enter executes queries in console"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Inserta queries de executar in console"
+msgstr "%s  queries executate %s vices in %s secundas."
 
 #: js/messages.php:593
 #, php-format
@@ -3192,22 +3192,19 @@ msgid "Press Enter to execute query"
 msgstr "Pressa Enter pro executar query"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "Queries de SQL"
+msgstr "Gruppa Queries"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "Queries de SQL"
+msgstr "Leva gruppos ex queries"
 
 #: libraries/Console.class.php:294
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "Monstra create"
+msgstr "Monstra tracia"
 
 #: libraries/Console.class.php:295
 #, fuzzy
@@ -3216,10 +3213,9 @@ msgid "Hide trace"
 msgstr "Cela pannello"
 
 #: libraries/Console.class.php:296
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "Computo"
+msgstr "Computo:"
 
 #: libraries/Console.class.php:311 libraries/Util.class.php:1260
 #: libraries/config/messages.inc.php:777
@@ -3311,10 +3307,9 @@ msgid "Sort:"
 msgstr "Ordina:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "Ordina:"
+msgstr "Modo de ordinar:"
 
 #: libraries/DBQbe.class.php:679
 msgid "Show:"
