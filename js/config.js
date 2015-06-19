@@ -8,7 +8,7 @@
  */
 AJAX.registerTeardown('config.js', function () {
     $('.optbox input[id], .optbox select[id], .optbox textarea[id]').unbind('change').unbind('keyup');
-    $('input[type=button][name=submit_reset]').unbind('click');
+    $('.optbox input[type=button][name=submit_reset]').unbind('click');
     $('div.tabs_contents').undelegate();
     $('#import_local_storage, #export_local_storage').unbind('click');
     $('form.prefs-form').unbind('change').unbind('submit');
@@ -17,8 +17,8 @@ AJAX.registerTeardown('config.js', function () {
 });
 
 AJAX.registerOnload('config.js', function () {
-    $('#topmenu2').find('li.active a').attr('rel', 'samepage');
-    $('#topmenu2').find('li:not(.active) a').attr('rel', 'newpage');
+    $('#topmenu2.user_prefs_tabs').find('li.active a').attr('rel', 'samepage');
+    $('#topmenu2.user_prefs_tabs').find('li:not(.active) a').attr('rel', 'newpage');
 });
 
 // default values for fields
@@ -617,7 +617,7 @@ AJAX.registerOnload('config.js', function () {
 //
 
 AJAX.registerOnload('config.js', function () {
-    $('input[type=button][name=submit_reset]').click(function () {
+    $('.optbox input[type=button][name=submit_reset]').click(function () {
         var fields = $(this).closest('fieldset').find('input, select, textarea');
         for (var i = 0, imax = fields.length; i < imax; i++) {
             setFieldValue(fields[i], getFieldType(fields[i]));

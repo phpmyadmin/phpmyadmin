@@ -22,7 +22,7 @@ $tabs_icons = array(
     'Main_panel'  => 'b_props.png',
     'Import'      => 'b_import.png',
     'Export'      => 'b_export.png');
-echo '<ul id="topmenu2">';
+echo '<ul id="topmenu2" class="user_prefs_tabs">';
 echo PMA_Util::getHtmlTab(
     array(
         'link' => 'prefs_manage.php',
