@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-19 07:19-0400\n"
-"PO-Revision-Date: 2015-06-19 13:51+0200\n"
+"PO-Revision-Date: 2015-06-19 17:13+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
@@ -2607,16 +2607,14 @@ msgid "%s argument(s) passed"
 msgstr ""
 
 #: js/messages.php:594
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show arguments"
-msgstr "Monstra le commentos de tabella"
+msgstr "Monstra argumentos"
 
 #: js/messages.php:595
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Cela exitos de cerca"
+msgstr "Cela argumentos"
 
 #: js/messages.php:596 libraries/Console.class.php:297
 msgid "Time taken:"
@@ -3207,10 +3205,9 @@ msgid "Show trace"
 msgstr "Monstra tracia"
 
 #: libraries/Console.class.php:295
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Cela pannello"
+msgstr "Cela tracia"
 
 #: libraries/Console.class.php:296
 #| msgid "Count"
