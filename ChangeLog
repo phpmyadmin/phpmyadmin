@@ -59,6 +59,7 @@ phpMyAdmin - ChangeLog
 + rfe #1541 Disable foreign key checks for some operations
 - bug #4957 "With selected" links doesn't work in table browse
 - bug #4795 Query builder: missing joint for the intermediary table
++ rfe #1551 Integrate SQL debugging into console
 
 4.4.11.0 (not yet released)
 
