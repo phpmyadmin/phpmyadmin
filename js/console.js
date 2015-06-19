@@ -1101,7 +1101,9 @@ var PMA_consoleBookmarks = {
 
 var PMA_consoleDebug = {
     _config: {
-        groupQueries: false
+        groupQueries: false,
+        orderBy: 'exec', // Possible 'exec' => Execution order, 'time' => Time taken, 'count'
+        order: 'asc' // Possible 'asc', 'desc'
     },
     _lastDebugInfo: {
         debugInfo: null,
@@ -1122,7 +1124,14 @@ var PMA_consoleDebug = {
             $('#debug_console').addClass('grouped');
         } else {
             $('#debug_console').addClass('ungrouped');
+            if (PMA_consoleDebug.configParam('orderBy') == 'count') {
+                $('#debug_console .button.order_by.sort_exec').addClass('active');
+            }
         }
+        var orderBy = this.configParam('orderBy');
+        var order = this.configParam('order');
+        $('#debug_console .button.order_by.sort_' + orderBy).addClass('active');
+        $('#debug_console .button.order.order_' + order).addClass('active');
 
         // Initialize actions in toolbar
         $('#debug_console .button.group_queries').click(function() {
@@ -1130,11 +1139,41 @@ var PMA_consoleDebug = {
             $('#debug_console').removeClass('ungrouped');
             PMA_consoleDebug.configParam('groupQueries', true);
             PMA_consoleDebug.refresh();
+            if (PMA_consoleDebug.configParam('orderBy') == 'count') {
+                $('#debug_console .button.order_by.sort_exec').removeClass('active');
+            }
         });
         $('#debug_console .button.ungroup_queries').click(function() {
             $('#debug_console').addClass('ungrouped');
             $('#debug_console').removeClass('grouped');
             PMA_consoleDebug.configParam('groupQueries', false);
+            PMA_consoleDebug.refresh();
+            if (PMA_consoleDebug.configParam('orderBy') == 'count') {
+                $('#debug_console .button.order_by.sort_exec').addClass('active');
+            }
+        });
+        $('#debug_console .button.order_by').click(function() {
+            var $this = $(this);
+            $('#debug_console .button.order_by').removeClass('active');
+            $this.addClass('active');
+            if ($this.hasClass('sort_time')) {
+                PMA_consoleDebug.configParam('orderBy', 'time');
+            } else if ($this.hasClass('sort_exec')) {
+                PMA_consoleDebug.configParam('orderBy', 'exec');
+            } else if ($this.hasClass('sort_count')) {
+                PMA_consoleDebug.configParam('orderBy', 'count');
+            }
+            PMA_consoleDebug.refresh();
+        });
+        $('#debug_console .button.order').click(function() {
+            var $this = $(this);
+            $('#debug_console .button.order').removeClass('active');
+            $this.addClass('active');
+            if ($this.hasClass('order_asc')) {
+                PMA_consoleDebug.configParam('order', 'asc');
+            } else if ($this.hasClass('order_desc')) {
+                PMA_consoleDebug.configParam('order', 'desc');
+            }
             PMA_consoleDebug.refresh();
         });
 
@@ -1150,7 +1189,11 @@ var PMA_consoleDebug = {
     _initConfig: function() {
         var config = JSON.parse($.cookie('pma_console_dbg_config'));
         if (config) {
-            this._config = config;
+            for (var name in config) {
+                if (config.hasOwnProperty(name)) {
+                    this._config[name] = config[name];
+                }
+            }
         }
     },
     configParam: function(name, value) {
@@ -1159,6 +1202,7 @@ var PMA_consoleDebug = {
         }
         this._config[name] = value;
         $.cookie('pma_console_dbg_config', JSON.stringify(this._config));
+        return value;
     },
     _formatFunctionCall: function(dbgStep) {
         var functionName = '';
@@ -1333,7 +1377,15 @@ var PMA_consoleDebug = {
 
         var debugJson = false;
         if (typeof debugInfo === "object" && 'queries' in debugInfo) {
-            debugJson = debugInfo;
+            // Copy it to debugJson, so that it doesn't get changed
+            if (!('queries' in debugInfo)) {
+                debugJson = false;
+            } else {
+                debugJson = {queries: []};
+                for (var i in debugInfo.queries) {
+                    debugJson.queries[i] = debugInfo.queries[i];
+                }
+            }
         } else if (typeof debugInfo === "string") {
             try {
                 debugJson = JSON.parse(debugInfo);
@@ -1365,13 +1417,15 @@ var PMA_consoleDebug = {
             }
             uniqueQueries[allQueries[i].hash].push(allQueries[i]);
         }
-        // Count total unique queries
-        var totalUnique = 0;
+        // Count total unique queries, convert uniqueQueries to Array
+        var totalUnique = 0, uniqueArray = [];
         for (var hash in uniqueQueries) {
             if (uniqueQueries.hasOwnProperty(hash)) {
                 ++totalUnique;
+                uniqueArray.push(uniqueQueries[hash]);
             }
         }
+        uniqueQueries = uniqueArray;
         // Show summary
         $("#debug_console .debug>.welcome").append(
             $('<span class="debug_summary">').text(
@@ -1389,11 +1443,55 @@ var PMA_consoleDebug = {
             );
         }
 
+        // For sorting queries
+        function sortByTime(a, b) {
+            var order = ((PMA_consoleDebug.configParam('order') == 'asc') ? 1 : -1);
+            if (Array.isArray(a) && Array.isArray(b)) {
+                // It is grouped
+                var timeA = 0, timeB = 0;
+                for (i in a) {
+                    timeA += a[i].time;
+                }
+                for (i in b) {
+                    timeB += b[i].time;
+                }
+                return (timeA - timeB) * order;
+            } else {
+                return (a.time - b.time) * order;
+            }
+        }
+
+        function sortByCount(a, b) {
+            var order = ((PMA_consoleDebug.configParam('order') == 'asc') ? 1 : -1);
+            return (a.length - b.length) * order;
+        }
+
+        var orderBy = this.configParam('orderBy');
+        var order = PMA_consoleDebug.configParam('order');
+
         if (this.configParam('groupQueries')) {
+            // Sort queries
+            if (orderBy == 'time') {
+                uniqueQueries.sort(sortByTime);
+            } else if (orderBy == 'count') {
+                uniqueQueries.sort(sortByCount);
+            } else if (orderBy == 'exec' && order == 'desc') {
+                uniqueQueries.reverse();
+            }
             for (i in uniqueQueries) {
+                if (orderBy == 'time') {
+                    uniqueQueries[i].sort(sortByTime);
+                } else if (orderBy == 'exec' && order == 'desc') {
+                    uniqueQueries[i].reverse();
+                }
                 $('#debug_console .debugLog').append(this._formatQueryOrGroup(uniqueQueries[i], totalTime));
             }
         } else {
+            if (orderBy == 'time') {
+                allQueries.sort(sortByTime);
+            } else if (order == 'desc') {
+                allQueries.reverse();
+            }
             for (i = 0; i < totalExec; ++i) {
                 $('#debug_console .debugLog').append(this._formatQueryOrGroup(allQueries[i], totalTime));
             }
