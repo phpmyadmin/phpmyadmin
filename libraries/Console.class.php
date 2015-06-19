@@ -294,7 +294,7 @@ class PMA_Console
                     . '<span class="action dbg_show_trace">' . __('Show trace') . '</span> '
                     . '<span class="action dbg_hide_trace">' . __('Hide trace') . '</span> '
                     . '<span class="text count hide">' . __('Count:') . ' <span></span></span>'
-                    . '<span class="text time">' . __('Time taken:') . ' <span></span>s</span>'
+                    . '<span class="text time">' . __('Time taken:') . ' <span></span></span>'
                 . '</div>'
                 . '</div>'; // Template
             $output .= '</div>'; // Debug SQL card

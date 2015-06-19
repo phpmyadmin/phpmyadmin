@@ -1260,23 +1260,23 @@ var PMA_consoleDebug = {
         }
         return $traceElem;
     },
-    _formatQueryOrGroup: function(queryInfo) {
-        var grouped, queryText, totalTime, count, i;
+    _formatQueryOrGroup: function(queryInfo, totalTime) {
+        var grouped, queryText, queryTime, count, i;
         if (Array.isArray(queryInfo)) {
             // It is grouped
             grouped = true;
 
             queryText = queryInfo[0].query;
 
-            totalTime = 0;
+            queryTime = 0;
             for (i in queryInfo) {
-                totalTime += queryInfo[i].time;
+                queryTime += queryInfo[i].time;
             }
 
             count = queryInfo.length;
         } else {
             queryText = queryInfo.query;
-            totalTime = queryInfo.time;
+            queryTime = queryInfo.time;
         }
 
         var $query = $('<div class="message collapsed hide_trace">')
@@ -1291,7 +1291,7 @@ var PMA_consoleDebug = {
             $query.find('.text.count').removeClass('hide');
             $query.find('.text.count span').text(count);
         }
-        $query.find('.text.time span').text(totalTime);
+        $query.find('.text.time span').text(queryTime + 's (' + ((queryTime * 100) / totalTime).toFixed(3) + '%)');
 
         if (grouped) {
             var $singleQuery;
@@ -1301,7 +1301,8 @@ var PMA_consoleDebug = {
                     .append(
                         $('<span class="time">').text(
                             PMA_messages.strConsoleDebugTimeTaken +
-                            ' ' + queryInfo[i].time + 's'
+                            ' ' + queryInfo[i].time + 's' +
+                            ' (' + ((queryInfo[i].time * 100) / totalTime).toFixed(3) + '%)'
                         )
                     );
                 this._appendQueryExtraInfo(queryInfo[i], $singleQuery);
@@ -1390,11 +1391,11 @@ var PMA_consoleDebug = {
 
         if (this.configParam('groupQueries')) {
             for (i in uniqueQueries) {
-                $('#debug_console .debugLog').append(this._formatQueryOrGroup(uniqueQueries[i]));
+                $('#debug_console .debugLog').append(this._formatQueryOrGroup(uniqueQueries[i], totalTime));
             }
         } else {
             for (i = 0; i < totalExec; ++i) {
-                $('#debug_console .debugLog').append(this._formatQueryOrGroup(allQueries[i]));
+                $('#debug_console .debugLog').append(this._formatQueryOrGroup(allQueries[i], totalTime));
             }
         }
 
