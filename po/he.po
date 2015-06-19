@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-06-18 06:31-0400\n"
+"POT-Creation-Date: 2015-06-19 07:19-0400\n"
 "PO-Revision-Date: 2014-10-22 15:46+0200\n"
 "Last-Translator: Eyal Visoker <visokereyal@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1594,7 +1594,7 @@ msgstr ""
 msgid "Explain output"
 msgstr "הסברת SQL"
 
-#: js/messages.php:238 js/messages.php:751
+#: js/messages.php:238 js/messages.php:752
 #: libraries/plugins/export/ExportHtmlword.class.php:471
 #: libraries/plugins/export/ExportOdt.class.php:587
 #: libraries/plugins/export/ExportTexytext.class.php:426
@@ -2087,7 +2087,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:367 js/messages.php:620 libraries/normalization.lib.php:287
+#: js/messages.php:367 js/messages.php:621 libraries/normalization.lib.php:287
 #, fuzzy
 #| msgid "None"
 msgid "Done"
@@ -2740,21 +2740,25 @@ msgstr "הערות לטבלה"
 msgid "Hide arguments"
 msgstr "שאילתת SQL"
 
-#: js/messages.php:596
+#: js/messages.php:596 libraries/Console.class.php:297
+msgid "Time taken:"
+msgstr ""
+
+#: js/messages.php:597
 msgid ""
 "Your web browser does not support local storage of settings or the quota "
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:624
+#: js/messages.php:625
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "הקודם"
 
-#: js/messages.php:629
+#: js/messages.php:630
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2762,96 +2766,96 @@ msgid "Next"
 msgstr "הבא"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:632
+#: js/messages.php:633
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "סה\"כ"
 
-#: js/messages.php:636
+#: js/messages.php:637
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "בינארי"
 
-#: js/messages.php:637
+#: js/messages.php:638
 msgid "February"
 msgstr ""
 
-#: js/messages.php:638
+#: js/messages.php:639
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "מרץ"
 
-#: js/messages.php:639
+#: js/messages.php:640
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "אפריל"
 
-#: js/messages.php:640
+#: js/messages.php:641
 msgid "May"
 msgstr "מאי"
 
-#: js/messages.php:641
+#: js/messages.php:642
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "יוני"
 
-#: js/messages.php:642
+#: js/messages.php:643
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "יולי"
 
-#: js/messages.php:643
+#: js/messages.php:644
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "אוגוסט"
 
-#: js/messages.php:644
+#: js/messages.php:645
 msgid "September"
 msgstr ""
 
-#: js/messages.php:645
+#: js/messages.php:646
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "אוקטובר"
 
-#: js/messages.php:646
+#: js/messages.php:647
 msgid "November"
 msgstr ""
 
-#: js/messages.php:647
+#: js/messages.php:648
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:654 libraries/Util.class.php:1620
+#: js/messages.php:655 libraries/Util.class.php:1620
 msgid "Jan"
 msgstr "ינואר"
 
 #. l10n: Short month name
-#: js/messages.php:656 libraries/Util.class.php:1622
+#: js/messages.php:657 libraries/Util.class.php:1622
 msgid "Feb"
 msgstr "פברואר"
 
 #. l10n: Short month name
-#: js/messages.php:658 libraries/Util.class.php:1624
+#: js/messages.php:659 libraries/Util.class.php:1624
 msgid "Mar"
 msgstr "מרץ"
 
 #. l10n: Short month name
-#: js/messages.php:660 libraries/Util.class.php:1626
+#: js/messages.php:661 libraries/Util.class.php:1626
 msgid "Apr"
 msgstr "אפריל"
 
 #. l10n: Short month name
-#: js/messages.php:662 libraries/Util.class.php:1628
+#: js/messages.php:663 libraries/Util.class.php:1628
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2859,78 +2863,78 @@ msgid "May"
 msgstr "מאי"
 
 #. l10n: Short month name
-#: js/messages.php:664 libraries/Util.class.php:1630
+#: js/messages.php:665 libraries/Util.class.php:1630
 msgid "Jun"
 msgstr "יוני"
 
 #. l10n: Short month name
-#: js/messages.php:666 libraries/Util.class.php:1632
+#: js/messages.php:667 libraries/Util.class.php:1632
 msgid "Jul"
 msgstr "יולי"
 
 #. l10n: Short month name
-#: js/messages.php:668 libraries/Util.class.php:1634
+#: js/messages.php:669 libraries/Util.class.php:1634
 msgid "Aug"
 msgstr "אוגוסט"
 
 #. l10n: Short month name
-#: js/messages.php:670 libraries/Util.class.php:1636
+#: js/messages.php:671 libraries/Util.class.php:1636
 msgid "Sep"
 msgstr "ספטמבר"
 
 #. l10n: Short month name
-#: js/messages.php:672 libraries/Util.class.php:1638
+#: js/messages.php:673 libraries/Util.class.php:1638
 msgid "Oct"
 msgstr "אוקטובר"
 
 #. l10n: Short month name
-#: js/messages.php:674 libraries/Util.class.php:1640
+#: js/messages.php:675 libraries/Util.class.php:1640
 msgid "Nov"
 msgstr "נובמבר"
 
 #. l10n: Short month name
-#: js/messages.php:676 libraries/Util.class.php:1642
+#: js/messages.php:677 libraries/Util.class.php:1642
 msgid "Dec"
 msgstr "דצמבר"
 
-#: js/messages.php:682
+#: js/messages.php:683
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "יום ראשון"
 
-#: js/messages.php:683
+#: js/messages.php:684
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "יום שני"
 
-#: js/messages.php:684
+#: js/messages.php:685
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "יום שלישי"
 
-#: js/messages.php:685
+#: js/messages.php:686
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:686
+#: js/messages.php:687
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:687
+#: js/messages.php:688
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "יום שישי"
 
-#: js/messages.php:688
+#: js/messages.php:689
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:695
+#: js/messages.php:696
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2938,223 +2942,223 @@ msgid "Sun"
 msgstr "יום ראשון"
 
 #. l10n: Short week day name
-#: js/messages.php:697 libraries/Util.class.php:1647
+#: js/messages.php:698 libraries/Util.class.php:1647
 msgid "Mon"
 msgstr "יום שני"
 
 #. l10n: Short week day name
-#: js/messages.php:699 libraries/Util.class.php:1649
+#: js/messages.php:700 libraries/Util.class.php:1649
 msgid "Tue"
 msgstr "יום שלישי"
 
 #. l10n: Short week day name
-#: js/messages.php:701 libraries/Util.class.php:1651
+#: js/messages.php:702 libraries/Util.class.php:1651
 msgid "Wed"
 msgstr "יום רביעי"
 
 #. l10n: Short week day name
-#: js/messages.php:703 libraries/Util.class.php:1653
+#: js/messages.php:704 libraries/Util.class.php:1653
 msgid "Thu"
 msgstr "יום חמישי"
 
 #. l10n: Short week day name
-#: js/messages.php:705 libraries/Util.class.php:1655
+#: js/messages.php:706 libraries/Util.class.php:1655
 msgid "Fri"
 msgstr "יום שישי"
 
 #. l10n: Short week day name
-#: js/messages.php:707 libraries/Util.class.php:1657
+#: js/messages.php:708 libraries/Util.class.php:1657
 msgid "Sat"
 msgstr "שבת"
 
 #. l10n: Minimal week day name
-#: js/messages.php:714
+#: js/messages.php:715
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "יום ראשון"
 
 #. l10n: Minimal week day name
-#: js/messages.php:716
+#: js/messages.php:717
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "יום שני"
 
 #. l10n: Minimal week day name
-#: js/messages.php:718
+#: js/messages.php:719
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "יום שלישי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:720
+#: js/messages.php:721
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "יום רביעי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:722
+#: js/messages.php:723
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "יום חמישי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:724
+#: js/messages.php:725
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "יום שישי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:726
+#: js/messages.php:727
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "שבת"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:730
+#: js/messages.php:731
 msgid "Wk"
 msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:737
+#: js/messages.php:738
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:740
+#: js/messages.php:741
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "ללא"
 
-#: js/messages.php:752
+#: js/messages.php:753
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:753
+#: js/messages.php:754
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "בשימוש"
 
-#: js/messages.php:754
+#: js/messages.php:755
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
 msgstr "לשנייה"
 
-#: js/messages.php:765
+#: js/messages.php:766
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:766
+#: js/messages.php:767
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "השתמש בשדה טקסט"
 
-#: js/messages.php:767
+#: js/messages.php:768
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid email address"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:768
+#: js/messages.php:769
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid URL"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:769
+#: js/messages.php:770
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:770
+#: js/messages.php:771
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date ( ISO )"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:771
+#: js/messages.php:772
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid number"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:772
+#: js/messages.php:773
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid credit card number"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:773
+#: js/messages.php:774
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter only digits"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:774
+#: js/messages.php:775
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter the same value again"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:775
+#: js/messages.php:776
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: js/messages.php:776
+#: js/messages.php:777
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter at least {0} characters"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:777
+#: js/messages.php:778
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:778
+#: js/messages.php:779
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value between {0} and {1}"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:779
+#: js/messages.php:780
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value less than or equal to {0}"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:780
+#: js/messages.php:781
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:782
+#: js/messages.php:783
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date or time"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:783
+#: js/messages.php:784
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid HEX input"
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:784 libraries/Message.class.php:199
+#: js/messages.php:785 libraries/Message.class.php:199
 #: libraries/Util.class.php:624 libraries/core.lib.php:245
 #: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1166
 #: tbl_operations.php:228 view_operations.php:63
@@ -3239,12 +3243,12 @@ msgid "Font size"
 msgstr ""
 
 #: libraries/Console.class.php:85 libraries/Console.class.php:210
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:292
 msgid "Collapse"
 msgstr ""
 
 #: libraries/Console.class.php:86 libraries/Console.class.php:212
-#: libraries/Console.class.php:285
+#: libraries/Console.class.php:293
 msgid "Expand"
 msgstr ""
 
@@ -3351,7 +3355,7 @@ msgstr "לוח שנה"
 msgid "History"
 msgstr "היסטוריית SQL"
 
-#: libraries/Console.class.php:240 libraries/Console.class.php:338
+#: libraries/Console.class.php:240 libraries/Console.class.php:345
 #: libraries/DisplayResults.class.php:1726 libraries/import.lib.php:1261
 #: libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -3381,13 +3385,13 @@ msgstr "היסטוריית SQL"
 msgid "Options"
 msgstr "פעולות"
 
-#: libraries/Console.class.php:244 libraries/Console.class.php:300
+#: libraries/Console.class.php:244 libraries/Console.class.php:307
 #, fuzzy
 #| msgid "Search"
 msgid "Bookmarks"
 msgstr "חיפוש"
 
-#: libraries/Console.class.php:248 libraries/Console.class.php:276
+#: libraries/Console.class.php:248 libraries/Console.class.php:277
 #: libraries/config/messages.inc.php:86
 msgid "Debug SQL"
 msgstr ""
@@ -3404,83 +3408,95 @@ msgstr "הרצת שאילתה מועדפת"
 msgid "Press Enter to execute query"
 msgstr "הרצת שאילתה מועדפת"
 
-#: libraries/Console.class.php:286
+#: libraries/Console.class.php:280
+#, fuzzy
+msgid "Group queries"
+msgstr "שאילתת SQL"
+
+#: libraries/Console.class.php:283
+#, fuzzy
+msgid "Ungroup queries"
+msgstr "שאילתת SQL"
+
+#: libraries/Console.class.php:294
 #, fuzzy
 #| msgid "Show color"
 msgid "Show trace"
 msgstr "ראיית צבע"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:295
 #, fuzzy
 #| msgid "Add new field"
 msgid "Hide trace"
 msgstr "הוספת שדה חדש"
 
-#: libraries/Console.class.php:288
-msgid "Time taken:"
-msgstr ""
+#: libraries/Console.class.php:296
+#, fuzzy
+#| msgid "Column"
+msgid "Count:"
+msgstr "עמודה"
 
-#: libraries/Console.class.php:304 libraries/Util.class.php:1260
+#: libraries/Console.class.php:311 libraries/Util.class.php:1260
 #: libraries/config/messages.inc.php:776
 #: libraries/server_status_processes.lib.php:251
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "רענון"
 
-#: libraries/Console.class.php:307
+#: libraries/Console.class.php:314
 #, fuzzy
 #| msgid "And"
 msgid "Add"
 msgstr "וגם"
 
-#: libraries/Console.class.php:316
+#: libraries/Console.class.php:323
 #, fuzzy
 #| msgid "Search"
 msgid "Add bookmark"
 msgstr "חיפוש"
 
-#: libraries/Console.class.php:320
+#: libraries/Console.class.php:327
 #, fuzzy
 #| msgid "Label"
 msgid "Label"
 msgstr "תווית"
 
-#: libraries/Console.class.php:322
+#: libraries/Console.class.php:329
 #, fuzzy
 msgid "Target database"
 msgstr "חפש במסד הנתונים"
 
-#: libraries/Console.class.php:325
+#: libraries/Console.class.php:332
 #, fuzzy
 #| msgid "Search"
 msgid "Share this bookmark"
 msgstr "חיפוש"
 
-#: libraries/Console.class.php:342
+#: libraries/Console.class.php:349
 #, fuzzy
 msgid "Set default"
 msgstr "קבצי ייבוא"
 
-#: libraries/Console.class.php:346
+#: libraries/Console.class.php:353
 msgid "Always expand query messages"
 msgstr ""
 
-#: libraries/Console.class.php:348
+#: libraries/Console.class.php:355
 #, fuzzy
 msgid "Show query history at start"
 msgstr "שאילתת SQL"
 
-#: libraries/Console.class.php:350
+#: libraries/Console.class.php:357
 msgid "Show current browsing query"
 msgstr ""
 
-#: libraries/Console.class.php:353
+#: libraries/Console.class.php:360
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
 
-#: libraries/Console.class.php:357
+#: libraries/Console.class.php:364
 #, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
@@ -3629,27 +3645,27 @@ msgstr "הצגת סימנייה"
 msgid "Delete bookmark"
 msgstr "חיפוש"
 
-#: libraries/DatabaseInterface.class.php:2439
+#: libraries/DatabaseInterface.class.php:2438
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2444
+#: libraries/DatabaseInterface.class.php:2443
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "השרת אינו מגיב"
 
-#: libraries/DatabaseInterface.class.php:2449
+#: libraries/DatabaseInterface.class.php:2448
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2459
+#: libraries/DatabaseInterface.class.php:2458
 msgid "Details…"
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2682
+#: libraries/DatabaseInterface.class.php:2681
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 

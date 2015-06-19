@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-06-18 06:31-0400\n"
+"POT-Creation-Date: 2015-06-19 07:19-0400\n"
 "PO-Revision-Date: 2014-03-31 14:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Serbian (latin) <https://hosted.weblate.org/projects/"
@@ -1635,7 +1635,7 @@ msgstr "Aniliziram…"
 msgid "Explain output"
 msgstr "Objasni izlaz"
 
-#: js/messages.php:238 js/messages.php:751
+#: js/messages.php:238 js/messages.php:752
 #: libraries/plugins/export/ExportHtmlword.class.php:471
 #: libraries/plugins/export/ExportOdt.class.php:587
 #: libraries/plugins/export/ExportTexytext.class.php:426
@@ -2098,7 +2098,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:367 js/messages.php:620 libraries/normalization.lib.php:287
+#: js/messages.php:367 js/messages.php:621 libraries/normalization.lib.php:287
 msgid "Done"
 msgstr "Gotovo"
 
@@ -2784,368 +2784,372 @@ msgstr "Komentari tabele"
 msgid "Hide arguments"
 msgstr "Sakrij tezultate pretrage"
 
-#: js/messages.php:596
+#: js/messages.php:596 libraries/Console.class.php:297
+msgid "Time taken:"
+msgstr ""
+
+#: js/messages.php:597
 msgid ""
 "Your web browser does not support local storage of settings or the quota "
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:624
+#: js/messages.php:625
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Prethodni"
 
-#: js/messages.php:629
+#: js/messages.php:630
 msgctxt "Next month"
 msgid "Next"
 msgstr "Sledeći"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:632
+#: js/messages.php:633
 msgid "Today"
 msgstr "Danas"
 
-#: js/messages.php:636
+#: js/messages.php:637
 msgid "January"
 msgstr "Januar"
 
-#: js/messages.php:637
+#: js/messages.php:638
 msgid "February"
 msgstr "Februar"
 
-#: js/messages.php:638
+#: js/messages.php:639
 msgid "March"
 msgstr "Mart"
 
-#: js/messages.php:639
+#: js/messages.php:640
 msgid "April"
 msgstr "April"
 
-#: js/messages.php:640
+#: js/messages.php:641
 msgid "May"
 msgstr "Maj"
 
-#: js/messages.php:641
+#: js/messages.php:642
 msgid "June"
 msgstr "Jun"
 
-#: js/messages.php:642
+#: js/messages.php:643
 msgid "July"
 msgstr "Jul"
 
-#: js/messages.php:643
+#: js/messages.php:644
 msgid "August"
 msgstr "Avgust"
 
-#: js/messages.php:644
+#: js/messages.php:645
 msgid "September"
 msgstr "Septembar"
 
-#: js/messages.php:645
+#: js/messages.php:646
 msgid "October"
 msgstr "Oktobar"
 
-#: js/messages.php:646
+#: js/messages.php:647
 msgid "November"
 msgstr "Novembar"
 
-#: js/messages.php:647
+#: js/messages.php:648
 msgid "December"
 msgstr "Decembar"
 
 #. l10n: Short month name
-#: js/messages.php:654 libraries/Util.class.php:1620
+#: js/messages.php:655 libraries/Util.class.php:1620
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:656 libraries/Util.class.php:1622
+#: js/messages.php:657 libraries/Util.class.php:1622
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:658 libraries/Util.class.php:1624
+#: js/messages.php:659 libraries/Util.class.php:1624
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:660 libraries/Util.class.php:1626
+#: js/messages.php:661 libraries/Util.class.php:1626
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:662 libraries/Util.class.php:1628
+#: js/messages.php:663 libraries/Util.class.php:1628
 msgctxt "Short month name"
 msgid "May"
 msgstr "Maj"
 
 #. l10n: Short month name
-#: js/messages.php:664 libraries/Util.class.php:1630
+#: js/messages.php:665 libraries/Util.class.php:1630
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:666 libraries/Util.class.php:1632
+#: js/messages.php:667 libraries/Util.class.php:1632
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:668 libraries/Util.class.php:1634
+#: js/messages.php:669 libraries/Util.class.php:1634
 msgid "Aug"
 msgstr "Avg"
 
 #. l10n: Short month name
-#: js/messages.php:670 libraries/Util.class.php:1636
+#: js/messages.php:671 libraries/Util.class.php:1636
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:672 libraries/Util.class.php:1638
+#: js/messages.php:673 libraries/Util.class.php:1638
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:674 libraries/Util.class.php:1640
+#: js/messages.php:675 libraries/Util.class.php:1640
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:676 libraries/Util.class.php:1642
+#: js/messages.php:677 libraries/Util.class.php:1642
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:682
+#: js/messages.php:683
 msgid "Sunday"
 msgstr "Nedelja"
 
-#: js/messages.php:683
+#: js/messages.php:684
 msgid "Monday"
 msgstr "Ponedeljak"
 
-#: js/messages.php:684
+#: js/messages.php:685
 msgid "Tuesday"
 msgstr "Utorak"
 
-#: js/messages.php:685
+#: js/messages.php:686
 msgid "Wednesday"
 msgstr "Sreda"
 
-#: js/messages.php:686
+#: js/messages.php:687
 msgid "Thursday"
 msgstr "Četvrtak"
 
-#: js/messages.php:687
+#: js/messages.php:688
 msgid "Friday"
 msgstr "Petak"
 
-#: js/messages.php:688
+#: js/messages.php:689
 msgid "Saturday"
 msgstr "Subota"
 
 #. l10n: Short week day name
-#: js/messages.php:695
+#: js/messages.php:696
 msgid "Sun"
 msgstr "Ned"
 
 #. l10n: Short week day name
-#: js/messages.php:697 libraries/Util.class.php:1647
+#: js/messages.php:698 libraries/Util.class.php:1647
 msgid "Mon"
 msgstr "Pon"
 
 #. l10n: Short week day name
-#: js/messages.php:699 libraries/Util.class.php:1649
+#: js/messages.php:700 libraries/Util.class.php:1649
 msgid "Tue"
 msgstr "Uto"
 
 #. l10n: Short week day name
-#: js/messages.php:701 libraries/Util.class.php:1651
+#: js/messages.php:702 libraries/Util.class.php:1651
 msgid "Wed"
 msgstr "Sre"
 
 #. l10n: Short week day name
-#: js/messages.php:703 libraries/Util.class.php:1653
+#: js/messages.php:704 libraries/Util.class.php:1653
 msgid "Thu"
 msgstr "Čet"
 
 #. l10n: Short week day name
-#: js/messages.php:705 libraries/Util.class.php:1655
+#: js/messages.php:706 libraries/Util.class.php:1655
 msgid "Fri"
 msgstr "Pet"
 
 #. l10n: Short week day name
-#: js/messages.php:707 libraries/Util.class.php:1657
+#: js/messages.php:708 libraries/Util.class.php:1657
 msgid "Sat"
 msgstr "Sub"
 
 #. l10n: Minimal week day name
-#: js/messages.php:714
+#: js/messages.php:715
 msgid "Su"
 msgstr "Ne"
 
 #. l10n: Minimal week day name
-#: js/messages.php:716
+#: js/messages.php:717
 msgid "Mo"
 msgstr "Po"
 
 #. l10n: Minimal week day name
-#: js/messages.php:718
+#: js/messages.php:719
 msgid "Tu"
 msgstr "Ut"
 
 #. l10n: Minimal week day name
-#: js/messages.php:720
+#: js/messages.php:721
 msgid "We"
 msgstr "Sr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:722
+#: js/messages.php:723
 msgid "Th"
 msgstr "Če"
 
 #. l10n: Minimal week day name
-#: js/messages.php:724
+#: js/messages.php:725
 msgid "Fr"
 msgstr "Pe"
 
 #. l10n: Minimal week day name
-#: js/messages.php:726
+#: js/messages.php:727
 msgid "Sa"
 msgstr "Su"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:730
+#: js/messages.php:731
 msgid "Wk"
 msgstr "Vk"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:737
+#: js/messages.php:738
 msgid "calendar-month-year"
 msgstr "kalendar-mesec-godina"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:740
+#: js/messages.php:741
 msgctxt "Year suffix"
 msgid "none"
 msgstr "nema"
 
-#: js/messages.php:752
+#: js/messages.php:753
 msgid "Hour"
 msgstr "Čas"
 
-#: js/messages.php:753
+#: js/messages.php:754
 msgid "Minute"
 msgstr "Minut"
 
-#: js/messages.php:754
+#: js/messages.php:755
 msgid "Second"
 msgstr "Sekund"
 
-#: js/messages.php:765
+#: js/messages.php:766
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:766
+#: js/messages.php:767
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "Koristi tekst polje"
 
-#: js/messages.php:767
+#: js/messages.php:768
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid email address"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:768
+#: js/messages.php:769
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid URL"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:769
+#: js/messages.php:770
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:770
+#: js/messages.php:771
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date ( ISO )"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:771
+#: js/messages.php:772
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:772
+#: js/messages.php:773
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid credit card number"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:773
+#: js/messages.php:774
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter only digits"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:774
+#: js/messages.php:775
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter the same value again"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:775
+#: js/messages.php:776
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: js/messages.php:776
+#: js/messages.php:777
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter at least {0} characters"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:777
+#: js/messages.php:778
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:778
+#: js/messages.php:779
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value between {0} and {1}"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:779
+#: js/messages.php:780
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:780
+#: js/messages.php:781
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:782
+#: js/messages.php:783
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date or time"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:783
+#: js/messages.php:784
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid HEX input"
 msgstr "Nije ispravan broj porta"
 
-#: js/messages.php:784 libraries/Message.class.php:199
+#: js/messages.php:785 libraries/Message.class.php:199
 #: libraries/Util.class.php:624 libraries/core.lib.php:245
 #: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1166
 #: tbl_operations.php:228 view_operations.php:63
@@ -3233,12 +3237,12 @@ msgid "Font size"
 msgstr "Veličina fonta"
 
 #: libraries/Console.class.php:85 libraries/Console.class.php:210
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:292
 msgid "Collapse"
 msgstr ""
 
 #: libraries/Console.class.php:86 libraries/Console.class.php:212
-#: libraries/Console.class.php:285
+#: libraries/Console.class.php:293
 msgid "Expand"
 msgstr ""
 
@@ -3349,7 +3353,7 @@ msgstr "Obriši"
 msgid "History"
 msgstr "SQL istorijat"
 
-#: libraries/Console.class.php:240 libraries/Console.class.php:338
+#: libraries/Console.class.php:240 libraries/Console.class.php:345
 #: libraries/DisplayResults.class.php:1726 libraries/import.lib.php:1261
 #: libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -3378,13 +3382,13 @@ msgstr "SQL istorijat"
 msgid "Options"
 msgstr "Opcije"
 
-#: libraries/Console.class.php:244 libraries/Console.class.php:300
+#: libraries/Console.class.php:244 libraries/Console.class.php:307
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Bookmarks"
 msgstr "Obriši relaciju"
 
-#: libraries/Console.class.php:248 libraries/Console.class.php:276
+#: libraries/Console.class.php:248 libraries/Console.class.php:277
 #: libraries/config/messages.inc.php:86
 msgid "Debug SQL"
 msgstr "Debagovanje SQL-a"
@@ -3401,84 +3405,98 @@ msgstr "Izvrrši svaki"
 msgid "Press Enter to execute query"
 msgstr "Izvrrši svaki"
 
-#: libraries/Console.class.php:286
+#: libraries/Console.class.php:280
+#, fuzzy
+#| msgid "SQL queries"
+msgid "Group queries"
+msgstr "SQL upiti"
+
+#: libraries/Console.class.php:283
+#, fuzzy
+#| msgid "SQL queries"
+msgid "Ungroup queries"
+msgstr "SQL upiti"
+
+#: libraries/Console.class.php:294
 #, fuzzy
 #| msgid "Show color"
 msgid "Show trace"
 msgstr "Prikaži boju"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:295
 #, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide trace"
 msgstr "Sakrij indekse"
 
-#: libraries/Console.class.php:288
-msgid "Time taken:"
-msgstr ""
+#: libraries/Console.class.php:296
+#, fuzzy
+#| msgid "Column"
+msgid "Count:"
+msgstr "Kolona"
 
-#: libraries/Console.class.php:304 libraries/Util.class.php:1260
+#: libraries/Console.class.php:311 libraries/Util.class.php:1260
 #: libraries/config/messages.inc.php:776
 #: libraries/server_status_processes.lib.php:251
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Osveži"
 
-#: libraries/Console.class.php:307
+#: libraries/Console.class.php:314
 #, fuzzy
 #| msgid "And"
 msgid "Add"
 msgstr "i"
 
-#: libraries/Console.class.php:316
+#: libraries/Console.class.php:323
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "Obriši relaciju"
 
-#: libraries/Console.class.php:320
+#: libraries/Console.class.php:327
 #, fuzzy
 #| msgid "Label"
 msgid "Label"
 msgstr "Naziv"
 
-#: libraries/Console.class.php:322
+#: libraries/Console.class.php:329
 msgid "Target database"
 msgstr "Ciljna baza"
 
-#: libraries/Console.class.php:325
+#: libraries/Console.class.php:332
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "Obriši relaciju"
 
-#: libraries/Console.class.php:342
+#: libraries/Console.class.php:349
 #, fuzzy
 #| msgid "Export defaults"
 msgid "Set default"
 msgstr "Podrazumevane opcije izvoza"
 
-#: libraries/Console.class.php:346
+#: libraries/Console.class.php:353
 msgid "Always expand query messages"
 msgstr ""
 
-#: libraries/Console.class.php:348
+#: libraries/Console.class.php:355
 #, fuzzy
 #| msgid "Slow query rate"
 msgid "Show query history at start"
 msgstr "Stopa sporih upita"
 
-#: libraries/Console.class.php:350
+#: libraries/Console.class.php:357
 msgid "Show current browsing query"
 msgstr ""
 
-#: libraries/Console.class.php:353
+#: libraries/Console.class.php:360
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
 
-#: libraries/Console.class.php:357
+#: libraries/Console.class.php:364
 #, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
@@ -3627,7 +3645,7 @@ msgstr "Prikazivanje markera"
 msgid "Delete bookmark"
 msgstr "Obriši relaciju"
 
-#: libraries/DatabaseInterface.class.php:2439
+#: libraries/DatabaseInterface.class.php:2438
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -3635,19 +3653,19 @@ msgstr ""
 "Nema odgovora sa servera (ili priključak lokalnog servera nije ispravno "
 "podešen)."
 
-#: libraries/DatabaseInterface.class.php:2444
+#: libraries/DatabaseInterface.class.php:2443
 msgid "The server is not responding."
 msgstr "Server ne odgovara."
 
-#: libraries/DatabaseInterface.class.php:2449
+#: libraries/DatabaseInterface.class.php:2448
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2459
+#: libraries/DatabaseInterface.class.php:2458
 msgid "Details…"
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2682
+#: libraries/DatabaseInterface.class.php:2681
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Konekcija za controluser-a, onako kako je definisana u vašoj konfiguraciji, "

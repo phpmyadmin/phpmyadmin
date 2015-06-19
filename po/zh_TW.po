@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-06-18 06:31-0400\n"
+"POT-Creation-Date: 2015-06-19 07:19-0400\n"
 "PO-Revision-Date: 2015-05-28 09:43+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
@@ -1490,7 +1490,7 @@ msgstr "分析中…"
 msgid "Explain output"
 msgstr "輸出說明"
 
-#: js/messages.php:238 js/messages.php:751
+#: js/messages.php:238 js/messages.php:752
 #: libraries/plugins/export/ExportHtmlword.class.php:471
 #: libraries/plugins/export/ExportOdt.class.php:587
 #: libraries/plugins/export/ExportTexytext.class.php:426
@@ -1928,7 +1928,7 @@ msgid "Second step of normalization (2NF)"
 msgstr "第二正規化 (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:367 js/messages.php:620 libraries/normalization.lib.php:287
+#: js/messages.php:367 js/messages.php:621 libraries/normalization.lib.php:287
 msgid "Done"
 msgstr "完成"
 
@@ -2506,7 +2506,11 @@ msgstr "顯示資料表備註"
 msgid "Hide arguments"
 msgstr "隱藏搜尋結果"
 
-#: js/messages.php:596
+#: js/messages.php:596 libraries/Console.class.php:297
+msgid "Time taken:"
+msgstr ""
+
+#: js/messages.php:597
 msgid ""
 "Your web browser does not support local storage of settings or the quota "
 "limit has been reached, some features may not work properly for you. In "
@@ -2516,332 +2520,332 @@ msgstr ""
 "執行。若在 Safari 發現此問題可能是使用 \"Private Mode Browsing\" 所造成。"
 
 # 這應該是使用於選擇日期的月曆
-#: js/messages.php:624
+#: js/messages.php:625
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "上個月"
 
 # 這應該使用於選擇日期的小月曆
-#: js/messages.php:629
+#: js/messages.php:630
 msgctxt "Next month"
 msgid "Next"
 msgstr "下個月"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:632
+#: js/messages.php:633
 msgid "Today"
 msgstr "今天"
 
-#: js/messages.php:636
+#: js/messages.php:637
 msgid "January"
 msgstr "一月"
 
-#: js/messages.php:637
+#: js/messages.php:638
 msgid "February"
 msgstr "二月"
 
-#: js/messages.php:638
+#: js/messages.php:639
 msgid "March"
 msgstr "三月"
 
-#: js/messages.php:639
+#: js/messages.php:640
 msgid "April"
 msgstr "四月"
 
-#: js/messages.php:640
+#: js/messages.php:641
 msgid "May"
 msgstr "五月"
 
-#: js/messages.php:641
+#: js/messages.php:642
 msgid "June"
 msgstr "六月"
 
-#: js/messages.php:642
+#: js/messages.php:643
 msgid "July"
 msgstr "七月"
 
-#: js/messages.php:643
+#: js/messages.php:644
 msgid "August"
 msgstr "八月"
 
-#: js/messages.php:644
+#: js/messages.php:645
 msgid "September"
 msgstr "九月"
 
-#: js/messages.php:645
+#: js/messages.php:646
 msgid "October"
 msgstr "十月"
 
-#: js/messages.php:646
+#: js/messages.php:647
 msgid "November"
 msgstr "十一月"
 
-#: js/messages.php:647
+#: js/messages.php:648
 msgid "December"
 msgstr "十二月"
 
 #. l10n: Short month name
-#: js/messages.php:654 libraries/Util.class.php:1620
+#: js/messages.php:655 libraries/Util.class.php:1620
 msgid "Jan"
 msgstr "一月"
 
 #. l10n: Short month name
-#: js/messages.php:656 libraries/Util.class.php:1622
+#: js/messages.php:657 libraries/Util.class.php:1622
 msgid "Feb"
 msgstr "二月"
 
 #. l10n: Short month name
-#: js/messages.php:658 libraries/Util.class.php:1624
+#: js/messages.php:659 libraries/Util.class.php:1624
 msgid "Mar"
 msgstr "三月"
 
 #. l10n: Short month name
-#: js/messages.php:660 libraries/Util.class.php:1626
+#: js/messages.php:661 libraries/Util.class.php:1626
 msgid "Apr"
 msgstr "四月"
 
 #. l10n: Short month name
-#: js/messages.php:662 libraries/Util.class.php:1628
+#: js/messages.php:663 libraries/Util.class.php:1628
 msgctxt "Short month name"
 msgid "May"
 msgstr "五月"
 
 #. l10n: Short month name
-#: js/messages.php:664 libraries/Util.class.php:1630
+#: js/messages.php:665 libraries/Util.class.php:1630
 msgid "Jun"
 msgstr "六月"
 
 #. l10n: Short month name
-#: js/messages.php:666 libraries/Util.class.php:1632
+#: js/messages.php:667 libraries/Util.class.php:1632
 msgid "Jul"
 msgstr "七月"
 
 #. l10n: Short month name
-#: js/messages.php:668 libraries/Util.class.php:1634
+#: js/messages.php:669 libraries/Util.class.php:1634
 msgid "Aug"
 msgstr "八月"
 
 #. l10n: Short month name
-#: js/messages.php:670 libraries/Util.class.php:1636
+#: js/messages.php:671 libraries/Util.class.php:1636
 msgid "Sep"
 msgstr "九月"
 
 #. l10n: Short month name
-#: js/messages.php:672 libraries/Util.class.php:1638
+#: js/messages.php:673 libraries/Util.class.php:1638
 msgid "Oct"
 msgstr "十月"
 
 #. l10n: Short month name
-#: js/messages.php:674 libraries/Util.class.php:1640
+#: js/messages.php:675 libraries/Util.class.php:1640
 msgid "Nov"
 msgstr "十一月"
 
 #. l10n: Short month name
-#: js/messages.php:676 libraries/Util.class.php:1642
+#: js/messages.php:677 libraries/Util.class.php:1642
 msgid "Dec"
 msgstr "十二月"
 
-#: js/messages.php:682
+#: js/messages.php:683
 msgid "Sunday"
 msgstr "星期日"
 
-#: js/messages.php:683
+#: js/messages.php:684
 msgid "Monday"
 msgstr "星期一"
 
-#: js/messages.php:684
+#: js/messages.php:685
 msgid "Tuesday"
 msgstr "星期二"
 
-#: js/messages.php:685
+#: js/messages.php:686
 msgid "Wednesday"
 msgstr "星期三"
 
-#: js/messages.php:686
+#: js/messages.php:687
 msgid "Thursday"
 msgstr "星期四"
 
-#: js/messages.php:687
+#: js/messages.php:688
 msgid "Friday"
 msgstr "星期五"
 
-#: js/messages.php:688
+#: js/messages.php:689
 msgid "Saturday"
 msgstr "星期六"
 
 #. l10n: Short week day name
-#: js/messages.php:695
+#: js/messages.php:696
 msgid "Sun"
 msgstr "週日"
 
 #. l10n: Short week day name
-#: js/messages.php:697 libraries/Util.class.php:1647
+#: js/messages.php:698 libraries/Util.class.php:1647
 msgid "Mon"
 msgstr "週一"
 
 #. l10n: Short week day name
-#: js/messages.php:699 libraries/Util.class.php:1649
+#: js/messages.php:700 libraries/Util.class.php:1649
 msgid "Tue"
 msgstr "週二"
 
 #. l10n: Short week day name
-#: js/messages.php:701 libraries/Util.class.php:1651
+#: js/messages.php:702 libraries/Util.class.php:1651
 msgid "Wed"
 msgstr "週三"
 
 #. l10n: Short week day name
-#: js/messages.php:703 libraries/Util.class.php:1653
+#: js/messages.php:704 libraries/Util.class.php:1653
 msgid "Thu"
 msgstr "週四"
 
 #. l10n: Short week day name
-#: js/messages.php:705 libraries/Util.class.php:1655
+#: js/messages.php:706 libraries/Util.class.php:1655
 msgid "Fri"
 msgstr "週五"
 
 #. l10n: Short week day name
-#: js/messages.php:707 libraries/Util.class.php:1657
+#: js/messages.php:708 libraries/Util.class.php:1657
 msgid "Sat"
 msgstr "週六"
 
 #. l10n: Minimal week day name
-#: js/messages.php:714
+#: js/messages.php:715
 msgid "Su"
 msgstr "日"
 
 #. l10n: Minimal week day name
-#: js/messages.php:716
+#: js/messages.php:717
 msgid "Mo"
 msgstr "一"
 
 #. l10n: Minimal week day name
-#: js/messages.php:718
+#: js/messages.php:719
 msgid "Tu"
 msgstr "二"
 
 #. l10n: Minimal week day name
-#: js/messages.php:720
+#: js/messages.php:721
 msgid "We"
 msgstr "三"
 
 #. l10n: Minimal week day name
-#: js/messages.php:722
+#: js/messages.php:723
 msgid "Th"
 msgstr "四"
 
 #. l10n: Minimal week day name
-#: js/messages.php:724
+#: js/messages.php:725
 msgid "Fr"
 msgstr "五"
 
 #. l10n: Minimal week day name
-#: js/messages.php:726
+#: js/messages.php:727
 msgid "Sa"
 msgstr "六"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:730
+#: js/messages.php:731
 msgid "Wk"
 msgstr "週"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:737
+#: js/messages.php:738
 msgid "calendar-month-year"
 msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:740
+#: js/messages.php:741
 msgctxt "Year suffix"
 msgid "none"
 msgstr "none"
 
-#: js/messages.php:752
+#: js/messages.php:753
 msgid "Hour"
 msgstr "時"
 
-#: js/messages.php:753
+#: js/messages.php:754
 msgid "Minute"
 msgstr "分"
 
-#: js/messages.php:754
+#: js/messages.php:755
 msgid "Second"
 msgstr "秒"
 
-#: js/messages.php:765
+#: js/messages.php:766
 msgid "This field is required"
 msgstr "此欄位為必填"
 
-#: js/messages.php:766
+#: js/messages.php:767
 msgid "Please fix this field"
 msgstr "請修正此欄位"
 
-#: js/messages.php:767
+#: js/messages.php:768
 msgid "Please enter a valid email address"
 msgstr "請輸入一個有效的電子郵件位址"
 
-#: js/messages.php:768
+#: js/messages.php:769
 msgid "Please enter a valid URL"
 msgstr "請輸入一個有效的 URL"
 
-#: js/messages.php:769
+#: js/messages.php:770
 msgid "Please enter a valid date"
 msgstr "請輸入一個有效的日期"
 
-#: js/messages.php:770
+#: js/messages.php:771
 msgid "Please enter a valid date ( ISO )"
 msgstr "請輸入一個有效的日期 ( ISO )"
 
-#: js/messages.php:771
+#: js/messages.php:772
 msgid "Please enter a valid number"
 msgstr "請輸入一個有效的數字"
 
-#: js/messages.php:772
+#: js/messages.php:773
 msgid "Please enter a valid credit card number"
 msgstr "請輸入一個有效的信用卡號"
 
-#: js/messages.php:773
+#: js/messages.php:774
 msgid "Please enter only digits"
 msgstr "請輸入數字"
 
-#: js/messages.php:774
+#: js/messages.php:775
 msgid "Please enter the same value again"
 msgstr "請再輸入一次"
 
-#: js/messages.php:775
+#: js/messages.php:776
 msgid "Please enter no more than {0} characters"
 msgstr "請輸入不超過 {0} 個字元"
 
-#: js/messages.php:776
+#: js/messages.php:777
 msgid "Please enter at least {0} characters"
 msgstr "請輸入不少於 {0} 個字元"
 
-#: js/messages.php:777
+#: js/messages.php:778
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "請輸入介於  {0} 與 {1} 個字元長度間的值"
 
-#: js/messages.php:778
+#: js/messages.php:779
 msgid "Please enter a value between {0} and {1}"
 msgstr "請輸入介於  {0} 與 {1} 間的值"
 
-#: js/messages.php:779
+#: js/messages.php:780
 msgid "Please enter a value less than or equal to {0}"
 msgstr "請輸入小於等於 {0} 的值"
 
-#: js/messages.php:780
+#: js/messages.php:781
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "請輸入大於等於 {0} 的值"
 
-#: js/messages.php:782
+#: js/messages.php:783
 msgid "Please enter a valid date or time"
 msgstr "請輸入有效的日期或時間"
 
-#: js/messages.php:783
+#: js/messages.php:784
 msgid "Please enter a valid HEX input"
 msgstr "請輸入有效的 HEX 輸入值"
 
-#: js/messages.php:784 libraries/Message.class.php:199
+#: js/messages.php:785 libraries/Message.class.php:199
 #: libraries/Util.class.php:624 libraries/core.lib.php:245
 #: libraries/import.lib.php:183 libraries/insert_edit.lib.php:1166
 #: tbl_operations.php:228 view_operations.php:63
@@ -2926,12 +2930,12 @@ msgid "Font size"
 msgstr "字體大小"
 
 #: libraries/Console.class.php:85 libraries/Console.class.php:210
-#: libraries/Console.class.php:284
+#: libraries/Console.class.php:292
 msgid "Collapse"
 msgstr "摺疊"
 
 #: libraries/Console.class.php:86 libraries/Console.class.php:212
-#: libraries/Console.class.php:285
+#: libraries/Console.class.php:293
 msgid "Expand"
 msgstr "展開"
 
@@ -3022,7 +3026,7 @@ msgstr "清除"
 msgid "History"
 msgstr "歷史記錄"
 
-#: libraries/Console.class.php:240 libraries/Console.class.php:338
+#: libraries/Console.class.php:240 libraries/Console.class.php:345
 #: libraries/DisplayResults.class.php:1726 libraries/import.lib.php:1261
 #: libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -3051,11 +3055,11 @@ msgstr "歷史記錄"
 msgid "Options"
 msgstr "選項"
 
-#: libraries/Console.class.php:244 libraries/Console.class.php:300
+#: libraries/Console.class.php:244 libraries/Console.class.php:307
 msgid "Bookmarks"
 msgstr "書籤"
 
-#: libraries/Console.class.php:248 libraries/Console.class.php:276
+#: libraries/Console.class.php:248 libraries/Console.class.php:277
 #: libraries/config/messages.inc.php:86
 msgid "Debug SQL"
 msgstr "SQL 偵錯"
@@ -3068,66 +3072,80 @@ msgstr "請按 Ctrl+Enter 執行查詢"
 msgid "Press Enter to execute query"
 msgstr "請按 Enter 執行查詢"
 
-#: libraries/Console.class.php:286
+#: libraries/Console.class.php:280
+#, fuzzy
+#| msgid "SQL queries"
+msgid "Group queries"
+msgstr "SQL 查詢"
+
+#: libraries/Console.class.php:283
+#, fuzzy
+#| msgid "SQL queries"
+msgid "Ungroup queries"
+msgstr "SQL 查詢"
+
+#: libraries/Console.class.php:294
 #, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
 msgstr "顯示建立"
 
-#: libraries/Console.class.php:287
+#: libraries/Console.class.php:295
 #, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
 msgstr "隱藏控制面板"
 
-#: libraries/Console.class.php:288
-msgid "Time taken:"
-msgstr ""
+#: libraries/Console.class.php:296
+#, fuzzy
+#| msgid "Count"
+msgid "Count:"
+msgstr "次數"
 
-#: libraries/Console.class.php:304 libraries/Util.class.php:1260
+#: libraries/Console.class.php:311 libraries/Util.class.php:1260
 #: libraries/config/messages.inc.php:776
 #: libraries/server_status_processes.lib.php:251
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "重新整理"
 
-#: libraries/Console.class.php:307
+#: libraries/Console.class.php:314
 msgid "Add"
 msgstr "新增"
 
-#: libraries/Console.class.php:316
+#: libraries/Console.class.php:323
 msgid "Add bookmark"
 msgstr "新增書籤"
 
-#: libraries/Console.class.php:320
+#: libraries/Console.class.php:327
 msgid "Label"
 msgstr "標籤"
 
-#: libraries/Console.class.php:322
+#: libraries/Console.class.php:329
 msgid "Target database"
 msgstr "目標資料庫"
 
-#: libraries/Console.class.php:325
+#: libraries/Console.class.php:332
 msgid "Share this bookmark"
 msgstr "分享此書籤"
 
-#: libraries/Console.class.php:342
+#: libraries/Console.class.php:349
 msgid "Set default"
 msgstr "設定預設值"
 
-#: libraries/Console.class.php:346
+#: libraries/Console.class.php:353
 msgid "Always expand query messages"
 msgstr "總是展開查詢訊息"
 
-#: libraries/Console.class.php:348
+#: libraries/Console.class.php:355
 msgid "Show query history at start"
 msgstr "顯示查詢記錄於一開始"
 
-#: libraries/Console.class.php:350
+#: libraries/Console.class.php:357
 msgid "Show current browsing query"
 msgstr "顯示目前畫面使用的查詢"
 
-#: libraries/Console.class.php:353
+#: libraries/Console.class.php:360
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
@@ -3135,7 +3153,7 @@ msgstr ""
 "按 Enter 執行查詢或使用 Shift + Enter 輸入新的一行。要將永久使用此設定設為請"
 "檢視設定項目。"
 
-#: libraries/Console.class.php:357
+#: libraries/Console.class.php:364
 msgid "Switch to dark theme"
 msgstr "切換為深色主題"
 
@@ -3260,25 +3278,25 @@ msgstr "更新書籤"
 msgid "Delete bookmark"
 msgstr "刪除書籤"
 
-#: libraries/DatabaseInterface.class.php:2439
+#: libraries/DatabaseInterface.class.php:2438
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr "伺服器沒有回應（或者是伺服器的 socket 沒有被正確的設定）。"
 
-#: libraries/DatabaseInterface.class.php:2444
+#: libraries/DatabaseInterface.class.php:2443
 msgid "The server is not responding."
 msgstr "伺服器沒有回應。"
 
-#: libraries/DatabaseInterface.class.php:2449
+#: libraries/DatabaseInterface.class.php:2448
 msgid "Please check privileges of directory containing database."
 msgstr "請檢查資料庫所在的資料夾權限。"
 
-#: libraries/DatabaseInterface.class.php:2459
+#: libraries/DatabaseInterface.class.php:2458
 msgid "Details…"
 msgstr "詳細資訊…"
 
-#: libraries/DatabaseInterface.class.php:2682
+#: libraries/DatabaseInterface.class.php:2681
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用設定檔案中定義的控制使用者連線失敗。"
 
