@@ -83,6 +83,7 @@ $strConfigConfirm_desc = __(
     . 'when you\'re about to lose data.'
 );
 $strConfigConfirm_name = __('Confirm DROP queries');
+$strConfigDBG_sql_desc = __('Log SQL queries and their execution time, to be displayed in the console');
 $strConfigDBG_sql_name = __('Debug SQL');
 $strConfigDefaultTabDatabase_desc
     = __('Tab that is displayed when entering a database.');
