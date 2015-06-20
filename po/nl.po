@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-20 06:59-0400\n"
-"PO-Revision-Date: 2015-05-31 22:10+0200\n"
+"PO-Revision-Date: 2015-06-20 15:02+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -1036,15 +1036,21 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Met deze bewerking, probeert MySQL de data te koppelen tussen "
+"vergelijkingen. Als de tekenset niet compatible zijn, kan er dataverlies "
+"optreden en dit kan <b>NIET</b> herstelbaar zijn door kolommen vergelijking "
+"terug te draaien. <b>Om bestaande data te converteren wordt geadviseerd om "
+"de bewerkingsmogelijkheid (de \"Wijzig\" link) van de kolom(men) op de "
+"tabelstructuur pagina te gebruiken.</b>"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Are you sure you wish to change the collation and convert the data?"
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Weet u zeker dat u deze vergelijking wil wijzigen en de data converteren?"
+"Weet u zeker dat u alle kolom vergelijkingen wil wijzigen en de data "
+"converteren?"
 
 #: js/messages.php:88
 msgid "Save & Close"
@@ -2582,34 +2588,32 @@ msgstr "Weet u zeker dat u deze bladwijzer wil verwijderen?"
 
 #: js/messages.php:591
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "Er is een fout opgetreden bij het ophalen van SQL debug informatie."
 
 #: js/messages.php:592
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enter executes queries in console"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "De Enter toets voert queries uit in de console"
+msgstr "%s queries %s keer uitgevoerd in %s seconden."
 
 #: js/messages.php:593
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s argument(en) gepasseerd"
 
 #: js/messages.php:594
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show arguments"
-msgstr "Tabel opmerkingen"
+msgstr "Toon argumenten"
 
 #: js/messages.php:595
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Zoekresultaten verbergen"
+msgstr "Argumenten verbergen"
 
 #: js/messages.php:596 libraries/Console.class.php:318
 msgid "Time taken:"
-msgstr ""
+msgstr "Gebruikte tijd:"
 
 #: js/messages.php:597
 msgid ""
@@ -3179,72 +3183,62 @@ msgid "Press Enter to execute query"
 msgstr "Druk op Enter om de query uit te voeren"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Oplopend"
+msgstr "oplopend"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Aflopend"
+msgstr "aflopend"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "Volgorde"
+msgstr "Volgorde:"
 
 #: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
 msgid "Count"
 msgstr "Aantal"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "Uitvoeren iedere"
+msgstr "Uitvoerings volgorde"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
-msgstr ""
+msgstr "Gebruikte tijd"
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "Volgorde"
+msgstr "Volgorde:"
 
 #: libraries/Console.class.php:301
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "SQL-query's"
+msgstr "Groep query's"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "SQL-query's"
+msgstr "Niet gegroepeerde query's"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "Toon aanmaken"
+msgstr "Toon bewerkingen"
 
 #: libraries/Console.class.php:316
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Paneel verbergen"
+msgstr "Verberg bewerkingen"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "Aantal"
+msgstr "Aantal:"
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1260
 #: libraries/config/messages.inc.php:777
@@ -3329,17 +3323,16 @@ msgstr "Kolom:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Alias:"
 
 #: libraries/DBQbe.class.php:566
 msgid "Sort:"
 msgstr "Sorteren:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "Sorteren:"
+msgstr "Sorteervolgorde:"
 
 #: libraries/DBQbe.class.php:679
 msgid "Show:"
@@ -5154,10 +5147,9 @@ msgid "display column"
 msgstr "toon kolom"
 
 #: libraries/config.values.php:102
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Welkom bij %s"
+msgstr "Welkom"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5728,6 +5720,8 @@ msgstr "Bevestig DROP-query's"
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
+"Journaliseer SQL query's en hun verwerkingstijd, om weer te geven op de "
+"console"
 
 #: libraries/config/messages.inc.php:89
 msgid "Tab that is displayed when entering a database."
@@ -9782,10 +9776,9 @@ msgid "Storage Engine"
 msgstr "Opslag-engine"
 
 #: libraries/operations.lib.php:995
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "Maak alle kolommen atomair"
+msgstr "Wijzig alle kolommen vergelijkingen"
 
 #: libraries/operations.lib.php:1164
 msgid "Copy table to (database<b>.</b>table)"
