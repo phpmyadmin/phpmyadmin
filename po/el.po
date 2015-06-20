@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-20 06:59-0400\n"
-"PO-Revision-Date: 2015-06-18 13:56+0200\n"
+"PO-Revision-Date: 2015-06-20 14:54+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3179,56 +3179,48 @@ msgid "Press Enter to execute query"
 msgstr "Πατήστε Enter για εκτέλεση του ερωτήματος"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Αύξουσα"
+msgstr "αύξουσα"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Φθίνουσα"
+msgstr "φθίνουσα"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "Ταξινόμηση"
+msgstr "Ταξινόμηση:"
 
 #: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
 msgid "Count"
 msgstr "Μέτρηση"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "Εκτέλεση κάθε"
+msgstr "Σειρά εκτέλεσης"
 
 #: libraries/Console.class.php:295
-#, fuzzy
 #| msgid "Time taken:"
 msgid "Time taken"
-msgstr "Χρόνος που παρήλθε:"
+msgstr "Χρόνος που παρήλθε"
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "Ταξινόμηση"
+msgstr "Ταξινόμηση κατά:"
 
 #: libraries/Console.class.php:301
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "Ερωτήματα SQL"
+msgstr "Ομαδοποίηση ερωτημάτων"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "Ερωτήματα SQL"
+msgstr "Αποομαδοποίηση ερωτημάτων"
 
 #: libraries/Console.class.php:315
 msgid "Show trace"
@@ -3239,10 +3231,9 @@ msgid "Hide trace"
 msgstr "Απόκρυψη ίχνους"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "Μέτρηση"
+msgstr "Μέτρηση:"
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1260
 #: libraries/config/messages.inc.php:777
@@ -5729,6 +5720,8 @@ msgstr "Επιβεβαίωση ερωτημάτων DROP"
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
+"Καταγραφή ερωτημάτων SQL και του χρόνου εκτέλεσής τους για να εμφανίζονται "
+"στην κονσόλα"
 
 #: libraries/config/messages.inc.php:89
 msgid "Tab that is displayed when entering a database."
