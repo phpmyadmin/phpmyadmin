@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-20 06:59-0400\n"
-"PO-Revision-Date: 2015-06-13 11:41+0200\n"
+"PO-Revision-Date: 2015-06-20 19:09+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
@@ -2566,33 +2566,32 @@ msgstr "Ali res želite izbrisati zaznamek?"
 #: js/messages.php:591
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
+"Med pridobivanjem informacij za odpravljanje napak SQL je prišlo do napake."
 
 #: js/messages.php:592
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enter executes queries in console"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Enter izvede poizvedbe v konzoli"
+msgstr "%s poizvedb izvedenih %s-krat v %s sekundah."
 
 #: js/messages.php:593
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "podanih %s argumentov"
 
 #: js/messages.php:594
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show arguments"
-msgstr "Prikaži pripombe tabele"
+msgstr "Prikaži argumente"
 
 #: js/messages.php:595
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Skrij rezultate iskanja"
+msgstr "Skrij argumente"
 
 #: js/messages.php:596 libraries/Console.class.php:318
 msgid "Time taken:"
-msgstr ""
+msgstr "Porabljen čas:"
 
 #: js/messages.php:597
 msgid ""
@@ -3165,72 +3164,62 @@ msgid "Press Enter to execute query"
 msgstr "Pritisnite enter, da izvedete poizvedbo"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Naraščajoče"
+msgstr "naraščajoče"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Padajoče"
+msgstr "padajoče"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "Vrstni red"
+msgstr "Vrstni red:"
 
 #: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
 msgid "Count"
 msgstr "Štetje"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "Izvedi vsakih"
+msgstr "Vrstni red izvajanja"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
-msgstr ""
+msgstr "Porabljen čas"
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "Vrstni red"
+msgstr "Razvrsti po:"
 
 #: libraries/Console.class.php:301
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "Poizvedbe SQL"
+msgstr "Združi poizvedbe"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "Poizvedbe SQL"
+msgstr "Razdruži poizvedbe"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "Pokaži create"
+msgstr "Pokaži sled"
 
 #: libraries/Console.class.php:316
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Skrij ploščo"
+msgstr "Skrij sled"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "Štetje"
+msgstr "Štetje:"
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1260
 #: libraries/config/messages.inc.php:777
@@ -3315,17 +3304,16 @@ msgstr "Stolpec:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Vzdevek:"
 
 #: libraries/DBQbe.class.php:566
 msgid "Sort:"
 msgstr "Razvrsti:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "Razvrsti:"
+msgstr "Vrstni red razvrščanja:"
 
 #: libraries/DBQbe.class.php:679
 msgid "Show:"
@@ -5143,10 +5131,9 @@ msgid "display column"
 msgstr "prikazni stolpec"
 
 #: libraries/config.values.php:102
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Dobrodošli v %s"
+msgstr "Dobrodošli"
 
 #: libraries/config.values.php:122
 msgid "Open"
