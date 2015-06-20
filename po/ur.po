@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-06-20 06:32-0400\n"
+"POT-Creation-Date: 2015-06-20 06:59-0400\n"
 "PO-Revision-Date: 2014-03-27 15:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3381,12 +3381,16 @@ msgid "Press Enter to execute query"
 msgstr "SQL طلب"
 
 #: libraries/Console.class.php:277
-msgid "ASC"
-msgstr ""
+#, fuzzy
+#| msgid "Ascending"
+msgid "ascending"
+msgstr "صعودی"
 
 #: libraries/Console.class.php:280
-msgid "DESC"
-msgstr ""
+#, fuzzy
+#| msgid "Descending"
+msgid "descending"
+msgstr "نزولی"
 
 #: libraries/Console.class.php:283
 msgid "Order:"

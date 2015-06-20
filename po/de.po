@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-06-20 06:32-0400\n"
+"POT-Creation-Date: 2015-06-20 06:59-0400\n"
 "PO-Revision-Date: 2015-06-17 05:52+0200\n"
 "Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3205,12 +3205,16 @@ msgid "Press Enter to execute query"
 msgstr "Drücken Sie Enter, um die Abfrage auszuführen"
 
 #: libraries/Console.class.php:277
-msgid "ASC"
-msgstr ""
+#, fuzzy
+#| msgid "Ascending"
+msgid "ascending"
+msgstr "Aufsteigend"
 
 #: libraries/Console.class.php:280
-msgid "DESC"
-msgstr ""
+#, fuzzy
+#| msgid "Descending"
+msgid "descending"
+msgstr "Absteigend"
 
 #: libraries/Console.class.php:283
 #, fuzzy

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-06-20 06:32-0400\n"
+"POT-Creation-Date: 2015-06-20 06:59-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3007,11 +3007,11 @@ msgid "Press Enter to execute query"
 msgstr ""
 
 #: libraries/Console.class.php:277
-msgid "ASC"
+msgid "ascending"
 msgstr ""
 
 #: libraries/Console.class.php:280
-msgid "DESC"
+msgid "descending"
 msgstr ""
 
 #: libraries/Console.class.php:283

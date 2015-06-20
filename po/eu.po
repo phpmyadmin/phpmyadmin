@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-06-20 06:32-0400\n"
+"POT-Creation-Date: 2015-06-20 06:59-0400\n"
 "PO-Revision-Date: 2014-03-31 14:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3407,12 +3407,16 @@ msgid "Press Enter to execute query"
 msgstr "Exekutatu aurretik aukeratutako kontsulta"
 
 #: libraries/Console.class.php:277
-msgid "ASC"
-msgstr ""
+#, fuzzy
+#| msgid "Ascending"
+msgid "ascending"
+msgstr "Goranzko"
 
 #: libraries/Console.class.php:280
-msgid "DESC"
-msgstr ""
+#, fuzzy
+#| msgid "Descending"
+msgid "descending"
+msgstr "Beherantz"
 
 #: libraries/Console.class.php:283
 #, fuzzy

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-06-20 06:32-0400\n"
+"POT-Creation-Date: 2015-06-20 06:59-0400\n"
 "PO-Revision-Date: 2015-04-21 08:43+0200\n"
 "Last-Translator: fundawang <fundawang@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
@@ -3212,12 +3212,16 @@ msgid "Press Enter to execute query"
 msgstr "运行周期"
 
 #: libraries/Console.class.php:277
-msgid "ASC"
-msgstr ""
+#, fuzzy
+#| msgid "Ascending"
+msgid "ascending"
+msgstr "递增"
 
 #: libraries/Console.class.php:280
-msgid "DESC"
-msgstr ""
+#, fuzzy
+#| msgid "Descending"
+msgid "descending"
+msgstr "递减"
 
 #: libraries/Console.class.php:283
 #, fuzzy
