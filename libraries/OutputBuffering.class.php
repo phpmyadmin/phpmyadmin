@@ -17,8 +17,10 @@ class PMA_OutputBuffering
 {
     private static $_instance;
     private $_mode;
-    private $_content;
-    private $_on;
+    private $_contents;
+    private $_current;
+
+    private $_gzHandlerActivated = false;
 
     /**
      * Initializes class
@@ -26,7 +28,8 @@ class PMA_OutputBuffering
     private function __construct()
     {
         $this->_mode = $this->_getMode();
-        $this->_on = false;
+        $this->_contents = array();
+        $this->_current = 0;
     }
 
     /**
@@ -81,17 +84,28 @@ class PMA_OutputBuffering
      */
     public function start()
     {
-        if (! $this->_on) {
-            if ($this->_mode && function_exists('ob_gzhandler')) {
-                ob_start('ob_gzhandler');
-            }
-            ob_start();
-            if (! defined('TESTSUITE')) {
-                header('X-ob_mode: ' . $this->_mode);
-            }
-            register_shutdown_function('PMA_OutputBuffering::stop');
-            $this->_on = true;
+        //If output buffering has already started, get content and clean it.
+        if (0 !== $this->_current) {
+            $this->_contents[$this->_current]['before'] .= $this->getContents();
+            $this->_contents[$this->_current++]['before'] .= ob_get_contents();
+            ob_clean();
+            return;
         }
+
+        //Else, start output buffering.
+        if ($this->_mode && function_exists('ob_gzhandler')&& !$this->_gzHandlerActivated) {
+            $this->_gzHandlerActivated = true;
+            ob_start('ob_gzhandler');
+        }
+        ob_start();
+        if (! defined('TESTSUITE')) {
+            header('X-ob_mode: ' . $this->_mode);
+        }
+        register_shutdown_function('PMA_OutputBuffering::stop');
+        $this->_contents[++$this->_current] = array(
+            'before' => null,
+            'after' => null
+        );
     }
 
     /**
@@ -99,16 +113,25 @@ class PMA_OutputBuffering
      * buffering is turned on.  It also needs to be passed $mode from the
      * PMA_outBufferModeGet() function or it will be useless.
      *
-     * @return void
+     * @return bool Success
      */
     public static function stop()
     {
         $buffer = PMA_OutputBuffering::getInstance();
-        if ($buffer->_on) {
-            $buffer->_on = false;
-            $buffer->_content = ob_get_contents();
+
+        if (0 === $buffer->_current) {
+            return false;
+        }
+
+        $buffer->_contents[$buffer->_current]['after'] = ob_get_contents();
+        ob_clean();
+
+        //If last output buffering, close it.
+        if (0 === --$buffer->_current) {
             ob_end_clean();
         }
+
+        return true;
     }
 
     /**
@@ -116,9 +139,23 @@ class PMA_OutputBuffering
      *
      * @return string buffer content
      */
-    public function getContents()
+    public function getContents($index = null)
     {
-        return $this->_content;
+        if (null === $index) {
+            $index = $this->_current + 1;
+        }
+
+        if (!array_key_exists($index, $this->_contents)) {
+            return null;
+        }
+
+        $aCurrentContent = $this->_contents[$index];
+        $content = array_key_exists('before', $aCurrentContent) ? $aCurrentContent['before'] : null;
+        $content .= $this->getContents($index + 1);
+        $content .= array_key_exists('after', $aCurrentContent) ? $aCurrentContent['after'] : null;
+        unset($this->_contents[$index]);
+
+        return $content;
     }
 
     /**
