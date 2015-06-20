@@ -1375,14 +1375,14 @@ var PMA_consoleDebug = {
         $('#debug_console .debugLog').empty();
         $("#debug_console .debug>.welcome").empty();
 
-        var debugJson = false;
+        var debugJson = false, i;
         if (typeof debugInfo === "object" && 'queries' in debugInfo) {
             // Copy it to debugJson, so that it doesn't get changed
             if (!('queries' in debugInfo)) {
                 debugJson = false;
             } else {
                 debugJson = {queries: []};
-                for (var i in debugInfo.queries) {
+                for (i in debugInfo.queries) {
                     debugJson.queries[i] = debugInfo.queries[i];
                 }
             }
@@ -1409,7 +1409,6 @@ var PMA_consoleDebug = {
 
         // Calculate total time and make unique query array
         var totalTime = 0;
-        var i;
         for (i = 0; i < totalExec; ++i) {
             totalTime += allQueries[i].time;
             if (!(allQueries[i].hash in uniqueQueries)) {
@@ -1448,7 +1447,7 @@ var PMA_consoleDebug = {
             var order = ((PMA_consoleDebug.configParam('order') == 'asc') ? 1 : -1);
             if (Array.isArray(a) && Array.isArray(b)) {
                 // It is grouped
-                var timeA = 0, timeB = 0;
+                var timeA = 0, timeB = 0, i;
                 for (i in a) {
                     timeA += a[i].time;
                 }
