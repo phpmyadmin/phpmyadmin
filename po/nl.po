@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-06-19 08:39-0400\n"
+"POT-Creation-Date: 2015-06-20 06:32-0400\n"
 "PO-Revision-Date: 2015-05-31 22:10+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2607,7 +2607,7 @@ msgstr "Tabel opmerkingen"
 msgid "Hide arguments"
 msgstr "Zoekresultaten verbergen"
 
-#: js/messages.php:596 libraries/Console.class.php:297
+#: js/messages.php:596 libraries/Console.class.php:318
 msgid "Time taken:"
 msgstr ""
 
@@ -3035,12 +3035,12 @@ msgid "Font size"
 msgstr "Lettertypegrootte"
 
 #: libraries/Console.class.php:85 libraries/Console.class.php:210
-#: libraries/Console.class.php:292
+#: libraries/Console.class.php:313
 msgid "Collapse"
 msgstr "Samenvouwen"
 
 #: libraries/Console.class.php:86 libraries/Console.class.php:212
-#: libraries/Console.class.php:293
+#: libraries/Console.class.php:314
 msgid "Expand"
 msgstr "Uitklappen"
 
@@ -3132,7 +3132,7 @@ msgstr "Leegmaken"
 msgid "History"
 msgstr "Geschiedenis"
 
-#: libraries/Console.class.php:240 libraries/Console.class.php:345
+#: libraries/Console.class.php:240 libraries/Console.class.php:366
 #: libraries/DisplayResults.class.php:1726 libraries/import.lib.php:1261
 #: libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -3161,11 +3161,11 @@ msgstr "Geschiedenis"
 msgid "Options"
 msgstr "Opties"
 
-#: libraries/Console.class.php:244 libraries/Console.class.php:307
+#: libraries/Console.class.php:244 libraries/Console.class.php:328
 msgid "Bookmarks"
 msgstr "Bladwijzers"
 
-#: libraries/Console.class.php:248 libraries/Console.class.php:277
+#: libraries/Console.class.php:248 libraries/Console.class.php:286
 #: libraries/config/messages.inc.php:87
 msgid "Debug SQL"
 msgstr "Debug SQL"
@@ -3178,80 +3178,114 @@ msgstr "Druk Ctrl+Enter om de query uit te voeren"
 msgid "Press Enter to execute query"
 msgstr "Druk op Enter om de query uit te voeren"
 
+#: libraries/Console.class.php:277
+msgid "ASC"
+msgstr ""
+
 #: libraries/Console.class.php:280
+msgid "DESC"
+msgstr ""
+
+#: libraries/Console.class.php:283
+#, fuzzy
+#| msgid "Order"
+msgid "Order:"
+msgstr "Volgorde"
+
+#: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
+msgid "Count"
+msgstr "Aantal"
+
+#: libraries/Console.class.php:292
+#, fuzzy
+#| msgid "Execute every"
+msgid "Execution order"
+msgstr "Uitvoeren iedere"
+
+#: libraries/Console.class.php:295
+msgid "Time taken"
+msgstr ""
+
+#: libraries/Console.class.php:298
+#, fuzzy
+#| msgid "Order"
+msgid "Order by:"
+msgstr "Volgorde"
+
+#: libraries/Console.class.php:301
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
 msgstr "SQL-query's"
 
-#: libraries/Console.class.php:283
+#: libraries/Console.class.php:304
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
 msgstr "SQL-query's"
 
-#: libraries/Console.class.php:294
+#: libraries/Console.class.php:315
 #, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
 msgstr "Toon aanmaken"
 
-#: libraries/Console.class.php:295
+#: libraries/Console.class.php:316
 #, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
 msgstr "Paneel verbergen"
 
-#: libraries/Console.class.php:296
+#: libraries/Console.class.php:317
 #, fuzzy
 #| msgid "Count"
 msgid "Count:"
 msgstr "Aantal"
 
-#: libraries/Console.class.php:311 libraries/Util.class.php:1260
+#: libraries/Console.class.php:332 libraries/Util.class.php:1260
 #: libraries/config/messages.inc.php:777
 #: libraries/server_status_processes.lib.php:251
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Ververs"
 
-#: libraries/Console.class.php:314
+#: libraries/Console.class.php:335
 msgid "Add"
 msgstr "Toevoegen"
 
-#: libraries/Console.class.php:323
+#: libraries/Console.class.php:344
 msgid "Add bookmark"
 msgstr "Bladwijzer toevoegen"
 
-#: libraries/Console.class.php:327
+#: libraries/Console.class.php:348
 msgid "Label"
 msgstr "Label"
 
-#: libraries/Console.class.php:329
+#: libraries/Console.class.php:350
 msgid "Target database"
 msgstr "Doeldatabase"
 
-#: libraries/Console.class.php:332
+#: libraries/Console.class.php:353
 msgid "Share this bookmark"
 msgstr "Deze bladwijzer delen"
 
-#: libraries/Console.class.php:349
+#: libraries/Console.class.php:370
 msgid "Set default"
 msgstr "Standaardwaarde instellen"
 
-#: libraries/Console.class.php:353
+#: libraries/Console.class.php:374
 msgid "Always expand query messages"
 msgstr "Queryberichten altijd volledig weergeven"
 
-#: libraries/Console.class.php:355
+#: libraries/Console.class.php:376
 msgid "Show query history at start"
 msgstr "Query geschiedenis aan begin weergeven"
 
-#: libraries/Console.class.php:357
+#: libraries/Console.class.php:378
 msgid "Show current browsing query"
 msgstr "Toon huidige blader query"
 
-#: libraries/Console.class.php:360
+#: libraries/Console.class.php:381
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
@@ -3259,7 +3293,7 @@ msgstr ""
 "Voer queries uit met de Enter toets en voeg een nieuwe regel toe met Shift + "
 "Enter. Om dit permanent te maken, bekijk het instellingenmenu."
 
-#: libraries/Console.class.php:364
+#: libraries/Console.class.php:385
 msgid "Switch to dark theme"
 msgstr "Wissel naar donker thema"
 
@@ -15022,10 +15056,6 @@ msgstr "Maximum aantal af te drukken regels"
 #: templates/table/replace_preview.phtml:13
 msgid "Find and replace - preview"
 msgstr "Zoeken en vervangen - voorbeeld"
-
-#: templates/table/replace_preview.phtml:17
-msgid "Count"
-msgstr "Aantal"
 
 #: templates/table/replace_preview.phtml:18
 msgid "Original string"

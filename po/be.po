@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-06-19 08:39-0400\n"
+"POT-Creation-Date: 2015-06-20 06:32-0400\n"
 "PO-Revision-Date: 2015-05-15 14:28+0200\n"
 "Last-Translator: Viktar Palstsiuk <vipals@gmail.com>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2832,7 +2832,7 @@ msgstr "Камэнтар да табліцы"
 msgid "Hide arguments"
 msgstr "SQL-запыт"
 
-#: js/messages.php:596 libraries/Console.class.php:297
+#: js/messages.php:596 libraries/Console.class.php:318
 msgid "Time taken:"
 msgstr ""
 
@@ -3338,12 +3338,12 @@ msgid "Font size"
 msgstr "Памер шрыфта"
 
 #: libraries/Console.class.php:85 libraries/Console.class.php:210
-#: libraries/Console.class.php:292
+#: libraries/Console.class.php:313
 msgid "Collapse"
 msgstr ""
 
 #: libraries/Console.class.php:86 libraries/Console.class.php:212
-#: libraries/Console.class.php:293
+#: libraries/Console.class.php:314
 msgid "Expand"
 msgstr ""
 
@@ -3452,7 +3452,7 @@ msgstr "Каляндар"
 msgid "History"
 msgstr "Гісторыя SQL"
 
-#: libraries/Console.class.php:240 libraries/Console.class.php:345
+#: libraries/Console.class.php:240 libraries/Console.class.php:366
 #: libraries/DisplayResults.class.php:1726 libraries/import.lib.php:1261
 #: libraries/import.lib.php:1293
 #: libraries/plugins/export/ExportCodegen.class.php:90
@@ -3481,13 +3481,13 @@ msgstr "Гісторыя SQL"
 msgid "Options"
 msgstr "Налады"
 
-#: libraries/Console.class.php:244 libraries/Console.class.php:307
+#: libraries/Console.class.php:244 libraries/Console.class.php:328
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Bookmarks"
 msgstr "Выдаліць сувязь"
 
-#: libraries/Console.class.php:248 libraries/Console.class.php:277
+#: libraries/Console.class.php:248 libraries/Console.class.php:286
 #: libraries/config/messages.inc.php:87
 msgid "Debug SQL"
 msgstr ""
@@ -3504,96 +3504,128 @@ msgstr "Выканаць запыт з закладак"
 msgid "Press Enter to execute query"
 msgstr "Выканаць запыт з закладак"
 
+#: libraries/Console.class.php:277
+msgid "ASC"
+msgstr ""
+
 #: libraries/Console.class.php:280
+msgid "DESC"
+msgstr ""
+
+#: libraries/Console.class.php:283
+msgid "Order:"
+msgstr ""
+
+#: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
+#, fuzzy
+#| msgid "Column names"
+msgid "Count"
+msgstr "Назвы калёнак"
+
+#: libraries/Console.class.php:292
+#, fuzzy
+#| msgid "Execute bookmarked query"
+msgid "Execution order"
+msgstr "Выканаць запыт з закладак"
+
+#: libraries/Console.class.php:295
+msgid "Time taken"
+msgstr ""
+
+#: libraries/Console.class.php:298
+msgid "Order by:"
+msgstr ""
+
+#: libraries/Console.class.php:301
 #, fuzzy
 msgid "Group queries"
 msgstr "SQL-запыт"
 
-#: libraries/Console.class.php:283
+#: libraries/Console.class.php:304
 #, fuzzy
 msgid "Ungroup queries"
 msgstr "SQL-запыт"
 
-#: libraries/Console.class.php:294
+#: libraries/Console.class.php:315
 #, fuzzy
 #| msgid "Show color"
 msgid "Show trace"
 msgstr "Паказаць колер"
 
-#: libraries/Console.class.php:295
+#: libraries/Console.class.php:316
 #, fuzzy
 #| msgid "Add new field"
 msgid "Hide trace"
 msgstr "Дадаць новае поле"
 
-#: libraries/Console.class.php:296
+#: libraries/Console.class.php:317
 #, fuzzy
 #| msgid "Column names"
 msgid "Count:"
 msgstr "Назвы калёнак"
 
-#: libraries/Console.class.php:311 libraries/Util.class.php:1260
+#: libraries/Console.class.php:332 libraries/Util.class.php:1260
 #: libraries/config/messages.inc.php:777
 #: libraries/server_status_processes.lib.php:251
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Абнавіць"
 
-#: libraries/Console.class.php:314
+#: libraries/Console.class.php:335
 #, fuzzy
 #| msgid "And"
 msgid "Add"
 msgstr "І"
 
-#: libraries/Console.class.php:323
+#: libraries/Console.class.php:344
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "Выдаліць сувязь"
 
-#: libraries/Console.class.php:327
+#: libraries/Console.class.php:348
 #, fuzzy
 #| msgid "Label"
 msgid "Label"
 msgstr "Метка"
 
-#: libraries/Console.class.php:329
+#: libraries/Console.class.php:350
 #, fuzzy
 msgid "Target database"
 msgstr "Пошук у базе дадзеных"
 
-#: libraries/Console.class.php:332
+#: libraries/Console.class.php:353
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "Выдаліць сувязь"
 
-#: libraries/Console.class.php:349
+#: libraries/Console.class.php:370
 #, fuzzy
 msgid "Set default"
 msgstr "Імпартаваць файлы"
 
-#: libraries/Console.class.php:353
+#: libraries/Console.class.php:374
 msgid "Always expand query messages"
 msgstr ""
 
-#: libraries/Console.class.php:355
+#: libraries/Console.class.php:376
 #, fuzzy
 #| msgid "Flush query cache"
 msgid "Show query history at start"
 msgstr "Скінуць кэш запытаў"
 
-#: libraries/Console.class.php:357
+#: libraries/Console.class.php:378
 msgid "Show current browsing query"
 msgstr ""
 
-#: libraries/Console.class.php:360
+#: libraries/Console.class.php:381
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
 
-#: libraries/Console.class.php:364
+#: libraries/Console.class.php:385
 #, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
@@ -15877,12 +15909,6 @@ msgstr ""
 #: templates/table/replace_preview.phtml:13
 msgid "Find and replace - preview"
 msgstr ""
-
-#: templates/table/replace_preview.phtml:17
-#, fuzzy
-#| msgid "Column names"
-msgid "Count"
-msgstr "Назвы калёнак"
 
 #: templates/table/replace_preview.phtml:18
 #, fuzzy
