@@ -274,10 +274,10 @@ class PMA_Console
             $output .= '<div class="card" id="debug_console">';
             $output .= '<div class="toolbar">'
                 . '<div class="button order order_asc">'
-                . '<span>' . __('ASC') . '</span>'
+                . '<span>' . __('ascending') . '</span>'
                 . '</div>'
                 . '<div class="button order order_desc">'
-                . '<span>' . __('DESC') . '</span>'
+                . '<span>' . __('descending') . '</span>'
                 . '</div>'
                 . '<div class="text">'
                 . '<span>' . __('Order:') . '</span>'
