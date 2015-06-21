@@ -4,9 +4,9 @@ namespace SqlParser\Utils;
 
 use SqlParser\Lexer;
 use SqlParser\Parser;
-use SqlParser\Statement;
 use SqlParser\Fragments\DataTypeFragment;
 use SqlParser\Fragments\ParamDefFragment;
+use SqlParser\Statements\CreateStatement;
 
 class Routine
 {
@@ -80,11 +80,11 @@ class Routine
     /**
      * Gets the parameters of a routine from the parse tree.
      *
-     * @param Statement $tree
+     * @param CreateStatement $tree The tree that was generated after parsing.
      *
      * @return array
      */
-    public static function getParameters(Statement $tree)
+    public static function getParameters(CreateStatement $tree)
     {
         $retval = array(
             'num' => 0,

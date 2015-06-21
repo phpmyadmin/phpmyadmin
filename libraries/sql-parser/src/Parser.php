@@ -119,8 +119,8 @@ class Parser
     /**
      * Constructor.
      *
-     * @param mixed $list
-     * @param bool $strict
+     * @param mixed $list The list of tokens to be parsed.
+     * @param bool $strict Whether strict mode should be enabled or not.
      */
     public function __construct($list = null, $strict = false)
     {
@@ -181,9 +181,9 @@ class Parser
     /**
      * Creates a new error log.
      *
-     * @param string $str
-     * @param Token $token
-     * @param int $code
+     * @param string $msg The error message.
+     * @param Token $token The token that produced the error.
+     * @param int $code The code of the error.
      */
     public function error($str = '', Token $token = null, $code = 0)
     {

@@ -15,9 +15,9 @@ class SelectKeyword extends Fragment
 {
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return FieldFragment[]
      */
@@ -41,7 +41,7 @@ class SelectKeyword extends Fragment
                 continue;
             }
 
-            if ($token->type === Token::TYPE_KEYWORD) {
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                 // No keyword is expected.
                 break;
             }
@@ -58,7 +58,7 @@ class SelectKeyword extends Fragment
         }
 
         // Last iteration was not processed.
-        if (!empty($expr->tokens)) {
+        if ($expr !== null) {
             $ret[] = $expr;
         }
 

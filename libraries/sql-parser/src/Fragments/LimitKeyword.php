@@ -29,9 +29,9 @@ class LimitKeyword extends Fragment
     public $row_count;
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return LimitKeyword
      */
@@ -55,8 +55,7 @@ class LimitKeyword extends Fragment
                 continue;
             }
 
-            // NOTE: `OFFSET` is not a keyword.
-            if (($token->type === Token::TYPE_NONE) && ($token->value === 'OFFSET')) {
+            if ($token->value === 'OFFSET') {
                 if ($offset) {
                     $parser->error('An offset was expected.');
                 }
@@ -76,9 +75,6 @@ class LimitKeyword extends Fragment
             } else {
                 $ret->row_count = $token->value;
             }
-
-            $ret->tokens[] = $token;
-
         }
 
         if ($offset) {

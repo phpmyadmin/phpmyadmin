@@ -22,9 +22,9 @@ class ValuesKeyword extends Fragment
     public $values;
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return ValuesKeyword
      */
@@ -68,7 +68,7 @@ class ValuesKeyword extends Fragment
             }
 
             // No keyword is expected.
-            if ($token->type === Token::TYPE_KEYWORD) {
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                 break;
             }
 
@@ -96,7 +96,6 @@ class ValuesKeyword extends Fragment
                 break;
             }
 
-            $expr->tokens[] = $token;
             if ($state === 1) {
                 $value .= $token->value;
                 $state = 2;
@@ -105,7 +104,7 @@ class ValuesKeyword extends Fragment
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->tokens)) {
+        if (!empty($expr->values)) {
             $ret[] = $expr;
         }
 

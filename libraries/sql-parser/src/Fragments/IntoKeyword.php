@@ -29,9 +29,9 @@ class IntoKeyword extends Fragment
     public $fields;
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return IntoKeyword
      */
@@ -69,7 +69,7 @@ class IntoKeyword extends Fragment
             }
 
             // No keyword is expected.
-            if ($token->type === Token::TYPE_KEYWORD) {
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                 break;
             }
 
@@ -92,7 +92,6 @@ class IntoKeyword extends Fragment
                 break;
             }
 
-            $ret->tokens[] = $token;
             if ($state === 0) {
                 $ret->table .= $token->value;
             } elseif ($state === 1) {

@@ -29,9 +29,9 @@ class RenameKeyword extends Fragment
     public $new;
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return RenameKeyword
      */
@@ -73,7 +73,7 @@ class RenameKeyword extends Fragment
                 continue;
             }
 
-            if ($token->type === Token::TYPE_KEYWORD) {
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                 if (($state === 1) && ($token->value === 'TO')) {
                     $state = 2;
                     continue;
@@ -95,7 +95,6 @@ class RenameKeyword extends Fragment
                 break;
             }
 
-            $expr->tokens[] = $token;
             if ($state == 0) {
                 $expr->old = $token->value;
                 $state = 1;
@@ -107,7 +106,7 @@ class RenameKeyword extends Fragment
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->tokens)) {
+        if (!empty($expr->old)) {
             $ret[] = $expr;
         }
 

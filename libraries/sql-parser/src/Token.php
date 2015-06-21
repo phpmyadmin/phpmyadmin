@@ -109,6 +109,9 @@ class Token
     const TYPE_DELIMITER                =  9;
 
     // Flags that describe the tokens in more detail.
+    const FLAG_KEYWORD_RESERVED         =  1;
+    const FLAG_KEYWORD_UNRESERVED       =  2;
+    const FLAG_KEYWORD_COMPOSED         =  4;
 
     // Numbers related flags.
     const FLAG_NUMBER_HEX               =  1;
@@ -200,7 +203,10 @@ class Token
     {
         switch ($this->type) {
             case Token::TYPE_KEYWORD:
-                return strtoupper($this->token);
+                if ($this->flags & Token::FLAG_KEYWORD_RESERVED) {
+                    return strtoupper($this->token);
+                }
+                return $this->token;
             case Token::TYPE_WHITESPACE:
                 return ' ';
             case Token::TYPE_BOOL:

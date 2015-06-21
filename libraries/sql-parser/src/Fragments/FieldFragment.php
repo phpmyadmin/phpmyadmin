@@ -50,9 +50,9 @@ class FieldFragment extends Fragment
     public $alias;
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return FieldFragment
      */
@@ -85,7 +85,6 @@ class FieldFragment extends Fragment
             if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
                 if (($isExpr) && (!$alias)) {
                     $ret->expr .= $token->token;
-                    $ret->tokens[] = $token;
                 }
                 if (($alias === 0) && (!$isExpr) && (!$period) && (!empty($ret->expr))) {
                     $alias = 1;
@@ -93,7 +92,7 @@ class FieldFragment extends Fragment
                 continue;
             }
 
-            if ($token->type === Token::TYPE_KEYWORD) {
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                 // Keywords may be found only between brackets.
                 if ($brackets === 0) {
                     if ($token->value === 'AS') {
@@ -121,9 +120,9 @@ class FieldFragment extends Fragment
                 }
             }
 
-            if (($token->type === Token::TYPE_NUMBER) || ($token->type === Token::TYPE_BOOL) ||
-                (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_VARIABLE)) ||
-                (($token->type === Token::TYPE_OPERATOR)) && ($token->value !== '.')) {
+            if (($token->type === Token::TYPE_NUMBER) || ($token->type === Token::TYPE_BOOL)
+                || (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_VARIABLE))
+                || (($token->type === Token::TYPE_OPERATOR)) && ($token->value !== '.')) {
                 // Numbers, booleans and operators are usually part of expressions.
                 $isExpr = true;
             }
@@ -147,15 +146,15 @@ class FieldFragment extends Fragment
                     }
                 } else {
                     if ($brackets === 0) {
-                        if (($token->type === Token::TYPE_NONE) || ($token->type === Token::TYPE_STRING) ||
-                            (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))) {
+                        if (($token->type === Token::TYPE_NONE) || ($token->type === Token::TYPE_STRING)
+                            || (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))
+                        ) {
                             $ret->alias = $token->value;
                         }
                     }
                 }
 
                 $ret->expr .= $token->token;
-                $ret->tokens[] = $token;
             }
         }
 
@@ -163,7 +162,7 @@ class FieldFragment extends Fragment
             $parser->error('Alias was expected.', $token);
         }
 
-        if (empty($ret->tokens)) {
+        if (empty($ret->expr)) {
             return null;
         }
 

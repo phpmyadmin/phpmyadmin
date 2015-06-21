@@ -70,9 +70,9 @@ class CreateDefFragment extends Fragment
     public $name;
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return CreateDefFragment
      */
@@ -98,7 +98,6 @@ class CreateDefFragment extends Fragment
                 break;
             }
 
-            $ret->tokens[] = $token;
             $ret->name .= $token->value;
         }
 

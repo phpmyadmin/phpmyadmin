@@ -37,9 +37,9 @@ class ParamDefFragment extends Fragment
     public $type;
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return ParamDefFragment[]
      */
@@ -112,12 +112,10 @@ class ParamDefFragment extends Fragment
                     break;
                 }
             }
-
-            $expr->tokens[] = $token;
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->tokens)) {
+        if (!empty($expr->name)) {
             $ret[] = $expr;
         }
 

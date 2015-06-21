@@ -36,9 +36,9 @@ class WhereKeyword extends Fragment
     public $condition;
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return WhereKeyword[]
      */
@@ -64,14 +64,13 @@ class WhereKeyword extends Fragment
 
             // Conditions are delimited by logical operators.
             if (in_array($token->value, static::$OPERATORS, true)) {
-                if (!empty($expr->tokens)) {
+                if (!empty($expr->condition)) {
                     $ret[] = $expr;
                 }
 
                 $expr = new WhereKeyword();
                 $expr->isOperator = true;
                 $expr->condition = $token->value;
-                $epxr->tokens[] = $token;
                 $ret[] = $expr;
 
                 $expr = new WhereKeyword();
@@ -80,17 +79,16 @@ class WhereKeyword extends Fragment
             }
 
             // No keyword is expected.
-            if ($token->type === Token::TYPE_KEYWORD) {
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                 break;
             }
 
-            $expr->tokens[] = $token;
             $expr->condition .= $token->token;
 
         }
 
         // Last iteration was not processed.
-        if (!empty($expr->tokens)) {
+        if (!empty($expr->condition)) {
             $ret[] = $expr;
         }
 

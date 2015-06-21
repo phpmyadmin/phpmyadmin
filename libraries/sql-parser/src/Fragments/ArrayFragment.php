@@ -15,16 +15,23 @@ class ArrayFragment extends Fragment
 {
 
     /**
-     * The array.
+     * The array that contains the processed value of each token.
      *
      * @var array
      */
     public $array = array();
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * The array that contains the unprocessed value of each token.
+     *
+     * @var array
+     */
+    public $raw = array();
+
+    /**
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return ArrayFragment
      */
@@ -74,7 +81,7 @@ class ArrayFragment extends Fragment
                     break;
                 }
                 $ret->array[] = $token->value;
-                $ret->tokens[] = $token;
+                $ret->raw[] = $token->token;
                 $state = 2;
             } elseif ($state === 2) {
                 if (($token->type !== Token::TYPE_OPERATOR) || (($token->value !== ',') && ($token->value !== ')'))) {

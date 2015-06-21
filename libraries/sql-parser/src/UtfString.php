@@ -154,7 +154,7 @@ class UtfString implements \ArrayAccess
      *
      * @return int
      */
-    private static function getCharLength($byte)
+    public static function getCharLength($byte)
     {
         $byte = ord($byte);
         if ($byte < 128) {

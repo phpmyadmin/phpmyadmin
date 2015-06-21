@@ -2,7 +2,7 @@
 
 namespace SqlParser\Utils;
 
-use SqlParser\Statement;
+use SqlParser\Statements\SelectStatement;
 
 class Misc
 {
@@ -10,12 +10,12 @@ class Misc
     /**
      * Gets a list of all aliases and their original names.
      *
-     * @param Statement $tree
+     * @param SelectStatement $tree The tree that was generated after parsing.
      * @param string $db
      *
      * @return array
      */
-    public static function getAliases($tree, $db)
+    public static function getAliases(SelectStatement $tree, $db)
     {
         $retval = array();
 

@@ -18,10 +18,10 @@ class DataTypeFragment extends Fragment
     public static $OPTIONS = array(
         'BINARY'                        => 1,
         'CHARACTER SET'                 => array(2, 'var'),
-        'CHARSET'                       => array(3, 'var'),
-        'COLLATE'                       => 4,
-        'UNSIGNED'                      => 5,
-        'ZEROFILL'                      => 6,
+        'CHARSET'                       => array(2, 'var'),
+        'COLLATE'                       => 3,
+        'UNSIGNED'                      => 4,
+        'ZEROFILL'                      => 5,
     );
 
     /**
@@ -46,9 +46,9 @@ class DataTypeFragment extends Fragment
     public $options = array();
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return DataTypeFragment[]
      */
@@ -80,7 +80,6 @@ class DataTypeFragment extends Fragment
 
             if ($state === 0) {
                 $ret->name = $token->value;
-                $ret->tokens[] = $token;
                 if (!isset(Context::$DATA_TYPES[$token->value])) {
                     $parser->error('Unrecognized data type.', $token);
                 }
@@ -88,11 +87,9 @@ class DataTypeFragment extends Fragment
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
                     $size = ArrayFragment::parse($parser, $list);
-                    foreach ($size->tokens as $token) {
-                        $ret->size[] = $token->token;
-                    }
-                    $ret->tokens = array_merge($ret->tokens, $size->tokens);
                     ++$list->idx;
+                    $ret->size = (($ret->name === 'ENUM') || ($ret->name === 'SET')) ?
+                        $size->raw : $size->array;
                 }
                 $ret->options = OptionsFragment::parse($parser, $list, static::$OPTIONS);
                 ++$list->idx;

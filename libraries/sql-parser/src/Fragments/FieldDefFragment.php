@@ -52,9 +52,9 @@ class FieldDefFragment extends Fragment
     /**
      * The array of indexes.
      *
-     * @var array
+     * @var ArrayFragment
      */
-    public $indexes = array();
+    public $indexes;
 
     /**
      * The options of the new field fragment.
@@ -64,9 +64,9 @@ class FieldDefFragment extends Fragment
     public $options;
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return FieldDefFragment[]
      */
@@ -124,7 +124,7 @@ class FieldDefFragment extends Fragment
                 }
                 continue;
             } elseif ($state === 1) {
-                if ($token->type === Token::TYPE_KEYWORD) {
+                if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                     if ($token->value === 'CONSTRAINT') {
                         $state = 4;
                     } elseif (isset(Context::$KEY_TYPES[$token->value])) {
@@ -166,11 +166,10 @@ class FieldDefFragment extends Fragment
                 }
             }
 
-            $expr->tokens[] = $token;
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->tokens)) {
+        if (!empty($expr->name)) {
             $ret[] = $expr;
         }
 

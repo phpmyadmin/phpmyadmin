@@ -10,19 +10,11 @@ abstract class Fragment
 {
 
     /**
-     * Array which contains all tokens used to popoluate data inside this
-     * fragment.
-     *
-     * @var array
-     */
-    public $tokens = array();
-
-    /**
      * Parses the tokens given by the lexer in the context of the given parser.
      *
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return array
      */

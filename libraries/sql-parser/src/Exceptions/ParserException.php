@@ -20,13 +20,13 @@ class ParserException extends \Exception
     /**
      * Constructor.
      *
-     * @param string $message
-     * @param Token $token
-     * @param int $code
+     * @param string $msg The message of this exception.
+     * @param Token $token The token that produced this exception.
+     * @param int $code The code of this error.
      */
-    public function __construct($message = '', Token $token = null, $code = 0)
+    public function __construct($msg = '', Token $token = null, $code = 0)
     {
-        parent::__construct($message, $code);
+        parent::__construct($msg, $code);
         $this->token = $token;
     }
 }

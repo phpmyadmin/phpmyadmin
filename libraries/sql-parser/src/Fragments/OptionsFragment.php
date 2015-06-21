@@ -22,9 +22,9 @@ class OptionsFragment extends Fragment
     public $options = array();
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return OptionsFragment
      */
@@ -55,8 +55,8 @@ class OptionsFragment extends Fragment
                 continue;
             }
 
-            if (isset($options[$token->value])) {
-                $lastOption = $options[$token->value];
+            if (isset($options[strtoupper($token->value)])) {
+                $lastOption = $options[strtoupper($token->value)];
                 $lastOptionId = is_array($lastOption) ? $lastOption[0] : $lastOption;
 
                 // Checking for option conflicts.
@@ -78,10 +78,9 @@ class OptionsFragment extends Fragment
 
                 // The only keywords that are expected are those which are
                 // options.
-                if ($token->type === Token::TYPE_KEYWORD) {
+                if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                     break;
                 }
-
             }
 
             if (is_array($lastOption)) {
@@ -105,8 +104,6 @@ class OptionsFragment extends Fragment
                 $ret->options[$lastOptionId] = $token->value;
                 $lastOption = null;
             }
-            $ret->tokens[] = $token;
-
         }
 
         ksort($ret->options);
