@@ -214,13 +214,18 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
      */
     public function testBackquoteForbidenWords()
     {
-        global $PMA_SQPdata_forbidden_word;
-
-        foreach ($PMA_SQPdata_forbidden_word as $forbidden) {
-            $this->assertEquals(
-                "`" . $forbidden . "`",
-                PMA_Util::backquote($forbidden, false)
-            );
+        foreach (SqlParser\Context::$KEYWORDS as $keyword => $type) {
+            if ($type & SqlParser\Token::FLAG_KEYWORD_RESERVED) {
+                $this->assertEquals(
+                    "`" . $keyword . "`",
+                    PMA_Util::backquote($keyword, false)
+                );
+            } else {
+                $this->assertEquals(
+                    $keyword,
+                    PMA_Util::backquote($keyword, false)
+                );
+            }
         }
     }
 }
