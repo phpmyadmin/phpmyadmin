@@ -9,6 +9,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/Template.class.php';
+
 /**
  * Sets required globals
  *
@@ -78,42 +80,6 @@ function PMA_RTN_main($type)
         );
     }
 } // end PMA_RTN_main()
-
-/**
- * This function looks through the contents of a parsed
- * SHOW CREATE [PROCEDURE | FUNCTION] query and extracts
- * information about the routine's definer.
- *
- * @param array $parsed_query Parsed query, returned by PMA_SQP_parse()
- *
- * @return string  The definer of a routine.
- */
-function PMA_RTN_parseRoutineDefiner($parsed_query)
-{
-    $retval = '';
-    $fetching = false;
-    for ($i = 0; $i < $parsed_query['len']; $i++) {
-        if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
-            && $parsed_query[$i]['data'] == 'DEFINER'
-        ) {
-            $fetching = true;
-        } else if ($fetching == true
-            && $parsed_query[$i]['type'] != 'quote_backtick'
-            && /*overload*/mb_substr($parsed_query[$i]['type'], 0, 5) != 'punct'
-        ) {
-            break;
-        } else if ($fetching == true
-            && $parsed_query[$i]['type'] == 'quote_backtick'
-        ) {
-            $retval .= PMA_Util::unQuote(
-                $parsed_query[$i]['data']
-            );
-        } else if ($fetching == true && $parsed_query[$i]['type'] == 'punct_user') {
-            $retval .= $parsed_query[$i]['data'];
-        }
-    }
-    return $retval;
-} // end PMA_RTN_parseRoutineDefiner()
 
 /**
  * Handles editor requests for adding or editing an item
@@ -543,12 +509,15 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     // Get required data
     $retval['item_name'] = $routine['SPECIFIC_NAME'];
     $retval['item_type'] = $routine['ROUTINE_TYPE'];
+
     $parser = new SqlParser\Parser($GLOBALS['dbi']->getDefinition(
         $db,
         $routine['ROUTINE_TYPE'],
         $routine['SPECIFIC_NAME']
     ));
-    $params = SqlParser\Utils\Routine::getParameters($parser->statements[0]);
+    $routineStatement = $parser->statements[0];
+
+    $params = SqlParser\Utils\Routine::getParameters($routineStatement);
     $retval['item_num_params']      = $params['num'];
     $retval['item_param_dir']       = $params['dir'];
     $retval['item_param_name']      = $params['name'];
@@ -571,51 +540,20 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     $retval['item_returnlength'] = '';
     $retval['item_returnopts_num']  = '';
     $retval['item_returnopts_text'] = '';
+
     if (! empty($routine['DTD_IDENTIFIER'])) {
-        if (/*overload*/mb_strlen($routine['DTD_IDENTIFIER']) > 63) {
-            // If the DTD_IDENTIFIER string from INFORMATION_SCHEMA is
-            // at least 64 characters, then it may actually have been
-            // chopped because that column is a varchar(64), so we will
-            // parse the output of SHOW CREATE query to get accurate
-            // information about the return variable.
-            $dtd = '';
-            $fetching = false;
-            for ($i = 0; $i < $parsed_query['len']; $i++) {
-                if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
-                    && /*overload*/mb_strtoupper($parsed_query[$i]['data']) == 'RETURNS'
-                ) {
-                    $fetching = true;
-                } else if ($fetching == true
-                    && $parsed_query[$i]['type'] == 'alpha_reservedWord'
-                ) {
-                    // We will not be looking for options such as UNSIGNED
-                    // or ZEROFILL because there is no way that a numeric
-                    // field's DTD_IDENTIFIER can be longer than 64
-                    // characters. We can safely assume that the return
-                    // datatype is either ENUM or SET, so we only look
-                    // for CHARSET.
-                    $word = /*overload*/mb_strtoupper($parsed_query[$i]['data']);
-                    if ($word == 'CHARSET'
-                        && ($parsed_query[$i+1]['type'] == 'alpha_charset'
-                        || $parsed_query[$i+1]['type'] == 'alpha_identifier')
-                    ) {
-                        $dtd .= $word . ' ' . $parsed_query[$i + 1]['data'];
-                    }
-                    break;
-                } else if ($fetching == true) {
-                    $dtd .= $parsed_query[$i]['data'] . ' ';
-                }
-            }
-            $routine['DTD_IDENTIFIER'] = $dtd;
+        $options = array();
+        foreach ($routineStatement->return->options->options as $opt) {
+            $options[] = is_string($opt) ? $opt : $opt['value'];
         }
-        $returnparam = SqlParser\Utils\Routine::getReturnType($routine['DTD_IDENTIFIER']);
-        $retval['item_returntype']      = $returnparam[2];
-        $retval['item_returnlength']    = $returnparam[3];
-        $retval['item_returnopts_num']  = $returnparam[4];
-        $retval['item_returnopts_text'] = $returnparam[4];
+
+        $retval['item_returntype']      = $routineStatement->return->name;
+        $retval['item_returnlength']    = implode(',', $routineStatement->return->size);
+        $retval['item_returnopts_num']  = implode(' ', $options);
+        $retval['item_returnopts_text'] = implode(' ', $options);
     }
 
-    $retval['item_definer'] = PMA_RTN_parseRoutineDefiner($parsed_query);
+    $retval['item_definer'] = $routineStatement->options->has('DEFINER');
     $retval['item_definition'] = $routine['ROUTINE_DEFINITION'];
     $retval['item_isdeterministic'] = '';
     if ($routine['IS_DETERMINISTIC'] == 'YES') {
