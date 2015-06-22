@@ -248,55 +248,6 @@ class PMA_Table
     }
 
     /**
-     * Returns the analysis of 'SHOW CREATE TABLE' query for the table.
-     * In case of a view, the values are taken from the information_schema.
-     *
-     * @param string $db    database
-     * @param string $table table
-     *
-     * @return array analysis of 'SHOW CREATE TABLE' query for the table
-     */
-    static public function analyzeStructure($db = null, $table = null)
-    {
-        if (empty($db) || empty($table)) {
-            return false;
-        }
-
-        $analyzed_sql = array();
-        if (self::isView($db, $table)) {
-            // For a view, 'SHOW CREATE TABLE' returns the definition,
-            // but the structure of the view. So, we try to mock
-            // the result of analyzing 'SHOW CREATE TABLE' query.
-            $analyzed_sql[0] = array();
-            $analyzed_sql[0]['create_table_fields'] = array();
-
-            $results = $GLOBALS['dbi']->fetchResult(
-                "SELECT COLUMN_NAME, DATA_TYPE
-                FROM information_schema.COLUMNS
-                WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($db) . "'
-                AND TABLE_NAME = '" . PMA_Util::sqlAddSlashes($table) . "'"
-            );
-
-            foreach ($results as $result) {
-                $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
-                    = array(
-                        'type' => /*overload*/mb_strtoupper($result['DATA_TYPE'])
-                    );
-            }
-        } else {
-            $show_create_table = $GLOBALS['dbi']->fetchValue(
-                'SHOW CREATE TABLE '
-                . PMA_Util::backquote($db)
-                . '.' . PMA_Util::backquote($table),
-                0,
-                1
-            );
-            $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-        }
-        return $analyzed_sql;
-    }
-
-    /**
      * sets given $value for given $param
      *
      * @param string $param name

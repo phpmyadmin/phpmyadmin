@@ -608,37 +608,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for analyzeStructure
-     *
-     * @return void
-     */
-    public function testAnalyzeStructure()
-    {
-        $this->assertEquals(
-            false,
-            PMA_Table::analyzeStructure()
-        );
-
-        //validate that it is the same as DBI fetchResult
-        $show_create_table = PMA_Table::analyzeStructure('PMA', 'PMA_BookMark');
-        $this->assertEquals(
-            array('type'=>'DATA_TYPE'),
-            $show_create_table[0]['create_table_fields']['COLUMN_NAME']
-        );
-        //not a view
-        $show_create_table = PMA_Table::analyzeStructure('PMA', 'PMA_BookMark_2');
-        $this->assertEquals(
-            array('type'=>'INT', 'timestamp_not_null'=>false),
-            $show_create_table[0]['create_table_fields']['id']
-        );
-        $this->assertEquals(
-            array('type'=>'TEXT', 'timestamp_not_null'=>false),
-            $show_create_table[0]['create_table_fields']['username']
-        );
-
-    }
-
-    /**
      * Test for isMerge
      *
      * @return void
