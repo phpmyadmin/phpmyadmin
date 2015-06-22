@@ -2374,6 +2374,16 @@ Design customization
     put when tables contents are displayed (you may have them displayed at
     the left side, right side, both sides or nowhere).
 
+.. config:option:: $cfg['RowActionLinksWithoutUnique']
+
+    :type: boolean
+    :default: false
+
+    Defines whether to show row links (Edit, Copy, Delete) and checkboxes
+    for multiple row operations even when the selection does not have a unique key.
+    Using row actions in the absence of a unique key may result in different/more
+    rows being affected since there is no guaranteed way to select the exact row(s).
+
 .. config:option:: $cfg['RememberSorting']
 
     :type: boolean

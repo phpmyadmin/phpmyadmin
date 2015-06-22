@@ -1751,13 +1751,14 @@ function PMA_getHtmlForPreviousUpdateQuery($disp_query, $showSql, $sql_data,
 /**
  * To get the message if a column index is missing. If not will return null
  *
- * @param string  $table    current table
- * @param string  $db       current database
- * @param boolean $editable whether the results table can be editable or not
+ * @param string  $table      current table
+ * @param string  $db         current database
+ * @param boolean $editable   whether the results table can be editable or not
+ * @param boolean $has_unique whether there is a unique key
  *
  * @return PMA_message $message
  */
-function PMA_getMessageIfMissingColumnIndex($table, $db, $editable)
+function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $has_unique)
 {
     if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $missing_unique_column_msg = PMA_message::notice(
@@ -1765,6 +1766,14 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable)
                 'Current selection does not contain a unique column.'
                 . ' Grid edit, checkbox, Edit, Copy and Delete features'
                 . ' are not available.'
+            )
+        );
+    } elseif (! empty($table) && ! $has_unique) {
+        $missing_unique_column_msg = PMA_message::notice(
+            __(
+                'Current selection does not contain a unique column.'
+                . ' Grid edit, Edit, Copy and Delete features may result in'
+                . ' undesired behavior.'
             )
         );
     } else {
@@ -1882,7 +1891,10 @@ function PMA_getQueryResponseForResultsReturned($result,
 
     $just_one_table = PMA_resultSetHasJustOneTable($fields_meta);
 
-    $editable = ($has_unique || $updatableView) && $just_one_table;
+    $editable = ($has_unique
+        || $GLOBALS['cfg']['RowActionLinksWithoutUnique']
+        || $updatableView)
+        && $just_one_table;
 
     $displayParts = array(
         'edit_lnk' => $displayResultsObject::UPDATE_ROW,
@@ -1960,7 +1972,7 @@ function PMA_getQueryResponseForResultsReturned($result,
     );
 
     $missing_unique_column_msg = PMA_getMessageIfMissingColumnIndex(
-        $table, $db, $editable
+        $table, $db, $editable, $has_unique
     );
 
     $bookmark_created_msg = PMA_getBookmarkCreatedMessage();
