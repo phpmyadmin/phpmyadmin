@@ -768,6 +768,9 @@ class PMA_Config
             return null;
         }
         $handle = curl_init($link);
+        if ($handle === false) {
+            return null;
+        }
         PMA_Util::configureCurl($handle);
         curl_setopt($handle, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($handle, CURLOPT_HEADER, 1);
