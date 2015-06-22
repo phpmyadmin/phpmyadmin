@@ -125,6 +125,7 @@ $forms['Main_panel']['Browse'] = array(
     'RepeatCells',
     'LimitChars',
     'RowActionLinks',
+    'RowActionLinksWithoutUnique',
     'TablePrimaryKeyOrder',
     'RememberSorting',
     'RelationalDisplay');

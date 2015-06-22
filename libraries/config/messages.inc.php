@@ -490,6 +490,8 @@ $strConfigNumRecentTables_name = __('Recently used tables');
 $strConfigNumFavoriteTables_name = __('Favorite tables');
 $strConfigRowActionLinks_desc = __('These are Edit, Copy and Delete links.');
 $strConfigRowActionLinks_name = __('Where to show the table row links');
+$strConfigRowActionLinksWithoutUnique_desc = __('Whether to show row links even in the absence of a unique key.');
+$strConfigRowActionLinksWithoutUnique_name = __('Show row links anyway');
 $strConfigNaturalOrder_desc
     = __('Use natural order for sorting table and database names.');
 $strConfigNaturalOrder_name = __('Natural order');

@@ -11,6 +11,7 @@
  * Include to test.
  */
 require_once 'libraries/core.lib.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/Theme.class.php';
@@ -1031,7 +1032,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    /*
     public function testCheckHTTP()
     {
         if (! function_exists('curl_init')) {
@@ -1048,7 +1048,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             $this->object->checkHTTP("http://www.phpmyadmin.net/test/nothing")
         );
     }
-    */
+
     /**
      * Tests for rewriting URL to SSL variant
      *
