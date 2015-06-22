@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-22 08:04-0400\n"
-"PO-Revision-Date: 2015-06-19 17:13+0200\n"
+"PO-Revision-Date: 2015-06-22 22:26+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3188,42 +3188,37 @@ msgid "Press Enter to execute query"
 msgstr "Pressa Enter pro executar query"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Ascendente"
+msgstr "ascendente"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Descendente"
+msgstr "descendente"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "Ordine"
+msgstr "Ordine:"
 
 #: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
 msgid "Count"
 msgstr "Computo"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute"
 msgid "Execution order"
-msgstr "Executa"
+msgstr "Ordine de executar"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
 msgstr ""
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "Ordine"
+msgstr "Ordine per:"
 
 #: libraries/Console.class.php:301
 msgid "Group queries"
@@ -13401,7 +13396,7 @@ msgid "Showing as PHP code"
 msgstr ""
 
 #: libraries/sql.lib.php:1767
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
@@ -13410,10 +13405,10 @@ msgid ""
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 "Selection currente non contine un unic columna. Functionalitates ligate al "
-"modificar grillia, modificar, copiar, marcar, deler non es disponibile."
+"modificar grillia, modificar, copiar, marcar, deler non es disponibile %s"
 
 #: libraries/sql.lib.php:1778
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
@@ -13422,7 +13417,8 @@ msgid ""
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 "Selection currente non contine un unic columna. Functionalitates ligate al "
-"modificar grillia, modificar, copiar, marcar, deler non es disponibile."
+"modificar grillia, modificar, copiar, e deler pote resultar in un "
+"comportamento indesiderate. %s"
 
 #: libraries/sql.lib.php:1817
 #, php-format
