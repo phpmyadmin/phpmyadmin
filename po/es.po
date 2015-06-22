@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-22 08:04-0400\n"
-"PO-Revision-Date: 2015-06-21 05:39+0200\n"
+"PO-Revision-Date: 2015-06-22 20:58+0200\n"
 "Last-Translator: Franco <fulanodetal.github@openaliasbox.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5352,7 +5352,7 @@ msgstr ""
 "La clave debe contener letras, números [em]y[/em] caracteres especiales."
 
 #: libraries/config/ServerConfigChecks.class.php:371
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -5368,9 +5368,10 @@ msgid ""
 msgstr ""
 "Esta %sopción%s debe estar desactivada porque permite a los atacantes "
 "iniciar sesión por fuerza bruta a cualquier servidor MySQL. Si usted lo cree "
-"necesario, utilice un %slistado de proxies de confianza%s. Sin embargo, la "
-"protección basada en IP podría no ser confiable si su IP pertenece a un ISP "
-"al que están conectados miles de usuarios, incluyendo usted."
+"necesario, utilice una %ssesión restricta al servidor MySQL%s o un %slistado "
+"de proxies de confianza%s. Sin embargo, la protección basada en IP con el "
+"listado de proxies de confianza, podría no ser confiable si su IP pertenece "
+"a un ISP al que están conectados miles de usuarios, incluyendo usted."
 
 #: libraries/config/ServerConfigChecks.class.php:381
 msgid ""
@@ -5565,6 +5566,10 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Restringe a los servidores de MySQL, lo que el usuario puede introducir "
+"cuando, un inicio de sesión a un servidor MySQL arbitrario se habilita "
+"haciendo coincidir la IP o nombre de host del servidor MySQL para la "
+"expresión regular dada."
 
 #: libraries/config/messages.inc.php:25
 msgid "Restrict login to MySQL server"
@@ -6207,7 +6212,6 @@ msgid "Page titles"
 msgstr "Títulos de página"
 
 #: libraries/config/messages.inc.php:262
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to "
 #| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
@@ -6217,8 +6221,8 @@ msgid ""
 "for magic strings that can be used to get special values."
 msgstr ""
 "Especificar el texto de la barra de título del navegador. Consulte la "
-"[doc@cfg_TitleTable]documentación[/doc] para ver las palabras mágicas que "
-"podrán ser usadas para obtener valores especiales."
+"[doc@faq6-27]documentación[/doc] para ver las palabras mágicas que podrán "
+"ser usadas para obtener valores especiales."
 
 #: libraries/config/messages.inc.php:266
 msgid "Security"
@@ -6736,7 +6740,6 @@ msgstr ""
 "de datos"
 
 #: libraries/config/messages.inc.php:468
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6745,7 +6748,7 @@ msgid ""
 "the Databases and Tables tabs above)."
 msgstr ""
 "Agrupar elementos en el árbol de navegación (determinado por el separador "
-"definido abajo)."
+"definido abajo en las pestañas superiores de Bases de datos y Tablas)."
 
 #: libraries/config/messages.inc.php:470
 msgid "Group items in the tree"
@@ -6780,17 +6783,16 @@ msgid "Enable highlighting"
 msgstr "Permitir destacar"
 
 #: libraries/config/messages.inc.php:482
-#, fuzzy
 #| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "Si se desactiva la posibilidad de expandir bases de datos o no."
+msgstr ""
+"Si tendrá la posibilidad de expandir el árbol en el panel de navegación."
 
 #: libraries/config/messages.inc.php:484
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Barra de navegación mediante tablas"
+msgstr "Activar la expansión del árbol de navegación"
 
 #: libraries/config/messages.inc.php:486
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -7041,6 +7043,8 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Establece la zona horaria efectiva; posiblemente diferente a la de su "
+"servidor de base de datos"
 
 #: libraries/config/messages.inc.php:571
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -10092,10 +10096,9 @@ msgid "Please enter correct captcha!"
 msgstr "¡Introduzca el captcha correcto!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:423
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "El servidor MySQL no autorizó su acceso"
+msgstr "¡No puede conectarse en este servidor MySQL!"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:101
 msgid "Wrong username/password. Access denied."
@@ -11038,15 +11041,15 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Sintaxis resaltada del editor CodeMirror para JSON."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Sintaxis resaltada del editor CodeMirror para SQL."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Sintaxis resaltada del editor CodeMirror para XML (y HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Binarytoip.class.php:32
 #, fuzzy
@@ -12001,7 +12004,7 @@ msgstr "No existen eventos para mostrar."
 
 #: libraries/select_lang.lib.php:614
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Ignorando código de idioma no compatible."
 
 #: libraries/select_server.lib.php:44 libraries/select_server.lib.php:49
 msgid "Current Server:"
@@ -12295,10 +12298,9 @@ msgstr "Requiere SSL"
 
 #: libraries/server_privileges.lib.php:759
 #: libraries/server_privileges.lib.php:768
-#, fuzzy
 #| msgid "Requires that a specific cipher method be used for a connection."
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr "Requiere que se use un método específico de cifrado para una conexión."
+msgstr "Se requiere un método específico de cifrado para usar la conexión."
 
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:787
@@ -12310,7 +12312,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:797
 #: libraries/server_privileges.lib.php:806
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Requiere un certificado X509 válido con el tema presentado."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 certificate."
@@ -12981,7 +12983,7 @@ msgstr "Filtros"
 #, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Mostrar sólo valores de alerta"
+msgstr "Mostrar sólo activo"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13919,7 +13921,7 @@ msgstr "Ejecutar la(s) consulta(s) SQL en la base de datos %s"
 
 #: libraries/sql_query_form.lib.php:256
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Obtener consulta almacenada automáticamente"
 
 #: libraries/sql_query_form.lib.php:267
 #, fuzzy
@@ -14284,7 +14286,6 @@ msgid "Showing create queries"
 msgstr "Mostrar las consultas de creación"
 
 #: libraries/structure.lib.php:3429
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
 msgstr "Vista de relaciones"
@@ -14804,13 +14805,13 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Fila: %1$s, Columna: %2$s, Error: %3$s"
 
 #: tbl_structure.php:66
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 #| msgid_plural "The column names '%s' are MySQL reserved keywords."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "El nombre de columna «%s» es una palabra clave reservada de MySQL."
-msgstr[1] "El nombre de columna «%s» es una palabra clave reservada de MySQL."
+msgstr[0] "El nombre «%s» es una palabra clave reservada de MySQL."
+msgstr[1] "Los nombres «%s» es una palabra clave reservada de MySQL."
 
 #: tbl_structure.php:117
 msgid "No column selected."
@@ -16541,7 +16542,6 @@ msgid "Too many connections are aborted."
 msgstr "Demasiadas conexiones son abandonadas."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -16553,9 +16553,9 @@ msgid ""
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
 "Las conexiones son abandonadas generalmente cuando no pueden ser "
-"autorizadas. <a href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-"
-"track-down-the-source-of-aborted_connects/\">Este artículo</a> podría ser de "
-"ayuda para rastrear el motivo de las mismas."
+"autorizadas. <a href=\"http://www.percona.com/blog/2008/08/23/how-to-track-"
+"down-the-source-of-aborted_connects/\">Este artículo</a> podría ser de ayuda "
+"para rastrear el motivo de las mismas."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -16684,7 +16684,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "El tamaño del archivo de registros InnoDB es inadecuadamente grande."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -16709,14 +16709,14 @@ msgstr ""
 "Normalmente es suficiente definir {innodb_log_file_size} a el 25%% del valor "
 "de {innodb_buffer_pool_size}. Un valor muy alto de {innodb_log_file_size} "
 "reduce considerablemente la velocidad de la recuperación luego de una caída "
-"de la base de datos. Revise también <a href=\"http://www."
-"mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
+"de la base de datos. Revise también <a href=\""
+"http://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/"
 "\">este artículo</a>. Necesitará cerrar el servidor, eliminar los archivos "
 "de registros InnoDB, definir el nuevo valor en el archivo 'my.cnf', iniciar "
 "el servidor y luego verificar los registros de error para asegurarse que no "
-"hubo inconvenientes. Revise también <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">este artículo</a>"
+"hubo inconvenientes. Revise también <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">este artículo</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -16732,7 +16732,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Su reserva de búfers InnoDB es relativamente pequeña."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -16765,8 +16765,8 @@ msgstr ""
 "servicios y tablas con otros motores y configurar esta variable acorde a "
 "ello. Si se la define demasiado alta, su sistema comenzará a utilizar el "
 "área de intercambio en disco disminuyendo la performance significativamente. "
-"Revise también <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/"
-"choosing-innodb_buffer_pool_size/\">este artículo</a>"
+"Revise también <a href=\"http://www.percona.com/blog/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">este artículo</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
