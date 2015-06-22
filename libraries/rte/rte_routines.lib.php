@@ -520,13 +520,14 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     $routineStatement = $parser->statements[0];
 
     $params = SqlParser\Utils\Routine::getParameters($routineStatement);
-    $retval['item_num_params']      = $params['num'];
-    $retval['item_param_dir']       = $params['dir'];
-    $retval['item_param_name']      = $params['name'];
-    $retval['item_param_type']      = $params['type'];
-    $retval['item_param_length']    = $params['length'];
-    $retval['item_param_opts_num']  = $params['opts'];
-    $retval['item_param_opts_text'] = $params['opts'];
+    $retval['item_num_params']       = $params['num'];
+    $retval['item_param_dir']        = $params['dir'];
+    $retval['item_param_name']       = $params['name'];
+    $retval['item_param_type']       = $params['type'];
+    $retval['item_param_length']     = $params['length'];
+    $retval['item_param_length_arr'] = $params['length_arr'];
+    $retval['item_param_opts_num']   = $params['opts'];
+    $retval['item_param_opts_text']  = $params['opts'];
 
     // Get extra data
     if (!$all) {
@@ -538,8 +539,8 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     } else {
         $retval['item_type_toggle'] = 'FUNCTION';
     }
-    $retval['item_returntype']   = '';
-    $retval['item_returnlength'] = '';
+    $retval['item_returntype']      = '';
+    $retval['item_returnlength']    = '';
     $retval['item_returnopts_num']  = '';
     $retval['item_returnopts_text'] = '';
 
@@ -1543,24 +1544,18 @@ function PMA_RTN_getExecuteForm($routine)
         }
         $retval .= "<td class='nowrap'>\n";
         if (in_array($routine['item_param_type'][$i], array('ENUM', 'SET'))) {
-            $tokens = PMA_SQP_parse($routine['item_param_length'][$i]);
             if ($routine['item_param_type'][$i] == 'ENUM') {
                 $input_type = 'radio';
             } else {
                 $input_type = 'checkbox';
             }
-            for ($j = 0; $j < $tokens['len']; $j++) {
-                if ($tokens[$j]['type'] != 'punct_listsep') {
-                    $tokens[$j]['data'] = htmlentities(
-                        PMA_Util::unquote($tokens[$j]['data']),
-                        ENT_QUOTES
-                    );
-                    $retval .= "<input name='params["
-                        . $routine['item_param_name'][$i] . "][]' "
-                        . "value='" . $tokens[$j]['data'] . "' type='"
-                        . $input_type . "' />"
-                        . $tokens[$j]['data'] . "<br />\n";
-                }
+            foreach ($routine['item_param_length_arr'][$i] as $value) {
+                $value = htmlentities(PMA_Util::unquote($value), ENT_QUOTES);
+                $retval .= "<input name='params["
+                    . $routine['item_param_name'][$i] . "][]' "
+                    . "value='" . $value . "' type='"
+                    . $input_type . "' />"
+                    . $value . "<br />\n";
             }
         } else if (in_array(
             /*overload*/mb_strtolower($routine['item_param_type'][$i]),

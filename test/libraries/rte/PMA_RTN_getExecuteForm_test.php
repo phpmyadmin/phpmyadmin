@@ -113,6 +113,14 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
                 4 => "'a','b'",
                 5 => "'a','b'"
             ),
+            'item_param_length_arr'     => array(
+                0 => array(),
+                1 => array('22'),
+                2 => array(),
+                3 => array(),
+                4 => array("'a'", "'b'"),
+                5 => array("'a'", "'b'")
+            ),
             'item_param_opts_num'       => array(
                 0 => '',
                 1 => '',
@@ -240,6 +248,14 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
                 3 => '',
                 4 => "'a','b'",
                 5 => "'a','b'"
+            ),
+            'item_param_length_arr'     => array(
+                0 => array(),
+                1 => array('22'),
+                2 => array(),
+                3 => array(),
+                4 => array("'a'", "'b'"),
+                5 => array("'a'", "'b'")
             ),
             'item_param_opts_num'       => array(
                 0 => '',
