@@ -1695,16 +1695,31 @@ function pdfPaperSize(format, axis)
  *
  * @return string
  */
-function getForeignKeyCheckbox() {
-    default_fk_check_value = PMA_commonParams.get('default_fk_check_value');
-    var html = "";
-    html    += "<div>";
-    html    += "<input type=\"hidden\" name=\"fk_checks\" value=\"0\" />";
-    html    += "<input type=\"checkbox\" name=\"fk_checks\""
-        + " id=\"fk_checks\"" + (default_fk_check_value ? " checked=\"checked\"" : "") + " />";
-    html    += "<label for=\"fk_checks\">" + PMA_messages.strForeignKeyCheck + "</label>";
-    html    += "</div>";
+function getForeignKeyCheckboxLoader() {
+    var html = '';
+    html    += '<div>';
+    html    += '<div class="load-default-fk-check-value">';
+    html    += PMA_getImage('ajax_clock_small.gif');
+    html    += '</div>';
+    html    += '</div>';
     return html;
+}
+
+function loadForeignKeyCheckbox() {
+    // Load default foreign key check value
+    var params = {
+        'ajax_request': true,
+        'token': PMA_commonParams.get('token'),
+        'server': PMA_commonParams.get('server'),
+        'get_default_fk_check_value': true
+    };
+    $.get('sql.php', params, function (data) {
+        var html = '<input type="hidden" name="fk_checks" value="0" />'
+        	+ '<input type="checkbox" name="fk_checks" id="fk_checks"'
+            + (data.default_fk_check_value ? ' checked="checked"' : '') + ' />'
+            + '<label for="fk_checks">' + PMA_messages.strForeignKeyCheck + '</label>';
+        $('.load-default-fk-check-value').replaceWith(html);
+    });
 }
 
 function getJSConfirmCommonParam(elem) {
@@ -1765,7 +1780,7 @@ AJAX.registerOnload('functions.js', function () {
         var old_text   = $inner_sql.html();
 
         var new_content = "<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">" + sql_query + "</textarea>\n";
-        new_content    += getForeignKeyCheckbox();
+        new_content    += getForeignKeyCheckboxLoader();
         new_content    += "<input type=\"submit\" id=\"sql_query_edit_save\" class=\"button btnSave\" value=\"" + PMA_messages.strGo + "\"/>\n";
         new_content    += "<input type=\"button\" id=\"sql_query_edit_discard\" class=\"button btnDiscard\" value=\"" + PMA_messages.strCancel + "\"/>\n";
         var $editor_area = $('div#inline_editor');
@@ -1774,6 +1789,7 @@ AJAX.registerOnload('functions.js', function () {
             $editor_area.insertBefore($inner_sql);
         }
         $editor_area.html(new_content);
+        loadForeignKeyCheckbox();
         $inner_sql.hide();
 
         bindCodeMirrorToInlineEditor();
@@ -2595,12 +2611,13 @@ function PMA_SQLPrettyPrint(string)
  *  return a jQuery object yet and hence cannot be chained
  *
  * @param string      question
- * @param string      url         URL to be passed to the callbackFn to make
+ * @param string      url           URL to be passed to the callbackFn to make
  *                                  an Ajax call to
- * @param function    callbackFn  callback to execute after user clicks on OK
+ * @param function    callbackFn    callback to execute after user clicks on OK
+ * @param function    openCallback  optional callback to run when dialog is shown
  */
 
-jQuery.fn.PMA_confirm = function (question, url, callbackFn) {
+jQuery.fn.PMA_confirm = function (question, url, callbackFn, openCallback) {
     var confirmState = PMA_commonParams.get('confirm');
     if (! confirmState) {
         // user does not want to confirm
@@ -2644,6 +2661,7 @@ jQuery.fn.PMA_confirm = function (question, url, callbackFn) {
         close: function () {
             $(this).remove();
         },
+        open: openCallback,
         modal: true
     });
 };
