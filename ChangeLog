@@ -60,6 +60,7 @@ phpMyAdmin - ChangeLog
 - bug #4957 "With selected" links doesn't work in table browse
 - bug #4795 Query builder: missing joint for the intermediary table
 + rfe #1551 Integrate SQL debugging into console
+- bug #4966 MySQL errors are not shown when DebugSQL is enabled
 
 4.4.11.0 (not yet released)
 

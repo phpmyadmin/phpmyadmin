@@ -253,10 +253,13 @@ class PMA_DatabaseInterface
             'german'        => 'CP1252', //'latin1',
         );
 
-        $server_language = $this->fetchValue(
-            'SHOW VARIABLES LIKE \'language\';',
-            0,
-            1
+        $server_language = PMA_Util::cacheGet(
+            'server_language',
+            function () {
+                return $GLOBALS['dbi']->fetchValue(
+                    "SHOW VARIABLES LIKE 'language'", 0, 1
+                );
+            }
         );
         if ($server_language) {
             $found = array();
