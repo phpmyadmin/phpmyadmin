@@ -109,6 +109,16 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     // script has exited at this point
 }
 
+if (isset($_REQUEST['get_default_fk_check_value'])
+    && $_REQUEST['get_default_fk_check_value'] == true
+) {
+    $response = PMA_Response::getInstance();
+    $response->addJSON(
+        'default_fk_check_value', PMA_Util::getDefaultFKCheckValue()
+    );
+    exit;
+}
+
 /**
  * Check ajax request to set the column order and visibility
  */

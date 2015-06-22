@@ -245,7 +245,7 @@ AJAX.registerOnload('db_structure.js', function () {
          */
         var question = PMA_messages.strTruncateTableStrongWarning + ' '
             + PMA_sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name))
-            + getForeignKeyCheckbox();
+            + getForeignKeyCheckboxLoader();
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
 
@@ -273,7 +273,7 @@ AJAX.registerOnload('db_structure.js', function () {
                     PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
             }); // end $.get()
-        }); //end $.PMA_confirm()
+        }, loadForeignKeyCheckbox); //end $.PMA_confirm()
     }); //end of Truncate Table Ajax action
 
     /**
@@ -308,7 +308,7 @@ AJAX.registerOnload('db_structure.js', function () {
             question =
                 PMA_sprintf(PMA_messages.strDoYouReally, 'DROP VIEW ' + escapeHtml(curr_table_name));
         }
-        question += getForeignKeyCheckbox();
+        question += getForeignKeyCheckboxLoader();
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
 
@@ -328,7 +328,7 @@ AJAX.registerOnload('db_structure.js', function () {
                     PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
             }); // end $.get()
-        }); // end $.PMA_confirm()
+        }, loadForeignKeyCheckbox); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
 
     /**
