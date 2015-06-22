@@ -38,7 +38,7 @@ abstract class ImportPlugin
     /**
      * Gets the import specific format plugin properties
      *
-     * @return array
+     * @return ImportPluginProperties
      */
     public function getProperties()
     {
@@ -63,10 +63,7 @@ abstract class ImportPlugin
      */
     protected function getDbnameAndOptions($currentDb, $defaultDb)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        if ($pmaString->strlen($currentDb)) {
+        if (/*overload*/mb_strlen($currentDb)) {
             $db_name = $currentDb;
             $options = array('create_db' => false);
         } else {

@@ -97,8 +97,6 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
         return;
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     if (! empty($import_run_buffer['sql'])
         && trim($import_run_buffer['sql']) != ''
     ) {
@@ -106,13 +104,13 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
         // USE query changes the database, son need to track
         // while running multiple queries
         $is_use_query
-            = ($pmaString->stripos($import_run_buffer['sql'], "use ") !== false)
+            = (/*overload*/mb_stripos($import_run_buffer['sql'], "use ") !== false)
                 ? true
                 : false;
 
         $max_sql_len = max(
             $max_sql_len,
-            $pmaString->strlen($import_run_buffer['sql'])
+            /*overload*/mb_strlen($import_run_buffer['sql'])
         );
         if (! $sql_query_disabled) {
             $sql_query .= $import_run_buffer['full'];
@@ -128,7 +126,6 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
             );
             $error = true;
         } else {
-
             $executed_queries++;
 
             $pattern = '/^[\s]*(SELECT|SHOW|HANDLER)/i';
@@ -207,14 +204,9 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                         );
                     }
 
-                    if (($a_num_rows > 0) || $is_use_query) {
-                        $sql_data['valid_sql'][] = $import_run_buffer['sql'];
-                        if (! isset($sql_data['valid_queries'])) {
-                            $sql_data['valid_queries'] = 0;
-                        }
-                        $sql_data['valid_queries']++;
-                    }
-
+                    $sql_data = updateSqlData(
+                        $sql_data, $a_num_rows, $is_use_query, $import_run_buffer
+                    );
                 }
                 if (! $sql_query_disabled) {
                     $sql_query .= $msg . "\n";
@@ -255,7 +247,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
     // the complete query in the textarea)
     if (! $go_sql && $run_query) {
         if (! empty($sql_query)) {
-            if ($pmaString->strlen($sql_query) > 50000
+            if (/*overload*/mb_strlen($sql_query) > 50000
                 || $executed_queries > 50
                 || $max_sql_len > 1000
             ) {
@@ -272,6 +264,28 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
     if (isset($_REQUEST['rollback_query'])) {
         $msg .= __('[ROLLBACK occurred.]');
     }
+}
+
+/**
+ * Update $sql_data
+ *
+ * @param array $sql_data          SQL data
+ * @param int   $a_num_rows        Number of rows
+ * @param bool  $is_use_query      Query is used
+ * @param array $import_run_buffer Import buffer
+ *
+ * @return array
+ */
+function updateSqlData($sql_data, $a_num_rows, $is_use_query, $import_run_buffer)
+{
+    if (($a_num_rows > 0) || $is_use_query) {
+        $sql_data['valid_sql'][] = $import_run_buffer['sql'];
+        if (!isset($sql_data['valid_queries'])) {
+            $sql_data['valid_queries'] = 0;
+        }
+        $sql_data['valid_queries']++;
+    }
+    return $sql_data;
 }
 
 /**
@@ -355,19 +369,17 @@ function PMA_importGetNextChunk($size = 32768)
         return true;
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     if ($GLOBALS['import_file'] == 'none') {
         // Well this is not yet supported and tested,
         // but should return content of textarea
-        if ($pmaString->strlen($GLOBALS['import_text']) < $size) {
+        if (/*overload*/mb_strlen($GLOBALS['import_text']) < $size) {
             $GLOBALS['finished'] = true;
             return $GLOBALS['import_text'];
         } else {
-            $r = $pmaString->substr($GLOBALS['import_text'], 0, $size);
+            $r = /*overload*/mb_substr($GLOBALS['import_text'], 0, $size);
             $GLOBALS['offset'] += $size;
-            $GLOBALS['import_text'] = $pmaString
-                ->substr($GLOBALS['import_text'], $size);
+            $GLOBALS['import_text'] = /*overload*/
+                mb_substr($GLOBALS['import_text'], $size);
             return $r;
         }
     }
@@ -382,8 +394,11 @@ function PMA_importGetNextChunk($size = 32768)
         $GLOBALS['finished'] = feof($import_handle);
         break;
     case 'application/zip':
-        $result = $pmaString->substr($GLOBALS['import_text'], 0, $size);
-        $GLOBALS['import_text'] = $pmaString->substr($GLOBALS['import_text'], $size);
+        $result = /*overload*/mb_substr($GLOBALS['import_text'], 0, $size);
+        $GLOBALS['import_text'] = /*overload*/mb_substr(
+            $GLOBALS['import_text'],
+            $size
+        );
         $GLOBALS['finished'] = empty($GLOBALS['import_text']);
         break;
     case 'none':
@@ -407,12 +422,12 @@ function PMA_importGetNextChunk($size = 32768)
     if ($GLOBALS['offset'] == $size) {
         // UTF-8
         if (strncmp($result, "\xEF\xBB\xBF", 3) == 0) {
-            $result = $pmaString->substr($result, 3);
+            $result = /*overload*/mb_substr($result, 3);
             // UTF-16 BE, LE
         } elseif (strncmp($result, "\xFE\xFF", 2) == 0
             || strncmp($result, "\xFF\xFE", 2) == 0
         ) {
-            $result = $pmaString->substr($result, 2);
+            $result = /*overload*/mb_substr($result, 2);
         }
     }
     return $result;
@@ -464,16 +479,13 @@ function PMA_getColumnAlphaName($num)
         $num = $remain;
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if ($num == 0) {
         // use 'Z' if column number is 0,
         // this is necessary because A-Z has no 'zero'
-        $col_name .= $pmaString->chr(($A + 26) - 1);
+        $col_name .= /*overload*/mb_chr(($A + 26) - 1);
     } else {
         // convert column number to ASCII character
-        $col_name .= $pmaString->chr(($A + $num) - 1);
+        $col_name .= /*overload*/mb_chr(($A + $num) - 1);
     }
 
     return $col_name;
@@ -499,10 +511,8 @@ function PMA_getColumnNumberFromName($name)
         return 0;
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    $name = $pmaString->strtoupper($name);
-    $num_chars = $pmaString->strlen($name);
+    $name = /*overload*/mb_strtoupper($name);
+    $num_chars = /*overload*/mb_strlen($name);
     $column_number = 0;
     for ($i = 0; $i < $num_chars; ++$i) {
         // read string from back to front
@@ -512,7 +522,7 @@ function PMA_getColumnNumberFromName($name)
         // and subtract 64 to get corresponding decimal value
         // ASCII value of "A" is 65, "B" is 66, etc.
         // Decimal equivalent of "A" is 1, "B" is 2, etc.
-        $number = (int)($pmaString->ord($name[$char_pos]) - 64);
+        $number = (int)(/*overload*/mb_ord($name[$char_pos]) - 64);
 
         // base26 to base10 conversion : multiply each number
         // with corresponding value of the position, in this case
@@ -559,12 +569,10 @@ define("FORMATTEDSQL", 2);
  */
 function PMA_getDecimalPrecision($last_cumulative_size)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    return (int)$pmaString->substr(
+    return (int)substr(
         $last_cumulative_size,
         0,
-        $pmaString->strpos($last_cumulative_size, ",")
+        strpos($last_cumulative_size, ",")
     );
 }
 
@@ -579,13 +587,10 @@ function PMA_getDecimalPrecision($last_cumulative_size)
  */
 function PMA_getDecimalScale($last_cumulative_size)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    return (int) $pmaString->substr(
+    return (int)substr(
         $last_cumulative_size,
-        ($pmaString->strpos($last_cumulative_size, ",") + 1),
-        ($pmaString->strlen($last_cumulative_size)
-            - $pmaString->strpos($last_cumulative_size, ","))
+        (strpos($last_cumulative_size, ",") + 1),
+        (strlen($last_cumulative_size) - strpos($last_cumulative_size, ","))
     );
 }
 
@@ -600,10 +605,8 @@ function PMA_getDecimalScale($last_cumulative_size)
  */
 function PMA_getDecimalSize($cell)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    $curr_size = $pmaString->strlen((string)$cell);
-    $decPos = $pmaString->strpos($cell, ".");
+    $curr_size = /*overload*/mb_strlen((string)$cell);
+    $decPos = /*overload*/mb_strpos($cell, ".");
     $decPrecision = ($curr_size - 1) - $decPos;
 
     $m = $curr_size - 1;
@@ -630,9 +633,7 @@ function PMA_getDecimalSize($cell)
 function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
     $curr_type, $cell
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    $curr_size = $pmaString->strlen((string)$cell);
+    $curr_size = /*overload*/mb_strlen((string)$cell);
 
     /**
      * If the cell is NULL, don't treat it as a varchar
@@ -770,7 +771,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
             $oldM = PMA_getDecimalPrecision($last_cumulative_size);
             $oldD = PMA_getDecimalScale($last_cumulative_size);
             $oldInt = $oldM - $oldD;
-            $newInt = $pmaString->strlen((string)$cell);
+            $newInt = /*overload*/mb_strlen((string)$cell);
 
             /* See which has the larger integer length */
             if ($oldInt >= $newInt) {
@@ -843,16 +844,13 @@ function PMA_detectType($last_cumulative_type, $cell)
         return $last_cumulative_type;
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     if (!is_numeric($cell)) {
         return VARCHAR;
     }
 
     if ($cell == (string)(float)$cell
-        && $pmaString->strpos($cell, ".") !== false
-        && $pmaString->substrCount($cell, ".") == 1
+        && /*overload*/mb_strpos($cell, ".") !== false
+        && /*overload*/mb_substr_count($cell, ".") == 1
     ) {
         return DECIMAL;
     }
@@ -895,9 +893,6 @@ function PMA_analyzeTable(&$table)
     for ($i = 0; $i < $numCols; ++$i) {
         $types[$i] = NONE;
     }
-
-    /* Temp vars */
-    $curr_type = NONE;
 
     /* If the passed array is not of the correct form, do not process it */
     if (!is_array($table)
@@ -1489,11 +1484,12 @@ function PMA_getMatchedRows($analyzed_sql_results = array())
 function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
 {
     $where_clause = '';
-    $extra_where_clause = '';
+    $extra_where_clause = array();
     $target_cols = array();
 
     $prev_term = '';
     $i = 0;
+    $in_function = 0;
     foreach ($analyzed_sql_results['parsed_sql'] as $key => $term) {
         if (! isset($get_set_expr)
             && preg_match(
@@ -1513,19 +1509,32 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
             ) {
                 break;
             }
+            if (!$in_function) {
+                if ($term['type'] == 'punct_listsep') {
+                    $extra_where_clause[] = ' OR ';
+                } else if ($term['type'] == 'punct') {
+                    $extra_where_clause[] = ' <> ';
+                } else if ($term['type'] == 'alpha_functionName') {
+                    array_pop($extra_where_clause);
+                    array_pop($extra_where_clause);
+                } else {
+                    $extra_where_clause[] = $term['data'];
+                }
+            } else if ($term['type'] == 'punct_bracket_close_round') {
+                $in_function--;
+            }
 
-            if ($term['type'] == 'punct_listsep') {
-                $extra_where_clause .= ' OR ';
-            } else if ($term['type'] == 'punct') {
-                $extra_where_clause .= ' <> ';
-            } else {
-                $extra_where_clause .= $term['data'];
+            if ($term['type'] == 'alpha_functionName') {
+                $in_function++;
             }
 
             // Get columns in SET expression.
             if ($prev_term != 'punct') {
                 if ($term['type'] != 'punct_listsep'
                     && $term['type'] != 'punct'
+                    && $term['type'] != 'punct_bracket_open_round'
+                    && $term['type'] != 'punct_bracket_close_round'
+                    && !$in_function
                     && isset($term['data'])
                 ) {
                     if (isset($target_cols[$i])) {
@@ -1549,8 +1558,10 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
 
     // Get WHERE clause.
     $where_clause .= $analyzed_sql_results['analyzed_sql'][0]['where_clause'];
-    if (empty($where_clause) && empty($extra_where_clause)) {
-        $where_clause = '1';
+    if (empty($where_clause)) {
+        $where_clause = (!empty($extra_where_clause) && $extra_where_clause[0])
+            ? implode(' ', $extra_where_clause)
+            : '1';
     }
 
     $matched_row_query = 'SELECT '

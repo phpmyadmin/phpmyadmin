@@ -27,16 +27,6 @@ class PMA_Table
     static public $cache = array();
 
     /**
-     * @var string  table name
-     */
-    var $name = '';
-
-    /**
-     * @var string  database name
-     */
-    var $db_name = '';
-
-    /**
      * @var string  engine (innodb, myisam, bdb, ...)
      */
     var $engine = '';
@@ -67,13 +57,33 @@ class PMA_Table
     var $messages = array();
 
     /**
+     * @var string  table name
+     */
+    protected $_name = '';
+
+    /**
+     * @var string  database name
+     */
+    protected $_db_name = '';
+
+    /**
+     * @var PMA_DatabaseInterface
+     */
+    protected $_dbi;
+
+    /**
      * Constructor
      *
-     * @param string $table_name table name
-     * @param string $db_name    database name
+     * @param string                $table_name table name
+     * @param string                $db_name    database name
+     * @param PMA_DatabaseInterface $dbi        database interface for the table
      */
-    function __construct($table_name, $db_name)
+    function __construct($table_name, $db_name, PMA_DatabaseInterface $dbi = null)
     {
+        if (empty($dbi)) {
+            $dbi = $GLOBALS['dbi'];
+        }
+        $this->_dbi = $dbi;
         $this->setName($table_name);
         $this->setDbName($db_name);
     }
@@ -118,7 +128,7 @@ class PMA_Table
      */
     function setName($table_name)
     {
-        $this->name = $table_name;
+        $this->_name = $table_name;
     }
 
     /**
@@ -131,9 +141,9 @@ class PMA_Table
     function getName($backquoted = false)
     {
         if ($backquoted) {
-            return PMA_Util::backquote($this->name);
+            return PMA_Util::backquote($this->_name);
         }
-        return $this->name;
+        return $this->_name;
     }
 
     /**
@@ -145,7 +155,7 @@ class PMA_Table
      */
     function setDbName($db_name)
     {
-        $this->db_name = $db_name;
+        $this->_db_name = $db_name;
     }
 
     /**
@@ -158,9 +168,9 @@ class PMA_Table
     function getDbName($backquoted = false)
     {
         if ($backquoted) {
-            return PMA_Util::backquote($this->db_name);
+            return PMA_Util::backquote($this->_db_name);
         }
-        return $this->db_name;
+        return $this->_db_name;
     }
 
     /**
@@ -192,9 +202,15 @@ class PMA_Table
 
         // use cached data or load information with SHOW command
         if (isset(PMA_Table::$cache[$db][$table])
+            || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
-            return $type == 'VIEW';
+            return $type == 'VIEW' || $type == 'SYSTEM VIEW';
+        }
+
+        // information_schema tables are 'SYSTEM VIEW's
+        if ($db == 'information_schema') {
+            return true;
         }
 
         // query information_schema
@@ -261,13 +277,10 @@ class PMA_Table
                 AND TABLE_NAME = '" . PMA_Util::sqlAddSlashes($table) . "'"
             );
 
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
             foreach ($results as $result) {
                 $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
                     = array(
-                        'type' => $pmaString->strtoupper($result['DATA_TYPE'])
+                        'type' => /*overload*/mb_strtoupper($result['DATA_TYPE'])
                     );
             }
         } else {
@@ -340,7 +353,7 @@ class PMA_Table
 
         // any of known merge engines?
         return in_array(
-            $GLOBALS['PMA_String']->strtoupper($engine),
+            /*overload*/mb_strtoupper($engine),
             array('MERGE', 'MRG_MYISAM')
         );
     }
@@ -404,21 +417,19 @@ class PMA_Table
     /**
      * generates column specification for ALTER or CREATE TABLE syntax
      *
-     * @param string      $name           name
-     * @param string      $type           type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string      $index          index
-     * @param string      $length         length ('2', '5,2', '', ...)
-     * @param string      $attribute      attribute
-     * @param string      $collation      collation
-     * @param bool|string $null           with 'NULL' or 'NOT NULL'
-     * @param string      $default_type   whether default is CURRENT_TIMESTAMP,
-     *                                    NULL, NONE, USER_DEFINED
-     * @param string      $default_value  default value for USER_DEFINED
-     *                                    default type
-     * @param string      $extra          'AUTO_INCREMENT'
-     * @param string      $comment        field comment
-     * @param array       &$field_primary list of fields for PRIMARY KEY
-     * @param string      $move_to        new position for column
+     * @param string      $name          name
+     * @param string      $type          type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string      $length        length ('2', '5,2', '', ...)
+     * @param string      $attribute     attribute
+     * @param string      $collation     collation
+     * @param bool|string $null          with 'NULL' or 'NOT NULL'
+     * @param string      $default_type  whether default is CURRENT_TIMESTAMP,
+     *                                   NULL, NONE, USER_DEFINED
+     * @param string      $default_value default value for USER_DEFINED
+     *                                   default type
+     * @param string      $extra         'AUTO_INCREMENT'
+     * @param string      $comment       field comment
+     * @param string      $move_to       new position for column
      *
      * @todo    move into class PMA_Column
      * @todo on the interface, some js to clear the default value when the
@@ -426,16 +437,13 @@ class PMA_Table
      *
      * @return string  field specification
      */
-    static function generateFieldSpec($name, $type, $index, $length = '',
+    static function generateFieldSpec($name, $type, $length = '',
         $attribute = '', $collation = '', $null = false,
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
-        $comment = '', &$field_primary = null, $move_to = ''
+        $comment = '', $move_to = ''
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        $is_timestamp = $pmaString->strpos(
-            $pmaString->strtoupper($type),
+        $is_timestamp = /*overload*/mb_strpos(
+            /*overload*/mb_strtoupper($type),
             'TIMESTAMP'
         ) !== false;
 
@@ -493,6 +501,8 @@ class PMA_Table
                     $query .= ' DEFAULT \''
                         . PMA_Util::sqlAddSlashes($default_value) . '\'';
                 }
+            } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
+                $query .= ' DEFAULT 0x' . $default_value;
             } else {
                 $query .= ' DEFAULT \''
                     . PMA_Util::sqlAddSlashes($default_value) . '\'';
@@ -515,35 +525,6 @@ class PMA_Table
 
         if (!empty($extra)) {
             $query .= ' ' . $extra;
-            // Force an auto_increment field to be part of the primary key
-            // even if user did not tick the PK box;
-            if ($extra == 'AUTO_INCREMENT') {
-                $primary_cnt = count($field_primary);
-                if (1 == $primary_cnt) {
-                    for ($j = 0; $j < $primary_cnt; $j++) {
-                        if ($field_primary[$j] == $index) {
-                            break;
-                        }
-                    }
-                    if (isset($field_primary[$j]) && $field_primary[$j] == $index) {
-                        $query .= ' PRIMARY KEY';
-                        unset($field_primary[$j]);
-                    }
-                } else {
-                    // but the PK could contain other columns so do not append
-                    // a PRIMARY KEY clause, just add a member to $field_primary
-                    $found_in_pk = false;
-                    for ($j = 0; $j < $primary_cnt; $j++) {
-                        if ($field_primary[$j] == $index) {
-                            $found_in_pk = true;
-                            break;
-                        }
-                    } // end for
-                    if (! $found_in_pk) {
-                        $field_primary[] = $index;
-                    }
-                }
-            } // end if (auto_increment)
         }
         if (!empty($comment)) {
             $query .= " COMMENT '" . PMA_Util::sqlAddSlashes($comment) . "'";
@@ -647,22 +628,20 @@ class PMA_Table
     /**
      * Generates column specification for ALTER syntax
      *
-     * @param string      $oldcol         old column name
-     * @param string      $newcol         new column name
-     * @param string      $type           type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string      $length         length ('2', '5,2', '', ...)
-     * @param string      $attribute      attribute
-     * @param string      $collation      collation
-     * @param bool|string $null           with 'NULL' or 'NOT NULL'
-     * @param string      $default_type   whether default is CURRENT_TIMESTAMP,
-     *                                    NULL, NONE, USER_DEFINED
-     * @param string      $default_value  default value for USER_DEFINED default
-     *                                    type
-     * @param string      $extra          'AUTO_INCREMENT'
-     * @param string      $comment        field comment
-     * @param array       &$field_primary list of fields for PRIMARY KEY
-     * @param string      $index          index
-     * @param string      $move_to        new position for column
+     * @param string      $oldcol        old column name
+     * @param string      $newcol        new column name
+     * @param string      $type          type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string      $length        length ('2', '5,2', '', ...)
+     * @param string      $attribute     attribute
+     * @param string      $collation     collation
+     * @param bool|string $null          with 'NULL' or 'NOT NULL'
+     * @param string      $default_type  whether default is CURRENT_TIMESTAMP,
+     *                                   NULL, NONE, USER_DEFINED
+     * @param string      $default_value default value for USER_DEFINED default
+     *                                   type
+     * @param string      $extra         'AUTO_INCREMENT'
+     * @param string      $comment       field comment
+     * @param string      $move_to       new position for column
      *
      * @see PMA_Table::generateFieldSpec()
      *
@@ -670,13 +649,13 @@ class PMA_Table
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default_type, $default_value,
-        $extra, $comment, &$field_primary, $index, $move_to
+        $extra, $comment, $move_to
     ) {
         return PMA_Util::backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec(
-                $newcol, $type, $index, $length, $attribute,
+                $newcol, $type, $length, $attribute,
                 $collation, $null, $default_type, $default_value, $extra,
-                $comment, $field_primary, $move_to
+                $comment, $move_to
             );
     } // end function
 
@@ -821,12 +800,9 @@ class PMA_Table
             return false;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $source = PMA_Util::backquote($source_db)
             . '.' . PMA_Util::backquote($source_table);
-        if (! isset($target_db) || ! $pmaString->strlen($target_db)) {
+        if (! isset($target_db) || ! /*overload*/mb_strlen($target_db)) {
             $target_db = $source_db;
         }
 
@@ -841,6 +817,7 @@ class PMA_Table
         if ($what != 'dataonly') {
             include_once "libraries/plugin_interface.lib.php";
             // get Export SQL instance
+            /* @var $export_sql_plugin ExportSql */
             $export_sql_plugin = PMA_getPlugin(
                 "export",
                 "sql",
@@ -888,7 +865,8 @@ class PMA_Table
                 );
                 // ANSI_QUOTES might be a subset of sql_mode, for example
                 // REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ANSI
-                if (false !== $pmaString->strpos($server_sql_mode, 'ANSI_QUOTES')) {
+                if (false !== /*overload*/mb_strpos($server_sql_mode, 'ANSI_QUOTES')
+                ) {
                     $table_delimiter = 'quote_double';
                 } else {
                     $table_delimiter = 'quote_backtick';
@@ -978,7 +956,7 @@ class PMA_Table
                 $cnt = $parsed_sql['len'] - 1;
 
                 for ($j = $i; $j < $cnt; $j++) {
-                    $dataUpper = $pmaString->strtoupper($parsed_sql[$j]['data']);
+                    $dataUpper = /*overload*/mb_strtoupper($parsed_sql[$j]['data']);
                     if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
                         && $dataUpper == 'CONSTRAINT'
                     ) {
@@ -1003,33 +981,56 @@ class PMA_Table
 
             // add indexes to the table
             if (!empty($GLOBALS['sql_indexes'])) {
-                $parsed_sql =  PMA_SQP_parse($GLOBALS['sql_indexes']);
-                $i = 0;
 
-                while ($parsed_sql[$i]['type'] != $table_delimiter) {
-                    $i++;
-                }
+                $index_queries = array();
+                $sql_indexes = $GLOBALS['sql_indexes'];
+                $GLOBALS['sql_indexes'] = '';
 
-                $parsed_sql[$i]['data'] = $target;
-
+                $parsed_sql = PMA_SQP_parse($sql_indexes);
                 $cnt = $parsed_sql['len'] - 1;
+                $k = 0;
 
-                for ($j = $i; $j < $cnt; $j++) {
-                    $dataUpper = $pmaString->strtoupper($parsed_sql[$j]['data']);
-                    if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
-                        && $dataUpper == 'CONSTRAINT'
-                    ) {
-                        if ($parsed_sql[$j+1]['type'] == $table_delimiter) {
-                            $parsed_sql[$j+1]['data'] = '';
-                        }
+                for ($j = 0; $j < $cnt; $j++) {
+                    if ($parsed_sql[$j]['type'] == 'punct_queryend') {
+                        $index_queries[] = substr(
+                            $sql_indexes, $k, $parsed_sql[$j]['pos'] - $k
+                        );
+                        $k = $parsed_sql[$j]['pos'];
                     }
                 }
-                $GLOBALS['sql_indexes'] = PMA_SQP_format(
-                    $parsed_sql, 'query_only'
-                );
-                if ($mode == 'one_table' || $mode == 'db_copy') {
-                    $GLOBALS['dbi']->query($GLOBALS['sql_indexes']);
+
+                foreach ($index_queries as $index_query) {
+
+                    $parsed_sql = PMA_SQP_parse($index_query);
+                    $i = 0;
+
+                    while ($parsed_sql[$i]['type'] != $table_delimiter) {
+                        $i++;
+                    }
+
+                    $parsed_sql[$i]['data'] = $target;
+
+                    $cnt = $parsed_sql['len'] - 1;
+
+                    for ($j = $i; $j < $cnt; $j++) {
+                        $dataUpper = /*overload*/mb_strtoupper($parsed_sql[$j]['data']);
+                        if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
+                            && $dataUpper == 'CONSTRAINT'
+                        ) {
+                            if ($parsed_sql[$j+1]['type'] == $table_delimiter) {
+                                $parsed_sql[$j+1]['data'] = '';
+                            }
+                        }
+                    }
+
+                    $sql_index = PMA_SQP_format($parsed_sql, 'query_only');
+                    if ($mode == 'one_table' || $mode == 'db_copy') {
+                        $GLOBALS['dbi']->query($sql_index);
+                    }
+
+                    $GLOBALS['sql_indexes'] .= $sql_index;
                 }
+
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_indexes'];
                 if ($mode == 'one_table' || $mode == 'db_copy') {
                     unset($GLOBALS['sql_indexes']);
@@ -1158,10 +1159,19 @@ class PMA_Table
                             )
                             . '\''
                             . ($GLOBALS['cfgRelation']['mimework']
-                                ? ',\'' . PMA_Util::sqlAddSlashes($comments_copy_row['comment']) . '\','
-                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['mimetype']) . '\','
-                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation']) . '\','
-                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation_options']) . '\''
+                                ? ',\''
+                                . PMA_Util::sqlAddSlashes(
+                                    $comments_copy_row['comment']
+                                ) . '\','
+                                . '\'' . PMA_Util::sqlAddSlashes(
+                                    $comments_copy_row['mimetype']
+                                ) . '\','
+                                . '\'' . PMA_Util::sqlAddSlashes(
+                                    $comments_copy_row['transformation']
+                                ) . '\','
+                                . '\'' . PMA_Util::sqlAddSlashes(
+                                    $comments_copy_row['transformation_options']
+                                ) . '\''
                                 : '')
                             . ')';
                         PMA_queryAsControlUser($new_comment_query);
@@ -1298,7 +1308,7 @@ class PMA_Table
             return false;
         }
 
-        if (! $GLOBALS['PMA_String']->strlen($table_name)) {
+        if (! /*overload*/mb_strlen($table_name)) {
             // zero length
             return false;
         }
@@ -1489,21 +1499,38 @@ class PMA_Table
      * returns an array with all columns
      *
      * @param bool $backquoted whether to quote name with backticks ``
+     * @param bool $fullName   whether to include full name of the table as a prefix
      *
      * @return array
      */
-    public function getColumns($backquoted = true)
+    public function getColumns($backquoted = true, $fullName = true)
     {
         $sql = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $indexed = $GLOBALS['dbi']->fetchResult($sql, 'Field', 'Field');
 
         $return = array();
         foreach ($indexed as $column) {
-            $return[] = $this->getFullName($backquoted) . '.'
+            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
                 . ($backquoted ? PMA_Util::backquote($column) : $column);
         }
 
         return $return;
+    }
+
+    /**
+     * Get meta info for fields in table
+     *
+     * @return mixed
+     */
+    public function getColumnsMeta()
+    {
+        $move_columns_sql_query = sprintf(
+            'SELECT * FROM %s.%s LIMIT 1',
+            PMA_Util::backquote($this->_db_name),
+            PMA_Util::backquote($this->_name)
+        );
+        $move_columns_sql_result = $this->_dbi->tryQuery($move_columns_sql_query);
+        return $this->_dbi->getFieldsMeta($move_columns_sql_result);
     }
 
     /**
@@ -1513,14 +1540,15 @@ class PMA_Table
      */
     protected function getUiPrefsFromDb()
     {
-        $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
-            . PMA_Util::backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
+        $cfgRelation = PMA_getRelationsParam();
+        $pma_table = PMA_Util::backquote($cfgRelation['db']) . "."
+            . PMA_Util::backquote($cfgRelation['table_uiprefs']);
 
         // Read from phpMyAdmin database
         $sql_query = " SELECT `prefs` FROM " . $pma_table
             . " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'"
-            . " AND `db_name` = '" . PMA_Util::sqlAddSlashes($this->db_name) . "'"
-            . " AND `table_name` = '" . PMA_Util::sqlAddSlashes($this->name) . "'";
+            . " AND `db_name` = '" . PMA_Util::sqlAddSlashes($this->_db_name) . "'"
+            . " AND `table_name` = '" . PMA_Util::sqlAddSlashes($this->_name) . "'";
 
         $row = $GLOBALS['dbi']->fetchArray(PMA_queryAsControlUser($sql_query));
         if (isset($row[0])) {
@@ -1537,16 +1565,18 @@ class PMA_Table
      */
     protected function saveUiPrefsToDb()
     {
-        $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
-            . PMA_Util::backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
+        $cfgRelation = PMA_getRelationsParam();
+        $pma_table = PMA_Util::backquote($cfgRelation['db']) . "."
+            . PMA_Util::backquote($cfgRelation['table_uiprefs']);
 
-        $secureDbName = PMA_Util::sqlAddSlashes($this->db_name);
+        $secureDbName = PMA_Util::sqlAddSlashes($this->_db_name);
 
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query = " REPLACE INTO " . $pma_table
-            . " VALUES ('" . $username . "', '" . $secureDbName
-            . "', '" . PMA_Util::sqlAddSlashes($this->name) . "', '"
-            . PMA_Util::sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
+            . " (username, db_name, table_name, prefs) VALUES ('"
+            . $username . "', '" . $secureDbName
+            . "', '" . PMA_Util::sqlAddSlashes($this->_name) . "', '"
+            . PMA_Util::sqlAddSlashes(json_encode($this->uiprefs)) . "')";
 
         $success = $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['controllink']);
 
@@ -1608,24 +1638,19 @@ class PMA_Table
      */
     protected function loadUiPrefs()
     {
+        $cfgRelation = PMA_getRelationsParam();
         $server_id = $GLOBALS['server'];
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // set session variable if it's still undefined
-        if (! isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name][$this->name])) {
+        if (!isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name][$this->_name])) {
             // check whether we can get from pmadb
-            $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name]
-            [$this->name]
-                = ($pmaString->strlen($GLOBALS['cfg']['Server']['pmadb'])
-                    && $pmaString->strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
-                )
-                    ?  $this->getUiPrefsFromDb()
-                    : array();
+            $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name]
+            [$this->_name] = $cfgRelation['uiprefswork']
+                ?  $this->getUiPrefsFromDb()
+                : array();
         }
         $this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$server_id]
-            [$this->db_name][$this->name];
+            [$this->_db_name][$this->_name];
     }
 
     /**
@@ -1648,31 +1673,29 @@ class PMA_Table
         // do checking based on property
         if ($property == self::PROP_SORTED_COLUMN) {
             if (isset($this->uiprefs[$property])) {
-                if (isset($_REQUEST['discard_remembered_sort'])) {
-                    $this->removeUiProp(self::PROP_SORTED_COLUMN);
-                }
-                // check if the column name exists in this table
-                $tmp = explode(' ', $this->uiprefs[$property]);
-                $colname = $tmp[0];
-                //remove backquoting from colname
-                $colname = str_replace('`', '', $colname);
-                //get the available column name without backquoting
-                $avail_columns = $this->getColumns(false);
+                if (! isset($_REQUEST['discard_remembered_sort'])) {
+                    // check if the column name exists in this table
+                    $tmp = explode(' ', $this->uiprefs[$property]);
+                    $colname = $tmp[0];
+                    //remove backquoting from colname
+                    $colname = str_replace('`', '', $colname);
+                    //get the available column name without backquoting
+                    $avail_columns = $this->getColumns(false);
 
-                /** @var PMA_String $pmaString */
-                $pmaString = $GLOBALS['PMA_String'];
-
-                foreach ($avail_columns as $each_col) {
-                    // check if $each_col ends with $colname
-                    if (substr_compare(
-                        $each_col,
-                        $colname,
-                        $pmaString->strlen($each_col) - $pmaString->strlen($colname)
-                    ) === 0) {
-                        return $this->uiprefs[$property];
+                    foreach ($avail_columns as $each_col) {
+                        // check if $each_col ends with $colname
+                        if (substr_compare(
+                            $each_col,
+                            $colname,
+                            /*overload*/mb_strlen($each_col)
+                            - /*overload*/mb_strlen($colname)
+                        ) === 0
+                        ) {
+                            return $this->uiprefs[$property];
+                        }
                     }
                 }
-                // remove the property, since it is not exist anymore in database
+                // remove the property, since it no longer exists in database
                 $this->removeUiProp(self::PROP_SORTED_COLUMN);
                 return false;
             } else {
@@ -1681,13 +1704,13 @@ class PMA_Table
         } elseif ($property == self::PROP_COLUMN_ORDER
             || $property == self::PROP_COLUMN_VISIB
         ) {
-            if (! PMA_Table::isView($this->db_name, $this->name)
+            if (! PMA_Table::isView($this->_db_name, $this->_name)
                 && isset($this->uiprefs[$property])
             ) {
                 // check if the table has not been modified
                 if (self::sGetStatusInfo(
-                    $this->db_name,
-                    $this->name, 'Create_time'
+                    $this->_db_name,
+                    $this->_name, 'Create_time'
                 ) == $this->uiprefs['CREATE_TIME']) {
                     return $this->uiprefs[$property];
                 } else {
@@ -1725,13 +1748,13 @@ class PMA_Table
             $this->loadUiPrefs();
         }
         // we want to save the create time if the property is PROP_COLUMN_ORDER
-        if (! PMA_Table::isView($this->db_name, $this->name)
+        if (! PMA_Table::isView($this->_db_name, $this->_name)
             && ($property == self::PROP_COLUMN_ORDER
             || $property == self::PROP_COLUMN_VISIB)
         ) {
             $curr_create_time = self::sGetStatusInfo(
-                $this->db_name,
-                $this->name,
+                $this->_db_name,
+                $this->_name,
                 'CREATE_TIME'
             );
             if (isset($table_create_time)
@@ -1753,13 +1776,9 @@ class PMA_Table
         // save the value
         $this->uiprefs[$property] = $value;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // check if pmadb is set
-        if ($pmaString->strlen($GLOBALS['cfg']['Server']['pmadb'])
-            && $pmaString->strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
-        ) {
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['uiprefswork']) {
             return $this->saveUiprefsToDb();
         }
         return true;
@@ -1780,13 +1799,9 @@ class PMA_Table
         if (isset($this->uiprefs[$property])) {
             unset($this->uiprefs[$property]);
 
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
             // check if pmadb is set
-            if ($pmaString->strlen($GLOBALS['cfg']['Server']['pmadb'])
-                && $pmaString->strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
-            ) {
+            $cfgRelation = PMA_getRelationsParam();
+            if ($cfgRelation['uiprefswork']) {
                 return $this->saveUiprefsToDb();
             }
         }
@@ -1811,6 +1826,509 @@ class PMA_Table
             }
         }
         return $return;
+    }
+
+    /**
+     * Function to get the name and type of the columns of a table
+     *
+     * @return array
+     */
+    public function getNameAndTypeOfTheColumns()
+    {
+        $columns = array();
+        foreach ($this->_dbi->getColumnsFull(
+            $this->_db_name, $this->_name
+        ) as $row) {
+            if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
+                $tmp[2] = /*overload*/
+                    mb_substr(
+                        preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1
+                    );
+                $columns[$row['Field']] = $tmp[1] . '('
+                    . str_replace(',', ', ', $tmp[2]) . ')';
+            } else {
+                $columns[$row['Field']] = $row['Type'];
+            }
+        }
+        return $columns;
+    }
+
+    /**
+     * Get index with index name
+     *
+     * @param string $index Index name
+     *
+     * @return PMA_Index
+     */
+    public function getIndex($index)
+    {
+        return PMA_Index::singleton($this->_db_name, $this->_name, $index);
+    }
+
+    /**
+     * Function to get the sql query for index creation or edit
+     *
+     * @param PMA_Index $index  current index
+     * @param bool      &$error whether error occurred or not
+     *
+     * @return string
+     */
+    public function getSqlQueryForIndexCreateOrEdit($index, &$error)
+    {
+        // $sql_query is the one displayed in the query box
+        $sql_query = sprintf(
+            'ALTER TABLE %s.%s',
+            PMA_Util::backquote($this->_db_name),
+            PMA_Util::backquote($this->_name)
+        );
+
+        // Drops the old index
+        if (! empty($_REQUEST['old_index'])) {
+            if ($_REQUEST['old_index'] == 'PRIMARY') {
+                $sql_query .= ' DROP PRIMARY KEY,';
+            } else {
+                $sql_query .= sprintf(
+                    ' DROP INDEX %s,',
+                    PMA_Util::backquote($_REQUEST['old_index'])
+                );
+            }
+        } // end if
+
+        // Builds the new one
+        switch ($index->getChoice()) {
+        case 'PRIMARY':
+            if ($index->getName() == '') {
+                $index->setName('PRIMARY');
+            } elseif ($index->getName() != 'PRIMARY') {
+                $error = PMA_Message::error(
+                    __('The name of the primary key must be "PRIMARY"!')
+                );
+            }
+            $sql_query .= ' ADD PRIMARY KEY';
+            break;
+        case 'FULLTEXT':
+        case 'UNIQUE':
+        case 'INDEX':
+        case 'SPATIAL':
+            if ($index->getName() == 'PRIMARY') {
+                $error = PMA_Message::error(
+                    __('Can\'t rename index to PRIMARY!')
+                );
+            }
+            $sql_query .= sprintf(
+                ' ADD %s ',
+                $index->getChoice()
+            );
+            if ($index->getName()) {
+                $sql_query .= PMA_Util::backquote($index->getName());
+            }
+            break;
+        } // end switch
+
+        $index_fields = array();
+        foreach ($index->getColumns() as $key => $column) {
+            $index_fields[$key] = PMA_Util::backquote($column->getName());
+            if ($column->getSubPart()) {
+                $index_fields[$key] .= '(' . $column->getSubPart() . ')';
+            }
+        } // end while
+
+        if (empty($index_fields)) {
+            $error = PMA_Message::error(__('No index parts defined!'));
+        } else {
+            $sql_query .= ' (' . implode(', ', $index_fields) . ')';
+        }
+
+        $keyBlockSizes = $index->getKeyBlockSize();
+        if (! empty($keyBlockSizes)) {
+            $sql_query .= sprintf(
+                ' KEY_BLOCK_SIZE = ',
+                PMA_Util::sqlAddSlashes($keyBlockSizes)
+            );
+        }
+
+        // specifying index type is allowed only for primary, unique and index only
+        $type = $index->getType();
+        if ($index->getChoice() != 'SPATIAL'
+            && $index->getChoice() != 'FULLTEXT'
+            && in_array($type, PMA_Index::getIndexTypes())
+        ) {
+            $sql_query .= ' USING ' . $type;
+        }
+
+        $parser = $index->getParser();
+        if ($index->getChoice() == 'FULLTEXT' && ! empty($parser)) {
+            $sql_query .= ' WITH PARSER ' . PMA_Util::sqlAddSlashes($parser);
+        }
+
+        $comment = $index->getComment();
+        if (! empty($comment)) {
+            $sql_query .= sprintf(
+                " COMMENT '%s'",
+                PMA_Util::sqlAddSlashes($comment)
+            );
+        }
+
+        $sql_query .= ';';
+
+        return $sql_query;
+    }
+
+    /**
+     * Function to handle update for display field
+     *
+     * @param string $disp          current display field
+     * @param string $display_field display field
+     * @param array  $cfgRelation   configuration relation
+     *
+     * @return boolean True on update succeed or False on failure
+     */
+    public function updateDisplayField($disp, $display_field, $cfgRelation) {
+        $upd_query = false;
+        if ($disp) {
+            if ($display_field == '') {
+                $upd_query = 'DELETE FROM '
+                    . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                    . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+                    . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($this->_db_name) . '\''
+                    . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($this->_name) . '\'';
+            } elseif ($disp != $display_field) {
+                $upd_query = 'UPDATE '
+                    . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                    . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+                    . ' SET display_field = \''
+                    . PMA_Util::sqlAddSlashes($display_field) . '\''
+                    . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($this->_db_name) . '\''
+                    . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($this->_name) . '\'';
+            }
+        } elseif ($display_field != '') {
+            $upd_query = 'INSERT INTO '
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+                . '(db_name, table_name, display_field) VALUES('
+                . '\'' . PMA_Util::sqlAddSlashes($this->_db_name) . '\','
+                . '\'' . PMA_Util::sqlAddSlashes($this->_name) . '\','
+                . '\'' . PMA_Util::sqlAddSlashes($display_field) . '\')';
+        }
+
+        if ($upd_query) {
+            $this->_dbi->query(
+                $upd_query,
+                $GLOBALS['controllink'],
+                0,
+                false
+            );
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Function to get update query for updating internal relations
+     *
+     * @param array      $multi_edit_columns_name multi edit column names
+     * @param array      $destination_db          destination tables
+     * @param array      $destination_table       destination tables
+     * @param array      $destination_column      destination columns
+     * @param array      $cfgRelation             configuration relation
+     * @param array|null $existrel                db, table, column
+     *
+     * @return boolean
+     */
+    public function updateInternalRelations($multi_edit_columns_name,
+                                            $destination_db, $destination_table, $destination_column,
+                                            $cfgRelation, $existrel) {
+        $updated = false;
+        foreach ($destination_db as $master_field_md5 => $foreign_db) {
+            $upd_query = null;
+            // Map the fieldname's md5 back to its real name
+            $master_field = $multi_edit_columns_name[$master_field_md5];
+            $foreign_table = $destination_table[$master_field_md5];
+            $foreign_field = $destination_column[$master_field_md5];
+            if (! empty($foreign_db)
+                && ! empty($foreign_table)
+                && ! empty($foreign_field)
+            ) {
+                if (! isset($existrel[$master_field])) {
+                    $upd_query  = 'INSERT INTO '
+                        . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                        . '.' . PMA_Util::backquote($cfgRelation['relation'])
+                        . '(master_db, master_table, master_field, foreign_db,'
+                        . ' foreign_table, foreign_field)'
+                        . ' values('
+                        . '\'' . PMA_Util::sqlAddSlashes($this->_db_name) . '\', '
+                        . '\'' . PMA_Util::sqlAddSlashes($this->_name) . '\', '
+                        . '\'' . PMA_Util::sqlAddSlashes($master_field) . '\', '
+                        . '\'' . PMA_Util::sqlAddSlashes($foreign_db) . '\', '
+                        . '\'' . PMA_Util::sqlAddSlashes($foreign_table) . '\','
+                        . '\'' . PMA_Util::sqlAddSlashes($foreign_field) . '\')';
+
+                } elseif ($existrel[$master_field]['foreign_db'] != $foreign_db
+                    || $existrel[$master_field]['foreign_table'] != $foreign_table
+                    || $existrel[$master_field]['foreign_field'] != $foreign_field
+                ) {
+                    $upd_query  = 'UPDATE '
+                        . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                        . '.' . PMA_Util::backquote($cfgRelation['relation']) . ' SET'
+                        . ' foreign_db       = \''
+                        . PMA_Util::sqlAddSlashes($foreign_db) . '\', '
+                        . ' foreign_table    = \''
+                        . PMA_Util::sqlAddSlashes($foreign_table) . '\', '
+                        . ' foreign_field    = \''
+                        . PMA_Util::sqlAddSlashes($foreign_field) . '\' '
+                        . ' WHERE master_db  = \''
+                        . PMA_Util::sqlAddSlashes($this->_db_name) . '\''
+                        . ' AND master_table = \''
+                        . PMA_Util::sqlAddSlashes($this->_name) . '\''
+                        . ' AND master_field = \''
+                        . PMA_Util::sqlAddSlashes($master_field) . '\'';
+                } // end if... else....
+            } elseif (isset($existrel[$master_field])) {
+                $upd_query = 'DELETE FROM '
+                    . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                    . '.' . PMA_Util::backquote($cfgRelation['relation'])
+                    . ' WHERE master_db  = \'' . PMA_Util::sqlAddSlashes($this->_db_name) . '\''
+                    . ' AND master_table = \'' . PMA_Util::sqlAddSlashes($this->_name) . '\''
+                    . ' AND master_field = \'' . PMA_Util::sqlAddSlashes($master_field)
+                    . '\'';
+            } // end if... else....
+
+            if (isset($upd_query)) {
+                $this->_dbi->query(
+                    $upd_query,
+                    $GLOBALS['controllink'],
+                    0,
+                    false
+                );
+                $updated = true;
+            }
+        }
+        return $updated;
+    }
+
+    /**
+     * Function to handle foreign key updates
+     *
+     * @param array  $destination_foreign_db     destination foreign database
+     * @param array  $multi_edit_columns_name    multi edit column names
+     * @param array  $destination_foreign_table  destination foreign table
+     * @param array  $destination_foreign_column destination foreign column
+     * @param array  $options_array              options array
+     * @param string $table                      current table
+     * @param array  $existrel_foreign           db, table, column
+     *
+     * @return array
+     */
+    public function updateForeignKeys($destination_foreign_db,
+                                      $multi_edit_columns_name, $destination_foreign_table,
+                                      $destination_foreign_column, $options_array, $table, $existrel_foreign) {
+        $html_output = '';
+        $preview_sql_data = '';
+        $display_query = '';
+        $seen_error = false;
+
+        foreach ($destination_foreign_db as $master_field_md5 => $foreign_db) {
+            $create = false;
+            $drop = false;
+
+            // Map the fieldname's md5 back to its real name
+            $master_field = $multi_edit_columns_name[$master_field_md5];
+
+            $foreign_table = $destination_foreign_table[$master_field_md5];
+            $foreign_field = $destination_foreign_column[$master_field_md5];
+
+            if (isset($existrel_foreign[$master_field_md5]['ref_db_name'])) {
+                $ref_db_name = $existrel_foreign[$master_field_md5]['ref_db_name'];
+            } else {
+                $ref_db_name = $GLOBALS['db'];
+            }
+
+            $empty_fields = false;
+            foreach ($master_field as $key => $one_field) {
+                if ((! empty($one_field) && empty($foreign_field[$key]))
+                    || (empty($one_field) && ! empty($foreign_field[$key]))
+                ) {
+                    $empty_fields = true;
+                }
+
+                if (empty($one_field) && empty($foreign_field[$key])) {
+                    unset($master_field[$key]);
+                    unset($foreign_field[$key]);
+                }
+            }
+
+            if (! empty($foreign_db)
+                && ! empty($foreign_table)
+                && ! $empty_fields
+            ) {
+                if (isset($existrel_foreign[$master_field_md5])) {
+                    $constraint_name = $existrel_foreign[$master_field_md5]['constraint'];
+                    $on_delete = ! empty(
+                    $existrel_foreign[$master_field_md5]['on_delete'])
+                        ? $existrel_foreign[$master_field_md5]['on_delete']
+                        : 'RESTRICT';
+                    $on_update = ! empty(
+                    $existrel_foreign[$master_field_md5]['on_update'])
+                        ? $existrel_foreign[$master_field_md5]['on_update']
+                        : 'RESTRICT';
+
+                    if ($ref_db_name != $foreign_db
+                        || $existrel_foreign[$master_field_md5]['ref_table_name'] != $foreign_table
+                        || $existrel_foreign[$master_field_md5]['ref_index_list'] != $foreign_field
+                        || $existrel_foreign[$master_field_md5]['index_list'] != $master_field
+                        || $_REQUEST['constraint_name'][$master_field_md5] != $constraint_name
+                        || ($_REQUEST['on_delete'][$master_field_md5] != $on_delete)
+                        || ($_REQUEST['on_update'][$master_field_md5] != $on_update)
+                    ) {
+                        // another foreign key is already defined for this field
+                        // or an option has been changed for ON DELETE or ON UPDATE
+                        $drop = true;
+                        $create = true;
+                    } // end if... else....
+                } else {
+                    // no key defined for this field(s)
+                    $create = true;
+                }
+            } elseif (isset($existrel_foreign[$master_field_md5])) {
+                $drop = true;
+            } // end if... else....
+
+            $tmp_error_drop = false;
+            if ($drop) {
+                $drop_query = 'ALTER TABLE ' . PMA_Util::backquote($table)
+                    . ' DROP FOREIGN KEY ' . PMA_Util::backquote($existrel_foreign[$master_field_md5]['constraint']) . ';';
+
+                if (! isset($_REQUEST['preview_sql'])) {
+                    $display_query .= $drop_query . "\n";
+                    $this->_dbi->tryQuery($drop_query);
+                    $tmp_error_drop = $GLOBALS['dbi']->getError();
+
+                    if (! empty($tmp_error_drop)) {
+                        $seen_error = true;
+                        $html_output .= PMA_Util::mysqlDie(
+                            $tmp_error_drop, $drop_query, false, '', false
+                        );
+                        continue;
+                    }
+                } else {
+                    $preview_sql_data .= $drop_query . "\n";
+                }
+            }
+            $tmp_error_create = false;
+            if (!$create) {
+                continue;
+            }
+
+            $create_query = $this->getSQLToCreateForeignKey(
+                $table, $master_field, $foreign_db, $foreign_table, $foreign_field,
+                $_REQUEST['constraint_name'][$master_field_md5],
+                $options_array[$_REQUEST['on_delete'][$master_field_md5]],
+                $options_array[$_REQUEST['on_update'][$master_field_md5]]
+            );
+
+            if (! isset($_REQUEST['preview_sql'])) {
+                $display_query .= $create_query . "\n";
+                $GLOBALS['dbi']->tryQuery($create_query);
+                $tmp_error_create = $GLOBALS['dbi']->getError();
+                if (! empty($tmp_error_create)) {
+                    $seen_error = true;
+
+                    if (substr($tmp_error_create, 1, 4) == '1005') {
+                        $message = PMA_Message::error(
+                            __('Error creating foreign key on %1$s (check data types)')
+                        );
+                        $message->addParam(implode(', ', $master_field));
+                        $html_output .= $message->getDisplay();
+                    } else {
+                        $html_output .= PMA_Util::mysqlDie(
+                            $tmp_error_create, $create_query, false, '', false
+                        );
+                    }
+                    $html_output .= PMA_Util::showMySQLDocu(
+                            'InnoDB_foreign_key_constraints'
+                        ) . "\n";
+                }
+            } else {
+                $preview_sql_data .= $create_query . "\n";
+            }
+
+            // this is an alteration and the old constraint has been dropped
+            // without creation of a new one
+            if ($drop && $create && empty($tmp_error_drop)
+                && ! empty($tmp_error_create)
+            ) {
+                // a rollback may be better here
+                $sql_query_recreate = '# Restoring the dropped constraint...' . "\n";
+                $sql_query_recreate .= $this->getSQLToCreateForeignKey(
+                    $table,
+                    $master_field,
+                    $existrel_foreign[$master_field_md5]['ref_db_name'],
+                    $existrel_foreign[$master_field_md5]['ref_table_name'],
+                    $existrel_foreign[$master_field_md5]['ref_index_list'],
+                    $existrel_foreign[$master_field_md5]['constraint'],
+                    $options_array[$existrel_foreign[$master_field_md5]['on_delete']],
+                    $options_array[$existrel_foreign[$master_field_md5]['on_update']]
+                );
+                if (! isset($_REQUEST['preview_sql'])) {
+                    $display_query .= $sql_query_recreate . "\n";
+                    $this->_dbi->tryQuery($sql_query_recreate);
+                } else {
+                    $preview_sql_data .= $sql_query_recreate;
+                }
+            }
+        } // end foreach
+
+        return array(
+            $html_output,
+            $preview_sql_data,
+            $display_query,
+            $seen_error
+        );
+    }
+
+    /**
+     * Returns the SQL query for foreign key constraint creation
+     *
+     * @param string $table        table name
+     * @param array  $field        field names
+     * @param string $foreignDb    foreign database name
+     * @param string $foreignTable foreign table name
+     * @param array  $foreignField foreign field names
+     * @param string $name         name of the constraint
+     * @param string $onDelete     on delete action
+     * @param string $onUpdate     on update action
+     *
+     * @return string SQL query for foreign key constraint creation
+     */
+    private function getSQLToCreateForeignKey($table, $field, $foreignDb, $foreignTable,
+                                                  $foreignField, $name = null, $onDelete = null, $onUpdate = null
+    ) {
+        $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD ';
+        // if user entered a constraint name
+        if (! empty($name)) {
+            $sql_query .= ' CONSTRAINT ' . PMA_Util::backquote($name);
+        }
+
+        foreach ($field as $key => $one_field) {
+            $field[$key] = PMA_Util::backquote($one_field);
+        }
+        foreach ($foreignField as $key => $one_field) {
+            $foreignField[$key] = PMA_Util::backquote($one_field);
+        }
+        $sql_query .= ' FOREIGN KEY (' . implode(', ', $field) . ')'
+            . ' REFERENCES ' . PMA_Util::backquote($foreignDb)
+            . '.' . PMA_Util::backquote($foreignTable)
+            . '(' . implode(', ', $foreignField) . ')';
+
+        if (! empty($onDelete)) {
+            $sql_query .= ' ON DELETE ' . $onDelete;
+        }
+        if (! empty($onUpdate)) {
+            $sql_query .= ' ON UPDATE ' . $onUpdate;
+        }
+        $sql_query .= ';';
+
+        return $sql_query;
     }
 }
 ?>

@@ -205,31 +205,101 @@ class FormDisplay
     }
 
     /**
+     * Outputs HTML for the forms under the menu tab
+     *
+     * @param bool  $show_restore_default whether to show "restore default"
+     *                                    button besides the input field
+     * @param array &$js_default          stores JavaScript code
+     *                                    to be displayed
+     * @param array &$js                  will be updated with javascript code
+     * @param bool  $show_buttons         whether show submit and reset button
+     *
+     * @return string $htmlOutput
+     */
+    private function _displayForms(
+        $show_restore_default, array &$js_default, array &$js, $show_buttons
+    ) {
+        $htmlOutput = '';
+        $validators = PMA_Validator::getValidators($this->_configFile);
+
+        foreach ($this->_forms as $form) {
+            /* @var $form Form */
+            $form_desc = isset($GLOBALS["strConfigForm_{$form->name}_desc"])
+                ? PMA_lang("Form_{$form->name}_desc")
+                : '';
+            $form_errors = isset($this->_errors[$form->name])
+                ? $this->_errors[$form->name] : null;
+            $htmlOutput .= PMA_displayFieldsetTop(
+                PMA_lang("Form_$form->name"),
+                $form_desc,
+                $form_errors,
+                array('id' => $form->name)
+            );
+
+            foreach ($form->fields as $field => $path) {
+                $work_path = array_search($path, $this->_systemPaths);
+                $translated_path = $this->_translatedPaths[$work_path];
+                // always true/false for user preferences display
+                // otherwise null
+                $userprefs_allow = isset($this->_userprefsKeys[$path])
+                    ? !isset($this->_userprefsDisallow[$path])
+                    : null;
+                // display input
+                $htmlOutput .= $this->_displayFieldInput(
+                    $form,
+                    $field,
+                    $path,
+                    $work_path,
+                    $translated_path,
+                    $show_restore_default,
+                    $userprefs_allow,
+                    $js_default
+                );
+                // register JS validators for this field
+                if (isset($validators[$path])) {
+                    PMA_addJsValidate($translated_path, $validators[$path], $js);
+                }
+            }
+            $htmlOutput .= PMA_displayFieldsetBottom($show_buttons);
+        }
+        return $htmlOutput;
+    }
+
+    /**
      * Outputs HTML for forms
      *
-     * @param bool $tabbed_form          if true, use a form with tabs
-     * @param bool $show_restore_default whether show "restore default" button
-     *                                   besides the input field
+     * @param bool   $tabbed_form          if true, use a form with tabs
+     * @param bool   $show_restore_default whether show "restore default" button
+     *                                     besides the input field
+     * @param bool   $show_buttons         whether show submit and reset button
+     * @param string $form_action          action attribute for the form
+     * @param array  $hidden_fields        array of form hidden fields (key: field
+     *                                     name)
      *
-     * @return void
+     * @return string HTML for forms
      */
-    public function display($tabbed_form = false, $show_restore_default = false)
-    {
+    public function getDisplay(
+        $tabbed_form = false,
+        $show_restore_default = false,
+        $show_buttons = true,
+        $form_action = null,
+        $hidden_fields = null
+    ) {
         static $js_lang_sent = false;
+
+        $htmlOutput = '';
 
         $js = array();
         $js_default = array();
-        $tabbed_form = $tabbed_form && (count($this->_forms) > 1);
-        $validators = PMA_Validator::getValidators($this->_configFile);
 
-        PMA_displayFormTop();
+        $htmlOutput .= PMA_displayFormTop($form_action, 'post', $hidden_fields);
 
         if ($tabbed_form) {
             $tabs = array();
             foreach ($this->_forms as $form) {
                 $tabs[$form->name] = PMA_lang("Form_$form->name");
             }
-            PMA_displayTabsTop($tabs);
+            $htmlOutput .= PMA_displayTabsTop($tabs);
         }
 
         // validate only when we aren't displaying a "new server" form
@@ -249,53 +319,16 @@ class FormDisplay
         $this->_loadUserprefsInfo();
 
         // display forms
-        foreach ($this->_forms as $form) {
-            /* @var $form Form */
-            $form_desc = isset($GLOBALS["strConfigForm_{$form->name}_desc"])
-                ? PMA_lang("Form_{$form->name}_desc")
-                : '';
-            $form_errors = isset($this->_errors[$form->name])
-                ? $this->_errors[$form->name] : null;
-            PMA_displayFieldsetTop(
-                PMA_lang("Form_$form->name"),
-                $form_desc,
-                $form_errors,
-                array('id' => $form->name)
-            );
-
-            foreach ($form->fields as $field => $path) {
-                $work_path = array_search($path, $this->_systemPaths);
-                $translated_path = $this->_translatedPaths[$work_path];
-                // always true/false for user preferences display
-                // otherwise null
-                $userprefs_allow = isset($this->_userprefsKeys[$path])
-                    ? !isset($this->_userprefsDisallow[$path])
-                    : null;
-                // display input
-                $this->_displayFieldInput(
-                    $form,
-                    $field,
-                    $path,
-                    $work_path,
-                    $translated_path,
-                    $show_restore_default,
-                    $userprefs_allow,
-                    $js_default
-                );
-                // register JS validators for this field
-                if (isset($validators[$path])) {
-                    PMA_addJsValidate($translated_path, $validators[$path], $js);
-                }
-            }
-            PMA_displayFieldsetBottom();
-        }
+        $htmlOutput .= $this->_displayForms(
+            $show_restore_default, $js_default, $js, $show_buttons
+        );
 
         if ($tabbed_form) {
-            PMA_displayTabsBottom();
+            $htmlOutput .= PMA_displayTabsBottom();
         }
-        PMA_displayFormBottom();
+        $htmlOutput .= PMA_displayFormBottom();
 
-        // if not already done, send strings used for valdiation to JavaScript
+        // if not already done, send strings used for validation to JavaScript
         if (! $js_lang_sent) {
             $js_lang_sent = true;
             $js_lang = array();
@@ -308,7 +341,9 @@ class FormDisplay
 
         $js[] = "$.extend(defaultValues, {\n\t"
             . implode(",\n\t", $js_default) . '})';
-        PMA_displayJavascript($js);
+        $htmlOutput .= PMA_displayJavascript($js);
+
+        return $htmlOutput;
     }
 
     /**
@@ -328,7 +363,7 @@ class FormDisplay
      * @param array     &$js_default          array which stores JavaScript code
      *                                        to be displayed
      *
-     * @return void
+     * @return string|void HTML for input field
      */
     private function _displayFieldInput(
         Form $form, $field, $system_path, $work_path,
@@ -336,6 +371,8 @@ class FormDisplay
     ) {
         $name = PMA_langName($system_path);
         $description = PMA_langName($system_path, 'desc', '');
+
+        $htmlOutput = '';
 
         $value = $this->_configFile->get($work_path);
         $value_default = $this->_configFile->getDefault($system_path);
@@ -357,9 +394,6 @@ class FormDisplay
         if (isset($this->_errors[$work_path])) {
             $opts['errors'] = $this->_errors[$work_path];
         }
-
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
 
         switch ($form->getOptionType($field)) {
         case 'string':
@@ -386,8 +420,8 @@ class FormDisplay
             break;
         case 'group':
             // :group:end is changed to :group:end:{unique id} in Form class
-            if ($pmaString->substr($field, 7, 4) != 'end:') {
-                PMA_displayGroupHeader($pmaString->substr($field, 7));
+            if (/*overload*/mb_substr($field, 7, 4) != 'end:') {
+                $htmlOutput .= PMA_displayGroupHeader(/*overload*/mb_substr($field, 7));
             } else {
                 PMA_displayGroupFooter();
             }
@@ -399,7 +433,7 @@ class FormDisplay
 
         // detect password fields
         if ($type === 'text'
-            && $pmaString->substr($translated_path, -9) === '-password'
+            && /*overload*/mb_substr($translated_path, -9) === '-password'
         ) {
             $type = 'password';
         }
@@ -439,7 +473,7 @@ class FormDisplay
         }
         $js_default[] = $js_line;
 
-        PMA_displayInput(
+        return $htmlOutput . PMA_displayInput(
             $translated_path, $name, $type, $value,
             $description, $value_is_default, $opts
         );
@@ -448,7 +482,7 @@ class FormDisplay
     /**
      * Displays errors
      *
-     * @return void
+     * @return string HTML for errors
      */
     public function displayErrors()
     {
@@ -457,6 +491,8 @@ class FormDisplay
             return;
         }
 
+        $htmlOutput = '';
+
         foreach ($this->_errors as $system_path => $error_list) {
             if (isset($this->_systemPaths[$system_path])) {
                 $path = $this->_systemPaths[$system_path];
@@ -464,8 +500,10 @@ class FormDisplay
             } else {
                 $name = $GLOBALS["strConfigForm_$system_path"];
             }
-            PMA_displayErrors($name, $error_list);
+            $htmlOutput .= PMA_displayErrors($name, $error_list);
         }
+
+        return $htmlOutput;
     }
 
     /**
@@ -704,7 +742,7 @@ class FormDisplay
      */
     public function getDocLink($path)
     {
-        $test = $GLOBALS['PMA_String']->substr($path, 0, 6);
+        $test = /*overload*/mb_substr($path, 0, 6);
         if ($test == 'Import' || $test == 'Export') {
             return '';
         }

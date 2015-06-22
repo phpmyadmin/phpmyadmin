@@ -29,8 +29,8 @@ function PMA_Bookmark_getParams()
     if ($cfgRelation['bookmarkwork']) {
         $cfgBookmark = array(
             'user'  => $GLOBALS['cfg']['Server']['user'],
-            'db'    => $GLOBALS['cfg']['Server']['pmadb'],
-            'table' => $GLOBALS['cfg']['Server']['bookmarktable'],
+            'db'    => $cfgRelation['db'],
+            'table' => $cfgRelation['bookmark'],
         );
     } else {
         $cfgBookmark = false;
@@ -65,88 +65,46 @@ function PMA_Bookmark_getList($db = false)
     }
 
     if ($db !== false) {
-        $query  = 'SELECT label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
+        $query  = 'SELECT query, label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
             . '.' . PMA_Util::backquote($cfgBookmark['table'])
             . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
             . ' AND user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
             . ' ORDER BY label';
         $per_user = $GLOBALS['dbi']->fetchResult(
-            $query, 'id', 'label', $controllink, PMA_DatabaseInterface::QUERY_STORE
+            $query, 'id', null, $controllink, PMA_DatabaseInterface::QUERY_STORE
         );
 
-        $query  = 'SELECT label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
+        $query  = 'SELECT query, label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
             . '.' . PMA_Util::backquote($cfgBookmark['table'])
             . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
             . ' AND user = \'\''
             . ' ORDER BY label';
         $global = $GLOBALS['dbi']->fetchResult(
-            $query, 'id', 'label', $controllink, PMA_DatabaseInterface::QUERY_STORE
+            $query, 'id', null, $controllink, PMA_DatabaseInterface::QUERY_STORE
         );
 
         foreach ($global as $key => $val) {
-            $global[$key] = $val . ' (' . __('shared') . ')';
+            $global[$key]['label'] = $val['label'] . ' (' . __('shared') . ')';
         }
 
         $ret = $global + $per_user;
 
         asort($ret);
     } else {
-        $query  = 'SELECT label, id, query, dbase FROM '
-            . PMA_Util::backquote($cfgBookmark['db'])
-            . '.' . PMA_Util::backquote($cfgBookmark['table'])
-            . ' WHERE user = \''
-            . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
-            . ' ORDER BY label';
-        $per_user = $GLOBALS['dbi']->fetchResult(
+        $query = "SELECT `label`, `id`, `query`, `dbase` AS `db`,"
+            . " IF (`user` = '', true, false) AS `shared`"
+            . " FROM " . PMA_Util::backquote($cfgBookmark['db'])
+            . "." . PMA_Util::backquote($cfgBookmark['table'])
+            . " WHERE `user` = '' OR"
+            . " `user` = '" . PMA_Util::sqlAddSlashes($cfgBookmark['user'])  . "'";
+
+        $ret = $GLOBALS['dbi']->fetchResult(
             $query,
-            Array('id', 'label', 'dbase'),
-            'query',
+            null,
+            null,
             $controllink,
             PMA_DatabaseInterface::QUERY_STORE
         );
-
-        $query  = 'SELECT label, id, query, dbase FROM '
-            . PMA_Util::backquote($cfgBookmark['db'])
-            . '.' . PMA_Util::backquote($cfgBookmark['table'])
-            . ' WHERE user = \'\''
-            . ' ORDER BY label';
-        $global = $GLOBALS['dbi']->fetchResult(
-            $query,
-            Array('id', 'label', 'dbase'),
-            'query',
-            $controllink,
-            PMA_DatabaseInterface::QUERY_STORE
-        );
-
-        $ret = Array();
-
-        foreach ($global as $id => $val) {
-            foreach ($val as $label => $val2) {
-                foreach ($val2 as $dbase => $query) {
-                    $ret[] = Array(
-                        'db' => $dbase,
-                        'id' => $id,
-                        'label' => $label,
-                        'query' => $query,
-                        'shared' => true
-                        );
-                }
-            }
-        }
-
-        foreach ($per_user as $id => $val) {
-            foreach ($val as $label => $val2) {
-                foreach ($val2 as $dbase => $query) {
-                    $ret[] = Array(
-                        'db' => $dbase,
-                        'id' => $id,
-                        'label' => $label,
-                        'query' => $query,
-                        'shared' => false
-                        );
-                }
-            }
-        }
     }
 
     return $ret;
@@ -218,11 +176,9 @@ function PMA_Bookmark_save($bkm_fields, $all_users = false)
 
     $cfgBookmark = PMA_Bookmark_getParams();
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     if (!(isset($bkm_fields['bkm_sql_query']) && isset($bkm_fields['bkm_label'])
-        && $pmaString->strlen($bkm_fields['bkm_sql_query']) > 0
-        && $pmaString->strlen($bkm_fields['bkm_label']) > 0)
+        && /*overload*/mb_strlen($bkm_fields['bkm_sql_query']) > 0
+        && /*overload*/mb_strlen($bkm_fields['bkm_label']) > 0)
     ) {
         return false;
     }
@@ -272,4 +228,47 @@ function PMA_Bookmark_delete($id)
     return $GLOBALS['dbi']->tryQuery($query, $controllink);
 } // end of the 'PMA_Bookmark_delete()' function
 
-?>
+/**
+ * Returns the number of variables in a bookmark
+ *
+ * @param string $query bookmarked query
+ *
+ * @return number number of variables
+ */
+function PMA_Bookmark_getVariableCount($query)
+{
+    $matches = array();
+    preg_match_all("/\[VARIABLE[0-9]*\]/", $query, $matches, PREG_SET_ORDER);
+    return count($matches);
+}
+
+/**
+ * Replace the placeholders in the bookmark query with variables
+ *
+ * @param string $query bookmarked query
+ *
+ * @return string query with variables applied
+ */
+function PMA_Bookmark_applyVariables($query)
+{
+    // remove comments that encloses a variable placeholder
+    $query = preg_replace(
+        '|/\*(.*\[VARIABLE[0-9]*\].*)\*/|imsU',
+        '${1}',
+        $query
+    );
+    // replace variable placeholders with values
+    $number_of_variables = PMA_Bookmark_getVariableCount($query);
+    for ($i = 1; $i <= $number_of_variables; $i++) {
+        $var = '';
+        if (! empty($_REQUEST['bookmark_variable'][$i])) {
+            $var = PMA_Util::sqlAddSlashes($_REQUEST['bookmark_variable'][$i]);
+        }
+        $query = str_replace('[VARIABLE' . $i . ']', $var, $query);
+        // backward compatibility
+        if ($i == 1) {
+            $query = str_replace('[VARIABLE]', $var, $query);
+        }
+    }
+    return $query;
+}

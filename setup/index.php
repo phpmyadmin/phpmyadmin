@@ -12,7 +12,7 @@
  */
 require './lib/common.inc.php';
 
-$page = filter_input(INPUT_GET, 'page');
+$page = isset($_GET['page']) ? $_GET['page'] : null;
 $page = preg_replace('/[^a-z]/', '', $page);
 if ($page === '') {
     $page = 'index';
@@ -23,7 +23,7 @@ if (!file_exists("./setup/frames/$page.inc.php")) {
 }
 
 // Handle done action info
-$action_done = filter_input(INPUT_GET, 'action_done');
+$action_done = isset($_GET['action_done']) ? $_GET['action_done'] : null;
 $action_done = preg_replace('/[^a-z_]/', '', $action_done);
 
 PMA_noCacheHeader();
@@ -37,12 +37,13 @@ PMA_noCacheHeader();
 <link href="../favicon.ico" rel="icon" type="image/x-icon" />
 <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="styles.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../js/jquery/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="../js/jquery/jquery-ui-1.9.2.custom.min.js">
+<script type="text/javascript" src="../js/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery/jquery-ui-1.11.2.min.js">
 </script>
 <script type="text/javascript" src="ajax.js"></script>
 <script type="text/javascript" src="../js/config.js"></script>
 <script type="text/javascript" src="scripts.js"></script>
+<script type="text/javascript" src="../js/messages.php"></script>
 </head>
 <body>
 <h1><span class="blue">php</span><span class="orange">MyAdmin</span>  setup</h1>

@@ -9,7 +9,7 @@
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-if (!$GLOBALS['PMA_String']->strlen($GLOBALS['db'])) { /* Can't do server export */
+if (!/*overload*/mb_strlen($GLOBALS['db'])) { /* Can't do server export */
     $GLOBALS['skip_import'] = true;
     return;
 }
@@ -103,6 +103,10 @@ class ExportXml extends ExportPlugin
         // create primary items and add them to the group
         if (! PMA_DRIZZLE) {
             $leaf = new BoolPropertyItem();
+            $leaf->setName("export_events");
+            $leaf->setText(__('Events'));
+            $structure->addProperty($leaf);
+            $leaf = new BoolPropertyItem();
             $leaf->setName("export_functions");
             $leaf->setText(__('Functions'));
             $structure->addProperty($leaf);
@@ -149,7 +153,7 @@ class ExportXml extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
         $this->initSpecificVariables();
         global $crlf, $cfg, $db;
@@ -270,8 +274,7 @@ class ExportXml extends ExportPlugin
                                 . $trigger['name'] . '">' . $crlf;
 
                             // Do some formatting
-                            $code = $GLOBALS['PMA_String']
-                                ->substr(rtrim($code), 0, -3);
+                            $code = /*overload*/mb_substr(rtrim($code), 0, -3);
                             $code = "                " . htmlspecialchars($code);
                             $code = str_replace("\n", "\n                ", $code);
 
@@ -343,6 +346,35 @@ class ExportXml extends ExportPlugin
                 }
             }
 
+            if (isset($GLOBALS['xml_export_events'])
+                && $GLOBALS['xml_export_events']
+            ) {
+                // Export events
+                $events = $GLOBALS['dbi']->fetchResult(
+                    "SELECT EVENT_NAME FROM information_schema.EVENTS "
+                    . "WHERE EVENT_SCHEMA='" . PMA_Util::sqlAddslashes($db) . "'"
+                );
+                if ($events) {
+                    foreach ($events as $event) {
+                        $head .= '            <pma:event name="'
+                            . $event . '">' . $crlf;
+
+                        $sql = $GLOBALS['dbi']->getDefinition(
+                            $db, 'EVENT', $event
+                        );
+                        $sql = rtrim($sql);
+                        $sql = "                " . htmlspecialchars($sql);
+                        $sql = str_replace("\n", "\n                ", $sql);
+
+                        $head .= $sql . $crlf;
+                        $head .= '            </pma:event>' . $crlf;
+                    }
+
+                    unset($event);
+                    unset($events);
+                }
+            }
+
             unset($result);
 
             $head .= '        </pma:database>' . $crlf;
@@ -361,7 +393,7 @@ class ExportXml extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         $foot = '</pma_xml_export>';
 
@@ -376,7 +408,7 @@ class ExportXml extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $db_alias = '')
     {
         global $crlf;
 
@@ -405,7 +437,7 @@ class ExportXml extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         global $crlf;
 

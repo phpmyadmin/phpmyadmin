@@ -27,6 +27,17 @@ class AuthenticationConfig extends AuthenticationPlugin
      */
     public function auth()
     {
+        $response = PMA_Response::getInstance();
+        if ($response->isAjax()) {
+            $response->isSuccess(false);
+            // reload_flag removes the token parameter from the URL and reloads
+            $response->addJSON('reload_flag', '1');
+            if (defined('TESTSUITE')) {
+                return true;
+            } else {
+                exit;
+            }
+        }
         return true;
     }
 
@@ -37,6 +48,9 @@ class AuthenticationConfig extends AuthenticationPlugin
      */
     public function authCheck()
     {
+        if ($GLOBALS['token_provided'] && $GLOBALS['token_mismatch']) {
+            return false;
+        }
         return true;
     }
 
@@ -145,7 +159,9 @@ class AuthenticationConfig extends AuthenticationPlugin
         <tr>
             <td>' . "\n";
         echo '<a href="'
-            . $GLOBALS['cfg']['DefaultTabServer']
+            . PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabServer'], 'server'
+            )
             . PMA_URL_getCommon(array()) . '" class="button disableAjax">'
             . __('Retry to connect')
             . '</a>' . "\n";

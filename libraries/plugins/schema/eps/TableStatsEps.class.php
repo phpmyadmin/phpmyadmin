@@ -32,6 +32,8 @@ class Table_Stats_Eps extends TableStats
     /**
      * The "Table_Stats_Eps" constructor
      *
+     * @param object  $diagram          The EPS diagram
+     * @param string  $db               The database name
      * @param string  $tableName        The table name
      * @param string  $font             The font  name
      * @param integer $fontSize         The font size
@@ -42,19 +44,16 @@ class Table_Stats_Eps extends TableStats
      * @param boolean $offline          Whether the coordinates are sent
      *                                  from the browser
      *
-     * @global object  $eps         The current eps document
-     *
      * @access private
      * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
      *      Table_Stats_Eps::Table_Stats_setHeight
      */
     function __construct(
-        $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
+        $diagram, $db, $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
         $showKeys = false, $tableDimension = false, $offline = false
     ) {
-        global $eps;
         parent::__construct(
-            $eps, $GLOBALS['db'], $pageNumber, $tableName,
+            $diagram, $db, $pageNumber, $tableName,
             $showKeys, $tableDimension, $offline
         );
 
@@ -75,27 +74,10 @@ class Table_Stats_Eps extends TableStats
      */
     protected function showMissingTableError()
     {
-        $this->diagram->dieSchema(
+        PMA_Export_Relation_Schema::dieSchema(
             $this->pageNumber,
             "EPS",
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
-        );
-    }
-
-    /**
-     * Displays an error on missing coordinates
-     *
-     * @return void
-     */
-    protected function showMissingCoordinatesError()
-    {
-        $this->diagram->dieSchema(
-            $this->pageNumber,
-            "EPS",
-            sprintf(
-                __('Please configure the coordinates for table %s'),
-                $this->tableName
-            )
         );
     }
 
@@ -121,7 +103,7 @@ class Table_Stats_Eps extends TableStats
         $this->width += PMA_Font::getStringWidth('      ', $font, $fontSize);
         /*
          * it is unknown what value must be added, because
-        * table title is affected by the tabe width value
+        * table title is affected by the table width value
         */
         while ($this->width
             < PMA_Font::getStringWidth($this->getTitle(), $font, $fontSize)) {
@@ -148,8 +130,6 @@ class Table_Stats_Eps extends TableStats
      *
      * @param boolean $showColor Whether to display color
      *
-     * @global object $eps The current eps document
-     *
      * @return void
      *
      * @access public
@@ -157,17 +137,16 @@ class Table_Stats_Eps extends TableStats
      */
     public function tableDraw($showColor)
     {
-        global $eps;
         //echo $this->tableName.'<br />';
-        $eps->rect($this->x, $this->y + 12, $this->width, $this->heightCell, 1);
-        $eps->showXY($this->getTitle(), $this->x + 5, $this->y + 14);
+        $this->diagram->rect($this->x, $this->y + 12, $this->width, $this->heightCell, 1);
+        $this->diagram->showXY($this->getTitle(), $this->x + 5, $this->y + 14);
         foreach ($this->fields as $field) {
             $this->currentCell += $this->heightCell;
-            $eps->rect(
+            $this->diagram->rect(
                 $this->x, $this->y + 12  + $this->currentCell,
                 $this->width, $this->heightCell, 1
             );
-            $eps->showXY($field, $this->x + 5, $this->y + 14 + $this->currentCell);
+            $this->diagram->showXY($field, $this->x + 5, $this->y + 14 + $this->currentCell);
         }
     }
 }

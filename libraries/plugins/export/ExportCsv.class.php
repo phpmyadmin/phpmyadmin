@@ -106,7 +106,7 @@ class ExportCsv extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
         global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped;
 
@@ -132,7 +132,7 @@ class ExportCsv extends ExportPlugin
             }
         } else {
             if (empty($csv_terminated)
-                || $GLOBALS['PMA_String']->strtolower($csv_terminated) == 'auto'
+                || /*overload*/mb_strtolower($csv_terminated) == 'auto'
             ) {
                 $csv_terminated = $GLOBALS['crlf'];
             } else {
@@ -151,7 +151,7 @@ class ExportCsv extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         return true;
     }
@@ -164,7 +164,7 @@ class ExportCsv extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $db_alias = '')
     {
         return true;
     }
@@ -176,7 +176,7 @@ class ExportCsv extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         return true;
     }
@@ -244,7 +244,7 @@ class ExportCsv extends ExportPlugin
                 $schema_insert .= $csv_separator;
             } // end for
             $schema_insert = trim(
-                $GLOBALS['PMA_String']->substr($schema_insert, 0, -1)
+                /*overload*/mb_substr($schema_insert, 0, -1)
             );
             if (! PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
                 return false;

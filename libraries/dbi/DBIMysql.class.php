@@ -10,6 +10,13 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+if (! extension_loaded('mysql')) {
+    // The old MySQL extension is deprecated as of PHP 5.5.0, and will be
+    // removed in the future. Instead, the `MySQLi` or `PDO_MySQL` extension
+    // should be used.
+    return;
+}
+
 require_once './libraries/dbi/DBIExtension.int.php';
 
 /**
@@ -253,7 +260,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Check if there are any more query results from a multi query
      *
-     * @param object $link the connection object
+     * @param resource $link the connection object
      *
      * @return bool false
      */
@@ -269,7 +276,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Prepare next result from multi_query
      *
-     * @param object $link the connection object
+     * @param resource $link the connection object
      *
      * @return boolean false
      */

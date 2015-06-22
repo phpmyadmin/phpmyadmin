@@ -9,6 +9,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/Template.class.php';
+use PMA\Template;
+
 /**
  * Misc functions used all over the scripts.
  *
@@ -364,14 +367,11 @@ class PMA_Util
             $quotes[] = $quote;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         foreach ($quotes as $quote) {
-            if ($pmaString->substr($quoted_string, 0, 1) === $quote
-                && $pmaString->substr($quoted_string, -1, 1) === $quote
+            if (/*overload*/mb_substr($quoted_string, 0, 1) === $quote
+                && /*overload*/mb_substr($quoted_string, -1, 1) === $quote
             ) {
-                $unquoted_string = $pmaString->substr($quoted_string, 1, -1);
+                $unquoted_string = /*overload*/mb_substr($quoted_string, 1, -1);
                 // replace escaped quotes
                 $unquoted_string = str_replace(
                     $quote . $quote,
@@ -388,8 +388,8 @@ class PMA_Util
     /**
      * format sql strings
      *
-     * @param string  $sql_query raw SQL string
-     * @param boolean $truncate  truncate the query if it is too long
+     * @param string  $sqlQuery raw SQL string
+     * @param boolean $truncate truncate the query if it is too long
      *
      * @return string the formatted sql
      *
@@ -398,24 +398,21 @@ class PMA_Util
      * @access  public
      * @todo    move into PMA_Sql
      */
-    public static function formatSql($sql_query, $truncate = false)
+    public static function formatSql($sqlQuery, $truncate = false)
     {
         global $cfg;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if ($truncate
-            && $pmaString->strlen($sql_query) > $cfg['MaxCharactersInDisplayedSQL']
+            && /*overload*/mb_strlen($sqlQuery) > $cfg['MaxCharactersInDisplayedSQL']
         ) {
-            $sql_query = $pmaString->substr(
-                $sql_query,
+            $sqlQuery = /*overload*/mb_substr(
+                $sqlQuery,
                 0,
                 $cfg['MaxCharactersInDisplayedSQL']
             ) . '[...]';
         }
         return '<code class="sql"><pre>' . "\n"
-            . htmlspecialchars($sql_query) . "\n"
+            . htmlspecialchars($sqlQuery) . "\n"
             . '</pre></code>';
     } // end of the "formatSql()" function
 
@@ -449,7 +446,7 @@ class PMA_Util
     public static function getMySQLDocuURL($link, $anchor = '')
     {
         // Fixup for newly used names:
-        $link = str_replace('_', '-', $GLOBALS['PMA_String']->strtolower($link));
+        $link = str_replace('_', '-', /*overload*/mb_strtolower($link));
 
         if (empty($link)) {
             $link = 'index';
@@ -461,10 +458,6 @@ class PMA_Util
                 $mysql = '5.6';
             } else if (PMA_MYSQL_INT_VERSION >= 50500) {
                 $mysql = '5.5';
-            } else if (PMA_MYSQL_INT_VERSION >= 50100) {
-                $mysql = '5.1';
-            } else {
-                $mysql = '5.0';
             }
         }
         $url = 'http://dev.mysql.com/doc/refman/'
@@ -601,7 +594,7 @@ class PMA_Util
      *
      * @return string
      *
-     * @global string $table the curent table
+     * @global string $table the current table
      * @global string $db    the current db
      *
      * @access public
@@ -634,13 +627,10 @@ class PMA_Util
         $error_msg .= '    <div class="error"><h1>' . __('Error')
             . '</h1>' . "\n";
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // if the config password is wrong, or the MySQL server does not
         // respond, do not show the query that would reveal the
         // username/password
-        if (! empty($the_query) && ! $pmaString->strstr($the_query, 'connect')) {
+        if (! empty($the_query) && ! /*overload*/mb_strstr($the_query, 'connect')) {
             // --- Added to solve bug #641765
             if (function_exists('PMA_SQP_isError') && PMA_SQP_isError()) {
                 $error_msg .= PMA_SQP_getErrorString() . "\n";
@@ -649,8 +639,8 @@ class PMA_Util
             // ---
             // modified to show the help on sql errors
             $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . "\n";
-            if ($pmaString->strstr($pmaString->strtolower($formatted_sql), 'select')
-            ) {
+            $formattedSqlToLower = /*overload*/mb_strtolower($formatted_sql);
+            if (/*overload*/mb_strstr($formattedSqlToLower, 'select')) {
                 // please show me help to the error on select
                 $error_msg .= self::showMySQLDocu('SELECT');
             }
@@ -659,12 +649,12 @@ class PMA_Util
                     'sql_query' => $the_query,
                     'show_query' => 1,
                 );
-                if ($pmaString->strlen($table)) {
+                if (/*overload*/mb_strlen($table)) {
                     $_url_params['db'] = $db;
                     $_url_params['table'] = $table;
                     $doedit_goto = '<a href="tbl_sql.php'
                         . PMA_URL_getCommon($_url_params) . '">';
-                } elseif ($pmaString->strlen($db)) {
+                } elseif (/*overload*/mb_strlen($db)) {
                     $_url_params['db'] = $db;
                     $doedit_goto = '<a href="db_sql.php'
                         . PMA_URL_getCommon($_url_params) . '">';
@@ -708,7 +698,7 @@ class PMA_Util
         $error_message = str_replace(
             "\t", '&nbsp;&nbsp;&nbsp;&nbsp;', $error_message
         );
-        // Replace linebreaks
+        // Replace line breaks
         $error_message = nl2br($error_message);
 
         $error_msg .= '<code>' . "\n"
@@ -736,7 +726,7 @@ class PMA_Util
             exit;
         }
         if (! empty($back_url)) {
-            if ($pmaString->strstr($back_url, '?')) {
+            if (/*overload*/mb_strstr($back_url, '?')) {
                 $back_url .= '&amp;no_history=true';
             } else {
                 $back_url .= '?no_history=true';
@@ -751,6 +741,43 @@ class PMA_Util
         echo $error_msg;
         exit;
     } // end of the 'mysqlDie()' function
+
+    /**
+     * Check the correct row count
+     *
+     * @param string $db    the db name
+     * @param array  $table the table infos
+     *
+     * @return int $rowCount the possibly modified row count
+     *
+     */
+    private static function _checkRowCount($db, $table)
+    {
+        $rowCount = 0;
+
+        if ($table['Rows'] === null) {
+            // Do not check exact row count here,
+            // if row count is invalid possibly the table is defect
+            // and this would break the navigation panel;
+            // but we can check row count if this is a view or the
+            // information_schema database
+            // since PMA_Table::countRecords() returns a limited row count
+            // in this case.
+
+            // set this because PMA_Table::countRecords() can use it
+            $tbl_is_view = $table['TABLE_TYPE'] == 'VIEW';
+
+            if ($tbl_is_view || $GLOBALS['dbi']->isSystemSchema($db)) {
+                $rowCount = PMA_Table::countRecords(
+                    $db,
+                    $table['Name'],
+                    false,
+                    $tbl_is_view
+                );
+            }
+        }
+        return $rowCount;
+    }
 
     /**
      * returns array with tables of given db with extended information and grouped
@@ -769,7 +796,7 @@ class PMA_Util
 
         if ($tables === null) {
             $tables = $GLOBALS['dbi']->getTablesFull(
-                $db, false, false, null, $limit_offset, $limit_count
+                $db, '', false, null, $limit_offset, $limit_count
             );
             if ($GLOBALS['cfg']['NaturalOrder']) {
                 uksort($tables, 'strnatcasecmp');
@@ -790,33 +817,12 @@ class PMA_Util
         $table_groups = array();
 
         foreach ($tables as $table_name => $table) {
-            // check for correct row count
-            if ($table['Rows'] === null) {
-                // Do not check exact row count here,
-                // if row count is invalid possibly the table is defect
-                // and this would break left frame;
-                // but we can check row count if this is a view or the
-                // information_schema database
-                // since PMA_Table::countRecords() returns a limited row count
-                // in this case.
-
-                // set this because PMA_Table::countRecords() can use it
-                $tbl_is_view = $table['TABLE_TYPE'] == 'VIEW';
-
-                if ($tbl_is_view || $GLOBALS['dbi']->isSystemSchema($db)) {
-                    $table['Rows'] = PMA_Table::countRecords(
-                        $db,
-                        $table['Name'],
-                        false,
-                        true
-                    );
-                }
-            }
+            $table['Rows'] = self::_checkRowCount($db, $table);
 
             // in $group we save the reference to the place in $table_groups
             // where to store the table info
             if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
-                && $sep && $GLOBALS['PMA_String']->strstr($table_name, $sep)
+                && $sep && /*overload*/mb_strstr($table_name, $sep)
             ) {
                 $parts = explode($sep, $table_name);
 
@@ -900,19 +906,16 @@ class PMA_Util
             return $a_name;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (! $do_it) {
             global $PMA_SQPdata_forbidden_word;
-            $eltNameUpper = $pmaString->strtoupper($a_name);
+            $eltNameUpper = /*overload*/mb_strtoupper($a_name);
             if (!in_array($eltNameUpper, $PMA_SQPdata_forbidden_word)) {
                 return $a_name;
             }
         }
 
         // '0' is also empty for php :-(
-        if ($pmaString->strlen($a_name) && $a_name !== '*') {
+        if (/*overload*/mb_strlen($a_name) && $a_name !== '*') {
             return '`' . str_replace('`', '``', $a_name) . '`';
         } else {
             return $a_name;
@@ -920,12 +923,12 @@ class PMA_Util
     } // end of the 'backquote()' function
 
     /**
-     * Adds quotes on both sides of a database, table or field name.
+     * Adds backquotes on both sides of a database, table or field name.
      * in compatibility mode
      *
      * example:
      * <code>
-     * echo backquote('owner`s db'); // `owner``s db`
+     * echo backquoteCompat('owner`s db'); // `owner``s db`
      *
      * </code>
      *
@@ -950,12 +953,9 @@ class PMA_Util
             return $a_name;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (! $do_it) {
             global $PMA_SQPdata_forbidden_word;
-            $eltNameUpper = $pmaString->strtoupper($a_name);
+            $eltNameUpper = /*overload*/mb_strtoupper($a_name);
             if (!in_array($eltNameUpper, $PMA_SQPdata_forbidden_word)) {
                 return $a_name;
             }
@@ -967,12 +967,12 @@ class PMA_Util
             $quote = '"';
             break;
         default:
-            (isset($GLOBALS['sql_backquotes'])) ? $quote = "`" : $quote = '';
+            $quote = "`";
             break;
         }
 
         // '0' is also empty for php :-(
-        if ($pmaString->strlen($a_name) && $a_name !== '*') {
+        if (/*overload*/mb_strlen($a_name) && $a_name !== '*') {
             return $quote . $a_name . $quote;
         } else {
             return $a_name;
@@ -1037,7 +1037,7 @@ class PMA_Util
 
         // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
         // check for it's presence before using it
-        $retval .= '<div id="result_query"'
+        $retval .= '<div class="result_query"'
             . ( isset($GLOBALS['cell_align_left'])
                 ? ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
                 : '' )
@@ -1077,17 +1077,14 @@ class PMA_Util
 
             $query_too_big = false;
 
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
-            if ($pmaString->strlen($query_base) > $cfg['MaxCharactersInDisplayedSQL']
-            ) {
+            $queryLength = /*overload*/mb_strlen($query_base);
+            if ($queryLength > $cfg['MaxCharactersInDisplayedSQL']) {
                 // when the query is large (for example an INSERT of binary
                 // data), the parser chokes; so avoid parsing the query
                 $query_too_big = true;
                 $shortened_query_base = nl2br(
                     htmlspecialchars(
-                        $pmaString->substr(
+                        /*overload*/mb_substr(
                             $sql_query,
                             0,
                             $cfg['MaxCharactersInDisplayedSQL']
@@ -1161,9 +1158,9 @@ class PMA_Util
             if (! isset($GLOBALS['db'])) {
                 $GLOBALS['db'] = '';
             }
-            if ($pmaString->strlen($GLOBALS['db'])) {
+            if (/*overload*/mb_strlen($GLOBALS['db'])) {
                 $url_params['db'] = $GLOBALS['db'];
-                if ($pmaString->strlen($GLOBALS['table'])) {
+                if (/*overload*/mb_strlen($GLOBALS['table'])) {
                     $url_params['table'] = $GLOBALS['table'];
                     $edit_link = 'tbl_sql.php';
                 } else {
@@ -1182,18 +1179,32 @@ class PMA_Util
                 $explain_params = $url_params;
                 if ($is_select) {
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
-                    $_message = __('Explain SQL');
-                } elseif (preg_match(
-                    '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
-                )) {
-                    $explain_params['sql_query'] = $pmaString->substr($sql_query, 8);
-                    $_message = __('Skip Explain SQL');
-                }
-                if (isset($explain_params['sql_query']) && isset($_message)) {
                     $explain_link = ' ['
                         . self::linkOrButton(
                             'import.php' . PMA_URL_getCommon($explain_params),
-                            $_message
+                            __('Explain SQL')
+                        ) . ']';
+                } elseif (preg_match(
+                    '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
+                )) {
+                    $explain_params['sql_query']
+                        = /*overload*/mb_substr($sql_query, 8);
+                    $explain_link = ' ['
+                        . self::linkOrButton(
+                            'import.php' . PMA_URL_getCommon($explain_params),
+                            __('Skip Explain SQL')
+                        ) . ']';
+                    $url = 'https://mariadb.org/explain_analyzer/analyze/'
+                        . '?client=phpMyAdmin&raw_explain='
+                        . urlencode(self::_generateRowQueryOutput($sql_query));
+                    $explain_link .= ' ['
+                        . self::linkOrButton(
+                            'url.php?url=' . urlencode($url),
+                            sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
+                            array(),
+                            true,
+                            false,
+                            '_blank'
                         ) . ']';
                 }
             } //show explain
@@ -1204,13 +1215,10 @@ class PMA_Util
             // even if the query is big and was truncated, offer the chance
             // to edit it (unless it's enormous, see linkOrButton() )
             if (! empty($cfg['SQLQuery']['Edit'])) {
-                $onclick = '';
-
                 $edit_link .= PMA_URL_getCommon($url_params) . '#querybox';
                 $edit_link = ' ['
                     . self::linkOrButton(
-                        $edit_link, __('Edit'),
-                        array('onclick' => $onclick, 'class' => 'disableAjax')
+                        $edit_link, __('Edit')
                     )
                     . ']';
             } else {
@@ -1270,7 +1278,7 @@ class PMA_Util
             }
             $retval .= '</div>';
 
-            $retval .= '<div class="tools">';
+            $retval .= '<div class="tools print_ignore">';
             $retval .= '<form action="sql.php" method="post">';
             $retval .= PMA_URL_getHiddenInputs(
                 $GLOBALS['db'], $GLOBALS['table']
@@ -1295,7 +1303,7 @@ class PMA_Util
                 $inline_edit_link = ' ['
                     . self::linkOrButton(
                         '#',
-                        _pgettext('Inline edit query', 'Inline'),
+                        _pgettext('Inline edit query', 'Edit inline'),
                         array('class' => 'inline_edit_sql')
                     )
                     . ']';
@@ -1316,6 +1324,43 @@ class PMA_Util
     } // end of the 'getMessage()' function
 
     /**
+     * Execute an EXPLAIN query and formats results similar to MySQL command line utility.
+     *
+     * @param string $sqlQuery EXPLAIN query
+     *
+     * @return string query resuls
+     */
+    private static function _generateRowQueryOutput($sqlQuery)
+    {
+        $ret = '';
+        $result = $GLOBALS['dbi']->query($sqlQuery);
+        if ($result) {
+            $devider = '+';
+            $columnNames = '|';
+            $fieldsMeta = $GLOBALS['dbi']->getFieldsMeta($result);
+            foreach ($fieldsMeta as $meta) {
+                $devider .= '---+';
+                $columnNames .= ' ' . $meta->name . ' |';
+            }
+            $devider .= "\n";
+
+            $ret .= $devider . $columnNames . "\n" . $devider;
+            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+                $values = '|';
+                foreach ($row as $value) {
+                    if (is_null($value)) {
+                        $value = 'NULL';
+                    }
+                    $values .= ' ' . $value . ' |';
+                }
+                $ret .= $values . "\n";
+            }
+            $ret .= $devider;
+        }
+        return $ret;
+    }
+
+    /**
      * Verifies if current MySQL server supports profiling
      *
      * @access  public
@@ -1329,7 +1374,6 @@ class PMA_Util
             // (avoid a trip to the server for MySQL before 5.0.37)
             // and do not set a constant as we might be switching servers
             if (defined('PMA_MYSQL_INT_VERSION')
-                && (PMA_MYSQL_INT_VERSION >= 50037)
                 && $GLOBALS['dbi']->fetchValue("SHOW VARIABLES LIKE 'profiling'")
             ) {
                 self::cacheSet('profiling_supported', true);
@@ -1344,9 +1388,9 @@ class PMA_Util
     /**
      * Formats $value to byte view
      *
-     * @param double $value the value to format
-     * @param int    $limes the sensitiveness
-     * @param int    $comma the number of decimals to retain
+     * @param double|int $value the value to format
+     * @param int        $limes the sensitiveness
+     * @param int        $comma the number of decimals to retain
      *
      * @return array    the formatted value and its unit
      *
@@ -1426,7 +1470,7 @@ class PMA_Util
 
     /**
      * Formats $value to the given length and appends SI prefixes
-     * with a $length of 0 no truncation occurs, number is only formated
+     * with a $length of 0 no truncation occurs, number is only formatted
      * to the current locale
      *
      * examples:
@@ -1521,21 +1565,21 @@ class PMA_Util
         $value = round($value / (self::pow(1000, $d, 'pow') / $dh)) /$dh;
         $unit = $units[$d];
 
-        // If we dont want any zeros after the comma just add the thousand separator
+        // If we don't want any zeros after the comma just add the thousand separator
         if ($noTrailingZero) {
-            $value = self::localizeNumber(
+            $localizedValue = self::localizeNumber(
                 preg_replace('/(?<=\d)(?=(\d{3})+(?!\d))/', ',', $value)
             );
         } else {
             //number_format is not multibyte safe, str_replace is safe
-            $value = self::localizeNumber(number_format($value, $digits_right));
+            $localizedValue = self::localizeNumber(number_format($value, $digits_right));
         }
 
         if ($originalValue != 0 && floatval($value) == 0) {
-            return ' <' . (1 / self::pow(10, $digits_right)) . ' ' . $unit;
+            return ' <' . self::localizeNumber((1 / self::pow(10, $digits_right))) . ' ' . $unit;
         }
 
-        return $sign . $value . ' ' . $unit;
+        return $sign . $localizedValue . ' ' . $unit;
     } // end of the 'formatNumber' function
 
     /**
@@ -1549,17 +1593,14 @@ class PMA_Util
     {
         $return_value = -1;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (preg_match('/^[0-9]+GB$/', $formatted_size)) {
-            $return_value = $pmaString->substr($formatted_size, 0, -2)
+            $return_value = /*overload*/mb_substr($formatted_size, 0, -2)
                 * self::pow(1024, 3);
         } elseif (preg_match('/^[0-9]+MB$/', $formatted_size)) {
-            $return_value = $pmaString->substr($formatted_size, 0, -2)
+            $return_value = /*overload*/mb_substr($formatted_size, 0, -2)
                 * self::pow(1024, 2);
         } elseif (preg_match('/^[0-9]+K$/', $formatted_size)) {
-            $return_value = $pmaString->substr($formatted_size, 0, -1)
+            $return_value = /*overload*/mb_substr($formatted_size, 0, -1)
                 * self::pow(1024, 1);
         }
         return $return_value;
@@ -1638,7 +1679,14 @@ class PMA_Util
             $date
         );
 
-        return strftime($date, $timestamp);
+        $ret = strftime($date, $timestamp);
+        // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
+        // output here. See https://sourceforge.net/p/phpmyadmin/bugs/4207/
+        if (mb_detect_encoding($ret, 'UTF-8', true) != 'UTF-8') {
+            $ret = date('Y-m-d H:i:s', $timestamp);
+        }
+
+        return $ret;
     } // end of the 'localisedDate()' function
 
     /**
@@ -1670,7 +1718,7 @@ class PMA_Util
 
         $tab = array_merge($defaults, $tab);
 
-        // determine additionnal style-class
+        // determine additional style-class
         if (empty($tab['class'])) {
             if (! empty($tab['active'])
                 || PMA_isValid($GLOBALS['active_page'], 'identical', $tab['link'])
@@ -1798,10 +1846,7 @@ class PMA_Util
         $url, $message, $tag_params = array(),
         $new_form = true, $strip_img = false, $target = ''
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        $url_length = $pmaString->strlen($url);
+        $url_length = /*overload*/mb_strlen($url);
         // with this we should be able to catch case of image upload
         // into a (MEDIUM) BLOB; not worth generating even a form for these
         if ($url_length > $GLOBALS['cfg']['LinkLengthLimit'] * 100) {
@@ -1819,15 +1864,6 @@ class PMA_Util
         }
         if (! empty($target)) {
             $tag_params['target'] = htmlentities($target);
-        }
-
-        $tag_params_strings = array();
-        foreach ($tag_params as $par_name => $par_value) {
-            // htmlspecialchars() only on non javascript
-            $par_value = $pmaString->substr($par_name, 0, 2) == 'on'
-                ? $par_value
-                : htmlspecialchars($par_value);
-            $tag_params_strings[] = $par_name . '="' . $par_value . '"';
         }
 
         $displayed_message = '';
@@ -1850,10 +1886,13 @@ class PMA_Util
             if ($suhosin_get_MaxValueLength) {
                 $query_parts = self::splitURLQuery($url);
                 foreach ($query_parts as $query_pair) {
-                    list($eachvar, $eachval) = explode('=', $query_pair);
-                    if ($pmaString->strlen($eachval) > $suhosin_get_MaxValueLength) {
-                        $in_suhosin_limits = false;
-                        break;
+                    if (strpos($query_pair, '=') !== false) {
+                        list(, $eachval) = explode('=', $query_pair);
+                        if (/*overload*/mb_strlen($eachval) > $suhosin_get_MaxValueLength
+                        ) {
+                            $in_suhosin_limits = false;
+                            break;
+                        }
                     }
                 }
             }
@@ -1862,19 +1901,23 @@ class PMA_Util
         if (($url_length <= $GLOBALS['cfg']['LinkLengthLimit'])
             && $in_suhosin_limits
         ) {
+            $tag_params_strings = array();
+            foreach ($tag_params as $par_name => $par_value) {
+                // htmlspecialchars() only on non javascript
+                $par_value = /*overload*/mb_substr($par_name, 0, 2) == 'on'
+                    ? $par_value
+                    : htmlspecialchars($par_value);
+                $tag_params_strings[] = $par_name . '="' . $par_value . '"';
+            }
+
             // no whitespace within an <a> else Safari will make it part of the link
             $ret = "\n" . '<a href="' . $url . '" '
                 . implode(' ', $tag_params_strings) . '>'
                 . $message . $displayed_message . '</a>' . "\n";
         } else {
-            // no spaces (linebreaks) at all
+            // no spaces (line breaks) at all
             // or after the hidden fields
             // IE will display them all
-
-            // add class=link to submit button
-            if (empty($tag_params['class'])) {
-                $tag_params['class'] = 'link';
-            }
 
             if (! isset($query_parts)) {
                 $query_parts = self::splitURLQuery($url);
@@ -1882,6 +1925,9 @@ class PMA_Util
             $url_parts   = parse_url($url);
 
             if ($new_form) {
+                if ($target) {
+                    $target = ' target="' . $target . '"';
+                }
                 $ret = '<form action="' . $url_parts['path'] . '" class="link"'
                      . ' method="post"' . $target . ' style="display: inline;">';
                 $subname_open   = '';
@@ -1907,7 +1953,22 @@ class PMA_Util
                     . htmlspecialchars(urldecode($eachval)) . '" />';
             } // end while
 
-            $ret .= "\n" . '<a href="' . $submit_link . '" class="formLinkSubmit" '
+            if (empty($tag_params['class'])) {
+                $tag_params['class'] = 'formLinkSubmit';
+            } else {
+                $tag_params['class'] .= ' formLinkSubmit';
+            }
+
+            $tag_params_strings = array();
+            foreach ($tag_params as $par_name => $par_value) {
+                // htmlspecialchars() only on non javascript
+                $par_value = /*overload*/mb_substr($par_name, 0, 2) == 'on'
+                    ? $par_value
+                    : htmlspecialchars($par_value);
+                $tag_params_strings[] = $par_name . '="' . $par_value . '"';
+            }
+
+            $ret .= "\n" . '<a href="' . $submit_link . '" '
                 . implode(' ', $tag_params_strings) . '>'
                 . $message . ' ' . $displayed_message . '</a>' . "\n";
 
@@ -1942,7 +2003,11 @@ class PMA_Util
 
         $url_parts = parse_url($url);
 
-        return explode($separator, $url_parts['query']);
+        if (! empty($url_parts['query'])) {
+            return explode($separator, $url_parts['query']);
+        } else {
+            return array();
+        }
     }
 
     /**
@@ -1994,7 +2059,7 @@ class PMA_Util
         $format_string = '';
         $charbuff = false;
 
-        for ($i = 0, $str_len = $GLOBALS['PMA_String']->strlen($string);
+        for ($i = 0, $str_len = /*overload*/mb_strlen($string);
              $i < $str_len;
              $i++
         ) {
@@ -2078,18 +2143,22 @@ class PMA_Util
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param resource $handle       current query result
-     * @param integer  $fields_cnt   number of fields
-     * @param array    $fields_meta  meta information about fields
-     * @param array    $row          current row
-     * @param boolean  $force_unique generate condition only on pk or unique
+     * @param resource       $handle            current query result
+     * @param integer        $fields_cnt        number of fields
+     * @param array          $fields_meta       meta information about fields
+     * @param array          $row               current row
+     * @param boolean        $force_unique      generate condition only on pk or
+     *                                          unique
+     * @param string|boolean $restrict_to_table restrict the unique condition to
+     *                                          this table or false if none
      *
      * @access public
      *
      * @return array     the calculated condition and whether condition is unique
      */
     public static function getUniqueCondition(
-        $handle, $fields_cnt, $fields_meta, $row, $force_unique = false
+        $handle, $fields_cnt, $fields_meta, $row, $force_unique = false,
+        $restrict_to_table = false
     ) {
         $primary_key          = '';
         $unique_key           = '';
@@ -2100,9 +2169,6 @@ class PMA_Util
         $nonprimary_condition_array = array();
         $condition_array = array();
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         for ($i = 0; $i < $fields_cnt; ++$i) {
 
             $con_val     = '';
@@ -2110,7 +2176,7 @@ class PMA_Util
             $meta        = $fields_meta[$i];
 
             // do not use a column alias in a condition
-            if (! isset($meta->orgname) || ! $pmaString->strlen($meta->orgname)) {
+            if (! isset($meta->orgname) || ! /*overload*/mb_strlen($meta->orgname)) {
                 $meta->orgname = $meta->name;
 
                 if (isset($GLOBALS['analyzed_sql'][0]['select_expr'])
@@ -2147,6 +2213,12 @@ class PMA_Util
                 $meta->table = $meta->orgtable;
             }
 
+            // If this field is not from the table which the unique clause needs
+            // to be restricted to.
+            if ($restrict_to_table && $restrict_to_table != $meta->table) {
+                continue;
+            }
+
             // to fix the bug where float fields (primary or not)
             // can't be matched because of the imprecision of
             // floating comparison, use CONCAT
@@ -2178,7 +2250,7 @@ class PMA_Util
                     // hexify only if this is a true not empty BLOB or a BINARY
 
                     // do not waste memory building a too big condition
-                    if ($pmaString->strlen($row[$i]) < 1000) {
+                    if (/*overload*/mb_strlen($row[$i]) < 1000) {
                         // use a CAST if possible, to avoid problems
                         // if the field contains wildcard characters % or _
                         $con_val = '= CAST(0x' . bin2hex($row[$i]) . ' AS BINARY)';
@@ -2186,7 +2258,7 @@ class PMA_Util
                         // when this blob is the only field present
                         // try settling with length comparison
                         $condition = ' CHAR_LENGTH(' . $con_key . ') ';
-                        $con_val = ' = ' .  $pmaString->strlen($row[$i]);
+                        $con_val = ' = ' .  /*overload*/mb_strlen($row[$i]);
                     } else {
                         // this blob won't be part of the final condition
                         $con_val = null;
@@ -2195,7 +2267,7 @@ class PMA_Util
                     && ! empty($row[$i])
                 ) {
                     // do not build a too big condition
-                    if ($pmaString->strlen($row[$i]) < 5000) {
+                    if (/*overload*/mb_strlen($row[$i]) < 5000) {
                         $condition .= '=0x' . bin2hex($row[$i]) . ' AND';
                     } else {
                         $condition = '';
@@ -2327,10 +2399,9 @@ class PMA_Util
         $pageNowMinusRange = ($pageNow - $range);
         $pageNowPlusRange = ($pageNow + $range);
 
-        $gotopage = $prompt . ' <select class="pageselector ';
-        $gotopage .= ' ajax';
+        $gotopage = $prompt . ' <select class="pageselector ajax"';
 
-        $gotopage .= '" name="' . $name . '" >';
+        $gotopage .= ' name="' . $name . '" >';
         if ($nbTotalPage < $showAll) {
             $pages = range(1, $nbTotalPage);
         } else {
@@ -2472,18 +2543,17 @@ class PMA_Util
 
             // Move to the beginning or to the previous page
             if ($pos > 0) {
+                $caption1 = ''; $caption2 = '';
                 if (self::showIcons('TableNavigationLinksMode')) {
-                    $caption1 = '&lt;&lt;';
-                    $caption2 = ' &lt; ';
-                    $title1   = ' title="' . _pgettext('First page', 'Begin') . '"';
-                    $title2   = ' title="'
-                        . _pgettext('Previous page', 'Previous') . '"';
-                } else {
-                    $caption1 = _pgettext('First page', 'Begin') . ' &lt;&lt;';
-                    $caption2 = _pgettext('Previous page', 'Previous') . ' &lt;';
-                    $title1   = '';
-                    $title2   = '';
-                } // end if... else...
+                    $caption1 .= '&lt;&lt; ';
+                    $caption2 .= '&lt; ';
+                }
+                if (self::showText('TableNavigationLinksMode')) {
+                    $caption1 .= _pgettext('First page', 'Begin');
+                    $caption2 .= _pgettext('Previous page', 'Previous');
+                }
+                $title1 = ' title="' . _pgettext('First page', 'Begin') . '"';
+                $title2 = ' title="' . _pgettext('Previous page', 'Previous') . '"';
 
                 $_url_params[$name] = 0;
                 $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
@@ -2491,9 +2561,9 @@ class PMA_Util
                     . '</a>';
 
                 $_url_params[$name] = $pos - $max_count;
-                $list_navigator_html .= '<a' . $class . $title2 . ' href="' . $script
-                    . PMA_URL_getCommon($_url_params) . '">' . $caption2
-                    . '</a>';
+                $list_navigator_html .= ' <a' . $class . $title2
+                    . ' href="' . $script . PMA_URL_getCommon($_url_params) . '">'
+                    . $caption2 . '</a>';
             }
 
             $list_navigator_html .= '<form action="' . basename($script)
@@ -2509,17 +2579,20 @@ class PMA_Util
             $list_navigator_html .= '</form>';
 
             if ($pos + $max_count < $count) {
-                if ( self::showIcons('TableNavigationLinksMode')) {
-                    $caption3 = ' &gt; ';
-                    $caption4 = '&gt;&gt;';
-                    $title3   = ' title="' . _pgettext('Next page', 'Next') . '"';
-                    $title4   = ' title="' . _pgettext('Last page', 'End') . '"';
-                } else {
-                    $caption3 = '&gt; ' . _pgettext('Next page', 'Next');
-                    $caption4 = '&gt;&gt; ' . _pgettext('Last page', 'End');
-                    $title3   = '';
-                    $title4   = '';
-                } // end if... else...
+                $caption3 = ''; $caption4 = '';
+                if (self::showText('TableNavigationLinksMode')) {
+                    $caption3 .= _pgettext('Next page', 'Next');
+                    $caption4 .= _pgettext('Last page', 'End');
+                }
+                if (self::showIcons('TableNavigationLinksMode')) {
+                    $caption3 .= ' &gt;';
+                    $caption4 .= ' &gt;&gt;';
+                    if (! self::showText('TableNavigationLinksMode')) {
+
+                    }
+                }
+                $title3 = ' title="' . _pgettext('Next page', 'Next') . '"';
+                $title4 = ' title="' . _pgettext('Last page', 'End') . '"';
 
                 $_url_params[$name] = $pos + $max_count;
                 $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
@@ -2531,9 +2604,9 @@ class PMA_Util
                     $_url_params[$name] = $count - $max_count;
                 }
 
-                $list_navigator_html .= '<a' . $class . $title4 . ' href="' . $script
-                    . PMA_URL_getCommon($_url_params) . '" >' . $caption4
-                    . '</a>';
+                $list_navigator_html .= ' <a' . $class . $title4
+                    . ' href="' . $script . PMA_URL_getCommon($_url_params) . '" >'
+                    . $caption4 . '</a>';
             }
             $list_navigator_html .= '</div>' . "\n";
         }
@@ -2557,7 +2630,7 @@ class PMA_Util
     public static function userDir($dir)
     {
         // add trailing slash
-        if ($GLOBALS['PMA_String']->substr($dir, -1) != '/') {
+        if (/*overload*/mb_substr($dir, -1) != '/') {
             $dir .= '/';
         }
 
@@ -2573,11 +2646,8 @@ class PMA_Util
      */
     public static function getDbLink($database = null)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        if (! $pmaString->strlen($database)) {
-            if (! $pmaString->strlen($GLOBALS['db'])) {
+        if (! /*overload*/mb_strlen($database)) {
+            if (! /*overload*/mb_strlen($GLOBALS['db'])) {
                 return '';
             }
             $database = $GLOBALS['db'];
@@ -2585,8 +2655,11 @@ class PMA_Util
             $database = self::unescapeMysqlWildcards($database);
         }
 
-        return '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
-            . PMA_URL_getCommon($database) . '" title="'
+        return '<a href="'
+            . PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            )
+            . PMA_URL_getCommon(array('db' => $database)) . '" title="'
             . htmlspecialchars(
                 sprintf(
                     __('Jump to database "%s".'),
@@ -2630,15 +2703,19 @@ class PMA_Util
      * @param string  $label           label for checkbox
      * @param boolean $checked         is it initially checked?
      * @param boolean $onclick         should it submit the form on click?
+     * @param string  $html_field_id   id for the checkbox
      *
      * @return string                  HTML for the checkbox
      */
-    public static function getCheckbox($html_field_name, $label, $checked, $onclick)
-    {
-        return '<input type="checkbox" name="' . $html_field_name . '" id="'
-            . $html_field_name . '"' . ($checked ? ' checked="checked"' : '')
-            . ($onclick ? ' class="autosubmit"' : '') . ' /><label for="'
-            . $html_field_name . '">' . $label . '</label>';
+    public static function getCheckbox(
+        $html_field_name, $label, $checked, $onclick, $html_field_id = ''
+    ) {
+        return '<input type="checkbox" name="' . $html_field_name . '"'
+            . ($html_field_id ? ' id="' . $html_field_id . '"' : '')
+            . ($checked ? ' checked="checked"' : '')
+            . ($onclick ? ' class="autosubmit"' : '') . ' />'
+            . '<label' . ($html_field_id ? ' for="' . $html_field_id . '"' : '')
+            . '>' . $label . '</label>';
     }
 
     /**
@@ -2650,12 +2727,15 @@ class PMA_Util
      * @param boolean $line_break      whether to add HTML line break after a choice
      * @param boolean $escape_label    whether to use htmlspecialchars() on label
      * @param string  $class           enclose each choice with a div of this class
+     * @param string  $id_prefix       prefix for the id attribute, name will be
+     *                                 used if this is not supplied
      *
      * @return string                  set of html radio fiels
      */
     public static function getRadioFields(
         $html_field_name, $choices, $checked_choice = '',
-        $line_break = true, $escape_label = true, $class = ''
+        $line_break = true, $escape_label = true, $class = '',
+        $id_prefix = ''
     ) {
         $radio_html = '';
 
@@ -2665,7 +2745,10 @@ class PMA_Util
                 $radio_html .= '<div class="' . $class . '">';
             }
 
-            $html_field_id = $html_field_name . '_' . $choice_value;
+            if (! $id_prefix) {
+                $id_prefix = $html_field_name;
+            }
+            $html_field_id = $id_prefix . '_' . $choice_value;
             $radio_html .= '<input type="radio" name="' . $html_field_name . '" id="'
                         . $html_field_id . '" value="'
                         . htmlspecialchars($choice_value) . '"';
@@ -2704,13 +2787,15 @@ class PMA_Util
      *                              case the dropdown is present more than once
      *                              on the page
      * @param string $class         class for the select element
+     * @param string $placeholder   Placeholder for dropdown if nothing else
+     *                              is selected
      *
      * @return string               html content
      *
      * @todo    support titles
      */
     public static function getDropdown(
-        $select_name, $choices, $active_choice, $id, $class = ''
+        $select_name, $choices, $active_choice, $id, $class = '', $placeholder = null
     ) {
         $result = '<select'
             . ' name="' . htmlspecialchars($select_name) . '"'
@@ -2718,15 +2803,30 @@ class PMA_Util
             . (! empty($class) ? ' class="' . htmlspecialchars($class) . '"' : '')
             . '>';
 
+        $resultOptions = '';
+        $selected = false;
+
         foreach ($choices as $one_choice_value => $one_choice_label) {
-            $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
+            $resultOptions .= '<option value="'
+                . htmlspecialchars($one_choice_value) . '"';
 
             if ($one_choice_value == $active_choice) {
-                $result .= ' selected="selected"';
+                $resultOptions .= ' selected="selected"';
+                $selected = true;
             }
-            $result .= '>' . htmlspecialchars($one_choice_label) . '</option>';
+            $resultOptions .= '>' . htmlspecialchars($one_choice_label)
+                . '</option>';
         }
-        $result .= '</select>';
+
+        if (!empty($placeholder)) {
+            $resultOptions = '<option value="" disabled="disabled"'
+                . ( !$selected ? ' selected="selected"' : '' )
+                . '>' . $placeholder . '</option>'
+                . $resultOptions;
+        }
+
+        $result .= $resultOptions
+            . '</select>';
 
         return $result;
     }
@@ -2743,10 +2843,10 @@ class PMA_Util
      * @return string         html div element
      *
      */
-    public static function getDivForSliderEffect($id, $message)
+    public static function getDivForSliderEffect($id = '', $message = '')
     {
         if ($GLOBALS['cfg']['InitialSlidersState'] == 'disabled') {
-            return '<div id="' . $id . '">';
+            return '<div' . ($id ? ' id="' . $id . '"' : '') . '>';
         }
         /**
          * Bad hack on the next line. document.write() conflicts with jQuery,
@@ -2757,11 +2857,14 @@ class PMA_Util
          * append to
          */
 
-        return '<div id="' . $id . '"'
+        return '<div'
+             . ($id ? ' id="' . $id . '"' : '')
             . (($GLOBALS['cfg']['InitialSlidersState'] == 'closed')
                 ? ' style="display: none; overflow:auto;"'
                 : '')
-            . ' class="pma_auto_slider" title="' . htmlspecialchars($message) . '">';
+            . ' class="pma_auto_slider"'
+            . ($message ? ' title="' . htmlspecialchars($message) . '"' : '')
+            . '>';
     }
 
     /**
@@ -2856,15 +2959,21 @@ class PMA_Util
     /**
      * Gets cached information from the session
      *
-     * @param string $var variable name
+     * @param string  $var      variable name
+     * @param Closure $callback callback to fetch the value
      *
      * @return mixed
      */
-    public static function cacheGet($var)
+    public static function cacheGet($var, $callback = null)
     {
-        if (isset($_SESSION['cache']['server_' . $GLOBALS['server']][$var])) {
+        if (self::cacheExists($var)) {
             return $_SESSION['cache']['server_' . $GLOBALS['server']][$var];
         } else {
+            if ($callback) {
+                $val = $callback();
+                self::cacheSet($var, $val);
+                return $val;
+            }
             return null;
         }
     }
@@ -2958,7 +3067,7 @@ class PMA_Util
      */
     public static function convertBitDefaultValue($bit_default_value)
     {
-        return strtr($bit_default_value, array("b" => "", "'" => ""));
+        return rtrim(ltrim($bit_default_value, "b'"), "'");
     }
 
     /**
@@ -2971,27 +3080,24 @@ class PMA_Util
      */
     public static function extractColumnSpec($columnspec)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        $first_bracket_pos = $pmaString->strpos($columnspec, '(');
+        $first_bracket_pos = /*overload*/mb_strpos($columnspec, '(');
         if ($first_bracket_pos) {
             $spec_in_brackets = chop(
-                $pmaString->substr(
+                /*overload*/mb_substr(
                     $columnspec,
                     $first_bracket_pos + 1,
-                    ($pmaString->strrpos($columnspec, ')') - $first_bracket_pos - 1)
+                    /*overload*/mb_strrpos($columnspec, ')') - $first_bracket_pos - 1
                 )
             );
             // convert to lowercase just to be sure
-            $type = $pmaString->strtolower(
-                chop($pmaString->substr($columnspec, 0, $first_bracket_pos))
+            $type = /*overload*/mb_strtolower(
+                chop(/*overload*/mb_substr($columnspec, 0, $first_bracket_pos))
             );
         } else {
             // Split trailing attributes such as unsigned,
             // binary, zerofill and get data type name
             $type_parts = explode(' ', $columnspec);
-            $type = $pmaString->strtolower($type_parts[0]);
+            $type = /*overload*/mb_strtolower($type_parts[0]);
             $spec_in_brackets = '';
         }
 
@@ -3007,7 +3113,7 @@ class PMA_Util
             $enum_set_values = array();
 
             /* Create printable type name */
-            $printtype = $pmaString->strtolower($columnspec);
+            $printtype = /*overload*/mb_strtolower($columnspec);
 
             // Strip the "BINARY" attribute, except if we find "BINARY(" because
             // this would be a BINARY or VARBINARY column type;
@@ -3055,10 +3161,12 @@ class PMA_Util
 
         // for the case ENUM('&#8211;','&ldquo;')
         $displayed_type = htmlspecialchars($printtype);
-        if ($pmaString->strlen($printtype) > $GLOBALS['cfg']['LimitChars']) {
-            $displayed_type  = '<abbr title="' . $printtype . '">';
-            $displayed_type .= $GLOBALS['PMA_String']->substr(
-                $printtype, 0, $GLOBALS['cfg']['LimitChars']
+        if (/*overload*/mb_strlen($printtype) > $GLOBALS['cfg']['LimitChars']) {
+            $displayed_type  = '<abbr title="' . htmlspecialchars($printtype) . '">';
+            $displayed_type .= htmlspecialchars(
+                /*overload*/mb_substr(
+                    $printtype, 0, $GLOBALS['cfg']['LimitChars']
+                ) . '...'
             );
             $displayed_type .= '</abbr>';
         }
@@ -3086,7 +3194,7 @@ class PMA_Util
      */
     public static function isForeignKeySupported($engine)
     {
-        $engine = $GLOBALS['PMA_String']->strtoupper($engine);
+        $engine = strtoupper($engine);
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
             return true;
         } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
@@ -3097,6 +3205,71 @@ class PMA_Util
         } else {
             return false;
         }
+    }
+
+    /**
+     * Get HTML for Foreign key check value
+     *
+     * @return bool
+     */
+    public static function getDefaultFKCheckValue()
+    {
+        if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'enable') {
+            return true;
+        } else if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
+            return false;
+        }
+        return ($GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON');
+    }
+
+    /**
+    * Get HTML for Foreign key check checkbox
+    *
+    * @return string HTML for checkbox
+    */
+    public static function getFKCheckbox()
+    {
+        $checked = self::getDefaultFKCheckValue();
+        $html = '<input type="hidden" name="fk_checks" value="0" />';
+        $html .= '<input type="checkbox" name="fk_checks"'
+            . ' id="fk_checks" value="1"'
+            . ($checked ? ' checked="checked"' : '') . '/>';
+        $html .= '<label for="fk_checks">' . __('Enable foreign key checks') . '</label>';
+        return $html;
+    }
+
+    /**
+     * Handle foreign key check request
+     *
+     * @return bool Default foreign key checks value
+     */
+    public static function handleDisableFKCheckInit()
+    {
+        $default_fk_check_value = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
+        if (isset($_REQUEST['fk_checks'])) {
+            if (empty($_REQUEST['fk_checks'])) {
+                // Disable foreign key checks
+                $GLOBALS['dbi']->setVariable('FOREIGN_KEY_CHECKS', 'OFF');
+            } else {
+                // Enable foreign key checks
+                $GLOBALS['dbi']->setVariable('FOREIGN_KEY_CHECKS', 'ON');
+            }
+        } // else do nothing, go with default
+        return $default_fk_check_value;
+    }
+
+    /**
+     * Cleanup changes done for foreign key check
+     *
+     * @param bool $default_fk_check_value original value for 'FOREIGN_KEY_CHECKS'
+     *
+     * @return void
+     */
+    public static function handleDisableFKCheckCleanup($default_fk_check_value)
+    {
+        $GLOBALS['dbi']->setVariable(
+            'FOREIGN_KEY_CHECKS', $default_fk_check_value ? 'ON' : 'OFF'
+        );
     }
 
     /**
@@ -3157,7 +3330,7 @@ class PMA_Util
      */
     public static function duplicateFirstNewline($string)
     {
-        $first_occurence = $GLOBALS['PMA_String']->strpos($string, "\r\n");
+        $first_occurence = /*overload*/mb_strpos($string, "\r\n");
         if ($first_occurence === 0) {
             $string = "\n" . $string;
         }
@@ -3169,27 +3342,121 @@ class PMA_Util
      * in order to display it as a title in navigation panel
      *
      * @param string $target a valid value for $cfg['NavigationTreeDefaultTabTable'],
+     *                       $cfg['NavigationTreeDefaultTabTable2'],
      *                       $cfg['DefaultTabTable'] or $cfg['DefaultTabDatabase']
      *
-     * @return array
+     * @return string Title for the $cfg value
      */
     public static function getTitleForTarget($target)
     {
         $mapping = array(
+            'structure' =>  __('Structure'),
+            'sql' => __('SQL'),
+            'search' =>__('Search'),
+            'insert' =>__('Insert'),
+            'browse' => __('Browse'),
+            'operations' => __('Operations'),
+
+            // For backward compatiblity
+
             // Values for $cfg['DefaultTabTable']
             'tbl_structure.php' =>  __('Structure'),
             'tbl_sql.php' => __('SQL'),
             'tbl_select.php' =>__('Search'),
             'tbl_change.php' =>__('Insert'),
             'sql.php' => __('Browse'),
-
             // Values for $cfg['DefaultTabDatabase']
             'db_structure.php' => __('Structure'),
             'db_sql.php' => __('SQL'),
             'db_search.php' => __('Search'),
             'db_operations.php' => __('Operations'),
         );
-        return $mapping[$target];
+        return isset($mapping[$target]) ? $mapping[$target] : false;
+    }
+
+    /**
+     * Get the script name corresponding to a plain English config word
+     * in order to append in links on navigation and main panel
+     *
+     * @param string $target   a valid value for $cfg['NavigationTreeDefaultTabTable'],
+     *                         $cfg['NavigationTreeDefaultTabTable2'],
+     *                         $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
+     *                         $cfg['DefaultTabServer']
+     * @param string $location one out of 'server', 'table', 'database'
+     *
+     * @return string script name corresponding to the config word
+     */
+    public static function getScriptNameForOption($target, $location)
+    {
+        $retval = '';
+
+        if ($location == 'server') {
+            // Values for $cfg['DefaultTabServer']
+            switch ($target) {
+            case 'welcome':
+                $retval = 'index.php';
+                break;
+            case 'databases':
+                $retval = 'server_databases.php';
+                break;
+            case 'status':
+                $retval = 'server_status.php';
+                break;
+            case 'variables':
+                $retval = 'server_variables.php';
+                break;
+            case 'privileges':
+                $retval = 'server_privileges.php';
+                break;
+            default:
+                $retval = $target;
+            }
+        } elseif ($location == 'database') {
+            // Values for $cfg['DefaultTabDatabase']
+            switch ($target) {
+            case 'structure':
+                $retval = 'db_structure.php';
+                break;
+            case 'sql':
+                $retval = 'db_sql.php';
+                break;
+            case 'search':
+                $retval = 'db_search.php';
+                break;
+            case 'operations':
+                $retval = 'db_operations.php';
+                break;
+            default:
+                $retval = $target;
+            }
+        } elseif ($location == 'table') {
+            // Values for $cfg['DefaultTabTable'],
+            // $cfg['NavigationTreeDefaultTabTable'] and
+            // $cfg['NavigationTreeDefaultTabTable2']
+            switch ($target) {
+            case 'structure':
+                $retval = 'tbl_structure.php';
+                break;
+            case 'sql':
+                $retval = 'tbl_sql.php';
+                break;
+            case 'search':
+                $retval = 'tbl_select.php';
+                break;
+            case 'insert':
+                $retval = 'tbl_change.php';
+                break;
+            case 'browse':
+                $retval = 'sql.php';
+                break;
+            default:
+                $retval = $target;
+            }
+        } else {
+            $retval = $target;
+        }
+
+        return $retval;
     }
 
     /**
@@ -3210,7 +3477,6 @@ class PMA_Util
     public static function expandUserString(
         $string, $escape = null, $updates = array()
     ) {
-        $vars = array();
         /* Content */
         $vars = array();
         $vars['http_host'] = PMA_getenv('HTTP_HOST');
@@ -3268,16 +3534,13 @@ class PMA_Util
             }
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         /* Backward compatibility in 3.5.x */
-        if ($pmaString->strpos($string, '@FIELDS@') !== false) {
+        if (/*overload*/mb_strpos($string, '@FIELDS@') !== false) {
             $string = strtr($string, array('@FIELDS@' => '@COLUMNS@'));
         }
 
         /* Fetch columns list if required */
-        if ($pmaString->strpos($string, '@COLUMNS@') !== false) {
+        if (/*overload*/mb_strpos($string, '@COLUMNS@') !== false) {
             $columns_list = $GLOBALS['dbi']->getColumns(
                 $GLOBALS['db'], $GLOBALS['table']
             );
@@ -3335,8 +3598,8 @@ class PMA_Util
      * Prepare the form used to select a file to import from the server upload
      * directory
      *
-     * @param array  $import_list array of import plugins
-     * @param string $uploaddir   upload directory
+     * @param ImportPlugin[] $import_list array of import plugins
+     * @param string         $uploaddir   upload directory
      *
      * @return String
      */
@@ -3362,8 +3625,8 @@ class PMA_Util
             . PMA_supportedDecompressions() . '))?$@';
 
         $active = (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed']
-            && isset($local_import_file))
-            ? $local_import_file
+            && isset($GLOBALS['local_import_file']))
+            ? $GLOBALS['local_import_file']
             : '';
 
         $files = PMA_getFileSelectOptions(
@@ -3537,7 +3800,7 @@ class PMA_Util
         if ($upper_case) {
             for ($i = 0, $nb = count($gis_data_types); $i < $nb; $i++) {
                 $gis_data_types[$i]
-                    = $GLOBALS['PMA_String']->strtoupper($gis_data_types[$i]);
+                    = /*overload*/mb_strtoupper($gis_data_types[$i]);
             }
         }
         return $gis_data_types;
@@ -3566,7 +3829,7 @@ class PMA_Util
 
     /**
      * Returns the names and details of the functions
-     * that can be applied on geometry data typess.
+     * that can be applied on geometry data types.
      *
      * @param string $geom_type if provided the output is limited to the functions
      *                          that are applicable to the provided geometry type.
@@ -3576,7 +3839,7 @@ class PMA_Util
      *                          output array.
      *
      * @return array names and details of the functions that can be applied on
-     *               geometry data typess.
+     *               geometry data types.
      */
     public static function getGISFunctions(
         $geom_type = null, $binary = true, $display = false
@@ -3594,7 +3857,7 @@ class PMA_Util
         $funcs['IsEmpty']      = array('params' => 1, 'type' => 'int');
         $funcs['IsSimple']     = array('params' => 1, 'type' => 'int');
 
-        $geom_type = trim($GLOBALS['PMA_String']->strtolower($geom_type));
+        $geom_type = trim(/*overload*/mb_strtolower($geom_type));
         if ($display && $geom_type != 'geometry' && $geom_type != 'multipoint') {
             $funcs[] = array('display' => '--------');
         }
@@ -3649,7 +3912,7 @@ class PMA_Util
                 $funcs['Touches']    = array('params' => 2, 'type' => 'int');
                 $funcs['Within']     = array('params' => 2, 'type' => 'int');
             } else {
-                // If MySQl version is greaeter than or equal 5.6.1,
+                // If MySQl version is greater than or equal 5.6.1,
                 // use the ST_ prefix.
                 $funcs['ST_Crosses']    = array('params' => 2, 'type' => 'int');
                 $funcs['ST_Contains']   = array('params' => 2, 'type' => 'int');
@@ -3697,7 +3960,7 @@ class PMA_Util
          * @todo Except for $cfg, no longer use globals but pass as parameters
          *       from higher levels
          */
-        global $cfg, $analyzed_sql, $data;
+        global $cfg, $data;
 
         $default_function   = '';
 
@@ -3710,8 +3973,6 @@ class PMA_Util
             }
         }
 
-        $analyzed_sql_field_array = $analyzed_sql[0]['create_table_fields']
-            [$field['Field']];
         // what function defined as default?
         // for the first timestamp we don't set the default function
         // if there is a default value for the timestamp
@@ -3722,8 +3983,8 @@ class PMA_Util
             && $field['first_timestamp']
             && empty($field['Default'])
             && empty($data)
-            && ! isset($analyzed_sql_field_array['on_update_current_timestamp'])
-            && ($analyzed_sql_field_array['default_value'] != 'NULL')
+            && $field['Extra'] != 'on update CURRENT_TIMESTAMP'
+            && $field['Null'] == 'NO'
         ) {
             $default_function = $cfg['DefaultFunctions']['first_timestamp'];
         }
@@ -3816,18 +4077,15 @@ class PMA_Util
      */
     public static function currentUserHasPrivilege($priv, $db = null, $tbl = null)
     {
-        // TRIGGER privilege was added in MySQL 5.1.6.
-        // Before MySQL 5.1.6, the SUPER privilege was required to create i
-        // or drop triggers.
-        if ($priv == "TRIGGER" && PMA_MYSQL_INT_VERSION < 50160) {
-            $priv = "SUPER";
-        }
-
         // Get the username for the current user in the format
         // required to use in the information schema database.
         $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
         if ($user === false) {
             return false;
+        }
+
+        if ($user == '@') { // MySQL is started with --skip-grant-tables
+            return true;
         }
 
         $user = explode('@', $user);
@@ -3856,19 +4114,7 @@ class PMA_Util
         // If a database name was provided and user does not have the
         // required global privilege, try database-wise permissions.
         if ($db !== null) {
-            // need to escape wildcards in db and table names, see bug #3566
-            // (wildcard characters appear as being quoted with a backslash
-            //  when querying TABLE_SCHEMA.SCHEMA_PRIVILEGES)
-            $db = str_replace(array('%', '_'), array('\%', '\_'), $db);
-            /*
-             * This is to take into account a wildcard db privilege
-             * so we replace % by .* and _ by . to be able to compare
-             * with REGEXP.
-             *
-             * Also, we need to double the inner % to please sprintf().
-             */
-            $query .= " AND '%s' REGEXP"
-                . " REPLACE(REPLACE(TABLE_SCHEMA, '_', '.'), '%%', '.*')";
+            $query .= " AND '%s' LIKE `TABLE_SCHEMA`";
             $schema_privileges = $GLOBALS['dbi']->fetchValue(
                 sprintf(
                     $query,
@@ -3920,21 +4166,18 @@ class PMA_Util
      */
     public static function getServerType()
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $server_type = 'MySQL';
         if (PMA_DRIZZLE) {
             $server_type = 'Drizzle';
             return $server_type;
         }
 
-        if ($pmaString->stripos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
+        if (/*overload*/mb_stripos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
             $server_type = 'MariaDB';
             return $server_type;
         }
 
-        if ($pmaString->stripos(PMA_MYSQL_VERSION_COMMENT, 'percona') !== false) {
+        if (/*overload*/mb_stripos(PMA_MYSQL_VERSION_COMMENT, 'percona') !== false) {
             $server_type = 'Percona Server';
             return $server_type;
         }
@@ -3947,11 +4190,17 @@ class PMA_Util
      *
      * @param string $limit_clause limit clause
      *
-     * @return array|void Start and length attributes of the limit clause
+     * @return array|bool Start and length attributes of the limit clause or false
+     *                    on failure
      */
     public static function analyzeLimitClause($limit_clause)
     {
-        $start_and_length = explode(',', str_ireplace('LIMIT', '', $limit_clause));
+        $limitParams = trim(str_ireplace('LIMIT', '', $limit_clause));
+        if ('' == $limitParams) {
+            return false;
+        }
+
+        $start_and_length = explode(',', $limitParams);
         $size = count($start_and_length);
         if ($size == 1) {
             return array(
@@ -3964,6 +4213,8 @@ class PMA_Util
                 'length' => trim($start_and_length[1])
             );
         }
+
+        return false;
     }
 
     /**
@@ -3984,7 +4235,7 @@ class PMA_Util
      *
      * @param string $definition The definition of the column
      *                           for which to parse the values
-     * @param bool   $escapeHtml Whether to escape html entitites
+     * @param bool   $escapeHtml Whether to escape html entities
      *
      * @return array
      */
@@ -3998,17 +4249,14 @@ class PMA_Util
         $in_string = false;
         $buffer = '';
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        for ($i=0, $length = $pmaString->strlen($values_string);
+        for ($i = 0, $length = /*overload*/mb_strlen($values_string);
              $i < $length;
              $i++
         ) {
-            $curr = $values_string[$i];
-            $next = ($i == $pmaString->strlen($values_string)-1)
+            $curr = /*overload*/mb_substr($values_string, $i, 1);
+            $next = ($i == /*overload*/mb_strlen($values_string) - 1)
                 ? ''
-                : $values_string[$i+1];
+                : /*overload*/mb_substr($values_string, $i + 1, 1);
 
             if (! $in_string && $curr == "'") {
                 $in_string = true;
@@ -4030,7 +4278,7 @@ class PMA_Util
 
         }
 
-        if ($pmaString->strlen($buffer) > 0) {
+        if (/*overload*/mb_strlen($buffer) > 0) {
             // The leftovers in the buffer are the last value (if any)
             $values[] = $buffer;
         }
@@ -4056,11 +4304,8 @@ class PMA_Util
     public static function fillTooltip(
         &$tooltip_truename, &$tooltip_aliasname, $table
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        if ($pmaString->strstr($table['Comment'], '; InnoDB free') === false) {
-            if (!$pmaString->strstr($table['Comment'], 'InnoDB free') === false) {
+        if (/*overload*/mb_strstr($table['Comment'], '; InnoDB free') === false) {
+            if (!/*overload*/mb_strstr($table['Comment'], 'InnoDB free') === false) {
                 // here we have just InnoDB generated part
                 $table['Comment'] = '';
             }
@@ -4205,15 +4450,12 @@ class PMA_Util
      */
     public static function handleContext(array $context)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        if ($pmaString->strlen($GLOBALS['cfg']['ProxyUrl'])) {
+        if (/*overload*/mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
             $context['http'] = array(
                 'proxy' => $GLOBALS['cfg']['ProxyUrl'],
                 'request_fulluri' => true
             );
-            if ($pmaString->strlen($GLOBALS['cfg']['ProxyUser'])) {
+            if (/*overload*/mb_strlen($GLOBALS['cfg']['ProxyUser'])) {
                 $auth = base64_encode(
                     $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
                 );
@@ -4234,12 +4476,9 @@ class PMA_Util
      */
     public static function configureCurl(resource $curl_handle)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        if ($pmaString->strlen($GLOBALS['cfg']['ProxyUrl'])) {
+        if (/*overload*/mb_strlen($GLOBALS['cfg']['ProxyUrl'])) {
             curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
-            if ($pmaString->strlen($GLOBALS['cfg']['ProxyUser'])) {
+            if (/*overload*/mb_strlen($GLOBALS['cfg']['ProxyUser'])) {
                 curl_setopt(
                     $curl_handle,
                     CURLOPT_PROXYUSERPWD,
@@ -4247,15 +4486,20 @@ class PMA_Util
                 );
             }
         }
+        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
         return $curl_handle;
     }
     /**
      * Returns information with latest version from phpmyadmin.net
      *
-     * @return String JSON decoded object with the data
+     * @return object JSON decoded object with the data
      */
     public static function getLatestVersion()
     {
+        if (!$GLOBALS['cfg']['VersionCheck']) {
+            return new stdClass();
+        }
+
         // wait 3s at most for server response, it's enough to get information
         // from a working server
         $connection_timeout = 3;
@@ -4289,6 +4533,9 @@ class PMA_Util
                 );
             } else if (function_exists('curl_init')) {
                 $curl_handle = curl_init($file);
+                if ($curl_handle === false) {
+                    return null;
+                }
                 $curl_handle = PMA_Util::configureCurl($curl_handle);
                 curl_setopt(
                     $curl_handle,
@@ -4312,13 +4559,10 @@ class PMA_Util
             }
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $data = json_decode($response);
         if (is_object($data)
-            && $pmaString->strlen($data->version)
-            && $pmaString->strlen($data->date)
+            && ! empty($data->version)
+            && ! empty($data->date)
             && $save
         ) {
             if (! isset($_SESSION) && ! defined('TESTSUITE')) {
@@ -4412,19 +4656,20 @@ class PMA_Util
      */
     public static function addMicroseconds($value)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (empty($value) || $value == 'CURRENT_TIMESTAMP') {
             return $value;
         }
 
-        if (!$pmaString->strpos($value, '.')) {
+        if (/*overload*/mb_strpos($value, '.') === false) {
             return $value . '.000000';
         }
 
         $value .= '000000';
-        return $pmaString->substr($value, 0, $pmaString->strpos($value, '.') + 7);
+        return /*overload*/mb_substr(
+            $value,
+            0,
+            /*overload*/mb_strpos($value, '.') + 7
+        );
     }
 
     /**
@@ -4437,19 +4682,13 @@ class PMA_Util
      */
     public static function getCompressionMimeType($file)
     {
-        //Can't use PMA_StringMB here, so force use of PMA_StringNative.
-        include_once 'libraries/StringNative.class.php';
-        $pmaString = new PMA_StringNative();
-
         $test = fread($file, 4);
-        $len = $pmaString->strlen($test);
+        $len = strlen($test);
         fclose($file);
-        if ($len >= 2 && $test[0] == $pmaString->chr(31)
-            && $test[1] == $pmaString->chr(139)
-        ) {
+        if ($len >= 2 && $test[0] == chr(31) && $test[1] == chr(139)) {
             return 'application/gzip';
         }
-        if ($len >= 3 && $pmaString->substr($test, 0, 3) == 'BZh') {
+        if ($len >= 3 && substr($test, 0, 3) == 'BZh') {
             return 'application/bzip2';
         }
         if ($len >= 4 && $test == "PK\003\004") {
@@ -4470,6 +4709,7 @@ class PMA_Util
      * @param string  $linkId      Value to use for the ID attribute
      * @param boolean $disableAjax Whether to disable ajax page loading for this link
      * @param string  $linkTarget  The name of the target frame for the link
+     * @param array   $classes     HTML classes to apply
      *
      * @return string HTML code for one link
      */
@@ -4481,7 +4721,8 @@ class PMA_Util
         $icon,
         $linkId = '',
         $disableAjax = false,
-        $linkTarget = ''
+        $linkTarget = '',
+        $classes = array()
     ) {
         $retval = '<a href="' . $link . '"';
         if (! empty($linkId)) {
@@ -4491,7 +4732,10 @@ class PMA_Util
             $retval .= ' target="' . $linkTarget . '"';
         }
         if ($disableAjax) {
-            $retval .= ' class="disableAjax"';
+            $classes[] = 'disableAjax';
+        }
+        if (!empty($classes)) {
+            $retval .= ' class="' . join(" ", $classes) . '"';
         }
         $retval .= ' title="' . $text . '">';
         if ($showIcon) {
@@ -4508,6 +4752,137 @@ class PMA_Util
             $retval .= '<br />';
         }
         return $retval;
+    }
+
+    /**
+     * Provide COLLATE clause, if required, to perform case sensitive comparisons
+     * for queries on information_schema.
+     *
+     * @return string COLLATE clause if needed or empty string.
+     */
+    public static function getCollateForIS()
+    {
+        $lowerCaseTableNames = self::cacheGet(
+            'lower_case_table_names',
+            function () {
+                return $GLOBALS['dbi']->fetchValue(
+                    "SHOW VARIABLES LIKE 'lower_case_table_names'", 0, 1
+                );
+            }
+        );
+
+        if ($lowerCaseTableNames === '0') {
+            return "COLLATE utf8_bin";
+        }
+        return "";
+    }
+
+    /**
+     * Process the index data.
+     *
+     * @param array $indexes index data
+     *
+     * @return array processes index data
+     */
+    public static function processIndexData($indexes)
+    {
+        $lastIndex    = '';
+
+        $primary      = '';
+        $pk_array     = array(); // will be use to emphasis prim. keys in the table
+        $indexes_info = array();
+        $indexes_data = array();
+
+        // view
+        foreach ($indexes as $row) {
+            // Backups the list of primary keys
+            if ($row['Key_name'] == 'PRIMARY') {
+                $primary   .= $row['Column_name'] . ', ';
+                $pk_array[$row['Column_name']] = 1;
+            }
+            // Retains keys informations
+            if ($row['Key_name'] != $lastIndex) {
+                $indexes[] = $row['Key_name'];
+                $lastIndex = $row['Key_name'];
+            }
+            $indexes_info[$row['Key_name']]['Sequences'][] = $row['Seq_in_index'];
+            $indexes_info[$row['Key_name']]['Non_unique'] = $row['Non_unique'];
+            if (isset($row['Cardinality'])) {
+                $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
+            }
+            // I don't know what does following column mean....
+            // $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
+
+            $indexes_info[$row['Key_name']]['Comment'] = $row['Comment'];
+
+            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']
+                = $row['Column_name'];
+            if (isset($row['Sub_part'])) {
+                $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part']
+                    = $row['Sub_part'];
+            }
+
+        } // end while
+
+        return array($primary, $pk_array, $indexes_info, $indexes_data);
+    }
+
+    /**
+     * Returns the HTML for check all check box and with selected text
+     * for multi submits
+     *
+     * @param string $pmaThemeImage path to theme's image folder
+     * @param string $text_dir      text direction
+     * @param string $formName      name of the enclosing form
+     *
+     * @return string HTML
+     */
+    public static function getWithSelected($pmaThemeImage, $text_dir, $formName)
+    {
+        $html = '<img class="selectallarrow" '
+            . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
+            . 'width="38" height="22" alt="' . __('With selected:') . '" />';
+        $html .= '<input type="checkbox" id="' . $formName . '_checkall" '
+            . 'class="checkall_box" title="' . __('Check All') . '" />'
+            . '<label for="' . $formName . '_checkall">' . __('Check All')
+            . '</label>';
+        $html .= '<i style="margin-left: 2em">'
+            . __('With selected:') . '</i>';
+
+        return $html;
+    }
+
+    /**
+     * Function to get html for the start row and number of rows panel
+     *
+     * @param string $sql_query sql query
+     *
+     * @return string html
+     */
+    public static function getStartAndNumberOfRowsPanel($sql_query)
+    {
+        $pos = isset($_REQUEST['pos'])
+            ? $_REQUEST['pos']
+            : $_SESSION['tmpval']['pos'];
+        if (isset($_REQUEST['session_max_rows'])) {
+            $rows = $_REQUEST['session_max_rows'];
+        } else {
+            if ($_SESSION['tmpval']['max_rows'] != 'all') {
+                $rows = $_SESSION['tmpval']['max_rows'];
+            } else {
+                $rows = $GLOBALS['cfg']['MaxRows'];
+            }
+        }
+
+        return Template::get('startAndNumberOfRowsPanel')
+            ->render(
+                array(
+                    'pos' => $pos,
+                    'unlim_num_rows' => $_REQUEST['unlim_num_rows'],
+                    'rows' => $rows,
+                    'sql_query' => $sql_query,
+                )
+            );
     }
 }
 

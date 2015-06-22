@@ -98,6 +98,7 @@ class PMA_Response
         if (! defined('TESTSUITE')) {
             $buffer = PMA_OutputBuffering::getInstance();
             $buffer->start();
+            register_shutdown_function('PMA_Response::response');
         }
         $this->_header = new PMA_Header();
         $this->_HTML   = '';
@@ -303,25 +304,31 @@ class PMA_Response
             // bug, contact Edward Cheng
             $this->addJSON('_title', $this->getHeader()->getTitleTag());
 
-            $menuHash = $this->getHeader()->getMenu()->getHash();
-            $this->addJSON('_menuHash', $menuHash);
-            $hashes = array();
-            if (isset($_REQUEST['menuHashes'])) {
-                $hashes = explode('-', $_REQUEST['menuHashes']);
-            }
-            if (! in_array($menuHash, $hashes)) {
-                $this->addJSON('_menu', $this->getHeader()->getMenu()->getDisplay());
+            if (isset($GLOBALS['dbi'])) {
+                $menuHash = $this->getHeader()->getMenu()->getHash();
+                $this->addJSON('_menuHash', $menuHash);
+                $hashes = array();
+                if (isset($_REQUEST['menuHashes'])) {
+                    $hashes = explode('-', $_REQUEST['menuHashes']);
+                }
+                if (! in_array($menuHash, $hashes)) {
+                    $this->addJSON('_menu', $this->getHeader()->getMenu()->getDisplay());
+                }
             }
 
             $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
             $this->addJSON('_selflink', $this->getFooter()->getSelfUrl('unencoded'));
             $this->addJSON('_displayMessage', $this->getHeader()->getMessage());
+
+            $debug = $this->_footer->getDebugMessage();
+            if (empty($_REQUEST['no_debug'])
+                && /*overload*/mb_strlen($debug)
+            ) {
+                $this->addJSON('_debug', $debug);
+            }
+
             $errors = $this->_footer->getErrorMessages();
-
-            /** @var PMA_String $pmaString */
-            $pmaString = $GLOBALS['PMA_String'];
-
-            if ($pmaString->strlen($errors)) {
+            if (/*overload*/mb_strlen($errors)) {
                 $this->addJSON('_errors', $errors);
             }
             $promptPhpErrors = $GLOBALS['error_handler']->hasErrorsForPrompt();
@@ -333,7 +340,7 @@ class PMA_Response
                 $query = '';
                 $maxChars = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
                 if (isset($GLOBALS['sql_query'])
-                    && $pmaString->strlen($GLOBALS['sql_query']) < $maxChars
+                    && /*overload*/mb_strlen($GLOBALS['sql_query']) < $maxChars
                 ) {
                     $query = $GLOBALS['sql_query'];
                 }

@@ -36,14 +36,18 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
          * SET these to avoid undefined index error
          */
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['Server']['pmadb'] = '';
-        $GLOBALS['cfg']['Server']['tracking'] = '';
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = '';
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = '';
         $GLOBALS['cfg']['Server']['tracking_add_drop_database'] = '';
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = '';
         $GLOBALS['cfg']['Server']['tracking_version_auto_create'] = '';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['DBG']['sql'] = false;
+
+        $_SESSION['relation'][$GLOBALS['server']] = array(
+            'db' => 'pmadb',
+            'tracking' => 'tracking'
+        );
 
         if (!defined("PMA_DRIZZLE")) {
             define("PMA_DRIZZLE", false);
@@ -70,70 +74,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * Test for PMA_Tracker::init()
-     *
-     * @return void
-     * @test
-     */
-    public function testInit()
-    {
-        $GLOBALS['cfg']['Server']['pmadb'] = "pma_db";
-        $GLOBALS['cfg']['Server']['tracking'] = "tracking";
-        $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
-        $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = false;
-        $GLOBALS['cfg']['Server']['tracking_add_drop_database'] = true;
-        $GLOBALS['cfg']['Server']['tracking_default_statements'] = false;
-        $GLOBALS['cfg']['Server']['tracking_version_auto_create'] = true;
-
-        $method = new \ReflectionMethod("PMA_Tracker", "init");
-        $method->setAccessible(true);
-        $method->invoke(null, array());
-
-        $this->assertEquals(
-            "`pma_db`.`tracking`",
-            PHPUnit_Framework_Assert::readAttribute(
-                "PMA_Tracker",
-                'pma_table'
-            )
-        );
-
-        $this->assertTrue(
-            PHPUnit_Framework_Assert::readAttribute(
-                "PMA_Tracker",
-                'add_drop_table'
-            )
-        );
-
-        $this->assertFalse(
-            PHPUnit_Framework_Assert::readAttribute(
-                "PMA_Tracker",
-                'add_drop_view'
-            )
-        );
-
-        $this->assertTrue(
-            PHPUnit_Framework_Assert::readAttribute(
-                "PMA_Tracker",
-                'add_drop_database'
-            )
-        );
-
-        $this->assertFalse(
-            PHPUnit_Framework_Assert::readAttribute(
-                "PMA_Tracker",
-                'default_tracking_set'
-            )
-        );
-
-        $this->assertTrue(
-            PHPUnit_Framework_Assert::readAttribute(
-                "PMA_Tracker",
-                'version_auto_create'
-            )
-        );
-
-    }
     /**
      * Test for PMA_Tracker::enable
      *
@@ -175,10 +115,11 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         );
 
         $_SESSION['relation'][$GLOBALS['server']] = array(
-            'trackingwork' => true
+            'trackingwork' => true,
+            'db' => 'pmadb',
+            'tracking' => 'tracking'
         );
 
-        $GLOBALS['cfg']['Server']['pmadb'] = 'pma`s test';
         $this->assertTrue(
             PMA_Tracker::isActive()
         );
@@ -233,10 +174,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $attr->setAccessible(true);
         $attr->setValue(false);
 
-        $reflection = new \ReflectionProperty('PMA_Tracker', 'pma_table');
-        $reflection->setAccessible(true);
-        $reflection->setValue('pma_table_tracking');
-
         $this->assertFalse(
             PMA_Tracker::isTracked("", "")
         );
@@ -254,8 +191,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(
             PMA_Tracker::isTracked("pma_test_db", "pma_test_table")
         );
-
-        $reflection->setValue('pma_table_tracking');
 
         $this->assertFalse(
             PMA_Tracker::isTracked("pma_test_db", "pma_test_table2")
@@ -301,10 +236,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
 
-        $reflection = new \ReflectionClass('PMA_Tracker');
-        $method = $reflection->getMethod('init');
-        $method->setAccessible(true);
-        $method->invoke(null, array());
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -364,7 +295,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $date = date('Y-m-d H:i:s');
 
         $expectedMainQuery = "/*NOTRACK*/" .
-        "\nINSERT INTO. (db_name, table_name, version, date_created, date_updated," .
+        "\nINSERT INTO `pmadb`.`tracking` (db_name, table_name, version, date_created, date_updated," .
         " schema_snapshot, schema_sql, data_sql, tracking ) values (
         'pma_test',
         'pma_tbl',
@@ -432,13 +363,9 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             ->getMock();
 
         $sql_query = "/*NOTRACK*/\n"
-            . "DELETE FROM pma_table_tracking"
+            . "DELETE FROM `pmadb`.`tracking`"
             . " WHERE `db_name` = 'testdb'"
             . " AND `table_name` = 'testtable'";
-
-        $reflection = new \ReflectionProperty('PMA_Tracker', 'pma_table');
-        $reflection->setAccessible(true);
-        $reflection->setValue('pma_table_tracking');
 
         $dbi->expects($this->exactly(1))
             ->method('query')
@@ -468,11 +395,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
 
-        $reflection = new \ReflectionClass('PMA_Tracker');
-        $method = $reflection->getMethod('init');
-        $method->setAccessible(true);
-        $method->invoke(null, array());
-
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -480,7 +402,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $date = date('Y-m-d H:i:s');
 
         $expectedMainQuery = "/*NOTRACK*/" .
-        "\nINSERT INTO. (db_name, table_name, version, date_created, date_updated," .
+        "\nINSERT INTO `pmadb`.`tracking` (db_name, table_name, version, date_created, date_updated," .
         " schema_snapshot, schema_sql, data_sql, tracking ) values (
         'pma_test',
         '',
@@ -528,15 +450,11 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     public function testChangeTracking($dbname = 'pma_db', $tablename = 'pma_tbl',
         $version = '0.1', $new_state = '1', $type = null
     ) {
-        $reflection = new \ReflectionProperty('PMA_Tracker', 'pma_table');
-        $reflection->setAccessible(true);
-        $reflection->setValue('pma_table_tracking');
-
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $sql_query = " UPDATE pma_table_tracking SET `tracking_active` = " .
+        $sql_query = " UPDATE `pmadb`.`tracking` SET `tracking_active` = " .
         "'" . $new_state . "' " .
         " WHERE `db_name` = '" . $dbname . "' " .
         " AND `table_name` = '" . $tablename . "' " .
@@ -585,10 +503,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             $this->markTestSkipped("Cannot override internal function date()");
         }
 
-        $reflection = new \ReflectionProperty('PMA_Tracker', 'pma_table');
-        $reflection->setAccessible(true);
-        $reflection->setValue('pma_table_tracking');
-
         $this->assertFalse(
             PMA_Tracker::changeTrackingData("", "", "", "", "")
         );
@@ -599,7 +513,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $sql_query_1 = " UPDATE pma_table_tracking" .
+        $sql_query_1 = " UPDATE `pmadb`.`tracking`" .
         " SET `schema_sql` = '# new_data_processed' " .
         " WHERE `db_name` = 'pma_db' " .
         " AND `table_name` = 'pma_table' " .
@@ -618,7 +532,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $sql_query_2 = " UPDATE pma_table_tracking" .
+        $sql_query_2 = " UPDATE `pmadb`.`tracking`" .
         " SET `data_sql` = '# log $date user1test_statement1\n" .
         "# log $date user2test_statement2\n' " .
         " WHERE `db_name` = 'pma_db' " .
@@ -638,7 +552,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         $this->assertEquals(
-            'executed_1',
+            true,
             PMA_Tracker::changeTrackingData(
                 'pma_db',
                 'pma_table',
@@ -649,7 +563,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            'executed_2',
+            true,
             PMA_Tracker::changeTrackingData(
                 'pma_db',
                 'pma_table',
@@ -696,13 +610,9 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             $this->markTestSkipped("Cannot redefine constant");
         }
 
-        $reflection = new \ReflectionProperty('PMA_Tracker', 'pma_table');
-        $reflection->setAccessible(true);
-        $reflection->setValue('pma_table_tracking');
-
         runkit_constant_redefine("PMA_DRIZZLE", true);
 
-        $sql_query = " SELECT MAX(version) FROM pma_table_tracking" .
+        $sql_query = " SELECT MAX(version) FROM `pmadb`.`tracking`" .
         " WHERE `db_name` = 'pma''db' " .
         " AND `table_name` = 'pma''table' ";
 
@@ -764,14 +674,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetTrackedData($fetchArrayReturn, $expectedArray)
     {
-        $GLOBALS['cfg']['Server']['pmadb'] = 'pma_db';
-        $GLOBALS['cfg']['Server']['tracking'] = 'tracking';
-
-        $reflection = new \ReflectionProperty('PMA_Tracker', 'pma_table');
-        $reflection->setAccessible(true);
-        $reflection->setValue("`pma_db`.`tracking`");
-
-        $sql_query = " SELECT * FROM `pma_db`.`tracking`" .
+        $sql_query = " SELECT * FROM `pmadb`.`tracking`" .
             " WHERE `db_name` = 'pma''db' " .
             " AND `table_name` = 'pma''table' " .
             " AND `version` = '1.0' " .
@@ -972,6 +875,12 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             "v"
         );
         $query[] = array(
+            "- DROP VIEW IF EXISTS db1.v;",
+            "DDL",
+            "DROP VIEW",
+            "v"
+        );
+        $query[] = array(
             "- CREATE DATABASE db1; -",
             "DDL",
             "CREATE DATABASE",
@@ -1005,6 +914,12 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         );
         $query[] =  array(
             "- DROP TABLE db1.t1",
+            "DDL",
+            "DROP TABLE",
+            "t1"
+        );
+        $query[] =  array(
+            "- DROP TABLE IF EXISTS db1.t1",
             "DDL",
             "DROP TABLE",
             "t1"

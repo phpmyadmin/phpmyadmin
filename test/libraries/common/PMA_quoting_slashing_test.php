@@ -199,10 +199,6 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
         // Test bypass quoting (used by dump functions)
         $this->assertEquals($a, PMA_Util::backquoteCompat($a, 'NONE', false));
 
-        // Test backquote (backquoting will be enabled only
-        // if isset $GLOBALS['sql_backquotes']
-        $this->assertEquals($a, PMA_Util::backquoteCompat($a, 'NONE'));
-
         // Run tests in MSSQL compatibility mode
         // Test bypass quoting (used by dump functions)
         $this->assertEquals($a, PMA_Util::backquoteCompat($a, 'MSSQL', false));

@@ -63,11 +63,7 @@ function PMA_EVN_main()
     /**
      * Display a list of available events
      */
-    $columns = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
-    $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
-    $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` "
-             . "WHERE $where ORDER BY `EVENT_NAME` ASC;";
-    $items   = $GLOBALS['dbi']->fetchResult($query);
+    $items = $GLOBALS['dbi']->getEvents($db);
     echo PMA_RTE_getList('event', $items);
     /**
      * Display a link for adding a new event, if
@@ -124,21 +120,14 @@ function PMA_EVN_handleEditor()
                         // We dropped the old item, but were unable to create
                         // the new one. Try to restore the backup query
                         $result = $GLOBALS['dbi']->tryQuery($create_item);
-                        if (! $result) {
-                            // OMG, this is really bad! We dropped the query,
-                            // failed to create a new one
-                            // and now even the backup query does not execute!
-                            // This should not happen, but we better handle
-                            // this just in case.
-                            $errors[] = __(
+                        $errors = checkResult(
+                            $result,
+                            __(
                                 'Sorry, we failed to restore the dropped event.'
-                            )
-                            . '<br />'
-                            . __('The backed up query was:')
-                            . "\"" . htmlspecialchars($create_item) . "\""
-                            . '<br />'
-                            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
-                        }
+                            ),
+                            $create_item,
+                            $errors
+                        );
                     } else {
                         $message = PMA_Message::success(
                             __('Event %1$s has been modified.')
@@ -190,17 +179,12 @@ function PMA_EVN_handleEditor()
         if ($GLOBALS['is_ajax_request']) {
             $response = PMA_Response::getInstance();
             if ($message->isSuccess()) {
-                $columns = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
-                $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "' "
-                    . "AND EVENT_NAME='"
-                    . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'";
-                $query   = "SELECT " . $columns
-                    . " FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE " . $where . ";";
-                $event   = $GLOBALS['dbi']->fetchSingleRow($query);
+                $events = $GLOBALS['dbi']->getEvents($db, $_REQUEST['item_name']);
+                $event = $events[0];
                 $response->addJSON(
                     'name',
                     htmlspecialchars(
-                        $GLOBALS['PMA_String']->strtoupper($_REQUEST['item_name'])
+                        /*overload*/mb_strtoupper($_REQUEST['item_name'])
                     )
                 );
                 $response->addJSON('new_row', PMA_EVN_getRowForList($event));
@@ -247,35 +231,7 @@ function PMA_EVN_handleEditor()
             }
             $mode = 'edit';
         }
-        if ($item !== false) {
-            // Show form
-            $editor = PMA_EVN_getEditorForm($mode, $operation, $item);
-            if ($GLOBALS['is_ajax_request']) {
-                $response = PMA_Response::getInstance();
-                $response->addJSON('message', $editor);
-                $response->addJSON('title', $title);
-            } else {
-                echo "\n\n<h2>$title</h2>\n\n$editor";
-                unset($_POST);
-            }
-            exit;
-        } else {
-            $message  = __('Error in processing request:') . ' ';
-            $message .= sprintf(
-                PMA_RTE_getWord('not_found'),
-                htmlspecialchars(PMA_Util::backquote($_REQUEST['item_name'])),
-                htmlspecialchars(PMA_Util::backquote($db))
-            );
-            $message = PMA_message::error($message);
-            if ($GLOBALS['is_ajax_request']) {
-                $response = PMA_Response::getInstance();
-                $response->isSuccess(false);
-                $response->addJSON('message', $message);
-                exit;
-            } else {
-                $message->display();
-            }
-        }
+        PMA_RTE_sendEditor('EVN', $mode, $item, $title, $db, $operation);
     }
 } // end PMA_EVN_handleEditor()
 
@@ -327,7 +283,8 @@ function PMA_EVN_getDataFromName($name)
     $columns = "`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, "
              . "`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, "
              . "`EVENT_DEFINITION`, `ON_COMPLETION`, `DEFINER`, `EVENT_COMMENT`";
-    $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "' "
+    $where   = "EVENT_SCHEMA " . PMA_Util::getCollateForIS() . "="
+             . "'" . PMA_Util::sqlAddSlashes($db) . "' "
              . "AND EVENT_NAME='" . PMA_Util::sqlAddSlashes($name) . "'";
     $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;";
     $item    = $GLOBALS['dbi']->fetchSingleRow($query);
@@ -361,7 +318,7 @@ function PMA_EVN_getDataFromName($name)
 /**
  * Displays a form used to add/edit an event
  *
- * @param string $mode      If the editor will be used edit an event
+ * @param string $mode      If the editor will be used to edit an event
  *                              or add a new one: 'edit' or 'add'.
  * @param string $operation If the editor was previously invoked with
  *                              JS turned off, this will hold the name of
@@ -376,8 +333,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
 {
     global $db, $table, $event_status, $event_type, $event_interval;
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
+    $modeToUpper = /*overload*/mb_strtoupper($mode);
 
     // Escape special characters
     $need_escape = array(
@@ -419,7 +375,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     }
     // Create the output
     $retval  = "";
-    $retval .= "<!-- START " . $pmaString->strtoupper($mode) . " EVENT FORM -->\n\n";
+    $retval .= "<!-- START " . $modeToUpper . " EVENT FORM -->\n\n";
     $retval .= "<form class='rte_form' action='db_events.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_data;
@@ -554,7 +510,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
         $retval .= "</fieldset>\n";
     }
     $retval .= "</form>\n\n";
-    $retval .= "<!-- END " . $pmaString->strtoupper($mode) . " EVENT FORM -->\n\n";
+    $retval .= "<!-- END " . $modeToUpper . " EVENT FORM -->\n\n";
 
     return $retval;
 } // end PMA_EVN_getEditorForm()
@@ -570,7 +526,7 @@ function PMA_EVN_getQueryFromRequest()
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
-        if ($GLOBALS['PMA_String']->strpos($_REQUEST['item_definer'], '@') !== false
+        if (/*overload*/mb_strpos($_REQUEST['item_definer'], '@') !== false
         ) {
             $arr = explode('@', $_REQUEST['item_definer']);
             $query .= 'DEFINER=' . PMA_Util::backquote($arr[0]);

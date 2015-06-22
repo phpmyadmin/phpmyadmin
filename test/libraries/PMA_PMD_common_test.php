@@ -148,20 +148,66 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getFirstPage()
+     * Test for testGetDefaultPage() when there is a default page
+     * (a page having the same name as database)
      *
      * @return void
      */
-    public function testGetFirstPage()
+    public function testGetDefaultPage()
     {
         $db = 'db';
-        $pg = '1';
+        $default_pg = '2';
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->at(0))
+            ->method('fetchResult')
+            ->with(
+                "SELECT `page_nr` FROM `pmadb`.`pdf_pages`"
+                . " WHERE `db_name` = '" . $db . "'"
+                . " AND `page_descr` = '" . $db . "'",
+                null,
+                null,
+                2,
+                PMA_DatabaseInterface::QUERY_STORE
+            )
+            ->will($this->returnValue(array($default_pg)));
+        $GLOBALS['dbi'] = $dbi;
+
+        $result = PMA_getDefaultPage($db);
+        $this->assertEquals($default_pg, $result);
+    }
+
+    /**
+     * Test for testGetDefaultPage() when there is no default page
+     *
+     * @return void
+     */
+    public function testGetDefaultPageWithNoDefaultPage()
+    {
+        $db = 'db';
+        $first_pg = '1';
+
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->at(0))
+            ->method('fetchResult')
+            ->with(
+                "SELECT `page_nr` FROM `pmadb`.`pdf_pages`"
+                . " WHERE `db_name` = '" . $db . "'"
+                . " AND `page_descr` = '" . $db . "'",
+                null,
+                null,
+                2,
+                PMA_DatabaseInterface::QUERY_STORE
+            )
+            ->will($this->returnValue(array()));
+
+        $dbi->expects($this->at(1))
             ->method('fetchResult')
             ->with(
                 "SELECT MIN(`page_nr`) FROM `pmadb`.`pdf_pages`"
@@ -171,12 +217,11 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
                 2,
                 PMA_DatabaseInterface::QUERY_STORE
             )
-            ->will($this->returnValue(array($pg)));
+            ->will($this->returnValue(array($first_pg)));
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getFirstPage($db);
-
-        $this->assertEquals($pg, $result);
+        $result = PMA_getDefaultPage($db);
+        $this->assertEquals($first_pg, $result);
     }
 }
 ?>

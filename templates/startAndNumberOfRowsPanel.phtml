@@ -1,0 +1,20 @@
+<fieldset>
+    <div>
+        <label for="pos"><?php echo __('Start row:'); ?></label>
+        <input type="number" name="pos" min="0" required="required"
+            <?php if ($unlim_num_rows > 0) : ?>
+                max="<?php echo ($unlim_num_rows - 1); ?>"
+            <?php endif; ?>
+            value="<?php echo htmlspecialchars($pos); ?>" />
+
+        <label for="session_max_rows"><?php echo __('Number of rows:'); ?></label>
+        <input type="number" name="session_max_rows" min="1"
+               value="<?php echo htmlspecialchars($rows); ?>" required="required" />
+        <input type="submit" name="submit" class="Go"
+               value="<?php echo __('Go'); ?>" />
+        <input type="hidden" name="sql_query"
+               value="<?php echo htmlspecialchars($sql_query); ?>" />
+        <input type="hidden" name="unlim_num_rows"
+               value="<?php echo htmlspecialchars($unlim_num_rows); ?>" />
+    </div>
+</fieldset>

@@ -72,8 +72,8 @@ class SchemaEps extends SchemaPlugin
         $leaf->setText(__('Orientation'));
         $leaf->setValues(
             array(
-                'L' => 'Landscape',
-                'P' => 'Portrait',
+                'L' => __('Landscape'),
+                'P' => __('Portrait'),
             )
         );
         $specificOptions->addProperty($leaf);
@@ -87,7 +87,7 @@ class SchemaEps extends SchemaPlugin
     }
 
     /**
-     * Exports the shcema into EPS format.
+     * Exports the schema into EPS format.
      *
      * @param string $db database name
      *
@@ -95,7 +95,7 @@ class SchemaEps extends SchemaPlugin
      */
     public function exportSchema($db)
     {
-        $export = new PMA_Eps_Relation_Schema();
+        $export = new PMA_Eps_Relation_Schema($db);
         $export->showOutput();
     }
 }

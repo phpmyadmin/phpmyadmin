@@ -83,7 +83,7 @@ class PMA_File
      */
     public function __construct($name = false)
     {
-        if ($name) {
+        if ($name && is_string($name)) {
             $this->setName($name);
         }
     }
@@ -446,7 +446,7 @@ class PMA_File
      *
      * @todo move check of $cfg['TempDir'] into PMA_Config?
      * @access  public
-     * @return boolean whether uploaded fiel is fine or not
+     * @return boolean whether uploaded file is fine or not
      */
     public function checkUploadedFile()
     {
@@ -617,9 +617,6 @@ class PMA_File
                 if (! empty($result['error'])) {
                     $this->_error_message = PMA_Message::rawError($result['error']);
                     return false;
-                } else {
-                    /* TODO: This is not used anywhere */
-                    $this->content_uncompressed = $result['data'];
                 }
                 unset($result);
             } else {
@@ -714,7 +711,7 @@ class PMA_File
      */
     public function getContentLength()
     {
-        return $GLOBALS['PMA_String']->strlen($this->_content);
+        return /*overload*/mb_strlen($this->_content);
     }
 
     /**

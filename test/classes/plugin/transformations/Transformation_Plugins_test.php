@@ -128,7 +128,11 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     0,
                     'test',
                     array('150'),
-                    ''
+                    '',
+                    'ltr',
+                    0,
+                    0,
+                    0
                 )
             ),
             array(
@@ -148,7 +152,11 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     array(
                         'wrapper_link' => '?table=a'
                     ),
-                    'something'
+                    'something',
+                    'ltr',
+                    0,
+                    0,
+                    0
                 )
             ),
             // Test data for Text_Plain_Fileupload plugin
@@ -187,7 +195,11 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     0,
                     'test',
                     array(),
-                    ''
+                    '',
+                    'ltr',
+                    0,
+                    0,
+                    0
                 )
             ),
             array(
@@ -202,7 +214,11 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                     0,
                     '2ndtest',
                     array(),
-                    'something'
+                    'something',
+                    'ltr',
+                    0,
+                    0,
+                    0
                 )
             ),
             // Test data for Text_Plain_Regexvalidation plugin
@@ -233,7 +249,7 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
                 'getInputHtml',
                 '',
                 array(
-                    array(), 0, '', array(), ''
+                    array(), 0, '', array(), '', 'ltr', 0, 0, 0
                 )
             ),
             // Test data for Application_Octetstream_Download plugin
@@ -562,8 +578,8 @@ class Transformation_Plugins_Test extends PHPUnit_Framework_TestCase
             array(
                 new Text_Plain_Longtoipv4(),
                 'getInfo',
-                'Converts an (IPv4) Internet network address into a string in'
-                . ' Internet standard dotted format.'
+                'Converts an (IPv4) Internet network address stored as a BIGINT'
+                . ' into a string in Internet standard dotted format.'
             ),
             array(
                 new Text_Plain_Longtoipv4(),

@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
 
 if (!@function_exists('session_name')) {
     PMA_warnMissingExtension('session', true);
-} elseif (ini_get('session.auto_start') == true && session_name() != 'phpMyAdmin') {
+} elseif (ini_get('session.auto_start') !== '' && session_name() != 'phpMyAdmin') {
     // Do not delete the existing session, it might be used by other
     // applications; instead just close it.
     session_write_close();
@@ -102,6 +102,11 @@ if (! isset($_COOKIE[$session_name])) {
 }
 
 /**
+ * Disable setting of session cookies for further session_start() calls.
+ */
+@ini_set('session.use_cookies', 'true');
+
+/**
  * Token which is used for authenticating access queries.
  * (we use "space PMA_token space" to prevent overwriting)
  */
@@ -119,7 +124,12 @@ if (! isset($_SESSION[' PMA_token '])) {
 function PMA_secureSession()
 {
     // prevent session fixation and XSS
-    session_regenerate_id(true);
+    // (better to use session_status() if available)
+    if ((PMA_PHP_INT_VERSION >= 50400 && session_status() === PHP_SESSION_ACTIVE)
+        || (PMA_PHP_INT_VERSION < 50400 && session_id() !== '')
+    ) {
+        session_regenerate_id(true);
+    }
     $_SESSION[' PMA_token '] = md5(uniqid(rand(), true));
 }
 ?>

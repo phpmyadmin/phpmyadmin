@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * searchs the entire database
+ * searches the entire database
  *
  * @todo    make use of UNION when searching multiple tables
  * @todo    display executed query, optional?
@@ -24,7 +24,7 @@ $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 
 require 'libraries/db_common.inc.php';
 
-// If config variable $GLOBALS['cfg']['Usedbsearch'] is on false : exit.
+// If config variable $GLOBALS['cfg']['UseDbSearch'] is on false : exit.
 if (! $GLOBALS['cfg']['UseDbSearch']) {
     PMA_Util::mysqlDie(
         __('Access denied!'), '', false, $err_url
@@ -37,7 +37,7 @@ $url_params['goto'] = 'db_search.php';
 $db_search = new PMA_DbSearch($GLOBALS['db']);
 
 // Display top links if we are not in an Ajax request
-if ( $GLOBALS['is_ajax_request'] != true) {
+if ($GLOBALS['is_ajax_request'] != true) {
     include 'libraries/db_info.inc.php';
 }
 
@@ -60,4 +60,3 @@ $response->addHTML(
 );
 $response->addHTML($db_search->getSelectionForm());
 $response->addHTML($db_search->getResultDivs());
-?>

@@ -193,7 +193,7 @@ class ExportLatex extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
         global $crlf;
         global $cfg;
@@ -219,7 +219,7 @@ class ExportLatex extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         return true;
     }
@@ -232,7 +232,7 @@ class ExportLatex extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $db_alias = '')
     {
         if (empty($db_alias)) {
             $db_alias = $db;
@@ -251,7 +251,7 @@ class ExportLatex extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         return true;
     }
@@ -343,7 +343,7 @@ class ExportLatex extends ExportPlugin
                     . self::texEscape(stripslashes($columns_alias[$i])) . '}} & ';
             }
 
-            $buffer = $GLOBALS['PMA_String']->substr($buffer, 0, -2)
+            $buffer = /*overload*/mb_substr($buffer, 0, -2)
                 . '\\\\ \\hline \hline ';
             if (! PMA_exportOutputHandler($buffer . ' \\endfirsthead ' . $crlf)) {
                 return false;
@@ -475,22 +475,13 @@ class ExportLatex extends ExportPlugin
          * Gets fields properties
          */
         $GLOBALS['dbi']->selectDb($db);
-        $res_rel = array();
+
         // Check if we can use Relations
-        if ($do_relation && ! empty($cfgRelation['relation'])) {
-            // Find which tables are related with the current one and write it in
-            // an array
-            $res_rel = PMA_getForeigners($db, $table);
-
-            if ($res_rel && count($res_rel) > 0) {
-                $have_rel = true;
-            } else {
-                $have_rel = false;
-            }
-        } else {
-               $have_rel = false;
-        } // end if
-
+        list($res_rel, $have_rel) = PMA_getRelationsAndStatus(
+            $do_relation && ! empty($cfgRelation['relation']),
+            $db,
+            $table
+        );
         /**
          * Displays the table structure
          */
@@ -500,18 +491,14 @@ class ExportLatex extends ExportPlugin
             return false;
         }
 
-        $columns_cnt = 4;
         $alignment = '|l|c|c|c|';
         if ($do_relation && $have_rel) {
-            $columns_cnt++;
             $alignment .= 'l|';
         }
         if ($do_comments) {
-            $columns_cnt++;
             $alignment .= 'l|';
         }
         if ($do_mime && $cfgRelation['mimework']) {
-            $columns_cnt++;
             $alignment .='l|';
         }
         $buffer = $alignment . '} ' . $crlf ;
@@ -575,9 +562,6 @@ class ExportLatex extends ExportPlugin
             return false;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $fields = $GLOBALS['dbi']->getColumns($db, $table);
         foreach ($fields as $row) {
             $extracted_columnspec
@@ -629,16 +613,16 @@ class ExportLatex extends ExportPlugin
             }
             $local_buffer = self::texEscape($local_buffer);
             if ($row['Key']=='PRI') {
-                $pos = $pmaString->strpos($local_buffer, "\000");
+                $pos = /*overload*/mb_strpos($local_buffer, "\000");
                 $local_buffer = '\\textit{'
-                    . $pmaString->substr($local_buffer, 0, $pos)
-                    . '}' . $pmaString->substr($local_buffer, $pos);
+                    . /*overload*/mb_substr($local_buffer, 0, $pos)
+                    . '}' . /*overload*/mb_substr($local_buffer, $pos);
             }
             if (in_array($field_name, $unique_keys)) {
-                $pos = $pmaString->strpos($local_buffer, "\000");
+                $pos = /*overload*/mb_strpos($local_buffer, "\000");
                 $local_buffer = '\\textbf{'
-                    . $pmaString->substr($local_buffer, 0, $pos)
-                    . '}' . $pmaString->substr($local_buffer, $pos);
+                    . /*overload*/mb_substr($local_buffer, 0, $pos)
+                    . '}' . /*overload*/mb_substr($local_buffer, $pos);
             }
             $buffer = str_replace("\000", ' & ', $local_buffer);
             $buffer .= ' \\\\ \\hline ' . $crlf;

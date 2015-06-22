@@ -23,7 +23,11 @@ PMA_Util::checkParameters(array('db', 'table'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'tbl_sql.php?' . PMA_URL_getCommon($db, $table);
+$err_url = 'tbl_sql.php' . PMA_URL_getCommon(
+    array(
+        'db' => $db, 'table' => $table
+    )
+);
 
 /**
  * The form used to define the field to add has been submitted
@@ -68,7 +72,7 @@ if (isset($_REQUEST['do_save_data'])) {
             $pmaString = $GLOBALS['PMA_String'];
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && $pmaString->strlen($_REQUEST['field_name'][$fieldindex])
+                    && /*overload*/mb_strlen($_REQUEST['field_name'][$fieldindex])
                 ) {
                     PMA_setMIME(
                         $db, $table,
@@ -88,10 +92,8 @@ if (isset($_REQUEST['do_save_data'])) {
             __('Table %1$s has been altered successfully.')
         );
         $message->addParam($table);
-        $response->addJSON('message', $message);
         $response->addJSON(
-            'sql_query',
-            PMA_Util::getMessage(null, $sql_query)
+            'message', PMA_Util::getMessage($message, $sql_query, 'success')
         );
         exit;
     } else {
@@ -107,7 +109,7 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 if ($abort == false) {
     /**
-     * Gets tables informations
+     * Gets tables information
      */
     include_once 'libraries/tbl_common.inc.php';
     include_once 'libraries/tbl_info.inc.php';
@@ -119,4 +121,3 @@ if ($abort == false) {
     $action = 'tbl_addfield.php';
     include_once 'libraries/tbl_columns_definition_form.inc.php';
 }
-?>

@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
-  * constant for differenciating array in $_SESSION variable
+  * constant for differentiating array in $_SESSION variable
   */
 $SESSION_KEY = '__upload_status';
 

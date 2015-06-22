@@ -298,19 +298,14 @@ class PMA_Error_Handler
     {
         $retval = '';
         // display errors if SendErrorReports is set to 'ask'.
-        if ($GLOBALS['cfg']['SendErrorReports'] != 'never'
-            || $GLOBALS['cfg']['Error_Handler']['display']
-        ) {
+        if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
             foreach ($this->getErrors() as $error) {
                 if ($error instanceof PMA_Error) {
                     if (! $error->isDisplayed()) {
                         $retval .= $error->getDisplay();
                     }
                 } else {
-                    ob_start();
-                    var_dump($error);
-                    $retval .= ob_get_contents();
-                    ob_end_clean();
+                    $retval .= var_export($error, true);
                 }
             }
         } else {
@@ -448,9 +443,7 @@ class PMA_Error_Handler
      */
     public function countDisplayErrors()
     {
-        if ($GLOBALS['cfg']['SendErrorReports'] != 'never'
-            || $GLOBALS['cfg']['Error_Handler']['display']
-        ) {
+        if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
             return $this->countErrors();
         } else {
             return $this->countUserErrors();
@@ -492,8 +485,7 @@ class PMA_Error_Handler
     public function hasErrorsForPrompt()
     {
         return (
-            ($GLOBALS['cfg']['SendErrorReports'] != 'never'
-                || $GLOBALS['cfg']['Error_Handler']['display'])
+            $GLOBALS['cfg']['SendErrorReports'] != 'never'
             && $this->countErrors() !=  $this->countUserErrors()
         );
     }
@@ -505,7 +497,6 @@ class PMA_Error_Handler
      *
      * @return void
      */
-
     public function reportErrors()
     {
         // if there're no actual errors,
@@ -538,8 +529,7 @@ class PMA_Error_Handler
             //ask user whether to submit errors or not.
             if (!$response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.
-                $jsCode = 'PMA_ajaxShowMessage(PMA_messages["phpErrorsFound"], '
-                        . ' 2000);'
+                $jsCode = 'PMA_ajaxShowMessage(PMA_messages["phpErrorsFound"]);'
                         . '$("#pma_ignore_errors_popup").bind("click", function() {
                             PMA_ignorePhpErrors()
                         });'
@@ -564,4 +554,3 @@ class PMA_Error_Handler
         $response->getFooter()->getScripts()->addCode($jsCode);
     }
 }
-?>

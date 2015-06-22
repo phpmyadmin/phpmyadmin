@@ -70,7 +70,7 @@ class PMA_DisplayCreateTable_Test extends PHPUnit_Framework_TestCase
 
         //getImage
         $this->assertContains(
-            PMA_Util::getImage('b_newtbl.png'),
+            PMA_Util::getImage('b_table_add.png'),
             $html
         );
 

@@ -67,9 +67,9 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
     public function testPMASelectServer()
     {
         $not_only_options = false;
-        $ommit_fieldset = false;
+        $omit_fieldset = false;
 
-        $GLOBALS['cfg']['DefaultTabServer'] = "DefaultTabServer";
+        $GLOBALS['cfg']['DefaultTabServer'] = "welcome";
 
         $GLOBALS['cfg']['Servers'] = array(
             '0' => array(
@@ -88,8 +88,8 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
             ),
         );
 
-        //$not_only_options=false & $ommit_fieldset=false
-        $html = PMA_selectServer($not_only_options, $ommit_fieldset);
+        //$not_only_options=false & $omit_fieldset=false
+        $html = PMA_selectServer($not_only_options, $omit_fieldset);
         $server = $GLOBALS['cfg']['Servers']['0'];
 
         //server items
@@ -111,21 +111,23 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
         );
 
         $not_only_options = true;
-        $ommit_fieldset = true;
+        $omit_fieldset = true;
         $GLOBALS['cfg']['DisplayServersList'] = null;
 
-        //$not_only_options=true & $ommit_fieldset=true
-        $html = PMA_selectServer($not_only_options, $ommit_fieldset);
+        //$not_only_options=true & $omit_fieldset=true
+        $html = PMA_selectServer($not_only_options, $omit_fieldset);
 
         //$GLOBALS['cfg']['DefaultTabServer']
         $this->assertContains(
-            $GLOBALS['cfg']['DefaultTabServer'],
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabServer'], 'server'
+            ),
             $html
         );
 
         //PMA_URL_getHiddenInputs
         $this->assertContains(
-            PMA_URL_getHiddenInputs(),
+            '<input type="hidden" name="token" value="token" />',
             $html
         );
 

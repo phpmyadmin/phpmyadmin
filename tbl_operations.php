@@ -17,7 +17,16 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/operations.lib.php';
 
 $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+
+/**
+ * Load JavaScript files
+ */
 $response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('functions.js');
+$scripts->addFile('tbl_operations.js');
+
 /**
  * Runs common work
  */
@@ -46,7 +55,7 @@ require_once 'libraries/Partition.class.php';
 $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 
 /**
- * Gets tables informations
+ * Gets tables information
  */
 require 'libraries/tbl_info.inc.php';
 
@@ -80,8 +89,10 @@ $pmaString = $GLOBALS['PMA_String'];
  * If the table has to be moved to some other database
  */
 if (isset($_REQUEST['submit_move']) || isset($_REQUEST['submit_copy'])) {
-    $_message = '';
-    include_once 'tbl_move_copy.php';
+    //$_message = '';
+    PMA_moveOrCopyTable($db, $table);
+    // This was ended in an Ajax call
+    exit;
 }
 /**
  * If the table has to be maintained
@@ -98,7 +109,23 @@ if (isset($_REQUEST['submitoptions'])) {
     $warning_messages = array();
 
     if (isset($_REQUEST['new_name'])) {
+        // Get original names before rename operation
+        $oldTable = $pma_table->getName();
+        $oldDb = $pma_table->getDbName();
+
         if ($pma_table->rename($_REQUEST['new_name'])) {
+            if (isset($_REQUEST['adjust_privileges'])
+                && ! empty($_REQUEST['adjust_privileges'])
+            ) {
+                PMA_AdjustPrivileges_renameOrMoveTable(
+                    $oldDb, $oldTable, $_REQUEST['db'], $_REQUEST['new_name']
+                );
+            }
+
+            // Reselect the original DB
+            $GLOBALS['db'] = $oldDb;
+            $GLOBALS['dbi']->selectDb($oldDb);
+
             $_message .= $pma_table->getLastMessage();
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
@@ -111,7 +138,7 @@ if (isset($_REQUEST['submitoptions'])) {
     }
 
     if (! empty($_REQUEST['new_tbl_storage_engine'])
-        && $pmaString->strtolower($_REQUEST['new_tbl_storage_engine']) !== $pmaString->strtolower($tbl_storage_engine)
+        && /*overload*/mb_strtolower($_REQUEST['new_tbl_storage_engine']) !== /*overload*/mb_strtolower($tbl_storage_engine)
     ) {
         $new_tbl_storage_engine = $_REQUEST['new_tbl_storage_engine'];
         // reset the globals for the new engine
@@ -151,6 +178,16 @@ if (isset($_REQUEST['submitoptions'])) {
         unset($table_alters);
         $warning_messages = PMA_getWarningMessagesArray();
     }
+
+    if (isset($_REQUEST['tbl_collation'])
+        && ! empty($_REQUEST['tbl_collation'])
+        && isset($_REQUEST['change_all_collations'])
+        && ! empty($_REQUEST['change_all_collations'])
+    ) {
+        PMA_changeAllColumnsCollation(
+            $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['tbl_collation']
+        );
+    }
 }
 /**
  * Reordering the table has been requested by the user
@@ -162,6 +199,8 @@ if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
 /**
  * A partition operation has been requested by the user
  */
+$sql_query = '';
+
 if (isset($_REQUEST['submit_partition'])
     && ! empty($_REQUEST['partition_operation'])
 ) {
@@ -273,8 +312,8 @@ if (! $hideOrderTable) {
  */
 $response->addHTML(PMA_getHtmlForMoveTable());
 
-if ($pmaString->strstr($show_comment, '; InnoDB free') === false) {
-    if ($pmaString->strstr($show_comment, 'InnoDB free') === false) {
+if (/*overload*/mb_strstr($show_comment, '; InnoDB free') === false) {
+    if (/*overload*/mb_strstr($show_comment, 'InnoDB free') === false) {
         // only user entered comment
         $comment = $show_comment;
     } else {
@@ -397,7 +436,7 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
 
-    if ($foreign) {
+    if (! empty($foreign)) {
         $response->addHTML(
             PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
         );
@@ -406,5 +445,3 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
 } // end  if (!empty($cfg['Server']['relation']))
 
 $response->addHTML('</div>');
-
-?>

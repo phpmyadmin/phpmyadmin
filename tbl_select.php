@@ -53,10 +53,12 @@ if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns']))
     include_once 'libraries/tbl_info.inc.php';
 
     if (! isset($goto)) {
-        $goto = $GLOBALS['cfg']['DefaultTabTable'];
+        $goto = PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+        );
     }
     // Defines the url to return to in case of error in the next sql statement
-    $err_url   = $goto . '?' . PMA_URL_getCommon($db, $table);
+    $err_url   = $goto . PMA_URL_getCommon(array('db' => $db, 'table' => $table));
     // Displays the table search form
     $response->addHTML($table_search->getSecondaryTabs());
     $response->addHTML($table_search->getSelectionForm($goto));
@@ -74,8 +76,7 @@ if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns']))
 
     PMA_executeQueryAndSendQueryResponse(
         $analyzed_sql_results, false, $db, $table, null, null, null, false,
-        null, null, null, null, $GLOBALS['goto'], $pmaThemeImage, null,
+        null, null, null, $GLOBALS['goto'], $pmaThemeImage, null,
         null, null, $sql_query, null, null
     );
 }
-?>

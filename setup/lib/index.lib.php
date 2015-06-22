@@ -115,7 +115,10 @@ function PMA_versionCheck()
             'error',
             $message_id,
             __('Version check'),
-            __('Reading of version failed. Maybe you\'re offline or the upgrade server does not respond.')
+            __(
+                'Reading of version failed. '
+                . 'Maybe you\'re offline or the upgrade server does not respond.'
+            )
         );
         return;
     }

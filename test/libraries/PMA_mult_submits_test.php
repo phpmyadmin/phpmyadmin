@@ -50,6 +50,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
         $GLOBALS['pmaThemeImage'] = 'image';
@@ -267,7 +268,6 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetQueryStrFromSelected()
     {
         $query_type = 'row_delete';
-        $action = 'db_delete_row';
         $db = "PMA_db";
         $table = "PMA_table";
         $selected = array(
@@ -284,7 +284,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         list(
             $result, $rebuild_database_list, $reload_ret,
-            $run_parts, $use_sql, $sql_query, $sql_query_views
+            $run_parts, $use_sql,,
         ) = PMA_getQueryStrFromSelected(
             $query_type, $selected, $db, $table, $views,
             $primary, $from_prefix, $to_prefix
@@ -316,8 +316,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         $query_type = 'analyze_tbl';
         list(
-            $result, $rebuild_database_list, $reload_ret,
-            $run_parts, $use_sql, $sql_query, $sql_query_views
+            ,,,, $use_sql,,
         ) = PMA_getQueryStrFromSelected(
             $query_type, $selected, $db, $table, $views,
             $primary, $from_prefix, $to_prefix
@@ -441,14 +440,13 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $selected = array(
             "table1", "table2"
         );
-        $action = 'db_delete_row';
         $views = array(
             "table1", "table2"
         );
 
         list($full_query, $reload, $full_query_views)
             = PMA_getQueryFromSelected(
-                $what, $db, $table, $selected, $action, $views
+                $what, $db, $table, $selected, $views
             );
 
         //validate 1: $full_query
@@ -459,7 +457,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         //validate 2: $reload
         $this->assertEquals(
-            null,
+            false,
             $reload
         );
 
@@ -473,7 +471,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
 
         list($full_query, $reload, $full_query_views)
             = PMA_getQueryFromSelected(
-                $what, $db, $table, $selected, $action, $views
+                $what, $db, $table, $selected, $views
             );
 
         //validate 1: $full_query

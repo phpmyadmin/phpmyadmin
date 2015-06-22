@@ -54,7 +54,7 @@ class PMA_SQLParser_Data_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_SQPdata()
+    public function testData()
     {
         $data = PMA_SQP_getParserDataMap();
         $this->_assertSorted($data['PMA_SQPdata_function_name']);
@@ -70,7 +70,7 @@ class PMA_SQLParser_Data_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_SQPdata_function_name()
+    public function testFunctionName()
     {
         $this->_assertParserData('PMA_SQPdata_function_name');
     }
@@ -81,7 +81,7 @@ class PMA_SQLParser_Data_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_SQPdata_column_attrib()
+    public function testColumnAttrib()
     {
         $this->_assertParserData('PMA_SQPdata_column_attrib');
     }
@@ -92,7 +92,7 @@ class PMA_SQLParser_Data_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_SQPdata_reserved_word()
+    public function testReservedWord()
     {
         $this->_assertParserData('PMA_SQPdata_reserved_word');
     }
@@ -103,7 +103,7 @@ class PMA_SQLParser_Data_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_SQPdata_forbidden_word()
+    public function testForbiddenWord()
     {
         $this->_assertParserData('PMA_SQPdata_forbidden_word');
     }
@@ -114,11 +114,10 @@ class PMA_SQLParser_Data_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_SQPdata_column_type()
+    public function testColumnType()
     {
         $this->_assertParserData('PMA_SQPdata_column_type');
     }
-
 }
 
 ?>

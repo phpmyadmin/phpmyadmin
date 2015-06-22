@@ -66,8 +66,8 @@ class SchemaDia extends SchemaPlugin
         $leaf->setText(__('Orientation'));
         $leaf->setValues(
             array(
-                'L' => 'Landscape',
-                'P' => 'Portrait',
+                'L' => __('Landscape'),
+                'P' => __('Portrait'),
             )
         );
         $specificOptions->addProperty($leaf);
@@ -102,7 +102,7 @@ class SchemaDia extends SchemaPlugin
 
 
     /**
-     * Exports the shcema into DIA format.
+     * Exports the schema into DIA format.
      *
      * @param string $db database name
      *
@@ -110,7 +110,7 @@ class SchemaDia extends SchemaPlugin
      */
     public function exportSchema($db)
     {
-        $export = new PMA_Dia_Relation_Schema();
+        $export = new PMA_Dia_Relation_Schema($db);
         $export->showOutput();
     }
 }

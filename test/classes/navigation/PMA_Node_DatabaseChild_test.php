@@ -38,7 +38,7 @@ class Node_DatabaseChildTest extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $_SESSION['relation'][1]['navwork'] = true;
@@ -82,7 +82,7 @@ class Node_DatabaseChildTest extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            '<a href="navigation.php?' . PMA_URL_getCommon()
+            '<a href="navigation.php' . PMA_URL_getCommon()
             . '&hideNavItem=true&itemType=itemType&itemName=child'
             . '&dbName=parent" class="hideNavItem ajax">',
             $html

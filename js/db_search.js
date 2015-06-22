@@ -23,7 +23,7 @@ AJAX.registerTeardown('db_search.js', function () {
     $('#togglesearchresultlink').unbind('click');
     $("#togglequerybox").unbind('click');
     $('#togglesearchformlink').unbind('click');
-    $("#db_search_form.ajax").die('submit');
+    $(document).off('submit', "#db_search_form.ajax");
 });
 
 /**
@@ -43,17 +43,19 @@ function loadResult(result_path, table_name, link)
         $('#togglequerybox').hide();
         /**  Load the browse results to the page */
         $("#table-info").show();
-        $('#table-link').attr({"href" : 'sql.php?' + link }).text(table_name);
-        var url = result_path + "#sqlqueryresults";
+        $('#table-link').attr({"href" : 'sql.php' + link }).text(table_name);
+        var url = result_path + "#searchresults";
         $.get(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
-            if (data.success) {
+            if (typeof data !== 'undefined' && data.success) {
                 $('#browse-results').html(data.message);
                 $('html, body')
                     .animate({
                         scrollTop: $("#browse-results").offset().top
                     }, 1000);
                 PMA_ajaxRemoveMessage($msg);
-                PMA_makegrid($('#table_results')[0], true, true, true, true);
+                $('.table_results').each(function () {
+                    PMA_makegrid(this, true, true, true, true);
+                });
                 $('#browse-results').show();
             } else {
                 PMA_ajaxShowMessage(data.error, false);
@@ -82,10 +84,10 @@ function deleteResult(result_path, msg)
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDeleting, false);
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
-            var url = result_path + "#result_query, #sqlqueryform";
+            var url = result_path;
             $.get(url, {'ajax_request': true, 'is_js_confirmed': true},
                 function (data) {
-                    if (data.success) {
+                    if (typeof data !== 'undefined' && data.success) {
                         $('#sqlqueryform').html(data.sql_query);
                         /** Refresh the search results after the deletion */
                         document.getElementById('buttonGo').click();
@@ -192,7 +194,7 @@ AJAX.registerOnload('db_search.js', function () {
     /**
      * Ajax Event handler for retrieving the result of an SQL Query
      */
-    $("#db_search_form.ajax").live('submit', function (event) {
+    $(document).on('submit', "#db_search_form.ajax", function (event) {
         event.preventDefault();
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strSearching, false);
@@ -203,7 +205,7 @@ AJAX.registerOnload('db_search.js', function () {
 
         var url = $form.serialize() + "&submit_search=" + $("#buttonGo").val();
         $.post($form.attr('action'), url, function (data) {
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 // found results
                 $("#searchresults").html(data.message);
 
@@ -228,7 +230,7 @@ AJAX.registerOnload('db_search.js', function () {
                     .show();
             } else {
                 // error message (zero rows)
-                $("#sqlqueryresults").html(data.error);
+                $("#searchresults").html(data.error).show();
             }
 
             PMA_ajaxRemoveMessage($msgbox);

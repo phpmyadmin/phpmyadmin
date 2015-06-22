@@ -85,6 +85,16 @@ Basic settings
 
     You can set this parameter to ``true`` to stop this message from appearing.
 
+.. config:option:: $cfg['LoginCookieValidityDisableWarning']
+
+    :type: boolean
+    :default: false
+
+    A warning is displayed on the main page if the PHP parameter
+    session.gc_maxlifetime is lower than cookie validity configured in phpMyAdmin.
+
+    You can set this parameter to ``true`` to stop this message from appearing.
+
 .. config:option:: $cfg['ServerLibraryDifference_DisableWarning']
 
     :type: boolean
@@ -134,6 +144,17 @@ Basic settings
     set, and the :config:option:`$cfg['UserprefsDisallow']` directive should
     contain ``'SendErrorReports'`` in one of its array values.
 
+.. config:option:: $cfg['ConsoleEnterExecutes']
+
+    :type: boolean
+    :default: false
+
+    Setting this to ``true`` allows the user to execute queries by pressing Enter
+    instead of Ctrl+Enter. A new line can be inserted by pressing Shift + Enter.
+
+    The behaviour of the console can be temporarily changed using console's
+    settings interface.
+
 .. config:option:: $cfg['AllowThirdPartyFraming']
 
     :type: boolean
@@ -149,7 +170,7 @@ Server connection settings
 .. config:option:: $cfg['Servers']
 
     :type: array
-    :default: one server array with settings listed bellow
+    :default: one server array with settings listed below
 
     Since version 1.4.2, phpMyAdmin supports the administration of multiple
     MySQL servers. Therefore, a :config:option:`$cfg['Servers']`-array has been
@@ -608,7 +629,7 @@ Server connection settings
     transformation system to work. phpMyAdmin will upgrade it automatically
     for you by analyzing your current column\_info table structure.
     However, if something goes wrong with the auto-upgrade then you can
-    use the SQL script found in ``./examples/upgrade_column_info_4_3_0+.sql``
+    use the SQL script found in ``./sql/upgrade_column_info_4_3_0+.sql``
     to upgrade it manually.
 
     To allow the usage of this functionality:
@@ -628,7 +649,7 @@ Server connection settings
            ADD `transformation` VARCHAR( 255 ) NOT NULL,
            ADD `transformation_options` VARCHAR( 255 ) NOT NULL;
     * to update your PRE-4.3.0 Column\_info table manually use this
-      ``./examples/upgrade_column_info_4_3_0+.sql`` SQL script.
+      ``./sql/upgrade_column_info_4_3_0+.sql`` SQL script.
 
     .. note::
 
@@ -894,6 +915,18 @@ Server connection settings
     rows in :config:option:`$cfg['Servers'][$i]['table_uiprefs']` and automatically
     delete older rows.
 
+.. config:option:: $cfg['Servers'][$i]['SessionTimeZone']
+
+    :type: string
+    :default: ``''``
+
+    Sets the time zone used by phpMyAdmin. Leave blank to use the time zone of your
+    database server. Possible values are explained at
+    http://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
+
+    This is useful when your database server uses a time zone which is different from the
+    time zone you want to use in phpMyAdmin.
+
 .. config:option:: $cfg['Servers'][$i]['AllowRoot']
 
     :type: boolean
@@ -998,6 +1031,16 @@ Server connection settings
 
     * ``xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]`` (partial :term:`IPv6` address range)
 
+.. config:option:: $cfg['Servers'][$i]['DisableIS']
+
+    :type: boolean
+    :default: false
+
+    Disable using ``INFORMATION_SCHEMA`` to retrieve information (use
+    ``SHOW`` commands instead), because of speed issues when many
+    databases are present. Currently used in some parts of the code, more
+    to come.
+
 .. config:option:: $cfg['Servers'][$i]['SignonScript']
 
     :type: string
@@ -1068,8 +1111,8 @@ Generic settings
     :type: boolean
     :default: true
 
-    Enables check for latest versions using javascript on main phpMyAdmin
-    page.
+    Enables check for latest versions using JavaScript on the main phpMyAdmin
+    page or by directly accessing :file:`version_check.php`.
 
     .. note::
 
@@ -1117,8 +1160,7 @@ Generic settings
     :default: 250
 
     The maximum number of table names to be displayed in the main panel's
-    list (except on the Export page). This limit is also enforced in the
-    navigation panel when in Light mode.
+    list (except on the Export page).
 
 .. config:option:: $cfg['ShowHint']
 
@@ -1158,7 +1200,8 @@ Generic settings
     :type: boolean
     :default: false
 
-    Whether to force using https while accessing phpMyAdmin.
+    Whether to force using https while accessing phpMyAdmin. In a reverse
+    proxy setup, setting this to ``true`` is not supported.
 
     .. note::
 
@@ -1232,6 +1275,16 @@ Generic settings
     CodeMirror provides syntax highlighting and line numbers.  However,
     middle-clicking for pasting the clipboard contents in some Linux
     distributions (such as Ubuntu) is not supported by all browsers.
+
+.. config:option:: $cfg['DefaultForeignKeyChecks']
+
+    :type: string
+    :default: ``'default'``
+
+    Default value of the checkbox for foreign key checks, to disable/enable
+    foreign key checks for certain queries. The possible values are ``'default'``,
+    ``'enable'`` or ``'disable'``. If set to ``'default'``, the value of the
+    MySQL variable ``FOREIGN_KEY_CHECKS`` is used.
 
 .. config:option:: $cfg['AllowUserDropDatabase']
 
@@ -1352,15 +1405,26 @@ Cookie authentication options
     .. note::
 
         Please use this carefully, as this may allow users access to MySQL servers
-        behind the firewall where your :term:`HTTP`
-        server is placed.
+        behind the firewall where your :term:`HTTP` server is placed.
+        See also :config:option:`$cfg['ArbitraryServerRegexp']`.
+
+.. config:option:: $cfg['ArbitraryServerRegexp']
+
+    :type: string
+    :default: ``''``
+
+    Restricts the MySQL servers to which the user can log in when
+    :config:option:`$cfg['AllowArbitraryServer']` is enabled by
+    matching the :term:`IP` or the hostname of the MySQL server
+    to the given regular expression. The regular expression must be enclosed
+    with a delimiter character.
 
 .. config:option:: $cfg['CaptchaLoginPublicKey']
 
     :type: string
     :default: ``''``
 
-    The public key for the reCaptcha service that can be obtain from
+    The public key for the reCaptcha service that can be obtained from
     http://www.google.com/recaptcha.
 
     reCaptcha will be then used in :ref:`cookie`.
@@ -1378,10 +1442,17 @@ Cookie authentication options
 Navigation panel setup
 ----------------------
 
+.. config:option:: $cfg['ShowDatabasesNavigationAsTree']
+
+    :type: boolean
+    :default: true
+
+    In the navigation panel, replaces the database tree with a selector
+
 .. config:option:: $cfg['FirstLevelNavigationItems']
 
     :type: integer
-    :default: 250
+    :default: 100
 
     The number of first level databases that can be displayed on each page
     of navigation tree.
@@ -1448,11 +1519,9 @@ Navigation panel setup
     create phpMyAdmin configuration storage in the current database
     or use the existing one, if already present.
 
-    .. note::
-
-        If there is no central configuration storage defined then you may end
-        up with different set of phpMyAdmin configuration storage tables for
-        different databases.
+    This setting has no effect if the phpMyAdmin configuration storage database
+    is properly created and the related configuration directives (such as
+    :config:option:`$cfg['Servers'][$i]['pmadb']` and so on) are configured.
 
 .. config:option:: $cfg['NavigationLinkWithMainPanel']
 
@@ -1475,9 +1544,9 @@ Navigation panel setup
     :type: string
     :default: ``'index.php'``
 
-    Enter :term:`URL` where logo in the
-    navigation panel will point to. For use especially with self made
-    theme which changes this.
+    Enter :term:`URL` where logo in the navigation panel will point to. 
+    For use especially with self made theme which changes this.
+    For external URLs, you should include URL scheme as well.
 
 .. config:option:: $cfg['NavigationLogoLinkWindow']
 
@@ -1529,23 +1598,38 @@ Navigation panel setup
 .. config:option:: $cfg['NavigationTreeDefaultTabTable']
 
     :type: string
-    :default: ``'tbl_structure.php'``
+    :default: ``'structure'``
 
     Defines the tab displayed by default when clicking the small icon next
     to each table name in the navigation panel. Possible values:
 
-    * ``tbl_structure.php``
-    * ``tbl_sql.php``
-    * ``tbl_select.php``
-    * ``tbl_change.php``
-    * ``sql.php``
+    * ``structure``
+    * ``sql``
+    * ``search``
+    * ``insert``
+    * ``browse``
 
-.. config:option:: $cfg['NavigationTreeDisableDatabaseExpansion']
+.. config:option:: $cfg['NavigationTreeDefaultTabTable2']
+
+    :type: string
+    :default: null
+
+    Defines the tab displayed by default when clicking the second small icon next
+    to each table name in the navigation panel. Possible values:
+
+    * ``(empty)``
+    * ``structure``
+    * ``sql``
+    * ``search``
+    * ``insert``
+    * ``browse``
+
+.. config:option:: $cfg['NavigationTreeEnableExpansion']
 
     :type: boolean
     :default: false
 
-    Whether or not to disable the possibility of databases expansion in the navigation panel
+    Whether to offer the possibility of tree expansion in the navigation panel.
 
 Main panel
 ----------
@@ -1601,6 +1685,23 @@ Main panel
     in the configuration file, end users can't be allowed to change their
     passwords.
 
+.. config:option:: $cfg['ShowGitRevision']
+
+    :type: boolean
+    :default: true
+
+    Defines whether to display informations about the current Git revision (if
+    applicable) on the main panel.
+
+.. config:option:: $cfg['MysqlMinVersion']
+
+    :type: array
+
+    Defines the minimum supported MySQL version. The default is chosen
+    by the phpMyAdmin team; however this directive was asked by a developer
+    of the Plesk control panel to ease integration with older MySQL servers
+    (where most of the phpMyAdmin features work).
+
 Database structure
 ------------------
 
@@ -1647,6 +1748,24 @@ Browse mode
     Defines whether the table navigation links contain ``'icons'``, ``'text'``
     or ``'both'``.
 
+.. config:option:: $cfg['ActionLinksMode']
+
+    :type: string
+    :default: ``'both'``
+
+    If set to ``icons``, will display icons instead of text for db and table
+    properties links (like :guilabel:`Browse`, :guilabel:`Select`,
+    :guilabel:`Insert`, ...). Can be set to ``'both'``
+    if you want icons AND text. When set to ``text``, will only show text.
+
+.. config:option:: $cfg['RowActionType']
+
+    :type: string
+    :default: ``'both'``
+
+    Whether to display icons or text or both icons and text in table row action
+    segment. Value can be either of ``'icons'``, ``'text'`` or ``'both'``.
+
 .. config:option:: $cfg['ShowAll']
 
     :type: boolean
@@ -1681,7 +1800,15 @@ Browse mode
     :default: ``'double-click'``
 
     Defines which action (``double-click`` or ``click``) triggers grid
-    editing. Can be deactived with the ``disabled`` value.
+    editing. Can be deactivated with the ``disabled`` value.
+
+.. config:option:: $cfg['RelationalDisplay']
+
+    :type: string
+    :default: ``'K'``
+
+    Defines the initial behavior for Options > Relational. ``K``, which
+    is the default, displays the key while ``D`` shows the display column.
 
 .. config:option:: $cfg['SaveCellsAtOnce']
 
@@ -1827,16 +1954,6 @@ Tabs display settings
 
     Defines whether the menu tabs contain ``'icons'``, ``'text'`` or ``'both'``.
 
-.. config:option:: $cfg['ActionLinksMode']
-
-    :type: string
-    :default: ``'both'``
-
-    If set to ``icons``, will display icons instead of text for db and table
-    properties links (like :guilabel:`Browse`, :guilabel:`Select`,
-    :guilabel:`Insert`, ...). Can be set to ``'both'``
-    if you want icons AND text. When set to ``text``, will only show text.
-
 .. config:option:: $cfg['PropertiesNumColumns']
 
     :type: integer
@@ -1849,40 +1966,41 @@ Tabs display settings
 .. config:option:: $cfg['DefaultTabServer']
 
     :type: string
-    :default: ``'index.php'``
+    :default: ``'welcome'``
 
     Defines the tab displayed by default on server view. Possible values:
 
-    * ``main.php`` (recommended for multi-user setups)
-    * ``server_databases.php``,
-    * ``server_status.php``
-    * ``server_variables.php``
-    * ``server_privileges.php``
+    * ``welcome`` (recommended for multi-user setups)
+    * ``databases``,
+    * ``status``
+    * ``variables``
+    * ``privileges``
 
 .. config:option:: $cfg['DefaultTabDatabase']
 
     :type: string
-    :default: ``'db_structure.php'``
+    :default: ``'structure'``
 
     Defines the tab displayed by default on database view. Possible
     values:
 
-    * ``db_structure.php``
-    * ``db_sql.php``
-    * ``db_search.php``.
+    * ``structure``
+    * ``sql``
+    * ``search``
+    * ``operations``
 
 .. config:option:: $cfg['DefaultTabTable']
 
     :type: string
-    :default: ``'sql.php'``
+    :default: ``'browse'``
 
     Defines the tab displayed by default on table view. Possible values:
 
-    * ``tbl_structure.php``
-    * ``tbl_sql.php``
-    * ``tbl_select.php``
-    * ``tbl_change.php``
-    * ``sql.php``
+    * ``structure``
+    * ``sql``
+    * ``search``
+    * ``insert``
+    * ``browse``
 
 PDF Options
 -----------
@@ -1922,8 +2040,8 @@ Languages
     :default: ``'utf8_general_ci'``
 
     Defines the default connection collation to use, if not user-defined.
-    See the `MySQL documentation for charsets 
-    <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_ 
+    See the `MySQL documentation for charsets
+    <http://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_
     for list of possible values. This setting is
     ignored when connected to Drizzle server.
 
@@ -1978,7 +2096,7 @@ Languages
 .. config:option:: $cfg['AvailableCharsets']
 
     :type: array
-    :default: array(..._
+    :default: array(...)
 
     Available character sets for MySQL conversion. You can add your own
     (any of supported by recode/iconv) or remove these which you don't
@@ -2062,7 +2180,7 @@ Web server settings
     Additional string to include in allowed script and image sources in Content
     Security Policy header.
 
-    This can be useful when you want to include some external javascript files
+    This can be useful when you want to include some external JavaScript files
     in :file:`config.footer.inc.php` or :file:`config.header.inc.php`, which
     would be normally not allowed by Content Security Policy.
 
@@ -2164,26 +2282,36 @@ Theme settings
     :type: string [CSS color]
     :default:
 
+    The background color used when hovering over a row in the Browse panel.
+    See :file:`themes/themename/layout.inc.php`.
+
 .. config:option:: $cfg['BrowsePointerColor']
 
     :type: string [CSS color]
     :default:
+
+    The text color used when hovering over a row in the Browse panel.
+    Used when :config:option:`$cfg['BrowsePointerEnable']` is true.
+    See :file:`themes/themename/layout.inc.php`.
 
 .. config:option:: $cfg['BrowseMarkerBackground']
 
     :type: string [CSS color]
     :default:
 
+    The background color used to highlight a row selected by checkbox in the Browse panel or
+    when a column is selected.
+    Used when :config:option:`$cfg['BrowsePointerEnable']` is true.
+    See :file:`themes/themename/layout.inc.php`.
+
 .. config:option:: $cfg['BrowseMarkerColor']
 
     :type: string [CSS color]
     :default:
 
-    The colors (HTML) uses for the pointer and the marker in browse mode.
-    The former feature highlights the row over which your mouse is passing
-    and the latter lets you visually mark/unmark rows by clicking on the
-    corresponding checkbox. Highlighting / marking a column is done by
-    hovering over / clicking the column's header (outside of the text).
+    The color used when you visually mark a row or column in the Browse panel.
+    Rows can be marked by clicking the checkbox to the left of the row and columns can be
+    marked by clicking the column's header (outside of the header text).
     See :file:`themes/themename/layout.inc.php`.
 
 .. config:option:: $cfg['FontFamily']
@@ -2210,21 +2338,24 @@ Design customization
     :type: boolean
     :default: true
 
-    A value of ``true`` activates the navi pointer.
+    When set to true, hovering over an item in the navigation panel causes that item to be marked
+    (the background is highlighted).
 
 .. config:option:: $cfg['BrowsePointerEnable']
 
     :type: boolean
     :default: true
 
-    Whether to activate the browse pointer or not.
+    When set to true, hovering over a row in the Browse page causes that row to be marked (the background
+    is highlighted).
 
 .. config:option:: $cfg['BrowseMarkerEnable']
 
     :type: boolean
     :default: true
 
-    Whether to activate the browse marker or not.
+    When set to true, a data row is marked (the background is highlighted) when the row is selected
+    with the checkbox.
 
 .. config:option:: $cfg['LimitChars']
 
@@ -2241,20 +2372,7 @@ Design customization
 
     Defines the place where table row links (Edit, Copy, Delete) would be
     put when tables contents are displayed (you may have them displayed at
-    the left side, right side, both sides or nowhere). "left" and "right"
-    are parsed as "top" and "bottom" with vertical display mode.
-
-.. config:option:: $cfg['DefaultDisplay']
-
-    :type: string
-    :default: ``'horizontal'``
-
-    There are 3 display modes: horizontal, horizontalflipped and vertical.
-    Define which one is displayed by default. The first mode displays each
-    row on a horizontal line, the second rotates the headers by 90
-    degrees, so you can use descriptive headers even though columns only
-    contain small values and still print them out. The vertical mode sorts
-    each row on a vertical lineup.
+    the left side, right side, both sides or nowhere).
 
 .. config:option:: $cfg['RememberSorting']
 
@@ -2271,19 +2389,6 @@ Design customization
     This defines the default sort order for the tables, having a primary key,
     when there is no sort order defines externally.
     Acceptable values : ['NONE', 'ASC', 'DESC']
-
-.. config:option:: $cfg['HeaderFlipType']
-
-    :type: string
-    :default: ``'auto'``
-
-    The HeaderFlipType can be set to 'auto', 'css' or 'fake'. When using
-    'css' the rotation of the header for horizontalflipped is done via
-    CSS. The CSS transformation currently works only in Internet
-    Explorer.If set to 'fake' PHP does the transformation for you, but of
-    course this does not look as good as CSS. The 'auto' option enables
-    CSS transformation when browser supports it and use PHP based one
-    otherwise.
 
 .. config:option:: $cfg['ShowBrowseComments']
 
@@ -2377,6 +2482,14 @@ Text fields
 
     Defines if the whole textarea of the query box will be selected on
     click.
+
+.. config:option:: $cfg['EnableAutocompleteForTablesAndColumns']
+
+    :type: boolean
+    :default: true
+
+    Whether to enable autocomplete for table and column names in any
+    SQL query box.
 
 
 SQL query box settings
@@ -2507,14 +2620,6 @@ Web server upload/save/import directories
 
 Various display setting
 -----------------------
-
-.. config:option:: $cfg['ShowDisplayDirection']
-
-    :type: boolean
-    :default: false
-
-    Defines whether or not type display direction option is shown when
-    browsing a table.
 
 .. config:option:: $cfg['RepeatCells']
 
@@ -2724,7 +2829,7 @@ Developer
     :default: false
 
     Enable logging queries and execution times to be
-    displayed in the bottom of main page (right frame).
+    displayed in the console's Debug SQL tab.
 
 .. config:option:: $cfg['DBG']['demo']
 
@@ -2733,18 +2838,3 @@ Developer
 
     Enable to let server present itself as demo server.
     This is used for <http://demo.phpmyadmin.net/>.
-
-.. config:option:: $cfg['Error_Handler']['display']
-
-    :type: boolean
-    :default: false
-
-    Whether to display errors from PHP or not.
-
-.. config:option:: $cfg['RowActionType']
-
-    :type: string
-    :default: ``'both'``
-
-    Whether to display icons or text or both icons and text in table row action
-    segment. Value can be either of ``'icons'``, ``'text'`` or ``'both'``.

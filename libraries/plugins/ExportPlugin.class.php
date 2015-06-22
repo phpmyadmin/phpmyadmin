@@ -37,14 +37,14 @@ abstract class ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportHeader ();
+    abstract public function exportHeader();
 
     /**
      * Outputs export footer
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportFooter ();
+    abstract public function exportFooter();
 
     /**
      * Outputs database header
@@ -54,7 +54,7 @@ abstract class ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportDBHeader ($db, $db_alias = '');
+    abstract public function exportDBHeader($db, $db_alias = '');
 
     /**
      * Outputs database footer
@@ -63,7 +63,7 @@ abstract class ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportDBFooter ($db);
+    abstract public function exportDBFooter($db);
 
     /**
      * Outputs CREATE DATABASE statement
@@ -87,7 +87,7 @@ abstract class ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportData (
+    abstract public function exportData(
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
     );
 
@@ -143,6 +143,23 @@ abstract class ExportPlugin
         $mime = false,
         $dates = false,
         $aliases = array()
+    ) {
+        ;
+    }
+
+    /**
+     * Exports metadata from Configuration Storage
+     *
+     * @param string       $db            database being exported
+     * @param string|array $tables        table(s) being exported
+     * @param array        $metadataTypes types of metadata to export
+     * @param array        $targetNames   associative array of db and table names of
+     *                                    target configuraton storage
+     *
+     * @return bool Whether it succeeded
+     */
+    public function exportMetadata(
+        $db, $tables, $metadataTypes, $targetNames = array()
     ) {
         ;
     }
@@ -208,7 +225,7 @@ abstract class ExportPlugin
     /**
      * The following methods are implemented here so that they
      * can be used by all export plugin without overriding it.
-     * Note: If you are creating a export plugin then dont include
+     * Note: If you are creating a export plugin then don't include
      * below methods unless you want to override them.
      */
 

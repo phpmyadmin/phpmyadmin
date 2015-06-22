@@ -22,7 +22,6 @@ function escape($variable)
 require_once 'libraries/common.inc.php';
 require_once 'libraries/gis/GIS_Factory.class.php';
 require_once 'libraries/gis/GIS_Visualization.class.php';
-require_once 'libraries/tbl_gis_visualization.lib.php';
 
 // Get data if any posted
 $gis_data = array();
@@ -47,14 +46,14 @@ $pmaString = $GLOBALS['PMA_String'];
 // Extract from field's values if available, if not use the column type passed.
 if (! isset($gis_data['gis_type'])) {
     if (isset($_REQUEST['type']) && $_REQUEST['type'] != '') {
-        $gis_data['gis_type'] = $pmaString->strtoupper($_REQUEST['type']);
+        $gis_data['gis_type'] = /*overload*/mb_strtoupper($_REQUEST['type']);
     }
     if (isset($_REQUEST['value']) && trim($_REQUEST['value']) != '') {
-        $start = ($pmaString->substr($_REQUEST['value'], 0, 1) == "'") ? 1 : 0;
-        $gis_data['gis_type'] = $pmaString->substr(
+        $start = (substr($_REQUEST['value'], 0, 1) == "'") ? 1 : 0;
+        $gis_data['gis_type'] = /*overload*/mb_substr(
             $_REQUEST['value'],
             $start,
-            $pmaString->strpos($_REQUEST['value'], "(") - $start
+            /*overload*/mb_strpos($_REQUEST['value'], "(") - $start
         );
     }
     if ((! isset($gis_data['gis_type']))
@@ -89,10 +88,9 @@ $visualizationSettings = array(
     'spatialColumn' => 'wkt'
 );
 $data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
-$visualization = PMA_GIS_visualizationResults(
-    $data, $visualizationSettings, $format
-);
-$open_layers = PMA_GIS_visualizationResults($data, $visualizationSettings, 'ol');
+$visualization = PMA_GIS_Visualization::getByData($data, $visualizationSettings)->toImage($format);
+
+$open_layers = PMA_GIS_Visualization::getByData($data, $visualizationSettings)->asOl();
 
 // If the call is to update the WKT and visualization make an AJAX response
 if (isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
@@ -426,4 +424,3 @@ echo '</form>';
 
 PMA_Response::getInstance()->addJSON('gis_editor', ob_get_contents());
 ob_end_clean();
-?>

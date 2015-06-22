@@ -339,12 +339,12 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         );
 
         $name_attr =  'aliases[test\'_db][tables][test_&lt;b&gt;table][alias]';
-        $id_attr = $GLOBALS['PMA_String']->substr(md5($name_attr), 0, 12);
+        $id_attr = /*overload*/mb_substr(md5($name_attr), 0, 12);
 
         $this->assertContains(
             '<input type="text" value="" name="' . $name_attr . '" '
             . 'id="' . $id_attr . '" placeholder="'
-            . 'test_&lt;b&gt;table alias" class=""/>',
+            . 'test_&lt;b&gt;table alias" class="" disabled="disabled"/>',
             $html
         );
     }

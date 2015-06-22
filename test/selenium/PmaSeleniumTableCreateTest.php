@@ -95,27 +95,27 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "int(14)",
-            $this->getTable('tablestructure', 1, 4)
+            $this->getCellByTableId('tablestructure', 1, 4)
         );
 
         $this->assertEquals(
             "UNSIGNED",
-            $this->getTable('tablestructure', 1, 6)
+            $this->getCellByTableId('tablestructure', 1, 6)
         );
 
         $this->assertEquals(
             "No",
-            $this->getTable('tablestructure', 1, 7)
+            $this->getCellByTableId('tablestructure', 1, 7)
         );
 
         $this->assertEquals(
             "None",
-            $this->getTable('tablestructure', 1, 8)
+            $this->getCellByTableId('tablestructure', 1, 8)
         );
 
         $this->assertEquals(
             "AUTO_INCREMENT",
-            $this->getTable('tablestructure', 1, 9)
+            $this->getCellByTableId('tablestructure', 1, 9)
         );
 
         $this->assertFalse(
@@ -134,22 +134,22 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "varchar(10)",
-            $this->getTable('tablestructure', 2, 4)
+            $this->getCellByTableId('tablestructure', 2, 4)
         );
 
         $this->assertEquals(
             "utf8_general_ci",
-            $this->getTable('tablestructure', 2, 5)
+            $this->getCellByTableId('tablestructure', 2, 5)
         );
 
         $this->assertEquals(
             "Yes",
-            $this->getTable('tablestructure', 2, 7)
+            $this->getCellByTableId('tablestructure', 2, 7)
         );
 
         $this->assertEquals(
             "def",
-            $this->getTable('tablestructure', 2, 8)
+            $this->getCellByTableId('tablestructure', 2, 8)
         );
 
         $this->assertFalse(

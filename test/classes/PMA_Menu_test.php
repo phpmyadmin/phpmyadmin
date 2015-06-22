@@ -39,6 +39,7 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
         if (!defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
@@ -46,9 +47,9 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
-        $GLOBALS['cfg']['DefaultTabServer'] = 'main.php';
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
-        $GLOBALS['cfg']['DefaultTabTable'] = 'sql.php';
+        $GLOBALS['cfg']['DefaultTabServer'] = 'welcome';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
+        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
         $GLOBALS['cfg']['OBGzip'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = true;
         $GLOBALS['cfg']['TabsMode'] = 'both';
@@ -113,5 +114,21 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
             $menu->getDisplay()
         );
         $menu->display();
+    }
+
+
+    /**
+     * Table menu setTable test
+     *
+     * @return void
+     */
+    function testSetTable()
+    {
+        $menu = new PMA_Menu('server', 'pma_test', '');
+        $menu->setTable('table1');
+        $this->assertContains(
+            'table1',
+            $menu->getDisplay()
+        );
     }
 }

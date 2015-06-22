@@ -129,14 +129,14 @@ rule 'Distribution'
 	version_comment
 	preg_match('/percona/i',value)
 	The MySQL manual only is accurate for official MySQL binaries.
-	Percona documentation is at http://www.percona.com/docs/wiki/
+	Percona documentation is at <a href="http://www.percona.com/software/documentation/">http://www.percona.com/software/documentation/</a>
 	'percona' found in version_comment
 
 rule 'Distribution'
 	version
 	PMA_DRIZZLE
 	The MySQL manual only is accurate for official MySQL binaries.
-	Drizzle documentation is at http://docs.drizzle.org/
+	Drizzle documentation is at <a href="http://www.drizzle.org/content/documentation/">http://www.drizzle.org/content/documentation/</a>
 	Version string (%s) matches Drizzle versioning scheme | value
 
 rule 'MySQL Architecture'
@@ -284,7 +284,7 @@ rule 'Temp disk rate' [!fired('Percentage of temp tables on disk')]
 # Several independent Blog entries suggest (http://ronaldbradford.com/blog/more-on-understanding-sort_buffer_size-2010-05-10/ and http://www.xaprb.com/blog/2010/05/09/how-to-tune-mysqls-sort_buffer_size/)
 # that sort_buffer_size should be left as it is. And increasing read_buffer_size is only suggested when there are a lot of
 # table scans (http://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_read_buffer_size and other sources) though
-# setting it too high is bad too (http://www.mysqlperformanceblog.com/2007/09/17/mysql-what-read_buffer_size-value-is-optimal/).
+# setting it too high is bad too (http://www.percona.com/blog/2007/09/17/mysql-what-read_buffer_size-value-is-optimal/).
 #rule 'Temp table rate'
 #	Created_tmp_tables / Uptime
 #	value * 60 * 60 > 1
@@ -400,14 +400,14 @@ rule 'Percentage of aborted connections'
 	Aborted_connects / Connections * 100
 	value > 1
 	Too many connections are aborted.
-	Connections are usually aborted when they cannot be authorized. <a href="http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-aborted_connects/">This article</a> might help you track down the source.
+	Connections are usually aborted when they cannot be authorized. <a href="http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/">This article</a> might help you track down the source.
 	%s% of all connections are aborted. This value should be below 1% | round(value,1)
 
 rule 'Rate of aborted connections'
 	Aborted_connects / Uptime
 	value * 60 * 60 > 1
 	Too many connections are aborted.
-	Connections are usually aborted when they cannot be authorized. <a href="http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-aborted_connects/">This article</a> might help you track down the source.
+	Connections are usually aborted when they cannot be authorized. <a href="http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/">This article</a> might help you track down the source.
 	Aborted connections rate is at %s, this value should be less than 1 per hour | ADVISOR_bytime(value,2)
 
 rule 'Percentage of aborted clients'
@@ -444,14 +444,14 @@ rule 'Max InnoDB log size' [innodb_buffer_pool_size > 0 && innodb_log_file_size 
 	innodb_log_file_size / (1024 * 1024)
 	value > 256
 	The InnoDB log file size is inadequately large.
-	It is usually sufficient to set {innodb_log_file_size} to 25% of the size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the recovery time after a database crash considerably. See also <a href="http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/">this Article</a>. You need to shutdown the server, remove the InnoDB log files, set the new value in my.cnf, start the server, then check the error logs if everything went fine. See also <a href="http://mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html">this blog entry</a>
+	It is usually sufficient to set {innodb_log_file_size} to 25% of the size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the recovery time after a database crash considerably. See also <a href="http://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/">this Article</a>. You need to shutdown the server, remove the InnoDB log files, set the new value in my.cnf, start the server, then check the error logs if everything went fine. See also <a href="http://mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html">this blog entry</a>
 	Your absolute InnoDB log size is %s MiB | round(value,1)
 
 rule 'InnoDB buffer pool size' [system_memory > 0]
 	innodb_buffer_pool_size / system_memory * 100
 	value < 60
 	Your InnoDB buffer pool is fairly small.
-	The InnoDB buffer pool has a profound impact on performance for InnoDB tables. Assign all your remaining memory to this buffer. For database servers that use solely InnoDB as storage engine and have no other services (e.g. a web server) running, you may set this as high as 80% of your available memory. If that is not the case, you need to carefully assess the memory consumption of your other services and non-InnoDB-Tables and set this variable accordingly. If it is set too high, your system will start swapping, which decreases performance significantly. See also <a href="http://www.mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/">this article</a>
+	The InnoDB buffer pool has a profound impact on performance for InnoDB tables. Assign all your remaining memory to this buffer. For database servers that use solely InnoDB as storage engine and have no other services (e.g. a web server) running, you may set this as high as 80% of your available memory. If that is not the case, you need to carefully assess the memory consumption of your other services and non-InnoDB-Tables and set this variable accordingly. If it is set too high, your system will start swapping, which decreases performance significantly. See also <a href="http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/">this article</a>
 	You are currently using %s% of your memory for the InnoDB buffer pool. This rule fires if you are assigning less than 60%, however this might be perfectly adequate for your system if you don't have much InnoDB tables or other services running on the same machine. | value
 
 #

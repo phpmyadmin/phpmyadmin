@@ -387,49 +387,4 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
         PMA_arrayWalkRecursive($second, 'stripslashes', true);
         $this->assertEquals($second, $target);
     }
-
-    /**
-     * Test for PMA_arrayKeyExists
-     *
-     * @param boolean $expected Expected result of the function
-     * @param string  $path     Path in the array
-     * @param array   $array    The array
-     *
-     * @return void
-     *
-     * @dataProvider provArrayKeyExists
-     */
-    function testArrayKeyExists($expected, $path, $array)
-    {
-        $this->assertEquals($expected, PMA_arrayKeyExists($path, $array));
-    }
-
-    /**
-     * Data provider for testArrayKeyExists
-     *
-     * @return array
-     */
-    function provArrayKeyExists()
-    {
-        return array(
-            array(true, 'k1', array('k1' => array())),
-            array(true, 'k1/k2', array('k1' => array('k2' => array()))),
-            array(
-                true, 'k1/k2', array('k1' => array('k3' => array(), 'k2' => array()))
-            ),
-            array(
-                true, 'k1/k2', array('k1' => array('k2' => array('k3' => array())))
-            ),
-            array(
-                true,
-                'k1/k2/k3',
-                array('k1' => array('k2' => array('k3' => array())))
-            ),
-            array(false, '', array('k1' => array())),
-            array(false, 'k1/k2', array('k1' => array())),
-            array(false, 'k1/k2', array('k1' => array(), 'k2' => array())),
-            array(false, 'k1/k3', array('k1' => array('k2' => array()))),
-            array(false, 'k2', array('k1' => array('k2' => array()))),
-        );
-    }
 }

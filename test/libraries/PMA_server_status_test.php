@@ -44,8 +44,8 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
-        $GLOBALS['server_master_status'] = true;
-        $GLOBALS['server_slave_status'] = false;
+        $GLOBALS['replication_info']['master']['status'] = true;
+        $GLOBALS['replication_info']['slave']['status'] = false;
         $GLOBALS['replication_types'] = array();
 
         $GLOBALS['table'] = "table";
@@ -199,7 +199,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            '<th class="name">max. concurrent connections</th>',
+            '<th class="name">Max. concurrent connections</th>',
             $html
         );
         //Max_used_connections
@@ -221,8 +221,8 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $GLOBALS['server_master_status'] = true;
-        $GLOBALS['server_slave_status'] = true;
+        $GLOBALS['replication_info']['master']['status'] = true;
+        $GLOBALS['replication_info']['slave']['status'] = true;
         $this->ServerStatusData->status['Connections'] = 0;
         $html = PMA_getHtmlForServerStatus($this->ServerStatusData);
 
@@ -231,8 +231,8 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $GLOBALS['server_master_status'] = false;
-        $GLOBALS['server_slave_status'] = true;
+        $GLOBALS['replication_info']['master']['status'] = false;
+        $GLOBALS['replication_info']['slave']['status'] = true;
         $html = PMA_getHtmlForServerStatus($this->ServerStatusData);
 
         $this->assertContains(

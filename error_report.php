@@ -23,7 +23,7 @@ if (isset($_REQUEST['send_error_report'])
 ) {
     if ($_REQUEST['exception_type'] == 'php') {
         /**
-         * Prevent inifnite error submission.
+         * Prevent infinite error submission.
          * Happens in case error submissions fails.
          * If reporting is done in some time interval,
          *  just clear them & clear json data too.
@@ -127,4 +127,3 @@ if (isset($_REQUEST['send_error_report'])
         $GLOBALS['error_handler']->savePreviousErrors();
     }
 }
-?>

@@ -217,79 +217,59 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         // assertions
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<img src="testlogo_right.png" id="imLogo"'
-            ),
+        $this->assertContains(
+            '<img src="testlogo_right.png" id="imLogo"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<div class="error">'
-            ),
+        $this->assertContains(
+            '<div class="error">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<form method="post" action="index.php" name="login_form" ' .
-                'class="disableAjax login hide js-show">'
-            ),
+        $this->assertContains(
+            '<form method="post" action="index.php" name="login_form" ' .
+            'class="disableAjax login hide js-show">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="text" name="pma_servername" id="input_servername" ' .
-                'value="localhost"'
-            ),
+        $this->assertContains(
+            '<input type="text" name="pma_servername" id="input_servername" ' .
+            'value="localhost"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="text" name="pma_username" id="input_username" ' .
-                'value="pmauser" size="24" class="textfield"/>'
-            ),
+        $this->assertContains(
+            '<input type="text" name="pma_username" id="input_username" ' .
+            'value="pmauser" size="24" class="textfield"/>',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="password" name="pma_password" id="input_password" ' .
-                'value="" size="24" class="textfield" />'
-            ),
+        $this->assertContains(
+            '<input type="password" name="pma_password" id="input_password" ' .
+            'value="" size="24" class="textfield" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select name="server" id="select_server" ' .
-                'onchange="document.forms[\'login_form\'].' .
-                'elements[\'pma_servername\'].value = \'\'" >'
-            ),
+        $this->assertContains(
+            '<select name="server" id="select_server" ' .
+            'onchange="document.forms[\'login_form\'].' .
+            'elements[\'pma_servername\'].value = \'\'" >',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="target" value="testTarget" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="target" value="testTarget" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="db" value="testDb" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="db" value="testDb" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="table" value="testTable" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="table" value="testTable" />',
             $result
         );
 
@@ -341,70 +321,36 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         // assertions
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<img name="imLogo" id="imLogo" src="testpma_logo.png"'
-            ),
-            $result
-        );
-
-        $this->assertTag(
-            PMA_getTagArray(
-                '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
-                'id="sel-lang">'
-            ),
-            $result
-        );
-
-        $this->assertTag(
-            PMA_getTagArray(
-                '<form method="post" action="index.php" name="login_form" ' .
-                'autocomplete="off" class="disableAjax login hide js-show">'
-            ),
-            $result
-        );
-
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="server" value="0" />'
-            ),
+        $this->assertContains(
+            '<img name="imLogo" id="imLogo" src="testpma_logo.png"',
             $result
         );
 
         $this->assertContains(
-            'src="https://www.google.com/recaptcha/api/'
-            . 'challenge?k=testpubkey&amp;hl=en">',
+            '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
+            'id="sel-lang">',
             $result
         );
 
         $this->assertContains(
-            'iframe src="https://www.google.com/recaptcha/api/noscript' .
-            '?k=testpubkey"',
+            '<form method="post" action="index.php" name="login_form" ' .
+            'autocomplete="off" class="disableAjax login hide js-show">',
             $result
         );
 
         $this->assertContains(
-            '<textarea name="recaptcha_challenge_field" rows="3" cols="40">',
+            '<input type="hidden" name="server" value="0" />',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="recaptcha_response_field"',
+            '<script src="https://www.google.com/recaptcha/api.js?hl=en"'
+            . ' async defer></script>',
             $result
         );
 
         $this->assertContains(
-            '$("#recaptcha_reload_btn").addClass("disableAjax");',
-            $result
-        );
-
-        $this->assertContains(
-            '$("#recaptcha_switch_audio_btn").addClass("disableAjax");',
-            $result
-        );
-
-        $this->assertContains(
-            '$("#recaptcha_switch_img_btn").addClass("disableAjax");',
+            '<div class="g-recaptcha" data-sitekey="testpubkey">',
             $result
         );
 
@@ -488,8 +434,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_SESSION['last_valid_captcha'] = false;
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
-        $_POST["recaptcha_challenge_field"] = 'captcha1';
-        $_POST["recaptcha_response_field"] = '';
+        $_POST["g-recaptcha-response"] = '';
+        $_REQUEST['pma_username'] = 'testPMAUser';
 
         $this->assertFalse(
             $this->object->authCheck()
@@ -498,18 +444,6 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             'Please enter correct captcha!',
             $GLOBALS['conn_error']
-        );
-
-        // case 3
-
-        $_SESSION['last_valid_captcha'] = false;
-        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
-        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
-        $_POST["recaptcha_challenge_field"] = '';
-        $_POST["recaptcha_response_field"] = '';
-
-        $this->assertFalse(
-            $this->object->authCheck()
         );
 
         // case 4
@@ -583,7 +517,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = '';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
 
         $this->assertFalse(
             $this->object->authCheck()
@@ -599,7 +533,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $_COOKIE['pmaPass-1'] = '';
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = time() - 1000;
@@ -674,7 +608,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = '';
         $_SESSION['last_valid_captcha'] = true;
@@ -713,7 +647,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pmaPass-1'] = 'pmaPass1';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_valid_captcha'] = true;
         $_SESSION['last_access_time'] = time() - 1000;
@@ -757,7 +691,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
-        $_COOKIE['pma_iv'] = base64_encode('testiv09');
+        $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = 1;
         $_SESSION['last_valid_captcha'] = true;
@@ -817,6 +751,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $this->assertFalse(
             isset($_SERVER['PHP_AUTH_PW'])
         );
+
+        $this->object->storeUserCredentials();
 
         $this->assertTrue(
             isset($_COOKIE['pmaUser-1'])
@@ -887,12 +823,13 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $attrInstance->setValue($mockResponse);
 
         $this->object->authSetUser();
+        $this->object->storeUserCredentials();
 
         $this->assertTrue(
             isset($_COOKIE['pmaServer-2'])
         );
 
-        // target can be "phpunit" or "ide-phpunut.php",
+        // target can be "phpunit" or "ide-phpunit.php",
         // depending on testing environment
         $this->assertStringStartsWith(
             'Location: http://phpmyadmin.net/index.php?',
@@ -1042,7 +979,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             256,
-            $GLOBALS['PMA_String']->strlen($result)
+            strlen($result)
         );
 
         // case 2
@@ -1064,9 +1001,10 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
      */
     public function testCookieEncrypt()
     {
-        $this->object->setIV('testiv09');
+        $this->object->setIV('testiv09testiv09');
+        // works with the openssl extension active or inactive
         $this->assertEquals(
-            'vzJVtW8Ujd4phw7Cxl2PcQ==',
+            '+coP/up/ZBTBwbiEpCUVXQ==',
             $this->object->cookieEncrypt('data123', 'sec321')
         );
     }
@@ -1078,11 +1016,12 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
      */
     public function testCookieDecrypt()
     {
-        $this->object->setIV('testiv09');
+        $this->object->setIV('testiv09testiv09');
+        // works with the openssl extension active or inactive
         $this->assertEquals(
             'data123',
             $this->object->cookieDecrypt(
-                'vzJVtW8Ujd4phw7Cxl2PcQ==',
+                '+coP/up/ZBTBwbiEpCUVXQ==',
                 'sec321'
             )
         );

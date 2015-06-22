@@ -7,3 +7,4 @@ User Guide
     transformations
     privileges
     other
+    import_export

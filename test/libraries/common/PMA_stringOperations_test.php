@@ -24,13 +24,11 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
     /**
      * temporary variable for globals array
      */
-
     protected $tmpGlobals;
 
     /**
      * temporary variable for session array
      */
-
     protected $tmpSession;
 
     /**
@@ -72,7 +70,6 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider flipStringDataProvider
      */
-
     public function testFlipString($a, $e)
     {
         $this->assertEquals($e, PMA_Util::flipstring($a));
@@ -101,7 +98,6 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider userDirDataProvider
      */
-
     public function testUserDirString($a, $e)
     {
         $GLOBALS['cfg']['Server']['user'] = 'root';
@@ -133,7 +129,6 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider replaceBinaryContentsDataProvider
      */
-
     public function testReplaceBinaryContents($a, $e)
     {
         $this->assertEquals(

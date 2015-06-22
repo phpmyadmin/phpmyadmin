@@ -7,14 +7,15 @@
  */
 
 require_once 'libraries/common.inc.php';
+require_once './libraries/gis/GIS_Visualization.class.php';
+require_once './libraries/gis/GIS_Factory.class.php';
 
 // Runs common work
 require_once 'libraries/db_common.inc.php';
-$url_params['goto'] = $cfg['DefaultTabDatabase'];
+$url_params['goto'] = PMA_Util::getScriptNameForOption(
+    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+);
 $url_params['back'] = 'sql.php';
-
-// Import visualization functions
-require_once 'libraries/tbl_gis_visualization.lib.php';
 
 $response = PMA_Response::getInstance();
 // Throw error if no sql query is set
@@ -51,29 +52,29 @@ if (! isset($visualizationSettings['labelColumn']) && isset($labelCandidates[0])
     $visualizationSettings['labelColumn'] = '';
 }
 
-// If spatial column is not set, use first geometric colum as spatial column
+// If spatial column is not set, use first geometric column as spatial column
 if (! isset($visualizationSettings['spatialColumn'])) {
     $visualizationSettings['spatialColumn'] = $spatialCandidates[0];
 }
 
 // Convert geometric columns from bytes to text.
-$modified_query = PMA_GIS_modifyQuery($sql_query, $visualizationSettings);
-$modified_result = $GLOBALS['dbi']->tryQuery($modified_query);
-
-$data = array();
-while ($row = $GLOBALS['dbi']->fetchAssoc($modified_result)) {
-    $data[] = $row;
+$pos = isset($_REQUEST['pos']) ? $_REQUEST['pos'] : $_SESSION['tmpval']['pos'];
+if (isset($_REQUEST['session_max_rows'])) {
+    $rows = $_REQUEST['session_max_rows'];
+} else {
+    if ($_SESSION['tmpval']['max_rows'] != 'all') {
+        $rows = $_SESSION['tmpval']['max_rows'];
+    } else {
+        $rows = $GLOBALS['cfg']['MaxRows'];
+    }
 }
 
 if (isset($_REQUEST['saveToFile'])) {
     $response->disable();
-    $file_name = $_REQUEST['fileName'];
-    if ($file_name == '') {
-        $file_name = $visualizationSettings['spatialColumn'];
-    }
-
+    $file_name = $visualizationSettings['spatialColumn'];
     $save_format = $_REQUEST['fileFormat'];
-    PMA_GIS_saveToFile($data, $visualizationSettings, $save_format, $file_name);
+    $visualization = PMA_GIS_Visualization::get($sql_query, $visualizationSettings, $rows, $pos);
+    $visualization->toFile($file_name, $save_format);
     exit();
 }
 
@@ -86,34 +87,45 @@ $scripts->addFile('OpenStreetMap.js');
 
 // If all the rows contain SRID, use OpenStreetMaps on the initial loading.
 if (! isset($_REQUEST['displayVisualization'])) {
+    $visualization = PMA_GIS_Visualization::get($sql_query, $visualizationSettings, $rows, $pos);
+    if ($visualization->hasSrid())
+        unset($visualizationSettings['choice']);
     $visualizationSettings['choice'] = 'useBaseLayer';
-    foreach ($data as $row) {
-        if ($row['srid'] == 0) {
-            unset($visualizationSettings['choice']);
-            break;
+}
+
+$svgSupport = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8)
+    ? false : true;
+$format = $svgSupport ? 'svg' : 'png';
+
+$visualization = PMA_GIS_Visualization::get($sql_query, $visualizationSettings, $rows, $pos);
+if ($visualizationSettings != null) {
+    foreach ($visualization->getSettings() as $setting => $val) {
+        if (! isset($visualizationSettings[$setting])) {
+            $visualizationSettings[$setting] = $val;
         }
     }
 }
 
-$svg_support = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8)
-    ? false : true;
-$format = $svg_support ? 'svg' : 'png';
-
-// get the chart and settings after chart generation
-$visualization = PMA_GIS_visualizationResults(
-    $data, $visualizationSettings, $format
-);
+$result = $visualization->toImage($format);
 
 /**
  * Displays the page
  */
-
-$html = PMA_getHtmlForGisVisualization(
-    $url_params, $labelCandidates, $spatialCandidates,
-    $visualizationSettings, $sql_query, $visualization, $svg_support,
-    $data
+$url_params['sql_query'] = $sql_query;
+$downloadUrl = 'tbl_gis_visualization.php' . PMA_URL_getCommon($url_params)
+    . '&saveToFile=true';
+$html = PMA\Template::get('gis_visualization/gis_visualization')->render(
+    array(
+        'url_params' => $url_params,
+        'downloadUrl' => $downloadUrl,
+        'labelCandidates' => $labelCandidates,
+        'spatialCandidates' => $spatialCandidates,
+        'visualizationSettings' => $visualizationSettings,
+        'sql_query' => $sql_query,
+        'visualization' => $result,
+        'svgSupport' => $svgSupport,
+        'drawOl' => $visualization->asOl()
+    )
 );
 
 $response->addHTML($html);
-
-?>

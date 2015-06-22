@@ -52,21 +52,24 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @dataProvider provider_1
+     * @dataProvider provider1
      */
-    public function testgetExecuteForm_1($data, $matcher)
+    public function testgetExecuteForm1($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
-        $this->assertTag($matcher, PMA_RTN_getExecuteForm($data), false);
+        $this->assertContains(
+            $matcher,
+            PMA_RTN_getExecuteForm($data)
+        );
     }
 
     /**
-     * Data provider for testgetExecuteForm_1
+     * Data provider for testgetExecuteForm1
      *
      * @return array
      */
-    public function provider_1()
+    public function provider1()
     {
         $data = array(
             'item_name'                 => 'foo',
@@ -136,77 +139,35 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'item_name'
-                    )
-                )
+                "name='item_name'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'funcs[foo]'
-                    )
-                )
+                "name='funcs[foo]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'params[foo]',
-                        'class' => 'datefield'
-                    )
-                )
+                "<input class='datefield' type='text' name='params[foo]' />"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'select',
-                    'attributes' => array(
-                        'name' => 'funcs[fob]'
-                    )
-                )
+                "name='funcs[fob]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'params[fob]',
-                        'class' => 'datetimefield'
-                    )
-                )
+                "<input class='datetimefield' type='text' name='params[fob]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'params[fod][]'
-                    ),
-                )
+                "name='params[fod][]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'params[foe][]'
-                    ),
-                )
+                "name='params[foe][]'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'execute_routine'
-                    )
-                )
+                "name='execute_routine'"
             ),
         );
     }
@@ -219,21 +180,24 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @dataProvider provider_2
+     * @dataProvider provider2
      */
-    public function testgetExecuteForm_2($data, $matcher)
+    public function testgetExecuteForm2($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = true;
         PMA_RTN_setGlobals();
-        $this->assertTag($matcher, PMA_RTN_getExecuteForm($data), false);
+        $this->assertContains(
+            $matcher,
+            PMA_RTN_getExecuteForm($data)
+        );
     }
 
     /**
-     * Data provider for testgetExecuteForm_2
+     * Data provider for testgetExecuteForm2
      *
      * @return array
      */
-    public function provider_2()
+    public function provider2()
     {
         $data = array(
             'item_name'                 => 'foo',
@@ -303,21 +267,11 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'execute_routine'
-                    )
-                )
+                "name='execute_routine'"
             ),
             array(
                 $data,
-                array(
-                    'tag' => 'input',
-                    'attributes' => array(
-                        'name' => 'ajax_request'
-                    )
-                )
+                "name='ajax_request'"
             ),
         );
     }

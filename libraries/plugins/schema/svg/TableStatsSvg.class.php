@@ -32,6 +32,8 @@ class Table_Stats_Svg extends TableStats
     /**
      * The "Table_Stats_Svg" constructor
      *
+     * @param object  $diagram          The current SVG image document
+     * @param string  $db               The database name
      * @param string  $tableName        The table name
      * @param string  $font             Font face
      * @param integer $fontSize         The font size
@@ -40,9 +42,6 @@ class Table_Stats_Svg extends TableStats
      * @param boolean $showKeys         Whether to display keys or not
      * @param boolean $tableDimension   Whether to display table position or not
      * @param boolean $offline          Whether the coordinates are sent
-     *                                  from the browser
-     *
-     * @global object  $svg         The current SVG image document
      *
      * @access private
      *
@@ -50,12 +49,11 @@ class Table_Stats_Svg extends TableStats
      *       Table_Stats_Svg::Table_Stats_setHeight
      */
     function __construct(
-        $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
+        $diagram, $db, $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
         $showKeys = false, $tableDimension = false, $offline = false
     ) {
-        global $svg;
         parent::__construct(
-            $svg, $GLOBALS['db'], $pageNumber, $tableName,
+            $diagram, $db, $pageNumber, $tableName,
             $showKeys, $tableDimension, $offline
         );
 
@@ -76,27 +74,10 @@ class Table_Stats_Svg extends TableStats
      */
     protected function showMissingTableError()
     {
-        $this->diagram->dieSchema(
+        PMA_Export_Relation_Schema::dieSchema(
             $this->pageNumber,
             "SVG",
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
-        );
-    }
-
-    /**
-     * Displays an error on missing coordinates
-     *
-     * @return void
-     */
-    protected function showMissingCoordinatesError()
-    {
-        $this->diagram->dieSchema(
-            $this->pageNumber,
-            "SVG",
-            sprintf(
-                __('Please configure the coordinates for table %s'),
-                $this->tableName
-            )
         );
     }
 
@@ -105,8 +86,6 @@ class Table_Stats_Svg extends TableStats
      *
      * @param string  $font     The font size
      * @param integer $fontSize The font size
-     *
-     * @global object $svg The current SVG image document
      *
      * @return void
      * @access private
@@ -125,8 +104,8 @@ class Table_Stats_Svg extends TableStats
 
         /*
          * it is unknown what value must be added, because
-        * table title is affected by the tabe width value
-        */
+         * table title is affected by the table width value
+         */
         while ($this->width
             < PMA_Font::getStringWidth($this->getTitle(), $font, $fontSize)
         ) {
@@ -153,8 +132,6 @@ class Table_Stats_Svg extends TableStats
      *
      * @param boolean $showColor Whether to display color
      *
-     * @global object $svg The current SVG image document
-     *
      * @access public
      * @return void
      *
@@ -162,13 +139,11 @@ class Table_Stats_Svg extends TableStats
      */
     public function tableDraw($showColor)
     {
-        global $svg;
-
-        $svg->printElement(
+        $this->diagram->printElement(
             'rect', $this->x, $this->y, $this->width,
             $this->heightCell, null, 'fill:red;stroke:black;'
         );
-        $svg->printElement(
+        $this->diagram->printElement(
             'text', $this->x + 5, $this->y+ 14, $this->width, $this->heightCell,
             $this->getTitle(), 'fill:none;stroke:black;'
         );
@@ -183,11 +158,11 @@ class Table_Stats_Svg extends TableStats
                     $fillColor = 'none';
                 }
             }
-            $svg->printElement(
+            $this->diagram->printElement(
                 'rect', $this->x, $this->y + $this->currentCell, $this->width,
                 $this->heightCell, null, 'fill:' . $fillColor . ';stroke:black;'
             );
-            $svg->printElement(
+            $this->diagram->printElement(
                 'text', $this->x + 5, $this->y + 14 + $this->currentCell,
                 $this->width, $this->heightCell, $field, 'fill:none;stroke:black;'
             );

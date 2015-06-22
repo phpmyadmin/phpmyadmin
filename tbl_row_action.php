@@ -37,6 +37,7 @@ if (! isset($submit_mult)) {
 switch($submit_mult) {
 case 'row_delete':
 case 'row_edit':
+case 'row_copy':
 case 'row_export':
     // leave as is
     break;
@@ -49,14 +50,21 @@ case 'delete':
     $submit_mult = 'row_delete';
     break;
 
-default:
+case 'copy':
+    $submit_mult = 'row_copy';
+    break;
+
 case 'edit':
+default:
     $submit_mult = 'row_edit';
     break;
 }
 
 if (!empty($submit_mult)) {
     switch($submit_mult) {
+    case 'row_copy':
+        $_REQUEST['default_action'] = 'insert';
+        // no break to allow for fallthough
     case 'row_edit':
         // As we got the rows to be edited from the
         // 'rows_to_delete' checkbox, we use the index of it as the
@@ -138,9 +146,8 @@ if (!empty($submit_mult)) {
 
         PMA_executeQueryAndSendQueryResponse(
             $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
-            null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
+            null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
             null, null
         );
     }
 }
-?>

@@ -77,13 +77,13 @@ if (true === $cfg['SkipLockedTables'] && ! PMA_DRIZZLE) {
             $whereAdded = false;
             if (PMA_isValid($_REQUEST['tbl_group'])) {
                 $group = PMA_Util::escapeMysqlWildcards($_REQUEST['tbl_group']);
-                $groupWithSeperator = PMA_Util::escapeMysqlWildcards(
+                $groupWithSeparator = PMA_Util::escapeMysqlWildcards(
                     $_REQUEST['tbl_group']
                     . $GLOBALS['cfg']['NavigationTreeTableSeparator']
                 );
                 $tblGroupSql .= " WHERE ("
                     . PMA_Util::backquote('Tables_in_' . $db)
-                    . " LIKE '" . $groupWithSeperator . "%'"
+                    . " LIKE '" . $groupWithSeparator . "%'"
                     . " OR "
                     . PMA_Util::backquote('Tables_in_' . $db)
                     . " LIKE '" . $group . "')";
@@ -160,7 +160,8 @@ if (! isset($sot_ready)) {
             'overhead'    => 'Data_free',
             'creation'    => 'Create_time',
             'last_update' => 'Update_time',
-            'last_check'  => 'Check_time'
+            'last_check'  => 'Check_time',
+            'comment'     => 'Comment',
         );
 
         // Make sure the sort type is implemented
@@ -173,7 +174,7 @@ if (! isset($sot_ready)) {
     }
 
     $tbl_group = false;
-    $groupWithSeperator = false;
+    $groupWithSeparator = false;
     $tbl_type = null;
     $limit_offset = 0;
     $limit_count = false;
@@ -192,7 +193,7 @@ if (! isset($sot_ready)) {
                 $db, $tbl_group, false, null, $limit_offset,
                 $limit_count, $sort, $sort_order, $tbl_type
             );
-            $groupWithSeperator = $tbl_group
+            $groupWithSeparator = $tbl_group
                 . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
         }
     } else {
@@ -218,7 +219,7 @@ if (! isset($sot_ready)) {
     $tables = array_merge(
         $groupTable,
         $GLOBALS['dbi']->getTablesFull(
-            $db, $groupWithSeperator, ($groupWithSeperator != false), null,
+            $db, $groupWithSeparator, ($groupWithSeparator !== false), null,
             $limit_offset, $limit_count, $sort, $sort_order, $tbl_type
         )
     );

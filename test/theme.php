@@ -31,7 +31,7 @@ header('Content-Type: text/html; charset=utf-8');
         href="../phpmyadmin.css.php?<?php echo PMA_URL_getCommon(); ?>&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
     <link rel="stylesheet" type="text/css" media="print"
         href="../print.css" />
-    <script src="../js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../js/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="../js/messages.php" type="text/javascript"></script>
     <script type="text/javascript">
         var PMA_TEST_THEME = true;
@@ -52,7 +52,9 @@ $item = '<a href="%1$s?%2$s" class="item">'
 echo '<div id="serverinfo">' . "\n";
 printf(
     $item,
-    $GLOBALS['cfg']['DefaultTabServer'],
+    PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabserver'], 'server'
+    ),
     PMA_URL_getCommon(),
     'Server',
     __('Server'),
@@ -62,7 +64,9 @@ printf(
 echo $separator;
 printf(
     $item,
-    $GLOBALS['cfg']['DefaultTabDatabase'],
+    PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+    ),
     '',
     'Database',
     __('Database'),
@@ -72,7 +76,9 @@ printf(
 echo $separator;
 printf(
     $item,
-    $GLOBALS['cfg']['DefaultTabTable'],
+    PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabTable'], 'table'
+    ),
     '',
     'Table',
     (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']
@@ -289,9 +295,15 @@ echo sprintf(
                     value="1" /></td>
             <th><label for="checkbox_1">th label</label></th>
             <td class="value">td.value</td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" />
+            </td>
             <td>table.data tbody tr.odd td</td>
         </tr>
         <tr class="even">
@@ -299,9 +311,15 @@ echo sprintf(
                     value="1" /></td>
             <th><label for="checkbox_2">th label</label></th>
             <td class="value">td.value</td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" />
+            </td>
             <td>table.data tbody tr.even td</td>
         </tr>
         <tr class="odd">
@@ -309,9 +327,15 @@ echo sprintf(
                     value="1" /></td>
             <th><label for="checkbox_3">th label</label></th>
             <td class="value">td.value</td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
             <td>table.data tbody tr.odd td</td>
         </tr>
         <tr class="even">
@@ -319,9 +343,15 @@ echo sprintf(
                     value="1" /></td>
             <th><label for="checkbox_4">th label</label></th>
             <td class="value">td.value</td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
-            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
+            <td>
+                <img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop"/>
+            </td>
             <td>table.data tbody tr.even td</td>
         </tr>
     </tbody>

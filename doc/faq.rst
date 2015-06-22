@@ -1601,8 +1601,8 @@ mimetypes by heart so he/she can enter it at will?
 
 .. _faqbookmark:
 
-6.18 Bookmarks: Where can I store bookmarks? Why can't I see any bookmarks below the query box? What is this variable for?
---------------------------------------------------------------------------------------------------------------------------
+6.18 Bookmarks: Where can I store bookmarks? Why can't I see any bookmarks below the query box? What are these variables for?
+-----------------------------------------------------------------------------------------------------------------------------
 
 Any query you have executed can be stored as a bookmark on the page
 where the results are displayed. You will find a button labeled
@@ -1611,39 +1611,38 @@ stored a bookmark, it is related to the database you run the query on.
 You can now access a bookmark dropdown on each page, the query box
 appears on for that database.
 
-You can also have, inside the query, a placeholder for a variable.
-This is done by inserting into the query a SQL comment between ``/*`` and
-``*/``. Inside the comment, the special string ``[VARIABLE]`` is used.
-Be aware that the whole query minus the SQL comment must be
+You can also have, inside the query, placeholders for variables.
+This is done by inserting into the query SQL comments between ``/*`` and
+``*/``. Inside the comments, the special strings ``[VARIABLE{variable-number}]`` is used.
+Be aware that the whole query minus the SQL comments must be
 valid by itself, otherwise you won't be able to store it as a bookmark.
 
-When you execute the bookmark, everything typed into the *value*
-input box on the query box page will replace the string ``/*[VARIABLE]*/`` in
+When you execute the bookmark, everything typed into the *Variables*
+input boxes on the query box page will replace the strings ``/*[VARIABLE{variable-number}]*/`` in
 your stored query.
 
-Also remember, that everything else inside the ``/*[VARIABLE]*/`` string for
+Also remember, that everything else inside the ``/*[VARIABLE{variable-number}]*/`` string for
 your query will remain the way it is, but will be stripped of the ``/**/``
 chars. So you can use:
 
 .. code-block:: mysql
 
-    /*, [VARIABLE] AS myname */
+    /*, [VARIABLE1] AS myname */
 
 which will be expanded to
 
 .. code-block:: mysql
 
-    , VARIABLE as myname
+    , VARIABLE1 as myname
 
-in your query, where VARIABLE is the string you entered in the input box. If an
-empty string is provided, no replacements are made.
+in your query, where VARIABLE1 is the string you entered in the Variable 1 input box.
 
 A more complex example. Say you have stored
 this query:
 
 .. code-block:: mysql
 
-    SELECT Name, Address FROM addresses WHERE 1 /* AND Name LIKE '%[VARIABLE]%' */
+    SELECT Name, Address FROM addresses WHERE 1 /* AND Name LIKE '%[VARIABLE1]%' */
 
 Say, you now enter "phpMyAdmin" as the variable for the stored query, the full
 query will be:
@@ -1652,17 +1651,10 @@ query will be:
 
     SELECT Name, Address FROM addresses WHERE 1 AND Name LIKE '%phpMyAdmin%'
 
-You can use multiple occurrences of ``/*[VARIABLE]*/`` in a single query
-(that is, multiple occurrences of the *same* variable).
-
 **NOTE THE ABSENCE OF SPACES** inside the ``/**/`` construct. Any spaces
 inserted there will be later also inserted as spaces in your query and may lead
 to unexpected results especially when using the variable expansion inside of a
 "LIKE ''" expression.
-
-Your initial query which is going to be stored as a bookmark has to yield at
-least one result row so you can store the bookmark. You may have that to work
-around using well positioned ``/**/`` comments.
 
 .. _faq6_19:
 
@@ -2019,6 +2011,63 @@ Which says, OwnerEmail depends on OwnerLastName and OwnerFirstName.
 OwnerPhone depends on OwnerLastName and OwnerFirstName.
 PetType depends on PetBreed.
 
+.. _faq6_38:
+
+6.38 How can I reassign auto-incremented values? 
+------------------------------------------------
+
+Some users prefer their AUTO_INCREMENT values to be consecutive; this is not
+always the case after row deletion.
+
+Here are the steps to accomplish this. These are manual steps because they
+involve a manual verification at one point.
+
+* Ensure that you have exclusive access to the table to rearrange
+
+* On your primary key column (i.e. id), remove the AUTO_INCREMENT setting
+
+* Delete your primary key in Structure > indexes
+
+* Create a new column future_id as primary key, AUTO_INCREMENT
+
+* Browse your table and verify that the new increments correspond to what
+  you're expecting
+
+* Drop your old id column
+
+* Rename the future_id column to id
+
+* Move the new id column via Structure > Move columns
+
+.. _faq6_39:
+
+6.39 What is the "Adjust Privileges" option when renaming, copying, or moving a database, table, column, or procedure?
+----------------------------------------------------------------------------------------------------------------------
+
+When renaming/copying/moving a database/table/column/procedure,
+MySQL does not adjust the original privileges relating to these objects
+on its own. By selecting this option, phpMyAdmin will adjust the privilege
+table so that users have the same privileges on the new items.
+
+For example: A user 'bob'@'localhost' has a 'SELECT' privilege on a
+column named 'id'. Now, if this column is renamed to 'id_new'; MySQL,
+on its own, would **not** adjust the column privileges to the new column name.
+phpMyAdmin can make this adjustment for you automatically.
+
+Notes:
+
+* While adjusting privileges for a database, the privileges of all *table-related
+  privileges*, all *column-related privileges* and all *procedure-related privileges*
+  for the tables, columns and procedures inside that database are also adjusted
+  to the database's new name.
+
+* Similarly, while adjusting privileges for a table, the privileges of all
+  *column-related privileges* for the columns inside the table are also adjusted
+  to the table's new name.
+
+Thus, if you want to replicate the database/table/column/procedure as it is
+while renaming/copying/moving these objects, make sure you have checked this option.
+
 .. _faqproject:
 
 phpMyAdmin project
@@ -2040,7 +2089,7 @@ Bugs section. But please first discuss your bug with other users:
 
 Translations are very welcome and all you need to have are the
 language skills. The easiest way is to use our `online translation
-service <https://l10n.cihar.com/projects/phpmyadmin/>`_. You can check
+service <https://hosted.weblate.org/projects/phpmyadmin/>`_. You can check
 out all the possibilities to translate in the `translate section on
 our website <http://www.phpmyadmin.net/home_page/translate.php>`_.
 

@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-//the following defination should be used globally
+//the following definition should be used globally
 $GLOBALS['server'] = 0;
 
 /*
@@ -57,7 +57,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['TextareaAutoSelect'] = true;
         $GLOBALS['cfg']['TextareaRows'] = 100;
         $GLOBALS['cfg']['TextareaCols'] = 11;
-        $GLOBALS['cfg']['DefaultTabDatabase'] = "default_database";
+        $GLOBALS['cfg']['DefaultTabDatabase'] = "structure";
         $GLOBALS['cfg']['RetainQueryBox'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
 

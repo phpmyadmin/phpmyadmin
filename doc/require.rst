@@ -6,8 +6,8 @@ Requirements
 Web server
 ----------
 
-Since, phpMyAdmin's interface is based entirely in your browser, you'll need a
-web server (such as Apache, :term:`IIS`) to install phpMyAdmin's files into.
+Since phpMyAdmin's interface is based entirely in your browser, you'll need a
+web server (such as Apache, nginx, :term:`IIS`) to install phpMyAdmin's files into.
 
 PHP
 ---
@@ -28,6 +28,9 @@ PHP
 * To support XML and Open Document Spreadsheet importing, you need the
   `libxml <http://www.php.net/libxml>`_ extension.
 
+* To support reCAPTCHA on the login page, you need the
+  `openssl <http://www.php.net/openssl>`_ extension.
+
 * Performance suggestion: install the ``ctype`` extension.
 
 .. seealso:: :ref:`faq1_31`, :ref:`authentication_modes`
@@ -46,6 +49,6 @@ phpMyAdmin supports MySQL-compatible databases.
 Web browser
 -----------
 
-To access phpMyAdmin you need a web browser with cookies and javascript
+To access phpMyAdmin you need a web browser with cookies and JavaScript
 enabled.
 

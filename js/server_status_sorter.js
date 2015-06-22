@@ -13,20 +13,10 @@ function initTableSorter(tabid) {
             }
         };
         break;
-    case 'statustabs_allvars':
-        $table = $('#serverstatusvariables');
-        opts = {
-            sortList: [[0, 0]],
-            widgets: ['fast-zebra'],
-            headers: {
-                1: { sorter: 'withinSpanNumber' }
-            }
-        };
-        break;
     }
     $table.tablesorter(opts);
     $table.find('tr:first th')
-        .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
+        .append('<div class="sorticon"></div>');
 }
 
 $(function () {
@@ -82,18 +72,12 @@ $(function () {
     $.tablesorter.addWidget({
         id: "fast-zebra",
         format: function (table) {
-            if (table.config.debug) {
-                var time = new Date();
-            }
             $("tr:even", table.tBodies[0])
                 .removeClass(table.config.widgetZebra.css[0])
                 .addClass(table.config.widgetZebra.css[1]);
             $("tr:odd", table.tBodies[0])
                 .removeClass(table.config.widgetZebra.css[1])
                 .addClass(table.config.widgetZebra.css[0]);
-            if (table.config.debug) {
-                $.tablesorter.benchmark("Applying Fast-Zebra widget", time);
-            }
         }
     });
 });

@@ -12,15 +12,18 @@ Code status
     :alt: Build status
     :target: https://travis-ci.org/phpmyadmin/phpmyadmin
 
-.. image:: http://l10n.cihar.com/widgets/phpmyadmin-status-badge.png
+.. image:: https://hosted.weblate.org/widgets/phpmyadmin/-/svg-badge.svg
     :alt: Translation status
-    :target: https://l10n.cihar.com/engage/phpmyadmin/?utm_source=widget
+    :target: https://hosted.weblate.org/engage/phpmyadmin/?utm_source=widget
 
-.. image:: https://coveralls.io/repos/phpmyadmin/phpmyadmin/badge.png?branch=master
+.. image:: https://coveralls.io/repos/phpmyadmin/phpmyadmin/badge.svg?branch=master
     :target: https://coveralls.io/r/phpmyadmin/phpmyadmin?branch=master
 
 .. image:: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/badges/quality-score.png?s=93dfde29ffa5771d9c254b7ffb11c4e673315035
     :target: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/
+
+.. image:: https://img.shields.io/sourceforge/dm/phpmyadmin.svg
+    :target: http://www.phpmyadmin.net/home_page/downloads.php
 
 Download
 --------

@@ -127,7 +127,7 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
                 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10)'
                     . ',(20 30,35 32,30 20,20 30)))'
             ),
-            // a polygon should have atleast one ring
+            // a polygon should have at least one ring
             array(
                 $temp2,
                 0,
@@ -135,7 +135,7 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
                 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10)'
                     . ',(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))'
             ),
-            // a ring should have atleast four points
+            // a ring should have at least four points
             array(
                 $temp3,
                 0,
@@ -277,13 +277,12 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
      * @param string $fill_color color for the GIS MULTIPOLYGON object
      * @param array  $scale_data array containing data related to scaling
      * @param object $image      image object
-     * @param string $output     expected output
      *
      * @return void
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial, $label, $fill_color, $scale_data, $image, $output
+        $spatial, $label, $fill_color, $scale_data, $image
     ) {
         $return = $this->object->prepareRowAsPng(
             $spatial, $label, $fill_color, $scale_data, $image
@@ -311,7 +310,6 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
                     'height' => 150
                 ),
                 imagecreatetruecolor('120', '150'),
-                ''
             )
 
         );

@@ -35,7 +35,8 @@ class PMA_ExpandUserString_Test extends PHPUnit_Framework_TestCase
             'Server' => array(
                 'host' => 'host&',
                 'verbose' => 'verbose',
-                ));
+            )
+        );
         $GLOBALS['db'] = 'database';
         $GLOBALS['table'] = 'table';
     }

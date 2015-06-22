@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ $TRAVIS_PHP_VERSION = "nightly" ] ; then
+    exit 0
+fi
+
+set -e
+
+git clone --depth=1 git://github.com/zenovich/runkit.git
+
+pushd runkit
+
+if [ $TRAVIS_PHP_VERSION = "5.6" ] ; then
+    wget --no-check-certificate https://patch-diff.githubusercontent.com/raw/zenovich/runkit/pull/73.diff
+    patch -p1 < 73.diff
+fi
+
+phpize
+./configure
+make
+make install
+popd
+
+phpenv config-add test/travis.php.ini

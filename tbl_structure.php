@@ -12,6 +12,9 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
+require_once 'libraries/config/page_settings.class.php';
+
+PMA_PageSettings::showGroup('TableStructure');
 
 /**
  * Function implementations for this script
@@ -39,24 +42,45 @@ if (isset($_REQUEST['move_columns'])
 }
 
 /**
+ * handle MySQL reserved words columns check
+ */
+if (isset($_REQUEST['reserved_word_check'])) {
+    $response = PMA_Response::getInstance();
+    if ($GLOBALS['cfg']['ReservedWordDisableWarning'] === false) {
+        $columns_names = $_REQUEST['field_name'];
+        $reserved_keywords_names = array();
+        foreach ($columns_names as $column) {
+            if (PMA_SQP_isKeyWord(trim($column))) {
+                $reserved_keywords_names[] = trim($column);
+            }
+        }
+        if (PMA_SQP_isKeyWord(trim($table))) {
+            $reserved_keywords_names[] = trim($table);
+        }
+        if (count($reserved_keywords_names) == 0) {
+            $response->isSuccess(false);
+        }
+        $response->addJSON(
+            'message', sprintf(
+                _ngettext(
+                    'The name \'%s\' is a MySQL reserved keyword.',
+                    'The names \'%s\' are MySQL reserved keywords.',
+                    count($reserved_keywords_names)
+                ),
+                implode(',', $reserved_keywords_names)
+            )
+        );
+    } else {
+        $response->isSuccess(false);
+    }
+    exit;
+}
+/**
  * A click on Change has been made for one column
  */
 if (isset($_REQUEST['change_column'])) {
     PMA_displayHtmlForColumnChange($db, $table, null, 'tbl_structure.php');
     exit;
-}
-/**
- * Modifications have been submitted -> updates the table
- */
-if (isset($_REQUEST['do_save_data'])) {
-    $regenerate = PMA_updateColumns($db, $table);
-    if ($regenerate) {
-        // This happens when updating failed
-        // @todo: do something appropriate
-    } else {
-        // continue to show the table's structure
-        unset($_REQUEST['selected']);
-    }
 }
 
 /**
@@ -94,6 +118,33 @@ if (! empty($submit_mult)) {
     }
 }
 
+// display secondary level tabs if necessary
+$engine = PMA_Table::sGetStatusInfo($db, $table, 'ENGINE');
+$response->addHTML(PMA_getStructureSecondaryTabs($engine));
+$response->addHTML('<div id="structure_content">');
+
+/**
+ * Modifications have been submitted -> updates the table
+ */
+if (isset($_REQUEST['do_save_data'])) {
+    $regenerate = PMA_updateColumns($db, $table);
+    if ($regenerate) {
+        // This happens when updating failed
+        // @todo: do something appropriate
+    } else {
+        // continue to show the table's structure
+        unset($_REQUEST['selected']);
+    }
+}
+
+/**
+ * Adding indexes
+ */
+if (isset($_REQUEST['add_key'])) {
+    include 'sql.php';
+    $GLOBALS['reload'] = true;
+}
+
 /**
  * Gets the relation settings
  */
@@ -107,17 +158,13 @@ $url_query .= '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
 $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'tbl_structure.php';
 
-// Check column names for MySQL reserved words
-$reserved_word_column_messages = PMA_getReservedWordColumnNameMessages($db, $table);
-$response->addHTML($reserved_word_column_messages);
-
 /**
  * Prepares the table structure display
  */
 
 
 /**
- * Gets tables informations
+ * Gets tables information
  */
 require_once 'libraries/tbl_info.inc.php';
 
@@ -126,8 +173,11 @@ require_once 'libraries/Index.class.php';
 // 2. Gets table keys and retains them
 // @todo should be: $server->db($db)->table($table)->primary()
 $primary = PMA_Index::getPrimary($table, $db);
-
-$columns_with_unique_index = PMA_getColumnsWithUniqueIndex($db, $table);
+$columns_with_index = PMA_getColumnsWithIndex(
+    $db, $table,
+    PMA_Index::UNIQUE | PMA_Index::INDEX | PMA_Index::SPATIAL | PMA_Index::FULLTEXT
+);
+$columns_with_unique_index = PMA_getColumnsWithIndex($db, $table, PMA_Index::UNIQUE);
 
 // 3. Get fields
 $fields = (array) $GLOBALS['dbi']->getColumns($db, $table, null, true);
@@ -161,4 +211,5 @@ $hidden_titles = PMA_getHiddenTitlesArray();
 
 //display table structure
 require_once 'libraries/display_structure.inc.php';
-?>
+
+$response->addHTML('</div>');

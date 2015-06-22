@@ -140,7 +140,6 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
         );
 
         //test for realMultiQuery
-        $result = $ret;
         $ret = $this->object->realMultiQuery($link, $query);
         $this->assertEquals(
             'mysqli_multi_query',
@@ -213,7 +212,6 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
         );
 
         //test for getClientInfo
-        $link = $ret;
         $ret = $this->object->getClientInfo();
         $this->assertEquals(
             'mysqli_get_client_info',

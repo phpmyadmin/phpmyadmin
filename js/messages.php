@@ -26,6 +26,15 @@ session_write_close();
 require_once './libraries/js_escape.lib.php';
 require_once './libraries/Util.class.php';
 
+require_once './libraries/OutputBuffering.class.php';
+$buffer = PMA_OutputBuffering::getInstance();
+$buffer->start();
+register_shutdown_function(
+    function () {
+        echo PMA_OutputBuffering::getInstance()->getContents();
+    }
+);
+
 $js_messages['strNoDropDatabases'] = __('"DROP DATABASE" statements are disabled.');
 if ($cfg['AllowUserDropDatabase']) {
     $js_messages['strNoDropDatabases'] = '';
@@ -37,7 +46,11 @@ $js_messages['strDoYouReally'] = __('Do you really want to execute "%s"?');
 $js_messages['strDropDatabaseStrongWarning'] = __('You are about to DESTROY a complete database!');
 $js_messages['strDropTableStrongWarning'] = __('You are about to DESTROY a complete table!');
 $js_messages['strTruncateTableStrongWarning'] = __('You are about to TRUNCATE a complete table!');
-$js_messages['strDeleteTrackingData'] = __('Delete tracking data for this table');
+$js_messages['strDeleteTrackingData'] = __('Delete tracking data for this table?');
+$js_messages['strDeleteTrackingDataMultiple'] = __('Delete tracking data for these tables?');
+$js_messages['strDeleteTrackingVersion'] = __('Delete tracking data for this version?');
+$js_messages['strDeleteTrackingVersionMultiple'] = __('Delete tracking data for these versions?');
+$js_messages['strDeletingTrackingEntry'] = __('Delete entry from tracking report?');
 $js_messages['strDeletingTrackingData'] = __('Deleting tracking data');
 $js_messages['strDroppingPrimaryKeyIndex'] = __('Dropping Primary Key/Index');
 $js_messages['strDroppingForeignKey'] = __('Dropping Foreign key.');
@@ -46,6 +59,30 @@ $js_messages['strDropUserGroupWarning'] = __('Do you really want to delete user 
 $js_messages['strConfirmDeleteQBESearch'] = __('Do you really want to delete the search "%s"?');
 $js_messages['strConfirmNavigation'] = __('You have unsaved changes; are you sure you want to leave this page?');
 $js_messages['strDropUserWarning'] = __('Do you really want to revoke the selected user(s) ?');
+$js_messages['strDeleteCentralColumnWarning'] = __('Do you really want to delete this central column?');
+$js_messages['strDropRTEitems'] = __('Do you really want to delete the selected items?');
+$js_messages['strDropPartitionWarning'] = __('Do you really want to DROP the selected partition(s)? This will also DELETE the data related to the selected partition(s)!');
+$js_messages['strTruncatePartitionWarning'] = __('Do you really want to TRUNCATE the selected partition(s)?');
+$js_messages['strChangeColumnCollation'] = __(
+    'This operation will attempt to convert your data to the new collation. In '
+    . 'rare cases, especially where a character doesn\'t exist in the new '
+    . 'collation, this process could cause the data to appear incorrectly under '
+    . 'the new collation; in this case we suggest you revert to the original '
+    . 'collation and refer to the tips at '
+)
+    . '<a href="%s" target="garbled_data_wiki">' . __('Garbled Data') . '</a>.'
+    . '<br/><br/>'
+    . __('Are you sure you wish to change the collation and convert the data?');
+$js_messages['strChangeAllColumnCollationsWarning'] = __(
+    'Through this operation, MySQL attempts to map the data values between collations. '
+    . 'If the character sets are incompatible, '
+    . 'there may be data loss and this lost data may <b>NOT</b> be recoverable simply '
+    . 'by changing back the column collation(s).'
+    . '<b> To convert existing data, it is suggested to use the column(s) editing feature '
+    . '(the "Change" Link) on the table structure page. </b>'
+)
+. '<br/><br/>'
+. __('Are you sure you wish to change all the column collations and convert the data?');
 
 /* For modal dialog buttons */
 $js_messages['strSaveAndClose'] = __('Save & Close');
@@ -64,6 +101,9 @@ $js_messages['strCreateSingleColumnIndex'] = __('Create single-column index');
 $js_messages['strCreateCompositeIndex'] = __('Create composite index');
 $js_messages['strCompositeWith'] = __('Composite with:');
 $js_messages['strMissingColumn'] = __('Please select column(s) for the index.');
+
+/* For Create Table */
+$js_messages['strLeastColumnError'] = __('You have to add at least one column.');
 
 /* For Preview SQL*/
 $js_messages['strPreviewSQL'] = __('Preview SQL');
@@ -131,7 +171,7 @@ $js_messages['strGiB'] = __('GiB');
 $js_messages['strTiB'] = __('TiB');
 $js_messages['strPiB'] = __('PiB');
 $js_messages['strEiB'] = __('EiB');
-$js_messages['strTables'] = __('%d table(s)');
+$js_messages['strNTables'] = __('%d table(s)');
 
 /* l10n: Questions is the name of a MySQL Status variable */
 $js_messages['strQuestions'] = __('Questions');
@@ -239,15 +279,22 @@ $js_messages['strJustification'] = __('Justification');
 $js_messages['strFormula'] = __('Used variable / formula');
 $js_messages['strTest'] = __('Test');
 
+/* For query editor */
+$js_messages['strFormatting'] = __('Formatting SQL...');
 
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
 $js_messages['strCancel'] = __('Cancel');
 
+/* For page-related settings */
+$js_messages['strPageSettings'] = _('Page-related settings');
+$js_messages['strApply'] = _('Apply');
+
 /* For Ajax Notifications */
 $js_messages['strLoading'] = __('Loading…');
 $js_messages['strAbortedRequest'] = __('Request Aborted!!');
 $js_messages['strProcessingRequest'] = __('Processing Request');
+$js_messages['strRequestFailed'] = __('Request Failed!!');
 $js_messages['strErrorProcessingRequest'] = __('Error in Processing Request');
 $js_messages['strErrorCode'] = __('Error code: %s');
 $js_messages['strErrorText'] = __('Error text: %s');
@@ -263,10 +310,10 @@ $js_messages['strCopyingDatabase'] = __('Copying Database');
 $js_messages['strChangingCharset'] = __('Changing Charset');
 $js_messages['strNo'] = __('No');
 
+/* For Foreign key checks */
+$js_messages['strForeignKeyCheck'] = __('Enable foreign key checks');
+
 /* For db_stucture.js */
-$js_messages['strForeignKeyCheck'] = __('Foreign key check:');
-$js_messages['strForeignKeyCheckEnabled'] = __('(Enabled)');
-$js_messages['strForeignKeyCheckDisabled'] = __('(Disabled)');
 $js_messages['strErrorRealRowCount'] = __('Failed to get real row count.');
 
 /* For db_search.js */
@@ -278,6 +325,7 @@ $js_messages['strDeleting'] = __('Deleting');
 
 /* For db_routines.js */
 $js_messages['MissingReturn'] = __('The definition of a stored function must contain a RETURN statement!');
+$js_messages['strExport'] = __('Export');
 
 /* For ENUM/SET editor*/
 $js_messages['enum_editor'] = __('ENUM/SET editor');
@@ -293,8 +341,11 @@ $js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, t
 $js_messages['strHideQueryBox'] = __('Hide query box');
 $js_messages['strShowQueryBox'] = __('Show query box');
 $js_messages['strEdit'] = __('Edit');
+$js_messages['strDelete'] = __('Delete');
 $js_messages['strNotValidRowNumber'] = __('%d is not valid row number.');
 $js_messages['strBrowseForeignValues'] = __('Browse foreign values');
+$js_messages['strNoAutoSavedQuery'] = __('No auto-saved query');
+$js_messages['strBookmarkVariable'] = __('Variable %d:');
 
 /* For Central list of columns */
 $js_messages['pickColumn'] = __('Pick');
@@ -324,7 +375,7 @@ $js_messages['strHidePd'] = __('Hide partial dependencies list');
 $js_messages['strWaitForPd'] = __('Sit tight! It may take few seconds depending on data size and column count of the table.');
 $js_messages['strStep'] = __('Step');
 $js_messages['strMoveRepeatingGroup'] = '<ol><b>' . __('The following actions will be performed:') . '</b>'
-    . '<li>' . __('DROP columns %1s from the table %2s') . '</li>'
+    . '<li>' . __('DROP columns %s from the table %s') . '</li>'
     . '<li>' . __('Create the following table') . '</li>';
 $js_messages['strNewTablePlaceholder'] = 'Enter new table name';
 $js_messages['strNewColumnPlaceholder'] = 'Enter column name';
@@ -383,10 +434,15 @@ $js_messages['strInnerRing'] = __('Inner Ring');
 $js_messages['strOuterRing'] = __('Outer Ring');
 $js_messages['strAddPoint'] = __('Add a point');
 $js_messages['strAddInnerRing'] = __('Add an inner ring');
-$js_messages['strFunctionHint'] = __('Shift + Click on function name to apply to all rows.');
 $js_messages['strYes'] = __('Yes');
 $js_messages['strCopyEncryptionKey'] = __('Do you want to copy encryption key?');
 $js_messages['strEncryptionKey'] = __('Encryption key');
+
+/* For Lock symbol Tooltip */
+$js_messages['strLockToolTip'] = __(
+    'Indicates that you have made changes to this page;'
+    . ' you will be prompted for confirmation before abandoning changes'
+);
 
 /* Designer (js/pmd/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
@@ -399,6 +455,7 @@ $js_messages['strLeavingDesigner'] = __(
 );
 $js_messages['strPageName'] = __('Page name');
 $js_messages['strSavePage'] = __('Save page');
+$js_messages['strSavePageAs'] = __('Save page as');
 $js_messages['strOpenPage'] = __('Open page');
 $js_messages['strDeletePage'] = __('Delete page');
 $js_messages['strUntitled'] = __('Untitled');
@@ -418,7 +475,7 @@ $js_messages['strCellEditHint'] = __('Press escape to cancel editing.');
 $js_messages['strSaveCellWarning'] = __('You have edited some data and they have not been saved. Are you sure you want to leave this page before saving the data?');
 $js_messages['strColOrderHint'] = __('Drag to reorder.');
 $js_messages['strSortHint'] = __('Click to sort results by this column.');
-$js_messages['strMultiSortHint'] = __('Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br />- Control+Click to remove column from ORDER BY clause');
+$js_messages['strMultiSortHint'] = __('Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from ORDER BY clause');
 $js_messages['strColMarkHint'] = __('Click to mark/unmark.');
 $js_messages['strColNameCopyHint'] = __('Double-click to copy column name.');
 $js_messages['strColVisibHint'] = __(
@@ -427,6 +484,8 @@ $js_messages['strColVisibHint'] = __(
 $js_messages['strShowAllCol'] = __('Show all');
 $js_messages['strAlertNonUnique'] = __('This table does not contain a unique column. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
 $js_messages['strEnterValidHex'] = __('Please enter a valid hexadecimal string. Valid characters are 0-9, A-F.');
+$js_messages['strShowAllRowsWarning'] = __('Do you really want to see all of the rows? For a big table this could crash the browser.');
+$js_messages['strOriginalLength'] = __('Original length');
 
 /** Drag & Drop sql import messages */
 $js_messages['dropImportMessageCancel'] = __('cancel');
@@ -451,7 +510,6 @@ default:
 $js_messages['strGoToLink'] = __('Go to link:');
 $js_messages['strColNameCopyTitle'] = __('Copy column name.');
 $js_messages['strColNameCopyText'] = __('Right-click the column name to copy it to your clipboard.');
-$js_messages['strShowDataRowLink'] = __('Show data row(s).');
 
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');
@@ -467,6 +525,13 @@ $js_messages['strHidePanel'] = __('Hide Panel');
 $js_messages['strUnhideNavItem'] = __('Show hidden navigation tree items.');
 $js_messages['linkWithMain'] = __('Link with main panel');
 $js_messages['unlinkWithMain'] = __('Unlink from main panel');
+$js_messages['strHoverDbFastFilter'] = __('To filter all databases on server, press Enter after a search term');
+$js_messages['strHoverFastFilter'] = __('To filter all %s in database, press Enter after a search term');
+$js_messages['strTables'] = __('tables');
+$js_messages['strViews'] = __('views');
+$js_messages['strProcedures'] = __('procedures');
+$js_messages['strEvents'] = __('events');
+$js_messages['strFunctions'] = __('functions');
 
 /* microhistory */
 $js_messages['strInvalidPage'] = __('The requested page was not found in the history, it may have expired.');
@@ -520,8 +585,16 @@ $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
     . '" width="16" height="16" alt="ajax clock"/>'
     . '</div>';
 
+// For console
 $js_messages['strConsoleRequeryConfirm'] = __('Execute this query again?');
 $js_messages['strConsoleDeleteBookmarkConfirm'] = __('Do you really want to delete this bookmark?');
+$js_messages['strConsoleDebugError'] = __('Some error occurred while getting SQL debug info.');
+$js_messages['strConsoleDebugSummary'] = __('%s queries executed %s times in %s seconds.');
+$js_messages['strConsoleDebugArgsSummary'] = __('%s argument(s) passed');
+$js_messages['strConsoleDebugShowArgs'] = __('Show arguments');
+$js_messages['strConsoleDebugHideArgs'] = __('Hide arguments');
+$js_messages['strConsoleDebugTimeTaken'] = __('Time taken:');
+$js_messages['strNoLocalStorage'] = __('Your web browser does not support local storage of settings or the quota limit has been reached, some features may not work properly for you. In Safari, such problem is commonly caused by "Private Mode Browsing".');
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
@@ -534,9 +607,6 @@ echo "var themeCalendarImage = '" . $GLOBALS['pmaThemeImage']
 
 /* Image path */
 echo "var pmaThemeImage = '" . $GLOBALS['pmaThemeImage'] . "';\n";
-
-/* Version */
-echo "var pmaversion = '" . PMA_VERSION . "';\n";
 
 echo "var mysql_doc_template = '" . PMA_Util::getMySQLDocuURL('%s') . "';\n";
 
@@ -581,29 +651,29 @@ PMA_printJsValue(
 PMA_printJsValue(
     "$.datepicker.regional['']['monthNamesShort']",
     array(
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Jan'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Feb'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Mar'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Apr'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         _pgettext('Short month name', 'May'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Jun'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Jul'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Aug'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Sep'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Oct'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Nov'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Dec')
     )
 );
@@ -622,38 +692,38 @@ PMA_printJsValue(
 PMA_printJsValue(
     "$.datepicker.regional['']['dayNamesShort']",
     array(
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Sun'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Mon'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Tue'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Wed'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Thu'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Fri'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Sat')
     )
 );
 PMA_printJsValue(
     "$.datepicker.regional['']['dayNamesMin']",
     array(
-/* l10n: Minimal week day name */
+        /* l10n: Minimal week day name */
         __('Su'),
-/* l10n: Minimal week day name */
+        /* l10n: Minimal week day name */
         __('Mo'),
-/* l10n: Minimal week day name */
+        /* l10n: Minimal week day name */
         __('Tu'),
-/* l10n: Minimal week day name */
+        /* l10n: Minimal week day name */
         __('We'),
-/* l10n: Minimal week day name */
+        /* l10n: Minimal week day name */
         __('Th'),
-/* l10n: Minimal week day name */
+        /* l10n: Minimal week day name */
         __('Fr'),
-/* l10n: Minimal week day name */
+        /* l10n: Minimal week day name */
         __('Sa')
     )
 );
@@ -686,3 +756,33 @@ PMA_printJsValue("$.timepicker.regional['']['secondText']", __('Second'));
 ?>
 $.extend($.timepicker._defaults, $.timepicker.regional['']);
 } /* if ($.timepicker) */
+
+<?php
+/* Form validation */
+
+echo "function extendingValidatorMessages() {\n";
+echo "$.extend($.validator.messages, {\n";
+/* Default validation functions */
+PMA_printJsValueForFormValidation('required', __('This field is required'));
+PMA_printJsValueForFormValidation('remote', __('Please fix this field'));
+PMA_printJsValueForFormValidation('email', __('Please enter a valid email address'));
+PMA_printJsValueForFormValidation('url', __('Please enter a valid URL'));
+PMA_printJsValueForFormValidation('date', __('Please enter a valid date'));
+PMA_printJsValueForFormValidation('dateISO', __('Please enter a valid date ( ISO )'));
+PMA_printJsValueForFormValidation('number', __('Please enter a valid number'));
+PMA_printJsValueForFormValidation('creditcard', __('Please enter a valid credit card number'));
+PMA_printJsValueForFormValidation('digits', __('Please enter only digits'));
+PMA_printJsValueForFormValidation('equalTo', __('Please enter the same value again'));
+PMA_printJsValueForFormValidation('maxlength', __('Please enter no more than {0} characters'), true);
+PMA_printJsValueForFormValidation('minlength', __('Please enter at least {0} characters'), true);
+PMA_printJsValueForFormValidation('rangelength', __('Please enter a value between {0} and {1} characters long'), true);
+PMA_printJsValueForFormValidation('range', __('Please enter a value between {0} and {1}'), true);
+PMA_printJsValueForFormValidation('max', __('Please enter a value less than or equal to {0}'), true);
+PMA_printJsValueForFormValidation('min', __('Please enter a value greater than or equal to {0}'), true);
+/* customed functions */
+PMA_printJsValueForFormValidation('validationFunctionForDateTime', __('Please enter a valid date or time'), true);
+PMA_printJsValueForFormValidation('validationFunctionForHex', __('Please enter a valid HEX input'), true);
+PMA_printJsValueForFormValidation('validationFunctionForFuns', __('Error'), true, false);
+echo "\n});";
+echo "\n} /* if ($.validator) */";
+?>

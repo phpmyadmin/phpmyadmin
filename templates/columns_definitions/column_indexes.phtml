@@ -1,0 +1,32 @@
+<select name="field_key[<?php echo $columnNumber;?>]"
+        id="field_<?php echo $columnNumber; ?>_<?php echo ($ci - $ci_offset);?>"
+        data-index="">
+    <option value="none_<?php echo $columnNumber; ?>">---</option>
+    <option value="primary_<?php echo $columnNumber; ?>"
+            title="<?php echo __("Primary"); ?>"
+            <?php echo ((isset($columnMeta['Key']) && $columnMeta['Key'] == 'PRI') ? 'selected="selected"' : '');?>>
+        PRIMARY
+    </option>
+    <option value="unique_<?php echo $columnNumber; ?>"
+            title="<?php echo __("Unique"); ?>"
+        <?php echo ((isset($columnMeta['Key']) && $columnMeta['Key'] == 'UNI') ? 'selected="selected"' : '');?>>
+        UNIQUE
+    </option>
+    <option value="index_<?php echo $columnNumber; ?>"
+            title="<?php echo __("Index"); ?>"
+        <?php echo ((isset($columnMeta['Key']) && $columnMeta['Key'] == 'MUL') ? 'selected="selected"' : '');?>>
+        INDEX
+    </option>
+    <?php if (!PMA_DRIZZLE): ?>
+        <option value="fulltext_<?php echo $columnNumber; ?>"
+                title="<?php echo __("Fulltext"); ?>"
+            <?php echo ((isset($columnMeta['Key']) && $columnMeta['Key'] == 'FULLTEXT') ? 'selected="selected"' : '');?>>
+            FULLTEXT
+        </option>
+        <option value="spatial_<?php echo $columnNumber; ?>"
+                title="<?php echo __("Spatial"); ?>"
+            <?php echo ((isset($columnMeta['Key']) && $columnMeta['Key'] == 'SPATIAL') ? 'selected="selected"' : '');?>>
+            SPATIAL
+        </option>
+    <?php endif; ?>
+</select>

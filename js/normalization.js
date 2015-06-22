@@ -101,7 +101,7 @@ function goToFinish1NF()
     }
     $("#mainContent legend").html(PMA_messages.strEndStep);
     $("#mainContent h4").html(
-        "<h3>"+$.sprintf(PMA_messages.strFinishMsg, PMA_commonParams.get('table'))+"</h3>"
+        "<h3>" + PMA_sprintf(PMA_messages.strFinishMsg, PMA_commonParams.get('table')) + "</h3>"
     );
     $("#mainContent p").html('');
     $("#mainContent #extra").html('');
@@ -629,7 +629,7 @@ AJAX.registerOnload('normalization.js', function() {
         if (repeatingCols !== '') {
             newColName = $("#extra input[type=checkbox]:checked:first").val();
             repeatingCols = repeatingCols.slice(0, -2);
-            confirmStr = $.sprintf(PMA_messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(PMA_commonParams.get('table')));
+            confirmStr = PMA_sprintf(PMA_messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(PMA_commonParams.get('table')));
             confirmStr += '<input type="text" name="repeatGroupTable" placeholder="'+PMA_messages.strNewTablePlaceholder+'"/>'+
                 '( '+escapeHtml(primary_key.toString())+', <input type="text" name="repeatGroupColumn" placeholder="'+PMA_messages.strNewColumnPlaceholder+'" value="'+escapeHtml(newColName)+'">)'+
                 '</ol>';
@@ -653,8 +653,8 @@ AJAX.registerOnload('normalization.js', function() {
         var title = PMA_messages.strAddPrimaryKey;
         indexEditorDialog(url, title, function(){
             //on success
-            $("#sqlqueryresults").remove();
-            $('#result_query').remove();
+            $(".sqlqueryresults").remove();
+            $('.result_query').remove();
             $('.tblFooters').html('');
             goToStep2('goToStep3');
         });
@@ -698,9 +698,9 @@ AJAX.registerOnload('normalization.js', function() {
         var strColsRight = $(this).next().next().html();
         var colsRight = strColsRight.split(',');
         for (var i in colsRight) {
-            $('form[data-colname="'+colsRight[i].trim()+'"] input[type="checkbox"]').removeAttr('checked');
+            $('form[data-colname="'+colsRight[i].trim()+'"] input[type="checkbox"]').prop('checked', false);
             for (var j in colsLeft) {
-                $('form[data-colname="'+colsRight[i].trim()+'"] input[value="'+colsLeft[j].trim()+'"]').attr('checked','checked');
+                $('form[data-colname="'+colsRight[i].trim()+'"] input[value="'+colsLeft[j].trim()+'"]').prop('checked', true);
             }
         }
     });

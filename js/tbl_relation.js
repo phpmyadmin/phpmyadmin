@@ -17,13 +17,13 @@ function show_hide_clauses($thisDropdown)
 /**
  * Sets dropdown options to values
  */
-function setDropdownValues($dropdown, values) {
+function setDropdownValues($dropdown, values, selectedValue) {
     $dropdown.empty();
     var optionsAsString = '';
     // add an empty string to the beginning for empty selection
     values.unshift('');
     $.each(values, function () {
-        optionsAsString += "<option value='" + this + "'>" + this + "</option>";
+        optionsAsString += "<option value='" + this + "'" + (selectedValue == this ? " selected='selected'" : "") + ">" + this + "</option>";
     });
     $dropdown.append($(optionsAsString));
 }
@@ -39,12 +39,14 @@ function getDropdownValues($dropdown) {
     var foreign = '';
     // if the changed dropdown is for foreign key constraints
     if ($dropdown.is('select[name^="destination_foreign"]')) {
-        $tableDd  = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_table"]');
-        $columnDd = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_column"]');
+        $databaseDd = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_db"]');
+        $tableDd    = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_table"]');
+        $columnDd   = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_column"]');
         foreign = '_foreign';
     } else { // internal relations
-        $tableDd  = $dropdown.parent().find('select[name^="destination_table"]');
-        $columnDd = $dropdown.parent().find('select[name^="destination_column"]');
+        $databaseDd = $dropdown.parent().find('select[name^="destination_db"]');
+        $tableDd    = $dropdown.parent().find('select[name^="destination_table"]');
+        $columnDd   = $dropdown.parent().find('select[name^="destination_column"]');
     }
 
     // if the changed dropdown is a database selector
@@ -57,8 +59,7 @@ function getDropdownValues($dropdown) {
             return;
         }
     } else { // if a table selector
-        foreignDb = $dropdown.parent().parent().parent()
-            .find('select[name^="destination' + foreign + '_db"]').val();
+        foreignDb = $databaseDd.val();
         foreignTable = $dropdown.val();
          // if no table is selected empty the column dropdown
         if (foreignTable === '') {
@@ -86,7 +87,7 @@ function getDropdownValues($dropdown) {
         datatype: 'json',
         success: function (data) {
             PMA_ajaxRemoveMessage($msgbox);
-            if (data.success) {
+            if (typeof data !== 'undefined' && data.success) {
                 // if the changed dropdown is a database selector
                 if (foreignTable === null) {
                     // set values for table and column dropdowns
@@ -94,7 +95,13 @@ function getDropdownValues($dropdown) {
                     setDropdownValues($columnDd, []);
                 } else { // if a table selector
                     // set values for the column dropdown
-                    setDropdownValues($columnDd, data.columns);
+                    var primary = null;
+                    if (typeof data.primary !== 'undefined'
+                        && 1 === data.primary.length
+                    ) {
+                        primary = data.primary[0];
+                    }
+                    setDropdownValues($columnDd, data.columns, primary);
                 }
             } else {
                 PMA_ajaxShowMessage(data.error, false);
@@ -208,7 +215,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
                 .val()
         );
 
-        var question = $.sprintf(PMA_messages.strDoYouReally, drop_query);
+        var question = PMA_sprintf(PMA_messages.strDoYouReally, drop_query);
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingForeignKey, false);

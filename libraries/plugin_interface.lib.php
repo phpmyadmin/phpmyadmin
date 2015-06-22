@@ -23,14 +23,11 @@ function PMA_getPlugin(
     $plugins_dir,
     $plugin_param = false
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $GLOBALS['plugin_param'] = $plugin_param;
-    $class_name = $pmaString->strtoupper($plugin_type[0])
-        . $pmaString->strtolower($pmaString->substr($plugin_type, 1))
-        . $pmaString->strtoupper($plugin_format[0])
-        . $pmaString->strtolower($pmaString->substr($plugin_format, 1));
+    $class_name = /*overload*/mb_strtoupper($plugin_type[0])
+        . /*overload*/mb_strtolower(/*overload*/mb_substr($plugin_type, 1))
+        . /*overload*/mb_strtoupper($plugin_format[0])
+        . /*overload*/mb_strtolower(/*overload*/mb_substr($plugin_format, 1));
     $file = $class_name . ".class.php";
     if (is_file($plugins_dir . $file)) {
         include_once $plugins_dir . $file;
@@ -60,8 +57,6 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
         return $plugin_list;
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     //@todo Find a way to use PMA_StringMB with UTF-8 instead of mb_*.
     while ($file = @readdir($handle)) {
         // In some situations, Mac OS creates a new file for each file
@@ -69,7 +64,7 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
         // matches a file which does not start with a dot but ends
         // with ".php"
         $class_type = mb_strtoupper($plugin_type[0], 'UTF-8')
-            . mb_strtolower($pmaString->substr($plugin_type, 1), 'UTF-8');
+            . mb_strtolower(/*overload*/mb_substr($plugin_type, 1), 'UTF-8');
         if (is_file($plugins_dir . $file)
             && preg_match(
                 '@^' . $class_type . '(.+)\.class\.php$@i',
@@ -120,11 +115,8 @@ function PMA_pluginCheckboxCheck($section, $opt)
     // If the form is being repopulated using $_GET data, that is priority
     if (isset($_GET[$opt])
         || ! isset($_GET['repopulate'])
-        && ((isset($GLOBALS['timeout_passed'])
-        && $GLOBALS['timeout_passed']
-        && isset($_REQUEST[$opt]))
-        || (isset($GLOBALS['cfg'][$section][$opt])
-        && $GLOBALS['cfg'][$section][$opt]))
+        && ((! empty($GLOBALS['timeout_passed']) && isset($_REQUEST[$opt]))
+        || ! empty($GLOBALS['cfg'][$section][$opt]))
     ) {
         return ' checked="checked"';
     }
@@ -196,11 +188,12 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
     }
     $ret = '<select id="plugins" name="' . $name . '">';
     $default = PMA_pluginGetDefault($section, $cfgname);
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     foreach ($list as $plugin) {
-        $plugin_name = $pmaString->strtolower(
-            $pmaString->substr(get_class($plugin), $pmaString->strlen($section))
+        $plugin_name = /*overload*/mb_strtolower(
+            /*overload*/mb_substr(
+                get_class($plugin),
+                /*overload*/mb_strlen($section)
+            )
         );
         $ret .= '<option';
          // If the form is being repopulated using $_GET data, that is priority
@@ -225,13 +218,16 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
 
     // Whether each plugin has to be saved as a file
     foreach ($list as $plugin) {
-        $plugin_name = $pmaString->strtolower(
-            $pmaString->substr(get_class($plugin), $pmaString->strlen($section))
+        $plugin_name = /*overload*/mb_strtolower(
+            /*overload*/mb_substr(
+                get_class($plugin),
+                /*overload*/mb_strlen($section)
+            )
         );
         $ret .= '<input type="hidden" id="force_file_' . $plugin_name
             . '" value="';
         $properties = $plugin->getProperties();
-        if ( ! strcmp($section, 'Import')
+        if (! strcmp($section, 'Import')
             || ($properties != null && $properties->getForceFile() != null)
         ) {
             $ret .= 'true';
@@ -261,14 +257,11 @@ function PMA_pluginGetOneOption(
     &$propertyGroup,
     $is_subgroup = false
 ) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $ret = "\n";
 
     if (! $is_subgroup) {
         // for subgroup headers
-        if ($pmaString->strpos(get_class($propertyGroup), "PropertyItem")) {
+        if (/*overload*/mb_strpos(get_class($propertyGroup), "PropertyItem")) {
             $properties = array($propertyGroup);
         } else {
             // for main groups
@@ -294,12 +287,14 @@ function PMA_pluginGetOneOption(
     }
 
     if (isset($properties)) {
+        /** @var OptionsPropertySubgroup $propertyItem */
         foreach ($properties as $propertyItem) {
             $property_class = get_class($propertyItem);
             // if the property is a subgroup, we deal with it recursively
-            if ($pmaString->strpos($property_class, "Subgroup")) {
+            if (/*overload*/mb_strpos($property_class, "Subgroup")) {
                 // for subgroups
                 // each subgroup can have a header, which may also be a form element
+                /** @var OptionsPropertyItem $subgroup_header */
                 $subgroup_header = $propertyItem->getSubgroupHeader();
                 if (isset($subgroup_header)) {
                     $ret .= PMA_pluginGetOneOption(
@@ -326,7 +321,7 @@ function PMA_pluginGetOneOption(
             }
 
             // single property item
-            $ret .= PMA_pluginGetOneOption_getHtmlForProperty(
+            $ret .= PMA_getHtmlForProperty(
                 $section, $plugin_name, $propertyItem
             );
         }
@@ -385,7 +380,7 @@ function PMA_pluginGetOneOption(
  *
  * @return string
  */
-function PMA_pluginGetOneOption_getHtmlForProperty(
+function PMA_getHtmlForProperty(
     $section, $plugin_name, $propertyItem
 ) {
     $ret = null;
@@ -512,9 +507,6 @@ function PMA_pluginGetOneOption_getHtmlForProperty(
  */
 function PMA_pluginGetOptions($section, &$list)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $ret = '';
     // Options for plugins that support them
     foreach ($list as $plugin) {
@@ -524,8 +516,11 @@ function PMA_pluginGetOptions($section, &$list)
             $options = $properties->getOptions();
         }
 
-        $plugin_name = $pmaString->strtolower(
-            $pmaString->substr(get_class($plugin), $pmaString->strlen($section))
+        $plugin_name = /*overload*/mb_strtolower(
+            /*overload*/mb_substr(
+                get_class($plugin),
+                /*overload*/mb_strlen($section)
+            )
         );
         $ret .= '<div id="' . $plugin_name
             . '_options" class="format_specific_options">';

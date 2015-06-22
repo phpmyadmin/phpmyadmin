@@ -158,14 +158,14 @@ class PMA_Header
         if (isset($GLOBALS['db'])) {
             $params['db'] = $GLOBALS['db'];
         }
-        $this->_scripts->addFile('jquery/jquery-1.8.3.min.js');
+        $this->_scripts->addFile('jquery/jquery-1.11.1.min.js');
         $this->_scripts->addFile(
             'whitelist.php' . PMA_URL_getCommon($params), false, true
         );
+        $this->_scripts->addFile('sprintf.js');
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
-        $this->_scripts->addFile('jquery/jquery-ui-1.9.2.custom.min.js');
-        $this->_scripts->addFile('jquery/jquery.sprintf.js');
+        $this->_scripts->addFile('jquery/jquery-ui-1.11.2.min.js');
         $this->_scripts->addFile('jquery/jquery.cookie.js');
         $this->_scripts->addFile('jquery/jquery.mousewheel.js');
         $this->_scripts->addFile('jquery/jquery.event.drag-2.2.js');
@@ -205,6 +205,8 @@ class PMA_Header
         $this->_scripts->addFile('navigation.js');
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
+        $this->_scripts->addFile('config.js');
+        $this->_scripts->addFile('page_settings.js');
         $this->_scripts->addCode($this->getJsParamsCode());
     }
 
@@ -220,9 +222,17 @@ class PMA_Header
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $pftext = ! empty($_SESSION['tmpval']['pftext'])
             ? $_SESSION['tmpval']['pftext'] : '';
-        return array(
-            'common_query' => PMA_URL_getCommon('', '', '&'),
-            'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
+
+        // not sure when this happens, but it happens
+        if (! isset($GLOBALS['collation_connection'])) {
+            $GLOBALS['collation_connection'] = 'utf8_general_ci';
+        }
+
+        $params = array(
+            'common_query' => PMA_URL_getCommon(array(), 'text'),
+            'opendb_url' => PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            ),
             'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 1 : 0,
             'collation_connection' => $GLOBALS['collation_connection'],
             'lang' => $GLOBALS['lang'],
@@ -231,6 +241,7 @@ class PMA_Header
             'db'    => $db,
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
+            'show_databases_navigation_as_tree'=> $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
             'pma_absolute_uri' => $GLOBALS['cfg']['PmaAbsoluteUri'],
             'pma_text_default_tab' => PMA_Util::getTitleForTarget(
                 $GLOBALS['cfg']['DefaultTabTable']
@@ -238,12 +249,22 @@ class PMA_Header
             'pma_text_left_default_tab' => PMA_Util::getTitleForTarget(
                 $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
             ),
+            'pma_text_left_default_tab2' => PMA_Util::getTitleForTarget(
+                $GLOBALS['cfg']['NavigationTreeDefaultTabTable2']
+            ),
             'LimitChars' => $GLOBALS['cfg']['LimitChars'],
             'pftext' => $pftext,
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
-            'logged_in' => isset($GLOBALS['userlink']) ? true : false
+            'logged_in' => isset($GLOBALS['userlink']) ? true : false,
         );
+        if (isset($GLOBALS['cfg']['Server'])
+            && isset($GLOBALS['cfg']['Server']['auth_type'])
+        ) {
+            $params['auth_type'] = $GLOBALS['cfg']['Server']['auth_type'];
+        }
+
+        return $params;
     }
 
     /**
@@ -384,11 +405,21 @@ class PMA_Header
                     $this->_scripts->addFile('codemirror/lib/codemirror.js');
                     $this->_scripts->addFile('codemirror/mode/sql/sql.js');
                     $this->_scripts->addFile('codemirror/addon/runmode/runmode.js');
+                    $this->_scripts->addFile('codemirror/addon/hint/show-hint.js');
+                    $this->_scripts->addFile('codemirror/addon/hint/sql-hint.js');
                 }
+                $this->_scripts->addCode(
+                    'ConsoleEnterExecutes='
+                    . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false')
+                );
+                $this->_scripts->addFiles($this->_console->getScripts());
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');
                 }
                 $retval .= $this->_scripts->getDisplay();
+                $retval .= '<noscript>';
+                $retval .= '<style>html{display:block}</style>';
+                $retval .= '</noscript>';
                 $retval .= $this->_getBodyStart();
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $nav = new PMA_Navigation();
@@ -416,12 +447,22 @@ class PMA_Header
                 $retval .= $this->_getWarnings();
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $retval .= $this->_menu->getDisplay();
+                    $retval .= '<span id="page_nav_icons">';
                     $retval .= '<span id="lock_page_icon"></span>';
+                    $retval .= '<span id="page_settings_icon">'
+                        . PMA_Util::getImage(
+                            's_cog.png',
+                            __('Page-related settings')
+                        )
+                        . '</span>';
                     $retval .= sprintf(
-                        '<a id="goto_pagetop" href="#" title="%s">%s</a>',
-                        __('Click on the bar to scroll to top of page'),
-                        PMA_Util::getImage('s_top.png')
+                        '<a id="goto_pagetop" href="#">%s</a>',
+                        PMA_Util::getImage(
+                            's_top.png',
+                            __('Click on the bar to scroll to top of page')
+                        )
                     );
+                    $retval .= '</span>';
                 }
                 $retval .= $this->_console->getDisplay();
                 $retval .= '<div id="page_content">';
@@ -488,7 +529,8 @@ class PMA_Header
         if (!empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
-            $captcha_url = ' https://www.google.com ';
+            $captcha_url = ' https://apis.google.com https://www.google.com/recaptcha/'
+               . ' https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/ ';
         } else {
             $captcha_url = '';
         }
@@ -562,12 +604,10 @@ class PMA_Header
         $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
         $dir  = $GLOBALS['text_dir'];
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         $retval  = "<!DOCTYPE HTML>";
         $retval .= "<html lang='$lang' dir='$dir' class='";
-        $retval .= $pmaString->strtolower(PMA_USR_BROWSER_AGENT) . " ";
-        $retval .= $pmaString->strtolower(PMA_USR_BROWSER_AGENT)
+        $retval .= /*overload*/mb_strtolower(PMA_USR_BROWSER_AGENT) . " ";
+        $retval .= /*overload*/mb_strtolower(PMA_USR_BROWSER_AGENT)
             . intval(PMA_USR_BROWSER_VER) . "'>";
 
         return $retval;
@@ -602,7 +642,6 @@ class PMA_Header
             . 'type="image/x-icon" />';
         // stylesheets
         $basedir    = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-        $common_url = PMA_URL_getCommon(array('server' => $GLOBALS['server']));
         $theme_id   = $GLOBALS['PMA_Config']->getThemeUniqueValue();
         $theme_path = $GLOBALS['pmaThemePath'];
 
@@ -613,11 +652,17 @@ class PMA_Header
             // load jQuery's CSS prior to our theme's CSS, to let the theme
             // override jQuery's CSS
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $theme_path . '/jquery/jquery-ui-1.9.2.custom.css" />';
+                . $theme_path . '/jquery/jquery-ui-1.11.2.css" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'phpmyadmin.css.php'
-                . $common_url . '&amp;nocache='
-                . $theme_id . $GLOBALS['text_dir'] . '" />';
+                . $basedir . 'js/codemirror/lib/codemirror.css" />';
+            $retval .= '<link rel="stylesheet" type="text/css" href="'
+                . $basedir . 'js/codemirror/addon/hint/show-hint.css" />';
+            $retval .= '<link rel="stylesheet" type="text/css" href="'
+                . $basedir . 'phpmyadmin.css.php?'
+                . 'nocache=' . $theme_id . $GLOBALS['text_dir'] . '" />';
+            // load Print view's CSS last, so that it overrides all other CSS while 'printing'
+            $retval .= '<link rel="stylesheet" type="text/css" href="'
+                . $theme_path . '/css/printview.css" />';
         }
 
         return $retval;
@@ -711,15 +756,13 @@ class PMA_Header
     {
         $retval = '';
         if ($this->_menuEnabled
-            && $GLOBALS['PMA_String']->strlen($table)
+            && /*overload*/mb_strlen($table)
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
-            $tmp_result = PMA_RecentFavoriteTable::getInstance('recent')->add($db, $table);
+            $tmp_result = PMA_RecentFavoriteTable::getInstance('recent')
+                              ->add($db, $table);
             if ($tmp_result === true) {
-                $params  = array('ajax_request' => true, 'recent_table' => true);
-                $url     = 'index.php' . PMA_URL_getCommon($params);
-                $retval  = '<a class="hide" id="update_recent_tables"';
-                $retval .= ' href="' . $url . '"></a>';
+                $retval = PMA_RecentFavoriteTable::getHtmlUpdateRecentTables();
             } else {
                 $error  = $tmp_result;
                 $retval = $error->getDisplay();

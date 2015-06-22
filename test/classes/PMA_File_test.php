@@ -51,12 +51,11 @@ class PMA_File_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_File::getContent
      *
      * @param string $file file string
-     * @param string $mime expected mime
      *
      * @return void
      * @dataProvider compressedFiles
      */
-    public function testBinaryContent($file, $mime)
+    public function testBinaryContent($file)
     {
         $data = '0x' . bin2hex(file_get_contents($file));
         $file = new PMA_File($file);

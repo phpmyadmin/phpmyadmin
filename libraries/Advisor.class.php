@@ -176,7 +176,7 @@ class Advisor
     public function translate($str, $param = null)
     {
         $string = _gettext(Advisor::escapePercent($str));
-        if ( ! is_null($param)) {
+        if (! is_null($param)) {
             $params = $this->ruleExprEvaluate('array(' . $param . ')');
         } else {
             $params = array();
@@ -204,7 +204,7 @@ class Advisor
      * Adds a rule to the result list
      *
      * @param string $type type of rule
-     * @param array  $rule rule itslef
+     * @param array  $rule rule itself
      *
      * @return void
      */
@@ -241,7 +241,7 @@ class Advisor
             // linking to server_variables.php
             $rule['recommendation'] = preg_replace(
                 '/\{([a-z_0-9]+)\}/Ui',
-                '<a href="server_variables.php?' . PMA_URL_getCommon()
+                '<a href="server_variables.php' . PMA_URL_getCommon()
                 . '&filter=\1">\1</a>',
                 $this->translate($rule['recommendation'])
             );
@@ -267,7 +267,7 @@ class Advisor
      */
     private function _replaceLinkURL($matches)
     {
-        return 'href="' . PMA_linkURL($matches[2]) . '"';
+        return 'href="' . PMA_linkURL($matches[2]) . '" target="_blank"';
     }
 
     /**
@@ -382,9 +382,6 @@ class Advisor
         $ruleNo = -1;
         $ruleLine = -1;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         for ($i = 0; $i < $numLines; $i++) {
             $line = $file[$i];
             if ($line == "" || $line[0] == '#') {
@@ -392,7 +389,7 @@ class Advisor
             }
 
             // Reading new rule
-            if ($pmaString->substr($line, 0, 4) == 'rule') {
+            if (substr($line, 0, 4) == 'rule') {
                 if ($ruleLine > 0) {
                     $errors[] = sprintf(
                         __(
@@ -447,7 +444,7 @@ class Advisor
                     continue;
                 }
                 $rules[$ruleNo][$ruleSyntax[$ruleLine]] = chop(
-                    $pmaString->substr($line, 1)
+                    /*overload*/mb_substr($line, 1)
                 );
                 $lines[$ruleNo][$ruleSyntax[$ruleLine]] = $i + 1;
                 $ruleLine += 1;
@@ -525,5 +522,3 @@ function ADVISOR_formatByteDown($value, $limes = 6, $comma = 0)
 {
     return implode(' ', PMA_Util::formatByteDown($value, $limes, $comma));
 }
-
-?>

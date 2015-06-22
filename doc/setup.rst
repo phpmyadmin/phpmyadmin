@@ -162,8 +162,8 @@ For a full explanation of possible configuration values, see the
 Using Setup script
 ------------------
 
-Instead of manually editing :file:`config.inc.php`, you can use the `Setup
-Script <setup/>`_. First you must manually create a folder ``config``
+Instead of manually editing :file:`config.inc.php`, you can use phpMyAdmin's 
+setup feature. First you must manually create a folder ``config``
 in the phpMyAdmin directory. This is a security measure. On a
 Linux/Unix system you can use the following commands:
 
@@ -191,7 +191,7 @@ On other platforms, simply create the folder and ensure that your web
 server has read and write access to it. :ref:`faq1_26` can help with
 this.
 
-Next, open ``setup/`` in your browser. If you have an existing configuration,
+Next, open your browser and visit the location where you installed phpMyAdmin, with the ``/setup`` suffix. If you have an existing configuration,
 use the ``Load`` button to bring its content inside the setup panel.
 Note that **changes are not saved to disk until you explicitly choose ``Save``**
 from the *Configuration* area of the screen. Normally the script saves the new
@@ -262,25 +262,53 @@ in your own database, or in a central database for a multi-user installation
 (this database would then be accessed by the controluser, so no other user
 should have rights to it).
 
-Please look at your ``./examples/`` directory, where you should find a
+Zero configuration
+------------------
+
+In many cases, this database structure can be automatically created and
+configured. This is called “Zero Configuration” mode and can be particularly
+useful in shared hosting situations. “Zeroconf” mode is on by default, to
+disable set :config:option:`$cfg['ZeroConf']` to false.
+
+The following three scenarios are covered by the Zero Configuration mode:
+
+* When entering a database where the configuration storage tables are not
+  present, phpMyAdmin offers to create them from the Operations tab.
+* When entering a database where the tables do already exist, the software
+  automatically detects this and begins using them. This is the most common
+  situation; after the tables are initially created automatically they are
+  continually used without disturbing the user; this is also most useful on
+  shared hosting where the user is not able to edit :file:`config.inc.php` and
+  usually the user only has access to one database.
+* When having access to multiple databases, if the user first enters the
+  database containing the configuration storage tables then switches to
+  another database,
+  phpMyAdmin continues to use the tables from the first database; the user is
+  not prompted to create more tables in the new database.
+
+
+Manual configuration
+--------------------
+
+Please look at your ``./sql/`` directory, where you should find a
 file called *create\_tables.sql*. (If you are using a Windows server,
 pay special attention to :ref:`faq1_23`).
 
 If you already had this infrastructure and:
 
 * upgraded to MySQL 4.1.2 or newer, please use
-  :file:`examples/upgrade_tables_mysql_4_1_2+.sql`.
+  :file:`sql/upgrade_tables_mysql_4_1_2+.sql`.
 * upgraded to phpMyAdmin 4.3.0 or newer from 2.5.0 or newer (<= 4.2.x),
-  please use :file:`examples/upgrade_column_info_4_3_0+.sql`.
+  please use :file:`sql/upgrade_column_info_4_3_0+.sql`.
 
-and then create new tables by importing :file:`examples/create_tables.sql`.
+and then create new tables by importing :file:`sql/create_tables.sql`.
 
 You can use your phpMyAdmin to create the tables for you. Please be
 aware that you may need special (administrator) privileges to create
 the database and tables, and that the script may need some tuning,
 depending on the database name.
 
-After having imported the :file:`examples/create_tables.sql` file, you
+After having imported the :file:`sql/create_tables.sql` file, you
 should specify the table names in your :file:`config.inc.php` file. The
 directives used for that can be found in the :ref:`config`.
 
@@ -299,10 +327,13 @@ using following statement:
 Upgrading from an older version
 +++++++++++++++++++++++++++++++
 
+**Never** extract the new version over an existing installation
+of phpMyAdmin; we had evidence of problems caused by this.
+
 Simply copy :file:`config.inc.php` from your previous installation into
 the newly unpacked one. Configuration files from old versions may
 require some tweaking as some options have been changed or removed.
-For compatibility with PHP 6, remove a
+For compatibility with PHP 5.3 and later, remove a
 ``set_magic_quotes_runtime(0);`` statement that you might find near
 the end of your configuration file.
 
@@ -313,12 +344,12 @@ specific.
 If you have upgraded your MySQL server from a version previous to 4.1.2 to
 version 5.x or newer and if you use the phpMyAdmin configuration storage, you
 should run the :term:`SQL` script found in
-:file:`examples/upgrade_tables_mysql_4_1_2+.sql`.
+:file:`sql/upgrade_tables_mysql_4_1_2+.sql`.
 
 If you have upgraded your phpMyAdmin to 4.3.0 or newer from 2.5.0 or
 newer (<= 4.2.x) and if you use the phpMyAdmin configuration storage, you
 should run the :term:`SQL` script found in
-:file:`examples/upgrade_column_info_4_3_0+.sql`.
+:file:`sql/upgrade_column_info_4_3_0+.sql`.
 
 .. index:: Authentication mode
 
@@ -397,7 +428,7 @@ Signon authentication mode
 --------------------------
 
 * This mode is a convenient way of using credentials from another
-  application to authenticate to phpMyAdmin to implement signle signon
+  application to authenticate to phpMyAdmin to implement single signon
   solution.
 * The other application has to store login information into session
   data (see :config:option:`$cfg['Servers'][$i]['SignonSession']`) or you
@@ -498,14 +529,15 @@ Securing your phpMyAdmin installation
 The phpMyAdmin team tries hard to make the application secure, however there
 are always ways to make your installation more secure:
 
-* remove ``setup`` directory from phpMyAdmin, you will probably not
-  use it after initial setup
-* properly choose authentication method - :ref:`cookie`
-  is probably the best choice for shared hosting
-* in case you don't want all MySQL users to be able to access
-  phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them
-* consider hiding phpMyAdmin behind authentication proxy, so that
-  MySQL credentials are not all users need to login
-* if you are afraid of automated attacks, enabling Captcha by
+* Remove the ``setup`` directory from phpMyAdmin, you will probably not
+  use it after the initial setup.
+* Properly choose an authentication method - :ref:`cookie`
+  is probably the best choice for shared hosting.
+* In case you don't want all MySQL users to be able to access
+  phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them.
+* Consider hiding phpMyAdmin behind an authentication proxy, so that
+  users need to authenticate prior to providing MySQL credentials
+  to phpMyAdmin.
+* If you are afraid of automated attacks, enabling Captcha by
   :config:option:`$cfg['CaptchaLoginPublicKey']` and
   :config:option:`$cfg['CaptchaLoginPrivateKey']` might be an option.

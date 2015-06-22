@@ -45,6 +45,8 @@ class PMA_StreamReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for read
+     *
+     * @return void
      */
     public function testRead()
     {
@@ -53,6 +55,8 @@ class PMA_StreamReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for seekto
+     *
+     * @return void
      */
     public function testSeekto()
     {
@@ -61,6 +65,8 @@ class PMA_StreamReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for currentpos
+     *
+     * @return void
      */
     public function testCurrentpos()
     {
@@ -69,6 +75,8 @@ class PMA_StreamReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for length
+     *
+     * @return void
      */
     public function testLength()
     {

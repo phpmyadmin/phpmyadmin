@@ -59,11 +59,11 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
 
         $GLOBALS['table'] = "table";
-        $GLOBALS['server_master_status'] = false;
-        $GLOBALS['server_slave_status'] = false;
+        $GLOBALS['replication_info']['master']['status'] = false;
+        $GLOBALS['replication_info']['slave']['status'] = false;
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['text_dir'] = "text_dir";
 

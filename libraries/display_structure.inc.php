@@ -107,7 +107,7 @@ foreach ($fields as $row) {
         && isset($mime_map[$row['Field']]['mimetype'])
     ) {
         $type_mime = '<br />MIME: '
-        . str_replace('_', '/', $mime_map[$row['Field']]['mimetype']);
+        . strtolower(str_replace('_', '/', $mime_map[$row['Field']]['mimetype']));
     } else {
         $type_mime = '';
     }
@@ -164,11 +164,16 @@ foreach ($fields as $row) {
             'b_primary.png', __('Primary')
         );
     }
+    if (in_array($field_name, $columns_with_index)) {
+        $displayed_field_name .= PMA_Util::getImage(
+            'bd_primary.png', __('Index')
+        );
+    }
     $response->addHTML(
         '<tr class="' . ($odd_row ? 'odd': 'even') . '">'
     );
     $odd_row = !$odd_row;
-    $isInCentralColumns = in_array($row['Field'], $central_list)?true:false;
+    $isInCentralColumns = in_array($row['Field'], $central_list) ? true : false;
     $response->addHTML(
         PMA_getHtmlTableStructureRow(
             $row, $rownum, $displayed_field_name,
@@ -204,7 +209,7 @@ $response->addHTML(
 );
 
 $response->addHTML(
-    '</form><hr />'
+    '</form><hr class="print_ignore"/>'
 );
 $response->addHTML(
     PMA_getHtmlDivForMoveColumnsDialog()
@@ -221,8 +226,7 @@ if ($tbl_is_view) {
 }
 $response->addHTML(
     PMA_getHtmlForOptionalActionLinks(
-        $url_query, $tbl_is_view, $db_is_system_schema,
-        $tbl_storage_engine, $cfgRelation
+        $url_query, $tbl_is_view, $db_is_system_schema
     )
 );
 
@@ -244,7 +248,7 @@ if (! $tbl_is_view
     //return the list of index
     $response->addJSON(
         'indexes_list',
-        PMA_Index::getView($GLOBALS['table'], $GLOBALS['db'])
+        PMA_Index::getHtmlForIndexes($GLOBALS['table'], $GLOBALS['db'])
     );
     $response->addHTML(PMA_getHtmlForDisplayIndexes());
 }

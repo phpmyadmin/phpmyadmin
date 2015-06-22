@@ -205,27 +205,25 @@ class PMA_DbSearch
         // For "as regular expression" (search option 4), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
         // he should enter \$ as the value.
-        $this->_criteriaSearchString = PMA_Util::sqlAddSlashes(
+        $criteriaSearchStringEscaped = PMA_Util::sqlAddSlashes(
             $this->_criteriaSearchString,
             ($this->_criteriaSearchType == 4 ? false : true)
         );
         // Extract search words or pattern
         $search_words = (($this->_criteriaSearchType > 2)
-            ? array($this->_criteriaSearchString)
-            : explode(' ', $this->_criteriaSearchString));
+            ? array($criteriaSearchStringEscaped)
+            : explode(' ', $criteriaSearchStringEscaped));
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         foreach ($search_words as $search_word) {
             // Eliminates empty values
-            if ($pmaString->strlen($search_word) === 0) {
+            if (/*overload*/mb_strlen($search_word) === 0) {
                 continue;
             }
             $likeClausesPerColumn = array();
             // for each column in the table
             foreach ($allColumns as $column) {
                 if (! isset($this->_criteriaColumnName)
-                    || $pmaString->strlen($this->_criteriaColumnName) == 0
+                    || /*overload*/mb_strlen($this->_criteriaColumnName) == 0
                     || $column['Field'] == $this->_criteriaColumnName
                 ) {
                     // Drizzle has no CONVERT and all text columns are UTF-8
@@ -245,7 +243,7 @@ class PMA_DbSearch
         } // end for
         // Use 'OR' if 'at least one word' is to be searched, else use 'AND'
         $implode_str  = ($this->_criteriaSearchType == 1 ? ' OR ' : ' AND ');
-        if ( empty($likeClauses)) {
+        if (empty($likeClauses)) {
             // this could happen when the "inside column" does not exist
             // in any selected tables
             $where_clause = ' WHERE FALSE';
@@ -347,7 +345,11 @@ class PMA_DbSearch
             $html_output .= '<td><a name="browse_search" class="ajax" href="'
                 . $browse_result_path . '" onclick="loadResult(\''
                 . $browse_result_path . '\',\'' . $each_table . '\',\''
-                . PMA_URL_getCommon($GLOBALS['db'], $each_table) . '\''
+                . PMA_URL_getCommon(
+                    array(
+                        'db' => $GLOBALS['db'], 'table' => $each_table
+                    )
+                ) . '\''
                 . ');return false;" >'
                 . __('Browse') . '</a></td>';
             $this_url_params['sql_query'] = $newsearchsqls['delete'];
@@ -378,7 +380,7 @@ class PMA_DbSearch
     {
         $html_output = '<a id="db_search"></a>';
         $html_output .= '<form id="db_search_form"'
-            . ' class="ajax"'
+            . ' class="ajax lock-page"'
             . ' method="post" action="db_search.php" name="db_search">';
         $html_output .= PMA_URL_getHiddenInputs($GLOBALS['db']);
         $html_output .= '<fieldset>';

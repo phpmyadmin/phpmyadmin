@@ -142,6 +142,9 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
         global $cfg;
 
         $server_port = $GLOBALS['dbi']->getServerPort($server);
+        if ($server_port === null) {
+            $server_port = 0;
+        }
         $server_socket = $GLOBALS['dbi']->getServerSocket($server);
 
         if ($server) {
@@ -310,8 +313,8 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
     /**
      * Adjusts the result pointer to an arbitrary row in the result
      *
-     * @param resource $result database result
-     * @param integer  $offset offset to seek
+     * @param mysqli_result $result database result
+     * @param integer       $offset offset to seek
      *
      * @return bool true on success, false on failure
      */

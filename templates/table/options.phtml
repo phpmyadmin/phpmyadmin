@@ -1,0 +1,78 @@
+<?php echo PMA_Util::getDivForSliderEffect(
+    'searchoptions', __('Options')
+); ?>
+
+<!-- Displays columns select list for selecting distinct columns in the search -->
+<fieldset id="fieldset_select_fields">
+    <legend>
+        <?php echo __('Select columns (at least one):'); ?>
+    </legend>
+    <select name="columnsToDisplay[]"
+            size="<?php echo min(count($columnNames), 10); ?>"
+            multiple="multiple">
+        <?php
+        /**
+         * Displays the list of the fields
+         */
+        foreach ($columnNames as $each_field): ?>
+            <option value="<?php echo htmlspecialchars($each_field); ?>"
+                    selected="selected">
+                <?php echo htmlspecialchars($each_field); ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+    <input type="checkbox"
+           name="distinct"
+           value="DISTINCT"
+           id="oDistinct" />
+    <label for="oDistinct">
+        DISTINCT
+    </label>
+</fieldset>
+
+<!-- Displays input box for custom 'Where' clause to be used in the search -->
+<fieldset id="fieldset_search_conditions">
+    <legend>
+        <em><?php echo __('Or'); ?></em>
+        <?php echo __('Add search conditions (body of the "where" clause):'); ?>
+    </legend>
+    <?php echo PMA_Util::showMySQLDocu('Functions'); ?>
+    <input type="text" name="customWhereClause" class="textfield" size="64" />
+</fieldset>
+
+<!-- Displays option of changing default number of rows displayed per page -->
+<fieldset id="fieldset_limit_rows">
+    <legend><?php echo __('Number of rows per page'); ?></legend>
+    <input type="number"
+           name="session_max_rows"
+           required="required"
+           min="1"
+           value="<?php echo $GLOBALS['cfg']['MaxRows']; ?>"
+           class="textfield" />
+</fieldset>
+
+<!-- Displays option for ordering search results by a column value (Asc or Desc) -->
+<fieldset id="fieldset_display_order">
+    <legend><?php echo __('Display order:'); ?></legend>
+    <select name="orderByColumn"><option value="--nil--"></option>
+        <?php foreach ($columnNames as $each_field): ?>
+            <option value="<?php echo htmlspecialchars($each_field); ?>">
+                <?php echo htmlspecialchars($each_field); ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+
+    <?php echo PMA_Util::getRadioFields(
+        'order',
+        array(
+            'ASC' => __('Ascending'),
+            'DESC' => __('Descending')
+        ),
+        'ASC',
+        false,
+        true,
+        "formelement"
+    ); ?>
+
+</fieldset>
+<br style="clear: both;" />

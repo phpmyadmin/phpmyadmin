@@ -40,10 +40,13 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['lang'] = "en";
+        $GLOBALS['text_dir'] = "ltr";
         $GLOBALS['available_languages'] = array(
             "en" => array("English", "US-ENGLISH"),
             "ch" => array("Chinese", "TW-Chinese")
         );
+        $GLOBALS['token_provided'] = true;
+        $GLOBALS['token_mismatch'] = false;
         $this->object = new AuthenticationHttp();
     }
 
@@ -440,21 +443,20 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
         $this->object->authFails();
         $result = ob_get_clean();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<p>error 123</p>'
-            ),
+        $this->assertContains(
+            '<p>error 123</p>',
             $result
         );
 
         $this->object = $this->getMockBuilder('AuthenticationHttp')
             ->disableOriginalConstructor()
-            ->setMethods(array('auth'))
+            ->setMethods(array('authForm'))
             ->getMock();
 
         $this->object->expects($this->exactly(2))
-            ->method('auth');
+            ->method('authForm');
         // case 2
+        $GLOBALS['cfg']['Server']['host'] = 'host';
         $GLOBALS['errno'] = 1045;
 
         $this->assertTrue(

@@ -30,6 +30,7 @@ $scripts->addFile('jqplot/plugins/jqplot.cursor.js');
 $scripts->addFile('canvg/canvg.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('tbl_zoom_plot_jqplot.js');
+$scripts->addFile('tbl_change.js');
 
 $table_search = new PMA_TableSearch($db, $table, "zoom");
 
@@ -81,7 +82,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
     }
     $key = array_search($field, $table_search->getColumnNames());
     $properties = $table_search->getColumnProperties($_REQUEST['it'], $key);
-    $response->addJSON('field_type', $properties['type']);
+    $response->addJSON('field_type', htmlspecialchars($properties['type']));
     $response->addJSON('field_collation', $properties['collation']);
     $response->addJSON('field_operators', $properties['func']);
     $response->addJSON('field_value', $properties['value']);
@@ -92,17 +93,19 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
 require_once './libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
-// Gets tables informations
+// Gets tables information
 require_once './libraries/tbl_info.inc.php';
 
 if (! isset($goto)) {
-    $goto = $GLOBALS['cfg']['DefaultTabTable'];
+    $goto = PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabTable'], 'table'
+    );
 }
 // Defines the url to return to in case of error in the next sql statement
-$err_url   = $goto . '?' . PMA_URL_getCommon($db, $table);
+$err_url   = $goto . PMA_URL_getCommon(array('db' => $db, 'table' => $table));
 
 //Set default datalabel if not selected
-if ( !isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
+if (!isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
     $dataLabel = PMA_getDisplayField($db, $table);
 } else {
     $dataLabel = $_POST['dataLabel'];
@@ -161,4 +164,3 @@ if (isset($_POST['zoom_submit'])
     //Displays form for point data and scatter plot
     $response->addHTML($table_search->getZoomResultsForm($goto, $data));
 }
-?>

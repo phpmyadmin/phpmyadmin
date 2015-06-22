@@ -109,10 +109,8 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHtmlForMasterReplication()
     {
-        global $master_variables;
         global $master_variables_alerts;
         global $master_variables_oks;
-        global $server_master_replication;
         global $strReplicationStatus_master;
 
         $master_variables_alerts = null;

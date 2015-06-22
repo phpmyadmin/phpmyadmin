@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
 class PMA_StorageEngine_Ndbcluster extends PMA_StorageEngine
 {
     /**
-     * Returns array with variable names realted to NDBCLUSTER storage engine
+     * Returns array with variable names related to NDBCLUSTER storage engine
      *
      * @return array   variable names
      */

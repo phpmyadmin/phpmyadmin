@@ -102,7 +102,7 @@ class ExportMediawiki extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
         return true;
     }
@@ -112,7 +112,7 @@ class ExportMediawiki extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         return true;
     }
@@ -125,7 +125,7 @@ class ExportMediawiki extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $db_alias = '')
     {
         return true;
     }
@@ -137,7 +137,7 @@ class ExportMediawiki extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         return true;
     }
@@ -311,7 +311,7 @@ class ExportMediawiki extends ExportPlugin
             $column_names = $GLOBALS['dbi']->getColumnNames($db, $table);
 
             // Add column names as table headers
-            if ( ! is_null($column_names) ) {
+            if (! is_null($column_names) ) {
                 // Use '|-' for separating rows
                 $output .= "|-" . $this->_exportCRLF();
 

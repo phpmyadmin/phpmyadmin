@@ -79,6 +79,12 @@ AJAX.registerOnload('export.js', function () {
             $("#checkbox_sql_relation").removeProp('disabled').parent().fadeTo('fast', 1);
             $("#checkbox_sql_mime").removeProp('disabled').parent().fadeTo('fast', 1);
         }
+
+        if (show == 'structure') {
+            $('#checkbox_sql_auto_increment').prop('disabled', true).parent().fadeTo('fast', 0.4);
+        } else {
+            $("#checkbox_sql_auto_increment").removeProp('disabled').parent().fadeTo('fast', 1);
+        }
     });
 });
 
@@ -204,7 +210,9 @@ AJAX.registerOnload('export.js', function () {
  */
 function toggle_quick_or_custom()
 {
-    if ($("#radio_custom_export").prop("checked")) {
+    if ($("input[name='quick_or_custom']").length === 0 // custom_no_form option
+        || $("#radio_custom_export").prop("checked") // custom
+    ) {
         $("#databases_and_tables").show();
         $("#rows").show();
         $("#output").show();
@@ -212,7 +220,7 @@ function toggle_quick_or_custom()
         $("#output_quick_export").hide();
         var selected_plugin_name = $("#plugins option:selected").val();
         $("#" + selected_plugin_name + "_options").show();
-    } else {
+    } else { // quick
         $("#databases_and_tables").hide();
         $("#rows").hide();
         $("#output").hide();
@@ -253,7 +261,7 @@ function check_time_out(time_limit)
 /**
  * Handler for Database/table alias select
  *
- * @param object event the event object
+ * @param event object the event object
  *
  * @return void
  */
@@ -265,16 +273,31 @@ function aliasSelectHandler(event) {
     $('input#' + $label.attr('for')).addClass('hide');
     $('input#' + inputId).removeClass('hide');
     $label.attr('for', inputId);
-    //alert('#' + $label.attr('for'));
     $('#alias_modal ' + sel + '[id$=' + type + ']:visible').addClass('hide');
-    $('#alias_modal ' + sel + '#' + inputId + type).removeClass('hide');
+    var $inputWrapper = $('#alias_modal ' + sel + '#' + inputId + type);
+    $inputWrapper.removeClass('hide');
+    if (type === '_cols' && $inputWrapper.length > 0) {
+        var outer = $inputWrapper[0].outerHTML;
+        // Replace opening tags
+        var regex = /<dummy_inp/gi;
+        if (outer.match(regex)) {
+            var newTag = outer.replace(regex, '<input');
+            // Replace closing tags
+            regex = /<\/dummy_inp/gi;
+            newTag = newTag.replace(regex, '</input');
+            // Assign replacement
+            $inputWrapper.replaceWith(newTag);
+        }
+    } else if (type === '_tables') {
+        $('.table_alias_select:visible').change();
+    }
     $("#alias_modal").dialog("option", "position", "center");
 }
 
 /**
  * Handler for Alias dialog box
  *
- * @param object event the event object
+ * @param event object the event object
  *
  * @return void
  */
@@ -289,10 +312,18 @@ function createAliasModal(event) {
     };
     dlgButtons[PMA_messages.strSaveAndClose] = function() {
         $(this).dialog("close");
+        // do not fillup form submission with empty values
+        $.each($(this).find('input[type="text"]'), function (i, e) {
+            if ($(e).val().trim().length == 0) {
+                $(e).prop('disabled', true);
+            }
+        });
         $('#alias_modal').parent().appendTo($('form[name="dump"]'));
     };
+    $('#alias_modal input[type="text"]').prop('disabled', false);
     $('#alias_modal').dialog({
         width: Math.min($(window).width() - 100, 700),
+        maxHeight: $(window).height(),
         modal: true,
         dialogClass: "alias-dialog",
         buttons: dlgButtons,
@@ -310,10 +341,12 @@ function createAliasModal(event) {
                     isEmpty = false;
                 }
             });
-            $('input#btn_alias_config').attr('checked', !isEmpty);
+            $('input#btn_alias_config').prop('checked', !isEmpty);
         },
-        position: 'center'
+        position: { my: "center top", at: "center top", of: window }
     });
+    // Call change event of .table_alias_select
+    $('.table_alias_select:visible').trigger('change');
 }
 
 AJAX.registerOnload('export.js', function () {
@@ -321,14 +354,14 @@ AJAX.registerOnload('export.js', function () {
 
     $("#scroll_to_options_msg").hide();
     $("#format_specific_opts div.format_specific_options")
-    .hide()
-    .css({
-        "border": 0,
-        "margin": 0,
-        "padding": 0
-    })
-    .find("h3")
-    .remove();
+        .hide()
+        .css({
+            "border": 0,
+            "margin": 0,
+            "padding": 0
+        })
+        .find("h3")
+        .remove();
     toggle_quick_or_custom();
     toggle_structure_data_opts($("select#plugins").val());
     toggle_sql_include_comments();

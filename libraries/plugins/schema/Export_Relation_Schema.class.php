@@ -22,13 +22,19 @@ class PMA_Export_Relation_Schema
     /**
      * Constructor.
      *
-     * @see PMA_SVG
+     * @param string $db      database name
+     * @param object $diagram schema diagram
      */
-    function __construct()
+    function __construct($db, $diagram)
     {
+        $this->db = $db;
+        $this->diagram = $diagram;
         $this->setPageNumber($_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
     }
+
+    protected $db;
+    protected $diagram;
 
     protected $showColor;
     protected $tableDimension;
@@ -240,11 +246,35 @@ class PMA_Export_Relation_Schema
     protected function getTablesFromRequest()
     {
         $tables = array();
+        $dbLength = mb_strlen($this->db);
         foreach ($_REQUEST['t_h'] as $key => $value) {
-            list($db, $table) = explode(".", $key);
-            $tables[] = $table;
+            $tables[] = mb_substr($key, $dbLength + 1);
         }
         return $tables;
+    }
+
+    /**
+     * Returns the file name
+     *
+     * @param String $extension file extension
+     *
+     * @return string file name
+     */
+    protected function getFileName($extension)
+    {
+        $filename = $this->db . $extension;
+        // Get the name of this page to use as filename
+        if ($this->pageNumber != -1 && ! $this->offline) {
+            $_name_sql = 'SELECT page_descr FROM '
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
+                . ' WHERE page_nr = ' . $this->pageNumber;
+            $_name_rs = PMA_queryAsControlUser($_name_sql);
+            $_name_row = $GLOBALS['dbi']->fetchRow($_name_rs);
+            $filename = $_name_row[0] . $extension;
+        }
+
+        return $filename;
     }
 
     /**
@@ -252,13 +282,13 @@ class PMA_Export_Relation_Schema
      *
      * @param integer $pageNumber    ID of the chosen page
      * @param string  $type          Schema Type
-     * @param string  $error_message The error mesage
+     * @param string  $error_message The error message
      *
      * @access public
      *
      * @return void
      */
-    function dieSchema($pageNumber, $type = '', $error_message = '')
+    public static function dieSchema($pageNumber, $type = '', $error_message = '')
     {
         echo "<p><strong>" . __("SCHEMA ERROR: ") .  $type . "</strong></p>" . "\n";
         if (!empty($error_message)) {
@@ -267,7 +297,8 @@ class PMA_Export_Relation_Schema
         echo '<p>' . "\n";
         echo '    ' . $error_message . "\n";
         echo '</p>' . "\n";
-        echo '<a href="db_designer.php?' . PMA_URL_getCommon($GLOBALS['db'])
+        echo '<a href="db_designer.php'
+            . PMA_URL_getCommon(array('db' => $GLOBALS['db']))
             . '&page=' . htmlspecialchars($pageNumber) . '">' . __('Back') . '</a>';
         echo "\n";
         exit;

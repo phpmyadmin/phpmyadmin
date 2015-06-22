@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf_images.php
-// Version     : 1.0.003
+// Version     : 1.0.005
 // Begin       : 2002-08-03
-// Last Update : 2014-04-03
+// Last Update : 2014-11-15
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -38,7 +38,7 @@
  * This is a PHP class that contains static image methods for the TCPDF class.<br>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 1.0.003
+ * @version 1.0.005
  */
 
 /**
@@ -46,7 +46,7 @@
  * Static image methods used by the TCPDF class.
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 1.0.003
+ * @version 1.0.005
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_IMAGES {
@@ -56,7 +56,7 @@ class TCPDF_IMAGES {
 	 * @since 5.0.000 (2010-05-02)
 	 * @public static
 	 */
-	public static $svginheritprop = array('clip-rule', 'color', 'color-interpolation', 'color-interpolation-filters', 'color-profile', 'color-rendering', 'cursor', 'direction', 'fill', 'fill-opacity', 'fill-rule', 'font', 'font-family', 'font-size', 'font-size-adjust', 'font-stretch', 'font-style', 'font-variant', 'font-weight', 'glyph-orientation-horizontal', 'glyph-orientation-vertical', 'image-rendering', 'kerning', 'letter-spacing', 'marker', 'marker-end', 'marker-mid', 'marker-start', 'pointer-events', 'shape-rendering', 'stroke', 'stroke-dasharray', 'stroke-dashoffset', 'stroke-linecap', 'stroke-linejoin', 'stroke-miterlimit', 'stroke-opacity', 'stroke-width', 'text-anchor', 'text-rendering', 'visibility', 'word-spacing', 'writing-mode');
+	public static $svginheritprop = array('clip-rule', 'color', 'color-interpolation', 'color-interpolation-filters', 'color-profile', 'color-rendering', 'cursor', 'direction', 'display', 'fill', 'fill-opacity', 'fill-rule', 'font', 'font-family', 'font-size', 'font-size-adjust', 'font-stretch', 'font-style', 'font-variant', 'font-weight', 'glyph-orientation-horizontal', 'glyph-orientation-vertical', 'image-rendering', 'kerning', 'letter-spacing', 'marker', 'marker-end', 'marker-mid', 'marker-start', 'pointer-events', 'shape-rendering', 'stroke', 'stroke-dasharray', 'stroke-dashoffset', 'stroke-linecap', 'stroke-linejoin', 'stroke-miterlimit', 'stroke-opacity', 'stroke-width', 'text-anchor', 'text-rendering', 'visibility', 'word-spacing', 'writing-mode');
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -97,11 +97,12 @@ class TCPDF_IMAGES {
 	 * @public static
 	 */
 	public static function setGDImageTransparency($new_image, $image) {
+		// default transparency color (white)
+		$tcol = array('red' => 255, 'green' => 255, 'blue' => 255);
 		// transparency index
 		$tid = imagecolortransparent($image);
-		// default transparency color
-		$tcol = array('red' => 255, 'green' => 255, 'blue' => 255);
-		if ($tid >= 0) {
+		$palletsize = imagecolorstotal($image);
+		if (($tid >= 0) AND ($tid < $palletsize)) {
 			// get the colors for the transparency index
 			$tcol = imagecolorsforindex($image, $tid);
 		}
@@ -115,23 +116,22 @@ class TCPDF_IMAGES {
 	 * Convert the loaded image to a PNG and then return a structure for the PDF creator.
 	 * This function requires GD library and write access to the directory defined on K_PATH_CACHE constant.
 	 * @param $image (image) Image object.
+	 * @param $tempfile (string) Temporary file name.
 	 * return image PNG image object.
 	 * @since 4.9.016 (2010-04-20)
 	 * @public static
 	 */
-	public static function _toPNG($image) {
-		// set temporary image file name
-		$tempname = TCPDF_STATIC::getObjFilename('img');
+	public static function _toPNG($image, $tempfile) {
 		// turn off interlaced mode
 		imageinterlace($image, 0);
 		// create temporary PNG image
-		imagepng($image, $tempname);
+		imagepng($image, $tempfile);
 		// remove image from memory
 		imagedestroy($image);
 		// get PNG image data
-		$retvars = self::_parsepng($tempname);
+		$retvars = self::_parsepng($tempfile);
 		// tidy up by removing temporary image
-		unlink($tempname);
+		unlink($tempfile);
 		return $retvars;
 	}
 
@@ -140,16 +140,16 @@ class TCPDF_IMAGES {
 	 * This function requires GD library and write access to the directory defined on K_PATH_CACHE constant.
 	 * @param $image (image) Image object.
 	 * @param $quality (int) JPEG quality.
+	 * @param $tempfile (string) Temporary file name.
 	 * return image JPEG image object.
 	 * @public static
 	 */
-	public static function _toJPEG($image, $quality) {
-		$tempname = TCPDF_STATIC::getObjFilename('img');
-		imagejpeg($image, $tempname, $quality);
+	public static function _toJPEG($image, $quality, $tempfile) {
+		imagejpeg($image, $tempfile, $quality);
 		imagedestroy($image);
-		$retvars = self::_parsejpeg($tempname);
+		$retvars = self::_parsejpeg($tempfile);
 		// tidy up by removing temporary image
-		unlink($tempname);
+		unlink($tempfile);
 		return $retvars;
 	}
 
@@ -319,11 +319,9 @@ class TCPDF_IMAGES {
 			} elseif ($type == 'iCCP') {
 				// skip profile name
 				$len = 0;
-				while ((ord(fread($f, 1)) > 0) AND ($len < 80)) {
+				while ((ord(fread($f, 1)) != 0) AND ($len < 80)) {
 					++$len;
 				}
-				// skip null separator
-				fread($f, 1);
 				// get compression method
 				if (ord(fread($f, 1)) != 0) {
 					// Unknown filter method

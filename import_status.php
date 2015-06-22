@@ -32,11 +32,9 @@ if (version_compare(PHP_VERSION, '5.4.0', '>=')
     define('UPLOAD_PREFIX', ini_get('session.upload_progress.prefix'));
 
     session_start();
-    /** @var PMA_String $pmaString /
-    $pmaString = $GLOBALS['PMA_String'];
     foreach ($_SESSION as $key => $value) {
         // only copy session-prefixed data
-        if ($pmaString->substr($key, 0, $pmaString->strlen(UPLOAD_PREFIX))
+        if (mb_substr($key, 0, mb_strlen(UPLOAD_PREFIX))
             == UPLOAD_PREFIX) {
             $sessionupload[$key] = $value;
         }
@@ -53,6 +51,7 @@ if (version_compare(PHP_VERSION, '5.4.0', '>=')
 define('PMA_MINIMUM_COMMON', 1);
 
 require_once 'libraries/common.inc.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/display_import_ajax.lib.php';
 
 /*
@@ -64,11 +63,9 @@ if (defined('SESSIONUPLOAD')) {
         $_SESSION[$key] = $value;
     }
 
-    /** @var PMA_String $pmaString /
-    $pmaString = $GLOBALS['PMA_String'];
     // remove session upload data that are not set anymore
     foreach ($_SESSION as $key => $value) {
-        if ($pmaString->substr($key, 0, $pmaString->strlen(UPLOAD_PREFIX))
+        if (mb_substr($key, 0, mb_strlen(UPLOAD_PREFIX))
             == UPLOAD_PREFIX
             && ! isset($sessionupload[$key])
         ) {
@@ -90,9 +87,23 @@ if (isset($_GET["message"]) && $_GET["message"]) {
     // which is set inside import.php
     usleep(300000);
 
+    $maximumTime = ini_get('max_execution_time');
+    $timestamp = time();
     // wait until message is available
     while ($_SESSION['Import_message']['message'] == null) {
+        // close session before sleeping
+        session_write_close();
+        // sleep
         usleep(250000); // 0.25 sec
+        // reopen session
+        session_start();
+
+        if ((time() - $timestamp) > $maximumTime) {
+            $_SESSION['Import_message']['message'] = PMA_Message::error(
+                __('Could not load the progress of the import.')
+            )->getDisplay();
+            break;
+        }
     }
 
     echo $_SESSION['Import_message']['message'];
@@ -104,4 +115,3 @@ if (isset($_GET["message"]) && $_GET["message"]) {
 } else {
     PMA_importAjaxStatus($_GET["id"]);
 }
-?>

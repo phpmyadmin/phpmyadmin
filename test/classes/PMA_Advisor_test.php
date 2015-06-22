@@ -114,7 +114,7 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
      * Test for adding rule
      *
      * @param array  $rule     Rule to test
-     * @param array  $expected Expected rendered rulle in fired/errors list
+     * @param array  $expected Expected rendered rule in fired/errors list
      * @param string $error    Expected error string (null if none error expected)
      *
      * @return void
@@ -266,7 +266,7 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=http%3A%2F%2F' .
-                        'phpma.org%2F">web</a>',
+                        'phpma.org%2F" target="_blank">web</a>',
                     'id' => 'Distribution'
                 ),
                 null,

@@ -17,13 +17,14 @@ COMPRESSIONS="zip-7z tbz txz tgz 7z"
 if [ $# -lt 2 ]
 then
   echo "Usages:"
-  echo "  create-release.sh <version> <from_branch> [--tag]"
+  echo "  create-release.sh <version> <from_branch> [--tag] [--stable]"
   echo ""
-  echo "If --tag is specified, release tag is automatically created"
+  echo "If --tag is specified, release tag is automatically created (do not use this on pre-release versions)"
+  echo "If --stable is specified, the STABLE branch is updated with this release"
   echo ""
   echo "Examples:"
   echo "  create-release.sh 2.9.0-rc1 QA_2_9"
-  echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag"
+  echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag --stable"
   exit 65
 fi
 
@@ -57,10 +58,7 @@ cat <<END
 Please ensure you have incremented rc count or version in the repository :
      - in libraries/Config.class.php PMA_Config::__constructor() the line
           " \$this->set( 'PMA_VERSION', '$version' ); "
-     - in Documentation.html (if exists) the 2 lines
-          " <title>phpMyAdmin $version - Documentation</title> "
-          " <h1>phpMyAdmin $version Documentation</h1> "
-     - in doc/conf.py (if exists) the line
+     - in doc/conf.py the line
           " version = '$version' "
      - in README
 
@@ -165,7 +163,7 @@ for kit in $KITS ; do
     # Cleanup translations
     cd phpMyAdmin-$version-$kit
     scripts/lang-cleanup.sh $kit
-    if [ -f examples/create_tables.sql ] ; then
+    if [ -f sql/create_tables.sql ] ; then
         # 3.5 and newer
         rm -rf scripts
     else
@@ -220,17 +218,25 @@ for kit in $KITS ; do
                 echo "WARNING: ignoring compression '$comp', not known!"
                 ;;
         esac
-
-        # Cleanup
-        rm -f $name.tar
     done
 
+
+    # Cleanup
+    rm -f $name.tar
     # Remove directory with current dist set
     rm -rf $name
 done
 
 # Cleanup
 rm -rf phpMyAdmin-${version}
+
+# Signing of files with default GPG key
+echo "* Signing files"
+for file in *.gz *.zip *.xz *.bz2 *.7z ; do
+    gpg --detach-sign --armor $file
+    md5sum $file > $file.md5
+    sha1sum $file > $file.sha1
+done
 
 
 echo ""
@@ -239,7 +245,7 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la *.gz *.zip *.bz2 *.7z
+ls -la *.gz *.zip *.xz *.bz2 *.7z
 
 cd ..
 
@@ -254,19 +260,11 @@ if [ $# -gt 0 ] ; then
                 tagname=RELEASE_`echo $version | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -`
                 echo "* Tagging release as $tagname"
                 git tag -a -m "Released $version" $tagname $branch
-                if echo $version | grep -q '^2\.11\.' ; then
-                    echo '* 2.11 branch, no STABLE update'
-                elif echo $version | grep -q '^3\.3\.' ; then
-                    echo '* 3.3 branch, no STABLE update'
-                elif echo $version | grep -q '^3\.4\.' ; then
-                    echo '* 3.4 branch, no STABLE update'
-                elif echo $version | grep '[\-]' ; then
-                    echo '* no STABLE update'
-                else
-                    mark_as_release $branch STABLE
-                    git checkout master
-                fi
                 echo "   Dont forget to push tags using: git push --tags"
+                ;;
+            --stable)
+                mark_as_release $branch STABLE
+                git checkout master
                 ;;
             *)
                 echo "Unknown parameter: $1!"
@@ -285,7 +283,7 @@ Todo now:
 
 1. If not already done, tag the repository with the new revision number
    for a plain release or a release candidate:
-    version 2.7.0 gets two tags: RELEASE_2_7_0 and STABLE
+    version 2.7.0 gets RELEASE_2_7_0
     version 2.7.1-rc1 gets RELEASE_2_7_1RC1
 
  2. prepare a release/phpMyAdmin-$version-notes.html explaining in short the goal of
@@ -293,11 +291,11 @@ Todo now:
  3. upload the files to SF, you can use scripts/upload-release, eg.:
 
         ./scripts/upload-release \$USER $version release
- 4. in https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin pick the newly created version, expand the directory and use the I icons to mark that
+ 4. if this is the latest stable version, visit https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin, pick the newly created version, expand the directory and use the I icons to mark that
         - the -all-languages.zip file is the default for Windows and Others
         - the -all-languages.tar.gz file is the default for Solaris
         - the -all-languages.tar.bz2 file is the default for Mac OS X, Linux and BSD
- 5. add SF news item to phpMyAdmin project
+ 5. add a SF news item to phpMyAdmin project; a good idea is to include a link to the release notes such as https://files.phpmyadmin.net/phpMyAdmin/4.4.10/phpMyAdmin-4.4.10-notes.html
  6. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
@@ -314,11 +312,11 @@ Todo now:
         - in doc/conf.py (if it exists) the line
               " version = '2.7.1-dev' "
 
- 8. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones
+ 8. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones and set it to the default one
 
- 9. send a private twitter message to @phpmya, containing a short version of the announcement
+ 9. tweet from @phpmya a link to the release notes (see item 5 above); your account should be added to TweetDeck to ease this posting
 
-10. update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
+10. for a stable version, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
 
 11. in case of a new major release, update the render.py in website repository to include the new major releases
 

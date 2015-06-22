@@ -89,10 +89,6 @@ h2 a img {
     width: 100%;
 }
 
-#table_results td.data {
-border-right: 1px solid #bbb;
-}
-
 h3 {
     font-weight: bold;
 }
@@ -200,6 +196,14 @@ input[type=date] {
     border: 1px solid #aaa;
     color: #555;
     padding: 4px;
+}
+
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=date],
+input[type=checkbox],
+select {
     margin: 6px;
 }
 
@@ -242,20 +246,15 @@ input[type=number]:hover,
 input[type=number]:focus,
 input[type=date]:hover,
 input[type=date]:focus,
-select:focus,
-select:hover {
-
+select:focus {
     border: 1px solid #7c7c7c;
-
-
     background: #fff;
 }
 
 input[type=text]:hover,
 input[type=password]:hover,
 input[type=number]:hover,
-input[type=date]:hover,
-select:hover {
+input[type=date]:hover {
     box-shadow: 0 1px 3px #aaa;
     -webkit-box-shadow: 0 1px 3px #aaa;
     -moz-box-shadow: 0 1px 3px #aaa;
@@ -325,11 +324,11 @@ input.button:disabled {
 
 textarea {
     overflow: visible;
-    height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
+    margin: 6px;
 }
 
 textarea.char {
-    height: <?php echo ceil($GLOBALS['cfg']['CharTextareaRows'] * 1.2); ?>em;
+    margin: 6px;
 }
 
 fieldset, .preview_sql {
@@ -393,8 +392,11 @@ table {
     border-collapse: collapse;
 }
 
-th {
+thead th {
     border-right: 1px solid #fff;
+}
+
+th {
     text-align: left;
 }
 
@@ -467,6 +469,7 @@ th.center, td.center {
 
 th.right, td.right {
     text-align: right;
+    padding-right: 1em;
 }
 
 tr.vtop th, tr.vtop td, th.vtop, td.vtop {
@@ -527,23 +530,6 @@ fieldset .formelement {
     white-space: nowrap;
 }
 
-@media all and (min-width: 1600px) {
-    fieldset .formelement {
-        clear: none;
-    }
-    .relationalTable td:first-child + td {
-        width: 25%;
-    }
-    .relationalTable td:first-child + td select {
-        width: 32%;
-        margin-right: 1%;
-    }
-    .relationalTable {
-        width: 100%;
-    }
-
-}
-
 /* revert for Gecko */
 fieldset div[class=formelement] {
     white-space: normal;
@@ -577,36 +563,30 @@ table tr.even {
     text-align: <?php echo $left; ?>;
 }
 
-<?php if ($GLOBALS['cfg']['BrowseMarkerEnable']) { ?>
-    /* marked table rows */
-    td.marked,
-    table tr.marked td,
-    table tr.marked th,
-    table tr.marked {
+/* marked table rows */
+td.marked:not(.nomarker),
+table tr.marked:not(.nomarker) td,
+table tr.marked:not(.nomarker) th,
+table tr.marked:not(.nomarker) {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
-    }
-    <?php
-} ?>
+}
 
-<?php if ($GLOBALS['cfg']['BrowsePointerEnable']) { ?>
-    /* hovered items */
-    .odd:hover,
-    .even:hover,
-    .hover {
+/* hovered items */
+.odd:not(.nopointer):hover,
+.even:not(.nopointer):hover,
+.hover:not(.nopointer) {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
-    }
+}
 
-    /* hovered table rows */
-    table tr.odd:hover th,
-    table tr.even:hover th,
-    table tr.hover th {
+/* hovered table rows */
+table tr.odd:not(.nopointer):hover th,
+table tr.even:not(.nopointer):hover th,
+table tr.hover:not(.nopointer) th {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
-    }
-    <?php
-} ?>
+}
 
 /**
  * marks table rows/cells if the db field is in a where condition
@@ -1082,6 +1062,9 @@ div#dataDisplay select {
 div#dataDisplay th {
     line-height: 2em;
 }
+table#tableFieldsId {
+    width: 100%;
+}
 
 /* Calendar */
 table.calendar {
@@ -1156,20 +1139,30 @@ div#tablestatistics table {
     color: #fff;
 }
 
-#goto_pagetop, #lock_page_icon {
+#page_nav_icons {
     position: fixed;
-    padding: .25em .25em .2em;
     top: 0;
-    z-index: 900;
+    <?php echo $right; ?>: 0;
+    z-index: 99;
+    padding: .25em 0;
+}
+
+#goto_pagetop, #lock_page_icon, #page_settings_icon {
+    padding: .25em;
     background: #888;
 }
 
-#goto_pagetop {
-    <?php echo $right; ?>: 0;
+#page_settings_icon {
+    cursor: pointer;
+    display: none;
 }
 
-#lock_page_icon {
-    <?php echo $right; ?>: 2em;
+#page_settings_modal {
+    display: none;
+}
+
+#pma_navigation_settings {
+    display: none;
 }
 
 #span_table_comment {
@@ -1274,7 +1267,7 @@ div#tablestatistics table {
     float: <?php echo $left; ?>;
 }
 
-#fieldset_user_global_rights legend input {
+#fieldset_user_global_rights>legend input {
     margin-<?php echo $left; ?>: 2em;
 }
 /* end user privileges */
@@ -1291,12 +1284,6 @@ div#tablestatistics table {
 h3#serverstatusqueries span {
     font-size: 60%;
     display: inline;
-}
-
-img.sortableIcon {
-    float: <?php echo $right; ?>;
-    background-repeat: no-repeat;
-    margin: 0;
 }
 
 .buttonlinks {
@@ -1449,9 +1436,10 @@ div#queryAnalyzerDialog table.queryNums {
 
 /* server variables */
 #serverVariables {
-    min-width: 30em;
+    table-layout: fixed;
+    width: 100%;
 }
-#serverVariables .var-row > div {
+#serverVariables .var-row > td {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1463,15 +1451,17 @@ div#queryAnalyzerDialog table.queryNums {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
     font-weight: bold;
 }
-#serverVariables .var-header .var-value {
+#serverVariables .var-header {
     text-align: <?php echo $left; ?>;
 }
 #serverVariables .var-row {
     padding: 0.5em;
     min-height: 18px;
 }
+#serverVariables .var-action {
+    width: 120px;
+}
 #serverVariables .var-name {
-    width: 45%;
     float: <?php echo $left; ?>;
     font-weight: bold;
 }
@@ -1563,29 +1553,6 @@ div#profilingchart {
     left: 11px;
     bottom:24px;
 }
-
-#profilesummarytable th.header, #profiletable th.header{
-    cursor: pointer;
-}
-
-#profilesummarytable th.header .sorticon, #profiletable th.header .sorticon{
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    background-position: right center;
-    display: inline-block;
-    vertical-align: middle;
-    float: right;
-}
-
-#profilesummarytable th.headerSortUp .sorticon, #profiletable th.headerSortUp .sorticon{
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_desc.png');?>);
-}
-
-#profilesummarytable th.headerSortDown .sorticon, #profiletable th.headerSortDown .sorticon{
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
-}
-
 /* end profiling */
 
 /* table charting */
@@ -1663,6 +1630,7 @@ div#sqlquerycontainer {
 div#tablefieldscontainer {
     float: <?php echo $right; ?>;
     width: 29%;
+    margin-top: -20px;
     /* height: 15em; */
 }
 
@@ -1841,7 +1809,7 @@ div.sqlvalidate {
     overflow: auto;
 }
 
-#result_query div.sqlOuter {
+.result_query div.sqlOuter {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     padding: 1em;
 }
@@ -2192,6 +2160,7 @@ input#input_import_file {
 #index_frm .index_info input,
 #index_frm .index_info select {
     width: 14em;
+    margin: 0;
     box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -2258,10 +2227,6 @@ table#index_columns select {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
-}
-
-.margin#change_column_dialog {
-    margin: 0 .5em;
 }
 
 /* config forms */
@@ -2547,6 +2512,10 @@ fieldset .disabled-field td {
 .toggleButton .container {
     position: absolute;
 }
+.toggleButton .container td {
+    background-image: none;
+    background: none;
+}
 .toggleButton .toggleOn {
     color: #fff;
     padding: 0 1em;
@@ -2574,6 +2543,17 @@ fieldset .disabled-field td {
     padding: 1.5em;
 }
 
+#table_name_col_no_outer {
+    margin-top: 45px;
+}
+
+#table_name_col_no {
+    position: fixed;
+    top: 55px;
+    width: 100%;
+    background: #ffffff;
+}
+
 #table_columns input[type="text"],
 #table_columns input[type="password"],
 #table_columns input[type="number"],
@@ -2583,10 +2563,6 @@ fieldset .disabled-field td {
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-}
-
-#table_columns select {
-    margin: 0 6px;
 }
 
 #placeholder {
@@ -2659,6 +2635,14 @@ fieldset .disabled-field td {
 .pma_table tbody td span {
     display: block;
     overflow: hidden;
+}
+
+.pma_table tbody td span code span {
+    display: inline;
+}
+
+.pma_table th.draggable.right span {
+    margin-<?php echo $right; ?>: 0px;
 }
 
 .pma_table th.draggable span {
@@ -2875,6 +2859,7 @@ fieldset .disabled-field td {
 .cEdit .edit_box {
     overflow: hidden;
     padding: 0;
+    margin: 0;
 }
 
 .cEdit .edit_box_posting {
@@ -2885,11 +2870,6 @@ fieldset .disabled-field td {
 .cEdit .edit_area_loading {
     background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
     height: 10em;
-}
-
-.cEdit .edit_area_right {
-    position: absolute;
-    right: 0;
 }
 
 .cEdit .goto_link {
@@ -2964,7 +2944,7 @@ div#page_content form#db_search_form.ajax fieldset {
     margin-top: -0.3em;
 }
 
-div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div#result_query {
+div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {
     margin-top: 1em;
 }
 
@@ -3016,7 +2996,7 @@ table.show_create td {
     position: relative;
     margin-<?php echo $left; ?>: 240px;
 }
-#pma_console>.templates {
+#pma_console .templates {
     display: none;
 }
 #pma_console .mid_text,
@@ -3043,6 +3023,7 @@ table.show_create td {
 #pma_console .message span.text,
 #pma_console .message span.action,
 #pma_console .toolbar .button,
+#pma_console .toolbar .text,
 #pma_console .switch_button {
     padding: 0 3px;
     display: inline-block;
@@ -3054,13 +3035,19 @@ table.show_create td {
 }
 #pma_console .message span.action:hover,
 #pma_console .toolbar .button:hover,
-#pma_console .switch_button:hover {
+#pma_console .switch_button:hover,
+#pma_console .toolbar .button.active {
     background: #ddd;
 }
-#pma_console .toolbar .button {
+#pma_console .toolbar .text {
+    font-weight: bold;
+}
+#pma_console .toolbar .button,
+#pma_console .toolbar .text {
     margin-<?php echo $right; ?>: .4em;
 }
-#pma_console .toolbar .button {
+#pma_console .toolbar .button,
+#pma_console .toolbar .text {
     float: <?php echo $right; ?>;
 }
 #pma_console .content {
@@ -3070,6 +3057,26 @@ table.show_create td {
     border-top: solid 1px #aaa;
     background: #fff;
     padding-top: .4em;
+}
+#pma_console .content.console_dark_theme {
+    background: #000;
+    color: #fff;
+}
+#pma_console .content.console_dark_theme .CodeMirror-wrap {
+    background: #000;
+    color: #fff;
+}
+#pma_console .content.console_dark_theme .action_content {
+    color: #000;
+}
+#pma_console .content.console_dark_theme .message {
+    border-color: #373B41;
+}
+#pma_console .content.console_dark_theme .CodeMirror-cursor {
+    border-color: #fff;
+}
+#pma_console .content.console_dark_theme .cm-keyword {
+    color: #de935f;
 }
 #pma_console .message,
 #pma_console .query_input {
@@ -3082,7 +3089,7 @@ table.show_create td {
     border-bottom: solid 1px #ccc;
     padding-bottom: .2em;
 }
-#pma_console .message.expanded .action_content {
+#pma_console .message.expanded>.action_content {
     position: relative;
 }
 #pma_console .message:before,
@@ -3174,8 +3181,11 @@ html.ie8 #pma_console .message .action_content {
 #pma_console .message .text {
     background: #fff;
 }
-#pma_console .message.collapsed:not(:hover) .action_content {
+#pma_console .message.collapsed>.action_content {
     display: none;
+}
+#pma_console .message.collapsed:hover>.action_content {
+    display: block;
 }
 #pma_console .message .bookmark_label {
     padding: 0 4px;
@@ -3247,6 +3257,55 @@ html.ie7 #pma_console .query_input {
     margin: 0;
     padding: 2px 4px;
 }
+#pma_console .button.hide,
+#pma_console .message span.text.hide {
+    display: none;
+}
+#debug_console.grouped .ungroup_queries,
+#debug_console.ungrouped .group_queries {
+    display: inline-block;
+}
+#debug_console.ungrouped .ungroup_queries,
+#debug_console.ungrouped .sort_count,
+#debug_console.grouped .group_queries {
+    display: none;
+}
+#debug_console .count {
+    margin-right: 8px;
+}
+#debug_console .show_trace .trace,
+#debug_console .show_args .args {
+    display: block;
+}
+#debug_console .hide_trace .trace,
+#debug_console .hide_args .args,
+#debug_console .show_trace .action.dbg_show_trace,
+#debug_console .hide_trace .action.dbg_hide_trace,
+#debug_console .traceStep.hide_args .action.dbg_hide_args,
+#debug_console .traceStep.show_args .action.dbg_show_args {
+    display: none;
+}
+
+#debug_console .traceStep:after,
+#debug_console .trace.welcome:after,
+#debug_console .debug>.welcome:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#debug_console .debug_summary {
+    float: left;
+}
+#debug_console .trace.welcome .time {
+    float: right;
+}
+#debug_console .traceStep .file,
+#debug_console .script_name {
+    float: right;
+}
+#debug_console .traceStep .args pre {
+    margin: 0;
+}
 
 /* Code mirror console style*/
 
@@ -3270,7 +3329,6 @@ html.ie7 #pma_console .query_input {
     font-size: 120%;
 }
 .cm-s-pma .CodeMirror-scroll {
-    padding-bottom: 2em;
     cursor: text;
 }
 
@@ -3411,3 +3469,32 @@ span.drag_icon {
 .topmargin {
     margin-top: 1em;
 }
+
+/* styles for sortable tables created with tablesorter jquery plugin */
+th.header {
+    cursor: pointer;
+    color: #235a81;
+}
+
+th.header:hover {
+    text-decoration: underline;
+}
+
+th.header .sorticon {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    display: inline-table;
+    vertical-align: middle;
+    float: right;
+}
+
+th.headerSortUp .sorticon, th.headerSortDown:hover .sorticon {
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_desc.png');?>);
+}
+
+th.headerSortDown .sorticon, th.headerSortUp:hover .sorticon {
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
+}
+/* end of styles of sortable tables */

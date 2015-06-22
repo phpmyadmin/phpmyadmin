@@ -58,13 +58,10 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             $options[0] = 0;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         if (empty($options[2])) {
             $options[2] = 'local';
         } else {
-            $options[2] = $pmaString->strtolower($options[2]);
+            $options[2] = /*overload*/mb_strtolower($options[2]);
         }
 
         if (empty($options[1])) {
@@ -89,8 +86,8 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             // for example TIMESTAMP(8) means YYYYMMDD)
         } else if (preg_match('/^(\d{2}){3,7}$/', $buffer)) {
 
-            if ($pmaString->strlen($buffer) == 14
-                || $pmaString->strlen($buffer) == 8
+            if (/*overload*/mb_strlen($buffer) == 14
+                || /*overload*/mb_strlen($buffer) == 8
             ) {
                 $offset = 4;
             } else {
@@ -98,12 +95,12 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             }
 
             $aDate = array();
-            $aDate['year']   = $pmaString->substr($buffer, 0, $offset);
-            $aDate['month']  = $pmaString->substr($buffer, $offset, 2);
-            $aDate['day']    = $pmaString->substr($buffer, $offset + 2, 2);
-            $aDate['hour']   = $pmaString->substr($buffer, $offset + 4, 2);
-            $aDate['minute'] = $pmaString->substr($buffer, $offset + 6, 2);
-            $aDate['second'] = $pmaString->substr($buffer, $offset + 8, 2);
+            $aDate['year']   = (int)/*overload*/mb_substr($buffer, 0, $offset);
+            $aDate['month']  = (int)/*overload*/mb_substr($buffer, $offset, 2);
+            $aDate['day']    = (int)/*overload*/mb_substr($buffer, $offset + 2, 2);
+            $aDate['hour']   = (int)/*overload*/mb_substr($buffer, $offset + 4, 2);
+            $aDate['minute'] = (int)/*overload*/mb_substr($buffer, $offset + 6, 2);
+            $aDate['second'] = (int)/*overload*/mb_substr($buffer, $offset + 8, 2);
 
             if (checkdate($aDate['month'], $aDate['day'], $aDate['year'])) {
                 $timestamp = mktime(

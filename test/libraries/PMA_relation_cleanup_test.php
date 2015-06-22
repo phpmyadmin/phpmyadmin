@@ -45,6 +45,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['pdf_pages'] = 'pdf_pages';
         $GLOBALS['cfg']['Server']['history'] = 'history';
         $GLOBALS['cfg']['Server']['recent'] = 'recent';
+        $GLOBALS['cfg']['Server']['favorite'] = 'favorite';
         $GLOBALS['cfg']['Server']['table_uiprefs'] = 'table_uiprefs';
         $GLOBALS['cfg']['Server']['tracking'] = 'tracking';
         $GLOBALS['cfg']['Server']['userconfig'] = 'userconfig';
@@ -379,30 +380,27 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
      */
     function query($sql, $link = null, $options = 0, $cache_affected_rows = true)
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
-        if ($pmaString->stripos($sql, "column_info") !== false) {
+        if (/*overload*/mb_stripos($sql, "column_info") !== false) {
             unset($this->values[$this->indexs['column_info']]);
         }
 
-        if ($pmaString->stripos($sql, "table_info") !== false) {
+        if (/*overload*/mb_stripos($sql, "table_info") !== false) {
             unset ($this->values[$this->indexs['table_info']]);
         }
 
-        if ($pmaString->stripos($sql, "table_coords") !== false) {
+        if (/*overload*/mb_stripos($sql, "table_coords") !== false) {
             unset($this->values[$this->indexs['table_coords']]);
         }
 
-        if ($pmaString->stripos($sql, "relation") !== false) {
+        if (/*overload*/mb_stripos($sql, "relation") !== false) {
             unset($this->values[$this->indexs['relation']]);
         }
 
-        if ($pmaString->stripos($sql, "pdf_pages") !== false) {
+        if (/*overload*/mb_stripos($sql, "pdf_pages") !== false) {
             unset($GLOBALS [$this->indexs['pdf_pages']]);
         }
 
-        if ($pmaString->stripos($sql, "bookmark") !== false) {
+        if (/*overload*/mb_stripos($sql, "bookmark") !== false) {
             unset($GLOBALS [$this->indexs['bookmark']]);
         }
         return true;
@@ -442,7 +440,7 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
      *
      * @param object $result database result
      *
-     * @return void
+     * @return bool
      */
     public function freeResult($result)
     {
@@ -462,7 +460,7 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
      * @param string|mysql_result $result query or mysql result
      * @param string              $type   NUM|ASSOC|BOTH
      *                                    returned array should either numeric
-     *                                    associativ or booth
+     *                                    associative or booth
      * @param resource            $link   mysql link
      *
      * @return array|boolean first row from result

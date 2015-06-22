@@ -54,12 +54,13 @@ if (isset($_POST['replace'])) {
 }
 
 if (! isset($goto)) {
-    $goto = $GLOBALS['cfg']['DefaultTabTable'];
+    $goto = PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabTable'], 'table'
+    );
 }
 // Defines the url to return to in case of error in the next sql statement
-$err_url   = $goto . '?' . PMA_URL_getCommon($db, $table);
+$params = array('db' => $db, 'table' => $table);
+$err_url = $goto . '?' . PMA_URL_getCommon($params);
 // Displays the find and replace form
 $htmlOutput .= $table_search->getSelectionForm($goto);
 $response->addHTML($htmlOutput);
-
-?>

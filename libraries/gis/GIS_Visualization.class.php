@@ -10,6 +10,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/sql.lib.php';
+
 /**
  * Handles visualization of GIS data
  *
@@ -22,8 +24,10 @@ class PMA_GIS_Visualization
      */
     private $_data;
 
+    private $modified_sql;
+
     /**
-     * @var array   Set of default settigs values are here.
+     * @var array   Set of default settings values are here.
      */
     private $_settings = array(
 
@@ -71,18 +75,49 @@ class PMA_GIS_Visualization
         return $this->_settings;
     }
 
+    public static function get($sql_query, $options, $row, $pos)
+    {
+        return new PMA_GIS_Visualization($sql_query, $options, $row, $pos);
+    }
+
+    public static function getByData($data, $options)
+    {
+        return new PMA_GIS_Visualization(null, $options, null, null, $data);
+    }
+
+    public function hasSrid()
+    {
+        foreach ($this->_data as $row) {
+            if ($row['srid'] == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Constructor. Stores user specified options.
      *
-     * @param array $data    Data for the visualization
-     * @param array $options Users specified options
+     * @param string  $sql_query SQL to fetch raw data for visualization
+     * @param array   $options   Users specified options
+     * @param integer $row       number of rows
+     * @param integer $pos       start position
+     * @param array   $data      raw data. If set, parameters other than $options will be ignored
      *
      * @access public
      */
-    public function __construct($data, $options)
+    private function __construct($sql_query, $options, $row, $pos, $data = null)
     {
         $this->_userSpecifiedSettings = $options;
-        $this->_data = $data;
+        if (isset($data))
+        {
+            $this->_data = $data;
+        }
+        else {
+            $this->modified_sql = $this->modifySqlQuery($sql_query, $row, $pos);
+            $this->_data = $this->fetchRawData();
+        }
+
     }
 
     /**
@@ -94,6 +129,68 @@ class PMA_GIS_Visualization
     protected function init()
     {
         $this->_handleOptions();
+    }
+
+    /**
+     * Returns sql for fetching raw data
+     *
+     * @param string $sql_query The SQL to modify.
+     * @param integer $rows     Number of rows.
+     * @param integer $pos      Start posistion.
+     *
+     * @return string the modified sql query.
+     */
+    private function modifySqlQuery($sql_query, $rows, $pos)
+    {
+        $modified_query = 'SELECT ';
+        // If label column is chosen add it to the query
+        if (! empty($this->_userSpecifiedSettings['labelColumn'])) {
+            $modified_query .= PMA_Util::backquote($this->_userSpecifiedSettings['labelColumn'])
+                . ', ';
+        }
+        // Wrap the spatial column with 'ASTEXT()' function and add it
+        $modified_query .= 'ASTEXT('
+            . PMA_Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
+            . ') AS ' . PMA_Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
+            . ', ';
+
+        // Get the SRID
+        $modified_query .= 'SRID('
+            . PMA_Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
+            . ') AS ' . PMA_Util::backquote('srid') . ' ';
+
+        // Append the original query as the inner query
+        $modified_query .= 'FROM (' . $sql_query . ') AS '
+            . PMA_Util::backquote('temp_gis');
+
+        // LIMIT clause
+        if (is_numeric($rows) && $rows > 0) {
+            $modified_query .= ' LIMIT ';
+            if (is_numeric($pos) && $pos >= 0) {
+                $modified_query .= $pos . ', ' . $rows;
+            } else {
+                $modified_query .= $rows;
+            }
+        }
+
+        return $modified_query;
+    }
+
+    /**
+     * Returns raw data for GIS visualization.
+     *
+     * @return string the raw data.
+     */
+    private function fetchRawData()
+    {
+        $modified_result = $GLOBALS['dbi']->tryQuery($this->modified_sql);
+
+        $data = array();
+        while ($row = $GLOBALS['dbi']->fetchAssoc($modified_result)) {
+            $data[] = $row;
+        }
+
+        return $data;
     }
 
     /**
@@ -126,18 +223,15 @@ class PMA_GIS_Visualization
     {
         $file_name = PMA_sanitizeFilename($file_name);
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
-        $extension_start_pos = $pmaString->strlen($file_name)
-            - $pmaString->strlen($ext) - 1;
-        $user_extension = $pmaString->substr(
-            $file_name, $extension_start_pos, $pmaString->strlen($file_name)
+        $extension_start_pos = /*overload*/mb_strlen($file_name)
+            - /*overload*/mb_strlen($ext) - 1;
+        $user_extension = /*overload*/mb_substr(
+            $file_name, $extension_start_pos, /*overload*/mb_strlen($file_name)
         );
         $required_extension = "." . $ext;
-        if ($pmaString->strtolower($user_extension) != $required_extension) {
+        if (/*overload*/mb_strtolower($user_extension) != $required_extension) {
             $file_name  .= $required_extension;
         }
         return $file_name;
@@ -358,6 +452,26 @@ class PMA_GIS_Visualization
         $pdf->Output($file_name, 'D');
     }
 
+    public function toImage($format) {
+        if ($format == 'svg') {
+            return $this->asSvg();
+        } elseif ($format == 'png') {
+            return $this->asPng();
+        } elseif ($format == 'ol') {
+            return $this->asOl();
+        }
+    }
+
+    public function toFile($filename, $format) {
+        if ($format == 'svg') {
+            $this->toFileAsSvg($filename);
+        } elseif ($format == 'png') {
+            $this->toFileAsPng($filename);
+        } elseif ($format == 'pdf') {
+            $this->toFileAsPdf($filename);
+        }
+    }
+
     /**
      * Calculates the scale, horizontal and vertical offset that should be used.
      *
@@ -374,15 +488,12 @@ class PMA_GIS_Visualization
         $plot_width = $this->_settings['width'] - 2 * $border;
         $plot_height = $this->_settings['height'] - 2 * $border;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         foreach ($data as $row) {
 
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
-            $type_pos = $pmaString->stripos($ref_data, '(');
-            $type = $pmaString->substr($ref_data, 0, $type_pos);
+            $type_pos = /*overload*/mb_stripos($ref_data, '(');
+            $type = /*overload*/mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
             if (! $gis_obj) {
@@ -392,7 +503,7 @@ class PMA_GIS_Visualization
                 $row[$this->_settings['spatialColumn']]
             );
 
-            // Update minimum/maximum values for x and y cordinates.
+            // Update minimum/maximum values for x and y coordinates.
             $c_maxX = (float) $scale_data['maxX'];
             if (! isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
                 $min_max['maxX'] = $c_maxX;
@@ -450,7 +561,7 @@ class PMA_GIS_Visualization
      *
      * @param array  $data       Raw data
      * @param array  $scale_data Data related to scaling
-     * @param string $format     Format of the visulaization
+     * @param string $format     Format of the visualization
      * @param object $results    Image object in the case of png
      *                           TCPDF object in the case of pdf
      *
@@ -461,17 +572,14 @@ class PMA_GIS_Visualization
     {
         $color_number = 0;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // loop through the rows
         foreach ($data as $row) {
             $index = $color_number % sizeof($this->_settings['colors']);
 
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
-            $type_pos = $pmaString->stripos($ref_data, '(');
-            $type = $pmaString->substr($ref_data, 0, $type_pos);
+            $type_pos = /*overload*/mb_stripos($ref_data, '(');
+            $type = /*overload*/mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
             if (! $gis_obj) {

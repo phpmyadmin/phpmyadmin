@@ -95,8 +95,9 @@ function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
     /* l10n: # = Amount of queries */
     $retval .= __('#');
     $retval .= '</th>';
-    $retval .= '<th>&oslash; ' . __('per hour') . '</th>';
-    $retval .= '<th>%</th>';
+    $retval .= '<th>&oslash; ' . __('per hour')
+        . '</th>';
+    $retval .= '<th>%</div></th>';
     $retval .= '</tr>';
     $retval .= '</thead>';
     $retval .= '<tbody>';

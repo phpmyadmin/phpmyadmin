@@ -34,11 +34,9 @@ function PMA_getUrlParams(
         'query_type' => $what,
         'reload' => (! empty($reload) ? 1 : 0),
     );
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    if ($pmaString->strpos(' ' . $action, 'db_') == 1) {
+    if (/*overload*/mb_strpos(' ' . $action, 'db_') == 1) {
         $_url_params['db']= $db;
-    } elseif ($pmaString->strpos(' ' . $action, 'tbl_') == 1
+    } elseif (/*overload*/mb_strpos(' ' . $action, 'tbl_') == 1
         || $what == 'row_delete'
     ) {
         $_url_params['db']= $db;
@@ -75,7 +73,7 @@ function PMA_getUrlParams(
  * @param array  $selected    selected tables
  * @param string $db          db name
  * @param string $table       table name
- * @param string $views       table views
+ * @param array  $views       table views
  * @param string $primary     table primary
  * @param string $from_prefix from prefix original
  * @param string $to_prefix   to prefix original
@@ -103,9 +101,6 @@ function PMA_getQueryStrFromSelected(
 
     $selected_cnt   = count($selected);
     $deletes = false;
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
@@ -151,6 +146,12 @@ function PMA_getQueryStrFromSelected(
 
         case 'analyze_tbl':
             $sql_query .= (empty($sql_query) ? 'ANALYZE TABLE ' : ', ')
+                       . PMA_Util::backquote($selected[$i]);
+            $use_sql    = true;
+            break;
+
+        case 'checksum_tbl':
+            $sql_query .= (empty($sql_query) ? 'CHECKSUM TABLE ' : ', ')
                        . PMA_Util::backquote($selected[$i]);
             $use_sql    = true;
             break;
@@ -231,11 +232,17 @@ function PMA_getQueryStrFromSelected(
 
         case 'replace_prefix_tbl':
             $current = $selected[$i];
-            $subFromPrefix = $pmaString
-                ->substr($current, 0, $pmaString->strlen($from_prefix));
+            $subFromPrefix = /*overload*/mb_substr(
+                $current,
+                0,
+                /*overload*/mb_strlen($from_prefix)
+            );
             if ($subFromPrefix == $from_prefix) {
                 $newtablename = $to_prefix
-                    . $pmaString->substr($current, $pmaString->strlen($from_prefix));
+                    . /*overload*/mb_substr(
+                        $current,
+                        /*overload*/mb_strlen($from_prefix)
+                    );
             } else {
                 $newtablename = $current;
             }
@@ -250,7 +257,7 @@ function PMA_getQueryStrFromSelected(
         case 'copy_tbl_change_prefix':
             $current = $selected[$i];
             $newtablename = $to_prefix .
-                $pmaString->substr($current, $pmaString->strlen($from_prefix));
+                /*overload*/mb_substr($current, /*overload*/mb_strlen($from_prefix));
             // COPY TABLE AND CHANGE PREFIX PATTERN
             $a_query = 'CREATE TABLE '
                 . PMA_Util::backquote($newtablename)
@@ -402,66 +409,40 @@ function PMA_getHtmlForAddPrefixTable($action, $_url_params)
  * @param string $what        mult_submit type
  * @param string $action      action type
  * @param array  $_url_params URL params
- * @param array  $full_query  full sql query string
+ * @param string $full_query  full sql query string
  *
  * @return string
  */
 function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
 {
-    $html  = '<fieldset class="confirmation">';
+    $html = '<form action="' . $action . '" method="post">';
+    $html .= PMA_URL_getHiddenInputs($_url_params);
+    $html .= '<fieldset class="confirmation">';
     $html .= '<legend>';
     if ($what == 'drop_db') {
         $html .=  __('You are about to DESTROY a complete database!') . ' ';
     }
     $html .= __('Do you really want to execute the following query?');
-    if ($what == 'row_delete') {
-        $response = array('Yes','No');
-        foreach ($response as $resp) {
-            $html .= '<form action="' . $action . '" method="post">';
-            $html .= PMA_URL_getHiddenInputs($_url_params);
-            $html .= '<input type="hidden" name="mult_btn" value="'
-                . __($resp) . '" />';
-            $html .= '<input type="submit" value="' . __($resp) . '" />';
-            $html .= '</form>';
-        }
-    }
+    $html .= '<input type="submit" name="mult_btn" value="'
+        . __('Yes') . '" />';
+    $html .= '<input type="submit" name="mult_btn" value="'
+        . __('No') . '" />';
     $html .= '</legend>';
     $html .= '<code>' . $full_query . '</code>';
     $html .= '</fieldset>';
     $html .= '<fieldset class="tblFooters">';
-    $html .= '<form action="' . $action . '" method="post">';
-    $html .= PMA_URL_getHiddenInputs($_url_params);
     // Display option to disable foreign key checks while dropping tables
-    if ($what == 'drop_tbl') {
+    if ($what === 'drop_tbl' || $what === 'empty_tbl' || $what === 'row_delete') {
         $html .= '<div id="foreignkeychk">';
-        $html .= '<span class="fkc_switch">';
-        $html .= __('Foreign key check:');
-        $html .= '</span>';
-        $html .= '<span class="checkbox">';
-        $html .= '<input type="checkbox" name="fk_check" value="1" '
-            . 'id="fkc_checkbox"';
-        $default_fk_check_value = $GLOBALS['dbi']->fetchValue(
-            'SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1
-        ) == 'ON';
-        if ($default_fk_check_value) {
-            $html .= ' checked="checked"';
-        }
-        $html .= '/></span>';
-        $html .= '<span id="fkc_status" class="fkc_switch">';
-        $html .= ($default_fk_check_value) ? __('(Enabled)') : __('(Disabled)');
-        $html .= '</span>';
+        $html .= PMA_Util::getFKCheckbox();
         $html .= '</div>';
     }
-    $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
-    $html .= '<input type="submit" value="' . __('Yes') . '" id="buttonYes" />';
-    $html .= '</form>';
-
-    $html .= '<form action="' . $action . '" method="post">';
-    $html .= PMA_URL_getHiddenInputs($_url_params);
-    $html .= '<input type="hidden" name="mult_btn" value="' . __('No') . '" />';
-    $html .= '<input type="submit" value="' . __('No') . '" id="buttonNo" />';
-    $html .= '</form>';
+    $html .= '<input id="buttonYes" type="submit" name="mult_btn" value="'
+        . __('Yes') . '" />';
+    $html .= '<input id="buttonNo" type="submit" name="mult_btn" value="'
+        . __('No') . '" />';
     $html .= '</fieldset>';
+    $html .= '</form>';
 
     return $html;
 }
@@ -471,9 +452,9 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
  *
  * @param string $submit_mult mult_submit type
  * @param string $db          database name
- * @param array  $table       table name
+ * @param string $table       table name
  * @param array  $selected    the selected columns
- * @param array  $action      action type
+ * @param string $action      action type
  *
  * @return array
  */
@@ -549,16 +530,15 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
  *
  * @param string $what     mult_submit type
  * @param string $db       database name
- * @param array  $table    table name
+ * @param string $table    table name
  * @param array  $selected the selected columns
- * @param array  $action   action type
  * @param array  $views    table views
  *
  * @return array
  */
-function PMA_getQueryFromSelected($what, $db, $table, $selected, $action, $views)
+function PMA_getQueryFromSelected($what, $db, $table, $selected, $views)
 {
-    $reload = null;
+    $reload = false;
     $full_query_views = null;
     $full_query     = '';
 
@@ -571,20 +551,21 @@ function PMA_getQueryFromSelected($what, $db, $table, $selected, $action, $views
     foreach ($selected as $sval) {
         switch ($what) {
         case 'row_delete':
-            $full_query .= 'DELETE FROM ' . PMA_Util::backquote($db)
-                . '.' . PMA_Util::backquote($table)
+            $full_query .= 'DELETE FROM '
+                . PMA_Util::backquote(htmlspecialchars($db))
+                . '.' . PMA_Util::backquote(htmlspecialchars($table))
                 // Do not append a "LIMIT 1" clause here
                 // (it's not binlog friendly).
                 // We don't need the clause because the calling panel permits
                 // this feature only when there is a unique index.
-                . ' WHERE ' . urldecode($sval)
+                . ' WHERE ' . urldecode(htmlspecialchars($sval))
                 . ';<br />';
             break;
         case 'drop_db':
             $full_query .= 'DROP DATABASE '
                 . PMA_Util::backquote(htmlspecialchars($sval))
                 . ';<br />';
-            $reload = 1;
+            $reload = true;
             break;
 
         case 'drop_tbl':

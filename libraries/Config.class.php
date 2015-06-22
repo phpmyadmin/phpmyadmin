@@ -114,7 +114,7 @@ class PMA_Config
      */
     function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.3.0-dev');
+        $this->set('PMA_VERSION', '4.5.0-dev');
         /**
          * @deprecated
          */
@@ -148,7 +148,7 @@ class PMA_Config
         }
 
         // disable output-buffering (if set to 'auto') for IE6, else enable it.
-        if ($GLOBALS['PMA_String']->strtolower($this->get('OBGzip')) == 'auto') {
+        if (strtolower($this->get('OBGzip')) == 'auto') {
             if ($this->get('PMA_USR_BROWSER_AGENT') == 'IE'
                 && $this->get('PMA_USR_BROWSER_VER') >= 6
                 && $this->get('PMA_USR_BROWSER_VER') < 7
@@ -157,6 +157,30 @@ class PMA_Config
             } else {
                 $this->set('OBGzip', true);
             }
+        }
+    }
+
+    /**
+     * Sets the client platform based on user agent
+     *
+     * @param string $user_agent the user agent
+     *
+     * @return void
+     */
+    private function _setClientPlatform($user_agent)
+    {
+        if (/*overload*/mb_strstr($user_agent, 'Win')) {
+            $this->set('PMA_USR_OS', 'Win');
+        } elseif (/*overload*/mb_strstr($user_agent, 'Mac')) {
+            $this->set('PMA_USR_OS', 'Mac');
+        } elseif (/*overload*/mb_strstr($user_agent, 'Linux')) {
+            $this->set('PMA_USR_OS', 'Linux');
+        } elseif (/*overload*/mb_strstr($user_agent, 'Unix')) {
+            $this->set('PMA_USR_OS', 'Unix');
+        } elseif (/*overload*/mb_strstr($user_agent, 'OS/2')) {
+            $this->set('PMA_USR_OS', 'OS/2');
+        } else {
+            $this->set('PMA_USR_OS', 'Other');
         }
     }
 
@@ -176,23 +200,8 @@ class PMA_Config
             $HTTP_USER_AGENT = '';
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // 1. Platform
-        if ($pmaString->strstr($HTTP_USER_AGENT, 'Win')) {
-            $this->set('PMA_USR_OS', 'Win');
-        } elseif ($pmaString->strstr($HTTP_USER_AGENT, 'Mac')) {
-            $this->set('PMA_USR_OS', 'Mac');
-        } elseif ($pmaString->strstr($HTTP_USER_AGENT, 'Linux')) {
-            $this->set('PMA_USR_OS', 'Linux');
-        } elseif ($pmaString->strstr($HTTP_USER_AGENT, 'Unix')) {
-            $this->set('PMA_USR_OS', 'Unix');
-        } elseif ($pmaString->strstr($HTTP_USER_AGENT, 'OS/2')) {
-            $this->set('PMA_USR_OS', 'OS/2');
-        } else {
-            $this->set('PMA_USR_OS', 'Other');
-        }
+        $this->_setClientPlatform($HTTP_USER_AGENT);
 
         // 2. browser and version
         // (must check everything else before Mozilla)
@@ -263,7 +272,7 @@ class PMA_Config
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
-        } elseif (! $pmaString->strstr($HTTP_USER_AGENT, 'compatible')
+        } elseif (! /*overload*/mb_strstr($HTTP_USER_AGENT, 'compatible')
             && preg_match('@Firefox/([\w.]+)@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
@@ -306,7 +315,7 @@ class PMA_Config
 
         if (@function_exists('gd_info')) {
             $gd_nfo = gd_info();
-            if ($GLOBALS['PMA_String']->strstr($gd_nfo["GD Version"], '2.')) {
+            if (/*overload*/mb_strstr($gd_nfo["GD Version"], '2.')) {
                 $this->set('PMA_IS_GD2', 1);
             } else {
                 $this->set('PMA_IS_GD2', 0);
@@ -399,6 +408,10 @@ class PMA_Config
      */
     function isGitRevision()
     {
+        if (!$this->get('ShowGitRevision')) {
+            return false;
+        }
+
         // caching
         if (isset($_SESSION['is_git_revision'])) {
             if ($_SESSION['is_git_revision']) {
@@ -435,15 +448,12 @@ class PMA_Config
             return;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         $branch = false;
         // are we on any branch?
-        //@TODO Implement strstr in PMA_String
-        if ($pmaString->strstr($ref_head, '/')) {
-            $ref_head = $pmaString->substr(trim($ref_head), 5);
-            if ($pmaString->substr($ref_head, 0, 11) === 'refs/heads/') {
-                $branch = $pmaString->substr($ref_head, 11);
+        if (/*overload*/mb_strstr($ref_head, '/')) {
+            $ref_head = /*overload*/mb_substr(trim($ref_head), 5);
+            if (substr($ref_head, 0, 11) === 'refs/heads/') {
+                $branch = /*overload*/mb_substr($ref_head, 11);
             } else {
                 $branch = basename($ref_head);
             }
@@ -492,8 +502,7 @@ class PMA_Config
         $commit = false;
         if (! isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
             $git_file_name = $git_folder . '/objects/'
-                . $pmaString->substr($hash, 0, 2)
-                . '/' . $pmaString->substr($hash, 2);
+                . substr($hash, 0, 2) . '/' . substr($hash, 2);
             if (file_exists($git_file_name) ) {
                 if (! $commit = @file_get_contents($git_file_name)) {
                     return;
@@ -512,7 +521,7 @@ class PMA_Config
                     // packs. (to look for them in .git/object/pack directory later)
                     foreach (explode("\n", $packs) as $line) {
                         // skip blank lines
-                        if ($pmaString->strlen(trim($line)) == 0) {
+                        if (strlen(trim($line)) == 0) {
                             continue;
                         }
                         // skip non pack lines
@@ -520,7 +529,7 @@ class PMA_Config
                             continue;
                         }
                         // parse names
-                        $pack_names[] = $pmaString->substr($line, 2);
+                        $pack_names[] = substr($line, 2);
                     }
                 } else {
                     // '.git/objects/info/packs' file can be missing
@@ -534,14 +543,13 @@ class PMA_Config
                     foreach ($dirIterator as $file_info) {
                         $file_name = $file_info->getFilename();
                         // if this is a .pack file
-                        if ($file_info->isFile()
-                            && $pmaString->substr($file_name, -5) == '.pack'
+                        if ($file_info->isFile() && substr($file_name, -5) == '.pack'
                         ) {
                             $pack_names[] = $file_name;
                         }
                     }
                 }
-                $hash = $pmaString->strtolower($hash);
+                $hash = strtolower($hash);
                 foreach ($pack_names as $pack_name) {
                     $index_name = str_replace('.pack', '.idx', $pack_name);
 
@@ -553,22 +561,22 @@ class PMA_Config
                         continue;
                     }
                     // check format
-                    if ($pmaString->substr($index_data, 0, 4) != "\377tOc") {
+                    if (substr($index_data, 0, 4) != "\377tOc") {
                         continue;
                     }
                     // check version
-                    $version = unpack('N', $pmaString->substr($index_data, 4, 4));
+                    $version = unpack('N', substr($index_data, 4, 4));
                     if ($version[1] != 2) {
                         continue;
                     }
                     // parse fanout table
                     $fanout = unpack(
                         "N*",
-                        $pmaString->substr($index_data, 8, 256 * 4)
+                        substr($index_data, 8, 256 * 4)
                     );
 
                     // find where we should search
-                    $firstbyte = intval($pmaString->substr($hash, 0, 2), 16);
+                    $firstbyte = intval(substr($hash, 0, 2), 16);
                     // array is indexed from 1 and we need to get
                     // previous entry for start
                     if ($firstbyte == 0) {
@@ -582,11 +590,9 @@ class PMA_Config
                     $found = false;
                     $offset = 8 + (256 * 4);
                     for ($position = $start; $position < $end; $position++) {
-                        $sha = $pmaString->strtolower(
+                        $sha = strtolower(
                             bin2hex(
-                                $pmaString->substr(
-                                    $index_data, $offset + ($position * 20), 20
-                                )
+                                substr($index_data, $offset + ($position * 20), 20)
                             )
                         );
                         if ($sha == $hash) {
@@ -601,7 +607,7 @@ class PMA_Config
                     $offset = 8 + (256 * 4) + (24 * $fanout[256]);
                     $pack_offset = unpack(
                         'N',
-                        $pmaString->substr($index_data, $offset + ($position * 4), 4)
+                        substr($index_data, $offset + ($position * 4), 4)
                     );
                     $pack_offset = $pack_offset[1];
 
@@ -616,14 +622,14 @@ class PMA_Config
                     fseek($pack_file, $pack_offset);
 
                     // parse header
-                    $header = $pmaString->ord(fread($pack_file, 1));
+                    $header = ord(fread($pack_file, 1));
                     $type = ($header >> 4) & 7;
                     $hasnext = ($header & 128) >> 7;
                     $size = $header & 0xf;
                     $offset = 4;
 
                     while ($hasnext) {
-                        $byte = $pmaString->ord(fread($pack_file, 1));
+                        $byte = ord(fread($pack_file, 1));
                         $size |= ($byte & 0x7f) << $offset;
                         $hasnext = ($byte & 128) >> 7;
                         $offset += 7;
@@ -761,19 +767,19 @@ class PMA_Config
         if (! function_exists('curl_init')) {
             return null;
         }
-        $ch = curl_init($link);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($ch, CURLOPT_HEADER, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        $handle = curl_init($link);
+        PMA_Util::configureCurl($handle);
+        curl_setopt($handle, CURLOPT_FOLLOWLOCATION, 0);
+        curl_setopt($handle, CURLOPT_HEADER, 1);
+        curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($handle, CURLOPT_TIMEOUT, 5);
         if (! defined('TESTSUITE')) {
             session_write_close();
         }
-        $data = @curl_exec($ch);
+        $data = @curl_exec($handle);
         if (! defined('TESTSUITE')) {
             ini_set('session.use_only_cookies', '0');
             ini_set('session.use_cookies', '0');
@@ -787,21 +793,19 @@ class PMA_Config
         $httpOk = 'HTTP/1.1 200 OK';
         $httpNotFound = 'HTTP/1.1 404 Not Found';
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-        if ($pmaString->substr($data, 0, $pmaString->strlen($httpOk)) === $httpOk) {
+        if (substr($data, 0, strlen($httpOk)) === $httpOk) {
             return $get_body
-                ? $pmaString->substr(
+                ? /*overload*/mb_substr(
                     $data,
-                    $pmaString->strpos($data, "\r\n\r\n") + 4
+                    /*overload*/mb_strpos($data, "\r\n\r\n") + 4
                 )
                 : true;
         }
 
-        $httpNOK = $pmaString->substr(
+        $httpNOK = substr(
             $data,
             0,
-            $pmaString->strlen($httpNotFound)
+            strlen($httpNotFound)
         );
         if ($httpNOK === $httpNotFound) {
             return false;
@@ -852,7 +856,15 @@ class PMA_Config
             $this->setSource($source);
         }
 
+        /**
+         * We check and set the font size at this point, to make the font size
+         * selector work also for users without a config.inc.php
+         */
+        $this->checkFontsize();
+
         if (! $this->checkConfigSource()) {
+            // even if no config file, set collation_connection
+            $this->checkCollationConnection();
             return false;
         }
 
@@ -905,13 +917,55 @@ class PMA_Config
 
         $this->settings = PMA_arrayMergeRecursive($this->settings, $cfg);
         $this->checkPmaAbsoluteUri();
-        $this->checkFontsize();
+
         // Handling of the collation must be done after merging of $cfg
         // (from config.inc.php) so that $cfg['DefaultConnectionCollation']
         // can have an effect.
         $this->checkCollationConnection();
 
         return true;
+    }
+
+    /**
+     * Saves the connection collation
+     *
+     * @param array $config_data configuration data from user preferences
+     *
+     * @return void
+     */
+    private function _saveConnectionCollation($config_data)
+    {
+        if (!PMA_DRIZZLE) {
+            // just to shorten the lines
+            $collation = 'collation_connection';
+            if (isset($GLOBALS[$collation])
+                && (isset($_COOKIE['pma_collation_connection'])
+                || isset($_POST[$collation]))
+            ) {
+                if ((! isset($config_data[$collation])
+                    && $GLOBALS[$collation] != 'utf8_general_ci')
+                    || isset($config_data[$collation])
+                    && $GLOBALS[$collation] != $config_data[$collation]
+                ) {
+                    $this->setUserValue(
+                        null,
+                        $collation,
+                        $GLOBALS[$collation],
+                        'utf8_general_ci'
+                    );
+                }
+            } else {
+                // read collation from settings
+                if (isset($config_data[$collation])) {
+                    $GLOBALS[$collation]
+                        = $config_data[$collation];
+                    $this->setCookie(
+                        'pma_collation_connection',
+                        $GLOBALS[$collation]
+                    );
+                }
+            }
+        }
     }
 
     /**
@@ -1030,36 +1084,7 @@ class PMA_Config
         }
 
         // save connection collation
-        if (!PMA_DRIZZLE) {
-            // just to shorten the lines
-            $collation = 'collation_connection';
-            if (isset($_COOKIE['pma_collation_connection'])
-                || isset($_POST[$collation])
-            ) {
-                if ((! isset($config_data[$collation])
-                    && $GLOBALS[$collation] != 'utf8_general_ci')
-                    || isset($config_data[$collation])
-                    && $GLOBALS[$collation] != $config_data[$collation]
-                ) {
-                    $this->setUserValue(
-                        null,
-                        $collation,
-                        $GLOBALS[$collation],
-                        'utf8_general_ci'
-                    );
-                }
-            } else {
-                // read collation from settings
-                if (isset($config_data['collation_connection'])) {
-                    $GLOBALS['collation_connection']
-                        = $config_data['collation_connection'];
-                    $this->setCookie(
-                        'pma_collation_connection',
-                        $GLOBALS['collation_connection']
-                    );
-                }
-            }
-        }
+        $this->_saveConnectionCollation($config_data);
     }
 
     /**
@@ -1291,9 +1316,7 @@ class PMA_Config
         $pma_absolute_uri = $this->get('PmaAbsoluteUri');
         $is_https = $this->detectHttps();
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-        if ($pmaString->strlen($pma_absolute_uri) < 5) {
+        if (/*overload*/mb_strlen($pma_absolute_uri) < 5) {
             $url = array();
 
             // If we don't have scheme, we didn't have full URL so we need to
@@ -1389,7 +1412,7 @@ class PMA_Config
                 $path = '';
             }
             // in vhost situations, there could be already an ending slash
-            if ($pmaString->substr($path, -1) != '/') {
+            if (/*overload*/mb_substr($path, -1) != '/') {
                 $path .= '/';
             }
             $pma_absolute_uri .= $path;
@@ -1411,20 +1434,22 @@ class PMA_Config
 
             // Adds a trailing slash et the end of the phpMyAdmin uri if it
             // does not exist.
-            if ($pmaString->substr($pma_absolute_uri, -1) != '/') {
+            if (/*overload*/mb_substr($pma_absolute_uri, -1) != '/') {
                 $pma_absolute_uri .= '/';
             }
 
             // If URI doesn't start with http:// or https://, we will add
             // this.
-            if ($pmaString->substr($pma_absolute_uri, 0, 7) != 'http://'
-                && $pmaString->substr($pma_absolute_uri, 0, 8) != 'https://'
+            if (/*overload*/mb_substr($pma_absolute_uri, 0, 7) != 'http://'
+                && /*overload*/mb_substr($pma_absolute_uri, 0, 8) != 'https://'
             ) {
                 $pma_absolute_uri
                     = ($is_https ? 'https' : 'http')
                     . ':'
                     . (
-                    $pmaString->substr($pma_absolute_uri, 0, 2) == '//' ? '' : '//'
+                        /*overload*/mb_substr($pma_absolute_uri, 0, 2) == '//'
+                        ? ''
+                        : '//'
                     )
                     . $pma_absolute_uri;
             }
@@ -1519,7 +1544,7 @@ class PMA_Config
         $this->set('enable_upload', true);
         // if set "php_admin_value file_uploads Off" in httpd.conf
         // ini_get() also returns the string "Off" in this case:
-        if ('off' == $GLOBALS['PMA_String']->strtolower(ini_get('file_uploads'))) {
+        if ('off' == strtolower(ini_get('file_uploads'))) {
             $this->set('enable_upload', false);
         }
     }
@@ -1596,9 +1621,6 @@ class PMA_Config
             }
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // If we don't have scheme, we didn't have full URL so we need to
         // dig deeper
         if (empty($url['scheme'])) {
@@ -1606,19 +1628,20 @@ class PMA_Config
             if (PMA_getenv('HTTP_SCHEME')) {
                 $url['scheme'] = PMA_getenv('HTTP_SCHEME');
             } elseif (PMA_getenv('HTTPS')
-                && $pmaString->strtolower(PMA_getenv('HTTPS')) == 'on'
+                && strtolower(PMA_getenv('HTTPS')) == 'on'
             ) {
                 $url['scheme'] = 'https';
                 // A10 Networks load balancer:
             } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB')
-                && $pmaString->strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on'
+                && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on'
             ) {
                 $url['scheme'] = 'https';
             } elseif (PMA_getenv('HTTP_X_FORWARDED_PROTO')) {
-                $url['scheme']
-                    = $pmaString->strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO'));
+                $url['scheme'] = /*overload*/mb_strtolower(
+                    PMA_getenv('HTTP_X_FORWARDED_PROTO')
+                );
             } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS')
-                && $pmaString->strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on'
+                && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on'
             ) {
                 $url['scheme'] = 'https';
             } else {
@@ -1778,7 +1801,7 @@ class PMA_Config
         // for the case when there is no config file (this is supported)
         if (empty($current_size)) {
             if (isset($_COOKIE['pma_fontsize'])) {
-                $current_size = $_COOKIE['pma_fontsize'];
+                $current_size = htmlspecialchars($_COOKIE['pma_fontsize']);
             } else {
                 $current_size = '82%';
             }
@@ -1857,9 +1880,8 @@ class PMA_Config
     function setCookie($cookie, $value, $default = null, $validity = null,
         $httponly = true
     ) {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-        if ($pmaString->strlen($value) && null !== $default && $value === $default) {
+        if (/*overload*/mb_strlen($value) && null !== $default && $value === $default
+        ) {
             // default value is used
             if (isset($_COOKIE[$cookie])) {
                 // remove cookie
@@ -1868,7 +1890,7 @@ class PMA_Config
             return false;
         }
 
-        if (!$pmaString->strlen($value) && isset($_COOKIE[$cookie])) {
+        if (!/*overload*/mb_strlen($value) && isset($_COOKIE[$cookie])) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }

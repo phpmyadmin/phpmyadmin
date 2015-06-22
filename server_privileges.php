@@ -27,7 +27,9 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 
-if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
+if ((isset($_REQUEST['viewing_mode'])
+    && $_REQUEST['viewing_mode'] == 'server')
+    && isset($GLOBALS['cfgRelation']['menuswork'])
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
     include_once 'libraries/server_users.lib.php';
@@ -43,13 +45,8 @@ $post_patterns = array(
     '/_priv$/i',
     '/^max_/i'
 );
-foreach (array_keys($_POST) as $post_key) {
-    foreach ($post_patterns as $one_post_pattern) {
-        if (preg_match($one_post_pattern, $post_key)) {
-            $GLOBALS[$post_key] = $_POST[$post_key];
-        }
-    }
-}
+
+PMA_setPostAsGlobal($post_patterns);
 
 require 'libraries/server_common.inc.php';
 
@@ -277,12 +274,10 @@ if ($GLOBALS['is_ajax_request']
     && empty($_REQUEST['ajax_page_request'])
     && ! isset($_REQUEST['export'])
     && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export')
-    && (! isset($_REQUEST['adduser']) || $_add_user_error)
     && ((! isset($_REQUEST['initial']) || $_REQUEST['initial'] === null
     || $_REQUEST['initial'] === '')
     || (isset($_REQUEST['delete']) && $_REQUEST['delete'] === 'Go'))
     && ! isset($_REQUEST['showall'])
-    && ! isset($_REQUEST['edit_user_dialog'])
     && ! isset($_REQUEST['edit_user_group_dialog'])
     && ! isset($_REQUEST['db_specific'])
 ) {
@@ -306,7 +301,7 @@ if ($GLOBALS['is_ajax_request']
  * Displays the links
  */
 if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
-    $_REQUEST['db'] = $_REQUEST['checkprivsdb'];
+    $GLOBALS['db'] = $_REQUEST['db'] = $_REQUEST['checkprivsdb'];
 
     $url_query .= '&amp;goto=db_operations.php';
 
@@ -386,20 +381,19 @@ if (isset($_REQUEST['adduser'])) {
         if ($GLOBALS['is_ajax_request'] == true) {
             header('Cache-Control: no-cache');
         }
-        if (! is_array($dbname)) {
+        if (isset($dbname) && ! is_array($dbname)) {
             $url_dbname = urlencode(
                 str_replace(
                     array('\_', '\%'),
                     array('_', '%'), $_REQUEST['dbname']
                 )
             );
-        } else {
-            $url_dbname = '';
         }
         $response->addHTML(
             PMA_getHtmlForUserProperties(
-                ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
-                $url_dbname, $username, $hostname,
+                (isset($dbname_is_wildcard) ? $dbname_is_wildcard : ''),
+                (isset($url_dbname) ? $url_dbname : ''),
+                $username, $hostname,
                 (isset($dbname) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')
             )
@@ -412,5 +406,3 @@ if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
 ) {
     $response->addHTML('</div>');
 }
-
-?>

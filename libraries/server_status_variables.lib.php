@@ -37,7 +37,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
     $retval  = '';
     $retval .= '<fieldset id="tableFilter">';
     $retval .= '<legend>' . __('Filters') . '</legend>';
-    $retval .= '<form action="server_status_variables.php?'
+    $retval .= '<form action="server_status_variables.php'
         . PMA_URL_getCommon() . '">';
     $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
     $retval .= '<div class="formelement">';
@@ -57,7 +57,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
     $retval .= '<option value="">' . __('Filter by category…') . '</option>';
 
     foreach ($ServerStatusData->sections as $section_id => $section_name) {
-        if (isset($ServerStatusData->categoryUsed[$section_id])) {
+        if (isset($ServerStatusData->sectionUsed[$section_id])) {
             if (! empty($_REQUEST['filterCategory'])
                 && $_REQUEST['filterCategory'] == $section_id
             ) {
@@ -98,7 +98,7 @@ function PMA_getHtmlForLinkSuggestions($ServerStatusData)
     $retval .= '<p class="notice">' . __('Related links:');
     foreach ($ServerStatusData->links as $section_name => $section_links) {
         $retval .= '<span class="status_' . $section_name . '"> ';
-        $i=0;
+        $i = 0;
         foreach ($section_links as $link_name => $link_url) {
             if ($i > 0) {
                 $retval .= ', ';
@@ -210,7 +210,7 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
  */
 function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatus)
 {
-    $retval  = '<table class="data sortable noclick" id="serverstatusvariables">';
+    $retval  = '<table class="data noclick" id="serverstatusvariables">';
     $retval .= '<col class="namecol" />';
     $retval .= '<col class="valuecol" />';
     $retval .= '<col class="descrcol" />';
@@ -222,9 +222,6 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
     $retval .= '</tr>';
     $retval .= '</thead>';
     $retval .= '<tbody>';
-
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
 
     $odd_row = false;
     foreach ($ServerStatusData->status as $name => $value) {
@@ -239,7 +236,7 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
         $retval .= htmlspecialchars(str_replace('_', ' ', $name));
         // Fields containing % are calculated,
         // they can not be described in MySQL documentation
-        if ($pmaString->strpos($name, '%') === false) {
+        if (/*overload*/mb_strpos($name, '%') === false) {
             $retval .= PMA_Util::showMySQLDocu(
                 'server-status-variables',
                 false,
@@ -256,9 +253,9 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
                 $retval .= '<span class="allfine">';
             }
         }
-        if ('%' === $pmaString->substr($name, -1, 1)) {
+        if (substr($name, -1) === '%') {
             $retval .= htmlspecialchars(PMA_Util::formatNumber($value, 0, 2)) . ' %';
-        } elseif ($pmaString->strpos($name, 'Uptime') !== false) {
+        } elseif (strpos($name, 'Uptime') !== false) {
             $retval .= htmlspecialchars(
                 PMA_Util::timespanFormat($value)
             );

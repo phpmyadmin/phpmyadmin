@@ -21,9 +21,16 @@ if [ ! -z "$1" ] ; then
     exit $?
 fi
 
+result=0
 for x in po/*.po  ; do
     compile $x
-    if [ $? != 0 ] ; then
-        return $?
+    ret=$?
+    if [ $ret != 0 ] ; then
+        tput setf 4 >&2
+        echo Error when compiling $x  >&2
+        tput sgr0 >&2
+        result=$ret
     fi
 done
+
+exit $result

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for methods under user_preferences libarary
+ * tests for methods under user_preferences library
  *
  * @package PhpMyAdmin-test
  */
@@ -21,7 +21,7 @@ require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Message.class.php';
 
 /**
- * tests for methods under user_preferences libarary
+ * tests for methods under user_preferences library
  *
  * @package PhpMyAdmin-test
  */
@@ -199,7 +199,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $query1 = 'SELECT `username` FROM `pmadb`.`testconf` '
             . 'WHERE `username` = \'user\'';
 
-        $query2 = 'UPDATE `pmadb`.`testconf` SET `config_data` = \''
+        $query2 = 'UPDATE `pmadb`.`testconf` SET `timevalue` = NOW(), `config_data` = \''
             . json_encode(array(1)) . '\' WHERE `username` = \'user\'';
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -226,8 +226,8 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $query1 = 'SELECT `username` FROM `pmadb`.`testconf` '
             . 'WHERE `username` = \'user\'';
 
-        $query2 = 'INSERT INTO `pmadb`.`testconf` (`username`, `config_data`) '
-            . 'VALUES (\'user\', \'' . json_encode(array(1)) . '\')';
+        $query2 = 'INSERT INTO `pmadb`.`testconf` (`username`, `timevalue`,`config_data`) '
+            . 'VALUES (\'user\', NOW(), \'' . json_encode(array(1)) . '\')';
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -414,69 +414,30 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_PHP_SELF'] = 'phpunit';
         $result = PMA_userprefsAutoloadGetHeader();
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<form action="prefs_manage.php" method="post">'
-            ),
+        $this->assertContains(
+            '<form action="prefs_manage.php" method="post">',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="token" value="token"'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="token" value="token"',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="json" value="" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="json" value="" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="submit_import" value="1" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="submit_import" value="1" />',
             $result
         );
 
-        $this->assertTag(
-            PMA_getTagArray(
-                '<input type="hidden" name="return_url" value="phpunit?" />'
-            ),
+        $this->assertContains(
+            '<input type="hidden" name="return_url" value="phpunit?" />',
             $result
         );
     }
-
-    /**
-     * Return the tag array to be used with assertTag by parsing
-     * a given HTML element
-     *
-     * @param string $elementHTML HTML for element to be parsed
-     * @param array  $arr         Additional array elements like content, parent
-     *
-     * @return array              Tag array to be used with assertTag
-     */
-    private function _getTagArray($elementHTML, $arr = array())
-    {
-
-        // get attributes
-        preg_match_all("/\s+(.*?)\=\s*\"(.*?)\"/is", $elementHTML, $matches);
-        foreach ($matches[1] as $key => $val) {
-            $arr['attributes'][trim($val)] = trim($matches[2][$key]);
-        }
-        $matches = array();
-
-        // get tag
-        preg_match("/^\<(.*?)(\s|\>)/i", $elementHTML, $matches);
-        if (isset($matches[1])) {
-            $arr['tag'] = trim($matches[1]);
-        }
-
-        return $arr;
-    }
-
 }
 ?>

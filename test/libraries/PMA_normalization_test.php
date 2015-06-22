@@ -18,7 +18,6 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/tbl_columns_definition_form.lib.php';
 require_once 'libraries/Types.class.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/normalization.lib.php';
@@ -84,9 +83,10 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
           ),
           array(
               'PMA_db', 'PMA_table2', null,
-              array(array('Key_name'=>'PRIMARY', 'Column_name'=>'id'),
+              array(
+                array('Key_name'=>'PRIMARY', 'Column_name'=>'id'),
                 array('Key_name'=>'PRIMARY', 'Column_name'=>'col1')
-             )
+              )
           ),
         );
         $dbi->expects($this->any())
@@ -131,8 +131,8 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $table= "PMA_table";
         $num_fields = 1;
         $result = PMA_getHtmlForCreateNewColumn($num_fields, $db, $table);
-        $this->assertTag(
-            array('tag' => 'table',"id"=>'table_columns'),
+        $this->assertContains(
+            '<table id="table_columns"',
             $result
         );
     }
@@ -153,20 +153,27 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
             . __('First step of normalization (1NF)') . "</h3>",
             $result
         );
-        $this->assertTag(
-            array('tag'=>'div', 'id'=>'mainContent','descendant' => array(
-                'tag'   => 'fieldset',
-                'child' => array(
-                    'id'      => 'extra',
-                    'id' => 'newCols'
-                ),
-            )
-                ),
+        $this->assertContains(
+            "<div id='mainContent'",
             $result
         );
         $this->assertContains("<legend>" . __('Step 1.'), $result);
-        $this->assertTag(array('tag'=>'h4','tag'=>"p"), $result);
-        $this->assertTag(array('tag'=>'select','id'=>"selectNonAtomicCol"), $result);
+
+        $this->assertContains(
+            '<h4',
+            $result
+        );
+
+        $this->assertContains(
+            '<p',
+            $result
+        );
+
+        $this->assertContains(
+            "<select id='selectNonAtomicCol'",
+            $result
+        );
+
         $this->assertContains(
             PMA_getHtmlForColumnsList(
                 $db, $table, _pgettext('string types', 'String')
@@ -191,10 +198,14 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('subText', $result);
         $this->assertArrayHasKey('hasPrimaryKey', $result);
         $this->assertArrayHasKey('extra', $result);
-        $this->assertTag(
-            array('tag'=>'a', 'id'=>'createPrimaryKey'), $result['subText']
+        $this->assertContains(
+            '<a href="#" id="createPrimaryKey">',
+            $result['subText']
         );
-        $this->assertTag(array('tag'=>'a', 'id'=>'addNewPrimary'), $result['extra']);
+        $this->assertContains(
+            '<a href="#" id="addNewPrimary">',
+            $result['extra']
+        );
         $this->assertEquals('0', $result['hasPrimaryKey']);
         $this->assertContains(__('Step 1.') . 2, $result['legendText']);
         $result1 = PMA_getHtmlContentsFor1NFStep2($db, 'PMA_table');
@@ -221,8 +232,9 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
             PMA_getHtmlForColumnsList($db, $table, 'all', "checkbox"),
             $result['extra']
         );
-        $this->assertTag(
-            array('tag'=>'input', 'id'=>'removeRedundant'), $result['extra']
+        $this->assertContains(
+            '<input type="submit" id="removeRedundant"',
+            $result['extra']
         );
     }
 
@@ -247,8 +259,9 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
             PMA_getHtmlForColumnsList($db, $table, 'all', "checkbox"),
             $result['extra']
         );
-        $this->assertTag(
-            array('tag'=>'input', 'id'=>'moveRepeatingGroup'), $result['extra']
+        $this->assertContains(
+            '<input type="submit" id="moveRepeatingGroup"',
+            $result['extra']
         );
         $this->assertEquals(json_encode(array('id')), $result['primary_key']);
     }
@@ -273,14 +286,13 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals('id', $result['primary_key']);
         $result1 = PMA_getHtmlFor2NFstep1($db, "PMA_table2");
         $this->assertEquals('id, col1', $result1['primary_key']);
-        $this->assertTag(
-            array('tag'=>'a', 'id'=>'showPossiblePd'), $result1['headText']
+        $this->assertContains(
+            '<a href="#" id="showPossiblePd"',
+            $result1['headText']
         );
-        $this->assertTag(
-            array(
-                'tag'=>'input',
-                'attributes'=>array('value'=>'id', 'type'=>'checkbox')
-            ), $result1['extra']
+        $this->assertContains(
+            '<input type="checkbox" name="pd" value="id"',
+            $result1['extra']
         );
     }
 
@@ -294,8 +306,9 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $table= "PMA_table";
         $partialDependencies = array('col1'=>array('col2'));
         $result = PMA_getHtmlForNewTables2NF($partialDependencies, $table);
-        $this->assertTag(
-            array('tag'=>'input', 'attributes'=>array('name'=>'col1')), $result
+        $this->assertContains(
+            '<input type="text" name="col1"',
+            $result
         );
     }
 
@@ -350,10 +363,9 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $dependencies->PMA_table = array('col4', 'col5');
         $result1 = PMA_getHtmlForNewTables3NF($dependencies, $tables, $db);
         $this->assertInternalType('array', $result1);
-        $this->assertTag(
-            array(
-                'tag'=>'input', 'attributes'=>array('name'=>'PMA_table')
-            ), $result1['html']
+        $this->assertContains(
+            '<input type="text" name="PMA_table"',
+            $result1['html']
         );
         $this->assertEquals(
             array(
@@ -442,16 +454,13 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('subText', $result);
         $this->assertArrayHasKey('extra', $result);
         $this->assertContains(__('Step 3.') . 1, $result['legendText']);
-        $this->assertTag(
-            array(
-                'tag'=>'form'
-            ), $result['extra']
+        $this->assertContains(
+            '<form',
+            $result['extra']
         );
-        $this->assertTag(
-            array(
-                'tag'=>'input',
-                'attributes'=>array('value'=>'col1', 'type'=>'checkbox')
-            ), $result['extra']
+        $this->assertContains(
+            '<input type="checkbox" name="pd" value="col1"',
+            $result['extra']
         );
         $result1 = PMA_getHtmlFor3NFstep1($db, array("PMA_table2"));
         $this->assertEquals(
@@ -467,13 +476,10 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForNormalizetable()
     {
         $result = PMA_getHtmlForNormalizetable();
-        $this->assertTag(
-            array(
-                'tag'=>'form',
-                'attributes'=>array(
-                    'action'=>'normalization.php', 'id'=>'normalizeTable'
-                )
-            ), $result
+        $this->assertContains(
+            '<form method="post" action="normalization.php"'
+            . ' name="normalize" id="normalizeTable"',
+            $result
         );
         $this->assertContains(
             '<input type="hidden" name="step1" value="1">', $result
@@ -499,8 +505,8 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $table= "PMA_table2";
         $db = 'PMA_db';
         $result = PMA_findPartialDependencies($table, $db);
-        $this->assertTag(
-            array('tag'=>'div','attributes'=>array('class'=>'dependencies_box')),
+        $this->assertContains(
+            '<div class="dependencies_box"',
             $result
         );
         $this->assertContains(__('No partial dependencies found!'), $result);

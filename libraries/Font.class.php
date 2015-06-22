@@ -19,12 +19,10 @@ class PMA_Font
     /**
      * Get list with characters and the corresponding width modifiers.
      *
-     * @param string $font name of the font like Arial,sans-serif etc
-     *
      * @return array with characters and corresponding width modifier
      * @access public
      */
-    public static function getCharLists($font)
+    public static function getCharLists()
     {
         // list of characters and their width modifiers
         $charLists = array();
@@ -96,7 +94,7 @@ class PMA_Font
             || !isset($charLists[0]["chars"]) || !is_array($charLists[0]["chars"])
             || !isset($charLists[0]["modifier"])
         ) {
-            $charLists = self::getCharLists($font);
+            $charLists = self::getCharLists();
         }
 
         /*
@@ -104,21 +102,19 @@ class PMA_Font
          */
         $count = 0;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
         foreach ($charLists as $charList) {
-            $count += (($pmaString->strlen($text)
-                - $pmaString->strlen(str_replace($charList["chars"], "", $text))
+            $count += ((/*overload*/mb_strlen($text)
+                - /*overload*/mb_strlen(str_replace($charList["chars"], "", $text))
                 ) * $charList["modifier"]);
         }
 
         $text  = str_replace(" ", "", $text);//remove the " "'s
         //all other chars
         $count = $count
-            + ($pmaString->strlen(preg_replace("/[a-z0-9]/i", "", $text)) * 0.3);
+            + (/*overload*/mb_strlen(preg_replace("/[a-z0-9]/i", "", $text)) * 0.3);
 
         $modifier = 1;
-        $font = $pmaString->strtolower($font);
+        $font = /*overload*/mb_strtolower($font);
         switch ($font) {
         /*
          * no modifier for arial and sans-serif
@@ -127,7 +123,7 @@ class PMA_Font
         case 'sans-serif':
             break;
         /*
-         * .92 modifer for time, serif, brushscriptstd, and californian fb
+         * .92 modifier for time, serif, brushscriptstd, and californian fb
          */
         case 'times':
         case 'serif':

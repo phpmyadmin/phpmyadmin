@@ -23,7 +23,7 @@ $filename = CHANGELOG_FILE;
 if (is_readable($filename)) {
 
     // Test if the if is in a compressed format
-    if ($GLOBALS['PMA_String']->substr($filename, -3) == '.gz') {
+    if (substr($filename, -3) == '.gz') {
         ob_start();
         readgzfile($filename);
         $changelog = ob_get_contents();
@@ -33,7 +33,10 @@ if (is_readable($filename)) {
     }
 } else {
     printf(
-        __('The %s file is not available on this system, please visit www.phpmyadmin.net for more information.'),
+        __(
+            'The %s file is not available on this system, please visit '
+            . 'www.phpmyadmin.net for more information.'
+        ),
         $filename
     );
     exit;

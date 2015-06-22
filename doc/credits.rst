@@ -37,7 +37,7 @@ Credits, in chronological order
 
 * Loïc Chapeaux <lolo\_at\_phpheaven.net>
 
-  * rewrote and optimized javascript, DHTML and DOM stuff
+  * rewrote and optimized JavaScript, DHTML and DOM stuff
 
   * rewrote the scripts so they fit the :term:`PEAR` coding standards and
     generate XHTML1.0 and CSS2 compliant codes
@@ -384,6 +384,23 @@ Credits, in chronological order
 
   * Interface improvements
 
+* Dhananjay Nakrani (Google Summer of Code 2014)
+
+  * PHP error reporting
+
+* Edward Cheng (Google Summer of Code 2014)
+
+  * SQL Query Console
+
+* Kankanamge Bimal Yashodha (Google Summer of Code 2014)
+
+  * Refactoring: Designer/schema integration
+
+* Chirayu Chiripal (Google Summer of Code 2014)
+
+  * Custom field handlers (Input based MIME transformations)
+
+  * Export with table/column name changes
 
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version

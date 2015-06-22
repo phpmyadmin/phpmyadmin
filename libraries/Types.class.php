@@ -314,7 +314,7 @@ class PMA_Types_MySQL extends PMA_Types
      */
     public function getTypeDescription($type)
     {
-        $type = $GLOBALS['PMA_String']->strtoupper($type);
+        $type = /*overload*/mb_strtoupper($type);
         switch ($type) {
         case 'TINYINT':
             return __('A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255');
@@ -409,7 +409,7 @@ class PMA_Types_MySQL extends PMA_Types
      */
     public function getTypeClass($type)
     {
-        $type = $GLOBALS['PMA_String']->strtoupper($type);
+        $type = /*overload*/mb_strtoupper($type);
         switch ($type) {
         case 'TINYINT':
         case 'SMALLINT':
@@ -474,7 +474,7 @@ class PMA_Types_MySQL extends PMA_Types
     {
         switch ($class) {
         case 'CHAR':
-            return array(
+            $ret = array(
                 'AES_DECRYPT',
                 'AES_ENCRYPT',
                 'BIN',
@@ -487,6 +487,7 @@ class PMA_Types_MySQL extends PMA_Types
                 'DES_ENCRYPT',
                 'ENCRYPT',
                 'HEX',
+                'INET6_NTOA',
                 'INET_NTOA',
                 'LOAD_FILE',
                 'LOWER',
@@ -509,6 +510,13 @@ class PMA_Types_MySQL extends PMA_Types
                 'UUID',
                 'VERSION',
             );
+
+            if ((PMA_MARIADB && PMA_MYSQL_INT_VERSION < 100012)
+                || PMA_MYSQL_INT_VERSION < 50603
+            ) {
+                $ret = array_diff($ret, array('INET6_NTOA'));
+            }
+            return $ret;
 
         case 'DATE':
             return array(
@@ -551,6 +559,7 @@ class PMA_Types_MySQL extends PMA_Types
                 'EXP',
                 'FLOOR',
                 'HOUR',
+                'INET6_ATON',
                 'INET_ATON',
                 'LENGTH',
                 'LN',
@@ -583,12 +592,10 @@ class PMA_Types_MySQL extends PMA_Types
                 'WEEKOFYEAR',
                 'YEARWEEK',
             );
-            // remove functions that are unavailable on current server
-            if (PMA_MYSQL_INT_VERSION < 50500) {
-                $ret = array_diff($ret, array('TO_SECONDS'));
-            }
-            if (PMA_MYSQL_INT_VERSION < 50120) {
-                $ret = array_diff($ret, array('UUID_SHORT'));
+            if ((PMA_MARIADB && PMA_MYSQL_INT_VERSION < 100012)
+                || PMA_MYSQL_INT_VERSION < 50603
+            ) {
+                $ret = array_diff($ret, array('INET6_ATON'));
             }
             return $ret;
 
@@ -769,7 +776,7 @@ class PMA_Types_Drizzle extends PMA_Types
      */
     public function getTypeDescription($type)
     {
-        $type = $GLOBALS['PMA_String']->strtoupper($type);
+        $type = /*overload*/mb_strtoupper($type);
         switch ($type) {
         case 'INTEGER':
             return __('A 4-byte integer, range is -2,147,483,648 to 2,147,483,647');
@@ -818,7 +825,7 @@ class PMA_Types_Drizzle extends PMA_Types
      */
     public function getTypeClass($type)
     {
-        $type = $GLOBALS['PMA_String']->strtoupper($type);
+        $type = /*overload*/mb_strtoupper($type);
         switch ($type) {
         case 'INTEGER':
         case 'BIGINT':
@@ -1031,7 +1038,7 @@ class PMA_Types_Drizzle extends PMA_Types
             '-',
             'ENUM',
         );
-        if (PMA_MYSQL_INT_VERSION >= 20120130) {
+        if (PMA_MYSQL_INT_VERSION >= 70132) {
             $types_string[] = '-';
             $types_string[] = 'IPV6';
         }

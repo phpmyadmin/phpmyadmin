@@ -74,7 +74,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     {
         $restoreDrizzle = $restoreMySQLIntVersion = 'PMANORESTORE';
 
-        if (PMA_DRIZZLE || PMA_MYSQL_INT_VERSION <= 50100) {
+        if (PMA_DRIZZLE) {
             if (!PMA_HAS_RUNKIT) {
                 $this->markTestSkipped(
                     "Cannot redefine constant. Missing runkit extension"
@@ -83,10 +83,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
                 if (PMA_DRIZZLE) {
                     $restoreDrizzle = PMA_DRIZZLE;
                     runkit_constant_redefine('PMA_DRIZZLE', false);
-                }
-                if (PMA_MYSQL_INT_VERSION <= 50100) {
-                    $restoreMySQLIntVersion = PMA_MYSQL_INT_VERSION;
-                    runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50111);
                 }
             }
         }
@@ -211,6 +207,12 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
+            'BoolPropertyItem',
+            $property
+        );
+
+        $property = array_shift($properties);
+        $this->assertInstanceOf(
             'SelectPropertyItem',
             $property
         );
@@ -276,8 +278,8 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            'Add <code>DROP TABLE / VIEW / PROCEDURE / FUNCTION</code>' .
-            '<code> / EVENT</code><code> / TRIGGER</code> statement',
+            'Add <code>DROP TABLE / VIEW / PROCEDURE / FUNCTION' .
+            ' / EVENT</code><code> / TRIGGER</code> statement',
             $leaf->getText()
         );
 
@@ -366,7 +368,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     {
         $restoreDrizzle = $restoreMySQLIntVersion = 'PMANORESTORE';
 
-        if (!PMA_DRIZZLE || PMA_MYSQL_INT_VERSION > 50100) {
+        if (!PMA_DRIZZLE) {
             if (!PMA_HAS_RUNKIT) {
                 $this->markTestSkipped(
                     "Cannot redefine constant. Missing runkit extension"
@@ -376,10 +378,8 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
                     $restoreDrizzle = PMA_DRIZZLE;
                     runkit_constant_redefine('PMA_DRIZZLE', true);
                 }
-                if (PMA_MYSQL_INT_VERSION > 50100) {
-                    $restoreMySQLIntVersion = PMA_MYSQL_INT_VERSION;
-                    runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50000);
-                }
+                $restoreMySQLIntVersion = PMA_MYSQL_INT_VERSION;
+                runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50000);
             }
         }
 
@@ -411,7 +411,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $properties = $option->getProperties();
 
         $this->assertCount(
-            5,
+            6,
             $properties
         );
 
@@ -817,11 +817,17 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         // case2: no backquotes
         unset($GLOBALS['sql_compatibility']);
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
         unset($GLOBALS['sql_backquotes']);
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+
+        $dbi->expects($this->once())
+            ->method('fetchValue')
+            ->with('SHOW VARIABLES LIKE \'collation_database\'', 0, 1)
+            ->will($this->returnValue('testcollation'));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -837,7 +843,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'CREATE DATABASE IF NOT EXISTS db',
+            'CREATE DATABASE IF NOT EXISTS db DEFAULT CHARACTER SET testcollation;',
             $result
         );
 
@@ -855,7 +861,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     public function testExportDBHeader()
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
-        $GLOBALS['sql_backquotes'] = '';
+        $GLOBALS['sql_backquotes'] = true;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
 
@@ -881,7 +887,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "'testDB'",
+            "testDB",
             $result
         );
     }
@@ -895,15 +901,13 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     {
         $restoreMySQLVersion = "PMANORESTORE";
 
-        if (PMA_MYSQL_INT_VERSION <= 50100) {
-            if (! PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    'Cannot redefine constant. Missing runkit extension'
-                );
-            } else {
-                $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
-                runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50101);
-            }
+        if (! PMA_HAS_RUNKIT) {
+            $this->markTestSkipped(
+                'Cannot redefine constant. Missing runkit extension'
+            );
+        } else {
+            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50101);
         }
 
         $GLOBALS['crlf'] = "\n";
@@ -980,15 +984,13 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     {
         $restoreMySQLVersion = "PMANORESTORE";
 
-        if (PMA_MYSQL_INT_VERSION > 50100) {
-            if (! PMA_HAS_RUNKIT) {
-                $this->markTestSkipped(
-                    'Cannot redefine constant. Missing runkit extension'
-                );
-            } else {
-                $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
-                runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50100);
-            }
+        if (! PMA_HAS_RUNKIT) {
+            $this->markTestSkipped(
+                'Cannot redefine constant. Missing runkit extension'
+            );
+        } else {
+            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
+            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50100);
         }
 
         $GLOBALS['crlf'] = "\n";
@@ -1230,6 +1232,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue($row));
 
         $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $result = $this->object->getTableDef(
             'db', 'table', "\n", "example.com/err", true, true, true
@@ -1296,7 +1299,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'ADD CONSTRAINT KEYS ADD FOREIGN  KEY;',
+            '  ADD CONSTRAINT KEYS   ADD FOREIGN  KEY;',
             $GLOBALS['sql_constraints_query']
         );
 
@@ -1406,6 +1409,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue($row));
 
         $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $result = $this->object->getTableDef(
             'db', 'table', "\n", "example.com/err", true, true, true
@@ -1523,6 +1527,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue('error occurred'));
 
         $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $result = $this->object->getTableDef(
             'db', 'table', "\n", "example.com/err", true, true, true
@@ -1695,7 +1700,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "-- Triggers 't&amp;bl'\n",
+            "-- Triggers t&amp;bl\n",
             $result
         );
 
@@ -1719,7 +1724,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "-- Structure for view 't&amp;bl'\n",
+            "-- Structure for view t&amp;bl\n",
             $result
         );
 
@@ -1873,6 +1878,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_truncate'] = true;
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_hex_for_binary'] = true;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         ob_start();
         $this->object->exportData(
@@ -1988,6 +1994,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_truncate'] = true;
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_hex_for_binary'] = true;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         ob_start();
         $this->object->exportData(
@@ -2020,18 +2027,19 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(true));
 
         $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['sql_views_as_tables'] = false;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportData('db', 'table', "\n", "err.com", "SELECT")
+            $this->object->exportData('db', 'tbl', "\n", "err.com", "SELECT")
         );
         $result = ob_get_clean();
 
         $this->assertContains(
-            "-- VIEW  'table'\n",
+            "-- VIEW  tbl\n",
             $result
         );
 
@@ -2057,6 +2065,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue('err'));
 
         $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['sql_views_as_tables'] = true;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";

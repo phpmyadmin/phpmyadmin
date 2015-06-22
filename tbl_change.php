@@ -12,6 +12,9 @@
  * Gets the variables sent or posted to this script and displays the header
  */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/config/page_settings.class.php';
+
+PMA_PageSettings::showGroup('Edit');
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
@@ -47,7 +50,7 @@ require_once 'libraries/file_listing.lib.php';
  * (at this point, $GLOBALS['goto'] will be set but could be empty)
  */
 if (empty($GLOBALS['goto'])) {
-    if ($GLOBALS['PMA_String']->strlen($table)) {
+    if (/*overload*/mb_strlen($table)) {
         // avoid a problem (see bug #2202709)
         $GLOBALS['goto'] = 'tbl_sql.php';
     } else {
@@ -77,6 +80,8 @@ $scripts->addFile('sql.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('big_ints.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
+$scripts->addFile('jquery/jquery.validate.js');
+$scripts->addFile('jquery/additional-methods.js');
 $scripts->addFile('gis_data_editor.js');
 
 /**
@@ -87,9 +92,6 @@ $scripts->addFile('gis_data_editor.js');
 if (! empty($disp_message)) {
     $response->addHTML(PMA_Util::getMessage($disp_message, null));
 }
-
-// used as a global by PMA_Util::getDefaultFunctionForField()
-$analyzed_sql = PMA_Table::analyzeStructure($db, $table);
 
 $table_columns = PMA_getTableColumns($db, $table);
 
@@ -135,7 +137,10 @@ $url_params = PMA_urlParamsInEditMode(
 
 $has_blob_field = false;
 foreach ($table_columns as $column) {
-    if (PMA_isColumnBlob($column)) {
+    if (PMA_isColumn(
+        $column,
+        array('blob', 'tinyblob', 'mediumblob', 'longblob')
+    )) {
         $has_blob_field = true;
         break;
     }
@@ -156,11 +161,11 @@ if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
 }
 
 if (! $cfg['ShowFunctionFields']) {
-    $html_output .= PMA_showFunctionFieldsInEditMode($url_params, false);
+    $html_output .= PMA_showTypeOrFunction('function', $url_params, false);
 }
 
 if (! $cfg['ShowFieldTypesInDataEditView']) {
-    $html_output .= PMA_showColumnTypesInDataEditView($url_params, false);
+    $html_output .= PMA_showTypeOrFunction('type', $url_params, false);
 }
 
 $GLOBALS['plugin_scripts'] = array();
@@ -186,7 +191,7 @@ foreach ($rows as $row_id => $current_row) {
     }
 
     $html_output .= PMA_getHtmlForInsertEditRow(
-        $url_params, $table_columns, $column, $comments_map, $timestamp_seen,
+        $url_params, $table_columns, $comments_map, $timestamp_seen,
         $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
         $current_row, $o_rows, $tabindex, $columns_cnt,
         $is_upload, $tabindex_for_function, $foreigners, $tabindex_for_null,
@@ -226,4 +231,3 @@ if ($insert_mode) {
 }
 
 $response->addHTML($html_output);
-?>

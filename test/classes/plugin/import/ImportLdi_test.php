@@ -52,6 +52,7 @@ class ImportLdi_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
 
@@ -221,7 +222,7 @@ class ImportLdi_Test extends PHPUnit_Framework_TestCase
     public function testDoImportLDISetting()
     {
         global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,
-        $ldi_enclosed, $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
+        $ldi_enclosed, $ldi_new_line, $skip_queries;
 
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;

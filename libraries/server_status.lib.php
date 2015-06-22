@@ -69,19 +69,23 @@ function PMA_getHtmlForServerStateGeneralInfo($ServerStatusData)
     ) . "\n";
     $retval .= '</p>';
 
-    if ($GLOBALS['server_master_status'] || $GLOBALS['server_slave_status']) {
+    if ($GLOBALS['replication_info']['master']['status']
+        || $GLOBALS['replication_info']['slave']['status']
+    ) {
         $retval .= '<p class="notice">';
-        if ($GLOBALS['server_master_status'] && $GLOBALS['server_slave_status']) {
+        if ($GLOBALS['replication_info']['master']['status']
+            && $GLOBALS['replication_info']['slave']['status']
+        ) {
             $retval .= __(
                 'This MySQL server works as <b>master</b> and '
                 . '<b>slave</b> in <b>replication</b> process.'
             );
-        } elseif ($GLOBALS['server_master_status']) {
+        } elseif ($GLOBALS['replication_info']['master']['status']) {
             $retval .= __(
                 'This MySQL server works as <b>master</b> '
                 . 'in <b>replication</b> process.'
             );
-        } elseif ($GLOBALS['server_slave_status']) {
+        } elseif ($GLOBALS['replication_info']['slave']['status']) {
             $retval .= __(
                 'This MySQL server works as <b>slave</b> '
                 . 'in <b>replication</b> process.'
@@ -94,13 +98,17 @@ function PMA_getHtmlForServerStateGeneralInfo($ServerStatusData)
      * if the server works as master or slave in replication process,
      * display useful information
      */
-    if ($GLOBALS['server_master_status'] || $GLOBALS['server_slave_status']) {
+    if ($GLOBALS['replication_info']['master']['status']
+        || $GLOBALS['replication_info']['slave']['status']
+    ) {
         $retval .= '<hr class="clearfloat" />';
         $retval .= '<h3><a name="replication">';
         $retval .= __('Replication status');
         $retval .= '</a></h3>';
         foreach ($GLOBALS['replication_types'] as $type) {
-            if (isset(${"server_{$type}_status"}) && ${"server_{$type}_status"}) {
+            if (isset($GLOBALS['replication_info'][$type]['status'])
+                && $GLOBALS['replication_info'][$type]['status']
+            ) {
                 $retval .= PMA_getHtmlForReplicationStatusTable($type);
             }
         }
@@ -221,7 +229,7 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
     $retval .= '</thead>';
     $retval .= '<tbody>';
     $retval .= '<tr class="odd">';
-    $retval .= '<th class="name">' . __('max. concurrent connections') . '</th>';
+    $retval .= '<th class="name">' . __('Max. concurrent connections') . '</th>';
     $retval .= '<td class="value">';
     $retval .= PMA_Util::formatNumber(
         $ServerStatusData->status['Max_used_connections'], 0

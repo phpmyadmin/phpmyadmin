@@ -13,7 +13,6 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
-require_once 'libraries/properties/options/items/MessageOnlyPropertyItem.class.php';
 require_once 'export.php';
 /**
  * tests for ExportPdf class
@@ -108,7 +107,8 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
         );
 
         $generalOptionsArray = $options->getProperties();
-        $generalOptions = $generalOptionsArray[0];
+
+        $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
             'OptionsPropertyMainGroup',
@@ -125,18 +125,6 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'MessageOnlyPropertyItem',
-            $property
-        );
-
-        $this->assertEquals(
-            'explanation',
-            $property->getName()
-        );
-
-        $property = array_shift($generalProperties);
-
-        $this->assertInstanceOf(
             'TextPropertyItem',
             $property
         );
@@ -146,12 +134,46 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
             $property->getName()
         );
 
+        $generalOptions = array_shift($generalOptionsArray);
+
+        $this->assertInstanceOf(
+            'OptionsPropertyMainGroup',
+            $generalOptions
+        );
+
+        $this->assertEquals(
+            'dump_what',
+            $generalOptions->getName()
+        );
+
+        $this->assertEquals(
+            'Dump table',
+            $generalOptions->getText()
+        );
+
+        $generalProperties = $generalOptions->getProperties();
+
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'HiddenPropertyItem',
+            'RadioPropertyItem',
             $property
         );
+
+        $this->assertEquals(
+            'structure_or_data',
+            $property->getName()
+        );
+
+        $this->assertEquals(
+            array(
+                'structure' => __('structure'),
+                'data' => __('data'),
+                'structure_and_data' => __('structure and data')
+            ),
+            $property->getValues()
+        );
+
     }
 
     /**

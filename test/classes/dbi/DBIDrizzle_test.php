@@ -69,7 +69,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['ssl'] = false;
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
@@ -203,7 +203,6 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
     {
         $user = "PMA_user";
         $password = "pma_password";
-        $is_controluser = false;
         $server = null;
 
         //$server = null;
@@ -314,7 +313,7 @@ class Drizzle
     }
 
     /**
-     * Creates a new database conection using TCP
+     * Creates a new database connection using TCP
      *
      * @param string  $host     Drizzle host
      * @param integer $port     Drizzle port
@@ -353,7 +352,7 @@ class Mock_Con
 
 
     /**
-     * Creates a new database conection using TCP
+     * Creates a new database connection using TCP
      *
      * @return Mock_Con
      */

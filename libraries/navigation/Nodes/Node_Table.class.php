@@ -31,31 +31,45 @@ class Node_Table extends Node_DatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        switch($GLOBALS['cfg']['NavigationTreeDefaultTabTable']) {
-        case 'tbl_structure.php':
-            $this->icon  = PMA_Util::getImage('b_props.png', __('Structure'));
-            break;
-        case 'tbl_select.php':
-            $this->icon  = PMA_Util::getImage('b_search.png', __('Search'));
-            break;
-        case 'tbl_change.php':
-            $this->icon  = PMA_Util::getImage('b_insrow.png', __('Insert'));
-            break;
-        case 'tbl_sql.php':
-            $this->icon  = PMA_Util::getImage('b_sql.png',  __('SQL'));
-            break;
-        case 'sql.php':
-            $this->icon  = PMA_Util::getImage('b_browse.png', __('Browse'));
-            break;
-        }
+        $this->icon = array();
+        $this->_addIcon(
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table'
+            )
+        );
+        $this->_addIcon(
+            PMA_Util::getScriptNameForOption(
+                $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table'
+            )
+        );
+        $title = PMA_Util::getTitleForTarget(
+            $GLOBALS['cfg']['DefaultTabTable']
+        );
+        $this->title = $title;
+
+        $script_name = PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+        );
         $this->links = array(
-            'text' => $GLOBALS['cfg']['DefaultTabTable']
+            'text' => $script_name
                     . '?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
                     . '&amp;pos=0&amp;token=' . $_SESSION[' PMA_token '],
-            'icon' => $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
-                    . '?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;table=%1$s&amp;token=' . $_SESSION[' PMA_token ']
+            'icon' => array(
+                PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table'
+                )
+                . '?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;table=%1$s&amp;token='
+                . $_SESSION[' PMA_token '],
+                PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table'
+                )
+                . '?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;table=%1$s&amp;token='
+                . $_SESSION[' PMA_token ']
+            ),
+            'title' => $this->title
         );
         $this->classes = 'table';
     }
@@ -77,13 +91,22 @@ class Node_Table extends Node_DatabaseChild
         $table  = $this->real_name;
         switch ($type) {
         case 'columns':
-            $db     = PMA_Util::sqlAddSlashes($db);
-            $table  = PMA_Util::sqlAddSlashes($table);
-            $query  = "SELECT COUNT(*) ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
-            $query .= "WHERE `TABLE_NAME`='$table' ";
-            $query .= "AND `TABLE_SCHEMA`='$db'";
-            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                $db     = PMA_Util::sqlAddSlashes($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
+                $query  = "SELECT COUNT(*) ";
+                $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
+                $query .= "WHERE `TABLE_NAME`='$table' ";
+                $query .= "AND `TABLE_SCHEMA`='$db'";
+                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+            } else {
+                $db     = PMA_Util::backquote($db);
+                $table  = PMA_Util::backquote($table);
+                $query  = "SHOW COLUMNS FROM $table FROM $db";
+                $retval = (int)$GLOBALS['dbi']->numRows(
+                    $GLOBALS['dbi']->tryQuery($query)
+                );
+            }
             break;
         case 'indexes':
             $db     = PMA_Util::backquote($db);
@@ -94,13 +117,24 @@ class Node_Table extends Node_DatabaseChild
             );
             break;
         case 'triggers':
-            $db     = PMA_Util::sqlAddSlashes($db);
-            $table  = PMA_Util::sqlAddSlashes($table);
-            $query  = "SELECT COUNT(*) ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
-            $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
-            $query .= "AND `EVENT_OBJECT_TABLE`='$table'";
-            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                $db     = PMA_Util::sqlAddSlashes($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
+                $query  = "SELECT COUNT(*) ";
+                $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
+                $query .= "WHERE `EVENT_OBJECT_SCHEMA` "
+                    . PMA_Util::getCollateForIS() . "='$db' ";
+                $query .= "AND `EVENT_OBJECT_TABLE` "
+                    . PMA_Util::getCollateForIS() . "='$table'";
+                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+            } else {
+                $db     = PMA_Util::backquote($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
+                $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
+                $retval = (int)$GLOBALS['dbi']->numRows(
+                    $GLOBALS['dbi']->tryQuery($query)
+                );
+            }
             break;
         default:
             break;
@@ -127,15 +161,38 @@ class Node_Table extends Node_DatabaseChild
         $table    = $this->real_name;
         switch ($type) {
         case 'columns':
-            $db     = PMA_Util::sqlAddSlashes($db);
-            $table  = PMA_Util::sqlAddSlashes($table);
-            $query  = "SELECT `COLUMN_NAME` AS `name` ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
-            $query .= "WHERE `TABLE_NAME`='$table' ";
-            $query .= "AND `TABLE_SCHEMA`='$db' ";
-            $query .= "ORDER BY `COLUMN_NAME` ASC ";
-            $query .= "LIMIT " . intval($pos) . ", $maxItems";
-            $retval = $GLOBALS['dbi']->fetchResult($query);
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                $db     = PMA_Util::sqlAddSlashes($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
+                $query  = "SELECT `COLUMN_NAME` AS `name` ";
+                $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
+                $query .= "WHERE `TABLE_NAME`='$table' ";
+                $query .= "AND `TABLE_SCHEMA`='$db' ";
+                $query .= "ORDER BY `COLUMN_NAME` ASC ";
+                $query .= "LIMIT " . intval($pos) . ", $maxItems";
+                $retval = $GLOBALS['dbi']->fetchResult($query);
+                break;
+            }
+
+            $db     = PMA_Util::backquote($db);
+            $table  = PMA_Util::backquote($table);
+            $query  = "SHOW COLUMNS FROM $table FROM $db";
+            $handle = $GLOBALS['dbi']->tryQuery($query);
+            if ($handle === false) {
+                break;
+            }
+
+            $count = 0;
+            if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($count < $maxItems) {
+                        $retval[] = $arr['Field'];
+                        $count++;
+                    } else {
+                        break;
+                    }
+                }
+            }
             break;
         case 'indexes':
             $db     = PMA_Util::backquote($db);
@@ -145,27 +202,54 @@ class Node_Table extends Node_DatabaseChild
             if ($handle === false) {
                 break;
             }
+
             $count = 0;
             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                if (! in_array($arr['Key_name'], $retval)) {
-                    if ($pos <= 0 && $count < $maxItems) {
-                        $retval[] = $arr['Key_name'];
-                        $count++;
-                    }
-                    $pos--;
+                if (in_array($arr['Key_name'], $retval)) {
+                    continue;
                 }
+                if ($pos <= 0 && $count < $maxItems) {
+                    $retval[] = $arr['Key_name'];
+                    $count++;
+                }
+                $pos--;
             }
             break;
         case 'triggers':
-            $db     = PMA_Util::sqlAddSlashes($db);
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+                $db     = PMA_Util::sqlAddSlashes($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
+                $query  = "SELECT `TRIGGER_NAME` AS `name` ";
+                $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
+                $query .= "WHERE `EVENT_OBJECT_SCHEMA` "
+                    . PMA_Util::getCollateForIS() . "='$db' ";
+                $query .= "AND `EVENT_OBJECT_TABLE` "
+                    . PMA_Util::getCollateForIS() . "='$table' ";
+                $query .= "ORDER BY `TRIGGER_NAME` ASC ";
+                $query .= "LIMIT " . intval($pos) . ", $maxItems";
+                $retval = $GLOBALS['dbi']->fetchResult($query);
+                break;
+            }
+
+            $db     = PMA_Util::backquote($db);
             $table  = PMA_Util::sqlAddSlashes($table);
-            $query  = "SELECT `TRIGGER_NAME` AS `name` ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
-            $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
-            $query .= "AND `EVENT_OBJECT_TABLE`='$table' ";
-            $query .= "ORDER BY `TRIGGER_NAME` ASC ";
-            $query .= "LIMIT " . intval($pos) . ", $maxItems";
-            $retval = $GLOBALS['dbi']->fetchResult($query);
+            $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
+            $handle = $GLOBALS['dbi']->tryQuery($query);
+            if ($handle === false) {
+                break;
+            }
+
+            $count = 0;
+            if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($count < $maxItems) {
+                        $retval[] = $arr['Trigger'];
+                        $count++;
+                    } else {
+                        break;
+                    }
+                }
+            }
             break;
         default:
             break;
@@ -181,6 +265,38 @@ class Node_Table extends Node_DatabaseChild
     protected function getItemType()
     {
         return 'table';
+    }
+
+    /**
+     * Add an icon to navigation tree
+     *
+     * @param string $page Page name to redirect
+     *
+     * @return void
+     */
+    private function _addIcon($page)
+    {
+        if (empty($page)) {
+            return;
+        }
+
+        switch ($page) {
+        case 'tbl_structure.php':
+            $this->icon[] = PMA_Util::getImage('b_props.png', __('Structure'));
+            break;
+        case 'tbl_select.php':
+            $this->icon[] = PMA_Util::getImage('b_search.png', __('Search'));
+            break;
+        case 'tbl_change.php':
+            $this->icon[] = PMA_Util::getImage('b_insrow.png', __('Insert'));
+            break;
+        case 'tbl_sql.php':
+            $this->icon[] = PMA_Util::getImage('b_sql.png', __('SQL'));
+            break;
+        case 'sql.php':
+            $this->icon[] = PMA_Util::getImage('b_browse.png', __('Browse'));
+            break;
+        }
     }
 }
 

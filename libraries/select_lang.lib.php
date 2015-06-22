@@ -18,11 +18,8 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_languageName($tmplang)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $lang_name = ucfirst(
-        $pmaString->substr($pmaString->strrchr($tmplang[0], '|'), 1)
+        /*overload*/mb_substr(/*overload*/mb_strrchr($tmplang[0], '|'), 1)
     );
 
     // Include native name if non empty
@@ -90,7 +87,7 @@ function PMA_langCheck()
     // prevent XSS
     $accepted_languages = PMA_getenv('HTTP_ACCEPT_LANGUAGE');
     if ($accepted_languages
-        && false === $GLOBALS['PMA_String']->strpos($accepted_languages, '<')
+        && false === /*overload*/mb_strpos($accepted_languages, '<')
     ) {
         foreach (explode(',', $accepted_languages) as $lang) {
             if (PMA_langDetect($lang, 1)) {
@@ -160,7 +157,7 @@ function PMA_langDetect($str, $envType)
         // $envType =  1 for the 'HTTP_ACCEPT_LANGUAGE' environment variable,
         //             2 for the 'HTTP_USER_AGENT' one
         $expr = $value[0];
-        if ($GLOBALS['PMA_String']->strpos($expr, '[-_]') === false) {
+        if (/*overload*/mb_strpos($expr, '[-_]') === false) {
             $expr = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $expr);
         }
         $pattern1 = '/^(' . addcslashes($expr, '/') . ')(;q=[0-9]\\.[0-9])?$/i';
@@ -262,6 +259,8 @@ function PMA_langDetails($lang)
         return array('en|english', 'en', '');
     case 'en_GB':
         return array('en[_-]gb|english (United Kingdom)', 'en-gb', '');
+    case 'eo':
+        return array('eo|esperanto', 'eo', 'Esperanto');
     case 'es':
         return array('es|spanish', 'es', 'Espa&ntilde;ol');
     case 'et':
@@ -274,6 +273,8 @@ function PMA_langDetails($lang)
         return array('fi|finnish', 'fi', 'Suomi');
     case 'fr':
         return array('fr|french', 'fr', 'Fran&ccedil;ais');
+    case 'fy':
+        return array('fy|frisian', 'fy', 'Frysk');
     case 'gl':
         return array('gl|galician', 'gl', 'Galego');
     case 'he':
@@ -312,6 +313,8 @@ function PMA_langDetails($lang)
         return array('ksh|colognian', 'ksh', 'Kölsch');
     case 'ky':
         return array('ky|kyrgyz', 'ky', 'Кыргызча');
+    case 'li':
+        return array('li|limburgish', 'li', 'Lèmbörgs');
     case 'lt':
         return array('lt|lithuanian', 'lt', 'Lietuvi&#371;');
     case 'lv':
@@ -402,6 +405,8 @@ function PMA_langDetails($lang)
             'uz-cyr',
             '&#1038;&#1079;&#1073;&#1077;&#1082;&#1095;&#1072;'
         );
+    case 'vi':
+        return array('vi|vietnamese', 'vi', 'Tiếng Việt');
     case 'vls':
         return array('vls|flemish', 'vls', 'West-Vlams');
     case 'zh_TW':
@@ -601,34 +606,15 @@ $GLOBALS['l']['w_page'] = __('Page number:');
 
 
 // now, that we have loaded the language strings we can send the errors
-if ($GLOBALS['lang_failed_cfg']) {
+if ($GLOBALS['lang_failed_cfg']
+    || $GLOBALS['lang_failed_cookie']
+    || $GLOBALS['lang_failed_request']
+) {
     trigger_error(
-        sprintf(
-            __('Unknown language: %1$s.'),
-            htmlspecialchars($GLOBALS['lang_failed_cfg'])
-        ),
+        __('Ignoring unsupported language code.'),
         E_USER_ERROR
     );
 }
-if ($GLOBALS['lang_failed_cookie']) {
-    trigger_error(
-        sprintf(
-            __('Unknown language: %1$s.'),
-            htmlspecialchars($GLOBALS['lang_failed_cookie'])
-        ),
-        E_USER_ERROR
-    );
-}
-if ($GLOBALS['lang_failed_request']) {
-    trigger_error(
-        sprintf(
-            __('Unknown language: %1$s.'),
-            htmlspecialchars($GLOBALS['lang_failed_request'])
-        ),
-        E_USER_ERROR
-    );
-}
-
 unset(
     $line, $fall_back_lang, $GLOBALS['lang_failed_cfg'],
     $GLOBALS['lang_failed_cookie'], $GLOBALS['lang_failed_request']

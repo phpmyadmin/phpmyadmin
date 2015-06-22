@@ -1,0 +1,27 @@
+<select id="field_<?php echo $columnNumber; ?>_<?php echo ($ci - $ci_offset); ?>"
+        size="1"
+        name="field_<?php echo $type;?>[<?php echo $columnNumber;?>]">
+    <option value="" title="<?php echo __('None'); ?>"></option>
+    <?php if (isset($available_mime[$type]) && is_array($available_mime[$type])): ?>
+        <?php foreach ($available_mime[$type] as $mimekey => $transform): ?>
+            <?php
+                $checked = isset($columnMeta['Field'])
+                         && isset($mime_map[$columnMeta['Field']][$type])
+                         && preg_match('@' . preg_quote($available_mime[$type . '_file'][$mimekey]) . '3?@i',
+                                        $mime_map[$columnMeta['Field']][$type]) ? 'selected ' : '';
+                $tooltip = PMA_getTransformationDescription(
+                    $available_mime[$type . '_file'][$mimekey]
+                );
+                $parts = explode(":", $transform);
+                $name = PMA_getTransformationName(
+                    $available_mime[$type . '_file'][$mimekey]
+                ) . ' (' . strtolower($parts[0]) . ":" . $parts[1] . ')';
+            ?>
+            <option value="<?php echo $available_mime[$type . '_file'][$mimekey]; ?>"
+                    <?php echo $checked; ?>
+                    title="<?php echo htmlspecialchars($tooltip); ?>">
+                <?php echo htmlspecialchars($name); ?>
+            </option>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</select>

@@ -131,15 +131,15 @@ function onKeyDownArrowsHandler(e)
 }
 
 AJAX.registerTeardown('keyhandler.js', function () {
-    $('#table_columns').die('keydown keyup');
-    $('table.insertRowTable').die('keydown keyup');
+    $(document).off('keydown keyup', '#table_columns');
+    $(document).off('keydown keyup', 'table.insertRowTable');
 });
 
 AJAX.registerOnload('keyhandler.js', function () {
-    $('#table_columns').live('keydown keyup', function (event) {
+    $(document).on('keydown keyup', '#table_columns', function (event) {
         onKeyDownArrowsHandler(event.originalEvent);
     });
-    $('table.insertRowTable').live('keydown keyup', function (event) {
+    $(document).on('keydown keyup', 'table.insertRowTable', function (event) {
         onKeyDownArrowsHandler(event.originalEvent);
     });
 });

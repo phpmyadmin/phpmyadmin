@@ -57,7 +57,7 @@ class ZipFile
 
     /**
      * Sets member variable this -> doWrite to true
-     * - Should be called immediately after class instantiantion
+     * - Should be called immediately after class instantiation
      * - If set to true, then ZIP archive are echo'ed to STDOUT as each
      *   file is added via this -> addfile(), and central directories are
      *   echoed to STDOUT on final call to this -> file().  Also,
@@ -145,7 +145,7 @@ class ZipFile
         $fr .= $zdata;
 
         // echo this entry on the fly, ...
-        if ( $this -> doWrite) {
+        if ($this -> doWrite) {
             echo $fr;
         } else {                     // ... OR add this entry to array
             $this -> datasec[] = $fr;
@@ -198,7 +198,7 @@ class ZipFile
             pack('V', $this -> old_offset) .       //offset to start of central dir
             "\x00\x00";                            //.zip file comment length
 
-        if ( $this -> doWrite ) { // Send central directory & end ctrl dir to STDOUT
+        if ($this -> doWrite) { // Send central directory & end ctrl dir to STDOUT
             echo $header;
             return "";            // Return empty string
         } else {                  // Return entire ZIP archive as string

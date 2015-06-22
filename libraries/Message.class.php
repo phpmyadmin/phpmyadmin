@@ -501,7 +501,7 @@ class PMA_Message
      */
     public function addMessage($message, $separator = ' ')
     {
-        if ($GLOBALS['PMA_String']->strlen($separator)) {
+        if (/*overload*/mb_strlen($separator)) {
             $this->addedMessages[] = $separator;
         }
 
@@ -628,13 +628,11 @@ class PMA_Message
     {
         $message = $this->message;
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-        if (0 === $pmaString->strlen($message)) {
+        if (0 === /*overload*/mb_strlen($message)) {
             $string = $this->getString();
             if (isset($GLOBALS[$string])) {
                 $message = $GLOBALS[$string];
-            } elseif (0 === $pmaString->strlen($string)) {
+            } elseif (0 === /*overload*/mb_strlen($string)) {
                 $message = '';
             } else {
                 $message = $string;
@@ -746,7 +744,6 @@ class PMA_Message
      */
     public function getMessageWithIcon($message)
     {
-        $image = '';
         if ('error' == $this->getLevel()) {
             $image = 's_error.png';
         } elseif ('success' == $this->getLevel()) {

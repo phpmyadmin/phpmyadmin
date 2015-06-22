@@ -95,7 +95,7 @@ class PMA_String_Test extends PHPUnit_Framework_TestCase
     /**
      * Data provider for testNumberInRangeInclusive
      *
-     * @return void
+     * @return array Test data
      */
     public function numberInRangeData()
     {

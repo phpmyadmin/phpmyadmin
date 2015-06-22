@@ -101,7 +101,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
         return true;
     }
@@ -111,7 +111,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         return true;
     }
@@ -124,7 +124,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $db_alias = '')
     {
         if (empty($db_alias)) {
             $db_alias = $db;
@@ -141,7 +141,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         return true;
     }
@@ -345,36 +345,17 @@ class ExportTexytext extends ExportPlugin
          * Gets fields properties
          */
         $GLOBALS['dbi']->selectDb($db);
-        $res_rel = array();
-        // Check if we can use Relations
-        if ($do_relation && ! empty($cfgRelation['relation'])) {
-            // Find which tables are related with the current one and write it in
-            // an array
-            $res_rel = PMA_getForeigners($db, $table);
 
-            if ($res_rel && count($res_rel) > 0) {
-                $have_rel = true;
-            } else {
-                $have_rel = false;
-            }
-        } else {
-               $have_rel = false;
-        } // end if
+        // Check if we can use Relations
+        list($res_rel, $have_rel) = PMA_getRelationsAndStatus(
+            $do_relation && ! empty($cfgRelation['relation']),
+            $db,
+            $table
+        );
 
         /**
          * Displays the table structure
          */
-
-        $columns_cnt = 4;
-        if ($do_relation && $have_rel) {
-            $columns_cnt++;
-        }
-        if ($do_comments && $cfgRelation['commwork']) {
-            $columns_cnt++;
-        }
-        if ($do_mime && $cfgRelation['mimework']) {
-            $columns_cnt++;
-        }
 
         $text_output .= "|------\n";
         $text_output .= '|' . __('Column');
@@ -440,8 +421,6 @@ class ExportTexytext extends ExportPlugin
      */
     function getTriggers($db, $table)
     {
-        $text_output = "|------\n";
-        $text_output .= '|' . __('Column');
         $dump = "|------\n";
         $dump .= '|' . __('Name');
         $dump .= '|' . __('Time');

@@ -10,6 +10,9 @@
  *
  */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/config/page_settings.class.php';
+
+PMA_PageSettings::showGroup('Sql_queries');
 
 /**
  * Runs common work
@@ -19,6 +22,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('functions.js');
 $scripts->addFile('makegrid.js');
+$scripts->addFile('jquery/jquery.uitablefilter.js');
 $scripts->addFile('sql.js');
 
 require 'libraries/db_common.inc.php';
@@ -40,5 +44,3 @@ $response->addHTML(
         : ';'
     )
 );
-
-?>

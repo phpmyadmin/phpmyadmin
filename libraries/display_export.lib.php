@@ -74,7 +74,7 @@ function PMA_getHtmlForExportSelectOptions($tmp_select = '')
                 $is_selected = '';
             }
         } elseif (!empty($tmp_select)) {
-            if ($GLOBALS['PMA_String']->strpos(
+            if (/*overload*/mb_strpos(
                 ' ' . $tmp_select,
                 '|' . $current_db . '|'
             )) {
@@ -140,12 +140,12 @@ function PMA_getHtmlForHiddenInput(
     $html .= '<input type="hidden" name="export_method" value="'
         . htmlspecialchars($cfg['Export']['method']) . '" />';
 
-    if (isset($_GET['sql_query'])) {
-        $html .= '<input type="hidden" name="sql_query" value="'
-            . htmlspecialchars($_GET['sql_query']) . '" />' . "\n";
-    } elseif (! empty($sql_query)) {
+    if (! empty($sql_query)) {
         $html .= '<input type="hidden" name="sql_query" value="'
             . htmlspecialchars($sql_query) . '" />' . "\n";
+    } elseif (isset($_GET['sql_query'])) {
+        $html .= '<input type="hidden" name="sql_query" value="'
+            . htmlspecialchars($_GET['sql_query']) . '" />' . "\n";
     }
 
     return $html;
@@ -198,13 +198,17 @@ function PMA_getHtmlForExportOptionsMethod()
         $export_method = $cfg['Export']['method'];
     }
 
+    if ($export_method == 'custom-no-form') {
+        return '';
+    }
+
     $html  = '<div class="exportoptions" id="quick_or_custom">';
     $html .= '<h3>' . __('Export Method:') . '</h3>';
     $html .= '<ul>';
     $html .= '<li>';
     $html .= '<input type="radio" name="quick_or_custom" value="quick" '
         . ' id="radio_quick_export"';
-    if ($export_method == 'quick' || $export_method == 'quick_no_form') {
+    if ($export_method == 'quick') {
         $html .= ' checked="checked"';
     }
     $html .= ' />';
@@ -216,7 +220,7 @@ function PMA_getHtmlForExportOptionsMethod()
     $html .= '<li>';
     $html .= '<input type="radio" name="quick_or_custom" value="custom" '
         . ' id="radio_custom_export"';
-    if ($export_method == 'custom' || $export_method == 'custom_no_form') {
+    if ($export_method == 'custom') {
         $html .= ' checked="checked"';
     }
     $html .= ' />';
@@ -258,7 +262,7 @@ function PMA_getHtmlForExportOptionsSelection($export_type, $multi_values)
 /**
  * Prints Html For Export Options Format
  *
- * @param array $export_list Export List
+ * @param ExportPlugin[] $export_list Export List
  *
  * @return string
  */
@@ -648,6 +652,17 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
     $html .= '<label for="btn_alias_config">';
     $html .= __('Rename exported databases/tables/columns');
     $html .= '</label></li>';
+
+    if ($export_type != 'server') {
+        $html .= '<li>';
+        $html .= '<input type="checkbox" name="lock_tables"';
+        $html .= ' value="something" id="checkbox_lock_tables"';
+        $html .= ' ' . PMA_exportCheckboxCheck('lock_tables') . '/>';
+        $html .= '<label for="checkbox_lock_tables">';
+        $html .= sprintf(__('Use %s statement'), '<code>LOCK TABLES</code>');
+        $html .= '</label></li>';
+    }
+
     $html .= '<li>';
     $html .= '<input type="radio" name="output_format" value="sendit" ';
     $html .= 'id="radio_dump_asfile" ';
@@ -694,13 +709,13 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
 /**
  * Prints Html For Export Options
  *
- * @param String $export_type    Selected Export Type
- * @param String $db             Selected DB
- * @param String $table          Selected Table
- * @param String $multi_values   Export selection
- * @param String $num_tables     number of tables
- * @param array  $export_list    Export List
- * @param String $unlim_num_rows Number of Rows
+ * @param String         $export_type    Selected Export Type
+ * @param String         $db             Selected DB
+ * @param String         $table          Selected Table
+ * @param String         $multi_values   Export selection
+ * @param String         $num_tables     number of tables
+ * @param ExportPlugin[] $export_list    Export List
+ * @param String         $unlim_num_rows Number of Rows
  *
  * @return string
  */
@@ -713,7 +728,7 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForExportOptionsMethod();
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 
-    $tableLength = $GLOBALS['PMA_String']->strlen($table);
+    $tableLength = /*overload*/mb_strlen($table);
     if ($tableLength && empty($num_tables) && ! PMA_Table::isMerge($db, $table)) {
         $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);
     }
@@ -776,9 +791,6 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
         );
     }
 
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
     $html = '<div id="alias_modal" class="hide" title="' . $title . '">';
     $db_html = '<label class="col-2">' . __('Select database') . ': '
         . '</label><select id="db_alias_select">';
@@ -792,7 +804,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
         }
         $db = htmlspecialchars($db);
         $name_attr = 'aliases[' . $db . '][alias]';
-        $id_attr = $pmaString->substr(md5($name_attr), 0, 12);
+        $id_attr = substr(md5($name_attr), 0, 12);
         $class = 'hide';
         if ($first_db) {
             $first_db = false;
@@ -802,7 +814,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
         }
         $db_input_html .= '<input type="text" name="' . $name_attr . '" '
             . 'placeholder="' . $db . ' alias" class="' . $class . '" '
-            . 'id="' . $id_attr . '" value="' . $val . '"/>';
+            . 'id="' . $id_attr . '" value="' . $val . '" disabled="disabled"/>';
         $db_html .= '<option value="' . $id_attr . '">' . $db . '</option>';
         $table_html .= '<span id="' . $id_attr . '_tables" class="' . $class . '">';
         $table_html .= '<select id="' . $id_attr . '_tables_select" '
@@ -816,7 +828,7 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
             }
             $table = htmlspecialchars($table);
             $name_attr =  'aliases[' . $db . '][tables][' . $table . '][alias]';
-            $id_attr = $pmaString->substr(md5($name_attr), 0, 12);
+            $id_attr = substr(md5($name_attr), 0, 12);
             $class = 'hide';
             if ($first_tbl) {
                 $first_tbl = false;
@@ -826,7 +838,8 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
             }
             $table_input_html .= '<input type="text" value="' . $val . '" '
                 . 'name="' . $name_attr . '" id="' . $id_attr . '" '
-                . 'placeholder="' . $table . ' alias" class="' . $class . '"/>';
+                . 'placeholder="' . $table . ' alias" class="' . $class . '" '
+                . 'disabled="disabled"/>';
             $table_html .= '<option value="' . $id_attr . '">'
                 . $table . '</option>';
             $col_html .= '<table id="' . $id_attr . '_cols" class="'
@@ -844,13 +857,13 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
                 $column = htmlspecialchars($column);
                 $name_attr = 'aliases[' . $db . '][tables][' . $table
                     . '][columns][' . $column . ']';
-                $id_attr = $pmaString->substr(md5($name_attr), 0, 12);
+                $id_attr = substr(md5($name_attr), 0, 12);
                 $col_html .= '<tr class="' . $class . '">';
                 $col_html .= '<th><label for="' . $id_attr . '">' . $column
                     . '</label></th>';
-                $col_html .= '<td><input type="text" name="' . $name_attr . '" '
+                $col_html .= '<td><dummy_inp type="text" name="' . $name_attr . '" '
                     . 'id="' . $id_attr . '" placeholder="'
-                    . $column . ' alias" value="' . $val . '"/></td>';
+                    . $column . ' alias" value="' . $val . '"></dummy_inp></td>';
                 $col_html .= '</tr>';
                 $class = $class === 'odd' ? 'even' : 'odd';
             }

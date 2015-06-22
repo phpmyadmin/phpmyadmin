@@ -1,10 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * List of avaible forms, each form is described as an array of fields to display.
+ * List of available forms, each form is described as an array of fields to display.
  * Fields MUST have their counterparts in the $cfg array.
  *
- * To define form field, use the notatnion below:
+ * To define form field, use the notation below:
  * $forms['Form group']['Form name'] = array('Option/path');
  *
  * You can assign default values set by special button ("set value: ..."), eg.:
@@ -26,16 +26,17 @@ $forms['Features']['General'] = array(
     'NaturalOrder',
     'InitialSlidersState',
     'LoginCookieValidity',
-    'Servers/1/only_db', // saves to Server/only_db
-    'Servers/1/hide_db', // saves to Server/hide_db
     'SkipLockedTables',
     'DisableMultiTableMaintenance',
-    'MaxDbList',
     'MaxTableList',
-    'NumRecentTables',
-    'NumFavoriteTables',
     'ShowHint',
-    'SendErrorReports'
+    'SendErrorReports',
+    'ConsoleEnterExecutes'
+);
+$forms['Features']['Databases'] = array(
+    'Servers/1/only_db', // saves to Server/only_db
+    'Servers/1/hide_db', // saves to Server/hide_db
+    'MaxDbList'
 );
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
@@ -55,11 +56,11 @@ $forms['Features']['Warnings'] = array(
     'ServerLibraryDifference_DisableWarning',
     'PmaNoRelation_DisableWarning',
     'SuhosinDisableWarning',
+    'LoginCookieValidityDisableWarning',
     'ReservedWordDisableWarning');
 // settings from this form are treated specially,
 // see prefs_forms.php and user_preferences.lib.php
 $forms['Features']['Developer'] = array(
-    'Error_Handler/display',
     'DBG/sql');
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',
@@ -68,13 +69,16 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'IgnoreMultiSubmitErrors',
     'MaxCharactersInDisplayedSQL',
     'RetainQueryBox',
-    'CodemirrorEnable');
+    'CodemirrorEnable',
+    'EnableAutocompleteForTablesAndColumns',
+    'DefaultForeignKeyChecks');
 $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/Edit',
     'SQLQuery/Explain',
     'SQLQuery/ShowAsPHP',
     'SQLQuery/Refresh');
 $forms['Navi_panel']['Navi_panel'] = array(
+    'ShowDatabasesNavigationAsTree',
     'NavigationLinkWithMainPanel',
     'NavigationDisplayLogo',
     'NavigationLogoLink',
@@ -83,13 +87,17 @@ $forms['Navi_panel']['Navi_panel'] = array(
     'FirstLevelNavigationItems',
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping',
-    'NavigationTreeDisableDatabaseExpansion',
-    'NavigationTreeDisplayItemFilterMinimum');
+    'NavigationTreeEnableExpansion',
+    'NavigationTreeDisplayItemFilterMinimum',
+    'NumRecentTables',
+    'NumFavoriteTables'
+);
 $forms['Navi_panel']['Navi_databases'] = array(
     'NavigationTreeDisplayDbFilterMinimum',
     'NavigationTreeDbSeparator');
 $forms['Navi_panel']['Navi_tables'] = array(
     'NavigationTreeDefaultTabTable',
+    'NavigationTreeDefaultTabTable2',
     'NavigationTreeTableSeparator',
     'NavigationTreeTableLevel',
 );
@@ -98,6 +106,7 @@ $forms['Main_panel']['Startup'] = array(
     'ShowStats',
     'ShowServerInfo');
 $forms['Main_panel']['DbStructure'] = array(
+    'ShowDbStructureComment',
     'ShowDbStructureCreation',
     'ShowDbStructureLastUpdate',
     'ShowDbStructureLastCheck');
@@ -113,13 +122,12 @@ $forms['Main_panel']['Browse'] = array(
     'BrowseMarkerEnable',
     'GridEditing',
     'SaveCellsAtOnce',
-    'ShowDisplayDirection',
     'RepeatCells',
     'LimitChars',
     'RowActionLinks',
     'TablePrimaryKeyOrder',
-    'DefaultDisplay',
-    'RememberSorting');
+    'RememberSorting',
+    'RelationalDisplay');
 $forms['Main_panel']['Edit'] = array(
     'ProtectBinary',
     'ShowFunctionFields',
@@ -139,10 +147,12 @@ $forms['Import']['Import_defaults'] = array(
     'Import/format',
     'Import/charset',
     'Import/allow_interrupt',
-    'Import/skip_queries');
+    'Import/skip_queries'
+);
 $forms['Import']['Sql'] = array(
     'Import/sql_compatibility',
-    'Import/sql_no_auto_value_on_zero');
+    'Import/sql_no_auto_value_on_zero',
+    'Import/sql_read_as_multibytes');
 $forms['Import']['Csv'] = array(
     ':group:' . __('CSV'),
         'Import/csv_replace',
@@ -175,6 +185,7 @@ $forms['Export']['Export_defaults'] = array(
         'Export/format',
         'Export/compression',
         'Export/charset',
+        'Export/lock_tables',
         'Export/asfile' => ':group',
             'Export/onserver',
             'Export/onserver_overwrite',
@@ -191,6 +202,7 @@ $forms['Export']['Sql'] = array(
     'Export/sql_use_transaction',
     'Export/sql_disable_fk',
     'Export/sql_views_as_tables',
+    'Export/sql_metadata',
     'Export/sql_compatibility',
     ':group:' . __('Database export options'),
         'Export/sql_drop_database',

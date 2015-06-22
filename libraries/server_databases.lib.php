@@ -23,8 +23,8 @@ if (! defined('PHPMYADMIN')) {
  * @param string $sort_order        sort order string
  * @param bool   $is_superuser      User status
  * @param Array  $cfg               configuration
- * @param string $replication_types replication types
- * @param string $replication_info  replication info
+ * @param array  $replication_types replication types
+ * @param array  $replication_info  replication info
  * @param string $url_query         url query
  *
  * @return string
@@ -136,13 +136,9 @@ function PMA_getHtmlForTableFooterButtons($is_allowUserDropDb, $is_superuser)
         return '';
     }
 
-    $html = '<img class="selectallarrow" src="'
-        . $GLOBALS['pmaThemeImage'] . 'arrow_' . $GLOBALS['text_dir'] . '.png"'
-        . ' width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
-        . '<input type="checkbox" id="dbStatsForm_checkall" '
-        . 'class="checkall_box" title="' . __('Check All') . '" /> '
-        . '<label for="dbStatsForm_checkall">' . __('Check All') . '</label> '
-        . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
+    $html = PMA_Util::getWithSelected(
+        $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "dbStatsForm"
+    );
     $html .= PMA_Util::getButtonOrImage(
         '',
         'mult_submit' . ' ajax',
@@ -158,7 +154,7 @@ function PMA_getHtmlForTableFooterButtons($is_allowUserDropDb, $is_superuser)
  *
  * @param bool   $is_allowUserDropDb Allow user drop database
  * @param bool   $is_superuser       User status
- * @param Array  $databases_count    Database count
+ * @param int    $databases_count    Database count
  * @param string $column_order       column order
  * @param array  $replication_types  replication types
  * @param string $first_database     First database
@@ -180,7 +176,7 @@ function PMA_getHtmlForTableFooter(
     $html .= PMA_getHtmlForColumnOrder($column_order, $first_database);
 
     foreach ($replication_types as $type) {
-        if ($GLOBALS["server_" . $type . "_status"]) {
+        if ($GLOBALS['replication_info'][$type]['status']) {
             $html .= '    <th></th>' . "\n";
         }
     }
@@ -198,10 +194,10 @@ function PMA_getHtmlForTableFooter(
  *
  * @param array  $databases         GBI return databases
  * @param bool   $is_superuser      User status
- * @param Array  $url_query         Url query
- * @param string $column_order      column order
- * @param string $replication_types replication types
- * @param string $replication_info  replication info
+ * @param string $url_query         Url query
+ * @param array  $column_order      column order
+ * @param array  $replication_types replication types
+ * @param array  $replication_info  replication info
  *
  * @return Array
  */
@@ -349,7 +345,7 @@ function PMA_getHtmlForColumnOrderWithSort(
 /**
  * Returns the html for Enable Statistics
  *
- * @param bool   $url_query Url query
+ * @param string $url_query Url query
  * @param string $html      html for database list
  *
  * @return string
@@ -362,10 +358,9 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
             . 'heavy traffic between the web server and the MySQL server.'
         )
     )->getDisplay();
-    //we should put notice above database list
-    $html  = $notice . $html;
+    $html  = $html . $notice;
     $html .= '<ul><li id="li_switch_dbstats"><strong>' . "\n";
-    $html .= '<a href="server_databases.php?' . $url_query . '&amp;dbstats=1"'
+    $html .= '<a href="server_databases.php' . $url_query . '&amp;dbstats=1"'
         . ' title="' . __('Enable Statistics') . '">' . "\n"
         . '            ' . __('Enable Statistics');
     $html .= '</a></strong><br />' . "\n";
@@ -379,12 +374,12 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
  *
  * @param bool  $is_superuser      User status
  * @param Array $replication_types replication types
- * @param bool  $cfg_inconic       cfg about Properties Iconic
+ * @param bool  $cfg_iconic        cfg about Properties Iconic
  *
  * @return string
  */
 function PMA_getHtmlForReplicationType(
-    $is_superuser, $replication_types, $cfg_inconic
+    $is_superuser, $replication_types, $cfg_iconic
 ) {
     $html = '';
     foreach ($replication_types as $type) {
@@ -394,13 +389,13 @@ function PMA_getHtmlForReplicationType(
             $name = __('Slave replication');
         }
 
-        if ($GLOBALS["server_{$type}_status"]) {
+        if ($GLOBALS['replication_info'][$type]['status']) {
             $html .= '    <th>' . $name . '</th>' . "\n";
         }
     }
 
     if ($is_superuser && ! PMA_DRIZZLE) {
-        $html .= '    <th>' . ($cfg_inconic ? '' : __('Action')) . "\n"
+        $html .= '    <th>' . ($cfg_iconic ? '' : __('Action')) . "\n"
             . '    </th>' . "\n";
     }
     return $html;
@@ -413,11 +408,6 @@ function PMA_getHtmlForReplicationType(
  */
 function PMA_getListForSortDatabase()
 {
-    /**
-     * avoids 'undefined index' errors
-     */
-    $sort_by = '';
-    $sort_order = '';
     if (empty($_REQUEST['sort_by'])) {
         $sort_by = 'SCHEMA_NAME';
     } else {
@@ -439,7 +429,7 @@ function PMA_getListForSortDatabase()
     }
 
     if (isset($_REQUEST['sort_order'])
-        && $GLOBALS['PMA_String']->strtolower($_REQUEST['sort_order']) == 'desc'
+        && /*overload*/mb_strtolower($_REQUEST['sort_order']) == 'desc'
     ) {
         $sort_order = 'desc';
     } else {
@@ -461,7 +451,7 @@ function PMA_dropMultiDatabases()
     } else {
         $action = 'server_databases.php';
         $submit_mult = 'drop_db';
-        $err_url = 'server_databases.php?' . PMA_URL_getCommon();
+        $err_url = 'server_databases.php' . PMA_URL_getCommon();
         if (isset($_REQUEST['selected_dbs'])
             && !isset($_REQUEST['is_js_confirmed'])
         ) {
@@ -476,7 +466,7 @@ function PMA_dropMultiDatabases()
                 'table' => $GLOBALS['table']);
         }
         //the following variables will be used on mult_submits.inc.php
-        global $query_type, $selected, $mult_btn;
+        global $selected, $mult_btn;
 
         include 'libraries/mult_submits.inc.php';
         unset($action, $submit_mult, $err_url, $selected_db, $GLOBALS['db']);

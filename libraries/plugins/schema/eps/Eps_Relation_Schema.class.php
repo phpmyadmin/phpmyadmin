@@ -295,9 +295,9 @@ class PMA_EPS
         $output = $this->stringCommands;
         PMA_Response::getInstance()->disable();
         PMA_downloadHeader(
-            $fileName . '.eps',
+            $fileName,
             'image/x-eps',
-            $GLOBALS['PMA_String']->strlen($output)
+            /*overload*/mb_strlen($output)
         );
         print $output;
     }
@@ -328,13 +328,13 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      * Upon instantiation This starts writing the EPS document
      * user will be prompted for download as .eps extension
      *
+     * @param string $db database name
+     *
      * @see PMA_EPS
      */
-    function __construct()
+    function __construct($db)
     {
-        parent::__construct();
-
-        global $eps;
+        parent::__construct($db, new PMA_EPS());
 
         $this->setShowColor(isset($_REQUEST['eps_show_color']));
         $this->setShowKeys(isset($_REQUEST['eps_show_keys']));
@@ -342,25 +342,26 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $this->setAllTablesSameWidth(isset($_REQUEST['eps_all_tables_same_width']));
         $this->setOrientation($_REQUEST['eps_orientation']);
 
-        $eps = new PMA_EPS();
-        $eps->setTitle(
+        $this->diagram->setTitle(
             sprintf(
                 __('Schema of the %s database - Page %s'),
-                $GLOBALS['db'],
+                $this->db,
                 $this->pageNumber
             )
         );
-        $eps->setAuthor('phpMyAdmin ' . PMA_VERSION);
-        $eps->setDate(date("j F Y, g:i a"));
-        $eps->setOrientation($this->orientation);
-        $eps->setFont('Verdana', '10');
+        $this->diagram->setAuthor('phpMyAdmin ' . PMA_VERSION);
+        $this->diagram->setDate(date("j F Y, g:i a"));
+        $this->diagram->setOrientation($this->orientation);
+        $this->diagram->setFont('Verdana', '10');
 
         $alltables = $this->getTablesFromRequest();
 
         foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Eps(
-                    $table, $eps->getFont(), $eps->getFontSize(), $this->pageNumber,
+                    $this->diagram, $this->db,
+                    $table, $this->diagram->getFont(),
+                    $this->diagram->getFontSize(), $this->pageNumber,
                     $this->_tablewidth, $this->showKeys,
                     $this->tableDimension, $this->offline
                 );
@@ -373,7 +374,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = PMA_getForeigners($GLOBALS['db'], $one_table, '', 'both');
+            $exist_rel = PMA_getForeigners($this->db, $one_table, '', 'both');
             if (!$exist_rel) {
                 continue;
             }
@@ -388,7 +389,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
                 if ($master_field != 'foreign_keys_data') {
                     if (in_array($rel['foreign_table'], $alltables)) {
                         $this->_addRelation(
-                            $one_table, $eps->getFont(), $eps->getFontSize(),
+                            $one_table, $this->diagram->getFont(), $this->diagram->getFontSize(),
                             $master_field, $rel['foreign_table'],
                             $rel['foreign_field'], $this->tableDimension
                         );
@@ -405,8 +406,8 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
                         as $index => $one_field
                     ) {
                         $this->_addRelation(
-                            $one_table, $eps->getFont(),
-                            $eps->getFontSize(),
+                            $one_table, $this->diagram->getFont(),
+                            $this->diagram->getFontSize(),
                             $one_field, $one_key['ref_table_name'],
                             $one_key['ref_index_list'][$index],
                             $this->tableDimension
@@ -420,7 +421,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         }
 
         $this->_drawTables();
-        $eps->endEpsDoc();
+        $this->diagram->endEpsDoc();
     }
 
     /**
@@ -431,12 +432,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      */
     function showOutput()
     {
-        global $eps;
-        $filename = $GLOBALS['db'];
-        if ($this->pageNumber != -1) {
-            $filename .= '-' . $this->pageNumber;
-        }
-        $eps->showOutput($filename);
+        $this->diagram->showOutput($this->getFileName('.eps'));
     }
 
     /**
@@ -462,25 +458,28 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
     ) {
         if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new Table_Stats_Eps(
-                $masterTable, $font, $fontSize, $this->pageNumber,
-                $this->_tablewidth, false, $tableDimension
+                $this->diagram, $this->db, $masterTable, $font, $fontSize,
+                $this->pageNumber, $this->_tablewidth, false, $tableDimension
             );
         }
         if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new Table_Stats_Eps(
-                $foreignTable, $font, $fontSize, $this->pageNumber,
-                $this->_tablewidth, false, $tableDimension
+                $this->diagram, $this->db, $foreignTable, $font, $fontSize,
+                $this->pageNumber, $this->_tablewidth, false, $tableDimension
             );
         }
         $this->_relations[] = new Relation_Stats_Eps(
-            $this->_tables[$masterTable], $masterField,
-            $this->_tables[$foreignTable], $foreignField
+            $this->diagram,
+            $this->_tables[$masterTable],
+            $masterField,
+            $this->_tables[$foreignTable],
+            $foreignField
         );
     }
 
     /**
      * Draws relation arrows and lines connects master table's master field to
-     * foreign table's forein field
+     * foreign table's foreign field
      *
      * @return void
      *

@@ -26,6 +26,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
     }
 
@@ -286,13 +287,13 @@ class Node_Test extends PHPUnit_Framework_TestCase
         // Vanilla case
         $node = PMA_NodeFactory::getInstance();
         $this->assertEquals(
-            "WHERE TRUE ", $method->invoke($node)
+            "WHERE TRUE ", $method->invoke($node, 'SCHEMA_NAME')
         );
 
         // When a schema names is passed as search clause
         $this->assertEquals(
             "WHERE TRUE AND `SCHEMA_NAME` LIKE '%schemaName%' ",
-            $method->invoke($node, 'schemaName')
+            $method->invoke($node, 'SCHEMA_NAME', 'schemaName')
         );
 
         if (! isset($GLOBALS['cfg'])) {
@@ -306,7 +307,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['hide_db'] = 'regexpHideDb';
         $this->assertEquals(
             "WHERE TRUE AND `SCHEMA_NAME` NOT REGEXP 'regexpHideDb' ",
-            $method->invoke($node)
+            $method->invoke($node, 'SCHEMA_NAME')
         );
         unset($GLOBALS['cfg']['Server']['hide_db']);
 
@@ -314,7 +315,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['only_db'] = 'stringOnlyDb';
         $this->assertEquals(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' )",
-            $method->invoke($node)
+            $method->invoke($node, 'SCHEMA_NAME')
         );
         unset($GLOBALS['cfg']['Server']['only_db']);
 
@@ -323,33 +324,36 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'onlyDbOne' "
             . "OR `SCHEMA_NAME` LIKE 'onlyDbTwo' )",
-            $method->invoke($node)
+            $method->invoke($node, 'SCHEMA_NAME')
         );
         unset($GLOBALS['cfg']['Server']['only_db']);
     }
 
     /**
-     * Tests getData() method
+     * Tests getData() method when DisableIS is false and navigation tree
+     * grouping enabled.
      *
      * @return void
      * @test
      */
-    public function testGetData()
+    public function testGetDataWithEnabledISAndGroupingEnabled()
     {
         $pos = 10;
         $limit = 20;
         if (! isset($GLOBALS['cfg'])) {
             $GLOBALS['cfg'] = array();
         }
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
         $expectedSql  = "SELECT `SCHEMA_NAME` ";
         $expectedSql .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
         $expectedSql .= "(";
-        $expectedSql .= "select DB_first_level ";
-        $expectedSql .= "from ( ";
-        $expectedSql .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
+        $expectedSql .= "SELECT DB_first_level ";
+        $expectedSql .= "FROM ( ";
+        $expectedSql .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
         $expectedSql .= "'_', 1) ";
         $expectedSql .= "DB_first_level ";
         $expectedSql .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
@@ -358,12 +362,12 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $expectedSql .= "ORDER BY DB_first_level ASC ";
         $expectedSql .= "LIMIT $pos, $limit";
         $expectedSql .= ") t2 ";
-        $expectedSql .= "where 1 = locate(concat(DB_first_level, '_'), ";
-        $expectedSql .= "concat(SCHEMA_NAME, '_')) ";
-        $expectedSql .= "order by SCHEMA_NAME ASC";
+        $expectedSql .= "WHERE 1 = LOCATE(CONCAT(DB_first_level, '_'), ";
+        $expectedSql .= "CONCAT(SCHEMA_NAME, '_')) ";
+        $expectedSql .= "ORDER BY SCHEMA_NAME ASC";
 
         // It would have been better to mock _getWhereClause method
-        // but stangely, mocking private methods is not supported in PHPUnit
+        // but strangely, mocking private methods is not supported in PHPUnit
         $node = PMA_NodeFactory::getInstance();
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -377,27 +381,120 @@ class Node_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests the getPresence method
+     * Tests getData() method when DisableIS is false and navigation tree
+     * grouping disabled.
      *
      * @return void
      * @test
      */
-    public function testGetPresence()
+    public function testGetDataWithEnabledISAndGroupingDisabled()
     {
+        $pos = 10;
+        $limit = 20;
         if (! isset($GLOBALS['cfg'])) {
             $GLOBALS['cfg'] = array();
         }
-        if (! isset($GLOBALS['cfg']['Servers'])) {
-            $GLOBALS['cfg']['Servers'] = array();
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = false;
+        $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
+
+        $expectedSql  = "SELECT `SCHEMA_NAME` ";
+        $expectedSql .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+        $expectedSql .= "WHERE TRUE ";
+        $expectedSql .= "ORDER BY `SCHEMA_NAME` ";
+        $expectedSql .= "LIMIT $pos, $limit";
+
+        // It would have been better to mock _getWhereClause method
+        // but strangely, mocking private methods is not supported in PHPUnit
+        $node = PMA_NodeFactory::getInstance();
+
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('fetchResult')
+            ->with($expectedSql);
+        $GLOBALS['dbi'] = $dbi;
+        $node->getData('', $pos);
+    }
+
+    /**
+     * Tests getData() method when DisableIS is true and navigation tree
+     * grouping enabled.
+     *
+     * @return void
+     * @test
+     */
+    public function testGetDataWithDisabledISAndGroupingEnabled()
+    {
+        $pos = 0;
+        $limit = 10;
+        if (! isset($GLOBALS['cfg'])) {
+            $GLOBALS['cfg'] = array();
         }
-        if (! isset($GLOBALS['cfg']['Servers'][0])) {
-            $GLOBALS['cfg']['Servers'][0] = array();
-        }
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['dbs_to_test'] = false;
+        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
+        $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
-        $query = "select COUNT(*) ";
-        $query .= "from ( ";
-        $query .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) ";
+        $node = PMA_NodeFactory::getInstance();
+
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' ")
+            ->will($this->returnValue(true));
+        $dbi->expects($this->at(1))
+            ->method('fetchArray')
+            ->will(
+                $this->returnValue(
+                    array(
+                        '0' => 'db'
+                    )
+                )
+            );
+        $dbi->expects($this->at(2))
+            ->method('fetchArray')
+            ->will(
+                $this->returnValue(
+                    array(
+                        '0' => 'aa_db'
+                    )
+                )
+            );
+        $dbi->expects($this->at(3))
+            ->method('fetchArray')
+            ->will($this->returnValue(false));
+        $dbi->expects($this->once())
+            ->method('fetchResult')
+            ->with(
+                "SHOW DATABASES WHERE TRUE  AND ("
+                . " LOCATE('db_', CONCAT(`Database`, '_')) = 1"
+                . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )"
+            );
+        $GLOBALS['dbi'] = $dbi;
+        $node->getData('', $pos, 'db');
+    }
+
+    /**
+     * Tests the getPresence method when DisableIS is false and navigation tree
+     * grouping enabled.
+     *
+     * @return void
+     * @test
+     */
+    public function testGetPresenceWithEnabledISAndGroupingEnabled()
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
+        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
+
+        $query = "SELECT COUNT(*) ";
+        $query .= "FROM ( ";
+        $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) ";
         $query .= "DB_first_level ";
         $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
         $query .= "WHERE TRUE ";
@@ -415,6 +512,68 @@ class Node_Test extends PHPUnit_Framework_TestCase
             ->with($query);
         $GLOBALS['dbi'] = $dbi;
         $node->getPresence();
+    }
+
+    /**
+     * Tests the getPresence method when DisableIS is false and navigation tree
+     * grouping disabled.
+     *
+     * @return void
+     * @test
+     */
+    public function testGetPresenceWithEnabledISAndGroupingDisabled()
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = false;
+
+        $query = "SELECT COUNT(*) ";
+        $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
+        $query .= "WHERE TRUE ";
+
+        $node = PMA_NodeFactory::getInstance();
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('fetchValue')
+            ->with($query);
+        $GLOBALS['dbi'] = $dbi;
+        $node->getPresence();
+    }
+
+    /**
+     * Tests the getPresence method when DisableIS is true
+     *
+     * @return void
+     * @test
+     */
+    public function testGetPresenceWithDisabledIS()
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['dbs_to_test'] = false;
+        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
+
+        $node = PMA_NodeFactory::getInstance();
+
+        // test with no search clause
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->with("SHOW DATABASES WHERE TRUE ");
+        $GLOBALS['dbi'] = $dbi;
+        $node->getPresence();
+
+        // test with a search clause
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%dbname%' ");
+        $GLOBALS['dbi'] = $dbi;
+        $node->getPresence('', 'dbname');
     }
 }
 ?>

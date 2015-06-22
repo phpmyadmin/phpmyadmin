@@ -58,4 +58,3 @@ $html = PMA_getHtmlForRelationalFieldSelection(
 );
 
 $response->addHtml($html);
-?>

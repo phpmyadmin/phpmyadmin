@@ -19,8 +19,9 @@ if (! defined('PHPMYADMIN')) {
  * @package PhpMyAdmin
  * @abstract
  */
-abstract class RealtionStats
+abstract class RelationStats
 {
+    protected $diagram;
     /**
      * Defines properties
      */
@@ -33,14 +34,17 @@ abstract class RealtionStats
     /**
      * The constructor
      *
+     * @param object $diagram       The diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
      * @param string $foreign_table The foreign table name
      * @param string $foreign_field The relation field in the foreign table
      */
     function __construct(
-        $master_table, $master_field, $foreign_table, $foreign_field
+        $diagram, $master_table, $master_field, $foreign_table, $foreign_field
     ) {
+        $this->diagram = $diagram;
+
         $src_pos  = $this->_getXy($master_table, $master_field);
         $dest_pos = $this->_getXy($foreign_table, $foreign_field);
         /*

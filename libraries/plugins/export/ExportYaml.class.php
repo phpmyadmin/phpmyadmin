@@ -75,7 +75,7 @@ class ExportYaml extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
         PMA_exportOutputHandler(
             '%YAML 1.1' . $GLOBALS['crlf'] . '---' . $GLOBALS['crlf']
@@ -88,7 +88,7 @@ class ExportYaml extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         PMA_exportOutputHandler('...' . $GLOBALS['crlf']);
         return true;
@@ -102,7 +102,7 @@ class ExportYaml extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $db_alias = '')
     {
         return true;
     }
@@ -114,7 +114,7 @@ class ExportYaml extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         return true;
     }

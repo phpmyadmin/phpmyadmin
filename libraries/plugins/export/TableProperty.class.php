@@ -33,7 +33,7 @@ class TableProperty
     public $type;
 
     /**
-     * Wheter the key is nullable or not
+     * Whether the key is nullable or not
      *
      * @var bool
      */
@@ -82,11 +82,9 @@ class TableProperty
      */
     function getPureType()
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-        $pos = $pmaString->strpos($this->type, "(");
+        $pos = /*overload*/mb_strpos($this->type, "(");
         if ($pos > 0) {
-            return $pmaString->substr($this->type, 0, $pos);
+            return /*overload*/mb_substr($this->type, 0, $pos);
         }
         return $this->type;
     }
@@ -118,30 +116,28 @@ class TableProperty
      */
     function getDotNetPrimitiveType()
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-        if ($pmaString->strpos($this->type, "int") === 0) {
+        if (/*overload*/mb_strpos($this->type, "int") === 0) {
             return "int";
         }
-        if ($pmaString->strpos($this->type, "longtext") === 0) {
+        if (/*overload*/mb_strpos($this->type, "longtext") === 0) {
             return "string";
         }
-        if ($pmaString->strpos($this->type, "long") === 0) {
+        if (/*overload*/mb_strpos($this->type, "long") === 0) {
             return "long";
         }
-        if ($pmaString->strpos($this->type, "char") === 0) {
+        if (/*overload*/mb_strpos($this->type, "char") === 0) {
             return "string";
         }
-        if ($pmaString->strpos($this->type, "varchar") === 0) {
+        if (/*overload*/mb_strpos($this->type, "varchar") === 0) {
             return "string";
         }
-        if ($pmaString->strpos($this->type, "text") === 0) {
+        if (/*overload*/mb_strpos($this->type, "text") === 0) {
             return "string";
         }
-        if ($pmaString->strpos($this->type, "tinyint") === 0) {
+        if (/*overload*/mb_strpos($this->type, "tinyint") === 0) {
             return "bool";
         }
-        if ($pmaString->strpos($this->type, "datetime") === 0) {
+        if (/*overload*/mb_strpos($this->type, "datetime") === 0) {
             return "DateTime";
         }
         return "unknown";
@@ -154,30 +150,28 @@ class TableProperty
      */
     function getDotNetObjectType()
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-        if ($pmaString->strpos($this->type, "int") === 0) {
+        if (/*overload*/mb_strpos($this->type, "int") === 0) {
             return "Int32";
         }
-        if ($pmaString->strpos($this->type, "longtext") === 0) {
+        if (/*overload*/mb_strpos($this->type, "longtext") === 0) {
             return "String";
         }
-        if ($pmaString->strpos($this->type, "long") === 0) {
+        if (/*overload*/mb_strpos($this->type, "long") === 0) {
             return "Long";
         }
-        if ($pmaString->strpos($this->type, "char") === 0) {
+        if (/*overload*/mb_strpos($this->type, "char") === 0) {
             return "String";
         }
-        if ($pmaString->strpos($this->type, "varchar") === 0) {
+        if (/*overload*/mb_strpos($this->type, "varchar") === 0) {
             return "String";
         }
-        if ($pmaString->strpos($this->type, "text") === 0) {
+        if (/*overload*/mb_strpos($this->type, "text") === 0) {
             return "String";
         }
-        if ($pmaString->strpos($this->type, "tinyint") === 0) {
+        if (/*overload*/mb_strpos($this->type, "tinyint") === 0) {
             return "Boolean";
         }
-        if ($pmaString->strpos($this->type, "datetime") === 0) {
+        if (/*overload*/mb_strpos($this->type, "datetime") === 0) {
             return "DateTime";
         }
         return "Unknown";
@@ -190,7 +184,7 @@ class TableProperty
      */
     function getIndexName()
     {
-        if ($GLOBALS['PMA_String']->strlen($this->key) > 0) {
+        if (/*overload*/mb_strlen($this->key) > 0) {
             return "index=\""
                 . htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8')
                 . "\"";
@@ -205,7 +199,7 @@ class TableProperty
      */
     function isPK()
     {
-        return $this->key=="PRI";
+        return $this->key == "PRI";
     }
 
     /**

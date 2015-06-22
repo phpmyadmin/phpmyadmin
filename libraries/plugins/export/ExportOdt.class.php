@@ -143,7 +143,7 @@ class ExportOdt extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
         $GLOBALS['odt_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
             . '<office:document-content '
@@ -158,7 +158,7 @@ class ExportOdt extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         $GLOBALS['odt_buffer'] .= '</office:text>'
             . '</office:body>'
@@ -182,7 +182,7 @@ class ExportOdt extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $db_alias = '')
     {
         if (empty($db_alias)) {
             $db_alias = $db;
@@ -202,7 +202,7 @@ class ExportOdt extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         return true;
     }
@@ -436,20 +436,11 @@ class ExportOdt extends ExportPlugin
         $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
-        if ($do_relation && ! empty($cfgRelation['relation'])) {
-            // Find which tables are related with the current one and write it in
-            // an array
-            $res_rel = PMA_getForeigners($db, $table);
-
-            if ($res_rel && count($res_rel) > 0) {
-                $have_rel = true;
-            } else {
-                $have_rel = false;
-            }
-        } else {
-               $have_rel = false;
-        } // end if
-
+        list($res_rel, $have_rel) = PMA_getRelationsAndStatus(
+            $do_relation && ! empty($cfgRelation['relation']),
+            $db,
+            $table
+        );
         /**
          * Displays the table structure
          */

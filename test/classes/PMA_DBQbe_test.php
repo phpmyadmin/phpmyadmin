@@ -272,12 +272,10 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
             . '</strong><input type="radio" name="criteriaAndOrColumn[1]" value='
             . '"and" checked="checked" /><br />Ins<input type="checkbox" name='
             . '"criteriaColumnInsert[1]" />&nbsp;&nbsp;Del<input type="checkbox" '
-            . 'name="criteriaColumnDelete[1]" /></td><td class="center"><strong>Or:'
-            . '</strong><input type="radio" name="criteriaAndOrColumn[2]" value="or"'
-            . ' />&nbsp;&nbsp;<strong>And:</strong><input type="radio" name="criter'
-            . 'iaAndOrColumn[2]" value="and" checked="checked" /><br />Ins<input '
-            . 'type="checkbox" name="criteriaColumnInsert[2]" />&nbsp;&nbsp;Del'
-            . '<input type="checkbox" name="criteriaColumnDelete[2]" /></td></tr>',
+            . 'name="criteriaColumnDelete[1]" /></td><td class="center"><br />Ins'
+            . '<input type="checkbox" name="criteriaColumnInsert[2]" />&nbsp;&nbsp;'
+            . 'Del<input type="checkbox" name="criteriaColumnDelete[2]" /></td>'
+            . '</tr>',
             $this->_callProtectedFunction(
                 '_getModifyColumnsRow',
                 array()
@@ -326,7 +324,7 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
             . '12ex" size="20" /></td>',
             $this->_callProtectedFunction(
                 '_getInputboxRow',
-                array(2,3)
+                array(2)
             )
         );
     }
@@ -517,8 +515,7 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '`table1`',
             $this->_callProtectedFunction(
-                '_getFromClause',
-                array(array('relwork' => false))
+                '_getFromClause', array()
             )
         );
     }
@@ -541,7 +538,7 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
 ',
             $this->_callProtectedFunction(
                 '_getSQLQuery',
-                array(array('relwork' => false))
+                array()
             )
         );
     }

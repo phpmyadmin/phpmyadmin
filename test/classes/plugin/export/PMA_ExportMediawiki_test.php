@@ -356,25 +356,6 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $columns = array(
-            array(
-                'Null' => 'Yes',
-                'Field' => 'name1',
-                'Key' => 'PRI',
-                'Type' => 'set(abc)enum123',
-                'Default' => '',
-                'Extra' => ''
-            ),
-            array(
-                'Null' => 'NO',
-                'Field' => 'fields',
-                'Key' => 'COMP',
-                'Type' => '',
-                'Default' => 'def',
-                'Extra' => 'ext'
-            )
-        );
-
         $dbi->expects($this->once())
             ->method('getColumnNames')
             ->with('db', 'table')

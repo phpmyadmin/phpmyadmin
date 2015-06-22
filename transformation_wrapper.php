@@ -77,7 +77,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
     );
 
     foreach ($mime_options as $key => $option) {
-        if ($GLOBALS['PMA_String']->substr($option, 0, 10) == '; charset=') {
+        if (substr($option, 0, 10) == '; charset=') {
             $mime_options['charset'] = $option;
         }
     }
@@ -145,4 +145,3 @@ if (! isset($_REQUEST['resize'])) {
     ImageDestroy($srcImage);
     ImageDestroy($destImage);
 }
-?>

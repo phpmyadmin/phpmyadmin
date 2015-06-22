@@ -1,0 +1,26 @@
+<?php echo __('Find:'); ?>
+<input type="text" value="" name="find" required />
+<?php echo __('Replace with:'); ?>
+<input type="text" value="" name="replaceWith" required />
+
+<?php echo __('Column:'); ?>
+<select name="columnIndex">
+    <?php for ($i = 0, $nb = count($columnNames); $i < $nb; $i++): ?>
+        <?php $type = preg_replace('@\(.*@s', '', $columnTypes[$i]); ?>
+        <?php if ($GLOBALS['PMA_Types']->getTypeClass($type) == 'CHAR'): ?>
+            <?php $column = $columnNames[$i]; ?>
+            <option value="<?php echo $i; ?>">
+                <?php echo htmlspecialchars($column); ?>
+            </option>
+        <?php endif; ?>
+    <?php endfor; ?>
+</select>
+
+<br>
+<?php echo PMA_Util::getCheckbox(
+    'useRegex',
+    __('Use regular expression'),
+    false,
+    false,
+    'useRegex'
+); ?>

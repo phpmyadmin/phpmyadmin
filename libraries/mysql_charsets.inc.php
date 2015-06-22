@@ -43,42 +43,28 @@ if (! PMA_Util::cacheExists('mysql_charsets')) {
         : 'SELECT * FROM information_schema.COLLATIONS';
     $res = $GLOBALS['dbi']->query($sql);
     while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-        if (! is_array($mysql_collations[$row['CHARACTER_SET_NAME']])) {
-            $mysql_collations[$row['CHARACTER_SET_NAME']]
-                = array($row['COLLATION_NAME']);
+        $char_set_name = PMA_DRIZZLE
+            ? $row['DESCRIPTION']
+            : $row['CHARACTER_SET_NAME'];
+        if (! is_array($mysql_collations[$char_set_name])) {
+            $mysql_collations[$char_set_name] = array($row['COLLATION_NAME']);
         } else {
-            $mysql_collations[$row['CHARACTER_SET_NAME']][] = $row['COLLATION_NAME'];
+            $mysql_collations[$char_set_name][] = $row['COLLATION_NAME'];
         }
         $mysql_collations_flat[] = $row['COLLATION_NAME'];
         if ($row['IS_DEFAULT'] == 'Yes' || $row['IS_DEFAULT'] == '1') {
-            $mysql_default_collations[$row['CHARACTER_SET_NAME']]
+            $mysql_default_collations[$char_set_name]
                 = $row['COLLATION_NAME'];
         }
         //$mysql_collations_available[$row['Collation']]
         //    = ! isset($row['Compiled']) || $row['Compiled'] == 'Yes';
         $mysql_collations_available[$row['COLLATION_NAME']] = true;
-        $mysql_charsets_available[$row['CHARACTER_SET_NAME']]
-            = !empty($mysql_charsets_available[$row['CHARACTER_SET_NAME']])
+        $mysql_charsets_available[$char_set_name]
+            = !empty($mysql_charsets_available[$char_set_name])
             || !empty($mysql_collations_available[$row['COLLATION_NAME']]);
     }
     $GLOBALS['dbi']->freeResult($res);
     unset($res, $row);
-
-    if (PMA_DRIZZLE
-        && isset($mysql_collations['utf8_general_ci'])
-        && isset($mysql_collations['utf8'])
-    ) {
-        $mysql_collations['utf8'] = $mysql_collations['utf8_general_ci'];
-        $mysql_default_collations['utf8']
-            = $mysql_default_collations['utf8_general_ci'];
-        $mysql_charsets_available['utf8']
-            = $mysql_charsets_available['utf8_general_ci'];
-        unset(
-            $mysql_collations['utf8_general_ci'],
-            $mysql_default_collations['utf8_general_ci'],
-            $mysql_charsets_available['utf8_general_ci']
-        );
-    }
 
     sort($mysql_collations_flat, SORT_STRING);
     foreach ($mysql_collations as $key => $value) {

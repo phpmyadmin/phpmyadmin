@@ -85,46 +85,62 @@ class PMA_Footer
     }
 
     /**
+     * Reomove recursions and iterator objects from an object
+     *
+     * @param object|array &$object Object to clean
+     * @param array        $stack   Stack used to keep track of recursion,
+     *                              need not be passed for the first time
+     *
+     * @return object Reference passed object
+     */
+    private static function _removeRecursion(&$object, $stack = array())
+    {
+        if ((is_object($object) || is_array($object)) && $object) {
+            if ($object instanceof Traversable) {
+                $object = "***ITERATOR***";
+            } else if (!in_array($object, $stack, true)) {
+                $stack[] = $object;
+                foreach ($object as &$subobject) {
+                    self::_removeRecursion($subobject, $stack);
+                }
+            } else {
+                $object = "***RECURSION***";
+            }
+        }
+        return $object;
+    }
+
+    /**
      * Renders the debug messages
      *
      * @return string
      */
-    private function _getDebugMessage()
+    public function getDebugMessage()
     {
-        $retval = '';
-        if (! empty($_SESSION['debug'])) {
-            $sum_time = 0;
-            $sum_exec = 0;
-            foreach ($_SESSION['debug']['queries'] as $query) {
-                $sum_time += $query['count'] * $query['time'];
-                $sum_exec += $query['count'];
-            }
+        $retval = '\'null\'';
+        if ($GLOBALS['cfg']['DBG']['sql']
+            && empty($_REQUEST['no_debug'])
+            && !empty($_SESSION['debug'])
+        ) {
+            // Remove recursions and iterators from $_SESSION['debug']
+            self::_removeRecursion($_SESSION['debug']);
 
-            $retval .= '<div id="session_debug">';
-            $retval .= count($_SESSION['debug']['queries']) . ' queries executed ';
-            $retval .= $sum_exec . ' times in ' . $sum_time . ' seconds';
-            $retval .= '<pre>';
-
-            ob_start();
-            print_r($_SESSION['debug']);
-            $retval .= ob_get_contents();
-            ob_end_clean();
-
-            $retval .= '</pre>';
-            $retval .= '</div>';
+            $retval = JSON_encode($_SESSION['debug']);
             $_SESSION['debug'] = array();
+            return json_last_error() ? '\'false\'' : $retval;
         }
+        $_SESSION['debug'] = array();
         return $retval;
     }
 
     /**
      * Returns the url of the current page
      *
-     * @param string|null $encoding See PMA_URL_getCommon()
+     * @param string|null $encode See PMA_URL_getCommon()
      *
      * @return string
      */
-    public function getSelfUrl($encoding = null)
+    public function getSelfUrl($encode = 'html')
     {
         $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
@@ -166,7 +182,7 @@ class PMA_Footer
         }
         return basename(PMA_getenv('SCRIPT_NAME')) . PMA_URL_getCommon(
             $params,
-            $encoding
+            $encode
         );
     }
 
@@ -203,12 +219,11 @@ class PMA_Footer
      */
     public function getErrorMessages()
     {
-        $retval = '';
+        $retval = '<div class="clearfloat" id="pma_errors">';
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
-            $retval .= '<div class="clearfloat" id="pma_errors">';
             $retval .= $GLOBALS['error_handler']->getDispErrors();
-            $retval .= '</div>';
         }
+        $retval .= '</div>';
 
         /**
          * Report php errors
@@ -324,7 +339,9 @@ class PMA_Footer
                     $url = $this->getSelfUrl();
                     $retval .= $this->_getSelfLink($url);
                 }
-                $retval .= $this->_getDebugMessage();
+                $this->_scripts->addCode(
+                    'var debugSQLInfo = ' . $this->getDebugMessage() . ';'
+                );
                 $retval .= $this->getErrorMessages();
                 $retval .= $this->_scripts->getDisplay();
                 if ($GLOBALS['cfg']['DBG']['demo']) {

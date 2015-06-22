@@ -26,7 +26,7 @@ class PMA_SQLParserAnalyze_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_SQP_getParserAnalyzeMa()
+    public function testGetParserAnalyzeMap()
     {
         //select statement
         $sql_query = "select * from PMA.PMAParse";

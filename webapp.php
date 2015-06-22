@@ -31,7 +31,7 @@ $parameters = array(
     'icon'      => 'phpMyAdmin',
 );
 
-// dom sript file
+// dom script file
 // none need yet
 
 // icon
@@ -52,4 +52,3 @@ $zip->setDoWrite();
 $zip->addFile($ini_file, 'webapp.ini');
 $zip->addFile(file_get_contents($icon), 'phpMyAdmin.ico');
 $zip->file();
-?>

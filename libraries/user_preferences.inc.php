@@ -10,7 +10,7 @@ if (!defined('PHPMYADMIN')) {
 }
 // build user preferences menu
 
-$form_param = filter_input(INPUT_GET, 'form');
+$form_param = isset($_GET['form']) ? $_GET['form'] : null;
 if (! isset($forms[$form_param])) {
     $forms_keys = array_keys($forms);
     $form_param = array_shift($forms_keys);
@@ -22,7 +22,7 @@ $tabs_icons = array(
     'Main_panel'  => 'b_props.png',
     'Import'      => 'b_import.png',
     'Export'      => 'b_export.png');
-echo '<ul id="topmenu2">';
+echo '<ul id="topmenu2" class="user_prefs_tabs">';
 echo PMA_Util::getHtmlTab(
     array(
         'link' => 'prefs_manage.php',

@@ -47,6 +47,8 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for readint
+     *
+     * @return void
      */
     public function testReadint()
     {
@@ -58,6 +60,8 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for readintarray
+     *
+     * @return void
      */
     public function testReadintarray()
     {
@@ -71,6 +75,8 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for get_original_string
+     *
+     * @return void
      */
     public function testGet_original_string()
     {
@@ -82,6 +88,8 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for get_translation_string
+     *
+     * @return void
      */
     public function testGet_translation_string()
     {
@@ -93,10 +101,13 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for find_string
-     * @param string string
-     * @param int start (internally used in recursive function)
-     * @param int end (internally used in recursive function)
-     * @param $output
+     *
+     * @param string $string string
+     * @param int    $start  start (internally used in recursive function)
+     * @param int    $end    end (internally used in recursive function)
+     * @param string $output Expected output
+     *
+     * @return void
      *
      * @dataProvider providerForTestFind_string
      */
@@ -108,6 +119,11 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Data provider for testFind_string
+     *
+     * @return array
+     */
     public function providerForTestFind_string()
     {
         return array(
@@ -128,6 +144,8 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for translate
+     *
+     * @return void
      */
     public function testTranslate()
     {
@@ -139,8 +157,11 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for sanitize_plural_expression
-     * @param $expr string
-     * @param $output
+     *
+     * @param string $expr   Expression to sanitize
+     * @param string $output Expected output
+     *
+     * @return void
      *
      * @dataProvider providerForTestSanitize_plural_expression
      */
@@ -152,6 +173,11 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Data provider for testSanitize_plural_expression
+     *
+     * @return array
+     */
     public function providerForTestSanitize_plural_expression()
     {
         return array(
@@ -168,17 +194,23 @@ class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for extract_plural_forms_header_from_po_header
+     *
+     * @return void
      */
     public function testExtract_plural_forms_header_from_po_header()
     {
         $this->assertEquals(
-            $this->object->extract_plural_forms_header_from_po_header('id = 1 ? true : false'),
+            $this->object->extract_plural_forms_header_from_po_header(
+                'id = 1 ? true : false'
+            ),
             'nplurals=2; plural=n == 1 ? 0 : 1;'
         );
     }
 
     /**
      * Test for pgettext
+     *
+     * @return void
      */
     public function testPgettext()
     {

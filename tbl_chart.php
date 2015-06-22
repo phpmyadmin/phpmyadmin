@@ -7,10 +7,8 @@
  */
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/tbl_chart.lib.php';
-
-/** @var PMA_String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
+require_once 'libraries/Template.class.php';
+use PMA\Template;
 
 /*
  * Execute the query and return the result
@@ -21,8 +19,9 @@ if (isset($_REQUEST['ajax_request'])
 ) {
     $response = PMA_Response::getInstance();
 
-    if ($pmaString->strlen($GLOBALS['table']) && $pmaString->strlen($GLOBALS['db'])
-    ) {
+    $tableLength = /*overload*/mb_strlen($GLOBALS['table']);
+    $dbLength = /*overload*/mb_strlen($GLOBALS['db']);
+    if ($tableLength && $dbLength) {
         include './libraries/tbl_common.inc.php';
     }
 
@@ -81,18 +80,24 @@ $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
 /**
  * Runs common work
  */
-if ($pmaString->strlen($GLOBALS['table'])) {
-    $url_params['goto'] = $cfg['DefaultTabTable'];
+if (/*overload*/mb_strlen($GLOBALS['table'])) {
+    $url_params['goto'] = PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabTable'], 'table'
+    );
     $url_params['back'] = 'tbl_sql.php';
     include 'libraries/tbl_common.inc.php';
     include 'libraries/tbl_info.inc.php';
-} elseif ($pmaString->strlen($GLOBALS['db'])) {
-    $url_params['goto'] = $cfg['DefaultTabDatabase'];
+} elseif (/*overload*/mb_strlen($GLOBALS['db'])) {
+    $url_params['goto'] = PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+    );
     $url_params['back'] = 'sql.php';
     include 'libraries/db_common.inc.php';
     include 'libraries/db_info.inc.php';
 } else {
-    $url_params['goto'] = $cfg['DefaultTabServer'];
+    $url_params['goto'] = PMA_Util::getScriptNameForOption(
+        $GLOBALS['cfg']['DefaultTabServer'], 'server'
+    );
     $url_params['back'] = 'sql.php';
     include 'libraries/server_common.inc.php';
 }
@@ -135,10 +140,17 @@ $url_params['reload'] = 1;
 /**
  * Displays the page
  */
-$htmlString = PMA_getHtmlForTableChartDisplay(
-    $url_query, $url_params, $keys, $fields_meta, $numeric_types,
-    $numeric_column_count, $sql_query
+$response->addHTML(
+    Template::get('tbl_chart')
+        ->render(
+            array(
+                'url_query' => $url_query,
+                'url_params' => $url_params,
+                'keys' => $keys,
+                'fields_meta' => $fields_meta,
+                'numeric_types' => $numeric_types,
+                'numeric_column_count' => $numeric_column_count,
+                'sql_query' => $sql_query
+            )
+        )
 );
-
-$response->addHTML($htmlString);
-?>

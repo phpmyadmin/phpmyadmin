@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * The generated file that contains the linenumbers for the js files
+ * The generated file that contains the line numbers for the js files
  * If you change any of the js files you can run the scripts/line-counts.sh
  */
 if (is_readable('js/line_counts.php')) {
@@ -95,7 +95,7 @@ function PMA_getReportData($exception_type = 'js')
     } elseif ($exception_type == 'php') {
         $errors = array();
         // create php error report
-        $i=0;
+        $i = 0;
         if (!isset($_SESSION['prev_errors'])
             || $_SESSION['prev_errors'] == ''
         ) {
@@ -133,7 +133,7 @@ function PMA_getReportData($exception_type = 'js')
 
 /**
  * Sanitize a url to remove the identifiable host name and extract the
- * current scriptname from the url fragment
+ * current script name from the url fragment
  *
  * It returns two things in an array. The first is the uri without the
  * hostname and identifying query params. The second is the name of the
@@ -197,7 +197,7 @@ function PMA_sendErrorReport($report)
             )
         );
         $context = PMA_Util::handleContext($context);
-        $response = file_get_contents(
+        $response = @file_get_contents(
             SUBMISSION_URL,
             false,
             stream_context_create($context)
@@ -210,6 +210,9 @@ function PMA_sendErrorReport($report)
     }
 
     $curl_handle = curl_init(SUBMISSION_URL);
+    if ($curl_handle === false) {
+        return null;
+    }
     $curl_handle = PMA_Util::configureCurl($curl_handle);
     curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
@@ -237,6 +240,19 @@ function PMA_countLines($filename)
         return $LINE_COUNT[$filename];
     }
 
+    // ensure that the file is inside the phpMyAdmin folder
+    $depath = 1;
+    foreach (explode('/', $filename) as $part) {
+        if ($part == '..') {
+            $depath--;
+        } elseif ($part != '.') {
+            $depath++;
+        }
+        if ($depath < 0) {
+            return 0;
+        }
+    }
+
     $linecount = 0;
     $handle = fopen('./js/' . $filename, 'r');
     while (!feof($handle)) {
@@ -251,7 +267,7 @@ function PMA_countLines($filename)
 }
 
 /**
- * returns the translated linenumber and the file name from the cumulative line
+ * returns the translated line number and the file name from the cumulative line
  * number and an array of files
  *
  * uses the $LINE_COUNT global array of file names and line numbers
@@ -260,7 +276,7 @@ function PMA_countLines($filename)
  * @param Integer $cumulative_number the cumulative line number in the
  *                                   concatenated files
  *
- * @return Array the filename and linenumber
+ * @return Array the filename and line number
  * Returns two variables in an array:
  * - A String $filename the filename where the requested cumulative number
  *   exists
@@ -284,21 +300,19 @@ function PMA_getLineNumber($filenames, $cumulative_number)
 }
 
 /**
- * translates the cumulative line numbers in the stactrace as well as sanitize
+ * translates the cumulative line numbers in the stack trace as well as sanitize
  * urls and trim long lines in the context
  *
- * @param Array $stack the stacktrace
+ * @param Array $stack the stack trace
  *
- * @return Array $stack the modified stacktrace
+ * @return Array $stack the modified stack trace
  */
 function PMA_translateStacktrace($stack)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
     foreach ($stack as &$level) {
         foreach ($level["context"] as &$line) {
-            if ($pmaString->strlen($line) > 80) {
-                $line = $pmaString->substr($line, 0, 75) . "//...";
+            if (/*overload*/mb_strlen($line) > 80) {
+                $line = /*overload*/mb_substr($line, 0, 75) . "//...";
             }
         }
         if (preg_match("<js/get_scripts.js.php\?(.*)>", $level["url"], $matches)) {
@@ -344,7 +358,7 @@ function PMA_getErrorReportForm()
             . __('You may examine the data in the error report:')
             . '</p></label></div>'
             . '<pre class="report-data">'
-            . PMA_getPrettyReportData()
+            . htmlspecialchars(PMA_getPrettyReportData())
             . '</pre>';
 
     $html .= '<div class="label"><label><p>'

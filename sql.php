@@ -18,6 +18,10 @@ require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
 require_once 'libraries/sqlparser.lib.php';
+require_once 'libraries/config/page_settings.class.php';
+
+PMA_PageSettings::showGroup('Browse');
+
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -50,20 +54,22 @@ if (! empty($goto)) {
     }
 } else {
     if (empty($table)) {
-        $goto = $cfg['DefaultTabDatabase'];
+        $goto = PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+        );
     } else {
-        $goto = $cfg['DefaultTabTable'];
+        $goto = PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+        );
     }
     $is_gotofile  = true;
 } // end if
 
-/** @var PMA_String $pmaString */
-$pmaString = $GLOBALS['PMA_String'];
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
-        . '?' . PMA_URL_getCommon($GLOBALS['db'])
-        . (($pmaString->strpos(' ' . $goto, 'db_') != 1
-            && $pmaString->strlen($table))
+        . '?' . PMA_URL_getCommon(array('db' => $GLOBALS['db']))
+        . ((/*overload*/mb_strpos(' ' . $goto, 'db_') != 1
+            && /*overload*/mb_strlen($table))
             ? '&amp;table=' . urlencode($table)
             : ''
         );
@@ -103,6 +109,16 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     // script has exited at this point
 }
 
+if (isset($_REQUEST['get_default_fk_check_value'])
+    && $_REQUEST['get_default_fk_check_value'] == true
+) {
+    $response = PMA_Response::getInstance();
+    $response->addJSON(
+        'default_fk_check_value', PMA_Util::getDefaultFKCheckValue()
+    );
+    exit;
+}
+
 /**
  * Check ajax request to set the column order and visibility
  */
@@ -113,7 +129,9 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
 
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
-if (empty($sql_query) && $pmaString->strlen($table) && $pmaString->strlen($db)) {
+$tableLength = /*overload*/mb_strlen($table);
+$dbLength = /*overload*/mb_strlen($db);
+if (empty($sql_query) && $tableLength && $dbLength) {
     $sql_query = PMA_getDefaultSqlQueryForBrowse($db, $table);
 
     // set $goto to what will be displayed if query returns 0 rows
@@ -188,7 +206,6 @@ PMA_executeQueryAndSendQueryResponse(
     isset($extra_data) ? $extra_data : null,
     $is_affected,
     isset($message_to_show) ? $message_to_show : null,
-    isset($disp_mode) ? $disp_mode : null,
     isset($message) ? $message : null,
     isset($sql_data) ? $sql_data : null,
     $goto,
@@ -200,5 +217,3 @@ PMA_executeQueryAndSendQueryResponse(
     isset($selected) ? $selected : null,
     isset($complete_query) ? $complete_query : null
 );
-
-?>

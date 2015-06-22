@@ -129,7 +129,7 @@ class PMA_Dia_Relation_Schema_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->object = new PMA_Dia_Relation_Schema();
+        $this->object = new PMA_Dia_Relation_Schema('information_schema');
     }
 
     /**

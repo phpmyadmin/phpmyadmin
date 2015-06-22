@@ -52,7 +52,7 @@ var ErrorReport = {
     /**
      * Shows the modal dialog previewing the report
      *
-     * @param object error report info
+     * @param exception object error report info
      *
      * @return void
      */
@@ -151,7 +151,11 @@ var ErrorReport = {
      *
      * @return void
      */
-    _removeErrorNotification: function () {
+    _removeErrorNotification: function (e) {
+        if (e) {
+            // don't remove the hash fragment by navigating to #
+            e.preventDefault();
+        }
         $("#error_notification").fadeOut(function () {
             $(this).remove();
         });
@@ -165,7 +169,13 @@ var ErrorReport = {
         if (exception.message === null || typeof(exception.message) == "undefined"){
             return "";
         } else {
-            return (/([a-zA-Z]+):/).exec(exception.message)[1];
+            var reg = /([a-zA-Z]+):/;
+            var regex_result = null;
+            regex_result = reg.exec(exception.message);
+            if(regex_result && regex_result.length == 2)
+                return regex_result[1];
+            else
+                return "";
         }
     },
     /**
@@ -218,7 +228,7 @@ var ErrorReport = {
     /**
      * Returns the report data to send to the server
      *
-     * @param object exception info
+     * @param exception object exception info
      *
      * @return object
      */
@@ -247,16 +257,18 @@ var ErrorReport = {
      */
     wrap_global_functions: function () {
         for (var key in window) {
-            var global = window[key];
-            if (typeof(global) === "function" && key.indexOf("PMA_") === 0) {
-                window[key] = ErrorReport.wrap_function(global);
+            if (key.indexOf("PMA_") === 0) {
+                var global = window[key];
+                if (typeof(global) === "function") {
+                    window[key] = ErrorReport.wrap_function(global);
+                }
             }
         }
     },
     /**
      * Wraps given function in error reporting code and returns wrapped function
      *
-     * @param function function to be wrapped
+     * @param func function to be wrapped
      *
      * @return function
      */

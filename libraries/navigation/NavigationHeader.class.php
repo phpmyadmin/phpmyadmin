@@ -9,9 +9,12 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/Template.class.php';
+use PMA\Template;
+
 /**
  * This class renders the logo, links, server selection,
- * which are then displayed at the top of the naviagtion panel
+ * which are then displayed at the top of the navigation panel
  *
  * @package PhpMyAdmin-Navigation
  */
@@ -73,11 +76,10 @@ class PMA_NavigationHeader
      */
     private function _logo()
     {
-        $retval = '<!-- LOGO START -->';
         // display Logo, depending on $GLOBALS['cfg']['NavigationDisplayLogo']
         if (!$GLOBALS['cfg']['NavigationDisplayLogo']) {
-            $retval .= '<!-- LOGO END -->';
-            return $retval;
+            return Template::get('logo')
+                ->render(array('displayLogo' => false));
         }
 
         $logo = 'phpMyAdmin';
@@ -88,47 +90,57 @@ class PMA_NavigationHeader
             $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png" '
                 . 'alt="' . $logo . '" id="imgpmalogo" />';
         }
-        $retval .= '<div id="pmalogo">';
-        if ($GLOBALS['cfg']['NavigationLogoLink']) {
-            $logo_link = trim(
-                htmlspecialchars($GLOBALS['cfg']['NavigationLogoLink'])
-            );
-            // prevent XSS, see PMASA-2013-9
-            // if link has protocol, allow only http and https
-            if (preg_match('/^[a-z]+:/i', $logo_link)
-                && ! preg_match('/^https?:/i', $logo_link)
-            ) {
-                $logo_link = 'index.php';
-            }
-            $retval .= '    <a href="' . $logo_link;
-            switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
-            case 'new':
-                $retval .= '" target="_blank"';
-                break;
-            case 'main':
-                /** @var PMA_String $pmaString */
-                $pmaString = $GLOBALS['PMA_String'];
 
-                // do not add our parameters for an external link
-                $navLogoLinkLower = $pmaString->strtolower(
-                    $GLOBALS['cfg']['NavigationLogoLink']
+        if (!$GLOBALS['cfg']['NavigationLogoLink']) {
+            return Template::get('logo')
+                ->render(
+                    array(
+                        'displayLogo' => true,
+                        'useLogoLink' => false,
+                        'logo' => $logo,
+                    )
                 );
-                if ($pmaString->substr($navLogoLinkLower, 0, 4) !== '://') {
-                    $retval .= '?' . $GLOBALS['url_query'] . '"';
-                } else {
-                    $retval .= '" target="_blank"';
-                }
-            }
-            $retval .= '>';
-            $retval .= $logo;
-            $retval .= '</a>';
-        } else {
-            $retval .= $logo;
         }
-        $retval .= '</div>';
 
-        $retval .= '<!-- LOGO END -->';
-        return $retval;
+        $useLogoLink = true;
+        $logoLink = null;
+        $linkAttriks = null;
+        $logoLink = trim(
+            htmlspecialchars($GLOBALS['cfg']['NavigationLogoLink'])
+        );
+        // prevent XSS, see PMASA-2013-9
+        // if link has protocol, allow only http and https
+        if (preg_match('/^[a-z]+:/i', $logoLink)
+            && ! preg_match('/^https?:/i', $logoLink)
+        ) {
+            $logoLink = 'index.php';
+        }
+        switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
+        case 'new':
+            $linkAttriks = 'target="_blank"';
+            break;
+        case 'main':
+            // do not add our parameters for an external link
+            $host = parse_url(
+                $GLOBALS['cfg']['NavigationLogoLink'], PHP_URL_HOST
+            );
+            if (empty($host)) {
+                $logoLink .= PMA_URL_getCommon();
+            } else {
+                $linkAttriks = 'target="_blank"';
+            }
+        }
+
+        return Template::get('logo')
+            ->render(
+                array(
+                    'displayLogo' => true,
+                    'useLogoLink' => $useLogoLink,
+                    'logoLink' => $logoLink,
+                    'linkAttribs' => $linkAttriks,
+                    'logo' => $logo,
+                )
+            );
     }
 
     /**
@@ -146,7 +158,7 @@ class PMA_NavigationHeader
         $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="navipanellinks">';
         $retval .= PMA_Util::getNavigationLink(
-            'index.php?' . PMA_URL_getCommon(),
+            'index.php' . PMA_URL_getCommon(),
             $showText,
             __('Home'),
             $showIcon,
@@ -156,7 +168,7 @@ class PMA_NavigationHeader
         if ($GLOBALS['server'] != 0) {
             // Logout for advanced authentication
             if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
-                $link  = 'index.php?' . $GLOBALS['url_query'];
+                $link  = 'index.php' . $GLOBALS['url_query'];
                 $link .= '&amp;old_usr=' . urlencode($GLOBALS['PHP_AUTH_USER']);
                 $retval .= PMA_Util::getNavigationLink(
                     $link,
@@ -179,20 +191,27 @@ class PMA_NavigationHeader
             false,
             'documentation'
         );
-        if ($showIcon) {
-            $retval .= PMA_Util::showMySQLDocu('', true);
-        }
-        if ($showText) {
-            // PMA_showMySQLDocu always spits out an icon,
-            // we just replace it with some perl regexp.
-            $link = preg_replace(
-                '/<img[^>]+>/i',
-                __('Documentation'),
-                PMA_Util::showMySQLDocu('', true)
-            );
-            $retval .= $link;
-            $retval .= '<br />';
-        }
+        $retval .= PMA_Util::getNavigationLink(
+            PMA_Util::getMySQLDocuURL('', ''),
+            $showText,
+            __('Documentation'),
+            $showIcon,
+            'b_sqlhelp.png',
+            '',
+            false,
+            'mysql_doc'
+        );
+        $retval .= PMA_Util::getNavigationLink(
+            '#',
+            $showText,
+            __('Navigation panel settings'),
+            $showIcon,
+            's_cog.png',
+            'pma_navigation_settings_icon',
+            false,
+            '',
+            defined('PMA_DISABLE_NAVI_SETTINGS') ? array('hide') : array()
+        );
         $retval .= PMA_Util::getNavigationLink(
             '#',
             $showText,

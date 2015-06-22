@@ -57,55 +57,52 @@ if (! empty($submit_mult)
     } elseif (! empty($_POST['selected_tbl'])) {
         // coming from database structure view - do something with
         // selected tables
-        if ($submit_mult == 'print') {
-            include './tbl_printview.php';
-        } else {
-            $selected = $_POST['selected_tbl'];
-            switch ($submit_mult) {
-            case 'add_prefix_tbl':
-            case 'replace_prefix_tbl':
-            case 'copy_tbl_change_prefix':
-            case 'drop_db':
-            case 'drop_tbl':
-            case 'empty_tbl':
-                $what = $submit_mult;
-                break;
-            case 'check_tbl':
-            case 'optimize_tbl':
-            case 'repair_tbl':
-            case 'analyze_tbl':
-                $query_type = $submit_mult;
-                unset($submit_mult);
-                $mult_btn   = __('Yes');
-                break;
-            case 'export':
-                unset($submit_mult);
-                include 'db_export.php';
-                exit;
-                break;
-            case 'show_create':
-                $show_create = PMA_getHtmlShowCreate($GLOBALS['db'], $selected);
-                // Send response to client.
-                $response = PMA_Response::getInstance();
-                $response->addJSON('message', $show_create);
-                exit;
-            case 'sync_unique_columns_central_list':
-                include_once 'libraries/central_columns.lib.php';
-                $centralColsError = PMA_syncUniqueColumns($selected);
-                break;
-            case 'delete_unique_columns_central_list':
-                include_once 'libraries/central_columns.lib.php';
-                $centralColsError = PMA_deleteColumnsFromList($selected);
-                break;
-            case 'make_consistent_with_central_list':
-                include_once 'libraries/central_columns.lib.php';
-                $centralColsError = PMA_makeConsistentWithList(
-                    $GLOBALS['db'],
-                    $selected
-                );
-                break;
-            } // end switch
-        }
+        $selected = $_POST['selected_tbl'];
+        switch ($submit_mult) {
+        case 'add_prefix_tbl':
+        case 'replace_prefix_tbl':
+        case 'copy_tbl_change_prefix':
+        case 'drop_db':
+        case 'drop_tbl':
+        case 'empty_tbl':
+            $what = $submit_mult;
+            break;
+        case 'check_tbl':
+        case 'optimize_tbl':
+        case 'repair_tbl':
+        case 'analyze_tbl':
+        case 'checksum_tbl':
+            $query_type = $submit_mult;
+            unset($submit_mult);
+            $mult_btn   = __('Yes');
+            break;
+        case 'export':
+            unset($submit_mult);
+            include 'db_export.php';
+            exit;
+            break;
+        case 'show_create':
+            $show_create = PMA_getHtmlShowCreate($GLOBALS['db'], $selected);
+            // Send response to client.
+            $response = PMA_Response::getInstance();
+            $response->addJSON('message', $show_create);
+            exit;
+        case 'sync_unique_columns_central_list':
+            include_once 'libraries/central_columns.lib.php';
+            $centralColsError = PMA_syncUniqueColumns($selected);
+            break;
+        case 'delete_unique_columns_central_list':
+            include_once 'libraries/central_columns.lib.php';
+            $centralColsError = PMA_deleteColumnsFromList($selected);
+            break;
+        case 'make_consistent_with_central_list':
+            include_once 'libraries/central_columns.lib.php';
+            $centralColsError = PMA_makeConsistentWithList(
+                $GLOBALS['db'],
+                $selected
+            );
+            break;
+        } // end switch
     } elseif (isset($selected_fld) && !empty($selected_fld)) {
         // coming from table structure view - do something with
         // selected columns
@@ -154,11 +151,11 @@ if (!empty($submit_mult) && !empty($what)) {
 
     /** @var PMA_String $pmaString */
     $pmaString = $GLOBALS['PMA_String'];
-    if ($pmaString->strlen($table)) {
+    if (/*overload*/mb_strlen($table)) {
         include './libraries/tbl_common.inc.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
         include './libraries/tbl_info.inc.php';
-    } elseif ($pmaString->strlen($db)) {
+    } elseif (/*overload*/mb_strlen($db)) {
         include './libraries/db_common.inc.php';
         include './libraries/db_info.inc.php';
     } else {
@@ -168,7 +165,7 @@ if (!empty($submit_mult) && !empty($what)) {
     // Builds the query
     list($full_query, $reload, $full_query_views)
         = PMA_getQueryFromSelected(
-            $what, $db, $table, $selected, $action, $views
+            $what, $db, $table, $selected, $views
         );
 
     // Displays the confirmation form
@@ -178,12 +175,14 @@ if (!empty($submit_mult) && !empty($what)) {
         isset($original_url_query)? $original_url_query : null
     );
 
+    $response = PMA_Response::getInstance();
+
     if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
-        echo PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params);
+        $response->addHTML(PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params));
     } elseif ($what == 'add_prefix_tbl') {
-        echo PMA_getHtmlForAddPrefixTable($action, $_url_params);
+        $response->addHTML(PMA_getHtmlForAddPrefixTable($action, $_url_params));
     } else {
-        echo PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query);
+        $response->addHTML(PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query));
     }
     exit;
 
@@ -214,6 +213,13 @@ if (!empty($submit_mult) && !empty($what)) {
         $GLOBALS['dbi']->freeResult($result);
     }
 
+    if ($query_type == 'drop_tbl'
+        || $query_type == 'empty_tbl'
+        || $query_type == 'row_delete'
+    ) {
+        $default_fk_check_value = PMA_Util::handleDisableFKCheckInit();
+    }
+
     list(
         $result, $rebuild_database_list, $reload_ret,
         $run_parts, $use_sql, $sql_query, $sql_query_views
@@ -229,9 +235,6 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 
     if ($query_type == 'drop_tbl') {
-        $default_fk_check_value = $GLOBALS['dbi']->fetchValue(
-            'SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1
-        ) == 'ON';
         if (!empty($sql_query)) {
             $sql_query .= ';';
         } elseif (!empty($sql_query_views)) {
@@ -248,22 +251,12 @@ if (!empty($submit_mult) && !empty($what)) {
 
         PMA_executeQueryAndSendQueryResponse(
             $analyzed_sql_results, false, $db, $table, null, null, null,
-            false, null, null, null, null, $goto, $pmaThemeImage, null, null,
+            false, null, null, null, $goto, $pmaThemeImage, null, null,
             $query_type, $sql_query, $selected, null
         );
     } elseif (!$run_parts) {
         $GLOBALS['dbi']->selectDb($db);
-        // for disabling foreign key checks while dropping tables
-        if (! isset($_REQUEST['fk_check']) && $query_type == 'drop_tbl') {
-            $GLOBALS['dbi']->query('SET FOREIGN_KEY_CHECKS = 0;');
-        }
         $result = $GLOBALS['dbi']->tryQuery($sql_query);
-        if (! isset($_REQUEST['fk_check'])
-            && $query_type == 'drop_tbl'
-            && $default_fk_check_value
-        ) {
-            $GLOBALS['dbi']->query('SET FOREIGN_KEY_CHECKS = 1;');
-        }
         if ($result && !empty($sql_query_views)) {
             $sql_query .= ' ' . $sql_query_views . ';';
             $result = $GLOBALS['dbi']->tryQuery($sql_query_views);
@@ -273,6 +266,12 @@ if (!empty($submit_mult) && !empty($what)) {
         if (! $result) {
             $message = PMA_Message::error($GLOBALS['dbi']->getError());
         }
+    }
+    if ($query_type == 'drop_tbl'
+        || $query_type == 'empty_tbl'
+        || $query_type == 'row_delete'
+    ) {
+        PMA_Util::handleDisableFKCheckCleanup($default_fk_check_value);
     }
     if ($rebuild_database_list) {
         // avoid a problem with the database list navigator

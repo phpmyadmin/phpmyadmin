@@ -21,7 +21,7 @@ require_once './libraries/DatabaseInterface.class.php';
  * assigned to a form element (formset name or field path). Even if there are
  * no errors, key must be set with an empty value.
  *
- * Valdiation functions are assigned in $cfg_db['_validators'] (config.values.php).
+ * Validation functions are assigned in $cfg_db['_validators'] (config.values.php).
  *
  * @package PhpMyAdmin
  */
@@ -47,9 +47,6 @@ class PMA_Validator
             return $validators;
         }
 
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         // not in setup script: load additional validators for user
         // preferences we need original config values not overwritten
         // by user preferences, creating a new PMA_Config instance is a
@@ -62,9 +59,9 @@ class PMA_Validator
                     continue;
                 }
                 for ($i = 1, $nb = count($uv); $i < $nb; $i++) {
-                    if ($pmaString->substr($uv[$i], 0, 6) == 'value:') {
+                    if (/*overload*/mb_substr($uv[$i], 0, 6) == 'value:') {
                         $uv[$i] = PMA_arrayRead(
-                            $pmaString->substr($uv[$i], 6),
+                            /*overload*/mb_substr($uv[$i], 6),
                             $GLOBALS['PMA_Config']->base_settings
                         );
                     }
@@ -83,7 +80,7 @@ class PMA_Validator
      * Return values:
      * o array, keys - field path or formset id, values - array of errors
      *   when $isPostSource is true values is an empty array to allow for error list
-     *   cleanup in HTML documen
+     *   cleanup in HTML document
      * o false - when no validators match name(s) given by $validator_id
      *
      * @param ConfigFile   $cf           Config file instance
@@ -116,7 +113,7 @@ class PMA_Validator
         $key_map = array();
         foreach ($values as $k => $v) {
             $k2 = $isPostSource ? str_replace('-', '/', $k) : $k;
-            $k2 = $GLOBALS['PMA_String']->strpos($k2, '/')
+            $k2 = /*overload*/mb_strpos($k2, '/')
                 ? $cf->getCanonicalPath($k2)
                 : $k2;
             $key_map[$k2] = $k;
@@ -237,7 +234,9 @@ class PMA_Validator
             $port = empty($port) || $connect_type == 'socket' ? null : $port;
             $extension = 'mysqli';
         } else {
-            $socket = empty($socket) || $connect_type == 'tcp' ? null : ':' . ($socket[0] == '/' ? '' : '/') . $socket;
+            $socket = empty($socket) || $connect_type == 'tcp'
+                ? null
+                : ':' . ($socket[0] == '/' ? '' : '/') . $socket;
             $port = empty($port) || $connect_type == 'socket' ? null : ':' . $port;
             $extension = 'mysql';
         }
@@ -297,11 +296,14 @@ class PMA_Validator
     /**
      * Validate server config
      *
-     * @param array $values config values
+     * @param string $path   path to config, not used
+     *                       keep this parameter since the method is invoked using
+     *                       reflection along with other similar methods
+     * @param array  $values config values
      *
      * @return array
      */
-    public static function validateServer($values)
+    public static function validateServer($path, $values)
     {
         $result = array(
             'Server' => '',
@@ -356,11 +358,14 @@ class PMA_Validator
     /**
      * Validate pmadb config
      *
-     * @param array $values config values
+     * @param string $path   path to config, not used
+     *                       keep this parameter since the method is invoked using
+     *                       reflection along with other similar methods
+     * @param array  $values config values
      *
      * @return array
      */
-    public static function validatePMAStorage($values)
+    public static function validatePMAStorage($path, $values)
     {
         $result = array(
             'Server_pmadb' => '',
@@ -590,7 +595,7 @@ class PMA_Validator
      *
      * @param string $path   path to config
      * @param array  $values config values
-     * @param string $regex  regullar expression to match
+     * @param string $regex  regular expression to match
      *
      * @return array
      */

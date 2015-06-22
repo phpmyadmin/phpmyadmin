@@ -194,7 +194,7 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
 
         //validate 2: Server Variables
         $this->assertContains(
-            '<div id="serverVariables" class="data filteredData noclick">',
+            '<table id="serverVariables" class="data filteredData noclick">',
             $html
         );
         $this->assertContains(

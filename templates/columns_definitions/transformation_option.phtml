@@ -1,0 +1,12 @@
+<?php $options_key = $type_prefix . 'transformation_options'; ?>
+<input id="field_<?php echo $columnNumber; ?>_<?php echo ($ci - $ci_offset); ?>"
+       type="text"
+       name="field_<?php echo $options_key; ?>[<?php echo $columnNumber; ?>]"
+       size="16"
+       class="textfield"
+       value="<?php if (isset($columnMeta['Field'])
+           && isset($mime_map[$columnMeta['Field']][$options_key]))
+           echo htmlspecialchars(
+               $mime_map[$columnMeta['Field']]
+               [$options_key]
+           ); ?>" />

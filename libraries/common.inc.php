@@ -51,6 +51,13 @@ if (version_compare(PHP_VERSION, '5.3.0', 'lt')) {
  */
 define('PHPMYADMIN', true);
 
+
+/**
+ * String handling (security)
+ */
+require_once './libraries/String.class.php';
+$PMA_String = new PMA_String();
+
 /**
  * the error handler
  */
@@ -60,7 +67,6 @@ require './libraries/Error_Handler.class.php';
  * initialize the error handler
  */
 $GLOBALS['error_handler'] = new PMA_Error_Handler();
-$cfg['Error_Handler']['display'] = true;
 
 /**
  * This setting was removed in PHP 5.4. But at this point PMA_PHP_INT_VERSION
@@ -157,13 +163,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 $PMA_PHP_SELF = PMA_getenv('PHP_SELF');
 $_PATH_INFO = PMA_getenv('PATH_INFO');
 if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-
-    $path_info_pos = $pmaString->strrpos($PMA_PHP_SELF, $_PATH_INFO);
-    $pathLength = $path_info_pos + $pmaString->strlen($_PATH_INFO);
-    if ($pathLength === $pmaString->strlen($PMA_PHP_SELF)) {
-        $PMA_PHP_SELF = $pmaString->substr($PMA_PHP_SELF, 0, $path_info_pos);
+    $path_info_pos = /*overload*/mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
+    $pathLength = $path_info_pos + /*overload*/mb_strlen($_PATH_INFO);
+    if ($pathLength === /*overload*/mb_strlen($PMA_PHP_SELF)) {
+        $PMA_PHP_SELF = /*overload*/mb_substr($PMA_PHP_SELF, 0, $path_info_pos);
     }
 }
 $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
@@ -328,7 +331,7 @@ if (isset($_COOKIE)
  * check HTTPS connection
  */
 if ($GLOBALS['PMA_Config']->get('ForceSSL')
-    && ! $GLOBALS['PMA_Config']->get('is_https')
+    && ! $GLOBALS['PMA_Config']->detectHttps()
 ) {
     // grab SSL URL
     $url = $GLOBALS['PMA_Config']->getSSLUri();
@@ -373,7 +376,6 @@ $goto_whitelist = array(
     'db_structure.php',
     'db_import.php',
     'db_operations.php',
-    'db_printview.php',
     'db_search.php',
     'db_routines.php',
     'export.php',
@@ -405,8 +407,6 @@ $goto_whitelist = array(
     'tbl_create.php',
     'tbl_import.php',
     'tbl_indexes.php',
-    'tbl_move_copy.php',
-    'tbl_printview.php',
     'tbl_sql.php',
     'tbl_export.php',
     'tbl_operations.php',
@@ -464,7 +464,9 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * f.e. lang, server, collation_connection in PMA_Config
  */
 $token_mismatch = true;
+$token_provided = false;
 if (PMA_isValid($_REQUEST['token'])) {
+    $token_provided = true;
     $token_mismatch = ($_SESSION[' PMA_token '] != $_REQUEST['token']);
 }
 
@@ -483,7 +485,7 @@ if ($token_mismatch) {
         'pma_lang', 'pma_collation_connection',
         /* Possible login form */
         'pma_servername', 'pma_username', 'pma_password',
-        'recaptcha_challenge_field', 'recaptcha_response_field',
+        'g-recaptcha-response',
         /* Needed to send the correct reply */
         'ajax_request',
         /* Permit to log out even if there is a token mismatch */
@@ -491,7 +493,9 @@ if ($token_mismatch) {
         /* Permit redirection with token-mismatch in url.php */
         'url',
         /* Permit session expiry flag */
-        'session_expired'
+        'session_expired',
+        /* JS loading */
+        'scripts', 'call_done'
     );
     /**
      * Allow changing themes in test/theme.php
@@ -515,25 +519,13 @@ if ($token_mismatch) {
  * current selected database
  * @global string $GLOBALS['db']
  */
-$GLOBALS['db'] = '';
-if (PMA_isValid($_REQUEST['db'])) {
-    // can we strip tags from this?
-    // only \ and / is not allowed in db names for MySQL
-    $GLOBALS['db'] = $_REQUEST['db'];
-    $GLOBALS['url_params']['db'] = $GLOBALS['db'];
-}
+PMA_setGlobalDbOrTable('db');
 
 /**
  * current selected table
  * @global string $GLOBALS['table']
  */
-$GLOBALS['table'] = '';
-if (PMA_isValid($_REQUEST['table'])) {
-    // can we strip tags from this?
-    // only \ and / is not allowed in table names for MySQL
-    $GLOBALS['table'] = $_REQUEST['table'];
-    $GLOBALS['url_params']['table'] = $GLOBALS['table'];
-}
+PMA_setGlobalDbOrTable('table');
 
 /**
  * Store currently selected recent table.
@@ -586,7 +578,10 @@ $GLOBALS['PMA_Config']->checkPermissions();
 if ($GLOBALS['PMA_Config']->error_config_file) {
     $error = '[strong]' . __('Failed to read configuration file!') . '[/strong]'
         . '[br][br]'
-        . __('This usually means there is a syntax error in it, please check any errors shown below.')
+        . __(
+            'This usually means there is a syntax error in it, '
+            . 'please check any errors shown below.'
+        )
         . '[br][br]'
         . '[conferr]';
     trigger_error($error, E_USER_ERROR);
@@ -600,7 +595,10 @@ if ($GLOBALS['PMA_Config']->error_config_default_file) {
 }
 if ($GLOBALS['PMA_Config']->error_pma_uri) {
     trigger_error(
-        __('The [code]$cfg[\'PmaAbsoluteUri\'][/code] directive MUST be set in your configuration file!'),
+        __(
+            'The [code]$cfg[\'PmaAbsoluteUri\'][/code]'
+            . ' directive MUST be set in your configuration file!'
+        ),
         E_USER_ERROR
     );
 }
@@ -644,7 +642,10 @@ if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
         if ($each_server['connect_type'] == 'tcp' && empty($each_server['host'])) {
             trigger_error(
                 sprintf(
-                    __('Invalid hostname for server %1$s. Please review your configuration.'),
+                    __(
+                        'Invalid hostname for server %1$s. '
+                        . 'Please review your configuration.'
+                    ),
                     $server_index
                 ),
                 E_USER_ERROR
@@ -751,11 +752,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         && ! is_numeric($_REQUEST['server'])
     ) {
         foreach ($cfg['Servers'] as $i => $server) {
-            $verboseLower = $PMA_String->strtolower($server['verbose']);
+            $verboseToLower = /*overload*/mb_strtolower($server['verbose']);
+            $serverToLower = /*overload*/mb_strtolower($_REQUEST['server']);
             if ($server['host'] == $_REQUEST['server']
                 || $server['verbose'] == $_REQUEST['server']
-                || $verboseLower == $PMA_String->strtolower($_REQUEST['server'])
-                || md5($verboseLower) == $PMA_String->strtolower($_REQUEST['server'])
+                || $verboseToLower == $serverToLower
+                || md5($verboseToLower) == $serverToLower
             ) {
                 $_REQUEST['server'] = $i;
                 break;
@@ -845,7 +847,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // to allow HTTP or http
         $cfg['Server']['auth_type']
-            = $PMA_String->strtolower($cfg['Server']['auth_type']);
+            = /*overload*/mb_strtolower($cfg['Server']['auth_type']);
 
         /**
          * the required auth type plugin
@@ -860,6 +862,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 . ' ' . $cfg['Server']['auth_type']
             );
         }
+        if (isset($_REQUEST['pma_password'])) {
+            $_REQUEST['pma_password'] = substr($_REQUEST['pma_password'], 0, 256);
+        }
         include_once  './libraries/plugins/auth/' . $auth_class . '.class.php';
         // todo: add plugin manager
         $plugin_manager = null;
@@ -873,11 +878,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $auth_plugin->authSetUser();
         }
 
-         // Check IP-based Allow/Deny rules as soon as possible to reject the
-        // user
-        // Based on mod_access in Apache:
-        // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
-        // Look at: "static int check_dir_access(request_rec *r)"
+        // Check IP-based Allow/Deny rules as soon as possible to reject the
+        // user based on mod_access in Apache
         if (isset($cfg['Server']['AllowDeny'])
             && isset($cfg['Server']['AllowDeny']['order'])
         ) {
@@ -935,7 +937,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // if using TCP socket is not needed
-        if ($PMA_String->strtolower($cfg['Server']['connect_type']) == 'tcp') {
+        if (/*overload*/mb_strtolower($cfg['Server']['connect_type']) == 'tcp') {
             $cfg['Server']['socket'] = '';
         }
 
@@ -985,24 +987,50 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $cfg['Server']['user'], $cfg['Server']['password'], false
         );
 
+        // Set timestamp for the session, if required.
+        if ($cfg['Server']['SessionTimeZone'] != '') {
+            $sql_query_tz = 'SET ' . PMA_Util::backquote('time_zone') . ' = '
+                . '\''
+                . PMA_Util::sqlAddSlashes($cfg['Server']['SessionTimeZone'])
+                . '\'';
+
+            if (! $userlink->query($sql_query_tz)) {
+                $error_message_tz = sprintf(
+                    __(
+                        'Unable to use timezone %1$s for server %2$d. '
+                        . 'Please check your configuration setting for '
+                        . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
+                        . 'phpMyAdmin is currently using the default time zone '
+                        . 'of the database server.'
+                    ),
+                    $cfg['Servers'][$GLOBALS['server']]['SessionTimeZone'],
+                    $GLOBALS['server'],
+                    $GLOBALS['server']
+                );
+
+                $GLOBALS['error_handler']->addError(
+                    $error_message_tz,
+                    E_USER_WARNING,
+                    '',
+                    '',
+                    false
+                );
+            }
+        }
+
         if (! $controllink) {
             $controllink = $userlink;
         }
 
+        $auth_plugin->storeUserCredentials();
+
         /* Log success */
         PMA_logUser($cfg['Server']['user']);
 
-        if (PMA_MYSQL_INT_VERSION < 50500) {
+        if (PMA_MYSQL_INT_VERSION < $cfg['MysqlMinVersion']['internal']) {
             PMA_fatalError(
                 __('You should upgrade to %s %s or later.'),
-                array('MySQL', '5.5.0')
-            );
-        }
-
-        if (PMA_PHP_INT_VERSION < 50300) {
-            PMA_fatalError(
-                __('You should upgrade to %s %s or later.'),
-                array('PHP', '5.3.0')
+                array('MySQL', $cfg['MysqlMinVersion']['human'])
             );
         }
 
@@ -1016,6 +1044,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         if (PMA_DRIZZLE) {
+            // DisableIS must be set to false for Drizzle, it maps SHOW commands
+            // to INFORMATION_SCHEMA queries anyway so it's fast on large servers
+            $cfg['Server']['DisableIS'] = false;
             // SHOW OPEN TABLES is not supported by Drizzle
             $cfg['SkipLockedTables'] = false;
         }
@@ -1043,7 +1074,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
         $_SESSION['tmpval']['previous_server'] = $GLOBALS['server'];
 
-    } // end server connecting
+    } else { // end server connecting
+        // No need to check for 'PMA_BYPASS_GET_INSTANCE' since this execution path
+        // applies only to initial login
+        $response = PMA_Response::getInstance();
+        $response->getHeader()->disableMenuAndConsole();
+        $response->getFooter()->setMinimal();
+    }
 
     /**
      * check if profiling was requested and remember it
@@ -1057,6 +1094,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // the checkbox was unchecked
         unset($_SESSION['profiling']);
     }
+
+    // load user preferences
+    $GLOBALS['PMA_Config']->loadUserPreferences();
+
     /**
      * Inclusion of profiling scripts is needed on various
      * pages like sql, tbl_sql, db_sql, tbl_select
@@ -1086,10 +1127,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         );
         exit;
     }
-} // end if !defined('PMA_MINIMUM_COMMON')
-
-// load user preferences
-$GLOBALS['PMA_Config']->loadUserPreferences();
+} else { // end if !defined('PMA_MINIMUM_COMMON')
+    // load user preferences
+    $GLOBALS['PMA_Config']->loadUserPreferences();
+}
 
 // remove sensitive values from session
 $GLOBALS['PMA_Config']->set('blowfish_secret', '');
@@ -1149,9 +1190,28 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
 }
 
 // If Zero configuration mode enabled, check PMA tables in current db.
-if (isset($GLOBALS['cfg']['ZeroConf'])
+if (! defined('PMA_MINIMUM_COMMON')
+    && ! empty($GLOBALS['server'])
+    && isset($GLOBALS['cfg']['ZeroConf'])
     && $GLOBALS['cfg']['ZeroConf'] == true
 ) {
-    PMA_checkAndFixPMATablesInCurrentDb();
+    if (! empty($GLOBALS['db'])) {
+        $cfgRelation = PMA_getRelationsParam();
+        if (empty($cfgRelation['db'])) {
+            PMA_fixPMATables($GLOBALS['db'], false);
+        }
+    }
+    $cfgRelation = PMA_getRelationsParam();
+    if (empty($cfgRelation['db'])) {
+        foreach ($GLOBALS['pma']->databases as $database) {
+            if ($database == 'phpmyadmin') {
+                PMA_fixPMATables($database, false);
+            }
+        }
+    }
+}
+
+if (! defined('PMA_MINIMUM_COMMON')) {
+    include_once 'libraries/config/page_settings.class.php';
 }
 ?>

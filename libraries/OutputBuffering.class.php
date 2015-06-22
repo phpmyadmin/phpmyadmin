@@ -45,11 +45,9 @@ class PMA_OutputBuffering
                 // PMA_outBufferModeGet() function.
                 $mode = 0;
             } elseif (function_exists('ob_get_level') && ob_get_level() > 0) {
-                // If output buffering is enabled in php.ini it's not possible to
-                // add the ob_gzhandler without a warning message from php 4.3.0.
-                // Being better safe than sorry, check for any existing output
-                // handler instead of just checking the 'output_buffering' setting.
-                $mode = 0;
+                // happens when php.ini's output_buffering is not Off
+                ob_end_clean();
+                $mode = 1;
             } else {
                 $mode = 1;
             }
@@ -84,7 +82,7 @@ class PMA_OutputBuffering
     public function start()
     {
         if (! $this->_on) {
-            if ($this->_mode) {
+            if ($this->_mode && function_exists('ob_gzhandler')) {
                 ob_start('ob_gzhandler');
             }
             ob_start();
@@ -111,7 +109,6 @@ class PMA_OutputBuffering
             $buffer->_content = ob_get_contents();
             ob_end_clean();
         }
-        PMA_Response::response();
     }
 
     /**

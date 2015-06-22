@@ -22,7 +22,7 @@ var PMA_commonParams = (function () {
          * Saves all the key value pair that
          * are provided in the input array
          *
-         * @param hash obj The input array
+         * @param obj hash The input array
          *
          * @return void
          */
@@ -31,10 +31,10 @@ var PMA_commonParams = (function () {
             var updateNavigation = false;
             for (var i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
+                    if (i == 'db' || i == 'table') {
+                        updateNavigation = true;
+                    }
                     reload = true;
-                }
-                if (i == 'db' || i == 'table') {
-                    updateNavigation = true;
                 }
                 params[i] = obj[i];
             }
@@ -48,7 +48,7 @@ var PMA_commonParams = (function () {
          * Retrieves a value given its key
          * Returns empty string for undefined values
          *
-         * @param string name The key
+         * @param name string The key
          *
          * @return string
          */
@@ -58,14 +58,16 @@ var PMA_commonParams = (function () {
         /**
          * Saves a single key value pair
          *
-         * @param string name  The key
-         * @param string value The value
+         * @param name  string The key
+         * @param value string The value
          *
          * @return self For chainability
          */
         set: function (name, value) {
             var updateNavigation = false;
-            if (name == 'db' || name == 'table') {
+            if (name == 'db' || name == 'table' &&
+                params[name] !== value
+            ) {
                 updateNavigation = true;
             }
             params[name] = value;
@@ -82,8 +84,8 @@ var PMA_commonParams = (function () {
          * @return string
          */
         getUrlQuery: function () {
-            return $.sprintf(
-                '?%s&server=%s&db=%s&table=%s',
+            return PMA_sprintf(
+                '%s&server=%s&db=%s&table=%s',
                 this.get('common_query'),
                 encodeURIComponent(this.get('server')),
                 encodeURIComponent(this.get('db')),
@@ -104,7 +106,7 @@ var PMA_commonActions = {
      * Saves the database name when it's changed
      * and reloads the query window, if necessary
      *
-     * @param string new_db The name of the new database
+     * @param new_db string new_db The name of the new database
      *
      * @return void
      */
@@ -116,7 +118,7 @@ var PMA_commonActions = {
     /**
      * Opens a database in the main part of the page
      *
-     * @param string new_db The name of the new database
+     * @param new_db string The name of the new database
      *
      * @return void
      */
@@ -170,7 +172,7 @@ PMA_DROP_IMPORT = {
     /**
      * @var  string array, allowed extensions for compressed files
      */
-    allowedCompressedExtensions: ['gzip', 'bzip2', 'zip'],
+    allowedCompressedExtensions: ['gz', 'bz2', 'zip'],
     /**
      * @var obj array to store message returned by import_status.php
      */
@@ -178,7 +180,7 @@ PMA_DROP_IMPORT = {
     /**
      * Checks if any dropped file has valid extension or not
      *
-     * @param string, filename
+     * @param file filename
      *
      * @return string, extension for valid extension, '' otherwise
      */
@@ -212,10 +214,10 @@ PMA_DROP_IMPORT = {
             .children('progress').val(percent);
     },
     /**
-     * Function to upload the file asyncronously
+     * Function to upload the file asynchronously
      *
-     * @param formData, FormData object for a specific file
-     * @param hash, hash of the current file upload
+     * @param formData FormData object for a specific file
+     * @param hash hash of the current file upload
      *
      * @return void
      */
@@ -257,14 +259,14 @@ PMA_DROP_IMPORT = {
         });
 
         // -- provide link to cancel the upload
-        $('.pma_sql_import_status div li[data-hash="' +hash
-            +'"] span.filesize').html('<span hash="'
-            +hash +'" class="pma_drop_file_status" task="cancel">'
-            +PMA_messages.dropImportMessageCancel +'</span>');
+        $('.pma_sql_import_status div li[data-hash="' + hash +
+            '"] span.filesize').html('<span hash="' +
+            hash + '" class="pma_drop_file_status" task="cancel">' +
+            PMA_messages.dropImportMessageCancel + '</span>');
 
         // -- add event listener to this link to abort upload operation
-        $('.pma_sql_import_status div li[data-hash="' +hash
-            +'"] span.filesize span.pma_drop_file_status')
+        $('.pma_sql_import_status div li[data-hash="' + hash +
+            '"] span.filesize span.pma_drop_file_status')
             .on('click', function() {
                 if ($(this).attr('task') === 'cancel') {
                     jqXHR.abort();
@@ -279,11 +281,10 @@ PMA_DROP_IMPORT = {
                         if (value.hash === hash) {
                             $(".pma_drop_result:visible").remove();
                             var filename = $this.parent('span').attr('data-filename');
-                            $("body").append('<div class="pma_drop_result"><h2>'
-                                +PMA_messages.dropImportImportResultHeader +' - '
-                                +filename +'<span class="close">x</span></h2>' +value.message +'</div>');
+                            $("body").append('<div class="pma_drop_result"><h2>' +
+                                PMA_messages.dropImportImportResultHeader + ' - ' +
+                                filename +'<span class="close">x</span></h2>' +value.message +'</div>');
                             $(".pma_drop_result").draggable();  //to make this dialog draggable
-                            return;
                         }
                     });
                 }
@@ -356,7 +357,7 @@ PMA_DROP_IMPORT = {
     /**
      * Called when upload has finished
      *
-     * @param string, uniques hash for a certain upload
+     * @param string, unique hash for a certain upload
      * @param bool, true if upload was aborted
      * @param bool, status of sql upload, as sent by server
      *
@@ -369,27 +370,27 @@ PMA_DROP_IMPORT = {
         // -- provide link to view upload status
         if (!aborted) {
             if (status) {
-                $('.pma_sql_import_status div li[data-hash="' +hash
-                    +'"] span.filesize span.pma_drop_file_status')
+                $('.pma_sql_import_status div li[data-hash="' + hash +
+                   '"] span.filesize span.pma_drop_file_status')
                    .html('<span>' +PMA_messages.dropImportMessageSuccess +'</a>');
             } else {
-                $('.pma_sql_import_status div li[data-hash="' +hash
-                    +'"] span.filesize span.pma_drop_file_status')
-                   .html('<span class="underline">' +PMA_messages.dropImportMessageFailed
-                    +'</a>');
+                $('.pma_sql_import_status div li[data-hash="' + hash +
+                   '"] span.filesize span.pma_drop_file_status')
+                   .html('<span class="underline">' + PMA_messages.dropImportMessageFailed +
+                   '</a>');
                 icon = 'icon ic_s_error';
             }
         } else {
             icon = 'icon ic_s_notice';
         }
-        $('.pma_sql_import_status div li[data-hash="' +hash
-            +'"] span.filesize span.pma_drop_file_status')
+        $('.pma_sql_import_status div li[data-hash="' + hash +
+            '"] span.filesize span.pma_drop_file_status')
             .attr('task', 'info');
 
         // Set icon
         $('.pma_sql_import_status div li[data-hash="' +hash +'"]')
-            .prepend('<img src="./themes/dot.gif" title="finished" class="'
-            +icon +'"> ');
+            .prepend('<img src="./themes/dot.gif" title="finished" class="' +
+            icon +'"> ');
 
         // Decrease liveUploadCount by one
         $('.pma_import_count').html(--PMA_DROP_IMPORT.liveUploadCount);
@@ -399,7 +400,7 @@ PMA_DROP_IMPORT = {
     },
     /**
      * Triggered when dragged objects are dropped to UI
-     * From this function, the AJAX Upload operation is initated
+     * From this function, the AJAX Upload operation is initiated
      *
      * @param event object
      *
@@ -411,7 +412,7 @@ PMA_DROP_IMPORT = {
         if (dbname !== '') {
             var files = event.originalEvent.dataTransfer.files;
             if (!files || files.length === 0) {
-                // No files actually transfered
+                // No files actually transferred
                 $(".pma_drop_handler").fadeOut();
                 event.stopPropagation();
                 event.preventDefault();
@@ -422,11 +423,11 @@ PMA_DROP_IMPORT = {
                 var ext  = (PMA_DROP_IMPORT._getExtension(files[i].name));
                 var hash = AJAX.hash(++PMA_DROP_IMPORT.uploadCount);
 
-                $(".pma_sql_import_status div").append('<li data-hash="' +hash +'">'
-                    +((ext !== '') ? '' : '<img src="./themes/dot.gif" title="invalid format" class="icon ic_s_notice"> ')
-                    +escapeHtml(files[i].name) + '<span class="filesize" data-filename="'
-                    +escapeHtml(files[i].name) +'">' +(files[i].size/1024).toFixed(2)
-                    +' kb</span></li>');
+                $(".pma_sql_import_status div").append('<li data-hash="' +hash +'">' +
+                    ((ext !== '') ? '' : '<img src="./themes/dot.gif" title="invalid format" class="icon ic_s_notice"> ') +
+                    escapeHtml(files[i].name) + '<span class="filesize" data-filename="' +
+                    escapeHtml(files[i].name) +'">' +(files[i].size/1024).toFixed(2) +
+                    ' kb</span></li>');
 
                 //scroll the UI to bottom
                 $(".pma_sql_import_status div").scrollTop(

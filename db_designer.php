@@ -45,7 +45,7 @@ if (isset($_REQUEST['operation'])) {
     } elseif ($_REQUEST['operation'] == 'savePage') {
         if ($_REQUEST['save_page'] == 'same') {
             $page = $_REQUEST['selected_page'];
-        } elseif ($_REQUEST['save_page'] == 'new') {
+        } else { // new
             $page = PMA_createNewPage($_REQUEST['selected_value'], $GLOBALS['db']);
             $response->addJSON('id', $page);
         }
@@ -70,15 +70,16 @@ if (isset($_REQUEST['operation'])) {
             $_REQUEST['on_update']
         );
         $response->isSuccess($success);
-        $response->addJSON($success ? 'message' : 'error', $message);
+        $response->addJSON('message', $message);
     } elseif ($_REQUEST['operation'] == 'removeRelation') {
-        PMA_removeRelation(
+        list($success, $message) = PMA_removeRelation(
             $_REQUEST['T1'],
             $_REQUEST['F1'],
             $_REQUEST['T2'],
             $_REQUEST['F2']
         );
-        $response->isSuccess(true);
+        $response->isSuccess($success);
+        $response->addJSON('message', $message);
     }
     return;
 }
@@ -96,7 +97,7 @@ if (! isset($_REQUEST['query'])) {
     if (! empty($_REQUEST['page'])) {
         $display_page = $_REQUEST['page'];
     } else {
-        $display_page = PMA_getFirstPage($_REQUEST['db']);
+        $display_page = PMA_getDefaultPage($_REQUEST['db']);
     }
 }
 if ($display_page != -1) {
@@ -136,11 +137,13 @@ $response->addHTML(
     )
 );
 $response->addHTML(
-    PMA_getDesignerPageTopMenu(isset($_REQUEST['query']), $selected_page)
+    PMA_getDesignerPageMenu(isset($_REQUEST['query']), $selected_page)
 );
 
 $response->addHTML('<div id="canvas_outer">');
-$response->addHTML('<form action="" method="post" name="form1">');
+$response->addHTML(
+    '<form action="" id="container-form" method="post" name="form1">'
+);
 
 $response->addHTML(PMA_getHTMLCanvas());
 $response->addHTML(PMA_getHTMLTableList($tab_pos, $display_page));
@@ -168,5 +171,4 @@ if (isset($_REQUEST['query'])) {
     $response->addHTML(PMA_getQueryDetails());
 }
 
-$response->addHTML(PMA_getCacheImages());
-?>
+$response->addHTML('<div id="PMA_disable_floating_menubar"></div>');

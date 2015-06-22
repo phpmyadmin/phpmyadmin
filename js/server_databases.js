@@ -12,8 +12,8 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_databases.js', function () {
-    $("#dbStatsForm").die('submit');
-    $('#create_database_form.ajax').die('submit');
+    $(document).off('submit', "#dbStatsForm");
+    $(document).off('submit', '#create_database_form.ajax');
 });
 
 /**
@@ -27,7 +27,7 @@ AJAX.registerOnload('server_databases.js', function () {
     /**
      * Attach Event Handler for 'Drop Databases'
      */
-    $("#dbStatsForm").live('submit', function (event) {
+    $(document).on('submit', "#dbStatsForm", function (event) {
         event.preventDefault();
 
         var $form = $(this);
@@ -54,7 +54,7 @@ AJAX.registerOnload('server_databases.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_messages.strDropDatabaseStrongWarning + ' ' +
-            $.sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
+            PMA_sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
 
         $(this).PMA_confirm(
             question,
@@ -64,7 +64,7 @@ AJAX.registerOnload('server_databases.js', function () {
                 PMA_ajaxShowMessage(PMA_messages.strProcessingRequest, false);
 
                 $.post(url, function (data) {
-                    if (data.success === true) {
+                    if (typeof data !== 'undefined' && data.success === true) {
                         PMA_ajaxShowMessage(data.message);
 
                         var $rowsToRemove = $form.find('tr.removeMe');
@@ -91,7 +91,7 @@ AJAX.registerOnload('server_databases.js', function () {
     /**
      * Attach Ajax event handlers for 'Create Database'.
      */
-    $('#create_database_form.ajax').live('submit', function (event) {
+    $(document).on('submit', '#create_database_form.ajax', function (event) {
         event.preventDefault();
 
         var $form = $(this);
@@ -109,7 +109,7 @@ AJAX.registerOnload('server_databases.js', function () {
         PMA_prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function (data) {
-            if (data.success === true) {
+            if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxShowMessage(data.message);
 
                 //Append database's row to table
@@ -125,6 +125,13 @@ AJAX.registerOnload('server_databases.js', function () {
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
+
+            // make ajax request to load db structure page - taken from ajax.js
+            var dbStruct_url = data.url_query;
+            dbStruct_url = dbStruct_url.replace(/amp;/ig, '');
+            var params = 'ajax_request=true&ajax_page_request=true';
+            params += AJAX.cache.menus.getRequestParam();
+            $.get(dbStruct_url, params, AJAX.responseHandler);
         }); // end $.post()
-    }); // end $().live()
+    }); // end $(document).on()
 }); // end $()

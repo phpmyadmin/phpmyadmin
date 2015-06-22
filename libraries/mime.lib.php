@@ -19,16 +19,14 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_detectMIME(&$test)
 {
-    /** @var PMA_String $pmaString */
-    $pmaString = $GLOBALS['PMA_String'];
-    $len = $pmaString->strlen($test);
+    $len = /*overload*/mb_strlen($test);
     if ($len >= 2 && $test[0] == chr(0xff) && $test[1] == chr(0xd8)) {
         return 'image/jpeg';
     }
-    if ($len >= 3 && $pmaString->substr($test, 0, 3) == 'GIF') {
+    if ($len >= 3 && substr($test, 0, 3) == 'GIF') {
         return 'image/gif';
     }
-    if ($len >= 4 && $pmaString->substr($test, 0, 4) == "\x89PNG") {
+    if ($len >= 4 && /*overload*/mb_substr($test, 0, 4) == "\x89PNG") {
         return 'image/png';
     }
     return 'application/octet-stream';

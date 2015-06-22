@@ -110,14 +110,14 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
                 '0',
                 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0))'
             ),
-            // atleast one line should be there
+            // at least one line should be there
             array(
                 $temp2,
                 0,
                 null,
                 'MULTILINESTRING((5.02 8.45,6.14 0.15))'
             ),
-            // a line should have atleast two points
+            // a line should have at least two points
             array(
                 $temp3,
                 0,
@@ -232,15 +232,14 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
      * @param string $line_color color for the GIS MULTILINESTRING object
      * @param array  $scale_data array containing data related to scaling
      * @param object $image      image object
-     * @param string $output     expected output
      *
      * @return void
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial, $label, $line_color, $scale_data, $image, $output
+        $spatial, $label, $line_color, $scale_data, $image
     ) {
-        $return = $this->object->prepareRowAsPng(
+        $this->object->prepareRowAsPng(
             $spatial, $label, $line_color, $scale_data, $image
         );
         /* TODO: this never fails */
@@ -265,8 +264,7 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
                     'scale' => 2,
                     'height' => 150
                 ),
-                imagecreatetruecolor('120', '150'),
-                ''
+                imagecreatetruecolor('120', '150')
             )
         );
     }

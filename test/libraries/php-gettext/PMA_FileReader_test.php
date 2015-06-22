@@ -45,6 +45,8 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for read
+     *
+     * @return void
      */
     public function testRead()
     {
@@ -61,6 +63,8 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for seekto
+     *
+     * @return void
      */
     public function testSeekto()
     {
@@ -72,6 +76,8 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for currentpos
+     *
+     * @return void
      */
     public function testCurrentpos()
     {
@@ -83,6 +89,8 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for length
+     *
+     * @return void
      */
     public function testLength()
     {
@@ -94,6 +102,8 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for close
+     *
+     * @return void
      */
     public function testClose()
     {
@@ -105,12 +115,16 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for non existing file
+     *
+     * @return void
      */
     public function testForNonExistingFile()
     {
         $file = new FileReader('./path/for/no/file.txt');
+        // looking at the return value of a constructor is curious
+        // but the constructor returns a value
         $this->assertFalse(
-            $file->FileReader('./path/for/no/file.txt')
+            $file->__construct('./path/for/no/file.txt')
         );
     }
 
@@ -118,11 +132,11 @@ class PMA_FileReader_Test extends PHPUnit_Framework_TestCase
     {
         $reader = new CachedFileReader('./test/test_data/test.file');
         $this->assertEquals(
-            $reader->CachedFileReader('./test/test_data/test.file'),
+            $reader->__construct('./test/test_data/test.file'),
             null
         );
         $this->assertFalse(
-            $reader->CachedFileReader('./path/for/no/file.txt')
+            $reader->__construct('./path/for/no/file.txt')
         );
 
     }

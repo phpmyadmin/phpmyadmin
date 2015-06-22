@@ -186,7 +186,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             );
         }
         $this->database_name = $GLOBALS['TESTSUITE_DATABASE']
-            . $GLOBALS['PMA_String']->substr(md5(rand()), 0, 7);
+            . /*overload*/mb_substr(md5(rand()), 0, 7);
         $this->dbQuery(
             'CREATE DATABASE IF NOT EXISTS ' . $this->database_name
         );
@@ -431,7 +431,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
-     * Get table cell data
+     * Get table cell data by the ID of the table
      *
      * @param string $tableID Table identifier
      * @param int    $row     Table row
@@ -439,9 +439,28 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      *
      * @return text Data from the particular table cell
      */
-    public function getTable($tableID, $row, $column)
+    public function getCellByTableId($tableID, $row, $column)
     {
         $sel = "table#{$tableID} tbody tr:nth-child({$row}) "
+            . "td:nth-child({$column})";
+        $element = $this->byCssSelector(
+            $sel
+        );
+        return $element->text();
+    }
+
+    /**
+     * Get table cell data by the class attribute of the table
+     *
+     * @param string $tableClass Class of the table
+     * @param int    $row        Table row
+     * @param int    $column     Table column
+     *
+     * @return text Data from the particular table cell
+     */
+    public function getCellByTableClass($tableClass, $row, $column)
+    {
+        $sel = "table.{$tableClass} tbody tr:nth-child({$row}) "
             . "td:nth-child({$column})";
         $element = $this->byCssSelector(
             $sel
@@ -463,7 +482,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
          * Not supported in Safari Webdriver, see
          * http://code.google.com/p/selenium/issues/detail?id=4136
          */
-        if ($GLOBALS['PMA_String']->strtolower($this->getBrowser()) == 'safari') {
+        if (/*overload*/mb_strtolower($this->getBrowser()) == 'safari') {
             $this->markTestSkipped('Can not send keys to Safari browser.');
         }
         parent::keys($text);
@@ -483,7 +502,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
          * Not supported in Safari Webdriver, see
          * http://code.google.com/p/selenium/issues/detail?id=4136
          */
-        if ($GLOBALS['PMA_String']->strtolower($this->getBrowser()) == 'safari') {
+        if (/*overload*/mb_strtolower($this->getBrowser()) == 'safari') {
             $this->markTestSkipped('MoveTo not supported on Safari browser.');
         }
         parent::moveto($element);
@@ -501,7 +520,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
          * Not supported in Safari Webdriver, see
          * http://code.google.com/p/selenium/issues/detail?id=4136
          */
-        if ($GLOBALS['PMA_String']->strtolower($this->getBrowser()) == 'safari') {
+        if (/*overload*/mb_strtolower($this->getBrowser()) == 'safari') {
             $this->markTestSkipped('Alerts not supported on Safari browser.');
         }
         return parent::alertText();
@@ -520,7 +539,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
          * Firefox needs some escaping of a text, see
          * http://code.google.com/p/selenium/issues/detail?id=1723
          */
-        if ($GLOBALS['PMA_String']->strtolower($this->getBrowser()) == 'firefox') {
+        if (/*overload*/mb_strtolower($this->getBrowser()) == 'firefox') {
             $text = str_replace(
                 "(",
                 PHPUnit_Extensions_Selenium2TestCase_Keys::SHIFT

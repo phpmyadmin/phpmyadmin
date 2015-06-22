@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/navigation/Nodes/Node.class.php';
 
 /**
- * Node factory - instanciates Node objects or objects derived from the Node class
+ * Node factory - instantiates Node objects or objects derived from the Node class
  *
  * @package PhpMyAdmin-Navigation
  */
@@ -72,9 +72,9 @@ class PMA_NodeFactory
         return $class;
     }
     /**
-     * Instanciates a Node object
+     * Instantiates a Node object
      *
-     * @param string $class    The name of the class to instanciate
+     * @param string $class    The name of the class to instantiate
      * @param string $name     An identifier for the new node
      * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
      * @param bool   $is_group Whether this object has been created

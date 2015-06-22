@@ -131,15 +131,20 @@ function PMA_changePassword($password, $message, $change_password_message)
     global $auth_plugin;
 
     $hashing_function = PMA_changePassHashingFunction();
-    $sql_query = 'SET password = '
-        . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+    if (PMA_Util::getServerType() === 'MySQL' && PMA_MYSQL_INT_VERSION >= 50706) {
+        $sql_query = 'ALTER USER USER() IDENTIFIED BY '
+            . (($password == '') ? '\'\'' : '\'***\'');
+    } else {
+        $sql_query = 'SET password = '
+            . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+    }
     PMA_changePassUrlParamsAndSubmitQuery(
         $password, $sql_query, $hashing_function
     );
 
-    $url_params = $auth_plugin->handlePasswordChange($password);
+    $auth_plugin->handlePasswordChange($password);
     PMA_getChangePassMessage($change_password_message, $sql_query);
-    PMA_changePassDisplayPage($message, $sql_query, $url_params);
+    PMA_changePassDisplayPage($message, $sql_query);
 }
 
 /**
@@ -170,9 +175,15 @@ function PMA_changePassUrlParamsAndSubmitQuery(
     $password, $sql_query, $hashing_function
 ) {
     $err_url = 'user_password.php' . PMA_URL_getCommon();
-    $local_query = 'SET password = ' . (($password == '')
-        ? '\'\''
-        : $hashing_function . '(\'' . PMA_Util::sqlAddSlashes($password) . '\')');
+    if (PMA_Util::getServerType() === 'MySQL' && PMA_MYSQL_INT_VERSION >= 50706) {
+        $local_query = 'ALTER USER USER() IDENTIFIED BY ' . (($password == '')
+            ? '\'\''
+            : '\'' . PMA_Util::sqlAddSlashes($password) . '\'');
+    } else {
+        $local_query = 'SET password = ' . (($password == '')
+            ? '\'\''
+            : $hashing_function . '(\'' . PMA_Util::sqlAddSlashes($password) . '\')');
+    }
     if (! @$GLOBALS['dbi']->tryQuery($local_query)) {
         PMA_Util::mysqlDie($GLOBALS['dbi']->getError(), $sql_query, false, $err_url);
     }
@@ -197,4 +208,3 @@ function PMA_changePassDisplayPage($message, $sql_query)
         . '<strong>' . __('Back') . '</strong></a>';
     exit;
 }
-?>

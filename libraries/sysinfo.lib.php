@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Library for extracting information about system memory and cpu.
- * Currently supports all Windows and Linux plattforms
+ * Currently supports all Windows and Linux platforms
  *
  * This code is based on the OS Classes from the phpsysinfo project
  * (http://phpsysinfo.sourceforge.net/)
@@ -165,7 +165,6 @@ class PMA_SysInfoWinnt extends PMA_SysInfo
     private function _getWMI($strClass, $strValue = array())
     {
         $arrData = array();
-        $value = "";
 
         $objWEBM = $this->_wmi->Get($strClass);
         $arrProp = $objWEBM->Properties_;
@@ -177,7 +176,7 @@ class PMA_SysInfoWinnt extends PMA_SysInfo
             $arrInstance = array();
             foreach ($arrProp as $propItem) {
                 $name = $propItem->Name;
-                if ( empty($strValue) || in_array($name, $strValue)) {
+                if (empty($strValue) || in_array($name, $strValue)) {
                     $value = $objItem->$name;
                     $arrInstance[$name] = trim($value);
                 }
@@ -235,13 +234,10 @@ class PMA_SysInfoLinux extends PMA_SysInfo
      */
     function loadavg()
     {
-        /** @var PMA_String $pmaString */
-        $pmaString = $GLOBALS['PMA_String'];
-
         $buf = file_get_contents('/proc/stat');
         $nums = preg_split(
             "/\s+/",
-            $pmaString->substr($buf, 0, $pmaString->strpos($buf, "\n"))
+            /*overload*/mb_substr($buf, 0, /*overload*/mb_strpos($buf, "\n"))
         );
         return Array(
             'busy' => $nums[1] + $nums[2] + $nums[3],
@@ -256,7 +252,7 @@ class PMA_SysInfoLinux extends PMA_SysInfo
      */
     public function supported()
     {
-        return is_readable('/proc/meminfo') && is_readable('/proc/stat');
+        return @is_readable('/proc/meminfo') && @is_readable('/proc/stat');
     }
 
 
@@ -319,7 +315,7 @@ class PMA_SysInfoSunos extends PMA_SysInfo
     private function _kstat($key)
     {
         if ($m = shell_exec('kstat -p d ' . $key)) {
-            list($key, $value) = preg_split("/\t/", trim($m), 2);
+            list(, $value) = preg_split("/\t/", trim($m), 2);
             return $value;
         } else {
             return '';
@@ -345,7 +341,7 @@ class PMA_SysInfoSunos extends PMA_SysInfo
      */
     public function supported()
     {
-        return is_readable('/proc/meminfo');
+        return @is_readable('/proc/meminfo');
     }
 
 

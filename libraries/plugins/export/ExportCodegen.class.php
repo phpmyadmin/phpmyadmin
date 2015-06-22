@@ -120,7 +120,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
         return true;
     }
@@ -130,7 +130,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         return true;
     }
@@ -143,7 +143,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $db_alias = '')
     {
         return true;
     }
@@ -155,7 +155,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         return true;
     }
@@ -193,8 +193,9 @@ class ExportCodegen extends ExportPlugin
 
         $format = $GLOBALS['codegen_format'];
         if (isset($CG_FORMATS[$format])) {
+            $method = $CG_HANDLERS[$format];
             return PMA_exportOutputHandler(
-                $this->$CG_HANDLERS[$format]($db, $table, $crlf, $aliases)
+                $this->$method($db, $table, $crlf, $aliases)
             );
         }
         return PMA_exportOutputHandler(sprintf("%s is not supported.", $format));

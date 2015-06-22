@@ -37,7 +37,7 @@ function removeColumnFromMultiSort(target, parent)
     // If the given column is not part of the order clause exit from this function
     var index = parent.find('small').length ? parent.find('small').text() : '';
     if (index === ''){
-        return;
+        return '';
     }
     // Remove the current clicked column
     columns.splice(index-1, 1);
@@ -59,19 +59,23 @@ function removeColumnFromMultiSort(target, parent)
 AJAX.registerOnload('keyhandler.js', function () {
     $("th.draggable.column_heading.pointer.marker a").on('click', function (event) {
         var url = $(this).parent().find('input').val();
-        if (event.ctrlKey) {
+        if (event.ctrlKey || event.altKey) {
             event.preventDefault();
             url = removeColumnFromMultiSort(url, $(this).parent());
-            AJAX.source = $(this);
-            $.get(url, {'ajax_request' : true, 'ajax_page_request' : true}, AJAX.responseHandler);
+            if (url) {
+                AJAX.source = $(this);
+                PMA_ajaxShowMessage();
+                $.get(url, {'ajax_request' : true, 'ajax_page_request' : true}, AJAX.responseHandler);
+            }
         } else if (event.shiftKey) {
             event.preventDefault();
             AJAX.source = $(this);
+            PMA_ajaxShowMessage();
             $.get(url, {'ajax_request' : true, 'ajax_page_request' : true}, AJAX.responseHandler);
         }
     });
 });
 
 AJAX.registerTeardown('keyhandler.js', function () {
-    $("th.draggable.column_heading.pointer.marker a").die('click');
+    $(document).off('click', "th.draggable.column_heading.pointer.marker a");
 });

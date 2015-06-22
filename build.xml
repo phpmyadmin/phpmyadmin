@@ -55,7 +55,7 @@
    <arg line="${source_comma_sep}
               xml
               codesize,design,naming,unusedcode
-              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,PMAStandard,phpseclib,recaptchalib.php,swekey.php,vendor
+              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,PMAStandard,phpseclib,recaptchalib.php,swekey.php,vendor,sql-formatter
               --reportfile '${basedir}/build/logs/pmd.xml'" />
   </exec>
  </target>
@@ -73,6 +73,7 @@
               --exclude libraries/phpseclib
               --exclude libraries/plugins/auth/recaptchalib.php
               --exclude libraries/plugins/auth/swekey/swekey.php
+              --exclude libraries/sql-formatter/
               ${source}" />
   </exec>
  </target>
@@ -90,6 +91,7 @@
               --exclude libraries/phpseclib
               --exclude libraries/plugins/auth/recaptchalib.php
               --exclude libraries/plugins/auth/swekey/swekey.php
+              --exclude libraries/sql-formatter/
               ${source}" />
   </exec>
  </target>
@@ -97,7 +99,7 @@
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding third party libraries">
   <exec executable="phpcs">
    <arg line="
-              --ignore=*/php-gettext/*,*/vendor/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*,*/phpseclib/*,*/recaptchalib.php,*/swekey.php
+              --ignore=*/php-gettext/*,*/vendor/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*,*/phpseclib/*,*/recaptcha/*,*/swekey/*,*/sql-formatter/*
               --report=checkstyle
               --extensions=php
               --report-file='${basedir}/build/logs/checkstyle.xml'
@@ -120,9 +122,20 @@
   </exec>
  </target>
 
- <target name="jshint" description="Javascript checks">
-  <apply executable="jshint" output="${basedir}/build/logs/jslint.xml"  parallel="true">
-   <arg line="--config ./.jshintrc --jslint-reporter" />
+<target name="jshint" description="Javascript checks">
+  <apply executable="jshint" output="${basedir}/build/logs/jshint-jslint.xml"  parallel="true">
+   <arg line="--config ./.jshintrc --reporter=jslint" />
+   <fileset dir="${basedir}">
+    <include name="js/pmd/*.js" />
+    <include name="js/*.js" />
+    <include name="setup/*.js" />
+   </fileset>
+  </apply>
+ </target>
+
+ <target name="jshint-checkstyle" description="Javascript checks">
+  <apply executable="jshint" output="${basedir}/build/logs/jshint-checkstyle.xml"  parallel="true">
+   <arg line="--config ./.jshintrc --reporter=checkstyle" />
    <fileset dir="${basedir}">
     <include name="js/pmd/*.js" />
     <include name="js/*.js" />
@@ -138,7 +151,7 @@
  </target>
 
  <target name="lint" description="Perform syntax check of sourcecode files">
-  <apply executable="php" failonerror="true">
+  <apply executable="php" failonerror="true" output="${basedir}/build/logs/lint.log" logError="true">
    <arg value="-l" />
 
    <fileset dir="${basedir}">

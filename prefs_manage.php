@@ -23,14 +23,15 @@ PMA_userprefsPageInit($cf);
 
 $error = '';
 if (isset($_POST['submit_export'])
-    && filter_input(INPUT_POST, 'export_type') == 'text_file'
+    && isset($_POST['export_type'])
+    && $_POST['export_type'] == 'text_file'
 ) {
     // export to JSON file
     PMA_Response::getInstance()->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.json';
     PMA_downloadHeader($filename, 'application/json');
     $settings = PMA_loadUserprefs();
-    echo json_encode($settings['config_data']);
+    echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
     exit;
 } else if (isset($_POST['submit_get_json'])) {
     $settings = PMA_loadUserprefs();
@@ -41,7 +42,8 @@ if (isset($_POST['submit_export'])
 } else if (isset($_POST['submit_import'])) {
     // load from JSON file
     $json = '';
-    if (filter_input(INPUT_POST, 'import_type') == 'text_file'
+    if (isset($_POST['import_type'])
+        && $_POST['import_type'] == 'text_file'
         && isset($_FILES['import_file'])
         && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
         && is_uploaded_file($_FILES['import_file']['tmp_name'])
@@ -70,14 +72,14 @@ if (isset($_POST['submit_export'])
         }
     } else {
         // read from POST value (json)
-        $json = filter_input(INPUT_POST, 'json');
+        $json = isset($_POST['json']) ? $_POST['json'] : null;
     }
 
     // hide header message
     $_SESSION['userprefs_autoload'] = true;
 
     $config = json_decode($json, true);
-    $return_url = filter_input(INPUT_POST, 'return_url');
+    $return_url = isset($_POST['return_url']) ? $_POST['return_url'] : null;
     if (! is_array($config)) {
         $error = __('Could not import configuration');
     } else {
@@ -115,7 +117,7 @@ if (isset($_POST['submit_export'])
             );
             $msg->display();
             echo '<div class="config-form">';
-            $form_display->displayErrors();
+            echo $form_display->displayErrors();
             echo '</div>';
             echo '<form action="prefs_manage.php" method="post">';
             echo PMA_URL_getHiddenInputs() . "\n";
@@ -176,12 +178,12 @@ if (isset($_POST['submit_export'])
                 $pmaString = $GLOBALS['PMA_String'];
 
                 foreach ($query as $q) {
-                    $pos = $pmaString->strpos($q, '=');
-                    $k = $pmaString->substr($q, 0, $pos);
+                    $pos = /*overload*/mb_strpos($q, '=');
+                    $k = /*overload*/mb_substr($q, 0, $pos);
                     if ($k == 'token') {
                         continue;
                     }
-                    $params[$k] = $pmaString->substr($q, $pos+1);
+                    $params[$k] = /*overload*/mb_substr($q, $pos + 1);
                 }
             } else {
                 $return_url = 'prefs_manage.php';
@@ -283,8 +285,12 @@ if (file_exists('setup/index.php')) {
             <h2><?php echo __('More settings') ?></h2>
             <div class="group-cnt">
                 <?php
-                echo sprintf(__('You can set more settings by modifying config.inc.php, eg. by using %sSetup script%s.'), '<a href="setup/index.php" target="_blank">', '</a>');
-                echo PMA_Util::showDocu('setup', 'setup-script');
+                echo sprintf(
+                    __(
+                        'You can set more settings by modifying config.inc.php, eg. '
+                        . 'by using %sSetup script%s.'
+                    ), '<a href="setup/index.php" target="_blank">', '</a>'
+                ) . PMA_Util::showDocu('setup', 'setup-script');
                 ?>
             </div>
             </div>
@@ -294,59 +300,85 @@ if (file_exists('setup/index.php')) {
     </div>
     <div id="main_pane_right">
         <div class="group">
-            <h2><?php echo __('Export') ?></h2>
+            <h2><?php echo __('Export'); ?></h2>
             <div class="click-hide-message group-cnt" style="display:none">
                 <?php
-PMA_Message::rawSuccess(
-    __('Configuration has been saved.')
-)->display();
-echo '</div>'
-    . '<form class="group-cnt prefs-form disableAjax" name="prefs_export"'
-    . ' action="prefs_manage.php" method="post">'
-    . PMA_URL_getHiddenInputs()
-    . '<div style="padding-bottom:0.5em">'
-    . '<input type="radio" id="export_text_file" name="export_type"'
-    . ' value="text_file" checked="checked" />'
-    . '<label for="export_text_file">' . __('Save as file') . '</label>'
-    . '<br />'
-    . '<input type="radio" id="export_local_storage" name="export_type"'
-    . ' value="local_storage" disabled="disabled" />'
-    . '<label for="export_local_storage">'
-    .  __('Save to browser\'s storage') . '</label>'
-    . '</div>'
-    . '<div id="opts_export_local_storage" class="prefsmanage_opts disabled">'
-    . '<span class="localStorage-supported">'
-    . __('Settings will be saved in your browser\'s local storage.')
-    . '<div class="localStorage-exists">'
-    . '<b>' . __('Existing settings will be overwritten!') . '</b>'
-    . '</div>'
-    . '</span>'
-    . '<div class="localStorage-unsupported">';
-PMA_Message::notice(
-    __('This feature is not supported by your web browser')
-)->display();
-?>
+                PMA_Message::rawSuccess(
+                    __('Configuration has been saved.')
+                )->display();
+                ?>
+            </div>
+            <form class="group-cnt prefs-form disableAjax" name="prefs_export"
+                  action="prefs_manage.php" method="post">
+                <?php echo PMA_URL_getHiddenInputs(); ?>
+                <div style="padding-bottom:0.5em">
+                    <input type="radio" id="export_text_file" name="export_type"
+                           value="text_file" checked="checked" />
+                    <label for="export_text_file">
+                        <?php echo __('Save as file'); ?>
+                    </label><br />
+                    <input type="radio" id="export_local_storage" name="export_type"
+                           value="local_storage" disabled="disabled" />
+                    <label for="export_local_storage">
+                        <?php echo __('Save to browser\'s storage'); ?></label>
+                </div>
+                <div id="opts_export_local_storage"
+                     class="prefsmanage_opts disabled">
+                    <span class="localStorage-supported">
+                        <?php
+                        echo __(
+                            'Settings will be saved in your browser\'s local '
+                            . 'storage.'
+                        );
+                        ?>
+                        <div class="localStorage-exists">
+                            <b>
+                                <?php
+                                echo __(
+                                    'Existing settings will be overwritten!'
+                                );
+                                ?>
+                            </b>
+                        </div>
+                    </span>
+                    <div class="localStorage-unsupported">
+                        <?php
+                        PMA_Message::notice(
+                            __('This feature is not supported by your web browser')
+                        )->display();
+                        ?>
                     </div>
                 </div>
                 <br />
-<?php
-echo '<input type="submit" name="submit_export" value="' . __('Go') . '" />';
-?>
+                <?php
+                echo '<input type="submit" name="submit_export" value="' . __(
+                    'Go'
+                ) . '" />';
+                ?>
             </form>
         </div>
         <div class="group">
-<?php
-echo '<h2>' . __('Reset') . '</h2>'
-    . '<form class="group-cnt prefs-form disableAjax" name="prefs_reset"'
-    . ' action="prefs_manage.php" method="post">'
-    . PMA_URL_getHiddenInputs()
-    . __('You can reset all your settings and restore them to default values.')
-    . '<br /><br />'
-    . '<input type="submit" name="submit_clear" value="'
-    . __('Reset') . '" />'
-    . '</form>';
-?>
+            <h2><?php echo __('Reset'); ?></h2>
+            <form class="group-cnt prefs-form disableAjax" name="prefs_reset"
+                  action="prefs_manage.php" method="post">
+                <?php
+                echo PMA_URL_getHiddenInputs() . __(
+                    'You can reset all your settings and restore them to default '
+                    . 'values.'
+                );
+                ?>
+                <br /><br />
+                <input type="submit" name="submit_clear"
+                       value="<?php echo __('Reset'); ?>"/>
+            </form>
         </div>
     </div>
     <br class="clearfloat" />
 </div>
+
+<?php
+if ($response->isAjax()) {
+    $response->addJSON('_disableNaviSettings', true);
+} else {
+    define('PMA_DISABLE_NAVI_SETTINGS', true);
+}
