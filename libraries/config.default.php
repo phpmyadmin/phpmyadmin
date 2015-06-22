@@ -2681,6 +2681,14 @@ $cfg['LimitChars'] = 50;
 $cfg['RowActionLinks'] = 'left';
 
 /**
+ * Whether to show row links (Edit, Copy, Delete) and checkboxes for
+ * multiple row operations even when the selection does not have a unique key.
+ *
+ * @global boolean $cfg['RowActionLinksWithoutUnique']
+ */
+$cfg['RowActionLinksWithoutUnique'] = false;
+
+/**
  * Default sort order by primary key.
  * @global string $cfg['TablePrimaryKeyOrder']
  */
