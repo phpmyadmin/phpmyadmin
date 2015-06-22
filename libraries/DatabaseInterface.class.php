@@ -1648,20 +1648,28 @@ class PMA_DatabaseInterface
     }
 
     /**
-     * Set foreign key check variable in session
+     * Sets new value for a variable if it is different from the current value
      *
-     * @param bool $value Turn it on or off
+     * @param string $var   variable name
+     * @param string $value value to set
+     * @param mixed  $link  mysql link resource|object
      *
-     * @return void
+     * @return bool whether query was a successful
      */
-    public function setForeignKeyCheck($value)
+    public function setVariable($var, $value, $link = null)
     {
-        $current_fk_check_value = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
-        if ($current_fk_check_value == $value) {
-            return;
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
+        $current_value = $GLOBALS['dbi']->getVariable(
+            $var, self::GETVAR_SESSION, $link
+        );
+        if ($current_value == $value) {
+            return true;
         }
 
-        $this->query('SET FOREIGN_KEY_CHECKS = ' . ($value ? 1 : 0) . ';');
+        return $this->query("SET " . $var . " = " . $value . ';', $link);
     }
 
     /**

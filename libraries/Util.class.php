@@ -3246,10 +3246,10 @@ class PMA_Util
         if (isset($_REQUEST['fk_checks'])) {
             if (empty($_REQUEST['fk_checks'])) {
                 // Disable foreign key checks
-                $GLOBALS['dbi']->setForeignKeyCheck(false);
+                $GLOBALS['dbi']->setVariable('FOREIGN_KEY_CHECKS', 'OFF');
             } else {
                 // Enable foreign key checks
-                $GLOBALS['dbi']->setForeignKeyCheck(true);
+                $GLOBALS['dbi']->setVariable('FOREIGN_KEY_CHECKS', 'ON');
             }
         } // else do nothing, go with default
         return $default_fk_check_value;
@@ -3264,7 +3264,9 @@ class PMA_Util
      */
     public static function handleDisableFKCheckCleanup($default_fk_check_value)
     {
-        $GLOBALS['dbi']->setForeignKeyCheck($default_fk_check_value);
+        $GLOBALS['dbi']->setVariable(
+            'FOREIGN_KEY_CHECKS', $default_fk_check_value ? 'ON' : 'OFF'
+        );
     }
 
     /**
