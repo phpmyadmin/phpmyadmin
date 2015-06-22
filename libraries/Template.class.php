@@ -12,6 +12,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/OutputBuffering.class.php';
+
 /**
  * Class Template
  *
@@ -73,9 +75,10 @@ class Template
     public function render($data = array(), $trim = true)
     {
         $template = static::BASE_PATH . $this->name . '.phtml';
+        $buffer = \PMA_OutputBuffering::getInstance();
         try {
             extract($data);
-            ob_start();
+            $buffer->start();
             if (file_exists($template)) {
                 include $template;
             } else {
@@ -83,15 +86,16 @@ class Template
                     'The template "' . $template . '" not found.'
                 );
             }
+
+            $buffer->stop();
+            $content = $buffer->getContents();
             if ($trim) {
-                $content = Template::trim(ob_get_clean());
-            } else {
-                $content = ob_get_clean();
+                $content = Template::trim($content);
             }
 
             return $content;
         } catch (\LogicException $e) {
-            ob_end_clean();
+            $buffer->stop();
             throw new \LogicException($e->getMessage());
         }
     }
