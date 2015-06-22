@@ -43,12 +43,13 @@
             <directory suffix=".php">.</directory>
             <exclude>
                 <!-- we don't care about coverage of embedded libraries -->
-                <directory suffix=".php">libraries/tcpdf</directory>
-                <directory suffix=".php">libraries/phpseclib</directory>
+                <directory suffix=".inc">libraries/php-gettext</directory>
                 <directory suffix=".php">libraries/bfShapeFiles</directory>
                 <directory suffix=".php">libraries/php-gettext</directory>
-                <directory suffix=".inc">libraries/php-gettext</directory>
+                <directory suffix=".php">libraries/phpseclib</directory>
                 <directory suffix=".php">libraries/plugins/auth/swekey/</directory>
+                <directory suffix=".php">libraries/sql-parser</directory>
+                <directory suffix=".php">libraries/tcpdf</directory>
                 <!-- code sniffer checker -->
                 <directory suffix=".php">PMAStandard</directory>
                 <!-- examples for users -->
