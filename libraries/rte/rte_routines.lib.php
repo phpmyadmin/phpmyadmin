@@ -510,11 +510,13 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     $retval['item_name'] = $routine['SPECIFIC_NAME'];
     $retval['item_type'] = $routine['ROUTINE_TYPE'];
 
-    $parser = new SqlParser\Parser($GLOBALS['dbi']->getDefinition(
-        $db,
-        $routine['ROUTINE_TYPE'],
-        $routine['SPECIFIC_NAME']
-    ));
+    $parser = new SqlParser\Parser(
+        $GLOBALS['dbi']->getDefinition(
+            $db,
+            $routine['ROUTINE_TYPE'],
+            $routine['SPECIFIC_NAME']
+        )
+    );
     $routineStatement = $parser->statements[0];
 
     $params = SqlParser\Utils\Routine::getParameters($routineStatement);

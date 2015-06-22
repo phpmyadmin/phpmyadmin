@@ -3,13 +3,18 @@
 namespace SqlParser\Fragments;
 
 use SqlParser\Fragment;
-use SqlParser\Lexer;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
 
 /**
  * Parses the definition that follows the `CREATE` keyword.
+ *
+ * @category   Fragments
+ * @package    SqlParser
+ * @subpackage Fragments
+ * @author     Dan Ungureanu <udan1107@gmail.com>
+ * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class CreateDefFragment extends Fragment
 {
@@ -70,9 +75,9 @@ class CreateDefFragment extends Fragment
     public $name;
 
     /**
-     * @param Parser $parser The parser that serves as context.
-     * @param TokensList $list The list of tokens that are being parsed.
-     * @param array $options Parameters for parsing.
+     * @param Parser     $parser  The parser that serves as context.
+     * @param TokensList $list    The list of tokens that are being parsed.
+     * @param array      $options Parameters for parsing.
      *
      * @return CreateDefFragment
      */
@@ -81,7 +86,11 @@ class CreateDefFragment extends Fragment
         $ret = new CreateDefFragment();
 
         for (; $list->idx < $list->count; ++$list->idx) {
-            /** @var Token Token parsed at this moment. */
+
+            /**
+             * Token parsed at this moment.
+             * @var Token
+             */
             $token = $list->tokens[$list->idx];
 
             // End of statement.
@@ -90,11 +99,15 @@ class CreateDefFragment extends Fragment
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === Token::TYPE_WHITESPACE)
+                || ($token->type === Token::TYPE_COMMENT)
+            ) {
                 continue;
             }
 
-            if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
+            if (($token->type === Token::TYPE_OPERATOR)
+                && ($token->value === '(')
+            ) {
                 break;
             }
 

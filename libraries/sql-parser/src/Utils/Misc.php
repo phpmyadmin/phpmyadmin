@@ -4,6 +4,15 @@ namespace SqlParser\Utils;
 
 use SqlParser\Statements\SelectStatement;
 
+/**
+ * Miscellaneous utilities.
+ *
+ * @category   Misc
+ * @package    SqlParser
+ * @subpackage Utils
+ * @author     Dan Ungureanu <udan1107@gmail.com>
+ * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ */
 class Misc
 {
 
@@ -11,7 +20,7 @@ class Misc
      * Gets a list of all aliases and their original names.
      *
      * @param SelectStatement $tree The tree that was generated after parsing.
-     * @param string $db
+     * @param string          $db   The name of the database.
      *
      * @return array
      */
@@ -21,7 +30,9 @@ class Misc
 
         $tables = array();
 
-        if ((!empty($tree->join->expr->table)) && (!empty($tree->join->expr->alias))) {
+        if ((!empty($tree->join->expr->table))
+            && (!empty($tree->join->expr->alias))
+        ) {
             $thisDb = empty($tree->join->expr->database) ?
                 $db : $tree->join->expr->database;
 
@@ -81,7 +92,8 @@ class Misc
             } else {
                 $thisTable = isset($tables[$thisDb][$expr->table]) ?
                     $tables[$thisDb][$expr->table] : $expr->table;
-                $retval[$thisDb]['tables'][$thisTable]['columns'][$expr->column] = $expr->alias;
+                $retval[$thisDb]['tables']
+                    [$thisTable]['columns'][$expr->column] = $expr->alias;
             }
         }
 

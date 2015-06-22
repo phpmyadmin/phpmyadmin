@@ -1060,7 +1060,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         include_once './libraries/sql-parser/autoload.php';
         try {
             SqlParser\Context::load((PMA_DRIZZLE ? 'Drizzle' : 'MySQL') . PMA_MYSQL_INT_VERSION);
-        } catch (\Exception $e) {}
+        } catch (\Exception $e) {
+            // If this fails, it will continue using the default context.
+        }
 
         /**
          * the PMA_List_Database class

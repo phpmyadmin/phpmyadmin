@@ -4,6 +4,15 @@ namespace SqlParser\Contexts;
 
 use SqlParser\Context;
 
+/**
+ * Context for MySQL 5.0.
+ *
+ * @category   Contexts
+ * @package    SqlParser
+ * @subpackage Contexts
+ * @author     Dan Ungureanu <udan1107@gmail.com>
+ * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ */
 class Context_MySQL50000 extends Context
 {
 

@@ -19,6 +19,11 @@ use SqlParser\Statement;
  *     SET col_name1={expr1|DEFAULT} [, col_name2={expr2|DEFAULT}] ...
  *     [WHERE where_condition]
  *
+ * @category   Statements
+ * @package    SqlParser
+ * @subpackage Statements
+ * @author     Dan Ungureanu <udan1107@gmail.com>
+ * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class UpdateStatement extends Statement
 {

@@ -2,6 +2,14 @@
 
 namespace SqlParser;
 
+/**
+ * A structure representing a list of tokens.
+ *
+ * @category Tokens
+ * @package  SqlParser
+ * @author   Dan Ungureanu <udan1107@gmail.com>
+ * @license  http://opensource.org/licenses/GPL-2.0 GNU Public License
+ */
 class TokensList implements \ArrayAccess
 {
 
@@ -29,7 +37,9 @@ class TokensList implements \ArrayAccess
     /**
      * Adds a new token.
      *
-     * @param Token $token
+     * @param Token $token Token to be added in list.
+     *
+     * @return void
      */
     public function add(Token $token)
     {
@@ -37,7 +47,7 @@ class TokensList implements \ArrayAccess
     }
 
     /**
-     * Gets next token in list.
+     * Gets the next token.
      *
      * @return Token
      */
@@ -50,9 +60,9 @@ class TokensList implements \ArrayAccess
     }
 
     /**
-     * Gets next token of a specified type.
+     * Gets the next token.
      *
-     * @param int $type
+     * @param int $type The type.
      *
      * @return Token
      */
@@ -67,26 +77,33 @@ class TokensList implements \ArrayAccess
     }
 
     /**
-     * Gets next token of a specified type.
+     * Gets the next token.
      *
-     * @param int $type
-     * @param string $value
+     * @param int    $type  The type of the token.
+     * @param string $value The value of the token.
      *
      * @return Token
      */
     public function getNextOfTypeAndValue($type, $value)
     {
         for (; $this->idx < $this->count; ++$this->idx) {
-            if (($this->tokens[$this->idx]->type === $type) &&
-                ($this->tokens[$this->idx]->value === $value)) {
+            if (($this->tokens[$this->idx]->type === $type)
+                && ($this->tokens[$this->idx]->value === $value)
+            ) {
                 return $this->tokens[$this->idx++];
             }
         }
         return null;
     }
 
-    // ArrayAccess methods.
-
+    /**
+     * Sets an value inside the container.
+     *
+     * @param int   $offset The offset to be set.
+     * @param Token $value  The token to be saved.
+     *
+     * @return void
+     */
     public function offsetSet($offset, $value)
     {
         if ($offset === null) {
@@ -96,16 +113,37 @@ class TokensList implements \ArrayAccess
         }
     }
 
+    /**
+     * Gets a value from the container.
+     *
+     * @param int $offset The offset to be returned.
+     *
+     * @return Token
+     */
     public function offsetGet($offset)
     {
         return $offset < $this->count ? $this->tokens[$offset] : null;
     }
 
+    /**
+     * Checks if an offset was previously set.
+     *
+     * @param int $offset The offset to be checked.
+     *
+     * @return bool
+     */
     public function offsetExists($offset)
     {
         return $offset < $this->count;
     }
 
+    /**
+     * Unsets the value of an offset.
+     *
+     * @param int $offset The offset to be unset.
+     *
+     * @return void
+     */
     public function offsetUnset($offset)
     {
         unset($this->tokens[$offset]);

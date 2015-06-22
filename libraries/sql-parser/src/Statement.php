@@ -2,11 +2,9 @@
 
 namespace SqlParser;
 
-use SqlParser\Lexer;
 use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Token;
-
 use SqlParser\Fragments\CallKeyword;
 use SqlParser\Fragments\CreateDefFragment;
 use SqlParser\Fragments\DataTypeFragment;
@@ -17,6 +15,14 @@ use SqlParser\Fragments\ParamDefFragment;
 use SqlParser\Fragments\RenameKeyword;
 use SqlParser\Fragments\SelectKeyword;
 
+/**
+ * Abstract statement definition.
+ *
+ * @category Statements
+ * @package  SqlParser
+ * @author   Dan Ungureanu <udan1107@gmail.com>
+ * @license  http://opensource.org/licenses/GPL-2.0 GNU Public License
+ */
 abstract class Statement
 {
 
@@ -37,13 +43,19 @@ abstract class Statement
     /**
      * Parses the statements defined by the tokens list.
      *
-     * @param Parser $parser
-     * @param TokensList $list
+     * @param Parser     $parser The instance that requests parsing.
+     * @param TokensList $list   The list of tokens to be parsed.
+     *
+     * @return void
      */
     public function parse(Parser $parser, TokensList $list)
     {
         for (; $list->idx < $list->count; ++$list->idx) {
-            /** @var Token Token parsed at this moment. */
+
+            /**
+             * Token parsed at this moment.
+             * @var Token
+             */
             $token = $list->tokens[$list->idx];
 
             // End of statement.
@@ -57,7 +69,10 @@ abstract class Statement
                 continue;
             }
 
-            /** @var string The name of the class that is used for parsing. */
+            /**
+             * The name of the class that is used for parsing.
+             * @var string
+             */
             $class = null;
 
             if (!empty(Parser::$KEYWORD_PARSERS[$token->value])) {
@@ -73,13 +88,19 @@ abstract class Statement
                 continue;
             }
 
-            /** @var string The name of the field where the result is stored. */
+            /**
+             * The name of the field where the result is stored.
+             * @var string
+             */
             $field = strtolower($token->value);
 
             // Parsing options.
             if (($class == null) && (isset(static::$OPTIONS))) {
                 ++$list->idx; // Skipping keyword.
-                $this->options = OptionsFragment::parse($parser, $list, static::$OPTIONS);
+                $this->options = OptionsFragment::parse(
+                    $parser, $list,
+                    static::$OPTIONS
+                );
             }
 
             // Keyword specific code.
@@ -93,33 +114,53 @@ abstract class Statement
                     ++$list->idx;
                     $this->fields = FieldDefFragment::parse($parser, $list);
                     ++$list->idx;
-                    $this->tableOptions = OptionsFragment::parse($parser, $list, CreateDefFragment::$TABLE_OPTIONS);
-                } elseif (($this->options->has('PROCEDURE')) || ($this->options->has('FUNCTION'))) {
+                    $this->tableOptions = OptionsFragment::parse(
+                        $parser,
+                        $list,
+                        CreateDefFragment::$TABLE_OPTIONS
+                    );
+                } elseif (($this->options->has('PROCEDURE'))
+                    || ($this->options->has('FUNCTION'))
+                ) {
                     ++$list->idx;
                     $this->parameters = ParamDefFragment::parse($parser, $list);
                     if ($this->options->has('FUNCTION')) {
                         $token = $list->getNextOfType(Token::TYPE_KEYWORD);
                         if ($token->value !== 'RETURNS') {
-                            $parser->error('\'RETURNS\' keyword was expected.', $token);
+                            $parser->error(
+                                '\'RETURNS\' keyword was expected.',
+                                $token
+                            );
                         } else {
                             ++$list->idx;
-                            $this->return = DataTypeFragment::parse($parser, $list);
+                            $this->return = DataTypeFragment::parse(
+                                $parser,
+                                $list
+                            );
                         }
                     }
                     ++$list->idx;
-                    $this->funcOptions = OptionsFragment::parse($parser, $list, CreateDefFragment::$FUNC_OPTIONS);
+                    $this->funcOptions = OptionsFragment::parse(
+                        $parser,
+                        $list,
+                        CreateDefFragment::$FUNC_OPTIONS
+                    );
                     ++$list->idx;
                     $this->body = array();
                     for (; $list->idx < $list->count; ++$list->idx) {
                         $token = $list->tokens[$list->idx];
                         $this->body[] = $token;
-                        if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'END')) {
+                        if (($token->type === Token::TYPE_KEYWORD)
+                            && ($token->value === 'END')
+                        ) {
                             break;
                         }
                     }
                     $class = null; // The statement has been processed here.
                 }
-            } elseif (($token->value === 'GROUP') || ($token->value === 'ORDER')) {
+            } elseif (($token->value === 'GROUP')
+                || ($token->value === 'ORDER')
+            ) {
                 $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'BY');
             } elseif ($token->value === 'RENAME') {
                 $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'TABLE');

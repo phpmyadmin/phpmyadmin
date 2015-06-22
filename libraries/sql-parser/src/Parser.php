@@ -7,6 +7,11 @@ use SqlParser\Exceptions\ParserException;
 /**
  * Takes multiple tokens (contained in a Lexer instance) as input and builds a
  * parse tree.
+ *
+ * @category Parser
+ * @package  SqlParser
+ * @author   Dan Ungureanu <udan1107@gmail.com>
+ * @license  http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class Parser
 {
@@ -119,8 +124,8 @@ class Parser
     /**
      * Constructor.
      *
-     * @param mixed $list The list of tokens to be parsed.
-     * @param bool $strict Whether strict mode should be enabled or not.
+     * @param mixed $list   The list of tokens to be parsed.
+     * @param bool  $strict Whether strict mode should be enabled or not.
      */
     public function __construct($list = null, $strict = false)
     {
@@ -140,6 +145,8 @@ class Parser
 
     /**
      * Builds the parse trees.
+     *
+     * @return void
      */
     public function parse()
     {
@@ -148,7 +155,11 @@ class Parser
         $last = &$this->list->idx;
 
         for (; $last < $count; ++$last) {
-            /** @var Token Token parsed at this moment. */
+
+            /**
+             * Token parsed at this moment.
+             * @var Token
+             */
             $token = $tokens[$last];
 
             // Statements can start with keywords only.
@@ -160,17 +171,23 @@ class Parser
             // Checking if it is a known statement that can be parsed.
             if (empty(static::$STATEMENT_PARSERS[$token->value])) {
                 $this->error(
-                    'Unrecognized statement type "' . $token->value .'".',
+                    'Unrecognized statement type "' . $token->value . '".',
                     $token
                 );
                 // TODO: Skip to first delimiter.
                 continue;
             }
 
-            /** @var string The name of the class that is used for parsing. */
+            /**
+             * The name of the class that is used for parsing.
+             * @var string
+             */
             $class = static::$STATEMENT_PARSERS[$token->value];
 
-            /** @var Statement Processed statement. */
+            /**
+             * Processed statement.
+             * @var Statement
+             */
             $stmt = new $class();
 
             $stmt->parse($this, $this->list);
@@ -181,13 +198,13 @@ class Parser
     /**
      * Creates a new error log.
      *
-     * @param string $msg The error message.
-     * @param Token $token The token that produced the error.
-     * @param int $code The code of the error.
+     * @param string $msg   The error message.
+     * @param Token  $token The token that produced the error.
+     * @param int    $code  The code of the error.
      */
-    public function error($str = '', Token $token = null, $code = 0)
+    public function error($msg = '', Token $token = null, $code = 0)
     {
-        $error = new ParserException($str, $token, $code);
+        $error = new ParserException($msg, $token, $code);
         if ($this->strict) {
             throw $error;
         }

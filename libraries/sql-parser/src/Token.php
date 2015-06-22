@@ -5,6 +5,11 @@ namespace SqlParser;
 /**
  * A structure representing a lexeme that explicitly indicates its
  * categorization for the purpose of parsing.
+ *
+ * @category Tokens
+ * @package  SqlParser
+ * @author   Dan Ungureanu <udan1107@gmail.com>
+ * @license  http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class Token
 {
@@ -179,10 +184,9 @@ class Token
     /**
      * Constructor.
      *
-     * @param string $token
-     * @param int $type
-     * @param int $flags
-     * @param int $position
+     * @param string $token The value of the token.
+     * @param int    $type  The type of the token.
+     * @param int    $flags The flags of the token.
      */
     public function __construct($token, $type = 0, $flags = 0)
     {
@@ -202,47 +206,50 @@ class Token
     public function extract()
     {
         switch ($this->type) {
-            case Token::TYPE_KEYWORD:
-                if ($this->flags & Token::FLAG_KEYWORD_RESERVED) {
-                    return strtoupper($this->token);
-                }
-                return $this->token;
-            case Token::TYPE_WHITESPACE:
-                return ' ';
-            case Token::TYPE_BOOL:
-                return strtoupper($this->token) === 'TRUE';
-            case Token::TYPE_NUMBER:
-                $ret = str_replace('--', '', $this->token); // e.g. ---42 === -42
-                if ($this->flags & Token::FLAG_NUMBER_HEX) {
-                    if ($this->flags & Token::FLAG_NUMBER_NEGATIVE) {
-                        $ret = str_replace('-', '', $this->token);
-                        sscanf($ret, "%x", $ret);
-                        $ret = -$ret;
-                    } else {
-                        sscanf($ret, "%x", $ret);
-                    }
-                } elseif (($this->flags & Token::FLAG_NUMBER_APPROXIMATE) ||
-                    ($this->flags & Token::FLAG_NUMBER_FLOAT)) {
-                    sscanf($ret, "%f", $ret);
+        case Token::TYPE_KEYWORD:
+            if ($this->flags & Token::FLAG_KEYWORD_RESERVED) {
+                return strtoupper($this->token);
+            }
+            return $this->token;
+        case Token::TYPE_WHITESPACE:
+            return ' ';
+        case Token::TYPE_BOOL:
+            return strtoupper($this->token) === 'TRUE';
+        case Token::TYPE_NUMBER:
+            $ret = str_replace('--', '', $this->token); // e.g. ---42 === -42
+            if ($this->flags & Token::FLAG_NUMBER_HEX) {
+                if ($this->flags & Token::FLAG_NUMBER_NEGATIVE) {
+                    $ret = str_replace('-', '', $this->token);
+                    sscanf($ret, "%x", $ret);
+                    $ret = -$ret;
                 } else {
-                    sscanf($ret, "%d", $ret);
+                    sscanf($ret, "%x", $ret);
                 }
-                return $ret;
-            case Token::TYPE_STRING:
-                $quote = $this->token[0];
-                $str = str_replace($quote . $quote, $quote, $this->token);
-                return mb_substr($str, 1, -1); // trims quotes
-            case Token::TYPE_SYMBOL:
-                $str = $this->token;
-                if ((isset($str[0])) && ($str[0] === '@')) {
-                    $str = mb_substr($str, 1);
-                }
-                if ((isset($str[0])) && (($str[0] === '`') || ($str[0] === '"') || ($str[0] === '\''))) {
-                    $quote = $str[0];
-                    $str = str_replace($quote . $quote, $quote, $str);
-                    $str = mb_substr($str, 1, -1);
-                }
-                return $str;
+            } elseif (($this->flags & Token::FLAG_NUMBER_APPROXIMATE)
+                || ($this->flags & Token::FLAG_NUMBER_FLOAT)
+            ) {
+                sscanf($ret, "%f", $ret);
+            } else {
+                sscanf($ret, "%d", $ret);
+            }
+            return $ret;
+        case Token::TYPE_STRING:
+            $quote = $this->token[0];
+            $str = str_replace($quote . $quote, $quote, $this->token);
+            return mb_substr($str, 1, -1); // trims quotes
+        case Token::TYPE_SYMBOL:
+            $str = $this->token;
+            if ((isset($str[0])) && ($str[0] === '@')) {
+                $str = mb_substr($str, 1);
+            }
+            if ((isset($str[0])) && (($str[0] === '`')
+                || ($str[0] === '"') || ($str[0] === '\''))
+            ) {
+                $quote = $str[0];
+                $str = str_replace($quote . $quote, $quote, $str);
+                $str = mb_substr($str, 1, -1);
+            }
+            return $str;
         }
         return $this->token;
     }

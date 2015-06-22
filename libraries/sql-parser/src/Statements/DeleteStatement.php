@@ -13,6 +13,11 @@ use SqlParser\Statement;
  *     [ORDER BY ...]
  *     [LIMIT row_count]
  *
+ * @category   Statements
+ * @package    SqlParser
+ * @subpackage Statements
+ * @author     Dan Ungureanu <udan1107@gmail.com>
+ * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class DeleteStatement extends Statement
 {

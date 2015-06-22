@@ -10,7 +10,11 @@ use SqlParser\Exceptions\LexerException;
  *
  * The output of the lexer is affected by the context of the SQL statement.
  *
- * @see Context
+ * @category Lexer
+ * @package  SqlParser
+ * @author   Dan Ungureanu <udan1107@gmail.com>
+ * @license  http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @see      Context
  */
 class Lexer
 {
@@ -123,8 +127,8 @@ class Lexer
     /**
      * Constructor.
      *
-     * @param string|UtfString $str The query to be lexed.
-     * @param bool $strict Whether strict mode should be enabled or not.
+     * @param string|UtfString $str    The query to be lexed.
+     * @param bool             $strict Whether strict mode should be enabled or not.
      */
     public function __construct($str, $strict = false)
     {
@@ -137,6 +141,8 @@ class Lexer
 
     /**
      * Parses the string and extracts lexems.
+     *
+     * @return void
      */
     public function lex()
     {
@@ -153,7 +159,11 @@ class Lexer
         $lastToken = null;
 
         for ($this->last = 0, $lastIdx = 0; $this->last < $this->len; $lastIdx = ++$this->last) {
-            /** @var Token The new token. */
+
+            /**
+             * The new token.
+             * @var Token
+             */
             $token = null;
 
             foreach (static::$PARSER_METHODS as $method) {
@@ -235,10 +245,12 @@ class Lexer
     /**
      * Creates a new error log.
      *
-     * @param string $msg The error message.
-     * @param string $ch The character that produced the error.
-     * @param int $pos The position of the character.
-     * @param int $code The code of the error.
+     * @param string $msg  The error message.
+     * @param string $str  The character that produced the error.
+     * @param int    $pos  The position of the character.
+     * @param int    $code The code of the error.
+     *
+     * @return void
      */
     public function error($msg = '', $str = '', $pos = 0, $code = 0)
     {
@@ -258,10 +270,16 @@ class Lexer
     {
         $token = '';
 
-        /** @var Token Value to be returned. */
+        /**
+         * Value to be returned.
+         * @var Token
+         */
         $ret = null;
 
-        /** @var int The value of `$this->last` where `$token` ends in `$this->str`. */
+        /**
+         * The value of `$this->last` where `$token` ends in `$this->str`.
+         * @var int
+         */
         $iEnd = $this->last;
 
         for ($j = 1; $j < Context::KEYWORD_MAX_LENGTH && $this->last < $this->len; ++$j, ++$this->last) {
@@ -290,10 +308,16 @@ class Lexer
     {
         $token = '';
 
-        /** @var Token|bool Value to be returned. */
-        $ret = false;
+        /**
+         * Value to be returned.
+         * @var Token|bool
+         */
+        $ret = null;
 
-        /** @var int The value of `$this->last` where `$token` ends in `$this->str`. */
+        /**
+         * The value of `$this->last` where `$token` ends in `$this->str`.
+         * @var int
+         */
         $iEnd = $this->last;
 
         for ($j = 1; $j < Context::OPERATOR_MAX_LENGTH && $this->last < $this->len; ++$j, ++$this->last) {
@@ -507,8 +531,9 @@ class Lexer
                 }
             } elseif ($state === 5) {
                 $flags |= Token::FLAG_NUMBER_APPROXIMATE;
-                if (($this->str[$this->last] === '+') || ($this->str[$this->last] === '-') ||
-                    ((($this->str[$this->last] >= '0') && ($this->str[$this->last] <= '9')))) {
+                if (($this->str[$this->last] === '+') || ($this->str[$this->last] === '-')
+                    || ((($this->str[$this->last] >= '0') && ($this->str[$this->last] <= '9')))
+                ) {
                     $state = 6;
                 } else {
                     break;

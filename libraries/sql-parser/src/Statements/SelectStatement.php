@@ -32,6 +32,11 @@ use SqlParser\Statement;
  *       | INTO var_name [, var_name]]
  *     [FOR UPDATE | LOCK IN SHARE MODE]]
  *
+ * @category   Statements
+ * @package    SqlParser
+ * @subpackage Statements
+ * @author     Dan Ungureanu <udan1107@gmail.com>
+ * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class SelectStatement extends Statement
 {

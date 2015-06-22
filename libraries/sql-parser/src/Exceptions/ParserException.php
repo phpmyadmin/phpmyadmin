@@ -6,6 +6,12 @@ use SqlParser\Token;
 
 /**
  * Exception thrown by the parser.
+ *
+ * @category   Exceptions
+ * @package    SqlParser
+ * @subpackage Exceptions
+ * @author     Dan Ungureanu <udan1107@gmail.com>
+ * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class ParserException extends \Exception
 {
@@ -20,9 +26,9 @@ class ParserException extends \Exception
     /**
      * Constructor.
      *
-     * @param string $msg The message of this exception.
-     * @param Token $token The token that produced this exception.
-     * @param int $code The code of this error.
+     * @param string $msg   The message of this exception.
+     * @param Token  $token The token that produced this exception.
+     * @param int    $code  The code of this error.
      */
     public function __construct($msg = '', Token $token = null, $code = 0)
     {

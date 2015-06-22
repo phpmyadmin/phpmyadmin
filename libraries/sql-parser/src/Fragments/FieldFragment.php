@@ -3,13 +3,18 @@
 namespace SqlParser\Fragments;
 
 use SqlParser\Fragment;
-use SqlParser\Lexer;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
 
 /**
  * Parses a reference to a field.
+ *
+ * @category   Fragments
+ * @package    SqlParser
+ * @subpackage Fragments
+ * @author     Dan Ungureanu <udan1107@gmail.com>
+ * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class FieldFragment extends Fragment
 {
@@ -50,9 +55,9 @@ class FieldFragment extends Fragment
     public $alias;
 
     /**
-     * @param Parser $parser The parser that serves as context.
-     * @param TokensList $list The list of tokens that are being parsed.
-     * @param array $options Parameters for parsing.
+     * @param Parser     $parser  The parser that serves as context.
+     * @param TokensList $list    The list of tokens that are being parsed.
+     * @param array      $options Parameters for parsing.
      *
      * @return FieldFragment
      */
@@ -60,20 +65,36 @@ class FieldFragment extends Fragment
     {
         $ret = new FieldFragment();
 
-        /** @var bool Whether current tokens make an expression or a table reference. */
+        /**
+         * Whether current tokens make an expression or a table reference.
+         * @var bool
+         */
         $isExpr = false;
 
-        /** @var bool Whether a period was previously found. */
+        /**
+         * Whether a period was previously found.
+         * @var bool
+         */
         $period = false;
 
-        /** @var int Whether an alias is expected. Is 2 if `AS` keyword was found. */
+        /**
+         * Whether an alias is expected. Is 2 if `AS` keyword was found.
+         * @var int
+         */
         $alias = 0;
 
-        /** @var int Counts brackets. */
+        /**
+         * Counts brackets.
+         * @var int
+         */
         $brackets = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-            /** @var Token Token parsed at this moment. */
+
+            /**
+             * Token parsed at this moment.
+             * @var Token
+             */
             $token = $list->tokens[$list->idx];
 
             // End of statement.
@@ -122,7 +143,8 @@ class FieldFragment extends Fragment
 
             if (($token->type === Token::TYPE_NUMBER) || ($token->type === Token::TYPE_BOOL)
                 || (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_VARIABLE))
-                || (($token->type === Token::TYPE_OPERATOR)) && ($token->value !== '.')) {
+                || (($token->type === Token::TYPE_OPERATOR)) && ($token->value !== '.')
+            ) {
                 // Numbers, booleans and operators are usually part of expressions.
                 $isExpr = true;
             }
@@ -159,7 +181,7 @@ class FieldFragment extends Fragment
         }
 
         if ($alias === 2) {
-            $parser->error('Alias was expected.', $token);
+            $parser->error('Alias was expected.');
         }
 
         if (empty($ret->expr)) {
