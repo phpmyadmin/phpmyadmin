@@ -1762,18 +1762,24 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $has_unique)
 {
     if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $missing_unique_column_msg = PMA_message::notice(
-            __(
-                'Current selection does not contain a unique column.'
-                . ' Grid edit, checkbox, Edit, Copy and Delete features'
-                . ' are not available.'
+            sprintf(
+                __(
+                    'Current selection does not contain a unique column.'
+                    . ' Grid edit, checkbox, Edit, Copy and Delete features'
+                    . ' are not available. %s'
+                ),
+                PMA_Util::showDocu('config', 'cfg_RowActionLinksWithoutUnique')
             )
         );
     } elseif (! empty($table) && ! $has_unique) {
         $missing_unique_column_msg = PMA_message::notice(
-            __(
-                'Current selection does not contain a unique column.'
-                . ' Grid edit, Edit, Copy and Delete features may result in'
-                . ' undesired behavior.'
+            sprintf(
+                __(
+                    'Current selection does not contain a unique column.'
+                    . ' Grid edit, Edit, Copy and Delete features may result in'
+                    . ' undesired behavior. %s'
+                ),
+                PMA_Util::showDocu('config', 'cfg_RowActionLinksWithoutUnique')
             )
         );
     } else {
