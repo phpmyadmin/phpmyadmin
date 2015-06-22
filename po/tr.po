@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-22 08:04-0400\n"
-"PO-Revision-Date: 2015-06-22 19:17+0200\n"
+"PO-Revision-Date: 2015-06-22 19:27+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -1336,7 +1336,7 @@ msgstr "Ayarlar"
 
 #: js/messages.php:180
 msgid "Add chart to grid"
-msgstr "Çizelgeyi ızgaraya ekle"
+msgstr "Çizelgeyi kılavuza ekle"
 
 #: js/messages.php:182
 msgid "Please add at least one variable to the series!"
@@ -1634,7 +1634,7 @@ msgstr ""
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
-"İçe aktarılan yapılandırma ile çizelge ızgarasının yapılması başarısız oldu. "
+"İçe aktarılan yapılandırma ile çizelge kılavuzunun yapılması başarısız oldu. "
 "Varsayılan yapılandırmaya sıfırlanıyor…"
 
 #: js/messages.php:264 libraries/Menu.class.php:350
@@ -2340,9 +2340,9 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
-"Bu tablo benzersiz bir sütun içermiyor. Izgara düzenlemeyle ilgili "
-"özellikler, Düzenle, Kopyala ve Sil bağlantıları kaydedildikten sonra "
-"çalışmayabilir."
+"Bu tablo benzersiz bir sütun içermiyor. Kılavuz düzenleme, onay kutusu, "
+"Düzenle, Kopyala ve Sil bağlantıları ile ilgili özellikler kaydedildikten "
+"sonra çalışmayabilir."
 
 #: js/messages.php:486
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
@@ -6002,8 +6002,8 @@ msgstr "Dış anahtar sınırı"
 #: libraries/config/messages.inc.php:217
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
-"Dış anahtar için varsayılan değer bazı sorgular için işaretleme kutusunu "
-"kontrol eder."
+"Dış anahtar için varsayılan değer bazı sorgular için onay kutusunu kontrol "
+"eder."
 
 #: libraries/config/messages.inc.php:219
 msgid "Foreign key checks"
@@ -6887,7 +6887,7 @@ msgstr "Başlıkları tekrarla"
 
 #: libraries/config/messages.inc.php:556
 msgid "Grid editing: trigger action"
-msgstr "Izgara düzenleme: tetikleme eylemi"
+msgstr "Kılavuz düzenleme: tetikleme eylemi"
 
 #: libraries/config/messages.inc.php:557
 msgid "Relational display"
@@ -6899,7 +6899,7 @@ msgstr "Seçenekleri görüntülemek için"
 
 #: libraries/config/messages.inc.php:559
 msgid "Grid editing: save all edited cells at once"
-msgstr "Izgara düzenleme: bir defada tüm düzenlenen hücreleri kaydet"
+msgstr "Kılavuz düzenleme: bir defada tüm düzenlenen hücreleri kaydet"
 
 #: libraries/config/messages.inc.php:560
 msgid "Directory where exports can be saved on server."
@@ -7712,7 +7712,7 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
-"Etkisizleştirildiğinde kullanıcılar sağdaki işaret kutusunu dikkate almadan "
+"Etkisizleştirildiğinde kullanıcılar sağdaki onay kutusunu dikkate almadan "
 "herhangi bir seçeneği ayarlayamazlar."
 
 #: libraries/config/messages.inc.php:806
@@ -10594,7 +10594,7 @@ msgstr "Tüm tablolar için aynı genişlik"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:89
 msgid "Show grid"
-msgstr "Izgara göster"
+msgstr "Kılavuzu göster"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: libraries/structure.lib.php:424
@@ -13628,8 +13628,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
-"Şu anki seçim benzersiz bir sütun içermiyor. Izgara düzenleme, işaretleme "
-"kutusu, Düzenle, Kopyala ve Sil özellikleri kullanılabilir değil. %s"
+"Şu anki seçim benzersiz bir sütun içermiyor. Kılavuz düzenleme, onay kutusu, "
+"Düzenle, Kopyala ve Sil özellikleri kullanılabilir değil. %s"
 
 #: libraries/sql.lib.php:1778
 #, php-format
@@ -14807,7 +14807,7 @@ msgstr "Doğrudan bağlantılar"
 #: templates/designer/side_menu.phtml:122
 #: templates/designer/side_menu.phtml:124
 msgid "Snap to grid"
-msgstr "Kılavuza ayarla"
+msgstr "Kılavuza uydur"
 
 #: templates/designer/side_menu.phtml:128
 #: templates/designer/side_menu.phtml:134
