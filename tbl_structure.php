@@ -199,7 +199,8 @@ $show_create_table = $GLOBALS['dbi']->fetchValue(
     . PMA_Util::backquote($table),
     0, 1
 );
-$analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+$parser = new SqlParser\Parser($show_create_table);
+$create_table_fields = SqlParser\Utils\Table::getFields($parser->statements[0]);
 
 /**
  * prepare table infos
