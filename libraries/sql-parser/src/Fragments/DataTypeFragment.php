@@ -88,8 +88,8 @@ class DataTypeFragment extends Fragment
             }
 
             if ($state === 0) {
-                $ret->name = $token->value;
-                if (!isset(Context::$DATA_TYPES[$token->value])) {
+                $ret->name = strtoupper($token->value);
+                if (($token->type !== Token::TYPE_KEYWORD) || (!($token->flags & Token::FLAG_KEYWORD_DATA_TYPE))) {
                     $parser->error('Unrecognized data type.', $token);
                 }
                 $state = 1;

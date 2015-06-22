@@ -38,6 +38,7 @@ class FieldDefFragment extends Fragment
         'UNIQUE KEY'                    => 4,
         'COMMENT'                       => array(5, 'var'),
         'COLUMN_FORMAT'                 => array(6, 'var'),
+        'ON UPDATE'                     => array(7, 'var'),
     );
 
     /**
@@ -133,16 +134,14 @@ class FieldDefFragment extends Fragment
                 }
                 continue;
             } elseif ($state === 1) {
-                if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
-                    if ($token->value === 'CONSTRAINT') {
-                        $state = 4;
-                    } elseif (isset(Context::$KEY_TYPES[$token->value])) {
-                        $expr->type = $token->value;
-                        $state = 5;
-                    } else {
-                        $parser->error('Unexpected keyword.', $token);
-                        break; // TODO: Skip to the end of the query.
-                    }
+                if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'CONSTRAINT')) {
+                    $state = 4;
+                } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_KEY)) {
+                    $expr->type = $token->value;
+                    $state = 5;
+                } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
+                    $parser->error('Unexpected keyword.', $token);
+                    break; // TODO: Skip to the end of the query.
                 } else {
                     $expr->name = $token->value;
                     $state = 2;
@@ -154,17 +153,23 @@ class FieldDefFragment extends Fragment
                 $expr->options = OptionsFragment::parse($parser, $list, static::$FIELD_OPTIONS);
                 $state = 6;
             } elseif ($state === 4) {
-                if (!isset(Context::$KEY_TYPES[$token->value])) {
+                if (($token->type !== Token::TYPE_KEYWORD) || (!($token->flags & Token::FLAG_KEYWORD_KEY))) {
                     $expr->name = $token->value;
                 } else {
                     $expr->type = $token->value;
                     $state = 5;
                 }
             } elseif ($state === 5) {
-                $expr->indexes = ArrayFragment::parse($parser, $list);
-                $state = 6;
+                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
+                    $expr->indexes = ArrayFragment::parse($parser, $list);
+                    $state = 6;
+                } else {
+                    $expr->name = $token->value;
+                }
             } elseif ($state === 6) {
-                $ret[] = $expr;
+                if (!empty($expr->type)) {
+                    $ret[] = $expr;
+                }
                 $expr = new FieldDefFragment();
                 if ($token->value === ',') {
                     $state = 1;
@@ -178,7 +183,7 @@ class FieldDefFragment extends Fragment
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->name)) {
+        if (!empty($expr->type)) {
             $ret[] = $expr;
         }
 

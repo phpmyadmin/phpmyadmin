@@ -101,6 +101,7 @@ class Routine
             'name' => array(),
             'type' => array(),
             'length' => array(),
+            'length_arr' => array(),
             'opts' => array(),
         );
 
@@ -110,6 +111,7 @@ class Routine
             $retval['name'][$idx] = $param->name;
             $retval['type'][$idx] = $param->type->name;
             $retval['length'][$idx] = implode(',', $param->type->size);
+            $retval['length_arr'][$idx] = $param->type->size;
             $retval['opts'][$idx] = array();
             foreach ($param->type->options->options as $opt) {
                 $retval['opts'][$idx][] = is_string($opt) ?

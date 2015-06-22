@@ -19,12 +19,12 @@ class Misc
     /**
      * Gets a list of all aliases and their original names.
      *
-     * @param SelectStatement $tree The tree that was generated after parsing.
-     * @param string          $db   The name of the database.
+     * @param SelectStatement $tree     The tree that was generated after parsing.
+     * @param string          $database The name of the database.
      *
      * @return array
      */
-    public static function getAliases(SelectStatement $tree, $db)
+    public static function getAliases(SelectStatement $tree, $database)
     {
         $retval = array();
 
@@ -34,7 +34,7 @@ class Misc
             && (!empty($tree->join->expr->alias))
         ) {
             $thisDb = empty($tree->join->expr->database) ?
-                $db : $tree->join->expr->database;
+                $database : $tree->join->expr->database;
 
             $retval = array(
                 $thisDb => array(
@@ -56,7 +56,7 @@ class Misc
                 continue;
             }
 
-            $thisDb = empty($expr->database) ? $db : $expr->database;
+            $thisDb = empty($expr->database) ? $database : $expr->database;
 
             if (!isset($retval[$thisDb])) {
                 $retval[$thisDb] = array(
@@ -83,7 +83,7 @@ class Misc
                 continue;
             }
 
-            $thisDb = empty($expr->database) ? $db : $expr->database;
+            $thisDb = empty($expr->database) ? $database : $expr->database;
 
             if (empty($expr->table)) {
                 foreach ($retval[$thisDb]['tables'] as &$table) {

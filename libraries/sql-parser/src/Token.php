@@ -114,9 +114,12 @@ class Token
     const TYPE_DELIMITER                =  9;
 
     // Flags that describe the tokens in more detail.
-    const FLAG_KEYWORD_RESERVED         =  1;
-    const FLAG_KEYWORD_UNRESERVED       =  2;
+    // All keywords must have flag 1 so `Context::isKeyword` method doesn't
+    // require strict comparison.
+    const FLAG_KEYWORD_RESERVED         =  2;
     const FLAG_KEYWORD_COMPOSED         =  4;
+    const FLAG_KEYWORD_DATA_TYPE        =  8;
+    const FLAG_KEYWORD_KEY              = 16;
 
     // Numbers related flags.
     const FLAG_NUMBER_HEX               =  1;
@@ -207,10 +210,12 @@ class Token
     {
         switch ($this->type) {
         case Token::TYPE_KEYWORD:
-            if ($this->flags & Token::FLAG_KEYWORD_RESERVED) {
-                return strtoupper($this->token);
+            if (!($this->flags & Token::FLAG_KEYWORD_RESERVED)) {
+                // Unreserved keywords should stay the way they are because they
+                // might represent field names.
+                return $this->token;
             }
-            return $this->token;
+            return strtoupper($this->token);
         case Token::TYPE_WHITESPACE:
             return ' ';
         case Token::TYPE_BOOL:

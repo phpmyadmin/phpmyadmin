@@ -70,30 +70,24 @@ class OptionsFragment extends Fragment
                 continue;
             }
 
-            if (isset($options[strtoupper($token->value)])) {
-                $lastOption = $options[strtoupper($token->value)];
-                $lastOptionId = is_array($lastOption) ? $lastOption[0] : $lastOption;
+            if ($lastOption === null) {
+                if (isset($options[strtoupper($token->value)])) {
+                    $lastOption = $options[strtoupper($token->value)];
+                    $lastOptionId = is_array($lastOption) ? $lastOption[0] : $lastOption;
 
-                // Checking for option conflicts.
-                // For example, in `SELECT` statements the keywords `ALL` and `DISTINCT`
-                // conflict and if used together, they produce an invalid query.
-                // Usually, tokens can be identified in the array by the option ID,
-                // but if conflicts occur, a psuedo option ID is used.
-                // The first pseudo duplicate ID is the maximum value of the real
-                // options (e.g.  if there are 5 options, the first fake ID is 6).
-                if (isset($ret->options[$lastOptionId])) {
-                    $parser->error('This option conflicts with \'' . $ret->options[$lastOptionId] . '\'.', $token);
-                    $lastOptionId = $lastAssignedId++;
-                }
-            } else {
-                // There is no option to be processed.
-                if ($lastOption === null) {
-                    break;
-                }
-
-                // The only keywords that are expected are those which are
-                // options.
-                if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
+                    // Checking for option conflicts.
+                    // For example, in `SELECT` statements the keywords `ALL` and `DISTINCT`
+                    // conflict and if used together, they produce an invalid query.
+                    // Usually, tokens can be identified in the array by the option ID,
+                    // but if conflicts occur, a psuedo option ID is used.
+                    // The first pseudo duplicate ID is the maximum value of the real
+                    // options (e.g.  if there are 5 options, the first fake ID is 6).
+                    if (isset($ret->options[$lastOptionId])) {
+                        $parser->error('This option conflicts with \'' . $ret->options[$lastOptionId] . '\'.', $token);
+                        $lastOptionId = $lastAssignedId++;
+                    }
+                } else {
+                    // There is no option to be processed.
                     break;
                 }
             }
