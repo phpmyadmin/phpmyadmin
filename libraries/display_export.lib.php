@@ -629,6 +629,34 @@ function PMA_getHtmlForExportOptionsOutputRadio()
 }
 
 /**
+ * Prints Html For Export Options Checkbox - Separate files
+ *
+ * @param String $export_type Selected Export Type
+ *
+ * @return string
+ */
+function PMA_getHtmlForExportOptionsOutputSeparateFiles($export_type)
+{
+    $html  = '<li>';
+    $html .= '<input type="checkbox" id="checkbox_separate_files" '
+        . ' name="as_separate_files" value="'
+        . $export_type
+        . '" ';
+    $html .= '/>';
+    $html .= '<label for="checkbox_separate_files">';
+
+    if ($export_type == 'server') {
+        $html .= __('Export databases as separate files');
+    } elseif ($export_type == 'database') {
+        $html .= __('Export tables as separate files');
+    }
+
+    $html .= '</label></li>';
+
+    return $html;
+}
+
+/**
  * Prints Html For Export Options
  *
  * @param String $export_type Selected Export Type
@@ -685,6 +713,12 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
     } // end if
 
     $html .= PMA_getHtmlForExportOptionsOutputCompression();
+
+    if ($export_type == 'server'
+        || $export_type == 'database'
+    ) {
+        $html .= PMA_getHtmlForExportOptionsOutputSeparateFiles($export_type);
+    }
 
     $html .= '</ul>';
     $html .= '</li>';

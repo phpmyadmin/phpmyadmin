@@ -59,6 +59,7 @@ if (!defined('TESTSUITE')) {
             'remember_template',
             'charset_of_file',
             'compression',
+            'as_separate_files',
             'knjenc',
             'xkana',
             'htmlword_structure_or_data',
@@ -211,6 +212,7 @@ if (!defined('TESTSUITE')) {
     $file_handle = '';
     $err_url = '';
     $filename = '';
+    $separate_files = '';
 
     // Is it a quick or custom export?
     if ($_REQUEST['quick_or_custom'] == 'quick') {
@@ -223,6 +225,16 @@ if (!defined('TESTSUITE')) {
         $asfile = false;
     } else {
         $asfile = true;
+        if (isset($_REQUEST['as_separate_files'])
+            && ! empty($_REQUEST['as_separate_files'])
+        ) {
+            if (isset($_REQUEST['compression'])
+                && ! empty($_REQUEST['compression'])
+                && $_REQUEST['compression'] == 'zip'
+            ) {
+                $separate_files = $_REQUEST['as_separate_files'];
+            }
+        }
         if (in_array($_REQUEST['compression'], $compression_methods)) {
             $compression = $_REQUEST['compression'];
             $buffer_needed = true;
@@ -291,6 +303,9 @@ if (!defined('TESTSUITE')) {
     // Start with empty buffer
     $dump_buffer = '';
     $dump_buffer_len = 0;
+
+    // Array of dump_buffers - used in separate file exports
+    $dump_buffer_objects = array();
 
     // We send fake headers to avoid browser timeout when buffering
     $time_start = time();
@@ -380,9 +395,11 @@ if (!defined('TESTSUITE')) {
     // need exceptions here :-)
     do {
 
-        // Add possibly some comments to export
-        if (! $export_plugin->exportHeader($db)) {
-            break;
+        if ($separate_files != 'database') {
+            // Add possibly some comments to export
+            if (! $export_plugin->exportHeader($db)) {
+                break;
+            }
         }
 
         // Will we need relation & co. setup?
@@ -412,7 +429,7 @@ if (!defined('TESTSUITE')) {
             PMA_exportServer(
                 $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
                 $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                $aliases
+                $aliases, $separate_files
             );
         } elseif ($export_type == 'database') {
             if (isset($lock_tables)) {
@@ -421,7 +438,7 @@ if (!defined('TESTSUITE')) {
                     PMA_exportDatabase(
                         $db, $tables, $whatStrucOrData, $export_plugin, $crlf,
                         $err_url, $export_type, $do_relation, $do_comments,
-                        $do_mime, $do_dates, $aliases
+                        $do_mime, $do_dates, $aliases, $separate_files
                     );
                     PMA_unlockTables();
                 } catch (Exception $e) { // TODO use finally when PHP version is 5.5
@@ -432,7 +449,7 @@ if (!defined('TESTSUITE')) {
                 PMA_exportDatabase(
                     $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
                     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                    $aliases
+                    $aliases, $separate_files
                 );
             }
         } else {
@@ -495,8 +512,14 @@ if (!defined('TESTSUITE')) {
 
         // Compression needed?
         if ($compression) {
-            $dump_buffer
-                = PMA_compressExport($dump_buffer, $compression, $filename);
+            if (! empty($separate_files)) {
+                $dump_buffer
+                    = PMA_compressExport($dump_buffer_objects, $compression, $filename);
+            } else {
+                $dump_buffer
+                    = PMA_compressExport($dump_buffer, $compression, $filename);
+            }
+
         }
 
         /* If we saved on server, we have to close file now */
