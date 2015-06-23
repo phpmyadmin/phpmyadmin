@@ -21,7 +21,7 @@ class Node_Database extends Node
      *
      * @var int
      */
-    private $_hiddenCount = 0;
+    protected $hiddenCount = 0;
 
     /**
      * Initialises the class
@@ -338,7 +338,6 @@ class Node_Database extends Node
     public function getData($type, $pos, $searchClause = '')
     {
         $retval   = array();
-        $db       = $this->real_name;
         switch ($type) {
         case 'tables':
             $retval = $this->_getTables($pos, $searchClause);
@@ -362,28 +361,44 @@ class Node_Database extends Node
         // Remove hidden items so that they are not displayed in navigation tree
         $cfgRelation = PMA_getRelationsParam();
         if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
-            $navTable = PMA_Util::backquote($cfgRelation['db'])
-                . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
-            $sqlQuery = "SELECT `item_name` FROM " . $navTable
-                . " WHERE `username`='" . $cfgRelation['user'] . "'"
-                . " AND `item_type`='" . substr($type, 0, -1)
-                . "'" . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
-            $result = PMA_queryAsControlUser($sqlQuery, false);
-            if ($result) {
-                $hiddenItems = array();
-                while ($row = $GLOBALS['dbi']->fetchArray($result)) {
-                    $hiddenItems[] = $row[0];
-                }
-                foreach ($retval as $key => $item) {
-                    if (in_array($item, $hiddenItems)) {
-                        unset($retval[$key]);
-                    }
+            $hiddenItems = $this->getHiddenItems(substr($type, 0, -1));
+            foreach ($retval as $key => $item) {
+                if (in_array($item, $hiddenItems)) {
+                    unset($retval[$key]);
                 }
             }
-            $GLOBALS['dbi']->freeResult($result);
         }
 
         return $retval;
+    }
+
+    /**
+     * Return list of hidden items of given type
+     *
+     * @param string $type The type of items we are looking for
+     *                     ('table', 'function', 'group', etc.)
+     *
+     * @return array Array containing hidden items of given type
+     */
+    public function getHiddenItems($type)
+    {
+        $db = $this->real_name;
+        $cfgRelation = PMA_getRelationsParam();
+        $navTable = PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
+        $sqlQuery = "SELECT `item_name` FROM " . $navTable
+            . " WHERE `username`='" . $cfgRelation['user'] . "'"
+            . " AND `item_type`='" . $type
+            . "'" . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
+        $result = PMA_queryAsControlUser($sqlQuery, false);
+        $hiddenItems = array();
+        if ($result) {
+            while ($row = $GLOBALS['dbi']->fetchArray($result)) {
+                $hiddenItems[] = $row[0];
+            }
+        }
+        $GLOBALS['dbi']->freeResult($result);
+        return $hiddenItems;
     }
 
     /**
@@ -625,32 +640,6 @@ class Node_Database extends Node
     }
 
     /**
-     * Returns HTML for show hidden button displayed infront of database node
-     *
-     * @return String HTML for show hidden button
-     */
-    public function getHtmlForControlButtons()
-    {
-        $ret = '';
-        $cfgRelation = PMA_getRelationsParam();
-        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
-            if ($this->_hiddenCount > 0) {
-                $ret = '<span class="dbItemControls">'
-                    . '<a href="navigation.php'
-                    . PMA_URL_getCommon()
-                    . '&showUnhideDialog=true'
-                    . '&dbName=' . urldecode($this->real_name) . '"'
-                    . ' class="showUnhide ajax">'
-                    . PMA_Util::getImage(
-                        'lightbulb.png', __('Show hidden items')
-                    )
-                    . '</a></span>';
-            }
-        }
-        return $ret;
-    }
-
-    /**
      * Sets the number of hidden items in this database
      *
      * @param int $count hidden item count
@@ -659,7 +648,7 @@ class Node_Database extends Node
      */
     public function setHiddenCount($count)
     {
-        $this->_hiddenCount = $count;
+        $this->hiddenCount = $count;
     }
 
     /**
@@ -669,7 +658,7 @@ class Node_Database extends Node
      */
     public function getHiddenCount()
     {
-        return $this->_hiddenCount;
+        return $this->hiddenCount;
     }
 }
 

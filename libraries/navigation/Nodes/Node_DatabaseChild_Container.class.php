@@ -32,5 +32,15 @@ abstract class Node_DatabaseChild_Container extends Node
             );
         }
     }
+
+    /**
+     * Returns the type of the item represented by the node.
+     *
+     * @return string type of the item
+     */
+    protected function getItemType()
+    {
+        return 'group';
+    }
 }
 ?>

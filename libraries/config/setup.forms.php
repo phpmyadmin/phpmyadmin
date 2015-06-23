@@ -176,12 +176,19 @@ $forms['Navi_panel']['Navi_panel'] = array(
     'NavigationLogoLinkWindow',
     'NavigationTreePointerEnable',
     'FirstLevelNavigationItems',
-    'MaxNavigationItems',
-    'NavigationTreeEnableGrouping',
-    'NavigationTreeEnableExpansion',
     'NavigationTreeDisplayItemFilterMinimum',
     'NumRecentTables',
     'NumFavoriteTables'
+);
+$forms['Navi_panel']['Navi_tree'] = array(
+    'MaxNavigationItems',
+    'NavigationTreeEnableGrouping',
+    'NavigationTreeEnableExpansion',
+    'NavigationTreeShowTables',
+    'NavigationTreeShowViews',
+    'NavigationTreeShowFunctions',
+    'NavigationTreeShowProcedures',
+    'NavigationTreeShowEvents'
 );
 $forms['Navi_panel']['Navi_servers'] = array(
     'NavigationDisplayServers',
