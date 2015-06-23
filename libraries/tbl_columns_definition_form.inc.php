@@ -240,15 +240,17 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $columnMeta = $fields_meta[$columnNumber];
         switch ($columnMeta['Default']) {
             case null:
-                if ($columnMeta['Null'] == 'YES') {
-                    $columnMeta['DefaultType']  = 'NULL';
-                    $columnMeta['DefaultValue'] = '';
-                    // SHOW FULL COLUMNS does not report the case
-                    // when there is a DEFAULT value which is empty so we need to use the
-                    // results of SHOW CREATE TABLE
-                } else {
-                    $columnMeta['DefaultType']  = 'NONE';
-                    $columnMeta['DefaultValue'] = '';
+                if (is_null($columnMeta['Default'])) { // null
+                    if ($columnMeta['Null'] == 'YES') {
+                        $columnMeta['DefaultType']  = 'NULL';
+                        $columnMeta['DefaultValue'] = '';
+                    } else {
+                        $columnMeta['DefaultType']  = 'NONE';
+                        $columnMeta['DefaultValue'] = '';
+                    }
+                } else { // empty
+                    $columnMeta['DefaultType']  = 'USER_DEFINED';
+                    $columnMeta['DefaultValue'] = $columnMeta['Default'];
                 }
                 break;
             case 'CURRENT_TIMESTAMP':
