@@ -43,7 +43,7 @@ $cfg_db['NavigationTreeDefaultTabTable'] = array(
     'browse' => __('Browse')        // browse page
 );
 $cfg_db['NavigationTreeDefaultTabTable2'] = array(
-    '', //don't display
+    '' => '', //don't display
     'structure' => __('Structure'), // fields list
     'sql' => __('SQL'),             // SQL form
     'search' => __('Search'),       // search page
