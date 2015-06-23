@@ -549,12 +549,12 @@ class PMA_NavigationTree
      * References to existing children are returned
      * if this function is called twice on the same node
      *
-     * @param Node   $db   The database node, new containers will be
-     *                     attached to this node
-     * @param string $type The type of item being paginated on
-     *                     the second level of the tree
-     * @param int    $pos2 The position for the pagination of
-     *                     the branch at the second level of the tree
+     * @param Node_Database   $db   The database node, new containers will be
+     *                              attached to this node
+     * @param string          $type The type of item being paginated on
+     *                              the second level of the tree
+     * @param int             $pos2 The position for the pagination of
+     *                              the branch at the second level of the tree
      *
      * @return array An array of new nodes
      */
