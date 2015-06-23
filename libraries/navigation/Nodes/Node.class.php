@@ -741,7 +741,40 @@ class Node
      */
     public function getHtmlForControlButtons()
     {
-        return '';
+        $ret = '';
+        $cfgRelation = PMA_getRelationsParam();
+        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
+            if ($this instanceof Node_DatabaseChild_Container
+                || $this instanceof Node_DatabaseChild
+            ) {
+                $db   = $this->realParent()->real_name;
+                $item = $this->real_name;
+                $ret  = '<span class="navItemControls">'
+                    . '<a href="navigation.php'
+                    . PMA_URL_getCommon()
+                    . '&hideNavItem=true'
+                    . '&itemType=' . urlencode($this->getItemType())
+                    . '&itemName=' . urlencode($item)
+                    . '&dbName=' . urlencode($db) . '"'
+                    . ' class="hideNavItem ajax">'
+                    . PMA_Util::getImage('lightbulb_off.png', __('Hide'))
+                    . '</a></span>';
+            } else if ($this instanceof Node_Database) {
+                if ($this->hiddenCount > 0) {
+                    $ret = '<span class="dbItemControls">'
+                        . '<a href="navigation.php'
+                        . PMA_URL_getCommon()
+                        . '&showUnhideDialog=true'
+                        . '&dbName=' . urldecode($this->real_name) . '"'
+                        . ' class="showUnhide ajax">'
+                        . PMA_Util::getImage(
+                            'lightbulb.png', __('Show hidden items')
+                        )
+                        . '</a></span>';
+                }
+            }
+        }
+        return $ret;
     }
 
     /**

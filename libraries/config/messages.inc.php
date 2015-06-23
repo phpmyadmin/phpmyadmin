@@ -245,6 +245,8 @@ $strConfigForm_Navi_databases = __('Databases');
 $strConfigForm_Navi_databases_desc = __('Databases display options.');
 $strConfigForm_Navi_panel = __('Navigation panel');
 $strConfigForm_Navi_panel_desc = __('Customize appearance of the navigation panel.');
+$strConfigForm_Navi_tree = __('Navigation tree');
+$strConfigForm_Navi_tree_desc = __('Customize the navigation tree.');
 $strConfigForm_Navi_servers = __('Servers');
 $strConfigForm_Navi_servers_desc = __('Servers display options.');
 $strConfigForm_Navi_tables = __('Tables');
@@ -482,6 +484,21 @@ $strConfigNavigationTreeEnableExpansion_desc
     = __('Whether to offer the possibility of tree expansion in the navigation panel.');
 $strConfigNavigationTreeEnableExpansion_name
     = __('Enable navigation tree expansion');
+$strConfigNavigationTreeShowTables_name = __('Show tables in tree');
+$strConfigNavigationTreeShowTables_desc
+    = __('Whether to show tables under database in the navigation tree');
+$strConfigNavigationTreeShowViews_name = __('Show views in tree');
+$strConfigNavigationTreeShowViews_desc
+    = __('Whether to show views under database in the navigation tree');
+$strConfigNavigationTreeShowFunctions_name = __('Show functions in tree');
+$strConfigNavigationTreeShowFunctions_desc
+    = __('Whether to show functions under database in the navigation tree');
+$strConfigNavigationTreeShowProcedures_name = __('Show procedures in tree');
+$strConfigNavigationTreeShowProcedures_desc
+    = __('Whether to show procedures under database in the navigation tree');
+$strConfigNavigationTreeShowEvents_name = __('Show events in tree');
+$strConfigNavigationTreeShowEvents_desc
+    = __('Whether to show events under database in the navigation tree');
 $strConfigNumRecentTables_desc
     = __('Maximum number of recently used tables; set 0 to disable.');
 $strConfigNumFavoriteTables_desc

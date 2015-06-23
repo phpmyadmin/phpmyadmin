@@ -999,6 +999,41 @@ $cfg['NavigationTreeDefaultTabTable2'] = '';
  */
 $cfg['NavigationTreeEnableExpansion'] = true;
 
+/**
+ * Show tables in navigation panel
+ *
+ * @global boolean $cfg['NavigationTreeShowTables']
+ */
+$cfg['NavigationTreeShowTables'] = true;
+
+/**
+ * Show views in navigation panel
+ *
+ * @global boolean $cfg['NavigationTreeShowViews']
+ */
+$cfg['NavigationTreeShowViews'] = true;
+
+/**
+ * Show functions in navigation panel
+ *
+ * @global boolean $cfg['NavigationTreeShowFunctions']
+ */
+$cfg['NavigationTreeShowFunctions'] = true;
+
+/**
+ * Show procedures in navigation panel
+ *
+ * @global boolean $cfg['NavigationTreeShowProcedures']
+ */
+$cfg['NavigationTreeShowProcedures'] = true;
+
+/**
+ * Show events in navigation panel
+ *
+ * @global boolean $cfg['NavigationTreeShowEvents']
+ */
+$cfg['NavigationTreeShowEvents'] = true;
+
 /*******************************************************************************
  * In the main panel, at startup...
  */

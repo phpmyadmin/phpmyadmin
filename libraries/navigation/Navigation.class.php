@@ -189,6 +189,7 @@ class PMA_Navigation
         $GLOBALS['dbi']->freeResult($result);
 
         $typeMap = array(
+            'group' => __('Groups:'),
             'event' => __('Events:'),
             'function' => __('Functions:'),
             'procedure' => __('Procedures:'),

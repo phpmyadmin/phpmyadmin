@@ -560,29 +560,57 @@ class PMA_NavigationTree
      */
     private function _addDbContainers($db, $type, $pos2)
     {
+        // Get items to hide
+        $hidden = $db->getHiddenItems('group');
+        if (!$GLOBALS['cfg']['NavigationTreeShowTables']
+            && !in_array('tables', $hidden)
+        ) {
+            $hidden[] = 'tables';
+        }
+        if (!$GLOBALS['cfg']['NavigationTreeShowViews']
+            && !in_array('views', $hidden)
+        ) {
+            $hidden[] = 'views';
+        }
+        if (!$GLOBALS['cfg']['NavigationTreeShowFunctions']
+            && !in_array('functions', $hidden)
+        ) {
+            $hidden[] = 'functions';
+        }
+        if (!$GLOBALS['cfg']['NavigationTreeShowProcedures']
+            && !in_array('procedures', $hidden)
+        ) {
+            $hidden[] = 'procedures';
+        }
+        if (!$GLOBALS['cfg']['NavigationTreeShowEvents']
+            && !in_array('events', $hidden)
+        ) {
+            $hidden[] = 'events';
+        }
+
         $retval = array();
         if ($db->hasChildren(true) == 0) {
-            if ($db->getPresence('tables')) {
+            if (!in_array('tables', $hidden) && $db->getPresence('tables')) {
                 $retval['tables'] = PMA_NodeFactory::getInstance(
                     'Node_Table_Container'
                 );
             }
-            if ($db->getPresence('views')) {
+            if (!in_array('views', $hidden) && $db->getPresence('views')) {
                 $retval['views'] = PMA_NodeFactory::getInstance(
                     'Node_View_Container'
                 );
             }
-            if ($db->getPresence('functions')) {
+            if (!in_array('functions', $hidden) && $db->getPresence('functions')) {
                 $retval['functions'] = PMA_NodeFactory::getInstance(
                     'Node_Function_Container'
                 );
             }
-            if ($db->getPresence('procedures')) {
+            if (!in_array('procedures', $hidden) && $db->getPresence('procedures')) {
                 $retval['procedures'] = PMA_NodeFactory::getInstance(
                     'Node_Procedure_Container'
                 );
             }
-            if ($db->getPresence('events')) {
+            if (!in_array('events', $hidden) && $db->getPresence('events')) {
                 $retval['events'] = PMA_NodeFactory::getInstance(
                     'Node_Event_Container'
                 );
@@ -1124,10 +1152,10 @@ class PMA_NavigationTree
             } else {
                 $retval .= "&nbsp;{$node->name}";
             }
+            $retval .= $node->getHtmlForControlButtons();
             if ($node->type == Node::CONTAINER) {
                 $retval .= "</i>";
             }
-            $retval .= $node->getHtmlForControlButtons();
             $retval .= '<div class="clearfloat"></div>';
             $wrap = true;
         } else {

@@ -64,6 +64,7 @@ phpMyAdmin - ChangeLog
 - bug #4966 MySQL errors are not shown when DebugSQL is enabled
 + rfe #342  One file per table and one file per database export option
 + rfe #1060 Designer settings should be part of saved state
++ rfe #1557 Option to remove functions, procedures, etc., from navigation tree
 
 4.4.11.0 (not yet released)
 
