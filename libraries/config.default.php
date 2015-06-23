@@ -482,6 +482,15 @@ $cfg['Servers'][$i]['savedsearches'] = '';
 $cfg['Servers'][$i]['central_columns'] = '';
 
 /**
+ * table to store designer settings
+ *   - leave blank to disable the storage of designer settings
+ *     SUGGESTED: 'pma__designer_settings'
+ *
+ * @global string $cfg['Servers'][$i]['designer_settings']
+ */
+$cfg['Servers'][$i]['designer_settings'] = '';
+
+/**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
  *
  * In case where tables in databases is modified (e.g. dropped or renamed),

@@ -80,7 +80,30 @@ if (isset($_REQUEST['operation'])) {
         );
         $response->isSuccess($success);
         $response->addJSON('message', $message);
+    } elseif ($_REQUEST['operation'] == 'save_setting_value') {
+        $cfgRelation = PMA_getRelationsParam();
+
+        $cfgDesigner = array(
+            'user'  => $GLOBALS['cfg']['Server']['user'],
+            'db'    => $cfgRelation['db'],
+            'table' => $cfgRelation['designer_settings']
+        );
+        if (! empty($cfgDesigner['user'])
+            && ! empty($cfgDesigner['db'])
+            && ! empty($cfgDesigner['table'])
+            && $GLOBALS['cfgRelation']['designer_settingswork']
+        ) {
+            $query = 'INSERT INTO ' . PMA_Util::backquote($cfgDesigner['db'])
+                . '.' . PMA_Util::backquote($cfgDesigner['table'])
+                . ' VALUES("' . $cfgDesigner['user'] . '", "'
+                . $_REQUEST['index'] . '", "' . $_REQUEST['value'] . '") ON DUPLICATE KEY '
+                . 'UPDATE VALUE = "' . $_REQUEST['value'] . '";';
+
+            $success = $GLOBALS['dbi']->query($query);
+            $response->isSuccess($success);
+        }
     }
+
     return;
 }
 
@@ -89,6 +112,7 @@ $tab_column = PMA_getColumnsInfo();
 $script_tables = PMA_getScriptTabs();
 $tables_pk_or_unique_keys = PMA_getPKOrUniqueKeys();
 $tables_all_keys = PMA_getAllKeys();
+$classes_side_menu = PMA_returnClassNamesFromMenuButtons();
 
 $display_page = -1;
 $selected_page = null;
@@ -137,8 +161,10 @@ $response->addHTML(
     )
 );
 $response->addHTML(
-    PMA_getDesignerPageMenu(isset($_REQUEST['query']), $selected_page)
+    PMA_getDesignerPageMenu(isset($_REQUEST['query']), $selected_page, $classes_side_menu)
 );
+
+
 
 $response->addHTML('<div id="canvas_outer">');
 $response->addHTML(

@@ -156,18 +156,153 @@ function PMA_getHtmlForJSFields(
  *
  * @param boolean $visualBuilder whether this is visual query builder
  * @param string  $selected_page name of the selected page
+ * @param array   $params_array  array with class name for various buttons on side menu
  *
  * @return string html
  */
-function PMA_getDesignerPageMenu($visualBuilder, $selected_page)
+function PMA_getDesignerPageMenu($visualBuilder, $selected_page, $params_array)
 {
     return PMA\Template::get('designer/side_menu')
         ->render(
             array(
                 'visualBuilder' => $visualBuilder,
-                'selected_page' => $selected_page
+                'selected_page' => $selected_page,
+                'params_array' => $params_array
             )
         );
+}
+
+/**
+ * Returns array of stored values of Designer Settings
+ *
+ * @return array stored values
+ */
+function PMA_getSideMenuParamsArray()
+{
+    $params = array();
+
+    $cfgRelation = PMA_getRelationsParam();
+
+    if ($GLOBALS['cfgRelation']['designer_settingswork']) {
+        // angular_direct
+        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "angular_direct"';
+
+        $result = $GLOBALS['dbi']->fetchSingleRow($query);
+        $params['angular_direct'] = $result['value'];
+
+        // snap_to_grid
+        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "snap_to_grid"';
+
+        $result = $GLOBALS['dbi']->fetchSingleRow($query);
+        $params['snap_to_grid'] = $result['value'];
+
+        // small_big_all
+        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "small_big_all"';
+
+        $result = $GLOBALS['dbi']->fetchSingleRow($query);
+        $params['small_big_all'] = $result['value'];
+
+        // relation_lines
+        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "relation_lines"';
+
+        $result = $GLOBALS['dbi']->fetchSingleRow($query);
+        $params['relation_lines'] = $result['value'];
+
+        // full_screen
+        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "full_screen"';
+
+        $result = $GLOBALS['dbi']->fetchSingleRow($query);
+        $params['full_screen'] = $result['value'];
+
+        // side_menu
+        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "side_menu"';
+
+        $result = $GLOBALS['dbi']->fetchSingleRow($query);
+        $params['side_menu'] = $result['value'];
+
+        // pin_text
+        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "pin_text"';
+
+        $result = $GLOBALS['dbi']->fetchSingleRow($query);
+        $params['pin_text'] = $result['value'];
+    }
+
+    return $params;
+}
+
+/**
+ * Returns class names for various buttons on Designer Side Menu
+ *
+ * @return array class names of various buttons
+ */
+function PMA_returnClassNamesFromMenuButtons()
+{
+    $classes_array = array();
+    $params_array = PMA_getSideMenuParamsArray();
+
+    if (isset($params_array['angular_direct'])
+        && $params_array['angular_direct'] == 'angular'
+    ) {
+        $classes_array['angular_direct'] = 'M_butt_Selected_down';
+    } else {
+        $classes_array['angular_direct'] = 'M_butt';
+    }
+
+    if (isset($params_array['snap_to_grid'])
+        && $params_array['snap_to_grid'] == 'on'
+    ) {
+        $classes_array['snap_to_grid'] = 'M_butt_Selected_down';
+    } else {
+        $classes_array['snap_to_grid'] = 'M_butt';
+    }
+
+    if (isset($params_array['pin_text'])
+        && $params_array['pin_text'] == 'true'
+    ) {
+        $classes_array['pin_text'] = 'M_butt_Selected_down';
+    } else {
+        $classes_array['pin_text'] = 'M_butt';
+    }
+
+    if (isset($params_array['relation_lines'])
+        && $params_array['relation_lines'] == 'false'
+    ) {
+        $classes_array['relation_lines'] = 'M_butt_Selected_down';
+    } else {
+        $classes_array['relation_lines'] = 'M_butt';
+    }
+
+    if (isset($params_array['small_big_all'])
+        && $params_array['small_big_all'] == 'v'
+    ) {
+        $classes_array['small_big_all'] = 'M_butt_Selected_down';
+    } else {
+        $classes_array['small_big_all'] = 'M_butt';
+    }
+
+    if (isset($params_array['side_menu'])
+        && $params_array['side_menu'] == 'true'
+    ) {
+        $classes_array['side_menu'] = 'M_butt_Selected_down';
+    } else {
+        $classes_array['side_menu'] = 'M_butt';
+    }
+
+    return $classes_array;
 }
 
 /**
