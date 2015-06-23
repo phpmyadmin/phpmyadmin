@@ -297,10 +297,10 @@ Handbook covers this topic in the chapter `Validating other keys on your public
 keyring`_. The most reliable method is to meet the developer in person and
 exchange key fingerprints, however you can also rely on the web of trust. This way
 you can trust the key transitively though signatures of others, who have met
-the developer in person. For example you can see how `Marc's key links to Linus
-one`_.
+the developer in person. For example you can see how `Marc's key links to
+Linus's key`_.
 
-Once the key is trusted, you should get rid of that warning:
+Once the key is trusted, the warning will not occur:
 
 .. code-block:: console
 
