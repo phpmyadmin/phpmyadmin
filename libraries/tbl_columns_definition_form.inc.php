@@ -246,10 +246,6 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                     // SHOW FULL COLUMNS does not report the case
                     // when there is a DEFAULT value which is empty so we need to use the
                     // results of SHOW CREATE TABLE
-                } elseif (isset($analyzed_sql[0]['create_table_fields']
-                    [$fields_meta[$columnNumber]['Field']]['default_value'])) {
-                    $columnMeta['DefaultType']  = 'USER_DEFINED';
-                    $columnMeta['DefaultValue'] = $columnMeta['Default'];
                 } else {
                     $columnMeta['DefaultType']  = 'NONE';
                     $columnMeta['DefaultValue'] = '';
@@ -396,7 +392,6 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         'length' => $length,
         'extracted_columnspec' => $extracted_columnspec,
         'submit_attribute' => $submit_attribute,
-        'analyzed_sql' => isset($analyzed_sql) ? $analyzed_sql : null,
         'comments_map' => $comments_map,
         'fields_meta' => isset($fields_meta) ? $fields_meta : null,
         'is_backup' => $is_backup,
