@@ -49,6 +49,13 @@ class FieldDefFragment extends Fragment
     public $name;
 
     /**
+     * Whether this field is a constraint or not.
+     *
+     * @var bool
+     */
+    public $isConstraint;
+
+    /**
      * The data type of thew new column.
      *
      * @var DataTypeFragment
@@ -56,11 +63,18 @@ class FieldDefFragment extends Fragment
     public $type;
 
     /**
-     * The array of indexes.
+     * The key.
      *
-     * @var ArrayFragment
+     * @var KeyFragment
      */
-    public $indexes;
+    public $key;
+
+    /**
+     * The table that is referenced.
+     *
+     * @var ReferencesKeyword
+     */
+    public $references;
 
     /**
      * The options of the new field fragment.
@@ -89,22 +103,18 @@ class FieldDefFragment extends Fragment
          *
          *      0 -----------------------[ ( ]------------------------> 1
          *
-         *      1 -------------------[ CONSTRAINT ]-------------------> 4
-         *      1 --------------------[ key type ]--------------------> 5
-         *      1 -------------------[ column name ]------------------> 2
+         *      1 --------------------[ CONSTRAINT ]------------------> 1
+         *      1 -----------------------[ key ]----------------------> 2
+         *      1 -------------[ constraint / column name ]-----------> 2
          *
-         *      2 -------------------[ data type ]--------------------> 3
+         *      2 --------------------[ data type ]-------------------> 3
          *
-         *      3 ---------------------[  size  ]---------------------> 3
          *      3 ---------------------[ options ]--------------------> 4
          *
-         *      4 -----------------[ CONSTRAINT name ]----------------> 4
-         *      4 -----------------[ CONSTRAINT type ]----------------> 5
+         *      4 --------------------[ REFERENCES ]------------------> 4
          *
-         *      5 -------------------[ index names ]------------------> 6
-         *
-         *      6 ------------------------[ , ]-----------------------> 1
-         *      6 ------------------------[ ) ]-----------------------> -1
+         *      5 ------------------------[ , ]-----------------------> 1
+         *      5 ------------------------[ ) ]-----------------------> -1
          *
          * @var int
          */
@@ -132,42 +142,34 @@ class FieldDefFragment extends Fragment
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
                     $state = 1;
                 }
-                continue;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'CONSTRAINT')) {
-                    $state = 4;
+                    $expr->isConstraint = true;
                 } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_KEY)) {
-                    $expr->type = $token->value;
-                    $state = 5;
-                } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
-                    $parser->error('Unexpected keyword.', $token);
-                    break; // TODO: Skip to the end of the query.
+                    $expr->key = KeyFragment::parse($parser, $list);
+                    $state = 4;
                 } else {
                     $expr->name = $token->value;
-                    $state = 2;
+                    if (!$expr->isConstraint) {
+                        $state = 2;
+                    }
                 }
             } elseif ($state === 2) {
                 $expr->type = DataTypeFragment::parse($parser, $list);
                 $state = 3;
             } elseif ($state === 3) {
                 $expr->options = OptionsFragment::parse($parser, $list, static::$FIELD_OPTIONS);
-                $state = 6;
+                $state = 4;
             } elseif ($state === 4) {
-                if (($token->type !== Token::TYPE_KEYWORD) || (!($token->flags & Token::FLAG_KEYWORD_KEY))) {
-                    $expr->name = $token->value;
+                if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'REFERENCES')) {
+                    ++$list->idx; // Skipping keyword 'REFERENCES'.
+                    $expr->references = ReferencesKeyword::parse($parser, $list);
                 } else {
-                    $expr->type = $token->value;
-                    $state = 5;
+                    --$list->idx;
                 }
-            } elseif ($state === 5) {
-                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $expr->indexes = ArrayFragment::parse($parser, $list);
-                    $state = 6;
-                } else {
-                    $expr->name = $token->value;
-                }
-            } elseif ($state === 6) {
-                if (!empty($expr->type)) {
+                $state = 5;
+            } else if ($state === 5) {
+                if ((!empty($expr->type)) || (!empty($expr->key))) {
                     $ret[] = $expr;
                 }
                 $expr = new FieldDefFragment();
@@ -183,7 +185,7 @@ class FieldDefFragment extends Fragment
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->type)) {
+        if ((!empty($expr->type)) || (!empty($expr->key))) {
             $ret[] = $expr;
         }
 

@@ -24,7 +24,7 @@ class ArrayFragment extends Fragment
      *
      * @var array
      */
-    public $array = array();
+    public $values = array();
 
     /**
      * The array that contains the unprocessed value of each token.
@@ -89,7 +89,7 @@ class ArrayFragment extends Fragment
                     // Empty array.
                     break;
                 }
-                $ret->array[] = $token->value;
+                $ret->values[] = $token->value;
                 $ret->raw[] = $token->token;
                 $state = 2;
             } elseif ($state === 2) {

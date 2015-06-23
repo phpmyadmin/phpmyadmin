@@ -20,7 +20,12 @@ use SqlParser\TokensList;
 class DataTypeFragment extends Fragment
 {
 
-    public static $OPTIONS = array(
+    /**
+     * All data type options.
+     *
+     * @var array
+     */
+    public static $DATA_TYPE_OPTIONS = array(
         'BINARY'                        => 1,
         'CHARACTER SET'                 => array(2, 'var'),
         'CHARSET'                       => array(2, 'var'),
@@ -37,18 +42,26 @@ class DataTypeFragment extends Fragment
     public $name;
 
     /**
-     * The size of this data type.
+     * The parameters of this data type.
+     *
+     * Some data types have no parameters.
+     * Numeric types might have parameters for the maximum number of digits,
+     * precision, etc.
+     * String ypes might have parameters for the maxium length stored.
+     * `ENUM` and `SET` have parameters for possible values.
+     *
+     * For more information, check the MySQL manual.
      *
      * @var array
      */
-    public $size = array();
+    public $parameters = array();
 
     /**
      * The options of this data type.
      *
      * @var OptionsFragment
      */
-    public $options = array();
+    public $options;
 
     /**
      * @param Parser     $parser  The parser that serves as context.
@@ -97,10 +110,10 @@ class DataTypeFragment extends Fragment
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
                     $size = ArrayFragment::parse($parser, $list);
                     ++$list->idx;
-                    $ret->size = (($ret->name === 'ENUM') || ($ret->name === 'SET')) ?
-                        $size->raw : $size->array;
+                    $ret->parameters = (($ret->name === 'ENUM') || ($ret->name === 'SET')) ?
+                        $size->raw : $size->values;
                 }
-                $ret->options = OptionsFragment::parse($parser, $list, static::$OPTIONS);
+                $ret->options = OptionsFragment::parse($parser, $list, static::$DATA_TYPE_OPTIONS);
                 ++$list->idx;
                 break;
             }

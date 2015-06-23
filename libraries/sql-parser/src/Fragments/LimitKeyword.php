@@ -64,7 +64,7 @@ class LimitKeyword extends Fragment
                 continue;
             }
 
-            if ($token->value === 'OFFSET') {
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'OFFSET')) {
                 if ($offset) {
                     $parser->error('An offset was expected.');
                 }
@@ -73,8 +73,8 @@ class LimitKeyword extends Fragment
             }
 
             if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
-                $ret->offset = $ret->row_count;
-                $ret->row_count = 0;
+                $ret->offset = $ret->rowCount;
+                $ret->rowCount = 0;
                 continue;
             }
 
@@ -82,7 +82,7 @@ class LimitKeyword extends Fragment
                 $ret->offset = $token->value;
                 $offset = false;
             } else {
-                $ret->row_count = $token->value;
+                $ret->rowCount = $token->value;
             }
         }
 

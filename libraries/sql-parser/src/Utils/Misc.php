@@ -92,8 +92,7 @@ class Misc
             } else {
                 $thisTable = isset($tables[$thisDb][$expr->table]) ?
                     $tables[$thisDb][$expr->table] : $expr->table;
-                $retval[$thisDb]['tables']
-                    [$thisTable]['columns'][$expr->column] = $expr->alias;
+                $retval[$thisDb]['tables'][$thisTable]['columns'][$expr->column] = $expr->alias;
             }
         }
 

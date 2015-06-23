@@ -20,6 +20,49 @@ use SqlParser\Statements\CreateStatement;
 class Table
 {
 
+    public static function getForeignKeys(CreateStatement $tree)
+    {
+        if (($tree->fields === null) || (!$tree->options->has('TABLE'))) {
+            return array();
+        }
+
+        $ret = array();
+
+        foreach ($tree->fields as $field) {
+
+            if ((empty($field->key)) || ($field->key->type !== 'FOREIGN KEY')) {
+                continue;
+            }
+
+            $tmp = array(
+                'constraint' => $field->name,
+                'index_list' => $field->key->columns,
+            );
+
+            if (!empty($field->references)) {
+                $tmp['ref_table_name'] = $field->references->table;
+                $tmp['ref_index_list'] = $field->references->columns;
+
+                if (($opt = $field->references->options->has('ON UPDATE'))) {
+                    $tmp['on_update'] = str_replace(' ', '_', $opt);
+                }
+
+                if (($opt = $field->references->options->has('ON DELETE'))) {
+                    $tmp['on_delete'] = str_replace(' ', '_', $opt);
+                }
+
+                // if (($opt = $field->references->options->has('MATCH'))) {
+                //     $tmp['match'] = str_replace(' ', '_', $opt);
+                // }
+            }
+
+            $ret[] = $tmp;
+
+        }
+
+        return $ret;
+    }
+
     public static function getFields(CreateStatement $tree)
     {
         if (($tree->fields === null) || (!$tree->options->has('TABLE'))) {
@@ -31,7 +74,7 @@ class Table
         foreach ($tree->fields as $field) {
 
             // Skipping keys.
-            if (is_string($field->type)) {
+            if (empty($field->type)) {
                 continue;
             }
 

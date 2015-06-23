@@ -80,8 +80,7 @@ class CallKeyword extends Fragment
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $parameters = ArrayFragment::parse($parser, $list);
-                    $ret->parameters = $parameters->array;
+                    $ret->parameters = ArrayFragment::parse($parser, $list)->values;
                 }
                 break;
             }

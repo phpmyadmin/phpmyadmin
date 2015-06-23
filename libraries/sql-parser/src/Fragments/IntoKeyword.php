@@ -82,30 +82,12 @@ class IntoKeyword extends Fragment
                 break;
             }
 
-            if ($token->type === Token::TYPE_OPERATOR) {
-                if ($token->value === '(') {
-                    if (empty($ret->table)) {
-                        $parser->error('Table name was expected.', $token);
-                    }
-                    $state = 1;
-                    continue;
-                } elseif ($token->value === ',') {
-                    if ($state !== 2) {
-                        $parser->error('Field name was expected.', $token);
-                    }
-                    $state = 1;
-                    continue;
-                }
-
-                // No other operator is expected.
+            if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
+                $ret->fields = ArrayFragment::parse($parser, $list)->values;
+                ++$list->idx;
                 break;
-            }
-
-            if ($state === 0) {
-                $ret->table .= $token->value;
-            } elseif ($state === 1) {
-                $ret->fields[] = $token->value;
-                $state = 2;
+            } else {
+                $ret->table = $token->value;
             }
 
         }

@@ -32,6 +32,7 @@ class CreateStatement extends Statement
         'TABLE'                         => 1,
         'TABLESPACE'                    => 1,
         'TRIGGER'                       => 1,
+        'USER'                          => 1,
         'VIEW'                          => 1,
 
         'TEMPORARY'                     => 2,

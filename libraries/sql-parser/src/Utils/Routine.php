@@ -32,22 +32,22 @@ class Routine
         $lexer = new Lexer($param);
 
         // A dummy parser is used for error reporting.
-        $param = DataTypeFragment::parse(new Parser(), $lexer->tokens);
+        $type = DataTypeFragment::parse(new Parser(), $lexer->tokens);
 
-        if ($param === null) {
+        if ($type === null) {
             return array('', '', '', '', '');
         }
 
         $options = array();
-        foreach ($param->options->options as $opt) {
+        foreach ($type->options->options as $opt) {
             $options[] = is_string($opt) ? $opt : $opt['value'];
         }
 
         return array(
             '',
             '',
-            $param->name,
-            implode(',', $param->size),
+            $type->name,
+            implode(',', $type->parameters),
             implode(' ', $options)
         );
     }
@@ -81,7 +81,7 @@ class Routine
             empty($param->inOut) ? '' : $param->inOut,
             $param->name,
             $param->type->name,
-            implode(',', $param->type->size),
+            implode(',', $param->type->parameters),
             implode(' ', $options)
         );
     }
@@ -110,8 +110,8 @@ class Routine
             $retval['dir'][$idx] = $param->inOut;
             $retval['name'][$idx] = $param->name;
             $retval['type'][$idx] = $param->type->name;
-            $retval['length'][$idx] = implode(',', $param->type->size);
-            $retval['length_arr'][$idx] = $param->type->size;
+            $retval['length'][$idx] = implode(',', $param->type->parameters);
+            $retval['length_arr'][$idx] = $param->type->parameters;
             $retval['opts'][$idx] = array();
             foreach ($param->type->options->options as $opt) {
                 $retval['opts'][$idx][] = is_string($opt) ?

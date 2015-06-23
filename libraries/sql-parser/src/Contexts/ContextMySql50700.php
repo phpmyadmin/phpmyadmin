@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Context for MySQL 5.7.
+ *
+ * @link https://dev.mysql.com/doc/refman/5.7/en/keywords.html
+ */
+
 namespace SqlParser\Contexts;
 
 use SqlParser\Context;
@@ -16,6 +22,15 @@ use SqlParser\Context;
 class ContextMySql50700 extends Context
 {
 
+    /**
+     * List of keywords.
+     *
+     * The value associated to each keyword represents its flags.
+     *
+     * @see Token::FLAG_KEYWORD_*
+     *
+     * @var array
+     */
     public static $KEYWORDS = array(
 
         'AT' => 1, 'DO' => 1, 'IO' => 1, 'NO' => 1, 'XA' => 1,
@@ -170,8 +185,8 @@ class ContextMySql50700 extends Context
         'SQL_CALC_FOUND_ROWS' => 3,
         'MASTER_SSL_VERIFY_SERVER_CERT' => 3,
 
-        'NOT NULL' => 5,
-        'ON UPDATE' => 5,
+        'NOT NULL' => 5, 'SET NULL' => 5,
+        'NO ACTION' => 5, 'ON DELETE' => 5, 'ON UPDATE' => 5,
         'CHARACTER SET' => 5, 'IF NOT EXISTS' => 5,
         'DATA DIRECTORY' => 5,
         'DEFAULT COLLATE' => 5, 'INDEX DIRECTORY' => 5,

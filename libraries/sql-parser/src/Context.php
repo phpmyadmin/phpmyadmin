@@ -53,29 +53,21 @@ abstract class Context
      */
     public static $contextPrefix = '\\SqlParser\\Contexts\\Context';
 
-    // -------------------------------------------------------------------------
-    // Keywords.
-
     /**
      * List of keywords.
      *
      * Because, PHP's associative arrays are basically hash tables, it is more
      * efficient to store keywords as keys instead of values.
      *
-     * There are multiple types of keyword, depending on the value associated:
-     *     1 - reserved keywords
-     *     2 - keyword
-     *     3 - composite keyword (unofficial); used to make the job of the lexer
-     *         much easier by grouping keywords that may appear together
+     * The value associated to each keyword represents its flags.
      *
-     *  Keywords below are sorted by type, length and keyword.
+     * @see Token::FLAG_KEYWORD_*
+     *
+     * Elements are sorted by flags, length and keyword.
      *
      * @var array
      */
     public static $KEYWORDS = array();
-
-    // -------------------------------------------------------------------------
-    // Operators.
 
     /**
      * List of operators and their flags.
@@ -109,9 +101,6 @@ abstract class Context
         // @see Token::FLAG_OPERATOR_SQL
         '('   => 16, ')'    => 16, '.'   => 16,  ','  => 16,
     );
-
-    // -------------------------------------------------------------------------
-    // SQL Modes.
 
     /*
      * Server SQL Modes

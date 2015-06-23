@@ -8,7 +8,7 @@ use SqlParser\Token;
 use SqlParser\TokensList;
 
 /**
- * `ORDER BY` keyword parser.
+ * `REFERENCES` keyword parser.
  *
  * @category   Keywords
  * @package    SqlParser
@@ -16,45 +16,62 @@ use SqlParser\TokensList;
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class OrderKeyword extends Fragment
+class ReferencesKeyword extends Fragment
 {
 
     /**
-     * The field that is used for ordering.
+     * All references options.
      *
-     * @var FieldFragment
+     * @var array
      */
-    public $field;
+    public static $REFERENCES_OPTIONS = array(
+        'MATCH'                         => array(1, 'var'),
+        'ON DELETE'                     => array(2, 'var'),
+        'ON UPDATE'                     => array(3, 'var'),
+    );
 
     /**
-     * The order type.
+     * The referenced table.
      *
      * @var string
      */
-    public $type = 'ASC';
+    public $table;
+
+    /**
+     * The referenced columns.
+     *
+     * @var array
+     */
+    public $columns;
+
+    /**
+     * The options of the referencing.
+     *
+     * @var OptionsFragment
+     */
+    public $options;
 
     /**
      * @param Parser     $parser  The parser that serves as context.
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return OrderKeyword[]
+     * @return ReferencesKeyword
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = array();
-
-        $expr = new OrderKeyword();
+        $ret = new ReferencesKeyword();
 
         /**
          * The state of the parser.
          *
          * Below are the states of the parser.
          *
-         *      0 ----------------------[ field ]----------------------> 1
+         *      0 ----------------------[ table ]---------------------> 1
          *
-         *      1 ------------------------[ , ]------------------------> 0
-         *      1 -------------------[ ASC / DESC ]--------------------> 1
+         *      1 ---------------------[ columns ]--------------------> 2
+         *
+         *      2 ---------------------[ options ]--------------------> -1
          *
          * @var int
          */
@@ -79,27 +96,17 @@ class OrderKeyword extends Fragment
             }
 
             if ($state === 0) {
-                $expr->field = FieldFragment::parse($parser, $list);
+                $ret->table = $token->value;
                 $state = 1;
-            } elseif ($state === 1) {
-                if (($token->type === Token::TYPE_KEYWORD) && (($token->value === 'ASC') || ($token->value === 'DESC'))) {
-                    $expr->type = $token->value;
-                } else if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
-                    if (!empty($expr->field)) {
-                        $ret[] = $expr;
-                    }
-                    $expr = new OrderKeyword();
-                    $state = 0;
-                } else {
-                    break;
-                }
+            } else if ($state === 1) {
+                $ret->columns = ArrayFragment::parse($parser, $list)->values;
+                $state = 2;
+            } else if ($state === 2) {
+                $ret->options = OptionsFragment::parse($parser, $list, static::$REFERENCES_OPTIONS);
+                ++$list->idx;
+                break;
             }
 
-        }
-
-        // Last iteration was not processed.
-        if (!empty($expr->field)) {
-            $ret[] = $expr;
         }
 
         --$list->idx;

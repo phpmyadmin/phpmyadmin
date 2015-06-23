@@ -734,15 +734,14 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
 
     if (($source == 'both' || $source == 'foreign') && /*overload*/mb_strlen($table)
     ) {
-
-        $showCreateTableQuery = 'SHOW CREATE TABLE '
-            . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table);
         $show_create_table = $GLOBALS['dbi']->fetchValue(
-            $showCreateTableQuery, 0, 1
+            'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
+            . PMA_Util::backquote($table),
+            0, 1
         );
         if ($show_create_table) {
-            $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-            $foreign['foreign_keys_data'] = $analyzed_sql[0]['foreign_keys'];
+            $parser = new SqlParser\Parser($show_create_table);
+            $foreign['foreign_keys_data'] = SqlParser\Utils\Table::getForeignKeys($parser->statements[0]);
         }
     }
 
