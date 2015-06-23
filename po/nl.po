@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-22 08:04-0400\n"
-"PO-Revision-Date: 2015-06-20 15:02+0200\n"
+"PO-Revision-Date: 2015-06-23 16:27+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6763,7 +6763,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:494
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Toon hoe dan ook links naar de rijen"
 
 #: libraries/config/messages.inc.php:496
 msgid "Use natural order for sorting table and database names."
@@ -13738,7 +13738,7 @@ msgid "Showing as PHP code"
 msgstr "Getoond als PHP-code"
 
 #: libraries/sql.lib.php:1767
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
@@ -13748,10 +13748,10 @@ msgid ""
 msgstr ""
 "De huidige selectie bevat geen unieke kolom. Functies zoals "
 "rasterbewerkingen, checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet "
-"beschikbaar."
+"beschikbaar. %s"
 
 #: libraries/sql.lib.php:1778
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
@@ -13760,8 +13760,8 @@ msgid ""
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 "De huidige selectie bevat geen unieke kolom. Functies zoals "
-"rasterbewerkingen, checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet "
-"beschikbaar."
+"rasterbewerkingen, checkboxen, Bewerken, Kopiëren en Verwijderen, kunnen "
+"resulteren in onwenselijke acties. %s"
 
 #: libraries/sql.lib.php:1817
 #, php-format
