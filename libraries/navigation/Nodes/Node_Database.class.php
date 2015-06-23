@@ -640,6 +640,33 @@ class Node_Database extends Node
     }
 
     /**
+     * Returns HTML for control buttons displayed infront of a node
+     *
+     * @return String HTML for control buttons
+     */
+    public function getHtmlForControlButtons()
+    {
+        $ret = '';
+        $cfgRelation = PMA_getRelationsParam();
+        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
+            if ($this->hiddenCount > 0) {
+                $ret = '<span class="dbItemControls">'
+                    . '<a href="navigation.php'
+                    . PMA_URL_getCommon()
+                    . '&showUnhideDialog=true'
+                    . '&dbName=' . urldecode($this->real_name) . '"'
+                    . ' class="showUnhide ajax">'
+                    . PMA_Util::getImage(
+                        'lightbulb.png', __('Show hidden items')
+                    )
+                    . '</a></span>';
+            }
+
+        }
+        return $ret;
+    }
+
+    /**
      * Sets the number of hidden items in this database
      *
      * @param int $count hidden item count
