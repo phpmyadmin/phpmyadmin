@@ -331,6 +331,7 @@ class PMA_NavigationTree
         }
 
         array_shift($path); // remove 'root'
+        /* @var $db Node_Database */
         $db = $this->_tree->getChild($path[0]);
         $retval = $db;
 
@@ -418,6 +419,7 @@ class PMA_NavigationTree
             return $retval;
         }
 
+        /* @var $table Node_Table */
         $table = $container->getChild($path[0], true);
         if ($table === false) {
             if (!$db->getPresence('tables', $path[0])) {
