@@ -200,7 +200,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<input type="text" size="60" name="test/path" id="test/path" ' .
+            '<input type="text" size="40" name="test/path" id="test/path" ' .
             'class="custom field-error" value="val" />',
             $result
         );
