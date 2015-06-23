@@ -186,7 +186,7 @@ function PMA_getSideMenuParamsArray()
     if ($GLOBALS['cfgRelation']['designer_settingswork']) {
         // angular_direct
         $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
             . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "angular_direct"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
@@ -194,7 +194,7 @@ function PMA_getSideMenuParamsArray()
 
         // snap_to_grid
         $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
             . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "snap_to_grid"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
@@ -202,7 +202,7 @@ function PMA_getSideMenuParamsArray()
 
         // small_big_all
         $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
             . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "small_big_all"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
@@ -210,7 +210,7 @@ function PMA_getSideMenuParamsArray()
 
         // relation_lines
         $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
             . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "relation_lines"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
@@ -218,7 +218,7 @@ function PMA_getSideMenuParamsArray()
 
         // full_screen
         $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
             . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "full_screen"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
@@ -226,7 +226,7 @@ function PMA_getSideMenuParamsArray()
 
         // side_menu
         $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
             . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "side_menu"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
@@ -234,7 +234,7 @@ function PMA_getSideMenuParamsArray()
 
         // pin_text
         $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('user') . ' = "'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
             . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "pin_text"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);

@@ -281,10 +281,10 @@ CREATE TABLE IF NOT EXISTS `pma__savedsearches` (
 --
 
 CREATE TABLE IF NOT EXISTS `pma__designer_settings` (
-  `user` varchar(64) NOT NULL,
+  `username` varchar(64) NOT NULL,
   `index` varchar(64) NOT NULL,
   `value` varchar(64) NOT NULL,
-  PRIMARY KEY (`user`,`index`)
+  PRIMARY KEY (`username`,`index`)
 )
   COMMENT='Settings related to Designer'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
