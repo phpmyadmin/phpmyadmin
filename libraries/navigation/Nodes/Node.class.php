@@ -741,27 +741,7 @@ class Node
      */
     public function getHtmlForControlButtons()
     {
-        $ret = '';
-        $cfgRelation = PMA_getRelationsParam();
-        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
-            if ($this instanceof Node_DatabaseChild_Container
-                || $this instanceof Node_DatabaseChild
-            ) {
-                $db   = $this->realParent()->real_name;
-                $item = $this->real_name;
-                $ret  = '<span class="navItemControls">'
-                    . '<a href="navigation.php'
-                    . PMA_URL_getCommon()
-                    . '&hideNavItem=true'
-                    . '&itemType=' . urlencode($this->getItemType())
-                    . '&itemName=' . urlencode($item)
-                    . '&dbName=' . urlencode($db) . '"'
-                    . ' class="hideNavItem ajax">'
-                    . PMA_Util::getImage('lightbulb_off.png', __('Hide'))
-                    . '</a></span>';
-            }
-        }
-        return $ret;
+        return '';
     }
 
     /**

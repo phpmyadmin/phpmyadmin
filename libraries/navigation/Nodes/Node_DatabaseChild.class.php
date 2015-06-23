@@ -10,7 +10,9 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Represents a node that is a concrete child of a database node
+ * Represents a node that is a child of a database node
+ * This may either be a concrete child such as table or a container
+ * such as a table group
  *
  * @package PhpMyAdmin-Navigation
  */
@@ -22,5 +24,31 @@ abstract class Node_DatabaseChild extends Node
      * @return string type of the item
      */
     protected abstract function getItemType();
+
+    /**
+     * Returns HTML for control buttons displayed infront of a node
+     *
+     * @return String HTML for control buttons
+     */
+    public function getHtmlForControlButtons()
+    {
+        $ret = '';
+        $cfgRelation = PMA_getRelationsParam();
+        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
+            $db   = $this->realParent()->real_name;
+            $item = $this->real_name;
+            $ret  = '<span class="navItemControls">'
+                . '<a href="navigation.php'
+                . PMA_URL_getCommon()
+                . '&hideNavItem=true'
+                . '&itemType=' . urlencode($this->getItemType())
+                . '&itemName=' . urlencode($item)
+                . '&dbName=' . urlencode($db) . '"'
+                . ' class="hideNavItem ajax">'
+                . PMA_Util::getImage('lightbulb_off.png', __('Hide'))
+                . '</a></span>';
+        }
+        return $ret;
+    }
 }
 ?>

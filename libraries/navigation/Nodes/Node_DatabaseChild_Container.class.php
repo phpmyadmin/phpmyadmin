@@ -9,12 +9,14 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/navigation/Nodes/Node_DatabaseChild.class.php';
+
 /**
  * Represents container node that carries children of a database
  *
  * @package PhpMyAdmin-Navigation
  */
-abstract class Node_DatabaseChild_Container extends Node
+abstract class Node_DatabaseChild_Container extends Node_DatabaseChild
 {
     /**
      * Initialises the class by setting the common variables
