@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Represents a node that is a child of a database node
  * This may either be a concrete child such as table or a container
- * such as a table group
+ * such as table container
  *
  * @package PhpMyAdmin-Navigation
  */
