@@ -62,6 +62,8 @@ phpMyAdmin - ChangeLog
 + rfe #1551 Integrate SQL debugging into console
 - bug #4963 Improve/restore non-unique index row editing
 - bug #4966 MySQL errors are not shown when DebugSQL is enabled
++ rfe #342  One file per table and one file per database export option
++ rfe #1060 Designer settings should be part of saved state
 
 4.4.11.0 (not yet released)
 

@@ -789,8 +789,8 @@ Server connection settings
     :default: ``''``
 
     Since release 4.5.0 your designer settings can be remembered.
-    Your choice regarding 'Angular/ Direct Links', 'Snap to Grid', 'Toggle Relation Lines',
-    'Small/ Big all', 'Move menu' and 'Pin text' can be remembered persistently.
+    Your choice regarding 'Angular/Direct Links', 'Snap to Grid', 'Toggle Relation Lines',
+    'Small/Big All', 'Move Menu' and 'Pin Text' can be remembered persistently.
 
     To allow the usage of this functionality:
 
