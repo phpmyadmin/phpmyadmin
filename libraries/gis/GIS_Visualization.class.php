@@ -617,5 +617,13 @@ class PMA_GIS_Visualization
         }
         return $results;
     }
+
+    /**
+     * @param array $userSpecifiedSettings
+     */
+    public function setUserSpecifiedSettings($userSpecifiedSettings)
+    {
+        $this->_userSpecifiedSettings = $userSpecifiedSettings;
+    }
 }
 ?>
