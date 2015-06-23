@@ -111,20 +111,20 @@ function getImg($path)
             <?php echo __('Help'); ?>
         </span>
     </a>
-    <a href="#" class="M_butt" id="angular_direct_button">
+    <a href="#" class="<?php echo $params_array['angular_direct']; ?>" id="angular_direct_button">
         <img title="<?php echo __('Angular links'); ?> / <?php echo __('Direct links'); ?>"
              src="<?php echo getImg('pmd/ang_direct.png'); ?>" />
         <span class="hide hidable">
             <?php echo __('Angular links'); ?> / <?php echo __('Direct links'); ?>
         </span>
     </a>
-    <a href="#" class="M_butt" id="grid_button">
+    <a href="#" class="<?php echo $params_array['snap_to_grid']; ?>" id="grid_button">
         <img title="<?php echo __('Snap to grid'); ?>" src="<?php echo getImg('pmd/grid.png'); ?>" />
         <span class="hide hidable">
             <?php echo __('Snap to grid'); ?>
         </span>
     </a>
-    <a href="#" class="M_butt" id="key_SB_all">
+    <a href="#" class="<?php echo $params_array['small_big_all']; ?>" id="key_SB_all">
         <img title="<?php echo __('Small/Big All'); ?>"
              alt="v"
              src="<?php echo getImg('pmd/downarrow1.png'); ?>"
@@ -141,7 +141,7 @@ function getImg($path)
             <?php echo __('Toggle small/big'); ?>
         </span>
     </a>
-    <a href="#" id="relLineInvert" class="M_butt" >
+    <a href="#" id="relLineInvert" class="<?php echo $params_array['relation_lines']; ?>" >
         <img title="<?php echo __('Toggle relation lines'); ?>"
              src="<?php echo getImg('pmd/toggle_lines.png'); ?>" />
         <span class="hide hidable">
@@ -169,7 +169,7 @@ function getImg($path)
             </span>
         </a>
     <?php endif; ?>
-    <a href="#" class="M_butt" id="key_Left_Right">
+    <a href="#" class="<?php echo $params_array['side_menu']; ?>" id="key_Left_Right">
         <img title="<?php echo __('Move Menu'); ?>" alt=">"
              data-right="<?php echo getImg('pmd/2leftarrow_m.png'); ?>"
              src="<?php echo getImg('pmd/2rightarrow_m.png'); ?>" />
@@ -177,7 +177,7 @@ function getImg($path)
             <?php echo __('Move Menu'); ?>
         </span>
     </a>
-    <a href="#" class="M_butt" id="pin_Text">
+    <a href="#" class="<?php echo $params_array['pin_text']; ?>" id="pin_Text">
         <img title="<?php echo __('Pin text'); ?>"
              alt=">"
              data-right="<?php echo getImg('pmd/anchor.png'); ?>"

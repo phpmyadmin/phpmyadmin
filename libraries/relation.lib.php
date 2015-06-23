@@ -314,6 +314,17 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'central_columnswork',
             $messages
         );
+        $retval .= PMA_getDiagMessageForParameter(
+            'designer_settings',
+            isset($cfgRelation['designer_settings']),
+            $messages,
+            'designer_settings'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Remembering Designer Settings'),
+            'designer_settingswork',
+            $messages
+        );
         $retval .= '</table>' . "\n";
 
         if (! $cfgRelation['allworks']) {
@@ -440,6 +451,7 @@ function PMA_checkRelationsParam()
     $cfgRelation['allworks']       = false;
     $cfgRelation['savedsearcheswork'] = false;
     $cfgRelation['central_columnswork'] = false;
+    $cfgRelation['designer_settingswork'] = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
 
@@ -513,6 +525,8 @@ function PMA_checkRelationsParam()
             $cfgRelation['savedsearches']    = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['central_columns']) {
             $cfgRelation['central_columns']    = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['designer_settings']) {
+            $cfgRelation['designer_settings'] = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -579,6 +593,10 @@ function PMA_checkRelationsParam()
         $cfgRelation['central_columnswork']      = true;
     }
 
+    if (isset($cfgRelation['designer_settings'])) {
+        $cfgRelation['designer_settingswork']    = true;
+    }
+
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
         && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
         && $cfgRelation['mimework'] && $cfgRelation['historywork']
@@ -587,6 +605,7 @@ function PMA_checkRelationsParam()
         && $cfgRelation['bookmarkwork'] && $cfgRelation['central_columnswork']
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
         && $cfgRelation['savedsearcheswork'] && $cfgRelation['favoritework']
+        && $cfgRelation['designer_settingswork']
     ) {
         $cfgRelation['allworks'] = true;
     }
@@ -1801,7 +1820,8 @@ function PMA_fixPMATables($db, $create = true)
         'pma__usergroups' => 'usergroups',
         'pma__navigationhiding' => 'navigationhiding',
         'pma__savedsearches' => 'savedsearches',
-        'pma__central_columns' => 'central_columns'
+        'pma__central_columns' => 'central_columns',
+        'pma__designer_settings' => 'designer_settings'
     );
 
     $existingTables = $GLOBALS['dbi']->getTables($db, $GLOBALS['controllink']);

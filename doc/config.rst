@@ -782,6 +782,22 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['central_columns']` (e.g.
       ``pma__central_columns``)
 
+.. _designer_settings:
+.. config:option:: $cfg['Servers'][$i]['designer_settings']
+
+    :type: string
+    :default: ``''``
+
+    Since release 4.5.0 your designer settings can be remembered.
+    Your choice regarding 'Angular/ Direct Links', 'Snap to Grid', 'Toggle Relation Lines',
+    'Small/ Big all', 'Move menu' and 'Pin text' can be remembered persistently.
+
+    To allow the usage of this functionality:
+
+    * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
+    * put the table name in :config:option:`$cfg['Servers'][$i]['designer_settings']` (e.g.
+      ``pma__designer_settings``)
+
 .. _savedsearches:
 .. config:option:: $cfg['Servers'][$i]['savedsearches']
 

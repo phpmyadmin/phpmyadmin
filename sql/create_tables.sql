@@ -321,3 +321,18 @@ CREATE TABLE IF NOT EXISTS `pma__central_columns` (
 )
   COMMENT='Central list of columns'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__designer_settings`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__designer_settings` (
+  `user` varchar(64) NOT NULL,
+  `index` varchar(64) NOT NULL,
+  `value` varchar(64) NOT NULL,
+  PRIMARY KEY (`user`,`index`)
+)
+  COMMENT='Settings related to Designer'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
