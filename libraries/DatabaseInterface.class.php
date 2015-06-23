@@ -1433,7 +1433,7 @@ class PMA_DatabaseInterface
                 WHERE table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
                     AND table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
                     " . (
-                        (! empty($column))
+                        ($column !== null)
                             ? "
                     AND column_name = '" . PMA_Util::sqlAddSlashes($column) . "'"
                             : ''
@@ -1442,7 +1442,7 @@ class PMA_DatabaseInterface
         } else {
             $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
                 . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table)
-                . ((! empty($column)) ? "LIKE '"
+                . (($column !== null) ? "LIKE '"
                 . PMA_Util::sqlAddSlashes($column, true) . "'" : '');
         }
         return $sql;
