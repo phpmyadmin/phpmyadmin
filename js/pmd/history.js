@@ -199,6 +199,7 @@ function history_edit(index)
         document.getElementById('query_having').style.display = 'block';
     }
     if (type == "Rename") {
+        document.getElementById('e_rename').value = history_array[index].get_obj().getrename_to();
         document.getElementById('query_rename_to').style.left =  '530px';
         document.getElementById('query_rename_to').style.top  = '130px';
         document.getElementById('query_rename_to').style.position  = 'absolute';
@@ -207,6 +208,7 @@ function history_edit(index)
         document.getElementById('query_rename_to').style.display = 'block';
     }
     if (type == "Aggregate") {
+        document.getElementById('e_operator').value = history_array[index].get_obj().get_operator();
         document.getElementById('query_Aggregate').style.left = '530px';
         document.getElementById('query_Aggregate').style.top  = '130px';
         document.getElementById('query_Aggregate').style.position  = 'absolute';
