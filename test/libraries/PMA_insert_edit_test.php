@@ -2945,7 +2945,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
                 'Type' => 'longtext',
                 'Null' => 'Yes',
                 'pma_type' => 'longtext',
-                'True_Type' => 'longtext'
+                'True_Type' => 'longtext',
+                'Privilges' => 'select,insert,update,references',
             )
         );
         $actual = PMA_getHtmlForInsertEditRow(
