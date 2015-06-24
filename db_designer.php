@@ -93,11 +93,22 @@ if (isset($_REQUEST['operation'])) {
             && ! empty($cfgDesigner['table'])
             && $GLOBALS['cfgRelation']['designer_settingswork']
         ) {
-            $query = 'INSERT INTO ' . PMA_Util::backquote($cfgDesigner['db'])
-                . '.' . PMA_Util::backquote($cfgDesigner['table'])
-                . ' VALUES("' . $cfgDesigner['user'] . '", "'
-                . $_REQUEST['index'] . '", "' . $_REQUEST['value'] . '") ON DUPLICATE KEY '
-                . 'UPDATE `stored_value` = "' . $_REQUEST['value'] . '";';
+            $query = '';
+            if (! PMA_DRIZZLE) {
+                $query = 'INSERT INTO ' . PMA_Util::backquote($cfgDesigner['db'])
+                    . '.' . PMA_Util::backquote($cfgDesigner['table'])
+                    . '(`username`, ' . PMA_Util::backquote($_REQUEST['index']) . ')'
+                    . ' VALUES("' . $cfgDesigner['user'] . '", b\'' . $_REQUEST["value"]
+                    . '\') ON DUPLICATE KEY ' . 'UPDATE ' . PMA_Util::backquote($_REQUEST['index'])
+                    . ' = b\'' . $_REQUEST["value"] . '\';';
+            } else {
+                $query = 'INSERT INTO ' . PMA_Util::backquote($cfgDesigner['db'])
+                    . '.' . PMA_Util::backquote($cfgDesigner['table'])
+                    . '(`username`, ' . PMA_Util::backquote($_REQUEST['index']) . ')'
+                    . ' VALUES("' . $cfgDesigner['user'] . '",' . $_REQUEST['value']
+                    . ') ON DUPLICATE KEY ' . 'UPDATE ' . PMA_Util::backquote($_REQUEST['index'])
+                    . ' = ' . $_REQUEST['value'] . ';';
+            }
 
             $success = $GLOBALS['dbi']->query($query);
             $response->isSuccess($success);

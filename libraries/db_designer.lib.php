@@ -185,61 +185,38 @@ function PMA_getSideMenuParamsArray()
     $cfgRelation = PMA_getRelationsParam();
 
     if ($GLOBALS['cfgRelation']['designer_settingswork']) {
-        // angular_direct
-        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "angular_direct"';
+
+        $query = 'SELECT * FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE '
+            . PMA_Util::backquote('username') . ' = "'
+            . $GLOBALS['cfg']['Server']['user'] . '"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['angular_direct'] = $result['stored_value'];
+
+        // angular_direct
+        $params['angular_direct'] = $result['angular_direct'] ? $result['angular_direct'] : false;
 
         // snap_to_grid
-        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "snap_to_grid"';
-
-        $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['snap_to_grid'] = $result['stored_value'];
+        $params['snap_to_grid'] = $result['snap_to_grid'] ? $result['snap_to_grid'] : false;
 
         // small_big_all
-        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "small_big_all"';
-
-        $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['small_big_all'] = $result['stored_value'];
+        $params['small_big_all'] = $result['small_big_all'] ? $result['small_big_all'] : false;
 
         // relation_lines
-        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "relation_lines"';
-
-        $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['relation_lines'] = $result['stored_value'];
-
-        // full_screen
-        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "full_screen"';
-
-        $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['full_screen'] = $result['stored_value'];
+        $params['relation_lines'] = $result['relation_lines'] ? $result['relation_lines'] : false;
 
         // side_menu
-        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "side_menu"';
-
-        $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['side_menu'] = $result['stored_value'];
+        $params['side_menu'] = $result['side_menu'] ? $result['side_menu'] : false;
 
         // pin_text
-        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-            . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "pin_text"';
-
-        $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['pin_text'] = $result['stored_value'];
+        $params['pin_text'] = $result['pin_text'] ? $result['pin_text'] : false;
+    } else {
+        $params['angular_direct'] = false;
+        $params['snap_to_grid'] = false;
+        $params['small_big_all'] = false;
+        $params['relation_lines'] = false;
+        $params['side_menu'] = false;
+        $params['pin_text'] = false;
     }
 
     return $params;
@@ -255,52 +232,12 @@ function PMA_returnClassNamesFromMenuButtons()
     $classes_array = array();
     $params_array = PMA_getSideMenuParamsArray();
 
-    if (isset($params_array['angular_direct'])
-        && $params_array['angular_direct'] == 'angular'
-    ) {
-        $classes_array['angular_direct'] = 'M_butt_Selected_down';
-    } else {
-        $classes_array['angular_direct'] = 'M_butt';
-    }
-
-    if (isset($params_array['snap_to_grid'])
-        && $params_array['snap_to_grid'] == 'on'
-    ) {
-        $classes_array['snap_to_grid'] = 'M_butt_Selected_down';
-    } else {
-        $classes_array['snap_to_grid'] = 'M_butt';
-    }
-
-    if (isset($params_array['pin_text'])
-        && $params_array['pin_text'] == 'true'
-    ) {
-        $classes_array['pin_text'] = 'M_butt_Selected_down';
-    } else {
-        $classes_array['pin_text'] = 'M_butt';
-    }
-
-    if (isset($params_array['relation_lines'])
-        && $params_array['relation_lines'] == 'false'
-    ) {
-        $classes_array['relation_lines'] = 'M_butt_Selected_down';
-    } else {
-        $classes_array['relation_lines'] = 'M_butt';
-    }
-
-    if (isset($params_array['small_big_all'])
-        && $params_array['small_big_all'] == 'v'
-    ) {
-        $classes_array['small_big_all'] = 'M_butt_Selected_down';
-    } else {
-        $classes_array['small_big_all'] = 'M_butt';
-    }
-
-    if (isset($params_array['side_menu'])
-        && $params_array['side_menu'] == 'true'
-    ) {
-        $classes_array['side_menu'] = 'M_butt_Selected_down';
-    } else {
-        $classes_array['side_menu'] = 'M_butt';
+    foreach ($params_array as $setting => $value) {
+        if ($params_array[$setting]) {
+            $classes_array[$setting] = 'M_butt_Selected_down';
+        } else {
+            $classes_array[$setting] = 'M_butt';
+        }
     }
 
     return $classes_array;

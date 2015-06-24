@@ -330,9 +330,13 @@ CREATE TABLE IF NOT EXISTS `pma__central_columns` (
 
 CREATE TABLE IF NOT EXISTS `pma__designer_settings` (
   `username` varchar(64) NOT NULL,
-  `setting` varchar(64) NOT NULL,
-  `stored_value` varchar(64) NOT NULL,
-  PRIMARY KEY (`username`,`setting`)
+  `angular_direct` bit(1) NOT NULL default b'0',
+  `snap_to_grid` bit(1) NOT NULL default b'0',
+  `small_big_all` bit(1) NOT NULL default b'0',
+  `relation_lines` bit(1) NOT NULL default b'0',
+  `side_menu` bit(1) NOT NULL default b'0',
+  `pin_text` bit(1) NOT NULL default b'0',
+  PRIMARY KEY (`username`)
 )
   COMMENT='Settings related to Designer'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
