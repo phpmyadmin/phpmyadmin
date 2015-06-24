@@ -2412,7 +2412,7 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
 function PMA_getTableColumns($db, $table)
 {
     $GLOBALS['dbi']->selectDb($db);
-    return array_values($GLOBALS['dbi']->getColumns($db, $table));
+    return array_values($GLOBALS['dbi']->getColumns($db, $table, null, true));
 
 }
 
@@ -2908,9 +2908,14 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
         $where_clause = $where_clause_array[$row_id];
     }
     for ($column_number = 0; $column_number < $columns_cnt; $column_number++) {
+        $table_column = $table_columns[$column_number];
+        // skip this column if user does not have necessary column privilges
+        if (! PMA_userHasColumnPrivileges($table_column, $insert_mode)) {
+            continue;
+        }
         $column_mime = array();
-        if (isset($mime_map[$table_columns[$column_number]['Field']])) {
-            $column_mime = $mime_map[$table_columns[$column_number]['Field']];
+        if (isset($mime_map[$table_column['Field']])) {
+            $column_mime = $mime_map[$table_column['Field']];
         }
         $html_output .= PMA_getHtmlForInsertEditFormColumn(
             $table_columns, $column_number, $comments_map, $timestamp_seen,
@@ -2929,5 +2934,20 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
         . '<div class="clearfloat"></div>';
 
     return $html_output;
+}
+
+/**
+ * Returns whether the user has necessary insert/update privileges for the column
+ *
+ * @param array $table_column array of column details
+ * @param bool  $insert_mode  whether on insert mode
+ *
+ * @return boolean whether user has necessary privileges
+ */
+function PMA_userHasColumnPrivileges($table_column, $insert_mode)
+{
+    $privileges = $table_column['Privileges'];
+    return ($insert_mode && strstr($privileges, 'insert') !== false)
+        || (! $insert_mode && strstr($privileges, 'update') !== false);
 }
 ?>
