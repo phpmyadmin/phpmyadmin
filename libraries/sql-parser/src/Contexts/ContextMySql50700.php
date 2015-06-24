@@ -192,6 +192,8 @@ class ContextMySql50700 extends Context
         'DEFAULT COLLATE' => 5, 'INDEX DIRECTORY' => 5,
         'DEFAULT CHARACTER SET' => 5,
 
+        'GROUP BY' => 7, 'ORDER BY' => 7,
+
         'XML' => 9,
         'DATE' => 9, 'ENUM' => 9, 'TEXT' => 9, 'TIME' => 9, 'YEAR' => 9,
         'ARRAY' => 9,

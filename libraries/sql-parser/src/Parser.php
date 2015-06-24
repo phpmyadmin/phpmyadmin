@@ -56,32 +56,70 @@ class Parser
      */
     public static $KEYWORD_PARSERS = array(
 
-        // Meta-keywords.
-        /*
-        '_ARRAY'        => 'SqlParser\\Fragments\\ArrayFragment',
-        '_CALL'         => 'SqlParser\\Fragments\\CallKeyword',
-        '_CREATE_DEF'   => 'SqlParser\\Fragments\\CreateDefFragment',
-        '_DATA_TYPE'    => 'SqlParser\\Fragments\\DataTypeFragment',
-        '_FIELD'        => 'SqlParser\\Fragments\\FieldFragment',
-        '_FIELD_DEF'    => 'SqlParser\\Fragments\\FieldDefFragment',
-        '_PARAM_DEF'    => 'SqlParser\\Fragments\\ParamDefFragment',
-        '_OPTIONS'      => 'SqlParser\\Fragments\\OptionsFragment',
-        '_RENAME'       => 'SqlParser\\Fragments\\RenameKeyword',
-        '_SELECT'       => 'SqlParser\\Fragments\\SelectKeyword',
-        */
-
-        'FROM'          => 'SqlParser\\Fragments\\FromKeyword',
-        'GROUP'         => 'SqlParser\\Fragments\\OrderKeyword',
-        'HAVING'        => 'SqlParser\\Fragments\\WhereKeyword',
-        'INTO'          => 'SqlParser\\Fragments\\IntoKeyword',
-        'JOIN'          => 'SqlParser\\Fragments\\JoinKeyword',
-        'LIMIT'         => 'SqlParser\\Fragments\\LimitKeyword',
-        'ORDER'         => 'SqlParser\\Fragments\\OrderKeyword',
-        'PARTITION'     => 'SqlParser\\Fragments\\ArrayFragment',
-        'SET'           => 'SqlParser\\Fragments\\SetKeyword',
-        'VALUE'         => 'SqlParser\\Fragments\\ValuesKeyword',
-        'VALUES'        => 'SqlParser\\Fragments\\ValuesKeyword',
-        'WHERE'         => 'SqlParser\\Fragments\\WhereKeyword',
+        'CALL'          => array(
+            'class'     => 'SqlParser\\Fragments\\CallKeyword',
+            'field'     => 'call',
+        ),
+        'FROM'          => array(
+            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'field'     => 'from',
+        ),
+        'GROUP BY'      => array(
+            'class'     => 'SqlParser\\Fragments\\OrderKeyword',
+            'field'     => 'group',
+        ),
+        'HAVING'        => array(
+            'class'     => 'SqlParser\\Fragments\\WhereKeyword',
+            'field'     => 'having',
+        ),
+        'INTO'          => array(
+            'class'     => 'SqlParser\\Fragments\\IntoKeyword',
+            'field'     => 'into',
+        ),
+        'JOIN'          => array(
+            'class'     => 'SqlParser\\Fragments\\JoinKeyword',
+            'field'     => 'join',
+        ),
+        'LIMIT'         => array(
+            'class'     => 'SqlParser\\Fragments\\LimitKeyword',
+            'field'     => 'limit',
+        ),
+        'ORDER BY'      => array(
+            'class'     => 'SqlParser\\Fragments\\OrderKeyword',
+            'field'     => 'order',
+        ),
+        'PARTITION'     => array(
+            'class'     => 'SqlParser\\Fragments\\ArrayFragment',
+            'field'     => 'partition',
+        ),
+        'RENAME'        => array(
+            'class'     => 'SqlParser\\Fragments\\RenameKeyword',
+            'field'     => 'renames',
+        ),
+        'SET'           => array(
+            'class'     => 'SqlParser\\Fragments\\SetKeyword',
+            'field'     => 'set',
+        ),
+        'SELECT'        => array(
+            'class'     => 'SqlParser\\Fragments\\SelectKeyword',
+            'field'     => 'expr',
+        ),
+        'UPDATE'        => array(
+            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'field'     => 'from',
+        ),
+        'VALUE'         => array(
+            'class'     => 'SqlParser\\Fragments\\ValuesKeyword',
+            'field'     => 'values',
+        ),
+        'VALUES'        => array(
+            'class'     => 'SqlParser\\Fragments\\ValuesKeyword',
+            'field'     => 'values',
+        ),
+        'WHERE'         => array(
+            'class'     => 'SqlParser\\Fragments\\WhereKeyword',
+            'field'     => 'where',
+        ),
 
     );
 

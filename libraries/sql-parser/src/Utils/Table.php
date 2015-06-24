@@ -4,9 +4,9 @@ namespace SqlParser\Utils;
 
 use SqlParser\Lexer;
 use SqlParser\Parser;
+use SqlParser\Statement;
 use SqlParser\Fragments\DataTypeFragment;
 use SqlParser\Fragments\ParamDefFragment;
-use SqlParser\Statements\CreateStatement;
 
 /**
  * Table utilities.
@@ -20,9 +20,9 @@ use SqlParser\Statements\CreateStatement;
 class Table
 {
 
-    public static function getForeignKeys(CreateStatement $tree)
+    public static function getForeignKeys(Statement $tree)
     {
-        if (($tree->fields === null) || (!$tree->options->has('TABLE'))) {
+        if ((empty($tree->fields)) || (!$tree->options->has('TABLE'))) {
             return array();
         }
 
@@ -63,9 +63,9 @@ class Table
         return $ret;
     }
 
-    public static function getFields(CreateStatement $tree)
+    public static function getFields(Statement $tree)
     {
-        if (($tree->fields === null) || (!$tree->options->has('TABLE'))) {
+        if ((empty($tree->fields)) || (!$tree->options->has('TABLE'))) {
             return array();
         }
 

@@ -50,6 +50,15 @@ abstract class Statement
      */
     public function parse(Parser $parser, TokensList $list)
     {
+
+        /**
+         * Whether otpions were parsed or not.
+         * For statements that do not have any options this is set to `true` by
+         * default.
+         * @var bool
+         */
+        $parsedOptions = isset(static::$OPTIONS) ? false : true;
+
         for (; $list->idx < $list->count; ++$list->idx) {
 
             /**
@@ -75,12 +84,30 @@ abstract class Statement
              */
             $class = null;
 
+            /**
+             * The name of the field where the result of the parsing is stored.
+             * @var string
+             */
+            $field = null;
+
             if (!empty(Parser::$KEYWORD_PARSERS[$token->value])) {
-                $class = Parser::$KEYWORD_PARSERS[$token->value];
-            } elseif (!empty(Parser::$STATEMENT_PARSERS[$token->value])) {
-                // The keyword we are processing right now is the beginning of a
-                // statement and they are usually handled differently.
-            } else {
+                $class = Parser::$KEYWORD_PARSERS[$token->value]['class'];
+                $field = Parser::$KEYWORD_PARSERS[$token->value]['field'];
+            }
+
+            if (!empty(Parser::$STATEMENT_PARSERS[$token->value])) {
+                if (!$parsedOptions) {
+                    ++$list->idx; // Skipping keyword.
+                    $this->options = OptionsFragment::parse(
+                        $parser,
+                        $list,
+                        static::$OPTIONS
+                    );
+                    $parsedOptions = true;
+                }
+            } else if ($class === null) {
+                // There is no parser for this keyword and isn't the beggining
+                // of a statement (so no options) either.
                 $parser->error(
                     'Unrecognized keyword "' . $token->value . '".',
                     $token
@@ -88,26 +115,8 @@ abstract class Statement
                 continue;
             }
 
-            /**
-             * The name of the field where the result is stored.
-             * @var string
-             */
-            $field = strtolower($token->value);
-
-            // Parsing options.
-            if (($class == null) && (isset(static::$OPTIONS))) {
-                ++$list->idx; // Skipping keyword.
-                $this->options = OptionsFragment::parse(
-                    $parser, $list,
-                    static::$OPTIONS
-                );
-            }
-
-            // Keyword specific code.
-            if ($token->value === 'CALL') {
-                ++$list->idx;
-                $this->call = CallKeyword::parse($parser, $list);
-            } elseif ($token->value === 'CREATE') {
+            // Special cases.
+            if ($token->value === 'CREATE') {
                 ++$list->idx;
                 $this->name = CreateDefFragment::parse($parser, $list);
                 if ($this->options->has('TABLE')) {
@@ -158,23 +167,10 @@ abstract class Statement
                     }
                     $class = null; // The statement has been processed here.
                 }
-            } elseif (($token->value === 'GROUP')
-                || ($token->value === 'ORDER')
-            ) {
-                $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'BY');
-            } elseif ($token->value === 'RENAME') {
+            } else if ($token->value === 'RENAME') {
                 $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'TABLE');
-                ++$list->idx;
-                $this->renames = RenameKeyword::parse($parser, $list);
-            } elseif ($token->value === 'SELECT') {
-                ++$list->idx; // Skipping last option.
-                $this->expr = SelectKeyword::parse($parser, $list);
-            } elseif ($token->value === 'UPDATE') {
-                ++$list->idx; // Skipping last option.
-                $this->from = FromKeyword::parse($parser, $list);
             }
 
-            // Finally, processing the keyword (if possible).
             if ($class !== null) {
                 ++$list->idx; // Skipping keyword.
                 $this->$field = $class::parse($parser, $list, array());

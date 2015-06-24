@@ -24,7 +24,9 @@ abstract class Fragment
      *
      * @return mixed
      */
-    abstract public static function parse(Parser $parser, TokensList $list,
-        array $options = array()
-    );
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    {
+        return null;
+    }
+
 }

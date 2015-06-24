@@ -4,9 +4,9 @@ namespace SqlParser\Utils;
 
 use SqlParser\Lexer;
 use SqlParser\Parser;
+use SqlParser\Statement;
 use SqlParser\Fragments\DataTypeFragment;
 use SqlParser\Fragments\ParamDefFragment;
-use SqlParser\Statements\CreateStatement;
 
 /**
  * Routine utilities.
@@ -89,11 +89,11 @@ class Routine
     /**
      * Gets the parameters of a routine from the parse tree.
      *
-     * @param CreateStatement $tree The tree that was generated after parsing.
+     * @param Statement $tree The tree that was generated after parsing.
      *
      * @return array
      */
-    public static function getParameters(CreateStatement $tree)
+    public static function getParameters(Statement $tree)
     {
         $retval = array(
             'num' => 0,
@@ -105,23 +105,25 @@ class Routine
             'opts' => array(),
         );
 
-        $idx = 0;
-        foreach ($tree->parameters as $param) {
-            $retval['dir'][$idx] = $param->inOut;
-            $retval['name'][$idx] = $param->name;
-            $retval['type'][$idx] = $param->type->name;
-            $retval['length'][$idx] = implode(',', $param->type->parameters);
-            $retval['length_arr'][$idx] = $param->type->parameters;
-            $retval['opts'][$idx] = array();
-            foreach ($param->type->options->options as $opt) {
-                $retval['opts'][$idx][] = is_string($opt) ?
-                    $opt : $opt['value'];
+        if (!empty($tree->parameters)) {
+            $idx = 0;
+            foreach ($tree->parameters as $param) {
+                $retval['dir'][$idx] = $param->inOut;
+                $retval['name'][$idx] = $param->name;
+                $retval['type'][$idx] = $param->type->name;
+                $retval['length'][$idx] = implode(',', $param->type->parameters);
+                $retval['length_arr'][$idx] = $param->type->parameters;
+                $retval['opts'][$idx] = array();
+                foreach ($param->type->options->options as $opt) {
+                    $retval['opts'][$idx][] = is_string($opt) ?
+                        $opt : $opt['value'];
+                }
+                $retval['opts'][$idx] = implode(' ', $retval['opts'][$idx]);
+                ++$idx;
             }
-            $retval['opts'][$idx] = implode(' ', $retval['opts'][$idx]);
-            ++$idx;
-        }
 
-        $retval['num'] = $idx;
+            $retval['num'] = $idx;
+        }
 
         return $retval;
     }
