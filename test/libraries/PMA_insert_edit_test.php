@@ -2980,5 +2980,109 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             $actual
         );
     }
+
+    /**
+     * Test for PMA_getHtmlForInsertEditRow based on the column privilges
+     *
+     * @return void
+     */
+    public function testGetHtmlForInsertEditRowBasedOnColumnPrivileges()
+    {
+        $o_rows = 0;
+        $tabindex = 0;
+        $GLOBALS['plugin_scripts'] = array();
+        $GLOBALS['cfg']['LongtextDoubleTextarea'] = true;
+        $GLOBALS['cfg']['CharEditing'] = true;
+
+        // edit
+        $table_columns = array(
+            array(
+                'Field' => 'foo',
+                'Type' => 'longtext',
+                'Null' => 'Yes',
+                'pma_type' => 'longtext',
+                'True_Type' => 'longtext',
+                'Privileges' => 'select,insert,update,references',
+            ),
+            array(
+                'Field' => 'bar',
+                'Type' => 'longtext',
+                'Null' => 'Yes',
+                'pma_type' => 'longtext',
+                'True_Type' => 'longtext',
+                'Privileges' => 'select,insert,references',
+            )
+        );
+        $actual = PMA_getHtmlForInsertEditRow(
+            array(), $table_columns, array(), false, array(), '', '',
+            '', false, array(), $o_rows, $tabindex, 1, false, 0,
+            array(), 0, 0, 'table', 'db', 0, array(), 0, '',
+            array(), array('wc')
+        );
+        $this->assertContains(
+            'foo',
+            $actual
+        );
+        $this->assertNotContains(
+            'bar',
+            $actual
+        );
+
+        // insert
+        $table_columns = array(
+            array(
+                'Field' => 'foo',
+                'Type' => 'longtext',
+                'Null' => 'Yes',
+                'pma_type' => 'longtext',
+                'True_Type' => 'longtext',
+                'Privileges' => 'select,insert,update,references',
+            ),
+            array(
+                'Field' => 'bar',
+                'Type' => 'longtext',
+                'Null' => 'Yes',
+                'pma_type' => 'longtext',
+                'True_Type' => 'longtext',
+                'Privileges' => 'select,update,references',
+            )
+        );
+        $actual = PMA_getHtmlForInsertEditRow(
+            array(), $table_columns, array(), false, array(), '', '',
+            '', true, array(), $o_rows, $tabindex, 1, false, 0,
+            array(), 0, 0, 'table', 'db', 0, array(), 0, '',
+            array(), array('wc')
+        );
+        $this->assertContains(
+            'foo',
+            $actual
+        );
+        $this->assertNotContains(
+            'bar',
+            $actual
+        );
+
+        // Drizzle
+        $table_columns = array(
+            array(
+                'Field' => 'foo',
+                'Type' => 'longtext',
+                'Null' => 'Yes',
+                'pma_type' => 'longtext',
+                'True_Type' => 'longtext',
+                'Privileges' => null,
+            )
+        );
+        $actual = PMA_getHtmlForInsertEditRow(
+            array(), $table_columns, array(), false, array(), '', '',
+            '', false, array(), $o_rows, $tabindex, 1, false, 0,
+            array(), 0, 0, 'table', 'db', 0, array(), 0, '',
+            array(), array('wc')
+        );
+        $this->assertContains(
+            'foo',
+            $actual
+        );
+    }
 }
 ?>
