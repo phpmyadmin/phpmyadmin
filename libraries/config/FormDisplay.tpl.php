@@ -112,7 +112,7 @@ function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
  * o userprefs_allow - whether user preferences are enabled for this field
  *                    (null - no support, true/false - enabled/disabled)
  * o userprefs_comment - (string) field comment
- * o values - key - value paris for <select> fields
+ * o values - key - value pairs for <select> fields
  * o values_escaped - (boolean) tells whether values array is already escaped
  *                    (defaults to false)
  * o values_disabled -  (array)list of disabled values (keys from values)
