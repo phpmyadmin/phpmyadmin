@@ -603,7 +603,7 @@ function PMA_exportDatabase(
     ) {
         if ($separate_files == 'database') {
             if (! $export_plugin->exportHeader($db)) {
-                break;
+                return;
             }
             if (! $export_plugin->exportDBHeader($db, $db_alias)) {
                 return;
@@ -643,7 +643,7 @@ function PMA_exportDatabase(
                             $export_type, $do_relation, $do_comments,
                             $do_mime, $do_dates, $aliases
                         )) {
-                            break 1;
+                            break;
                         }
                     }
                 }
@@ -672,7 +672,7 @@ function PMA_exportDatabase(
                     $export_type, $do_relation, $do_comments,
                     $do_mime, $do_dates, $aliases
                 )) {
-                    break 1;
+                    break;
                 }
 
             }
@@ -688,7 +688,7 @@ function PMA_exportDatabase(
             if (! $export_plugin->exportData(
                 $db, $table, $crlf, $err_url, $local_query, $aliases
             )) {
-                break 1;
+                break;
             }
         }
 
@@ -706,7 +706,7 @@ function PMA_exportDatabase(
                 $export_type, $do_relation, $do_comments,
                 $do_mime, $do_dates, $aliases
             )) {
-                break 1;
+                break;
             }
             if ($separate_files == 'database') {
                 PMA_saveObjectInBuffer('triggers', true);
@@ -734,7 +734,7 @@ function PMA_exportDatabase(
                     $export_type, $do_relation, $do_comments,
                     $do_mime, $do_dates, $aliases
                 )) {
-                    break 1;
+                    break;
                 }
                 if ($separate_files == 'database') {
                     PMA_saveObjectInBuffer('view_' . $view);
