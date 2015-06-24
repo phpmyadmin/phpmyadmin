@@ -230,11 +230,11 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
 
     switch ($type) {
     case 'text':
-        $htmlOutput .= '<input type="text" size="60" ' . $name_id . $field_class
+        $htmlOutput .= '<input type="text" size="40" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'password':
-        $htmlOutput .= '<input type="password" size="60" ' . $name_id . $field_class
+        $htmlOutput .= '<input type="password" size="40" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'short_text':
