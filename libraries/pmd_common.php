@@ -337,11 +337,10 @@ function PMA_deletePage($pg)
 /**
  * Returns the id of the default pdf page of the database.
  * Default page is the one which has the same name as the database.
- * If no such exists, returns the id of the first page of the database.
  *
  * @param string $db database
  *
- * @return int id of the first pdf page, default is -1
+ * @return int id of the default pdf page for the database
  */
 function PMA_getDefaultPage($db)
 {
@@ -349,8 +348,6 @@ function PMA_getDefaultPage($db)
     if (! $cfgRelation['pdfwork']) {
         return null;
     }
-
-    $page_no = -1;
 
     $query = "SELECT `page_nr`"
         . " FROM " . PMA_Util::backquote($cfgRelation['db'])
@@ -367,7 +364,31 @@ function PMA_getDefaultPage($db)
     );
 
     if (count($default_page_no)) {
-        $page_no = $default_page_no[0];
+        return $default_page_no[0];
+    }
+    return -1;
+}
+
+/**
+ * Get the id of the page to load. If a default page exists it will be returned.
+ * If no such exists, returns the id of the first page of the database.
+ *
+ * @param string $db database
+ *
+ * @return int id of the page to load
+ */
+function PMA_getLoadingPage($db)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    if (! $cfgRelation['pdfwork']) {
+        return null;
+    }
+
+    $page_no = -1;
+
+    $default_page_no = PMA_getDefaultPage($db);
+    if ($default_page_no != -1) {
+        $page_no = $default_page_no;
     } else {
         $query = "SELECT MIN(`page_nr`)"
             . " FROM " . PMA_Util::backquote($cfgRelation['db'])

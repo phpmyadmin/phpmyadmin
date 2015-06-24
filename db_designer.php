@@ -117,11 +117,13 @@ $classes_side_menu = PMA_returnClassNamesFromMenuButtons();
 $display_page = -1;
 $selected_page = null;
 
-if (! isset($_REQUEST['query'])) {
+if (isset($_REQUEST['query'])) {
+    $display_page = PMA_getDefaultPage($_REQUEST['db']);
+} else {
     if (! empty($_REQUEST['page'])) {
         $display_page = $_REQUEST['page'];
     } else {
-        $display_page = PMA_getDefaultPage($_REQUEST['db']);
+        $display_page = PMA_getLoadingPage($_REQUEST['db']);
     }
 }
 if ($display_page != -1) {
