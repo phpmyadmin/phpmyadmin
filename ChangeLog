@@ -68,6 +68,7 @@ phpMyAdmin - ChangeLog
 + rfe #689  Column privileges and update
 
 4.4.11.0 (not yet released)
+- bug       Missing selected/entered values when editing active options in visual query builder
 
 4.4.10.0 (2015-06-17)
 - bug #4950 Issues in database selection for replication
