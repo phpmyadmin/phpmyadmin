@@ -97,7 +97,7 @@ if (isset($_REQUEST['operation'])) {
                 . '.' . PMA_Util::backquote($cfgDesigner['table'])
                 . ' VALUES("' . $cfgDesigner['user'] . '", "'
                 . $_REQUEST['index'] . '", "' . $_REQUEST['value'] . '") ON DUPLICATE KEY '
-                . 'UPDATE VALUE = "' . $_REQUEST['value'] . '";';
+                . 'UPDATE `stored_value` = "' . $_REQUEST['value'] . '";';
 
             $success = $GLOBALS['dbi']->query($query);
             $response->isSuccess($success);
