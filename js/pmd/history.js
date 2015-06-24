@@ -797,6 +797,7 @@ function build_query(formtitle, fadin)
     };
 
     var $ajaxDialog = $('#box').dialog({
+        appendTo: '#page_content',
         width: 500,
         buttons: button_options,
         modal: true,
