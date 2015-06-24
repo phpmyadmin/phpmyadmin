@@ -2948,6 +2948,7 @@ function PMA_userHasColumnPrivileges($table_column, $insert_mode)
 {
     $privileges = $table_column['Privileges'];
     return ($insert_mode && strstr($privileges, 'insert') !== false)
-        || (! $insert_mode && strstr($privileges, 'update') !== false);
+        || (! $insert_mode && strstr($privileges, 'update') !== false)
+        || is_null($privileges); // Drizzle
 }
 ?>
