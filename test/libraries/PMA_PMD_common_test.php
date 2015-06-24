@@ -188,6 +188,69 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
     public function testGetDefaultPageWithNoDefaultPage()
     {
         $db = 'db';
+
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->at(0))
+            ->method('fetchResult')
+            ->with(
+                "SELECT `page_nr` FROM `pmadb`.`pdf_pages`"
+                . " WHERE `db_name` = '" . $db . "'"
+                . " AND `page_descr` = '" . $db . "'",
+                null,
+                null,
+                2,
+                PMA_DatabaseInterface::QUERY_STORE
+            )
+            ->will($this->returnValue(array()));
+        $GLOBALS['dbi'] = $dbi;
+
+        $result = PMA_getDefaultPage($db);
+        $this->assertEquals(-1, $result);
+    }
+
+    /**
+     * Test for testGetLoadingPage() when there is a default page
+     *
+     * @return void
+     */
+    public function testGetLoadingPageWithDefaultPage()
+    {
+        $db = 'db';
+        $default_pg = '2';
+
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->at(0))
+            ->method('fetchResult')
+            ->with(
+                "SELECT `page_nr` FROM `pmadb`.`pdf_pages`"
+                . " WHERE `db_name` = '" . $db . "'"
+                . " AND `page_descr` = '" . $db . "'",
+                null,
+                null,
+                2,
+                PMA_DatabaseInterface::QUERY_STORE
+            )
+            ->will($this->returnValue(array($default_pg)));
+        $GLOBALS['dbi'] = $dbi;
+
+        $result = PMA_getLoadingPage($db);
+        $this->assertEquals($default_pg, $result);
+    }
+
+    /**
+     * Test for testGetLoadingPage() when there is no default page
+     *
+     * @return void
+     */
+    public function testGetLoadingPageWithNoDefaultPage()
+    {
+        $db = 'db';
         $first_pg = '1';
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -220,7 +283,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(array($first_pg)));
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getDefaultPage($db);
+        $result = PMA_getLoadingPage($db);
         $this->assertEquals($first_pg, $result);
     }
 }
