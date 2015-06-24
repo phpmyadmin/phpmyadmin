@@ -536,10 +536,10 @@ function query_having()
     for (i = 0; i < history_array.length;i++) {
         if (history_array[i].get_type() == "Having") {
             if (history_array[i].get_obj().get_operator() != 'None') {
-                and += history_array[i].get_obj().get_operator() + "(" + history_array[i].get_column_name() + " ) " + history_array[i].get_obj().getrelation_operator();
+                and += history_array[i].get_obj().get_operator() + "(`" + history_array[i].get_column_name() + "`) " + history_array[i].get_obj().getrelation_operator();
                 and += " " + history_array[i].get_obj().getquery() + ", ";
             } else {
-                and +=  history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ", ";
+                and += "`" + history_array[i].get_column_name() + "` " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ", ";
             }
         }
     }
