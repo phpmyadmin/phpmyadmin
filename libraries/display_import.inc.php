@@ -19,6 +19,7 @@ require_once './libraries/display_import.lib.php';
 require_once './libraries/display_import_ajax.lib.php';
 
 /* Scan for plugins */
+/* @var $import_list ImportPlugin[] */
 $import_list = PMA_getPlugins(
     "import",
     'libraries/plugins/import/',

@@ -21,6 +21,7 @@ require_once './libraries/plugin_interface.lib.php';
 require_once './libraries/display_export.lib.php';
 
 /* Scan for plugins */
+/* @var $export_list ExportPlugin[] */
 $export_list = PMA_getPlugins(
     "export",
     'libraries/plugins/export/',

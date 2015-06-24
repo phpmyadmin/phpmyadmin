@@ -104,6 +104,7 @@ function PMA_getPageIdsAndNames($db)
 function PMA_getHtmlForSchemaExport($db, $page)
 {
     /* Scan for schema plugins */
+    /* @var $export_list SchemaPlugin[] */
     $export_list = PMA_getPlugins(
         "schema",
         'libraries/plugins/schema/',
