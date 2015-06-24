@@ -330,9 +330,9 @@ CREATE TABLE IF NOT EXISTS `pma__central_columns` (
 
 CREATE TABLE IF NOT EXISTS `pma__designer_settings` (
   `username` varchar(64) NOT NULL,
-  `index` varchar(64) NOT NULL,
-  `value` varchar(64) NOT NULL,
-  PRIMARY KEY (`username`,`index`)
+  `setting` varchar(64) NOT NULL,
+  `stored_value` varchar(64) NOT NULL,
+  PRIMARY KEY (`username`,`setting`)
 )
   COMMENT='Settings related to Designer'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
