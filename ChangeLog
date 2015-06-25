@@ -66,6 +66,7 @@ phpMyAdmin - ChangeLog
 + rfe #1060 Designer settings should be part of saved state
 + rfe #1557 Option to remove functions, procedures, etc., from navigation tree
 + rfe #689  Column privileges and update
++ rfe #1531 Cant use external config file
 
 4.4.11.0 (not yet released)
 - bug       Missing selected/entered values when editing active options in visual query builder

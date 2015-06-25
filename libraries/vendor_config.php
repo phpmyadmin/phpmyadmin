@@ -46,7 +46,7 @@ define('SQL_DIR', './sql/');
  * It is not used directly in code, just a convenient
  * define used further in this file.
  */
-define('CONFIG_DIR', './');
+define('CONFIG_DIR', '');
 
 /**
  * Filename of a configuration file.
