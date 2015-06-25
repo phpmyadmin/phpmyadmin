@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * This file is part of Composer.
  *
  * (c) Nils Adermann <naderman@naderman.de>
@@ -43,50 +43,23 @@ namespace Composer\Autoload;
 class ClassLoader
 {
     // PSR-4
-    private $prefixLengthsPsr4 = array();
-    private $prefixDirsPsr4 = array();
-    private $fallbackDirsPsr4 = array();
+    public $prefixLengthsPsr4 = array();
+    public $prefixDirsPsr4 = array();
+    public $fallbackDirsPsr4 = array();
 
     // PSR-0
-    private $prefixesPsr0 = array();
-    private $fallbackDirsPsr0 = array();
+    public $prefixesPsr0 = array();
+    public $fallbackDirsPsr0 = array();
 
-    private $useIncludePath = false;
-    private $classMap = array();
+    public $useIncludePath = false;
+    public $classMap = array();
 
-    private $classMapAuthoritative = false;
-
-    public function getPrefixes()
-    {
-        if (!empty($this->prefixesPsr0)) {
-            return call_user_func_array('array_merge', $this->prefixesPsr0);
-        }
-
-        return array();
-    }
-
-    public function getPrefixesPsr4()
-    {
-        return $this->prefixDirsPsr4;
-    }
-
-    public function getFallbackDirs()
-    {
-        return $this->fallbackDirsPsr0;
-    }
-
-    public function getFallbackDirsPsr4()
-    {
-        return $this->fallbackDirsPsr4;
-    }
-
-    public function getClassMap()
-    {
-        return $this->classMap;
-    }
+    public $classMapAuthoritative = false;
 
     /**
      * @param array $classMap Class to filename map
+     *
+     * @return void
      */
     public function addClassMap(array $classMap)
     {
@@ -104,6 +77,8 @@ class ClassLoader
      * @param string       $prefix  The prefix
      * @param array|string $paths   The PSR-0 root directories
      * @param bool         $prepend Whether to prepend the directories
+     *
+     * @return void
      */
     public function add($prefix, $paths, $prepend = false)
     {
@@ -151,6 +126,8 @@ class ClassLoader
      * @param bool         $prepend Whether to prepend the directories
      *
      * @throws \InvalidArgumentException
+     *
+     * @return void
      */
     public function addPsr4($prefix, $paths, $prepend = false)
     {
@@ -196,6 +173,8 @@ class ClassLoader
      *
      * @param string       $prefix The prefix
      * @param array|string $paths  The PSR-0 base directories
+     *
+     * @return void
      */
     public function set($prefix, $paths)
     {
@@ -214,6 +193,8 @@ class ClassLoader
      * @param array|string $paths  The PSR-4 base directories
      *
      * @throws \InvalidArgumentException
+     *
+     * @return void
      */
     public function setPsr4($prefix, $paths)
     {
@@ -233,6 +214,8 @@ class ClassLoader
      * Turns on searching the include path for class files.
      *
      * @param bool $useIncludePath
+     *
+     * @return void
      */
     public function setUseIncludePath($useIncludePath)
     {
@@ -255,6 +238,8 @@ class ClassLoader
      * that have not been registered with the class map.
      *
      * @param bool $classMapAuthoritative
+     *
+     * @return void
      */
     public function setClassMapAuthoritative($classMapAuthoritative)
     {
@@ -275,6 +260,8 @@ class ClassLoader
      * Registers this instance as an autoloader.
      *
      * @param bool $prepend Whether to prepend the autoloader or not
+     *
+     * @return void
      */
     public function register($prepend = false)
     {
@@ -283,6 +270,8 @@ class ClassLoader
 
     /**
      * Unregisters this instance as an autoloader.
+     *
+     * @return void
      */
     public function unregister()
     {
@@ -293,6 +282,7 @@ class ClassLoader
      * Loads the given class or interface.
      *
      * @param  string    $class The name of the class
+     *
      * @return bool|null True if loaded, null otherwise
      */
     public function loadClass($class)
@@ -341,7 +331,16 @@ class ClassLoader
         return $file;
     }
 
-    private function findFileWithExtension($class, $ext)
+    /**
+     * Finds a file that defines the specified class and has the specified
+     * extension.
+     *
+     * @param  string $class
+     * @param  string $ext
+     *
+     * @return string
+     */
+    public function findFileWithExtension($class, $ext)
     {
         // PSR-4 lookup
         $logicalPathPsr4 = strtr($class, '\\', DIRECTORY_SEPARATOR) . $ext;
@@ -402,12 +401,19 @@ class ClassLoader
     }
 }
 
-/**
- * Scope isolated include.
- *
- * Prevents access to $this/self from included files.
- */
-function includeFile($file)
-{
-    include $file;
+if (!function_exists('Composer\Autoload\includeFile')) {
+
+    /**
+     * Scope isolated include.
+     *
+     * Prevents access to $this/self from included files.
+     *
+     * @param string $file
+     *
+     * @return void
+     */
+    function includeFile($file)
+    {
+        include $file;
+    }
 }

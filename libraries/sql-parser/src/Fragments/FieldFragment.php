@@ -55,6 +55,20 @@ class FieldFragment extends Fragment
     public $alias;
 
     /**
+     * The name of the function.
+     *
+     * @var string
+     */
+    public $function;
+
+    /**
+     * The type of subquery.
+     *
+     * @var string
+     */
+    public $subquery;
+
+    /**
      * @param Parser     $parser  The parser that serves as context.
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
@@ -89,6 +103,16 @@ class FieldFragment extends Fragment
          */
         $brackets = 0;
 
+        /**
+         * Keeps track of the previous token.
+         * Possible values:
+         *     string, if function was previously found;
+         *     true, if open bracket was previously found;
+         *     null, in any other case.
+         * @var string|bool
+         */
+        $prev = null;
+
         for (; $list->idx < $list->count; ++$list->idx) {
 
             /**
@@ -121,12 +145,26 @@ class FieldFragment extends Fragment
                         continue;
                     }
                     break;
+                } else if ($prev === true) {
+                    if ((empty($ret->subquery) && (!empty(Parser::$STATEMENT_PARSERS[$token->value])))) {
+                        // A `(` was previously found and this keyword is the
+                        // beginning of a statement, so this is a subquery.
+                        $ret->subquery = $token->value;
+                    }
                 }
             }
 
             if ($token->type === Token::TYPE_OPERATOR) {
                 if ($token->value === '(') {
                     ++$brackets;
+                    // We don't check to see if `$prev` is `true` (open bracke
+                    // was found before) because the brackets count is one (the
+                    // only bracket we found is this one).
+                    if (($brackets === 1) && (empty($ret->function)) && ($prev !== null) && ($prev !== true)) {
+                        // A function name was previously found and now an open
+                        // bracket, so this is a function call.
+                        $ret->function = $prev;
+                    }
                     $isExpr = true;
                 } elseif ($token->value === ')') {
                     --$brackets;
@@ -150,15 +188,24 @@ class FieldFragment extends Fragment
             }
 
             if ($alias) {
+                // An alias is expected (the keyword `AS` was previously found).
                 $ret->alias = $token->value;
                 $alias = 0;
             } else {
                 if (!$isExpr) {
                     if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '.')) {
+                        // Found a `.` which means we expect a column name and
+                        // the column name we parsed is actually the table name
+                        // and the table name is actually a database name.
+                        if ((!empty($ret->database)) || ($period)) {
+                            $parser->error('Unexpected dot.', $token);
+                        }
                         $ret->database = $ret->table;
                         $ret->table = $ret->column;
                         $period = true;
                     } else {
+                        // We found the name of a column (or table if column
+                        // field should be skipped; used to parse table names).
                         if (!empty($options['skipColumn'])) {
                             $ret->table = $token->value;
                         } else {
@@ -167,6 +214,8 @@ class FieldFragment extends Fragment
                         $period = false;
                     }
                 } else {
+                    // Parsing aliases without `AS` keyword.
+                    // Example: SELECT 'foo' `bar`
                     if ($brackets === 0) {
                         if (($token->type === Token::TYPE_NONE) || ($token->type === Token::TYPE_STRING)
                             || (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))
@@ -178,11 +227,23 @@ class FieldFragment extends Fragment
 
                 $ret->expr .= $token->token;
             }
+
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_FUNCTION)) {
+                $prev = strtoupper($token->value);
+            } else if (($token->type === Token::TYPE_OPERATOR) || ($token->value === '(')) {
+                $prev = true;
+            } else {
+                $prev = null;
+            }
+
         }
 
         if ($alias === 2) {
             $parser->error('Alias was expected.');
         }
+
+        // Whitespaces might be added at the end.
+        $ret->expr = trim($ret->expr);
 
         if (empty($ret->expr)) {
             return null;

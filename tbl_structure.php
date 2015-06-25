@@ -200,7 +200,13 @@ $show_create_table = $GLOBALS['dbi']->fetchValue(
     0, 1
 );
 $parser = new SqlParser\Parser($show_create_table);
-$create_table_fields = SqlParser\Utils\Table::getFields($parser->statements[0]);
+
+/**
+ * @var CreateStatement $stmt
+ */
+$stmt = $parser->statements[0];
+
+$create_table_fields = SqlParser\Utils\Table::getFields($stmt);
 
 /**
  * prepare table infos

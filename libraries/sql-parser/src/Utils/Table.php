@@ -7,6 +7,7 @@ use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Fragments\DataTypeFragment;
 use SqlParser\Fragments\ParamDefFragment;
+use SqlParser\Statements\CreateStatement;
 
 /**
  * Table utilities.
@@ -20,7 +21,14 @@ use SqlParser\Fragments\ParamDefFragment;
 class Table
 {
 
-    public static function getForeignKeys(Statement $tree)
+    /**
+     * Gets the foreign keys of the table.
+     *
+     * @param CreateStatement $tree
+     *
+     * @return array
+     */
+    public static function getForeignKeys($tree)
     {
         if ((empty($tree->fields)) || (!$tree->options->has('TABLE'))) {
             return array();
@@ -63,7 +71,14 @@ class Table
         return $ret;
     }
 
-    public static function getFields(Statement $tree)
+    /**
+     * Gets fields of the table.
+     *
+     * @param CreateStatement $tree
+     *
+     * @return array
+     */
+    public static function getFields($tree)
     {
         if ((empty($tree->fields)) || (!$tree->options->has('TABLE'))) {
             return array();

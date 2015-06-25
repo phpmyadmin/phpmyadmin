@@ -127,6 +127,20 @@ class SelectStatement extends Statement
     public $limit;
 
     /**
+     * Procedure that should process the data in the result set.
+     *
+     * @var CallKeyword
+     */
+    public $procedure;
+
+    /**
+     * Destination of this result set.
+     *
+     * @var IntoKeyword
+     */
+    public $into;
+
+    /**
      * Joins.
      *
      * @var JoinKeyword

@@ -228,7 +228,13 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
             $routine['name']
         )
     );
-    $params = SqlParser\Utils\Routine::getParameters($parser->statements[0]);
+
+    /**
+     * @var CreateStatement $stmt
+     */
+    $stmt = $parser->statements[0];
+
+    $params = SqlParser\Utils\Routine::getParameters($stmt);
     if ($routine !== false) {
         if (PMA_Util::currentUserHasPrivilege('EXECUTE', $db)) {
             $execute_action = 'execute_routine';

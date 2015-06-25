@@ -57,20 +57,14 @@ class CreateStatement extends Statement
     public $options;
 
     /**
-     * The parameters of this routine.
-     *
-     * @var ParamDefFragment[]
-     */
-    public $parameters;
-
-    /**
-     * The options of the table.
+     * The options of the entity (table, procedure, function, etc.).
      *
      * @var OptionsFragment
      *
      * @see CreateDefFragment::$TABLE_OPTIONS
+     * @see CreateDefFragment::$FUNC_OPTIONS
      */
-    public $tableOptions;
+    public $entityOptions;
 
     /**
      * Field created by this statement.
@@ -78,6 +72,20 @@ class CreateStatement extends Statement
      * @var FieldDefFragment[]
      */
     public $fields;
+
+    /**
+     * The return data type of this routine.
+     *
+     * @var DataTypeFragment
+     */
+    public $return;
+
+    /**
+     * The parameters of this routine.
+     *
+     * @var ParamDefFragment[]
+     */
+    public $parameters;
 
     /**
      * The body of this function or procedure.

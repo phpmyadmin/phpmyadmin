@@ -20,11 +20,18 @@ class IntoKeyword extends Fragment
 {
 
     /**
-     * The name of the table.
+     * Type of target (OUTFILE or SYMBOL).
      *
      * @var string
      */
-    public $table;
+    public $type;
+
+    /**
+     * The name of the table or file.
+     *
+     * @var string
+     */
+    public $name;
 
     /**
      * The name of the columns.
@@ -49,11 +56,12 @@ class IntoKeyword extends Fragment
          *
          * Below are the states of the parser.
          *
-         *      0 ------------------------[ ( ]------------------------> 1
+         *      0 -----------------------[ name ]----------------------> 1
+         *      0 ---------------------[ OUTFILE ]---------------------> 2
          *
-         *      1 --------------------[ field name ]-------------------> 2
+         *      1 ------------------------[ ( ]------------------------> -1
          *
-         *      2 ------------------------[ , ]------------------------> 1
+         *      2 ---------------------[ filename ]--------------------> 1
          *
          * @var int
          */
@@ -77,19 +85,31 @@ class IntoKeyword extends Fragment
                 continue;
             }
 
-            // No keyword is expected.
             if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
+                if (($state === 0) && ($token->value === 'OUTFILE')) {
+                    $ret->type = 'OUTFILE';
+                    $state = 2;
+                    continue;
+                }
+
+                // No other keyword is expected.
                 break;
             }
 
-            if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                $ret->fields = ArrayFragment::parse($parser, $list)->values;
+            if ($state === 0) {
+                $ret->name = $token->value;
+                $state = 1;
+            } else if ($state === 1) {
+                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
+                    $ret->fields = ArrayFragment::parse($parser, $list)->values;
+                    ++$list->idx;
+                }
+                break;
+            } else if ($state === 2) {
+                $ret->name = $token->value;
                 ++$list->idx;
                 break;
-            } else {
-                $ret->table = $token->value;
             }
-
         }
 
         --$list->idx;

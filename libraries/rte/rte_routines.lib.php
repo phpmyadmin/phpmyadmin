@@ -517,9 +517,13 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
             $routine['SPECIFIC_NAME']
         )
     );
-    $routineStatement = $parser->statements[0];
 
-    $params = SqlParser\Utils\Routine::getParameters($routineStatement);
+    /**
+     * @var CreateStatement $stmt
+     */
+    $stmt = $parser->statements[0];
+
+    $params = SqlParser\Utils\Routine::getParameters($stmt);
     $retval['item_num_params']       = $params['num'];
     $retval['item_param_dir']        = $params['dir'];
     $retval['item_param_name']       = $params['name'];
@@ -546,17 +550,17 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
 
     if (! empty($routine['DTD_IDENTIFIER'])) {
         $options = array();
-        foreach ($routineStatement->return->options->options as $opt) {
+        foreach ($stmt->return->options->options as $opt) {
             $options[] = is_string($opt) ? $opt : $opt['value'];
         }
 
-        $retval['item_returntype']      = $routineStatement->return->name;
-        $retval['item_returnlength']    = implode(',', $routineStatement->return->size);
+        $retval['item_returntype']      = $stmt->return->name;
+        $retval['item_returnlength']    = implode(',', $stmt->return->size);
         $retval['item_returnopts_num']  = implode(' ', $options);
         $retval['item_returnopts_text'] = implode(' ', $options);
     }
 
-    $retval['item_definer'] = $routineStatement->options->has('DEFINER');
+    $retval['item_definer'] = $stmt->options->has('DEFINER');
     $retval['item_definition'] = $routine['ROUTINE_DEFINITION'];
     $retval['item_isdeterministic'] = '';
     if ($routine['IS_DETERMINISTIC'] == 'YES') {

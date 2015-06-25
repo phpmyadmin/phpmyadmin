@@ -120,6 +120,7 @@ class Token
     const FLAG_KEYWORD_COMPOSED         =  4;
     const FLAG_KEYWORD_DATA_TYPE        =  8;
     const FLAG_KEYWORD_KEY              = 16;
+    const FLAG_KEYWORD_FUNCTION         = 32;
 
     // Numbers related flags.
     const FLAG_NUMBER_HEX               =  1;

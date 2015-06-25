@@ -31,7 +31,7 @@ class LimitKeyword extends Fragment
      *
      * @var int
      */
-    public $row_count;
+    public $rowCount;
 
     /**
      * @param Parser     $parser  The parser that serves as context.

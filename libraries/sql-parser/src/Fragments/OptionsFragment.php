@@ -139,4 +139,21 @@ class OptionsFragment extends Fragment
         }
         return false;
     }
+
+    /**
+     * Merges the specified options with these ones. Values with same ID will be
+     * replaced.
+     *
+     * @param array|OptionsFragment $options
+     *
+     * @return void
+     */
+    public function merge($options)
+    {
+        if (is_array($options)) {
+            $this->options = array_merge_recursive($this->options, $options);
+        } else if ($options instanceof OptionsFragment) {
+            $this->options = array_merge_recursive($this->options, $options->options);
+        }
+    }
 }

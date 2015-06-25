@@ -5,15 +5,21 @@ namespace SqlParser;
 use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Token;
-use SqlParser\Fragments\CallKeyword;
 use SqlParser\Fragments\CreateDefFragment;
 use SqlParser\Fragments\DataTypeFragment;
 use SqlParser\Fragments\FieldDefFragment;
-use SqlParser\Fragments\FromKeyword;
 use SqlParser\Fragments\OptionsFragment;
 use SqlParser\Fragments\ParamDefFragment;
-use SqlParser\Fragments\RenameKeyword;
-use SqlParser\Fragments\SelectKeyword;
+use SqlParser\Statements\AlterStatement;
+use SqlParser\Statements\BackupStatement;
+use SqlParser\Statements\CheckStatement;
+use SqlParser\Statements\ChecksumStatement;
+use SqlParser\Statements\CreateStatement;
+use SqlParser\Statements\ExplainStatement;
+use SqlParser\Statements\RenameStatement;
+use SqlParser\Statements\RepairStatement;
+use SqlParser\Statements\RestoreStatement;
+use SqlParser\Statements\ShowStatement;
 
 /**
  * Abstract statement definition.
@@ -50,9 +56,8 @@ abstract class Statement
      */
     public function parse(Parser $parser, TokensList $list)
     {
-
         /**
-         * Whether otpions were parsed or not.
+         * Whether options were parsed or not.
          * For statements that do not have any options this is set to `true` by
          * default.
          * @var bool
@@ -115,15 +120,15 @@ abstract class Statement
                 continue;
             }
 
-            // Special cases.
-            if ($token->value === 'CREATE') {
+            // Special cases: before parsing this keyword.
+            if ($this instanceof CreateStatement) {
                 ++$list->idx;
                 $this->name = CreateDefFragment::parse($parser, $list);
                 if ($this->options->has('TABLE')) {
                     ++$list->idx;
                     $this->fields = FieldDefFragment::parse($parser, $list);
                     ++$list->idx;
-                    $this->tableOptions = OptionsFragment::parse(
+                    $this->entityOptions = OptionsFragment::parse(
                         $parser,
                         $list,
                         CreateDefFragment::$TABLE_OPTIONS
@@ -149,7 +154,7 @@ abstract class Statement
                         }
                     }
                     ++$list->idx;
-                    $this->funcOptions = OptionsFragment::parse(
+                    $this->entityOptions = OptionsFragment::parse(
                         $parser,
                         $list,
                         CreateDefFragment::$FUNC_OPTIONS
@@ -167,13 +172,49 @@ abstract class Statement
                     }
                     $class = null; // The statement has been processed here.
                 }
-            } else if ($token->value === 'RENAME') {
+            } else if ($this instanceof RenameStatement) {
                 $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'TABLE');
             }
 
+            // Parsing this keyword.
             if ($class !== null) {
                 ++$list->idx; // Skipping keyword.
                 $this->$field = $class::parse($parser, $list, array());
+            }
+
+            // Special cases: after parsing this keyword.
+            if (($this instanceof BackupStatement)
+                || ($this instanceof CheckStatement)
+                || ($this instanceof ChecksumStatement)
+                || ($this instanceof RepairStatement)
+                || ($this instanceof RestoreStatement)
+            ) {
+
+                // The statements mentioned above follow this template:
+                //  `STMT` <some options> <tables> <some more options>
+                //
+                // First of all, because static::$OPTIONS is set for all of the
+                // statements above, <some options> is going to be parsed first.
+                //
+                // There is a parser specified in `Parser::$KEYWORD_PARSERS`
+                // which parses <tables>.
+                //
+                // Finally, we pares <some more options> here and that's all.
+                ++$list->idx;
+                $this->options->merge(
+                    OptionsFragment::parse(
+                        $parser,
+                        $list,
+                        static::$OPTIONS
+                    )
+                );
+            } else if (($this instanceof AlterStatement)
+                || ($this instanceof ExplainStatement)
+                || ($this instanceof ShowStatement)
+            ) {
+                // TODO: Implement the statements above.
+                $list->getNextOfType(Token::TYPE_DELIMITER);
+                ++$list->idx;
             }
         }
 

@@ -23,11 +23,28 @@ class Parser
      */
     public static $STATEMENT_PARSERS = array(
 
+        'EXPLAIN'       => 'SqlParser\\Statements\\ExplainStatement',
+
+        // Table Maintenance Statements
+        // https://dev.mysql.com/doc/refman/5.7/en/table-maintenance-sql.html
+        'ANALYZE'       => 'SqlParser\\Statements\\AnalyzeStatement',
+        'BACKUP'        => 'SqlParser\\Statements\\BackupStatement',
+        'CHECK'         => 'SqlParser\\Statements\\CheckStatement',
+        'CHECKSUM'      => 'SqlParser\\Statements\\ChecsumStatement',
+        'OPTIMIZE'      => 'SqlParser\\Statements\\OptimizeStatement',
+        'REPAIR'        => 'SqlParser\\Statements\\RepairStatement',
+        'RESTORE'       => 'SqlParser\\Statements\\RestoreStatement',
+
+        // Database Administration Statements
+        // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-server-administration.html
+        'SET'           => '',
+        'SHOW'          => 'SqlParser\\Statements\\ShowStatement',
+
         // Data Definition Statements.
         // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-data-definition.html
-        'ALTER'         => '',
+        'ALTER'         => 'SqlParser\\Statements\\AlterStatement',
         'CREATE'        => 'SqlParser\\Statements\\CreateStatement',
-        'DROP'          => '',
+        'DROP'          => 'SqlParser\\Statements\\DropStatement',
         'RENAME'        => 'SqlParser\\Statements\\RenameStatement',
         'TRUNCATE'      => '',
 
@@ -56,9 +73,25 @@ class Parser
      */
     public static $KEYWORD_PARSERS = array(
 
+        'ANALYZE'       => array(
+            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'field'     => 'tables',
+        ),
+        'BACKUP'        => array(
+            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'field'     => 'tables',
+        ),
         'CALL'          => array(
             'class'     => 'SqlParser\\Fragments\\CallKeyword',
             'field'     => 'call',
+        ),
+        'CHECK'         => array(
+            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'field'     => 'tables',
+        ),
+        'CHECKSUM'      => array(
+            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'field'     => 'tables',
         ),
         'FROM'          => array(
             'class'     => 'SqlParser\\Fragments\\FromKeyword',
@@ -84,6 +117,10 @@ class Parser
             'class'     => 'SqlParser\\Fragments\\LimitKeyword',
             'field'     => 'limit',
         ),
+        'OPTIMIZE'      => array(
+            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'field'     => 'tables',
+        ),
         'ORDER BY'      => array(
             'class'     => 'SqlParser\\Fragments\\OrderKeyword',
             'field'     => 'order',
@@ -92,9 +129,21 @@ class Parser
             'class'     => 'SqlParser\\Fragments\\ArrayFragment',
             'field'     => 'partition',
         ),
+        'PROCEDURE'     => array(
+            'class'     => 'SqlParser\\Fragments\\CallKeyword',
+            'field'     => 'procedure',
+        ),
         'RENAME'        => array(
             'class'     => 'SqlParser\\Fragments\\RenameKeyword',
             'field'     => 'renames',
+        ),
+        'REPAIR'        => array(
+            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'field'     => 'tables',
+        ),
+        'RESTORE'       => array(
+            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'field'     => 'tables',
         ),
         'SET'           => array(
             'class'     => 'SqlParser\\Fragments\\SetKeyword',
@@ -188,17 +237,15 @@ class Parser
      */
     public function parse()
     {
-        $tokens = &$this->list->tokens;
-        $count = &$this->list->count;
-        $last = &$this->list->idx;
+        $list = &$this->list;
 
-        for (; $last < $count; ++$last) {
+        for (; $list->idx < $list->count; ++$list->idx) {
 
             /**
              * Token parsed at this moment.
              * @var Token
              */
-            $token = $tokens[$last];
+            $token = $list->tokens[$list->idx];
 
             // Statements can start with keywords only.
             // Comments, whitespaces, etc. are ignored.
@@ -212,7 +259,7 @@ class Parser
                     'Unrecognized statement type "' . $token->value . '".',
                     $token
                 );
-                // TODO: Skip to first delimiter.
+                $list->getNextOfType(Token::TYPE_DELIMITER);
                 continue;
             }
 

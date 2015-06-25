@@ -741,7 +741,11 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         );
         if ($show_create_table) {
             $parser = new SqlParser\Parser($show_create_table);
-            $foreign['foreign_keys_data'] = SqlParser\Utils\Table::getForeignKeys($parser->statements[0]);
+            /**
+             * @var CreateStatement $stmt
+             */
+            $stmt = $parser->statements[0];
+            $foreign['foreign_keys_data'] = SqlParser\Utils\Table::getForeignKeys($stmt);
         }
     }
 
