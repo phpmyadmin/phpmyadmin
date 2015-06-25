@@ -67,6 +67,7 @@ phpMyAdmin - ChangeLog
 + rfe #1557 Option to remove functions, procedures, etc., from navigation tree
 + rfe #689  Column privileges and update
 + rfe #1531 Cant use external config file
++ rfe #1552 CSV import: Allow "Columns escaped with" to be optional
 
 4.4.11.0 (not yet released)
 - bug       Missing selected/entered values when editing active options in visual query builder

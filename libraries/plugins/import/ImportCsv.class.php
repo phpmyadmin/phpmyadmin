@@ -137,7 +137,11 @@ class ImportCsv extends AbstractImportCsv
             $message->addParam(__('Columns enclosed with'), false);
             $error = true;
             $param_error = true;
-        } elseif (/*overload*/mb_strlen($csv_escaped) != 1) {
+            // I could not find a test case where having no escaping characters
+            // confuses this script.
+            // But the parser won't work correctly with strings so we allow just
+            // one character.
+        } elseif (/*overload*/mb_strlen($csv_escaped) > 1) {
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
