@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-22 08:04-0400\n"
-"PO-Revision-Date: 2015-06-11 18:16+0200\n"
+"PO-Revision-Date: 2015-06-24 22:37+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2595,33 +2595,33 @@ msgstr "Sei sicuro di voler eliminare questo bookmark?"
 #: js/messages.php:591
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
+"Ci sono stati alcuni errori durante il recupero delle informazioni di debug "
+"SQL."
 
 #: js/messages.php:592
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enter executes queries in console"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "INVIO esegue query in console"
+msgstr "%s query eseguite %s volte in %s secondi."
 
 #: js/messages.php:593
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s argomento(i) passati"
 
 #: js/messages.php:594
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show arguments"
-msgstr "Mostra i commenti alla tabella"
+msgstr "Mostra argomenti"
 
 #: js/messages.php:595
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Nascondi i risultati della ricerca"
+msgstr "Nascondi argomenti"
 
 #: js/messages.php:596 libraries/Console.class.php:318
 msgid "Time taken:"
-msgstr ""
+msgstr "Tempo utilizzato:"
 
 #: js/messages.php:597
 msgid ""
@@ -3192,72 +3192,62 @@ msgid "Press Enter to execute query"
 msgstr "Premere INVIO per eseguire query"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Crescente"
+msgstr "crescente"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Decrescente"
+msgstr "decrescente"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "Ordine"
+msgstr "Ordine:"
 
 #: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
 msgid "Count"
 msgstr "Conteggio"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "Esegui ogni"
+msgstr "Ordine di esecuzione"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
-msgstr ""
+msgstr "Tempo utilizzato"
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "Ordine"
+msgstr "Ordine per:"
 
 #: libraries/Console.class.php:301
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "Query SQL"
+msgstr "Raggruppa query"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "Query SQL"
+msgstr "Dividi Query"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "Mostra crea"
+msgstr "Mostra traccia"
 
 #: libraries/Console.class.php:316
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Nascondi pannello"
+msgstr "Nascondi traccia"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "Conteggio"
+msgstr "Conteggio:"
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1263
 #: libraries/config/messages.inc.php:779
@@ -3342,14 +3332,13 @@ msgstr "Colonna:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Alias:"
 
 #: libraries/DBQbe.class.php:566
 msgid "Sort:"
 msgstr "Ordinamento:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
 msgstr "Ordinamento:"
@@ -5159,10 +5148,9 @@ msgid "display column"
 msgstr "visualizza campo"
 
 #: libraries/config.values.php:102
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Benvenuto in %s"
+msgstr "Benvenuto"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5734,7 +5722,7 @@ msgstr "Conferma query DROP"
 #: libraries/config/messages.inc.php:86
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "Query Log SQL e loro tempo di esecuzione, da visualizzare nella console"
 
 #: libraries/config/messages.inc.php:89
 msgid "Tab that is displayed when entering a database."
@@ -6802,11 +6790,11 @@ msgstr "Dove mostrare i collegamenti per le righe delle tabelle"
 
 #: libraries/config/messages.inc.php:493
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "Se visualizzare i link di riga anche in assenza di una chiave univoca."
 
 #: libraries/config/messages.inc.php:494
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Mostra comunque i link di riga"
 
 #: libraries/config/messages.inc.php:496
 msgid "Use natural order for sorting table and database names."
@@ -13796,7 +13784,7 @@ msgid "Showing as PHP code"
 msgstr "Visualizzo comel codice PHP"
 
 #: libraries/sql.lib.php:1767
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
@@ -13805,10 +13793,10 @@ msgid ""
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 "La selezione corrente non contiene un campo unico. Modifica griglia, "
-"checkbox, Modifica, Copia ed Elimina potrebbero non essere disponibili."
+"checkbox, Modifica, Copia ed Elimina potrebbero non essere disponibili. %s"
 
 #: libraries/sql.lib.php:1778
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
@@ -13817,7 +13805,7 @@ msgid ""
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 "La selezione corrente non contiene un campo unico. Modifica griglia, "
-"checkbox, Modifica, Copia ed Elimina potrebbero non essere disponibili."
+"Modifica, Copia ed Elimina potrebbero mostrare comportamenti indesiderati. %s"
 
 #: libraries/sql.lib.php:1817
 #, php-format

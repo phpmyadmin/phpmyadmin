@@ -186,60 +186,60 @@ function PMA_getSideMenuParamsArray()
 
     if ($GLOBALS['cfgRelation']['designer_settingswork']) {
         // angular_direct
-        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
             . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "angular_direct"';
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "angular_direct"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['angular_direct'] = $result['value'];
+        $params['angular_direct'] = $result['stored_value'];
 
         // snap_to_grid
-        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
             . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "snap_to_grid"';
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "snap_to_grid"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['snap_to_grid'] = $result['value'];
+        $params['snap_to_grid'] = $result['stored_value'];
 
         // small_big_all
-        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
             . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "small_big_all"';
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "small_big_all"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['small_big_all'] = $result['value'];
+        $params['small_big_all'] = $result['stored_value'];
 
         // relation_lines
-        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
             . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "relation_lines"';
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "relation_lines"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['relation_lines'] = $result['value'];
+        $params['relation_lines'] = $result['stored_value'];
 
         // full_screen
-        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
             . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "full_screen"';
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "full_screen"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['full_screen'] = $result['value'];
+        $params['full_screen'] = $result['stored_value'];
 
         // side_menu
-        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
             . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "side_menu"';
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "side_menu"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['side_menu'] = $result['value'];
+        $params['side_menu'] = $result['stored_value'];
 
         // pin_text
-        $query = 'SELECT `value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+        $query = 'SELECT `stored_value` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
             . PMA_Util::backquote($cfgRelation['designer_settings']) . ' WHERE ' . PMA_Util::backquote('username') . ' = "'
-            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('index') . ' = "pin_text"';
+            . $GLOBALS['cfg']['Server']['user'] . '" AND ' . PMA_Util::backquote('setting') . ' = "pin_text"';
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query);
-        $params['pin_text'] = $result['value'];
+        $params['pin_text'] = $result['stored_value'];
     }
 
     return $params;
