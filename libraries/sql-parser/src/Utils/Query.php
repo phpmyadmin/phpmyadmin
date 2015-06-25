@@ -2,10 +2,11 @@
 
 namespace SqlParser\Utils;
 
+use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Statements\AlterStatement;
 use SqlParser\Statements\AnalyzeStatement;
-use SqlParser\Statement\CallStatement;
+use SqlParser\Statements\CallStatement;
 use SqlParser\Statements\CheckStatement;
 use SqlParser\Statements\ChecksumStatement;
 use SqlParser\Statements\CreateStatement;
@@ -45,29 +46,54 @@ class Query
      * Gets an array with flags this statement has.
      *
      * @param Statement $statement
+     * @param bool $all If `false`, false values will not be included.
      *
      * @return array
      */
-    public static function getFlags($statement)
+    public static function getFlags($statement, $all = false)
     {
         $flags = array();
-        // TODO: 'union', 'join', 'offset'
+        if ($all) {
+            $flags = array(
+                'distinct'      => false,
+                'drop_database' => false,
+                'is_affected'   => false,
+                'is_analyse'    => false,
+                'is_count'      => false,
+                'is_delete'     => false,
+                'is_explain'    => false,
+                'is_export'     => false,
+                'is_func'       => false,
+                'is_group'      => false,
+                'is_insert'     => false,
+                'is_maint'      => false,
+                'is_procedure'  => false,
+                'is_replace'    => false,
+                'is_select'     => false,
+                'is_show'       => false,
+                'is_subquery'   => false,
+                'join'          => false,
+                'offset'        => false,
+                'reload'        => false,
+                'select_from'   => false,
+                'union'         => false
+            );
+        }
 
+        // TODO: 'union', 'join', 'offset'
         if (($statement instanceof AlterStatement)
             || ($statement instanceof CreateStatement)
         ) {
             $flags['reload'] = true;
-        } else if ($statement instanceof AnalyzeStatement) {
-            $flags['is_maint'] = true;
-            $flags['is_analyze'] = true;
-        } else if ($statement instanceof CallStatement) {
-            $flags['is_procedure'] = true;
-        } else if (($statement instanceof CheckStatement)
+        } else if (($statement instanceof AnalyzeStatement)
+            || ($statement instanceof CheckStatement)
             || ($statement instanceof ChecksumStatement)
             || ($statement instanceof OptimizeStatement)
             || ($statement instanceof RepairStatement)
         ) {
             $flags['is_maint'] = true;
+        } else if ($statement instanceof CallStatement) {
+            $flags['is_procedure'] = true;
         } else if ($statement instanceof DeleteStatement) {
             $flags['is_delete'] = true;
             $flags['is_affected'] = true;
@@ -88,6 +114,7 @@ class Query
             $flags['is_affected'] = true;
             $flags['is_replace'] = true;
         } else if ($statement instanceof SelectStatement) {
+            $flags['is_select'] = true;
 
             if (!empty($statement->from)) {
                 $flags['select_from'] = true;
@@ -119,6 +146,12 @@ class Query
                     $flags['is_subquery'] = true;
                 }
             }
+
+            if ((!empty($statement->procedure))
+                && ($statement->procedure->name === 'ANALYSE')
+            ) {
+                $flags['is_analyse'] = true;
+            }
         } else if ($statement instanceof ShowStatement) {
             $flags['is_show'] = true;
         } else if ($statement instanceof UpdateStatement) {
@@ -126,6 +159,43 @@ class Query
         }
 
         return $flags;
+    }
+
+    /**
+     * Parses a query and gets all information about it.
+     *
+     * @param  string $query
+     *
+     * @return array
+     */
+    public static function getAll($query)
+    {
+        $parser = new Parser($query);
+
+        if (!isset($parser->statements[0])) {
+            return array();
+        }
+
+        $statement = $parser->statements[0];
+
+        $ret = static::getFlags($statement, true);
+
+        $ret['parser'] = $parser;
+        $ret['statement'] = $statement;
+
+        if ($statement instanceof SelectStatement) {
+            $ret['tables'] = array();
+            foreach ($statement->expr as $expr) {
+                if (!empty($expr->table)) {
+                    $ret['tables'][] = array(
+                        $expr->table,
+                        !empty($expr->database) ? $expr->database : null
+                    );
+                }
+            }
+        }
+
+        return $ret;
     }
 
 }

@@ -327,7 +327,6 @@ class ContextMySql50700 extends Context
         'CURRENT_TIMESTAMP' => 35,
 
         'NOT IN' => 37,
-        'PROCEDURE ANALYSE' => 37,
 
         'DATE' => 41, 'TIME' => 41, 'YEAR' => 41,
         'TIMESTAMP' => 41,

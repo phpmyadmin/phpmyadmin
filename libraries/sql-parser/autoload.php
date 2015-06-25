@@ -7,7 +7,7 @@
  */
 
 if (!class_exists('Composer\\Autoload\\ClassLoader')) {
-    include_once 'composer/ClassLoader.php';
+    include_once './libraries/sql-parser/composer/ClassLoader.php';
 }
 
 use Composer\Autoload\ClassLoader;
