@@ -469,6 +469,7 @@ $js_messages['strModificationSaved'] = __('Modifications have been saved');
 /* Visual query builder (js/pmd/move.js) */
 $js_messages['strAddOption'] = __('Add an option for column "%s".');
 $js_messages['strObjectsCreated'] = __('%d object(s) created.');
+$js_messages['strSubmit'] = __('Submit');
 
 /* For makegrid.js (column reordering, show/hide column, grid editing) */
 $js_messages['strCellEditHint'] = __('Press escape to cancel editing.');

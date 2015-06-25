@@ -789,7 +789,7 @@ function build_query(formtitle, fadin)
     button_options[PMA_messages.strClose] = function () {
         $(this).dialog("close");
     };
-    button_options[PMA_messages.strGo] = function () {
+    button_options[PMA_messages.strSubmit] = function () {
         if (vqb_editor) {
             var $elm = $ajaxDialog.find('textarea');
             vqb_editor.save();
