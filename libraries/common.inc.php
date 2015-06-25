@@ -872,7 +872,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         if (! $auth_plugin->authCheck()) {
             /* Force generating of new session on login */
-            PMA_secureSession();
+            if ($token_provided) {
+                PMA_secureSession();
+            }
             $auth_plugin->auth();
         } else {
             $auth_plugin->authSetUser();

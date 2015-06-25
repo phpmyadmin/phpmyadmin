@@ -35,7 +35,6 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
                 $GLOBALS['cfg']['DefaultTabServer'], 'server'
             )
             . '" class="disableAjax">';
-        $retval .= PMA_getHiddenFields(array('token' => $_SESSION[' PMA_token ']));
 
         if (! $omit_fieldset) {
             $retval .= '<fieldset>';
