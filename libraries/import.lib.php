@@ -1586,7 +1586,7 @@ function PMA_getSimulatedDeleteQuery($analyzed_sql_results)
     $where_clause = '';
 
     $where_clause .= $analyzed_sql_results['analyzed_sql'][0]['where_clause'];
-    if (empty($where_clause) && empty($extra_where_clause)) {
+    if (empty($where_clause)) {
         $where_clause = '1';
     }
 
