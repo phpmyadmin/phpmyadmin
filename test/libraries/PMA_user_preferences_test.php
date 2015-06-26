@@ -415,7 +415,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $result = PMA_userprefsAutoloadGetHeader();
 
         $this->assertContains(
-            '<form action="prefs_manage.php" method="post">',
+            '<form action="prefs_manage.php" method="post" class="disableAjax">',
             $result
         );
 
