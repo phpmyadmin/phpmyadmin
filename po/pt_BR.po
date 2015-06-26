@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-06-25 16:16+0200\n"
+"PO-Revision-Date: 2015-06-26 15:38+0200\n"
 "Last-Translator: Renato Rodrigues de Lima Júnio <renatomdd@yahoo.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/pt_BR/>\n"
@@ -6489,7 +6489,6 @@ msgstr ""
 "Número mínimo de tabelas para mostrar a caixa de filtro de bancos de dados"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6497,8 +6496,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Agrupa itens na árvore de navegação (determinado pelo divisor definido "
-"abaixo)."
+"Agrupa itens na árvore de navegação (determinado pelo divisor definido nos "
+"Bancos de Dados e Tabelas abaixo)."
 
 #: libraries/config/messages.inc.php:458
 msgid "Group items in the tree"
@@ -14954,22 +14953,24 @@ msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "O manual do MySQL é preciso apenas para binários MySQL oficiais."
 
 #: libraries/advisory_rules.txt:132
-#, fuzzy
 #| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid ""
 "Percona documentation is at http://www.percona.com/software/documentation/"
-msgstr "A documentação da Percona está em http://www.percona.com/docs/wiki/"
+msgstr ""
+"A documentação da Percona está em http://www.percona.com/docs/wiki/ ("
+"conteúdo em inglês)"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
 msgstr "'percona' encontrado em version_coment"
 
 #: libraries/advisory_rules.txt:139
-#, fuzzy
 #| msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgid ""
 "Drizzle documentation is at http://www.drizzle.org/content/documentation/"
-msgstr "A documentação do Drizzle está em http://docs.drizzle.org/"
+msgstr ""
+"A documentação do Drizzle está disponível em "
+"http://www.drizzle.org/content/documentation/ (conteúdo em inglês)"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -15795,7 +15796,6 @@ msgid "Too many connections are aborted."
 msgstr "Muitas conexões são abortadas."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -15806,10 +15806,10 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Conexões são normalmente abortadas quando não conseguem ser autorizadas. <a "
-"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Este artigo</a> deve auxiliá-lo a procurar a "
-"causa."
+"Conexões são normalmente canceladas quando não autorizadas. <a href=\""
+"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-"
+"of-aborted_connects/\">Este artigo</a> deve ajudar a identificar o que "
+"aconteceu."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -15935,7 +15935,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "O tamanho do log do InnoDB está inadequadamente grande."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -15957,16 +15957,17 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
-"Normalmente basta configurar o {innodb_log_file_size} para 25%% do tamanho "
-"do {innodb_buffer_pool_size}. Um {innodb_log_file_size} muito grande atrasa "
-"consideravelmente o tempo de recuperação após a queda de um banco de dados. "
-"Veja também <a href=\"http://www.mysqlperformanceblog.com/2006/07/03/"
-"choosing-proper-innodb_log_file_size/\">este artigo</a>. Você precisa "
-"desligar o servidor, remover os arquivos de log do InnoDB, configurar o novo "
-"valor em my.cnf, iniciar o servidor, e então verificar o log de erros se "
-"tudo der certo. Veja também <a href=\"http://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">este post</"
-"a>"
+"Normalmente basta configurar o {innodb_log_file_size} para 25% do tamanho do "
+"{innodb_buffer_pool_size}. Um {innodb_log_file_size} muito grande atrasa "
+"consideravelmente o tempo de recuperação de um banco de dados após a queda "
+"do serviço. Veja também <a href=\""
+"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">este artigo</a>. Você precisa desligar o servidor, "
+"remover os arquivos de log do InnoDB, configurar o novo valor em my.cnf, "
+"iniciar o servidor, e então verificar o log de erros para ver se tudo deu "
+"certo. Veja também <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">este post</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -15982,7 +15983,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Seu pool de buffer InnoDB é bem pequeno."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -16008,15 +16009,16 @@ msgid ""
 msgstr ""
 "O buffer pool do InnoDB possui um profundo impacto na performance de tabelas "
 "InnoDB. Atribua toda a sua memória restante a este buffer. Para servidores "
-"de bancos de dados que usam somente o InnoDB como engine de armazenamento e "
-"não possuem nenhum outro serviço executando (por exemplo, servidor Web), "
-"você deve atribuir até 80%% da memória disponível. Se este não for o caso, "
+"de bancos de dados que usam somente o InnoDB como mecanismo de armazenamento "
+"e não possuem nenhum outro serviço executando (por exemplo, servidor Web), "
+"você deve atribuir até 80% da memória disponível. Se este não for o caso, "
 "você deve avaliar cuidadosamente o consumo de memória dos outros serviços e "
-"tabelas não-InnoDB e atribuir o valor desta variável de acordo com este "
+"tabelas não-InnoDB e atribuir o valor desta variável de acordo com o "
 "consumo. Tenha cuidado, pois ao atribuir valores muito altos, seu sistema "
-"começará a fazer swap, o que diminuirá o desempenho significativamente. Veja "
-"também <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">este artigo</a>"
+"começará a fazer swap (aproveitamento de espaço em disco para função de "
+"memória), o que diminuirá o desempenho significativamente. Veja também <a "
+"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">este artigo</a> para eventuais dúvidas."
 
 #: libraries/advisory_rules.txt:455
 #, php-format
