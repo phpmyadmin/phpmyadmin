@@ -1,10 +1,16 @@
 <?php
 
+/**
+ * `CREATE` statement.
+ *
+ * @package    SqlParser
+ * @subpackage Statements
+ */
 namespace SqlParser\Statements;
 
 use SqlParser\Parser;
 use SqlParser\Statement;
-use sqlParser\Token;
+use SqlParser\Token;
 use SqlParser\TokensList;
 use SqlParser\Fragments\CreateDefFragment;
 use SqlParser\Fragments\DataTypeFragment;
@@ -96,9 +102,9 @@ class CreateStatement extends Statement
     /**
      * Parsing the `CREATE` statement.
      *
-     * @param  Parser     $parser   The instance that requests parsing.
-     * @param  TokensList $list The list of tokens to be parsed.
-     * @param  Token      $token The token that is being parsed.
+     * @param Parser     $parser The instance that requests parsing.
+     * @param TokensList $list   The list of tokens to be parsed.
+     * @param Token      $token  The token that is being parsed.
      *
      * @return void
      */

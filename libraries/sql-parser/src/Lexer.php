@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Defines the lexer of the library.
+ *
+ * This is one of the most important components, along with the parser.
+ *
+ * Depends on context to extract lexemes.
+ *
+ * @package SqlParser
+ */
 namespace SqlParser;
 
 use SqlParser\Exceptions\LexerException;

@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Defines a fragment that is later extended to parse fragments or keywords.
+ *
+ * There is a small difference between *Fragment and *Keyword classes: usually,
+ * *Fragment parsers can be reused in multiple  situations and *Keyword parsers
+ * count on the *Fragment classes to do their job.
+ *
+ * @package SqlParser
+ */
 namespace SqlParser;
 
 /**

@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Routine utilities.
+ *
+ * @package    SqlParser
+ * @subpackage Utils
+ */
 namespace SqlParser\Utils;
 
 use SqlParser\Lexer;
@@ -90,11 +96,11 @@ class Routine
     /**
      * Gets the parameters of a routine from the parse tree.
      *
-     * @param CreateStatement $tree The tree that was generated after parsing.
+     * @param CreateStatement $statement The statement to be processed.
      *
      * @return array
      */
-    public static function getParameters($tree)
+    public static function getParameters($statement)
     {
         $retval = array(
             'num' => 0,
@@ -106,9 +112,9 @@ class Routine
             'opts' => array(),
         );
 
-        if (!empty($tree->parameters)) {
+        if (!empty($statement->parameters)) {
             $idx = 0;
-            foreach ($tree->parameters as $param) {
+            foreach ($statement->parameters as $param) {
                 $retval['dir'][$idx] = $param->inOut;
                 $retval['name'][$idx] = $param->name;
                 $retval['type'][$idx] = $param->type->name;

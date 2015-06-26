@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * `INTO` keyword parser.
+ *
+ * @package    SqlParser
+ * @subpackage Fragments
+ */
 namespace SqlParser\Fragments;
 
 use SqlParser\Fragment;

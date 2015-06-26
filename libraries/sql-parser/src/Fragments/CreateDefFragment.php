@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Parses the definition that follows the `CREATE` keyword.
+ *
+ * @package    SqlParser
+ * @subpackage Fragments
+ */
 namespace SqlParser\Fragments;
 
 use SqlParser\Fragment;

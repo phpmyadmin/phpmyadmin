@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Parses a data type.
+ *
+ * @package    SqlParser
+ * @subpackage Fragments
+ */
 namespace SqlParser\Fragments;
 
 use SqlParser\Context;

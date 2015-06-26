@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Parses the definition of a key.
+ *
+ * @package    SqlParser
+ * @subpackage Fragments
+ */
 namespace SqlParser\Fragments;
 
 use SqlParser\Context;

@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * The result of the parser is an array of statements are extensions of the
+ * class defined here.
+ *
+ * A statement represents the result of parsing the lexemes.
+ *
+ * @package SqlParser.
+ */
 namespace SqlParser;
 
 use SqlParser\Parser;
@@ -132,9 +140,9 @@ abstract class Statement
     /**
      * Function called before the token was processed.
      *
-     * @param  Parser     $parser   The instance that requests parsing.
-     * @param  TokensList $list The list of tokens to be parsed.
-     * @param  Token      $token The token that is being parsed.
+     * @param Parser     $parser The instance that requests parsing.
+     * @param TokensList $list   The list of tokens to be parsed.
+     * @param Token      $token  The token that is being parsed.
      *
      * @return void
      */
@@ -146,11 +154,11 @@ abstract class Statement
     /**
      * Function called after the token was processed.
      *
-     * @param  Parser     $parser   The instance that requests parsing.
-     * @param  TokensList $list The list of tokens to be parsed.
-     * @param  Token      $token The token that is being parsed.
+     * @param Parser     $parser The instance that requests parsing.
+     * @param TokensList $list   The list of tokens to be parsed.
+     * @param Token      $token  The token that is being parsed.
      *
-     * @return
+     * @return void
      */
     public function after(Parser $parser, TokensList $list, Token $token)
     {

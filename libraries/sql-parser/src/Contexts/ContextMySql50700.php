@@ -3,9 +3,10 @@
 /**
  * Context for MySQL 5.7.
  *
- * @link https://dev.mysql.com/doc/refman/5.7/en/keywords.html
+ * @package    SqlParser
+ * @subpackage Contexts
+ * @link       https://dev.mysql.com/doc/refman/5.7/en/keywords.html
  */
-
 namespace SqlParser\Contexts;
 
 use SqlParser\Context;

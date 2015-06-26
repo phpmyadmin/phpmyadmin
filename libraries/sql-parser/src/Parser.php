@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Defines the parser of the library.
+ *
+ * This is one of the most important components, along with the lexer.
+ *
+ * @package SqlParser
+ */
 namespace SqlParser;
 
 use SqlParser\Exceptions\ParserException;
@@ -286,6 +293,8 @@ class Parser
      * @param string $msg   The error message.
      * @param Token  $token The token that produced the error.
      * @param int    $code  The code of the error.
+     *
+     * @return void
      */
     public function error($msg = '', Token $token = null, $code = 0)
     {

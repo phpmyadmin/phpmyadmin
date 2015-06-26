@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * `VALUES` keyword parser.
+ *
+ * @package    SqlParser
+ * @subpackage Fragments
+ */
 namespace SqlParser\Fragments;
 
 use SqlParser\Fragment;

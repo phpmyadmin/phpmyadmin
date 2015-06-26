@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Parses an array.
+ *
+ * @package    SqlParser
+ * @subpackage Fragments
+ */
 namespace SqlParser\Fragments;
 
 use SqlParser\Fragment;

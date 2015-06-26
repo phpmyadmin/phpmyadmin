@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * The definition of a parameter of a function or procedure.
+ *
+ * @package    SqlParser
+ * @subpackage Fragments
+ */
 namespace SqlParser\Fragments;
 
 use SqlParser\Context;

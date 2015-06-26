@@ -1,10 +1,16 @@
 <?php
 
+/**
+ * `RENAME` statement.
+ *
+ * @package    SqlParser
+ * @subpackage Statements
+ */
 namespace SqlParser\Statements;
 
 use SqlParser\Parser;
 use SqlParser\Statement;
-use sqlParser\Token;
+use SqlParser\Token;
 use SqlParser\TokensList;
 
 /**
@@ -32,9 +38,9 @@ class RenameStatement extends Statement
     /**
      * Skips the `TABLE` keyword after `RENAME`.
      *
-     * @param  Parser     $parser   The instance that requests parsing.
-     * @param  TokensList $list The list of tokens to be parsed.
-     * @param  Token      $token The token that is being parsed.
+     * @param Parser     $parser The instance that requests parsing.
+     * @param TokensList $list   The list of tokens to be parsed.
+     * @param Token      $token  The token that is being parsed.
      *
      * @return void
      */

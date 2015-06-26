@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Exception thrown by the parser.
+ *
+ * @package    SqlParser
+ * @subpackage Exceptions
+ */
 namespace SqlParser\Exceptions;
 
 use SqlParser\Token;

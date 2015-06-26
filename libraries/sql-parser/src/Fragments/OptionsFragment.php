@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Parses a list of options.
+ *
+ * @package    SqlParser
+ * @subpackage Fragments
+ */
 namespace SqlParser\Fragments;
 
 use SqlParser\Fragment;
@@ -124,7 +130,7 @@ class OptionsFragment extends Fragment
     /**
      * Checks if it has the specified option and returns it value or true.
      *
-     * @param string $key
+     * @param string $key The key to be checked.
      *
      * @return mixed
      */
@@ -144,7 +150,7 @@ class OptionsFragment extends Fragment
      * Merges the specified options with these ones. Values with same ID will be
      * replaced.
      *
-     * @param array|OptionsFragment $options
+     * @param array|OptionsFragment $options The options to be merged.
      *
      * @return void
      */

@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Table utilities.
+ *
+ * @package    SqlParser
+ * @subpackage Utils
+ */
 namespace SqlParser\Utils;
 
 use SqlParser\Lexer;
@@ -24,19 +30,19 @@ class Table
     /**
      * Gets the foreign keys of the table.
      *
-     * @param CreateStatement $tree
+     * @param CreateStatement $statement The statement to be processed.
      *
      * @return array
      */
-    public static function getForeignKeys($tree)
+    public static function getForeignKeys($statement)
     {
-        if ((empty($tree->fields)) || (!$tree->options->has('TABLE'))) {
+        if ((empty($statement->fields)) || (!$statement->options->has('TABLE'))) {
             return array();
         }
 
         $ret = array();
 
-        foreach ($tree->fields as $field) {
+        foreach ($statement->fields as $field) {
 
             if ((empty($field->key)) || ($field->key->type !== 'FOREIGN KEY')) {
                 continue;
@@ -74,19 +80,19 @@ class Table
     /**
      * Gets fields of the table.
      *
-     * @param CreateStatement $tree
+     * @param CreateStatement $statement The statement to be processed.
      *
      * @return array
      */
-    public static function getFields($tree)
+    public static function getFields($statement)
     {
-        if ((empty($tree->fields)) || (!$tree->options->has('TABLE'))) {
+        if ((empty($statement->fields)) || (!$statement->options->has('TABLE'))) {
             return array();
         }
 
         $ret = array();
 
-        foreach ($tree->fields as $field) {
+        foreach ($statement->fields as $field) {
 
             // Skipping keys.
             if (empty($field->type)) {

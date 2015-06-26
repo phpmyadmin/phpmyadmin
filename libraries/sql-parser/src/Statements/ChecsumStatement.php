@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * `CHECKSUM` statement.
+ *
+ * @package    SqlParser
+ * @subpackage Statements
+ */
 namespace SqlParser\Statements;
 
 use SqlParser\Statements\MaintenanceStatement;

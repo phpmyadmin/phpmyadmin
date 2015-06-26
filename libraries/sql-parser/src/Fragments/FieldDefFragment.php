@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Parses the definition of a field.
+ *
+ * Used for parsing `CREATE TABLE` statement.
+ *
+ * @package    SqlParser
+ * @subpackage Fragments
+ */
 namespace SqlParser\Fragments;
 
 use SqlParser\Context;

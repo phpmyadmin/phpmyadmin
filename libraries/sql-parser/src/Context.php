@@ -1,9 +1,17 @@
 <?php
 
+/**
+ * Defines a context class that is later extended to define other contexts.
+ *
+ * A context is a collection of keywords, operators and functions used for
+ * parsing.
+ *
+ * @package SqlParser
+ */
 namespace SqlParser;
 
 /**
- * Default MySQL context.
+ * Holds the configuration of the context that is currently used.
  *
  * @category Contexts
  * @package  SqlParser

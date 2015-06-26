@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Parses a function call.
+ *
+ * @package    SqlParser
+ * @subpackage Fragments
+ */
 namespace SqlParser\Fragments;
 
 use SqlParser\Fragment;

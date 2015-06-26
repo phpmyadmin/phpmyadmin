@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * `OPTIMIZE` statement.
+ *
+ * @package    SqlParser
+ * @subpackage Statements
+ */
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;

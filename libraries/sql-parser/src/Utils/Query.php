@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Statement utilities.
+ *
+ * @package    SqlParser
+ * @subpackage Utils
+ */
 namespace SqlParser\Utils;
 
 use SqlParser\Parser;
@@ -45,8 +51,8 @@ class Query
     /**
      * Gets an array with flags this statement has.
      *
-     * @param Statement $statement
-     * @param bool $all If `false`, false values will not be included.
+     * @param Statement $statement The statement to be processed.
+     * @param bool      $all       If `false`, false values will not be included.
      *
      * @return array
      */
@@ -164,7 +170,7 @@ class Query
     /**
      * Parses a query and gets all information about it.
      *
-     * @param  string $query
+     * @param string $query The query to be parsed.
      *
      * @return array
      */

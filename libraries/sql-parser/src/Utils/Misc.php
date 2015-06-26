@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Miscellaneous utilities.
+ *
+ * @package    SqlParser
+ * @subpackage Utils
+ */
 namespace SqlParser\Utils;
 
 use SqlParser\Statement;
@@ -20,14 +26,14 @@ class Misc
     /**
      * Gets a list of all aliases and their original names.
      *
-     * @param SelectStatement $tree     The tree that was generated after parsing.
-     * @param string          $database The name of the database.
+     * @param SelectStatement $statement The statement to be processed.
+     * @param string          $database  The name of the database.
      *
      * @return array
      */
-    public static function getAliases($tree, $database)
+    public static function getAliases($statement, $database)
     {
-        if ((empty($tree->from)) || (empty($tree->expr))) {
+        if ((empty($statement->from)) || (empty($statement->expr))) {
             return array();
         }
 
@@ -35,28 +41,28 @@ class Misc
 
         $tables = array();
 
-        if ((!empty($tree->join->expr->table))
-            && (!empty($tree->join->expr->alias))
+        if ((!empty($statement->join->expr->table))
+            && (!empty($statement->join->expr->alias))
         ) {
-            $thisDb = empty($tree->join->expr->database) ?
-                $database : $tree->join->expr->database;
+            $thisDb = empty($statement->join->expr->database) ?
+                $database : $statement->join->expr->database;
 
             $retval = array(
                 $thisDb => array(
                     'alias' => null,
                     'tables' => array(
-                        $tree->join->expr->table => array(
-                            'alias' => $tree->join->expr->alias,
+                        $statement->join->expr->table => array(
+                            'alias' => $statement->join->expr->alias,
                             'columns' => array(),
                         ),
                     ),
                 ),
             );
 
-            $tables[$thisDb][$tree->join->expr->alias] = $tree->join->expr->table;
+            $tables[$thisDb][$statement->join->expr->alias] = $statement->join->expr->table;
         }
 
-        foreach ($tree->from as $expr) {
+        foreach ($statement->from as $expr) {
             if (empty($expr->table)) {
                 continue;
             }
@@ -83,7 +89,7 @@ class Misc
             $tables[$thisDb][$expr->alias] = $expr->table;
         }
 
-        foreach ($tree->expr as $expr) {
+        foreach ($statement->expr as $expr) {
             if ((empty($expr->column)) || (empty($expr->alias))) {
                 continue;
             }

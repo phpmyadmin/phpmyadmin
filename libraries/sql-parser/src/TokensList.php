@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Defines an array of tokens and utility functions to iterate through it.
+ *
+ * @package SqlParser
+ */
 namespace SqlParser;
 
 /**
