@@ -279,7 +279,7 @@ function PMA_userprefsAutoloadGetHeader()
         );
 
         $retval .= '<div id="prefs_autoload" class="notice" style="display:none">';
-        $retval .= '<form action="prefs_manage.php" method="post">';
+        $retval .= '<form action="prefs_manage.php" method="post" class="disableAjax">';
         $retval .= PMA_URL_getHiddenInputs();
         $retval .= '<input type="hidden" name="json" value="" />';
         $retval .= '<input type="hidden" name="submit_import" value="1" />';
