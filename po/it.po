@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-22 08:04-0400\n"
-"PO-Revision-Date: 2015-06-24 22:37+0200\n"
-"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
+"PO-Revision-Date: 2015-06-26 21:00+0200\n"
+"Last-Translator: Marco Pozzato <ironpotts@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:105
 msgid "The central list of columns for the current database is empty."
-msgstr "L'elenco centrale di colonne per il database corrente è vuota."
+msgstr "L'elenco centrale di colonne per il database corrente è vuoto."
 
 #: db_central_columns.php:130
 msgid "Click to sort."
@@ -147,6 +147,7 @@ msgstr "Predefinito"
 #: libraries/plugins/export/PMA_ExportPdf.class.php:486
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1036
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1059
+#, fuzzy
 msgid "Links to"
 msgstr "Collegamenti a"
 
@@ -223,6 +224,7 @@ msgid "Yes"
 msgstr "Sì"
 
 #: db_export.php:32
+#, fuzzy
 msgid "View dump (schema) of database"
 msgstr "Visualizza dump (schema) del database"
 
@@ -265,8 +267,9 @@ msgstr ""
 "ragione%s."
 
 #: db_qbe.php:103
+#, fuzzy
 msgid "You have to choose at least one column to display!"
-msgstr "Devi scegliere almeno un campo da mostrare!"
+msgstr "Devi scegliere almeno una colonna da mostrare!"
 
 #: db_qbe.php:120
 #, php-format
@@ -10451,7 +10454,7 @@ msgstr "Creazione:"
 #: libraries/plugins/export/ExportSql.class.php:1331
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1011
 msgid "Last update:"
-msgstr "Ultimo cambiamento:"
+msgstr "Ultimo aggiornamento:"
 
 #: libraries/plugins/export/ExportSql.class.php:1344
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1018
