@@ -2471,6 +2471,7 @@ fieldset .disabled-field td {
 
 #prefs_autoload {
     margin-bottom: .5em;
+    margin-left: .5em;
 }
 
 #placeholder .button {
