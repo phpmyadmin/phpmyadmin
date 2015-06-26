@@ -353,6 +353,7 @@ var AJAX = {
                     .not('#pma_footer')
                     .not('#pma_demo')
                     .not('#pma_console_container')
+                    .not('#prefs_autoload')
                     .remove();
                 // Replace #page_content with new content
                 if (data.message && data.message.length > 0) {
