@@ -4,20 +4,28 @@
  * The autoloader used for loading sql-parser's components.
  *
  * This file is based on Composer's autoloader.
+ *
+ * (c) Nils Adermann <naderman@naderman.de>
+ *     Jordi Boggiano <j.boggiano@seld.be>
+ *
+ * @package     SqlParser
+ * @subpackage  Autoload
  */
+namespace SqlParser\Autoload;
 
-if (!class_exists('Composer\\Autoload\\ClassLoader')) {
-    include_once './libraries/sql-parser/composer/ClassLoader.php';
+if (!class_exists('SqlParser\\Autoload\\ClassLoader')) {
+    include_once './libraries/sql-parser/ClassLoader.php';
 }
 
-use Composer\Autoload\ClassLoader;
+use SqlParser\Autoload\ClassLoader;
 
 /**
- * Initializes Composer's autoloader.
+ * Initializes the autoloader.
  *
- * @package SqlParser
+ * @package     SqlParser
+ * @subpackage  Autoload
  */
-class ComposerAutoloaderInit
+class AutoloaderInit
 {
 
     /**
@@ -43,7 +51,7 @@ class ComposerAutoloaderInit
         self::$loader = $loader = new ClassLoader();
 
         foreach ($map as $namespace => $path) {
-            $loader->setPsr4($namespace, $path);
+            $loader->set($namespace, $path);
         }
 
         $loader->register(true);
@@ -52,8 +60,8 @@ class ComposerAutoloaderInit
     }
 }
 
-// Initializing Composer's autoloader
-return ComposerAutoloaderInit::getLoader(
+// Initializing the autoloader.
+return AutoloaderInit::getLoader(
     array(
         'SqlParser\\' => array(dirname(__FILE__) . '/src'),
     )
