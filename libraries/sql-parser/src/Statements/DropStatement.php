@@ -40,15 +40,6 @@ class DropStatement extends Statement
     );
 
     /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
-
-    /**
      * Dropped elements.
      *
      * @var FromKeyworrd[]

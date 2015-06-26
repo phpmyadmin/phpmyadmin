@@ -33,15 +33,6 @@ class AnalyzeStatement extends Statement
     );
 
     /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
-
-    /**
      * Analyzed tables.
      *
      * @var FieldFragment[]

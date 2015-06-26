@@ -33,15 +33,6 @@ class OptimizeStatement extends Statement
     );
 
     /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
-
-    /**
      * Optimized tables.
      *
      * @var FieldFragment[]

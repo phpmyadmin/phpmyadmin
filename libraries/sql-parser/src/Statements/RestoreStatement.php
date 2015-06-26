@@ -2,7 +2,7 @@
 
 namespace SqlParser\Statements;
 
-use SqlParser\Statement;
+use SqlParser\Statements\MaintenanceStatement;
 
 /**
  * `RESTORE` statement.
@@ -15,7 +15,7 @@ use SqlParser\Statement;
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class RestoreStatement extends Statement
+class RestoreStatement extends MaintenanceStatement
 {
 
     /**
@@ -29,15 +29,6 @@ class RestoreStatement extends Statement
 
         'FROM'                          => array(2, 'var'),
     );
-
-    /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
 
     /**
      * Restored tables.

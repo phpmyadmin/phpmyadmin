@@ -2,7 +2,15 @@
 
 namespace SqlParser\Statements;
 
+use SqlParser\Parser;
 use SqlParser\Statement;
+use sqlParser\Token;
+use SqlParser\TokensList;
+use SqlParser\Fragments\CreateDefFragment;
+use SqlParser\Fragments\DataTypeFragment;
+use SqlParser\Fragments\FieldDefFragment;
+use SqlParser\Fragments\OptionsFragment;
+use SqlParser\Fragments\ParamDefFragment;
 
 /**
  * `CREATE` statement.
@@ -48,15 +56,6 @@ class CreateStatement extends Statement
     public $name;
 
     /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
-
-    /**
      * The options of the entity (table, procedure, function, etc.).
      *
      * @var OptionsFragment
@@ -93,4 +92,66 @@ class CreateStatement extends Statement
      * @var Token[]
      */
     public $body;
+
+    /**
+     * Parsing the `CREATE` statement.
+     *
+     * @param  Parser     $parser   The instance that requests parsing.
+     * @param  TokensList $list The list of tokens to be parsed.
+     * @param  Token      $token The token that is being parsed.
+     *
+     * @return void
+     */
+    public function before(Parser $parser, TokensList $list, Token $token)
+    {
+        ++$list->idx;
+        $this->name = CreateDefFragment::parse($parser, $list);
+        if ($this->options->has('TABLE')) {
+            ++$list->idx;
+            $this->fields = FieldDefFragment::parse($parser, $list);
+            ++$list->idx;
+            $this->entityOptions = OptionsFragment::parse(
+                $parser,
+                $list,
+                CreateDefFragment::$TABLE_OPTIONS
+            );
+        } elseif (($this->options->has('PROCEDURE'))
+            || ($this->options->has('FUNCTION'))
+        ) {
+            ++$list->idx;
+            $this->parameters = ParamDefFragment::parse($parser, $list);
+            if ($this->options->has('FUNCTION')) {
+                $token = $list->getNextOfType(Token::TYPE_KEYWORD);
+                if ($token->value !== 'RETURNS') {
+                    $parser->error(
+                        '\'RETURNS\' keyword was expected.',
+                        $token
+                    );
+                } else {
+                    ++$list->idx;
+                    $this->return = DataTypeFragment::parse(
+                        $parser,
+                        $list
+                    );
+                }
+            }
+            ++$list->idx;
+            $this->entityOptions = OptionsFragment::parse(
+                $parser,
+                $list,
+                CreateDefFragment::$FUNC_OPTIONS
+            );
+            ++$list->idx;
+            $this->body = array();
+            for (; $list->idx < $list->count; ++$list->idx) {
+                $token = $list->tokens[$list->idx];
+                $this->body[] = $token;
+                if (($token->type === Token::TYPE_KEYWORD)
+                    && ($token->value === 'END')
+                ) {
+                    break;
+                }
+            }
+        }
+    }
 }

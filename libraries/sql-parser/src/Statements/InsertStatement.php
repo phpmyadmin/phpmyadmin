@@ -59,15 +59,6 @@ class InsertStatement extends Statement
     );
 
     /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
-
-    /**
      * Tables used as target for this statement.
      *
      * @var IntoKeyword

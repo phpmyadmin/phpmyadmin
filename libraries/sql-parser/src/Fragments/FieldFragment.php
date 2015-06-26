@@ -57,7 +57,7 @@ class FieldFragment extends Fragment
     /**
      * The name of the function.
      *
-     * @var string
+     * @var mixed
      */
     public $function;
 

@@ -39,15 +39,6 @@ class UpdateStatement extends Statement
     );
 
     /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
-
-    /**
      * Tables used as sources for this statement.
      *
      * @var FieldFragment[]

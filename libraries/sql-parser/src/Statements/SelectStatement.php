@@ -62,15 +62,6 @@ class SelectStatement extends Statement
     );
 
     /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
-
-    /**
      * Expressions that are being selected by this statement.
      *
      * @var FieldFragment[]

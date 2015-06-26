@@ -5,21 +5,7 @@ namespace SqlParser;
 use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Token;
-use SqlParser\Fragments\CreateDefFragment;
-use SqlParser\Fragments\DataTypeFragment;
-use SqlParser\Fragments\FieldDefFragment;
 use SqlParser\Fragments\OptionsFragment;
-use SqlParser\Fragments\ParamDefFragment;
-use SqlParser\Statements\AlterStatement;
-use SqlParser\Statements\BackupStatement;
-use SqlParser\Statements\CheckStatement;
-use SqlParser\Statements\ChecksumStatement;
-use SqlParser\Statements\CreateStatement;
-use SqlParser\Statements\ExplainStatement;
-use SqlParser\Statements\RenameStatement;
-use SqlParser\Statements\RepairStatement;
-use SqlParser\Statements\RestoreStatement;
-use SqlParser\Statements\ShowStatement;
 
 /**
  * Abstract statement definition.
@@ -31,6 +17,15 @@ use SqlParser\Statements\ShowStatement;
  */
 abstract class Statement
 {
+
+    /**
+     * The options of this query.
+     *
+     * @var OptionsFragment
+     *
+     * @see static::$OPTIONS
+     */
+    public $options;
 
     /**
      * The index of the first token used in this statement.
@@ -120,61 +115,7 @@ abstract class Statement
                 continue;
             }
 
-            // Special cases: before parsing this keyword.
-            if ($this instanceof CreateStatement) {
-                ++$list->idx;
-                $this->name = CreateDefFragment::parse($parser, $list);
-                if ($this->options->has('TABLE')) {
-                    ++$list->idx;
-                    $this->fields = FieldDefFragment::parse($parser, $list);
-                    ++$list->idx;
-                    $this->entityOptions = OptionsFragment::parse(
-                        $parser,
-                        $list,
-                        CreateDefFragment::$TABLE_OPTIONS
-                    );
-                } elseif (($this->options->has('PROCEDURE'))
-                    || ($this->options->has('FUNCTION'))
-                ) {
-                    ++$list->idx;
-                    $this->parameters = ParamDefFragment::parse($parser, $list);
-                    if ($this->options->has('FUNCTION')) {
-                        $token = $list->getNextOfType(Token::TYPE_KEYWORD);
-                        if ($token->value !== 'RETURNS') {
-                            $parser->error(
-                                '\'RETURNS\' keyword was expected.',
-                                $token
-                            );
-                        } else {
-                            ++$list->idx;
-                            $this->return = DataTypeFragment::parse(
-                                $parser,
-                                $list
-                            );
-                        }
-                    }
-                    ++$list->idx;
-                    $this->entityOptions = OptionsFragment::parse(
-                        $parser,
-                        $list,
-                        CreateDefFragment::$FUNC_OPTIONS
-                    );
-                    ++$list->idx;
-                    $this->body = array();
-                    for (; $list->idx < $list->count; ++$list->idx) {
-                        $token = $list->tokens[$list->idx];
-                        $this->body[] = $token;
-                        if (($token->type === Token::TYPE_KEYWORD)
-                            && ($token->value === 'END')
-                        ) {
-                            break;
-                        }
-                    }
-                    $class = null; // The statement has been processed here.
-                }
-            } else if ($this instanceof RenameStatement) {
-                $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'TABLE');
-            }
+            $this->before($parser, $list, $token);
 
             // Parsing this keyword.
             if ($class !== null) {
@@ -182,42 +123,38 @@ abstract class Statement
                 $this->$field = $class::parse($parser, $list, array());
             }
 
-            // Special cases: after parsing this keyword.
-            if (($this instanceof BackupStatement)
-                || ($this instanceof CheckStatement)
-                || ($this instanceof ChecksumStatement)
-                || ($this instanceof RepairStatement)
-                || ($this instanceof RestoreStatement)
-            ) {
-
-                // The statements mentioned above follow this template:
-                //  `STMT` <some options> <tables> <some more options>
-                //
-                // First of all, because static::$OPTIONS is set for all of the
-                // statements above, <some options> is going to be parsed first.
-                //
-                // There is a parser specified in `Parser::$KEYWORD_PARSERS`
-                // which parses <tables>.
-                //
-                // Finally, we pares <some more options> here and that's all.
-                ++$list->idx;
-                $this->options->merge(
-                    OptionsFragment::parse(
-                        $parser,
-                        $list,
-                        static::$OPTIONS
-                    )
-                );
-            } else if (($this instanceof AlterStatement)
-                || ($this instanceof ExplainStatement)
-                || ($this instanceof ShowStatement)
-            ) {
-                // TODO: Implement the statements above.
-                $list->getNextOfType(Token::TYPE_DELIMITER);
-                ++$list->idx;
-            }
+            $this->after($parser, $list, $token);
         }
 
         $this->last = --$list->idx; // Go back to last used token.
     }
+
+    /**
+     * Function called before the token was processed.
+     *
+     * @param  Parser     $parser   The instance that requests parsing.
+     * @param  TokensList $list The list of tokens to be parsed.
+     * @param  Token      $token The token that is being parsed.
+     *
+     * @return void
+     */
+    public function before(Parser $parser, TokensList $list, Token $token)
+    {
+
+    }
+
+    /**
+     * Function called after the token was processed.
+     *
+     * @param  Parser     $parser   The instance that requests parsing.
+     * @param  TokensList $list The list of tokens to be parsed.
+     * @param  Token      $token The token that is being parsed.
+     *
+     * @return
+     */
+    public function after(Parser $parser, TokensList $list, Token $token)
+    {
+
+    }
+
 }

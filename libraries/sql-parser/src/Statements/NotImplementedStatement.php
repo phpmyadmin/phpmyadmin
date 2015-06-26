@@ -8,10 +8,9 @@ use sqlParser\Token;
 use SqlParser\TokensList;
 
 /**
- * `RENAME` statement.
+ * Not implemented (yet) statements.
  *
- * RENAME TABLE tbl_name TO new_tbl_name
- *  [, tbl_name2 TO new_tbl_name2] ...
+ * The `before` function makes the parser jump straight to the first delimiter.
  *
  * @category   Statements
  * @package    SqlParser
@@ -19,30 +18,21 @@ use SqlParser\TokensList;
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class RenameStatement extends Statement
+class NotImplementedStatement extends Statement
 {
 
     /**
-     * The old and new names of the tables.
-     *
-     * @var RenameKeyword[]
-     */
-    public $renames;
-
-    /**
-     * Skips the `TABLE` keyword after `RENAME`.
+     * Jump to the end of the delimiter.
      *
      * @param  Parser     $parser   The instance that requests parsing.
      * @param  TokensList $list The list of tokens to be parsed.
      * @param  Token      $token The token that is being parsed.
      *
-     * @return void
+     * @return
      */
     public function before(Parser $parser, TokensList $list, Token $token)
     {
-        if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'RENAME')) {
-            // Checking if it is the beginning of the query.
-            $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'TABLE');
-        }
+        $list->getNextOfType(Token::TYPE_DELIMITER);
+        --$list->idx;
     }
 }

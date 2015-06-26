@@ -2,7 +2,7 @@
 
 namespace SqlParser\Statements;
 
-use SqlParser\Statement;
+use SqlParser\Statements\MaintenanceStatement;
 
 /**
  * `CHECKSUM` statement.
@@ -15,7 +15,7 @@ use SqlParser\Statement;
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class ChecksumStatement extends Statement
+class ChecksumStatement extends MaintenanceStatement
 {
 
     /**
@@ -30,15 +30,6 @@ class ChecksumStatement extends Statement
         'QUICK'                         => 2,
         'EXTENDED'                      => 3,
     );
-
-    /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
 
     /**
      * Checked tables.

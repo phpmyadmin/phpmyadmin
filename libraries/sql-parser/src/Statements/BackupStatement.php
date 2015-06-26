@@ -2,7 +2,7 @@
 
 namespace SqlParser\Statements;
 
-use SqlParser\Statement;
+use SqlParser\Statements\MaintenanceStatement;
 
 /**
  * `BACKUP` statement.
@@ -15,7 +15,7 @@ use SqlParser\Statement;
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class BackupStatement extends Statement
+class BackupStatement extends MaintenanceStatement
 {
 
     /**
@@ -32,20 +32,4 @@ class BackupStatement extends Statement
 
         'TO'                            => array(4, 'var'),
     );
-
-    /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
-
-    /**
-     * Backup tables.
-     *
-     * @var FieldFragment[]
-     */
-    public $tables;
 }

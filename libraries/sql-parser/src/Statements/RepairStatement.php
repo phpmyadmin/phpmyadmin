@@ -2,7 +2,7 @@
 
 namespace SqlParser\Statements;
 
-use SqlParser\Statement;
+use SqlParser\Statements\MaintenanceStatement;
 
 /**
  * `REPAIR` statement.
@@ -17,7 +17,7 @@ use SqlParser\Statement;
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class RepairStatement extends Statement
+class RepairStatement extends MaintenanceStatement
 {
 
     /**
@@ -36,15 +36,6 @@ class RepairStatement extends Statement
         'EXTENDED'                      => 5,
         'USE_FRM'                       => 6,
     );
-
-    /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
 
     /**
      * Repaired tables.

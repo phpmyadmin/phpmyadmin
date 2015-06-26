@@ -2,7 +2,7 @@
 
 namespace SqlParser\Statements;
 
-use SqlParser\Statement;
+use SqlParser\Statements\MaintenanceStatement;
 
 /**
  * `CHECK` statement.
@@ -15,7 +15,7 @@ use SqlParser\Statement;
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class CheckStatement extends Statement
+class CheckStatement extends MaintenanceStatement
 {
 
     /**
@@ -34,15 +34,6 @@ class CheckStatement extends Statement
         'EXTENDED'                      => 6,
         'CHANGED'                       => 7,
     );
-
-    /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
 
     /**
      * Checked tables.

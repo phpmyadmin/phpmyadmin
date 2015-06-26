@@ -2,7 +2,7 @@
 
 namespace SqlParser\Statements;
 
-use SqlParser\Statement;
+use SqlParser\Statements\NotImplementedStatement;
 
 /**
  * `SHOW` statement.
@@ -13,7 +13,7 @@ use SqlParser\Statement;
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class ShowStatement extends Statement
+class ShowStatement extends NotImplementedStatement
 {
 
     /**
@@ -64,13 +64,4 @@ class ShowStatement extends Statement
         'VIEW'                          => 2,
         'WARNINGS'                      => 2,
     );
-
-    /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
 }

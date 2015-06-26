@@ -2,7 +2,7 @@
 
 namespace SqlParser\Statements;
 
-use SqlParser\Statement;
+use SqlParser\Statements\NotImplementedStatement;
 
 /**
  * `ALTER` statement.
@@ -13,7 +13,7 @@ use SqlParser\Statement;
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class AlterStatement extends Statement
+class AlterStatement extends NotImplementedStatement
 {
 
     /**
@@ -35,14 +35,5 @@ class AlterStatement extends Statement
         'TABLESPACE'                    => 1,
         'TRIGGER'                       => 1,
     );
-
-    /**
-     * The options of this query.
-     *
-     * @var OptionsFragment
-     *
-     * @see static::$OPTIONS
-     */
-    public $options;
 
 }
