@@ -245,7 +245,8 @@ class ImportXml extends ImportPlugin
                 $tbl_attr = $v1->attributes();
 
                 $isInTables = false;
-                for ($i = 0; $i < count($tables); ++$i) {
+                $num_tables = count($tables);
+                for ($i = 0; $i < $num_tables; ++$i) {
                     if (! strcmp($tables[$i][TBL_NAME], (string)$tbl_attr['name'])) {
                         $isInTables = true;
                         break;
@@ -277,9 +278,10 @@ class ImportXml extends ImportPlugin
             /**
              * Bring accumulated rows into the corresponding table
              */
-            $num_tbls = count($tables);
-            for ($i = 0; $i < $num_tbls; ++$i) {
-                for ($j = 0; $j < count($rows); ++$j) {
+            $num_tables = count($tables);
+            for ($i = 0; $i < $num_tables; ++$i) {
+                $num_rows = count($rows);
+                for ($j = 0; $j < $num_rows; ++$j) {
                     if (! strcmp($tables[$i][TBL_NAME], $rows[$j][TBL_NAME])) {
                         if (! isset($tables[$i][COL_NAMES])) {
                             $tables[$i][] = $rows[$j][COL_NAMES];
