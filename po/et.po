@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-22 08:04-0400\n"
-"PO-Revision-Date: 2015-06-19 16:32+0200\n"
+"PO-Revision-Date: 2015-06-26 19:46+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3142,44 +3142,38 @@ msgid "Press Enter to execute query"
 msgstr "Vajuta päringu käivitamiseks Enter"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Kasvav"
+msgstr "kasvav"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Kahanev"
+msgstr "kahanev"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "Järjestus"
+msgstr "Järjestus:"
 
 #: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
 msgid "Count"
 msgstr "Kogus"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "Käivita iga"
+msgstr "Käivitusjärjekord"
 
 #: libraries/Console.class.php:295
-#, fuzzy
 #| msgid "Time taken:"
 msgid "Time taken"
-msgstr "Aega kulus:"
+msgstr "Aega kulus"
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "Järjestus"
+msgstr "Järjesta:"
 
 #: libraries/Console.class.php:301
 msgid "Group queries"
@@ -6674,11 +6668,11 @@ msgstr "Kus näidata tabeli rea linke"
 
 #: libraries/config/messages.inc.php:493
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "Määrab reaviitade kuvamise ka unikaalse võtme puudumisel."
 
 #: libraries/config/messages.inc.php:494
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Kuva ridade viidad ikkagi"
 
 #: libraries/config/messages.inc.php:496
 msgid "Use natural order for sorting table and database names."
@@ -13504,7 +13498,7 @@ msgid "Showing as PHP code"
 msgstr "Näitan PHP koodina"
 
 #: libraries/sql.lib.php:1767
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
@@ -13512,12 +13506,12 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
-"Valik ei sisalda unikaalset veergu. Ruudustiku muutmisega, märkeruutudega, "
-"muutmisega, kopeerimisega ja kustutamisega seotud funksionaalsus ei ole "
-"saadaval."
+"Praegune valik ei sisalda unikaalset veergu. Võrgustikmuutmisega, "
+"märkekastide, hariliku muutmisega, kopeerimisega ja kustutamisega seotud "
+"funksionaalsus ei ole saadaval. %s"
 
 #: libraries/sql.lib.php:1778
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
@@ -13525,9 +13519,9 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
-"Valik ei sisalda unikaalset veergu. Ruudustiku muutmisega, märkeruutudega, "
-"muutmisega, kopeerimisega ja kustutamisega seotud funksionaalsus ei ole "
-"saadaval."
+"Praegune valik ei sisalda unikaalset veergu. Võrgustik- ja hariliku "
+"muutmisega, kopeerimise ja kustutamisega seotud võimalused võivad põhjustada "
+"soovimatut käitumist. %s"
 
 #: libraries/sql.lib.php:1817
 #, php-format
