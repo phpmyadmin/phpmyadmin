@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-22 08:04-0400\n"
-"PO-Revision-Date: 2015-06-22 20:58+0200\n"
+"PO-Revision-Date: 2015-06-27 03:51+0200\n"
 "Last-Translator: Franco <fulanodetal.github@openaliasbox.org>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
@@ -1724,7 +1724,6 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: js/messages.php:290 libraries/Header.class.php:455
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
 msgstr "Ajustes de página relacionada"
@@ -2950,10 +2949,9 @@ msgid "Please enter a valid date or time"
 msgstr "Ingrese una fecha u hora válida"
 
 #: js/messages.php:784
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Ingrese una entrada válida de HEX"
+msgstr "Ingrese una entrada HEX válida"
 
 #: js/messages.php:785 libraries/Message.class.php:199
 #: libraries/Util.class.php:627 libraries/core.lib.php:245
@@ -3285,6 +3283,8 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"Ejecute consultas con Enter e introduce la nueva línea con Shift + Enter. "
+"Para que esto permanezca, vea la configuración."
 
 #: libraries/Console.class.php:385
 msgid "Switch to dark theme"
@@ -5737,6 +5737,8 @@ msgstr "Confirmar las consultas DROP"
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
+"El registro de consultas SQL y su tiempo de ejecución, se mostrará en la "
+"consola"
 
 #: libraries/config/messages.inc.php:89
 msgid "Tab that is displayed when entering a database."
@@ -5763,16 +5765,14 @@ msgid "Default table tab"
 msgstr "Ceja predeterminada de la tabla"
 
 #: libraries/config/messages.inc.php:95
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Encerrar nombres de tabla y columna con comillas invertidas"
+msgstr "Autocompletado de nombres de tablas y columnas en la consulta SQL."
 
 #: libraries/config/messages.inc.php:96
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Encerrar nombres de tabla y columna con comillas invertidas"
+msgstr "Permitir autocompletado para nombres de tablas y columnas"
 
 #: libraries/config/messages.inc.php:98
 msgid "Whether the table structure actions should be hidden."
@@ -5815,10 +5815,10 @@ msgid "Maximum execution time"
 msgstr "Tiempo máximo de ejecución"
 
 #: libraries/config/messages.inc.php:114 libraries/display_export.lib.php:662
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
-msgstr "Agregar sentencia %s"
+msgstr "Usar sentencia %s"
 
 #: libraries/config/messages.inc.php:116 prefs_manage.php:318
 msgid "Save as file"
@@ -6000,11 +6000,10 @@ msgid "Export views as tables"
 msgstr "Exportar vistas como tablas"
 
 #: libraries/config/messages.inc.php:177
-#, fuzzy
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr ""
-"%sCree%s las tablas en las que se guarda la configuración de phpMyAdmin."
+"Exportar metadatos relacionados de la configuración almacenada de phpMyAdmin"
 
 #: libraries/config/messages.inc.php:178 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:181 libraries/config/messages.inc.php:182
@@ -6081,10 +6080,9 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/config/messages.inc.php:219
-#, fuzzy
 #| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Revisión de claves foráneas:"
+msgstr "Revisión de claves foráneas"
 
 #: libraries/config/messages.inc.php:220
 msgid "Browse mode"
@@ -6444,11 +6442,11 @@ msgstr "No abortar si ocurre un error con INSERT"
 
 #: libraries/config/messages.inc.php:347 libraries/config/messages.inc.php:359
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Agregar ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:348 libraries/config/messages.inc.php:360
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "Actualizar datos cuando las importaciones de llaves están duplicadas"
 
 #: libraries/config/messages.inc.php:351
 msgid ""
@@ -6816,11 +6814,11 @@ msgstr "Donde mostrar los enlaces de filas de tabla"
 
 #: libraries/config/messages.inc.php:493
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "Si se muestran enlaces de fila, incluso en ausencia de una clave única."
 
 #: libraries/config/messages.inc.php:494
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Mostrar enlaces de fila de todas maneras"
 
 #: libraries/config/messages.inc.php:496
 msgid "Use natural order for sorting table and database names."
@@ -7583,19 +7581,16 @@ msgid "Show create database form"
 msgstr "Mostrar el formulario para crear una base de datos"
 
 #: libraries/config/messages.inc.php:752
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
-"Mostrar o esconder una columna con las marcas temporales de creación para "
-"todas las tablas."
+"Mostrar u ocultar una columna, mostrando los comentarios de todas las tablas."
 
 #: libraries/config/messages.inc.php:753
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Comentarios de la tabla"
+msgstr "Mostrar comentarios de la tabla"
 
 #: libraries/config/messages.inc.php:754
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -7714,12 +7709,13 @@ msgid "Skip locked tables"
 msgstr "Saltarse las tablas bloqueadas"
 
 #: libraries/config/messages.inc.php:781
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr "Mostrar advertencia en la página principal si se detecta Suhosin."
+msgstr ""
+"Desactivar el aviso predeterminado que se muestra en la página principal, si "
+"se detecta Suhosin."
 
 #: libraries/config/messages.inc.php:782
 msgid "Suhosin warning"
@@ -7740,7 +7736,6 @@ msgid "Login cookie validity warning"
 msgstr "ADVERTENCIA de inicio de sesión cookie validez"
 
 #: libraries/config/messages.inc.php:787
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)."
@@ -7749,8 +7744,7 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Tamaño (en columnas) del área de texto en el modo de edición, este valor "
-"será aumentado en áreas de texto para consultas SQL (x2) y en la venta de "
-"consultas (x1,25)."
+"será aumentado en áreas de texto para consultas SQL (x2)."
 
 #: libraries/config/messages.inc.php:788
 msgid "Textarea columns"
@@ -7758,7 +7752,6 @@ msgstr "Columnas para las áreas de texto"
 
 # See translation string 813
 #: libraries/config/messages.inc.php:789
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)."
@@ -7767,8 +7760,7 @@ msgid ""
 "query textareas (*2)."
 msgstr ""
 "Tamaño (en filas) del área de texto en el modo de edición, este valor será "
-"aumentado en áreas de texto para consultas SQL (x2) y en la venta de "
-"consultas (x1,25)."
+"aumentado en áreas de texto para consultas SQL (x2)."
 
 #: libraries/config/messages.inc.php:790
 msgid "Textarea rows"
@@ -7936,10 +7928,12 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Las consultas se ejecutan pulsando Enter (en lugar de Ctrl+Enter). Las "
+"nuevas líneas se insertarán con Shift+Enter."
 
 #: libraries/config/messages.inc.php:828
 msgid "Enter executes queries in console"
-msgstr ""
+msgstr "Ingrese ejecución de consultas en consola"
 
 #: libraries/config/messages.inc.php:831
 msgid ""
@@ -7954,11 +7948,11 @@ msgid "Enable Zero Configuration mode"
 msgstr "Activar modo «Configuración Zero»"
 
 #: libraries/config/page_settings.class.php:138
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
-"No se pudo guardar la configuración, ¡el formulario enviado contiene errores!"
+"No se pudo guardar la configuración, ¡la configuración del formulario "
+"enviado contiene errores!"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -8387,10 +8381,9 @@ msgstr ""
 "desde la primera:"
 
 #: libraries/display_import.lib.php:338
-#, fuzzy
 #| msgid "Options"
 msgid "Other Options:"
-msgstr "Opciones"
+msgstr "Otras opciones:"
 
 #: libraries/display_import.lib.php:363
 msgid "Format-Specific Options:"
@@ -9174,7 +9167,7 @@ msgstr "Rumano"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Sinhalese"
-msgstr ""
+msgstr "Singalés"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovak"
@@ -9219,10 +9212,9 @@ msgid "multilingual"
 msgstr "multilingüe"
 
 #: libraries/mysql_charsets.lib.php:273
-#, fuzzy
 #| msgid "File name"
 msgid "Vietnamese"
-msgstr "Nombre del archivo"
+msgstr "Vietnamita"
 
 #: libraries/mysql_charsets.lib.php:300
 msgid "Central European"
@@ -9306,10 +9298,9 @@ msgid "phpMyAdmin documentation"
 msgstr "Documentación de phpMyAdmin"
 
 #: libraries/navigation/NavigationHeader.class.php:207
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation panel settings"
-msgstr "Panel de navegación"
+msgstr "Ajustes del panel de navegación"
 
 #: libraries/navigation/NavigationHeader.class.php:218
 msgid "Reload navigation panel"
@@ -9772,10 +9763,9 @@ msgstr "Renombrar base de datos a"
 #: libraries/operations.lib.php:796 libraries/operations.lib.php:875
 #: libraries/operations.lib.php:1213 libraries/rte/rte_routines.lib.php:1101
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Adjust Privileges"
-msgstr "Editar los privilegios"
+msgstr "Ajustar los privilegios"
 
 #: libraries/operations.lib.php:113
 #, php-format
@@ -9850,10 +9840,9 @@ msgid "Storage Engine"
 msgstr "Motor de almacenamiento"
 
 #: libraries/operations.lib.php:995
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "Convertir todas las columnas a atómicas"
+msgstr "Cambiar todas las intercalaciones de columna"
 
 #: libraries/operations.lib.php:1164
 msgid "Copy table to (database<b>.</b>table)"
@@ -9972,16 +9961,16 @@ msgid "Can't copy table to same one!"
 msgstr "¡No es posible copiar la tabla a la misma!"
 
 #: libraries/operations.lib.php:1999
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "La tabla %s se movió a %s."
+msgstr "La tabla %s se movió a %s. Los privilegios se ajustaron."
 
 #: libraries/operations.lib.php:2003
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "La tabla %s se copió a %s."
+msgstr "La tabla %s se copió a %s. Los privilegios se ajustaron."
 
 #: libraries/operations.lib.php:2010
 #, php-format
@@ -10328,22 +10317,19 @@ msgid "Report title:"
 msgstr "Título del reporte:"
 
 #: libraries/plugins/export/ExportPdf.class.php:230
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "Volcado de datos para la tabla"
+msgstr "Volcado de datos"
 
 #: libraries/plugins/export/ExportPdf.class.php:285
-#, fuzzy
 #| msgid "structure"
 msgid "View structure"
-msgstr "estructura"
+msgstr "Ver estructura"
 
 #: libraries/plugins/export/ExportPdf.class.php:288
-#, fuzzy
 #| msgid "and then"
 msgid "Stand in"
-msgstr "y luego"
+msgstr "Soporte"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
@@ -10366,10 +10352,9 @@ msgstr ""
 "por última vez y revisada por última vez"
 
 #: libraries/plugins/export/ExportSql.class.php:161
-#, fuzzy
 #| msgid "Export method"
 msgid "Export metadata"
-msgstr "Método de exportación"
+msgstr "Exportar metadatos"
 
 #: libraries/plugins/export/ExportSql.class.php:176
 msgid ""
@@ -10502,16 +10487,15 @@ msgid "It appears your database uses functions;"
 msgstr "Parece que su base de datos utiliza funciones;"
 
 #: libraries/plugins/export/ExportSql.class.php:978
-#, fuzzy
 #| msgid "Missing data for %s"
 msgid "Metadata"
-msgstr "Faltan datos para %s"
+msgstr "Metadatos"
 
 #: libraries/plugins/export/ExportSql.class.php:1055
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for %s"
-msgstr "Faltan datos para %s"
+msgstr "Metadatos para %s"
 
 #: libraries/plugins/export/ExportSql.class.php:1318
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1004
@@ -10596,7 +10580,7 @@ msgstr "Tabla:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:118
 msgid "Purpose:"
-msgstr ""
+msgstr "Propósito:"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:500
 msgid "MIME"
@@ -10606,6 +10590,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Actualizar datos cuando las llaves importadas están duplicadas (agregar ON "
+"DUPLICATE KEY UPDATE)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -10785,22 +10771,19 @@ msgid "Data Dictionary"
 msgstr "Diccionario de datos"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "ninguno de los anteriores"
+msgstr "Orden de las tablas"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Ascendente"
+msgstr "Nombre (Ascendente)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Descendente"
+msgstr "Nombre (Descendente)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:65
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:80
@@ -11038,6 +11021,7 @@ msgstr ""
 #: libraries/plugins/transformations/input/Text_Plain_Iptobinary.class.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr ""
+"Convierte una dirección de red de Internet en formato (IPv4/IPv6) a binario"
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -11052,7 +11036,6 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr "Sintaxis resaltada del editor CodeMirror para XML (y HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Binarytoip.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
@@ -11060,8 +11043,8 @@ msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
-"Convierte una dirección de red internet (IPv4) en una cadena en formato "
-"estándar de Internet con puntos."
+"Convierte una dirección de red de Internet, almacenada como una cadena "
+"binaria en una cadena en formato (IPv4/IPv6) estándar de Internet."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:47
 msgid "Formats text as JSON with syntax highlighting."
@@ -11234,15 +11217,19 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"No tiene los privilegios necesarios para crear una base de datos denominada "
+"'phpmyadmin'. Puede ir a la pestaña de 'Operaciones' de cualquier base de "
+"datos para configurar el almacenamiento de configuración en phpMyAdmin."
 
 #: libraries/relation.lib.php:1880
-#, fuzzy, php-format
+#, php-format
 #| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sCree%s las tablas en las que se guarda la configuración de phpMyAdmin."
+"%sCree%s una base de datos llamada 'phpmyadmin' y configure el "
+"almacenamiento de configuración en phpMyAdmin."
 
 #: libraries/relation.lib.php:1888
 #, php-format
@@ -11761,10 +11748,10 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Pedimos disculpas por no haber podido recuperar la rutina eliminada."
 
 #: libraries/rte/rte_routines.lib.php:382
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Se modificó la rutina %1$s."
+msgstr "Se modificó la rutina %1$s. Los privilegios se ajustaron."
 
 #: libraries/rte/rte_routines.lib.php:387
 #, php-format
@@ -12316,7 +12303,7 @@ msgstr "Requiere un certificado X509 válido con el tema presentado."
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "Requiere de un certificado X509 válido."
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
@@ -12723,10 +12710,9 @@ msgid "Sent"
 msgstr "Enviado"
 
 #: libraries/server_status.lib.php:232
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
-msgstr "Número máx. de conexiones concurrentes"
+msgstr "Máximas conexiones concurrentes"
 
 #: libraries/server_status.lib.php:242
 msgid "Failed attempts"
@@ -13881,7 +13867,7 @@ msgid "Showing as PHP code"
 msgstr "Mostrar como código PHP"
 
 #: libraries/sql.lib.php:1767
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
@@ -13890,7 +13876,7 @@ msgid ""
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 "La selección actual no contiene una columna única. La edición de la grilla y "
-"los enlaces de copiado, eliminación y edición no están disponibles."
+"los enlaces de copiado, eliminación y edición no están disponibles. %s"
 
 #: libraries/sql.lib.php:1778
 #, fuzzy, php-format
