@@ -244,15 +244,31 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 
     if ($use_sql) {
+
         /**
          * Parse and analyze the query
          */
         include_once 'libraries/parse_analyze.inc.php';
 
         PMA_executeQueryAndSendQueryResponse(
-            $analyzed_sql_results, false, $db, $table, null, null, null,
-            false, null, null, null, $goto, $pmaThemeImage, null, null,
-            $query_type, $sql_query, $selected, null
+            $analyzed_sql_results, // analyzed_sql_results
+            false, // is_gotofile
+            $db, // db
+            $table, // table
+            null, // find_real_end
+            null, // sql_query_for_bookmark
+            null, // extra_data
+            null, // message_to_show
+            null, // message
+            null, // sql_data
+            $goto, // goto
+            $pmaThemeImage, // pmaThemeImage
+            null, // disp_query
+            null, // disp_message
+            $query_type, // query_type
+            $sql_query, // sql_query
+            $selected, // selectedTables
+            null // complete_query
         );
     } elseif (!$run_parts) {
         $GLOBALS['dbi']->selectDb($db);

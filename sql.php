@@ -197,23 +197,22 @@ if ($goto == 'sql.php') {
 } // end if
 
 PMA_executeQueryAndSendQueryResponse(
-    $analyzed_sql_results,
-    $is_gotofile,
-    $db,
-    $table,
-    isset($find_real_end) ? $find_real_end : null,
-    isset($import_text) ? $import_text : null,
-    isset($extra_data) ? $extra_data : null,
-    $is_affected,
-    isset($message_to_show) ? $message_to_show : null,
-    isset($message) ? $message : null,
-    isset($sql_data) ? $sql_data : null,
-    $goto,
-    $pmaThemeImage,
-    isset($disp_query) ? $display_query : null,
-    isset($disp_message) ? $disp_message : null,
-    isset($query_type) ? $query_type : null,
-    $sql_query,
-    isset($selected) ? $selected : null,
-    isset($complete_query) ? $complete_query : null
+    $analyzed_sql_results, // analyzed_sql_results
+    $is_gotofile, // is_gotofile
+    $db, // db
+    $table, // table
+    isset($find_real_end) ? $find_real_end : null, // find_real_end
+    isset($import_text) ? $import_text : null, // sql_query_for_bookmark
+    isset($extra_data) ? $extra_data : null, // extra_data
+    isset($message_to_show) ? $message_to_show : null, // message_to_show
+    isset($message) ? $message : null, // message
+    isset($sql_data) ? $sql_data : null, // sql_data
+    $goto, // goto
+    $pmaThemeImage, // pmaThemeImage
+    isset($disp_query) ? $display_query : null, // disp_query
+    isset($disp_message) ? $disp_message : null, // disp_message
+    isset($query_type) ? $query_type : null, // query_type
+    $sql_query, // sql_query
+    isset($selected) ? $selected : null, // selectedTables
+    isset($complete_query) ? $complete_query : null // complete_query
 );

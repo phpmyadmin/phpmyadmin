@@ -59,6 +59,8 @@ abstract class Statement
      */
     public function parse(Parser $parser, TokensList $list)
     {
+        $this->first = $list->idx;
+
         /**
          * Whether options were parsed or not.
          * For statements that do not have any options this is set to `true` by
@@ -134,7 +136,7 @@ abstract class Statement
             $this->after($parser, $list, $token);
         }
 
-        $this->last = --$list->idx; // Go back to last used token.
+        $this->last = $list->idx--; // Go back to last used token.
     }
 
     /**

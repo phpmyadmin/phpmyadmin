@@ -225,7 +225,7 @@ class Parser
     {
         if ((is_string($list)) || ($list instanceof UtfString)) {
             $lexer = new Lexer($list, $strict);
-            $this->list = $lexer->tokens;
+            $this->list = $lexer->list;
         } elseif ($list instanceof TokensList) {
             $this->list = $list;
         }

@@ -100,7 +100,7 @@ class Lexer
      *
      * @var TokensList
      */
-    public $tokens;
+    public $list;
 
     /**
      * Statements delimiter.
@@ -164,7 +164,7 @@ class Lexer
         // context and compare again with `false`.
         // Another example is `parseComment`.
 
-        $tokens = new TokensList();
+        $list = new TokensList();
         $lastToken = null;
 
         for ($this->last = 0, $lastIdx = 0; $this->last < $this->len; $lastIdx = ++$this->last) {
@@ -203,7 +203,7 @@ class Lexer
             }
             $token->position = $lastIdx;
 
-            $tokens->tokens[$tokens->count++] = $token;
+            $list->tokens[$list->count++] = $token;
 
             // Handling delimiters.
             if (($token->type === Token::TYPE_NONE) && ($token->value === 'DELIMITER')) {
@@ -217,7 +217,7 @@ class Lexer
                 $pos = ++$this->last;
                 if (($token = $this->parseWhitespace()) !== null) {
                     $token->position = $pos;
-                    $tokens->tokens[$tokens->count++] = $token;
+                    $list->tokens[$list->count++] = $token;
                 }
 
                 // Preparing the token that holds the new delimiter.
@@ -238,17 +238,17 @@ class Lexer
                 $this->delimiterLen = strlen($this->delimiter);
                 $token = new Token($this->delimiter, Token::TYPE_DELIMITER);
                 $token->position = $pos;
-                $tokens->tokens[$tokens->count++] = $token;
+                $list->tokens[$list->count++] = $token;
             }
 
             $lastToken = $token;
         }
 
         // Adding a final delimite at the end to mark the ending.
-        $tokens->tokens[$tokens->count++] = new Token(null, Token::TYPE_DELIMITER);
+        $list->tokens[$list->count++] = new Token(null, Token::TYPE_DELIMITER);
 
         // Saving the tokens list.
-        $this->tokens = $tokens;
+        $this->list = $list;
     }
 
     /**

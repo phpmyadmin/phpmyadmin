@@ -39,7 +39,7 @@ class Routine
         $lexer = new Lexer($param);
 
         // A dummy parser is used for error reporting.
-        $type = DataTypeFragment::parse(new Parser(), $lexer->tokens);
+        $type = DataTypeFragment::parse(new Parser(), $lexer->list);
 
         if ($type === null) {
             return array('', '', '', '', '');
@@ -71,7 +71,7 @@ class Routine
         $lexer = new Lexer('(' . $param . ')');
 
         // A dummy parser is used for error reporting.
-        $param = ParamDefFragment::parse(new Parser(), $lexer->tokens);
+        $param = ParamDefFragment::parse(new Parser(), $lexer->list);
 
         if (empty($param[0])) {
             return array('', '', '', '', '');

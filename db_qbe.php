@@ -80,15 +80,30 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
     if (! preg_match('@^SELECT@i', $sql_query)) {
         $message_to_display = true;
     } else {
-        $goto      = 'db_sql.php';
+        $goto = 'db_sql.php';
 
         // Parse and analyze the query
         include_once 'libraries/parse_analyze.inc.php';
 
         PMA_executeQueryAndSendQueryResponse(
-            $analyzed_sql_results, false, $_REQUEST['db'], null, false, null, null,
-            false, null, null, null, $goto, $pmaThemeImage, null, null, null,
-            $sql_query, null, null
+            $analyzed_sql_results, // analyzed_sql_results
+            false, // is_gotofile
+            $_REQUEST['db'], // db
+            null, // table
+            false, // find_real_end
+            null, // sql_query_for_bookmark
+            null, // extra_data
+            null, // message_to_show
+            null, // message
+            null, // sql_data
+            $goto, // goto
+            $pmaThemeImage, // pmaThemeImage
+            null, // disp_query
+            null, // disp_message
+            null, // query_type
+            $sql_query, // sql_query
+            null, // selectedTables
+            null // complete_query
         );
     }
 }

@@ -68,6 +68,20 @@ class SelectStatement extends Statement
     );
 
     /**
+     * The sections of this statement, in order.
+     *
+     * Used by the query builder to arrange the clauses.
+     *
+     * @var array
+     */
+    public static $SECTIONS = array(
+        'SELECT' => 0, '%OPTIONS' => 1,'FROM' => 2, 'PARTITION' => 3,
+        'WHERE' => 4, 'GROUP BY' => 5, 'HAVING' => 6, 'ORDER BY' => 7,
+        'LIMIT' => 8, 'PROCEDURE' => 9, 'INTO' => 10, 'UNION' => 11,
+        'JOIN' => 12, '%OPTIONS' => 13
+    );
+
+    /**
      * Expressions that are being selected by this statement.
      *
      * @var FieldFragment[]
