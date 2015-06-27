@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-04-20 11:31+0200\n"
+"PO-Revision-Date: 2015-06-27 23:54+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
-"Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/4-4/"
-"sq/>\n"
+"Language-Team: Albanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/sq/>\n"
+"Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sq\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -5956,7 +5956,6 @@ msgid "Page titles"
 msgstr "Titujt e faqes"
 
 #: libraries/config/messages.inc.php:251
-#, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]"
 #| "documentation[/doc] for magic strings that can be used to get special "
@@ -5965,9 +5964,9 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Specifiko tekstin e linjës së titullit të shfletuesit. Refero tek "
-"[doc@cfg_TitleTable]dokumentacioni[/doc] për vargje magjike, që mund të "
-"përdoren për të marrë vlera të veçanta."
+"Specifiko tekstin e linjës së titullit të shfletuesit. Refero "
+"[doc@faq6-27]dokumentacionin[/doc] për vargjet magjike, që mund të përdoren "
+"për të marrë vlera të veçanta."
 
 #: libraries/config/messages.inc.php:255
 msgid "Query window"
@@ -6478,7 +6477,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Numri minimal i databazave që shfaq kutia e filtrit të databazës"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6486,8 +6484,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Njësitë e grupit në pemën e navigacionit (të vendosur nga ndarës të "
-"përcaktuar më poshtë)."
+"Njësitë e grupit në pemën e navigacionit (të përcaktuar nga ndarës të "
+"vendosur në tabelorët e Databazave dhe Tabelave më lart)."
 
 #: libraries/config/messages.inc.php:458
 msgid "Group items in the tree"
@@ -13466,7 +13464,7 @@ msgstr "Zëvendëso faqeruajtësin ekzistues me të njëjtin emër"
 
 #: libraries/sql_query_form.lib.php:312
 msgid "Delimiter"
-msgstr "Delimiter"
+msgstr "Delimitër"
 
 #: libraries/sql_query_form.lib.php:320
 msgid "Show this query here again"
@@ -14952,22 +14950,24 @@ msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "MySQL manual është vetëm e saktë për MySQL binare zyrtare."
 
 #: libraries/advisory_rules.txt:132
-#, fuzzy
 #| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid ""
 "Percona documentation is at http://www.percona.com/software/documentation/"
-msgstr "Dokumentacioni Percona është në http://www.percona.com/docs/wiki/"
+msgstr ""
+"Dokumentacioni Percona gjendet në "
+"http://www.percona.com/software/documentation/"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
 msgstr "'percona' gjendet në version_comment"
 
 #: libraries/advisory_rules.txt:139
-#, fuzzy
 #| msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgid ""
 "Drizzle documentation is at http://www.drizzle.org/content/documentation/"
-msgstr "Dokumentacioni i piklimit është tek http://docs.drizzle.org/"
+msgstr ""
+"Dokumentacioni i piklimit Drizzle gjendet në "
+"http://www.drizzle.org/content/documentation/"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -15795,7 +15795,6 @@ msgid "Too many connections are aborted."
 msgstr "Shumë lidhje janë abortuar."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -15806,10 +15805,9 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Lidhjet janë ndërprerë zakonisht kur ata nuk mund të autorizohen. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Ky artikull</a> mund t'ju ndihmojë të gjurmoni "
-"burimin."
+"Lidhjet janë ndërprerë zakonisht, kur ato nuk mund të autorizohen. <a href=\""
+"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Ky artikull</a> mund t'ju ndihmojë të gjurmoni burimin."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -15934,7 +15932,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Madhësia e filit të regjistrit (log) InnoDB është joadekuate e madhe."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -15959,13 +15957,13 @@ msgstr ""
 "Është zakonisht e mjaftueshme të vendosni {innodb_log_file_size} në 25%% të "
 "madhësisë së {innodb_buffer_pool_size}. Një {innodb_log_file_size} shumë e "
 "madhe ulën konsiderueshëm kohën e rikuperimit pas dëmtimit të një databaze. "
-"Shiko gjithashtu <a href=\"http://www.mysqlperformanceblog.com/2006/07/03/"
-"choosing-proper-innodb_log_file_size/\">këtë Artikull</a>. Duhet të fikni "
-"serverin, largoni filet e regjistrit (log) InnoDB, vendosni një vlerë të re "
-"në my.cnf, filloni serverin, pastaj kontrolloni regjistrat e gabimit nëse "
-"gjithçka shkoi mirë. Shiko gjithashtu <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">këtë hyrje blogu</a>"
+"Shiko gjithashtu <a href=\"http://www.percona.com/blog/2006/07/03/choosing-"
+"proper-innodb_log_file_size/\">këtë Artikull</a>. Duhet të fikni serverin, "
+"largoni filet e regjistrit (log) InnoDB, vendosni një vlerë të re në my.cnf, "
+"filloni serverin, pastaj kontrolloni regjistrat e gabimit nëse gjithçka "
+"shkoi mirë. Shiko gjithashtu <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">këtë hyrje blogu</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -15981,7 +15979,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Pellgu zbutës InnoDB është mjaft më i vogël."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -16013,9 +16011,9 @@ msgstr ""
 "rasti, duhet të vlerësoni me kujdes kujtesën e konsumit të shërbimeve tuaja "
 "të tjera dhe jo InnoDB-tabelave dhe vendoseni këtë variabël ashtu siç duhet. "
 "Nëse është vendosur shumë lart, sistemi juaj do të fillojë shkëmbimin, i "
-"cili ul ndjeshëm performancën. Shiko gjithashtu <a href=\"http://www."
-"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">ky "
-"artikull</a>"
+"cili ul ndjeshëm performancën. Shiko gjithashtu <a href=\""
+"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">"
+"këtë artikull</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
