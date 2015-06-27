@@ -287,7 +287,8 @@ Todo now:
     version 2.7.1-rc1 gets RELEASE_2_7_1RC1
 
  2. prepare a release/phpMyAdmin-$version-notes.html explaining in short the goal of
-    this release and paste into it the ChangeLog for this release
+    this release and paste into it the ChangeLog for this release, followed
+    by the notes of all previous incremental versions (i.e. 4.4.9 through 4.4.0)
  3. upload the files to SF, you can use scripts/upload-release, eg.:
 
         ./scripts/upload-release \$USER $version release
