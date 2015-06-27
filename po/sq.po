@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-22 08:04-0400\n"
-"PO-Revision-Date: 2015-05-03 16:39+0200\n"
+"PO-Revision-Date: 2015-06-27 23:51+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
-"Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sq/>\n"
+"Language-Team: Albanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sq/>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -669,7 +669,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Nuk mund të ngarkojë progresin e importit."
 
 #: import_status.php:112 js/messages.php:372 libraries/Util.class.php:738
 #: libraries/export.lib.php:464
@@ -991,22 +991,22 @@ msgid "Do you really want to delete this central column?"
 msgstr "Doni me të vërtetë ta fshini këtë kolonë qendrore?"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Doni me të vërtetë të fshini kërkimin \"%s\"?"
+msgstr "Doni me të vërtetë të fshini njësitë e zgjedhura?"
 
 #: js/messages.php:64
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Doni me të vërtetë duan të DROP (hidhni) pjesët e zgjedhura? Kjo do të "
+"DELETE (fshijë) gjithashtu të dhënat e lidhura me pjesët e zgjedhura!"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Doni me të vërtetë të fshini kërkimin \"%s\"?"
+msgstr "Doni me të vërtetë të cungoni (TRUNCATE) pjesët e zgjedura?"
 
 #: js/messages.php:67
 msgid ""
@@ -1016,14 +1016,19 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Ky veprim do të përpiqet për të kthyer të dhënat tuaja në një krahasim të "
+"ri. Në raste të rralla, veçanërisht kur një karakter nuk ekziston në "
+"krahasimin e ri, ky proces mund të shkaktojë që të dhënat të shfaqen gabim "
+"nën krahasimin e ri; në këtë rast ne ju sugjerojmë të ktheheni në krahasimin "
+"origjinal dhe të referoni këshillat në "
 
 #: js/messages.php:73
 msgid "Garbled Data"
-msgstr ""
+msgstr "Të dhëna të ngatërruara"
 
 #: js/messages.php:75
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "Jeni i sigurt se doni të ndryshoni sistemim dhe konvertoni të dhënat?"
 
 #: js/messages.php:77
 msgid ""
@@ -1034,12 +1039,20 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Përmes këtij veprimi, MySQL përpiqet të ndajë vlerat e të dhënave ndërmjet "
+"krahasimeve. Nëse setet e karaktereve janë të papajtueshme, mund të ketë "
+"humbje për të dhënat dhe kjo humbje e të dhënave <b>NUK</b> mund të jetë e "
+"rikuperueshme, thjesht duke ndryshuar përsëri sistemim e kolonave. <b>Për të "
+"kthyer të dhënat ekzistuese, sugjerohet që të përdorni tiparin e korrigjimit "
+"të kolonave (lidhjen \"Ndrysho\") në faqen e strukturës së tabelës.</b>"
 
 #: js/messages.php:85
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
+"Jeni i sigurt se doni të ndryshoni të gjitha krahasimet e kolonës dhe të "
+"ktheni të dhënat?"
 
 #: js/messages.php:88
 msgid "Save & Close"
@@ -1713,10 +1726,9 @@ msgid "Cancel"
 msgstr "Anulo"
 
 #: js/messages.php:290 libraries/Header.class.php:455
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Ndrysho konfigurimet"
+msgstr "Rregullimet faqe-relevante"
 
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:402
 msgid "Apply"
@@ -1792,10 +1804,9 @@ msgid "Changing Charset"
 msgstr "Ndryshon setin e karaktereve"
 
 #: js/messages.php:314 libraries/Util.class.php:3237
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Pasivizo kontrollet e çelësave të huaj"
+msgstr "Aftëso kontrollet e çelësave të huaj"
 
 #: js/messages.php:317
 msgid "Failed to get real row count."
@@ -2586,34 +2597,32 @@ msgstr "Doni me të vërtetë të fshini këtë faqeruajtës?"
 
 #: js/messages.php:591
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "Disa gabime knë ndodhur, ndërsa merr informacion për SQL debug."
 
 #: js/messages.php:592
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enter executes queries in console"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Enter ekzekuton pyetsorën në konsole"
+msgstr "%s pyetsorë të ekzekutuar %s herë në %s sekonda."
 
 #: js/messages.php:593
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s argument(e) kaluan"
 
 #: js/messages.php:594
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
-msgstr "Komentet e tabelës"
+msgstr "Shfaq argumentet"
 
 #: js/messages.php:595
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Fsheh rezultatet e kërkimit"
+msgstr "Fsheh argumentet"
 
 #: js/messages.php:596 libraries/Console.class.php:318
 msgid "Time taken:"
-msgstr ""
+msgstr "Koha që ka marrë:"
 
 #: js/messages.php:597
 msgid ""
@@ -3184,72 +3193,62 @@ msgid "Press Enter to execute query"
 msgstr "Shtyp Enter për të ekzekutuar pyetsorin"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Ngritëse"
+msgstr "ngritëse"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Zbritëse"
+msgstr "zbritëse"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "Renditja"
+msgstr "Renditja:"
 
 #: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
 msgid "Count"
 msgstr "Numri"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "Ekzekuto çdo"
+msgstr "Ekzekutimi i renditjes"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
-msgstr ""
+msgstr "Koha që ka marrë"
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "Renditja"
+msgstr "Renditur sipas:"
 
 #: libraries/Console.class.php:301
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "Pyetsorët SQL"
+msgstr "Grupo pyetsorët"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "Pyetsorët SQL"
+msgstr "Mos-grupo pyetsorët"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "Shfaq krijo"
+msgstr "Shfaq gjurmën"
 
 #: libraries/Console.class.php:316
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Fsheh panelin"
+msgstr "Fsheh gjurmën"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "Numri"
+msgstr "Numri:"
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1263
 #: libraries/config/messages.inc.php:779
@@ -3334,17 +3333,16 @@ msgstr "Kolonë:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Pseudonim:"
 
 #: libraries/DBQbe.class.php:566
 msgid "Sort:"
 msgstr "Klasifiko:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "Klasifiko:"
+msgstr "Renditja:"
 
 #: libraries/DBQbe.class.php:679
 msgid "Show:"
@@ -4770,7 +4768,7 @@ msgstr "Shmang sqarimin SQL"
 #: libraries/Util.class.php:1203
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Analizo sqarimin në %s"
 
 #: libraries/Util.class.php:1234
 msgid "Without PHP Code"
@@ -5148,10 +5146,9 @@ msgid "display column"
 msgstr "shfaq kolonën"
 
 #: libraries/config.values.php:102
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Mirësevjen në %s"
+msgstr "Mirësevjen"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5174,22 +5171,19 @@ msgid "Never send error reports"
 msgstr "Mos dërgo kurrë raporte gabimi"
 
 #: libraries/config.values.php:132
-#, fuzzy
 #| msgid "Set default"
 msgid "Server default"
-msgstr "E paracaktuar"
+msgstr "E paracaktuar nga serveri"
 
 #: libraries/config.values.php:133
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
 msgstr "Aftëso"
 
 #: libraries/config.values.php:134
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "Pasivizuar"
+msgstr "Pasivizo"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -5730,6 +5724,8 @@ msgstr "Konfirmo pyetsorët DROP (fshij)"
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
+"Hyrje në pyetsorët SQL dhe në kohën e tyre të ekzekutimit, që do të shfaqet "
+"në konsol"
 
 #: libraries/config/messages.inc.php:89
 msgid "Tab that is displayed when entering a database."
@@ -6061,12 +6057,13 @@ msgstr "Limiti i çelësit të huaj"
 #: libraries/config/messages.inc.php:217
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Vlera e parazgjedhur për çelësin e huaj kontrollon kutinë e kontrollit për "
+"disa pyetsorë."
 
 #: libraries/config/messages.inc.php:219
-#, fuzzy
 #| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Kontroll i çelësit të huaj:"
+msgstr "Kontrollet e çelësit të huaj"
 
 #: libraries/config/messages.inc.php:220
 msgid "Browse mode"
@@ -6197,7 +6194,7 @@ msgid ""
 "for magic strings that can be used to get special values."
 msgstr ""
 "Specifiko tekstin e linjës së titullit të shfletuesit. Refero "
-"[doc@faq6-27]dokumentacioni [/doc] për vargjet magjike që mund të përdoren "
+"[doc@faq6-27]dokumentacionin[/doc] për vargjet magjike, që mund të përdoren "
 "për të marrë vlera të veçanta."
 
 #: libraries/config/messages.inc.php:266
@@ -6420,11 +6417,11 @@ msgstr "Mos aborto në INSERT gabim"
 
 #: libraries/config/messages.inc.php:347 libraries/config/messages.inc.php:359
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Shto ON DUPLICATE KEY UPDATE (në çelësin e dyfishtë aktualizo)"
 
 #: libraries/config/messages.inc.php:348 libraries/config/messages.inc.php:360
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "Aktualizo të dhënat kur dyfishon çelësat e gjetur në import"
 
 #: libraries/config/messages.inc.php:351
 msgid ""
@@ -6706,7 +6703,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Numri minimal i databazave që shfaq kutia e filtrit të databazës"
 
 #: libraries/config/messages.inc.php:468
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6714,8 +6710,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Njësitë e grupit në pemën e navigacionit (të vendosur nga ndarës të "
-"përcaktuar më poshtë)."
+"Njësitë e grupit në pemën e navigacionit (të përcaktuar nga ndarës të "
+"vendosur në tabelorët e Databazave dhe Tabelave më lart)."
 
 #: libraries/config/messages.inc.php:470
 msgid "Group items in the tree"
@@ -6782,10 +6778,11 @@ msgstr "Ku tregohen lidhjet radhët e tabelës"
 #: libraries/config/messages.inc.php:493
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
+"Qoftë për të treguar lidhjet e radhës edhe në mungesë të një çelësi unik."
 
 #: libraries/config/messages.inc.php:494
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Shfaq lidhjet e radhës megjithatë"
 
 #: libraries/config/messages.inc.php:496
 msgid "Use natural order for sorting table and database names."
@@ -7541,19 +7538,16 @@ msgid "Show create database form"
 msgstr "Shfaq formularin krijo databazë"
 
 #: libraries/config/messages.inc.php:752
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
-"Shfaq ose fsheh një kolonë nga shfaqja e Krijimit të vulës kohore për të "
-"gjitha tabelat."
+"Shfaq ose fsheh një kolonë nga shfaqja e komenteve për të gjitha tabelat."
 
 #: libraries/config/messages.inc.php:753
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Komentet e tabelës"
+msgstr "Shfaq komentet e tabelës"
 
 #: libraries/config/messages.inc.php:754
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -7902,10 +7896,11 @@ msgid "Enable Zero Configuration mode"
 msgstr "Aftëso mënyrën e konfigurimit zero"
 
 #: libraries/config/page_settings.class.php:138
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Nuk mund të ruajë rregullimet, formulari i paraqitur përmban gabime!"
+msgstr ""
+"Nuk mund të ruajë rregullimet, formulari i dërguar i kondfigurimit përmban "
+"gabime!"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -9115,7 +9110,7 @@ msgstr "Rumanisht"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Sinhalese"
-msgstr ""
+msgstr "Singalez"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovak"
@@ -9160,10 +9155,9 @@ msgid "multilingual"
 msgstr "shumëgjuhësor"
 
 #: libraries/mysql_charsets.lib.php:273
-#, fuzzy
 #| msgid "File name"
 msgid "Vietnamese"
-msgstr "Emri i filit"
+msgstr "Vietnamisht"
 
 #: libraries/mysql_charsets.lib.php:300
 msgid "Central European"
@@ -9247,10 +9241,9 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin - dokumentacioni"
 
 #: libraries/navigation/NavigationHeader.class.php:207
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation panel settings"
-msgstr "Paneli i navigimit"
+msgstr "Rregullimet e panelit të navigimit"
 
 #: libraries/navigation/NavigationHeader.class.php:218
 msgid "Reload navigation panel"
@@ -9708,10 +9701,9 @@ msgstr "Riemëro databazën në"
 #: libraries/operations.lib.php:796 libraries/operations.lib.php:875
 #: libraries/operations.lib.php:1213 libraries/rte/rte_routines.lib.php:1101
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Adjust Privileges"
-msgstr "Korrigjo privilegjet"
+msgstr "Përshtat privilegjet"
 
 #: libraries/operations.lib.php:113
 #, php-format
@@ -9786,10 +9778,9 @@ msgid "Storage Engine"
 msgstr "Makinat e ruajtjes"
 
 #: libraries/operations.lib.php:995
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "Bëj të gjitha kolonat atomike"
+msgstr "Ndrysho të gjitha kolonat e sistemit"
 
 #: libraries/operations.lib.php:1164
 msgid "Copy table to (database<b>.</b>table)"
@@ -9872,13 +9863,12 @@ msgstr "Riparo"
 
 #: libraries/operations.lib.php:1494
 msgid "Truncate"
-msgstr ""
+msgstr "Cungo"
 
 #: libraries/operations.lib.php:1504
-#, fuzzy
 #| msgid "Collapse"
 msgid "Coalesce"
-msgstr "Ngushto"
+msgstr "Bashko"
 
 #: libraries/operations.lib.php:1513
 msgid "Partition maintenance"
@@ -9906,16 +9896,16 @@ msgid "Can't copy table to same one!"
 msgstr "Nuk mund ta kopjojë tabelën tek vetvetja!"
 
 #: libraries/operations.lib.php:1999
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "Tabela %s ka lëvizur tek %s."
+msgstr "Tabela %s ka lëvizur tek %s. Privilegjet janë përshtatur."
 
 #: libraries/operations.lib.php:2003
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "Tabela %s është kopjuar tek %s."
+msgstr "Tabela %s është kopjuar tek %s. Privilegjet janë përshtatur."
 
 #: libraries/operations.lib.php:2010
 #, php-format
@@ -10523,6 +10513,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Aktualizo të dhëna kur çelësat e dyfishtë gjenden në import (shto ON "
+"DUPLICATE KEY UPDATE)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -11651,10 +11643,10 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Na vjen keq, dështuam në rikthimin e rutinës së fshirë."
 
 #: libraries/rte/rte_routines.lib.php:382
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Rutina %1$s është modifikuar."
+msgstr "Rutina %1$s është modifikuar. Privilegjet janë përshtatur."
 
 #: libraries/rte/rte_routines.lib.php:387
 #, php-format
@@ -12595,10 +12587,9 @@ msgid "Sent"
 msgstr "Dërguar"
 
 #: libraries/server_status.lib.php:232
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
-msgstr "maks. i lidhjeve konkurrente"
+msgstr "Maks. i lidhjeve konkurrente"
 
 #: libraries/server_status.lib.php:242
 msgid "Failed attempts"
@@ -13734,7 +13725,7 @@ msgid "Showing as PHP code"
 msgstr "Shfaqën si kod PHP"
 
 #: libraries/sql.lib.php:1767
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
@@ -13743,10 +13734,10 @@ msgid ""
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 "Zgjedhja aktuale nuk përmban një kolonë unike. Tiparet korrigjo rrjetën, "
-"kuti kontrolli, Korrigjo, Kopjo dhe Fshij nuk janë në vlefshme."
+"kuti kontrolli, Kopjo dhe Fshij nuk janë në vlefshme. %s"
 
 #: libraries/sql.lib.php:1778
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
@@ -13755,7 +13746,7 @@ msgid ""
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 "Zgjedhja aktuale nuk përmban një kolonë unike. Tiparet korrigjo rrjetën, "
-"kuti kontrolli, Korrigjo, Kopjo dhe Fshij nuk janë në vlefshme."
+"Korrigjo, Kopjo dhe Fshij mund të rezultojnë në sjellje të padëshiruar. %s"
 
 #: libraries/sql.lib.php:1817
 #, php-format
@@ -13790,7 +13781,7 @@ msgstr "Zëvendëso faqeruajtësin ekzistues me të njëjtin emër"
 
 #: libraries/sql_query_form.lib.php:341
 msgid "Delimiter"
-msgstr "Delimiter"
+msgstr "Delimitër"
 
 #: libraries/sql_query_form.lib.php:349
 msgid "Show this query here again"
@@ -14101,11 +14092,11 @@ msgid "Effective"
 msgstr "Efektive"
 
 #: libraries/structure.lib.php:2665
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Tabela %1$s është alternuar me sukses."
+msgstr "Tabela %1$s është alternuar me sukses. Privilegjet janë përshtatur."
 
 #: libraries/structure.lib.php:2669 tbl_addfield.php:92 tbl_indexes.php:61
 #, php-format
@@ -15177,10 +15168,9 @@ msgid "Series column:"
 msgstr "Kolona e serive:"
 
 #: templates/tbl_chart.phtml:118
-#, fuzzy
 #| msgid "Value column:"
 msgid "Value Column:"
-msgstr "Vlerëso kolonën:"
+msgstr "Vlera e kolonës:"
 
 #: templates/tbl_chart.phtml:137
 msgid "Save chart as image"
@@ -15531,6 +15521,9 @@ msgid ""
 "Percona documentation is at <a href=\"http://www.percona.com/software/"
 "documentation/\">http://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Dokumentacioni Percona gjendet në <a href=\""
+"http://www.percona.com/software/documentation/\""
+">http://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -15541,6 +15534,9 @@ msgid ""
 "Drizzle documentation is at <a href=\"http://www.drizzle.org/content/"
 "documentation/\">http://www.drizzle.org/content/documentation/</a>"
 msgstr ""
+"Dokumentacioni Drizzle gjendet në <a href=\""
+"http://www.drizzle.org/content/documentation/\""
+">http://www.drizzle.org/content/documentation/</a>"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -16368,7 +16364,6 @@ msgid "Too many connections are aborted."
 msgstr "Shumë lidhje janë abortuar."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -16379,10 +16374,9 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Lidhjet janë ndërprerë zakonisht kur ata nuk mund të autorizohen. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Ky artikull</a> mund t'ju ndihmojë të gjurmoni "
-"burimin."
+"Lidhjet janë ndërprerë zakonisht, kur ato nuk mund të autorizohen. <a href=\""
+"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Ky artikull</a> mund t'ju ndihmojë të gjurmoni burimin."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -16507,7 +16501,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Madhësia e filit të regjistrit (log) InnoDB është joadekuate e madhe."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -16532,13 +16526,13 @@ msgstr ""
 "Është zakonisht e mjaftueshme të vendosni {innodb_log_file_size} në 25%% të "
 "madhësisë së {innodb_buffer_pool_size}. Një {innodb_log_file_size} shumë e "
 "madhe ulën konsiderueshëm kohën e rikuperimit pas dëmtimit të një databaze. "
-"Shiko gjithashtu <a href=\"http://www.mysqlperformanceblog.com/2006/07/03/"
-"choosing-proper-innodb_log_file_size/\">këtë Artikull</a>. Duhet të fikni "
-"serverin, largoni filet e regjistrit (log) InnoDB, vendosni një vlerë të re "
-"në my.cnf, filloni serverin, pastaj kontrolloni regjistrat e gabimit nëse "
-"gjithçka shkoi mirë. Shiko gjithashtu <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">këtë hyrje blogu</a>"
+"Shiko gjithashtu <a href=\"http://www.percona.com/blog/2006/07/03/choosing-"
+"proper-innodb_log_file_size/\">këtë Artikull</a>. Duhet të fikni serverin, "
+"largoni filet e regjistrit (log) InnoDB, vendosni një vlerë të re në my.cnf, "
+"filloni serverin, pastaj kontrolloni regjistrat e gabimit nëse gjithçka "
+"shkoi mirë. Shiko gjithashtu <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">këtë hyrje blogu</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -16554,7 +16548,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Pellgu zbutës InnoDB është mjaft më i vogël."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -16586,9 +16580,9 @@ msgstr ""
 "rasti, duhet të vlerësoni me kujdes kujtesën e konsumit të shërbimeve tuaja "
 "të tjera dhe jo InnoDB-tabelave dhe vendoseni këtë variabël ashtu siç duhet. "
 "Nëse është vendosur shumë lart, sistemi juaj do të fillojë shkëmbimin, i "
-"cili ul ndjeshëm performancën. Shiko gjithashtu <a href=\"http://www."
-"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">ky "
-"artikull</a>"
+"cili ul ndjeshëm performancën. Shiko gjithashtu <a href=\""
+"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">"
+"këtë artikull</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
