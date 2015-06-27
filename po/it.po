@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-06-26 21:00+0200\n"
-"Last-Translator: Marco Pozzato <ironpotts@gmail.com>\n"
+"PO-Revision-Date: 2015-06-27 10:58+0200\n"
+"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/it/>\n"
 "Language: it\n"
@@ -142,7 +142,6 @@ msgstr "Predefinito"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:975
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:998
 #: libraries/tbl_printview.lib.php:481
-#, fuzzy
 msgid "Links to"
 msgstr "Collegamenti a"
 
@@ -221,7 +220,6 @@ msgid "Yes"
 msgstr "Sì"
 
 #: db_export.php:29
-#, fuzzy
 msgid "View dump (schema) of database"
 msgstr "Visualizza dump (schema) del database"
 
@@ -316,9 +314,8 @@ msgstr[0] "%s tabella"
 msgstr[1] "%s tabelle"
 
 #: db_qbe.php:103
-#, fuzzy
 msgid "You have to choose at least one column to display!"
-msgstr "Devi scegliere almeno una colonna da mostrare!"
+msgstr "Devi scegliere almeno un campo da mostrare!"
 
 #: db_qbe.php:124
 #, php-format
