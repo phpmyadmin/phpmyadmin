@@ -491,10 +491,20 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
     // Convert the multiple select elements from an array to a string
     if ($export_type == 'server' && isset($_REQUEST['db_select'])) {
         $_REQUEST['db_select'] = implode(",", $_REQUEST['db_select']);
-    } elseif ($export_type == 'database'
-        && isset($_REQUEST['table_select'])
-    ) {
-        $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
+    } elseif ($export_type == 'database') {
+        if (isset($_REQUEST['table_select'])) {
+            $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
+        }
+        if (isset($_REQUEST['table_structure'])) {
+            $_REQUEST['table_structure'] = implode(",", $_REQUEST['table_structure']);
+        } else if (empty($_REQUEST['structure_or_data_forced'])) {
+            $_REQUEST['table_structure'] = '';
+        }
+        if (isset($_REQUEST['table_data'])) {
+            $_REQUEST['table_data'] = implode(",", $_REQUEST['table_data']);
+        } else if (empty($_REQUEST['structure_or_data_forced'])) {
+            $_REQUEST['table_data'] = '';
+        }
     }
 
     foreach ($_REQUEST as $name => $value) {
@@ -546,9 +556,10 @@ function PMA_exportServer(
         ) {
             $tables = $GLOBALS['dbi']->getTables($current_db);
             PMA_exportDatabase(
-                $current_db, $tables, $whatStrucOrData, $export_plugin, $crlf,
-                $err_url, $export_type, $do_relation, $do_comments, $do_mime,
-                $do_dates, $aliases, $separate_files == 'database' ? $separate_files : ''
+                $current_db, $tables, $whatStrucOrData, $tables, $tables,
+                $export_plugin, $crlf, $err_url, $export_type, $do_relation,
+                $do_comments, $do_mime, $do_dates, $aliases,
+                $separate_files == 'database' ? $separate_files : ''
             );
             if ($separate_files == 'server') {
                 PMA_saveObjectInBuffer($current_db);
@@ -563,6 +574,8 @@ function PMA_exportServer(
  * @param string       $db              the database to export
  * @param array        $tables          the tables to export
  * @param string       $whatStrucOrData structure or data or both
+ * @param array        $table_structure whether to export structure for each table
+ * @param array        $table_data      whether to export data for each table
  * @param ExportPlugin $export_plugin   the selected export plugin
  * @param string       $crlf            end of line character(s)
  * @param string       $err_url         the URL in case of error
@@ -577,9 +590,9 @@ function PMA_exportServer(
  * @return void
  */
 function PMA_exportDatabase(
-    $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-    $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-    $aliases, $separate_files
+    $db, $tables, $whatStrucOrData, $table_structure, $table_data,
+    $export_plugin, $crlf, $err_url, $export_type, $do_relation,
+    $do_comments, $do_mime, $do_dates, $aliases, $separate_files
 ) {
     $db_alias = !empty($aliases[$db]['alias'])
         ? $aliases[$db]['alias'] : '';
@@ -630,8 +643,9 @@ function PMA_exportDatabase(
         if ($is_view) {
             $views[] = $table;
         }
-        if ($whatStrucOrData == 'structure'
-            || $whatStrucOrData == 'structure_and_data'
+        if (($whatStrucOrData == 'structure'
+            || $whatStrucOrData == 'structure_and_data')
+            && in_array($table, $table_structure)
         ) {
             // for a view, export a stand-in definition of the table
             // to resolve view dependencies (only when it's a single-file export)
@@ -681,6 +695,7 @@ function PMA_exportDatabase(
         // if this is a view or a merge table, don't export data
         if (($whatStrucOrData == 'data'
             || $whatStrucOrData == 'structure_and_data')
+            && in_array($table, $table_data)
             && ! ($is_view || PMA_Table::isMerge($db, $table))
         ) {
             $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
@@ -700,6 +715,7 @@ function PMA_exportDatabase(
         // triggers can modify already imported tables)
         if (isset($GLOBALS['sql_create_trigger']) && ($whatStrucOrData == 'structure'
             || $whatStrucOrData == 'structure_and_data')
+            && in_array($table, $table_structure)
         ) {
             if (! $export_plugin->exportStructure(
                 $db, $table, $crlf, $err_url, 'triggers',

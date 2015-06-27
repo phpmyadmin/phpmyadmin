@@ -32,19 +32,19 @@ function enable_dump_some_rows_sub_options()
 AJAX.registerTeardown('export.js', function () {
     $("#plugins").unbind('change');
     $("input[type='radio'][name='sql_structure_or_data']").unbind('change');
-    $("input[type='radio'][name='latex_structure_or_data']").unbind('change');
-    $("input[type='radio'][name='odt_structure_or_data']").unbind('change');
-    $("input[type='radio'][name='texytext_structure_or_data']").unbind('change');
-    $("input[type='radio'][name='htmlword_structure_or_data']").unbind('change');
-    $("input[type='radio'][name='sql_structure_or_data']").unbind('change');
+    $("input[type='radio'][name$='_structure_or_data']").off('change');
     $("input[type='radio'][name='output_format']").unbind('change');
     $("#checkbox_sql_include_comments").unbind('change');
-    $("#plugins").unbind('change');
     $("input[type='radio'][name='quick_or_custom']").unbind('change');
     $("input[type='radio'][name='allrows']").unbind('change');
     $('#btn_alias_config').off('click');
     $('#db_alias_select').off('change');
     $('.table_alias_select').off('change');
+    $('input[name="table_select[]"]').off('change');
+    $('input[name="table_structure[]"]').off('change');
+    $('input[name="table_data[]"]').off('change');
+    $('#table_structure_all').off('change');
+    $('#table_data_all').off('change');
 });
 
 AJAX.registerOnload('export.js', function () {
@@ -99,15 +99,66 @@ AJAX.registerOnload('export.js', function () {
             $('input[type="checkbox"][name="as_separate_files"]').attr('checked', false);
         }
     });
+
 });
 
+function setup_table_structure_or_data() {
+    if ($("input[name='export_type']").val() != 'database') {
+        return;
+    }
+    var pluginName = $("#plugins option:selected").val();
+    var formElemName = pluginName + "_structure_or_data";
+    var force_structure_or_data = !($("input[name='" + formElemName + "_default']").length);
+
+    if (force_structure_or_data === true) {
+        $('input[name="structure_or_data_forced"]').val(1);
+        $('.export_structure input[type="checkbox"], .export_data input[type="checkbox"]')
+            .prop('disabled', true);
+        $('.export_structure, .export_data').fadeTo('fast', 0.4);
+    } else {
+        $('input[name="structure_or_data_forced"]').val(0);
+        $('.export_structure input[type="checkbox"], .export_data input[type="checkbox"]')
+            .removeProp('disabled');
+        $('.export_structure, .export_data').fadeTo('fast', 1);
+
+        var structure_or_data = $('input[name="' + formElemName + '_default"]').val();
+
+        if (structure_or_data == 'structure') {
+            $('.export_data input[type="checkbox"]')
+                .prop('checked', false);
+        } else if (structure_or_data == 'data') {
+            $('.export_structure input[type="checkbox"]')
+                .prop('checked', false);
+        }
+        if (structure_or_data == 'structure' || structure_or_data == 'structure_and_data') {
+            if (!$('.export_structure input[type="checkbox"]:checked').length) {
+                $('input[name="table_select[]"]:checked')
+                    .closest('tr')
+                    .find('.export_structure input[type="checkbox"]')
+                    .prop('checked', true);
+            }
+        }
+        if (structure_or_data == 'data' || structure_or_data == 'structure_and_data') {
+            if (!$('.export_data input[type="checkbox"]:checked').length) {
+                $('input[name="table_select[]"]:checked')
+                    .closest('tr')
+                    .find('.export_data input[type="checkbox"]')
+                    .prop('checked', true);
+            }
+        }
+
+        check_selected_tables();
+        check_table_select_all();
+    }
+}
 
 /**
  * Toggles the hiding and showing of plugin structure-specific and data-specific
  * options
  */
-function toggle_structure_data_opts(pluginName)
+function toggle_structure_data_opts()
 {
+    var pluginName = $("select#plugins").val();
     var radioFormName = pluginName + "_structure_or_data";
     var dataDiv = "#" + pluginName + "_data";
     var structureDiv = "#" + pluginName + "_structure";
@@ -124,24 +175,6 @@ function toggle_structure_data_opts(pluginName)
         }
     }
 }
-
-AJAX.registerOnload('export.js', function () {
-    $("input[type='radio'][name='latex_structure_or_data']").change(function () {
-        toggle_structure_data_opts("latex");
-    });
-    $("input[type='radio'][name='odt_structure_or_data']").change(function () {
-        toggle_structure_data_opts("odt");
-    });
-    $("input[type='radio'][name='texytext_structure_or_data']").change(function () {
-        toggle_structure_data_opts("texytext");
-    });
-    $("input[type='radio'][name='htmlword_structure_or_data']").change(function () {
-        toggle_structure_data_opts("htmlword");
-    });
-    $("input[type='radio'][name='sql_structure_or_data']").change(function () {
-        toggle_structure_data_opts("sql");
-    });
-});
 
 /**
  * Toggles the disabling of the "save to file" options
@@ -185,6 +218,93 @@ function toggle_sql_include_comments()
     });
 }
 
+function check_table_select_all() {
+    var total = $('input[name="table_select[]"]').length;
+    var str_checked = $('input[name="table_structure[]"]:checked').length;
+    var data_checked = $('input[name="table_data[]"]:checked').length;
+    var str_all = $('#table_structure_all');
+    var data_all = $('#table_data_all');
+
+    if (str_checked == total) {
+        str_all
+            .prop("indeterminate", false)
+            .prop('checked', true);
+    } else if (str_checked === 0) {
+        str_all
+            .prop("indeterminate", false)
+            .prop('checked', false);
+    } else {
+        str_all
+            .prop("indeterminate", true)
+            .prop('checked', false);
+    }
+
+    if (data_checked == total) {
+        data_all
+            .prop("indeterminate", false)
+            .prop('checked', true);
+    } else if (data_checked === 0) {
+        data_all
+            .prop("indeterminate", false)
+            .prop('checked', false);
+    } else {
+        data_all
+            .prop("indeterminate", true)
+            .prop('checked', false);
+    }
+}
+
+function toggle_table_select_all_str() {
+    var str_all = $('#table_structure_all').is(':checked');
+    if (str_all) {
+        $('input[name="table_structure[]"]').prop('checked', true);
+    } else {
+        $('input[name="table_structure[]"]').prop('checked', false);
+    }
+}
+
+function toggle_table_select_all_data() {
+    var data_all = $('#table_data_all').is(':checked');
+    if (data_all) {
+        $('input[name="table_data[]"]').prop('checked', true);
+    } else {
+        $('input[name="table_data[]"]').prop('checked', false);
+    }
+}
+
+function check_selected_tables(argument) {
+    $('.export_table_select tbody tr').each(function() {
+        check_table_selected(this);
+    });
+}
+
+function check_table_selected(row) {
+    var $row = $(row);
+    var table_select = $row.find('input[name="table_select[]"]');
+    var str_check = $row.find('input[name="table_structure[]"]');
+    var data_check = $row.find('input[name="table_data[]"]');
+
+    var data = data_check.is(':checked:not(:disabled)');
+    var structure = str_check.is(':checked:not(:disabled)');
+
+    if (data || structure) {
+        table_select.prop('checked', true);
+    } else {
+        table_select.prop('checked', false);
+    }
+}
+
+function toggle_table_select(row) {
+    var $row = $(row);
+    var table_selected = $row.find('input[name="table_select[]"]').is(':checked');
+
+    if (table_selected) {
+        $row.find('input[type="checkbox"]:not(:disabled)').prop('checked', true);
+    } else {
+        $row.find('input[type="checkbox"]:not(:disabled)').prop('checked', false);
+    }
+}
+
 AJAX.registerOnload('export.js', function () {
     /**
      * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options
@@ -216,6 +336,78 @@ AJAX.registerOnload('export.js', function () {
             $("#radio_view_as_text").prop('disabled', false).parent().fadeTo('fast', 1);
         }
     });
+
+    $("input[type='radio'][name$='_structure_or_data']").on('change', function () {
+        toggle_structure_data_opts();
+    });
+
+    $('input[name="table_select[]"]').on('change', function() {
+        toggle_table_select($(this).closest('tr'));
+        check_table_select_all();
+    });
+
+    $('input[name="table_structure[]"]').on('change', function() {
+        check_table_selected($(this).closest('tr'));
+        check_table_select_all();
+    });
+
+    $('input[name="table_data[]"]').on('change', function() {
+        check_table_selected($(this).closest('tr'));
+        check_table_select_all();
+    });
+
+    $('#table_structure_all').on('change', function() {
+        toggle_table_select_all_str();
+        check_selected_tables();
+    });
+
+    $('#table_data_all').on('change', function() {
+        toggle_table_select_all_data();
+        check_selected_tables();
+    });
+
+    if ($("input[name='export_type']").val() == 'database') {
+        // Hide structure or data radio buttons
+        $("input[type='radio'][name$='_structure_or_data']").each(function() {
+            var $this = $(this);
+            var name = $this.prop('name');
+            var val = $('input[name="' + name + '"]:checked').val();
+            var name_default = name + '_default';
+            if (!$('input[name="' + name_default + '"]').length) {
+                $this
+                    .after(
+                        $('<input type="hidden" name="' + name_default + '" value="' + val + '" disabled>')
+                    )
+                    .after(
+                        $('<input type="hidden" name="' + name + '" value="structure_and_data">')
+                    );
+                $this.parent().find('label').remove();
+            } else {
+                $this.parent().remove();
+            }
+        });
+        $("input[type='radio'][name$='_structure_or_data']").remove();
+
+        // Disable CREATE table checkbox for sql
+        var createTableCheckbox = $('#checkbox_sql_create_table');
+        createTableCheckbox.prop('checked', true);
+        var dummyCreateTable = $('#checkbox_sql_create_table')
+            .clone()
+            .removeAttr('id')
+            .attr('type', 'hidden');
+        createTableCheckbox
+            .prop('disabled', true)
+            .after(dummyCreateTable)
+            .parent()
+            .fadeTo('fast', 0.4);
+
+        setup_table_structure_or_data();
+    }
+
+    /**
+     * Handle force structure_or_data
+     */
+    $("#plugins").change(setup_table_structure_or_data);
 });
 
 /**
@@ -376,7 +568,7 @@ AJAX.registerOnload('export.js', function () {
         .find("h3")
         .remove();
     toggle_quick_or_custom();
-    toggle_structure_data_opts($("select#plugins").val());
+    toggle_structure_data_opts();
     toggle_sql_include_comments();
 
     /**

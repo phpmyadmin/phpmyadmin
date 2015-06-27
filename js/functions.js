@@ -1744,7 +1744,6 @@ AJAX.registerTeardown('functions.js', function () {
         $(document).off('blur', '#sqlquery');
     }
     $(document).off('change', '#parameterized');
-    $("#export_type").unbind('change');
     $('#sqlquery').unbind('keydown');
     $('#sql_query_edit').unbind('keydown');
 
