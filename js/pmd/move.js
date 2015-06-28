@@ -95,7 +95,7 @@ var ON_relation    = 0;
 var ON_grid        = 0;
 var ON_display_field = 0;
 // relation_style: 0 - angular 1 - direct
-var ON_angular_direct = 1;
+var ON_angular_direct = 0;
 var click_field    = 0;
 var link_relation  = "";
 var id_hint;
@@ -266,10 +266,10 @@ function setDefaultValuesFromSavedState()
     Grid();
 
     if ($('#relLineInvert').attr('class') === 'M_butt') {
-        show_relation_lines = false;
+        show_relation_lines = true;
         $('#relLineInvert').attr('class', 'M_butt');
     } else {
-        show_relation_lines = true;
+        show_relation_lines = false;
         $('#relLineInvert').attr('class', 'M_butt_Selected_down');
     }
     Relation_lines_invert();
@@ -281,7 +281,7 @@ function setDefaultValuesFromSavedState()
         always_show_text = false;
     }
 
-    if ($('#key_SB_all').attr('class') === 'M_butt_Selected_down') {
+    if ($('#key_SB_all').attr('class') === 'M_butt') {
         $('#key_SB_all').click();
         $('#key_SB_all').toggleClass('M_butt_Selected_down');
         $('#key_SB_all').toggleClass('M_butt');
@@ -582,7 +582,6 @@ function Rect(x1, y1, w, h, color)
 //--------------------------- FULLSCREEN -------------------------------------
 function Toggle_fullscreen()
 {
-    var value_sent = '';
     var $img = $('#toggleFullscreen img');
     var $span = $img.siblings('span');
     if (! $.FullScreen.isFullScreen()) {
@@ -593,13 +592,10 @@ function Toggle_fullscreen()
             .addClass('content_fullscreen')
             .css({'width': screen.width - 5, 'height': screen.height - 5})
             .requestFullScreen();
-        value_sent = 'on';
     }
     if ($.FullScreen.isFullScreen()) {
         $.FullScreen.cancelFullScreen();
-        value_sent = 'off';
     }
-    saveValueInConfig('full_screen', value_sent);
 }
 // ------------------------------ NEW ------------------------------------------
 
@@ -1088,12 +1084,12 @@ function Grid()
 {
     if (!ON_grid) {
         ON_grid = 1;
-        value_sent = 'on';
+        value_sent = 1;
         document.getElementById('grid_button').className = 'M_butt_Selected_down';
     } else {
         document.getElementById('grid_button').className = 'M_butt';
         ON_grid = 0;
-        value_sent = 'off';
+        value_sent = 0;
     }
     saveValueInConfig('snap_to_grid', value_sent);
 }
@@ -1103,11 +1099,11 @@ function Angular_direct()
     var value_sent = '';
     if (ON_angular_direct) {
         ON_angular_direct = 0;
-        value_sent = 'angular';
+        value_sent = 1;
         document.getElementById('angular_direct_button').className = 'M_butt_Selected_down';
     } else {
         ON_angular_direct = 1;
-        value_sent = 'direct';
+        value_sent = 0;
         document.getElementById('angular_direct_button').className = 'M_butt';
     }
     saveValueInConfig('angular_direct', value_sent);
@@ -1261,7 +1257,7 @@ function Small_tab_all(id_this) // max/min all tables
         }
         icon.alt = ">";
         icon.src = icon.dataset.right;
-        value_sent = 'v';
+        value_sent = 0;
     } else {
         for (key in j_tabs) {
             if (document.getElementById('id_hide_tbody_' + key).innerHTML != "v") {
@@ -1270,7 +1266,7 @@ function Small_tab_all(id_this) // max/min all tables
         }
         icon.alt = "v";
         icon.src = icon.dataset.down;
-        value_sent = '>';
+        value_sent = 1;
     }
     saveValueInConfig('small_big_all', value_sent);
     $('#key_SB_all').toggleClass('M_butt_Selected_down');
@@ -1289,7 +1285,11 @@ function Small_tab_invert() // invert max/min all tables
 function Relation_lines_invert()
 {
     show_relation_lines = ! show_relation_lines;
-    saveValueInConfig('relation_lines', show_relation_lines);
+    var value_sent = 0;
+    if (show_relation_lines) {
+        value_sent = 1;
+    }
+    saveValueInConfig('relation_lines', value_sent);
     $('#relLineInvert').toggleClass('M_butt_Selected_down');
     $('#relLineInvert').toggleClass('M_butt');
     Re_load();
@@ -1620,7 +1620,11 @@ function Side_menu_right(id_this)
     icon.attr('src', icon.attr('data-right'));
     icon.attr('data-right', current);
     menu_moved = !menu_moved;
-    saveValueInConfig('side_menu', $('#side_menu').hasClass('right'));
+    var value_sent = 0;
+    if ($('#side_menu').hasClass('right')) {
+        value_sent = 1;
+    }
+    saveValueInConfig('side_menu', value_sent);
     $('#key_Left_Right').toggleClass('M_butt_Selected_down');
     $('#key_Left_Right').toggleClass('M_butt');
 }
@@ -1637,7 +1641,11 @@ function Pin_text () {
     always_show_text = !always_show_text;
     $('#pin_Text').toggleClass('M_butt_Selected_down');
     $('#pin_Text').toggleClass('M_butt');
-    saveValueInConfig('pin_text', always_show_text);
+    var value_sent = 0;
+    if (always_show_text){
+        value_sent = 1;
+    }
+    saveValueInConfig('pin_text', value_sent);
 }
 //------------------------------------------------------------------------------
 function Start_display_field()

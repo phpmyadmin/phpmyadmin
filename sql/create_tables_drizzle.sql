@@ -282,9 +282,13 @@ CREATE TABLE IF NOT EXISTS `pma__savedsearches` (
 
 CREATE TABLE IF NOT EXISTS `pma__designer_settings` (
   `username` varchar(64) NOT NULL,
-  `setting` varchar(64) NOT NULL,
-  `stored_value` varchar(64) NOT NULL,
-  PRIMARY KEY (`username`,`setting`)
+  `angular_direct` boolean NOT NULL default false,
+  `snap_to_grid` boolean NOT NULL default false,
+  `small_big_all` boolean NOT NULL default false,
+  `relation_lines` boolean NOT NULL default false,
+  `side_menu` boolean NOT NULL default false,
+  `pin_text` boolean NOT NULL default false,
+  PRIMARY KEY (`username`)
 )
   COMMENT='Settings related to Designer'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
