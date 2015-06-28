@@ -114,7 +114,7 @@ if (isset($_REQUEST['get_default_fk_check_value'])
 ) {
     $response = PMA_Response::getInstance();
     $response->addJSON(
-        'default_fk_check_value', PMA_Util::getDefaultFKCheckValue()
+        'default_fk_check_value', PMA_Util::isForeignKeyCheck()
     );
     exit;
 }
