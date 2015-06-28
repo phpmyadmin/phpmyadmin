@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-06-23 08:32+0200\n"
+"PO-Revision-Date: 2015-06-28 23:09+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -275,10 +275,9 @@ msgid "Data"
 msgstr "Adatok"
 
 #: db_export.php:54
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
-msgstr "Mind kijelölése"
+msgstr "Minden kijelölése"
 
 #: db_operations.php:51 tbl_create.php:24
 msgid "The database name is empty!"
@@ -6123,16 +6122,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "A navigációs keret megjelenésének testreszabása."
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Navigációs keret"
+msgstr "Navigációs fa"
 
 #: libraries/config/messages.inc.php:249
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "A navigációs keret testreszabása"
+msgstr "A navigációs fa testreszabása."
 
 #: libraries/config/messages.inc.php:250 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
@@ -6731,62 +6728,54 @@ msgid "Enable navigation tree expansion"
 msgstr "Navigációs fa kiterjesztés engedélyezése"
 
 #: libraries/config/messages.inc.php:487
-#, fuzzy
 #| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Táblák listájának megjelenítése vagy elrejtése"
+msgstr "Táblák megjelenítése a fában"
 
 #: libraries/config/messages.inc.php:489
-#, fuzzy
 #| msgid ""
 #| "Whether to offer the possibility of tree expansion in the navigation "
 #| "panel."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "Ajánlja-e fel a fa kiterjesztésének lehetőségét a navigációs panelen."
+msgstr "Jelenítse-e meg a táblákat az adatbázis alatt a navigációs fában"
 
 #: libraries/config/messages.inc.php:490
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Verziók megjelenítése"
+msgstr "Nézetek megjelenítése a fában"
 
 #: libraries/config/messages.inc.php:492
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Adatbázisok navigációjának megjelenítése faszerkezetként"
+msgstr "Jelenítse-e meg a nézeteket az adatbázis alatt a navigációs fában"
 
 #: libraries/config/messages.inc.php:493
-#, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "A függvénymezők megjelenítése"
+msgstr "Függvények megjelenítése a fában"
 
 #: libraries/config/messages.inc.php:495
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Jelenítse-e meg a függvényeket az adatbázis alatt a navigációs fában"
 
 #: libraries/config/messages.inc.php:496
-#, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Folyamatok megjelenítése"
+msgstr "Eljárások megjelenítése a fában"
 
 #: libraries/config/messages.inc.php:498
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Jelenítse-e meg az eljárásokat az adatbázis alatt a navigációs fában"
 
 #: libraries/config/messages.inc.php:499
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Verziók megjelenítése"
+msgstr "Események megjelenítése a fában"
 
 #: libraries/config/messages.inc.php:501
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Adatbázisok navigációjának megjelenítése faszerkezetként"
+msgstr "Jelenítse-e meg az eseményeket az adatbázis alatt a navigációs fában"
 
 #: libraries/config/messages.inc.php:503
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -8227,16 +8216,14 @@ msgid "View output as text"
 msgstr "A kimenet megtekintése szövegként"
 
 #: libraries/display_export.lib.php:660
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "Nézetek exportálása táblaként"
+msgstr "Adatbázisok exportálása különálló fájlokként"
 
 #: libraries/display_export.lib.php:662
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "Táblafejlécek exportálása"
+msgstr "Táblák exportálása különálló fájlokként"
 
 #: libraries/display_export.lib.php:692 libraries/display_export.lib.php:814
 msgid "Rename exported databases/tables/columns"
@@ -9245,10 +9232,9 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Hiba történt a navigációs képernyő betöltése közben"
 
 #: libraries/navigation/Navigation.class.php:192
-#, fuzzy
 #| msgid "Group name:"
 msgid "Groups:"
-msgstr "Csoport neve:"
+msgstr "Csoportok:"
 
 #: libraries/navigation/Navigation.class.php:193
 msgid "Events:"
@@ -11130,10 +11116,9 @@ msgid "Managing Central list of columns"
 msgstr "Oszlopok központi listájának kezelése"
 
 #: libraries/relation.lib.php:324
-#, fuzzy
 #| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Emlékezzen a tábla elrendezésére"
+msgstr "Emlékezzen a tervező beállításaira"
 
 #: libraries/relation.lib.php:332
 msgid "Quick steps to setup advanced features:"
