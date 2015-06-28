@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-06-27 23:51+0200\n"
+"PO-Revision-Date: 2015-06-29 00:57+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
-"Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sq/>\n"
+"Language-Team: Albanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sq/>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -276,7 +276,6 @@ msgid "Data"
 msgstr "Të dhëna"
 
 #: db_export.php:54
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "Zgjedh të gjitha"
@@ -6144,16 +6143,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Përshtat shfaqjen e panelit të navigimit."
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Paneli i navigimit"
+msgstr "Pema e navigimit"
 
 #: libraries/config/messages.inc.php:249
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Përshtat panelin e navigimit"
+msgstr "Përshtat pemën e navigimit."
 
 #: libraries/config/messages.inc.php:250 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
@@ -6752,62 +6749,54 @@ msgid "Enable navigation tree expansion"
 msgstr "Aftëso zgjerimin e navigimit të pemës"
 
 #: libraries/config/messages.inc.php:487
-#, fuzzy
 #| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Shfaq/fsheh listën e tabelave"
+msgstr "Shfaq tabelën në pemë"
 
 #: libraries/config/messages.inc.php:489
-#, fuzzy
 #| msgid ""
 #| "Whether to offer the possibility of tree expansion in the navigation "
 #| "panel."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "Nëse ofron mundësinë e zgjerimit të pemës në panelin e navigimit."
+msgstr "Nëse shfaq tabelat nën databazë në pemën e navigimit"
 
 #: libraries/config/messages.inc.php:490
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Shfaq versionet"
+msgstr "Shfaq pamjet në pemë"
 
 #: libraries/config/messages.inc.php:492
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Shfaq navigimin e databazës si pemë"
+msgstr "Nëse shfaq pamjet nën databazë në pemën e navigimit"
 
 #: libraries/config/messages.inc.php:493
-#, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Shfaq fushat e funksioneve"
+msgstr "Shfaq funksionet në pemë"
 
 #: libraries/config/messages.inc.php:495
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Nëse shfaq funksionet nën databazë në pemën e navigimit"
 
 #: libraries/config/messages.inc.php:496
-#, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Shfaq proceset në ekzekutim"
+msgstr "Shfaq procedurat në pemë"
 
 #: libraries/config/messages.inc.php:498
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Nëse shfaq procedurat nën databazë në pemën e navigimit"
 
 #: libraries/config/messages.inc.php:499
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Shfaq versionet"
+msgstr "Shfaq ngjarjet në pemë"
 
 #: libraries/config/messages.inc.php:501
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Shfaq navigimin e databazës si pemë"
+msgstr "Nëse shfaq ngjarjet nën databazë në pemën e navigimit"
 
 #: libraries/config/messages.inc.php:503
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -8243,16 +8232,14 @@ msgid "View output as text"
 msgstr "Shfaq rezultatin si tekst"
 
 #: libraries/display_export.lib.php:660
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "Eksporto pamjet si tabela"
+msgstr "Eksporto databazat si file të ndara"
 
 #: libraries/display_export.lib.php:662
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "Eksporti i kokave të tabelës"
+msgstr "Eksporto tabelat si file të ndara"
 
 #: libraries/display_export.lib.php:692 libraries/display_export.lib.php:814
 msgid "Rename exported databases/tables/columns"
@@ -9266,10 +9253,9 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Një gabim ka ndodhur gjatë ngarkimit të shfaqjes së navigimit"
 
 #: libraries/navigation/Navigation.class.php:192
-#, fuzzy
 #| msgid "Group name:"
 msgid "Groups:"
-msgstr "Emri i grupit:"
+msgstr "Grupet:"
 
 #: libraries/navigation/Navigation.class.php:193
 msgid "Events:"
@@ -11141,10 +11127,9 @@ msgid "Managing Central list of columns"
 msgstr "Menaxhimi i listës qendrore të kolonave"
 
 #: libraries/relation.lib.php:324
-#, fuzzy
 #| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Kujto klasifikimin e tabelës"
+msgstr "Kujton rregullimet e dizajnerit"
 
 #: libraries/relation.lib.php:332
 msgid "Quick steps to setup advanced features:"
