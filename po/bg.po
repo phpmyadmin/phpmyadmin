@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-05-23 22:10+0200\n"
-"Last-Translator: Valentin Mladenov <hudsonvsm@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bg/>\n"
+"PO-Revision-Date: 2015-06-28 13:36+0200\n"
+"Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
+"Language-Team: Bulgarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -21,7 +21,7 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Файлът %s не е наличен на тази система, Моля посети www.phpmyadmin.net за "
+"Файлът %s не е наличен на тази система, моля посети www.phpmyadmin.net за "
 "повече информация."
 
 #: db_central_columns.php:105
@@ -275,10 +275,9 @@ msgid "Data"
 msgstr "Данни"
 
 #: db_export.php:54
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
-msgstr "Маркиране всички"
+msgstr "Маркиране на всички"
 
 #: db_operations.php:51 tbl_create.php:24
 msgid "The database name is empty!"
@@ -686,7 +685,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Импортирането приключи успешно, бяха изпълнени %d заявки."
 
 #: import.php:692
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -695,7 +694,7 @@ msgid ""
 "same file%s and import will resume."
 msgstr ""
 "Времето за изчакване на скрипта изтече, ако искате да завършите импорта,моля "
-"пуснете отново същия файл и той ще си продължи."
+"пуснете (%s) отново същия файл (%s) и той ще си продължи."
 
 #: import.php:702
 msgid ""
@@ -1023,10 +1022,9 @@ msgid "Do you really want to delete this central column?"
 msgstr "Наистина ли искате да изтриете централната колона: \"%s\"?"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Наистина ли искате да изтриете записаното търсене: \"%s\"?"
+msgstr "Наистина ли искате да изтриете избраното?"
 
 #: js/messages.php:64
 msgid ""
@@ -1035,10 +1033,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Наистина ли искате да изтриете записаното търсене: \"%s\"?"
+msgstr "Наистина ли искате да отрежете избрания дял?"
 
 #: js/messages.php:67
 msgid ""
@@ -1737,14 +1734,13 @@ msgid "Cancel"
 msgstr "Отмяна"
 
 #: js/messages.php:290 libraries/Header.class.php:455
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Промяна настройки"
+msgstr "Страница-свързани настройки"
 
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:402
 msgid "Apply"
-msgstr ""
+msgstr "Прилагане"
 
 #: js/messages.php:294 libraries/navigation/NavigationHeader.class.php:60
 #: libraries/server_status_monitor.lib.php:123
@@ -1816,10 +1812,9 @@ msgid "Changing Charset"
 msgstr "Промяна знаков набор"
 
 #: js/messages.php:314 libraries/Util.class.php:3237
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Забрана на проверките за външен ключ"
+msgstr "Включване на проверките за външен ключ"
 
 #: js/messages.php:317
 msgid "Failed to get real row count."
@@ -1939,13 +1934,13 @@ msgstr "Разглеждане на външни стойности"
 
 #: js/messages.php:347
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Без автоматично запазване на заявка"
 
 #: js/messages.php:348
-#, fuzzy, php-format
+#, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
-msgstr "Променлива"
+msgstr "Променлива %d:"
 
 #: js/messages.php:351 libraries/normalization.lib.php:884
 msgid "Pick"
@@ -1960,13 +1955,14 @@ msgid "Search this list"
 msgstr "Търсене в този списък"
 
 #: js/messages.php:354
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 "Няма колони в централният списък. Уверете се, че списъкът от Централни "
-"колони на базата данни% има колони, които не присъстват в настоящата таблица."
+"колони на базата данни %s има колони, които не присъстват в настоящата "
+"таблица."
 
 #: js/messages.php:355
 msgid "See more"
@@ -2034,6 +2030,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Забележка: а, б -> D, F предполага стойности на колони А и В се комбинират "
+"заедно могат да се определят стойностите на колона г и колона е."
 
 #: js/messages.php:371
 msgid "No partial dependencies selected!"
@@ -2222,6 +2220,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Изглежда сте направили промени на страницата; ще бъдете уведомени преди да "
+"изоставите промените"
 
 #: js/messages.php:448
 msgid "Select referenced key"
@@ -2259,10 +2259,9 @@ msgstr "Записване на страница"
 
 #: js/messages.php:458 templates/designer/side_menu.phtml:63
 #: templates/designer/side_menu.phtml:66
-#, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
-msgstr "Записване на страница"
+msgstr "Записване на страница като"
 
 #: js/messages.php:459 templates/designer/side_menu.phtml:49
 #: templates/designer/side_menu.phtml:52
@@ -2387,10 +2386,9 @@ msgstr ""
 "може да блокира браузъра."
 
 #: js/messages.php:489
-#, fuzzy
 #| msgid "Original position"
 msgid "Original length"
-msgstr "Първоначално положение"
+msgstr "Първоначална дължина"
 
 #: js/messages.php:492
 msgid "cancel"
@@ -2554,6 +2552,8 @@ msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
+"Възникнала е грешка фатална JavaScript. Бихте ли искали да изпратите доклад "
+"за грешка?"
 
 #: js/messages.php:554
 msgid "Change Report Settings"
@@ -2567,7 +2567,7 @@ msgstr "Показване детайли за рапорта"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
-msgstr ""
+msgstr "Вашият износ е непълна, поради нисък изпълнение срок на ниво PHP!"
 
 #: js/messages.php:562
 #, php-format
@@ -2575,6 +2575,9 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Внимание: форма на тази страница има повече от %d полета. При подаването, "
+"някои от полетата могат да бъдат пренебрегнати, поради max_input_vars "
+"конфигурацията на PHP."
 
 #: js/messages.php:568 js/messages.php:580
 msgid "Some errors have been detected on the server!"
@@ -2591,7 +2594,7 @@ msgstr "Игнориране на всички"
 #: js/messages.php:582
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
+msgstr "Според настройките си, те се подава в момента, моля, бъдете търпеливи."
 
 #: js/messages.php:590
 msgid "Execute this query again?"
@@ -2606,10 +2609,10 @@ msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
 #: js/messages.php:593
-#, fuzzy, php-format
+#, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Изпълнени заявки"
+msgstr "%s изпълнени заявки %s пъти %s секунди."
 
 #: js/messages.php:594
 #, php-format
@@ -2617,16 +2620,14 @@ msgid "%s argument(s) passed"
 msgstr ""
 
 #: js/messages.php:595
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
-msgstr "Коментари към таблицата"
+msgstr "Покажи доводи"
 
 #: js/messages.php:596
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Скриване резултати от търсенето"
+msgstr "Скриване доводи"
 
 #: js/messages.php:597 libraries/Console.class.php:318
 msgid "Time taken:"
@@ -2638,6 +2639,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Вашият уеб браузър не поддържа местно съхранение на настройки или квотното "
+"ограничение е било постигнато, някои функции може да не работят правилно за "
+"вас. В Safari, такъв проблем обикновено се причинява от \"Private Browsing "
+"Mode\"."
 
 #: js/messages.php:626
 msgctxt "Previous month"
@@ -2896,102 +2901,87 @@ msgid "This field is required"
 msgstr ""
 
 #: js/messages.php:768
-#, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "От текстовото поле"
+msgstr "Моля поправете тази област"
 
 #: js/messages.php:769
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Моля, въведете валидно име на страница"
+msgstr "Моля въведете валиден емайл адрес"
 
 #: js/messages.php:770
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Моля, въведете валиден номер на порт!"
+msgstr "Моля, въведете валиден URL"
 
 #: js/messages.php:771
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Моля, въведете валидно име на страница"
+msgstr "Моля, въведете валидна дата"
 
 #: js/messages.php:772
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Моля, въведете валидно име на страница"
+msgstr "Моля въведете валидна дата (ISO)"
 
 #: js/messages.php:773
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Моля, въведете валиден номер на порт!"
+msgstr "Моля, въведете валиден номер"
 
 #: js/messages.php:774
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Моля, въведете валиден номер на порт!"
+msgstr "Моля, въведете валиден номер на кредитна карта"
 
 #: js/messages.php:775
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Моля, въведете валидна дължина!"
+msgstr "Моля, въведете само цифри"
 
 #: js/messages.php:776
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Моля, въведете валидно име на страница"
+msgstr "Моля, въведете една и съща стойност отново"
 
 #: js/messages.php:777
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
 #: js/messages.php:778
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter at least {0} characters"
-msgstr "Моля, въведете валидно име на страница"
+msgstr "Моля, въведете поне {0} букви"
 
 #: js/messages.php:779
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
 #: js/messages.php:780
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Моля, въведете валидно име на страница"
+msgstr "Моля, въведете стойност между {0} и {1}"
 
 #: js/messages.php:781
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Моля, въведете валидна дължина!"
+msgstr "Моля въведете стойност по-малка или равна на {0}"
 
 #: js/messages.php:782
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Моля, въведете валидно име на страница"
+msgstr "Въведете стойност по-голяма от или равна на {0}"
 
 #: js/messages.php:784
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Моля, въведете валидно име на страница"
+msgstr "Моля, въведете валиден дата или час"
 
 #: js/messages.php:785
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Моля, въведете валиден номер на порт!"
+msgstr "Моля, въведете валиден HEX"
 
 #: js/messages.php:786 libraries/Message.class.php:199
 #: libraries/Util.class.php:627 libraries/core.lib.php:245
@@ -3084,12 +3074,12 @@ msgstr "Размер шрифт"
 #: libraries/Console.class.php:85 libraries/Console.class.php:210
 #: libraries/Console.class.php:313
 msgid "Collapse"
-msgstr ""
+msgstr "Колапс"
 
 #: libraries/Console.class.php:86 libraries/Console.class.php:212
 #: libraries/Console.class.php:314
 msgid "Expand"
-msgstr ""
+msgstr "Разширяване"
 
 #: libraries/Console.class.php:87 libraries/Console.class.php:213
 msgid "Requery"
@@ -3222,80 +3212,68 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Натисни Ctrl+Enter за изпълнение на заявката"
 
 #: libraries/Console.class.php:259
-#, fuzzy
 #| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
-msgstr "Натисни Ctrl+Enter за изпълнение на заявката"
+msgstr "Натиснете Enter, за да изпълни заявката"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Възходящо"
+msgstr "възходящо"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Низходящо"
+msgstr "низходящо"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Other"
 msgid "Order:"
-msgstr "Друго"
+msgstr "Поръчка:"
 
 #: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Kолона"
+msgstr "Броене"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "Изпълнение на всеки"
+msgstr "Изпълнение на поръчката"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
 msgstr ""
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Other"
 msgid "Order by:"
-msgstr "Друго"
+msgstr "Подредени по:"
 
 #: libraries/Console.class.php:301
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "SQL заявки"
+msgstr "Група заявки"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "SQL заявки"
+msgstr "Разгрупиране на заявки"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show color"
 msgid "Show trace"
-msgstr "Показване свят"
+msgstr "Покажи следа"
 
 #: libraries/Console.class.php:316
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Скриване на панела"
+msgstr "Скрий следа"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Column"
 msgid "Count:"
-msgstr "Kолона"
+msgstr "Бройка:"
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1263
 #: libraries/config/messages.inc.php:796
@@ -3330,17 +3308,16 @@ msgstr "Сложи по подразбиране"
 
 #: libraries/Console.class.php:374
 msgid "Always expand query messages"
-msgstr ""
+msgstr "Винаги разширите заявки съобщения"
 
 #: libraries/Console.class.php:376
-#, fuzzy
 #| msgid "Slow query rate"
 msgid "Show query history at start"
-msgstr "Стойност на бавните заявки"
+msgstr "Покажи историята на заявката в началото"
 
 #: libraries/Console.class.php:378
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Показване на текущата заявка браузване"
 
 #: libraries/Console.class.php:381
 msgid ""
@@ -3349,10 +3326,9 @@ msgid ""
 msgstr ""
 
 #: libraries/Console.class.php:385
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Превключване към копираната таблица"
+msgstr "Превключи на тъмна палитра"
 
 #: libraries/DBQbe.class.php:405 libraries/DisplayResults.class.php:1479
 #: libraries/DisplayResults.class.php:2273
@@ -3377,38 +3353,33 @@ msgid "Descending"
 msgstr "Низходящо"
 
 #: libraries/DBQbe.class.php:467 templates/table/search_and_replace.phtml:6
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Kолона"
+msgstr "Колона:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
 msgstr ""
 
 #: libraries/DBQbe.class.php:566
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Сортиране"
+msgstr "Сортиране:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort order:"
-msgstr "Сортиране"
+msgstr "Подредени по:"
 
 #: libraries/DBQbe.class.php:679
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Показване"
+msgstr "Показване:"
 
 #: libraries/DBQbe.class.php:728
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Критерии"
+msgstr "Критерии:"
 
 #: libraries/DBQbe.class.php:797
 msgid "Add/Delete criteria rows"
@@ -3427,14 +3398,13 @@ msgid "Use Tables"
 msgstr "Използване таблиците"
 
 #: libraries/DBQbe.class.php:877 libraries/DBQbe.class.php:988
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "Или"
+msgstr "Или:"
 
 #: libraries/DBQbe.class.php:881 libraries/DBQbe.class.php:973
 msgid "And:"
-msgstr ""
+msgstr "И:"
 
 #: libraries/DBQbe.class.php:886
 msgid "Ins"
@@ -3445,18 +3415,17 @@ msgid "Del"
 msgstr "Изтрий"
 
 #: libraries/DBQbe.class.php:905
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Промени"
+msgstr "Промени:"
 
 #: libraries/DBQbe.class.php:968
 msgid "Ins:"
-msgstr ""
+msgstr "Инс:"
 
 #: libraries/DBQbe.class.php:983
 msgid "Del:"
-msgstr ""
+msgstr "Дел:"
 
 #: libraries/DBQbe.class.php:1838
 #, php-format
@@ -3468,10 +3437,9 @@ msgid "Submit Query"
 msgstr "Изпълни заявката"
 
 #: libraries/DBQbe.class.php:1866
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Търсене"
+msgstr "Запазени отметки търсене:"
 
 #: libraries/DBQbe.class.php:1868
 #, fuzzy
