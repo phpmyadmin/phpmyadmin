@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-06-29 00:57+0200\n"
+"PO-Revision-Date: 2015-06-29 00:58+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sq/>\n"
@@ -14047,7 +14047,7 @@ msgstr "Përmirëso strukturën e tabelës"
 
 #: libraries/structure.lib.php:1712
 msgid "Track view"
-msgstr "Pamja e gjurmës"
+msgstr "Pamje e gjurmës"
 
 #: libraries/structure.lib.php:1753
 #, php-format
