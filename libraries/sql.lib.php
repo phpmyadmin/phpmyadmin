@@ -99,7 +99,11 @@ function PMA_handleSortOrder(
         // Store the remembered table into session.
         $pmatable->setUiProp(
             PMA_Table::PROP_SORTED_COLUMN,
-            $analyzed_sql_results['analyzed_sql'][0]['order_by_clause']
+            Query::getClause(
+                $analyzed_sql_results['statement'],
+                $analyzed_sql_results['parser']->list,
+                'ORDER'
+            )
         );
     }
 }
@@ -623,8 +627,8 @@ function PMA_isRememberSortingOrder($analyzed_sql_results)
             || $analyzed_sql_results['is_analyse'])
         && $analyzed_sql_results['select_from']
         && empty($analyzed_sql_results['select_expr'])
-        && count($analyzed_sql_results['analyzed_sql']['select_expr']) == 0
-        && count($analyzed_sql_results['analyzed_sql']['select_tables']) == 1;
+        && count($analyzed_sql_results['select_expr']) == 0
+        && count($analyzed_sql_results['select_tables']) == 1;
 }
 
 /**
@@ -1127,11 +1131,12 @@ function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
 function PMA_countQueryResults(
     $num_rows, $justBrowsing, $db, $table, $analyzed_sql_results
 ) {
+
     if (!PMA_isAppendLimitClause($analyzed_sql_results)) {
         // if we did not append a limit, set this to get a correct
         // "Showing rows..." message
         // $_SESSION['tmpval']['max_rows'] = 'all';
-        $unlim_num_rows         = $num_rows;
+        $unlim_num_rows = $num_rows;
     } elseif ($analyzed_sql_results['querytype'] == 'SELECT'
         || $analyzed_sql_results['is_subquery']
     ) {
@@ -1171,64 +1176,31 @@ function PMA_countQueryResults(
             }
 
         } else {
-            // add select expression after the SQL_CALC_FOUND_ROWS
 
-            // for UNION, just adding SQL_CALC_FOUND_ROWS
-            // after the first SELECT works.
+            // The SQL_CALC_FOUND_ROWS option of the SELECT statement is used.
 
-            // take the left part, could be:
-            // SELECT
-            // (SELECT
+            // For UNION statements, only a SQL_CALC_FOUND_ROWS is required
+            // after the first SELECT.
 
-            // TODO: Replace PMA_SQP_
-
-            $analyzed_sql = $analyzed_sql_results['analyzed_sql'];
-
-            $count_query = PMA_SQP_format(
-                $analyzed_sql_results['parsed_sql'],
-                'query_only',
-                0,
-                $analyzed_sql[0]['position_of_first_select'] + 1
+            $count_query = SqlParser\Utils\Query::replaceClause(
+                $analyzed_sql_results['statement'],
+                $analyzed_sql_results['parser']->list,
+                'SELECT SQL_CALC_FOUND_ROWS',
+                true
             );
-            $count_query .= ' SQL_CALC_FOUND_ROWS ';
-            // add everything that was after the first SELECT
-            $count_query .= PMA_SQP_format(
-                $analyzed_sql_results['parsed_sql'],
-                'query_only',
-                $analyzed_sql[0]['position_of_first_select'] + 1
-            );
-            // ensure there is no semicolon at the end of the
-            // count query because we'll probably add
-            // a LIMIT 1 clause after it
-            $count_query = rtrim($count_query);
-            $count_query = rtrim($count_query, ';');
 
-            // if using SQL_CALC_FOUND_ROWS, add a LIMIT to avoid
-            // long delays. Returned count will be complete anyway.
-            // (but a LIMIT would disrupt results in an UNION)
+            // Another LIMIT clause is added to avoid long delays.
+            // A complete result will be returned anyway, but the LIMIT would
+            // stop the query as soon as the result that is required has been
+            // computed.
 
-            if (! isset($analyzed_sql[0]['queryflags']['union'])) {
+            if (empty($analyzed_sql_results['queryflags']['union'])) {
                 $count_query .= ' LIMIT 1';
             }
 
-            // run the count query
-
+            // Running the count query.
             $GLOBALS['dbi']->tryQuery($count_query);
-            // if (mysql_error()) {
-            // void.
-            // I tried the case
-            // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
-            // UNION (SELECT `User`, `Host`, "%" AS "Db",
-            // `Select_priv`
-            // FROM `user`) ORDER BY `User`, `Host`, `Db`;
-            // and although the generated count_query is wrong
-            // the SELECT FOUND_ROWS() work! (maybe it gets the
-            // count from the latest query that worked)
-            //
-            // another case where the count_query is wrong:
-            // SELECT COUNT(*), f1 from t1 group by f1
-            // and you click to sort on count(*)
-            // }
+
             $unlim_num_rows = $GLOBALS['dbi']->fetchValue('SELECT FOUND_ROWS()');
         } // end else "just browsing"
     } else {// not $is_select
@@ -1336,22 +1308,14 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
 function PMA_deleteTransformationInfo($db, $table, $analyzed_sql_results)
 {
     include_once 'libraries/transformations.lib.php';
-    if ($analyzed_sql_results['querytype'] == 'ALTER') {
-        $posDrop = /*overload*/mb_stripos(
-            $analyzed_sql_results['analyzed_sql'][0]['unsorted_query'],
-            'DROP'
-        );
-        if ($posDrop !== false) {
-            $drop_column = PMA_getColumnNameInColumnDropSql(
-                $analyzed_sql_results['analyzed_sql'][0]['unsorted_query']
-            );
-
-            if ($drop_column != '') {
-                PMA_clearTransformations($db, $table, $drop_column);
+    $statement = $analyzed_sql_results['statement'];
+    if ($statement instanceof SqlParser\Statements\AlterStatement) {
+        if ($statement->options->has('DROP')) {
+            if (!empty($statement->altered->column)) {
+                PMA_clearTransformations($db, $table, $statement->altered->column);
             }
         }
-
-    } else if (($analyzed_sql_results['querytype'] == 'DROP') && ($table != '')) {
+    } elseif ($statement instanceof SqlParser\Statements\DropStatement) {
         PMA_clearTransformations($db, $table);
     }
 }
@@ -1490,7 +1454,7 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
 
         if (!empty($analyzed_sql_results['is_select'])) {
             $html_output .= $displayResultsObject->getCreateViewQueryResultOp(
-                $analyzed_sql_results['analyzed_sql']
+                $analyzed_sql_results
             );
         }
     }
@@ -1649,7 +1613,7 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
                 $table_html .= $displayResultsObject->getTable(
                     $result,
                     $displayParts,
-                    $analyzed_sql_results['analyzed_sql']
+                    $analyzed_sql_results
                 );
             }
 
@@ -1675,7 +1639,7 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
         );
 
         $table_html .= $displayResultsObject->getTable(
-            $result, $displayParts, $analyzed_sql_results['analyzed_sql']
+            $result, $displayParts, $analyzed_sql_results
         );
         $GLOBALS['dbi']->freeResult($result);
     }
@@ -1847,10 +1811,16 @@ function PMA_getQueryResponseForResultsReturned($result,
     // - if the result set does not contain all the columns of a unique key
     //   (unless this is an updatable view)
 
-    $sele_exp_cls = $analyzed_sql_results['analyzed_sql'][0]['select_expr_clause'];
-    $updatableView
-        = trim($sele_exp_cls) == '*'
-        && PMA_Table::isUpdatableView($db, $table);
+    $updatableView = false;
+
+    $statement = $analyzed_sql_results['statement'];
+    if ($statement instanceof SqlParser\Statements\SelectStatement) {
+        if (!empty($statement->expr)) {
+            if ($statement->expr[0]->expr === '*') {
+                $updatableView = PMA_Table::isUpdatableView($db, $table);
+            }
+        }
+    }
 
     $has_unique = PMA_resultSetContainsUniqueKey(
         $db, $table, $fields_meta

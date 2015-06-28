@@ -4201,11 +4201,11 @@ class PMA_DisplayResults
     /**
      * Prepare a table of results returned by a SQL query.
      *
-     * @param integer &$dt_result         the link id associated to the query
-     *                                    which results have to be displayed
-     * @param array   &$displayParts      the parts to display
-     * @param array   $analyzed_sql       the analyzed query
-     * @param boolean $is_limited_display With limited operations or not
+     * @param integer &$dt_result           the link id associated to the query
+     *                                      which results have to be displayed
+     * @param array   &$displayParts        the parts to display
+     * @param array   $analyzed_sql_results analyzed sql results
+     * @param boolean $is_limited_display   With limited operations or not
      *
      * @return  string   $table_html   Generated HTML content for resulted table
      *
@@ -4214,9 +4214,12 @@ class PMA_DisplayResults
      * @see     sql.php file
      */
     public function getTable(
-        &$dt_result, &$displayParts, $analyzed_sql,
+        &$dt_result, &$displayParts, $analyzed_sql_results,
         $is_limited_display = false
     ) {
+
+        // TODO: Remove.
+        $analyzed_sql = $analyzed_sql_results['analyzed_sql'];
 
         $table_html = '';
         // Following variable are needed for use in isset/empty or
@@ -4236,10 +4239,8 @@ class PMA_DisplayResults
             && $showtable['Type'] == self::TABLE_TYPE_INNO_DB);
 
         if ($is_innodb
-            && ! isset($analyzed_sql[0]['queryflags']['union'])
-            && ! isset($analyzed_sql[0]['table_ref'][1]['table_name'])
-            && (empty($analyzed_sql[0]['where_clause'])
-            || ($analyzed_sql[0]['where_clause'] == '1 '))
+            && PMA_isJustBrowsing($analyzed_sql_results, true)
+
         ) {
             // "j u s t   b r o w s i n g"
             $pre_count = '~';
@@ -4310,9 +4311,7 @@ class PMA_DisplayResults
         // 2.3 Prepare the navigation bars
         if (!/*overload*/mb_strlen($this->__get('table'))) {
 
-            if (isset($analyzed_sql[0]['query_type'])
-                && ($analyzed_sql[0]['query_type'] == self::QUERY_TYPE_SELECT)
-            ) {
+            if ($analyzed_sql_results['querytype'] == 'SELECT') {
                 // table does not always contain a real table name,
                 // for example in MySQL 5.0.x, the query SHOW STATUS
                 // returns STATUS as a table name
@@ -4416,7 +4415,7 @@ class PMA_DisplayResults
         // 6. ----- Prepare "Query results operations"
         if ((! isset($printview) || ($printview != '1')) && ! $is_limited_display) {
             $table_html .= $this->_getResultsOperations(
-                $displayParts, $analyzed_sql
+                $displayParts, $analyzed_sql_results
             );
         }
 
@@ -4946,8 +4945,8 @@ class PMA_DisplayResults
     /**
      * Generates HTML to display the Create view in span tag
      *
-     * @param array  $analyzed_sql the analyzed Query
-     * @param string $url_query    String with URL Parameters
+     * @param array  $analyzed_sql_results analyzed sql results
+     * @param string $url_query            String with URL Parameters
      *
      * @return string
      *
@@ -4955,10 +4954,10 @@ class PMA_DisplayResults
      *
      * @see _getResultsOperations()
      */
-    private function _getLinkForCreateView($analyzed_sql, $url_query)
+    private function _getLinkForCreateView($analyzed_sql_results, $url_query)
     {
         $results_operations_html = '';
-        if (!PMA_DRIZZLE && !isset($analyzed_sql[0]['queryflags']['procedure'])) {
+        if (!PMA_DRIZZLE && empty($analyzed_sql_results['procedure'])) {
 
             $ajax_class = ' ajax';
 
@@ -4979,14 +4978,14 @@ class PMA_DisplayResults
     /**
      * Calls the _getResultsOperations with $only_view as true
      *
-     * @param array $analyzed_sql the analyzed Query
+     * @param array $analyzed_sql_results analyzed sql results
      *
      * @return string
      *
      * @access public
      *
      */
-    public function getCreateViewQueryResultOp($analyzed_sql)
+    public function getCreateViewQueryResultOp($analyzed_sql_results)
     {
 
         $results_operations_html = '';
@@ -4994,7 +4993,7 @@ class PMA_DisplayResults
         //and setting only_view parameter to be true to generate just view
         $results_operations_html .= $this->_getResultsOperations(
             array(),
-            $analyzed_sql,
+            $analyzed_sql_results,
             true
         );
         return $results_operations_html;
@@ -5027,7 +5026,7 @@ class PMA_DisplayResults
      * Get operations that are available on results.
      *
      * @param array   $displayParts the parts to display
-     * @param array   $analyzed_sql the analyzed query
+     * @param array   $analyzed_sql_results analyzed sql results
      * @param boolean $only_view    Whether to show only view
      *
      * @return string $results_operations_html  html content
@@ -5037,7 +5036,7 @@ class PMA_DisplayResults
      * @see     getTable()
      */
     private function _getResultsOperations(
-        $displayParts, $analyzed_sql, $only_view = false
+        $displayParts, $analyzed_sql_results, $only_view = false
     ) {
         global $printview;
 
@@ -5063,7 +5062,7 @@ class PMA_DisplayResults
         // show only view and not other options
         if ($only_view == true) {
             $results_operations_html .= $this->_getLinkForCreateView(
-                $analyzed_sql, $url_query
+                $analyzed_sql_results, $url_query
             );
 
             if ($header_shown) {
@@ -5084,15 +5083,12 @@ class PMA_DisplayResults
         // If the parser found a PROCEDURE clause
         // (most probably PROCEDURE ANALYSE()) it makes no sense to
         // display the Export link).
-        if (isset($analyzed_sql[0])
-            && ($analyzed_sql[0]['querytype'] == self::QUERY_TYPE_SELECT)
+        if (($analyzed_sql_results['querytype'] == self::QUERY_TYPE_SELECT)
             && ! isset($printview)
-            && ! isset($analyzed_sql[0]['queryflags']['procedure'])
+            && empty($analyzed_sql_results['procedure'])
         ) {
 
-            if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name'])
-                && ! isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])
-            ) {
+            if (count($analyzed_sql_results['select_tables']) == 1) {
                 $_url_params['single_table'] = 'true';
             }
 
@@ -5185,7 +5181,7 @@ class PMA_DisplayResults
         }
 
         $results_operations_html .= $this->_getLinkForCreateView(
-            $analyzed_sql, $url_query
+            $analyzed_sql_results, $url_query
         );
 
         if ($header_shown) {

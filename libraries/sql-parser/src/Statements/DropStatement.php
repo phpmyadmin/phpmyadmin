@@ -48,7 +48,7 @@ class DropStatement extends Statement
     /**
      * Dropped elements.
      *
-     * @var FromKeyworrd[]
+     * @var FieldFragment[]
      */
-    public $name;
+    public $fields;
 }

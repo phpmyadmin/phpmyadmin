@@ -25,13 +25,13 @@ extract($analyzed_sql_results);
 // If the targeted table (and database) are different than the ones that is
 // currently browsed, edit `$db` and `$table` to match them so other elements
 // (page headers, links, navigation panel) can be updated properly.
-if (!empty($analyzed_sql_results['tables'])) {
+if (!empty($analyzed_sql_results['select_tables'])) {
 
     // Previous table and database name is stored to check if it changed.
     $prevDb = $db;
     $prevTable = $table;
 
-    if (count($analyzed_sql_results['tables']) > 1) {
+    if (count($analyzed_sql_results['select_tables']) > 1) {
 
         /**
          * @todo if there are more than one table name in the Select:
@@ -41,9 +41,9 @@ if (!empty($analyzed_sql_results['tables'])) {
          */
         $table = '';
     } else {
-        $table = $analyzed_sql_results['tables'][0][0];
-        if (!empty($analyzed_sql_results['tables'][0][1])) {
-            $db = $analyzed_sql_results['tables'][0][1];
+        $table = $analyzed_sql_results['select_tables'][0][0];
+        if (!empty($analyzed_sql_results['select_tables'][0][1])) {
+            $db = $analyzed_sql_results['select_tables'][0][1];
         }
     }
 

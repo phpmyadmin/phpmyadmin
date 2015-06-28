@@ -100,9 +100,18 @@ abstract class Statement
              */
             $field = null;
 
+            /**
+             * Parser's options.
+             * @var array
+             */
+            $options = array();
+
             if (!empty(Parser::$KEYWORD_PARSERS[$token->value])) {
                 $class = Parser::$KEYWORD_PARSERS[$token->value]['class'];
                 $field = Parser::$KEYWORD_PARSERS[$token->value]['field'];
+                if (!empty(Parser::$KEYWORD_PARSERS[$token->value]['options'])) {
+                    $options = Parser::$KEYWORD_PARSERS[$token->value]['options'];
+                }
             }
 
             if (!empty(Parser::$STATEMENT_PARSERS[$token->value])) {
@@ -130,7 +139,7 @@ abstract class Statement
             // Parsing this keyword.
             if ($class !== null) {
                 ++$list->idx; // Skipping keyword.
-                $this->$field = $class::parse($parser, $list, array());
+                $this->$field = $class::parse($parser, $list, $options);
             }
 
             $this->after($parser, $list, $token);

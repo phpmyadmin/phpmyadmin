@@ -79,7 +79,11 @@ class Parser
      * @var array
      */
     public static $KEYWORD_PARSERS = array(
-
+        'ALTER'         => array(
+            'class'     => 'SqlParser\\Fragments\\FieldFragment',
+            'field'     => 'table',
+            'options'   => array('skipColumn' => true),
+        ),
         'ANALYZE'       => array(
             'class'     => 'SqlParser\\Fragments\\FromKeyword',
             'field'     => 'tables',
@@ -99,6 +103,10 @@ class Parser
         'CHECKSUM'      => array(
             'class'     => 'SqlParser\\Fragments\\FromKeyword',
             'field'     => 'tables',
+        ),
+        'DROP'          => array(
+            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'field'     => 'fields'
         ),
         'FROM'          => array(
             'class'     => 'SqlParser\\Fragments\\FromKeyword',

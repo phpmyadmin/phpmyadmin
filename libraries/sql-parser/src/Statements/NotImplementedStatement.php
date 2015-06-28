@@ -16,7 +16,7 @@ use SqlParser\TokensList;
 /**
  * Not implemented (yet) statements.
  *
- * The `before` function makes the parser jump straight to the first delimiter.
+ * The `after` function makes the parser jump straight to the first delimiter.
  *
  * @category   Statements
  * @package    SqlParser
@@ -36,7 +36,7 @@ class NotImplementedStatement extends Statement
      *
      * @return void
      */
-    public function before(Parser $parser, TokensList $list, Token $token)
+    public function after(Parser $parser, TokensList $list, Token $token)
     {
         $list->getNextOfType(Token::TYPE_DELIMITER);
         --$list->idx;

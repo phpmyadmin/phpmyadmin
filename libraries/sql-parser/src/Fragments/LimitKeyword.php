@@ -70,6 +70,10 @@ class LimitKeyword extends Fragment
                 continue;
             }
 
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
+                break;
+            }
+
             if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'OFFSET')) {
                 if ($offset) {
                     $parser->error('An offset was expected.');

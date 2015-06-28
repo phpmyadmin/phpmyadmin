@@ -373,6 +373,10 @@ class Query
         if ($statement instanceof SelectStatement) {
             $ret['select_tables'] = array();
             $ret['select_expr'] = array();
+
+            // Trying to find selected tables only from the select expression.
+            // Sometimes, this is not possible because the tables aren't defined
+            // explicitly (e.g. SELECT * FROM film, SELECT film_id FROM film).
             foreach ($statement->expr as $expr) {
                 if (!empty($expr->table)) {
                     $ret['select_tables'][] = array(
@@ -383,16 +387,37 @@ class Query
                     $ret['select_expr'][] = $expr->expr;
                 }
             }
+
+            // If no tables names were found in the SELECT clause or if there
+            // are expressions like * or COUNT(*), etc. tables names should be
+            // extracted from the FROM clause as well.
+            if ((empty($ret['select_tables'])) || (!$ret['select_expr'])) {
+                foreach ($statement->from as $expr) {
+                    if (!empty($expr->table)) {
+                        $ret['select_tables'][] = array(
+                            $expr->table,
+                            !empty($expr->database) ? $expr->database : null
+                        );
+                    }
+                }
+            }
         }
 
         return $ret;
     }
 
+    /**
+     * Gets the type of clause.
+     *
+     * @param  string $clause The clause.
+     *
+     * @return string
+     */
     public static function getClauseType($clause)
     {
         $type = '';
         for ($i = 0, $len = strlen($clause); $i < $len; ++$i) {
-            if ((empty($type)) && (ctype_space($type))) {
+            if ((empty($type)) && (ctype_space($clause[$i]))) {
                 // Skipping whitespaces if we haven't started determining the
                 // type.
                 continue;
@@ -408,18 +433,20 @@ class Query
     }
 
     /**
-     * Replaces the clause in the query. If the clause does not exist, it is
-     * inserted.
-     *
-     * It is a very basic version of a query builder.
+     * Gets a specific clause.
      *
      * @param Statement  $statement The parsed query that has to be modified.
      * @param TokensList $list      The list of tokens.
-     * @param string     $clause    The clause to be replaced.
+     * @param string     $clause    The clause to be returned.
+     * @param int        $type      The type of the search.
+     *                              -1 for everything that was before
+     *                              0 only for the clause
+     *                              1 for everything after
+     * @param bool       $skipFirst Whether to skip the first keyword in clause.
      *
      * @return string
      */
-    public static function replaceClause($statement, $list, $clause)
+    public static function getClause($statement, $list, $clause, $type = 0, $skipFirst = true)
     {
 
         /**
@@ -436,16 +463,10 @@ class Query
         $brackets = 0;
 
         /**
-         * The sections before the clause
+         * The string to be returned.
          * @var string
          */
-        $before = '';
-
-        /**
-         * The sections after the clause.
-         * @var string
-         */
-        $after = '';
+        $ret = '';
 
         /**
          * The place where the clause should be added.
@@ -473,21 +494,57 @@ class Query
                 // Checking if we changed sections.
                 if ($token->type === Token::TYPE_KEYWORD) {
                     if (isset($statement::$SECTIONS[$token->value])) {
-                        if ($statement::$SECTIONS[$token->value] > $currIdx) {
+                        if ($statement::$SECTIONS[$token->value] >= $currIdx) {
                             $currIdx = $statement::$SECTIONS[$token->value];
+                            if (($skipFirst) && ($currIdx == $clauseIdx)) {
+                                // This token is skipped (not added to the old
+                                // clause) because it will be replaced.
+                                continue;
+                            }
                         }
                     }
                 }
             }
 
-            if ($currIdx < $clauseIdx) {
-                $before .= $token->token;
-            } elseif ($currIdx > $clauseIdx) {
-                $after .= $token->value;
+            if ((($type === -1) && ($currIdx < $clauseIdx))
+                || (($type === 0) && ($currIdx === $clauseIdx))
+                || (($type === 1) && ($currIdx > $clauseIdx))
+            ) {
+                $ret .= $token->token;
             }
         }
 
-        return $before . ' ' . $clause . ' ' . $after;
+        return trim($ret);
+    }
+
+    /**
+     * Builds a query by rebuilding the statement from the tokens list supplied
+     * and replaces a clause.
+     *
+     * It is a very basic version of a query builder.
+     *
+     * @param Statement  $statement The parsed query that has to be modified.
+     * @param TokensList $list      The list of tokens.
+     * @param string     $clause    The clause to be replaced.
+     * @param bool       $onlyType  Whether only the type of the clause should
+     *                              be replaced or the entire clause.
+     *
+     * @return string
+     */
+    public static function replaceClause($statement, $list, $clause, $onlyType = false)
+    {
+        // TODO: Update the tokens list and the statement.
+
+        if ($onlyType) {
+            return static::getClause($statement, $list, $clause, -1, false) . ' ' .
+                $clause . ' ' .
+                static::getCLause($statement, $list, $clause, 0) . ' ' .
+                static::getClause($statement, $list, $clause, 1, false);
+        }
+
+        return static::getClause($statement, $list, $clause, -1, false) . ' ' .
+            $clause . ' ' .
+            static::getClause($statement, $list, $clause, 1, false);
     }
 
 }
