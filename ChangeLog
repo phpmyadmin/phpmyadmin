@@ -70,6 +70,7 @@ phpMyAdmin - ChangeLog
 + rfe #1552 CSV import: Allow "Columns escaped with" to be optional
 + rfe #1561 Being able to use multiple servers at the same time when using cookie auth
 + rfe #1603 select structure or data for each table when exporting
+- bug #4916 Autocomplete completes the original table name when joining multiple aliased tables
 
 4.4.11.0 (not yet released)
 - bug       Missing selected/entered values when editing active options in visual query builder
