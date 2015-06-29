@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-06-22 14:51+0200\n"
+"PO-Revision-Date: 2015-06-29 14:47+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -275,7 +275,6 @@ msgid "Data"
 msgstr "Δεδομένα"
 
 #: db_export.php:54
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "Επιλογή όλων"
@@ -6148,16 +6147,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Προσαρμογή εμφάνισης του πίνακα πλοήγησης."
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Πίνακας πλοήγησης"
+msgstr "Δέντρο πλοήγησης"
 
 #: libraries/config/messages.inc.php:249
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Προσαρμογή πίνακα πλοήγησης"
+msgstr "Προσαρμογή δέντρου πλοήγησης."
 
 #: libraries/config/messages.inc.php:250 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
@@ -6766,63 +6763,60 @@ msgid "Enable navigation tree expansion"
 msgstr "Ενεργοποίηση επέκτασης δέντρου πλοήγησης"
 
 #: libraries/config/messages.inc.php:487
-#, fuzzy
 #| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Εμφάνιση/Απόκρυψη λίστας πινάκων"
+msgstr "Προβολή πινάκων στο δέντρο"
 
 #: libraries/config/messages.inc.php:489
-#, fuzzy
 #| msgid ""
 #| "Whether to offer the possibility of tree expansion in the navigation "
 #| "panel."
 msgid "Whether to show tables under database in the navigation tree"
 msgstr ""
-"Αν θα προσφέρεται η πιθανότητα επέκτασης του δέντρου στον πίνακα πλοήγησης."
+"Αν θα προβάλονται πίνακες κάτω από τη βάση δεδομένων στο δέντρο πλοήγησης"
 
 #: libraries/config/messages.inc.php:490
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Εμφάνιση εκδόσεων"
+msgstr "Προβολή εμφανίσεων στο δέντρο"
 
 #: libraries/config/messages.inc.php:492
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Προβολή πλοήγησης βάσεων δεδομένων ως δέντρο"
+msgstr ""
+"Αν θα προβάλονται εμφανίσεις κάτω από τη βάση δεδομένων στο δέντρο πλοήγησης"
 
 #: libraries/config/messages.inc.php:493
-#, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Εμφάνιση πεδίων συναρτήσεων"
+msgstr "Προβολή συναρτήσεων στο δέντρο"
 
 #: libraries/config/messages.inc.php:495
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
+"Αν θα εμφανίζονται συναρτήσεις κάτω από τη βάση δεδομένων στο δέντρο "
+"πλοήγησης"
 
 #: libraries/config/messages.inc.php:496
-#, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Εμφάνιση διεργασιών"
+msgstr "Προβολή διεργασιών στο δέντρο"
 
 #: libraries/config/messages.inc.php:498
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
+"Αν θα προβάλονται διεργασίες κάτω από τη βάση δεδομένων στο δέντρο πλοήγησης"
 
 #: libraries/config/messages.inc.php:499
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Εμφάνιση εκδόσεων"
+msgstr "Προβολή συμβάντων στο δέντρο"
 
 #: libraries/config/messages.inc.php:501
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Προβολή πλοήγησης βάσεων δεδομένων ως δέντρο"
+msgstr ""
+"Αν θα θα προβάλονται συμβάντα κάτω από τη βάση δεδομένων στο δέντρο πλοήγησης"
 
 #: libraries/config/messages.inc.php:503
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -8275,16 +8269,14 @@ msgid "View output as text"
 msgstr "Προβολή εξαγόμενου ως κείμενο"
 
 #: libraries/display_export.lib.php:660
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "Εξαγωγή προβολών ως πίνακες"
+msgstr "Εξαγωγή βάσεων δεδομένων ως χωριστά αρχεία"
 
 #: libraries/display_export.lib.php:662
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "Εξαγωγή κεφαλίδων πίνακα"
+msgstr "Εξαγωγή πινάκων ως χωριστά αρχεία"
 
 #: libraries/display_export.lib.php:692 libraries/display_export.lib.php:814
 msgid "Rename exported databases/tables/columns"
@@ -9296,10 +9288,9 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Ένα σφάλμα συμβαίνει κατά τη φόρτωση της προβολής πλοήγησης"
 
 #: libraries/navigation/Navigation.class.php:192
-#, fuzzy
 #| msgid "Group name:"
 msgid "Groups:"
-msgstr "Όνομα ομάδας:"
+msgstr "Ομάδες:"
 
 #: libraries/navigation/Navigation.class.php:193
 msgid "Events:"
@@ -11176,10 +11167,9 @@ msgid "Managing Central list of columns"
 msgstr "Διαχείριση Κεντρικής λίστας στηλών"
 
 #: libraries/relation.lib.php:324
-#, fuzzy
 #| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Απομνημόνευση ταξινόμησης πινάκων"
+msgstr "Απομνημόνευση Ρυθμίσεων Σχεδιαστή"
 
 #: libraries/relation.lib.php:332
 msgid "Quick steps to setup advanced features:"
