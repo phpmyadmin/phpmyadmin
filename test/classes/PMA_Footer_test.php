@@ -133,6 +133,30 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for _removeRecursion
+     *
+     * @return void
+     */
+    public function testRemoveRecursion()
+    {
+        $object = (object) array();
+        $object->child = (object) array();
+        $object->child->parent = $object;
+
+        $this->_callPrivateFunction(
+            '_removeRecursion',
+            array(
+                &$object
+            )
+        );
+
+        $this->assertEquals(
+            '{"child":{"parent":"***RECURSION***"}}',
+            json_encode($object)
+        );
+    }
+
+    /**
      * Test for _getSelfLink
      *
      * @return void
