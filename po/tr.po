@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-06-22 19:27+0200\n"
+"PO-Revision-Date: 2015-06-29 06:09+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -275,10 +275,9 @@ msgid "Data"
 msgstr "Veri"
 
 #: db_export.php:54
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
-msgstr "Tümünü Seç"
+msgstr "Tümünü seç"
 
 #: db_operations.php:51 tbl_create.php:24
 msgid "The database name is empty!"
@@ -6111,16 +6110,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Gezinti panelinin görünümünü özelleştirir."
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Gezinti paneli"
+msgstr "Gezinti ağacı"
 
 #: libraries/config/messages.inc.php:249
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Gezinti panelini özelleştir"
+msgstr "Gezinti ağacını özelleştirir."
 
 #: libraries/config/messages.inc.php:250 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
@@ -6720,62 +6717,60 @@ msgid "Enable navigation tree expansion"
 msgstr "Gezinti ağacı genişlemesini etkinleştir"
 
 #: libraries/config/messages.inc.php:487
-#, fuzzy
 #| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Tablolar listesini göster/gizle"
+msgstr "Tabloları ağaçta göster"
 
 #: libraries/config/messages.inc.php:489
-#, fuzzy
 #| msgid ""
 #| "Whether to offer the possibility of tree expansion in the navigation "
 #| "panel."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "Gezinti panelinde ağaç genişleme olanağının sunulup sunulmayacağı."
+msgstr ""
+"Gezinti ağacındaki veritabanı altında tabloların gösterilip gösterilmeyeceği"
 
 #: libraries/config/messages.inc.php:490
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Sürümleri göster"
+msgstr "Görünümleri ağaç içinde göster"
 
 #: libraries/config/messages.inc.php:492
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Veritabanlarını gezinti ağacı olarak göster"
+msgstr ""
+"Gezinti ağacındaki veritabanı altında görünümlerin gösterilip "
+"gösterilmeyeceği"
 
 #: libraries/config/messages.inc.php:493
-#, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "İşlev alanlarını göster"
+msgstr "İşlevleri ağaç içinde göster"
 
 #: libraries/config/messages.inc.php:495
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
+"Gezinti ağacındaki veritabanı altında işlevlerin gösterilip gösterilmeyeceği"
 
 #: libraries/config/messages.inc.php:496
-#, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "İşlemleri göster"
+msgstr "Yordamları ağaç içinde göster"
 
 #: libraries/config/messages.inc.php:498
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
+"Gezinti ağacındaki veritabanı altında yordamların gösterilip gösterilmeyeceği"
 
 #: libraries/config/messages.inc.php:499
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Sürümleri göster"
+msgstr "Olayları ağaç içinde göster"
 
 #: libraries/config/messages.inc.php:501
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Veritabanlarını gezinti ağacı olarak göster"
+msgstr ""
+"Gezinti ağacındaki veritabanı altında olayların gösterilip gösterilmeyeceği"
 
 #: libraries/config/messages.inc.php:503
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -8206,16 +8201,14 @@ msgid "View output as text"
 msgstr "Çıktıyı metin olarak göster"
 
 #: libraries/display_export.lib.php:660
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "Görünümleri tablolar halinde dışa aktar"
+msgstr "Veritabanlarını ayrı dosyalar olarak dışa aktar"
 
 #: libraries/display_export.lib.php:662
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "Tablo başlıklarını dışa aktar"
+msgstr "Tabloları ayrı dosyalar olarak dışa aktar"
 
 #: libraries/display_export.lib.php:692 libraries/display_export.lib.php:814
 msgid "Rename exported databases/tables/columns"
@@ -9223,10 +9216,9 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Gezinti görüntüsü yüklenirken bir hata meydana geldi"
 
 #: libraries/navigation/Navigation.class.php:192
-#, fuzzy
 #| msgid "Group name:"
 msgid "Groups:"
-msgstr "Grup adı:"
+msgstr "Gruplar:"
 
 #: libraries/navigation/Navigation.class.php:193
 msgid "Events:"
@@ -11088,10 +11080,9 @@ msgid "Managing Central list of columns"
 msgstr "Sütunların Merkezi listesi yönetimi"
 
 #: libraries/relation.lib.php:324
-#, fuzzy
 #| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Tablonun sıralamasını hatırla"
+msgstr "Tasarımcı Ayarlarını Hatırlama"
 
 #: libraries/relation.lib.php:332
 msgid "Quick steps to setup advanced features:"
