@@ -9,6 +9,7 @@
  */
 namespace SqlParser;
 
+use SqlParser\Statements\SelectStatement;
 use SqlParser\Exceptions\ParserException;
 
 /**
@@ -37,7 +38,7 @@ class Parser
         'ANALYZE'       => 'SqlParser\\Statements\\AnalyzeStatement',
         'BACKUP'        => 'SqlParser\\Statements\\BackupStatement',
         'CHECK'         => 'SqlParser\\Statements\\CheckStatement',
-        'CHECKSUM'      => 'SqlParser\\Statements\\ChecsumStatement',
+        'CHECKSUM'      => 'SqlParser\\Statements\\ChecksumStatement',
         'OPTIMIZE'      => 'SqlParser\\Statements\\OptimizeStatement',
         'REPAIR'        => 'SqlParser\\Statements\\RepairStatement',
         'RESTORE'       => 'SqlParser\\Statements\\RestoreStatement',
@@ -79,38 +80,51 @@ class Parser
      * @var array
      */
     public static $KEYWORD_PARSERS = array(
+
+        // This is not a proper keyword and was added here to help the builder.
+        '_OPTIONS'      => array(
+            'class'     => 'SqlParser\\Fragments\\OptionsFragment',
+            'field'     => 'options',
+        ),
+
         'ALTER'         => array(
             'class'     => 'SqlParser\\Fragments\\FieldFragment',
             'field'     => 'table',
             'options'   => array('skipColumn' => true),
         ),
         'ANALYZE'       => array(
-            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
             'field'     => 'tables',
+            'options'   => array('skipColumn' => true),
         ),
         'BACKUP'        => array(
-            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
             'field'     => 'tables',
+            'options'   => array('skipColumn' => true),
         ),
         'CALL'          => array(
             'class'     => 'SqlParser\\Fragments\\CallKeyword',
             'field'     => 'call',
         ),
         'CHECK'         => array(
-            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
             'field'     => 'tables',
+            'options'   => array('skipColumn' => true),
         ),
         'CHECKSUM'      => array(
-            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
             'field'     => 'tables',
+            'options'   => array('skipColumn' => true),
         ),
         'DROP'          => array(
-            'class'     => 'SqlParser\\Fragments\\FromKeyword',
-            'field'     => 'fields'
+            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
+            'field'     => 'fields',
+            'options'   => array('skipColumn' => true),
         ),
         'FROM'          => array(
-            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
             'field'     => 'from',
+            'options'   => array('skipColumn' => true),
         ),
         'GROUP BY'      => array(
             'class'     => 'SqlParser\\Fragments\\OrderKeyword',
@@ -133,8 +147,9 @@ class Parser
             'field'     => 'limit',
         ),
         'OPTIMIZE'      => array(
-            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
             'field'     => 'tables',
+            'options'   => array('skipColumn' => true),
         ),
         'ORDER BY'      => array(
             'class'     => 'SqlParser\\Fragments\\OrderKeyword',
@@ -153,24 +168,27 @@ class Parser
             'field'     => 'renames',
         ),
         'REPAIR'        => array(
-            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
             'field'     => 'tables',
+            'options'   => array('skipColumn' => true),
         ),
         'RESTORE'       => array(
-            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
             'field'     => 'tables',
+            'options'   => array('skipColumn' => true),
         ),
         'SET'           => array(
             'class'     => 'SqlParser\\Fragments\\SetKeyword',
             'field'     => 'set',
         ),
         'SELECT'        => array(
-            'class'     => 'SqlParser\\Fragments\\SelectKeyword',
+            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
             'field'     => 'expr',
         ),
         'UPDATE'        => array(
-            'class'     => 'SqlParser\\Fragments\\FromKeyword',
+            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
             'field'     => 'from',
+            'options'   => array('skipColumn' => true),
         ),
         'VALUE'         => array(
             'class'     => 'SqlParser\\Fragments\\ValuesKeyword',
@@ -252,6 +270,29 @@ class Parser
      */
     public function parse()
     {
+
+        /**
+         * Last parsed statement.
+         * @var Statement
+         */
+        $lastStatement = null;
+
+        /**
+         * Whether a union is parsed or not.
+         * @var bool
+         */
+        $inUnion = true;
+
+        /**
+         * The index of the last token from the last statement.
+         * @var int
+         */
+        $prevLastIdx = -1;
+
+        /**
+         * The list of tokens.
+         * @var TokensList
+         */
         $list = &$this->list;
 
         for (; $list->idx < $list->count; ++$list->idx) {
@@ -268,13 +309,21 @@ class Parser
                 continue;
             }
 
+            if ($token->value === 'UNION') {
+                $inUnion = true;
+                continue;
+            }
+
             // Checking if it is a known statement that can be parsed.
             if (empty(static::$STATEMENT_PARSERS[$token->value])) {
                 $this->error(
                     'Unrecognized statement type "' . $token->value . '".',
                     $token
                 );
+                // Skipping to the end of this statement.
                 $list->getNextOfType(Token::TYPE_DELIMITER);
+                //
+                $prevLastIdx = $list->idx;
                 continue;
             }
 
@@ -290,8 +339,32 @@ class Parser
              */
             $stmt = new $class();
 
+            // The first token that is a part of this token is the next token
+            // unprocessed by the previous statement.
+            // There might be brackets around statements and this shouldn't
+            // affect the parser
+            $stmt->first = $prevLastIdx + 1;
+
+            // Parsing the actual statement.
             $stmt->parse($this, $this->list);
-            $this->statements[] = $stmt;
+
+            // Storing the index of the last token parsed and updating the old
+            // index.
+            $stmt->last = $list->idx;
+            $prevLastIdx = $list->idx;
+
+            // Finally, storing the statement.
+            if (($inUnion)
+                && ($lastStatement instanceof SelectStatement)
+                && ($stmt instanceof SelectStatement)
+            ) {
+                $lastStatement->union[] = $stmt;
+                $inUnion = false;
+            } else {
+                $this->statements[] = $stmt;
+                $lastStatement = $stmt;
+            }
+
         }
     }
 

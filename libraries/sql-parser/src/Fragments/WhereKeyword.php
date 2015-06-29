@@ -47,6 +47,16 @@ class WhereKeyword extends Fragment
     public $condition;
 
     /**
+     * Constructor.
+     *
+     * @param string $condition The condition or the operator.
+     */
+    public function __construct($condition = null)
+    {
+        $this->condition = trim($condition);
+    }
+
+    /**
      * @param Parser     $parser  The parser that serves as context.
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
@@ -57,10 +67,13 @@ class WhereKeyword extends Fragment
     {
         $ret = array();
 
-        $expr = new WhereKeyword();
+        /**
+         * The condition that was parsed so far.
+         * @var string
+         */
+        $condition = '';
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              * @var Token
@@ -73,22 +86,22 @@ class WhereKeyword extends Fragment
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if ($token->type === Token::TYPE_COMMENT) {
                 continue;
             }
 
             // Conditions are delimited by logical operators.
             if (in_array($token->value, static::$OPERATORS, true)) {
-                if (!empty($expr->condition)) {
-                    $ret[] = $expr;
+                if (!empty(trim($condition))) {
+                    // Adding the condition that is delimited by this operator.
+                    $ret[] = new WhereKeyword($condition);
+                    $condition = '';
                 }
 
-                $expr = new WhereKeyword();
+                // Adding the operator.
+                $expr = new WhereKeyword($token->value);
                 $expr->isOperator = true;
-                $expr->condition = $token->value;
                 $ret[] = $expr;
-
-                $expr = new WhereKeyword();
 
                 continue;
             }
@@ -98,16 +111,30 @@ class WhereKeyword extends Fragment
                 break;
             }
 
-            $expr->condition .= $token->token;
+            $condition .= $token->token;
 
         }
 
         // Last iteration was not processed.
-        if (!empty($expr->condition)) {
-            $ret[] = $expr;
+        if (!empty(trim($condition))) {
+            $ret[] = new WhereKeyword($condition);
         }
 
         --$list->idx;
         return $ret;
+    }
+
+    /**
+     * @param WhereKeyword $fragment The fragment to be built.
+     *
+     * @return string
+     */
+    public static function build($fragment)
+    {
+        $conditions = array();
+        foreach ($fragment as $f) {
+            $conditions[] = $f->condition;
+        }
+        return implode(' ', $conditions);
     }
 }

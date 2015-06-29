@@ -28,6 +28,8 @@ class NotImplementedStatement extends Statement
 {
 
     /**
+     * Function called after the token was processed.
+     *
      * Jump to the end of the delimiter.
      *
      * @param Parser     $parser The instance that requests parsing.

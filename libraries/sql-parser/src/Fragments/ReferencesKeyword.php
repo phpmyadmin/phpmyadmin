@@ -84,7 +84,6 @@ class ReferencesKeyword extends Fragment
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              * @var Token
@@ -104,10 +103,10 @@ class ReferencesKeyword extends Fragment
             if ($state === 0) {
                 $ret->table = $token->value;
                 $state = 1;
-            } else if ($state === 1) {
+            } elseif ($state === 1) {
                 $ret->columns = ArrayFragment::parse($parser, $list)->values;
                 $state = 2;
-            } else if ($state === 2) {
+            } elseif ($state === 2) {
                 $ret->options = OptionsFragment::parse($parser, $list, static::$REFERENCES_OPTIONS);
                 ++$list->idx;
                 break;

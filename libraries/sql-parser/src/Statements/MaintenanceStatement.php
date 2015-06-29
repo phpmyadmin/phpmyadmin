@@ -37,6 +37,8 @@ class MaintenanceStatement extends Statement
     public $tables;
 
     /**
+     * Function called after the token was processed.
+     *
      * Parses the additional options fragment at the end.
      *
      * @param Parser     $parser The instance that requests parsing.

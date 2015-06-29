@@ -217,52 +217,52 @@ class Token
     public function extract()
     {
         switch ($this->type) {
-        case Token::TYPE_KEYWORD:
-            if (!($this->flags & Token::FLAG_KEYWORD_RESERVED)) {
-                // Unreserved keywords should stay the way they are because they
-                // might represent field names.
-                return $this->token;
-            }
-            return strtoupper($this->token);
-        case Token::TYPE_WHITESPACE:
-            return ' ';
-        case Token::TYPE_BOOL:
-            return strtoupper($this->token) === 'TRUE';
-        case Token::TYPE_NUMBER:
-            $ret = str_replace('--', '', $this->token); // e.g. ---42 === -42
-            if ($this->flags & Token::FLAG_NUMBER_HEX) {
-                if ($this->flags & Token::FLAG_NUMBER_NEGATIVE) {
-                    $ret = str_replace('-', '', $this->token);
-                    sscanf($ret, "%x", $ret);
-                    $ret = -$ret;
-                } else {
-                    sscanf($ret, "%x", $ret);
+            case Token::TYPE_KEYWORD:
+                if (!($this->flags & Token::FLAG_KEYWORD_RESERVED)) {
+                    // Unreserved keywords should stay the way they are because they
+                    // might represent field names.
+                    return $this->token;
                 }
-            } elseif (($this->flags & Token::FLAG_NUMBER_APPROXIMATE)
+                return strtoupper($this->token);
+            case Token::TYPE_WHITESPACE:
+                return ' ';
+            case Token::TYPE_BOOL:
+                return strtoupper($this->token) === 'TRUE';
+            case Token::TYPE_NUMBER:
+                $ret = str_replace('--', '', $this->token); // e.g. ---42 === -42
+                if ($this->flags & Token::FLAG_NUMBER_HEX) {
+                    if ($this->flags & Token::FLAG_NUMBER_NEGATIVE) {
+                        $ret = str_replace('-', '', $this->token);
+                        sscanf($ret, "%x", $ret);
+                        $ret = -$ret;
+                    } else {
+                        sscanf($ret, "%x", $ret);
+                    }
+                } elseif (($this->flags & Token::FLAG_NUMBER_APPROXIMATE)
                 || ($this->flags & Token::FLAG_NUMBER_FLOAT)
-            ) {
-                sscanf($ret, "%f", $ret);
-            } else {
-                sscanf($ret, "%d", $ret);
-            }
-            return $ret;
-        case Token::TYPE_STRING:
-            $quote = $this->token[0];
-            $str = str_replace($quote . $quote, $quote, $this->token);
-            return mb_substr($str, 1, -1); // trims quotes
-        case Token::TYPE_SYMBOL:
-            $str = $this->token;
-            if ((isset($str[0])) && ($str[0] === '@')) {
-                $str = mb_substr($str, 1);
-            }
-            if ((isset($str[0])) && (($str[0] === '`')
+                ) {
+                    sscanf($ret, "%f", $ret);
+                } else {
+                    sscanf($ret, "%d", $ret);
+                }
+                return $ret;
+            case Token::TYPE_STRING:
+                $quote = $this->token[0];
+                $str = str_replace($quote . $quote, $quote, $this->token);
+                return mb_substr($str, 1, -1); // trims quotes
+            case Token::TYPE_SYMBOL:
+                $str = $this->token;
+                if ((isset($str[0])) && ($str[0] === '@')) {
+                    $str = mb_substr($str, 1);
+                }
+                if ((isset($str[0])) && (($str[0] === '`')
                 || ($str[0] === '"') || ($str[0] === '\''))
-            ) {
-                $quote = $str[0];
-                $str = str_replace($quote . $quote, $quote, $str);
-                $str = mb_substr($str, 1, -1);
-            }
-            return $str;
+                ) {
+                    $quote = $str[0];
+                    $str = str_replace($quote . $quote, $quote, $str);
+                    $str = mb_substr($str, 1, -1);
+                }
+                return $str;
         }
         return $this->token;
     }

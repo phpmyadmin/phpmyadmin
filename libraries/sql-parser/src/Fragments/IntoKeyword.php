@@ -74,7 +74,6 @@ class IntoKeyword extends Fragment
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              * @var Token
@@ -105,13 +104,13 @@ class IntoKeyword extends Fragment
             if ($state === 0) {
                 $ret->name = $token->value;
                 $state = 1;
-            } else if ($state === 1) {
+            } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
                     $ret->fields = ArrayFragment::parse($parser, $list)->values;
                     ++$list->idx;
                 }
                 break;
-            } else if ($state === 2) {
+            } elseif ($state === 2) {
                 $ret->name = $token->value;
                 ++$list->idx;
                 break;

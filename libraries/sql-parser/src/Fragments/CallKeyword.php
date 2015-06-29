@@ -35,9 +35,25 @@ class CallKeyword extends Fragment
     /**
      * The list of parameters
      *
-     * @var array
+     * @var ArrayFragment
      */
-    public $parameters = array();
+    public $parameters;
+
+    /**
+     * Constructor.
+     *
+     * @param string              $name       The name of the function to be called.
+     * @param array|ArrayFragment $parameters The parameters of this function.
+     */
+    public function __construct($name = null, $parameters = null)
+    {
+        $this->name = $name;
+        if (is_array($parameters)) {
+            $this->parameters = new ArrayFragment($parameters);
+        } elseif ($parameters instanceof ArrayFragment) {
+            $this->parameters = $parameters;
+        }
+    }
 
     /**
      * @param Parser     $parser  The parser that serves as context.
@@ -64,7 +80,6 @@ class CallKeyword extends Fragment
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              * @var Token
@@ -86,7 +101,7 @@ class CallKeyword extends Fragment
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $ret->parameters = ArrayFragment::parse($parser, $list)->values;
+                    $ret->parameters = ArrayFragment::parse($parser, $list);
                 }
                 break;
             }
@@ -94,5 +109,15 @@ class CallKeyword extends Fragment
         }
 
         return $ret;
+    }
+
+    /**
+     * @param CallKeyword $fragment The fragment to be built.
+     *
+     * @return string
+     */
+    public static function build(CallKeyword $fragment)
+    {
+        return $fragment->name . ArrayFragment::build($fragment->parameters);
     }
 }

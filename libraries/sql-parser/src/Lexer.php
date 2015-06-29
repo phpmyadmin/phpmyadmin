@@ -168,7 +168,6 @@ class Lexer
         $lastToken = null;
 
         for ($this->last = 0, $lastIdx = 0; $this->last < $this->len; $lastIdx = ++$this->last) {
-
             /**
              * The new token.
              * @var Token

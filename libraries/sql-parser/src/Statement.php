@@ -27,6 +27,20 @@ abstract class Statement
 {
 
     /**
+     * The clauses of this statement, in order.
+     *
+     * The value attributed to each clause is used by the builder and it may
+     * have one of the following values:
+     *
+     *     - 1 = 01 - add the clause only
+     *     - 2 = 10 - add the keyword
+     *     - 3 = 11 - add both the keyword and the clause
+     *
+     * @var array
+     */
+    public static $CLAUSES;
+
+    /**
      * The options of this query.
      *
      * @var OptionsFragment
@@ -59,8 +73,6 @@ abstract class Statement
      */
     public function parse(Parser $parser, TokensList $list)
     {
-        $this->first = $list->idx;
-
         /**
          * Whether options were parsed or not.
          * For statements that do not have any options this is set to `true` by
@@ -70,7 +82,6 @@ abstract class Statement
         $parsedOptions = isset(static::$OPTIONS) ? false : true;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              * @var Token
@@ -86,6 +97,12 @@ abstract class Statement
             // processed in the functions below.
             if ($token->type !== Token::TYPE_KEYWORD) {
                 continue;
+            }
+
+            // Unions are parsed by the parser because they represent more than
+            // one statement.
+            if ($token->value === 'UNION') {
+                break;
             }
 
             /**
@@ -124,7 +141,7 @@ abstract class Statement
                     );
                     $parsedOptions = true;
                 }
-            } else if ($class === null) {
+            } elseif ($class === null) {
                 // There is no parser for this keyword and isn't the beggining
                 // of a statement (so no options) either.
                 $parser->error(
@@ -145,11 +162,11 @@ abstract class Statement
             $this->after($parser, $list, $token);
         }
 
-        $this->last = $list->idx--; // Go back to last used token.
+        --$list->idx; // Go back to last used token.
     }
 
     /**
-     * Function called before the token was processed.
+     * Function called before the token is processed.
      *
      * @param Parser     $parser The instance that requests parsing.
      * @param TokensList $list   The list of tokens to be parsed.
@@ -175,5 +192,4 @@ abstract class Statement
     {
 
     }
-
 }

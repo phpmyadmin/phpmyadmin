@@ -40,6 +40,18 @@ class LimitKeyword extends Fragment
     public $rowCount;
 
     /**
+     * Constructor.
+     *
+     * @param int $rowCount The row count.
+     * @param int $offset   The offset.
+     */
+    public function __construct($rowCount = null, $offset = null)
+    {
+        $this->rowCount = $rowCount;
+        $this->offset = $offset;
+    }
+
+    /**
      * @param Parser     $parser  The parser that serves as context.
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
@@ -53,7 +65,6 @@ class LimitKeyword extends Fragment
         $offset = false;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              * @var Token
@@ -102,5 +113,19 @@ class LimitKeyword extends Fragment
 
         --$list->idx;
         return $ret;
+    }
+
+    /**
+     * @param LimitKeyword $fragment The fragment to be built.
+     *
+     * @return string
+     */
+    public static function build($fragment)
+    {
+        if (empty($fragment->offset)) {
+            return $fragment->rowCount;
+        } else {
+            return $fragment->offset . ', ' . $fragment->rowCount;
+        }
     }
 }

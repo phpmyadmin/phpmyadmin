@@ -26,6 +26,13 @@ class ArrayFragment extends Fragment
 {
 
     /**
+     * The array that contains the unprocessed value of each token.
+     *
+     * @var array
+     */
+    public $raw = array();
+
+    /**
      * The array that contains the processed value of each token.
      *
      * @var array
@@ -33,11 +40,16 @@ class ArrayFragment extends Fragment
     public $values = array();
 
     /**
-     * The array that contains the unprocessed value of each token.
+     * Constructor.
      *
-     * @var array
+     * @param array $raw    The unprocessed values.
+     * @param array $values The processed values.
      */
-    public $raw = array();
+    public function __construct(array $raw = array(), array $values = array())
+    {
+        $this->raw = $raw;
+        $this->values = $values;
+    }
 
     /**
      * @param Parser     $parser  The parser that serves as context.
@@ -67,7 +79,6 @@ class ArrayFragment extends Fragment
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              * @var Token
@@ -113,5 +124,23 @@ class ArrayFragment extends Fragment
         }
 
         return $ret;
+    }
+
+    /**
+     * @param ArrayFragment $fragment The fragment to be built.
+     *
+     * @return string
+     */
+    public static function build(ArrayFragment $fragment)
+    {
+        $values = array();
+        if (!empty($fragment->raw)) {
+            $values = $fragment->raw;
+        } else {
+            foreach ($fragment->values as $value) {
+                $values[] = $value;
+            }
+        }
+        return '(' . implode(', ', $values) . ')';
     }
 }

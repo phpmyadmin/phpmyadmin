@@ -1,7 +1,7 @@
 <?php
 
 /**
- * `SELECT` keyword parser.
+ * Parses a a list of fields delimited by a single comma.
  *
  * @package    SqlParser
  * @subpackage Fragments
@@ -14,7 +14,7 @@ use SqlParser\Token;
 use SqlParser\TokensList;
 
 /**
- * `SELECT` keyword parser.
+ * Parses a a list of fields delimited by a single comma.
  *
  * @category   Keywords
  * @package    SqlParser
@@ -22,7 +22,7 @@ use SqlParser\TokensList;
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class SelectKeyword extends Fragment
+class FieldListFragment extends Fragment
 {
 
     /**
@@ -39,7 +39,6 @@ class SelectKeyword extends Fragment
         $expr = null;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              * @var Token
@@ -64,7 +63,7 @@ class SelectKeyword extends Fragment
             if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
                 $ret[] = $expr;
             } else {
-                $expr = FieldFragment::parse($parser, $list);
+                $expr = FieldFragment::parse($parser, $list, $options);
                 if ($expr === null) {
                     break;
                 }
@@ -79,5 +78,14 @@ class SelectKeyword extends Fragment
 
         --$list->idx;
         return $ret;
+    }
+
+    public static function build($fragment)
+    {
+        $ret = array();
+        foreach ($fragment as $frag) {
+            $ret[] = $frag::build($frag);
+        }
+        return implode($ret, ', ');
     }
 }

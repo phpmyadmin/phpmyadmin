@@ -100,6 +100,8 @@ class CreateStatement extends Statement
     public $body;
 
     /**
+     * Function called before the token is processed.
+     *
      * Parsing the `CREATE` statement.
      *
      * @param Parser     $parser The instance that requests parsing.

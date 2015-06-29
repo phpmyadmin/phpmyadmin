@@ -28,8 +28,7 @@ extract($analyzed_sql_results);
 if (!empty($analyzed_sql_results['select_tables'])) {
 
     // Previous table and database name is stored to check if it changed.
-    $prevDb = $db;
-    $prevTable = $table;
+    $prev_db = $db;
 
     if (count($analyzed_sql_results['select_tables']) > 1) {
 
@@ -50,9 +49,8 @@ if (!empty($analyzed_sql_results['select_tables'])) {
     // There is no point checking if a reload is required if we already decided
     // to reload. Also, no reload is required for AJAX requests.
     if ((empty($reload)) && (empty($GLOBALS['is_ajax_request']))) {
-        // NOTE: Tables are case-insensitive.
-        $reload  = ((strcasecmp($db, $prevDb) == 0)
-            || (strcasecmp($table, $prevTable)) == 0) ? false : true;
+        // NOTE: Database names are case-insensitive.
+        $reload  = strcasecmp($db, $prev_db) != 0;
     }
 
     // Updating the array as well.

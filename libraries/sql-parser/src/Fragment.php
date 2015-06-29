@@ -38,4 +38,15 @@ abstract class Fragment
         return null;
     }
 
+    /**
+     * Builds the string representation of a fragment of this type.
+     *
+     * @param Fragment $fragment The fragment to be built.
+     *
+     * @return string
+     */
+    public static function build(Fragment $fragment)
+    {
+        return null;
+    }
 }

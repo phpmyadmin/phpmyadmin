@@ -67,7 +67,6 @@ class OrderKeyword extends Fragment
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              * @var Token
@@ -90,7 +89,7 @@ class OrderKeyword extends Fragment
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_KEYWORD) && (($token->value === 'ASC') || ($token->value === 'DESC'))) {
                     $expr->type = $token->value;
-                } else if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
+                } elseif (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
                     if (!empty($expr->field)) {
                         $ret[] = $expr;
                     }

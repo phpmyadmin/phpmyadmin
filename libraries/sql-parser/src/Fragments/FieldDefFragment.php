@@ -129,7 +129,6 @@ class FieldDefFragment extends Fragment
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              * @var Token
@@ -176,7 +175,7 @@ class FieldDefFragment extends Fragment
                     --$list->idx;
                 }
                 $state = 5;
-            } else if ($state === 5) {
+            } elseif ($state === 5) {
                 if ((!empty($expr->type)) || (!empty($expr->key))) {
                     $ret[] = $expr;
                 }

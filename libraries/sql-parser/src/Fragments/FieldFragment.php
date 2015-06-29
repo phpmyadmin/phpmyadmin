@@ -75,6 +75,38 @@ class FieldFragment extends Fragment
     public $subquery;
 
     /**
+     * Constructor.
+     *
+     * Syntax:
+     *     new FieldFragment('expr')
+     *     new FieldFragment('expr', 'alias')
+     *     new FieldFragment('database', 'table', 'column')
+     *     new FieldFragment('database', 'table', 'column', 'alias')
+     *
+     * If the database, table or column name is not required, pass an empty
+     * string.
+     *
+     * @param string $database The name of the database or the the expression.
+     *                          the the expression.
+     * @param string $table    The name of the table or the alias of the expression.
+     *                          the alias of the expression.
+     * @param string $column   The name of the column.
+     * @param string $alias    The name of the alias.
+     */
+    public function __construct($database = null, $table = null, $column = null, $alias = null)
+    {
+        if (($column === null) && ($alias === null)) {
+            $this->expr = $database; // case 1
+            $this->alias = $table; // case 2
+        } else {
+            $this->database = $database; // case 3
+            $this->table = $table; // case 3
+            $this->column = $column; // case 3
+            $this->alias = $alias; // case 4
+        }
+    }
+
+    /**
      * @param Parser     $parser  The parser that serves as context.
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
@@ -120,7 +152,6 @@ class FieldFragment extends Fragment
         $prev = null;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              * @var Token
@@ -150,8 +181,10 @@ class FieldFragment extends Fragment
                         $alias = 2;
                         continue;
                     }
-                    break;
-                } else if ($prev === true) {
+                    if (!($token->flags & Token::FLAG_KEYWORD_FUNCTION)) {
+                        break;
+                    }
+                } elseif ($prev === true) {
                     if ((empty($ret->subquery) && (!empty(Parser::$STATEMENT_PARSERS[$token->value])))) {
                         // A `(` was previously found and this keyword is the
                         // beginning of a statement, so this is a subquery.
@@ -236,7 +269,7 @@ class FieldFragment extends Fragment
 
             if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_FUNCTION)) {
                 $prev = strtoupper($token->value);
-            } else if (($token->type === Token::TYPE_OPERATOR) || ($token->value === '(')) {
+            } elseif (($token->type === Token::TYPE_OPERATOR) || ($token->value === '(')) {
                 $prev = true;
             } else {
                 $prev = null;
@@ -256,6 +289,38 @@ class FieldFragment extends Fragment
         }
 
         --$list->idx;
+        return $ret;
+    }
+
+    /**
+     * @param FieldFragment $fragment The fragment to be built.
+     *
+     * @return string
+     */
+    public static function build($fragment)
+    {
+        $ret = '';
+
+        if (!empty($fragment->expr)) {
+            $ret = $fragment->expr;
+        } else {
+            $fields = array();
+            if (!empty($fragment->database)) {
+                $fields[] = $fragment->database;
+            }
+            if (!empty($fragment->table)) {
+                $fields[] = $fragment->table;
+            }
+            if (!empty($fragment->column)) {
+                $fields[] = $fragment->column;
+            }
+            $ret = implode('.', $fields);
+        }
+
+        if (!empty($fragment->alias)) {
+            $ret .= ' AS ' . $fragment->alias;
+        }
+
         return $ret;
     }
 }

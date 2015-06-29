@@ -43,7 +43,6 @@ class Table
         $ret = array();
 
         foreach ($statement->fields as $field) {
-
             if ((empty($field->key)) || ($field->key->type !== 'FOREIGN KEY')) {
                 continue;
             }
@@ -93,7 +92,6 @@ class Table
         $ret = array();
 
         foreach ($statement->fields as $field) {
-
             // Skipping keys.
             if (empty($field->type)) {
                 continue;
@@ -105,7 +103,6 @@ class Table
             );
 
             if ($field->options) {
-
                 if ($field->type->name === 'TIMESTAMP') {
                     if ($field->options->has('NOT NULL')) {
                         $ret[$field->name]['timestamp_not_null'] = true;

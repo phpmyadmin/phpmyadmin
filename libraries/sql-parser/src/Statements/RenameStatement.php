@@ -36,6 +36,8 @@ class RenameStatement extends Statement
     public $renames;
 
     /**
+     * Function called before the token is processed.
+     *
      * Skips the `TABLE` keyword after `RENAME`.
      *
      * @param Parser     $parser The instance that requests parsing.

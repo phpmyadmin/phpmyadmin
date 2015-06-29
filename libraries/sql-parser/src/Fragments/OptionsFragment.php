@@ -33,6 +33,17 @@ class OptionsFragment extends Fragment
     public $options = array();
 
     /**
+     * Constructor.
+     *
+     * @param array $options The array of options. Options that have a value
+     *                       must be an array with two keys 'name' and 'value'.
+     */
+    public function __construct(array $options = array())
+    {
+        $this->options = $options;
+    }
+
+    /**
      * @param Parser     $parser  The parser that serves as context.
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
@@ -59,7 +70,6 @@ class OptionsFragment extends Fragment
         $brackets = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              * @var Token
@@ -128,6 +138,24 @@ class OptionsFragment extends Fragment
     }
 
     /**
+     * @param OptionsFragment $fragment The fragment to be built.
+     *
+     * @return string
+     */
+    public static function build(OptionsFragment $fragment)
+    {
+        $options = array();
+        foreach ($fragment->options as $option) {
+            if (is_array($option)) {
+                $options[] = $option['name'] . '=' . $option['value'];
+            } else {
+                $options[] = $option;
+            }
+        }
+        return implode(' ', $options);
+    }
+
+    /**
      * Checks if it has the specified option and returns it value or true.
      *
      * @param string $key The key to be checked.
@@ -158,7 +186,7 @@ class OptionsFragment extends Fragment
     {
         if (is_array($options)) {
             $this->options = array_merge_recursive($this->options, $options);
-        } else if ($options instanceof OptionsFragment) {
+        } elseif ($options instanceof OptionsFragment) {
             $this->options = array_merge_recursive($this->options, $options->options);
         }
     }

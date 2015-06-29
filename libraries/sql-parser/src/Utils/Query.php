@@ -222,32 +222,32 @@ class Query
         if ($statement instanceof AlterStatement) {
             $flags['querytype'] = 'ALTER';
             $flags['reload'] = true;
-        } else if ($statement instanceof CreateStatement) {
+        } elseif ($statement instanceof CreateStatement) {
             $flags['querytype'] = 'CREATE';
             $flags['reload'] = true;
-        } else if ($statement instanceof AnalyzeStatement) {
+        } elseif ($statement instanceof AnalyzeStatement) {
             $flags['querytype'] = 'ANALYZE';
             $flags['is_maint'] = true;
-        } else if ($statement instanceof CheckStatement) {
+        } elseif ($statement instanceof CheckStatement) {
             $flags['querytype'] = 'CHECK';
             $flags['is_maint'] = true;
-        } else if ($statement instanceof ChecksumStatement) {
+        } elseif ($statement instanceof ChecksumStatement) {
             $flags['querytype'] = 'CHECKSUM';
             $flags['is_maint'] = true;
-        } else if ($statement instanceof OptimizeStatement) {
+        } elseif ($statement instanceof OptimizeStatement) {
             $flags['querytype'] = 'OPTIMIZE';
             $flags['is_maint'] = true;
-        } else if ($statement instanceof RepairStatement) {
+        } elseif ($statement instanceof RepairStatement) {
             $flags['querytype'] = 'REPAIR';
             $flags['is_maint'] = true;
-        } else if ($statement instanceof CallStatement) {
+        } elseif ($statement instanceof CallStatement) {
             $flags['querytype'] = 'CALL';
             $flags['is_procedure'] = true;
-        } else if ($statement instanceof DeleteStatement) {
+        } elseif ($statement instanceof DeleteStatement) {
             $flags['querytype'] = 'DELETE';
             $flags['is_delete'] = true;
             $flags['is_affected'] = true;
-        } else if ($statement instanceof DropStatement) {
+        } elseif ($statement instanceof DropStatement) {
             $flags['querytype'] = 'DROP';
             $flags['reload'] = true;
 
@@ -256,19 +256,19 @@ class Query
             ) {
                 $flags['drop_database'] = true;
             }
-        } else if ($statement instanceof ExplainStatement) {
+        } elseif ($statement instanceof ExplainStatement) {
             $flags['querytype'] = 'EXPLAIN';
             $flags['is_explain'] = true;
-        } else if ($statement instanceof InsertStatement) {
+        } elseif ($statement instanceof InsertStatement) {
             $flags['querytype'] = 'INSERT';
             $flags['is_affected'] = true;
             $flags['is_insert'] = true;
-        } else if ($statement instanceof ReplaceStatement) {
+        } elseif ($statement instanceof ReplaceStatement) {
             $flags['querytype'] = 'REPLACE';
             $flags['is_affected'] = true;
             $flags['is_replace'] = true;
             $flags['is_insert'] = true;
-        } else if ($statement instanceof SelectStatement) {
+        } elseif ($statement instanceof SelectStatement) {
             $flags['querytype'] = 'SELECT';
             $flags['is_select'] = true;
 
@@ -294,7 +294,7 @@ class Query
                 if (!empty($expr->function)) {
                     if ($expr->function === 'COUNT') {
                         $flags['is_count'] = true;
-                    } else if (in_array($expr->function, static::$FUNCTIONS)) {
+                    } elseif (in_array($expr->function, static::$FUNCTIONS)) {
                         $flags['is_func'] = true;
                     }
                 }
@@ -325,10 +325,10 @@ class Query
                 $flags['join'] = true;
             }
 
-        } else if ($statement instanceof ShowStatement) {
+        } elseif ($statement instanceof ShowStatement) {
             $flags['querytype'] = 'SHOW';
             $flags['is_show'] = true;
-        } else if ($statement instanceof UpdateStatement) {
+        } elseif ($statement instanceof UpdateStatement) {
             $flags['querytype'] = 'UPDATE';
             $flags['is_affected'] = true;
         }
@@ -409,7 +409,7 @@ class Query
     /**
      * Gets the type of clause.
      *
-     * @param  string $clause The clause.
+     * @param string $clause The clause.
      *
      * @return string
      */
@@ -450,7 +450,7 @@ class Query
     {
 
         /**
-         * Current location.
+         * The index of the current clause.
          * @var int
          */
         $currIdx = 0;
@@ -469,18 +469,19 @@ class Query
         $ret = '';
 
         /**
-         * The place where the clause should be added.
+         * The clauses of this type of statement and their index.
+         * @var array
+         */
+        $clauses = array_flip(array_keys($statement::$CLAUSES));
+
+        /**
+         * The index of this clause.
          * @var int
          */
-        $clauseIdx = $statement::$SECTIONS[static::getClauseType($clause)];
+        $clauseIdx = $clauses[static::getClauseType($clause)];
 
         for ($i = $statement->first; $i <= $statement->last; ++$i) {
-
             $token = $list->tokens[$i];
-
-            if ($token->type === Token::TYPE_DELIMITER) {
-                break;
-            }
 
             if ($token->type === Token::TYPE_OPERATOR) {
                 if ($token->value === '(') {
@@ -493,9 +494,9 @@ class Query
             if ($brackets == 0) {
                 // Checking if we changed sections.
                 if ($token->type === Token::TYPE_KEYWORD) {
-                    if (isset($statement::$SECTIONS[$token->value])) {
-                        if ($statement::$SECTIONS[$token->value] >= $currIdx) {
-                            $currIdx = $statement::$SECTIONS[$token->value];
+                    if (isset($clauses[$token->value])) {
+                        if ($clauses[$token->value] >= $currIdx) {
+                            $currIdx = $clauses[$token->value];
                             if (($skipFirst) && ($currIdx == $clauseIdx)) {
                                 // This token is skipped (not added to the old
                                 // clause) because it will be replaced.
@@ -546,5 +547,4 @@ class Query
             $clause . ' ' .
             static::getClause($statement, $list, $clause, 1, false);
     }
-
 }

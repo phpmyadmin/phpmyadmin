@@ -68,17 +68,29 @@ class SelectStatement extends Statement
     );
 
     /**
-     * The sections of this statement, in order.
+     * The clauses of this statement, in order.
      *
-     * Used by the query builder to arrange the clauses.
+     * @see  Statement::$CLAUSES
      *
      * @var array
      */
-    public static $SECTIONS = array(
-        'SELECT' => 0, '%OPTIONS' => 1,'FROM' => 2, 'PARTITION' => 3,
-        'WHERE' => 4, 'GROUP BY' => 5, 'HAVING' => 6, 'ORDER BY' => 7,
-        'LIMIT' => 8, 'PROCEDURE' => 9, 'INTO' => 10, 'UNION' => 11,
-        'JOIN' => 12, '%OPTIONS' => 13
+    public static $CLAUSES = array(
+        'SELECT'                        => array('SELECT',      2),
+        // Used for options.
+        '_OPTIONS'                      => array('_OPTIONS',    1),
+        // Used for select expressions.
+        '_SELECT'                       => array('SELECT',      1),
+        'FROM'                          => array('FROM',        3),
+        'PARTITION'                     => array('PARTITION',   3),
+        'WHERE'                         => array('WHERE',       3),
+        'GROUP BY'                      => array('GROUP BY',    3),
+        'HAVING'                        => array('HAVING',      3),
+        'ORDER BY'                      => array('ORDER BY',    3),
+        'LIMIT'                         => array('LIMIT',       3),
+        'PROCEDURE'                     => array('PROCEDURE',   3),
+        'INTO'                          => array('INTO',        3),
+        'UNION'                         => array('UNION',       3),
+        'JOIN'                          => array('JOIN',        3),
     );
 
     /**
@@ -86,33 +98,33 @@ class SelectStatement extends Statement
      *
      * @var FieldFragment[]
      */
-    public $expr;
+    public $expr = array();
 
     /**
      * Tables used as sources for this statement.
      *
      * @var FieldFragment[]
      */
-    public $from;
+    public $from = array();
 
     /**
      * Partitions used as source for this statement.
      *
-     * @var ArrayFragment[]
+     * @var ArrayFragment
      */
     public $partition;
 
     /**
      * Conditions used for filtering each row of the result set.
      *
-     * @var WhereKeyword
+     * @var WhereKeyword[]
      */
     public $where;
 
     /**
      * Conditions used for grouping the result set.
      *
-     * @var GroupKeyword
+     * @var OrderKeyword[]
      */
     public $group;
 
@@ -157,4 +169,11 @@ class SelectStatement extends Statement
      * @var JoinKeyword
      */
     public $join;
+
+    /**
+     * Unions.
+     *
+     * @var SelectStatement[]
+     */
+    public $union = array();
 }

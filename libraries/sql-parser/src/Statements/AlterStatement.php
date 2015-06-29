@@ -97,6 +97,8 @@ class AlterStatement extends NotImplementedStatement
     );
 
     /**
+     * Function called after the token was processed.
+     *
      * Extracts the name of affected column.
      *
      * @param Parser     $parser The instance that requests parsing.
@@ -124,5 +126,4 @@ class AlterStatement extends NotImplementedStatement
         //
         parent::after($parser, $list, $token);
     }
-
 }
