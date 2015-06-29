@@ -108,33 +108,6 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var $form = $(this);
         var field_cnt = $form.find('input[name=orig_num_fields]').val();
 
-        /*
-         * First validate the form; if there is a problem, avoid submitting it
-         *
-         * checkTableEditForm() needs a pure element and not a jQuery object,
-         * this is why we pass $form[0] as a parameter (the jQuery object
-         * is actually an array of DOM elements)
-         */
-        if (checkTableEditForm($form[0], field_cnt)) {
-            // OK, form passed validation step
-
-            PMA_prepareForAjaxRequest($form);
-            if (PMA_checkReservedWordColumns($form)) {
-                //User wants to submit the form
-
-                // If Collation is changed, Warn and Confirm
-                if (checkIfConfirmRequired($form, field_cnt)){
-                    var question = sprintf(
-                        PMA_messages.strChangeColumnCollation, 'http://wiki.phpmyadmin.net/pma/Garbled_data'
-                    );
-                    $form.PMA_confirm(question, $form.attr('action'), function (url) {
-                        submitForm();
-                    });
-                } else {
-                    submitForm();
-                }
-            }
-        }
 
         function submitForm(){
             $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
@@ -180,6 +153,34 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 }
             }
             return checkRequired;
+        }
+
+        /*
+         * First validate the form; if there is a problem, avoid submitting it
+         *
+         * checkTableEditForm() needs a pure element and not a jQuery object,
+         * this is why we pass $form[0] as a parameter (the jQuery object
+         * is actually an array of DOM elements)
+         */
+        if (checkTableEditForm($form[0], field_cnt)) {
+            // OK, form passed validation step
+
+            PMA_prepareForAjaxRequest($form);
+            if (PMA_checkReservedWordColumns($form)) {
+                //User wants to submit the form
+
+                // If Collation is changed, Warn and Confirm
+                if (checkIfConfirmRequired($form, field_cnt)){
+                    var question = sprintf(
+                        PMA_messages.strChangeColumnCollation, 'http://wiki.phpmyadmin.net/pma/Garbled_data'
+                    );
+                    $form.PMA_confirm(question, $form.attr('action'), function (url) {
+                        submitForm();
+                    });
+                } else {
+                    submitForm();
+                }
+            }
         }
     }); // end change table button "do_save_data"
 
