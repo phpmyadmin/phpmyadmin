@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-06-26 19:46+0200\n"
+"PO-Revision-Date: 2015-06-29 08:33+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -279,7 +279,6 @@ msgid "Data"
 msgstr "Andmed"
 
 #: db_export.php:54
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "Vali kõik"
@@ -6061,16 +6060,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Muuda navigeerimise paneeli välimust."
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Navigeerimise paneel"
+msgstr "Navigeerimispuu"
 
 #: libraries/config/messages.inc.php:249
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Muuda navigeerimise paneeli"
+msgstr "Muuda navigeerimispuud."
 
 #: libraries/config/messages.inc.php:250 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
@@ -6664,62 +6661,54 @@ msgid "Enable navigation tree expansion"
 msgstr "Luba navigeerimispuu laiendamine"
 
 #: libraries/config/messages.inc.php:487
-#, fuzzy
 #| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Näita/peida tabelite loend"
+msgstr "Kuva puus tabelite loend"
 
 #: libraries/config/messages.inc.php:489
-#, fuzzy
 #| msgid ""
 #| "Whether to offer the possibility of tree expansion in the navigation "
 #| "panel."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "Kas lubada navigeerimispaneelil puu laiendamist või mitte."
+msgstr "Kas kuvada tabelid andmebaasi navigeerimispuus"
 
 #: libraries/config/messages.inc.php:490
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Näita versioone"
+msgstr "Kuva puus vaated"
 
 #: libraries/config/messages.inc.php:492
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Kuva andmebaaside navigeerimine puuna"
+msgstr "Kas kuvada vaated andmebaasi navigeerimispuus"
 
 #: libraries/config/messages.inc.php:493
-#, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Näita funktsiooni väljasid"
+msgstr "Kuva puus funktsioonid"
 
 #: libraries/config/messages.inc.php:495
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Kas kuvada funktsioonid andmebaasi navigeerimispuus"
 
 #: libraries/config/messages.inc.php:496
-#, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Näita protsesse"
+msgstr "Kuva puus protseduurid"
 
 #: libraries/config/messages.inc.php:498
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Kas kuvada protseduurid andmebaasi navigeerimispuus"
 
 #: libraries/config/messages.inc.php:499
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Näita versioone"
+msgstr "Kuva puus sündmused"
 
 #: libraries/config/messages.inc.php:501
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Kuva andmebaaside navigeerimine puuna"
+msgstr "Kas kuvada sündmused andmebaasi navigeerimispuus"
 
 #: libraries/config/messages.inc.php:503
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -8120,16 +8109,14 @@ msgid "View output as text"
 msgstr "Vaata väljundit tekstina"
 
 #: libraries/display_export.lib.php:660
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "Vaadete eksportimine tabelitena"
+msgstr "Ekspordi andmebaasid eraldi failidena"
 
 #: libraries/display_export.lib.php:662
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "Ekspordi tabeli päised"
+msgstr "Ekspordi tabelid eraldi failidena"
 
 #: libraries/display_export.lib.php:692 libraries/display_export.lib.php:814
 msgid "Rename exported databases/tables/columns"
@@ -9124,10 +9111,9 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Navigeerimiskuva laadimisel toimus viga"
 
 #: libraries/navigation/Navigation.class.php:192
-#, fuzzy
 #| msgid "Group name:"
 msgid "Groups:"
-msgstr "Grupi nimi:"
+msgstr "Grupid:"
 
 #: libraries/navigation/Navigation.class.php:193
 msgid "Events:"
@@ -10985,10 +10971,9 @@ msgid "Managing Central list of columns"
 msgstr "Veergude keskse nimekirja haldamine"
 
 #: libraries/relation.lib.php:324
-#, fuzzy
 #| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Jäta meelde tabeli sortimisalus"
+msgstr "Disaineri seadistuse meeldejätmine"
 
 #: libraries/relation.lib.php:332
 msgid "Quick steps to setup advanced features:"
