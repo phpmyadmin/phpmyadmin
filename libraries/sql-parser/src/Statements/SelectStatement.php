@@ -70,7 +70,7 @@ class SelectStatement extends Statement
     /**
      * The clauses of this statement, in order.
      *
-     * @see  Statement::$CLAUSES
+     * @see Statement::$CLAUSES
      *
      * @var array
      */

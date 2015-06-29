@@ -125,7 +125,7 @@ class WhereKeyword extends Fragment
     }
 
     /**
-     * @param WhereKeyword $fragment The fragment to be built.
+     * @param WhereKeyword[] $fragment The fragment to be built.
      *
      * @return string
      */

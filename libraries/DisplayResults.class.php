@@ -4240,7 +4240,6 @@ class PMA_DisplayResults
 
         if ($is_innodb
             && PMA_isJustBrowsing($analyzed_sql_results, true)
-
         ) {
             // "j u s t   b r o w s i n g"
             $pre_count = '~';
@@ -5025,9 +5024,9 @@ class PMA_DisplayResults
     /**
      * Get operations that are available on results.
      *
-     * @param array   $displayParts the parts to display
+     * @param array   $displayParts         the parts to display
      * @param array   $analyzed_sql_results analyzed sql results
-     * @param boolean $only_view    Whether to show only view
+     * @param boolean $only_view            Whether to show only view
      *
      * @return string $results_operations_html  html content
      *

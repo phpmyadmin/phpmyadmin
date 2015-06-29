@@ -299,8 +299,6 @@ class FieldFragment extends Fragment
      */
     public static function build($fragment)
     {
-        $ret = '';
-
         if (!empty($fragment->expr)) {
             $ret = $fragment->expr;
         } else {
