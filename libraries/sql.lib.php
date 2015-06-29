@@ -268,7 +268,7 @@ function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_valu
  */
 function PMA_getHtmlForProfilingChart($url_query, $db, $profiling_results)
 {
-    if (isset($profiling_results)) {
+    if (! empty($profiling_results)) {
         $pma_token = $_SESSION[' PMA_token '];
         $url_query = isset($url_query)
             ? $url_query
@@ -1974,7 +1974,7 @@ function PMA_getQueryResponseForResultsReturned($result,
     );
 
     $profiling_chart_html = PMA_getHtmlForProfilingChart(
-        $url_query, $db, isset($profiling_results) ? $profiling_results : null
+        $url_query, $db, isset($profiling_results) ? $profiling_results :array()
     );
 
     $missing_unique_column_msg = PMA_getMessageIfMissingColumnIndex(
