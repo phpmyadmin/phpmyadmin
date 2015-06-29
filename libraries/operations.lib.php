@@ -990,13 +990,13 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         . '</tr>';
 
     // Change all Column collations
-    $html_output .= '<tr><td>'
+    $html_output .= '<tr><td></td><td>'
+        . '<input type="checkbox" name="change_all_collations" value="1" '
+        . 'id="checkbox_change_all_collations" />'
         . '<label for="checkbox_change_all_collations">'
         . __('Change all column collations')
-        . '</label></td>'
-        . '<td><input type="checkbox" name="change_all_collations" value="1" '
-        . 'id="checkbox_change_all_collations" /></td>'
-        . '</tr>';
+        . '</label>'
+        . '</td></tr>';
 
     if ($is_myisam_or_aria || $is_isam) {
         $html_output .= PMA_getHtmlForPackKeys($pack_keys);
