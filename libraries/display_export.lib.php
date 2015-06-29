@@ -260,7 +260,23 @@ function PMA_getHtmlForExportOptionsSelection($export_type, $multi_values)
 }
 
 /**
- * Prints Html For Export Options Format
+ * Prints Html For Export Options Format dropdown
+ *
+ * @param ExportPlugin[] $export_list Export List
+ *
+ * @return string
+ */
+function PMA_getHtmlForExportOptionsFormatDropdown($export_list)
+{
+    $html  = '<div class="exportoptions" id="format">';
+    $html .= '<h3>' . __('Format:') . '</h3>';
+    $html .= PMA_pluginGetChoice('Export', 'what', $export_list, 'format');
+    $html .= '</div>';
+    return $html;
+}
+
+/**
+ * Prints Html For Export Options Format-specific options
  *
  * @param ExportPlugin[] $export_list Export List
  *
@@ -268,12 +284,7 @@ function PMA_getHtmlForExportOptionsSelection($export_type, $multi_values)
  */
 function PMA_getHtmlForExportOptionsFormat($export_list)
 {
-    $html  = '<div class="exportoptions" id="format">';
-    $html .= '<h3>' . __('Format:') . '</h3>';
-    $html .= PMA_pluginGetChoice('Export', 'what', $export_list, 'format');
-    $html .= '</div>';
-
-    $html .= '<div class="exportoptions" id="format_specific_opts">';
+    $html = '<div class="exportoptions" id="format_specific_opts">';
     $html .= '<h3>' . __('Format-specific options:') . '</h3>';
     $html .= '<p class="no_js_msg" id="scroll_to_options_msg">';
     $html .= __(
@@ -760,6 +771,7 @@ function PMA_getHtmlForExportOptions(
     global $cfg;
     $html  = PMA_getHtmlForExportOptionHeader($export_type, $db, $table);
     $html .= PMA_getHtmlForExportOptionsMethod();
+    $html .= PMA_getHtmlForExportOptionsFormatDropdown($export_list);
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 
     $tableLength = /*overload*/mb_strlen($table);

@@ -49,6 +49,8 @@ if (!defined('TESTSUITE')) {
             'quick_or_custom',
             'db_select',
             'table_select',
+            'table_structure',
+            'table_data',
             'limit_to',
             'limit_from',
             'allrows',
@@ -432,13 +434,23 @@ if (!defined('TESTSUITE')) {
                 $aliases, $separate_files
             );
         } elseif ($export_type == 'database') {
+            if (!isset($table_structure) || !is_array($table_structure)) {
+                $table_structure = array();
+            }
+            if (!isset($table_data) || !is_array($table_data)) {
+                $table_data = array();
+            }
+            if (!empty($_REQUEST['structure_or_data_forced'])) {
+                $table_structure = $tables;
+                $table_data = $tables;
+            }
             if (isset($lock_tables)) {
                 PMA_lockTables($db, $tables, "READ");
                 try {
                     PMA_exportDatabase(
-                        $db, $tables, $whatStrucOrData, $export_plugin, $crlf,
-                        $err_url, $export_type, $do_relation, $do_comments,
-                        $do_mime, $do_dates, $aliases, $separate_files
+                        $db, $tables, $whatStrucOrData, $table_structure, $table_data,
+                        $export_plugin, $crlf, $err_url, $export_type, $do_relation,
+                        $do_comments, $do_mime, $do_dates, $aliases, $separate_files
                     );
                     PMA_unlockTables();
                 } catch (Exception $e) { // TODO use finally when PHP version is 5.5
@@ -447,9 +459,9 @@ if (!defined('TESTSUITE')) {
                 }
             } else {
                 PMA_exportDatabase(
-                    $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-                    $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                    $aliases, $separate_files
+                    $db, $tables, $whatStrucOrData, $table_structure, $table_data,
+                    $export_plugin, $crlf, $err_url, $export_type, $do_relation,
+                    $do_comments, $do_mime, $do_dates, $aliases, $separate_files
                 );
             }
         } else {

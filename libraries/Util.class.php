@@ -3208,11 +3208,11 @@ class PMA_Util
     }
 
     /**
-     * Get HTML for Foreign key check value
+     * Is Foreign key check enabled?
      *
      * @return bool
      */
-    public static function getDefaultFKCheckValue()
+    public static function isForeignKeyCheck()
     {
         if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'enable') {
             return true;
@@ -3229,7 +3229,7 @@ class PMA_Util
     */
     public static function getFKCheckbox()
     {
-        $checked = self::getDefaultFKCheckValue();
+        $checked = self::isForeignKeyCheck();
         $html = '<input type="hidden" name="fk_checks" value="0" />';
         $html .= '<input type="checkbox" name="fk_checks"'
             . ' id="fk_checks" value="1"'

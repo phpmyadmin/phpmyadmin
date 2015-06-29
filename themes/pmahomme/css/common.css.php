@@ -1994,6 +1994,30 @@ select.invalid_value,
   * Export and Import styles
   */
 
+.export_table_list_container {
+    display: inline-block;
+    max-height: 20em;
+    overflow-y: scroll;
+}
+
+.export_table_select th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.export_table_select .all {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.export_structure, .export_data {
+    text-align: center;
+}
+
+.export_table_name {
+    vertical-align: middle;
+}
+
 .exportoptions h3,
 .importoptions h3 {
     border-bottom: 1px #999 solid;
