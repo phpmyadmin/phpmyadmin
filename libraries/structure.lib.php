@@ -2596,6 +2596,7 @@ function PMA_updateColumns($db, $table)
 
             if (isset($_REQUEST['field_adjust_privileges'][$i])
                 && ! empty($_REQUEST['field_adjust_privileges'][$i])
+                && $_REQUEST['field_orig'][$i] != $_REQUEST['field_name'][$i]
             ) {
                     $adjust_privileges[$_REQUEST['field_orig'][$i]] = $_REQUEST['field_name'][$i];
             }
@@ -2799,9 +2800,11 @@ function PMA_adjustColumnPrivileges($db, $table, $adjust_privileges)
         $changed = true;
     }
 
-    // Finally FLUSH the new privileges
-    $flushPrivQuery = "FLUSH PRIVILEGES;";
-    $GLOBALS['dbi']->query($flushPrivQuery);
+    if ($changed) {
+        // Finally FLUSH the new privileges
+        $flushPrivQuery = "FLUSH PRIVILEGES;";
+        $GLOBALS['dbi']->query($flushPrivQuery);
+    }
 
     return $changed;
 }
