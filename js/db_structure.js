@@ -243,9 +243,9 @@ AJAX.registerOnload('db_structure.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages.strTruncateTableStrongWarning + ' '
-            + PMA_sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name))
-            + getForeignKeyCheckboxLoader();
+        var question = PMA_messages.strTruncateTableStrongWarning + ' ' +
+            PMA_sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name)) +
+            getForeignKeyCheckboxLoader();
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
 
