@@ -244,7 +244,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
         // case 2
 
-        $GLOBALS['charset_of_file'] = 'ISO-8859-1';
+        $GLOBALS['charset'] = 'ISO-8859-1';
         ob_start();
         $this->object->exportHeader();
         $result = ob_get_clean();

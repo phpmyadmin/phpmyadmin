@@ -168,7 +168,7 @@ class ExportXml extends ExportPlugin
         $export_data = isset($GLOBALS['xml_export_contents']) ? true : false;
 
         if ($GLOBALS['output_charset_conversion']) {
-            $charset = $GLOBALS['charset_of_file'];
+            $charset = $GLOBALS['charset'];
         } else {
             $charset = 'utf-8';
         }

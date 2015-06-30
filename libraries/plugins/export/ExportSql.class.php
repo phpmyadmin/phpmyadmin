@@ -627,10 +627,10 @@ class ExportSql extends ExportPlugin
         }
 
         // restore connection settings
-        $charset_of_file = isset($GLOBALS['charset_of_file'])
-            ? $GLOBALS['charset_of_file'] : '';
+        $charset = isset($GLOBALS['charset'])
+            ? $GLOBALS['charset'] : '';
         if (! empty($GLOBALS['asfile'])
-            && isset($mysql_charset_map[$charset_of_file])
+            && isset($mysql_charset_map[$charset])
             && ! PMA_DRIZZLE
         ) {
             $foot .=  $crlf
@@ -734,11 +734,11 @@ class ExportSql extends ExportPlugin
             // we are saving as file, therefore we provide charset information
             // so that a utility like the mysql client can interpret
             // the file correctly
-            if (isset($GLOBALS['charset_of_file'])
-                && isset($mysql_charset_map[$GLOBALS['charset_of_file']])
+            if (isset($GLOBALS['charset'])
+                && isset($mysql_charset_map[$GLOBALS['charset']])
             ) {
                 // we got a charset from the export dialog
-                $set_names = $mysql_charset_map[$GLOBALS['charset_of_file']];
+                $set_names = $mysql_charset_map[$GLOBALS['charset']];
             } else {
                 // by default we use the connection charset
                 $set_names = $mysql_charset_map['utf-8'];

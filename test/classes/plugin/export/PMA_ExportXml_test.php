@@ -246,7 +246,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['xml_export_functions'] = 1;
         $GLOBALS['xml_export_contents'] = 1;
         $GLOBALS['output_charset_conversion'] = 1;
-        $GLOBALS['charset_of_file'] = 'iso-8859-1';
+        $GLOBALS['charset'] = 'iso-8859-1';
         $GLOBALS['cfg']['Server']['port'] = 80;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

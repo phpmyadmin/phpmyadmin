@@ -548,14 +548,14 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
 function PMA_getHtmlForExportOptionsOutputCharset()
 {
     global $cfg;
-    $html = '        <li><label for="select_charset_of_file" class="desc">'
+    $html = '        <li><label for="select_charset" class="desc">'
         . __('Character set of the file:') . '</label>' . "\n";
     reset($cfg['AvailableCharsets']);
-    $html .= '<select id="select_charset_of_file" name="charset_of_file" size="1">';
+    $html .= '<select id="select_charset" name="charset" size="1">';
     foreach ($cfg['AvailableCharsets'] as $temp_charset) {
         $html .= '<option value="' . $temp_charset . '"';
-        if (isset($_GET['charset_of_file'])
-            && ($_GET['charset_of_file'] != $temp_charset)
+        if (isset($_GET['charset'])
+            && ($_GET['charset'] != $temp_charset)
         ) {
             $html .= '';
         } elseif ((empty($cfg['Export']['charset']) && $temp_charset == 'utf-8')

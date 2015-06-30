@@ -633,7 +633,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['sql_disable_fk'] = true;
         $GLOBALS['sql_use_transaction'] = true;
-        $GLOBALS['charset_of_file'] = 'utf-8';
+        $GLOBALS['charset'] = 'utf-8';
         $GLOBALS['mysql_charset_map']['utf-8'] = true;
         $GLOBALS['sql_utc_time'] = true;
         $GLOBALS['old_tz'] = 'GMT';
@@ -704,7 +704,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_header_comment'] = "h1C\nh2C";
         $GLOBALS['sql_use_transaction'] = true;
         $GLOBALS['sql_include_comments'] = true;
-        $GLOBALS['charset_of_file'] = 'utf-8';
+        $GLOBALS['charset'] = 'utf-8';
         $GLOBALS['mysql_charset_map']['utf-8'] = true;
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')

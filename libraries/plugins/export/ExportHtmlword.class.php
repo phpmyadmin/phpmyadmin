@@ -104,7 +104,7 @@ class ExportHtmlword extends ExportPlugin
      */
     public function exportHeader()
     {
-        global $charset_of_file;
+        global $charset;
 
         return PMA_exportOutputHandler(
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -116,7 +116,7 @@ class ExportHtmlword extends ExportPlugin
             <html>
             <head>
                 <meta http-equiv="Content-type" content="text/html;charset='
-            . (isset($charset_of_file) ? $charset_of_file : 'utf-8') . '" />
+            . (isset($charset) ? $charset : 'utf-8') . '" />
             </head>
             <body>'
         );

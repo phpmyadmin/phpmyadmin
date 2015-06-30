@@ -59,7 +59,7 @@ if (!defined('TESTSUITE')) {
             'filename_template',
             'maxsize',
             'remember_template',
-            'charset_of_file',
+            'charset',
             'compression',
             'as_separate_files',
             'knjenc',
@@ -326,7 +326,7 @@ if (!defined('TESTSUITE')) {
     // Do we need to convert charset?
     $output_charset_conversion = $asfile
         && $GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE
-        && isset($charset_of_file) && $charset_of_file != 'utf-8'
+        && isset($charset) && $charset != 'utf-8'
         && $type != 'xls';
 
     // Use on the fly compression?
@@ -517,7 +517,7 @@ if (!defined('TESTSUITE')) {
         if ($output_charset_conversion) {
             $dump_buffer = PMA_convertString(
                 'utf-8',
-                $GLOBALS['charset_of_file'],
+                $GLOBALS['charset'],
                 $dump_buffer
             );
         }

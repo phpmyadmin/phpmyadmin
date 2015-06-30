@@ -102,7 +102,7 @@ function PMA_exportOutputHandler($line)
                 if ($GLOBALS['output_charset_conversion']) {
                     $dump_buffer = PMA_convertString(
                         'utf-8',
-                        $GLOBALS['charset_of_file'],
+                        $GLOBALS['charset'],
                         $dump_buffer
                     );
                 }
@@ -142,7 +142,7 @@ function PMA_exportOutputHandler($line)
             if ($GLOBALS['output_charset_conversion']) {
                 $line = PMA_convertString(
                     'utf-8',
-                    $GLOBALS['charset_of_file'],
+                    $GLOBALS['charset'],
                     $line
                 );
             }
