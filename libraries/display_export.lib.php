@@ -586,6 +586,13 @@ function PMA_getHtmlForExportOptionsOutputCompression()
         $selected_compression = "none";
     }
 
+    // Since separate files export works with ZIP only
+    if (isset($cfg['Export']['as_separate_files'])
+        && $cfg['Export']['as_separate_files']
+    ) {
+        $selected_compression = "zip";
+    }
+
     $html = "";
     // zip and gzip encode features
     $is_zip  = ($cfg['ZipDump']  && @function_exists('gzcompress'));
