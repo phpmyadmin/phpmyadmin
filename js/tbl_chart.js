@@ -73,6 +73,7 @@ function PMA_queryChart(data, columnNames, settings) {
         dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
     }
 
+    var i;
     if (settings.seriesColumn === null) {
         $.each(settings.selectedSeries, function (index, element) {
             dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
@@ -84,7 +85,7 @@ function PMA_queryChart(data, columnNames, settings) {
             columnsToExtract.push(element);
         });
         var values = [], newRow, row, col;
-        for (var i = 0; i < data.length; i++) {
+        for (i = 0; i < data.length; i++) {
             row = data[i];
             newRow = [];
             for (var j = 0; j < columnsToExtract.length; j++) {
@@ -107,7 +108,7 @@ function PMA_queryChart(data, columnNames, settings) {
     } else {
         var seriesNames = {}, seriesNumber = 1;
         var seriesColumnName = columnNames[settings.seriesColumn];
-        for (var i = 0; i < data.length; i++) {
+        for (i = 0; i < data.length; i++) {
             if (! seriesNames[data[i][seriesColumnName]]) {
                 seriesNames[data[i][seriesColumnName]] = seriesNumber;
                 seriesNumber++;
@@ -121,7 +122,7 @@ function PMA_queryChart(data, columnNames, settings) {
         var valueMap = {}, xValue, value;
         var mainAxisName = columnNames[settings.mainAxis];
         var valueColumnName = columnNames[settings.valueColumn];
-        for (var i = 0; i < data.length; i++) {
+        for (i = 0; i < data.length; i++) {
             xValue = data[i][mainAxisName];
             value = valueMap[xValue];
             if (! value) {
