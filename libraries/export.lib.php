@@ -328,9 +328,9 @@ function PMA_openExportFile($filename, $quick_export)
         . preg_replace('@[/\\\\]@', '_', $filename);
 
     if (file_exists($save_filename)
-        && ((! $quick_export && empty($_REQUEST['onserverover']))
+        && ((! $quick_export && empty($_REQUEST['onserver_overwrite']))
         || ($quick_export
-        && $_REQUEST['quick_export_onserverover'] != 'saveitover'))
+        && $_REQUEST['quick_export_onserver_overwrite'] != 'saveitover'))
     ) {
         $message = PMA_Message::error(
             __(
