@@ -93,13 +93,41 @@ if (isset($_REQUEST['operation'])) {
             && ! empty($cfgDesigner['table'])
             && $GLOBALS['cfgRelation']['designer_settingswork']
         ) {
-            $query = 'INSERT INTO ' . PMA_Util::backquote($cfgDesigner['db'])
-                . '.' . PMA_Util::backquote($cfgDesigner['table'])
-                . ' VALUES("' . $cfgDesigner['user'] . '", "'
-                . $_REQUEST['index'] . '", "' . $_REQUEST['value'] . '") ON DUPLICATE KEY '
-                . 'UPDATE `stored_value` = "' . $_REQUEST['value'] . '";';
+            $orig_data_query = 'SELECT ' . PMA_Util::backquote('settings_data')
+                . ' FROM `' . $cfgDesigner['db'] . '`.`' . $cfgDesigner['table'] . '` WHERE '
+                . PMA_Util::backquote('username') . ' = "'
+                . $cfgDesigner['user'] . '"';
 
-            $success = $GLOBALS['dbi']->query($query);
+            $orig_data = $GLOBALS['dbi']->fetchSingleRow($orig_data_query);
+
+            $success = false;
+
+            if (isset($orig_data)
+                && ! empty($orig_data)
+                && $orig_data
+            ) {
+                $orig_data = json_decode($orig_data['settings_data'], true);
+                $orig_data[$_REQUEST['index']] = $_REQUEST['value'];
+                $orig_data = json_encode($orig_data);
+
+                $save_query = 'UPDATE `' . $cfgDesigner['db'] . '`.`'
+                    . $cfgDesigner['table'] . '` SET '
+                    . PMA_Util::backquote('settings_data') . ' = \''
+                    . $orig_data . '\' WHERE ' . PMA_Util::backquote('username') . ' = "'
+                    . $cfgDesigner['user'] . '";';
+
+                $success = $GLOBALS['dbi']->query($save_query);
+            } else {
+                $save_data = array($_REQUEST['index'] => $_REQUEST['value']);
+
+                $query = 'INSERT INTO ' . PMA_Util::backquote($cfgDesigner['db'])
+                    . '.' . PMA_Util::backquote($cfgDesigner['table'])
+                    . ' VALUES("' . PMA_Util::sqlAddSlashes($cfgDesigner['user']) . '", \''
+                    . PMA_Util::sqlAddSlashes(json_encode($save_data)) . '\');';
+
+                $success = $GLOBALS['dbi']->query($query);
+            }
+
             $response->isSuccess($success);
         }
     }

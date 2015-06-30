@@ -172,4 +172,33 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for isForeignKeyCheck
+     *
+     * @return void
+     */
+    public function testIsForeignKeyCheck()
+    {
+        $GLOBALS['cfg']['DBG'] = array();
+        $GLOBALS['cfg']['DBG']['sql'] = false;
+
+        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'enable';
+        $this->assertEquals(
+            true,
+            PMA_Util::isForeignKeyCheck()
+        );
+
+        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'disable';
+        $this->assertEquals(
+            false,
+            PMA_Util::isForeignKeyCheck()
+        );
+
+        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
+        $this->assertEquals(
+            true,
+            PMA_Util::isForeignKeyCheck()
+        );
+    }
+
 }

@@ -127,7 +127,9 @@ $GLOBALS['dummy_queries'] = array(
     ),
     array(
         'query' => 'SHOW SESSION VARIABLES LIKE \'FOREIGN_KEY_CHECKS\';',
-        'result' => array('foreign_key_checks', 'ON'),
+        'result' => array(
+            array('foreign_key_checks', 'ON')
+        ),
     ),
     array(
         'query' => 'SHOW TABLES FROM `pma_test`;',
@@ -535,6 +537,29 @@ $GLOBALS['dummy_queries'] = array(
             array('Name' => 'partition')
         )
     ),
+    array(
+        'query' => "SHOW FULL TABLES FROM `default` WHERE `Table_type`='BASE TABLE'",
+        'result' => array(
+            array("test1", "BASE TABLE"),
+            array("test2", "BASE TABLE"),
+        )
+    ),
+    array(
+        'query' => "SHOW FULL TABLES FROM `default` WHERE `Table_type`!='BASE TABLE'",
+        'result' => array()
+    ),
+    array(
+        'query' => "SHOW FUNCTION STATUS WHERE `Db`='default'",
+        'result' => array(array("Name" => "testFunction"))
+    ),
+    array(
+        'query' => "SHOW PROCEDURE STATUS WHERE `Db`='default'",
+        'result' => array()
+    ),
+    array(
+        'query' => "SHOW EVENTS FROM `default`",
+        'result' => array()
+    )
 );
 /**
  * Current database.
