@@ -8,10 +8,13 @@
 
 namespace PMA\Controllers;
 
+use PMA\DI\Container;
+
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/Controller.class.php';
 
 /**
@@ -21,8 +24,8 @@ require_once 'libraries/controllers/Controller.class.php';
  */
 abstract class TableController extends Controller
 {
-    function __construct()
+    function __construct(Container $container = null)
     {
-        parent::__construct();
+        parent::__construct($container);
     }
 }

@@ -9,6 +9,7 @@
 
 namespace PMA\Controllers\Table;
 
+use PMA\DI\Container;
 use PMA_Util;
 use PMA_Message;
 use PMA\Template;
@@ -53,9 +54,9 @@ class TableChartController extends TableController
      */
     protected $cfg;
 
-    function __construct()
+    function __construct(Container $container = null)
     {
-        parent::__construct();
+        parent::__construct($container);
 
         $this->sql_query = &$GLOBALS['sql_query'];
         $this->url_query = &$GLOBALS['url_query'];

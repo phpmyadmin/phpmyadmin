@@ -8,6 +8,7 @@
 
 namespace PMA\Controllers;
 
+use PMA\DI\Container;
 use PMA_DatabaseInterface;
 use PMA_Response;
 
@@ -16,8 +17,8 @@ if (!defined('PHPMYADMIN')) {
 }
 
 require_once 'libraries/Response.class.php';
+require_once 'libraries/di/Container.class.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/controllers/Controller.class.php';
 
 /**
  * Base class for all of controller
@@ -28,18 +29,27 @@ abstract class Controller
 {
 
     /**
-     * @var PMA_Response $response
+     * @var PMA_Response
      */
     protected $response;
 
     /**
-     * @var $dbi PMA_DatabaseInterface
+     * @var PMA_DatabaseInterface
      */
     protected $dbi;
 
-    function __construct()
+    /**
+     * @var Container
+     */
+    protected $container;
+
+    function __construct(Container $container = null)
     {
-        $this->dbi = $GLOBALS['dbi'];
+        if (!isset($container)) {
+            $container = Container::getDefaultContainer();
+        }
+        $this->container = $container;
+        $this->dbi = $container->get('dbi');
         $this->response = PMA_Response::getInstance();
     }
 }

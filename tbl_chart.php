@@ -9,7 +9,7 @@
 namespace PMA;
 
 require_once 'libraries/di/Container.class.php';
-require_once 'libraries/controllers/table/TableChartController.class.php';
+require_once 'libraries/controllers/TableChartController.class.php';
 
 $container = DI\Container::getDefaultContainer();
 
