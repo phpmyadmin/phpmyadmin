@@ -6,9 +6,16 @@
  * @package PhpMyAdmin
  */
 
+namespace PMA;
+
+require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/table/TableChartController.class.php';
 
-use PMA\Controllers\Table\TableChartController;
+$container = DI\Container::getDefaultContainer();
 
-$controller = new TableChartController();
+$container->factory('PMA\Controllers\Table\TableChartController');
+$container->alias('TableChartController', 'PMA\Controllers\Table\TableChartController');
+
+/** @var Controllers\Table\TableChartController $controller */
+$controller = $container->get('TableChartController');
 $controller->indexAction();

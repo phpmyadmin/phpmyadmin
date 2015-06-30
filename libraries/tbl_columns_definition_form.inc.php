@@ -13,8 +13,9 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Check parameters
  */
-require_once './libraries/Util.class.php';
-require_once './libraries/Template.class.php';
+require_once 'libraries/di/Container.class.php';
+require_once 'libraries/Util.class.php';
+require_once 'libraries/Template.class.php';
 
 PMA_Util::checkParameters(array('server', 'db', 'table', 'action', 'num_fields'));
 
@@ -49,6 +50,7 @@ $length_values_input_size = 8;
 
 $content_cells = array();
 
+/** @var string $db */
 $form_params = array(
     'db' => $db
 );
@@ -90,12 +92,13 @@ $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
 require_once './libraries/transformations.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
-
 $comments_map = PMA_getComments($db, $table);
 
 $move_columns = array();
 if (isset($fields_meta)) {
-    $move_columns = $GLOBALS['dbi']->getTable($db, $table)->getColumnsMeta();
+    /** @var PMA_DatabaseInterface $dbi */
+    $dbi = \PMA\DI\Container::getDefaultContainer()->get('dbi');
+    $move_columns = $dbi->getTable($db, $table)->getColumnsMeta();
 }
 
 $available_mime = array();
@@ -422,4 +425,3 @@ $scripts = $header->getScripts();
 $scripts->addFile('jquery/jquery.uitablefilter.js');
 $scripts->addFile('indexes.js');
 $response->addHTML($html);
-?>
