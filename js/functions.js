@@ -1714,10 +1714,10 @@ function loadForeignKeyCheckbox() {
         'get_default_fk_check_value': true
     };
     $.get('sql.php', params, function (data) {
-        var html = '<input type="hidden" name="fk_checks" value="0" />'
-            + '<input type="checkbox" name="fk_checks" id="fk_checks"'
-            + (data.default_fk_check_value ? ' checked="checked"' : '') + ' />'
-            + '<label for="fk_checks">' + PMA_messages.strForeignKeyCheck + '</label>';
+        var html = '<input type="hidden" name="fk_checks" value="0" />' +
+            '<input type="checkbox" name="fk_checks" id="fk_checks"' +
+            (data.default_fk_check_value ? ' checked="checked"' : '') + ' />' +
+            '<label for="fk_checks">' + PMA_messages.strForeignKeyCheck + '</label>';
         $('.load-default-fk-check-value').replaceWith(html);
     });
 }

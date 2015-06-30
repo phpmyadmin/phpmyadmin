@@ -423,8 +423,8 @@ function Re_load()
                     row_offset_top = 0;
                     tab_hide_button = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
                     if (tab_hide_button.innerHTML == 'v') {
-                        var toColumn = document.getElementById(contr[K][key][key2][key3][0]
-                            + '.' + contr[K][key][key2][key3][1]);
+                        var toColumn = document.getElementById(contr[K][key][key2][key3][0] +
+                            '.' + contr[K][key][key2][key3][1]);
                         if (toColumn) {
                             row_offset_top = toColumn.offsetTop;
                         } else {

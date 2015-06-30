@@ -810,9 +810,9 @@ var PMA_consoleMessages = {
         var msgId = Math.round(Math.random()*(899999999999)+100000000000);
         var now = new Date();
         var $newMessage =
-            $('<div class="message '
-                + (PMA_console.config.alwaysExpand ? 'expanded' : 'collapsed')
-                +'" msgid="' + msgId + '"><div class="action_content"></div></div>');
+            $('<div class="message ' +
+                (PMA_console.config.alwaysExpand ? 'expanded' : 'collapsed') +
+                '" msgid="' + msgId + '"><div class="action_content"></div></div>');
         switch(msgType) {
             case 'query':
                 $newMessage.append('<div class="query highlighted"></div>');
@@ -893,8 +893,9 @@ var PMA_consoleMessages = {
         $targetMessage.find('.action.requery').click(function () {
             var query = $(this).parent().siblings('.query').text();
             var $message = $(this).closest('.message');
-            if (confirm(PMA_messages.strConsoleRequeryConfirm + '\n'
-                + (query.length<100 ? query : query.slice(0, 100) + '...'))) {
+            if (confirm(PMA_messages.strConsoleRequeryConfirm + '\n' +
+                (query.length<100 ? query : query.slice(0, 100) + '...'))
+            ) {
                 PMA_console.execute(query, {db: $message.attr('targetdb'), table: $message.attr('targettable')});
             }
         });

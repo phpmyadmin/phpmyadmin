@@ -1659,16 +1659,17 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             // get data columns in the first row of the table
             var $firstRowCols = $(g.t).find('tr:first th.draggable');
 
+            var i;
             // initialize column visibility
             var $col_visib = $(g.o).find('.col_visib');   // check if column visibility is passed from PHP
             if ($col_visib.length > 0) {
                 g.colVisib = $col_visib.val().split(',');
-                for (var i = 0; i < g.colVisib.length; i++) {
+                for (i = 0; i < g.colVisib.length; i++) {
                     g.colVisib[i] = parseInt(g.colVisib[i], 10);
                 }
             } else {
                 g.colVisib = [];
-                for (var i = 0; i < $firstRowCols.length; i++) {
+                for (i = 0; i < $firstRowCols.length; i++) {
                     g.colVisib.push(1);
                 }
             }
@@ -1708,7 +1709,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     }
                 };
 
-                for (var i = 0; i < $firstRowCols.length; i++) {
+                for (i = 0; i < $firstRowCols.length; i++) {
                     var currHeader = $firstRowCols[i];
                     var listElmt = document.createElement('div');
                     $(listElmt).text($(currHeader).text())
@@ -2118,8 +2119,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
     // todo update the original length after a grid edit
     $(t).find('td.data.truncated:not(:has(span))')
         .wrapInner(function() {
-            return '<span title="' + PMA_messages.strOriginalLength + ' '
-                + $(this).data('originallength') + '"></span>';
+            return '<span title="' + PMA_messages.strOriginalLength + ' ' +
+                $(this).data('originallength') + '"></span>';
         });
 
     // wrap remaining cells, except actions cell, with span
