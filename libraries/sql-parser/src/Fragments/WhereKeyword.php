@@ -44,16 +44,16 @@ class WhereKeyword extends Fragment
      *
      * @var string
      */
-    public $condition;
+    public $expr;
 
     /**
      * Constructor.
      *
-     * @param string $condition The condition or the operator.
+     * @param string $expr The condition or the operator.
      */
-    public function __construct($condition = null)
+    public function __construct($expr = null)
     {
-        $this->condition = trim($condition);
+        $this->expr = trim($expr);
     }
 
     /**
@@ -71,9 +71,10 @@ class WhereKeyword extends Fragment
          * The condition that was parsed so far.
          * @var string
          */
-        $condition = '';
+        $tmp = '';
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
              * @var Token
@@ -92,10 +93,10 @@ class WhereKeyword extends Fragment
 
             // Conditions are delimited by logical operators.
             if (in_array($token->value, static::$OPERATORS, true)) {
-                if (!empty(trim($condition))) {
+                if (!empty(trim($tmp))) {
                     // Adding the condition that is delimited by this operator.
-                    $ret[] = new WhereKeyword($condition);
-                    $condition = '';
+                    $ret[] = new WhereKeyword($tmp);
+                    $tmp = '';
                 }
 
                 // Adding the operator.
@@ -111,13 +112,13 @@ class WhereKeyword extends Fragment
                 break;
             }
 
-            $condition .= $token->token;
+            $tmp .= $token->token;
 
         }
 
         // Last iteration was not processed.
-        if (!empty(trim($condition))) {
-            $ret[] = new WhereKeyword($condition);
+        if (!empty(trim($tmp))) {
+            $ret[] = new WhereKeyword($tmp);
         }
 
         --$list->idx;
@@ -131,10 +132,10 @@ class WhereKeyword extends Fragment
      */
     public static function build($fragment)
     {
-        $conditions = array();
+        $ret = array();
         foreach ($fragment as $f) {
-            $conditions[] = $f->condition;
+            $ret[] = $f->expr;
         }
-        return implode(' ', $conditions);
+        return implode(' ', $ret);
     }
 }

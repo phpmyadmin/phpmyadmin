@@ -94,15 +94,18 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testisSelect()
     {
-        $analyzed_sql = array(array());
-        $analyzed_sql[0]['select_expr'] = array();
-        $analyzed_sql[0]['queryflags']['select_from'] = 'pma';
-        $analyzed_sql[0]['table_ref'] = array('table_ref');
-
+        $parser = new \SqlParser\Parser('SELECT * FROM pma');
         $this->assertTrue(
             $this->_callPrivateFunction(
                 '_isSelect',
-                array($analyzed_sql)
+                array(
+                    array(
+                        'statement' => $parser->statements[0],
+                        'queryflags' => array(
+                            'select_from' => true,
+                        ),
+                    ),
+                )
             )
         );
     }
@@ -346,57 +349,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             array(9, 0),
             $this->_callPrivateFunction('_getOffsets', array())
-        );
-    }
-
-    /**
-     * Data provider for testGetSortParams
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForGetSortParams()
-    {
-        return array(
-            array('', array(array(''), array(''), array(''))),
-            array(
-                '`a_sales`.`customer_id` ASC',
-                array(
-                    array('`a_sales`.`customer_id` ASC'),
-                    array('`a_sales`.`customer_id`'),
-                    array('ASC')
-                )
-            ),
-            array(
-                '`a_sales`.`customer_id` ASC, `b_sales`.`customer_id` DESC',
-                array(
-                    array(
-                        '`a_sales`.`customer_id` ASC',
-                        '`b_sales`.`customer_id` DESC'
-                    ),
-                    array('`a_sales`.`customer_id`', '`b_sales`.`customer_id`'),
-                    array('ASC', 'DESC')
-                )
-            ),
-        );
-    }
-
-    /**
-     * Test for _getSortParams
-     *
-     * @param string $order_by_clause the order by clause of the sql query
-     * @param string $output          output of _getSortParams
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForGetSortParams
-     */
-    public function testGetSortParams($order_by_clause, $output)
-    {
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getSortParams', array($order_by_clause)
-            )
         );
     }
 
@@ -1290,18 +1242,22 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                array(),
+                array(
+                    'analyzed_sql' => array(),
+                ),
                 array()
             ),
             array(
                 array(
-                    0 => array(
-                        'where_clause_identifiers' => array(
-                            0 => '`id`',
-                            1 => '`id`',
-                            2 => '`db_name`'
+                    'analyzed_sql' => array(
+                        0 => array(
+                            'where_clause_identifiers' => array(
+                                0 => '`id`',
+                                1 => '`id`',
+                                2 => '`db_name`'
+                            )
                         )
-                    )
+                    ),
                 ),
                 array(
                     '`id`' => 'true',

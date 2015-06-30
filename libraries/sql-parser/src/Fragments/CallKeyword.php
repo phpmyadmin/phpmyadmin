@@ -116,7 +116,7 @@ class CallKeyword extends Fragment
      *
      * @return string
      */
-    public static function build(CallKeyword $fragment)
+    public static function build($fragment)
     {
         return $fragment->name . ArrayFragment::build($fragment->parameters);
     }

@@ -99,10 +99,10 @@ function PMA_handleSortOrder(
         // Store the remembered table into session.
         $pmatable->setUiProp(
             PMA_Table::PROP_SORTED_COLUMN,
-            Query::getClause(
+            SqlParser\Utils\Query::getClause(
                 $analyzed_sql_results['statement'],
                 $analyzed_sql_results['parser']->list,
-                'ORDER'
+                'ORDER BY'
             )
         );
     }
@@ -667,7 +667,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         && count($analyzed_sql_results['select_tables'] <= 1)
         && (empty($analyzed_sql_results['statement']->where)
             || (count($analyzed_sql_results['statement']->where) == 1
-                && $analyzed_sql_results['statement']->where->expr ==='1'))
+                && $analyzed_sql_results['statement']->where[0]->condition ==='1'))
         && empty($analyzed_sql_results['group'])
         && ! isset($find_real_end)
         && ! $analyzed_sql_results['is_subquery']
@@ -1629,17 +1629,29 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
         }
         $_SESSION['is_multi_query'] = false;
         $displayResultsObject->setProperties(
-            $unlim_num_rows, $fields_meta, $analyzed_sql_results['is_count'],
-            $analyzed_sql_results['is_export'], $analyzed_sql_results['is_func'],
-            $analyzed_sql_results['is_analyse'], $num_rows,
-            $fields_cnt, $GLOBALS['querytime'], $pmaThemeImage, $GLOBALS['text_dir'],
-            $analyzed_sql_results['is_maint'], $analyzed_sql_results['is_explain'],
-            $analyzed_sql_results['is_show'], $showtable, $printview, $url_query,
-            $editable, $browse_dist
+            $unlim_num_rows,
+            $fields_meta,
+            $analyzed_sql_results['is_count'],
+            $analyzed_sql_results['is_export'],
+            $analyzed_sql_results['is_func'],
+            $analyzed_sql_results['is_analyse'],
+            $num_rows,
+            $fields_cnt, $GLOBALS['querytime'],
+            $pmaThemeImage, $GLOBALS['text_dir'],
+            $analyzed_sql_results['is_maint'],
+            $analyzed_sql_results['is_explain'],
+            $analyzed_sql_results['is_show'],
+            $showtable,
+            $printview,
+            $url_query,
+            $editable,
+            $browse_dist
         );
 
         $table_html .= $displayResultsObject->getTable(
-            $result, $displayParts, $analyzed_sql_results
+            $result,
+            $displayParts,
+            $analyzed_sql_results
         );
         $GLOBALS['dbi']->freeResult($result);
     }
@@ -1779,12 +1791,10 @@ function PMA_getHtmlForIndexesProblems($query_type, $selectedTables, $db)
  *
  * @return string html
  */
-function PMA_getQueryResponseForResultsReturned($result,
-    $analyzed_sql_results, $db, $table, $message, $sql_data,
-    $displayResultsObject, $pmaThemeImage,
-    $unlim_num_rows, $num_rows, $disp_query,
-    $disp_message, $profiling_results, $query_type, $selectedTables, $sql_query,
-    $complete_query
+function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
+    $db, $table, $message, $sql_data, $displayResultsObject, $pmaThemeImage,
+    $unlim_num_rows, $num_rows, $disp_query, $disp_message, $profiling_results,
+    $query_type, $selectedTables, $sql_query, $complete_query
 ) {
     // If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here

@@ -41,11 +41,14 @@ abstract class Fragment
     /**
      * Builds the string representation of a fragment of this type.
      *
-     * @param Fragment $fragment The fragment to be built.
+     * In other words, this function represents the inverse function of
+     * `static::parse`.
+     *
+     * @param mixed $fragment The fragment to be built.
      *
      * @return string
      */
-    public static function build(Fragment $fragment)
+    public static function build($fragment)
     {
         return null;
     }

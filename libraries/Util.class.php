@@ -4182,38 +4182,6 @@ class PMA_Util
     }
 
     /**
-     * Analyzes the limit clause and return the start and length attributes of it.
-     *
-     * @param string $limit_clause limit clause
-     *
-     * @return array|bool Start and length attributes of the limit clause or false
-     *                    on failure
-     */
-    public static function analyzeLimitClause($limit_clause)
-    {
-        $limitParams = trim(str_ireplace('LIMIT', '', $limit_clause));
-        if ('' == $limitParams) {
-            return false;
-        }
-
-        $start_and_length = explode(',', $limitParams);
-        $size = count($start_and_length);
-        if ($size == 1) {
-            return array(
-                'start'  => '0',
-                'length' => trim($start_and_length[0])
-            );
-        } elseif ($size == 2) {
-            return array(
-                'start'  => trim($start_and_length[0]),
-                'length' => trim($start_and_length[1])
-            );
-        }
-
-        return false;
-    }
-
-    /**
      * Prepare HTML code for display button.
      *
      * @return String

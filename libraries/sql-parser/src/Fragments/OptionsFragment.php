@@ -142,7 +142,7 @@ class OptionsFragment extends Fragment
      *
      * @return string
      */
-    public static function build(OptionsFragment $fragment)
+    public static function build($fragment)
     {
         $options = array();
         foreach ($fragment->options as $option) {

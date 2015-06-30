@@ -45,7 +45,7 @@ class LimitKeyword extends Fragment
      * @param int $rowCount The row count.
      * @param int $offset   The offset.
      */
-    public function __construct($rowCount = null, $offset = null)
+    public function __construct($rowCount = 0, $offset = 0)
     {
         $this->rowCount = $rowCount;
         $this->offset = $offset;

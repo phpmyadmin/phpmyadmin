@@ -19,7 +19,7 @@ $analyzed_sql_results = SqlParser\Utils\Query::getAll($sql_query);
 $analyzed_sql_results['parsed_sql'] = PMA_SQP_parse($sql_query);
 $analyzed_sql_results['analyzed_sql'] = PMA_SQP_analyze($analyzed_sql_results['parsed_sql']);
 
-// TODO: Refactor this as well.
+// TODO: Refactor this.
 extract($analyzed_sql_results);
 
 // If the targeted table (and database) are different than the ones that is
@@ -53,7 +53,7 @@ if (!empty($analyzed_sql_results['select_tables'])) {
         $reload  = strcasecmp($db, $prev_db) != 0;
     }
 
-    // Updating the array as well.
+    // Updating the array.
     $analyzed_sql_results['reload'] = $reload;
 }
 

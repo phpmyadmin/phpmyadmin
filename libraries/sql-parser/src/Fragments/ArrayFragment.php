@@ -131,7 +131,7 @@ class ArrayFragment extends Fragment
      *
      * @return string
      */
-    public static function build(ArrayFragment $fragment)
+    public static function build($fragment)
     {
         $values = array();
         if (!empty($fragment->raw)) {
