@@ -649,12 +649,10 @@ function PMA_getHtmlForExportOptionsOutputRadio()
 function PMA_getHtmlForExportOptionsOutputSeparateFiles($export_type)
 {
     $html  = '<li>';
-    $html .= '<input type="checkbox" id="checkbox_separate_files" '
-        . ' name="as_separate_files" value="'
-        . $export_type
-        . '" ';
-    $html .= '/>';
-    $html .= '<label for="checkbox_separate_files">';
+    $html .= '<input type="checkbox" id="checkbox_as_separate_files" '
+        . PMA_exportCheckboxCheck('as_separate_files')
+        . ' name="as_separate_files" value="' . $export_type . '" />';
+    $html .= '<label for="checkbox_as_separate_files">';
 
     if ($export_type == 'server') {
         $html .= __('Export databases as separate files');

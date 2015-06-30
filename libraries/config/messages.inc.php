@@ -160,6 +160,7 @@ $strConfigExport_odt_relation_name = __('Relations');
 $strConfigExport_odt_structure_or_data_name = __('Dump table');
 $strConfigExport_onserver_name = __('Save on server');
 $strConfigExport_onserver_overwrite_name = __('Overwrite existing file(s)');
+$strConfigExport_as_separate_files_name = __('Export as separate files');
 $strConfigExport_quick_export_onserver_name = __('Save on server');
 $strConfigExport_quick_export_onserver_overwrite_name
     = __('Overwrite existing file(s)');
