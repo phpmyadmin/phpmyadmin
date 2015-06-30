@@ -27,6 +27,167 @@ function enable_dump_some_rows_sub_options()
 }
 
 /**
+ * Return template data as a json object
+ *
+ * @returns template data
+ */
+function getTemplateData()
+{
+    var $form = $('form[name="dump"]');
+    var blacklist = ['token', 'server', 'db', 'table', 'single_table',
+        'export_type', 'export_method', 'sql_query'];
+    var obj = {};
+    var arr = $form.serializeArray();
+    $.each(arr, function () {
+        if ($.inArray(this.name, blacklist) < 0) {
+            if (obj[this.name] !== undefined) {
+                if (! obj[this.name].push) {
+                    obj[this.name] = [obj[this.name]];
+                }
+                obj[this.name].push(this.value || '');
+            } else {
+                obj[this.name] = this.value || '';
+            }
+        }
+    });
+
+    return obj;
+}
+
+/**
+ * Create a template with selected options
+ *
+ * @param name name of the template
+ */
+function createTemplate(name)
+{
+    var templateData = getTemplateData();
+
+    var params = {
+        ajax_request : true,
+        token : PMA_commonParams.get('token'),
+        server : PMA_commonParams.get('server'),
+        db : PMA_commonParams.get('db'),
+        table : PMA_commonParams.get('table'),
+        templateAction : 'create',
+        templateName : name,
+        templateData : JSON.stringify(templateData)
+    };
+
+    var $msgbox = PMA_ajaxShowMessage();
+    $.post('tbl_export.php', params, function (response) {
+        if (response.success === true) {
+            $('#templateName').val('');
+            $('#template').html(response.data);
+            PMA_ajaxRemoveMessage($msgbox);
+        } else {
+            PMA_ajaxShowMessage(response.error, false);
+        }
+    });
+}
+
+/**
+ * Loads a template
+ *
+ * @param id ID of the template to load
+ */
+function loadTemplate(id)
+{
+    var params = {
+        ajax_request : true,
+        token : PMA_commonParams.get('token'),
+        server : PMA_commonParams.get('server'),
+        db : PMA_commonParams.get('db'),
+        table : PMA_commonParams.get('table'),
+        templateAction : 'load',
+        templateId : id,
+    };
+
+    var $msgbox = PMA_ajaxShowMessage();
+    $.post('tbl_export.php', params, function (response) {
+        if (response.success === true) {
+            var $form = $('form[name="dump"]');
+            var options = $.parseJSON(response.data);
+            $.each(options, function (key, value) {
+                var $element = $form.find('[name="' + key + '"]');
+                if ($element.length) {
+                    if (($element.is('input') && $element.attr('type') == 'checkbox') ||
+                        ($element.is('input') && $element.attr('type') == 'radio') ||
+                        ($element.is('select') && $element.attr('multiple') == 'multiple')) {
+                        if (! value.push) {
+                            value = [value];
+                        }
+                    }
+                    $element.val(value);
+                    $element.trigger('change');
+                }
+            });
+            PMA_ajaxRemoveMessage($msgbox);
+        } else {
+            PMA_ajaxShowMessage(response.error, false);
+        }
+    });
+}
+
+/**
+ * Updates an existing template with current options
+ *
+ * @param id ID of the template to update
+ */
+function updateTemplate(id)
+{
+    var templateData = getTemplateData();
+
+    var params = {
+        ajax_request : true,
+        token : PMA_commonParams.get('token'),
+        server : PMA_commonParams.get('server'),
+        db : PMA_commonParams.get('db'),
+        table : PMA_commonParams.get('table'),
+        templateAction : 'update',
+        templateId : id,
+        templateData : JSON.stringify(templateData)
+    };
+
+    var $msgbox = PMA_ajaxShowMessage();
+    $.post('tbl_export.php', params, function (response) {
+        if (response.success === true) {
+            PMA_ajaxRemoveMessage($msgbox);
+        } else {
+            PMA_ajaxShowMessage(response.error, false);
+        }
+    });
+}
+
+/**
+ * Delete a template
+ *
+ * @param id ID of the template to delete
+ */
+function deleteTemplate(id)
+{
+    var params = {
+        ajax_request : true,
+        token : PMA_commonParams.get('token'),
+        server : PMA_commonParams.get('server'),
+        db : PMA_commonParams.get('db'),
+        table : PMA_commonParams.get('table'),
+        templateAction : 'delete',
+        templateId : id,
+    };
+
+    var $msgbox = PMA_ajaxShowMessage();
+    $.post('tbl_export.php', params, function (response) {
+        if (response.success === true) {
+            $('#template option[value="' + id + '"]').remove();
+            PMA_ajaxRemoveMessage($msgbox);
+        } else {
+            PMA_ajaxShowMessage(response.error, false);
+        }
+    });
+}
+
+/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('export.js', function () {
@@ -45,9 +206,53 @@ AJAX.registerTeardown('export.js', function () {
     $('input[name="table_data[]"]').off('change');
     $('#table_structure_all').off('change');
     $('#table_data_all').off('change');
+    $('input[name="createTemplate"]').off('click');
+    $('input[name="loadTemplate"]').off('click');
+    $('input[name="updateTemplate"]').off('click');
+    $('input[name="deleteTemplate"]').off('click');
 });
 
 AJAX.registerOnload('export.js', function () {
+
+    /**
+     * Export template handling code
+     */
+    // create a new template
+    $('input[name="createTemplate"]').on('click', function (e) {
+        e.preventDefault();
+        var name = $('input[name="templateName"]').val();
+        if (name.length) {
+            createTemplate(name);
+        }
+    });
+
+    // load an existing template
+    $('input[name="loadTemplate"]').on('click', function (e) {
+        e.preventDefault();
+        var id = $('select[name="template"]').val();
+        if (id.length) {
+            loadTemplate(id);
+        }
+    });
+
+    // udpate an existing template with new criteria
+    $('input[name="updateTemplate"]').on('click', function (e) {
+        e.preventDefault();
+        var id = $('select[name="template"]').val();
+        if (id.length) {
+            updateTemplate(id);
+        }
+    });
+
+    // delete an existing template
+    $('input[name="deleteTemplate"]').on('click', function (e) {
+        e.preventDefault();
+        var id = $('select[name="template"]').val();
+        if (id.length) {
+            deleteTemplate(id);
+        }
+    });
+
     /**
      * Toggles the hiding and showing of each plugin's options
      * according to the currently selected plugin from the dropdown list

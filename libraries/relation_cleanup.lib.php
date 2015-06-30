@@ -124,6 +124,14 @@ function PMA_relationsCleanupTable($db, $table)
             . ' AND item_type = \'table\'))';
         PMA_queryAsControlUser($remove_query);
     }
+
+    if ($cfgRelation['exporttemplateswork']) {
+        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['exporttemplates'])
+            . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+            . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
+        PMA_queryAsControlUser($remove_query);
+    }
 }
 
 /**
@@ -209,6 +217,13 @@ function PMA_relationsCleanupDatabase($db)
         $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
             . '.' . PMA_Util::backquote($cfgRelation['central_columns'])
             . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['exporttemplateswork']) {
+        $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
+        . '.' . PMA_Util::backquote($cfgRelation['exporttemplates'])
+        . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
         PMA_queryAsControlUser($remove_query);
     }
 }

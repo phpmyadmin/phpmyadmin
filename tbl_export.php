@@ -11,6 +11,7 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/config/page_settings.class.php';
+require_once 'libraries/display_export.lib.php';
 
 PMA_PageSettings::showGroup('Export');
 
@@ -18,6 +19,79 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('export.js');
+
+// Get the relation settings
+$cfgRelation = PMA_getRelationsParam();
+
+// handling export template actions
+if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
+
+    if (isset($_REQUEST['templateId'])) {
+        $templateId = $_REQUEST['templateId'];
+        $id = PMA_Util::sqlAddSlashes($templateId);
+    }
+
+    $templateTable = PMA_Util::backquote($cfgRelation['db']) . '.'
+       . PMA_Util::backquote($cfgRelation['exporttemplates']);
+    $user = PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']);
+
+    if ('create' == $_REQUEST['templateAction']) {
+        $query = "INSERT INTO " . $templateTable . "("
+            . " `username`, `db_name`, `table_name`,"
+            . " `template_name`, `template_data`"
+            . ") VALUES ("
+            . "'" . $user . "', "
+            . (! empty($GLOBALS['db'])
+                ? "'" . PMA_Util::sqlAddSlashes($GLOBALS['db']) . "'"
+                : 'NULL'
+            ) . ","
+            . (! empty($GLOBALS['table'])
+                ? "'" . PMA_Util::sqlAddSlashes($GLOBALS['table']) . "'"
+                : 'NULL'
+            ) . ","
+            . "'" . PMA_Util::sqlAddSlashes($_REQUEST['templateName']) . "', "
+            . "'" . PMA_Util::sqlAddSlashes($_REQUEST['templateData']) . "');";
+
+    } elseif ('load' == $_REQUEST['templateAction']) {
+        $query = "SELECT `template_data` FROM " . $templateTable
+             . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
+
+    } elseif ('update' == $_REQUEST['templateAction']) {
+        $query = "UPDATE " . $templateTable . " SET `template_data` = "
+          . "'" . PMA_Util::sqlAddSlashes($_REQUEST['templateData']) . "'"
+          . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
+
+    } elseif ('delete' == $_REQUEST['templateAction']) {
+        $query = "DELETE FROM " . $templateTable
+           . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
+    }
+
+    $result = PMA_queryAsControlUser($query, false);
+
+    $response = PMA_Response::getInstance();
+    if (! $result) {
+        $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
+        $response->isSuccess(false);
+        $response->addJSON('message', $error);
+        exit;
+    }
+
+    $response->isSuccess(true);
+    if ('create' == $_REQUEST['templateAction']) {
+        $response->addJSON(
+            'data',
+            PMA_getOptionsForExportTemplates($GLOBALS['db'], $GLOBALS['table'])
+        );
+    } elseif ('load' == $_REQUEST['templateAction']) {
+        $data = null;
+        while ($row = $GLOBALS['dbi']->fetchAssoc($result, $GLOBALS['controllink'])) {
+            $data = $row['template_data'];
+        }
+        $response->addJSON('data', $data);
+    }
+    $GLOBALS['dbi']->freeResult($result);
+    exit;
+}
 
 /**
  * Gets tables information and displays top links

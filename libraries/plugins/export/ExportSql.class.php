@@ -1024,6 +1024,7 @@ class ExportSql extends ExportPlugin
                 'column_info' => 'db_name',
                 'table_uiprefs' => 'db_name',
                 'tracking' => 'db_name',
+                'exporttemplates' => 'db_name',
             );
         } else {
             $types = array(
@@ -1033,6 +1034,7 @@ class ExportSql extends ExportPlugin
                 //'table_coords' => 'db_name',
                 'savedsearches' => 'db_name',
                 'central_columns' => 'db_name',
+                'exporttemplates' => 'db_name',
             );
         }
 
@@ -1075,6 +1077,9 @@ class ExportSql extends ExportPlugin
                 } elseif ($type == 'savedsearches') {
                     $sql_query = "SELECT `username`, `db_name`, `search_name`,"
                         . " `search_data` FROM";
+                } elseif ($type == 'exporttemplates') {
+                    $sql_query = "SELECT `username`, `db_name`, `table_name`,"
+                        . " `template_name`, `template_data` FROM";
                 } else {
                     $sql_query = "SELECT * FROM ";
                 }

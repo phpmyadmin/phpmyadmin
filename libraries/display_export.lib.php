@@ -185,6 +185,92 @@ function PMA_getHtmlForExportOptionHeader($export_type, $db, $table)
 }
 
 /**
+ * Returns Html for saving and loading export templates
+ *
+ * @param string $db    database
+ * @param string $table table
+ */
+function PMA_getHtmlForExportTemplateLoading($db, $table)
+{
+    $html  = '<div class="exportoptions" id="exporttemplates">';
+    $html .= '<h3>' . __('Export templates:') . '</h3>';
+
+    $html .= '<div class="floatleft">';
+    $html .= '<form method="post" action="tbl_export.php" id="newTemplateForm"'
+        . ' class="ajax">';
+    $html .= '<h4>' . __('New template:') . '</h4>';
+    $html .= '<input type="text" name="templateName" id="templateName" '
+        . 'required="required" placeholder="' . __('Template name') . '" />';
+    $html .= '<input type="submit" name="createTemplate" id="createTemplate" '
+        . 'value="' . __('Create') . '" />';
+    $html .= '</form>';
+    $html .= '</div>';
+
+    $html .= '<div class="floatleft" style="margin-left: 50px;">';
+    $html .= '<form method="post" action="tbl_export.php"'
+        . ' id="existingTemplatesForm" class="ajax">';
+    $html .= '<h4>' . __('Existing templates:') . '</h4>';
+    $html .= '<label for="template">' . __('Template:') . '</label>';
+    $html .= '<select name="template" id="template">';
+    $html .= PMA_getOptionsForExportTemplates($db, $table);
+    $html .= '</select>';
+    $html .= '<input type="submit" name="loadTemplate" '
+        . 'id="loadTemplate" value="' . __('Load') . '" />';
+    $html .= '<input type="submit" name="updateTemplate" '
+        . 'id="updateTemplate" value="' . __('Update') . '" />';
+    $html .= '<input type="submit" name="deleteTemplate" '
+        . 'id="deleteTemplate" value="' . __('Delete') . '" />';
+    $html .= '</form>';
+    $html .= '</div>';
+
+    $html .= '<div class="clearfloat"></div>';
+
+    $html .= '</div>';
+
+    return $html;
+}
+
+/**
+ * Returns HTML for the options in teplate dropdown
+ *
+ * @param string $db    database
+ * @param string $table table
+ *
+ * @return string HTML for the options in teplate dropdown
+ */
+function PMA_getOptionsForExportTemplates($db, $table)
+{
+    $ret = '';
+
+    // Get the relation settings
+    $cfgRelation = PMA_getRelationsParam();
+
+    $query = "SELECT `id`, `template_name` FROM "
+       . PMA_Util::backquote($cfgRelation['db']) . '.'
+       . PMA_Util::backquote($cfgRelation['exporttemplates'])
+       . " WHERE `username` = "
+       . "'" . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
+       . " AND `db_name` "
+       . (! empty($db)
+           ? "= '" . PMA_Util::sqlAddSlashes($db) . "'"
+           : "IS NULL")
+       . " AND `table_name` "
+       . (! empty($table)
+           ? "= '" . PMA_Util::sqlAddSlashes($table) . "'"
+           : "IS NULL")
+       . " ORDER BY `template_name`;";
+
+    $result = PMA_queryAsControlUser($query);
+    if ($result) {
+        while ($row = $GLOBALS['dbi']->fetchAssoc($result, $GLOBALS['controllink'])) {
+            $ret .= '<option value="' . htmlspecialchars($row['id']) . '">'
+                . htmlspecialchars($row['template_name']) . '</option>';
+        }
+    }
+    return $ret;
+}
+
+/**
  * Prints Html For Export Options Method
  *
  * @return string
@@ -774,8 +860,7 @@ function PMA_getHtmlForExportOptions(
     $num_tables, $export_list, $unlim_num_rows
 ) {
     global $cfg;
-    $html  = PMA_getHtmlForExportOptionHeader($export_type, $db, $table);
-    $html .= PMA_getHtmlForExportOptionsMethod();
+    $html  = PMA_getHtmlForExportOptionsMethod();
     $html .= PMA_getHtmlForExportOptionsFormatDropdown($export_list);
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 

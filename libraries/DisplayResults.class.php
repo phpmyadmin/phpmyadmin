@@ -349,6 +349,11 @@ class PMA_DisplayResults
                     'config_data' => $json_highlighting_data
                 );
             }
+            if (! empty($cfgRelation['exporttemplates'])) {
+                $relDb[$cfgRelation['exporttemplates']] = array(
+                    'template_data' => $json_highlighting_data
+                );
+            }
         }
     }
 
