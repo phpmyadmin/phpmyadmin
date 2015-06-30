@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-06-30 15:45+0200\n"
-"Last-Translator: Eyal Visoker <visokereyal@gmail.com>\n"
+"PO-Revision-Date: 2015-06-30 15:48+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/he/>\n"
 "Language: he\n"
@@ -25,11 +25,11 @@ msgstr ""
 
 #: db_central_columns.php:105
 msgid "The central list of columns for the current database is empty."
-msgstr "רשימת העמודות המרכזית עבור הדטבייס הנוכחי ריקה"
+msgstr "רשימת העמודות המרכזית עבור מסד הנתונים הנוכחי ריקה."
 
 #: db_central_columns.php:130
 msgid "Click to sort."
-msgstr ""
+msgstr "יש ללחוץ כדי למיין."
 
 #: db_central_columns.php:149
 #, fuzzy, php-format
@@ -44,7 +44,7 @@ msgstr "מסד הנתונים %1$s נוצר."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment"
-msgstr "הערה על מסד הנתונים:"
+msgstr "הערה על מסד הנתונים"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:997
@@ -4200,7 +4200,7 @@ msgstr "הערות"
 
 #: libraries/Index.class.php:731
 msgid "The primary key has been dropped."
-msgstr "המפתח הראשי הוסר"
+msgstr "המפתח הראשי הוסר."
 
 #: libraries/Index.class.php:740
 #, php-format
@@ -10015,7 +10015,7 @@ msgstr "(בודד)"
 
 #: libraries/operations.lib.php:768
 msgid "Move table to (database<b>.</b>table)"
-msgstr "העברת טבלה אל (מסד נתונים<b>.</b>טבלה):"
+msgstr "העברת טבלה אל (מסד נתונים<b>.</b>טבלה)"
 
 #: libraries/operations.lib.php:865
 msgid "Rename table to"
@@ -10039,7 +10039,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1164
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "העתקת טבלה אל (מסד נתונים<b>.</b>טבלה):"
+msgstr "העתקת טבלה אל (מסד נתונים<b>.</b>טבלה)"
 
 #: libraries/operations.lib.php:1228
 msgid "Switch to copied table"
@@ -10070,7 +10070,7 @@ msgstr "איחוי טבלה"
 #: libraries/operations.lib.php:1350
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "טבלה %s אופסה"
+msgstr "הטבלה %s אופסה."
 
 #: libraries/operations.lib.php:1356
 #, fuzzy
@@ -14098,7 +14098,7 @@ msgstr ""
 #: libraries/structure.lib.php:70 tbl_operations.php:381
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "הטבלה %s רוקנה"
+msgstr "הטבלה %s רוקנה."
 
 #: libraries/structure.lib.php:93
 msgid "Tracking is active."
@@ -14322,12 +14322,12 @@ msgstr ""
 #: libraries/structure.lib.php:2169 libraries/structure.lib.php:2184
 #, php-format
 msgid "An index has been added on %s."
-msgstr "אינדקס נוסף אל %s"
+msgstr "נוסף אינדקס אל %s."
 
 #: libraries/structure.lib.php:2155
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "מפתח ראשי נוסף אל %s"
+msgstr "נוסף מפתח ראשי אל %s."
 
 #: libraries/structure.lib.php:2234 libraries/structure.lib.php:2305
 #, fuzzy
