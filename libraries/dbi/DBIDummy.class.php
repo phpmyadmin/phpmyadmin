@@ -559,6 +559,26 @@ $GLOBALS['dummy_queries'] = array(
     array(
         'query' => "SHOW EVENTS FROM `default`",
         'result' => array()
+    ),
+    array(
+        'query' => "FLUSH PRIVILEGES",
+        'result' => array()
+    ),
+    array(
+        'query' => "SELECT * FROM `mysql`.`db` LIMIT 1",
+        'result' => array()
+    ),
+    array(
+        'query' => "SELECT * FROM `mysql`.`columns_priv` LIMIT 1",
+        'result' => array()
+    ),
+    array(
+        'query' => "SELECT * FROM `mysql`.`tables_priv` LIMIT 1",
+        'result' => array()
+    ),
+    array(
+        'query' => "SELECT * FROM `mysql`.`procs_priv` LIMIT 1",
+        'result' => array()
     )
 );
 /**

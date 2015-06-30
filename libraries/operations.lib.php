@@ -77,11 +77,26 @@ function PMA_getHtmlForRenameDatabase($db)
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
         . 'maxlength="64" size="30" class="textfield" value="" '
         . 'required="required" />';
-    $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
-        . 'id="checkbox_adjust_privileges" checked="checked" />';
+
+    if (isset($GLOBALS['db_priv']) && $GLOBALS['db_priv']
+        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    ) {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
+            . 'id="checkbox_adjust_privileges" checked="checked" />';
+    } else {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
+            . 'id="checkbox_adjust_privileges" '
+            . 'title="' . __(
+                'You don\'t have sufficient privileges to perform this '
+                . 'operation; Please refer to the documentation for more details'
+            )
+            . '" disabled/>';
+    }
+
     $html_output .= '<label for="checkbox_adjust_privileges">'
-        . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
-        . '</label><br />';
+            . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
+            . '</label><br />';
+
     $html_output .= ''
         . '</fieldset>'
         . '<fieldset class="tblFooters">'
@@ -205,11 +220,25 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= '<label for="checkbox_constraints">'
         . __('Add constraints') . '</label><br />';
     $html_output .= '<br />';
-    $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
-        . 'id="checkbox_privileges" checked="checked" />';
+
+    if (isset($GLOBALS['db_priv']) && $GLOBALS['db_priv']
+        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    ) {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
+            . 'id="checkbox_privileges" checked="checked" />';
+    } else {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
+            . 'id="checkbox_privileges"'
+            . 'title="' . __(
+                'You don\'t have sufficient privileges to perform this '
+                . 'operation; Please refer to the documentation for more details'
+            )
+            . '" disabled/>';
+    }
     $html_output .= '<label for="checkbox_privileges">'
         . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
         . '</label><br />';
+
     $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
         . 'id="checkbox_switch"'
         . ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true')
@@ -789,10 +818,24 @@ function PMA_getHtmlForMoveTable()
         . 'value="1" id="checkbox_auto_increment_mv" checked="checked" />'
         . '<label for="checkbox_auto_increment_mv">'
         . __('Add AUTO_INCREMENT value')
-        . '</label><br />'
-        . '<input type="checkbox" name="adjust_privileges" value="1" '
-        . 'id="checkbox_privileges_tables_move" checked="checked" />'
-        . '<label for="checkbox_privileges_tables_move">'
+        . '</label><br />';
+
+    if (isset($GLOBALS['table_priv']) && $GLOBALS['table_priv']
+        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    ) {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" value="1" '
+            . 'id="checkbox_privileges_tables_move" checked="checked" />';
+    } else {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" value="1" '
+            . 'id="checkbox_privileges_tables_move"'
+            . 'title="' . __(
+                'You don\'t have sufficient privileges to perform this '
+                . 'operation; Please refer to the documentation for more details'
+            )
+            . '" disabled/>';
+    }
+
+    $html_output .= '<label for="checkbox_privileges_tables_move">'
         . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
         . '</label><br />'
         . '</fieldset>';
@@ -868,10 +911,23 @@ function PMA_getHtmlForRenameTable()
         . 'value="' . htmlspecialchars($GLOBALS['table'])
         . '" required="required" />'
         . '</td></tr>'
-        . '<tr><td></td><td>'
-        . '<input type="checkbox" name="adjust_privileges" value="1" '
-        . 'id="checkbox_privileges_table_options" checked="checked" />'
-        . '<label for="checkbox_privileges_table_options">'
+        . '<tr><td></td><td>';
+
+    if (isset($GLOBALS['table_priv']) && $GLOBALS['table_priv']
+        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    ) {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" value="1" '
+            . 'id="checkbox_privileges_table_options" checked="checked" />';
+    } else {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" value="1" '
+            . 'id="checkbox_privileges_table_options" '
+            . 'title="' . __(
+                'You don\'t have sufficient privileges to perform this '
+                . 'operation; Please refer to the documentation for more details'
+            )
+            . '" disabled/>';
+    }
+    $html_output .= '<label for="checkbox_privileges_table_options">'
         . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
         . '</label>'
         . '</td>'
@@ -1207,9 +1263,23 @@ function PMA_getHtmlForCopytable()
     } // endif
 
     $html_output .= '<br />';
-    $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
-        . 'id="checkbox_adjust_privileges" checked="checked" />'
-        . '<label for="checkbox_adjust_privileges">'
+
+    if (isset($GLOBALS['table_priv']) && $GLOBALS['table_priv']
+        && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+    ) {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
+            . 'id="checkbox_adjust_privileges" checked="checked" />';
+    } else {
+        $html_output .= '<input type="checkbox" name="adjust_privileges" value="1"'
+            . 'id="checkbox_adjust_privileges" '
+            . 'title="' . __(
+                'You don\'t have sufficient privileges to perform this '
+                . 'operation; Please refer to the documentation for more details'
+            )
+            . '" disabled/>';
+    }
+
+    $html_output .= '<label for="checkbox_adjust_privileges">'
         . __('Adjust Privileges') . PMA_Util::showDocu('faq', 'faq6-39')
         . '</label><br />';
 

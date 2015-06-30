@@ -2491,6 +2491,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
     /**
      * Form for changing properties.
      */
+    include_once 'libraries/check_user_privileges.lib.php';
     include 'libraries/tbl_columns_definition_form.inc.php';
 }
 

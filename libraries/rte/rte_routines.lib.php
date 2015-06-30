@@ -1101,10 +1101,23 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         $retval .= "    <td>" . __('Adjust Privileges');
         $retval .= PMA_Util::showDocu('faq', 'faq6-39');
         $retval .= "</td>";
-        $retval .= "    <td><input type='checkbox' name='item_adjust_privileges'"
-            . " value='1' checked /></td>";
+        if (isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
+            && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+        ) {
+            $retval .= "    <td><input type='checkbox' name='item_adjust_privileges'"
+                . " value='1' checked /></td>";
+        } else {
+            $retval .= "    <td><input type='checkbox' name='item_adjust_privileges'"
+                . " value='1' "
+                . "title='" . __(
+                    "You do not have sufficient privileges to perform this "
+                    . "operation; Please refer to the documentation for more details"
+                )
+                . "' disabled/></td>";
+        }
         $retval .= "</tr>";
     }
+
     $retval .= "<tr>";
     $retval .= "    <td>" . __('Definer') . "</td>";
     $retval .= "    <td><input type='text' name='item_definer'";
