@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2014-10-22 15:46+0200\n"
+"PO-Revision-Date: 2015-06-30 15:45+0200\n"
 "Last-Translator: Eyal Visoker <visokereyal@gmail.com>\n"
-"Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"he/>\n"
+"Language-Team: Hebrew "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -25,7 +25,7 @@ msgstr ""
 
 #: db_central_columns.php:105
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "רשימת העמודות המרכזית עבור הדטבייס הנוכחי ריקה"
 
 #: db_central_columns.php:130
 msgid "Click to sort."
