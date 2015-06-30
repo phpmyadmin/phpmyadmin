@@ -172,6 +172,11 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for isForeignKeyCheck
+     *
+     * @return void
+     */
     public function testIsForeignKeyCheck()
     {
         $GLOBALS['cfg']['DBG'] = array();
