@@ -85,7 +85,7 @@ class PMA_Footer
     }
 
     /**
-     * Reomove recursions and iterator objects from an object
+     * Remove recursions and iterator objects from an object
      *
      * @param object|array &$object Object to clean
      * @param array        $stack   Stack used to keep track of recursion,
