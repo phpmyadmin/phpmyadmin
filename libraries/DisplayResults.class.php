@@ -5126,7 +5126,7 @@ class PMA_DisplayResults
 
         if (isset($content)) {
 
-            $size = /*overload*/mb_strlen($content);
+            $size = /*overload*/mb_strlen($content, '8bit');
             $display_size = PMA_Util::formatByteDown($size, 3, 1);
             $result .= ' - ' . $display_size[0] . ' ' . $display_size[1];
 
