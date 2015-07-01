@@ -1186,6 +1186,7 @@ function PMA_countQueryResults(
                 $analyzed_sql_results['statement'],
                 $analyzed_sql_results['parser']->list,
                 'SELECT SQL_CALC_FOUND_ROWS',
+                null,
                 true
             );
 

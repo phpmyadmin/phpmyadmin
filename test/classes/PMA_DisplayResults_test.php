@@ -1240,30 +1240,18 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function dataProviderForTestSetHighlightedColumnGlobalField()
     {
+        $parser = new SqlParser\Parser(
+            'SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10'
+        );
         return array(
             array(
+                array('statement' => $parser->statements[0]),
                 array(
-                    'analyzed_sql' => array(),
+                    'db_name' => 'true',
+                    'tbl' => 'true',
+                    'id' => 'true',
                 ),
-                array()
             ),
-            array(
-                array(
-                    'analyzed_sql' => array(
-                        0 => array(
-                            'where_clause_identifiers' => array(
-                                0 => '`id`',
-                                1 => '`id`',
-                                2 => '`db_name`'
-                            )
-                        )
-                    ),
-                ),
-                array(
-                    '`id`' => 'true',
-                    '`db_name`' => 'true'
-                )
-            )
         );
     }
 
@@ -1576,7 +1564,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @param string  $default_function      the default transformation function
      * @param string  $transform_options     the transformation parameters
      * @param boolean $is_field_truncated    is data truncated due to LimitChars
-     * @param array   $analyzed_sql          the analyzed query
+     * @param array   $analyzed_sql_results  the analyzed query
      * @param integer $dt_result             the link id associated to the query
      *                                       which results have to be displayed
      * @param integer $col_index             the column index
@@ -1590,7 +1578,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $protectBinary, $column, $class, $meta, $map,
         $_url_params, $condition_field, $transformation_plugin,
         $default_function, $transform_options, $is_field_truncated,
-        $analyzed_sql, $dt_result, $col_index, $output
+        $analyzed_sql_results, $dt_result, $col_index, $output
     ) {
         $_SESSION['tmpval']['display_binary'] = true;
         $_SESSION['tmpval']['display_blob'] = false;
@@ -1604,7 +1592,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array(
                     $column, $class, $meta, $map, $_url_params, $condition_field,
                     $transformation_plugin, $default_function, $transform_options,
-                    $is_field_truncated, $analyzed_sql, &$dt_result, $col_index
+                    $is_field_truncated, $analyzed_sql_results, &$dt_result, $col_index
                 )
             )
         );

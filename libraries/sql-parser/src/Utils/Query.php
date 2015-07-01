@@ -8,6 +8,7 @@
  */
 namespace SqlParser\Utils;
 
+use SqlParser\Lexer;
 use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Token;
@@ -407,32 +408,6 @@ class Query
     }
 
     /**
-     * Gets the type of clause.
-     *
-     * @param string $clause The clause.
-     *
-     * @return string
-     */
-    public static function getClauseType($clause)
-    {
-        $type = '';
-        for ($i = 0, $len = strlen($clause); $i < $len; ++$i) {
-            if ((empty($type)) && (ctype_space($clause[$i]))) {
-                // Skipping whitespaces if we haven't started determining the
-                // type.
-                continue;
-            }
-            if (!ctype_alnum($clause[$i])) {
-                // The type contains only alphanumeric characters.
-                break;
-            }
-            // Adding character.
-            $type .= $clause[$i];
-        }
-        return $type;
-    }
-
-    /**
      * Gets a specific clause.
      *
      * @param Statement  $statement The parsed query that has to be modified.
@@ -475,10 +450,22 @@ class Query
         $clauses = array_flip(array_keys($statement::$CLAUSES));
 
         /**
+         * Lexer used for lexing the clause.
+         * @var Lexer
+         */
+        $lexer = new Lexer($clause);
+
+        /**
+         * The type of this clause.
+         * @var string
+         */
+        $clauseType = $lexer->list->getNextOfType(Token::TYPE_KEYWORD)->value;
+
+        /**
          * The index of this clause.
          * @var int
          */
-        $clauseIdx = $clauses[static::getClauseType($clause)];
+        $clauseIdx = $clauses[$clauseType];
 
         for ($i = $statement->first; $i <= $statement->last; ++$i) {
             $token = $list->tokens[$i];
@@ -493,16 +480,15 @@ class Query
 
             if ($brackets == 0) {
                 // Checking if we changed sections.
-                if ($token->type === Token::TYPE_KEYWORD) {
-                    if (isset($clauses[$token->value])) {
-                        if ($clauses[$token->value] >= $currIdx) {
-                            $currIdx = $clauses[$token->value];
-                            if (($skipFirst) && ($currIdx == $clauseIdx)) {
-                                // This token is skipped (not added to the old
-                                // clause) because it will be replaced.
-                                continue;
-                            }
-                        }
+                if (($token->type === Token::TYPE_KEYWORD)
+                    && (isset($clauses[$token->value]))
+                    && ($clauses[$token->value] >= $currIdx)
+                ) {
+                    $currIdx = $clauses[$token->value];
+                    if (($skipFirst) && ($currIdx == $clauseIdx)) {
+                        // This token is skipped (not added to the old
+                        // clause) because it will be replaced.
+                        continue;
                     }
                 }
             }
@@ -526,25 +512,30 @@ class Query
      *
      * @param Statement  $statement The parsed query that has to be modified.
      * @param TokensList $list      The list of tokens.
-     * @param string     $clause    The clause to be replaced.
+     * @param string     $old       The type of the clause that should be
+     *                              replaced. This can be an entire clause.
+     * @param string     $new       The new clause. If this parameter is omitted
+     *                              it is considered to be equal with `$old`.
      * @param bool       $onlyType  Whether only the type of the clause should
      *                              be replaced or the entire clause.
      *
      * @return string
      */
-    public static function replaceClause($statement, $list, $clause, $onlyType = false)
+    public static function replaceClause($statement, $list, $old, $new = null, $onlyType = false)
     {
         // TODO: Update the tokens list and the statement.
 
-        if ($onlyType) {
-            return static::getClause($statement, $list, $clause, -1, false) . ' ' .
-                $clause . ' ' .
-                static::getCLause($statement, $list, $clause, 0) . ' ' .
-                static::getClause($statement, $list, $clause, 1, false);
+        if ($new === null) {
+            $new = $old;
         }
 
-        return static::getClause($statement, $list, $clause, -1, false) . ' ' .
-            $clause . ' ' .
-            static::getClause($statement, $list, $clause, 1, false);
+        if ($onlyType) {
+            return static::getClause($statement, $list, $old, -1, false) . ' ' .
+                $new . ' ' . static::getCLause($statement, $list, $old, 0) . ' ' .
+                static::getClause($statement, $list, $old, 1, false);
+        }
+
+        return static::getClause($statement, $list, $old, -1, false) . ' ' .
+            $new . ' ' . static::getClause($statement, $list, $old, 1, false);
     }
 }

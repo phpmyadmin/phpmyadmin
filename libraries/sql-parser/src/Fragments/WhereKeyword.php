@@ -30,7 +30,14 @@ class WhereKeyword extends Fragment
      *
      * @var array
      */
-    public static $OPERATORS = array('&&', '(', ')', 'AND', 'OR', 'XOR', '||');
+    public static $OPERATORS = array('&&', 'AND', 'OR', 'XOR', '||');
+
+    /**
+     * Identifiers recognized.
+     *
+     * @var array
+     */
+    public $identifiers = array();
 
     /**
      * Whether this fragment is an operator.
@@ -67,11 +74,13 @@ class WhereKeyword extends Fragment
     {
         $ret = array();
 
+        $expr = new WhereKeyword();
+
         /**
-         * The condition that was parsed so far.
-         * @var string
+         * Counts brackets.
+         * @var int
          */
-        $tmp = '';
+        $brackets = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
 
@@ -93,10 +102,10 @@ class WhereKeyword extends Fragment
 
             // Conditions are delimited by logical operators.
             if (in_array($token->value, static::$OPERATORS, true)) {
-                if (!empty(trim($tmp))) {
+                $expr->expr = trim($expr->expr);
+                if (!empty($expr->expr)) {
                     // Adding the condition that is delimited by this operator.
-                    $ret[] = new WhereKeyword($tmp);
-                    $tmp = '';
+                    $ret[] = $expr;
                 }
 
                 // Adding the operator.
@@ -104,21 +113,39 @@ class WhereKeyword extends Fragment
                 $expr->isOperator = true;
                 $ret[] = $expr;
 
+                $expr = new WhereKeyword();
                 continue;
+            }
+
+            if ($token->type === Token::TYPE_OPERATOR) {
+                if ($token->value === '(') {
+                    ++$brackets;
+                } elseif ($token->value === ')') {
+                    --$brackets;
+                }
             }
 
             // No keyword is expected.
             if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
-                break;
+                if ($brackets == 0) {
+                    break;
+                }
             }
 
-            $tmp .= $token->token;
-
+            $expr->expr .= $token->token;
+            if (($token->type === Token::TYPE_NONE)
+                || (($token->type === Token::TYPE_KEYWORD) && (!($token->flags & Token::FLAG_KEYWORD_RESERVED)))
+                || ($token->type === Token::TYPE_STRING)
+                || ($token->type === Token::TYPE_SYMBOL)
+            ) {
+                $expr->identifiers[] = $token->value;
+            }
         }
 
         // Last iteration was not processed.
-        if (!empty(trim($tmp))) {
-            $ret[] = new WhereKeyword($tmp);
+        $expr->expr = trim($expr->expr);
+        if (!empty($expr->expr)) {
+            $ret[] = $expr;
         }
 
         --$list->idx;
