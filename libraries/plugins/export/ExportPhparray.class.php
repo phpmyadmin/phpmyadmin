@@ -188,7 +188,7 @@ class ExportPhparray extends ExportPlugin
             );
 
             // variable name must not start with a number or dash...
-            if (preg_match('/^[a-zA-Z_\x7f-\xff]/', $tablefixed) == false) {
+            if (preg_match('/^[a-zA-Z_\x7f-\xff]/', $tablefixed) === 0) {
                 $tablefixed = '_' . $tablefixed;
             }
         } else {
