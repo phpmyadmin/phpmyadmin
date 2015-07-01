@@ -301,21 +301,28 @@ function PMA_RTN_handleEditor()
                         $db, $_REQUEST['item_original_type'],
                         $_REQUEST['item_original_name']
                     );
-                    // Backup the Old Privileges before dropping
-                    // if $_REQUEST['item_adjust_privileges'] set
-                    $privilegesBackup = array();
-                    if (isset($_REQUEST['item_adjust_privileges'])
-                        && ! empty($_REQUEST['item_adjust_privileges'])
-                    ) {
-                        $privilegesBackupQuery = 'SELECT * FROM ' . PMA_Util::backquote('mysql')
-                            . '.' . PMA_Util::backquote('procs_priv')
-                            . ' where Routine_name = "' . $_REQUEST['item_original_name']
-                            . '" AND Routine_type = "' . $_REQUEST['item_original_type']
-                            . '";';
 
-                        $privilegesBackup = $GLOBALS['dbi']->fetchResult(
-                            $privilegesBackupQuery, 0
-                        );
+                    if (! defined('PMA_DRIZZLE') || ! PMA_DRIZZLE) {
+                        if (isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
+                            && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+                        ) {
+                            // Backup the Old Privileges before dropping
+                            // if $_REQUEST['item_adjust_privileges'] set
+                            $privilegesBackup = array();
+                            if (isset($_REQUEST['item_adjust_privileges'])
+                                && ! empty($_REQUEST['item_adjust_privileges'])
+                            ) {
+                                $privilegesBackupQuery = 'SELECT * FROM ' . PMA_Util::backquote('mysql')
+                                    . '.' . PMA_Util::backquote('procs_priv')
+                                    . ' where Routine_name = "' . $_REQUEST['item_original_name']
+                                    . '" AND Routine_type = "' . $_REQUEST['item_original_type']
+                                    . '";';
+
+                                $privilegesBackup = $GLOBALS['dbi']->fetchResult(
+                                    $privilegesBackupQuery, 0
+                                );
+                            }
+                        }
                     }
 
                     $drop_routine = "DROP {$_REQUEST['item_original_type']} "
@@ -355,23 +362,30 @@ function PMA_RTN_handleEditor()
                             // Default value
                             $resultAdjust = false;
 
-                            // Insert all the previous privileges
-                            // but with the new name and the new type
-                            foreach ($privilegesBackup as $priv) {
-                                $adjustProcPrivilege = 'INSERT INTO '
-                                    . PMA_Util::backquote('mysql') . '.'
-                                    . PMA_Util::backquote('procs_priv')
-                                    . ' VALUES("' . $priv[0] . '", "'
-                                    . $priv[1] . '", "' . $priv[2] . '", "'
-                                    . $_REQUEST['item_name'] . '", "'
-                                    . $_REQUEST['item_type'] . '", "'
-                                    . $priv[5] . '", "'
-                                    . $priv[6] . '", "'
-                                    . $priv[7] . '");';
-                                $resultAdjust = $GLOBALS['dbi']->query(
-                                    $adjustProcPrivilege
-                                );
+                            if (! defined('PMA_DRIZZLE') || ! PMA_DRIZZLE) {
+                                if (isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
+                                    && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+                                ) {
+                                    // Insert all the previous privileges
+                                    // but with the new name and the new type
+                                    foreach ($privilegesBackup as $priv) {
+                                        $adjustProcPrivilege = 'INSERT INTO '
+                                            . PMA_Util::backquote('mysql') . '.'
+                                            . PMA_Util::backquote('procs_priv')
+                                            . ' VALUES("' . $priv[0] . '", "'
+                                            . $priv[1] . '", "' . $priv[2] . '", "'
+                                            . $_REQUEST['item_name'] . '", "'
+                                            . $_REQUEST['item_type'] . '", "'
+                                            . $priv[5] . '", "'
+                                            . $priv[6] . '", "'
+                                            . $priv[7] . '");';
+                                        $resultAdjust = $GLOBALS['dbi']->query(
+                                            $adjustProcPrivilege
+                                        );
+                                    }
+                                }
                             }
+
                             if ($resultAdjust) {
                                 // Flush the Privileges
                                 $flushPrivQuery = 'FLUSH PRIVILEGES;';
@@ -1101,19 +1115,21 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         $retval .= "    <td>" . __('Adjust Privileges');
         $retval .= PMA_Util::showDocu('faq', 'faq6-39');
         $retval .= "</td>";
-        if (isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
-            && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
-        ) {
-            $retval .= "    <td><input type='checkbox' name='item_adjust_privileges'"
-                . " value='1' checked /></td>";
-        } else {
-            $retval .= "    <td><input type='checkbox' name='item_adjust_privileges'"
-                . " value='1' "
-                . "title='" . __(
-                    "You do not have sufficient privileges to perform this "
-                    . "operation; Please refer to the documentation for more details"
-                )
-                . "' disabled/></td>";
+        if (! defined('PMA_DRIZZLE') || ! PMA_DRIZZLE) {
+            if (isset($GLOBALS['proc_priv']) && $GLOBALS['proc_priv']
+                && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+            ) {
+                $retval .= "    <td><input type='checkbox' name='item_adjust_privileges'"
+                    . " value='1' checked /></td>";
+            } else {
+                $retval .= "    <td><input type='checkbox' name='item_adjust_privileges'"
+                    . " value='1' "
+                    . "title='" . __(
+                        "You do not have sufficient privileges to perform this "
+                        . "operation; Please refer to the documentation for more details"
+                    )
+                    . "' disabled/></td>";
+            }
         }
         $retval .= "</tr>";
     }

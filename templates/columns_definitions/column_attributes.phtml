@@ -84,7 +84,7 @@ $ci_offset = -1;
             'columnMeta' => isset($columnMeta) ? $columnMeta : null
         )); ?>
 </td>
-<?php if (isset($_REQUEST['change_column']) && !empty($_REQUEST['change_column'])): ?>
+<?php if (isset($_REQUEST['change_column']) && !empty($_REQUEST['change_column']) && ! PMA_DRIZZLE): ?>
     <!-- column Adjust Privileges, Only for 'Edit' Column(s) -->
     <td class="center">
         <?php $privs_available = isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
