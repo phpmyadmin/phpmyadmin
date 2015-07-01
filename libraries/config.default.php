@@ -1403,7 +1403,7 @@ $cfg['Export']['compression'] = 'none';
 $cfg['Export']['lock_tables'] = false;
 
 /**
- * Whether to export databases/tablse as seperate files
+ * Whether to export databases/tables as separate files
  *
  * @global boolean $cfg['Export']['as_separate_files']
  */
