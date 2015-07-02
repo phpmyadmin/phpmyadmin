@@ -4,12 +4,11 @@ set -e
 set -u
 
 if [ $# -lt 2 ] ; then
-    echo 'Usage: upload-release USERNAME VERSION [DIR]'
+    echo 'Usage: upload-release VERSION [DIR]'
     echo 'Must be called in directory with binaries or with path'
     exit 1
 fi
-USER=$1
-REL=$2
+REL=$1
 
 if [ $# -gt 2 ] ; then
     cd "$3"

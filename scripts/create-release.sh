@@ -289,9 +289,9 @@ Todo now:
  2. prepare a release/phpMyAdmin-$version-notes.html explaining in short the goal of
     this release and paste into it the ChangeLog for this release, followed
     by the notes of all previous incremental versions (i.e. 4.4.9 through 4.4.0)
- 3. upload the files to SF, you can use scripts/upload-release, eg.:
+ 3. upload the files to our file server, use scripts/upload-release, eg.:
 
-        ./scripts/upload-release \$USER $version release
+        ./scripts/upload-release $version release
  4. add a news item to our website; a good idea is to include a link to the release notes such as https://www.phpmyadmin.net/files/4.4.10/
  5. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
