@@ -83,7 +83,7 @@ function loadChildNodes(isNode, $expandElem, callback) {
         } else {
             var $throbber = $expandElem.find('img.throbber');
             $throbber.hide();
-            $icon = $expandElem.find('img.ic_b_plus');
+            var $icon = $expandElem.find('img.ic_b_plus');
             $icon.show();
             PMA_ajaxShowMessage(data.error, false);
         }
@@ -728,7 +728,7 @@ function PMA_showCurrentNavigation() {
                     }
                     // taverse up and expand and parent navigation groups
                     $li.parents('.navGroup').each(function () {
-                        $cont = $(this).children('div.list_container');
+                        var $cont = $(this).children('div.list_container');
                         if (! $cont.is(':visible')) {
                             $(this)
                                 .children('div:first')

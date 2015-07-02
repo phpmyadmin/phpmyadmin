@@ -557,7 +557,7 @@ AJAX.registerOnload('config.js', function () {
 function setTab(tab_id)
 {
     $('ul.tabs').each(function() {
-        $this = $(this);
+        var $this = $(this);
         if (!$this.find('li a[href=#' + tab_id + ']').length) {
             return;
         }
@@ -571,7 +571,7 @@ function setTab(tab_id)
 function setupConfigTabs() {
     var forms = $('form.config-form');
     forms.each(function() {
-        $this = $(this);
+        var $this = $(this);
         var $tabs = $this.find('ul.tabs');
         if (!$tabs.length) {
             return;
