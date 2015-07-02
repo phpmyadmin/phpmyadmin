@@ -266,8 +266,16 @@ for it. Once you have both of them in the same folder, you can verify the signat
     gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
     gpg: Can't check signature: No public key
 
-As you can see gpg complains that it does not know the public key. You can
-download the key from `our download server <https://files.phpmyadmin.net/phpmyadmin.keyring>`_ or from one of the key servers:
+As you can see gpg complains that it does not know the public key. At this
+point you should do one of the following steps:
+
+* Download the keyring from `our download server <https://files.phpmyadmin.net/phpmyadmin.keyring>`_, then import it with:
+
+.. code-block:: console
+
+   $ gpg --import phpmyadmin.keyring
+
+* Download and import the key from one of the key servers:
 
 .. code-block:: console
 
