@@ -292,19 +292,15 @@ Todo now:
  3. upload the files to SF, you can use scripts/upload-release, eg.:
 
         ./scripts/upload-release \$USER $version release
- 4. if this is the latest stable version, visit https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin, pick the newly created version, expand the directory and use the I icons to mark that
-        - the -all-languages.zip file is the default for Windows and Others
-        - the -all-languages.tar.gz file is the default for Solaris
-        - the -all-languages.tar.bz2 file is the default for Mac OS X, Linux and BSD
- 5. add a SF news item to phpMyAdmin project; a good idea is to include a link to the release notes such as https://files.phpmyadmin.net/phpMyAdmin/4.4.10/phpMyAdmin-4.4.10-notes.html
- 6. send a short mail (with list of major changes) to
+ 4. add a news item to our website; a good idea is to include a link to the release notes such as https://www.phpmyadmin.net/files/4.4.10/
+ 5. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
 
     Don't forget to update the Description section in the announcement,
     based on documentation.
 
- 7. increment rc count or version in the repository :
+ 6. increment rc count or version in the repository :
         - in libraries/Config.class.php PMA_Config::__constructor() the line
               " \$this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html (if it exists) the 2 lines
@@ -313,14 +309,14 @@ Todo now:
         - in doc/conf.py (if it exists) the line
               " version = '2.7.1-dev' "
 
- 8. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones and set it to the default one
+ 7. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones and set it to the default one
 
- 9. tweet from @phpmya a link to the release notes (see item 5 above); your account should be added to TweetDeck to ease this posting
+ 8. tweet from @phpmya a link to the release notes (see item 5 above); your account should be added to TweetDeck to ease this posting
 
-10. for a stable version, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
+ 9. for a stable version, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
 
-11. in case of a new major release, update the render.py in website repository to include the new major releases
+10. in case of a new major release, update the pmaweb/settings.py in website repository to include the new major releases
 
-12. the end :-)
+11. the end :-)
 
 END
