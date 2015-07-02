@@ -1862,6 +1862,18 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['change_copy'] = "change_copy";
         $_REQUEST['old_hostname'] = "old_hostname";
         $_REQUEST['old_username'] = "old_username";
+        $_SESSION['relation'][1] = array(
+            'bookmarkwork' => false,
+            'historywork' => false,
+            'recentwork' => false,
+            'favoritework' => false,
+            'uiprefswork' => false,
+            'userconfigwork' => false,
+            'menuswork' => false,
+            'navwork' => false,
+            'savedsearcheswork' => false,
+            'designer_settingswork' => false,
+        );
 
         $queries = array();
 
