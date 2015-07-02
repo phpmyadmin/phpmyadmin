@@ -213,4 +213,84 @@ function PMA_relationsCleanupDatabase($db)
     }
 }
 
+/**
+ * Cleanup user related relation stuff
+ *
+ * @param string $username username
+ */
+function PMA_relationsCleanupUser($username)
+{
+    $cfgRelation = PMA_getRelationsParam();
+
+    if ($cfgRelation['bookmarkwork']) {
+        $remove_query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['bookmark'])
+            . " WHERE `user`  = '" . PMA_Util::sqlAddSlashes($username) . "'";
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['historywork']) {
+        $remove_query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['history'])
+            . " WHERE `username`  = '" . PMA_Util::sqlAddSlashes($username) . "'";
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['recentwork']) {
+        $remove_query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['recent'])
+            . " WHERE `username`  = '" . PMA_Util::sqlAddSlashes($username) . "'";
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['favoritework']) {
+        $remove_query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['favorite'])
+            . " WHERE `username`  = '" . PMA_Util::sqlAddSlashes($username) . "'";
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['uiprefswork']) {
+        $remove_query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['table_uiprefs'])
+            . " WHERE `username`  = '" . PMA_Util::sqlAddSlashes($username) . "'";
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['userconfigwork']) {
+        $remove_query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['userconfig'])
+            . " WHERE `username`  = '" . PMA_Util::sqlAddSlashes($username) . "'";
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['menuswork']) {
+        $remove_query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['users'])
+            . " WHERE `username`  = '" . PMA_Util::sqlAddSlashes($username) . "'";
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['navwork']) {
+        $remove_query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['navigationhiding'])
+            . " WHERE `username`  = '" . PMA_Util::sqlAddSlashes($username) . "'";
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['savedsearcheswork']) {
+        $remove_query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['savedsearches'])
+            . " WHERE `username`  = '" . PMA_Util::sqlAddSlashes($username) . "'";
+        PMA_queryAsControlUser($remove_query);
+    }
+
+    if ($cfgRelation['designer_settingswork']) {
+        $remove_query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
+            . "." . PMA_Util::backquote($cfgRelation['designer_settings'])
+            . " WHERE `username`  = '" . PMA_Util::sqlAddSlashes($username) . "'";
+        PMA_queryAsControlUser($remove_query);
+    }
+}
+
 ?>

@@ -3703,6 +3703,7 @@ function PMA_getDataForDeleteUsers($queries)
         $queries[] = 'DROP USER \''
             . PMA_Util::sqlAddSlashes($this_user)
             . '\'@\'' . PMA_Util::sqlAddSlashes($this_host) . '\';';
+        PMA_relationsCleanupUser($this_user);
 
         if (isset($_REQUEST['drop_users_db'])) {
             $queries[] = 'DROP DATABASE IF EXISTS '
