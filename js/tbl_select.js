@@ -93,7 +93,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         ];
 
         // jQuery object to reuse
-        $search_form = $(this);
+        var $search_form = $(this);
         event.preventDefault();
 
         // empty previous search results while we are waiting for new results

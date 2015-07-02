@@ -354,7 +354,7 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
         } else {
             PMA_ajaxRemoveMessage($msgbox);
             // Show dialog if the request was successful
-            $div = $('<div/>');
+            var $div = $('<div/>');
             $div
             .append(data.message)
             .dialog({

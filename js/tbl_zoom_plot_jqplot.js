@@ -612,8 +612,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                     // now fill the displayResultForm with row values
                     var key;
                     for (key in data.row_info) {
-                        $field = $('#edit_fieldID_' + field_id);
-                        $field_null = $('#edit_fields_null_id_' + field_id);
+                        var $field = $('#edit_fieldID_' + field_id);
+                        var $field_null = $('#edit_fields_null_id_' + field_id);
                         if (data.row_info[key] === null) {
                             $field_null.prop('checked', true);
                             $field.val('');

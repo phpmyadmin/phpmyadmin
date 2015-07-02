@@ -264,7 +264,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     $(document).on('click', "a.add_key.ajax", function (event) {
         event.preventDefault();
 
-        $this = $(this);
+        var $this = $(this);
         var curr_table_name = $this.closest('form').find('input[name=table]').val();
         var curr_column_name = $this.parents('tr').children('th').children('label').text();
 

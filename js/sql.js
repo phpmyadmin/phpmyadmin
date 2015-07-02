@@ -575,7 +575,7 @@ AJAX.registerOnload('sql.js', function () {
                         dialog_content += response.message;
                     }
                     dialog_content += '</div>';
-                    $dialog_content = $(dialog_content);
+                    var $dialog_content = $(dialog_content);
                     var button_options = {};
                     button_options[PMA_messages.strClose] = function () {
                         $(this).dialog('close');
