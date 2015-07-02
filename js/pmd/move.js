@@ -1086,6 +1086,7 @@ function Load_page(page) {
 
 function Grid()
 {
+	var value_sent = '';
     if (!ON_grid) {
         ON_grid = 1;
         value_sent = 'on';

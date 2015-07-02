@@ -500,7 +500,7 @@ AJAX.registerOnload('sql.js', function () {
     // Prompt to confirm on Show All
     $('body').on('click', '.navigation .showAllRows', function (e) {
         e.preventDefault();
-        $form = $(this).parents('form');
+        var $form = $(this).parents('form');
 
         if (! $(this).is(':checked')) { // already showing all rows
             submitShowAllForm();

@@ -69,7 +69,7 @@ function loadChildNodes(isNode, $expandElem, callback) {
                     .slideDown('slow');
             }
             if (data._errors) {
-                $errors = $(data._errors);
+                var $errors = $(data._errors);
                 if ($errors.children().length > 0) {
                     $('#pma_errors').replaceWith(data._errors);
                 }

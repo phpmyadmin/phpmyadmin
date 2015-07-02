@@ -241,7 +241,7 @@ function goTo3NFFinish(newTables)
 {
     for (var table in newTables) {
         for (var newtbl in newTables[table]) {
-            updatedname = $('#extra input[name="' + newtbl + '"]').val();
+            var updatedname = $('#extra input[name="' + newtbl + '"]').val();
             newTables[table][updatedname] = newTables[table][newtbl];
             if (updatedname !== newtbl) {
                 delete newTables[table][newtbl];
@@ -580,7 +580,7 @@ AJAX.registerOnload('normalization.js', function() {
         return false;
     });
     $(".tblFooters").on("click", "#saveNewPrimary", function() {
-        datastring = $('#newCols :input').serialize();
+        var datastring = $('#newCols :input').serialize();
         datastring += "&field_key[0]=primary_0&ajax_request=1&do_save_data=1&field_where=last";
         $.post("tbl_addfield.php", datastring, function(data) {
             if (data.success === true) {

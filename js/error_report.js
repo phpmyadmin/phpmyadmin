@@ -68,7 +68,7 @@ var ErrorReport = {
         var button_options = {};
 
         button_options[PMA_messages.strSendErrorReport] = function () {
-            $dialog = $(this);
+            var $dialog = $(this);
             var post_data = $.extend(report_data, {
                 send_error_report: true,
                 description: $("#report_description").val(),

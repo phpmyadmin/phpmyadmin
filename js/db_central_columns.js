@@ -95,7 +95,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         $.uiTableFilter($("#table_columns"), $(this).val(), cols, null, "td span");
     });
     $('.edit').click(function() {
-        rownum = $(this).parent().data('rownum');
+        var rownum = $(this).parent().data('rownum');
         $('#save_' + rownum).show();
         $(this).hide();
         $('#f_' + rownum + ' td span').hide();
@@ -114,7 +114,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         var $td = $(this);
         var question = PMA_messages.strDeleteCentralColumnWarning;
         $td.PMA_confirm(question, null, function (url) {
-            rownum = $td.data('rownum');
+            var rownum = $td.data('rownum');
             $("#del_col_name").val("selected_fld%5B%5D="+$('#checkbox_row_' + rownum ).val());
             $("#del_form").submit();
         });
@@ -122,7 +122,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
     $('.edit_cancel_form').click(function(event) {
         event.preventDefault();
         event.stopPropagation();
-        rownum = $(this).data('rownum');
+        var rownum = $(this).data('rownum');
         $('#save_' + rownum).hide();
         $('#edit_' + rownum).show();
         $('#f_' + rownum + ' td span').show();
@@ -133,7 +133,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         //alert(1);
         event.preventDefault();
         event.stopPropagation();
-        rownum = $(this).data('rownum');
+        var rownum = $(this).data('rownum');
         $('#f_' + rownum + ' td').each(function() {
             if ($(this).attr('name') !== 'undefined') {
                 $(this).find(':input[type!="hidden"],select:first')

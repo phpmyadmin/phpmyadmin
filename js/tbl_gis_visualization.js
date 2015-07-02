@@ -249,10 +249,10 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
     });
 
     $(document).on('drag', 'svg', function (event, dd) {
-        newX = Math.round(dd.offsetX);
+        var newX = Math.round(dd.offsetX);
         x +=  newX - dragX;
         dragX = newX;
-        newY = Math.round(dd.offsetY);
+        var newY = Math.round(dd.offsetY);
         y +=  newY - dragY;
         dragY = newY;
         zoomAndPan();
