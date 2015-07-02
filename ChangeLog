@@ -76,6 +76,7 @@ phpMyAdmin - ChangeLog
 - bug       Missing selected/entered values when editing active options in visual query builder
 - bug #4969 Autoload from prefs_storage not behaving properly
 - bug #4972 Incorrect length computed for binary data
+- bug       Remove character set from create_tables_drizzle.sql
 
 4.4.10.0 (2015-06-17)
 - bug #4950 Issues in database selection for replication
