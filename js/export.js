@@ -69,6 +69,7 @@ function createTemplate(name)
         server : PMA_commonParams.get('server'),
         db : PMA_commonParams.get('db'),
         table : PMA_commonParams.get('table'),
+        exportType : $('input[name="export_type"]').val(),
         templateAction : 'create',
         templateName : name,
         templateData : JSON.stringify(templateData)
@@ -99,6 +100,7 @@ function loadTemplate(id)
         server : PMA_commonParams.get('server'),
         db : PMA_commonParams.get('db'),
         table : PMA_commonParams.get('table'),
+        exportType : $('input[name="export_type"]').val(),
         templateAction : 'load',
         templateId : id,
     };
@@ -144,6 +146,7 @@ function updateTemplate(id)
         server : PMA_commonParams.get('server'),
         db : PMA_commonParams.get('db'),
         table : PMA_commonParams.get('table'),
+        exportType : $('input[name="export_type"]').val(),
         templateAction : 'update',
         templateId : id,
         templateData : JSON.stringify(templateData)
@@ -172,6 +175,7 @@ function deleteTemplate(id)
         server : PMA_commonParams.get('server'),
         db : PMA_commonParams.get('db'),
         table : PMA_commonParams.get('table'),
+        exportType : $('input[name="export_type"]').val(),
         templateAction : 'delete',
         templateId : id,
     };

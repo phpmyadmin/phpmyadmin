@@ -37,18 +37,11 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
 
     if ('create' == $_REQUEST['templateAction']) {
         $query = "INSERT INTO " . $templateTable . "("
-            . " `username`, `db_name`, `table_name`,"
+            . " `username`, `export_type`,"
             . " `template_name`, `template_data`"
             . ") VALUES ("
             . "'" . $user . "', "
-            . (! empty($GLOBALS['db'])
-                ? "'" . PMA_Util::sqlAddSlashes($GLOBALS['db']) . "'"
-                : 'NULL'
-            ) . ","
-            . (! empty($GLOBALS['table'])
-                ? "'" . PMA_Util::sqlAddSlashes($GLOBALS['table']) . "'"
-                : 'NULL'
-            ) . ","
+            . "'" . PMA_Util::sqlAddSlashes($_REQUEST['exportType']) . "', "
             . "'" . PMA_Util::sqlAddSlashes($_REQUEST['templateName']) . "', "
             . "'" . PMA_Util::sqlAddSlashes($_REQUEST['templateData']) . "');";
 
@@ -80,7 +73,7 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
     if ('create' == $_REQUEST['templateAction']) {
         $response->addJSON(
             'data',
-            PMA_getOptionsForExportTemplates($GLOBALS['db'], $GLOBALS['table'])
+            PMA_getOptionsForExportTemplates($_REQUEST['exportType'])
         );
     } elseif ('load' == $_REQUEST['templateAction']) {
         $data = null;

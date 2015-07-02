@@ -187,10 +187,9 @@ function PMA_getHtmlForExportOptionHeader($export_type, $db, $table)
 /**
  * Returns Html for saving and loading export templates
  *
- * @param string $db    database
- * @param string $table table
+ * @param string $export_type export type - server, database, or table
  */
-function PMA_getHtmlForExportTemplateLoading($db, $table)
+function PMA_getHtmlForExportTemplateLoading($export_type)
 {
     $html  = '<div class="exportoptions" id="exporttemplates">';
     $html .= '<h3>' . __('Export templates:') . '</h3>';
@@ -212,7 +211,7 @@ function PMA_getHtmlForExportTemplateLoading($db, $table)
     $html .= '<h4>' . __('Existing templates:') . '</h4>';
     $html .= '<label for="template">' . __('Template:') . '</label>';
     $html .= '<select name="template" id="template">';
-    $html .= PMA_getOptionsForExportTemplates($db, $table);
+    $html .= PMA_getOptionsForExportTemplates($export_type);
     $html .= '</select>';
     $html .= '<input type="submit" name="loadTemplate" '
         . 'id="loadTemplate" value="' . __('Load') . '" />';
@@ -233,12 +232,11 @@ function PMA_getHtmlForExportTemplateLoading($db, $table)
 /**
  * Returns HTML for the options in teplate dropdown
  *
- * @param string $db    database
- * @param string $table table
+ * @param string $export_type export type - server, database, or table
  *
  * @return string HTML for the options in teplate dropdown
  */
-function PMA_getOptionsForExportTemplates($db, $table)
+function PMA_getOptionsForExportTemplates($export_type)
 {
     $ret = '';
 
@@ -250,14 +248,7 @@ function PMA_getOptionsForExportTemplates($db, $table)
        . PMA_Util::backquote($cfgRelation['exporttemplates'])
        . " WHERE `username` = "
        . "'" . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
-       . " AND `db_name` "
-       . (! empty($db)
-           ? "= '" . PMA_Util::sqlAddSlashes($db) . "'"
-           : "IS NULL")
-       . " AND `table_name` "
-       . (! empty($table)
-           ? "= '" . PMA_Util::sqlAddSlashes($table) . "'"
-           : "IS NULL")
+       . " AND `export_type` = '" . $export_type . "'"
        . " ORDER BY `template_name`;";
 
     $result = PMA_queryAsControlUser($query);

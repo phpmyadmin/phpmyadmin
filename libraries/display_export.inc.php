@@ -43,7 +43,7 @@ $html  = PMA_getHtmlForExportOptionHeader($export_type, $db, $table);
 
 $cfgRelation = PMA_getRelationsParam();
 if ($cfgRelation['exporttemplateswork']) {
-    $html .= PMA_getHtmlForExportTemplateLoading($db, $table);
+    $html .= PMA_getHtmlForExportTemplateLoading($export_type);
 }
 
 $html .= '<form method="post" action="export.php" '

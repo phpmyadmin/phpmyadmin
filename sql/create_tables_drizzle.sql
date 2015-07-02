@@ -296,13 +296,12 @@ CREATE TABLE IF NOT EXISTS `pma__designer_settings` (
 
 CREATE TABLE IF NOT EXISTS `pma__exporttemplates` (
   `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `db_name` varchar(64) COLLATE utf8_bin DEFAULT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin DEFAULT NULL,
-  `template_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `template_data` text COLLATE utf8_bin NOT NULL,
+  `username` varchar(64) NOT NULL,
+  `export_type` varchar(10) NOT NULL,
+  `template_name` varchar(64) NOT NULL,
+  `template_data` text NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `u_user_db_table_template` (`username`,`db_name`,`table_name`,`template_name`)
+  UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`)
 )
   COMMENT='Saved export templates'
   COLLATE utf8_bin;
