@@ -334,6 +334,11 @@ class PMA_DisplayResults
                     'search_data' => $json_highlighting_data
                 );
             }
+            if (! empty($cfgRelation['designer_settings'])) {
+                $relDb[$cfgRelation['designer_settings']] = array(
+                    'settings_data' => $json_highlighting_data
+                );
+            }
             if (! empty($cfgRelation['table_uiprefs'])) {
                 $relDb[$cfgRelation['table_uiprefs']] = array(
                     'prefs' => $json_highlighting_data
