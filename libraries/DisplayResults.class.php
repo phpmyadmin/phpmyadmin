@@ -674,10 +674,10 @@ class PMA_DisplayResults
                 || $this->__get('is_export')
                 || $this->__get('is_func')
                 || $this->__get('is_analyse'))
-            && !empty($analyzed_sql_results['queryflags']['select_from'])
+            && !empty($analyzed_sql_results['select_from'])
             && !empty($analyzed_sql_results['statement']->from)
             && (count($analyzed_sql_results['statement']->from) == 1)
-            && !empty($analyzed_sql_results['statement']->from[0]->table) == 1;
+            && !empty($analyzed_sql_results['statement']->from[0]->table);
     }
 
 

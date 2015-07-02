@@ -1195,7 +1195,7 @@ function PMA_countQueryResults(
             // stop the query as soon as the result that is required has been
             // computed.
 
-            if (empty($analyzed_sql_results['queryflags']['union'])) {
+            if (empty($analyzed_sql_results['union'])) {
                 $count_query .= ' LIMIT 1';
             }
 
