@@ -80,6 +80,11 @@ function createTemplate(name)
         if (response.success === true) {
             $('#templateName').val('');
             $('#template').html(response.data);
+            $("#template option").each(function() {
+                if($(this).text() == name) {
+                     $(this).prop('selected', true);
+                }
+            });
             PMA_ajaxRemoveMessage($msgbox);
         } else {
             PMA_ajaxShowMessage(response.error, false);

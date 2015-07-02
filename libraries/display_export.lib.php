@@ -211,7 +211,7 @@ function PMA_getHtmlForExportTemplateLoading($export_type)
         . ' id="existingTemplatesForm" class="ajax">';
     $html .= '<h4>' . __('Existing templates:') . '</h4>';
     $html .= '<label for="template">' . __('Template:') . '</label>';
-    $html .= '<select name="template" id="template">';
+    $html .= '<select required="required" name="template" id="template">';
     $html .= PMA_getOptionsForExportTemplates($export_type);
     $html .= '</select>';
     $html .= '<input type="submit" name="loadTemplate" '
@@ -239,7 +239,7 @@ function PMA_getHtmlForExportTemplateLoading($export_type)
  */
 function PMA_getOptionsForExportTemplates($export_type)
 {
-    $ret = '';
+    $ret = '<option value="">-- ' . __('Select a template') . ' --</option>';
 
     // Get the relation settings
     $cfgRelation = PMA_getRelationsParam();
