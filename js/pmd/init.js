@@ -3,7 +3,7 @@
  * Initialises the data required to run PMD, then fires it up.
  */
 
-var j_tabs, h_tabs, contr, server, db, token, selected_page, pmd_tables_enabled;
+var j_tabs, h_tabs, contr, display_field, server, db, token, selected_page, pmd_tables_enabled;
 
 AJAX.registerTeardown('pmd/init.js', function () {
     $(".trigger").unbind('click');

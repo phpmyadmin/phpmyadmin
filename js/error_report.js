@@ -69,7 +69,7 @@ var ErrorReport = {
 
         button_options[PMA_messages.strSendErrorReport] = function () {
             $dialog = $(this);
-            post_data = $.extend(report_data, {
+            var post_data = $.extend(report_data, {
                 send_error_report: true,
                 description: $("#report_description").val(),
                 always_send: $("#always_send_checkbox")[0].checked
@@ -117,16 +117,16 @@ var ErrorReport = {
     _showErrorNotification: function () {
         ErrorReport._removeErrorNotification();
 
-        $div = $(
+        var $div = $(
             '<div style="position:fixed;bottom:0;left:0;right:0;margin:0;' +
             'z-index:1000" class="error" id="error_notification"></div>'
         ).append(
             PMA_getImage("s_error.png") + PMA_messages.strErrorOccurred
         );
 
-        $buttons = $('<div style="float:right"></div>');
+        var $buttons = $('<div style="float:right"></div>');
 
-        button_html  = '<button id="show_error_report">';
+        var button_html  = '<button id="show_error_report">';
         button_html += PMA_messages.strShowReportDetails;
         button_html += '</button>';
 
@@ -193,11 +193,11 @@ var ErrorReport = {
      * @return object
      */
     _get_microhistory: function () {
-        cached_pages = AJAX.cache.pages.slice(-7);
-        remove = ["common_query", "table", "db", "token", "pma_absolute_uri"];
+        var cached_pages = AJAX.cache.pages.slice(-7);
+        var remove = ["common_query", "table", "db", "token", "pma_absolute_uri"];
         return {
             pages: cached_pages.map(function (page) {
-                simplepage = {
+                var simplepage = {
                     hash: page.hash
                 };
 

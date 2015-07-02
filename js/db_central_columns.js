@@ -111,7 +111,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
     $(".del_row").click(function (event) {
         event.preventDefault();
         event.stopPropagation();
-        $td = $(this);
+        var $td = $(this);
         var question = PMA_messages.strDeleteCentralColumnWarning;
         $td.PMA_confirm(question, null, function (url) {
             rownum = $td.data('rownum');

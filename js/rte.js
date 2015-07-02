@@ -802,7 +802,7 @@ RTE.ROUTINE = {
                     /**
                      * Display the dialog to the user
                      */
-                    $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                    var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
                         width: 650,
                         buttons: that.buttonOptions,
                         title: data.title,
