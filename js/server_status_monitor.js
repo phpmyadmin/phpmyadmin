@@ -1992,7 +1992,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
             database: db
         }, function (data) {
-            var i;
+            var i, l;
             if (typeof data !== 'undefined' && data.success === true) {
                 data = data.message;
             }
