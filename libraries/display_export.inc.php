@@ -40,7 +40,11 @@ if (empty($export_list)) {
 }
 
 $html  = PMA_getHtmlForExportOptionHeader($export_type, $db, $table);
-$html .= PMA_getHtmlForExportTemplateLoading($db, $table);
+
+$cfgRelation = PMA_getRelationsParam();
+if ($cfgRelation['exporttemplateswork']) {
+    $html .= PMA_getHtmlForExportTemplateLoading($db, $table);
+}
 
 $html .= '<form method="post" action="export.php" '
     . ' name="dump" class="disableAjax">';
