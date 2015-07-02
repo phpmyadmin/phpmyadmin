@@ -54,13 +54,13 @@ function goTo3NFStep1(newTables)
             $("#extra form").each(function() {
                 var form_id = $(this).attr('id');
                 var colname = $(this).data('colname');
-                $("#"+form_id+" input[value='"+colname+"']").next().remove();
-                $("#"+form_id+" input[value='"+colname+"']").remove();
+                $("#" + form_id + " input[value='" + colname + "']").next().remove();
+                $("#" + form_id + " input[value='" + colname + "']").remove();
             });
             $("#mainContent #newCols").html('');
             $('.tblFooters').html('');
             if (data.subText !== "") {
-                $('.tblFooters').html('<input type="button" onClick="processDependencies(\'\', true);" value="'+PMA_messages.strDone+'"/>');
+                $('.tblFooters').html('<input type="button" onClick="processDependencies(\'\', true);" value="' + PMA_messages.strDone + '"/>');
             }
         }
     );
@@ -82,7 +82,7 @@ function goTo2NFStep1() {
             $("#mainContent #extra").html(data.extra);
             $("#mainContent #newCols").html('');
             if (data.subText !== '') {
-                $('.tblFooters').html('<input type="submit" value="'+PMA_messages.strDone+'" onclick="processDependencies(\''+data.primary_key+'\');">');
+                $('.tblFooters').html('<input type="submit" value="' + PMA_messages.strDone + '" onclick="processDependencies(\'' + data.primary_key + '\');">');
             } else {
                 if (normalizeto === '3nf') {
                     $("#mainContent #newCols").html(PMA_messages.strToNextStep);
@@ -128,7 +128,7 @@ function goToStep4()
             $("#mainContent #newCols").html('');
             $('.tblFooters').html('');
             for(var pk in primary_key) {
-                $("#extra input[value='"+primary_key[pk]+"']").attr("disabled","disabled");
+                $("#extra input[value='" + primary_key[pk] + "']").attr("disabled","disabled");
             }
         }
     );
@@ -153,7 +153,7 @@ function goToStep3()
             $('.tblFooters').html('');
             primary_key = $.parseJSON(data.primary_key);
             for(var pk in primary_key) {
-                $("#extra input[value='"+primary_key[pk]+"']").attr("disabled","disabled");
+                $("#extra input[value='" + primary_key[pk] + "']").attr("disabled","disabled");
             }
         }
     );
@@ -199,7 +199,7 @@ function goTo2NFFinish(pd)
 {
     var tables = {};
     for (var dependson in pd) {
-        tables[dependson] = $('#extra input[name="'+dependson+'"]').val();
+        tables[dependson] = $('#extra input[name="' + dependson + '"]').val();
     }
     datastring = {"token": PMA_commonParams.get('token'),
             "ajax_request": true,
@@ -241,7 +241,7 @@ function goTo3NFFinish(newTables)
 {
     for (var table in newTables) {
         for (var newtbl in newTables[table]) {
-            updatedname = $('#extra input[name="'+newtbl+'"]').val();
+            updatedname = $('#extra input[name="' + newtbl + '"]').val();
             newTables[table][updatedname] = newTables[table][newtbl];
             if (updatedname !== newtbl) {
                 delete newTables[table][newtbl];
@@ -280,7 +280,7 @@ var backup = '';
 function goTo2NFStep2(pd, primary_key)
 {
     $("#newCols").html('');
-    $("#mainContent legend").html(PMA_messages.strStep+' 2.2 '+PMA_messages.strConfirmPd);
+    $("#mainContent legend").html(PMA_messages.strStep + ' 2.2 ' + PMA_messages.strConfirmPd);
     $("#mainContent h4").html(PMA_messages.strSelectedPd);
     $("#mainContent p").html(PMA_messages.strPdHintNote);
     var extra = '<div class="dependencies_box">';
@@ -288,11 +288,11 @@ function goTo2NFStep2(pd, primary_key)
     for (var dependson in pd) {
         if (dependson !== primary_key) {
             pdFound = true;
-            extra += '<p class="displayblock desc">'+escapeHtml(dependson) +" -> "+escapeHtml(pd[dependson].toString())+'</p>';
+            extra += '<p class="displayblock desc">' + escapeHtml(dependson) + " -> " + escapeHtml(pd[dependson].toString()) + '</p>';
         }
     }
     if(!pdFound) {
-        extra += '<p class="displayblock desc">'+PMA_messages.strNoPdSelected+'</p>';
+        extra += '<p class="displayblock desc">' + PMA_messages.strNoPdSelected + '</p>';
         extra += '</div>';
     } else {
         extra += '</div>';
@@ -317,7 +317,7 @@ function goTo2NFStep2(pd, primary_key)
         });
     }
     $("#mainContent #extra").html(extra);
-    $('.tblFooters').html('<input type="button" value="'+PMA_messages.strBack+'" id="backEditPd"/><input type="button" id="goTo2NFFinish" value="'+PMA_messages.strGo+'"/>');
+    $('.tblFooters').html('<input type="button" value="' + PMA_messages.strBack + '" id="backEditPd"/><input type="button" id="goTo2NFFinish" value="' + PMA_messages.strGo + '"/>');
     $("#goTo2NFFinish").click(function(){
         goTo2NFFinish(pd);
     });
@@ -326,7 +326,7 @@ function goTo2NFStep2(pd, primary_key)
 function goTo3NFStep2(pd, tablesTds)
 {
     $("#newCols").html('');
-    $("#mainContent legend").html(PMA_messages.strStep+' 3.2 '+PMA_messages.strConfirmTd);
+    $("#mainContent legend").html(PMA_messages.strStep + ' 3.2 ' + PMA_messages.strConfirmTd);
     $("#mainContent h4").html(PMA_messages.strSelectedTd);
     $("#mainContent p").html(PMA_messages.strPdHintNote);
     var extra = '<div class="dependencies_box">';
@@ -336,12 +336,12 @@ function goTo3NFStep2(pd, tablesTds)
             dependson = tablesTds[table][i];
             if (dependson !== '' && dependson !== table) {
                 pdFound = true;
-                extra += '<p class="displayblock desc">'+escapeHtml(dependson) +" -> "+escapeHtml(pd[dependson].toString())+'</p>';
+                extra += '<p class="displayblock desc">' + escapeHtml(dependson) + " -> " + escapeHtml(pd[dependson].toString()) + '</p>';
             }
         }
     }
     if(!pdFound) {
-        extra += '<p class="displayblock desc">'+PMA_messages.strNoTdSelected+'</p>';
+        extra += '<p class="displayblock desc">' + PMA_messages.strNoTdSelected + '</p>';
         extra += '</div>';
     } else {
         extra += '</div>';
@@ -367,7 +367,7 @@ function goTo3NFStep2(pd, tablesTds)
         });
     }
     $("#mainContent #extra").html(extra);
-    $('.tblFooters').html('<input type="button" value="'+PMA_messages.strBack+'" id="backEditPd"/><input type="button" id="goTo3NFFinish" value="'+PMA_messages.strGo+'"/>');
+    $('.tblFooters').html('<input type="button" value="' + PMA_messages.strBack + '" id="backEditPd"/><input type="button" id="goTo3NFFinish" value="' + PMA_messages.strGo + '"/>');
     $("#goTo3NFFinish").click(function(){
         if (!pdFound) {
             goTo3NFFinish([]);
@@ -393,10 +393,10 @@ function processDependencies(primary_key, isTransitive)
             tablesTds[tblname].push(primary_key);
         }
         var form_id = $(this).attr('id');
-        $('#'+form_id+' input[type=checkbox]:not(:checked)').removeAttr('checked');
+        $('#' + form_id + ' input[type=checkbox]:not(:checked)').removeAttr('checked');
         dependsOn = '';
-        $('#'+form_id+' input[type=checkbox]:checked').each(function(){
-            dependsOn += $(this).val()+', ';
+        $('#' + form_id + ' input[type=checkbox]:checked').each(function(){
+            dependsOn += $(this).val() + ', ';
             $(this).attr("checked","checked");
         });
         if (dependsOn === '') {
@@ -508,8 +508,8 @@ AJAX.registerOnload('normalization.js', function() {
                     $('#newCols').html(data.message);
                     $('.default_value').hide();
                     $('.enum_notice').hide();
-                    $('.tblFooters').html("<input type='submit' id='saveSplit' value='"+PMA_messages.strSave+"'/>" +
-                        "<input type='submit' id='cancelSplit' value='"+PMA_messages.strCancel+"' "+
+                    $('.tblFooters').html("<input type='submit' id='saveSplit' value='" + PMA_messages.strSave + "'/>" +
+                        "<input type='submit' id='cancelSplit' value='" + PMA_messages.strCancel + "' " +
                         "onclick=\"$('#newCols').html('');$(this).parent().html('')\"/>");
                 }
             }
@@ -569,8 +569,8 @@ AJAX.registerOnload('normalization.js', function() {
                     $('#newCols').html(data.message);
                     $('.default_value').hide();
                     $('.enum_notice').hide();
-                    $('.tblFooters').html("<input type='submit' id='saveNewPrimary' value='"+PMA_messages.strSave+"'/>" +
-                        "<input type='submit' id='cancelSplit' value='"+PMA_messages.strCancel+"' "+
+                    $('.tblFooters').html("<input type='submit' id='saveNewPrimary' value='" + PMA_messages.strSave + "'/>" +
+                        "<input type='submit' id='cancelSplit' value='" + PMA_messages.strCancel + "' " +
                         "onclick=\"$('#newCols').html('');$(this).parent().html('')\"/>");
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
@@ -632,12 +632,12 @@ AJAX.registerOnload('normalization.js', function() {
             var newColName = $("#extra input[type=checkbox]:checked:first").val();
             repeatingCols = repeatingCols.slice(0, -2);
             var confirmStr = PMA_sprintf(PMA_messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(PMA_commonParams.get('table')));
-            confirmStr += '<input type="text" name="repeatGroupTable" placeholder="'+PMA_messages.strNewTablePlaceholder+'"/>'+
-                '( '+escapeHtml(primary_key.toString())+', <input type="text" name="repeatGroupColumn" placeholder="'+PMA_messages.strNewColumnPlaceholder+'" value="'+escapeHtml(newColName)+'">)'+
+            confirmStr += '<input type="text" name="repeatGroupTable" placeholder="' + PMA_messages.strNewTablePlaceholder + '"/>' +
+                '( ' + escapeHtml(primary_key.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + PMA_messages.strNewColumnPlaceholder + '" value="' + escapeHtml(newColName) + '">)' +
                 '</ol>';
             $("#newCols").html(confirmStr);
-            $('.tblFooters').html('<input type="submit" value="'+PMA_messages.strCancel+'" onclick="$(\'#newCols\').html(\'\');$(\'#extra input[type=checkbox]\').removeAttr(\'checked\')"/>'+
-                '<input type="submit" value="'+PMA_messages.strGo+'" onclick="moveRepeatingGroup(\''+repeatingCols+'\')"/>');
+            $('.tblFooters').html('<input type="submit" value="' + PMA_messages.strCancel + '" onclick="$(\'#newCols\').html(\'\');$(\'#extra input[type=checkbox]\').removeAttr(\'checked\')"/>' +
+                '<input type="submit" value="' + PMA_messages.strGo + '" onclick="moveRepeatingGroup(\'' + repeatingCols + '\')"/>');
         }
     });
     $("#mainContent p").on("click", "#createPrimaryKey", function(event) {
@@ -667,19 +667,19 @@ AJAX.registerOnload('normalization.js', function() {
     });
     $("#mainContent").on("click", "#showPossiblePd", function(){
         if($(this).hasClass('hideList')) {
-            $(this).html('+ '+PMA_messages.strShowPossiblePd);
+            $(this).html('+ ' + PMA_messages.strShowPossiblePd);
             $(this).removeClass('hideList');
             $("#newCols").slideToggle("slow");
             return false;
         }
         if($("#newCols").html() !== '') {
-            $("#showPossiblePd").html('- '+PMA_messages.strHidePd);
+            $("#showPossiblePd").html('- ' + PMA_messages.strHidePd);
             $("#showPossiblePd").addClass('hideList');
             $("#newCols").slideToggle("slow");
             return false;
         }
         $("#newCols").insertAfter("#mainContent h4");
-        $("#newCols").html('<div class="center">'+PMA_messages.strLoading+'<br/>'+PMA_messages.strWaitForPd+'</div>');
+        $("#newCols").html('<div class="center">' + PMA_messages.strLoading + '<br/>' + PMA_messages.strWaitForPd + '</div>');
         $.post(
         "normalization.php",
         {
@@ -689,7 +689,7 @@ AJAX.registerOnload('normalization.js', function() {
             "table": PMA_commonParams.get('table'),
             "findPdl": true
         }, function(data) {
-            $("#showPossiblePd").html('- '+PMA_messages.strHidePd);
+            $("#showPossiblePd").html('- ' + PMA_messages.strHidePd);
             $("#showPossiblePd").addClass('hideList');
             $("#newCols").html(data.message);
         });
@@ -700,9 +700,9 @@ AJAX.registerOnload('normalization.js', function() {
         var strColsRight = $(this).next().next().html();
         var colsRight = strColsRight.split(',');
         for (var i in colsRight) {
-            $('form[data-colname="'+colsRight[i].trim()+'"] input[type="checkbox"]').prop('checked', false);
+            $('form[data-colname="' + colsRight[i].trim() + '"] input[type="checkbox"]').prop('checked', false);
             for (var j in colsLeft) {
-                $('form[data-colname="'+colsRight[i].trim()+'"] input[value="'+colsLeft[j].trim()+'"]').prop('checked', true);
+                $('form[data-colname="' + colsRight[i].trim() + '"] input[value="' + colsLeft[j].trim() + '"]').prop('checked', true);
             }
         }
     });
