@@ -4270,7 +4270,7 @@ class PMA_Util
             $response = $_SESSION['cache']['version_check']['response'];
         } else {
             $save = true;
-            $file = 'http://www.phpmyadmin.net/home_page/version.json';
+            $file = 'https://www.phpmyadmin.net/home_page/version.json';
             if (ini_get('allow_url_fopen')) {
                 $context = array(
                     'http' => array(

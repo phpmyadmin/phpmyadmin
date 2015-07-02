@@ -511,7 +511,7 @@ each user with their Swekey Id. It is important to place this file
 outside of your web server's document root (in the example, it is
 located in ``/etc``). Feel free to use it with your own users'
 information. If you want to purchase a Swekey please visit
-`http://phpmyadmin.net/auth\_key <http://phpmyadmin.net/auth_key>`_
+`https://www.phpmyadmin.net/auth\_key/ <https://www.phpmyadmin.net/auth_key/>`_
 since this link provides funding for phpMyAdmin.
 
 A self documented sample file is provided in the

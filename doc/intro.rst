@@ -44,8 +44,8 @@ Currently phpMyAdmin can:
 * support mysqli, the improved MySQL extension see :ref:`faq1_17`
 * create, edit, call, export and drop stored procedures and functions
 * create, edit, export and drop events and triggers
-* communicate in `62 different languages
-  <http://www.phpmyadmin.net/home_page/translations.php>`_
+* communicate in `80 different languages
+  <https://www.phpmyadmin.net/translations/>`_
 
 
 A word about users
