@@ -3199,7 +3199,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         . '<table id="tableuserrights" class="data">' . "\n"
         . '<thead>' . "\n"
         . '<tr><th></th>' . "\n"
-        . '<th>' . __('User') . '</th>' . "\n"
+        . '<th>' . __('User name') . '</th>' . "\n"
         . '<th>' . __('Host') . '</th>' . "\n"
         . '<th>' . __('Password') . '</th>' . "\n"
         . '<th>' . __('Global privileges') . ' '
