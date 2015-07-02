@@ -199,7 +199,8 @@ function PMA_getHtmlForExportTemplateLoading($export_type)
         . ' class="ajax">';
     $html .= '<h4>' . __('New template:') . '</h4>';
     $html .= '<input type="text" name="templateName" id="templateName" '
-        . 'required="required" placeholder="' . __('Template name') . '" />';
+        . 'maxlength="64"' . 'required="required" '
+        . 'placeholder="' . __('Template name') . '" />';
     $html .= '<input type="submit" name="createTemplate" id="createTemplate" '
         . 'value="' . __('Create') . '" />';
     $html .= '</form>';
