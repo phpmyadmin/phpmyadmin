@@ -9,4 +9,4 @@ to make phpMyAdmin a useful tool.
 
 You can check out all the possibilities to contribute in the
 `contribute section on our website
-<http://www.phpmyadmin.net/home_page/improve.php>`_.
+<https://www.phpmyadmin.net/contribute/>`_.

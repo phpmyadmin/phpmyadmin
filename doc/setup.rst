@@ -266,8 +266,16 @@ for it. Once you have both of them in the same folder, you can verify the signat
     gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
     gpg: Can't check signature: No public key
 
-As you can see gpg complains that it does not know the public key. You can
-download the key from our download server or from one of the key servers:
+As you can see gpg complains that it does not know the public key. At this
+point you should do one of the following steps:
+
+* Download the keyring from `our download server <https://files.phpmyadmin.net/phpmyadmin.keyring>`_, then import it with:
+
+.. code-block:: console
+
+   $ gpg --import phpmyadmin.keyring
+
+* Download and import the key from one of the key servers:
 
 .. code-block:: console
 
@@ -588,7 +596,7 @@ each user with their Swekey Id. It is important to place this file
 outside of your web server's document root (in the example, it is
 located in ``/etc``). Feel free to use it with your own users'
 information. If you want to purchase a Swekey please visit
-`http://phpmyadmin.net/auth\_key <http://phpmyadmin.net/auth_key>`_
+`https://www.phpmyadmin.net/auth\_key/ <https://www.phpmyadmin.net/auth_key/>`_
 since this link provides funding for phpMyAdmin.
 
 A self documented sample file is provided in the

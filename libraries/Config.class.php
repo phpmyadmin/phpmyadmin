@@ -773,7 +773,6 @@ class PMA_Config
         }
         PMA_Util::configureCurl($handle);
         curl_setopt($handle, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($handle, CURLOPT_HEADER, 1);
         curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, 0);
@@ -793,24 +792,13 @@ class PMA_Config
         if ($data === false) {
             return null;
         }
-        $httpOk = 'HTTP/1.1 200 OK';
-        $httpNotFound = 'HTTP/1.1 404 Not Found';
+        $http_status = curl_getinfo($handle, CURLINFO_HTTP_CODE);
 
-        if (substr($data, 0, strlen($httpOk)) === $httpOk) {
-            return $get_body
-                ? /*overload*/mb_substr(
-                    $data,
-                    /*overload*/mb_strpos($data, "\r\n\r\n") + 4
-                )
-                : true;
+        if ($http_status == 200) {
+            return $get_body ? $data : true;
         }
 
-        $httpNOK = substr(
-            $data,
-            0,
-            strlen($httpNotFound)
-        );
-        if (strcasecmp($httpNOK, $httpNotFound) === 0) {
+        if ($http_status == 404) {
             return false;
         }
         return null;

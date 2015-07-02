@@ -8,7 +8,7 @@ The definitive guide to using phpMyAdmin is the book Mastering phpMyAdmin for
 Effective MySQL Management by Marc Delisle. You can get information on that
 book and other officially endorsed `books at the phpMyAdmin site`_.
 
-.. _books at the phpMyAdmin site: http://www.phpmyadmin.net/home_page/docs.php?books
+.. _books at the phpMyAdmin site: https://www.phpmyadmin.net/docs/
 
 Tutorials
 ---------
