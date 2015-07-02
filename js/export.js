@@ -75,7 +75,7 @@ function createTemplate(name)
         templateData : JSON.stringify(templateData)
     };
 
-    var $msgbox = PMA_ajaxShowMessage();
+    PMA_ajaxShowMessage();
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
             $('#templateName').val('');
@@ -85,7 +85,7 @@ function createTemplate(name)
                      $(this).prop('selected', true);
                 }
             });
-            PMA_ajaxRemoveMessage($msgbox);
+            PMA_ajaxShowMessage(PMA_messages.strTemplateCreated);
         } else {
             PMA_ajaxShowMessage(response.error, false);
         }
@@ -110,7 +110,7 @@ function loadTemplate(id)
         templateId : id,
     };
 
-    var $msgbox = PMA_ajaxShowMessage();
+    PMA_ajaxShowMessage();
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
             var $form = $('form[name="dump"]');
@@ -129,7 +129,7 @@ function loadTemplate(id)
                     $element.trigger('change');
                 }
             });
-            PMA_ajaxRemoveMessage($msgbox);
+            PMA_ajaxShowMessage(PMA_messages.strTemplateLoaded);
         } else {
             PMA_ajaxShowMessage(response.error, false);
         }
@@ -157,10 +157,10 @@ function updateTemplate(id)
         templateData : JSON.stringify(templateData)
     };
 
-    var $msgbox = PMA_ajaxShowMessage();
+    PMA_ajaxShowMessage();
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
-            PMA_ajaxRemoveMessage($msgbox);
+            PMA_ajaxShowMessage(PMA_messages.strTemplateUpdated);
         } else {
             PMA_ajaxShowMessage(response.error, false);
         }
@@ -185,11 +185,11 @@ function deleteTemplate(id)
         templateId : id,
     };
 
-    var $msgbox = PMA_ajaxShowMessage();
+    PMA_ajaxShowMessage();
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
             $('#template option[value="' + id + '"]').remove();
-            PMA_ajaxRemoveMessage($msgbox);
+            PMA_ajaxShowMessage(PMA_messages.strTemplateDeleted);
         } else {
             PMA_ajaxShowMessage(response.error, false);
         }
