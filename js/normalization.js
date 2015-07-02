@@ -13,6 +13,7 @@
 
 var normalizeto = '1nf';
 var primary_key;
+var data_parsed = null;
 function appendHtmlColumnsList()
 {
     $.get(
@@ -51,8 +52,8 @@ function goTo3NFStep1(newTables)
             $("#mainContent p").html(data.subText);
             $("#mainContent #extra").html(data.extra);
             $("#extra form").each(function() {
-                form_id = $(this).attr('id');
-                colname = $(this).data('colname');
+                var form_id = $(this).attr('id');
+                var colname = $(this).data('colname');
                 $("#"+form_id+" input[value='"+colname+"']").next().remove();
                 $("#"+form_id+" input[value='"+colname+"']").remove();
             });
@@ -382,6 +383,7 @@ function processDependencies(primary_key, isTransitive)
     var dependsOn;
     pd[primary_key] = [];
     $("#extra form").each(function() {
+        var tblname;
         if (isTransitive === true) {
             tblname = $(this).data('tablename');
             primary_key = tblname;
@@ -390,7 +392,7 @@ function processDependencies(primary_key, isTransitive)
             }
             tablesTds[tblname].push(primary_key);
         }
-        form_id = $(this).attr('id');
+        var form_id = $(this).attr('id');
         $('#'+form_id+' input[type=checkbox]:not(:checked)').removeAttr('checked');
         dependsOn = '';
         $('#'+form_id+' input[type=checkbox]:checked').each(function(){
@@ -425,8 +427,8 @@ function processDependencies(primary_key, isTransitive)
 }
 
 function moveRepeatingGroup(repeatingCols) {
-    newTable = $("input[name=repeatGroupTable]").val();
-    newColumn = $("input[name=repeatGroupColumn]").val();
+    var newTable = $("input[name=repeatGroupTable]").val();
+    var newColumn = $("input[name=repeatGroupColumn]").val();
     if (!newTable) {
         $("input[name=repeatGroupTable]").focus();
         return false;
@@ -627,9 +629,9 @@ AJAX.registerOnload('normalization.js', function() {
         });
 
         if (repeatingCols !== '') {
-            newColName = $("#extra input[type=checkbox]:checked:first").val();
+            var newColName = $("#extra input[type=checkbox]:checked:first").val();
             repeatingCols = repeatingCols.slice(0, -2);
-            confirmStr = PMA_sprintf(PMA_messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(PMA_commonParams.get('table')));
+            var confirmStr = PMA_sprintf(PMA_messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(PMA_commonParams.get('table')));
             confirmStr += '<input type="text" name="repeatGroupTable" placeholder="'+PMA_messages.strNewTablePlaceholder+'"/>'+
                 '( '+escapeHtml(primary_key.toString())+', <input type="text" name="repeatGroupColumn" placeholder="'+PMA_messages.strNewColumnPlaceholder+'" value="'+escapeHtml(newColName)+'">)'+
                 '</ol>';
