@@ -2031,7 +2031,7 @@ phpMyAdmin project
 
 Our Bug Tracker is located at <http://sf.net/projects/phpmyadmin/> under the
 Bugs section. But please first discuss your bug with other users:
-<https://sourceforge.net/projects/phpmyadmin/forums>.
+<https://www.phpmyadmin.net/support/>
 
 .. _faq7_2:
 
