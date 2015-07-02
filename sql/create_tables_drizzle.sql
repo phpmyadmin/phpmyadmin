@@ -286,4 +286,4 @@ CREATE TABLE IF NOT EXISTS `pma__designer_settings` (
   PRIMARY KEY (`username`)
 )
   COMMENT='Settings related to Designer'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  COLLATE utf8_bin;
