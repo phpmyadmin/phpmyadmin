@@ -810,7 +810,7 @@ class PMA_Config
             0,
             strlen($httpNotFound)
         );
-        if ($httpNOK === $httpNotFound) {
+        if (strcasecmp($httpNOK, $httpNotFound) === 0) {
             return false;
         }
         return null;
