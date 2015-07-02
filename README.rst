@@ -3,7 +3,7 @@ phpMyAdmin
 
 A set of PHP-scripts to manage MySQL over the web.
 
-http://www.phpmyadmin.net/
+https://www.phpmyadmin.net/
 
 Code status
 -----------
@@ -23,12 +23,12 @@ Code status
     :target: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/
 
 .. image:: https://img.shields.io/sourceforge/dm/phpmyadmin.svg
-    :target: http://www.phpmyadmin.net/home_page/downloads.php
+    :target: https://www.phpmyadmin.net/downloads/
 
 Download
 --------
 
-You can get the newest release at http://www.phpmyadmin.net/.
+You can get the newest release at https://www.phpmyadmin.net/.
 
 If you prefer to follow the git repository, the following branch and tag names may be of interest:
 
@@ -42,5 +42,4 @@ More Information
 Please see the documentation in the doc folder or at http://docs.phpmyadmin.net/.
 
 For support or to learn how to contribute code or by translating to your language,
-visit http://www.phpmyadmin.net/
-
+visit https://www.phpmyadmin.net/
