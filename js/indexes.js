@@ -17,27 +17,27 @@ function checkIndexType()
     /**
      * @var Object Dropdown to select the index choice.
      */
-    $select_index_choice = $('#select_index_choice');
+    var $select_index_choice = $('#select_index_choice');
     /**
      * @var Object Dropdown to select the index type.
      */
-    $select_index_type = $('#select_index_type');
+    var $select_index_type = $('#select_index_type');
     /**
      * @var Object Table header for the size column.
      */
-    $size_header = $('#index_columns thead tr th:nth-child(2)');
+    var $size_header = $('#index_columns thead tr th:nth-child(2)');
     /**
      * @var Object Inputs to specify the columns for the index.
      */
-    $column_inputs = $('select[name="index[columns][names][]"]');
+    var $column_inputs = $('select[name="index[columns][names][]"]');
     /**
      * @var Object Inputs to specify sizes for columns of the index.
      */
-    $size_inputs = $('input[name="index[columns][sub_parts][]"]');
+    var $size_inputs = $('input[name="index[columns][sub_parts][]"]');
     /**
      * @var Object Footer containg the controllers to add more columns
      */
-    $add_more = $('#index_frm .add_more');
+    var $add_more = $('#index_frm .add_more');
 
     if ($select_index_choice.val() == 'SPATIAL') {
         // Disable and hide the size column
@@ -304,7 +304,7 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
     }
     post_data.columns = JSON.stringify(columns);
 
-    button_options = {};
+    var button_options = {};
     button_options[PMA_messages.strGo] = function () {
         var is_missing_value = false;
         $('select[name="index[columns][names][]"]').each(function () {
