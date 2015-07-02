@@ -319,7 +319,7 @@ clear error regardless of the fact that the key is trusted or not:
 
 .. _Validating other keys on your public keyring: https://www.gnupg.org/gph/en/manual.html#AEN335
 
-.. _Marc's key links to Linus one: http://pgp.cs.uu.nl/mk_path.cgi?FROM=00411886&TO=81AF644A
+.. _Marc's key links to Linus's key: http://pgp.cs.uu.nl/mk_path.cgi?FROM=00411886&TO=81AF644A
 
 
 .. index::
