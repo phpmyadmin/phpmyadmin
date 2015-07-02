@@ -953,7 +953,6 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
                 'extracted_columnspec' => array(),
                 'columnMeta' => $row['col_attribute'],
                 'submit_attribute' => false,
-                'analyzed_sql' => null
             ))
         . '</td>';
     $tableHtml .=
@@ -1084,7 +1083,6 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
                 ),
                 'columnMeta' => array(),
                 'submit_attribute' => false,
-                'analyzed_sql' => null
             ))
         . '</td>';
     $tableHtml .=
@@ -1311,7 +1309,6 @@ function PMA_getHTMLforAddNewColumn($db)
                 'extracted_columnspec' => array(),
                 'columnMeta' => array(),
                 'submit_attribute' => false,
-                'analyzed_sql' => null
             ))
         . '</td>'
         . '<td class="nowrap" name="col_isNull">'

@@ -95,7 +95,6 @@ function PMA_getHtmlForCreateNewColumn(
             'length' => '',
             'extracted_columnspec' => array(),
             'submit_attribute' => null,
-            'analyzed_sql' => null,
             'comments_map' => $comments_map,
             'fields_meta' => null,
             'is_backup' => true,

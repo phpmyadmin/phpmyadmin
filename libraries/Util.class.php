@@ -2139,22 +2139,24 @@ class PMA_Util
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param resource       $handle            current query result
-     * @param integer        $fields_cnt        number of fields
-     * @param array          $fields_meta       meta information about fields
-     * @param array          $row               current row
-     * @param boolean        $force_unique      generate condition only on pk or
-     *                                          unique
-     * @param string|boolean $restrict_to_table restrict the unique condition to
-     *                                          this table or false if none
+     * @param resource       $handle               current query result
+     * @param integer        $fields_cnt           number of fields
+     * @param array          $fields_meta          meta information about fields
+     * @param array          $row                  current row
+     * @param boolean        $force_unique         generate condition only on pk
+     *                                             or unique
+     * @param string|boolean $restrict_to_table    restrict the unique condition
+     *                                             to this table or false if
+     *                                             none
+     * @param array          $analyzed_sql_results the analyzed query
      *
      * @access public
      *
-     * @return array     the calculated condition and whether condition is unique
+     * @return array the calculated condition and whether condition is unique
      */
     public static function getUniqueCondition(
         $handle, $fields_cnt, $fields_meta, $row, $force_unique = false,
-        $restrict_to_table = false
+        $restrict_to_table = false, $analyzed_sql_results = null
     ) {
         $primary_key          = '';
         $unique_key           = '';
@@ -2175,19 +2177,16 @@ class PMA_Util
             if (! isset($meta->orgname) || ! /*overload*/mb_strlen($meta->orgname)) {
                 $meta->orgname = $meta->name;
 
-                if (isset($GLOBALS['analyzed_sql'][0]['select_expr'])
-                    && is_array($GLOBALS['analyzed_sql'][0]['select_expr'])
-                ) {
-                    foreach (
-                        $GLOBALS['analyzed_sql'][0]['select_expr'] as $select_expr
-                    ) {
-                        // need (string) === (string)
-                        // '' !== 0 but '' == 0
-                        if ((string)$select_expr['alias'] === (string)$meta->name) {
-                            $meta->orgname = $select_expr['column'];
+                if (!empty($analyzed_sql_results['statement']->expr)) {
+                    foreach ($analyzed_sql_results['statement']->expr as $expr) {
+                        if ((empty($expr->alias)) || (empty($expr->column))) {
+                            continue;
+                        }
+                        if (strcasecmp($meta->name, $expr->alias) == 0) {
+                            $meta->orgname = $expr->column;
                             break;
-                        } // end if
-                    } // end foreach
+                        }
+                    }
                 }
             }
 
@@ -3943,7 +3942,6 @@ class PMA_Util
      * @param bool  $insert_mode Whether the operation is 'insert'
      *
      * @global   array    $cfg            PMA configuration
-     * @global   array    $analyzed_sql   Analyzed SQL query
      * @global   mixed    $data           data of currently edited row
      *                                    (used to detect whether to choose defaults)
      *

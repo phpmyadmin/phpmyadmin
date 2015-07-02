@@ -57,6 +57,7 @@ class Builder
     public function build()
     {
         $statement = $this->statement;
+
         foreach ($statement::$CLAUSES as $clause) {
             $name = $clause[0];
             $type = $clause[1];
@@ -80,5 +81,7 @@ class Builder
                 $this->query .= $class::build($statement->$field) . ' ';
             }
         }
+
+        return $this->qeury;
     }
 }

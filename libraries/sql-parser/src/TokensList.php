@@ -52,14 +52,18 @@ class TokensList implements \ArrayAccess
     }
 
     /**
-     * Gets the next token.
+     * Gets the next token. Skips any irrelevant token (whitespaces and
+     * comments).
      *
      * @return Token
      */
     public function getNext()
     {
-        if ($this->idx < $this->count) {
-            return $this->tokens[$this->idx++];
+        for (; $this->idx < $this->count; ++$this->idx) {
+            if (($this->tokens[$this->idx]->type !== Token::TYPE_WHITESPACE)
+                && ($this->tokens[$this->idx]->type !== Token::TYPE_COMMENT)) {
+                return $this->tokens[$this->idx++];
+            }
         }
         return null;
     }

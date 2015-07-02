@@ -339,14 +339,14 @@ class Parser
              */
             $stmt = new $class();
 
+            // Parsing the actual statement.
+            $stmt->parse($this, $this->list);
+
             // The first token that is a part of this token is the next token
             // unprocessed by the previous statement.
             // There might be brackets around statements and this shouldn't
             // affect the parser
             $stmt->first = $prevLastIdx + 1;
-
-            // Parsing the actual statement.
-            $stmt->parse($this, $this->list);
 
             // Storing the index of the last token parsed and updating the old
             // index.

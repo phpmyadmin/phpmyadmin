@@ -2778,12 +2778,13 @@ class PMA_DisplayResults
                  */
                 list($where_clause, $clause_is_unique, $condition_array)
                     = PMA_Util::getUniqueCondition(
-                        $dt_result,
-                        $this->__get('fields_cnt'),
-                        $this->__get('fields_meta'),
-                        $row,
-                        false,
-                        $this->__get('table')
+                        $dt_result, // handle
+                        $this->__get('fields_cnt'), // fields_cnt
+                        $this->__get('fields_meta'), // fields_meta
+                        $row, // row
+                        false, // force_unique
+                        $this->__get('table'), // restrict_to_table
+                        $analyzed_sql_results // analyzed_sql_results
                     );
                 $whereClauseMap[$row_no][$this->__get('table')] = $where_clause;
                 $this->__set('whereClauseMap', $whereClauseMap);
@@ -3133,12 +3134,13 @@ class PMA_DisplayResults
              */
             if (! isset($whereClauseMap[$row_no][$meta->orgtable])) {
                 $unique_conditions = PMA_Util::getUniqueCondition(
-                    $dt_result,
-                    $this->__get('fields_cnt'),
-                    $this->__get('fields_meta'),
-                    $row,
-                    false,
-                    $meta->orgtable
+                    $dt_result, // handle
+                    $this->__get('fields_cnt'), // fields_cnt
+                    $this->__get('fields_meta'), // fields_meta
+                    $row, // row
+                    false, // force_unique
+                    $meta->orgtable, // restrict_to_table
+                    $analyzed_sql_results // analyzed_sql_results
                 );
                 $whereClauseMap[$row_no][$meta->orgtable] = $unique_conditions[0];
             }
@@ -4848,10 +4850,13 @@ class PMA_DisplayResults
         // in the multi-edit and multi-delete form
         list($where_clause, $clause_is_unique, $condition_array)
             = PMA_Util::getUniqueCondition(
-                $dt_result,
-                $this->__get('fields_cnt'),
-                $this->__get('fields_meta'),
-                $row
+                $dt_result, // handle
+                $this->__get('fields_cnt'), // fields_cnt
+                $this->__get('fields_meta'), // fields_meta
+                $row, // row
+                false, // force_unique
+                false, // restrict_to_table
+                $analyzed_sql_results // analyzed_sql_results
             );
         unset($where_clause, $condition_array);
 
@@ -5357,16 +5362,13 @@ class PMA_DisplayResults
             )
             . '">';
 
-        if (!empty($analyzed_sql_results['statement'])) {
-            $statement = $analyzed_sql_results['statement'];
-            if (!empty($statement->expr)) {
-                foreach ($statement->expr as $expr) {
-                    if ((empty($expr->alias)) || (empty($expr->column))) {
-                        continue;
-                    }
-                    if (strcasecmp($meta->name, $expr->alias) == 0) {
-                        $meta->name = $expr->column;
-                    }
+        if (!empty($analyzed_sql_results['statement']->expr)) {
+            foreach ($analyzed_sql_results['statement']->expr as $expr) {
+                if ((empty($expr->alias)) || (empty($expr->column))) {
+                    continue;
+                }
+                if (strcasecmp($meta->name, $expr->alias) == 0) {
+                    $meta->name = $expr->column;
                 }
             }
         }
@@ -5415,16 +5417,10 @@ class PMA_DisplayResults
                     'table' => $map[$meta->name][0],
                     'pos'   => '0',
                     'sql_query' => 'SELECT * FROM '
-                        . PMA_Util::backquote(
-                            $map[$meta->name][3]
-                        ) . '.'
-                        . PMA_Util::backquote(
-                            $map[$meta->name][0]
-                        )
+                        . PMA_Util::backquote($map[$meta->name][3]) . '.'
+                        . PMA_Util::backquote($map[$meta->name][0])
                         . ' WHERE '
-                        . PMA_Util::backquote(
-                            $map[$meta->name][1]
-                        )
+                        . PMA_Util::backquote($map[$meta->name][1])
                         . $where_comparison,
                 );
 

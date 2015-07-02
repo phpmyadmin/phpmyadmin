@@ -134,7 +134,13 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
 
         list($unique_condition, $tmp_clause_is_unique)
             = PMA_Util::getUniqueCondition(
-                $result[$key_id], count($meta), $meta, $rows[$key_id], true
+                $result[$key_id], // handle
+                count($meta), // fields_cnt
+                $meta, // fields_meta
+                $rows[$key_id], // row
+                true, // force_unique
+                false, // restrict_to_table
+                null // analyzed_sql_results
             );
 
         if (! empty($unique_condition)) {
@@ -1803,7 +1809,13 @@ function PMA_setSessionForEditNext($one_where_clause)
     // not a combination of all fields
     list($unique_condition, $clause_is_unique)
         = PMA_Util::getUniqueCondition(
-            $res, count($meta), $meta, $row, true
+            $res, // handle
+            count($meta), // fields_cnt
+            $meta, // fields_meta
+            $row, // row
+            true, // force_unique
+            false, // restrict_to_table
+            null // analyzed_sql_results
         );
     if (! empty($unique_condition)) {
         $_SESSION['edit_next'] = $unique_condition;

@@ -667,7 +667,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         && count($analyzed_sql_results['select_tables'] <= 1)
         && (empty($analyzed_sql_results['statement']->where)
             || (count($analyzed_sql_results['statement']->where) == 1
-                && $analyzed_sql_results['statement']->where[0]->condition ==='1'))
+                && $analyzed_sql_results['statement']->where[0]->expr ==='1'))
         && empty($analyzed_sql_results['group'])
         && ! isset($find_real_end)
         && ! $analyzed_sql_results['is_subquery']

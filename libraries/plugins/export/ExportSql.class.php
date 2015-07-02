@@ -2339,10 +2339,13 @@ class ExportSql extends ExportPlugin
 
                 list($tmp_unique_condition, $tmp_clause_is_unique)
                     = PMA_Util::getUniqueCondition(
-                        $result,
-                        $fields_cnt,
-                        $fields_meta,
-                        $row
+                        $result, // handle
+                        $fields_cnt, // fields_cnt
+                        $fields_meta, // fields_meta
+                        $row, // row
+                        false, // force_unique
+                        false, // restrict_to_table
+                        null // analyzed_sql_results
                     );
                 $insert_line .= ' WHERE ' . $tmp_unique_condition;
                 unset($tmp_unique_condition, $tmp_clause_is_unique);

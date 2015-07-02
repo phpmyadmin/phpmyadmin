@@ -64,6 +64,19 @@ abstract class Statement
     public $last;
 
     /**
+     * Constructor.
+     *
+     * @param Parser     $parser The instance that requests parsing.
+     * @param TokensList $list   The list of tokens to be parsed.
+     */
+    public function __construct(Parser $parser = null, TokensList $list = null)
+    {
+        if (($parser !== null) && ($list !== null)) {
+            $this->parse($parser, $list);
+        }
+    }
+
+    /**
      * Parses the statements defined by the tokens list.
      *
      * @param Parser     $parser The instance that requests parsing.
@@ -73,6 +86,9 @@ abstract class Statement
      */
     public function parse(Parser $parser, TokensList $list)
     {
+        // This may be corrected by the parser.
+        $this->first = $list->idx;
+
         /**
          * Whether options were parsed or not.
          * For statements that do not have any options this is set to `true` by
@@ -162,7 +178,8 @@ abstract class Statement
             $this->after($parser, $list, $token);
         }
 
-        --$list->idx; // Go back to last used token.
+        // This may be corrected by the parser.
+        $this->last = --$list->idx; // Go back to last used token.
     }
 
     /**

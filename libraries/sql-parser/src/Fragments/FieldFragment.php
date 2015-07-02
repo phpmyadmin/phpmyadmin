@@ -177,7 +177,7 @@ class FieldFragment extends Fragment
             if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                 // Keywords may be found only between brackets.
                 if ($brackets === 0) {
-                    if ($token->value === 'AS') {
+                    if ((empty($options['noAlias'])) && ($token->value === 'AS')) {
                         $alias = 2;
                         continue;
                     }
@@ -194,6 +194,11 @@ class FieldFragment extends Fragment
             }
 
             if ($token->type === Token::TYPE_OPERATOR) {
+                if ((!empty($options['noBrackets'])) &&
+                    (($token->value === '(') || ($token->value === ')'))
+                ) {
+                    break;
+                }
                 if ($token->value === '(') {
                     ++$brackets;
                     // We don't check to see if `$prev` is `true` (open bracke
