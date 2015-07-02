@@ -96,6 +96,7 @@ Quick Install
    Downloads page. Some kits contain only the English messages, others
    contain all languages. We'll assume you chose a kit whose name
    looks like ``phpMyAdmin-x.x.x -all-languages.tar.gz``.
+#. Ensure you have downloaded a genuine archive, see :ref:`verify`.
 #. Untar or unzip the distribution (be sure to unzip the subdirectories):
    ``tar -xzvf phpMyAdmin_x.x.x-all-languages.tar.gz`` in your
    webserver's document root. If you don't have direct access to your
@@ -244,6 +245,82 @@ options which the setup script does not provide.
    there. You can do this using ``robots.txt`` file in root of your
    webserver or limit access by web server configuration, see
    :ref:`faq1_42`.
+
+
+.. _verify:
+
+Verifying phpMyAdmin releases
++++++++++++++++++++++++++++++
+
+Since July 2015 all phpMyAdmin releases are cryptographically signed by the
+releasing developer. You should verify that the signature matches the archive
+you have downloaded. This way you can be sure that you are using the same code
+that was released.
+
+Each archive is accompanied with ``.asc`` files which contains the PGP signature
+for it. Once you have both of them in the same folder, you can verify the signature:
+
+.. code-block:: console
+
+    $ gpg --verify phpMyAdmin-4.4.9-all-languages.zip.asc
+    gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
+    gpg: Can't check signature: No public key
+
+As you can see gpg complains that it does not know the public key. You can
+download the key from our download server or from one of the key servers:
+
+.. code-block:: console
+
+    $ gpg --keyserver hkp://pgp.mit.edu --recv-keys 81AF644A
+    gpg: requesting key 81AF644A from hkp server pgp.mit.edu
+    gpg: key 81AF644A: public key "Marc Delisle <marc@infomarc.info>" imported
+    gpg: no ultimately trusted keys found
+    gpg: Total number processed: 1
+    gpg:               imported: 1  (RSA: 1)
+
+This will improve the situation a bit - at this point you can verify that the
+signature from the given key is correct but you still can not trust the name used
+in the key:
+
+.. code-block:: console
+
+    $ gpg --verify phpMyAdmin-4.4.9-all-languages.zip.asc
+    gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
+    gpg: Good signature from "Marc Delisle <marc@infomarc.info>" [unknown]
+    gpg: WARNING: This key is not certified with a trusted signature!
+    gpg:          There is no indication that the signature belongs to the owner.
+    Primary key fingerprint: 436F F188 4B1A 0C3F DCBF  0D79 FEFC 65D1 81AF 644A
+
+The problem here is that anybody could issue the key with this name.  You need to
+ensure that the key is actually owned by the mentioned person.  The GNU Privacy
+Handbook covers this topic in the chapter `Validating other keys on your public
+keyring`_. The most reliable method is to meet the developer in person and
+exchange key fingerprints, however you can also rely on the web of trust. This way
+you can trust the key transitively though signatures of others, who have met
+the developer in person. For example you can see how `Marc's key links to
+Linus's key`_.
+
+Once the key is trusted, the warning will not occur:
+
+.. code-block:: console
+
+    $ gpg --verify phpMyAdmin-4.4.9-all-languages.zip.asc
+    gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
+    gpg: Good signature from "Marc Delisle <marc@infomarc.info>" [full]
+
+Should the signature be invalid (the archive has been changed), you would get a
+clear error regardless of the fact that the key is trusted or not:
+
+.. code-block:: console
+
+    $ gpg --verify phpMyAdmin-4.4.9-all-languages.zip.asc
+    gpg: Signature made Fri Jun 12 13:09:58 2015 CEST using RSA key ID 81AF644A
+    gpg: BAD signature from "Marc Delisle <marc@infomarc.info>" [unknown]
+
+.. _Validating other keys on your public keyring: https://www.gnupg.org/gph/en/manual.html#AEN335
+
+.. _Marc's key links to Linus's key: http://pgp.cs.uu.nl/mk_path.cgi?FROM=00411886&TO=81AF644A
+
 
 .. index::
     single: Configuration storage
