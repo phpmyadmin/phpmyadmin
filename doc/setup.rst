@@ -267,7 +267,7 @@ for it. Once you have both of them in the same folder, you can verify the signat
     gpg: Can't check signature: No public key
 
 As you can see gpg complains that it does not know the public key. You can
-download the key from our download server or from one of the key servers:
+download the key from `our download server <https://files.phpmyadmin.net/phpmyadmin.keyring>`_ or from one of the key servers:
 
 .. code-block:: console
 
