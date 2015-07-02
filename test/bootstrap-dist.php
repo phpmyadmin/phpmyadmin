@@ -56,6 +56,18 @@ $CFG = new PMA_Config();
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);
 
+// Set proxy information from env, if available
+$http_proxy = getenv('http_proxy');
+if ($http_proxy && ($url_info = parse_url($http_proxy))) {
+    define('PROXY_URL', $url_info['host'] . ':' . $url_info['port']);
+    define('PROXY_USER', empty($url_info['user']) ? '' : $url_info['user']);
+    define('PROXY_PASS', empty($url_info['pass']) ? '' : $url_info['pass']);
+} else {
+    define('PROXY_URL', '');
+    define('PROXY_USER', '');
+    define('PROXY_PASS', '');
+}
+
 // Ensure we have session started
 session_start();
 
