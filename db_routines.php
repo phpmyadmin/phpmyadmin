@@ -16,6 +16,7 @@ require_once 'libraries/mysql_charsets.inc.php';
 /**
  * Include all other files
  */
+require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/rte/rte_routines.lib.php';
 
 /**

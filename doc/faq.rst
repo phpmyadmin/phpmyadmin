@@ -2065,6 +2065,13 @@ Notes:
   *column-related privileges* for the columns inside the table are also adjusted
   to the table's new name.
 
+* While adjusting privileges, the user performing the operation **must** have the following
+  privileges:
+
+  * SELECT, INSERT, UPDATE, DELETE privileges on following tables:
+    `mysql`.`db`, `mysql`.`columns_priv`, `mysql`.`tables_priv`, `mysql`.`procs_priv`
+  * FLUSH privilege (GLOBAL)
+
 Thus, if you want to replicate the database/table/column/procedure as it is
 while renaming/copying/moving these objects, make sure you have checked this option.
 

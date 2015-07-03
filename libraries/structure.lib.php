@@ -2491,6 +2491,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
     /**
      * Form for changing properties.
      */
+    include_once 'libraries/check_user_privileges.lib.php';
     include 'libraries/tbl_columns_definition_form.inc.php';
 }
 
@@ -2784,26 +2785,33 @@ function PMA_adjustColumnPrivileges($db, $table, $adjust_privileges)
 {
     $changed = false;
 
-    $GLOBALS['dbi']->selectDb('mysql');
+    if (! defined('PMA_DRIZZLE') || ! PMA_DRIZZLE) {
+        if (isset($GLOBALS['col_priv']) && $GLOBALS['col_priv']
+            && isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']
+        ) {
 
-    // For Column specific privileges
-    foreach ($adjust_privileges as $oldCol => $newCol) {
-        $query_adjust_col_privileges = 'UPDATE '
-            . PMA_Util::backquote('columns_priv') . ' '
-            . 'SET Column_name = "' . $newCol . '" '
-            . 'WHERE Db = "' . $db . '" AND Table_name = "' . $table
-            . '" AND Column_name = "' . $oldCol . '";';
+            $GLOBALS['dbi']->selectDb('mysql');
 
-        $GLOBALS['dbi']->query($query_adjust_col_privileges);
+            // For Column specific privileges
+            foreach ($adjust_privileges as $oldCol => $newCol) {
+                $query_adjust_col_privileges = 'UPDATE '
+                    . PMA_Util::backquote('columns_priv') . ' '
+                    . 'SET Column_name = "' . $newCol . '" '
+                    . 'WHERE Db = "' . $db . '" AND Table_name = "' . $table
+                    . '" AND Column_name = "' . $oldCol . '";';
 
-        // i.e. if atleast one column privileges adjusted
-        $changed = true;
-    }
+                $GLOBALS['dbi']->query($query_adjust_col_privileges);
 
-    if ($changed) {
-        // Finally FLUSH the new privileges
-        $flushPrivQuery = "FLUSH PRIVILEGES;";
-        $GLOBALS['dbi']->query($flushPrivQuery);
+                // i.e. if atleast one column privileges adjusted
+                $changed = true;
+            }
+
+            if ($changed) {
+                // Finally FLUSH the new privileges
+                $flushPrivQuery = "FLUSH PRIVILEGES;";
+                $GLOBALS['dbi']->query($flushPrivQuery);
+            }
+        }
     }
 
     return $changed;
