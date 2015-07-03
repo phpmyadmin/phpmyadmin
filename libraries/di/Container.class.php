@@ -47,6 +47,11 @@ class Container
         if (isset($this->content[$name])) {
             return $this->content[$name]->get($params);
         }
+
+        if (isset($GLOBALS[$name])) {
+            return $GLOBALS[$name];
+        }
+
         return null;
     }
 

@@ -8,7 +8,7 @@
 
 use PMA\Controllers\Table\TableGisVisualizationController;
 
-require_once 'libraries/controllers/table/TableGisVisualizationController.class.php';
+require_once 'libraries/controllers/TableGisVisualizationController.class.php';
 
 $controller = new TableGisVisualizationController();
 $controller->indexAction();

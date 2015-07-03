@@ -16,6 +16,7 @@ use PMA_Message;
 use PMA_Util;
 
 require_once 'libraries/common.inc.php';
+require_once 'libraries/db_common.inc.php';
 require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/gis/GIS_Visualization.class.php';
 require_once 'libraries/gis/GIS_Factory.class.php';
@@ -35,7 +36,7 @@ class TableGisVisualizationController extends TableController {
     protected $sql_query;
 
     /**
-     * @var array $this->visualizationSettings
+     * @var array $visualizationSettings
      */
     protected $visualizationSettings;
 
@@ -45,35 +46,18 @@ class TableGisVisualizationController extends TableController {
     protected $visualization;
 
     public function __construct() {
+        parent::__construct();
+
         $this->sql_query = &$GLOBALS['sql_query'];
 
         $this->url_params = &$GLOBALS['url_params'];
-        // Runs common work
-        require_once 'libraries/db_common.inc.php';
+
         $this->url_params['goto'] = PMA_Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
         );
         $this->url_params['back'] = 'sql.php';
 
         $this->visualizationSettings = array();
-
-        // Convert geometric columns from bytes to text.
-        $pos = isset($_REQUEST['pos']) ? $_REQUEST['pos'] : $_SESSION['tmpval']['pos'];
-        if (isset($_REQUEST['session_max_rows'])) {
-            $rows = $_REQUEST['session_max_rows'];
-        } else {
-            if ($_SESSION['tmpval']['max_rows'] != 'all') {
-                $rows = $_SESSION['tmpval']['max_rows'];
-            } else {
-                $rows = $GLOBALS['cfg']['MaxRows'];
-            }
-        }
-        $this->visualization = PMA_GIS_Visualization::get(
-            $this->sql_query,
-            $this->visualizationSettings,
-            $rows,
-            $pos
-        );
     }
 
     public function saveToFileAction() {
@@ -85,7 +69,7 @@ class TableGisVisualizationController extends TableController {
 
     public function indexAction() {
         // Throw error if no sql query is set
-        if (! isset($sql_query) || $sql_query == '') {
+        if (! isset($this->sql_query) || $this->sql_query == '') {
             $this->response->isSuccess(false);
             $this->response->addHTML(
                 PMA_Message::error(__('No SQL query was set to fetch data.'))
@@ -94,7 +78,7 @@ class TableGisVisualizationController extends TableController {
         }
 
         // Execute the query and return the result
-        $result = $this->dbi->tryQuery($sql_query);
+        $result = $this->dbi->tryQuery($this->sql_query);
         // Get the meta data of results
         $meta = $this->dbi->getFieldsMeta($result);
 
@@ -122,6 +106,24 @@ class TableGisVisualizationController extends TableController {
         if (! isset($this->visualizationSettings['spatialColumn'])) {
             $this->visualizationSettings['spatialColumn'] = $spatialCandidates[0];
         }
+
+        // Convert geometric columns from bytes to text.
+        $pos = isset($_REQUEST['pos']) ? $_REQUEST['pos'] : $_SESSION['tmpval']['pos'];
+        if (isset($_REQUEST['session_max_rows'])) {
+            $rows = $_REQUEST['session_max_rows'];
+        } else {
+            if ($_SESSION['tmpval']['max_rows'] != 'all') {
+                $rows = $_SESSION['tmpval']['max_rows'];
+            } else {
+                $rows = $GLOBALS['cfg']['MaxRows'];
+            }
+        }
+        $this->visualization = PMA_GIS_Visualization::get(
+            $this->sql_query,
+            $this->visualizationSettings,
+            $rows,
+            $pos
+        );
 
         if (isset($_REQUEST['saveToFile'])) {
             $this->saveToFileAction();

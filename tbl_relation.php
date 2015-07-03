@@ -17,7 +17,7 @@
 /**
  * Get the TableRelationController
  */
-require_once 'libraries/controllers/table/TableRelationController.class.php';
+require_once 'libraries/controllers/TableRelationController.class.php';
 
 use PMA\Controllers\Table\TableRelationController;
 

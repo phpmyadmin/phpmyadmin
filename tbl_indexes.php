@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-require_once 'libraries/controllers/table/TableIndexesController.class.php';
+require_once 'libraries/controllers/TableIndexesController.class.php';
 
 use PMA\Controllers\Table\TableIndexesController;
 
