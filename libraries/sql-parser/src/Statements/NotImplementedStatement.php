@@ -28,19 +28,40 @@ class NotImplementedStatement extends Statement
 {
 
     /**
-     * Function called after the token was processed.
-     *
-     * Jump to the end of the delimiter.
-     *
+     * The part of the statement that can't be parsed.
+     * @var Token[]
+     */
+    public $unknown = array();
+
+    /**
+     * @return string
+     */
+    public function build()
+    {
+        // Building the parsed part of the query (if any).
+        $query = parent::build() . ' ';
+
+        // Rebuilding the unknown part from tokens.
+        foreach ($this->unknown as $token) {
+            $query .= $token->token;
+        }
+
+        return $query;
+    }
+
+    /**
      * @param Parser     $parser The instance that requests parsing.
      * @param TokensList $list   The list of tokens to be parsed.
-     * @param Token      $token  The token that is being parsed.
      *
      * @return void
      */
-    public function after(Parser $parser, TokensList $list, Token $token)
+    public function parse(Parser $parser, TokensList $list)
     {
-        $list->getNextOfType(Token::TYPE_DELIMITER);
-        --$list->idx;
+        for (; $list->idx < $list->count; ++$list->idx) {
+            if ($list->tokens[$list->idx]->type === Token::TYPE_DELIMITER) {
+                break;
+            }
+            $this->unknown[] = $list->tokens[$list->idx];
+        }
     }
 }

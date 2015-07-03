@@ -8,6 +8,7 @@
  */
 namespace SqlParser\Fragments;
 
+use SqlParser\Context;
 use SqlParser\Fragment;
 use SqlParser\Parser;
 use SqlParser\Token;
@@ -56,6 +57,20 @@ class ReferencesKeyword extends Fragment
      * @var OptionsFragment
      */
     public $options;
+
+    /**
+     * Constructor.
+     *
+     * @param string          $table   The name of the table referenced.
+     * @param array           $columns The columns referenced.
+     * @param OptionsFragment $options The options.
+     */
+    public function __construct($table = null, array $columns = array(), $options = null)
+    {
+        $this->table = $table;
+        $this->columns = $columns;
+        $this->options = $options;
+    }
 
     /**
      * @param Parser     $parser  The parser that serves as context.
@@ -116,5 +131,19 @@ class ReferencesKeyword extends Fragment
 
         --$list->idx;
         return $ret;
+    }
+
+    /**
+     * @param ReferencesKeyword $fragment The fragment to be built.
+     *
+     * @return string
+     */
+    public static function build($fragment)
+    {
+        return trim(
+            Context::escape($fragment->table)
+            . ' (' . implode(', ', Context::escape($fragment->columns)) . ') '
+            . OptionsFragment::build($fragment->options)
+        );
     }
 }

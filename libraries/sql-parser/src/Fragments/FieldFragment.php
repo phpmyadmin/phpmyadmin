@@ -8,6 +8,7 @@
  */
 namespace SqlParser\Fragments;
 
+use SqlParser\Context;
 use SqlParser\Fragment;
 use SqlParser\Parser;
 use SqlParser\Token;
@@ -168,7 +169,7 @@ class FieldFragment extends Fragment
                 if (($isExpr) && (!$alias)) {
                     $ret->expr .= $token->token;
                 }
-                if (($alias === 0) && (!$isExpr) && (!$period) && (!empty($ret->expr))) {
+                if (($alias === 0) && (empty($options['noAlias'])) && (!$isExpr) && (!$period) && (!empty($ret->expr))) {
                     $alias = 1;
                 }
                 continue;
@@ -194,14 +195,14 @@ class FieldFragment extends Fragment
             }
 
             if ($token->type === Token::TYPE_OPERATOR) {
-                if ((!empty($options['noBrackets'])) &&
-                    (($token->value === '(') || ($token->value === ')'))
+                if ((!empty($options['noBrackets']))
+                    && (($token->value === '(') || ($token->value === ')'))
                 ) {
                     break;
                 }
                 if ($token->value === '(') {
                     ++$brackets;
-                    // We don't check to see if `$prev` is `true` (open bracke
+                    // We don't check to see if `$prev` is `true` (open bracket
                     // was found before) because the brackets count is one (the
                     // only bracket we found is this one).
                     if (($brackets === 1) && (empty($ret->function)) && ($prev !== null) && ($prev !== true)) {
@@ -246,13 +247,20 @@ class FieldFragment extends Fragment
                         }
                         $ret->database = $ret->table;
                         $ret->table = $ret->column;
+                        $ret->column = null;
                         $period = true;
                     } else {
                         // We found the name of a column (or table if column
                         // field should be skipped; used to parse table names).
                         if (!empty($options['skipColumn'])) {
+                            if (!empty($ret->table)) {
+                                break;
+                            }
                             $ret->table = $token->value;
                         } else {
+                            if (!empty($ret->column)) {
+                                break;
+                            }
                             $ret->column = $token->value;
                         }
                         $period = false;
@@ -317,11 +325,11 @@ class FieldFragment extends Fragment
             if (!empty($fragment->column)) {
                 $fields[] = $fragment->column;
             }
-            $ret = implode('.', $fields);
+            $ret = implode('.', Context::escape($fields));
         }
 
         if (!empty($fragment->alias)) {
-            $ret .= ' AS ' . $fragment->alias;
+            $ret .= ' AS ' . Context::escape($fragment->alias);
         }
 
         return $ret;

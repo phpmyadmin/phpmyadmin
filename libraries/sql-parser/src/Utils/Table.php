@@ -36,7 +36,10 @@ class Table
      */
     public static function getForeignKeys($statement)
     {
-        if ((empty($statement->fields)) || (!$statement->options->has('TABLE'))) {
+        if ((empty($statement->fields))
+            || (!is_array($statement->fields))
+            || (!$statement->options->has('TABLE'))
+        ) {
             return array();
         }
 
@@ -85,7 +88,10 @@ class Table
      */
     public static function getFields($statement)
     {
-        if ((empty($statement->fields)) || (!$statement->options->has('TABLE'))) {
+        if ((empty($statement->fields))
+            || (!is_array($statement->fields))
+            || (!$statement->options->has('TABLE'))
+        ) {
             return array();
         }
 

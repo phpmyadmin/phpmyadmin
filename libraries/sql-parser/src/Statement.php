@@ -38,7 +38,7 @@ abstract class Statement
      *
      * @var array
      */
-    public static $CLAUSES;
+    public static $CLAUSES = array();
 
     /**
      * The options of this query.
@@ -74,6 +74,71 @@ abstract class Statement
         if (($parser !== null) && ($list !== null)) {
             $this->parse($parser, $list);
         }
+    }
+
+    /**
+     * Builds the statement.
+     *
+     * @return string
+     */
+    public function build()
+    {
+        /**
+         * Query to be returned.
+         * @var string
+         */
+        $query = '';
+
+        foreach (static::$CLAUSES as $clause) {
+
+            /**
+             * The name of the clause.
+             * @var string
+             */
+            $name = $clause[0];
+
+            /**
+             * The type of the clause.
+             * @see self::$CLAUSES
+             * @var int
+             */
+            $type = $clause[1];
+
+            // Checking if there is any parser (builder) for this clause.
+            if (empty(Parser::$KEYWORD_PARSERS[$name])) {
+                continue;
+            }
+
+            /**
+             * The builder (parser) of this clause.
+             * @var string
+             */
+            $class = Parser::$KEYWORD_PARSERS[$name]['class'];
+
+            /**
+             * The name of the field that is used as source for the builder.
+             * Same field is used to store the result of parsing.
+             * @var string
+             */
+            $field = Parser::$KEYWORD_PARSERS[$name]['field'];
+
+            // The field is empty, there is nothing to be built.
+            if (empty($this->$field)) {
+                continue;
+            }
+
+            // Checking if the name of the clause should be added.
+            if ($type & 2) {
+                $query .= $name . ' ';
+            }
+
+            // Checking if the result of the builder should be added.
+            if ($type & 1) {
+                $query .= $class::build($this->$field) . ' ';
+            }
+        }
+
+        return $query;
     }
 
     /**

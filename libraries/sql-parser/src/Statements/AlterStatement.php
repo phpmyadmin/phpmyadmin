@@ -9,11 +9,12 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Parser;
+use SqlParser\Statement;
 use SqlParser\Token;
 use SqlParser\TokensList;
+use SqlParser\Fragments\AlterFragment;
 use SqlParser\Fragments\FieldFragment;
 use SqlParser\Fragments\OptionsFragment;
-use SqlParser\Statements\NotImplementedStatement;
 
 /**
  * `ALTER` statement.
@@ -24,7 +25,7 @@ use SqlParser\Statements\NotImplementedStatement;
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class AlterStatement extends NotImplementedStatement
+class AlterStatement extends Statement
 {
 
     /**
@@ -37,9 +38,9 @@ class AlterStatement extends NotImplementedStatement
     /**
      * Column affected by this statement.
      *
-     * @var FieldFragment
+     * @var AlterFragment[]
      */
-    public $altered;
+    public $altered = array();
 
     /**
      * Options of this statement.
@@ -47,83 +48,91 @@ class AlterStatement extends NotImplementedStatement
      * @var array
      */
     public static $OPTIONS = array(
-
         'ONLINE'                        => 1,
         'OFFLINE'                       => 1,
-
         'IGNORE'                        => 2,
-
-        'TABLE'                         => 3,
-
-        'ADD'                           => 4,
-        'ALTER'                         => 4,
-        'ANALYZE'                       => 4,
-        'CHANGE'                        => 4,
-        'CHECK'                         => 4,
-        'COALESCE'                      => 4,
-        'CONVERT'                       => 4,
-        'DISABLE'                       => 4,
-        'DISCARD'                       => 4,
-        'DROP'                          => 4,
-        'ENABLE'                        => 4,
-        'IMPORT'                        => 4,
-        'MODIFY'                        => 4,
-        'OPTIMIZE'                      => 4,
-        'ORDER'                         => 4,
-        'PARTITION'                     => 4,
-        'REBUILD'                       => 4,
-        'REMOVE'                        => 4,
-        'RENAME'                        => 4,
-        'REORGANIZE'                    => 4,
-        'REPAIR'                        => 4,
-
-        'COLUMN'                        => 5,
-        'CONSTRAINT'                    => 5,
-        'DEFAULT'                       => 5,
-        'TO'                            => 5,
-        'BY'                            => 5,
-        'FOREIGN'                       => 5,
-        'FULLTEXT'                      => 5,
-        'KEYS'                          => 5,
-        'PARTITIONING'                  => 5,
-        'PRIMARY KEY'                   => 5,
-        'SPATIAL'                       => 5,
-        'TABLESPACE'                    => 5,
-        'INDEX'                         => 5,
-
-        'DEFAULT CHARACTER SET'         => array(6, 'var'),
-
-        'COLLATE'                       => array(7, 'var'),
     );
 
     /**
-     * Function called after the token was processed.
-     *
-     * Extracts the name of affected column.
-     *
      * @param Parser     $parser The instance that requests parsing.
      * @param TokensList $list   The list of tokens to be parsed.
-     * @param Token      $token  The token that is being parsed.
      *
      * @return void
      */
-    public function after(Parser $parser, TokensList $list, Token $token)
+    public function parse(Parser $parser, TokensList $list)
     {
-        // Parsing operation.
-        ++$list->idx;
-        $this->options->merge(
-            OptionsFragment::parse(
-                $parser,
-                $list,
-                static::$OPTIONS
-            )
+        ++$list->idx; // Skipping `ALTER`.
+        $this->options = OptionsFragment::parse(
+            $parser,
+            $list,
+            static::$OPTIONS
         );
 
-        // Parsing affected field.
-        ++$list->idx;
-        $this->altered = FieldFragment::parse($parser, $list);
+        // Skipping `TABLE`.
+        $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'TABLE');
 
-        //
-        parent::after($parser, $list, $token);
+        // Parsing affected table.
+        $this->table = FieldFragment::parse(
+            $parser, $list, array(
+            'noAlias' => true,
+            'noBrackets' => true,
+            )
+        );
+        ++$list->idx; // Skipping field.
+
+        /**
+         * The state of the parser.
+         *
+         * Below are the states of the parser.
+         *
+         *      0 -----------------[ alter operation ]-----------------> 1
+         *
+         *      1 -------------------------[ , ]-----------------------> 0
+         *
+         * @var int
+         */
+        $state = 0;
+
+        for (; $list->idx < $list->count; ++$list->idx) {
+            /**
+             * Token parsed at this moment.
+             * @var Token
+             */
+            $token = $list->tokens[$list->idx];
+
+            // End of statement.
+            if ($token->type === Token::TYPE_DELIMITER) {
+                break;
+            }
+
+            // Skipping whitespaces and comments.
+            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+                continue;
+            }
+
+            if ($state === 0) {
+                $this->altered[] = AlterFragment::parse($parser, $list);
+                $state = 1;
+            } else if ($state === 1) {
+                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
+                    $state = 0;
+                }
+            }
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public function build()
+    {
+        $tmp = array();
+        foreach ($this->altered as $altered) {
+            $tmp[] = $altered::build($altered);
+        }
+
+        return 'ALTER ' .  OptionsFragment::build($this->options)
+            . ' TABLE ' . FieldFragment::build($this->table)
+            . ' ' . implode(', ', $tmp);
     }
 }

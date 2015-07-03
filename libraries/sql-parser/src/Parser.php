@@ -337,10 +337,7 @@ class Parser
              * Processed statement.
              * @var Statement
              */
-            $stmt = new $class();
-
-            // Parsing the actual statement.
-            $stmt->parse($this, $this->list);
+            $stmt = new $class($this, $this->list);
 
             // The first token that is a part of this token is the next token
             // unprocessed by the previous statement.

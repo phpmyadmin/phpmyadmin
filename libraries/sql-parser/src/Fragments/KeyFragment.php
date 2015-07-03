@@ -67,6 +67,16 @@ class KeyFragment extends Fragment
      */
     public $options;
 
+
+    public function __construct($name = null, array $columns = array(),
+        $type = null, $options = null
+    ) {
+        $this->name = $name;
+        $this->columns = $columns;
+        $this->type = $type;
+        $this->options = $options;
+    }
+
     /**
      * @param Parser     $parser  The parser that serves as context.
      * @param TokensList $list    The list of tokens that are being parsed.
@@ -131,6 +141,21 @@ class KeyFragment extends Fragment
 
         --$list->idx;
         return $ret;
+    }
 
+    /**
+     * @param KeyFragment $fragment The fragment to be built.
+     *
+     * @return string
+     */
+    public static function build($fragment)
+    {
+        $ret = $fragment->type . ' ';
+        if (!empty($fragment->name)) {
+            $ret .= Context::escape($fragment->name) . ' ';
+        }
+        $ret .= '(' . implode(', ', Context::escape($fragment->columns)) . ')';
+        $ret .= OptionsFragment::build($fragment->options);
+        return trim($ret);
     }
 }

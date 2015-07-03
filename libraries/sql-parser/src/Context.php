@@ -110,6 +110,14 @@ abstract class Context
         '('   => 16, ')'    => 16, '.'   => 16,  ','  => 16,
     );
 
+    /**
+     * The mode of the MySQL server that will be used in lexing, parsing and
+     * building the statements.
+     *
+     * @var int
+     */
+    public static $MODE = 0;
+
     /*
      * Server SQL Modes
      * https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html
@@ -412,6 +420,44 @@ abstract class Context
         }
         self::$loadedContext = $context;
         self::$KEYWORDS = $context::$KEYWORDS;
+    }
+
+    /**
+     * Sets the SQL mode.
+     *
+     * @param string $mode The list of modes. If empty, the mode is reset.
+     */
+    public static function setMode($mode = '')
+    {
+        static::$MODE = 0;
+        if (empty($mode)) {
+            return;
+        }
+        $mode = explode(',', $mode);
+        foreach ($mode as $m) {
+            static::$MODE |= constant('static::' . $m);
+        }
+    }
+
+    /**
+     * Escapes the symbol by adding surrounding backticks.
+     *
+     * @param array|string $str The string to be escaped.
+     *
+     * @return string
+     */
+    public static function escape($str)
+    {
+        if (is_array($str)) {
+            foreach ($str as $key => $value) {
+                $str[$key] = static::escape($value);
+            }
+            return $str;
+        }
+        if (static::$MODE & Context::ANSI_QUOTES) {
+            return '"' . str_replace('"', '""', $str) . '"';
+        }
+        return '`' . str_replace('`', '``', $str) . '`';
     }
 }
 

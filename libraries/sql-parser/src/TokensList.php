@@ -40,6 +40,42 @@ class TokensList implements \ArrayAccess
     public $idx = 0;
 
     /**
+     * Constructor.
+     *
+     * @param array $tokens The initial array of tokens.
+     */
+    public function __construct(array $tokens = array(), $count = -1)
+    {
+        if (!empty($tokens)) {
+            $this->tokens = $tokens;
+            if ($count === -1) {
+                $this->count = count($tokens);
+            }
+        }
+    }
+
+    /**
+     * Builds an array of tokens by merging their raw value.
+     *
+     * @param array $tokens
+     *
+     * @return string
+     */
+    public static function build($list)
+    {
+        if ($list instanceof TokensList) {
+            $list = $list->tokens;
+        }
+        $ret = '';
+        if (is_array($list)) {
+            foreach ($list as $tok) {
+                $ret .= $tok->token;
+            }
+        }
+        return $ret;
+    }
+
+    /**
      * Adds a new token.
      *
      * @param Token $token Token to be added in list.
@@ -61,7 +97,8 @@ class TokensList implements \ArrayAccess
     {
         for (; $this->idx < $this->count; ++$this->idx) {
             if (($this->tokens[$this->idx]->type !== Token::TYPE_WHITESPACE)
-                && ($this->tokens[$this->idx]->type !== Token::TYPE_COMMENT)) {
+                && ($this->tokens[$this->idx]->type !== Token::TYPE_COMMENT)
+            ) {
                 return $this->tokens[$this->idx++];
             }
         }

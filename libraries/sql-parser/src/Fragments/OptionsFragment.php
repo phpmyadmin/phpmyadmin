@@ -110,7 +110,12 @@ class OptionsFragment extends Fragment
 
             if (is_array($lastOption)) {
                 if (empty($ret->options[$lastOptionId])) {
-                    $ret->options[$lastOptionId] = array('name' => $token->value, 'value' => '');
+                    $ret->options[$lastOptionId] = array(
+                        'name' => $token->value,
+                        'equal' => $lastOption[1] === 'var=',
+                        'value' => '',
+                        'value_' => '',
+                    );
                 } else {
                     if ($token->value !== '=') {
                         if ($token->value === '(') {
@@ -118,7 +123,9 @@ class OptionsFragment extends Fragment
                         } elseif ($token->value === ')') {
                             --$brackets;
                         } else {
-                            $ret->options[$lastOptionId]['value'] .= $token->value;
+                            // Raw and processed value.
+                            $ret->options[$lastOptionId]['value'] .= $token->token;
+                            $ret->options[$lastOptionId]['value_'] .= $token->value;
                         }
                         if ($brackets === 0) {
                             $lastOption = null;
@@ -144,10 +151,15 @@ class OptionsFragment extends Fragment
      */
     public static function build($fragment)
     {
+        if ((empty($fragment)) || (!is_array($fragment->options))) {
+            return '';
+        }
         $options = array();
         foreach ($fragment->options as $option) {
             if (is_array($option)) {
-                $options[] = $option['name'] . '=' . $option['value'];
+                $options[] = $option['name']
+                    . (!empty($option['equal']) ? '=' : ' ')
+                    . $option['value'];
             } else {
                 $options[] = $option;
             }

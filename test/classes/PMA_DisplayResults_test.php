@@ -101,9 +101,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array(
                     array(
                         'statement' => $parser->statements[0],
-                        'queryflags' => array(
-                            'select_from' => true,
-                        ),
+                        'select_from' => true,
                     ),
                 )
             )

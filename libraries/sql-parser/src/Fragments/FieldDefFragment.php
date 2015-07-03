@@ -92,6 +92,29 @@ class FieldDefFragment extends Fragment
     public $options;
 
     /**
+     * Constructor.
+     *
+     * @param string                       $name         The name of the field.
+     * @param OptionsFragment              $options      The options of this field.
+     * @param DataTypeFragment|KeyFragment $type         The data type of this field or the key.
+     * @param bool                         $isConstraint Whether this field is a constraint or not.
+     * @param ReferencesKeyword            $references   References.
+     */
+    public function __construct($name = null, $options = null, $type = null,
+        $isConstraint = false, $references = null
+    ) {
+        $this->name = $name;
+        $this->options = $options;
+        if ($type instanceof DataTypeFragment) {
+            $this->type = $type;
+        } elseif ($type instanceof KeyFragment) {
+            $this->key = $type;
+            $this->isConstraint = $isConstraint;
+            $this->references = $references;
+        }
+    }
+
+    /**
      * @param Parser     $parser  The parser that serves as context.
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
@@ -199,5 +222,43 @@ class FieldDefFragment extends Fragment
         --$list->idx;
         return $ret;
 
+    }
+
+    /**
+     * @param FieldDefFragment[] $fragment The fragment to be built.
+     *
+     * @return string
+     */
+    public static function build($fragment)
+    {
+        $ret = array();
+        foreach ($fragment as $f) {
+            $tmp = '';
+
+            if ($f->isConstraint) {
+                $tmp .= 'CONSTRAINT ';
+            }
+
+            if (!empty($f->name)) {
+                $tmp .= Context::escape($f->name) . ' ';
+            }
+
+            if (!empty($f->type)) {
+                $tmp .= DataTypeFragment::build($f->type) . ' ';
+            }
+
+            if (!empty($f->key)) {
+                $tmp .= KeyFragment::build($f->key) . ' ';
+            }
+
+            if (!empty($f->references)) {
+                $tmp .= 'REFERENCES ' . ReferencesKeyword::build($f->references) . ' ';
+            }
+
+            $tmp .= OptionsFragment::build($f->options);
+
+            $ret[] = trim($tmp);
+        }
+        return '(' . implode(', ', $ret) . ')';
     }
 }

@@ -3344,12 +3344,17 @@ class PMA_DisplayResults
         }
 
         $query = 'SELECT ' . SqlParser\Utils\Query::getClause(
-            $parser->statements[0], $parser->list, 'SELECT'
+            $analyzed_sql_results['statement'],
+            $analyzed_sql_results['parser']->list,
+            'SELECT'
         );
 
         $from_clause = SqlParser\Utils\Query::getClause(
-            $parser->statements[0], $parser->list, 'FROM'
+            $analyzed_sql_results['statement'],
+            $analyzed_sql_results['parser']->list,
+            'FROM'
         );
+
         if (!empty($from_clause)) {
             $query .= ' FROM ' . $from_clause;
         }
@@ -4345,7 +4350,7 @@ class PMA_DisplayResults
 
         }
 
-        if (($displayParts['nav_bar'] == '1') && (empty($statemet->limit))) {
+        if (($displayParts['nav_bar'] == '1') && (empty($statement->limit))) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_TOP_DIRECTION_DROPDOWN,
                 $is_innodb

@@ -35,7 +35,7 @@ class DataTypeFragment extends Fragment
         'BINARY'                        => 1,
         'CHARACTER SET'                 => array(2, 'var'),
         'CHARSET'                       => array(2, 'var'),
-        'COLLATE'                       => 3,
+        'COLLATE'                       => array(3, 'var'),
         'UNSIGNED'                      => 4,
         'ZEROFILL'                      => 5,
     );
@@ -68,6 +68,21 @@ class DataTypeFragment extends Fragment
      * @var OptionsFragment
      */
     public $options;
+
+    /**
+     * Constructor.
+     *
+     * @param string          $name       The name of this data type.
+     * @param array           $parameters The parameters (size or possible values).
+     * @param OptionsFragment $options    The options of this data type.
+     */
+    public function __construct($name = null, array $parameters = array(),
+        $options = null
+    ) {
+        $this->name = $name;
+        $this->parameters = $parameters;
+        $this->options = $options;
+    }
 
     /**
      * @param Parser     $parser  The parser that serves as context.
@@ -113,10 +128,10 @@ class DataTypeFragment extends Fragment
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $size = ArrayFragment::parse($parser, $list);
+                    $parameters = ArrayFragment::parse($parser, $list);
                     ++$list->idx;
                     $ret->parameters = (($ret->name === 'ENUM') || ($ret->name === 'SET')) ?
-                        $size->raw : $size->values;
+                        $parameters->raw : $parameters->values;
                 }
                 $ret->options = OptionsFragment::parse($parser, $list, static::$DATA_TYPE_OPTIONS);
                 ++$list->idx;
@@ -131,5 +146,22 @@ class DataTypeFragment extends Fragment
 
         --$list->idx;
         return $ret;
+    }
+
+    /**
+     * @param DataTypeFragment $fragment The fragment to be built.
+     *
+     * @return string
+     */
+    public static function build($fragment)
+    {
+        $tmp = '';
+        if (!empty($fragment->parameters)) {
+            $tmp = '('. implode(', ', $fragment->parameters) . ')';
+        }
+        return trim(
+            $fragment->name . ' ' . $tmp . ' '
+            . OptionsFragment::build($fragment->options)
+        );
     }
 }

@@ -1311,9 +1311,13 @@ function PMA_deleteTransformationInfo($db, $table, $analyzed_sql_results)
     include_once 'libraries/transformations.lib.php';
     $statement = $analyzed_sql_results['statement'];
     if ($statement instanceof SqlParser\Statements\AlterStatement) {
-        if ($statement->options->has('DROP')) {
-            if (!empty($statement->altered->column)) {
-                PMA_clearTransformations($db, $table, $statement->altered->column);
+        if ($statement->altered[0]->options->has('DROP')) {
+            if (!empty($statement->altered[0]->field->column)) {
+                PMA_clearTransformations(
+                    $db,
+                    $table,
+                    $statement->altered[0]->field->column
+                );
             }
         }
     } elseif ($statement instanceof SqlParser\Statements\DropStatement) {

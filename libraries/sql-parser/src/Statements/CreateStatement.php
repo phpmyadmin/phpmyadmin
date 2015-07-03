@@ -38,30 +38,30 @@ class CreateStatement extends Statement
      */
     public static $OPTIONS = array(
 
-        'DATABASE'                      => 1,
-        'EVENT'                         => 1,
-        'FUNCTION'                      => 1,
-        'INDEX'                         => 1,
-        'PROCEDURE'                     => 1,
-        'SERVER'                        => 1,
-        'TABLE'                         => 1,
-        'TABLESPACE'                    => 1,
-        'TRIGGER'                       => 1,
-        'USER'                          => 1,
-        'VIEW'                          => 1,
-
         // CREATE TABLE
-        'TEMPORARY'                     => 2,
-        'IF NOT EXISTS'                 => 3,
+        'TEMPORARY'                     => 1,
+        'IF NOT EXISTS'                 => 2,
 
         // CREATE FUNCTION / PROCEDURE and CREATE VIEW
-        'DEFINER'                       => array(2, 'var'),
+        'DEFINER'                       => array(1, 'var='),
 
         // CREATE VIEW
-        'OR REPLACE'                    => array(3, 'var'),
-        'ALGORITHM'                     => array(4, 'var'),
-        'DEFINER'                       => array(5, 'var'),
-        'SQL SECURITY'                  => array(6, 'var'),
+        'OR REPLACE'                    => array(2, 'var='),
+        'ALGORITHM'                     => array(3, 'var='),
+        'DEFINER'                       => array(4, 'var='),
+        'SQL SECURITY'                  => array(5, 'var'),
+
+        'DATABASE'                      => 6,
+        'EVENT'                         => 6,
+        'FUNCTION'                      => 6,
+        'INDEX'                         => 6,
+        'PROCEDURE'                     => 6,
+        'SERVER'                        => 6,
+        'TABLE'                         => 6,
+        'TABLESPACE'                    => 6,
+        'TRIGGER'                       => 6,
+        'USER'                          => 6,
+        'VIEW'                          => 6,
     );
 
     /**
@@ -70,8 +70,8 @@ class CreateStatement extends Statement
      * @var array
      */
     public static $TABLE_OPTIONS = array(
-        'ENGINE'                        => array(1, 'var'),
-        'AUTO_INCREMENT'                => array(2, 'var'),
+        'ENGINE'                        => array(1, 'var='),
+        'AUTO_INCREMENT'                => array(2, 'var='),
         'AVG_ROW_LENGTH'                => array(3, 'var'),
         'DEFAULT CHARACTER SET'         => array(4, 'var'),
         'CHARACTER SET'                 => array(4, 'var'),
@@ -144,15 +144,6 @@ class CreateStatement extends Statement
     public $fields;
 
     /**
-     * The `SELECT` statement that defines this view.
-     *
-     * Used by `CREATE VIEW`.
-     *
-     * @var SelectStatement
-     */
-    public $select;
-
-    /**
      * The return data type of this routine.
      *
      * Used by `CREATE FUNCTION`.
@@ -170,15 +161,36 @@ class CreateStatement extends Statement
      */
     public $parameters;
 
-
     /**
-     * The body of this function or procedure.
+     * The body of this function or procedure. For views, it is the select
+     * statement that gets the
      *
-     * Used by `CREATE FUNCTION` and `CREATE PROCEDURE`.
+     * Used by `CREATE FUNCTION`, `CREATE PROCEDURE` and `CREATE VIEW`.
      *
      * @var Token[]
      */
-    public $body;
+    public $body = array();
+
+    /**
+     * @return string
+     */
+    public function build()
+    {
+        $tmp = '';
+        if ($this->options->has('TABLE')) {
+            $tmp = FieldDefFragment::build($this->fields);
+        } elseif ($this->options->has('VIEW')) {
+            if (!empty($this->fields)) {
+                $tmp .= ArrayFragment::build($this->fields) . ' ';
+            }
+            $tmp .= 'AS ' . TokensList::build($this->body);
+        }
+        return 'CREATE '
+            . OptionsFragment::build($this->options) . ' '
+            . FieldFragment::build($this->name) . ' '
+            . $tmp . ' '
+            . OptionsFragment::build($this->entityOptions);
+    }
 
     /**
      * @param Parser     $parser The instance that requests parsing.
@@ -258,11 +270,17 @@ class CreateStatement extends Statement
                 --$list->idx; // getNext() also goes forward one field.
                 $this->fields = ArrayFragment::parse($parser, $list);
                 ++$list->idx; // Skipping last token from the array.
-                $token = $list->getNext();
+                $list->getNext();
             }
 
-            // Parsing the 'SELECT' statement.
-            $this->select = new SelectStatement($parser, $list);
+            // Parsing the `AS` keyword.
+            for (; $list->idx < $list->count; ++$list->idx) {
+                $token = $list->tokens[$list->idx];
+                if ($token->type === Token::TYPE_DELIMITER) {
+                    break;
+                }
+                $this->body[] = $token;
+            }
         }
     }
 }

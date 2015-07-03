@@ -290,7 +290,25 @@ class Lexer
          */
         $iEnd = $this->last;
 
+        /**
+         * Whether last parsed character is a whitespace.
+         * @var bool
+         */
+        $lastSpace = false;
+
         for ($j = 1; $j < Context::KEYWORD_MAX_LENGTH && $this->last < $this->len; ++$j, ++$this->last) {
+            // Composed keywords shouldn't have more than one whitespace between
+            // keywords.
+            if (Context::isWhitespace($this->str[$this->last])) {
+                if ($lastSpace) {
+                    --$j; // The size of the keyword didn't increase.
+                    continue;
+                } else {
+                    $lastSpace = true;
+                }
+            } else {
+                $lastSpace = false;
+            }
             $token .= $this->str[$this->last];
             if (($this->last + 1 === $this->len) || (Context::isSeparator($this->str[$this->last + 1]))) {
                 if (($flags = Context::isKeyword($token))) {

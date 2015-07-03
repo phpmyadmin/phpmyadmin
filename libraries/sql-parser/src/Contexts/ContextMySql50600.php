@@ -165,14 +165,14 @@ class ContextMySql50600 extends Context
         'SQL_CALC_FOUND_ROWS' => 3,
         'MASTER_SSL_VERIFY_SERVER_CERT' => 3,
 
-        'NOT NULL' => 5, 'SET NULL' => 5,
-        'NO ACTION' => 5, 'ON DELETE' => 5, 'ON UPDATE' => 5,
-        'CHARACTER SET' => 5, 'IF NOT EXISTS' => 5,
-        'DATA DIRECTORY' => 5,
-        'DEFAULT COLLATE' => 5, 'INDEX DIRECTORY' => 5,
-        'DEFAULT CHARACTER SET' => 5,
-
-        'GROUP BY' => 7, 'ORDER BY' => 7,
+        'GROUP BY' => 7, 'NOT NULL' => 7, 'ORDER BY' => 7, 'SET NULL' => 7,
+        'IF EXISTS' => 7, 'NO ACTION' => 7, 'ON DELETE' => 7, 'ON UPDATE' => 7,
+        'OR REPLACE' => 7,
+        'SQL SECURITY' => 7,
+        'CHARACTER SET' => 7, 'IF NOT EXISTS' => 7,
+        'DATA DIRECTORY' => 7,
+        'DEFAULT COLLATE' => 7, 'INDEX DIRECTORY' => 7,
+        'DEFAULT CHARACTER SET' => 7,
 
         'XML' => 9,
         'ENUM' => 9, 'TEXT' => 9,
@@ -190,18 +190,18 @@ class ContextMySql50600 extends Context
         'CHARACTER' => 11, 'MEDIUMINT' => 11, 'VARBINARY' => 11,
         'MEDIUMBLOB' => 11, 'MEDIUMTEXT' => 11,
 
-        'BINARY VARYING' => 13,
+        'BINARY VARYING' => 15,
 
         'KEY' => 19,
         'INDEX' => 19,
         'UNIQUE' => 19,
 
-        'INDEX KEY' => 21,
-        'UNIQUE KEY' => 21,
-        'FOREIGN KEY' => 21, 'PRIMARY KEY' => 21, 'SPATIAL KEY' => 21,
-        'FULLTEXT KEY' => 21, 'UNIQUE INDEX' => 21,
-        'SPATIAL INDEX' => 21,
-        'FULLTEXT INDEX' => 21,
+        'INDEX KEY' => 23,
+        'UNIQUE KEY' => 23,
+        'FOREIGN KEY' => 23, 'PRIMARY KEY' => 23, 'SPATIAL KEY' => 23,
+        'FULLTEXT KEY' => 23, 'UNIQUE INDEX' => 23,
+        'SPATIAL INDEX' => 23,
+        'FULLTEXT INDEX' => 23,
 
         'X' => 33, 'Y' => 33,
         'LN' => 33, 'PI' => 33,
@@ -315,7 +315,7 @@ class ContextMySql50600 extends Context
         'LOCALTIMESTAMP' => 35,
         'CURRENT_TIMESTAMP' => 35,
 
-        'NOT IN' => 37,
+        'NOT IN' => 39,
 
         'DATE' => 41, 'TIME' => 41, 'YEAR' => 41,
         'TIMESTAMP' => 41,

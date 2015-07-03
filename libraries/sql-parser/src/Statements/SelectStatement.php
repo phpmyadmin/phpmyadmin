@@ -57,7 +57,7 @@ class SelectStatement extends Statement
         'DISTINCT'                      => 1,
         'DISTINCTROW'                   => 1,
         'HIGH_PRIORITY'                 => 2,
-        'MAX_STATEMENT_TIME'            => array(3, 'var'),
+        'MAX_STATEMENT_TIME'            => array(3, 'var='),
         'STRAIGHT_JOIN'                 => 4,
         'SQL_SMALL_RESULT'              => 5,
         'SQL_BIG_RESULT'                => 6,

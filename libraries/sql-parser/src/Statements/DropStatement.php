@@ -46,6 +46,21 @@ class DropStatement extends Statement
     );
 
     /**
+     * The clauses of this statement, in order.
+     *
+     * @see Statement::$CLAUSES
+     *
+     * @var array
+     */
+    public static $CLAUSES = array(
+        'DROP'                          => array('DROP',        2),
+        // Used for options.
+        '_OPTIONS'                      => array('_OPTIONS',    1),
+        // Used for select expressions.
+        'DROP_'                         => array('DROP',        1),
+    );
+
+    /**
      * Dropped elements.
      *
      * @var FieldFragment[]

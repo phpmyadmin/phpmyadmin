@@ -531,7 +531,7 @@ class Query
 
         if ($onlyType) {
             return static::getClause($statement, $list, $old, -1, false) . ' ' .
-                $new . ' ' . static::getCLause($statement, $list, $old, 0) . ' ' .
+                $new . ' ' . static::getClause($statement, $list, $old, 0) . ' ' .
                 static::getClause($statement, $list, $old, 1, false);
         }
 
