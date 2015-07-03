@@ -1129,7 +1129,7 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
  *
  * @param string $db    the database
  * @param string $table the table
- * @param string $row   first row from result or boolean false
+ * @param array  $row   first row from result or boolean false
  *
  * @return string $html_output
  */
