@@ -336,8 +336,10 @@ function PMA_createDbBeforeCopy()
 
     // Set the SQL mode to NO_AUTO_VALUE_ON_ZERO to prevent MySQL from creating
     // export statements it cannot import
-    $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
-    $GLOBALS['dbi']->query($sql_set_mode);
+    if (! PMA_DRIZZLE) {
+        $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
+        $GLOBALS['dbi']->query($sql_set_mode);
+    }
 
     // rebuild the database list because PMA_Table::moveCopy
     // checks in this list if the target db exists
