@@ -235,6 +235,7 @@ var PMA_console = {
             .val(PMA_consoleMessages.appendQuery({sql_query: queryString}).message_id);
         PMA_console.$requestForm.trigger('submit');
         PMA_consoleInput.clear();
+        PMA_reloadNavigation();
     },
     ajaxCallback: function(data) {
         if(data && data.console_message_id) {
