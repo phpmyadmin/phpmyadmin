@@ -1223,7 +1223,6 @@ class PMA_Table
             }
         }
 
-file_put_contents('/tmp/debug_table.txt', "-- GLOBALS[sql_query] (2) = \n" . $GLOBALS['sql_query'] . "\n", FILE_APPEND);
         return true;
     }
 
@@ -1920,7 +1919,8 @@ file_put_contents('/tmp/debug_table.txt', "-- GLOBALS[sql_query] (2) = \n" . $GL
      *
      * @return boolean True on update succeed or False on failure
      */
-    public function updateDisplayField($disp, $display_field, $cfgRelation) {
+    public function updateDisplayField($disp, $display_field, $cfgRelation)
+    {
         $upd_query = false;
         if ($disp) {
             if ($display_field == '') {
@@ -1973,8 +1973,9 @@ file_put_contents('/tmp/debug_table.txt', "-- GLOBALS[sql_query] (2) = \n" . $GL
      * @return boolean
      */
     public function updateInternalRelations($multi_edit_columns_name,
-                                            $destination_db, $destination_table, $destination_column,
-                                            $cfgRelation, $existrel) {
+        $destination_db, $destination_table, $destination_column,
+        $cfgRelation, $existrel
+    ) {
         $updated = false;
         foreach ($destination_db as $master_field_md5 => $foreign_db) {
             $upd_query = null;
@@ -2057,8 +2058,9 @@ file_put_contents('/tmp/debug_table.txt', "-- GLOBALS[sql_query] (2) = \n" . $GL
      * @return array
      */
     public function updateForeignKeys($destination_foreign_db,
-                                      $multi_edit_columns_name, $destination_foreign_table,
-                                      $destination_foreign_column, $options_array, $table, $existrel_foreign) {
+        $multi_edit_columns_name, $destination_foreign_table,
+        $destination_foreign_column, $options_array, $table, $existrel_foreign
+    ) {
         $html_output = '';
         $preview_sql_data = '';
         $display_query = '';
@@ -2182,8 +2184,8 @@ file_put_contents('/tmp/debug_table.txt', "-- GLOBALS[sql_query] (2) = \n" . $GL
                         );
                     }
                     $html_output .= PMA_Util::showMySQLDocu(
-                            'InnoDB_foreign_key_constraints'
-                        ) . "\n";
+                        'InnoDB_foreign_key_constraints'
+                    ) . "\n";
                 }
             } else {
                 $preview_sql_data .= $create_query . "\n";
@@ -2238,7 +2240,7 @@ file_put_contents('/tmp/debug_table.txt', "-- GLOBALS[sql_query] (2) = \n" . $GL
      * @return string SQL query for foreign key constraint creation
      */
     private function getSQLToCreateForeignKey($table, $field, $foreignDb, $foreignTable,
-                                                  $foreignField, $name = null, $onDelete = null, $onUpdate = null
+        $foreignField, $name = null, $onDelete = null, $onUpdate = null
     ) {
         $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD ';
         // if user entered a constraint name
