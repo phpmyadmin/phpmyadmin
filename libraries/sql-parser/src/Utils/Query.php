@@ -354,7 +354,15 @@ class Query
      *
      * @param string $query The query to be parsed.
      *
-     * @return array
+     * @return array The array returned is the one returned by
+     *               `static::getFlags()`, with the following keys added:
+     *                 - parser - the parser used to analyze the query;
+     *                 - statement - the first statement resulted from parsing;
+     *                 - select_tables - the real name of the tables selected;
+     *                       if there are no table names in the `SELECT`
+     *                       expressions, the table names are fetched from the
+     *                       `FROM` expressions
+     *                 - select_expr - selected expressions
      */
     public static function getAll($query)
     {
@@ -375,15 +383,33 @@ class Query
             $ret['select_tables'] = array();
             $ret['select_expr'] = array();
 
+            // Finding tables' aliases and their associated real names.
+            $tableAliases = array();
+            foreach ($statement->from as $expr) {
+                if ((!empty($expr->table)) && (!empty($expr->alias))) {
+                    $tableAliases[$expr->alias] = array(
+                        $expr->table,
+                        !empty($expr->database) ? $expr->database : null
+                    );
+                }
+            }
+
             // Trying to find selected tables only from the select expression.
             // Sometimes, this is not possible because the tables aren't defined
             // explicitly (e.g. SELECT * FROM film, SELECT film_id FROM film).
             foreach ($statement->expr as $expr) {
                 if (!empty($expr->table)) {
-                    $ret['select_tables'][] = array(
-                        $expr->table,
-                        !empty($expr->database) ? $expr->database : null
-                    );
+                    if (empty($tableAliases[$expr->table])) {
+                        $arr = array(
+                            $expr->table,
+                            !empty($expr->database) ? $expr->database : null
+                        );
+                    } else {
+                        $arr = $tableAliases[$expr->table];
+                    }
+                    if (!in_array($arr, $ret['select_tables'])) {
+                        $ret['select_tables'][] = $arr;
+                    }
                 } else {
                     $ret['select_expr'][] = $expr->expr;
                 }
@@ -391,14 +417,17 @@ class Query
 
             // If no tables names were found in the SELECT clause or if there
             // are expressions like * or COUNT(*), etc. tables names should be
-            // extracted from the FROM clause as well.
-            if ((empty($ret['select_tables'])) || (!$ret['select_expr'])) {
+            // extracted from the FROM clause.
+            if (empty($ret['select_tables'])) {
                 foreach ($statement->from as $expr) {
                     if (!empty($expr->table)) {
-                        $ret['select_tables'][] = array(
+                        $arr = array(
                             $expr->table,
                             !empty($expr->database) ? $expr->database : null
                         );
+                        if (!in_array($arr, $ret['select_tables'])) {
+                            $ret['select_tables'][] = $arr;
+                        }
                     }
                 }
             }
@@ -413,10 +442,13 @@ class Query
      * @param Statement  $statement The parsed query that has to be modified.
      * @param TokensList $list      The list of tokens.
      * @param string     $clause    The clause to be returned.
-     * @param int        $type      The type of the search.
-     *                              -1 for everything that was before
-     *                              0 only for the clause
-     *                              1 for everything after
+     * @param int|string $type      The type of the search.
+     *                              If int,
+     *                                -1 for everything that was before
+     *                                 0 only for the clause
+     *                                 1 for everything after
+     *                              If string, the name of the first clause that
+     *                              shouldn't be included.
      * @param bool       $skipFirst Whether to skip the first keyword in clause.
      *
      * @return string
@@ -467,6 +499,32 @@ class Query
          */
         $clauseIdx = $clauses[$clauseType];
 
+        $firstClauseIdx = $clauseIdx;
+
+        $lastClauseIdx = $clauseIdx + 1;
+
+        // Determining the behaviour of this function.
+        if ($type === -1) {
+            $firstClauseIdx = -1; // Something small enough.
+            $lastClauseIdx = $clauseIdx - 1;
+        } elseif ($type === 1) {
+            $firstClauseIdx = $clauseIdx + 1;
+            $lastClauseIdx = 10000; // Something big enough.
+        } elseif (is_string($type)) {
+            if ($clauses[$type] > $clauseIdx) {
+                $firstClauseIdx = $clauseIdx + 1;
+                $lastClauseIdx = $clauses[$type] - 1    ;
+            } else {
+                $firstClauseIdx = $clauses[$type] + 1;
+                $lastClauseIdx = $clauseIdx - 1 ;
+            }
+        }
+
+        // This option is unavailable for multiple clauses.
+        if ($type !== 0) {
+            $skipFirst = false;
+        }
+
         for ($i = $statement->first; $i <= $statement->last; ++$i) {
             $token = $list->tokens[$i];
 
@@ -493,10 +551,7 @@ class Query
                 }
             }
 
-            if ((($type === -1) && ($currIdx < $clauseIdx))
-                || (($type === 0) && ($currIdx === $clauseIdx))
-                || (($type === 1) && ($currIdx > $clauseIdx))
-            ) {
+            if (($firstClauseIdx <= $currIdx) && ($currIdx <= $lastClauseIdx)) {
                 $ret .= $token->token;
             }
         }
@@ -537,5 +592,67 @@ class Query
 
         return static::getClause($statement, $list, $old, -1, false) . ' ' .
             $new . ' ' . static::getClause($statement, $list, $old, 1, false);
+    }
+
+    /**
+     * Builds a query by rebuilding the statement from the tokens list supplied
+     * and replaces multiple clauses.
+     *
+     * @param Statement  $statement The parsed query that has to be modified.
+     * @param TokensList $list      The list of tokens.
+     * @param array      $ops       Clauses to be replaced. Contains multiple
+     *                              arrays having two values: array($old, $new).
+     *                              Clauses must be sorted.
+     *
+     * @return string
+     */
+    public static function replaceClauses($statement, $list, array $ops)
+    {
+        $count = count($ops);
+
+        // Nothing to do.
+        if ($count === 0) {
+            return '';
+        }
+
+        /**
+         * Value to be returned.
+         * @var string
+         */
+        $ret = '';
+
+        /**
+         * The clauses of this type of statement and their index.
+         * @var array
+         */
+        $clauses = array_keys($statement::$CLAUSES);
+
+        // If there is only one clause, `replaceClause()` should be used.
+        if ($count === 1) {
+            return static::replaceClause(
+                $statement,
+                $list,
+                $ops[0][0],
+                $ops[0][1]
+            );
+        }
+
+        // Adding everything before first replacement.
+        $ret .= static::getClause($statement, $list, $ops[0][0], -1) . ' ';
+
+        // Doing replacements.
+        for ($i = 0; $i < $count; ++$i) {
+            $ret .= $ops[$i][1] . ' ';
+
+            // Adding everything between this and next replacement.
+            if ($i + 1 !== $count) {
+                $ret .= static::getClause($statement, $list, $ops[$i][0], $ops[$i + 1][0], -1) . ' ';
+            }
+        }
+
+        // Adding everything after the last replacement.
+        $ret .= static::getClause($statement, $list, $ops[$count - 1][0], 1);
+
+        return $ret;
     }
 }

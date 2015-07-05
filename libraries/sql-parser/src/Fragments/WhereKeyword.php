@@ -26,11 +26,20 @@ class WhereKeyword extends Fragment
 {
 
     /**
-     * Logical operators that can be used to chain expressions.
+     * Logical operators that can be used to delimit expressions.
      *
      * @var array
      */
-    public static $OPERATORS = array('&&', 'AND', 'OR', 'XOR', '||');
+    public static $DELIMITERS = array('&&', 'AND', 'OR', 'XOR', '||');
+
+    /**
+     * Hashmap containing reserved keywords that are also operators.
+     *
+     * @var array
+     */
+    public static $OPERATORS = array('AND' => 1, 'BETWEEN' => 1, 'LIKE' => 1,
+        'OR' => 1, 'XOR' => 1
+    );
 
     /**
      * Identifiers recognized.
@@ -82,6 +91,15 @@ class WhereKeyword extends Fragment
          */
         $brackets = 0;
 
+        /**
+         * Whether there was a `BETWEEN` keyword before or not.
+         * It is required to keep track of them because their structure contains
+         * the keyword `AND`, which is also an operator that delimits
+         * expressions.
+         * @var bool
+         */
+        $betweenBefore = false;
+
         for (; $list->idx < $list->count; ++$list->idx) {
 
             /**
@@ -101,20 +119,24 @@ class WhereKeyword extends Fragment
             }
 
             // Conditions are delimited by logical operators.
-            if (in_array($token->value, static::$OPERATORS, true)) {
-                $expr->expr = trim($expr->expr);
-                if (!empty($expr->expr)) {
-                    // Adding the condition that is delimited by this operator.
+            if (in_array($token->value, static::$DELIMITERS, true)) {
+                if (($betweenBefore) && ($token->value === 'AND')) {
+                    $betweenBefore = false;
+                } else {
+                    $expr->expr = trim($expr->expr);
+                    if (!empty($expr->expr)) {
+                        // Adding the condition that is delimited by this operator.
+                        $ret[] = $expr;
+                    }
+
+                    // Adding the operator.
+                    $expr = new WhereKeyword($token->value);
+                    $expr->isOperator = true;
                     $ret[] = $expr;
+
+                    $expr = new WhereKeyword();
+                    continue;
                 }
-
-                // Adding the operator.
-                $expr = new WhereKeyword($token->value);
-                $expr->isOperator = true;
-                $ret[] = $expr;
-
-                $expr = new WhereKeyword();
-                continue;
             }
 
             if ($token->type === Token::TYPE_OPERATOR) {
@@ -127,7 +149,10 @@ class WhereKeyword extends Fragment
 
             // No keyword is expected.
             if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
-                if ($brackets == 0) {
+                if ($token->value === 'BETWEEN') {
+                    $betweenBefore = true;
+                }
+                if (($brackets === 0) && (empty(static::$OPERATORS[$token->value]))) {
                     break;
                 }
             }

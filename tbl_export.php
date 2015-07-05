@@ -105,74 +105,59 @@ $export_page_title = __('View dump (schema) of table');
 // generate WHERE clause (if we are asked to export specific rows)
 
 if (! empty($sql_query)) {
-    // Parse query so we can work with tokens
-    $parsed_sql = PMA_SQP_parse($sql_query);
-    $analyzed_sql = PMA_SQP_analyze($parsed_sql);
+    $parser = new SqlParser\Parser($sql_query);
 
-    // Need to generate WHERE clause?
-    if (isset($where_clause)) {
+    if (!empty($parser->statements[0])) {
 
-        // If a table alias is used, get rid of it since
-        // where clauses are on real table name
-        if ($analyzed_sql[0]['table_ref'][0]['table_alias']) {
-            // Exporting selected rows is only allowed for queries involving
-            // a single table. So we can safely assume that there is only one
-            // table in 'table_ref' array.
-            $temp_sql_array = preg_split('/\bfrom\b/i', $sql_query);
-            $sql_query = $temp_sql_array[0] . 'FROM ';
-            if (! empty($analyzed_sql[0]['table_ref'][0]['db'])) {
-                $sql_query .= PMA_Util::backquote(
-                    $analyzed_sql[0]['table_ref'][0]['db']
-                );
-                $sql_query .= '.';
+        // Finding aliases and removing them, but we keep track of them to be
+        // able to replace them in select expression too.
+        $aliases = array();
+        foreach ($parser->statements[0]->from as $from) {
+            if ((!empty($from->table)) && (!empty($from->alias))) {
+                $aliases[$from->alias] = $from->table;
+                // We remove the alias of the table because they are going to
+                // be replaced anyway.
+                $from->alias = null;
+                $from->expr = null; // Force rebuild.
             }
-            $sql_query .= PMA_Util::backquote(
-                $analyzed_sql[0]['table_ref'][0]['table_name']
+        }
+
+        // Replacing the aliases in select expressions.
+        foreach ($parser->statements[0]->expr as $expr) {
+            if ((!empty($expr->table)) && (!empty($aliases[$expr->table]))) {
+                // Changing the table to null (leave the MySQL to find the
+                // right table).
+                // This is possible because exporting selected rows is only
+                // allowed for queries involing a single table.
+                $expr->table = null;
+                $expr->expr = null; // Force rebuild.
+            }
+        }
+
+        // Rebuilding the SELECT and FROM clauses.
+        $replaces = array(
+            array('SELECT', 'SELECT ' . SqlParser\Fragments\FieldListFragment::build($parser->statements[0]->expr)),
+            array('FROM', 'FROM ' . SqlParser\Fragments\FieldListFragment::build($parser->statements[0]->from)),
+        );
+
+        // Checking if the WHERE clause has to be replaced.
+        if ((!empty($where_clause)) && (is_array($where_clause))) {
+            $replaces[] = array(
+                'WHERE', 'WHERE (' . implode(') OR (', $where_clause) . ')'
             );
         }
-        unset($temp_sql_array);
 
-        // Regular expressions which can appear in sql query,
-        // before the sql segment which remains as it is.
-        $regex_array = array(
-            '/\bwhere\b/i', '/\bgroup by\b/i', '/\bhaving\b/i', '/\border by\b/i'
+        // Preparing to remove the LIMIT clause.
+        $replaces[] = array('LIMIT', '');
+
+        // Replacing the clauses.
+        $sql_query = SqlParser\Utils\Query::replaceClauses(
+            $parser->statements[0],
+            $parser->list,
+            $replaces
         );
-
-        $first_occurring_regex = PMA_Util::getFirstOccurringRegularExpression(
-            $regex_array, $sql_query
-        );
-        unset($regex_array);
-
-        // The part "SELECT `id`, `name` FROM `customers`"
-        // is not modified by the next code segment, when exporting
-        // the result set from a query such as
-        // "SELECT `id`, `name` FROM `customers` WHERE id NOT IN
-        //  ( SELECT id FROM companies WHERE name LIKE '%u%')"
-        if (! is_null($first_occurring_regex)) {
-            $temp_sql_array = preg_split($first_occurring_regex, $sql_query);
-            $sql_query = $temp_sql_array[0];
-        }
-        unset($first_occurring_regex, $temp_sql_array);
-
-        // Append the where clause using the primary key of each row
-        if (is_array($where_clause) && (count($where_clause) > 0)) {
-            $sql_query .= ' WHERE (' . implode(') OR (', $where_clause) . ')';
-        }
-
-        if (!empty($analyzed_sql[0]['group_by_clause'])) {
-            $sql_query .= ' GROUP BY ' . $analyzed_sql[0]['group_by_clause'];
-        }
-        if (!empty($analyzed_sql[0]['having_clause'])) {
-            $sql_query .= ' HAVING ' . $analyzed_sql[0]['having_clause'];
-        }
-        if (!empty($analyzed_sql[0]['order_by_clause'])) {
-            $sql_query .= ' ORDER BY ' . $analyzed_sql[0]['order_by_clause'];
-        }
-    } else {
-        // Just crop LIMIT clause
-        $sql_query = $analyzed_sql[0]['section_before_limit']
-            . $analyzed_sql[0]['section_after_limit'];
     }
+
     echo PMA_Util::getMessage(PMA_Message::success());
 }
 
