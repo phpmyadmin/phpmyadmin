@@ -10,7 +10,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once './libraries/DatabaseInterface.class.php';
+require_once 'libraries/di/Container.class.php';
+require_once 'libraries/DatabaseInterface.class.php';
 
 if (defined('TESTSUITE')) {
     /**
@@ -81,4 +82,7 @@ if (defined('TESTSUITE')) {
     }
 }
 $GLOBALS['dbi'] = new PMA_DatabaseInterface($extension);
-?>
+
+$container = \PMA\DI\Container::getDefaultContainer();
+$container->set('PMA_DatabaseInterface', $GLOBALS['dbi']);
+$container->alias('dbi', 'PMA_DatabaseInterface');
