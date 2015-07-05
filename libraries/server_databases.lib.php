@@ -466,7 +466,7 @@ function PMA_dropMultiDatabases()
                 'table' => $GLOBALS['table']);
         }
         //the following variables will be used on mult_submits.inc.php
-        global $selected, $mult_btn;
+        global $query_type, $selected, $mult_btn;
 
         include 'libraries/mult_submits.inc.php';
         unset($action, $submit_mult, $err_url, $selected_db, $GLOBALS['db']);
