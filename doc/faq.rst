@@ -186,24 +186,16 @@ hosting provider is unwilling to change the settings:
 
 .. _faq1_17:
 
-1.17 Which MySQL versions does phpMyAdmin support?
---------------------------------------------------
+1.17 Which Database versions does phpMyAdmin support?
+-----------------------------------------------------
 
-Since phpMyAdmin 3.0.x, only MySQL 5.0.1 and newer are supported. For
-older MySQL versions, you need to use the latest 2.x branch.
-phpMyAdmin can connect to your MySQL server using PHP's classic `MySQL
-extension <http://php.net/mysql>`_ as well as the `improved MySQL
-extension (MySQLi) <http://php.net/mysqli>`_ that is available in PHP
-5.0. The latter one should be used unless you have a good reason not
-to do so. When compiling PHP, we strongly recommend that you manually
-link the MySQL extension of your choice to a MySQL client library of
-at least the same minor version since the one that is bundled with
-some PHP distributions is rather old and might cause problems see
-:ref:`faq1_17a`. `MariaDB <http://mariadb.org/>`_ is also supported
-(versions 5.1 and 5.2 were tested).
+For `MySQL <http://www.mysql.com/>`_, versions 5.5 and newer are supported. 
+For older MySQL versions, our `Downloads <https://www.phpmyadmin.net/downloads/>`_ page offers older phpMyAdmin versions 
+(which may have become unsupported).
 
-.. versionchanged:: 3.5
-    Since phpMyAdmin 3.5 `Drizzle <http://www.drizzle.org/>`_ is supported.
+For `MariaDB <http://mariadb.org/>`_, versions 5.5 and newer are supported.
+
+For `Drizzle <http://www.drizzle.org>`_, versions 7.1 and newer are supported.
 
 .. _faq1_17a:
 
