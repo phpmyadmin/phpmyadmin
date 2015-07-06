@@ -35,7 +35,7 @@ function getTemplateData()
 {
     var $form = $('form[name="dump"]');
     var blacklist = ['token', 'server', 'db', 'table', 'single_table',
-        'export_type', 'export_method', 'sql_query'];
+        'export_type', 'export_method', 'sql_query', 'template_id'];
     var obj = {};
     var arr = $form.serializeArray();
     $.each(arr, function () {
@@ -129,6 +129,7 @@ function loadTemplate(id)
                     $element.trigger('change');
                 }
             });
+            $('input[name="template_id"]').val(id);
             PMA_ajaxShowMessage(PMA_messages.strTemplateLoaded);
         } else {
             PMA_ajaxShowMessage(response.error, false);
@@ -216,7 +217,7 @@ AJAX.registerTeardown('export.js', function () {
     $('#table_structure_all').off('change');
     $('#table_data_all').off('change');
     $('input[name="createTemplate"]').off('click');
-    $('input[name="loadTemplate"]').off('click');
+    $('select[name="template"]').off('change');
     $('input[name="updateTemplate"]').off('click');
     $('input[name="deleteTemplate"]').off('click');
 });
@@ -236,9 +237,9 @@ AJAX.registerOnload('export.js', function () {
     });
 
     // load an existing template
-    $('input[name="loadTemplate"]').on('click', function (e) {
+    $('select[name="template"]').on('change', function (e) {
         e.preventDefault();
-        var id = $('select[name="template"]').val();
+        var id = $(this).val();
         if (id.length) {
             loadTemplate(id);
         }

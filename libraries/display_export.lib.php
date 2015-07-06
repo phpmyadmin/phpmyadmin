@@ -148,6 +148,12 @@ function PMA_getHtmlForHiddenInput(
             . htmlspecialchars($_GET['sql_query']) . '" />' . "\n";
     }
 
+    $html .= '<input type="hidden" name="template_id"' . ' value="'
+        . (isset($_GET['template_id'])
+            ?  htmlspecialchars($_GET['template_id'])
+            : '')
+        . '" />';
+
     return $html;
 }
 
@@ -214,8 +220,6 @@ function PMA_getHtmlForExportTemplateLoading($export_type)
     $html .= '<select required="required" name="template" id="template">';
     $html .= PMA_getOptionsForExportTemplates($export_type);
     $html .= '</select>';
-    $html .= '<input type="submit" name="loadTemplate" '
-        . 'id="loadTemplate" value="' . __('Load') . '" />';
     $html .= '<input type="submit" name="updateTemplate" '
         . 'id="updateTemplate" value="' . __('Update') . '" />';
     $html .= '<input type="submit" name="deleteTemplate" '
@@ -255,8 +259,12 @@ function PMA_getOptionsForExportTemplates($export_type)
     $result = PMA_queryAsControlUser($query);
     if ($result) {
         while ($row = $GLOBALS['dbi']->fetchAssoc($result, $GLOBALS['controllink'])) {
-            $ret .= '<option value="' . htmlspecialchars($row['id']) . '">'
-                . htmlspecialchars($row['template_name']) . '</option>';
+            $ret .= '<option value="' . htmlspecialchars($row['id']) . '"';
+            if (!empty($_GET['template_id']) && $_GET['template_id'] == $row['id']) {
+                $ret .= ' selected="selected"';
+            }
+            $ret .= '>';
+            $ret .=  htmlspecialchars($row['template_name']) . '</option>';
         }
     }
     return $ret;
