@@ -57,7 +57,12 @@ function getTemplateData()
             obj[this.name] = null;
         }
     });
-
+    // include empty multiselects
+    $form.find('select').each(function () {
+        if ($(this).find('option:selected').length == 0) {
+            obj[this.name] = [];
+        }
+    });
     return obj;
 }
 
