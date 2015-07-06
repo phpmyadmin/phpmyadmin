@@ -35,7 +35,8 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
        . PMA_Util::backquote($cfgRelation['exporttemplates']);
     $user = PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']);
 
-    if ('create' == $_REQUEST['templateAction']) {
+    switch ($_REQUEST['templateAction']) {
+    case 'create':
         $query = "INSERT INTO " . $templateTable . "("
             . " `username`, `export_type`,"
             . " `template_name`, `template_data`"
@@ -44,19 +45,22 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
             . "'" . PMA_Util::sqlAddSlashes($_REQUEST['exportType']) . "', "
             . "'" . PMA_Util::sqlAddSlashes($_REQUEST['templateName']) . "', "
             . "'" . PMA_Util::sqlAddSlashes($_REQUEST['templateData']) . "');";
-
-    } elseif ('load' == $_REQUEST['templateAction']) {
+        break;
+    case 'load':
         $query = "SELECT `template_data` FROM " . $templateTable
              . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
-
-    } elseif ('update' == $_REQUEST['templateAction']) {
+        break;
+    case 'update':
         $query = "UPDATE " . $templateTable . " SET `template_data` = "
           . "'" . PMA_Util::sqlAddSlashes($_REQUEST['templateData']) . "'"
           . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
-
-    } elseif ('delete' == $_REQUEST['templateAction']) {
+        break;
+    case 'delete':
         $query = "DELETE FROM " . $templateTable
            . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
+        break;
+    default:
+        break;
     }
 
     $result = PMA_queryAsControlUser($query, false);

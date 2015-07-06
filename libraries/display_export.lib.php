@@ -191,9 +191,11 @@ function PMA_getHtmlForExportOptionHeader($export_type, $db, $table)
 }
 
 /**
- * Returns Html for saving and loading export templates
+ * Returns HTML for export template operations
  *
  * @param string $export_type export type - server, database, or table
+ *
+ * @return string HTML for export template operations
  */
 function PMA_getHtmlForExportTemplateLoading($export_type)
 {

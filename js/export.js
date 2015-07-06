@@ -93,8 +93,8 @@ function createTemplate(name)
             $('#templateName').val('');
             $('#template').html(response.data);
             $("#template option").each(function() {
-                if($(this).text() == name) {
-                     $(this).prop('selected', true);
+                if ($(this).text() == name) {
+                    $(this).prop('selected', true);
                 }
             });
             PMA_ajaxShowMessage(PMA_messages.strTemplateCreated);
