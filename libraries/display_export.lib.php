@@ -701,7 +701,11 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
         $html .= '<li>';
         $html .= '<input type="checkbox" name="lock_tables"';
         $html .= ' value="something" id="checkbox_lock_tables"';
-        $html .= ' ' . PMA_exportCheckboxCheck('lock_tables') . '/>';
+        if (! isset($_GET['repopulate'])) {
+            $html .= PMA_exportCheckboxCheck('lock_tables') . '/>';
+        } elseif (isset($_GET['lock_tables'])) {
+            $html .= ' checked="checked"';
+        }
         $html .= '<label for="checkbox_lock_tables">';
         $html .= sprintf(__('Use %s statement'), '<code>LOCK TABLES</code>');
         $html .= '</label></li>';
