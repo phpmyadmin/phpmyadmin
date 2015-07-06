@@ -73,7 +73,9 @@ phpMyAdmin - ChangeLog
 - bug #4916 Autocomplete completes the original table name when joining multiple aliased tables
 + rfe       Remove configuration storage data related to a user upon deleting the user
 
-4.4.11.0 (not yet released)
+4.4.12.0 (not yet released)
+
+4.4.11.0 (2015-07-06)
 - bug       Missing selected/entered values when editing active options in visual query builder
 - bug #4969 Autoload from prefs_storage not behaving properly
 - bug #4972 Incorrect length computed for binary data
