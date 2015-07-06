@@ -48,10 +48,12 @@
                 <select name="chartXAxis" id="select_chartXAxis">
                     <?php foreach ($keys as $idx => $key) : ?>
                         <?php if ($xaxis === null) : ?>
-                            <option value="<?php echo htmlspecialchars($idx); ?>" selected="selected"><?php echo htmlspecialchars($key); ?></option>
                             <?php $xaxis = $idx; ?>
-                        <?php else : ?>
+                        <?php endif; ?>
+                        <?php if ($xaxis === $idx) : ?>
                             <option value="<?php echo htmlspecialchars($idx); ?>" selected="selected"><?php echo htmlspecialchars($key); ?></option>
+                        <?php else : ?>
+                            <option value="<?php echo htmlspecialchars($idx); ?>"><?php echo htmlspecialchars($key); ?></option>
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </select>
