@@ -77,44 +77,18 @@ class TableRelationController extends TableController
      */
     protected $upd_query;
 
-    public function __construct()
-    {
+    public function __construct($options_array, $cfgRelation, $tbl_storage_engine,
+		$existrel, $existrel_foreign, $disp, $upd_query
+    ) {
         parent::__construct();
 
-        $this->options_array = array(
-            'CASCADE' => 'CASCADE',
-            'SET_NULL' => 'SET NULL',
-            'NO_ACTION' => 'NO ACTION',
-            'RESTRICT' => 'RESTRICT',
-        );
-        // Gets the relation settings
-        $this->cfgRelation = PMA_getRelationsParam();
-        $this->db = &$GLOBALS['db'];
-        $this->table = &$GLOBALS['table'];
-        $this->tbl_storage_engine = /*overload*/
-            mb_strtoupper(
-                PMA_Table::sGetStatusInfo(
-                    $_REQUEST['db'],
-                    $_REQUEST['table'],
-                    'Engine'
-                )
-            );
-        /**
-         * Updates
-         */
-        if ($this->cfgRelation['relwork']) {
-            $this->existrel = PMA_getForeigners($this->db, $this->table, '', 'internal');
-        }
-        if (PMA_Util::isForeignKeySupported($this->tbl_storage_engine)) {
-            $this->existrel_foreign = PMA_getForeigners($this->db, $this->table, '', 'foreign');
-        }
-        if ($this->cfgRelation['displaywork']) {
-            $this->disp = PMA_getDisplayField($this->db, $this->table);
-        } else {
-            $this->disp = '';
-        }
-
-        $this->upd_query = new PMA_Table($this->table, $this->db, $this->dbi);
+        $this->options_array = $options_array;
+        $this->cfgRelation = $cfgRelation;
+        $this->tbl_storage_engine = $tbl_storage_engine;
+        $this->existrel = $existrel;
+		$this->existrel_foreign = $existrel_foreign;
+		$this->disp = $disp;
+        $this->upd_query = $upd_query;
     }
 
     public function indexAction()
@@ -227,7 +201,7 @@ class TableRelationController extends TableController
             $_POST['destination_foreign_db'],
             $multi_edit_columns_name, $_POST['destination_foreign_table'],
             $_POST['destination_foreign_column'], $this->options_array, $this->table,
-            isset($existrel_foreign) ? $existrel_foreign['foreign_keys_data'] : null
+            isset($this->existrel_foreign) ? $this->existrel_foreign['foreign_keys_data'] : null
         );
         $this->response->addHTML($html);
 
@@ -253,7 +227,7 @@ class TableRelationController extends TableController
 
         if ($this->upd_query->updateInternalRelations(
             $multi_edit_columns_name, $_POST['destination_db'], $_POST['destination_table'],
-            $_POST['destination_column'], $this->cfgRelation, isset($existrel) ? $existrel : null
+            $_POST['destination_column'], $this->cfgRelation, isset($this->existrel) ? $this->existrel : null
         )
         ) {
             $this->response->addHTML(PMA_Util::getMessage(

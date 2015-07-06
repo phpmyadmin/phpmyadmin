@@ -6,9 +6,41 @@
  * @package PhpMyAdmin
  */
 
+namespace PMA;
+
+use PMA_Index;
+
+require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/TableIndexesController.class.php';
+require_once 'libraries/Index.class.php';
 
-use PMA\Controllers\Table\TableIndexesController;
+$container = DI\Container::getDefaultContainer();
+$container->factory('PMA\Controllers\Table\TableIndexesController');
+$container->alias('TableIndexesController', 'PMA\Controllers\Table\TableIndexesController');
 
-$controller = new TableIndexesController();
+/* Define dependencies for the concerned controller */
+$db = $container->get('db');
+$table = $container->get('table');
+$dbi = $container->get('dbi');
+
+if (!isset($_REQUEST['create_edit_table'])) {
+	include_once 'libraries/tbl_common.inc.php';
+}
+if (isset($_REQUEST['index'])) {
+	if (is_array($_REQUEST['index'])) {
+		// coming already from form
+		$index = new PMA_Index($_REQUEST['index']);
+	} else {
+		$index = $dbi->getTable($db, $table)->getIndex($_REQUEST['index']);
+	}
+} else {
+	$index = new PMA_Index;
+}
+
+$dependency_definitions = array(
+	"index" => $index
+);
+
+/** @var Controllers\Table\TableIndexesController $controller */
+$controller = $container->get('TableIndexesController', $dependency_definitions);
 $controller->indexAction();

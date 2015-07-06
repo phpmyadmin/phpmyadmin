@@ -17,9 +17,59 @@
 /**
  * Get the TableRelationController
  */
+namespace PMA;
+
+use PMA_Table;
+use PMA_Util;
+
+require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/TableRelationController.class.php';
+require_once 'libraries/Table.class.php';
+require_once 'libraries/Util.class.php';
 
-use PMA\Controllers\Table\TableRelationController;
+$container = DI\Container::getDefaultContainer();
+$container->factory('PMA\Controllers\Table\TableRelationController');
+$container->alias('TableRelationController', 'PMA\Controllers\Table\TableRelationController');
 
-$tblRelationCtrl = new TableRelationController();
-$tblRelationCtrl->indexAction();
+/* Define dependencies for the concerned controller */
+$db = $container->get('db');
+$table = $container->get('table');
+$dbi = $container->get('dbi');
+$options_array = array(
+	'CASCADE' => 'CASCADE',
+	'SET_NULL' => 'SET NULL',
+	'NO_ACTION' => 'NO ACTION',
+	'RESTRICT' => 'RESTRICT',
+);
+$cfgRelation = PMA_getRelationsParam();
+$tbl_storage_engine = /*overload*/
+	mb_strtoupper(
+		PMA_Table::sGetStatusInfo(
+			$db,
+			$table,
+			'Engine'
+		)
+	);
+$upd_query = new PMA_Table($table, $db, $dbi);
+
+$dependency_definitions = array(
+	"options_array" => $options_array,
+	"cfgRelation" => $cfgRelation,
+	"tbl_storage_engine" => $tbl_storage_engine,
+	"upd_query" => $upd_query
+);
+if ($cfgRelation['relwork']) {
+	$dependency_definitions['existrel'] = PMA_getForeigners($db, $table, '', 'internal');
+}
+if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
+	$dependency_definitions['existrel_foreign'] = PMA_getForeigners($db, $table, '', 'foreign');
+}
+if ($cfgRelation['displaywork']) {
+	$dependency_definitions['disp'] = PMA_getDisplayField($db, $table);
+} else {
+	$dependency_definitions['disp'] = 'asas';
+}
+
+/** @var Controllers\Table\TableRelationController $controller */
+$controller = $container->get('TableRelationController', $dependency_definitions);
+$controller->indexAction();

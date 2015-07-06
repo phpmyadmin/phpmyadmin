@@ -14,7 +14,6 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/Controller.class.php';
 
 /**
@@ -24,8 +23,20 @@ require_once 'libraries/controllers/Controller.class.php';
  */
 abstract class TableController extends Controller
 {
-    function __construct(Container $container = null)
+    /**
+     * @var string $db
+     */
+    protected $db;
+
+    /**
+     * @var string $table
+     */
+    protected $table;
+
+    function __construct()
     {
-        parent::__construct($container);
+        parent::__construct();
+        $this->db = $this->container->get('db');
+        $this->table = $this->container->get('table');
     }
 }

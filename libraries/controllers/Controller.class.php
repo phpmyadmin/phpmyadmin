@@ -43,13 +43,11 @@ abstract class Controller
      */
     protected $container;
 
-    function __construct(Container $container = null)
+    function __construct()
     {
-        if (!isset($container)) {
-            $container = Container::getDefaultContainer();
-        }
+        $container = Container::getDefaultContainer();
         $this->container = $container;
-        $this->dbi = $container->get('dbi');
+        $this->dbi = $this->container->get('dbi');
         $this->response = PMA_Response::getInstance();
     }
 }

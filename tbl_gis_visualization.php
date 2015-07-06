@@ -6,9 +6,27 @@
  * @package PhpMyAdmin
  */
 
-use PMA\Controllers\Table\TableGisVisualizationController;
+namespace PMA;
 
+use PMA_Util;
+
+require_once 'libraries/di/Container.class.php';
 require_once 'libraries/controllers/TableGisVisualizationController.class.php';
+require_once 'libraries/Util.class.php';
 
-$controller = new TableGisVisualizationController();
+$container = DI\Container::getDefaultContainer();
+$container->factory('PMA\Controllers\Table\TableGisVisualizationController');
+$container->alias('TableGisVisualizationController', 'PMA\Controllers\Table\TableGisVisualizationController');
+
+/* Define dependencies for the concerned controller */
+$dependency_definitions = array(
+	"sql_query" => &$GLOBALS['sql_query'],
+	"url_params" => &$GLOBALS['url_params'],
+	"goto" => PMA_Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database'),
+	"back" => 'sql.php',
+	"visualizationSettings" => array()
+);
+
+/** @var Controllers\Table\TableGisVisualizationController $controller */
+$controller = $container->get('TableGisVisualizationController', $dependency_definitions);
 $controller->indexAction();

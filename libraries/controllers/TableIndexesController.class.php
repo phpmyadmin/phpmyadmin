@@ -27,49 +27,15 @@ require_once 'libraries/Template.class.php';
 class TableIndexesController extends TableController
 {
     /**
-     * @var string $db
-     */
-    protected $db;
-
-    /**
-     * @var string $table
-     */
-    protected $table;
-
-    /**
      * @var PMA_Index $index
      */
     protected $index;
 
-    function __construct()
+    function __construct($index)
     {
         parent::__construct();
 
-        $this->db = $GLOBALS['db'];
-        $this->table = $GLOBALS['table'];
-
-        /**
-         * Extract values for common work
-         * @todo Extract common files
-         */
-        $db = $this->db;
-        $table = $this->table;
-
-        if (!isset($_REQUEST['create_edit_table'])) {
-            include_once 'libraries/tbl_common.inc.php';
-        }
-
-        if (isset($_REQUEST['index'])) {
-            if (is_array($_REQUEST['index'])) {
-                // coming already from form
-                $this->index = new PMA_Index($_REQUEST['index']);
-            } else {
-                $this->index = $this->dbi->getTable($this->db, $this->table)
-                    ->getIndex($_REQUEST['index']);
-            }
-        } else {
-            $this->index = new PMA_Index;
-        }
+		$this->index = $index;
     }
 
     public function indexAction()

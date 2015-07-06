@@ -40,29 +40,17 @@ class TableChartController extends TableController
     protected $url_query;
 
     /**
-     * @var string $db
-     */
-    protected $db;
-
-    /**
-     * @var string $table
-     */
-    protected $table;
-
-    /**
      * @var array $cfg
      */
     protected $cfg;
 
-    function __construct(Container $container = null)
+    function __construct($sql_query, $url_query, $cfg)
     {
-        parent::__construct($container);
+        parent::__construct();
 
-        $this->sql_query = &$GLOBALS['sql_query'];
-        $this->url_query = &$GLOBALS['url_query'];
-        $this->table = &$GLOBALS['table'];
-        $this->db = &$GLOBALS['db'];
-        $this->cfg = &$GLOBALS['cfg'];
+        $this->sql_query = $sql_query;
+        $this->url_query = $url_query;
+        $this->cfg = $cfg;
     }
 
     /*

@@ -9,21 +9,20 @@
 
 namespace PMA\Controllers\Table;
 
-use PMA\Controllers\TableController;
 use PMA\Template;
 use PMA_GIS_Visualization;
 use PMA_Message;
-use PMA_Util;
+use PMA\Controllers\TableController;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/db_common.inc.php';
 require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/gis/GIS_Visualization.class.php';
 require_once 'libraries/gis/GIS_Factory.class.php';
-require_once 'libraries/Util.class.php';
 require_once 'libraries/Message.class.php';
 
-class TableGisVisualizationController extends TableController {
+class TableGisVisualizationController extends TableController
+{
 
     /**
      * @var array $url_params
@@ -45,19 +44,14 @@ class TableGisVisualizationController extends TableController {
      */
     protected $visualization;
 
-    public function __construct() {
+    public function __construct($sql_query, $url_params, $goto, $back, $visualizationSettings) {
         parent::__construct();
 
-        $this->sql_query = &$GLOBALS['sql_query'];
-
-        $this->url_params = &$GLOBALS['url_params'];
-
-        $this->url_params['goto'] = PMA_Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
-        );
-        $this->url_params['back'] = 'sql.php';
-
-        $this->visualizationSettings = array();
+        $this->sql_query = $sql_query;
+        $this->url_params = $url_params;
+        $this->url_params['goto'] = $goto;
+        $this->url_params['back'] = $back;
+        $this->visualizationSettings = $visualizationSettings;
     }
 
     public function saveToFileAction() {
