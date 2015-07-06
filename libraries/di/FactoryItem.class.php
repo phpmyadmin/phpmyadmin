@@ -1,4 +1,11 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Holds the PMA\DI\FactoryItem class
+ *
+ * @package PMA
+ */
+
 namespace PMA\DI;
 
 require_once 'libraries/di/ReflectorItem.class.php';
