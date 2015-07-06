@@ -52,8 +52,8 @@ Chart.prototype = {
     destroy : function () {
         throw new Error("destroy must be implemented by a subclass");
     },
-    saveAsImage : function() {
-        throw new Error("saveAsImage must be implemented by a subclass");
+    toImageString : function() {
+        throw new Error("toImageString must be implemented by a subclass");
     }
 };
 
@@ -228,9 +228,9 @@ JQPlotChart.prototype.redraw = function (options) {
         this.plot.replot(options);
     }
 };
-JQPlotChart.prototype.saveAsImage = function (options) {
+JQPlotChart.prototype.toImageString = function (options) {
     if (this.plot !== null) {
-        $('#' + this.elementId).jqplotSaveImage();
+        return $('#' + this.elementId).jqplotToImageStr({});
     }
 };
 JQPlotChart.prototype.populateOptions = function (dataTable, options) {

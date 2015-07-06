@@ -160,14 +160,11 @@ function drawChart() {
     });
     try {
         currentChart = PMA_queryChart(chart_data, columnNames, currentSettings);
+        if (currentChart != null) {
+            $('#saveChart').attr('href', currentChart.toImageString());
+        }
     } catch (err) {
         PMA_ajaxShowMessage(err.message, false);
-    }
-}
-
-function saveChartAsImage() {
-    if (currentChart !== null) {
-        currentChart.saveAsImage();
     }
 }
 
@@ -240,7 +237,6 @@ AJAX.registerTeardown('tbl_chart.js', function () {
     $('input[name="xaxis_label"]').unbind('keyup');
     $('input[name="yaxis_label"]').unbind('keyup');
     $('#resizer').unbind('resizestop');
-    $('#saveChart').unbind('click');
     $('#tblchartform').unbind('submit');
 });
 
@@ -355,11 +351,6 @@ AJAX.registerOnload('tbl_chart.js', function () {
     $('input[name="yaxis_label"]').keyup(function () {
         currentSettings.yaxisLabel = $(this).val();
         drawChart();
-    });
-
-    // handle chart saving
-    $('#saveChart').click(function() {
-        saveChartAsImage();
     });
 
     // handler for ajax form submission

@@ -135,8 +135,10 @@
             <?php echo PMA_Util::getStartAndNumberOfRowsPanel($sql_query); ?>
             <p style="clear:both;">&nbsp;</p>
             <div id="resizer" style="width:600px; height:400px;">
-                <div id="saveChart" style="position: absolute; right: 10px; top: 10px; cursor: pointer; z-index: 1000;">
-                    <?php echo PMA_Util::getImage('b_saveimage', __('Save chart as image')); ?>
+                <div style="position: absolute; right: 10px; top: 10px; cursor: pointer; z-index: 1000;">
+                    <a class="disableAjax" id="saveChart" href="#" download="chart.png">
+                        <?php echo PMA_Util::getImage('b_saveimage', __('Save chart as image')); ?>
+                    </a>
                 </div>
                 <div id="querychart">
                 </div>
