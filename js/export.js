@@ -50,6 +50,13 @@ function getTemplateData()
             }
         }
     });
+    // include unchecked checboxes (which are ignored by serializeArray()) with null
+    // to uncheck them when loading the template
+    $form.find('input[type="checkbox"]:not(:checked)').each(function () {
+        if (obj[this.name] === undefined) {
+            obj[this.name] = null;
+        }
+    });
 
     return obj;
 }
@@ -118,14 +125,18 @@ function loadTemplate(id)
             $.each(options, function (key, value) {
                 var $element = $form.find('[name="' + key + '"]');
                 if ($element.length) {
-                    if (($element.is('input') && $element.attr('type') == 'checkbox') ||
-                        ($element.is('input') && $element.attr('type') == 'radio') ||
-                        ($element.is('select') && $element.attr('multiple') == 'multiple')) {
-                        if (! value.push) {
-                            value = [value];
+                    if (($element.is('input') && $element.attr('type') == 'checkbox') && value === null) {
+                        $element.prop('checked', false);
+                    } else {
+                        if (($element.is('input') && $element.attr('type') == 'checkbox') ||
+                            ($element.is('input') && $element.attr('type') == 'radio') ||
+                            ($element.is('select') && $element.attr('multiple') == 'multiple')) {
+                            if (! value.push) {
+                                value = [value];
+                            }
                         }
+                        $element.val(value);
                     }
-                    $element.val(value);
                     $element.trigger('change');
                 }
             });
