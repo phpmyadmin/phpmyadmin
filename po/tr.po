@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-31 16:13+0200\n"
+"PO-Revision-Date: 2015-06-22 19:29+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1301,7 +1301,7 @@ msgstr "Ayarlar"
 
 #: js/messages.php:155
 msgid "Add chart to grid"
-msgstr "Çizelgeyi ızgaraya ekle"
+msgstr "Çizelgeyi kılavuza ekle"
 
 #: js/messages.php:157
 msgid "Please add at least one variable to the series!"
@@ -1597,7 +1597,7 @@ msgstr ""
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
-"İçe aktarılan yapılandırma ile çizelge ızgarasının yapılması başarısız oldu. "
+"İçe aktarılan yapılandırma ile çizelge kılavuzunun yapılması başarısız oldu. "
 "Varsayılan yapılandırmaya sıfırlanıyor…"
 
 #: js/messages.php:239 libraries/Menu.class.php:344
@@ -2260,9 +2260,9 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
-"Bu tablo benzersiz bir sütun içermiyor. Izgara düzenlemeyle ilgili "
-"özellikler, Düzenle, Kopyala ve Sil bağlantıları kaydedildikten sonra "
-"çalışmayabilir."
+"Bu tablo benzersiz bir sütun içermiyor. Kılavuz düzenleme, onay kutusu, "
+"Düzenle, Kopyala ve Sil bağlantıları ile ilgili özellikler kaydedildikten "
+"sonra çalışmayabilir."
 
 #: js/messages.php:454
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
@@ -6674,7 +6674,7 @@ msgstr "Başlıkları tekrarla"
 
 #: libraries/config/messages.inc.php:542
 msgid "Grid editing: trigger action"
-msgstr "Izgara düzenleme: tetikleme eylemi"
+msgstr "Kılavuz düzenleme: tetikleme eylemi"
 
 #: libraries/config/messages.inc.php:543
 msgid "Relational display"
@@ -6686,7 +6686,7 @@ msgstr "Seçenekleri görüntülemek için"
 
 #: libraries/config/messages.inc.php:545
 msgid "Grid editing: save all edited cells at once"
-msgstr "Izgara düzenleme: bir defada tüm düzenlenen hücreleri kaydet"
+msgstr "Kılavuz düzenleme: bir defada tüm düzenlenen hücreleri kaydet"
 
 #: libraries/config/messages.inc.php:546
 msgid "Directory where exports can be saved on server."
@@ -7486,7 +7486,7 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
-"Etkisizleştirildiğinde kullanıcılar sağdaki işaret kutusunu dikkate almadan "
+"Etkisizleştirildiğinde kullanıcılar sağdaki onay kutusunu dikkate almadan "
 "herhangi bir seçeneği ayarlayamazlar."
 
 #: libraries/config/messages.inc.php:790
@@ -7766,7 +7766,7 @@ msgstr "Doğrudan bağlantılar"
 
 #: libraries/db_designer.lib.php:361 libraries/db_designer.lib.php:363
 msgid "Snap to grid"
-msgstr "Kılavuza ayarla"
+msgstr "Kılavuza uydur"
 
 #: libraries/db_designer.lib.php:367 libraries/db_designer.lib.php:371
 msgid "Small/Big All"
@@ -10368,7 +10368,7 @@ msgstr "Tüm tablolar için aynı genişlik"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:89
 msgid "Show grid"
-msgstr "Izgara göster"
+msgstr "Kılavuzu göster"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:94
 #: libraries/structure.lib.php:410
@@ -13361,8 +13361,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
-"Şu anki seçim benzersiz bir sütun içermiyor. Izgara düzenleme, işaretleme "
-"kutusu, Düzenle, Kopyala ve Sil özellikleri kullanılabilir değil."
+"Şu anki seçim benzersiz bir sütun içermiyor. Kılavuz düzenleme, onay kutusu, "
+"Düzenle, Kopyala ve Sil özellikleri kullanılabilir değil."
 
 #: libraries/sql.lib.php:1853
 #, php-format

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-22 07:56+0200\n"
+"PO-Revision-Date: 2015-06-27 10:58+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/it/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -26,7 +26,7 @@ msgstr ""
 
 #: db_central_columns.php:89
 msgid "The central list of columns for the current database is empty."
-msgstr "L'elenco centrale di colonne per il database corrente è vuota."
+msgstr "L'elenco centrale di colonne per il database corrente è vuoto."
 
 #: db_central_columns.php:113
 msgid "Click to sort."
@@ -299,7 +299,7 @@ msgstr "Creazione:"
 #: db_printview.php:127 libraries/plugins/export/ExportSql.class.php:1157
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:953
 msgid "Last update:"
-msgstr "Ultimo cambiamento:"
+msgstr "Ultimo aggiornamento:"
 
 #: db_printview.php:134 libraries/plugins/export/ExportSql.class.php:1170
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:958

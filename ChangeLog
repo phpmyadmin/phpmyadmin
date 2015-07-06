@@ -1,6 +1,15 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.4.11.0 (2015-07-06)
+- bug       Missing selected/entered values when editing active options in visual query builder
+- bug #4969 Autoload from prefs_storage not behaving properly
+- bug #4972 Incorrect length computed for binary data
+- bug       Remove character set from create_tables_drizzle.sql
+- bug #4973 Users overview needs clarification
+- bug #4974 Creating a database from console doesn't update navigation panel
+- bug #4844 FAQ 1.17 needs an update
+
 4.4.10.0 (2015-06-17)
 - bug #4950 Issues in database selection for replication
 - bug #4951 Trying to save chart as image crashes the browser

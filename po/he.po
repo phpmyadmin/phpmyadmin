@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2014-10-22 15:46+0200\n"
-"Last-Translator: Eyal Visoker <visokereyal@gmail.com>\n"
-"Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"he/>\n"
+"PO-Revision-Date: 2015-06-30 15:48+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: Hebrew "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/he/>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: he\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,11 +25,11 @@ msgstr ""
 
 #: db_central_columns.php:89
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "רשימת העמודות המרכזית עבור מסד הנתונים הנוכחי ריקה."
 
 #: db_central_columns.php:113
 msgid "Click to sort."
-msgstr ""
+msgstr "יש ללחוץ כדי למיין."
 
 #: db_central_columns.php:129
 #, fuzzy, php-format
@@ -3857,7 +3857,7 @@ msgstr "הערות"
 
 #: libraries/Index.class.php:683
 msgid "The primary key has been dropped."
-msgstr "המפתח הראשי הוסר"
+msgstr "המפתח הראשי הוסר."
 
 #: libraries/Index.class.php:692
 #, php-format
@@ -9837,7 +9837,7 @@ msgstr "ייעול טבלה"
 #: libraries/operations.lib.php:1142
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "טבלה %s אופסה"
+msgstr "הטבלה %s אופסה."
 
 #: libraries/operations.lib.php:1149
 #, fuzzy
@@ -13708,7 +13708,7 @@ msgstr ""
 #: libraries/structure.lib.php:70 tbl_operations.php:355
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "הטבלה %s רוקנה"
+msgstr "הטבלה %s רוקנה."
 
 #: libraries/structure.lib.php:93
 msgid "Tracking is active."
@@ -13915,12 +13915,12 @@ msgstr ""
 #: libraries/structure.lib.php:2112 libraries/structure.lib.php:2127
 #, php-format
 msgid "An index has been added on %s."
-msgstr "אינדקס נוסף אל %s"
+msgstr "נוסף אינדקס אל %s."
 
 #: libraries/structure.lib.php:2098
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "מפתח ראשי נוסף אל %s"
+msgstr "נוסף מפתח ראשי אל %s."
 
 #: libraries/structure.lib.php:2177 libraries/structure.lib.php:2248
 #, fuzzy

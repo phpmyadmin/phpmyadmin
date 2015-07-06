@@ -305,8 +305,8 @@ PMA_displayFormBottom();
 
 echo '</fieldset>';
 echo '<div id="footer">';
-echo '<a href="http://www.phpmyadmin.net/">' . __('phpMyAdmin homepage') . '</a>';
-echo '<a href="http://sourceforge.net/donate/index.php?group_id=23067">'
+echo '<a href="https://www.phpmyadmin.net/">' . __('phpMyAdmin homepage') . '</a>';
+echo '<a href="https://www.phpmyadmin.net/donate/">'
     .  __('Donate') . '</a>';
 echo '<a href="' .  PMA_URL_getCommon() . $separator . 'version_check=1">'
     . __('Check for latest version') . '</a>';

@@ -22,4 +22,4 @@ tag, you are giving permission to license the patch as GPLv2-or-later.  See
 
 You can find more information on our website:
 
-http://www.phpmyadmin.net/home_page/improve.php
+https://www.phpmyadmin.net/contribute/

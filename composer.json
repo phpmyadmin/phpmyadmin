@@ -3,17 +3,17 @@
     "type": "application",
     "description": "MySQL web administration tool",
     "keywords": ["phpmyadmin","mysql","web"],
-    "homepage": "http://www.phpmyadmin.net/",
+    "homepage": "https://www.phpmyadmin.net/",
     "license": "GPL-2.0+",
     "authors": [
         {
             "name": "The phpMyAdmin Team",
             "email": "phpmyadmin-devel@lists.sourceforge.net",
-            "homepage": "http://www.phpmyadmin.net/home_page/team.php"
+            "homepage": "https://www.phpmyadmin.net/team/"
         }
     ],
     "support": {
-        "forum": "https://sourceforge.net/p/phpmyadmin/discussion/Help",
+        "forum": "https://www.phpmyadmin.net/support/",
         "issues": "https://sourceforge.net/p/phpmyadmin/bugs/",
         "wiki": "http://wiki.phpmyadmin.net/",
         "source": "https://github.com/phpmyadmin/phpmyadmin"

@@ -1233,7 +1233,7 @@ function PMA_getAggregateQueryPanel()
     $html .= '<option value="min"> MIN </option>';
     $html .= '<option value="max"> MAX </option>';
     $html .= '<option value="avg"> AVG </option>';
-    $html .= '<option value="avg"> COUNT </option>';
+    $html .= '<option value="count"> COUNT </option>';
     $html .= '</select>';
     $html .= '</td></tr>';
     $html .= '</tbody>';

@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-23 22:10+0200\n"
-"Last-Translator: Valentin Mladenov <hudsonvsm@gmail.com>\n"
+"PO-Revision-Date: 2015-06-28 13:36+0200\n"
+"Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
 "Language-Team: Bulgarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/bg/>\n"
 "Language: bg\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -21,7 +21,7 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Файлът %s не е наличен на тази система, Моля посети www.phpmyadmin.net за "
+"Файлът %s не е наличен на тази система, моля посети www.phpmyadmin.net за "
 "повече информация."
 
 #: db_central_columns.php:89
@@ -681,7 +681,7 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "Импортирането приключи успешно, бяха изпълнени %d заявки."
 
 #: import.php:665
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
@@ -690,7 +690,7 @@ msgid ""
 "same file%s and import will resume."
 msgstr ""
 "Времето за изчакване на скрипта изтече, ако искате да завършите импорта,моля "
-"пуснете отново същия файл и той ще си продължи."
+"пуснете (%s) отново същия файл (%s) и той ще си продължи."
 
 #: import.php:675
 msgid ""
@@ -1844,7 +1844,7 @@ msgstr "Разглеждане на външни стойности"
 
 #: js/messages.php:316
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Без автоматично запазване на заявка"
 
 #: js/messages.php:319 libraries/normalization.lib.php:849
 msgid "Pick"
@@ -1859,13 +1859,14 @@ msgid "Search this list"
 msgstr "Търсене в този списък"
 
 #: js/messages.php:322
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 "Няма колони в централният списък. Уверете се, че списъкът от Централни "
-"колони на базата данни% има колони, които не присъстват в настоящата таблица."
+"колони на базата данни %s има колони, които не присъстват в настоящата "
+"таблица."
 
 #: js/messages.php:323
 msgid "See more"
@@ -1933,6 +1934,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Забележка: а, б -> D, F предполага стойности на колони А и В се комбинират "
+"заедно могат да се определят стойностите на колона г и колона е."
 
 #: js/messages.php:339
 msgid "No partial dependencies selected!"
@@ -2126,6 +2129,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Изглежда сте направили промени на страницата; ще бъдете уведомени преди да "
+"изоставите промените"
 
 #: js/messages.php:417
 msgid "Select referenced key"
@@ -2439,6 +2444,8 @@ msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
+"Възникнала е грешка фатална JavaScript. Бихте ли искали да изпратите доклад "
+"за грешка?"
 
 #: js/messages.php:520
 msgid "Change Report Settings"
@@ -2452,7 +2459,7 @@ msgstr "Показване детайли за рапорта"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
-msgstr ""
+msgstr "Вашият износ е непълна, поради нисък изпълнение срок на ниво PHP!"
 
 #: js/messages.php:528
 #, php-format
@@ -2460,6 +2467,9 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Внимание: форма на тази страница има повече от %d полета. При подаването, "
+"някои от полетата могат да бъдат пренебрегнати, поради max_input_vars "
+"конфигурацията на PHP."
 
 #: js/messages.php:534 js/messages.php:546
 msgid "Some errors have been detected on the server!"
@@ -2476,7 +2486,7 @@ msgstr "Игнориране на всички"
 #: js/messages.php:548
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
+msgstr "Според настройките си, те се подава в момента, моля, бъдете търпеливи."
 
 #: js/messages.php:555
 msgid "Execute this query again?"
@@ -2492,6 +2502,10 @@ msgid ""
 "limit has been reached, some features may not work properly for you. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Вашият уеб браузър не поддържа местно съхранение на настройки или квотното "
+"ограничение е било постигнато, някои функции може да не работят правилно за "
+"вас. В Safari, такъв проблем обикновено се причинява от \"Private Browsing "
+"Mode\"."
 
 #: js/messages.php:585
 msgctxt "Previous month"
@@ -2828,11 +2842,11 @@ msgstr "Размер шрифт"
 
 #: libraries/Console.class.php:85 libraries/Console.class.php:168
 msgid "Collapse"
-msgstr ""
+msgstr "Колапс"
 
 #: libraries/Console.class.php:86 libraries/Console.class.php:170
 msgid "Expand"
-msgstr ""
+msgstr "Разширяване"
 
 #: libraries/Console.class.php:87 libraries/Console.class.php:171
 msgid "Requery"
@@ -3001,17 +3015,16 @@ msgstr "Сложи по подразбиране"
 
 #: libraries/Console.class.php:301
 msgid "Always expand query messages"
-msgstr ""
+msgstr "Винаги разширите заявки съобщения"
 
 #: libraries/Console.class.php:303
-#, fuzzy
 #| msgid "Slow query rate"
 msgid "Show query history at start"
-msgstr "Стойност на бавните заявки"
+msgstr "Покажи историята на заявката в началото"
 
 #: libraries/Console.class.php:305
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Показване на текущата заявка браузване"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1356
 #: libraries/DisplayResults.class.php:2148
@@ -3036,28 +3049,24 @@ msgid "Descending"
 msgstr "Низходящо"
 
 #: libraries/DBQbe.class.php:409 libraries/TableSearch.class.php:1356
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Kолона"
+msgstr "Колона:"
 
 #: libraries/DBQbe.class.php:455
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Сортиране"
+msgstr "Сортиране:"
 
 #: libraries/DBQbe.class.php:522
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Показване"
+msgstr "Показване:"
 
 #: libraries/DBQbe.class.php:571
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Критерии"
+msgstr "Критерии:"
 
 #: libraries/DBQbe.class.php:640
 msgid "Add/Delete criteria rows"
@@ -3076,14 +3085,13 @@ msgid "Use Tables"
 msgstr "Използване таблиците"
 
 #: libraries/DBQbe.class.php:717 libraries/DBQbe.class.php:826
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "Или"
+msgstr "Или:"
 
 #: libraries/DBQbe.class.php:721 libraries/DBQbe.class.php:811
 msgid "And:"
-msgstr ""
+msgstr "И:"
 
 #: libraries/DBQbe.class.php:725
 msgid "Ins"
@@ -3094,18 +3102,17 @@ msgid "Del"
 msgstr "Изтрий"
 
 #: libraries/DBQbe.class.php:744
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Промени"
+msgstr "Промени:"
 
 #: libraries/DBQbe.class.php:806
 msgid "Ins:"
-msgstr ""
+msgstr "Инс:"
 
 #: libraries/DBQbe.class.php:821
 msgid "Del:"
-msgstr ""
+msgstr "Дел:"
 
 #: libraries/DBQbe.class.php:1462
 #, php-format
@@ -3117,10 +3124,9 @@ msgid "Submit Query"
 msgstr "Изпълни заявката"
 
 #: libraries/DBQbe.class.php:1490
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Търсене"
+msgstr "Запазени отметки търсене:"
 
 #: libraries/DBQbe.class.php:1492
 #, fuzzy
@@ -4234,10 +4240,9 @@ msgid "Find and replace - preview"
 msgstr ""
 
 #: libraries/TableSearch.class.php:1477
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Kолона"
+msgstr "Броене"
 
 #: libraries/TableSearch.class.php:1478
 #, fuzzy
@@ -5151,7 +5156,7 @@ msgstr "Позволение на потребители да променят �
 
 #: libraries/config/FormDisplay.tpl.php:393
 msgid "Apply"
-msgstr ""
+msgstr "Прилагане"
 
 #: libraries/config/ServerConfigChecks.class.php:168
 msgid "You should use SSL connections if your database server supports it."
