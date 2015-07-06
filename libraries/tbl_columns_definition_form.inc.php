@@ -6,15 +6,19 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
+if (!defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
  * Check parameters
  */
-require_once './libraries/Util.class.php';
-require_once './libraries/Template.class.php';
+require_once 'libraries/di/Container.class.php';
+require_once 'libraries/Util.class.php';
+require_once 'libraries/Template.class.php';
+require_once 'libraries/util.lib.php';
+
+use PMA\Util;
 
 PMA_Util::checkParameters(array('server', 'db', 'table', 'action', 'num_fields'));
 
@@ -22,13 +26,13 @@ PMA_Util::checkParameters(array('server', 'db', 'table', 'action', 'num_fields')
  * Initialize to avoid code execution path warnings
  */
 
-if (! isset($num_fields)) {
+if (!isset($num_fields)) {
     $num_fields = 0;
 }
-if (! isset($mime_map)) {
+if (!isset($mime_map)) {
     $mime_map = null;
 }
-if (! isset($columnMeta)) {
+if (!isset($columnMeta)) {
     $columnMeta = array();
 }
 
@@ -49,21 +53,22 @@ $length_values_input_size = 8;
 
 $content_cells = array();
 
+/** @var string $db */
 $form_params = array(
     'db' => $db
 );
 
 if ($action == 'tbl_create.php') {
     $form_params['reload'] = 1;
-} elseif ($action == 'tbl_addfield.php') {
-    if (isset($_REQUEST['field_where'])) {
-        $form_params['field_where'] = $_REQUEST['field_where'];
-    }
-    if (isset($_REQUEST['field_where'])) {
-        $form_params['after_field'] = $_REQUEST['after_field'];
-    }
-    $form_params['table'] = $table;
 } else {
+    if ($action == 'tbl_addfield.php') {
+        $form_params = array_merge($form_params, array(
+            'field_where' => Util\get($_REQUEST, 'field_where')
+        ));
+        if (isset($_REQUEST['field_where'])) {
+            $form_params['after_field'] = $_REQUEST['after_field'];
+        }
+    }
     $form_params['table'] = $table;
 }
 
@@ -71,13 +76,10 @@ if (isset($num_fields)) {
     $form_params['orig_num_fields'] = $num_fields;
 }
 
-if (isset($_REQUEST['field_where'])) {
-    $form_params['orig_field_where'] = $_REQUEST['field_where'];
-}
-
-if (isset($_REQUEST['after_field'])) {
-    $form_params['orig_after_field'] = $_REQUEST['after_field'];
-}
+$form_params = array_merge($form_params, array(
+    'orig_field_where' => Util\get($_REQUEST, 'field_where'),
+    'orig_after_field' => Util\get($_REQUEST, 'after_field'),
+));
 
 if (isset($selected) && is_array($selected)) {
     foreach ($selected as $o_fld_nr => $o_fld_val) {
@@ -90,12 +92,13 @@ $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
 require_once './libraries/transformations.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
-
 $comments_map = PMA_getComments($db, $table);
 
 $move_columns = array();
 if (isset($fields_meta)) {
-    $move_columns = $GLOBALS['dbi']->getTable($db, $table)->getColumnsMeta();
+    /** @var PMA_DatabaseInterface $dbi */
+    $dbi = \PMA\DI\Container::getDefaultContainer()->get('dbi');
+    $move_columns = $dbi->getTable($db, $table)->getColumnsMeta();
 }
 
 $available_mime = array();
@@ -134,52 +137,33 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     $extracted_columnspec = array();
 
     if (!empty($regenerate)) {
-        $columnMeta['Field'] = isset($_REQUEST['field_name'][$columnNumber])
-            ? $_REQUEST['field_name'][$columnNumber]
-            : false;
-        $columnMeta['Type'] = isset($_REQUEST['field_type'][$columnNumber])
-            ? $_REQUEST['field_type'][$columnNumber]
-            : false;
-        $columnMeta['Collation'] = isset($_REQUEST['field_collation'][$columnNumber])
-            ? $_REQUEST['field_collation'][$columnNumber]
-            : '';
-        $columnMeta['Null'] = isset($_REQUEST['field_null'][$columnNumber])
-            ? $_REQUEST['field_null'][$columnNumber]
-            : '';
+
+        $columnMeta = array_merge($columnMeta, array(
+            'Field' => Util\get($_REQUEST, "field_name.${columnNumber}", false),
+            'Type' => Util\get($_REQUEST, "field_type.${columnNumber}", false),
+            'Collation' => Util\get($_REQUEST, "field_collation.${columnNumber}", ''),
+            'Null' => Util\get($_REQUEST, "field_null.${columnNumber}", ''),
+            'DefaultType' => Util\get($_REQUEST, "field_default_type.${columnNumber}", 'NONE'),
+            'DefaultValue' => Util\get($_REQUEST, "field_default_value.${columnNumber}", ''),
+            'Extra' => Util\get($_REQUEST, "field_extra.${columnNumber}", false),
+        ));
 
         $columnMeta['Key'] = '';
-        if (isset($_REQUEST['field_key'][$columnNumber])) {
-            $parts = explode('_', $_REQUEST['field_key'][$columnNumber], 2);
-            if (count($parts) == 2 && $parts[1] == $columnNumber) {
-                switch ($parts[0]) {
-                    case 'primary':
-                        $columnMeta['Key'] = 'PRI';
-                        break;
-                    case 'index':
-                        $columnMeta['Key'] = 'MUL';
-                        break;
-                    case 'unique':
-                        $columnMeta['Key'] = 'UNI';
-                        break;
-                    case 'fulltext':
-                        $columnMeta['Key'] = 'FULLTEXT';
-                        break;
-                    case 'spatial':
-                        $columnMeta['Key'] = 'SPATIAL';
-                        break;
-                }
-            }
+        $parts = explode('_', Util\get($_REQUEST, "field_key.${columnNumber}", ''), 2);
+        if (count($parts) == 2 && $parts[1] == $columnNumber) {
+            $columnMeta['Key'] = Util\get(array(
+                'primary' => 'PRI',
+                'index' => 'MUL',
+                'unique' => 'UNI',
+                'fulltext' => 'FULLTEXT',
+                'spatial' => 'SPATIAL'
+            ), $parts[0], '');
         }
 
-        // put None in the drop-down for Default, when someone adds a field
-        $columnMeta['DefaultType']
-            = isset($_REQUEST['field_default_type'][$columnNumber])
-            ? $_REQUEST['field_default_type'][$columnNumber]
-            : 'NONE';
-        $columnMeta['DefaultValue']
-            = isset($_REQUEST['field_default_value'][$columnNumber])
-            ? $_REQUEST['field_default_value'][$columnNumber]
-            : '';
+        $columnMeta['Comment'] =
+            isset($submit_fulltext[$columnNumber])
+            && ($submit_fulltext[$columnNumber] == $columnNumber)
+                ? 'FULLTEXT' : false;
 
         switch ($columnMeta['DefaultType']) {
             case 'NONE':
@@ -194,71 +178,42 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 break;
         }
 
-        $columnMeta['Extra']
-            = (isset($_REQUEST['field_extra'][$columnNumber])
-            ? $_REQUEST['field_extra'][$columnNumber]
-            : false);
-        $columnMeta['Comment']
-            = (isset($submit_fulltext[$columnNumber])
-                && ($submit_fulltext[$columnNumber] == $columnNumber)
-            ? 'FULLTEXT'
-            : false);
+        $length = Util\get($_REQUEST, "field_length.${columnNumber}", $length);
+        $submit_attribute = Util\get($_REQUEST, "field_attribute.${columnNumber}", false);
+        $comments_map[$columnMeta['Field']] = Util\get($_REQUEST, "field_comments.${columnNumber}");
 
-        $length
-            = (isset($_REQUEST['field_length'][$columnNumber])
-            ? $_REQUEST['field_length'][$columnNumber]
-            : $length);
+        $mime_map[$columnMeta['Field']] = array_merge(
+            $mime_map[$columnMeta['Field']],
+            array(
+                'mimetype' => Util\get($_REQUEST, "field_mimetype.${$columnNumber}"),
+                'transformation' => Util\get($_REQUEST, "field_transformation.${$columnNumber}"),
+                'transformation_options' => Util\get($_REQUEST, "field_transformation_options.${$columnNumber}")
+            )
+        );
 
-        $submit_attribute
-            = (isset($_REQUEST['field_attribute'][$columnNumber])
-            ? $_REQUEST['field_attribute'][$columnNumber]
-            : false);
-
-        if (isset($_REQUEST['field_comments'][$columnNumber])) {
-            $comments_map[$columnMeta['Field']]
-                = $_REQUEST['field_comments'][$columnNumber];
-        }
-
-        if (isset($_REQUEST['field_mimetype'][$columnNumber])) {
-            $mime_map[$columnMeta['Field']]['mimetype']
-                = $_REQUEST['field_mimetype'][$columnNumber];
-        }
-
-        if (isset($_REQUEST['field_transformation'][$columnNumber])) {
-            $mime_map[$columnMeta['Field']]['transformation']
-                = $_REQUEST['field_transformation'][$columnNumber];
-        }
-
-        if (isset($_REQUEST['field_transformation_options'][$columnNumber])) {
-            $mime_map[$columnMeta['Field']]['transformation_options']
-                = $_REQUEST['field_transformation_options'][$columnNumber];
-        }
-
-    }
-    elseif (isset($fields_meta[$columnNumber]))
-    {
+    } elseif (isset($fields_meta[$columnNumber])) {
         $columnMeta = $fields_meta[$columnNumber];
         switch ($columnMeta['Default']) {
             case null:
                 if (is_null($columnMeta['Default'])) { // null
                     if ($columnMeta['Null'] == 'YES') {
-                        $columnMeta['DefaultType']  = 'NULL';
+                        $columnMeta['DefaultType'] = 'NULL';
                         $columnMeta['DefaultValue'] = '';
                     } else {
-                        $columnMeta['DefaultType']  = 'NONE';
+                        $columnMeta['DefaultType'] = 'NONE';
                         $columnMeta['DefaultValue'] = '';
                     }
                 } else { // empty
-                    $columnMeta['DefaultType']  = 'USER_DEFINED';
+                    $columnMeta['DefaultType'] = 'USER_DEFINED';
                     $columnMeta['DefaultValue'] = $columnMeta['Default'];
                 }
                 break;
             case 'CURRENT_TIMESTAMP':
-                $columnMeta['DefaultType']  = 'CURRENT_TIMESTAMP';
+                $columnMeta['DefaultType'] = 'CURRENT_TIMESTAMP';
                 $columnMeta['DefaultValue'] = '';
                 break;
             default:
-                $columnMeta['DefaultType']  = 'USER_DEFINED';
+                $columnMeta['DefaultType'] = 'USER_DEFINED';
                 $columnMeta['DefaultValue'] = $columnMeta['Default'];
                 break;
         }
@@ -325,12 +280,14 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         if (isset($columnMeta['Type'])) {
             // keep in uppercase because the new type will be in uppercase
             $form_params['field_type_orig[' . $columnNumber . ']']
-                = /*overload*/mb_strtoupper($type);
+                = /*overload*/
+                mb_strtoupper($type);
             if (isset($columnMeta['column_status'])
                 && !$columnMeta['column_status']['isEditable']
             ) {
                 $form_params['field_type[' . $columnNumber . ']']
-                    = /*overload*/mb_strtoupper($type);
+                    = /*overload*/
+                    mb_strtoupper($type);
             }
         } else {
             $form_params['field_type_orig[' . $columnNumber . ']'] = '';
@@ -340,50 +297,15 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $form_params['field_length_orig[' . $columnNumber . ']'] = $length;
 
         // old column default
-        $form_params['field_default_value_orig[' . $columnNumber . ']']
-            = (isset($columnMeta['Default']) ? $columnMeta['Default'] : '');
-        $form_params['field_default_type_orig[' . $columnNumber . ']']
-            = (isset($columnMeta['DefaultType']) ? $columnMeta['DefaultType'] : '');
-
-        // old column collation
-        if (isset($columnMeta['Collation'])) {
-            $form_params['field_collation_orig[' . $columnNumber . ']']
-                = $columnMeta['Collation'];
-        } else {
-            $form_params['field_collation_orig[' . $columnNumber . ']'] = '';
-        }
-
-        // old column attribute
-        if (isset($extracted_columnspec['attribute'])) {
-            $form_params['field_attribute_orig[' . $columnNumber . ']']
-                = trim($extracted_columnspec['attribute']);
-        } else {
-            $form_params['field_attribute_orig[' . $columnNumber . ']'] = '';
-        }
-
-        // old column null
-        if (isset($columnMeta['Null'])) {
-            $form_params['field_null_orig[' . $columnNumber . ']']
-                = $columnMeta['Null'];
-        } else {
-            $form_params['field_null_orig[' . $columnNumber . ']'] = '';
-        }
-
-        // old column extra (for auto_increment)
-        if (isset($columnMeta['Extra'])) {
-            $form_params['field_extra_orig[' . $columnNumber . ']']
-                = $columnMeta['Extra'];
-        } else {
-            $form_params['field_extra_orig[' . $columnNumber . ']'] = '';
-        }
-
-        // old column comment
-        if (isset($columnMeta['Comment'])) {
-            $form_params['field_comments_orig[' . $columnNumber . ']']
-                = $columnMeta['Comment'];
-        } else {
-            $form_params['field_comment_orig[' . $columnNumber . ']'] = '';
-        }
+        $form_params = array_merge($form_params, array(
+            "field_default_value_orig[${columnNumber}]" => Util\get($columnMeta, 'Default', ''),
+            "field_default_type_orig[${columnNumber}]" => Util\get($columnMeta, 'DefaultType', ''),
+            "field_collation_orig[${columnNumber}]" => Util\get($columnMeta, 'Collation', ''),
+            "field_attribute_orig[${columnNumber}]" => trim(Util\get($extracted_columnspec, 'attribute', '')),
+            "field_null_orig[${columnNumber}]" => Util\get($columnMeta, 'Null', ''),
+            "field_extra_orig[${columnNumber}]" => Util\get($columnMeta, 'Extra', ''),
+            "field_comments_orig[${columnNumber}]" => Util\get($columnMeta, 'Comment', ''),
+        ));
     }
 
     $content_cells[$columnNumber] = array(
@@ -411,15 +333,15 @@ $html = PMA\Template::get('columns_definitions/column_definitions_form')
         'mimework' => $cfgRelation['mimework'],
         'action' => $action,
         'form_params' => $form_params,
-        'content_cells' => $content_cells
+        'content_cells' => $content_cells,
+        'privs_available' => $privs_available
     ));
 
 unset($form_params);
 
 $response = PMA_Response::getInstance();
-$header = $response->getHeader();
-$scripts = $header->getScripts();
-$scripts->addFile('jquery/jquery.uitablefilter.js');
-$scripts->addFile('indexes.js');
+$response->getHeader()->getScripts()->addFiles(array(
+    'jquery/jquery.uitablefilter.js',
+    'indexes.js'
+));
 $response->addHTML($html);
-?>

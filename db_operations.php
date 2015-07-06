@@ -21,6 +21,7 @@ require_once 'libraries/mysql_charsets.inc.php';
 /**
  * functions implementation for this script
  */
+require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/operations.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions

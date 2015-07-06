@@ -186,24 +186,16 @@ hosting provider is unwilling to change the settings:
 
 .. _faq1_17:
 
-1.17 Which MySQL versions does phpMyAdmin support?
---------------------------------------------------
+1.17 Which Database versions does phpMyAdmin support?
+-----------------------------------------------------
 
-Since phpMyAdmin 3.0.x, only MySQL 5.0.1 and newer are supported. For
-older MySQL versions, you need to use the latest 2.x branch.
-phpMyAdmin can connect to your MySQL server using PHP's classic `MySQL
-extension <http://php.net/mysql>`_ as well as the `improved MySQL
-extension (MySQLi) <http://php.net/mysqli>`_ that is available in PHP
-5.0. The latter one should be used unless you have a good reason not
-to do so. When compiling PHP, we strongly recommend that you manually
-link the MySQL extension of your choice to a MySQL client library of
-at least the same minor version since the one that is bundled with
-some PHP distributions is rather old and might cause problems see
-:ref:`faq1_17a`. `MariaDB <http://mariadb.org/>`_ is also supported
-(versions 5.1 and 5.2 were tested).
+For `MySQL <http://www.mysql.com/>`_, versions 5.5 and newer are supported. 
+For older MySQL versions, our `Downloads <https://www.phpmyadmin.net/downloads/>`_ page offers older phpMyAdmin versions 
+(which may have become unsupported).
 
-.. versionchanged:: 3.5
-    Since phpMyAdmin 3.5 `Drizzle <http://www.drizzle.org/>`_ is supported.
+For `MariaDB <http://mariadb.org/>`_, versions 5.5 and newer are supported.
+
+For `Drizzle <http://www.drizzle.org>`_, versions 7.1 and newer are supported.
 
 .. _faq1_17a:
 
@@ -1878,7 +1870,7 @@ to display the plot.
 After the plot is generated, you can use the
 mousewheel to zoom in and out of the plot. In addition, panning
 feature is enabled to navigate through the plot. You can zoom-in to a
-certail level of detail and use panning to locate your area of
+certain level of detail and use panning to locate your area of
 interest. Clicking on a point opens a dialogue box, displaying field
 values of the data row represented by the point. You can edit the
 values if required and click on submit to issue an update query. Basic
@@ -1980,7 +1972,7 @@ On startup of the wizard, user gets to select upto what normal form they want to
 normalize the table structure.
 
 Here is an example table which you can use to test all of the three First, Second and
-Third Normal From.
+Third Normal Form.
 
 .. code-block:: mysql
 
@@ -2064,6 +2056,13 @@ Notes:
 * Similarly, while adjusting privileges for a table, the privileges of all
   *column-related privileges* for the columns inside the table are also adjusted
   to the table's new name.
+
+* While adjusting privileges, the user performing the operation **must** have the following
+  privileges:
+
+  * SELECT, INSERT, UPDATE, DELETE privileges on following tables:
+    `mysql`.`db`, `mysql`.`columns_priv`, `mysql`.`tables_priv`, `mysql`.`procs_priv`
+  * FLUSH privilege (GLOBAL)
 
 Thus, if you want to replicate the database/table/column/procedure as it is
 while renaming/copying/moving these objects, make sure you have checked this option.

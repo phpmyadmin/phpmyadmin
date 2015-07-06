@@ -395,6 +395,7 @@ class FormDisplay
             $opts['errors'] = $this->_errors[$work_path];
         }
 
+        $type = '';
         switch ($form->getOptionType($field)) {
         case 'string':
             $type = 'text';

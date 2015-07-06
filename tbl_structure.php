@@ -19,6 +19,7 @@ PMA_PageSettings::showGroup('TableStructure');
 /**
  * Function implementations for this script
  */
+require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/structure.lib.php';
 require_once 'libraries/index.lib.php';
 require_once 'libraries/sql.lib.php';
