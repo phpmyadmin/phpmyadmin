@@ -1870,7 +1870,7 @@ to display the plot.
 After the plot is generated, you can use the
 mousewheel to zoom in and out of the plot. In addition, panning
 feature is enabled to navigate through the plot. You can zoom-in to a
-certail level of detail and use panning to locate your area of
+certain level of detail and use panning to locate your area of
 interest. Clicking on a point opens a dialogue box, displaying field
 values of the data row represented by the point. You can edit the
 values if required and click on submit to issue an update query. Basic
@@ -1972,7 +1972,7 @@ On startup of the wizard, user gets to select upto what normal form they want to
 normalize the table structure.
 
 Here is an example table which you can use to test all of the three First, Second and
-Third Normal From.
+Third Normal Form.
 
 .. code-block:: mysql
 
