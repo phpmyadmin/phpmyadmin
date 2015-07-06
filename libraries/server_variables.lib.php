@@ -572,6 +572,22 @@ function PMA_getArrayForDocumentLinks()
         'group_concat_max_len',
         'server-system-variables',
         'sysvar');
+    $variable_doc_links['gtid_executed'] = array(
+        'gtid_executed',
+        'replication-options-gtids',
+        'sysvar');
+    $variable_doc_links['gtid_mode'] = array(
+        'gtid_mode',
+        'replication-options-gtids',
+        'sysvar');
+    $variable_doc_links['gtid_owned'] = array(
+        'gtid_owned',
+        'replication-options-gtids',
+        'sysvar');
+    $variable_doc_links['gtid_purged'] = array(
+        'gtid_purged',
+        'replication-options-gtids',
+        'sysvar');
     $variable_doc_links['have_compress'] = array(
         'have_compress',
         'server-system-variables',
@@ -624,6 +640,10 @@ function PMA_getArrayForDocumentLinks()
         'have_symlink',
         'server-system-variables',
         'sysvar');
+    $variable_doc_links['host_cache_size'] = array(
+        'host_cache_size',
+        'server-system-variables',
+        'sysvar');
     $variable_doc_links['hostname'] = array(
         'hostname',
         'server-system-variables',
@@ -636,6 +656,10 @@ function PMA_getArrayForDocumentLinks()
         'ignore-builtin-innodb',
         'innodb-parameters',
         'option_mysqld');
+    $variable_doc_links['ignore_db_dirs'] = array(
+        'ignore_db_dirs',
+        'server-system-variables',
+        'sysvar');
     $variable_doc_links['init_connect'] = array(
         'init_connect',
         'server-system-variables',
