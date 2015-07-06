@@ -410,14 +410,14 @@ PMA_printListItem(
 PMA_printListItem(
     __('Contribute'),
     'li_pma_contribute',
-    PMA_linkURL('http://www.phpmyadmin.net/home_page/improve.php'),
+    PMA_linkURL('https://www.phpmyadmin.net/contribute/'),
     null,
     '_blank'
 );
 PMA_printListItem(
     __('Get support'),
     'li_pma_support',
-    PMA_linkURL('http://www.phpmyadmin.net/home_page/support.php'),
+    PMA_linkURL('https://www.phpmyadmin.net/support/'),
     null,
     '_blank'
 );
@@ -643,7 +643,7 @@ if (file_exists('libraries/language_stats.inc.php')) {
     ) {
         trigger_error(
             'You are using an incomplete translation, please help to make it '
-            . 'better by [a@http://www.phpmyadmin.net/home_page/improve.php'
+            . 'better by [a@https://www.phpmyadmin.net/contribute/'
             . '#translate@_blank]contributing[/a].',
             E_USER_NOTICE
         );

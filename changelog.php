@@ -108,7 +108,7 @@ $replaces = array(
 
     // PMASAentries
     '/(PMASA-[0-9]+-[0-9]+)/'
-    => '<a href="http://www.phpmyadmin.net/home_page/security/\\1.php">\\1</a>',
+    => '<a href="https://www.phpmyadmin.net/security/\\1/">\\1</a>',
 
     // Highlight releases (with links)
     '/([0-9]+)\.([0-9]+)\.([0-9]+)\.0 (\([0-9-]+\))/'

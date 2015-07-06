@@ -4,7 +4,7 @@ FAQ - Frequently Asked Questions
 ================================
 
 Please have a look at our `Link section
-<http://www.phpmyadmin.net/home_page/docs.php>`_ on the official
+<https://www.phpmyadmin.net/docs/>`_ on the official
 phpMyAdmin homepage for in-depth coverage of phpMyAdmin's features and
 or interface.
 
@@ -186,24 +186,16 @@ hosting provider is unwilling to change the settings:
 
 .. _faq1_17:
 
-1.17 Which MySQL versions does phpMyAdmin support?
---------------------------------------------------
+1.17 Which Database versions does phpMyAdmin support?
+-----------------------------------------------------
 
-Since phpMyAdmin 3.0.x, only MySQL 5.0.1 and newer are supported. For
-older MySQL versions, you need to use the latest 2.x branch.
-phpMyAdmin can connect to your MySQL server using PHP's classic `MySQL
-extension <http://php.net/mysql>`_ as well as the `improved MySQL
-extension (MySQLi) <http://php.net/mysqli>`_ that is available in PHP
-5.0. The latter one should be used unless you have a good reason not
-to do so. When compiling PHP, we strongly recommend that you manually
-link the MySQL extension of your choice to a MySQL client library of
-at least the same minor version since the one that is bundled with
-some PHP distributions is rather old and might cause problems see
-:ref:`faq1_17a`. `MariaDB <http://mariadb.org/>`_ is also supported
-(versions 5.1 and 5.2 were tested).
+For `MySQL <http://www.mysql.com/>`_, versions 5.5 and newer are supported. 
+For older MySQL versions, our `Downloads <https://www.phpmyadmin.net/downloads/>`_ page offers older phpMyAdmin versions 
+(which may have become unsupported).
 
-.. versionchanged:: 3.5
-    Since phpMyAdmin 3.5 `Drizzle <http://www.drizzle.org/>`_ is supported.
+For `MariaDB <http://mariadb.org/>`_, versions 5.5 and newer are supported.
+
+For `Drizzle <http://www.drizzle.org>`_, versions 7.1 and newer are supported.
 
 .. _faq1_17a:
 
@@ -902,7 +894,7 @@ just put your own input-elements inside. If you use a custom submit
 input field, the form will submit itself to the displaying page again,
 where you can validate the $HTTP\_POST\_VARS in a transformation. For
 a tutorial on how to effectively use transformations, see our `Link
-section <http://www.phpmyadmin.net/home_page/docs.php>`_ on the
+section <https://www.phpmyadmin.net/docs/>`_ on the
 official phpMyAdmin-homepage.
 
 .. _faq3_9:
@@ -1886,7 +1878,7 @@ to display the plot.
 After the plot is generated, you can use the
 mousewheel to zoom in and out of the plot. In addition, panning
 feature is enabled to navigate through the plot. You can zoom-in to a
-certail level of detail and use panning to locate your area of
+certain level of detail and use panning to locate your area of
 interest. Clicking on a point opens a dialogue box, displaying field
 values of the data row represented by the point. You can edit the
 values if required and click on submit to issue an update query. Basic
@@ -1988,7 +1980,7 @@ On startup of the wizard, user gets to select upto what normal form they want to
 normalize the table structure.
 
 Here is an example table which you can use to test all of the three First, Second and
-Third Normal From.
+Third Normal Form.
 
 .. code-block:: mysql
 
@@ -2031,7 +2023,7 @@ phpMyAdmin project
 
 Our Bug Tracker is located at <http://sf.net/projects/phpmyadmin/> under the
 Bugs section. But please first discuss your bug with other users:
-<https://sourceforge.net/projects/phpmyadmin/forums>.
+<https://www.phpmyadmin.net/support/>
 
 .. _faq7_2:
 
@@ -2042,7 +2034,7 @@ Translations are very welcome and all you need to have are the
 language skills. The easiest way is to use our `online translation
 service <https://hosted.weblate.org/projects/phpmyadmin/>`_. You can check
 out all the possibilities to translate in the `translate section on
-our website <http://www.phpmyadmin.net/home_page/translate.php>`_.
+our website <https://www.phpmyadmin.net/translate/>`_.
 
 .. _faq7_3:
 
@@ -2052,7 +2044,7 @@ our website <http://www.phpmyadmin.net/home_page/translate.php>`_.
 We welcome every contribution to the development of phpMyAdmin. You
 can check out all the possibilities to contribute in the `contribute
 section on our website
-<http://www.phpmyadmin.net/home_page/improve.php>`_.
+<https://www.phpmyadmin.net/contribute/>`_.
 
 .. seealso:: :ref:`developers`
 
@@ -2066,7 +2058,7 @@ Security
 8.1 Where can I get information about the security alerts issued for phpMyAdmin?
 --------------------------------------------------------------------------------
 
-Please refer to <http://www.phpmyadmin.net/home_page/security.php>.
+Please refer to <https://www.phpmyadmin.net/security/>.
 
 .. _faq8_2:
 
