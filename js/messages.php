@@ -128,7 +128,7 @@ $js_messages['strClose'] = __('Close');
 /* For export.js */
 $js_messages['strTemplateCreated'] = __('Template was created.');
 $js_messages['strTemplateLoaded'] = __('Template was loaded.');
-$js_messages['strTemplateUpdated'] = __('Template wss updated.');
+$js_messages['strTemplateUpdated'] = __('Template was updated.');
 $js_messages['strTemplateDeleted'] = __('Template was deleted.');
 
 /* l10n: Other, small valued, queries */
