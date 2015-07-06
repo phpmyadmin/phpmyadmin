@@ -10,8 +10,8 @@ if [ $# -lt 2 ] ; then
 fi
 REL=$1
 
-if [ $# -gt 2 ] ; then
-    cd "$3"
+if [ $# -gt 1 ] ; then
+    cd "$2"
 fi
 
 # Upload to our file server
