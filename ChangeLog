@@ -74,6 +74,7 @@ phpMyAdmin - ChangeLog
 + rfe       Remove configuration storage data related to a user upon deleting the user
 
 4.4.12.0 (not yet released)
+- bug       Saved chart image does not have a proper name or an extension
 
 4.4.11.0 (2015-07-06)
 - bug       Missing selected/entered values when editing active options in visual query builder
