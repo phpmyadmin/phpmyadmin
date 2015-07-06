@@ -676,8 +676,16 @@ function PMA_getArrayForDocumentLinks()
         'innodb_adaptive_flushing',
         'innodb-parameters',
         'sysvar');
+    $variable_doc_links['innodb_adaptive_flushing_lwm'] = array(
+        'innodb_adaptive_flushing_lwm',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_adaptive_hash_index'] = array(
         'innodb_adaptive_hash_index',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_adaptive_max_sleep_delay'] = array(
+        'innodb_adaptive_max_sleep_delay',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_additional_mem_pool_size'] = array(
@@ -685,6 +693,26 @@ function PMA_getArrayForDocumentLinks()
         'innodb-parameters',
         'sysvar',
         'byte');
+    $variable_doc_links['innodb_api_bk_commit_interval'] = array(
+        'innodb_api_bk_commit_interval',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_api_disable_rowlock'] = array(
+        'innodb_api_disable_rowlock',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_api_enable_binlog'] = array(
+        'innodb_api_enable_binlog',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_api_enable_mdl'] = array(
+        'innodb_api_enable_mdl',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_api_trx_level'] = array(
+        'innodb_api_trx_level',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_autoextend_increment'] = array(
         'innodb_autoextend_increment',
         'innodb-parameters',
@@ -693,8 +721,32 @@ function PMA_getArrayForDocumentLinks()
         'innodb_autoinc_lock_mode',
         'innodb-parameters',
         'sysvar');
+    $variable_doc_links['innodb_buffer_pool_dump_at_shutdown'] = array(
+        'innodb_buffer_pool_dump_at_shutdown',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_buffer_pool_dump_now'] = array(
+        'innodb_buffer_pool_dump_now',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_buffer_pool_filename'] = array(
+        'innodb_buffer_pool_filename',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_buffer_pool_instances'] = array(
         'innodb_buffer_pool_instances',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_buffer_pool_load_abort'] = array(
+        'innodb_buffer_pool_load_abort',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_buffer_pool_load_at_startup'] = array(
+        'innodb_buffer_pool_load_at_startup',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_buffer_pool_load_now'] = array(
+        'innodb_buffer_pool_load_now',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_buffer_pool_size'] = array(
@@ -702,16 +754,40 @@ function PMA_getArrayForDocumentLinks()
         'innodb-parameters',
         'sysvar',
         'byte');
+    $variable_doc_links['innodb_change_buffer_max_size'] = array(
+        'innodb_change_buffer_max_size',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_change_buffering'] = array(
         'innodb_change_buffering',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_checksum_algorithm'] = array(
+        'innodb_checksum_algorithm',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_checksums'] = array(
         'innodb_checksums',
         'innodb-parameters',
         'sysvar');
+    $variable_doc_links['innodb_cmp_per_index_enabled'] = array(
+        'innodb_cmp_per_index_enabled',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_commit_concurrency'] = array(
         'innodb_commit_concurrency',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_compression_failure_threshold_pct'] = array(
+        'innodb_compression_failure_threshold_pct',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_compression_level'] = array(
+        'innodb_compression_level',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_compression_pad_pct_max'] = array(
+        'innodb_compression_pad_pct_max',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_concurrency_tickets'] = array(
@@ -724,6 +800,10 @@ function PMA_getArrayForDocumentLinks()
         'sysvar');
     $variable_doc_links['innodb_data_home_dir'] = array(
         'innodb_data_home_dir',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_disable_sort_file_cache'] = array(
+        'innodb_disable_sort_file_cache',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_doublewrite'] = array(
@@ -750,6 +830,10 @@ function PMA_getArrayForDocumentLinks()
         'innodb_file_per_table',
         'innodb-parameters',
         'sysvar');
+    $variable_doc_links['innodb_flush_log_at_timeout'] = array(
+        'innodb_flush_log_at_timeout',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_flush_log_at_trx_commit'] = array(
         'innodb_flush_log_at_trx_commit',
         'innodb-parameters',
@@ -758,12 +842,80 @@ function PMA_getArrayForDocumentLinks()
         'innodb_flush_method',
         'innodb-parameters',
         'sysvar');
+    $variable_doc_links['innodb_flush_neighbors'] = array(
+        'innodb_flush_neighbors',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_flushing_avg_loops'] = array(
+        'innodb_flushing_avg_loops',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_force_load_corrupted'] = array(
+        'innodb_force_load_corrupted',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_force_recovery'] = array(
         'innodb_force_recovery',
         'innodb-parameters',
         'sysvar');
+    $variable_doc_links['innodb_ft_aux_table'] = array(
+        'innodb_ft_aux_table',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_ft_cache_size'] = array(
+        'innodb_ft_cache_size',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_ft_enable_diag_print'] = array(
+        'innodb_ft_enable_diag_print',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_ft_enable_stopword'] = array(
+        'innodb_ft_enable_stopword',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_ft_max_token_size'] = array(
+        'innodb_ft_max_token_size',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_ft_min_token_size'] = array(
+        'innodb_ft_min_token_size',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_ft_num_word_optimize'] = array(
+        'innodb_ft_num_word_optimize',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_ft_result_cache_limit'] = array(
+        'innodb_ft_result_cache_limit',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_ft_server_stopword_table'] = array(
+        'innodb_ft_server_stopword_table',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_ft_sort_pll_degree'] = array(
+        'innodb_ft_sort_pll_degree',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_ft_total_cache_size'] = array(
+        'innodb_ft_total_cache_size',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_ft_user_stopword_table'] = array(
+        'innodb_ft_user_stopword_table',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_io_capacity'] = array(
         'innodb_io_capacity',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_io_capacity_max'] = array(
+        'innodb_io_capacity_max',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_large_prefix'] = array(
+        'innodb_large_prefix',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_lock_wait_timeout'] = array(
@@ -779,6 +931,10 @@ function PMA_getArrayForDocumentLinks()
         'innodb-parameters',
         'sysvar',
         'byte');
+    $variable_doc_links['innodb_log_compressed_pages'] = array(
+        'innodb_log_compressed_pages',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_log_file_size'] = array(
         'innodb_log_file_size',
         'innodb-parameters',
@@ -792,16 +948,44 @@ function PMA_getArrayForDocumentLinks()
         'innodb_log_group_home_dir',
         'innodb-parameters',
         'sysvar');
+    $variable_doc_links['innodb_lru_scan_depth'] = array(
+        'innodb_lru_scan_depth',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_max_dirty_pages_pct'] = array(
         'innodb_max_dirty_pages_pct',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_max_dirty_pages_pct_lwm'] = array(
+        'innodb_max_dirty_pages_pct_lwm',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_max_purge_lag'] = array(
         'innodb_max_purge_lag',
         'innodb-parameters',
         'sysvar');
+    $variable_doc_links['innodb_max_purge_lag_delay'] = array(
+        'innodb_max_purge_lag_delay',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_mirrored_log_groups'] = array(
         'innodb_mirrored_log_groups',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_monitor_disable'] = array(
+        'innodb_monitor_disable',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_monitor_enable'] = array(
+        'innodb_monitor_enable',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_monitor_reset'] = array(
+        'innodb_monitor_reset',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_monitor_reset_all'] = array(
+        'innodb_monitor_reset_all',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_old_blocks_pct'] = array(
@@ -812,8 +996,24 @@ function PMA_getArrayForDocumentLinks()
         'innodb_old_blocks_time',
         'innodb-parameters',
         'sysvar');
+    $variable_doc_links['innodb_online_alter_log_max_size'] = array(
+        'innodb_online_alter_log_max_size',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_open_files'] = array(
         'innodb_open_files',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_optimize_fulltext_only'] = array(
+        'innodb_optimize_fulltext_only',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_page_size'] = array(
+        'innodb_page_size',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_print_all_deadlocks'] = array(
+        'innodb_print_all_deadlocks',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_purge_batch_size'] = array(
@@ -824,12 +1024,20 @@ function PMA_getArrayForDocumentLinks()
         'innodb_purge_threads',
         'innodb-parameters',
         'sysvar');
+    $variable_doc_links['innodb_random_read_ahead'] = array(
+        'innodb_random_read_ahead',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_read_ahead_threshold'] = array(
         'innodb_read_ahead_threshold',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_read_io_threads'] = array(
         'innodb_read_io_threads',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_read_only'] = array(
+        'innodb_read_only',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_replication_delay'] = array(
@@ -840,16 +1048,52 @@ function PMA_getArrayForDocumentLinks()
         'innodb_rollback_on_timeout',
         'innodb-parameters',
         'sysvar');
+    $variable_doc_links['innodb_rollback_segments'] = array(
+        'innodb_rollback_segments',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_sort_buffer_size'] = array(
+        'innodb_sort_buffer_size',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_spin_wait_delay'] = array(
         'innodb_spin_wait_delay',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_stats_auto_recalc'] = array(
+        'innodb_stats_auto_recalc',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_stats_method'] = array(
+        'innodb_stats_method',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_stats_on_metadata'] = array(
         'innodb_stats_on_metadata',
         'innodb-parameters',
         'sysvar');
+    $variable_doc_links['innodb_stats_persistent'] = array(
+        'innodb_stats_persistent',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_stats_persistent_sample_pages'] = array(
+        'innodb_stats_persistent_sample_pages',
+        'innodb-parameters',
+        'sysvar');
     $variable_doc_links['innodb_stats_sample_pages'] = array(
         'innodb_stats_sample_pages',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_stats_transient_sample_pages'] = array(
+        'innodb_stats_transient_sample_pages',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_status_output'] = array(
+        'innodb_status_output',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_status_output_locks'] = array(
+        'innodb_status_output_locks',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_strict_mode'] = array(
@@ -858,6 +1102,10 @@ function PMA_getArrayForDocumentLinks()
         'sysvar');
     $variable_doc_links['innodb_support_xa'] = array(
         'innodb_support_xa',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_sync_array_size'] = array(
+        'innodb_sync_array_size',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_sync_spin_loops'] = array(
@@ -874,6 +1122,18 @@ function PMA_getArrayForDocumentLinks()
         'sysvar');
     $variable_doc_links['innodb_thread_sleep_delay'] = array(
         'innodb_thread_sleep_delay',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_undo_directory'] = array(
+        'innodb_undo_directory',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_undo_logs'] = array(
+        'innodb_undo_logs',
+        'innodb-parameters',
+        'sysvar');
+    $variable_doc_links['innodb_undo_tablespaces'] = array(
+        'innodb_undo_tablespaces',
         'innodb-parameters',
         'sysvar');
     $variable_doc_links['innodb_use_native_aio'] = array(
