@@ -367,6 +367,10 @@ function PMA_getArrayForDocumentLinks()
         'replication-options-binary-log',
         'sysvar',
         'byte');
+    $variable_doc_links['block_encryption_mode'] = array(
+        'block_encryption_mode',
+        'server-system-variables',
+        'sysvar');
     $variable_doc_links['bulk_insert_buffer_size'] = array(
         'bulk_insert_buffer_size',
         'server-system-variables',
@@ -428,6 +432,10 @@ function PMA_getArrayForDocumentLinks()
         'connect_timeout',
         'server-system-variables',
         'sysvar');
+    $variable_doc_links['core_file'] = array(
+        'core_file',
+        'server-system-variables',
+        'sysvar');
     $variable_doc_links['datadir'] = array(
         'datadir',
         'server-options',
@@ -452,6 +460,10 @@ function PMA_getArrayForDocumentLinks()
         'default-storage-engine',
         'server-options',
         'option_mysqld');
+    $variable_doc_links['default_tmp_storage_engine'] = array(
+        'default_tmp_storage_engine',
+        'server-system-variables',
+        'sysvar');
     $variable_doc_links['default_week_format'] = array(
         'default_week_format',
         'server-system-variables',
@@ -472,8 +484,24 @@ function PMA_getArrayForDocumentLinks()
         'delayed_queue_size',
         'server-system-variables',
         'sysvar');
+    $variable_doc_links['disconnect_on_expired_password'] = array(
+        'disconnect_on_expired_password',
+        'server-system-variables',
+        'sysvar');
     $variable_doc_links['div_precision_increment'] = array(
         'div_precision_increment',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['end_markers_in_json'] = array(
+        'end_markers_in_json',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['enforce_gtid_consistency'] = array(
+        'enforce_gtid_consistency',
+        'replication-options-gtids',
+        'sysvar');
+    $variable_doc_links['eq_range_index_dive_limit'] = array(
+        'eq_range_index_dive_limit',
         'server-system-variables',
         'sysvar');
     $variable_doc_links['engine_condition_pushdown'] = array(
@@ -490,6 +518,10 @@ function PMA_getArrayForDocumentLinks()
         'option_mysqld');
     $variable_doc_links['expire_logs_days'] = array(
         'expire_logs_days',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['explicit_defaults_for_timestamp'] = array(
+        'explicit_defaults_for_timestamp',
         'server-system-variables',
         'sysvar');
     $variable_doc_links['external_user'] = array(
