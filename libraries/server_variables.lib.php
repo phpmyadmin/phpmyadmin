@@ -334,6 +334,10 @@ function PMA_getArrayForDocumentLinks()
         'replication-options-binary-log',
         'sysvar',
         'byte');
+    $variable_doc_links['binlog_checksum'] = array(
+        'binlog_checksum',
+        'replication-options-binary-log',
+        'sysvar');
     $variable_doc_links['binlog_direct_non_transactional_updates'] = array(
         'binlog_direct_non_transactional_updates',
         'replication-options-binary-log',
@@ -341,6 +345,22 @@ function PMA_getArrayForDocumentLinks()
     $variable_doc_links['binlog_format'] = array(
         'binlog-format',
         'server-options',
+        'sysvar');
+    $variable_doc_links['binlog_max_flush_queue_time'] = array(
+        'binlog_max_flush_queue_time',
+        'replication-options-binary-log',
+        'sysvar');
+    $variable_doc_links['binlog_order_commits'] = array(
+        'binlog_order_commits',
+        'replication-options-binary-log',
+        'sysvar');
+    $variable_doc_links['binlog_row_image'] = array(
+        'binlog_row_image',
+        'replication-options-binary-log',
+        'sysvar');
+    $variable_doc_links['binlog_rows_query_log_events'] = array(
+        'binlog_rows_query_log_events',
+        'replication-options-binary-log',
         'sysvar');
     $variable_doc_links['binlog_stmt_cache_size'] = array(
         'binlog_stmt_cache_size',
