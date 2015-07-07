@@ -69,6 +69,7 @@ class AlterFragment extends Fragment
         'INDEX'                         => 4,
 
         'DEFAULT CHARACTER SET'         => array(5, 'var'),
+        'DEFAULT CHARSET'               => array(5, 'var'),
 
         'COLLATE'                       => array(6, 'var'),
     );

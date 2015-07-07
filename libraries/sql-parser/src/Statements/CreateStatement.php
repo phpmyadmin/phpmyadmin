@@ -40,7 +40,6 @@ class CreateStatement extends Statement
 
         // CREATE TABLE
         'TEMPORARY'                     => 1,
-        'IF NOT EXISTS'                 => 2,
 
         // CREATE FUNCTION / PROCEDURE and CREATE VIEW
         'DEFINER'                       => array(1, 'var='),
@@ -62,6 +61,9 @@ class CreateStatement extends Statement
         'TRIGGER'                       => 6,
         'USER'                          => 6,
         'VIEW'                          => 6,
+
+        // CREATE TABLE
+        'IF NOT EXISTS'                 => 7,
     );
 
     /**
@@ -73,12 +75,14 @@ class CreateStatement extends Statement
         'ENGINE'                        => array(1, 'var='),
         'AUTO_INCREMENT'                => array(2, 'var='),
         'AVG_ROW_LENGTH'                => array(3, 'var'),
-        'DEFAULT CHARACTER SET'         => array(4, 'var'),
-        'CHARACTER SET'                 => array(4, 'var'),
+        'CHARACTER SET'                 => array(4, 'var='),
+        'CHARSET'                       => array(4, 'var='),
+        'DEFAULT CHARACTER SET'         => array(4, 'var='),
+        'DEFAULT CHARSET'               => array(4, 'var='),
         'CHECKSUM'                      => array(5, 'var'),
-        'DEFAULT COLLATE'               => array(5, 'var'),
-        'COLLATE'                       => array(6, 'var'),
-        'COMMENT'                       => array(7, 'var'),
+        'DEFAULT COLLATE'               => array(5, 'var='),
+        'COLLATE'                       => array(6, 'var='),
+        'COMMENT'                       => array(7, 'var='),
         'CONNECTION'                    => array(8, 'var'),
         'DATA DIRECTORY'                => array(9, 'var'),
         'DELAY_KEY_WRITE'               => array(10, 'var'),
@@ -101,7 +105,7 @@ class CreateStatement extends Statement
      * @var array
      */
     public static $FUNC_OPTIONS = array(
-        'COMMENT'                       => array(1, 'var'),
+        'COMMENT'                       => array(1, 'var='),
         'LANGUAGE SQL'                  => 2,
         'DETERMINISTIC'                 => 3,
         'NOT DETERMINISTIC'             => 3,
@@ -257,9 +261,9 @@ class CreateStatement extends Statement
             $parser,
             $list,
             array(
-                'skipColumn' => true,
-                'noBrackets' => true,
                 'noAlias' => true,
+                'noBrackets' => true,
+                'skipColumn' => true,
             )
         );
         ++$list->idx; // Skipping field.
@@ -304,11 +308,6 @@ class CreateStatement extends Statement
             for (; $list->idx < $list->count; ++$list->idx) {
                 $token = $list->tokens[$list->idx];
                 $this->body[] = $token;
-                if (($token->type === Token::TYPE_KEYWORD)
-                    && ($token->value === 'END')
-                ) {
-                    break;
-                }
             }
         } else if ($this->options->has('VIEW')) {
             $token = $list->getNext(); // Skipping whitespaces and comments.
@@ -342,13 +341,13 @@ class CreateStatement extends Statement
             ++$list->idx; // Skipping `ON`.
 
             // Parsing the name of the table.
-            $this->fields = FieldFragment::parse(
+            $this->table = FieldFragment::parse(
                 $parser,
                 $list,
                 array(
-                    'skipColumn' => true,
                     'noAlias' => true,
                     'noBrackets' => true,
+                    'skipColumn' => true,
                 )
             );
             ++$list->idx;
@@ -359,11 +358,6 @@ class CreateStatement extends Statement
             for (; $list->idx < $list->count; ++$list->idx) {
                 $token = $list->tokens[$list->idx];
                 $this->body[] = $token;
-                if (($token->type === Token::TYPE_KEYWORD)
-                    && ($token->value === 'END')
-                ) {
-                    break;
-                }
             }
         }
     }

@@ -2227,56 +2227,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportSql::substituteAlias
-     *
-     * @return void
-    */
-    public function testSubstituteAlias()
-    {
-        $GLOBALS['sql_backquotes'] = '`';
-        $sql_query = 'CREATE TABLE `data` ( xyz int )';
-        $data = '`data`';
-        $alias = 'sample';
-        $pos = 19;
-        $offset = 0;
-        $result =$this->object->substituteAlias(
-            $sql_query, $data, $alias, $pos, $offset
-        );
-
-        $this->assertEquals(
-            'CREATE TABLE `sample` ( xyz int )',
-            $result
-        );
-        $this->assertEquals(2, $offset);
-
-        $GLOBALS['sql_backquotes'] = false;
-        $result =$this->object->substituteAlias(
-            $sql_query, $data, $alias, $pos
-        );
-
-        $this->assertEquals(
-            'CREATE TABLE sample ( xyz int )',
-            $result
-        );
-
-        $GLOBALS['sql_backquotes'] = '`';
-        $sql_query = 'CREATE TABLE `sample` ( qwerty int )';
-        $data = 'qwerty';
-        $alias = 'f';
-        $offset = 2;
-        $pos = 28 + 2;
-        $result =$this->object->substituteAlias(
-            $sql_query, $data, $alias, $pos, $offset
-        );
-
-        $this->assertEquals(
-            'CREATE TABLE `sample` ( `f` int )',
-            $result
-        );
-        $this->assertEquals(-1, $offset);
-    }
-
-    /**
      * Test for ExportSql::replaceWithAlias
      *
      * @return void
@@ -2304,7 +2254,6 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $GLOBALS['sql_backquotes'] = '`';
         $db = 'a';
         $table = 'foo';
         $sql_query = "CREATE TABLE IF NOT EXISTS foo ("
@@ -2314,7 +2263,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             . "pqr varchar(10) COLLATE latin1_general_ci NOT NULL "
             . "COMMENT 'pqr',"
             . "CONSTRAINT fk_om_dept FOREIGN KEY (baz) "
-            . "REFERENCES dept_master (baz),"
+            . "REFERENCES dept_master (baz)"
             . ") ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE="
             . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5";
         $result = $this->object->replaceWithAliases(
@@ -2322,60 +2271,48 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            "CREATE TABLE IF NOT EXISTS `bartest` ("
-            . "`p` tinyint(3) unsigned NOT NULL COMMENT 'Primary Key',"
-            . "xyz varchar(255) COLLATE latin1_general_ci NOT NULL "
-            . "COMMENT 'xyz',"
-            . "`pphymdain` varchar(10) COLLATE latin1_general_ci NOT NULL "
-            . "COMMENT 'pqr',"
-            . "CONSTRAINT fk_om_dept FOREIGN KEY (`p`) "
-            . "REFERENCES dept_master (baz),"
-            . ") ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE="
-            . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5",
+            "CREATE TABLE IF NOT EXISTS `bartest` (" .
+            "`p` TINYINT (3) UNSIGNED NOT NULL COMMENT 'Primary Key', " .
+            "`xyz` VARCHAR (255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz', " .
+            "`pphymdain` VARCHAR (10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr', " .
+            "CONSTRAINT `fk_om_dept` FOREIGN KEY (`p`) REFERENCES `dept_master` (`baz`)" .
+            ") ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='List'",
             $result
         );
 
         $result = $this->object->replaceWithAliases($sql_query, array(), '', '');
 
         $this->assertEquals(
-            "CREATE TABLE IF NOT EXISTS foo ("
-            . "baz tinyint(3) unsigned NOT NULL COMMENT 'Primary Key',"
-            . "xyz varchar(255) COLLATE latin1_general_ci NOT NULL "
-            . "COMMENT 'xyz',"
-            . "pqr varchar(10) COLLATE latin1_general_ci NOT NULL "
-            . "COMMENT 'pqr',"
-            . "CONSTRAINT fk_om_dept FOREIGN KEY (baz) "
-            . "REFERENCES dept_master (baz),"
-            . ") ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE="
-            . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5",
+            "CREATE TABLE IF NOT EXISTS foo (" .
+            "`baz` TINYINT (3) UNSIGNED NOT NULL COMMENT 'Primary Key', " .
+            "`xyz` VARCHAR (255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz', " .
+            "`pqr` VARCHAR (10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr', " .
+            "CONSTRAINT `fk_om_dept` FOREIGN KEY (`baz`) REFERENCES `dept_master` (`baz`)" .
+            ") ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='List'",
             $result
         );
 
-        $GLOBALS['sql_backquotes'] = null;
         $table = 'bar';
         $sql_query = "CREATE TRIGGER `BEFORE_bar_INSERT` "
-            . "BEFORE INSERT ON `bar`\r\n"
-            . "FOR EACH ROW BEGIN\r\n"
+            . "BEFORE INSERT ON `bar` "
+            . "FOR EACH ROW BEGIN "
             . "SET @cnt=(SELECT count(*) FROM bar WHERE "
             . "xy=NEW.xy AND id=NEW.id AND "
-            . "abc=NEW.xy LIMIT 1);\r\n"
-            . "IF @cnt<>0 THEN\n"
-            . "SET NEW.xy=1;\r\n"
-            . "END IF;\nEND\n$$";
+            . "abc=NEW.xy LIMIT 1); "
+            . "IF @cnt<>0 THEN "
+            . "SET NEW.xy=1; "
+            . "END IF; END";
         $result = $this->object->replaceWithAliases(
             $sql_query, $aliases, $db, $table
         );
 
         $this->assertEquals(
-            "CREATE TRIGGER `BEFORE_bar_INSERT` "
-            . "BEFORE INSERT ON f\n"
-            . "FOR EACH ROW BEGIN\n"
-            . "SET @cnt=(SELECT count(*) FROM f WHERE "
-            . "n=NEW.n AND id=NEW.id AND "
-            . "abc=NEW.n LIMIT 1);\n"
-            . "IF @cnt<>0 THEN\n"
-            . "SET NEW.n=1;\n"
-            . "END IF;\nEND\n$$",
+            "CREATE TRIGGER `BEFORE_bar_INSERT` BEFORE INSERT ON `f` FOR EACH ROW BEGIN " .
+            "SET @cnt=(SELECT count(*) FROM `f` WHERE `n`=NEW.`n` AND id=NEW.id AND abc=NEW.`n` LIMIT 1); " .
+            "IF @cnt<>0 THEN " .
+            "SET NEW.`n`=1; " .
+            "END IF; " .
+            "END",
             $result
         );
     }

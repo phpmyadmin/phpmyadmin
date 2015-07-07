@@ -160,7 +160,7 @@ class ContextMySql50100 extends Context
         'FOR EACH ROW' => 7, 'SQL SECURITY' => 7,
         'CHARACTER SET' => 7, 'IF NOT EXISTS' => 7,
         'DATA DIRECTORY' => 7,
-        'DEFAULT COLLATE' => 7, 'INDEX DIRECTORY' => 7,
+        'DEFAULT CHARSET' => 7, 'DEFAULT COLLATE' => 7, 'INDEX DIRECTORY' => 7,
         'DEFAULT CHARACTER SET' => 7,
 
         'XML' => 9,

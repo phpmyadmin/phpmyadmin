@@ -2541,216 +2541,164 @@ class ExportSql extends ExportPlugin
         $sql_query, $aliases, $db, $table = '', &$flag = null
     ) {
         $flag = false;
-        // Return original sql query if no aliases are provided.
-        if (!is_array($aliases) || empty($aliases) || empty($sql_query)) {
+
+        /**
+         * The parser of this query.
+         * @var SqlParser\Parser
+         */
+        $parser = new SqlParser\Parser($sql_query);
+
+        if (empty($parser->statements[0])) {
             return $sql_query;
         }
-        $supported_query_types = array(
-            'CREATE' => true,
-        );
-        $supported_query_ons = array(
-            'TABLE' => true,
-            'VIEW' => true,
-            'TRIGGER' => true,
-            'FUNCTION' => true,
-            'PROCEDURE' => true
-        );
-        $identifier_types = array(
-            'alpha_identifier',
-            'quote_backtick'
-        );
-        $query_type = '';
-        $query_on = '';
-        // Adjustment value for each pos value
-        // of token after replacement
-        $offset = 0;
-        $open_braces = 0;
-        $in_create_table_fields = false;
-        // flag to force end query parsing
-        $query_end = false;
-        // Convert all line feeds to Unix style
-        $sql_query = str_replace("\r\n", "\n", $sql_query);
-        $sql_query = str_replace("\r", "\n", $sql_query);
-        $tokens = PMA_SQP_parse($sql_query);
-        $ref_seen = false;
-        $ref_table_seen = false;
-        $old_table = $table;
-        $on_seen = false;
-        $size = $tokens['len'];
 
-        for ($i = 0; $i < $size && !$query_end; $i++) {
-            $type = $tokens[$i]['type'];
-            $data = $tokens[$i]['data'];
-            $data_next = isset($tokens[$i+1]['data'])
-                ? $tokens[$i+1]['data'] : '';
-            $data_prev = ($i > 0) ? $tokens[$i-1]['data'] : '';
-            $d_unq = PMA_Util::unQuote($data);
-            $d_unq_next = PMA_Util::unQuote($data_next);
-            $d_unq_prev = PMA_Util::unQuote($data_prev);
-            $d_upper = /*overload*/mb_strtoupper($d_unq);
-            $d_upper_next = /*overload*/mb_strtoupper($d_unq_next);
-            $d_upper_prev = /*overload*/mb_strtoupper($d_unq_prev);
-            $pos = $tokens[$i]['pos'] + $offset;
-            if ($type === 'alpha_reservedWord') {
-                if ($query_type === ''
-                    && !empty($supported_query_types[$d_upper])
-                ) {
-                    $query_type = $d_upper;
-                } elseif ($query_on === ''
-                    && !empty($supported_query_ons[$d_upper])
-                ) {
-                    $query_on = $d_upper;
+        /**
+         * The statement that represents the query.
+         * @var SqlParser\CreateStatement
+         */
+        $statement = $parser->statements[0];
+
+        /**
+         * Old database name.
+         * @var string
+         */
+        $old_database = $db;
+
+        /**
+         * Old table name.
+         * @var string
+         */
+        $old_table = $table;
+
+        // Replacing aliases in `CREATE TABLE` statement.
+        if ($statement->options->has('TABLE')) {
+
+            // Extracting the name of the old database and table from the
+            // statement to make sure the parameters are corect.
+            if (!empty($statement->name->database)) {
+                $old_database = $statement->name->database;
+            }
+            file_put_contents('/tmp/tests.txt', "------------\n", FILE_APPEND);
+            file_put_contents('/tmp/tests.txt', $sql_query . "\n", FILE_APPEND);
+            file_put_contents('/tmp/tests.txt', print_r($statement, true), FILE_APPEND);
+            file_put_contents('/tmp/tests.txt', "------------\n", FILE_APPEND);
+            $old_table = $statement->name->table;
+
+            // Finding the aliased database name.
+            // The database might be empty so we have to add a few checks.
+            $new_database = null;
+            if (!empty($statement->name->database)) {
+                $new_database = $statement->name->database;
+                if (!empty($aliases[$old_database]['alias'])) {
+                    $new_database = $aliases[$old_database]['alias'];
                 }
             }
-            // CREATE TABLE - Alias replacement
-            if ($query_type === 'CREATE' && $query_on === 'TABLE') {
-                // replace create table name
-                if (!$in_create_table_fields
-                    && in_array($type, $identifier_types)
-                    && !empty($aliases[$db]['tables'][$table]['alias'])
-                ) {
-                    $sql_query = $this->substituteAlias(
-                        $sql_query, $data,
-                        $aliases[$db]['tables'][$table]['alias'],
-                        $pos, $offset
-                    );
-                    $flag = true;
-                } elseif ($type === 'punct_bracket_open_round') {
-                    // CREATE TABLE fields started
-                    if (!$in_create_table_fields) {
-                        $in_create_table_fields = true;
-                    }
-                    $open_braces++;
-                } elseif ($type === 'punct_bracket_close_round') {
-                    // end our parsing after last )
-                    // no columns appear after that
-                    if ($in_create_table_fields && $open_braces === 0) {
-                        $query_end = true;
-                    }
-                    // End of Foreign key reference
-                    if ($ref_seen) {
-                        $ref_seen = $ref_table_seen = false;
-                        $table = $old_table;
-                    }
-                    $open_braces--;
-                    // handles Foreign key references
-                } elseif ($type === 'alpha_reservedWord'
-                    && $d_upper === 'REFERENCES'
-                ) {
-                    $ref_seen = true;
-                } elseif (in_array($type, $identifier_types)
-                    && $ref_seen === true && !$ref_table_seen
-                ) {
-                    $table = $d_unq;
-                    $ref_table_seen = true;
-                    if (!empty($aliases[$db]['tables'][$table]['alias'])) {
-                        $sql_query = $this->substituteAlias(
-                            $sql_query, $data,
-                            $aliases[$db]['tables'][$table]['alias'],
-                            $pos, $offset
-                        );
+
+            // Finding the aliases table name.
+            $new_table = $old_table;
+            if (!empty($aliases[$old_database]['tables'][$old_table]['alias'])) {
+                $new_table = $aliases[$old_database]['tables'][$old_table]['alias'];
+            }
+
+            // Replacing new values.
+            if (($statement->name->database !== $new_database)
+                || ($statement->name->table !== $new_table)
+            ) {
+                $statement->name->database = $new_database;
+                $statement->name->table = $new_table;
+                $statement->name->expr = null; // Force rebuild.
+                $flag = true;
+            }
+
+            foreach ($statement->fields as $field) {
+
+                // Column name.
+                if (!empty($field->type)) {
+                    if (!empty($aliases[$old_database]['tables'][$old_table]['columns'][$field->name])) {
+                        $field->name = $aliases[$old_database]['tables']
+                        [$old_table]['columns'][$field->name];
                         $flag = true;
                     }
-                    // Replace column names
-                } elseif (in_array($type, $identifier_types)
-                    && !empty($aliases[$db]['tables'][$table]['columns'][$d_unq])
-                ) {
-                    $sql_query = $this->substituteAlias(
-                        $sql_query, $data,
-                        $aliases[$db]['tables'][$table]['columns'][$d_unq],
-                        $pos, $offset
-                    );
-                    $flag = true;
                 }
-                // CREATE TRIGGER - Alias replacement
-            } elseif ($query_type === 'CREATE' && $query_on === 'TRIGGER') {
-                // Skip till 'ON' in encountered
-                if (!$on_seen && $type === 'alpha_reservedWord'
-                    && $d_upper === 'ON'
-                ) {
-                    $on_seen = true;
-                } elseif ($on_seen && in_array($type, $identifier_types)) {
-                    if (!$ref_table_seen
-                        && !empty($aliases[$db]['tables'][$d_unq]['alias'])
-                    ) {
-                        $ref_table_seen = true;
-                        $sql_query = $this->substituteAlias(
-                            $sql_query, $data,
-                            $aliases[$db]['tables'][$d_unq]['alias'],
-                            $pos, $offset
-                        );
-                        $flag = true;
-                    } else {
-                        // search for identifier alias
-                        $alias = $this->getAlias($aliases, $d_unq);
-                        if (!empty($alias)) {
-                            $sql_query = $this->substituteAlias(
-                                $sql_query, $data, $alias, $pos, $offset
-                            );
+
+                // Key's columns.
+                if (!empty($field->key)) {
+                    foreach ($field->key->columns as $key => $column) {
+                        if (!empty($aliases[$old_database]['tables'][$old_table]['columns'][$column])) {
+                            $field->key->columns[$key] = $aliases[$old_database]
+                                ['tables'][$old_table]['columns'][$column];
                             $flag = true;
                         }
                     }
                 }
-                // CREATE PROCEDURE|FUNCTION|VIEW - Alias replacement
-            } elseif ($query_type === 'CREATE'
-                && ($query_on === 'FUNCTION'
-                || $query_on === 'PROCEDURE'
-                || $query_on === 'VIEW')
-            ) {
-                // LANGUAGE SQL | (READS|MODIFIES) SQL DATA
-                // characteristics are skipped
-                if ($type === 'alpha_identifier'
-                    && (($d_upper === 'LANGUAGE' && $d_upper_next === 'SQL')
-                    || ($d_upper === 'DATA' && $d_upper_prev === 'SQL'))
-                ) {
-                    continue;
-                    // No need to process further in case of VIEW
-                    // when 'WITH' keyword has been detected
-                } elseif ($query_on === 'VIEW'
-                    && $type === 'alpha_reservedWord' && $d_upper === 'WITH'
-                ) {
-                    $query_end = true;
-                } elseif (in_array($type, $identifier_types)) {
-                    // search for identifier alias
-                    $alias = $this->getAlias($aliases, $d_unq);
-                    if (!empty($alias)) {
-                        $sql_query = $this->substituteAlias(
-                            $sql_query, $data, $alias, $pos, $offset
-                        );
+
+                // References.
+                if (!empty($field->references)) {
+                    $ref_table = $field->references->table;
+                    // Replacing table.
+                    if (!empty($aliases[$old_database]['tables'][$ref_table]['alias'])) {
+                        $field->references->table = $aliases[$old_database]['tables'][$ref_table]['alias'];
                         $flag = true;
-                    };
+                    }
+                    // Replacing column names.
+                    foreach ($field->references->columns as $key => $column) {
+                        if (!empty($aliases[$old_database]['tables'][$ref_table]['columns'][$column])) {
+                            $field->references->columns[$key] = $aliases[$old_database]['tables'][$ref_table]['columns'][$column];
+                            $flag = true;
+                        }
+                    }
+                }
+            }
+        } elseif ($statement->options->has('TRIGGER')) {
+
+            // Extracting the name of the old database and table from the
+            // statement to make sure the parameters are corect.
+            if (!empty($statement->table->database)) {
+                $old_database = $statement->table->database;
+            }
+            $old_table = $statement->table->table;
+
+            if (!empty($aliases[$old_database]['tables'][$old_table]['alias'])) {
+                $statement->table->table = $aliases[$old_database]['tables'][$old_table]['alias'];
+                $statement->table->expr = null; // Force rebuild.
+                $flag = true;
+            }
+        }
+
+        if (($statement->options->has('TRIGGER'))
+            || ($statement->options->has('PROCEDURE'))
+            || ($statement->options->has('FUNCTION'))
+            || ($statement->options->has('VIEW'))
+        ) {
+
+            // Repalcing the body.
+            for ($i = 0, $count = count($statement->body); $i < $count; ++$i) {
+
+                /**
+                 * Token parsed at this moment.
+                 * @var Token
+                 */
+                $token = $statement->body[$i];
+
+                // Replacing only symbols (that are not variables) and unknown
+                // identifiers.
+                if ((($token->type === SqlParser\Token::TYPE_SYMBOL)
+                    && (!($token->flags & SqlParser\Token::FLAG_SYMBOL_VARIABLE)))
+                    || ((($token->type === SqlParser\Token::TYPE_KEYWORD)
+                    && (!($token->flags & SqlParser\Token::FLAG_KEYWORD_RESERVED)))
+                    || ($token->type === SqlParser\Token::TYPE_NONE))
+                ) {
+                    $alias = $this->getAlias($aliases, $token->value);
+                    if (!empty($alias)) {
+                        // Replacing the token.
+                        $token->token = SqlParser\Context::escape($alias);
+                        $flag = true;
+                    }
                 }
             }
         }
-        return $sql_query;
-    }
 
-    /**
-     * substitutes alias in query at given position
-     * Note: pos is the value from PMA_SQP_parse() + offset
-     *
-     * @param string $sql_query the SQL query
-     * @param string $data      the data to be replaced
-     * @param string $alias     the replacement
-     * @param string $pos       the position of alias
-     * @param string &$offset   the change in pos occurred after substitution
-     *
-     * @return string replaced query with alias
-     */
-    public function substituteAlias($sql_query, $data, $alias, $pos, &$offset = null)
-    {
-        if (!empty($GLOBALS['sql_backquotes'])) {
-            $alias = PMA_Util::backquote($alias);
-        }
-        $alias_len = /*overload*/mb_strlen($alias);
-        $data_len = /*overload*/mb_strlen($data);
-        if (isset($offset)) {
-            $offset += ($alias_len - $data_len);
-        }
-        $sql_query = substr_replace(
-            $sql_query, $alias, $pos - $data_len, $data_len
-        );
-        return $sql_query;
+        return $statement->build();
     }
 
     /**

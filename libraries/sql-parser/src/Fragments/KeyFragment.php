@@ -67,7 +67,14 @@ class KeyFragment extends Fragment
      */
     public $options;
 
-
+    /**
+     * Constructor.
+     *
+     * @param string          $name    The name of the key.
+     * @param array           $columns The columns covered by this key.
+     * @param string          $type    The type of this key.
+     * @param OptionsFragment $options The options of this key.
+     */
     public function __construct($name = null, array $columns = array(),
         $type = null, $options = null
     ) {
