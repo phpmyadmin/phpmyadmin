@@ -227,11 +227,11 @@ class Parser
     public $strict = false;
 
     /**
-     * List of errors that occured during parsing.
+     * List of errors that occurred during parsing.
      *
-     * Usually, the parsing does not stop once an error occured because that
-     * error might be misdetected or a partial result (even a bad one) might be
-     * needed.
+     * Usually, the parsing does not stop once an error occurred because that
+     * error might be a false positive or a partial result (even a bad one)
+     * might be needed.
      *
      * @var ParserException[]
      *
@@ -278,25 +278,25 @@ class Parser
 
         /**
          * Last parsed statement.
-         * @var Statement
+         * @var Statement $lastStatement
          */
         $lastStatement = null;
 
         /**
          * Whether a union is parsed or not.
-         * @var bool
+         * @var bool $inUnion
          */
         $inUnion = true;
 
         /**
          * The index of the last token from the last statement.
-         * @var int
+         * @var int $prevLastIdx
          */
         $prevLastIdx = -1;
 
         /**
          * The list of tokens.
-         * @var TokensList
+         * @var TokensList $list
          */
         $list = &$this->list;
 
@@ -304,7 +304,7 @@ class Parser
 
             /**
              * Token parsed at this moment.
-             * @var Token
+             * @var Token $token
              */
             $token = $list->tokens[$list->idx];
 
@@ -334,13 +334,13 @@ class Parser
 
             /**
              * The name of the class that is used for parsing.
-             * @var string
+             * @var string $class
              */
             $class = static::$STATEMENT_PARSERS[$token->value];
 
             /**
              * Processed statement.
-             * @var Statement
+             * @var Statement $stmt
              */
             $stmt = new $class($this, $this->list);
 
@@ -376,6 +376,8 @@ class Parser
      * @param string $msg   The error message.
      * @param Token  $token The token that produced the error.
      * @param int    $code  The code of the error.
+     *
+     * @throws ParserException Throws the exception, if strict mode is enabled.
      *
      * @return void
      */

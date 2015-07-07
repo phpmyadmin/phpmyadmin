@@ -120,25 +120,25 @@ class FieldFragment extends Fragment
 
         /**
          * Whether current tokens make an expression or a table reference.
-         * @var bool
+         * @var bool $isExpr
          */
         $isExpr = false;
 
         /**
          * Whether a period was previously found.
-         * @var bool
+         * @var bool $period
          */
         $period = false;
 
         /**
          * Whether an alias is expected. Is 2 if `AS` keyword was found.
-         * @var int
+         * @var int $alias
          */
         $alias = 0;
 
         /**
          * Counts brackets.
-         * @var int
+         * @var int $brackets
          */
         $brackets = 0;
 
@@ -148,14 +148,14 @@ class FieldFragment extends Fragment
          *     string, if function was previously found;
          *     true, if open bracket was previously found;
          *     null, in any other case.
-         * @var string|bool
+         * @var string|bool $prev
          */
         $prev = null;
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
-             * @var Token
+             * @var Token $token
              */
             $token = $list->tokens[$list->idx];
 

@@ -9,6 +9,11 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
+use SqlParser\Fragments\ArrayFragment;
+use SqlParser\Fragments\FieldFragment;
+use SqlParser\Fragments\LimitKeyword;
+use SqlParser\Fragments\OrderKeyword;
+use SqlParser\Fragments\WhereKeyword;
 
 /**
  * `DELETE` statement.

@@ -8,7 +8,6 @@
  */
 namespace SqlParser\Utils;
 
-use SqlParser\Statement;
 use SqlParser\Statements\SelectStatement;
 
 /**
@@ -26,8 +25,8 @@ class Misc
     /**
      * Gets a list of all aliases and their original names.
      *
-     * @param Statement $statement The statement to be processed.
-     * @param string    $database  The name of the database.
+     * @param SelectStatement $statement The statement to be processed.
+     * @param string          $database  The name of the database.
      *
      * @return array
      */

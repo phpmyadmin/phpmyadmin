@@ -9,6 +9,14 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
+use SqlParser\Fragments\ArrayFragment;
+use SqlParser\Fragments\CallKeyword;
+use SqlParser\Fragments\FieldFragment;
+use SqlParser\Fragments\IntoKeyword;
+use SqlParser\Fragments\JoinKeyword;
+use SqlParser\Fragments\LimitKeyword;
+use SqlParser\Fragments\OrderKeyword;
+use SqlParser\Fragments\WhereKeyword;
 
 /**
  * `SELECT` statement.

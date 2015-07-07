@@ -56,13 +56,13 @@ class OptionsFragment extends Fragment
 
          /**
           * The ID that will be assigned to duplicate options.
-          * @var int
+          * @var int $lastAssignedId
           */
         $lastAssignedId = count($options) + 1;
 
         /**
          * The option that was processed last time.
-         * @var array
+         * @var array $lastOption
          */
         $lastOption = null;
         $lastOptionId = 0;
@@ -72,7 +72,7 @@ class OptionsFragment extends Fragment
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
-             * @var Token
+             * @var Token $token
              */
             $token = $list->tokens[$list->idx];
 
@@ -95,7 +95,7 @@ class OptionsFragment extends Fragment
                     // For example, in `SELECT` statements the keywords `ALL` and `DISTINCT`
                     // conflict and if used together, they produce an invalid query.
                     // Usually, tokens can be identified in the array by the option ID,
-                    // but if conflicts occur, a psuedo option ID is used.
+                    // but if conflicts occur, a generated option ID is used.
                     // The first pseudo duplicate ID is the maximum value of the real
                     // options (e.g.  if there are 5 options, the first fake ID is 6).
                     if (isset($ret->options[$lastOptionId])) {

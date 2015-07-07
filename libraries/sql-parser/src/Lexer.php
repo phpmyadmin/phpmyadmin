@@ -36,7 +36,7 @@ class Lexer
     public static $PARSER_METHODS = array(
 
         // It is best to put the parsers in order of their complexity
-        // (ascending) and their occurance rate (descending).
+        // (ascending) and their occurrence rate (descending).
         //
         // Conflicts:
         //
@@ -112,7 +112,7 @@ class Lexer
     /**
      * The length of the delimiter.
      *
-     * Because `parseDelimter` can be called a lot, it would perform a lot of
+     * Because `parseDelimiter` can be called a lot, it would perform a lot of
      * calls to `strlen`, which might affect performance when the delimiter is
      * big.
      *
@@ -121,11 +121,11 @@ class Lexer
     public $delimiterLen = 1;
 
     /**
-     * List of errors that occured during lexing.
+     * List of errors that occurred during lexing.
      *
-     * Usually, the lexing does not stop once an error occured because that
-     * error might be misdetected or a partial result (even a bad one) might be
-     * needed.
+     * Usually, the lexing does not stop once an error occurred because that
+     * error might be false positive or a partial result (even a bad one)
+     * might be needed.
      *
      * @var LexerException[]
      *
@@ -149,7 +149,7 @@ class Lexer
     }
 
     /**
-     * Parses the string and extracts lexems.
+     * Parses the string and extracts lexemes.
      *
      * @return void
      */
@@ -165,12 +165,17 @@ class Lexer
         // Another example is `parseComment`.
 
         $list = new TokensList();
+
+        /**
+         * Last processed token.
+         * @var Token $lastToken
+         */
         $lastToken = null;
 
         for ($this->last = 0, $lastIdx = 0; $this->last < $this->len; $lastIdx = ++$this->last) {
             /**
              * The new token.
-             * @var Token
+             * @var Token $token
              */
             $token = null;
 
@@ -243,7 +248,7 @@ class Lexer
             $lastToken = $token;
         }
 
-        // Adding a final delimite at the end to mark the ending.
+        // Adding a final delimiter to mark the ending.
         $list->tokens[$list->count++] = new Token(null, Token::TYPE_DELIMITER);
 
         // Saving the tokens list.
@@ -257,6 +262,8 @@ class Lexer
      * @param string $str  The character that produced the error.
      * @param int    $pos  The position of the character.
      * @param int    $code The code of the error.
+     *
+     * @throws LexerException Throws the exception, if strict mode is enabled.
      *
      * @return void
      */
@@ -280,19 +287,19 @@ class Lexer
 
         /**
          * Value to be returned.
-         * @var Token
+         * @var Token $ret
          */
         $ret = null;
 
         /**
          * The value of `$this->last` where `$token` ends in `$this->str`.
-         * @var int
+         * @var int $iEnd
          */
         $iEnd = $this->last;
 
         /**
          * Whether last parsed character is a whitespace.
-         * @var bool
+         * @var bool $lastSpace
          */
         $lastSpace = false;
 
@@ -336,13 +343,13 @@ class Lexer
 
         /**
          * Value to be returned.
-         * @var Token|bool
+         * @var Token $ret
          */
         $ret = null;
 
         /**
          * The value of `$this->last` where `$token` ends in `$this->str`.
-         * @var int
+         * @var int $iEnd
          */
         $iEnd = $this->last;
 

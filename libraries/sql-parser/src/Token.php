@@ -25,7 +25,7 @@ class Token
 
     /**
      * This type is used when the token is invalid or its type cannot be
-     * determiend because of the ambigous context. Further analysis might be
+     * determined because of the ambiguous context. Further analysis might be
      * required to detect its type.
      *
      * @var int
@@ -186,7 +186,7 @@ class Token
     public $flags;
 
     /**
-     * The position in the inial string where this token started.
+     * The position in the initial string where this token started.
      *
      * @var int
      */

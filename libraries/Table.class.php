@@ -754,7 +754,7 @@ class PMA_Table
 
         /**
          * The full name of source table, quoted.
-         * @var string
+         * @var string $source
          */
         $source = PMA_Util::backquote($source_db)
             . '.' . PMA_Util::backquote($source_table);
@@ -771,7 +771,7 @@ class PMA_Table
 
         /**
          * The full name of target table, quoted.
-         * @var string
+         * @var string $target
          */
         $target = PMA_Util::backquote($target_db)
             . '.' . PMA_Util::backquote($target_table);
@@ -805,7 +805,7 @@ class PMA_Table
 
             /**
              * The old structure of the table..
-             * @var string
+             * @var string $sql_structure
              */
             $sql_structure = $export_sql_plugin->getTableDef(
                 $source_db, $source_table, "\n", $err_url, false, false
@@ -846,7 +846,7 @@ class PMA_Table
 
                 /**
                  * Drop statement used for building the query.
-                 * @var SqlParser\Statements\DropStatement
+                 * @var SqlParser\Statements\DropStatement $statement
                  */
                 $statement = new SqlParser\Statements\DropStatement();
 
@@ -877,13 +877,13 @@ class PMA_Table
 
             /**
              * The parser responsible for parsing the old queries.
-             * @var SqlParser\Parser
+             * @var SqlParser\Parser $parser
              */
             $parser = new SqlParser\Parser($sql_structure);
 
             /**
              * The CREATE statement of this structure.
-             * @var SqlParser\Statements\CreateStatement
+             * @var SqlParser\Statements\CreateStatement $statement
              */
             $statement = $parser->statements[0];
 
@@ -909,7 +909,7 @@ class PMA_Table
 
                 /**
                  * The ALTER statement that generates the constraints.
-                 * @var SqlParser\Statements\AlterStatement
+                 * @var SqlParser\Statements\AlterStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -947,7 +947,7 @@ class PMA_Table
 
                 /**
                  * The ALTER statement that generates the indexes.
-                 * @var SqlParser\Statements\AlterStatement
+                 * @var SqlParser\Statements\AlterStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -985,7 +985,7 @@ class PMA_Table
 
                     /**
                      * The ALTER statement that alters the AUTO_INCREMENT value.
-                     * @var SqlParser\Statements\AlterStatement
+                     * @var SqlParser\Statements\AlterStatement $statement
                      */
                     $statement = $parser->statements[0];
 

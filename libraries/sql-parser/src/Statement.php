@@ -10,9 +10,6 @@
  */
 namespace SqlParser;
 
-use SqlParser\Parser;
-use SqlParser\Statement;
-use SqlParser\Token;
 use SqlParser\Fragments\OptionsFragment;
 
 /**
@@ -85,7 +82,7 @@ abstract class Statement
     {
         /**
          * Query to be returned.
-         * @var string
+         * @var string $query
          */
         $query = '';
 
@@ -93,14 +90,14 @@ abstract class Statement
 
             /**
              * The name of the clause.
-             * @var string
+             * @var string $name
              */
             $name = $clause[0];
 
             /**
              * The type of the clause.
              * @see self::$CLAUSES
-             * @var int
+             * @var int $type
              */
             $type = $clause[1];
 
@@ -111,14 +108,14 @@ abstract class Statement
 
             /**
              * The builder (parser) of this clause.
-             * @var string
+             * @var string $class
              */
             $class = Parser::$KEYWORD_PARSERS[$name]['class'];
 
             /**
              * The name of the field that is used as source for the builder.
              * Same field is used to store the result of parsing.
-             * @var string
+             * @var string $field
              */
             $field = Parser::$KEYWORD_PARSERS[$name]['field'];
 
@@ -158,14 +155,14 @@ abstract class Statement
          * Whether options were parsed or not.
          * For statements that do not have any options this is set to `true` by
          * default.
-         * @var bool
+         * @var bool $parsedOptions
          */
         $parsedOptions = isset(static::$OPTIONS) ? false : true;
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
-             * @var Token
+             * @var Token $token
              */
             $token = $list->tokens[$list->idx];
 
@@ -188,19 +185,19 @@ abstract class Statement
 
             /**
              * The name of the class that is used for parsing.
-             * @var string
+             * @var string $class
              */
             $class = null;
 
             /**
              * The name of the field where the result of the parsing is stored.
-             * @var string
+             * @var string $field
              */
             $field = null;
 
             /**
              * Parser's options.
-             * @var array
+             * @var array $options
              */
             $options = array();
 
@@ -223,7 +220,7 @@ abstract class Statement
                     $parsedOptions = true;
                 }
             } elseif ($class === null) {
-                // There is no parser for this keyword and isn't the beggining
+                // There is no parser for this keyword and isn't the beginning
                 // of a statement (so no options) either.
                 $parser->error(
                     'Unrecognized keyword "' . $token->value . '".',

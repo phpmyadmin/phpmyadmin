@@ -10,7 +10,6 @@ namespace SqlParser\Utils;
 
 use SqlParser\Lexer;
 use SqlParser\Parser;
-use SqlParser\Statement;
 use SqlParser\Fragments\DataTypeFragment;
 use SqlParser\Fragments\ParamDefFragment;
 use SqlParser\Statements\CreateStatement;

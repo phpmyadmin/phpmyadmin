@@ -9,6 +9,8 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
+use SqlParser\Fragments\IntoKeyword;
+use SqlParser\Fragments\ValuesKeyword;
 
 /**
  * `INSERT` statement.

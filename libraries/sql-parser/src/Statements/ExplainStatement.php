@@ -8,8 +8,6 @@
  */
 namespace SqlParser\Statements;
 
-use SqlParser\Statements\NotImplementedStatement;
-
 /**
  * `EXPLAIN` statement.
  *

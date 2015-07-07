@@ -28,7 +28,7 @@ class UtfString implements \ArrayAccess
 {
 
     /**
-     * The raw, multibyte string.
+     * The raw, multi-byte string.
      *
      * @var string
      */
@@ -143,6 +143,8 @@ class UtfString implements \ArrayAccess
      * @param int    $offset The offset to be set.
      * @param string $value  The value to be set.
      *
+     * @throws \Exception Not implemented.
+     *
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -155,6 +157,8 @@ class UtfString implements \ArrayAccess
      *
      * @param int $offset The value to be unset.
      *
+     * @throws \Exception Not implemented.
+     *
      * @return void
      */
     public function offsetUnset($offset)
@@ -166,7 +170,7 @@ class UtfString implements \ArrayAccess
      * Gets the length of an UTF-8 character.
      *
      * According to RFC 3629, a UTF-8 character can have at most 4 bytes.
-     * However, this implemenation supports UTF-8 characters containing up to 6
+     * However, this implementation supports UTF-8 characters containing up to 6
      * bytes.
      *
      * @param string $byte The byte to be analyzed.

@@ -2544,7 +2544,7 @@ class ExportSql extends ExportPlugin
 
         /**
          * The parser of this query.
-         * @var SqlParser\Parser
+         * @var SqlParser\Parser $parser
          */
         $parser = new SqlParser\Parser($sql_query);
 
@@ -2554,19 +2554,19 @@ class ExportSql extends ExportPlugin
 
         /**
          * The statement that represents the query.
-         * @var SqlParser\Statements\CreateStatement
+         * @var SqlParser\Statements\CreateStatement $statement
          */
         $statement = $parser->statements[0];
 
         /**
          * Old database name.
-         * @var string
+         * @var string $old_database
          */
         $old_database = $db;
 
         /**
          * Old table name.
-         * @var string
+         * @var string $old_table
          */
         $old_table = $table;
 
@@ -2672,7 +2672,7 @@ class ExportSql extends ExportPlugin
 
                 /**
                  * Token parsed at this moment.
-                 * @var Token
+                 * @var Token $token
                  */
                 $token = $statement->body[$i];
 

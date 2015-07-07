@@ -4233,7 +4233,7 @@ class PMA_DisplayResults
 
         /**
          * The statement this table is built for.
-         * @var SelectStatement
+         * @var SqlParser\Statements\SelectStatement
          */
         $statement = $analyzed_sql_results['statement'];
 

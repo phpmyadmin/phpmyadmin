@@ -12,6 +12,7 @@ use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Token;
 use SqlParser\TokensList;
+use SqlParser\Fragments\FieldFragment;
 use SqlParser\Fragments\OptionsFragment;
 
 /**

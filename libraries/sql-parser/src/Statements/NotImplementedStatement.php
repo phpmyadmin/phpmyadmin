@@ -29,6 +29,7 @@ class NotImplementedStatement extends Statement
 
     /**
      * The part of the statement that can't be parsed.
+     *
      * @var Token[]
      */
     public $unknown = array();

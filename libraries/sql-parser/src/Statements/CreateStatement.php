@@ -41,12 +41,10 @@ class CreateStatement extends Statement
         // CREATE TABLE
         'TEMPORARY'                     => 1,
 
-        // CREATE FUNCTION / PROCEDURE and CREATE VIEW
-        'DEFINER'                       => array(1, 'var='),
-
         // CREATE VIEW
         'OR REPLACE'                    => array(2, 'var='),
         'ALGORITHM'                     => array(3, 'var='),
+        // `DEFINER` is also used for `CREATE FUNCTION / PROCEDURE`
         'DEFINER'                       => array(4, 'var='),
         'SQL SECURITY'                  => array(5, 'var'),
 
@@ -109,11 +107,11 @@ class CreateStatement extends Statement
         'LANGUAGE SQL'                  => 2,
         'DETERMINISTIC'                 => 3,
         'NOT DETERMINISTIC'             => 3,
-        'CONSTAINS SQL'                 => 4,
+        'CONTAINS SQL'                  => 4,
         'NO SQL'                        => 4,
         'READS SQL DATA'                => 4,
         'MODIFIES SQL DATA'             => 4,
-        'SQL SEQURITY DEFINER'          => array(5, 'var'),
+        'SQL SECURITY DEFINER'          => array(5, 'var'),
     );
 
     /**

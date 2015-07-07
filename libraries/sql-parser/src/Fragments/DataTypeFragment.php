@@ -8,7 +8,6 @@
  */
 namespace SqlParser\Fragments;
 
-use SqlParser\Context;
 use SqlParser\Fragment;
 use SqlParser\Parser;
 use SqlParser\Token;
@@ -53,7 +52,7 @@ class DataTypeFragment extends Fragment
      * Some data types have no parameters.
      * Numeric types might have parameters for the maximum number of digits,
      * precision, etc.
-     * String ypes might have parameters for the maxium length stored.
+     * String types might have parameters for the maximum length stored.
      * `ENUM` and `SET` have parameters for possible values.
      *
      * For more information, check the MySQL manual.
@@ -89,7 +88,7 @@ class DataTypeFragment extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return DataTypeFragment[]
+     * @return DataTypeFragment
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
@@ -111,7 +110,7 @@ class DataTypeFragment extends Fragment
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
-             * @var Token
+             * @var Token $token
              */
             $token = $list->tokens[$list->idx];
 

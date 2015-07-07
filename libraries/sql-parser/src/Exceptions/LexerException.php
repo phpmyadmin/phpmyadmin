@@ -8,8 +8,6 @@
  */
 namespace SqlParser\Exceptions;
 
-use SqlParser\Token;
-
 /**
  * Exception thrown by the lexer.
  *

@@ -33,7 +33,7 @@ class WhereKeyword extends Fragment
     public static $DELIMITERS = array('&&', 'AND', 'OR', 'XOR', '||');
 
     /**
-     * Hashmap containing reserved keywords that are also operators.
+     * Hash map containing reserved keywords that are also operators.
      *
      * @var array
      */
@@ -87,7 +87,7 @@ class WhereKeyword extends Fragment
 
         /**
          * Counts brackets.
-         * @var int
+         * @var int $brackets
          */
         $brackets = 0;
 
@@ -104,7 +104,7 @@ class WhereKeyword extends Fragment
 
             /**
              * Token parsed at this moment.
-             * @var Token
+             * @var Token $token
              */
             $token = $list->tokens[$list->idx];
 

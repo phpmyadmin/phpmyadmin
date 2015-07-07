@@ -84,7 +84,7 @@ abstract class Context
      */
     public static $OPERATORS = array(
 
-        // Some operators (*, =) may have ambigous flags, because they depend on
+        // Some operators (*, =) may have ambiguous flags, because they depend on
         // the context they are being used in.
         // For example: 1. SELECT * FROM table; # SQL specific (wildcard)
         //                 SELECT 2 * 3;        # arithmetic
@@ -385,7 +385,7 @@ abstract class Context
     // Delimiter.
 
     /**
-     * Checks if the given character can be a separator for two lexems.
+     * Checks if the given character can be a separator for two lexeme.
      *
      * @param string $str String to be checked.
      *
@@ -404,6 +404,8 @@ abstract class Context
      * @param string $context Name of the context or full class name that
      *                        defines the context.
      *
+     * @throws \Exception If the specified context doesn't exist.
+     *
      * @return void
      */
     public static function load($context = '')
@@ -416,7 +418,7 @@ abstract class Context
             $context = self::$contextPrefix . $context;
         }
         if (!class_exists($context)) {
-            throw new \Exception('Specified context ("' . $context . '") doesn\'t exist.');
+            throw new \Exception('Specified context ("' . $context . '") does not exist.');
         }
         self::$loadedContext = $context;
         self::$KEYWORDS = $context::$KEYWORDS;
@@ -463,5 +465,5 @@ abstract class Context
     }
 }
 
-// Initializng the default context.
+// Initialing the default context.
 Context::load();

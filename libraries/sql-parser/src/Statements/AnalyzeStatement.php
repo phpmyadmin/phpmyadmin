@@ -9,6 +9,7 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
+use SqlParser\Fragments\FieldFragment;
 
 /**
  * `ANALYZE` statement.
