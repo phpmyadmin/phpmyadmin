@@ -2054,12 +2054,24 @@ function PMA_getArrayForDocumentLinks()
         'ssl-cipher',
         'ssl-options',
         'option_general');
+    $variable_doc_links['ssl_crl'] = array(
+        'ssl_crl',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['ssl_crlpath'] = array(
+        'ssl_crlpath',
+        'server-system-variables',
+        'sysvar');
     $variable_doc_links['ssl_key'] = array(
         'ssl-key',
         'ssl-options',
         'option_general');
     $variable_doc_links['storage_engine'] = array(
         'storage_engine',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['stored_program_cache'] = array(
+        'stored_program_cache',
         'server-system-variables',
         'sysvar');
     $variable_doc_links['sync_binlog'] = array(
@@ -2096,6 +2108,10 @@ function PMA_getArrayForDocumentLinks()
         'sysvar');
     $variable_doc_links['table_open_cache'] = array(
         'table_open_cache',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['table_open_cache_instances'] = array(
+        'table_open_cache_instances',
         'server-system-variables',
         'sysvar');
     $variable_doc_links['table_type'] = array(
@@ -2155,6 +2171,10 @@ function PMA_getArrayForDocumentLinks()
         'byte');
     $variable_doc_links['tx_isolation'] = array(
         'tx_isolation',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['tx_read_only'] = array(
+        'tx_read_only',
         'server-system-variables',
         'sysvar');
     $variable_doc_links['unique_checks'] = array(
