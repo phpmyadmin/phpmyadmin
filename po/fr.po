@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-06-23 13:29+0200\n"
+"PO-Revision-Date: 2015-07-07 21:01+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -276,7 +276,6 @@ msgid "Data"
 msgstr "Données"
 
 #: db_export.php:54
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "Tout sélectionner"
@@ -6157,16 +6156,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Personnaliser l'apparence du panneau de navigation."
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Panneau de navigation"
+msgstr "Arborescence de navigation"
 
 #: libraries/config/messages.inc.php:249
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Personnaliser le panneau de navigation"
+msgstr "Personnaliser l'arborescence de navigation."
 
 #: libraries/config/messages.inc.php:250 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
@@ -6771,26 +6768,21 @@ msgid "Enable navigation tree expansion"
 msgstr "Permettre l'expansion de l'arborescence dans la navigation"
 
 #: libraries/config/messages.inc.php:487
-#, fuzzy
 #| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Afficher/cacher la liste des tables"
+msgstr "Afficher les tables dans l'arborescence"
 
 #: libraries/config/messages.inc.php:489
-#, fuzzy
 #| msgid ""
 #| "Whether to offer the possibility of tree expansion in the navigation "
 #| "panel."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr ""
-"S'il faut offrir la possibilité d'expansion de l'arborescence dans le "
-"panneau de navigation."
+msgstr "Si vous souhaitez afficher les tables dans l'arborescence de navigation"
 
 #: libraries/config/messages.inc.php:490
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Montrer les versions"
+msgstr "Montrer les vues dans l'arborescence"
 
 #: libraries/config/messages.inc.php:492
 #, fuzzy
