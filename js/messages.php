@@ -125,6 +125,12 @@ $js_messages['strPasswordNotSame'] = __('The passwords aren\'t the same!');
 $js_messages['strRemovingSelectedUsers'] = __('Removing Selected Users');
 $js_messages['strClose'] = __('Close');
 
+/* For export.js */
+$js_messages['strTemplateCreated'] = __('Template was created.');
+$js_messages['strTemplateLoaded'] = __('Template was loaded.');
+$js_messages['strTemplateUpdated'] = __('Template was updated.');
+$js_messages['strTemplateDeleted'] = __('Template was deleted.');
+
 /* l10n: Other, small valued, queries */
 $js_messages['strOther'] = __('Other');
 /* l10n: Thousands separator */

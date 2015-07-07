@@ -180,16 +180,6 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $unlim_num_rows_str
         );
 
-        //validate 1: PMA_getHtmlForExportOptionHeader
-        $this->assertContains(
-            '<div class="exportoptions" id="header">',
-            $html
-        );
-        $this->assertContains(
-            __('Exporting databases from the current server'),
-            $html
-        );
-
         //validate 2: PMA_getHtmlForExportOptionsMethod
         $this->assertContains(
             $cfg['Export']['method'],

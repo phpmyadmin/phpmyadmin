@@ -652,6 +652,11 @@ $strConfigServers_savedsearches_desc = __(
     'Leave blank for no QBE saved searches support, suggested: '
     . '[kbd]pma__savedsearches[/kbd].'
 );
+$strConfigServers_savedsearches_name = __('Export templates table');
+$strConfigServers_savedsearches_desc = __(
+    'Leave blank for no export template support, suggested: '
+    . '[kbd]pma__exporttemplates[/kbd].'
+);
 $strConfigServers_central_columns_name = __('Central columns table');
 $strConfigServers_central_columns_desc = __(
     'Leave blank for no central columns support, suggested: '

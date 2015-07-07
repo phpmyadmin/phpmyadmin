@@ -287,3 +287,21 @@ CREATE TABLE IF NOT EXISTS `pma__designer_settings` (
 )
   COMMENT='Settings related to Designer'
   COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__exporttemplates`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__exporttemplates` (
+  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(64) NOT NULL,
+  `export_type` varchar(10) NOT NULL,
+  `template_name` varchar(64) NOT NULL,
+  `template_data` text NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`)
+)
+  COMMENT='Saved export templates'
+  COLLATE utf8_bin;

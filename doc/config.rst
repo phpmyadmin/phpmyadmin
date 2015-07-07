@@ -812,6 +812,20 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['savedsearches']` (e.g.
       ``pma__savedsearches``)
 
+.. _exporttemplates:
+.. config:option:: $cfg['Servers'][$i]['exporttemplates']
+
+    :type: string
+    :default: ``''``
+
+    Since release 4.5.0 you can save and load export templates.
+
+    To allow the usage of this functionality:
+
+    * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
+    * put the table name in :config:option:`$cfg['Servers'][$i]['exporttemplates']` (e.g.
+      ``pma__exporttemplates``)
+
 .. _tracking:
 .. config:option:: $cfg['Servers'][$i]['tracking']
 

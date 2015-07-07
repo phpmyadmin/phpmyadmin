@@ -325,6 +325,17 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'designer_settingswork',
             $messages
         );
+        $retval .= PMA_getDiagMessageForParameter(
+            'exporttemplates',
+            isset($cfgRelation['exporttemplates']),
+            $messages,
+            'exporttemplates'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Saving export templates'),
+            'exporttemplateswork',
+            $messages
+        );
         $retval .= '</table>' . "\n";
 
         if (! $cfgRelation['allworks']) {
@@ -452,6 +463,7 @@ function PMA_checkRelationsParam()
     $cfgRelation['savedsearcheswork'] = false;
     $cfgRelation['central_columnswork'] = false;
     $cfgRelation['designer_settingswork'] = false;
+    $cfgRelation['exporttemplateswork'] = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
 
@@ -527,6 +539,8 @@ function PMA_checkRelationsParam()
             $cfgRelation['central_columns']    = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['designer_settings']) {
             $cfgRelation['designer_settings'] = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['exporttemplates']) {
+            $cfgRelation['exporttemplates']    = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -597,6 +611,10 @@ function PMA_checkRelationsParam()
         $cfgRelation['designer_settingswork']    = true;
     }
 
+    if (isset($cfgRelation['exporttemplates'])) {
+        $cfgRelation['exporttemplateswork']      = true;
+    }
+
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
         && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
         && $cfgRelation['mimework'] && $cfgRelation['historywork']
@@ -606,6 +624,7 @@ function PMA_checkRelationsParam()
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
         && $cfgRelation['savedsearcheswork'] && $cfgRelation['favoritework']
         && $cfgRelation['designer_settingswork']
+        && $cfgRelation['exporttemplateswork']
     ) {
         $cfgRelation['allworks'] = true;
     }
@@ -1821,7 +1840,8 @@ function PMA_fixPMATables($db, $create = true)
         'pma__navigationhiding' => 'navigationhiding',
         'pma__savedsearches' => 'savedsearches',
         'pma__central_columns' => 'central_columns',
-        'pma__designer_settings' => 'designer_settings'
+        'pma__designer_settings' => 'designer_settings',
+        'pma__exporttemplates' => 'exporttemplates',
     );
 
     $existingTables = $GLOBALS['dbi']->getTables($db, $GLOBALS['controllink']);

@@ -39,7 +39,14 @@ if (empty($export_list)) {
     exit;
 }
 
-$html = '<form method="post" action="export.php" '
+$html  = PMA_getHtmlForExportOptionHeader($export_type, $db, $table);
+
+$cfgRelation = PMA_getRelationsParam();
+if ($cfgRelation['exporttemplateswork']) {
+    $html .= PMA_getHtmlForExportTemplateLoading($export_type);
+}
+
+$html .= '<form method="post" action="export.php" '
     . ' name="dump" class="disableAjax">';
 
 //output Hidden Inputs
