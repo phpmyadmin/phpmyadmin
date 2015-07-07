@@ -1545,12 +1545,40 @@ function PMA_getArrayForDocumentLinks()
         'performance_schema',
         'performance-schema-system-variables',
         'sysvar');
+    $variable_doc_links['performance_schema_accounts_size'] = array(
+        'performance_schema_accounts_size',
+        'performance-schema-system-variables',
+        'sysvar');
+    $variable_doc_links['performance_schema_digests_size'] = array(
+        'performance_schema_digests_size',
+        'performance-schema-system-variables',
+        'sysvar');
+    $variable_doc_links['performance_schema_events_stages_history_long_size'] = array(
+        'performance_schema_events_stages_history_long_size',
+        'performance-schema-system-variables',
+        'sysvar');
+    $variable_doc_links['performance_schema_events_stages_history_size'] = array(
+        'performance_schema_events_stages_history_size',
+        'performance-schema-system-variables',
+        'sysvar');
+    $variable_doc_links['performance_schema_events_statements_history_long_size'] = array(
+        'performance_schema_events_statements_history_long_size',
+        'performance-schema-system-variables',
+        'sysvar');
+    $variable_doc_links['performance_schema_events_statements_history_size'] = array(
+        'performance_schema_events_statements_history_size',
+        'performance-schema-system-variables',
+        'sysvar');
     $variable_doc_links['performance_schema_events_waits_history_long_size'] = array(
         'performance_schema_events_waits_history_long_size',
         'performance-schema-system-variables',
         'sysvar');
     $variable_doc_links['performance_schema_events_waits_history_size'] = array(
         'performance_schema_events_waits_history_size',
+        'performance-schema-system-variables',
+        'sysvar');
+    $variable_doc_links['performance_schema_hosts_size'] = array(
+        'performance_schema_hosts_size',
         'performance-schema-system-variables',
         'sysvar');
     $variable_doc_links['performance_schema_max_cond_classes'] = array(
@@ -1589,6 +1617,22 @@ function PMA_getArrayForDocumentLinks()
         'performance_schema_max_rwlock_instances',
         'performance-schema-system-variables',
         'sysvar');
+    $variable_doc_links['performance_schema_max_socket_classes'] = array(
+        'performance_schema_max_socket_classes',
+        'performance-schema-system-variables',
+        'sysvar');
+    $variable_doc_links['performance_schema_max_socket_instances'] = array(
+        'performance_schema_max_socket_instances',
+        'performance-schema-system-variables',
+        'sysvar');
+    $variable_doc_links['performance_schema_max_stage_classes'] = array(
+        'performance_schema_max_stage_classes',
+        'performance-schema-system-variables',
+        'sysvar');
+    $variable_doc_links['performance_schema_max_statement_classes'] = array(
+        'performance_schema_max_statement_classes',
+        'performance-schema-system-variables',
+        'sysvar');
     $variable_doc_links['performance_schema_max_table_handles'] = array(
         'performance_schema_max_table_handles',
         'performance-schema-system-variables',
@@ -1603,6 +1647,22 @@ function PMA_getArrayForDocumentLinks()
         'sysvar');
     $variable_doc_links['performance_schema_max_thread_instances'] = array(
         'performance_schema_max_thread_instances',
+        'performance-schema-system-variables',
+        'sysvar');
+    $variable_doc_links['performance_schema_session_connect_attrs_size'] = array(
+        'performance_schema_session_connect_attrs_size',
+        'performance-schema-system-variables',
+        'sysvar');
+    $variable_doc_links['performance_schema_setup_actors_size'] = array(
+        'performance_schema_setup_actors_size',
+        'performance-schema-system-variables',
+        'sysvar');
+    $variable_doc_links['performance_schema_setup_objects_size'] = array(
+        'performance_schema_setup_objects_size',
+        'performance-schema-system-variables',
+        'sysvar');
+    $variable_doc_links['performance_schema_users_size'] = array(
+        'performance_schema_users_size',
         'performance-schema-system-variables',
         'sysvar');
     $variable_doc_links['pid_file'] = array(
