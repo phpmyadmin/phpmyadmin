@@ -1517,6 +1517,26 @@ function PMA_getArrayForDocumentLinks()
         'optimizer_switch',
         'server-system-variables',
         'sysvar');
+    $variable_doc_links['optimizer_trace'] = array(
+        'optimizer_trace',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['optimizer_trace_features'] = array(
+        'optimizer_trace_features',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['optimizer_trace_limit'] = array(
+        'optimizer_trace_limit',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['optimizer_trace_max_mem_size'] = array(
+        'optimizer_trace_max_mem_size',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['optimizer_trace_offset'] = array(
+        'optimizer_trace_offset',
+        'server-system-variables',
+        'sysvar');
     $variable_doc_links['partition'] = array(
         'partition',
         'server-options',
