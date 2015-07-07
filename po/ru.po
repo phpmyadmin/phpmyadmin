@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-05-31 02:17+0200\n"
-"Last-Translator: Хомутов Иван Сергеевич <khomutov.ivan@mail.ru>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ru/>\n"
+"PO-Revision-Date: 2015-07-07 14:21+0200\n"
+"Last-Translator: Олег Карпов <salvadoporjc@gmail.com>\n"
+"Language-Team: Russian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -2606,13 +2606,13 @@ msgstr "Вы действительно хотите удалить эту за�
 
 #: js/messages.php:592
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "В процессе получения информации по отладке SQL произошла ошибка."
 
 #: js/messages.php:593
 #, fuzzy, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Выполнено запросов"
+msgstr "%s запрос(ов) выполнено %s раз(а) за %s секунд(у/ы)."
 
 #: js/messages.php:594
 #, php-format
@@ -2927,10 +2927,9 @@ msgid "Please enter a valid date"
 msgstr "Введите правильное имя страницы"
 
 #: js/messages.php:772
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Введите правильное имя страницы"
+msgstr "Введите правильную дату ( ISO )"
 
 #: js/messages.php:773
 #, fuzzy
@@ -2951,56 +2950,48 @@ msgid "Please enter only digits"
 msgstr "Пожалуйста, введите правильную длину!"
 
 #: js/messages.php:776
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Введите правильное имя страницы"
+msgstr "Введите то же значение еще раз"
 
 #: js/messages.php:777
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter no more than {0} characters"
-msgstr "Пожалуйста, введите правильное значение captcha!"
+msgstr "Пожалуйста, введите не более {0} символ(ов/а)"
 
 #: js/messages.php:778
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter at least {0} characters"
-msgstr "Пожалуйста, введите правильное значение captcha!"
+msgstr "Пожалуйста, введите не минее {0} символ(ов/а)"
 
 #: js/messages.php:779
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Пожалуйста, введите значение длиной между {0} и {1} символами(ом)"
 
 #: js/messages.php:780
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Введите правильное имя страницы"
+msgstr "Пожалуйста, введите значение между {0} и {1} символами(ом)"
 
 #: js/messages.php:781
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Пожалуйста, введите правильную длину!"
+msgstr "Пожалуйста, введите значение меньшее или равное {0}"
 
 #: js/messages.php:782
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Введите правильное имя страницы"
+msgstr "Пожалуйста, введите значение, большее или равное {0}"
 
 #: js/messages.php:784
-#, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Введите правильное имя страницы"
+msgstr "Введите правильную дату или время"
 
 #: js/messages.php:785
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Пожалуйста, введите правильное числовое значение!"
+msgstr "Пожалуйста, введите правильное значение HEX"
 
 #: js/messages.php:786 libraries/Message.class.php:199
 #: libraries/Util.class.php:627 libraries/core.lib.php:245
@@ -3234,60 +3225,52 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Нажмите Ctrl+Enter для выполнения запроса"
 
 #: libraries/Console.class.php:259
-#, fuzzy
 #| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
-msgstr "Нажмите Ctrl+Enter для выполнения запроса"
+msgstr "Нажмите Enter для выполнения запроса"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "По возрастанию"
+msgstr "по возрастанию"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "По убыванию"
+msgstr "по убыванию"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "Порядок сортировки"
+msgstr "Порядок сортировки:"
 
 #: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
 msgid "Count"
 msgstr "Количество"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "Выполнять каждые"
+msgstr "Порядок выполнения"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
-msgstr ""
+msgstr "Занято времени"
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "Порядок сортировки"
+msgstr "Сортировки по:"
 
 #: libraries/Console.class.php:301
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "SQL запросы"
+msgstr "Группировать запросы"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "SQL запросы"
+msgstr "Разгруппировать запросы"
 
 #: libraries/Console.class.php:315
 #, fuzzy
@@ -3397,10 +3380,9 @@ msgid "Sort:"
 msgstr "Отсортировать:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "Отсортировать:"
+msgstr "Порядок сортировки:"
 
 #: libraries/DBQbe.class.php:679
 msgid "Show:"
@@ -5180,10 +5162,9 @@ msgid "display column"
 msgstr "отобразить колонку"
 
 #: libraries/config.values.php:102
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Добро пожаловать в %s"
+msgstr "Добро пожаловать"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5206,10 +5187,9 @@ msgid "Never send error reports"
 msgstr "Никогда не отправлять отчёты об ошибках"
 
 #: libraries/config.values.php:132
-#, fuzzy
 #| msgid "Set default"
 msgid "Server default"
-msgstr "Установить изначальное значение"
+msgstr "Сервер по умолчанию"
 
 #: libraries/config.values.php:133
 #, fuzzy
@@ -5779,10 +5759,9 @@ msgid "Default table tab"
 msgstr "Вкладка по умолчанию для таблицы"
 
 #: libraries/config/messages.inc.php:95
-#, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Заключить названия таблиц и полей в косые кавычки"
+msgstr "Автоматическое заполнение имени таблицы и имен колонок в SQL-запросах."
 
 #: libraries/config/messages.inc.php:96
 #, fuzzy
@@ -6191,16 +6170,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Настроить вид панели навигации."
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Панель навигации"
+msgstr "Дерево навигации"
 
 #: libraries/config/messages.inc.php:249
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Модифицировать панель навигации"
+msgstr "Модифицировать дерево навигации."
 
 #: libraries/config/messages.inc.php:250 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
