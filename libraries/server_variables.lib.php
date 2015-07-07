@@ -1429,6 +1429,10 @@ function PMA_getArrayForDocumentLinks()
         'min-examined-row-limit',
         'server-options',
         'option_mysqld');
+    $variable_doc_links['multi_range_count'] = array(
+        'multi_range_count',
+        'server-system-variables',
+        'sysvar');
     $variable_doc_links['myisam_data_pointer_size'] = array(
         'myisam_data_pointer_size',
         'server-system-variables',
