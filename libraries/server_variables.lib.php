@@ -1248,10 +1248,22 @@ function PMA_getArrayForDocumentLinks()
         'log-bin',
         'replication-options-binary-log',
         'option_mysqld');
+    $variable_doc_links['log_bin_basename'] = array(
+        'log_bin_basename',
+        'replication-options-binary-log',
+        'sysvar');
+    $variable_doc_links['log_bin_index'] = array(
+        'log_bin_index',
+        'replication-options-binary-log',
+        'sysvar');
     $variable_doc_links['log_bin_trust_function_creators'] = array(
         'log-bin-trust-function-creators',
         'replication-options-binary-log',
         'option_mysqld');
+    $variable_doc_links['log_bin_use_v1_row_events'] = array(
+        'log_bin_use_v1_row_events',
+        'replication-options-binary-log',
+        'sysvar');
     $variable_doc_links['log_error'] = array(
         'log-error',
         'server-options',
@@ -1268,6 +1280,18 @@ function PMA_getArrayForDocumentLinks()
         'log-slave-updates',
         'replication-options-slave',
         'option_mysqld');
+    $variable_doc_links['log_slow_admin_statements'] = array(
+        'log_slow_admin_statements',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['log_slow_slave_statements'] = array(
+        'log_slow_slave_statements',
+        'replication-options-slave',
+        'sysvar');
+    $variable_doc_links['log_throttle_queries_not_using_indexes'] = array(
+        'log_throttle_queries_not_using_indexes',
+        'server-system-variables',
+        'sysvar');
     $variable_doc_links['log_slow_queries'] = array(
         'log-slow-queries',
         'server-options',
@@ -1291,6 +1315,14 @@ function PMA_getArrayForDocumentLinks()
     $variable_doc_links['lower_case_table_names'] = array(
         'lower_case_table_names',
         'server-system-variables',
+        'sysvar');
+    $variable_doc_links['master_info_repository'] = array(
+        'master_info_repository',
+        'replication-options-slave',
+        'sysvar');
+    $variable_doc_links['master_verify_checksum'] = array(
+        'master_verify_checksum',
+        'replication-options-binary-log',
         'sysvar');
     $variable_doc_links['master-bind'] = array(
         '',
@@ -1379,6 +1411,14 @@ function PMA_getArrayForDocumentLinks()
         'sysvar');
     $variable_doc_links['max_write_lock_count'] = array(
         'max_write_lock_count',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['metadata_locks_cache_size'] = array(
+        'metadata_locks_cache_size',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['metadata_locks_hash_instances'] = array(
+        'metadata_locks_hash_instances',
         'server-system-variables',
         'sysvar');
     $variable_doc_links['memlock'] = array(
