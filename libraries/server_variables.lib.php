@@ -1761,6 +1761,14 @@ function PMA_getArrayForDocumentLinks()
         'server-system-variables',
         'sysvar',
         'byte');
+    $variable_doc_links['relay_log'] = array(
+        'relay_log',
+        'replication-options-slave',
+        'sysvar');
+    $variable_doc_links['relay_log_basename'] = array(
+        'relay_log_basename',
+        'replication-options-slave',
+        'sysvar');
     $variable_doc_links['relay-log-index'] = array(
         'relay-log-index',
         'replication-options-slave',
@@ -1771,6 +1779,10 @@ function PMA_getArrayForDocumentLinks()
         'sysvar');
     $variable_doc_links['relay_log_info_file'] = array(
         'relay_log_info_file',
+        'replication-options-slave',
+        'sysvar');
+    $variable_doc_links['relay_log_info_repository'] = array(
+        'relay_log_info_repository',
         'replication-options-slave',
         'sysvar');
     $variable_doc_links['relay_log_purge'] = array(
@@ -1801,6 +1813,10 @@ function PMA_getArrayForDocumentLinks()
         'report-user',
         'replication-options-slave',
         'option_mysqld');
+    $variable_doc_links['rpl_stop_slave_timeout'] = array(
+        'rpl_stop_slave_timeout',
+        'replication-options-slave',
+        'sysvar');
     $variable_doc_links['rpl_recovery_rank'] = array(
         'rpl_recovery_rank',
         'replication-options-slave',
@@ -1845,6 +1861,14 @@ function PMA_getArrayForDocumentLinks()
         'server-id',
         'replication-options',
         'option_mysqld');
+    $variable_doc_links['server_id_bits'] = array(
+        'server_id_bits',
+        'mysql-cluster-system-variables',
+        'sysvar');
+    $variable_doc_links['server_uuid'] = array(
+        'server_uuid',
+        'replication-options',
+        'sysvar');
     $variable_doc_links['shared_memory'] = array(
         'shared_memory',
         'server-system-variables',
@@ -1869,6 +1893,18 @@ function PMA_getArrayForDocumentLinks()
         'skip-show-database',
         'server-options',
         'option_mysqld');
+    $variable_doc_links['slave_allow_batching'] = array(
+        'slave_allow_batching',
+        'mysql-cluster-system-variables',
+        'sysvar');
+    $variable_doc_links['slave_checkpoint_group'] = array(
+        'slave_checkpoint_group',
+        'replication-options-slave',
+        'sysvar');
+    $variable_doc_links['slave_checkpoint_period'] = array(
+        'slave_checkpoint_period',
+        'replication-options-slave',
+        'sysvar');
     $variable_doc_links['slave_compressed_protocol'] = array(
         'slave_compressed_protocol',
         'replication-options-slave',
@@ -1881,14 +1917,34 @@ function PMA_getArrayForDocumentLinks()
         'slave-load-tmpdir',
         'replication-options-slave',
         'option_mysqld');
+    $variable_doc_links['slave_max_allowed_packet'] = array(
+        'slave_max_allowed_packet',
+        'replication-options-slave',
+        'sysvar');
     $variable_doc_links['slave_net_timeout'] = array(
         'slave-net-timeout',
         'replication-options-slave',
         'option_mysqld');
+    $variable_doc_links['slave_parallel_workers'] = array(
+        'slave_parallel_workers',
+        'replication-options-slave',
+        'sysvar');
+    $variable_doc_links['slave_pending_jobs_size_max'] = array(
+        'slave_pending_jobs_size_max',
+        'replication-options-slave',
+        'sysvar');
+    $variable_doc_links['slave_rows_search_algorithms'] = array(
+        'slave_rows_search_algorithms',
+        'replication-options-slave',
+        'sysvar');
     $variable_doc_links['slave_skip_errors'] = array(
         'slave-skip-errors',
         'replication-options-slave',
         'option_mysqld');
+    $variable_doc_links['slave_sql_verify_checksum'] = array(
+        'slave_sql_verify_checksum',
+        'replication-options-slave',
+        'sysvar');
     $variable_doc_links['slave_transaction_retries'] = array(
         'slave_transaction_retries',
         'replication-options-slave',
