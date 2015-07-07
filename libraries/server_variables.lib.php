@@ -1242,7 +1242,7 @@ function PMA_getArrayForDocumentLinks()
         'option_mysqld');
     $variable_doc_links['log_bin'] = array(
         'log_bin',
-        'server-system-variables',
+        'replication-options-binary-log',
         'sysvar');
     $variable_doc_links['log-bin'] = array(
         'log-bin',
