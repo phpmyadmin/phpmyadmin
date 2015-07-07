@@ -135,6 +135,27 @@ class ParamDefFragment extends Fragment
 
         --$list->idx;
         return $ret;
+    }
 
+    /**
+     * @param ParamDefFragment[] $fragment The fragment to be built.
+     *
+     * @return string
+     */
+    public static function build($fragment)
+    {
+        $ret = array();
+        foreach ($fragment as $f) {
+            $tmp = '';
+            if (!empty($f->inOut)) {
+                $tmp .= $f->inOut . ' ';
+            }
+
+            $ret[] = trim(
+                $tmp . Context::escape($f->name) . ' ' .
+                DataTypeFragment::build($f->type)
+            );
+        }
+        return '(' . implode(', ', $ret) . ')';
     }
 }

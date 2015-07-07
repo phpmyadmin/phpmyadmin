@@ -45,11 +45,30 @@ class UpdateStatement extends Statement
     );
 
     /**
+     * The clauses of this statement, in order.
+     *
+     * @see Statement::$CLAUSES
+     *
+     * @var array
+     */
+    public static $CLAUSES = array(
+        'UPDATE'                        => array('UPDATE',      2),
+        // Used for options.
+        '_OPTIONS'                      => array('_OPTIONS',    1),
+        // Used for updated tables.
+        '_UPDATE'                       => array('UPDATE',      1),
+        'SET'                           => array('SET',         3),
+        'WHERE'                         => array('WHERE',       3),
+        'ORDER BY'                      => array('ORDER BY',    3),
+        'LIMIT'                         => array('LIMIT',       3),
+    );
+
+    /**
      * Tables used as sources for this statement.
      *
      * @var FieldFragment[]
      */
-    public $from;
+    public $tables;
 
     /**
      * The updated values.

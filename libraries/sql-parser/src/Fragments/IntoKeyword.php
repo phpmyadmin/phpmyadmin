@@ -33,11 +33,11 @@ class IntoKeyword extends Fragment
     public $type;
 
     /**
-     * The name of the table or file.
+     * The destination, which can be a table or a file.
      *
-     * @var string
+     * @var string|FieldFragment
      */
-    public $name;
+    public $dest;
 
     /**
      * The name of the columns.
@@ -102,7 +102,15 @@ class IntoKeyword extends Fragment
             }
 
             if ($state === 0) {
-                $ret->name = $token->value;
+                $ret->dest = FieldFragment::parse(
+                    $parser,
+                    $list,
+                    array(
+                        'noAlias' => true,
+                        'noBrackets' => true,
+                        'skipColumn' => true,
+                    )
+                );
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
@@ -111,7 +119,7 @@ class IntoKeyword extends Fragment
                 }
                 break;
             } elseif ($state === 2) {
-                $ret->name = $token->value;
+                $ret->dest = $token->value;
                 ++$list->idx;
                 break;
             }

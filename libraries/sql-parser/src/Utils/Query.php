@@ -12,6 +12,7 @@ use SqlParser\Lexer;
 use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Token;
+use SqlParser\Fragments\FieldFragment;
 use SqlParser\Statements\AlterStatement;
 use SqlParser\Statements\AnalyzeStatement;
 use SqlParser\Statements\CallStatement;
@@ -23,10 +24,12 @@ use SqlParser\Statements\DropStatement;
 use SqlParser\Statements\ExplainStatement;
 use SqlParser\Statements\InsertStatement;
 use SqlParser\Statements\OptimizeStatement;
+use SqlParser\Statements\RenameStatement;
 use SqlParser\Statements\RepairStatement;
 use SqlParser\Statements\ReplaceStatement;
 use SqlParser\Statements\SelectStatement;
 use SqlParser\Statements\ShowStatement;
+use SqlParser\Statements\TruncateStatement;
 use SqlParser\Statements\UpdateStatement;
 
 /**
@@ -433,6 +436,54 @@ class Query
             }
         }
 
+        return $ret;
+    }
+
+    /**
+     * Gets a list of all tables used in this statement.
+     *
+     * @param Statement $statement Statement to be scanned.
+     *
+     * @return array
+     */
+    public static function getTables($statement)
+    {
+        $fields = array();
+
+        if (($statement instanceof InsertStatement)
+            || ($statement instanceof ReplaceStatement)
+        ) {
+            $fields = array($statement->into->dest);
+        } elseif ($statement instanceof UpdateStatement) {
+            $fields = $statement->tables;
+        } elseif (($statement instanceof SelectStatement)
+            || ($statement instanceof DeleteStatement)
+        ) {
+            $fields = $statement->from;
+        } elseif (($statement instanceof AlterStatement)
+            || ($statement instanceof TruncateStatement)
+        ) {
+            $fields = array($statement->table);
+        } elseif ($statement instanceof DropStatement) {
+            if (!$statement->options->has('TABLE')) {
+                // No tables are dropped.
+                return array();
+            }
+            $fields = $statement->fields;
+        } elseif ($statement instanceof RenameStatement) {
+            foreach ($statement->renames as $rename) {
+                $fields[] = $rename->old;
+            }
+        }
+
+        $ret = array();
+        foreach ($fields as $field) {
+            if (!empty($field->table)) {
+                $field->expr = null; // Force rebuild.
+                $field->alias = null; // Aliases are not required.
+                $ret[] = FieldFragment::build($field);
+            }
+        }
         return $ret;
     }
 

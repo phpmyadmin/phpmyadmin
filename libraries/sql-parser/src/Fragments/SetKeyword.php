@@ -90,24 +90,29 @@ class SetKeyword extends Fragment
 
             if ($token->type === Token::TYPE_OPERATOR) {
                 if ($token->value === ',') {
+                    $expr->column = trim($expr->column);
+                    $expr->value = trim($expr->value);
                     $ret[] = $expr;
                     $expr = new SetKeyword();
                     $state = 0;
                     continue;
                 } elseif ($token->value === '=') {
                     $state = 1;
+                    continue;
                 }
             }
 
             if ($state === 0) {
-                $expr->column .= $token->value;
+                $expr->column .= $token->token;
             } else { // } else if ($state === 1) {
-                $expr->value = $token->value;
+                $expr->value .= $token->token;
             }
         }
 
         // Last iteration was not saved.
         if (!empty($expr->column)) {
+            $expr->column = trim($expr->column);
+            $expr->value = trim($expr->value);
             $ret[] = $expr;
         }
 

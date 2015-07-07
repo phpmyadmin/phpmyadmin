@@ -36,11 +36,4 @@ class ChecksumStatement extends MaintenanceStatement
         'QUICK'                         => 2,
         'EXTENDED'                      => 3,
     );
-
-    /**
-     * Checked tables.
-     *
-     * @var FieldFragment[]
-     */
-    public $tables;
 }

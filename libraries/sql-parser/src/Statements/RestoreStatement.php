@@ -35,11 +35,4 @@ class RestoreStatement extends MaintenanceStatement
 
         'FROM'                          => array(2, 'var'),
     );
-
-    /**
-     * Restored tables.
-     *
-     * @var FieldFragment[]
-     */
-    public $tables;
 }

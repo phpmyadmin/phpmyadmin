@@ -26,16 +26,16 @@ class RenameKeyword extends Fragment
 {
 
     /**
-     * The old name.
+     * The old table name.
      *
-     * @var string
+     * @var FieldFragment
      */
     public $old;
 
     /**
-     * The new name.
+     * The new table name.
      *
-     * @var string
+     * @var FieldFragment
      */
     public $new;
 
@@ -110,10 +110,26 @@ class RenameKeyword extends Fragment
             }
 
             if ($state == 0) {
-                $expr->old = $token->value;
+                $expr->old = FieldFragment::parse(
+                    $parser,
+                    $list,
+                    array(
+                        'noAlias' => true,
+                        'noBrackets' => true,
+                        'skipColumn' => true,
+                    )
+                );
                 $state = 1;
             } elseif ($state == 2) {
-                $expr->new = $token->value;
+                $expr->new = FieldFragment::parse(
+                    $parser,
+                    $list,
+                    array(
+                        'noBrackets' => true,
+                        'skipColumn' => true,
+                        'noAlias' => true,
+                    )
+                );
                 $state = 3;
             }
 

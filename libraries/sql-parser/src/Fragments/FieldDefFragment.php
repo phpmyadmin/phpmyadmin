@@ -221,7 +221,6 @@ class FieldDefFragment extends Fragment
 
         --$list->idx;
         return $ret;
-
     }
 
     /**

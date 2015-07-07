@@ -101,15 +101,28 @@ class CreateStatement extends Statement
      * @var array
      */
     public static $FUNC_OPTIONS = array(
-        'COMMENT'                      => array(1, 'var'),
-        'LANGUAGE SQL'                 => 2,
-        'DETERMINISTIC'                => 3,
-        'NOT DETERMINISTIC'            => 3,
-        'CONSTAINS SQL'                => 4,
-        'NO SQL'                       => 4,
-        'READS SQL DATA'               => 4,
-        'MODIFIES SQL DATA'            => 4,
-        'SQL SEQURITY DEFINER'         => array(5, 'var'),
+        'COMMENT'                       => array(1, 'var'),
+        'LANGUAGE SQL'                  => 2,
+        'DETERMINISTIC'                 => 3,
+        'NOT DETERMINISTIC'             => 3,
+        'CONSTAINS SQL'                 => 4,
+        'NO SQL'                        => 4,
+        'READS SQL DATA'                => 4,
+        'MODIFIES SQL DATA'             => 4,
+        'SQL SEQURITY DEFINER'          => array(5, 'var'),
+    );
+
+    /**
+     * All trigger options.
+     *
+     * @var array
+     */
+    public static $TRIGGER_OPTIONS = array(
+        'BEFORE'                        => 1,
+        'AFTER'                         => 1,
+        'INSERT'                        => 2,
+        'UPDATE'                        => 2,
+        'DELETE'                        => 2,
     );
 
     /**
@@ -130,6 +143,7 @@ class CreateStatement extends Statement
      *
      * @see static::$TABLE_OPTIONS
      * @see static::$FUNC_OPTIONS
+     * @see static::$TRIGGER_OPTIONS
      */
     public $entityOptions;
 
@@ -142,6 +156,15 @@ class CreateStatement extends Statement
      * @var FieldDefFragment[]|ArrayFragment
      */
     public $fields;
+
+    /**
+     * If `CREATE TRIGGER` the name of the table.
+     *
+     * Used by `CREATE TRIGGER`.
+     *
+     * @var FieldFragment
+     */
+    public $table;
 
     /**
      * The return data type of this routine.
@@ -167,7 +190,7 @@ class CreateStatement extends Statement
      *
      * Used by `CREATE FUNCTION`, `CREATE PROCEDURE` and `CREATE VIEW`.
      *
-     * @var Token[]
+     * @var Token[]|string
      */
     public $body = array();
 
@@ -176,20 +199,43 @@ class CreateStatement extends Statement
      */
     public function build()
     {
-        $tmp = '';
         if ($this->options->has('TABLE')) {
-            $tmp = FieldDefFragment::build($this->fields);
+            return 'CREATE '
+                . OptionsFragment::build($this->options) . ' '
+                . FieldFragment::build($this->name) . ' '
+                . FieldDefFragment::build($this->fields) . ' '
+                . OptionsFragment::build($this->entityOptions);
         } elseif ($this->options->has('VIEW')) {
+            $tmp = '';
             if (!empty($this->fields)) {
-                $tmp .= ArrayFragment::build($this->fields) . ' ';
+                $tmp = ArrayFragment::build($this->fields);
             }
-            $tmp .= 'AS ' . TokensList::build($this->body);
+            return 'CREATE '
+                . OptionsFragment::build($this->options) . ' '
+                . FieldFragment::build($this->name) . ' '
+                . $tmp . ' AS ' . TokensList::build($this->body) . ' '
+                . OptionsFragment::build($this->entityOptions);
+        } elseif ($this->options->has('TRIGGER')) {
+            return 'CREATE '
+                . OptionsFragment::build($this->options) . ' '
+                . FieldFragment::build($this->name) . ' '
+                . OptionsFragment::build($this->entityOptions) . ' '
+                . 'ON ' . FieldFragment::build($this->table) . ' '
+                . 'FOR EACH ROW ' . TokensList::build($this->body);
+        } elseif (($this->options->has('PROCEDURE'))
+            || ($this->options->has('FUNCTION'))
+        ) {
+            $tmp = '';
+            if ($this->options->has('FUNCTION')) {
+                $tmp = 'RETURNS ' . DataTypeFragment::build($this->return);
+            }
+            return 'CREATE '
+                . OptionsFragment::build($this->options) . ' '
+                . FieldFragment::build($this->name) . ' '
+                . ParamDefFragment::build($this->parameters) . ' '
+                . $tmp . ' ' . TokensList::build($this->body);
         }
-        return 'CREATE '
-            . OptionsFragment::build($this->options) . ' '
-            . FieldFragment::build($this->name) . ' '
-            . $tmp . ' '
-            . OptionsFragment::build($this->entityOptions);
+        return '';
     }
 
     /**
@@ -221,6 +267,7 @@ class CreateStatement extends Statement
         if ($this->options->has('TABLE')) {
             $this->fields = FieldDefFragment::parse($parser, $list);
             ++$list->idx;
+
             $this->entityOptions = OptionsFragment::parse(
                 $parser,
                 $list,
@@ -246,13 +293,14 @@ class CreateStatement extends Statement
                 }
             }
             ++$list->idx;
+
             $this->entityOptions = OptionsFragment::parse(
                 $parser,
                 $list,
                 static::$FUNC_OPTIONS
             );
             ++$list->idx;
-            $this->body = array();
+
             for (; $list->idx < $list->count; ++$list->idx) {
                 $token = $list->tokens[$list->idx];
                 $this->body[] = $token;
@@ -263,7 +311,7 @@ class CreateStatement extends Statement
                 }
             }
         } else if ($this->options->has('VIEW')) {
-            $token = $list->getNext();
+            $token = $list->getNext(); // Skipping whitespaces and comments.
 
             // Parsing columns list.
             if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
@@ -280,6 +328,42 @@ class CreateStatement extends Statement
                     break;
                 }
                 $this->body[] = $token;
+            }
+        } else if ($this->options->has('TRIGGER')) {
+            // Parsing the time and the event.
+            $this->entityOptions = OptionsFragment::parse(
+                $parser,
+                $list,
+                static::$TRIGGER_OPTIONS
+            );
+            ++$list->idx;
+
+            $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'ON');
+            ++$list->idx; // Skipping `ON`.
+
+            // Parsing the name of the table.
+            $this->fields = FieldFragment::parse(
+                $parser,
+                $list,
+                array(
+                    'skipColumn' => true,
+                    'noAlias' => true,
+                    'noBrackets' => true,
+                )
+            );
+            ++$list->idx;
+
+            $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'FOR EACH ROW');
+            ++$list->idx; // Skipping `FOR EACH ROW`.
+
+            for (; $list->idx < $list->count; ++$list->idx) {
+                $token = $list->tokens[$list->idx];
+                $this->body[] = $token;
+                if (($token->type === Token::TYPE_KEYWORD)
+                    && ($token->value === 'END')
+                ) {
+                    break;
+                }
             }
         }
     }

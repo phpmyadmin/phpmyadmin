@@ -160,7 +160,7 @@ class AlterFragment extends Fragment
                 );
                 if ($ret->field === null) {
                     // No field was read. We go back one token so the next
-                    // iteration will parse the same on, but in state 2.
+                    // iteration will parse the same token, but in state 2.
                     --$list->idx;
                 }
                 $state = 2;

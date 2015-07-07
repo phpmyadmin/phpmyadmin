@@ -40,11 +40,4 @@ class CheckStatement extends MaintenanceStatement
         'EXTENDED'                      => 6,
         'CHANGED'                       => 7,
     );
-
-    /**
-     * Checked tables.
-     *
-     * @var FieldFragment[]
-     */
-    public $tables;
 }

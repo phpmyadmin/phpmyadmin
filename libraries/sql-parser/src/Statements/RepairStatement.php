@@ -42,11 +42,4 @@ class RepairStatement extends MaintenanceStatement
         'EXTENDED'                      => 5,
         'USE_FRM'                       => 6,
     );
-
-    /**
-     * Repaired tables.
-     *
-     * @var FieldFragment[]
-     */
-    public $tables;
 }

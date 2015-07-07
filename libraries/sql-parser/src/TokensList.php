@@ -57,15 +57,20 @@ class TokensList implements \ArrayAccess
     /**
      * Builds an array of tokens by merging their raw value.
      *
-     * @param array $tokens
+     * @param string|array|TokensList $tokens
      *
      * @return string
      */
     public static function build($list)
     {
+        if (is_string($list)) {
+            return $list;
+        }
+
         if ($list instanceof TokensList) {
             $list = $list->tokens;
         }
+
         $ret = '';
         if (is_array($list)) {
             foreach ($list as $tok) {

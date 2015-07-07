@@ -78,7 +78,7 @@ class SelectStatement extends Statement
         'SELECT'                        => array('SELECT',      2),
         // Used for options.
         '_OPTIONS'                      => array('_OPTIONS',    1),
-        // Used for select expressions.
+        // Used for selected expressions.
         '_SELECT'                       => array('SELECT',      1),
         'FROM'                          => array('FROM',        3),
         'PARTITION'                     => array('PARTITION',   3),

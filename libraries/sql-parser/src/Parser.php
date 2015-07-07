@@ -54,7 +54,7 @@ class Parser
         'CREATE'        => 'SqlParser\\Statements\\CreateStatement',
         'DROP'          => 'SqlParser\\Statements\\DropStatement',
         'RENAME'        => 'SqlParser\\Statements\\RenameStatement',
-        'TRUNCATE'      => '',
+        'TRUNCATE'      => 'SqlParser\\Statements\\TruncateStatement',
 
         // Data Manipulation Statements.
         // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-data-manipulation.html
@@ -185,9 +185,14 @@ class Parser
             'class'     => 'SqlParser\\Fragments\\FieldListFragment',
             'field'     => 'expr',
         ),
+        'TRUNCATE'      => array(
+            'class'     => 'SqlParser\\Fragments\\FieldFragment',
+            'field'     => 'table',
+            'options'   => array('skipColumn' => true),
+        ),
         'UPDATE'        => array(
             'class'     => 'SqlParser\\Fragments\\FieldListFragment',
-            'field'     => 'from',
+            'field'     => 'tables',
             'options'   => array('skipColumn' => true),
         ),
         'VALUE'         => array(
