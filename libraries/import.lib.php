@@ -1403,9 +1403,9 @@ function PMA_handleSimulateDMLRequest()
             'statement' => $statement,
         );
 
-        if ((!(($statement instanceof SqlParser\Statements\UpdateStatement) ||
-            ($statement instanceof SqlParser\Statements\DeleteStatement))) ||
-            (!empty($statement->join))
+        if ((!(($statement instanceof SqlParser\Statements\UpdateStatement)
+            || ($statement instanceof SqlParser\Statements\DeleteStatement)))
+            || (!empty($statement->join))
         ) {
             $error = $error_msg;
             break;
@@ -1493,6 +1493,7 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
         $where = '1';
     }
 
+    $columns = array();
     $diff = array();
     foreach ($analyzed_sql_results['statement']->set as $set) {
         $columns[] = $set->column;

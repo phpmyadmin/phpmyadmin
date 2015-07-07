@@ -2554,7 +2554,7 @@ class ExportSql extends ExportPlugin
 
         /**
          * The statement that represents the query.
-         * @var SqlParser\CreateStatement
+         * @var SqlParser\Statements\CreateStatement
          */
         $statement = $parser->statements[0];
 
@@ -2578,10 +2578,6 @@ class ExportSql extends ExportPlugin
             if (!empty($statement->name->database)) {
                 $old_database = $statement->name->database;
             }
-            file_put_contents('/tmp/tests.txt', "------------\n", FILE_APPEND);
-            file_put_contents('/tmp/tests.txt', $sql_query . "\n", FILE_APPEND);
-            file_put_contents('/tmp/tests.txt', print_r($statement, true), FILE_APPEND);
-            file_put_contents('/tmp/tests.txt', "------------\n", FILE_APPEND);
             $old_table = $statement->name->table;
 
             // Finding the aliased database name.

@@ -26,14 +26,17 @@ class Misc
     /**
      * Gets a list of all aliases and their original names.
      *
-     * @param SelectStatement $statement The statement to be processed.
-     * @param string          $database  The name of the database.
+     * @param Statement $statement The statement to be processed.
+     * @param string    $database  The name of the database.
      *
      * @return array
      */
     public static function getAliases($statement, $database)
     {
-        if ((empty($statement->from)) || (empty($statement->expr))) {
+        if (!($statement instanceof SelectStatement)
+            || (empty($statement->from))
+            || (empty($statement->expr))
+        ) {
             return array();
         }
 

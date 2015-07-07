@@ -43,6 +43,7 @@ class TokensList implements \ArrayAccess
      * Constructor.
      *
      * @param array $tokens The initial array of tokens.
+     * @param int   $count  The count of tokens in the initial array.
      */
     public function __construct(array $tokens = array(), $count = -1)
     {
@@ -57,7 +58,7 @@ class TokensList implements \ArrayAccess
     /**
      * Builds an array of tokens by merging their raw value.
      *
-     * @param string|array|TokensList $tokens
+     * @param string|Token[]|TokensList $list
      *
      * @return string
      */

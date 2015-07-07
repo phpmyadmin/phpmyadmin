@@ -12,6 +12,7 @@ use SqlParser\Lexer;
 use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Token;
+use SqlParser\TokensList;
 use SqlParser\Fragments\FieldFragment;
 use SqlParser\Statements\AlterStatement;
 use SqlParser\Statements\AnalyzeStatement;
@@ -672,12 +673,6 @@ class Query
          */
         $ret = '';
 
-        /**
-         * The clauses of this type of statement and their index.
-         * @var array
-         */
-        $clauses = array_keys($statement::$CLAUSES);
-
         // If there is only one clause, `replaceClause()` should be used.
         if ($count === 1) {
             return static::replaceClause(
@@ -697,7 +692,7 @@ class Query
 
             // Adding everything between this and next replacement.
             if ($i + 1 !== $count) {
-                $ret .= static::getClause($statement, $list, $ops[$i][0], $ops[$i + 1][0], -1) . ' ';
+                $ret .= static::getClause($statement, $list, $ops[$i][0], $ops[$i + 1][0]) . ' ';
             }
         }
 

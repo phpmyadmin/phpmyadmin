@@ -157,7 +157,7 @@ class DataTypeFragment extends Fragment
     {
         $tmp = '';
         if (!empty($fragment->parameters)) {
-            $tmp = '('. implode(', ', $fragment->parameters) . ')';
+            $tmp = '(' . implode(', ', $fragment->parameters) . ')';
         }
         return trim(
             $fragment->name . ' ' . $tmp . ' '

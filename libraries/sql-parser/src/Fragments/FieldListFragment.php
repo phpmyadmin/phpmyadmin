@@ -80,6 +80,11 @@ class FieldListFragment extends Fragment
         return $ret;
     }
 
+    /**
+     * @param FieldFragment[] $fragment The fragment to be built.
+     *
+     * @return string
+     */
     public static function build($fragment)
     {
         $ret = array();

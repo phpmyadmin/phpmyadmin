@@ -107,7 +107,9 @@ $export_page_title = __('View dump (schema) of table');
 if (! empty($sql_query)) {
     $parser = new SqlParser\Parser($sql_query);
 
-    if (!empty($parser->statements[0])) {
+    if ((!empty($parser->statements[0]))
+        && ($parser->statements[0] instanceof SqlParser\Statements\SelectStatement)
+    ) {
 
         // Finding aliases and removing them, but we keep track of them to be
         // able to replace them in select expression too.

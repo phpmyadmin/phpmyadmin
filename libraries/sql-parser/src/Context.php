@@ -426,6 +426,8 @@ abstract class Context
      * Sets the SQL mode.
      *
      * @param string $mode The list of modes. If empty, the mode is reset.
+     *
+     * @return void
      */
     public static function setMode($mode = '')
     {
