@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-06-27 10:58+0200\n"
+"PO-Revision-Date: 2015-07-07 18:34+0200\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -275,7 +275,6 @@ msgid "Data"
 msgstr "Dati"
 
 #: db_export.php:54
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "Seleziona tutto"
@@ -6153,16 +6152,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Personalizza l'aspetto del pannello di navigazione."
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Pannello di navigazione"
+msgstr "Albero di navigazione"
 
 #: libraries/config/messages.inc.php:249
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Personalizza pannello di navigazione"
+msgstr "Personalizza l'albero di navigazione."
 
 #: libraries/config/messages.inc.php:250 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
@@ -6777,64 +6774,54 @@ msgid "Enable navigation tree expansion"
 msgstr "Abilita l'espansione dell'albero di navigazione"
 
 #: libraries/config/messages.inc.php:487
-#, fuzzy
 #| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Mostra/Nascondi la lista delle tabelle"
+msgstr "Mostra le tabelle nell'albero"
 
 #: libraries/config/messages.inc.php:489
-#, fuzzy
 #| msgid ""
 #| "Whether to offer the possibility of tree expansion in the navigation "
 #| "panel."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr ""
-"Se consentire la possibilità di espandere l'albero nel pannello di "
-"navigazione."
+msgstr "Se mostrare le tabelle sotto il database nell'albero di navigazione"
 
 #: libraries/config/messages.inc.php:490
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Mostra le versioni"
+msgstr "Mostra views nell'albero"
 
 #: libraries/config/messages.inc.php:492
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Mostra la navigazione tra i database in forma di albero"
+msgstr "Se mostrare le view sotto il database nell'albero di navigazione"
 
 #: libraries/config/messages.inc.php:493
-#, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Mostra i campi delle funzioni"
+msgstr "Mostra le funzioni nell'albero"
 
 #: libraries/config/messages.inc.php:495
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Se mostrare le funzioni sotto il database nell'albero di navigazione"
 
 #: libraries/config/messages.inc.php:496
-#, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Visualizza processi in esecuzione"
+msgstr "Mostra le procedure nell'albero"
 
 #: libraries/config/messages.inc.php:498
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Se mostrare le procedure sotto il database nell'albero di navigazione"
 
 #: libraries/config/messages.inc.php:499
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Mostra le versioni"
+msgstr "Mostra gli eventi nell'albero"
 
 #: libraries/config/messages.inc.php:501
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Mostra la navigazione tra i database in forma di albero"
+msgstr "Se mostrare gli eventi sotto il database nell'albero di navigazione"
 
 #: libraries/config/messages.inc.php:503
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -8282,16 +8269,14 @@ msgid "View output as text"
 msgstr "Salva l'output come testo"
 
 #: libraries/display_export.lib.php:660
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "Esporta le viste come tabelle"
+msgstr "Esporta i database come file separati"
 
 #: libraries/display_export.lib.php:662
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "Esporta le intestazioni della tabella"
+msgstr "Esporta le tabelle come file separati"
 
 #: libraries/display_export.lib.php:692 libraries/display_export.lib.php:814
 msgid "Rename exported databases/tables/columns"
@@ -9304,10 +9289,9 @@ msgstr ""
 "Si è verificato un errore durante il caricamento del display di navigazione"
 
 #: libraries/navigation/Navigation.class.php:192
-#, fuzzy
 #| msgid "Group name:"
 msgid "Groups:"
-msgstr "Nome del gruppo:"
+msgstr "Gruppi:"
 
 #: libraries/navigation/Navigation.class.php:193
 msgid "Events:"
@@ -11194,10 +11178,9 @@ msgid "Managing Central list of columns"
 msgstr "Gestione lista Centrale dei campi"
 
 #: libraries/relation.lib.php:324
-#, fuzzy
 #| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Ricorda l'ordine delle tabelle"
+msgstr "Ricordando le impostazioni del Designer"
 
 #: libraries/relation.lib.php:332
 msgid "Quick steps to setup advanced features:"
