@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-05-28 09:43+0200\n"
+"PO-Revision-Date: 2015-07-08 05:25+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"Language-Team: Chinese (Taiwan) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -273,10 +273,9 @@ msgid "Data"
 msgstr "資料"
 
 #: db_export.php:54
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
-msgstr "全部選擇"
+msgstr "選擇全部"
 
 #: db_operations.php:51 tbl_create.php:24
 msgid "The database name is empty!"
@@ -1033,12 +1032,11 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Are you sure you wish to change the collation and convert the data?"
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
-msgstr "您確定您要更改編碼與排序(Collation)並轉換資料？"
+msgstr "您確定您要更改所有欄位編碼與排序(Collation)並轉換資料？"
 
 #: js/messages.php:88
 msgid "Save & Close"
@@ -1769,10 +1767,9 @@ msgid "Changing Charset"
 msgstr "更改字元編碼"
 
 #: js/messages.php:314 libraries/Util.class.php:3237
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "關閉外鍵(Foreign Key)檢查"
+msgstr "開啟外鍵(Foreign Key)檢查"
 
 #: js/messages.php:317
 msgid "Failed to get real row count."
@@ -2528,31 +2525,29 @@ msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
 #: js/messages.php:593
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enter executes queries in console"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "於控制台輸入要執行的查詢"
+msgstr "%s 筆查詢已執行 %s 次，使用 %s 秒。"
 
 #: js/messages.php:594
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "已傳入 %s 個參數。"
 
 #: js/messages.php:595
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show arguments"
-msgstr "顯示資料表備註"
+msgstr "顯示參數"
 
 #: js/messages.php:596
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "隱藏搜尋結果"
+msgstr "隱藏參數"
 
 #: js/messages.php:597 libraries/Console.class.php:318
 msgid "Time taken:"
-msgstr ""
+msgstr "使用時間："
 
 #: js/messages.php:598
 msgid ""
@@ -3117,72 +3112,62 @@ msgid "Press Enter to execute query"
 msgstr "請按 Enter 執行查詢"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
 msgstr "遞增"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
 msgstr "遞減"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "排序"
+msgstr "排序："
 
 #: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
 msgid "Count"
 msgstr "次數"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "執行每個"
+msgstr "執行順序"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
-msgstr ""
+msgstr "使用時間"
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "排序"
+msgstr "排序依："
 
 #: libraries/Console.class.php:301
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "SQL 查詢"
+msgstr "群組查詢"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "SQL 查詢"
+msgstr "解除群組查詢"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "顯示建立"
+msgstr "顯示追蹤"
 
 #: libraries/Console.class.php:316
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "隱藏控制面板"
+msgstr "隱藏追蹤"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "次數"
+msgstr "次數："
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1263
 #: libraries/config/messages.inc.php:796
@@ -3267,14 +3252,13 @@ msgstr "欄位："
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "別名："
 
 #: libraries/DBQbe.class.php:566
 msgid "Sort:"
 msgstr "排序："
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
 msgstr "排序："
@@ -4989,10 +4973,9 @@ msgid "display column"
 msgstr "顯示欄位"
 
 #: libraries/config.values.php:102
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "歡迎使用 %s"
+msgstr "歡迎光臨"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5015,22 +4998,19 @@ msgid "Never send error reports"
 msgstr "永不傳送錯誤報告"
 
 #: libraries/config.values.php:132
-#, fuzzy
 #| msgid "Set default"
 msgid "Server default"
-msgstr "設定預設值"
+msgstr "伺服器預設值"
 
 #: libraries/config.values.php:133
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
-msgstr "已啓用"
+msgstr "開啟"
 
 #: libraries/config.values.php:134
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "已關閉"
+msgstr "關閉"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -5847,10 +5827,9 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/config/messages.inc.php:219
-#, fuzzy
 #| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "外鍵(Foreign Key)檢查:"
+msgstr "外鍵(Foreign Key)檢查"
 
 #: libraries/config/messages.inc.php:220
 msgid "Browse mode"
@@ -5943,16 +5922,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "自訂導覽面版外觀。"
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "導覽面板"
+msgstr "導覽樹"
 
 #: libraries/config/messages.inc.php:249
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "自訂導覽面板"
+msgstr "自訂導覽樹。"
 
 #: libraries/config/messages.inc.php:250 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
@@ -6521,62 +6498,54 @@ msgid "Enable navigation tree expansion"
 msgstr "開啟導覽樹展開功能"
 
 #: libraries/config/messages.inc.php:487
-#, fuzzy
 #| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "顯示/隱藏資料表清單"
+msgstr "在導覽樹顯示資料表"
 
 #: libraries/config/messages.inc.php:489
-#, fuzzy
 #| msgid ""
 #| "Whether to offer the possibility of tree expansion in the navigation "
 #| "panel."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "是否於導覽面版中提供樹狀選單的展開功能。"
+msgstr "在導覽樹是否於於資料庫底下顯示資料表"
 
 #: libraries/config/messages.inc.php:490
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "查看版本"
+msgstr "在導覽樹顯示檢視表"
 
 #: libraries/config/messages.inc.php:492
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "以樹狀顯示資料庫導覽面版"
+msgstr "在導覽樹是否於於資料庫底下顯示檢視表(View)"
 
 #: libraries/config/messages.inc.php:493
-#, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "顯示函數欄位"
+msgstr "在導覽樹顯示函數"
 
 #: libraries/config/messages.inc.php:495
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
 #: libraries/config/messages.inc.php:496
-#, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "顯示程序"
+msgstr "在導覽樹顯示預儲程序"
 
 #: libraries/config/messages.inc.php:498
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
 #: libraries/config/messages.inc.php:499
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "查看版本"
+msgstr "在導覽樹顯示事件"
 
 #: libraries/config/messages.inc.php:501
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "以樹狀顯示資料庫導覽面版"
+msgstr "在導覽樹是否於於資料庫底下顯示事件(Event)"
 
 #: libraries/config/messages.inc.php:503
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -7906,16 +7875,14 @@ msgid "View output as text"
 msgstr "直接顯示在文字區塊"
 
 #: libraries/display_export.lib.php:660
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "將視表匯出成資料表"
+msgstr "匯出資料庫為各別檔案"
 
 #: libraries/display_export.lib.php:662
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "匯出資料表的標題"
+msgstr "匯出資料表為各別檔案"
 
 #: libraries/display_export.lib.php:692 libraries/display_export.lib.php:814
 msgid "Rename exported databases/tables/columns"
@@ -8879,10 +8846,9 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "讀取導覽頁面時發生錯誤"
 
 #: libraries/navigation/Navigation.class.php:192
-#, fuzzy
 #| msgid "Group name:"
 msgid "Groups:"
-msgstr "群組名稱："
+msgstr "群組："
 
 #: libraries/navigation/Navigation.class.php:193
 msgid "Events:"
@@ -9408,10 +9374,9 @@ msgid "Storage Engine"
 msgstr "儲存引擎"
 
 #: libraries/operations.lib.php:995
-#, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
-msgstr "將所有欄位設定為不可分割"
+msgstr "更改所有欄位編碼與排序"
 
 #: libraries/operations.lib.php:1164
 msgid "Copy table to (database<b>.</b>table)"
@@ -10019,7 +9984,7 @@ msgstr "您的資料庫使用了程序(Procedure)；"
 #: libraries/plugins/export/ExportSql.class.php:1434
 #: libraries/plugins/export/ExportSql.class.php:1991
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "別名匯出可能無法在所有的情況下正常運作。"
 
 #: libraries/plugins/export/ExportSql.class.php:554
 msgid "It appears your database uses functions;"
@@ -10117,7 +10082,7 @@ msgstr "資料表："
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:118
 msgid "Purpose:"
-msgstr ""
+msgstr "用途："
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:500
 msgid "MIME"
@@ -10126,7 +10091,7 @@ msgstr "MIME"
 #: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
-msgstr ""
+msgstr "當匯入重複鍵值時更新資料 (加入 ON DUPLICATE KEY UPDATE)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -10425,7 +10390,7 @@ msgstr "顯示下載此圖片的連結。"
 msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
-msgstr ""
+msgstr "圖片上傳功能，同時會顯示縮圖。選項為縮圖的寬與高，預設為 100 X 100。"
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:83
 msgid "Image preview here"
@@ -10460,12 +10425,12 @@ msgstr ""
 msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
-msgstr ""
+msgstr "使用正規表示法檢驗字串並當字串符合條件時執行新增(INSERT)。 第一個選項為正規表示法。"
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "輸入的字串 %s 檢驗失敗。"
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10487,7 +10452,7 @@ msgstr ""
 msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
-msgstr ""
+msgstr "供 TEXT 欄位使用的檔案上傳功能，將不提供文字區塊做輸入。"
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -10513,11 +10478,11 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "JSON 使用語法明顯標示的 CodeMirror 編輯器。"
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "SQL 使用語法明顯標示的 CodeMirror 編輯器。"
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
@@ -10667,10 +10632,9 @@ msgid "Managing Central list of columns"
 msgstr "管理欄位的中央清單"
 
 #: libraries/relation.lib.php:324
-#, fuzzy
 #| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "記住資料表的排序"
+msgstr "記住 Designer 設定"
 
 #: libraries/relation.lib.php:332
 msgid "Quick steps to setup advanced features:"
@@ -11759,7 +11723,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:818
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "需要有效的 X509 憑証。"
 
 #: libraries/server_privileges.lib.php:867
 msgid "Resource limits"
@@ -13178,28 +13142,24 @@ msgid "Showing as PHP code"
 msgstr "顯示的內容爲 PHP 程式碼"
 
 #: libraries/sql.lib.php:1767
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
-msgstr ""
-"目前選擇的項目不含唯一(Unique)的資料欄位，將無法執行修改、複製、刪除等相關的"
-"功能。"
+msgstr "目前選擇的項目不含唯一(Unique)的資料欄位，將無法執行表格的編輯/核選、編輯、複製、刪除等相關的功能。%s"
 
 #: libraries/sql.lib.php:1778
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
 #| "Edit, Copy and Delete features are not available."
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
-msgstr ""
-"目前選擇的項目不含唯一(Unique)的資料欄位，將無法執行修改、複製、刪除等相關的"
-"功能。"
+msgstr "目前選擇的項目不含唯一(Unique)的資料欄位，表格的編輯/核選、複製、刪除等相關的功能可能產生不如預期的結果。%s"
 
 #: libraries/sql.lib.php:1817
 #, php-format
@@ -13218,7 +13178,7 @@ msgstr "在資料庫 %s 執行 SQL 查詢"
 
 #: libraries/sql_query_form.lib.php:256
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "取得自動儲存的查詢"
 
 #: libraries/sql_query_form.lib.php:267
 msgid "Bind parameters"
