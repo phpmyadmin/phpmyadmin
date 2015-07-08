@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2013-11-25 15:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uighur <http://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4334,8 +4334,8 @@ msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 msgid "Databases"
 msgstr "ساندان"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
+#: libraries/Menu.class.php:567
+msgid "User accounts"
 msgstr ""
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -5158,6 +5158,10 @@ msgstr "ئاخىرقى يېڭلىنىش"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "ئاخىرقى تەكشۈرۈش"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr ""
 
 #: libraries/browse_foreigners.lib.php:136
 #, fuzzy
@@ -12673,12 +12677,14 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4063
 #, fuzzy
 #| msgid "Add %s"
-msgid "Add user"
+msgid "Add user account"
 msgstr "قوشۇلغىنى %s"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
-msgstr ""
+#, fuzzy
+#| msgid "Database comment"
+msgid "Database for user account"
+msgstr "ساندان ئىزاھاتى:"
 
 #: libraries/server_privileges.lib.php:1946
 msgid "Create database with same name and grant all privileges."
@@ -12707,7 +12713,6 @@ msgstr "%s كۆرۈنمە ئۆچۈرۈلدى"
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12782,11 +12787,11 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3036
@@ -12806,8 +12811,10 @@ msgid "Add privileges on the following table:"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
-msgstr ""
+#, fuzzy
+#| msgid "With selected:"
+msgid "Remove selected user accounts"
+msgstr "تاللانغىنى:"
 
 #: libraries/server_privileges.lib.php:3376
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -12864,8 +12871,12 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4084
 #, fuzzy
 #| msgid "Privileges"
-msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "ھۇقۇقى"
+
+#: libraries/server_privileges.lib.php:4085
+msgid "User account"
+msgstr ""
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12874,7 +12885,7 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+msgid "User accounts overview"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4255
@@ -16773,6 +16784,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Add %s"
+#~ msgid "Add user"
+#~ msgstr "قوشۇلغىنى %s"
 
 #, fuzzy
 #~| msgid "Export"

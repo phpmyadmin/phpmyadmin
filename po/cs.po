@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-05-14 15:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4058,9 +4058,11 @@ msgstr "Centrální sloupce"
 msgid "Databases"
 msgstr "Databáze"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
-msgstr "Uživatelé"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "User groups"
+msgid "User accounts"
+msgstr "Skupiny"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4396 libraries/server_common.lib.php:36
@@ -4887,6 +4889,10 @@ msgstr "Poslední změna"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Poslední kontrola"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "Uživatelé"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -12497,11 +12503,15 @@ msgstr "Byla zrušena práva pro %s."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
-msgstr "Přidat uživatele"
+#, fuzzy
+#| msgid "Add user group"
+msgid "Add user account"
+msgstr "Přidat skupinu"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "Databáze pro uživatele"
 
 #: libraries/server_privileges.lib.php:1946
@@ -12529,7 +12539,6 @@ msgstr "Uživatel byl přidán."
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12604,11 +12613,15 @@ msgid ""
 msgstr "… smazat uživatele a poté znovu načíst oprávnění."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "Změnit informace o uživateli / Kopírovat uživatele"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "Vytvořit nového uživatele se stejnými oprávněními a …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -12630,7 +12643,9 @@ msgid "Add privileges on the following table:"
 msgstr "Přidat oprávnění pro tabulku:"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "Odstranit vybrané uživatele"
 
 #: libraries/server_privileges.lib.php:3376
@@ -12685,8 +12700,16 @@ msgid "New"
 msgstr "Nový"
 
 #: libraries/server_privileges.lib.php:4084
-msgid "Edit Privileges:"
+#, fuzzy
+#| msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Upravit oprávnění:"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "User group"
+msgid "User account"
+msgstr "Skupina uživatele"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12695,7 +12718,9 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+#, fuzzy
+#| msgid "Users overview"
+msgid "User accounts overview"
 msgstr "Přehled uživatelů"
 
 #: libraries/server_privileges.lib.php:4255
@@ -16733,6 +16758,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastaveno na 0"
+
+#~ msgid "Add user"
+#~ msgstr "Přidat uživatele"
 
 #~ msgid "Export Method:"
 #~ msgstr "Způsob exportu:"

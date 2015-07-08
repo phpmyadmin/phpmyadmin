@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-06-10 23:07+0200\n"
 "Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4054,9 +4054,11 @@ msgstr "Centerkolonner"
 msgid "Databases"
 msgstr "Databaser"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
-msgstr "Brugere"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "User groups"
+msgid "User accounts"
+msgstr "Brugergrupper"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4396 libraries/server_common.lib.php:36
@@ -4896,6 +4898,10 @@ msgstr "Sidste opdatering"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Seneste tjek"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "Brugere"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -12521,11 +12527,15 @@ msgstr "Du har tilbagekaldt privilegierne for %s."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
-msgstr "Opret bruger"
+#, fuzzy
+#| msgid "Add user group"
+msgid "Add user account"
+msgstr "Tilføj brugergruppe"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "Database for bruger"
 
 #: libraries/server_privileges.lib.php:1946
@@ -12553,7 +12563,6 @@ msgstr "Bruger er blevet tilføjet."
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12632,11 +12641,15 @@ msgstr ""
 "efterfølgende."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "Ret Login-information / Kopier bruger"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "Opret en bruger med samme privilegier og …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -12657,7 +12670,9 @@ msgid "Add privileges on the following table:"
 msgstr "Tilføj privileges på følgende tabel:"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "Fjern valgte brugere"
 
 #: libraries/server_privileges.lib.php:3376
@@ -12713,8 +12728,16 @@ msgid "New"
 msgstr "Ny"
 
 #: libraries/server_privileges.lib.php:4084
-msgid "Edit Privileges:"
+#, fuzzy
+#| msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Ret privilegier:"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "User group"
+msgid "User account"
+msgstr "Brugergruppe"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12725,7 +12748,9 @@ msgstr ""
 "logget ind som."
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+#, fuzzy
+#| msgid "Users overview"
+msgid "User accounts overview"
 msgstr "Oversigt over brugere"
 
 #: libraries/server_privileges.lib.php:4255
@@ -16758,6 +16783,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
+
+#~ msgid "Add user"
+#~ msgstr "Opret bruger"
 
 #~ msgid "Export Method:"
 #~ msgstr "Eksportmetode:"

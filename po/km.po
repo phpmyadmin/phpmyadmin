@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2014-04-19 18:59+0200\n"
 "Last-Translator: Sovichet Tep <sovichet.tep@gmail.com>\n"
 "Language-Team: Central Khmer <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3991,8 +3991,8 @@ msgstr ""
 msgid "Databases"
 msgstr ""
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
+#: libraries/Menu.class.php:567
+msgid "User accounts"
 msgstr ""
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -4764,6 +4764,10 @@ msgstr ""
 #: libraries/Util.class.php:4346 libraries/structure.lib.php:929
 #: libraries/structure.lib.php:1974
 msgid "Last check"
+msgstr ""
+
+#: libraries/Util.class.php:4392
+msgid "Users"
 msgstr ""
 
 #: libraries/browse_foreigners.lib.php:136
@@ -11776,12 +11780,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
+msgid "Add user account"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
-msgstr ""
+#, fuzzy
+#| msgid "Database comment"
+msgid "Database for user account"
+msgstr "មតិយោបល់​មូលដ្ឋាន​ទិន្នន័យ៖"
 
 #: libraries/server_privileges.lib.php:1946
 msgid "Create database with same name and grant all privileges."
@@ -11808,7 +11814,6 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -11883,11 +11888,11 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3036
@@ -11907,8 +11912,10 @@ msgid "Add privileges on the following table:"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
-msgstr ""
+#, fuzzy
+#| msgid "Removing Selected Users"
+msgid "Remove selected user accounts"
+msgstr "ការ​លុប​អ្នក​ប្រើ​ដែល​បាន​ជ្រើស"
 
 #: libraries/server_privileges.lib.php:3376
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -11962,7 +11969,11 @@ msgid "New"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4084
-msgid "Edit Privileges:"
+msgid "Edit privileges:"
+msgstr ""
+
+#: libraries/server_privileges.lib.php:4085
+msgid "User account"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4144
@@ -11972,7 +11983,7 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+msgid "User accounts overview"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4255

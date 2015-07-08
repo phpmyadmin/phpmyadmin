@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-06-28 19:26+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4050,9 +4050,11 @@ msgstr "Columnas central"
 msgid "Databases"
 msgstr "Base de datos"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
-msgstr "Usatores"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "User group"
+msgid "User accounts"
+msgstr "Gruppo de Usator"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4396 libraries/server_common.lib.php:36
@@ -4902,6 +4904,10 @@ msgstr "Ultime actualisation"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Ultime controlo"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "Usatores"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -12369,12 +12375,16 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
-msgstr "Adde usator"
+#, fuzzy
+#| msgid "Add user group"
+msgid "Add user account"
+msgstr "Adde gruppo de usator"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
-msgstr ""
+#, fuzzy
+#| msgid "Database operations"
+msgid "Database for user account"
+msgstr "Operationes de base de datos"
 
 #: libraries/server_privileges.lib.php:1946
 msgid "Create database with same name and grant all privileges."
@@ -12401,7 +12411,6 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12476,11 +12485,11 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3036
@@ -12500,8 +12509,10 @@ msgid "Add privileges on the following table:"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
-msgstr ""
+#, fuzzy
+#| msgid "Removing Selected Users"
+msgid "Remove selected user accounts"
+msgstr "Removente usatores selectionate"
 
 #: libraries/server_privileges.lib.php:3376
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -12555,8 +12566,16 @@ msgid "New"
 msgstr "Nove"
 
 #: libraries/server_privileges.lib.php:4084
-msgid "Edit Privileges:"
-msgstr ""
+#, fuzzy
+#| msgid "Adjust Privileges"
+msgid "Edit privileges:"
+msgstr "Adapta Permissiones"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "User group"
+msgid "User account"
+msgstr "Gruppo de Usator"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12565,7 +12584,7 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+msgid "User accounts overview"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4255
@@ -16118,6 +16137,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Add user"
+#~ msgstr "Adde usator"
 
 #~ msgid "Export Method:"
 #~ msgstr "Methodo de exportation:"

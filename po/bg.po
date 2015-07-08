@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-06-28 13:36+0200\n"
 "Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4035,8 +4035,10 @@ msgstr "Колони в текство поле"
 msgid "Databases"
 msgstr "БД"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "Users"
+msgid "User accounts"
 msgstr "Потребители"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -4855,6 +4857,10 @@ msgstr "Последно обновление"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Последна проверка"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "Потребители"
 
 #: libraries/browse_foreigners.lib.php:136
 #, fuzzy
@@ -12776,11 +12782,15 @@ msgstr "Вие отменихте правата на %s."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
+#, fuzzy
+#| msgid "Add user"
+msgid "Add user account"
 msgstr "Нов потребител"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "БД за потребителя"
 
 #: libraries/server_privileges.lib.php:1946
@@ -12808,7 +12818,6 @@ msgstr "Потребител беше добавен."
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12889,11 +12898,15 @@ msgstr ""
 "правата."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "Промяна информацията за вход / Копиране потребител"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "Създаване нов потребител със същите права и …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -12917,7 +12930,9 @@ msgid "Add privileges on the following table:"
 msgstr "Добавяне на права към следната таблица:"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "Отстраняване избраните потребители"
 
 #: libraries/server_privileges.lib.php:3376
@@ -12976,8 +12991,14 @@ msgstr "Нов"
 #: libraries/server_privileges.lib.php:4084
 #, fuzzy
 #| msgid "Edit Privileges"
-msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Редакция"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "Users"
+msgid "User account"
+msgstr "Потребители"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12986,7 +13007,9 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+#, fuzzy
+#| msgid "Users overview"
+msgid "User accounts overview"
 msgstr "Преглед потребители"
 
 #: libraries/server_privileges.lib.php:4255
@@ -16877,6 +16900,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert e 0"
+
+#~ msgid "Add user"
+#~ msgstr "Нов потребител"
 
 #~ msgid "Export Method:"
 #~ msgstr "Тип на експортирането:"

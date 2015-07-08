@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-07-08 05:25+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
@@ -3914,9 +3914,11 @@ msgstr "中央欄位"
 msgid "Databases"
 msgstr "資料庫"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
-msgstr "使用者"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "User groups"
+msgid "User accounts"
+msgstr "使用者群組"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4396 libraries/server_common.lib.php:36
@@ -4720,6 +4722,10 @@ msgstr "最後更新"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "最後檢查"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "使用者"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -11937,11 +11943,15 @@ msgstr "您已移除 %s 的權限。"
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
-msgstr "新增使用者"
+#, fuzzy
+#| msgid "Add user group"
+msgid "Add user account"
+msgstr "新增使用者群組"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "使用者資料庫"
 
 #: libraries/server_privileges.lib.php:1946
@@ -11969,7 +11979,6 @@ msgstr "已新增使用者。"
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12044,11 +12053,15 @@ msgid ""
 msgstr "… 從使用者資料表中刪除舊使用者，然後重新載入權限。"
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "修改登入資訊/複製使用者"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "建立具有相同權限的新使用者然後 …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -12068,7 +12081,9 @@ msgid "Add privileges on the following table:"
 msgstr "在下列資料表新增權限："
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "刪除選中的使用者"
 
 #: libraries/server_privileges.lib.php:3376
@@ -12123,8 +12138,16 @@ msgid "New"
 msgstr "新增"
 
 #: libraries/server_privileges.lib.php:4084
-msgid "Edit Privileges:"
+#, fuzzy
+#| msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "編輯權限："
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "User group"
+msgid "User account"
+msgstr "使用者群組"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12133,7 +12156,9 @@ msgid ""
 msgstr "注意：您正嘗試編輯您目前登入使用者的權限。"
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+#, fuzzy
+#| msgid "Users overview"
+msgid "User accounts overview"
 msgstr "檢視使用者"
 
 #: libraries/server_privileges.lib.php:4255
@@ -15896,6 +15921,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 目前設定為 0"
+
+#~ msgid "Add user"
+#~ msgstr "新增使用者"
 
 #~ msgid "Export Method:"
 #~ msgstr "匯出方式:"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-03-30 03:03+0200\n"
 "Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4042,8 +4042,10 @@ msgstr "중심 열"
 msgid "Databases"
 msgstr "데이터베이스"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "Users"
+msgid "User accounts"
 msgstr "사용자"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -4868,6 +4870,10 @@ msgstr "마지막 업데이트"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "마지막 검사"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "사용자"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -12341,11 +12347,15 @@ msgstr "%s의 권한을 제거했습니다."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
+#, fuzzy
+#| msgid "Add user"
+msgid "Add user account"
 msgstr "사용자 추가"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "유저 전용 데이터베이스"
 
 #: libraries/server_privileges.lib.php:1946
@@ -12373,7 +12383,6 @@ msgstr "사용자가 추가되었습니다."
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12455,11 +12464,15 @@ msgstr ""
 "... 사용자 테이블로부터 이전 것을 삭제하고, 권한 정보를 새로고침 합니다."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "로그인 정보 변경 / 사용자 복사"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "새로운 사용자를 동일한 권한으로 생성하고 …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -12479,7 +12492,9 @@ msgid "Add privileges on the following table:"
 msgstr "다음 테이블에 대한 권한 추가:"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "선택한 사용자를 삭제"
 
 #: libraries/server_privileges.lib.php:3376
@@ -12534,8 +12549,16 @@ msgid "New"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4084
-msgid "Edit Privileges:"
+#, fuzzy
+#| msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "권한 수정:"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "Users"
+msgid "User account"
+msgstr "사용자"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12544,7 +12567,9 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+#, fuzzy
+#| msgid "Users overview"
+msgid "User accounts overview"
 msgstr "사용자 개요"
 
 #: libraries/server_privileges.lib.php:4255
@@ -16460,6 +16485,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
+
+#~ msgid "Add user"
+#~ msgstr "사용자 추가"
 
 #~ msgid "Export Method:"
 #~ msgstr "내보내기 방식:"

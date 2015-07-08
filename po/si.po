@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2014-11-11 12:16+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4226,8 +4226,10 @@ msgstr "පෙළ පෙදෙසේ පළල"
 msgid "Databases"
 msgstr "දත්තගබඩා"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "Users"
+msgid "User accounts"
 msgstr "භාවිතා කරන්නන්"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -5079,6 +5081,10 @@ msgstr "අවසන් යාවත්කාලීන කිරීම"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "අවසන් පරීක්ෂාව"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "භාවිතා කරන්නන්"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -12788,11 +12794,15 @@ msgstr "ඔබ %s සඳහා වරප්‍රසාද අහෝසි ක�
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
+#, fuzzy
+#| msgid "Add user"
+msgid "Add user account"
 msgstr "භාවිතා කරන්නෙක් එක් කරන්න"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "භාවිතා කරන්නා සඳහා දත්තගබඩාව"
 
 #: libraries/server_privileges.lib.php:1946
@@ -12820,7 +12830,6 @@ msgstr "භාවිතා කරන්නා එක් කරන ලදි."
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12897,11 +12906,15 @@ msgid ""
 msgstr "… භාවිතා කරන්නන්ගේ වගුවෙන් පැරණි එක ඉවත් කර වරප්‍රසාද නැවත අලුත් කරන්න."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "ලොගින් තොරතුරු වෙනස් කරන්න / භාවිතා කරන්නා පිටපත් කරන්න"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "සහ එකම වරප්‍රසාද සහිතව නව භාවිතා කරන්නෙක් එක් කරන්න …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -12923,7 +12936,9 @@ msgid "Add privileges on the following table:"
 msgstr "පහත වගුවට වරප්‍රසාද එක් කරන්න:"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "තෝරාගත් භාවිතා කරන්නන් ඉවත් කරන්න"
 
 #: libraries/server_privileges.lib.php:3376
@@ -12978,8 +12993,16 @@ msgid "New"
 msgstr "නව භාවිතා කරන්නෙක්"
 
 #: libraries/server_privileges.lib.php:4084
-msgid "Edit Privileges:"
+#, fuzzy
+#| msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "වරප්‍රසාද සංස්කරණය කරන්න:"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "Users"
+msgid "User account"
+msgstr "භාවිතා කරන්නන්"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12988,7 +13011,9 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+#, fuzzy
+#| msgid "Users overview"
+msgid "User accounts overview"
 msgstr "භාවිතා කරන්නන් පිළිබඳ දළ විශ්ලේෂණය"
 
 #: libraries/server_privileges.lib.php:4255
@@ -16870,6 +16895,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
+
+#~ msgid "Add user"
+#~ msgstr "භාවිතා කරන්නෙක් එක් කරන්න"
 
 #~ msgid "Export Method:"
 #~ msgstr "අපනයන ක්‍රමය:"

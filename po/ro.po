@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-05-29 12:40+0200\n"
 "Last-Translator: Costel Cocerhan <costa1988sv@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4125,8 +4125,10 @@ msgstr "Coloane centrale"
 msgid "Databases"
 msgstr "Baze de date"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "Users"
+msgid "User accounts"
 msgstr "Utilizatori"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -4955,6 +4957,10 @@ msgstr "Ultima actualizare"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Ultima verficare"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "Utilizatori"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -13258,11 +13264,15 @@ msgstr "Drepturile tale au fost revocate pentru %s."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
+#, fuzzy
+#| msgid "Add user"
+msgid "Add user account"
 msgstr "Adaugă utilizator"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "Bază de date pentru utilizatorul"
 
 #: libraries/server_privileges.lib.php:1946
@@ -13292,7 +13302,6 @@ msgstr "Vizualizarea %s a fost eliminată"
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -13376,11 +13385,15 @@ msgstr ""
 "… șterge cel vechi din tabelul de utilizatori și reîncarcă privilegiile."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "Schimbă informațiile de autentificare/Copiază utilizator"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "Creează un utilizator nou cu aceleași privilegii și…"
 
 #: libraries/server_privileges.lib.php:3036
@@ -13404,7 +13417,9 @@ msgid "Add privileges on the following table:"
 msgstr "Adaugă drepturi la următorul tabel"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "Eliminarea utilizatorilor selectați"
 
 #: libraries/server_privileges.lib.php:3376
@@ -13466,8 +13481,14 @@ msgstr "Nou"
 #: libraries/server_privileges.lib.php:4084
 #, fuzzy
 #| msgid "Edit Privileges"
-msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Editează drepturile de acces"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "Users"
+msgid "User account"
+msgstr "Utilizatori"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -13478,7 +13499,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
 #, fuzzy
 #| msgid "User overview"
-msgid "Users overview"
+msgid "User accounts overview"
 msgstr "Descriere utilizator"
 
 #: libraries/server_privileges.lib.php:4255
@@ -17565,6 +17586,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert este setat cu 0"
+
+#~ msgid "Add user"
+#~ msgstr "Adaugă utilizator"
 
 #, fuzzy
 #~| msgid "Export type"

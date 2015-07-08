@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2014-11-05 10:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek (latin) <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4585,10 +4585,10 @@ msgstr "CHAR maydonidagi ustunlar soni"
 msgid "Databases"
 msgstr "Ma`lumotlar bazalari"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
+#: libraries/Menu.class.php:567
 #, fuzzy
 #| msgid "User"
-msgid "Users"
+msgid "User accounts"
 msgstr "Foydalanuvchi"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -5430,6 +5430,12 @@ msgstr "Oxirgi yangilanish"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Oxirgi tekshiruv"
+
+#: libraries/Util.class.php:4392
+#, fuzzy
+#| msgid "User"
+msgid "Users"
+msgstr "Foydalanuvchi"
 
 #: libraries/browse_foreigners.lib.php:136
 #, fuzzy
@@ -14079,11 +14085,13 @@ msgstr "\"%s\" foydalanuvchining privilegiyalari bekor qilindi."
 #: libraries/server_privileges.lib.php:4063
 #, fuzzy
 #| msgid "Any user"
-msgid "Add user"
+msgid "Add user account"
 msgstr "Har qaysi foydalanuvchi"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "Foydalanuvchi uchun ma`lumotlar bazasi"
 
 #: libraries/server_privileges.lib.php:1946
@@ -14117,7 +14125,6 @@ msgstr "\"%s\" namoyishi o‘chirildi"
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -14200,11 +14207,15 @@ msgstr ""
 "yuklash."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "Foydalanuvchining loginini o‘zgartirish / Foydalanuvchidan nusxa olish"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "Xuddi shunday privilegiyali yangi foydalanuvchi kiritish…"
 
 #: libraries/server_privileges.lib.php:3036
@@ -14230,7 +14241,9 @@ msgid "Add privileges on the following table:"
 msgstr "Quyidagi jadvalga privilegiya qo‘shish"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "Belgilangan foydalanuvchilarni o‘chirish"
 
 #: libraries/server_privileges.lib.php:3376
@@ -14291,8 +14304,14 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4084
 #, fuzzy
 #| msgid "Edit Privileges"
-msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Privilegiyalarni tahrirlash"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "User"
+msgid "User account"
+msgstr "Foydalanuvchi"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -14303,7 +14322,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
 #, fuzzy
 #| msgid "User overview"
-msgid "Users overview"
+msgid "User accounts overview"
 msgstr "Foydalanuvchilar hisobini ko‘rib chiqish"
 
 #: libraries/server_privileges.lib.php:4255
@@ -18578,6 +18597,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "Maksimal ulanishlar soni "
+
+#, fuzzy
+#~| msgid "Any user"
+#~ msgid "Add user"
+#~ msgstr "Har qaysi foydalanuvchi"
 
 #, fuzzy
 #~| msgid "Export type"

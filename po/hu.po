@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-06-28 23:09+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4032,9 +4032,11 @@ msgstr "Központi oszlopok"
 msgid "Databases"
 msgstr "Adatbázisok"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
-msgstr "Felhasználók"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "User groups"
+msgid "User accounts"
+msgstr "Felhasználói csoportok"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4396 libraries/server_common.lib.php:36
@@ -4868,6 +4870,10 @@ msgstr "Utolsó frissítés"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Utolsó ellenőrzés"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "Felhasználók"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -12486,11 +12492,15 @@ msgstr "%s jogainak visszavonása megtörtént."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
-msgstr "Felhasználó hozzáadása"
+#, fuzzy
+#| msgid "Add user group"
+msgid "Add user account"
+msgstr "Felhasználói csoport hozzáadása"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "Adatbázis a felhasználó számára"
 
 #: libraries/server_privileges.lib.php:1946
@@ -12519,7 +12529,6 @@ msgstr "A felhasználó hozzáadása megtörtént."
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12594,11 +12603,15 @@ msgid ""
 msgstr "… a régiek törlése a felhasználói táblákból, majd a jogok újratöltése."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "Bejelentkezési adatok módosítása / Felhasználó másolása"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "Új felhasználó létrehozása ezekkel a jogokkal, és …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -12620,7 +12633,9 @@ msgid "Add privileges on the following table:"
 msgstr "Jogok hozzáadása a következő táblán:"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "A kijelölt felhasználók törlése"
 
 #: libraries/server_privileges.lib.php:3376
@@ -12675,8 +12690,16 @@ msgid "New"
 msgstr "új"
 
 #: libraries/server_privileges.lib.php:4084
-msgid "Edit Privileges:"
+#, fuzzy
+#| msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Jogok szerkesztése:"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "User group"
+msgid "User account"
+msgstr "Felhasználói csoport"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12687,7 +12710,9 @@ msgstr ""
 "amellyel jelenleg be van lépve."
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+#, fuzzy
+#| msgid "Users overview"
+msgid "User accounts overview"
 msgstr "Felhasználók áttekintése"
 
 #: libraries/server_privileges.lib.php:4255
@@ -16717,6 +16742,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "A concurrent_insert 0-ra van állítva"
+
+#~ msgid "Add user"
+#~ msgstr "Felhasználó hozzáadása"
 
 #~ msgid "Export Method:"
 #~ msgstr "Exportálás módszere:"

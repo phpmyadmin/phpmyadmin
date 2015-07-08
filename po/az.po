@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-05-21 01:04+0200\n"
 "Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4016,9 +4016,11 @@ msgstr "Orta sütunlar"
 msgid "Databases"
 msgstr "Verilənlər Bazaları"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
-msgstr "İstifadəçilər"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "User groups"
+msgid "User accounts"
+msgstr "İstifadəçi qrupları"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4396 libraries/server_common.lib.php:36
@@ -4823,6 +4825,10 @@ msgstr "En son yenilenme"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "En son yoxlama"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "İstifadəçilər"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -12085,11 +12091,15 @@ msgstr "%s üçün səlahiyyətləri geri aldınız."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
-msgstr "İstifadəçi əlavə et"
+#, fuzzy
+#| msgid "Add user group"
+msgid "Add user account"
+msgstr "İstifadəçi qrupları əlavə et"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "İstifadəçi üçün Verilənlər Bazası"
 
 #: libraries/server_privileges.lib.php:1946
@@ -12117,7 +12127,6 @@ msgstr "İstifadəçi əlavə olundu."
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12194,11 +12203,15 @@ msgstr ""
 "yenidən yüklə."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "Sistem Giriş Məlumatını Dəyişdir / İstifadəçini Kopyala"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "Eyni səlahiyyətlərə sahib yeni istifadəçi yarat və …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -12218,7 +12231,9 @@ msgid "Add privileges on the following table:"
 msgstr "Aşağıdakı cədvəl üçün səlahiyyətləri müəyyən et:"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "Seçilən istifadəçiləri ləğv et"
 
 #: libraries/server_privileges.lib.php:3376
@@ -12273,8 +12288,16 @@ msgid "New"
 msgstr "Yeni"
 
 #: libraries/server_privileges.lib.php:4084
-msgid "Edit Privileges:"
+#, fuzzy
+#| msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Səlahiyyətləri redaktə et:"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "User group"
+msgid "User account"
+msgstr "İstifadəçi qrupu"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12283,7 +12306,9 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+#, fuzzy
+#| msgid "Users overview"
+msgid "User accounts overview"
 msgstr "İstifadəçilərə ümumi baxış"
 
 #: libraries/server_privileges.lib.php:4255
@@ -16015,6 +16040,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0-a konfiqurasiya edilib"
+
+#~ msgid "Add user"
+#~ msgstr "İstifadəçi əlavə et"
 
 #~ msgid "Export Method:"
 #~ msgstr "Eksport metodu:"

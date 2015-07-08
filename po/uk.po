@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-01-02 17:07+0200\n"
 "Last-Translator: Сергій Педько <nitrotoll@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4100,9 +4100,11 @@ msgstr "Центральні стовпчики"
 msgid "Databases"
 msgstr "Бази даних"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
-msgstr "Користувачі"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "User groups"
+msgid "User accounts"
+msgstr "Групи користувачів"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4396 libraries/server_common.lib.php:36
@@ -4933,6 +4935,10 @@ msgstr "Останнє оновлення"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Остання перевірка"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "Користувачі"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -12606,11 +12612,15 @@ msgstr "Ви відмінили привілеї для %s."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
-msgstr "Додати користувача"
+#, fuzzy
+#| msgid "Add user group"
+msgid "Add user account"
+msgstr "Додати групу користувачів"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "База даних для користувача"
 
 #: libraries/server_privileges.lib.php:1946
@@ -12639,7 +12649,6 @@ msgstr "Користувача було додано."
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12718,11 +12727,15 @@ msgstr ""
 "того."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "Змінити реєстраційні дані / Копіювати користувача"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "Створити нового користувача з такими ж правами та …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -12746,7 +12759,9 @@ msgid "Add privileges on the following table:"
 msgstr "Додати привілеї для цієї таблиці:"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "Видалити обраних користувачів"
 
 #: libraries/server_privileges.lib.php:3376
@@ -12801,8 +12816,16 @@ msgid "New"
 msgstr "Новий"
 
 #: libraries/server_privileges.lib.php:4084
-msgid "Edit Privileges:"
+#, fuzzy
+#| msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Редагувати привілеї:"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "User groups"
+msgid "User account"
+msgstr "Групи користувачів"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12811,7 +12834,9 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+#, fuzzy
+#| msgid "Users overview"
+msgid "User accounts overview"
 msgstr "Перегляд користувачів"
 
 #: libraries/server_privileges.lib.php:4255
@@ -16883,6 +16908,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert встановлено у 0"
+
+#~ msgid "Add user"
+#~ msgstr "Додати користувача"
 
 #~ msgid "Export Method:"
 #~ msgstr "Метод Експорту:"

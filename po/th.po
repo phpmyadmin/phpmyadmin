@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-02-09 16:12+0200\n"
 "Last-Translator: mrnonz <nontawat39@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4282,8 +4282,10 @@ msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
 msgid "Databases"
 msgstr "ฐานข้อมูล"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "Users"
+msgid "User accounts"
 msgstr "ผู้ใช้"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -5122,6 +5124,10 @@ msgstr "ปรับปรุงครั้งสุดท้ายเมื่
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "ตรวจสอบครั้งสุดท้ายเมื่อ"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "ผู้ใช้"
 
 #: libraries/browse_foreigners.lib.php:136
 #, fuzzy
@@ -12792,12 +12798,15 @@ msgstr "คุณได้เพิกถอนสิทธิของ %s"
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
+#, fuzzy
+#| msgid "Add user"
+msgid "Add user account"
 msgstr "เพิ่มผู้ใช้"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
-msgstr ""
+#, fuzzy
+msgid "Database for user account"
+msgstr "สถิติฐานข้อมูล"
 
 #: libraries/server_privileges.lib.php:1946
 msgid "Create database with same name and grant all privileges."
@@ -12826,7 +12835,6 @@ msgstr "โยนวิว %s ทิ้งไปเรียบร้อยแ�
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12907,11 +12915,15 @@ msgid ""
 msgstr "… ลบของเก่าจากตารางผู้ใช้ แล้วเรียกใช้รายการสิทธิ์ใหม่หลังจากนั้น."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "เปลี่ยนข้อมูลล็อกอิน / ทำสำเนาผู้ใช้"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "สร้างผู้ใช้ใหม่ ให้มีสิทธิเหมือนกัน และ …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -12935,7 +12947,9 @@ msgid "Add privileges on the following table:"
 msgstr "เพิ่มสิทธิของตารางต่อไปนี้"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "ถอนผู้ใช้ที่เลือก"
 
 #: libraries/server_privileges.lib.php:3376
@@ -12993,8 +13007,14 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4084
 #, fuzzy
 #| msgid "Edit Privileges"
-msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "แก้ไขสิทธิ"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "Users"
+msgid "User account"
+msgstr "ผู้ใช้"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -13005,7 +13025,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
 #, fuzzy
 #| msgid "User overview"
-msgid "Users overview"
+msgid "User accounts overview"
 msgstr "ข้อมูลทั่วไปของผู้ใช้"
 
 #: libraries/server_privileges.lib.php:4255
@@ -17023,6 +17043,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ถูกตั้งค่าไว้ที่ 0"
+
+#~ msgid "Add user"
+#~ msgstr "เพิ่มผู้ใช้"
 
 #~ msgid "Export Method:"
 #~ msgstr "วิธีการส่งออก:"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2014-03-31 14:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4361,10 +4361,10 @@ msgstr "Gehitu/ezabatu irizpide-zutabea"
 msgid "Databases"
 msgstr "Datu-baseak"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
+#: libraries/Menu.class.php:567
 #, fuzzy
 #| msgid "User"
-msgid "Users"
+msgid "User accounts"
 msgstr "Erabiltzailea"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -5184,6 +5184,12 @@ msgstr "Azken eguneraketa"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Azken egiaztapena"
+
+#: libraries/Util.class.php:4392
+#, fuzzy
+#| msgid "User"
+msgid "Users"
+msgstr "Erabiltzailea"
 
 #: libraries/browse_foreigners.lib.php:136
 #, fuzzy
@@ -12860,12 +12866,16 @@ msgstr "Zuk %s-(r)en pribilegioak ezeztatu dituzu."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
+#, fuzzy
+#| msgid "Add user"
+msgid "Add user account"
 msgstr "Gehitu erabiltzailea"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
-msgstr ""
+#, fuzzy
+#| msgid "Database export options"
+msgid "Database for user account"
+msgstr "Datu-basea esportatzeko aukerak"
 
 #: libraries/server_privileges.lib.php:1946
 msgid "Create database with same name and grant all privileges."
@@ -12893,7 +12903,6 @@ msgstr "%s eremua ezabatu da"
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12976,11 +12985,15 @@ msgstr ""
 "pribilegioak."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "Aldatu saioa hasteko informazioa / Erabiltzailea kopiatu"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "Erabiltzaile berri bat sortu pribilegio berdinekin eta …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -13004,7 +13017,9 @@ msgid "Add privileges on the following table:"
 msgstr "Pribilegioak gehitu taula honetan"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "Hautatutako erabiltzaileak baztertu"
 
 #: libraries/server_privileges.lib.php:3376
@@ -13063,8 +13078,14 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4084
 #, fuzzy
 #| msgid "Edit Privileges"
-msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Editatu Pribilegioak"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "User"
+msgid "User account"
+msgstr "Erabiltzailea"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -13075,7 +13096,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
 #, fuzzy
 #| msgid "User overview"
-msgid "Users overview"
+msgid "User accounts overview"
 msgstr "Erabiltzailearen info orokorra"
 
 #: libraries/server_privileges.lib.php:4255
@@ -17013,6 +17034,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Add user"
+#~ msgstr "Gehitu erabiltzailea"
 
 #, fuzzy
 #~| msgid "Export type"

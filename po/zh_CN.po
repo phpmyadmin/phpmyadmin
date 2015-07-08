@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-04-21 08:43+0200\n"
 "Last-Translator: fundawang <fundawang@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
@@ -4103,8 +4103,10 @@ msgstr "文本框列"
 msgid "Databases"
 msgstr "数据库"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "Users"
+msgid "User accounts"
 msgstr "用户"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -4913,6 +4915,10 @@ msgstr "最后更新"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "最后检查"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "用户"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -12792,11 +12798,15 @@ msgstr "您已撤销 %s 的权限。"
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
+#, fuzzy
+#| msgid "Add user"
+msgid "Add user account"
 msgstr "添加用户"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "用户数据库"
 
 #: libraries/server_privileges.lib.php:1946
@@ -12824,7 +12834,6 @@ msgstr "用户已添加。"
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12903,11 +12912,15 @@ msgid ""
 msgstr "… 从用户表中删除旧用户，然后重新载入权限。"
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "修改登录信息/复制用户"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "创建具有相同权限的新用户然后 …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -12931,7 +12944,9 @@ msgid "Add privileges on the following table:"
 msgstr "在下列数据表添加权限"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "删除选中的用户"
 
 #: libraries/server_privileges.lib.php:3376
@@ -12988,8 +13003,14 @@ msgstr "新建"
 #: libraries/server_privileges.lib.php:4084
 #, fuzzy
 #| msgid "Edit Privileges"
-msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "编辑权限"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "Users"
+msgid "User account"
+msgstr "用户"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12998,7 +13019,9 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+#, fuzzy
+#| msgid "Users overview"
+msgid "User accounts overview"
 msgstr "用户概况"
 
 #: libraries/server_privileges.lib.php:4255
@@ -16931,6 +16954,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 被设为 0"
+
+#~ msgid "Add user"
+#~ msgstr "添加用户"
 
 #~ msgid "Export Method:"
 #~ msgstr "导出方式:"

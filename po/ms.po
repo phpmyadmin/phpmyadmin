@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2014-11-05 10:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4321,10 +4321,10 @@ msgstr "Tambah/Padam Kolum Medan"
 msgid "Databases"
 msgstr "pangkalan data"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
+#: libraries/Menu.class.php:567
 #, fuzzy
 #| msgid "User"
-msgid "Users"
+msgid "User accounts"
 msgstr "Pengguna"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -5138,6 +5138,12 @@ msgstr "Kemaskini terakhir"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Semakan Terakhir"
+
+#: libraries/Util.class.php:4392
+#, fuzzy
+#| msgid "User"
+msgid "Users"
+msgstr "Pengguna"
 
 #: libraries/browse_foreigners.lib.php:136
 #, fuzzy
@@ -12674,12 +12680,13 @@ msgstr "Anda telah menarikbalik privilej Keistimewaan untuk %s."
 #: libraries/server_privileges.lib.php:4063
 #, fuzzy
 #| msgid "Any user"
-msgid "Add user"
+msgid "Add user account"
 msgstr "Sebarang pengguna"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
-msgstr ""
+#, fuzzy
+msgid "Database for user account"
+msgstr "Statistik pangkalan data"
 
 #: libraries/server_privileges.lib.php:1946
 msgid "Create database with same name and grant all privileges."
@@ -12707,7 +12714,6 @@ msgstr "Medan %s telah digugurkan"
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12785,11 +12791,11 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3036
@@ -12809,8 +12815,10 @@ msgid "Add privileges on the following table:"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
-msgstr ""
+#, fuzzy
+#| msgid "With selected:"
+msgid "Remove selected user accounts"
+msgstr "Dengan pilihan:"
 
 #: libraries/server_privileges.lib.php:3376
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -12867,8 +12875,14 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4084
 #, fuzzy
 #| msgid "Edit Privileges"
-msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Ubah Privilej"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "User"
+msgid "User account"
+msgstr "Pengguna"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12877,7 +12891,7 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+msgid "User accounts overview"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4255
@@ -16757,6 +16771,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Any user"
+#~ msgid "Add user"
+#~ msgstr "Sebarang pengguna"
 
 #, fuzzy
 #~| msgid "Export"

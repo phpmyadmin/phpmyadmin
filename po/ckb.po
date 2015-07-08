@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-06-22 11:43+0200\n"
 "Last-Translator: Zrng Abdulla <zhyarabdulla94@gmail.com>\n"
 "Language-Team: Kurdish Sorani <https://hosted.weblate.org/projects/"
@@ -4100,8 +4100,10 @@ msgstr "ستونەکان زیادبکە"
 msgid "Databases"
 msgstr "بنکە زانیاریەکان"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "Users"
+msgid "User accounts"
 msgstr "بەکارهێنەرەکان"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -4909,6 +4911,10 @@ msgstr "دواترین نوێکردنەوە"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "دواترین پشکنین"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "بەکارهێنەرەکان"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -12130,12 +12136,16 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
+#, fuzzy
+#| msgid "Add user"
+msgid "Add user account"
 msgstr "زیادکردنی بەکارهێنەر"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
-msgstr ""
+#, fuzzy
+#| msgid "Database client version"
+msgid "Database for user account"
+msgstr "وەشانی ڕاژەخوازی بنکەی دراوە"
 
 #: libraries/server_privileges.lib.php:1946
 msgid "Create database with same name and grant all privileges."
@@ -12162,7 +12172,6 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12237,11 +12246,11 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3036
@@ -12261,8 +12270,10 @@ msgid "Add privileges on the following table:"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
-msgstr ""
+#, fuzzy
+#| msgid "Removing Selected Users"
+msgid "Remove selected user accounts"
+msgstr "سڕینەوەی بەکارهێنەرە دەست نیشانکراوەکان"
 
 #: libraries/server_privileges.lib.php:3376
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -12318,8 +12329,14 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4084
 #, fuzzy
 #| msgid "Privileges"
-msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "تایبەتمەندێتیەکان"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "Users"
+msgid "User account"
+msgstr "بەکارهێنەرەکان"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12328,7 +12345,7 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+msgid "User accounts overview"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4255
@@ -16034,6 +16051,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "نرخی concurrent_insert ڕێکخراوە بۆ 0"
+
+#~ msgid "Add user"
+#~ msgstr "زیادکردنی بەکارهێنەر"
 
 #~ msgid "Print view (with full texts)"
 #~ msgstr "پیشاندان بۆ چاپکردن (لەگەڵ تێکستە تەواوەکان)"

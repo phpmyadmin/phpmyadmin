@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-06-24 09:21+0200\n"
 "Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4073,9 +4073,11 @@ msgstr "Zentrale Spalten"
 msgid "Databases"
 msgstr "Datenbanken"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
-msgstr "Benutzer"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "User groups"
+msgid "User accounts"
+msgstr "Benutzergruppen"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4396 libraries/server_common.lib.php:36
@@ -4922,6 +4924,10 @@ msgstr "Aktualisiert am"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Letzter Check am"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "Benutzer"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -12623,11 +12629,15 @@ msgstr "Sie haben die Rechte für %s widerrufen."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
-msgstr "Benutzer hinzufügen"
+#, fuzzy
+#| msgid "Add user group"
+msgid "Add user account"
+msgstr "Benutzergruppe hinzufügen"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "Datenbank für Benutzer"
 
 #: libraries/server_privileges.lib.php:1946
@@ -12657,7 +12667,6 @@ msgstr "Benutzer wurde hinzugefügt."
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12732,11 +12741,15 @@ msgid ""
 msgstr "… lösche den alten und lade anschließend die Benutzertabellen neu."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "Anmeldeinformation ändern/Benutzer kopieren"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "Erstelle einen neuen Benutzer mit identischen Rechten und …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -12758,7 +12771,9 @@ msgid "Add privileges on the following table:"
 msgstr "Rechte zu folgender Tabelle hinzufügen:"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "Die ausgewählten Benutzer löschen"
 
 #: libraries/server_privileges.lib.php:3376
@@ -12815,8 +12830,16 @@ msgid "New"
 msgstr "Neu"
 
 #: libraries/server_privileges.lib.php:4084
-msgid "Edit Privileges:"
+#, fuzzy
+#| msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Rechte ändern:"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "User group"
+msgid "User account"
+msgstr "Benutzergruppe"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12827,7 +12850,9 @@ msgstr ""
 "dem Sie aktuell angemeldet sind."
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+#, fuzzy
+#| msgid "Users overview"
+msgid "User accounts overview"
 msgstr "Benutzerübersicht"
 
 #: libraries/server_privileges.lib.php:4255
@@ -16910,6 +16935,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ist auf 0 gesetzt"
+
+#~ msgid "Add user"
+#~ msgstr "Benutzer hinzufügen"
 
 #~ msgid "Export Method:"
 #~ msgstr "Art des Exports:"

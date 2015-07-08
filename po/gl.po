@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2014-10-10 23:59+0200\n"
 "Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4311,8 +4311,10 @@ msgstr "Columnas da área de texto"
 msgid "Databases"
 msgstr "Bases de datos"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "Users"
+msgid "User accounts"
 msgstr "Usuarios"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -5199,6 +5201,10 @@ msgstr "Última actualización"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Última revisión"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "Usuarios"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -13552,11 +13558,15 @@ msgstr "Revogou os privilexios de %s."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
+#, fuzzy
+#| msgid "Add user"
+msgid "Add user account"
 msgstr "Engadir un usuario"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "Base de datos para o usuario"
 
 #: libraries/server_privileges.lib.php:1946
@@ -13585,7 +13595,6 @@ msgstr "O usuario foi engadido."
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -13667,11 +13676,15 @@ msgstr ""
 "despois."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "Modificar a información de acceso (login) / Copiar o usuario"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "Crear un usuario novo cos mesmos privilexios e…"
 
 #: libraries/server_privileges.lib.php:3036
@@ -13695,7 +13708,9 @@ msgid "Add privileges on the following table:"
 msgstr "Engadir privilexios para esta táboa:"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "Eliminar os usuarios seleccionados"
 
 #: libraries/server_privileges.lib.php:3376
@@ -13752,8 +13767,16 @@ msgid "New"
 msgstr "Novo"
 
 #: libraries/server_privileges.lib.php:4084
-msgid "Edit Privileges:"
+#, fuzzy
+#| msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Modificar os privilexios:"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "Users"
+msgid "User account"
+msgstr "Usuarios"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -13762,7 +13785,9 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+#, fuzzy
+#| msgid "Users overview"
+msgid "User accounts overview"
 msgstr "Vista xeral dos usuarios"
 
 #: libraries/server_privileges.lib.php:4255
@@ -17981,6 +18006,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está definido como 0"
+
+#~ msgid "Add user"
+#~ msgstr "Engadir un usuario"
 
 #~ msgid "Export Method:"
 #~ msgstr "Método de exportación:"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-06-22 04:13+0200\n"
 "Last-Translator: Sebastian <sebastian@sgundersen.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -4028,8 +4028,10 @@ msgstr "Senter kolonner"
 msgid "Databases"
 msgstr "Databaser"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "Users"
+msgid "User accounts"
 msgstr "Brukere"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
@@ -4869,6 +4871,10 @@ msgstr "Sist oppdatert"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Sist kontrollert"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "Brukere"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -13225,11 +13231,15 @@ msgstr "Du har fjernet privilegiene til %s."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
+#, fuzzy
+#| msgid "Add user"
+msgid "Add user account"
 msgstr "Legg til bruker"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "Brukerdatabase"
 
 #: libraries/server_privileges.lib.php:1946
@@ -13259,7 +13269,6 @@ msgstr "Visningen %s har blitt slettet"
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -13340,11 +13349,15 @@ msgstr ""
 "… slett den gamle fra brukertabellene og deretter oppfrisk privilegiene."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "Endre innloggingsinformasjon / kopiere bruker"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "Opprett ny bruker med de samme privilegier og …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -13368,7 +13381,9 @@ msgid "Add privileges on the following table:"
 msgstr "Legg til privilegier til følgende tabell"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "Fjern valgte brukere"
 
 #: libraries/server_privileges.lib.php:3376
@@ -13426,8 +13441,14 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4084
 #, fuzzy
 #| msgid "Edit Privileges"
-msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Rediger privilegier"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "Users"
+msgid "User account"
+msgstr "Brukere"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -13438,7 +13459,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
 #, fuzzy
 #| msgid "User overview"
-msgid "Users overview"
+msgid "User accounts overview"
 msgstr "Brukeroversikt"
 
 #: libraries/server_privileges.lib.php:4255
@@ -17659,6 +17680,9 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er satt til 0"
+
+#~ msgid "Add user"
+#~ msgstr "Legg til bruker"
 
 #~ msgid "Export Method:"
 #~ msgstr "Eksportmetode:"

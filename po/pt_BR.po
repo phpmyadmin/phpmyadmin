@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 15:29+0200\n"
+"POT-Creation-Date: 2015-07-08 13:23-0400\n"
 "PO-Revision-Date: 2015-06-27 11:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -4068,9 +4068,11 @@ msgstr "Colunas centrais"
 msgid "Databases"
 msgstr "Bancos de dados"
 
-#: libraries/Menu.class.php:567 libraries/Util.class.php:4392
-msgid "Users"
-msgstr "Usuários"
+#: libraries/Menu.class.php:567
+#, fuzzy
+#| msgid "User groups"
+msgid "User accounts"
+msgstr "Grupos de usuários"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4396 libraries/server_common.lib.php:36
@@ -4921,6 +4923,10 @@ msgstr "Última atualização"
 #: libraries/structure.lib.php:1974
 msgid "Last check"
 msgstr "Última verificação"
+
+#: libraries/Util.class.php:4392
+msgid "Users"
+msgstr "Usuários"
 
 #: libraries/browse_foreigners.lib.php:136
 msgid "Search:"
@@ -12602,11 +12608,15 @@ msgstr "Você revogou os privilégios para %s."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-msgid "Add user"
-msgstr "Adicionar usuário"
+#, fuzzy
+#| msgid "Add user group"
+msgid "Add user account"
+msgstr "Adicionar grupo de usuários"
 
 #: libraries/server_privileges.lib.php:1942
-msgid "Database for user"
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database for user account"
 msgstr "Banco de dados para usuário"
 
 #: libraries/server_privileges.lib.php:1946
@@ -12634,7 +12644,6 @@ msgstr "Usuário foi adicionado."
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_privileges.lib.php:4085
 #: libraries/server_status_processes.lib.php:74
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
@@ -12711,11 +12720,15 @@ msgstr ""
 "… apagar o antigo da tabela de usuários e depois recarregar os privilégios."
 
 #: libraries/server_privileges.lib.php:2728
-msgid "Change Login Information / Copy User"
+#, fuzzy
+#| msgid "Change Login Information / Copy User"
+msgid "Change login information / Copy user account"
 msgstr "Mudar informações de login / Copiar usuário"
 
 #: libraries/server_privileges.lib.php:2734
-msgid "Create a new user with the same privileges and …"
+#, fuzzy
+#| msgid "Create a new user with the same privileges and …"
+msgid "Create a new user account with the same privileges and …"
 msgstr "Criar um novo usuário com os mesmos privilégios e …"
 
 #: libraries/server_privileges.lib.php:3036
@@ -12737,7 +12750,9 @@ msgid "Add privileges on the following table:"
 msgstr "Adicionar privilégios na seguinte tabela:"
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Remove selected users"
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
 msgstr "Remover os usuários selecionados"
 
 #: libraries/server_privileges.lib.php:3376
@@ -12792,8 +12807,16 @@ msgid "New"
 msgstr "Novo usuário"
 
 #: libraries/server_privileges.lib.php:4084
-msgid "Edit Privileges:"
+#, fuzzy
+#| msgid "Edit Privileges:"
+msgid "Edit privileges:"
 msgstr "Editar privilégios:"
+
+#: libraries/server_privileges.lib.php:4085
+#, fuzzy
+#| msgid "User group"
+msgid "User account"
+msgstr "Grupo de usuários"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12803,7 +12826,9 @@ msgstr ""
 "Nota: Você está tentando editar os privilégios do usuário da sessão atual."
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-msgid "Users overview"
+#, fuzzy
+#| msgid "Users overview"
+msgid "User accounts overview"
 msgstr "Visão geral dos usuários"
 
 #: libraries/server_privileges.lib.php:4255
@@ -16856,6 +16881,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está com valor 0"
+
+#~ msgid "Add user"
+#~ msgstr "Adicionar usuário"
 
 #~ msgid "Export Method:"
 #~ msgstr "Método de exportação:"
