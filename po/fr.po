@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-07-07 21:01+0200\n"
+"PO-Revision-Date: 2015-07-08 13:49+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -6785,42 +6785,40 @@ msgid "Show views in tree"
 msgstr "Montrer les vues dans l'arborescence"
 
 #: libraries/config/messages.inc.php:492
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Afficher la navigation de bases de données en tant qu'arborescence"
+msgstr "Si vous souhaitez afficher les vues dans l'arborescence de navigation"
 
 #: libraries/config/messages.inc.php:493
-#, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Montrer les fonctions"
+msgstr "Montrer les fonctions dans l'arborescence"
 
 #: libraries/config/messages.inc.php:495
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
+"Si vous souhaitez afficher les fonctions dans l'arborescence de navigation"
 
 #: libraries/config/messages.inc.php:496
-#, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Afficher les processus"
+msgstr "Montrer les procédures dans l'arborescence"
 
 #: libraries/config/messages.inc.php:498
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
+"Si vous souhaitez afficher les procédures dans l'arborescence de navigation"
 
 #: libraries/config/messages.inc.php:499
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Montrer les versions"
+msgstr "Montrer les événements dans l'arborescence"
 
 #: libraries/config/messages.inc.php:501
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Afficher la navigation de bases de données en tant qu'arborescence"
+msgstr ""
+"Si vous souhaitez afficher les événements dans l'arborescence de navigation"
 
 #: libraries/config/messages.inc.php:503
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -8259,16 +8257,14 @@ msgid "View output as text"
 msgstr "Afficher les résultats"
 
 #: libraries/display_export.lib.php:660
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "Exporter les vues comme des tables"
+msgstr "Exporter les bases de données en fichiers séparés"
 
 #: libraries/display_export.lib.php:662
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "Exporter les en-têtes de table"
+msgstr "Exporter les tables en fichiers séparés"
 
 #: libraries/display_export.lib.php:692 libraries/display_export.lib.php:814
 msgid "Rename exported databases/tables/columns"
@@ -9289,10 +9285,9 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Une erreur s'est produite lors du chargement du panneau de navigation"
 
 #: libraries/navigation/Navigation.class.php:192
-#, fuzzy
 #| msgid "Group name:"
 msgid "Groups:"
-msgstr "Nom du groupe : "
+msgstr "Groupes :"
 
 #: libraries/navigation/Navigation.class.php:193
 msgid "Events:"
@@ -11174,10 +11169,9 @@ msgid "Managing Central list of columns"
 msgstr "Gestion de la liste centrale de colonnes"
 
 #: libraries/relation.lib.php:324
-#, fuzzy
 #| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Mémoriser l'ordre de tri de la table"
+msgstr "Se souvenir des paramètres du Concepteur"
 
 #: libraries/relation.lib.php:332
 msgid "Quick steps to setup advanced features:"
