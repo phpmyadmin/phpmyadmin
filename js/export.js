@@ -518,10 +518,12 @@ function check_table_selected(row) {
     var data = data_check.is(':checked:not(:disabled)');
     var structure = str_check.is(':checked:not(:disabled)');
 
-    if (data || structure) {
-        table_select.prop('checked', true);
+    if (data && structure) {
+        table_select.prop({checked: true, indeterminate: false});
+    } else if (data || structure) {
+        table_select.prop({checked: true, indeterminate: true});
     } else {
-        table_select.prop('checked', false);
+        table_select.prop({checked: false, indeterminate: false});
     }
 }
 
