@@ -161,6 +161,7 @@ class PMA_PageSettings
         $this->_storeError($form_display, $error);
 
         $retval .= '<div id="' . $this->_elemId . '">';
+        $retval .= '<div class="page_settings">';
         $retval .= $form_display->getDisplay(
             true,
             true,
@@ -170,6 +171,7 @@ class PMA_PageSettings
                 'submit_save' => $this->_groupName
             )
         );
+        $retval .= '</div>';
         $retval .= '</div>';
 
         return $retval;

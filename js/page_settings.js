@@ -18,6 +18,8 @@ function showSettings(selector) {
         $(this).dialog('close');
     };
 
+    // Keeping a clone to restore in case the user cancels the operation
+    var $clone = $(selector + ' .page_settings').clone(true);;
     $(selector)
     .dialog({
         title: PMA_messages.strPageSettings,
@@ -26,6 +28,9 @@ function showSettings(selector) {
         modal: true,
         open: function() {
             $(this).dialog('option', 'maxHeight', $(window).height() - $(this).offset().top);
+        },
+        close: function() {
+            $(selector + ' .page_settings').replaceWith($clone);
         },
         buttons: buttons
     });
