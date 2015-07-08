@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-05-05 15:46-0400\n"
-"PO-Revision-Date: 2015-05-28 09:42+0200\n"
+"PO-Revision-Date: 2015-07-08 05:25+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/zh_TW/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -9784,7 +9784,7 @@ msgstr "您的資料庫使用了程序(Procedure)；"
 #: libraries/plugins/export/ExportSql.class.php:1260
 #: libraries/plugins/export/ExportSql.class.php:1799
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "別名匯出可能無法在所有的情況下正常運作。"
 
 #: libraries/plugins/export/ExportSql.class.php:548
 msgid "It appears your database uses functions;"
@@ -10147,7 +10147,7 @@ msgstr "顯示下載此圖片的連結。"
 msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
-msgstr ""
+msgstr "圖片上傳功能，同時會顯示縮圖。選項為縮圖的寬與高，預設為 100 X 100。"
 
 #: libraries/plugins/transformations/abstract/ImageUploadTransformationsPlugin.class.php:79
 msgid "Image preview here"
@@ -10178,12 +10178,12 @@ msgstr ""
 msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
-msgstr ""
+msgstr "使用正規表示法檢驗字串並當字串符合條件時執行新增(INSERT)。 第一個選項為正規表示法。"
 
 #: libraries/plugins/transformations/abstract/RegexValidationTransformationsPlugin.class.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "輸入的字串 %s 檢驗失敗。"
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10205,7 +10205,7 @@ msgstr ""
 msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
-msgstr ""
+msgstr "供 TEXT 欄位使用的檔案上傳功能，將不提供文字區塊做輸入。"
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -10227,11 +10227,11 @@ msgstr ""
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "JSON 使用語法明顯標示的 CodeMirror 編輯器。"
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "SQL 使用語法明顯標示的 CodeMirror 編輯器。"
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.class.php:33
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
@@ -12903,7 +12903,7 @@ msgstr "在資料庫 %s 執行 SQL 查詢"
 
 #: libraries/sql_query_form.lib.php:240
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "取得自動儲存的查詢"
 
 #: libraries/sql_query_form.lib.php:284
 msgid "Bookmark this SQL query:"
