@@ -1647,7 +1647,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //Create a new user with the same privileges
         $this->assertContains(
-            "Create a new user with the same privileges",
+            "Create a new user account with the same privileges",
             $html
         );
 
@@ -1835,11 +1835,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //labels
         $this->assertContains(
-            __('Add user'),
+            __('Add user account'),
             $html
         );
         $this->assertContains(
-            __('Remove selected users'),
+            __('Remove selected user accounts'),
             $html
         );
         $this->assertContains(
@@ -1934,11 +1934,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //title
         $this->assertContains(
-            __('Edit Privileges:'),
+            __('Edit privileges:'),
             $html
         );
         $this->assertContains(
-            __('User'),
+            __('User account'),
             $html
         );
 

@@ -564,7 +564,7 @@ class PMA_Menu
         if (($is_superuser || $isCreateOrGrantUser) && ! PMA_DRIZZLE) {
             $tabs['rights']['icon'] = 's_rights.png';
             $tabs['rights']['link'] = 'server_privileges.php';
-            $tabs['rights']['text'] = __('Users');
+            $tabs['rights']['text'] = __('User accounts');
             $tabs['rights']['active'] = in_array(
                 basename($GLOBALS['PMA_PHP_SELF']),
                 array('server_privileges.php', 'server_user_groups.php')

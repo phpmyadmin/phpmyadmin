@@ -1930,7 +1930,7 @@ function PMA_getWithClauseForAddUserAndUpdatePrivs()
 function PMA_getHtmlForAddUser($dbname)
 {
     $html_output = '<h2>' . "\n"
-       . PMA_Util::getIcon('b_usradd.png') . __('Add user') . "\n"
+       . PMA_Util::getIcon('b_usradd.png') . __('Add user account') . "\n"
        . '</h2>' . "\n"
        . '<form name="usersForm" id="addUsersForm"'
        . ' onsubmit="return checkAddUser(this);"'
@@ -1939,7 +1939,7 @@ function PMA_getHtmlForAddUser($dbname)
        . PMA_getHtmlForLoginInformationFields('new');
 
     $html_output .= '<fieldset id="fieldset_add_user_database">' . "\n"
-        . '<legend>' . __('Database for user') . '</legend>' . "\n";
+        . '<legend>' . __('Database for user account') . '</legend>' . "\n";
 
     $html_output .= PMA_Util::getCheckbox(
         'createdb-1',
@@ -2725,13 +2725,13 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
         . 'value="' . htmlspecialchars($hostname) . '" />' . "\n"
         . '<fieldset id="fieldset_change_copy_user">' . "\n"
         . '<legend data-submenu-label="' . __('Login Information') . '">' . "\n"
-        . __('Change Login Information / Copy User')
+        . __('Change login information / Copy user account')
         . '</legend>' . "\n"
         . PMA_getHtmlForLoginInformationFields('change');
 
     $html_output .= '<fieldset id="fieldset_mode">' . "\n"
         . ' <legend>'
-        . __('Create a new user with the same privileges and …')
+        . __('Create a new user account with the same privileges and …')
         . '</legend>' . "\n";
     $html_output .= PMA_Util::getRadioFields(
         'mode', $choices, '4', true
@@ -3367,7 +3367,7 @@ function PMA_getFieldsetForAddDeleteUser()
     $html_output .= '<fieldset id="fieldset_delete_user">'
         . '<legend>' . "\n"
         . PMA_Util::getIcon('b_usrdrop.png')
-        . '            ' . __('Remove selected users') . '' . "\n"
+        . '            ' . __('Remove selected user accounts') . '' . "\n"
         . '</legend>' . "\n";
 
     $html_output .= '<input type="hidden" name="mode" value="2" />' . "\n"
@@ -4060,7 +4060,7 @@ function PMA_getAddUserHtmlFieldset($db = '', $table = '')
             : '')
         . '>' . "\n"
         . PMA_Util::getIcon('b_usradd.png')
-        . '            ' . __('Add user') . '</a>' . "\n"
+        . '            ' . __('Add user account') . '</a>' . "\n"
         . '</fieldset>' . "\n";
 }
 
@@ -4081,8 +4081,8 @@ function PMA_getHtmlHeaderForUserProperties(
 ) {
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usredit.png')
-       . __('Edit Privileges:') . ' '
-       . __('User');
+       . __('Edit privileges:') . ' '
+       . __('User account');
 
     if (! empty($dbname)) {
         $html_output .= ' <i><a class="edit_user_anchor"'
@@ -4161,7 +4161,7 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
 {
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usrlist.png')
-       . __('Users overview') . "\n"
+       . __('User accounts overview') . "\n"
        . '</h2>' . "\n";
 
     $password_column = 'Password';
