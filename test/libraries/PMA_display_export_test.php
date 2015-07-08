@@ -190,7 +190,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            __('Export Method:'),
+            __('Export method:'),
             $html
         );
         $this->assertContains(
