@@ -24,7 +24,6 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/url_generating.lib.php';
 
 /**

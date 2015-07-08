@@ -10,7 +10,6 @@
  * Include to test.
  */
 require_once 'libraries/Table.class.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/database_interface.inc.php';

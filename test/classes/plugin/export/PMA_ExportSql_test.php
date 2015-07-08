@@ -17,7 +17,6 @@ require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Table.class.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/charset_conversion.lib.php';
 require_once 'export.php';
 /**

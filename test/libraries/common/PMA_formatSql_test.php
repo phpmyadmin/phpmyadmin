@@ -11,7 +11,6 @@
  * Include to test.
  */
 require_once 'libraries/Util.class.php';
-require_once 'libraries/sqlparser.lib.php';
 
 /**
  ** Test for PMA_Util::formatSql from Util.class.php

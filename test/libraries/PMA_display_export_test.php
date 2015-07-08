@@ -22,7 +22,6 @@ require_once 'libraries/charset_conversion.lib.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/plugin_interface.lib.php';
 require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/relation.lib.php';
 

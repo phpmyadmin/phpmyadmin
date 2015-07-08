@@ -1054,9 +1054,19 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         /**
+         * Charset information
+         */
+        if (!PMA_DRIZZLE) {
+            include_once './libraries/mysql_charsets.inc.php';
+        }
+        if (!isset($mysql_charsets)) {
+            $mysql_charsets = array();
+            $mysql_collations_flat = array();
+        }
+
+        /**
          * SQL Parser code
          */
-        include_once './libraries/sqlparser.lib.php';
         include_once './libraries/sql-parser/autoload.php';
         try {
             SqlParser\Context::load((PMA_DRIZZLE ? 'Drizzle' : 'MySql') . PMA_MYSQL_INT_VERSION);

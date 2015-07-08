@@ -11,7 +11,6 @@
  * Include to test.
  */
 require_once 'libraries/Util.class.php';
-require_once 'libraries/sqlparser.data.php';
 
 /**
  * Test for quoting, slashing/backslashing

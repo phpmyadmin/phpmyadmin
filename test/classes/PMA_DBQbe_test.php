@@ -16,7 +16,6 @@ require_once 'libraries/core.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 
 /**
  * Tests for PMA_DBQbe class

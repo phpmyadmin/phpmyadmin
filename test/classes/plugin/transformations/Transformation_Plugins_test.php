@@ -35,7 +35,6 @@ require_once 'libraries/plugins/transformations/output/'
     . 'Text_Plain_Imagelink.class.php';
 require_once 'libraries/plugins/transformations/output/'
     . 'Text_Plain_Sql.class.php';
-require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Link.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Longtoipv4.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Preappend.class.php';
