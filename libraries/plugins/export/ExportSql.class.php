@@ -2564,12 +2564,6 @@ class ExportSql extends ExportPlugin
          */
         $old_database = $db;
 
-        /**
-         * Old table name.
-         * @var string $old_table
-         */
-        $old_table = $table;
-
         // Replacing aliases in `CREATE TABLE` statement.
         if ($statement->options->has('TABLE')) {
 
@@ -2578,6 +2572,11 @@ class ExportSql extends ExportPlugin
             if (!empty($statement->name->database)) {
                 $old_database = $statement->name->database;
             }
+
+            /**
+             * Old table name.
+             * @var string $old_table
+             */
             $old_table = $statement->name->table;
 
             // Finding the aliased database name.
@@ -2652,6 +2651,11 @@ class ExportSql extends ExportPlugin
             if (!empty($statement->table->database)) {
                 $old_database = $statement->table->database;
             }
+
+            /**
+             * Old table name.
+             * @var string $old_table
+             */
             $old_table = $statement->table->table;
 
             if (!empty($aliases[$old_database]['tables'][$old_table]['alias'])) {
