@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-06-28 06:20-0400\n"
-"PO-Revision-Date: 2015-07-07 14:21+0200\n"
+"PO-Revision-Date: 2015-07-08 07:30+0200\n"
 "Last-Translator: Олег Карпов <salvadoporjc@gmail.com>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
@@ -1014,10 +1014,9 @@ msgid "Do you really want to delete this central column?"
 msgstr "Вы действительно хотите удалить эту центральную колонку?"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Вы действительно хотите удалить поиск \"%s\"?"
+msgstr "Вы действительно хотите удалить выбранные элементы?"
 
 #: js/messages.php:64
 msgid ""
@@ -3285,10 +3284,9 @@ msgid "Hide trace"
 msgstr "Скрыть панель"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "Количество"
+msgstr "Количество:"
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1263
 #: libraries/config/messages.inc.php:796
