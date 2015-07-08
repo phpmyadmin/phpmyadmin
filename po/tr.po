@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 13:23-0400\n"
-"PO-Revision-Date: 2015-07-08 21:45+0200\n"
+"PO-Revision-Date: 2015-07-08 21:46+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -701,7 +701,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr "İçe aktarma ilerleme durumu yüklenemedi."
+msgstr "İçe aktarma işleminin ilerleme durumu yüklenemedi."
 
 #: import_status.php:112 js/messages.php:378 libraries/Util.class.php:738
 #: libraries/export.lib.php:515
