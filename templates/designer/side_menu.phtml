@@ -73,44 +73,44 @@ function getImg($path)
                 <?php echo __('Delete pages'); ?>
             </span>
         </a>
+        <a href="#" id="StartTableNew" class="M_butt">
+            <img title="<?php echo __('Create table'); ?>"
+                 src="<?php echo getImg('pmd/table.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Create table'); ?>
+            </span>
+        </a>
+        <a href="#" class="M_butt" id="rel_button">
+            <img title="<?php echo __('Create relation'); ?>"
+                 src="<?php echo getImg('pmd/relation.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Create relation'); ?>
+            </span>
+        </a>
+        <a href="#" class="M_butt" id="display_field_button">
+            <img title="<?php echo __('Choose column to display'); ?>"
+                 src="<?php echo getImg('pmd/display_field.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Choose column to display'); ?>
+            </span>
+        </a>
+        <a href="#" id="reloadPage" class="M_butt">
+            <img title="<?php echo __('Reload'); ?>"
+                 src="<?php echo getImg('pmd/reload.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Reload'); ?>
+            </span>
+        </a>
+        <a href="<?php echo PMA_Util::getDocuLink('faq', 'faq6-31'); ?>"
+           target="documentation"
+           class="M_butt">
+            <img title="<?php echo __('Help'); ?>"
+                 src="<?php echo getImg('pmd/help.png'); ?>" />
+            <span class="hide hidable">
+                <?php echo __('Help'); ?>
+            </span>
+        </a>
     <?php endif; ?>
-    <a href="#" id="StartTableNew" class="M_butt">
-        <img title="<?php echo __('Create table'); ?>"
-             src="<?php echo getImg('pmd/table.png'); ?>" />
-        <span class="hide hidable">
-            <?php echo __('Create table'); ?>
-        </span>
-    </a>
-    <a href="#" class="M_butt" id="rel_button">
-        <img title="<?php echo __('Create relation'); ?>"
-             src="<?php echo getImg('pmd/relation.png'); ?>" />
-        <span class="hide hidable">
-            <?php echo __('Create relation'); ?>
-        </span>
-    </a>
-    <a href="#" class="M_butt" id="display_field_button">
-        <img title="<?php echo __('Choose column to display'); ?>"
-             src="<?php echo getImg('pmd/display_field.png'); ?>" />
-        <span class="hide hidable">
-            <?php echo __('Choose column to display'); ?>
-        </span>
-    </a>
-    <a href="#" id="reloadPage" class="M_butt">
-        <img title="<?php echo __('Reload'); ?>"
-             src="<?php echo getImg('pmd/reload.png'); ?>" />
-        <span class="hide hidable">
-            <?php echo __('Reload'); ?>
-        </span>
-    </a>
-    <a href="<?php echo PMA_Util::getDocuLink('faq', 'faq6-31'); ?>"
-       target="documentation"
-       class="M_butt">
-        <img title="<?php echo __('Help'); ?>"
-             src="<?php echo getImg('pmd/help.png'); ?>" />
-        <span class="hide hidable">
-            <?php echo __('Help'); ?>
-        </span>
-    </a>
     <a href="#" class="<?php echo $params_array['angular_direct']; ?>" id="angular_direct_button">
         <img title="<?php echo __('Angular links'); ?> / <?php echo __('Direct links'); ?>"
              src="<?php echo getImg('pmd/ang_direct.png'); ?>" />
