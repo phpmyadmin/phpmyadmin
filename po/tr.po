@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-06-22 19:29+0200\n"
+"PO-Revision-Date: 2015-07-08 21:47+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-4/"
-"tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -698,7 +698,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "İçe aktarma işleminin ilerleme durumu yüklenemedi."
 
 #: import_status.php:112 js/messages.php:340 libraries/Util.class.php:735
 #: libraries/export.lib.php:464
@@ -1122,7 +1122,7 @@ msgstr "Parolalar birbiriyle aynı değil!"
 
 #: js/messages.php:100
 msgid "Removing Selected Users"
-msgstr "Seçili Kullanıcılar Kaldırılıyor"
+msgstr "Seçilen Kullanıcılar Kaldırılıyor"
 
 #: js/messages.php:101 js/messages.php:156 libraries/tracking.lib.php:457
 #: libraries/tracking.lib.php:827
@@ -1485,7 +1485,7 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
-"INSERT'lerin gruplanmasından bu yana sorgular seçilir, aynı tablo içindeki "
+"INSERT'lerin gruplanmasından bu yana sorgular seçildi, aynı tablo içindeki "
 "INSERT sorguları, eklenen verinin hiçe sayılması, aynı zamanda birlikte "
 "gruplanır."
 
@@ -5361,7 +5361,7 @@ msgstr "Blowfish gizliliği"
 
 #: libraries/config/messages.inc.php:39
 msgid "Highlight selected rows."
-msgstr "Seçili satırları vurgular."
+msgstr "Seçilen satırları vurgular."
 
 #: libraries/config/messages.inc.php:40
 msgid "Row marker"
@@ -5537,8 +5537,8 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
-"Bir veritabanının seçili tablolarını uyarlama ya da onarma gibi toplu tablo "
-"bakımı işlemlerini etkisizleştirir."
+"Bir veritabanının seçilen tablolarını en uygun hale getirme ya da onarma "
+"gibi toplu tablo bakımı işlemlerini etkisizleştirir."
 
 #: libraries/config/messages.inc.php:104
 msgid "Disable multi table maintenance"
@@ -6157,11 +6157,11 @@ msgstr "EKLEME hatasında durdurma"
 
 #: libraries/config/messages.inc.php:337 libraries/config/messages.inc.php:349
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "ON DUPLICATE KEY UPDATE ekle"
 
 #: libraries/config/messages.inc.php:338 libraries/config/messages.inc.php:350
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "İçe aktarmada kopya anahtarlar bulunduğunda veriyi günceller"
 
 #: libraries/config/messages.inc.php:341
 msgid ""
@@ -7770,7 +7770,7 @@ msgstr "Kılavuza uydur"
 
 #: libraries/db_designer.lib.php:367 libraries/db_designer.lib.php:371
 msgid "Small/Big All"
-msgstr "Tümü Küçük/Büyük"
+msgstr "Tümünü Küçült/Büyült"
 
 #: libraries/db_designer.lib.php:376 libraries/db_designer.lib.php:379
 msgid "Toggle small/big"
@@ -7778,7 +7778,7 @@ msgstr "Küçüğü/büyüğü değiştir"
 
 #: libraries/db_designer.lib.php:384 libraries/db_designer.lib.php:387
 msgid "Toggle relation lines"
-msgstr "İlgili satırları değiştir"
+msgstr "Bağlantılı satırları değiştir"
 
 #: libraries/db_designer.lib.php:394 libraries/db_designer.lib.php:397
 msgid "Export schema"
@@ -7786,7 +7786,7 @@ msgstr "Şemayı dışa aktar"
 
 #: libraries/db_designer.lib.php:403 libraries/db_designer.lib.php:407
 msgid "Build Query"
-msgstr "Sorgu Yarat"
+msgstr "Sorgu yarat"
 
 #: libraries/db_designer.lib.php:412 libraries/db_designer.lib.php:415
 msgid "Move Menu"
@@ -7798,11 +7798,11 @@ msgstr "Metni sabitle"
 
 #: libraries/db_designer.lib.php:461
 msgid "Hide/Show all"
-msgstr "Tümünü Gizle/Göster"
+msgstr "Tümünü gizle/göster"
 
 #: libraries/db_designer.lib.php:470
 msgid "Hide/Show Tables with no relation"
-msgstr "Bağlantılı olmayan Tabloları Gizle/Göster"
+msgstr "Bağlantılı olmayan Tabloları gizle/göster"
 
 #: libraries/db_designer.lib.php:499 libraries/insert_edit.lib.php:227
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
@@ -7956,8 +7956,8 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
-"Seçili biçimde seçenekleri doldurmak için aşağı kaydır ve diğer biçimler "
-"için seçenekleri yoksay."
+"Seçilen biçimde seçenekleri doldurmak için aşağı kaydırır ve diğer biçimler "
+"için seçenekleri yoksayar."
 
 #: libraries/display_export.lib.php:291 libraries/display_import.lib.php:357
 msgid "Encoding Conversion:"
@@ -9412,7 +9412,7 @@ msgstr "Normalleştirmenin üçüncü adımı tamamlandı."
 #: libraries/normalization.lib.php:642
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "Seçili tekrarlayan grup '%s' tablosuna taşındı"
+msgstr "Seçilen tekrarlayan grup '%s' tablosuna taşındı"
 
 #: libraries/normalization.lib.php:689
 msgid "Step 3."
@@ -10208,6 +10208,8 @@ msgstr "Tablo:"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"İçe aktarmada kopya anahtarlar bulunduğunda veriyi günceller (ON DUPLICATE "
+"KEY UPDATE ekle)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -11128,7 +11130,7 @@ msgstr "Master %s sunucusuna bağlanılamıyor."
 #: libraries/replication_gui.lib.php:1002
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
-msgstr "Master günlük konumu okunamıyor. Master üzerinde mümkün yetki sorunu."
+msgstr "Master günlük konumu okunamıyor. Master üzerinde olası yetki sorunu."
 
 #: libraries/replication_gui.lib.php:1020
 msgid "Unable to change master!"
@@ -11466,7 +11468,7 @@ msgstr "yordam"
 
 #: libraries/rte/rte_words.lib.php:32
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "Bir yordam oluşturmak için gerekli izinlere sahip değilsiniz"
+msgstr "Bir yordam oluşturmak için gerekli yetkilere sahip değilsiniz"
 
 #: libraries/rte/rte_words.lib.php:34
 #, php-format
@@ -11492,7 +11494,7 @@ msgstr "trigger"
 
 #: libraries/rte/rte_words.lib.php:46
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Bir tetikleyici oluşturmak için gerekli izinlere sahip değilsiniz"
+msgstr "Bir tetikleyici oluşturmak için gerekli yetkilere sahip değilsiniz"
 
 #: libraries/rte/rte_words.lib.php:48
 #, php-format
@@ -11518,7 +11520,7 @@ msgstr "olay"
 
 #: libraries/rte/rte_words.lib.php:60
 msgid "You do not have the necessary privileges to create an event"
-msgstr "Bir olay oluşturmak için gerekli izinlere sahip değilsiniz"
+msgstr "Bir olay oluşturmak için gerekli yetkilere sahip değilsiniz"
 
 #: libraries/rte/rte_words.lib.php:62
 #, php-format
@@ -11966,7 +11968,7 @@ msgstr "Kullanıcı için veritabanı"
 
 #: libraries/server_privileges.lib.php:1965
 msgid "Create database with same name and grant all privileges."
-msgstr "Aynı isimle veritabanı oluştur ve tüm yetkileri ver."
+msgstr "Aynı isimle veritabanı oluşturur ve tüm yetkileri verir."
 
 #: libraries/server_privileges.lib.php:1971
 msgid "Grant all privileges on wildcard name (username\\_%)."
@@ -11975,7 +11977,7 @@ msgstr "Joker isimlere tüm yetkileri ver (kullanıcıadı\\_%)."
 #: libraries/server_privileges.lib.php:1980
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
-msgstr "\"%s\" veritabanı üzerindeki tüm yetkileri ver."
+msgstr "\"%s\" veritabanı üzerindeki tüm yetkileri verir."
 
 #: libraries/server_privileges.lib.php:2081
 #: libraries/server_privileges.lib.php:2145
@@ -12094,7 +12096,7 @@ msgstr "Seçili kullanıcıları kaldır"
 
 #: libraries/server_privileges.lib.php:3388
 msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "Kullanıcılardan tüm aktif yetkileri geri al ve sonra da sil."
+msgstr "Kullanıcılardan tüm aktif yetkileri geri alır ve sonra da siler."
 
 #: libraries/server_privileges.lib.php:3396
 #: libraries/server_privileges.lib.php:3402
@@ -12112,7 +12114,7 @@ msgstr "Yetkiler yeniden yükleniyor"
 
 #: libraries/server_privileges.lib.php:3568
 msgid "The selected users have been deleted successfully."
-msgstr "Seçili kullanıcılar başarılı olarak silindi."
+msgstr "Seçilen kullanıcılar başarılı olarak silindi."
 
 #: libraries/server_privileges.lib.php:3642
 #, php-format
@@ -12174,7 +12176,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:4318
 msgid "The selected user was not found in the privilege table."
-msgstr "Seçili kullanıcı yetki tablosunda bulunamadı."
+msgstr "Seçilen kullanıcı yetki tablosunda bulunamadı."
 
 #: libraries/server_privileges.lib.php:4550
 msgid "You have added a new user."
@@ -12286,7 +12288,7 @@ msgstr "Günlük istatistikleri"
 
 #: libraries/server_status_monitor.lib.php:67
 msgid "Selected time range:"
-msgstr "Seçili zaman aralığı:"
+msgstr "Seçilen zaman aralığı:"
 
 #: libraries/server_status_monitor.lib.php:75
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -14190,8 +14192,8 @@ msgid ""
 "ensure that you have the privileges to do so."
 msgstr ""
 "Oluşturulan ve kullanılan geçici veritabanı tarafından dökümü "
-"çalıştırabilirsiniz. Lütfen bunu yapmak için izinlerinizin olduğundan emin "
-"olun."
+"çalıştırabilirsiniz. Lütfen bunu yapmak için yetkilere sahip olduğunuzdan "
+"emin olun."
 
 #: libraries/tracking.lib.php:1108
 msgid "Comment out these two lines if you do not need them."
@@ -14635,7 +14637,7 @@ msgstr "Sizi götürdüğü yer %s."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr "Burada bulunmak için yeterli izinlere sahip değilsiniz!"
+msgstr "Burada bulunmak için yeterli yetkilere sahip değilsiniz!"
 
 #: user_password.php:106
 msgid "The profile has been updated."
