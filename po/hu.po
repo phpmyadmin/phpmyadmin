@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 13:23-0400\n"
-"PO-Revision-Date: 2015-06-28 23:09+0200\n"
+"PO-Revision-Date: 2015-07-08 22:13+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1194,26 +1194,23 @@ msgid "Close"
 msgstr "Bezárás"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "A létrehozott lapok száma."
+msgstr "A sablon létre lett hozva."
 
 #: js/messages.php:130
 msgid "Template was loaded."
-msgstr ""
+msgstr "A sablon be lett töltve."
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "A profil frissítése megtörtént."
+msgstr "A sablon frissítve lett."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "A sor törlése megtörtént."
+msgstr "A sablon törölve lett."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:135 libraries/ServerStatusData.class.php:132
@@ -4033,10 +4030,9 @@ msgid "Databases"
 msgstr "Adatbázisok"
 
 #: libraries/Menu.class.php:567
-#, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
-msgstr "Felhasználói csoportok"
+msgstr "Felhasználói fiókok"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4396 libraries/server_common.lib.php:36
@@ -5936,10 +5932,9 @@ msgid "Overwrite existing file(s)"
 msgstr "A létező fájl(ok) felülírása"
 
 #: libraries/config/messages.inc.php:163
-#, fuzzy
 #| msgid "Export tables as separate files"
 msgid "Export as separate files"
-msgstr "Táblák exportálása különálló fájlokként"
+msgstr "Exportálás különálló fájlokként"
 
 #: libraries/config/messages.inc.php:167
 msgid "Remember file name template"
@@ -7237,13 +7232,11 @@ msgstr ""
 "[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:655
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export templates table"
-msgstr "Nézetek exportálása táblaként"
+msgstr "Sablonok táblájának exportálása"
 
 #: libraries/config/messages.inc.php:657
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]."
@@ -7251,8 +7244,8 @@ msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__exporttemplates[/kbd]."
 msgstr ""
-"Hagyja üresen, ha nem szeretne PDF-séma támogatást, ajánlott: "
-"[kbd]pma__pdf_pages[/kbd]."
+"Hagyja üresen, ha nem szeretne sablonexportálás támogatást, ajánlott: "
+"[kbd]pma__exporttemplates[/kbd]."
 
 #: libraries/config/messages.inc.php:660
 msgid "Central columns table"
@@ -8165,52 +8158,44 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Sorok exportálása a \"%s\" táblából"
 
 #: libraries/display_export.lib.php:203
-#, fuzzy
 #| msgid "Export type"
 msgid "Export templates:"
-msgstr "Exportálás típusa"
+msgstr "Sablonok exportálása:"
 
 #: libraries/display_export.lib.php:208
-#, fuzzy
 #| msgid "File name template:"
 msgid "New template:"
-msgstr "Fájlnévsablon:"
+msgstr "Új sablon:"
 
 #: libraries/display_export.lib.php:211
-#, fuzzy
 #| msgid "Table name"
 msgid "Template name"
-msgstr "Tábla neve"
+msgstr "Sablon neve"
 
 #: libraries/display_export.lib.php:220
-#, fuzzy
 #| msgid "File name template:"
 msgid "Existing templates:"
-msgstr "Fájlnévsablon:"
+msgstr "Meglévő sablonok:"
 
 #: libraries/display_export.lib.php:221
-#, fuzzy
 #| msgid "Temp disk rate"
 msgid "Template:"
-msgstr "Ideiglenes háttértár mértéke"
+msgstr "Sablon:"
 
 #: libraries/display_export.lib.php:226
-#, fuzzy
 #| msgid "Updated"
 msgid "Update"
-msgstr "Frissítve"
+msgstr "Frissítés"
 
 #: libraries/display_export.lib.php:248
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select a template"
-msgstr "Válasszon egy táblát"
+msgstr "Válasszon egy sablont"
 
 #: libraries/display_export.lib.php:294
-#, fuzzy
 #| msgid "Export method"
 msgid "Export method:"
-msgstr "Exportálás módja"
+msgstr "Exportálás módja:"
 
 #: libraries/display_export.lib.php:304
 msgid "Quick - display only the minimal options"
@@ -9840,12 +9825,13 @@ msgstr "Adatbázis átnevezése:"
 #: libraries/operations.lib.php:859 libraries/operations.lib.php:953
 #: libraries/operations.lib.php:1307
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Önnek nincs elég joga ahhoz, hogy épp most itt tartózkodjon!"
+msgstr ""
+"Nincs elegendő jogosultsága a művelet végrehajtásához. További részletekért "
+"nézze meg a dokumentációt"
 
 #: libraries/operations.lib.php:101 libraries/operations.lib.php:248
 #: libraries/operations.lib.php:865 libraries/operations.lib.php:959
@@ -11240,10 +11226,9 @@ msgid "Remembering Designer Settings"
 msgstr "Emlékezzen a tervező beállításaira"
 
 #: libraries/relation.lib.php:335
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "Saving export templates"
-msgstr "Érvénytelen export típus"
+msgstr "Exportsablonok mentése"
 
 #: libraries/relation.lib.php:343
 msgid "Quick steps to setup advanced features:"
@@ -11869,6 +11854,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Nincs elegendő jogosultsága a művelet végrehajtásához. További részletekért "
+"nézze meg a dokumentációt"
 
 #: libraries/rte/rte_routines.lib.php:1143
 msgid "Security type"
@@ -12492,16 +12479,14 @@ msgstr "%s jogainak visszavonása megtörtént."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-#, fuzzy
 #| msgid "Add user group"
 msgid "Add user account"
-msgstr "Felhasználói csoport hozzáadása"
+msgstr "Felhasználói fiók hozzáadása"
 
 #: libraries/server_privileges.lib.php:1942
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
-msgstr "Adatbázis a felhasználó számára"
+msgstr "Adatbázis a felhasználói fiók számára"
 
 #: libraries/server_privileges.lib.php:1946
 msgid "Create database with same name and grant all privileges."
@@ -12603,16 +12588,14 @@ msgid ""
 msgstr "… a régiek törlése a felhasználói táblákból, majd a jogok újratöltése."
 
 #: libraries/server_privileges.lib.php:2728
-#, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "Bejelentkezési adatok módosítása / Felhasználó másolása"
+msgstr "Bejelentkezési adatok módosítása / Felhasználói fiók másolása"
 
 #: libraries/server_privileges.lib.php:2734
-#, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "Új felhasználó létrehozása ezekkel a jogokkal, és …"
+msgstr "Új felhasználói fiók létrehozása ezekkel a jogokkal, és …"
 
 #: libraries/server_privileges.lib.php:3036
 msgid "Column-specific privileges"
@@ -12633,10 +12616,9 @@ msgid "Add privileges on the following table:"
 msgstr "Jogok hozzáadása a következő táblán:"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
-msgstr "A kijelölt felhasználók törlése"
+msgstr "A kijelölt felhasználói fiókok eltávolítása"
 
 #: libraries/server_privileges.lib.php:3376
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -12690,16 +12672,14 @@ msgid "New"
 msgstr "új"
 
 #: libraries/server_privileges.lib.php:4084
-#, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "Jogok szerkesztése:"
 
 #: libraries/server_privileges.lib.php:4085
-#, fuzzy
 #| msgid "User group"
 msgid "User account"
-msgstr "Felhasználói csoport"
+msgstr "Felhasználói fiók"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12710,10 +12690,9 @@ msgstr ""
 "amellyel jelenleg be van lépve."
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-#, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
-msgstr "Felhasználók áttekintése"
+msgstr "Felhasználói fiókok áttekintése"
 
 #: libraries/server_privileges.lib.php:4255
 #, php-format
