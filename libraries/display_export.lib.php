@@ -291,7 +291,7 @@ function PMA_getHtmlForExportOptionsMethod()
     }
 
     $html  = '<div class="exportoptions" id="quick_or_custom">';
-    $html .= '<h3>' . __('Export Method:') . '</h3>';
+    $html .= '<h3>' . __('Export method:') . '</h3>';
     $html .= '<ul>';
     $html .= '<li>';
     $html .= '<input type="radio" name="quick_or_custom" value="quick" '
