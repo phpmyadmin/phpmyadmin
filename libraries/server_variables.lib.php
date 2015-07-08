@@ -614,6 +614,10 @@ function PMA_getArrayForDocumentLinks()
         'have_innodb',
         'server-system-variables',
         'sysvar');
+    $variable_doc_links['have_ndbcluster'] = array(
+        'have_ndbcluster',
+        'mysql-cluster-system-variables',
+        'sysvar');
     $variable_doc_links['have_openssl'] = array(
         'have_openssl',
         'server-system-variables',
@@ -1380,6 +1384,10 @@ function PMA_getArrayForDocumentLinks()
         'sysvar');
     $variable_doc_links['max_length_for_sort_data'] = array(
         'max_length_for_sort_data',
+        'server-system-variables',
+        'sysvar');
+    $variable_doc_links['max_long_data_size'] = array(
+        'max_long_data_size',
         'server-system-variables',
         'sysvar');
     $variable_doc_links['max_prepared_stmt_count'] = array(
