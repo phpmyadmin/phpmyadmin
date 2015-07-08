@@ -14,11 +14,6 @@ $GLOBALS['unparsed_sql'] = $sql_query;
 // Get details about the SQL query.
 $analyzed_sql_results = SqlParser\Utils\Query::getAll($sql_query);
 
-// Adding data fetched from the old parser and analyzer.
-// TODO: Finish replacing all calls to `PMA_SQP_*`.
-$analyzed_sql_results['parsed_sql'] = PMA_SQP_parse($sql_query);
-$analyzed_sql_results['analyzed_sql'] = PMA_SQP_analyze($analyzed_sql_results['parsed_sql']);
-
 // TODO: Refactor this.
 extract($analyzed_sql_results);
 
