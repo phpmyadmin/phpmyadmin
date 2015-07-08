@@ -54,6 +54,7 @@ class PMA_PageSettings_Test extends PHPUnit_Framework_TestCase
         // Test some sample parts
         $this->assertContains(
             '<div id="page_settings_modal">'
+            . '<div class="page_settings">'
             . '<form method="post" '
             . 'action="phpunit?db=&amp;table=&amp;server=1&amp;target=&amp;lang=en&amp;token=token" '
             . 'class="config-form disableAjax">',
