@@ -1057,7 +1057,7 @@ function insertQuery(queryType)
                 'sql': codemirror_editor.getValue()
             };
             $.ajax({
-                type: 'POST',
+                type: 'GET',
                 url: href,
                 data: params,
                 success: function (data) {
