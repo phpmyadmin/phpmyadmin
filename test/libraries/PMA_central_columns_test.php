@@ -91,7 +91,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $_SESSION['relation'][1] = array(
-            'central_columnswork' => true,
+            'centralcolumnswork' => true,
             'relwork' => 1,
             'db' => 'phpmyadmin',
             'relation' => 'relation',

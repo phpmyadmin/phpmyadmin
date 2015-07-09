@@ -91,7 +91,7 @@ if (isset($_REQUEST['operation'])) {
         if (! empty($cfgDesigner['user'])
             && ! empty($cfgDesigner['db'])
             && ! empty($cfgDesigner['table'])
-            && $GLOBALS['cfgRelation']['designer_settingswork']
+            && $GLOBALS['cfgRelation']['designersettingswork']
         ) {
             $orig_data_query = 'SELECT ' . PMA_Util::backquote('settings_data')
                 . ' FROM `' . $cfgDesigner['db'] . '`.`' . $cfgDesigner['table'] . '` WHERE '

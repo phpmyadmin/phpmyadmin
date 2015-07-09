@@ -27,8 +27,8 @@ function PMA_centralColumnsGetParams()
 
     $cfgRelation = PMA_getRelationsParam();
 
-    if (isset($cfgRelation['central_columnswork'])
-        && $cfgRelation['central_columnswork']
+    if (isset($cfgRelation['centralcolumnswork'])
+        && $cfgRelation['centralcolumnswork']
     ) {
         $cfgCentralColumns = array(
             'user'  => $GLOBALS['cfg']['Server']['user'],
@@ -873,7 +873,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
                     'Field'=>$row['col_name']
                 ),
                 'cfgRelation' => array(
-                    'central_columnswork' => false
+                    'centralcolumnswork' => false
                 )
             ))
         . '</td>';
@@ -1014,7 +1014,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
                     'Field' => $row['col_name']
                 ),
                 'cfgRelation' => array(
-                    'central_columnswork' => false
+                    'centralcolumnswork' => false
                 )
             ))
         . '</td>';
@@ -1261,7 +1261,7 @@ function PMA_getHTMLforAddNewColumn($db)
                 'ci_offset' => 0,
                 'columnMeta' => array(),
                 'cfgRelation' => array(
-                    'central_columnswork' => false
+                    'centralcolumnswork' => false
                 )
             ))
         . '</td>'

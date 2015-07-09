@@ -356,8 +356,8 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
         $html_output .= '</optgroup>';
     }
 
-    if (isset($GLOBALS['cfgRelation']['central_columnswork'])
-        && $GLOBALS['cfgRelation']['central_columnswork']
+    if (isset($GLOBALS['cfgRelation']['centralcolumnswork'])
+        && $GLOBALS['cfgRelation']['centralcolumnswork']
     ) {
         $html_output .= '<optgroup label="' . __('Central columns') . '">';
         $html_output .= '<option value="sync_unique_columns_central_list" >'
@@ -1567,8 +1567,8 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
                 __('Fulltext'), 'b_ftext.png', 'ftext'
             );
         }
-        if (isset($GLOBALS['cfgRelation']['central_columnswork'])
-            && $GLOBALS['cfgRelation']['central_columnswork']
+        if (isset($GLOBALS['cfgRelation']['centralcolumnswork'])
+            && $GLOBALS['cfgRelation']['centralcolumnswork']
         ) {
             $html_output .= PMA_Util::getButtonOrImage(
                 'submit_mult', 'mult_submit', 'submit_mult_central_columns_add',
@@ -2191,8 +2191,8 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         );
     }
     $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
-    if (isset($GLOBALS['cfgRelation']['central_columnswork'])
-        && $GLOBALS['cfgRelation']['central_columnswork']
+    if (isset($GLOBALS['cfgRelation']['centralcolumnswork'])
+        && $GLOBALS['cfgRelation']['centralcolumnswork']
     ) {
         $html_output .= '<li class="browse nowrap">';
         if ($isInCentralColumns) {

@@ -32,8 +32,8 @@ if (empty($title)) {
        value="<?php if (isset($columnMeta['Field']))
            echo htmlspecialchars($columnMeta['Field']); ?>" />
 
-<?php if (isset($cfgRelation['central_columnswork'])
-    && $cfgRelation['central_columnswork']
+<?php if (isset($cfgRelation['centralcolumnswork'])
+    && $cfgRelation['centralcolumnswork']
     && !(isset($columnMeta['column_status'])
         && !$columnMeta['column_status']['isEditable'])
 ): ?>

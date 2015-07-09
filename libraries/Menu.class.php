@@ -500,8 +500,8 @@ class PMA_Menu
         }
 
         if (! $db_is_system_schema
-            && isset($cfgRelation['central_columnswork'])
-            && $cfgRelation['central_columnswork']
+            && isset($cfgRelation['centralcolumnswork'])
+            && $cfgRelation['centralcolumnswork']
         ) {
             $tabs['central_columns']['text'] = __('Central columns');
             $tabs['central_columns']['icon'] = 'centralColumns.png';

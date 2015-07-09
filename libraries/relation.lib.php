@@ -311,7 +311,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
         );
         $retval .= PMA_getDiagMessageForFeature(
             __('Managing Central list of columns'),
-            'central_columnswork',
+            'centralcolumnswork',
             $messages
         );
         $retval .= PMA_getDiagMessageForParameter(
@@ -322,7 +322,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
         );
         $retval .= PMA_getDiagMessageForFeature(
             __('Remembering Designer Settings'),
-            'designer_settingswork',
+            'designersettingswork',
             $messages
         );
         $retval .= PMA_getDiagMessageForParameter(
@@ -461,8 +461,8 @@ function PMA_checkRelationsParam()
     $cfgRelation['navwork']        = false;
     $cfgRelation['allworks']       = false;
     $cfgRelation['savedsearcheswork'] = false;
-    $cfgRelation['central_columnswork'] = false;
-    $cfgRelation['designer_settingswork'] = false;
+    $cfgRelation['centralcolumnswork'] = false;
+    $cfgRelation['designersettingswork'] = false;
     $cfgRelation['exporttemplateswork'] = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
@@ -604,11 +604,11 @@ function PMA_checkRelationsParam()
     }
 
     if (isset($cfgRelation['central_columns'])) {
-        $cfgRelation['central_columnswork']      = true;
+        $cfgRelation['centralcolumnswork']      = true;
     }
 
     if (isset($cfgRelation['designer_settings'])) {
-        $cfgRelation['designer_settingswork']    = true;
+        $cfgRelation['designersettingswork']    = true;
     }
 
     if (isset($cfgRelation['export_templates'])) {
@@ -620,10 +620,10 @@ function PMA_checkRelationsParam()
         && $cfgRelation['mimework'] && $cfgRelation['historywork']
         && $cfgRelation['recentwork'] && $cfgRelation['uiprefswork']
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
-        && $cfgRelation['bookmarkwork'] && $cfgRelation['central_columnswork']
+        && $cfgRelation['bookmarkwork'] && $cfgRelation['centralcolumnswork']
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
         && $cfgRelation['savedsearcheswork'] && $cfgRelation['favoritework']
-        && $cfgRelation['designer_settingswork']
+        && $cfgRelation['designersettingswork']
         && $cfgRelation['exporttemplateswork']
     ) {
         $cfgRelation['allworks'] = true;

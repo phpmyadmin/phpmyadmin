@@ -184,7 +184,7 @@ function PMA_getSideMenuParamsArray()
 
     $cfgRelation = PMA_getRelationsParam();
 
-    if ($GLOBALS['cfgRelation']['designer_settingswork']) {
+    if ($GLOBALS['cfgRelation']['designersettingswork']) {
 
         $query = 'SELECT `settings_data` FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
             . PMA_Util::backquote($cfgRelation['designer_settings'])

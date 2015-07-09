@@ -1872,7 +1872,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'menuswork' => false,
             'navwork' => false,
             'savedsearcheswork' => false,
-            'designer_settingswork' => false,
+            'designersettingswork' => false,
         );
 
         $queries = array();

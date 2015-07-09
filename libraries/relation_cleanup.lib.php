@@ -203,8 +203,8 @@ function PMA_relationsCleanupDatabase($db)
         PMA_queryAsControlUser($remove_query);
     }
 
-    if (isset($cfgRelation['central_columnswork'])
-        && $cfgRelation['central_columnswork']
+    if (isset($cfgRelation['centralcolumnswork'])
+        && $cfgRelation['centralcolumnswork']
     ) {
         $remove_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
             . '.' . PMA_Util::backquote($cfgRelation['central_columns'])
@@ -285,7 +285,7 @@ function PMA_relationsCleanupUser($username)
         PMA_queryAsControlUser($remove_query);
     }
 
-    if ($cfgRelation['designer_settingswork']) {
+    if ($cfgRelation['designersettingswork']) {
         $remove_query = "DELETE FROM " . PMA_Util::backquote($cfgRelation['db'])
             . "." . PMA_Util::backquote($cfgRelation['designer_settings'])
             . " WHERE `username`  = '" . PMA_Util::sqlAddSlashes($username) . "'";
