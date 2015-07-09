@@ -285,7 +285,7 @@ AJAX.registerOnload('tbl_select.js', function () {
             var $msgbox = PMA_ajaxShowMessage();
             $.ajax({
                 url: 'tbl_select.php',
-                type: 'POST',
+                type: 'GET',
                 data: {
                     token: $('input[name="token"]').val(),
                     ajax_request: 1,
