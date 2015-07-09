@@ -1870,7 +1870,7 @@ function codemirrorAutocompleteOnInputRead(instance) {
             };
 
             $.ajax({
-                type: 'POST',
+                type: 'GET',
                 url: href,
                 data: params,
                 success: function (data) {
