@@ -209,7 +209,7 @@ function goTo2NFFinish(pd)
             "newTablesName":JSON.stringify(tables),
             "createNewTables2NF":1};
     $.ajax({
-            type: "GET",
+            type: "POST",
             url: "normalization.php",
             data: datastring,
             async:false,
@@ -254,7 +254,7 @@ function goTo3NFFinish(newTables)
             "newTables":JSON.stringify(newTables),
             "createNewTables3NF":1};
     $.ajax({
-            type: "GET",
+            type: "POST",
             url: "normalization.php",
             data: datastring,
             async:false,
