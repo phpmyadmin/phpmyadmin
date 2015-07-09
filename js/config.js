@@ -763,7 +763,7 @@ function savePrefsToLocalStorage(form)
     $.ajax({
         url: 'prefs_manage.php',
         cache: false,
-        type: 'POST',
+        type: 'GET',
         data: {
             ajax_request: true,
             server: $form.find('input[name=server]').val(),
