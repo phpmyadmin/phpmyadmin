@@ -24,7 +24,7 @@ $scripts->addFile('export.js');
 $cfgRelation = PMA_getRelationsParam();
 
 // handling export template actions
-if (isset($_REQUEST['templateAction']) && $cfgRelation['export_templateswork']) {
+if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
 
     if (isset($_REQUEST['templateId'])) {
         $templateId = $_REQUEST['templateId'];

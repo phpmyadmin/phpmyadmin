@@ -333,7 +333,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
         );
         $retval .= PMA_getDiagMessageForFeature(
             __('Saving export templates'),
-            'export_templateswork',
+            'exporttemplateswork',
             $messages
         );
         $retval .= '</table>' . "\n";
@@ -463,7 +463,7 @@ function PMA_checkRelationsParam()
     $cfgRelation['savedsearcheswork'] = false;
     $cfgRelation['central_columnswork'] = false;
     $cfgRelation['designer_settingswork'] = false;
-    $cfgRelation['export_templateswork'] = false;
+    $cfgRelation['exporttemplateswork'] = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
 
@@ -612,7 +612,7 @@ function PMA_checkRelationsParam()
     }
 
     if (isset($cfgRelation['export_templates'])) {
-        $cfgRelation['export_templateswork']      = true;
+        $cfgRelation['exporttemplateswork']      = true;
     }
 
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
@@ -624,7 +624,7 @@ function PMA_checkRelationsParam()
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
         && $cfgRelation['savedsearcheswork'] && $cfgRelation['favoritework']
         && $cfgRelation['designer_settingswork']
-        && $cfgRelation['export_templateswork']
+        && $cfgRelation['exporttemplateswork']
     ) {
         $cfgRelation['allworks'] = true;
     }
