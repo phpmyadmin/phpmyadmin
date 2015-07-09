@@ -354,7 +354,7 @@ var AJAX = {
                 if (data._menu) {
                     if (history && history.pushState) {
                         history.replaceState({
-                            menu : data._menu
+                                menu : data._menu
                             },
                             null
                         );
@@ -545,7 +545,7 @@ var AJAX = {
          *
          * @return void
          */
-        load: function (files) {
+        load: function (files, callback) {
             var self = this;
             self._scriptsToBeLoaded = [];
             self._scriptsToBeFired = [];
@@ -572,7 +572,7 @@ var AJAX = {
             if (needRequest) {
                 this.appendScript("js/get_scripts.js.php?" + request.join("&"));
             } else {
-                self.done();
+                self.done(callback);
             }
         },
         /**
@@ -580,7 +580,10 @@ var AJAX = {
          *
          * @return void
          */
-        done: function () {
+        done: function (callback) {
+            if($.isFunction(callback)) {
+                callback();
+            }
             if (typeof ErrorReport !== 'undefined') {
                 ErrorReport.wrap_global_functions();
             }
@@ -714,31 +717,33 @@ $(function () {
         });
         // Add initial menu to history state object
         history.replaceState({
-            menu : menuContent
+                menu : menuContent
             },
             null
         );
     } else {
         // Fallback to microhistory mechanism
-        AJAX.scriptHandler.load([{'name' : 'microhistory.js', 'fire' : 1}]);
-        // The cache primer is set by the footer class
-        if (PMA_MicroHistory.primer.url) {
-            PMA_MicroHistory.menus.add(
-                PMA_MicroHistory.primer.menuHash,
-                menuContent
-            );
-        }
-        $(function () {
-            // Queue up this event twice to make sure that we get a copy
-            // of the page after all other onload events have been fired
-            if (PMA_MicroHistory.primer.url) {
-                PMA_MicroHistory.add(
-                    PMA_MicroHistory.primer.url,
-                    PMA_MicroHistory.primer.scripts,
-                    PMA_MicroHistory.primer.menuHash
-                );
-            }
-        });
+        AJAX.scriptHandler
+            .load([{'name' : 'microhistory.js', 'fire' : 1}], function () {
+                // The cache primer is set by the footer class
+                if (PMA_MicroHistory.primer.url) {
+                    PMA_MicroHistory.menus.add(
+                        PMA_MicroHistory.primer.menuHash,
+                        menuContent
+                    );
+                }
+                $(function () {
+                    // Queue up this event twice to make sure that we get a copy
+                    // of the page after all other onload events have been fired
+                    if (PMA_MicroHistory.primer.url) {
+                        PMA_MicroHistory.add(
+                            PMA_MicroHistory.primer.url,
+                            PMA_MicroHistory.primer.scripts,
+                            PMA_MicroHistory.primer.menuHash
+                        );
+                    }
+                });
+            });
     }
 });
 
