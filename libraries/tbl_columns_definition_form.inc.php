@@ -334,7 +334,6 @@ $html = PMA\Template::get('columns_definitions/column_definitions_form')
         'action' => $action,
         'form_params' => $form_params,
         'content_cells' => $content_cells,
-        'privs_available' => $privs_available
     ));
 
 unset($form_params);
