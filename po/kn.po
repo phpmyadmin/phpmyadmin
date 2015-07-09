@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2014-12-24 02:27+0200\n"
-"Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
-"Language-Team: Kannada <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/kn/>\n"
+"PO-Revision-Date: 2015-07-09 08:27+0200\n"
+"Last-Translator: Shameem Ahmed A Mulla <shameem.sam@gmail.com>\n"
+"Language-Team: Kannada "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/kn/>\n"
 "Language: kn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,35 +25,37 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"%s ಫೈಲ್ ಈ ಗಣಕದಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ, ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ www.phpmyadmin.net ಭೇಟಿ "
+"ನೀಡಿ."
 
 #: db_central_columns.php:89
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "ಪ್ರಸ್ತುತ ಡೇಟಾಬೇಸ್ ಅಂಕಣಗಳ ಕೇಂದ್ರ ಪಟ್ಟಿ ಖಾಲಿಯಾಗಿದೆ."
 
 #: db_central_columns.php:113
 msgid "Click to sort."
-msgstr ""
+msgstr "ವಿಂಗಡಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ."
 
 #: db_central_columns.php:129
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr ""
+msgstr "ತೋರಿಸಲಾಗುತ್ತಿದೆ ಸಾಲುಗಳನ್ನು %1$s - %2$s."
 
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "ಡೇಟಾಬೇಸ್ %1$s ರಚಿಸಲಾಗಿದೆ."
 
 #: db_datadict.php:48 libraries/operations.lib.php:32
 msgid "Database comment:"
-msgstr ""
+msgstr "ಡೇಟಾಬೇಸ್ ಕಾಮೆಂಟ್:"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:943
 #: libraries/tbl_columns_definition_form.lib.php:71
 #: libraries/tbl_printview.lib.php:581
 msgid "Table comments:"
-msgstr ""
+msgstr "ಟೇಬಲ್ ಕಾಮೆಂಟ್ಸ್:"
 
 #: db_datadict.php:103 libraries/Index.class.php:651
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1292
@@ -75,7 +77,7 @@ msgstr ""
 #: libraries/tbl_relation.lib.php:619 libraries/tracking.lib.php:877
 #: libraries/tracking.lib.php:966
 msgid "Column"
-msgstr ""
+msgstr "ಅಂಕಣ"
 
 #: db_datadict.php:104 db_printview.php:50 libraries/Index.class.php:648
 #: libraries/TableSearch.class.php:186 libraries/central_columns.lib.php:654
@@ -99,7 +101,7 @@ msgstr ""
 #: libraries/tbl_printview.lib.php:477 libraries/tracking.lib.php:878
 #: libraries/tracking.lib.php:963
 msgid "Type"
-msgstr ""
+msgstr "ಕೌಟುಂಬಿಕತೆ"
 
 #: db_datadict.php:105 libraries/Index.class.php:654
 #: libraries/TableSearch.class.php:1293 libraries/central_columns.lib.php:662
@@ -118,7 +120,7 @@ msgstr ""
 #: libraries/tbl_printview.lib.php:478 libraries/tracking.lib.php:880
 #: libraries/tracking.lib.php:969
 msgid "Null"
-msgstr ""
+msgstr "ಶೂನ್ಯ"
 
 #: db_datadict.php:106 libraries/central_columns.lib.php:666
 #: libraries/plugins/export/ExportHtmlword.class.php:289
@@ -135,7 +137,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:333
 #: libraries/tbl_printview.lib.php:479 libraries/tracking.lib.php:881
 msgid "Default"
-msgstr ""
+msgstr "ಪೂರ್ವನಿಯೋಜಿತ"
 
 #: db_datadict.php:108 libraries/plugins/export/ExportHtmlword.class.php:388
 #: libraries/plugins/export/ExportLatex.class.php:512
@@ -145,7 +147,7 @@ msgstr ""
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:998
 #: libraries/tbl_printview.lib.php:481
 msgid "Links to"
-msgstr ""
+msgstr "ಸಂಪರ್ಕ ಗೆ"
 
 #: db_datadict.php:110 db_printview.php:54
 #: libraries/config/messages.inc.php:134 libraries/config/messages.inc.php:150
@@ -159,14 +161,14 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:352
 #: libraries/tbl_printview.lib.php:483
 msgid "Comments"
-msgstr ""
+msgstr "ಪ್ರತಿಕ್ರಿಯೆಗಳು"
 
 #: db_datadict.php:152 libraries/display_structure.inc.php:164
 #: libraries/structure.lib.php:1495 libraries/structure.lib.php:2236
 #: libraries/structure.lib.php:2246 libraries/tbl_printview.lib.php:110
 #: libraries/tracking.lib.php:917
 msgid "Primary"
-msgstr ""
+msgstr "ಪ್ರಾಥಮಿಕ"
 
 #: db_datadict.php:157 js/messages.php:282 libraries/Index.class.php:519
 #: libraries/Index.class.php:558 libraries/Index.class.php:970
@@ -189,7 +191,7 @@ msgstr ""
 #: libraries/tracking.lib.php:1001 libraries/tracking.lib.php:1006
 #: libraries/user_preferences.lib.php:295 prefs_manage.php:138
 msgid "No"
-msgstr "ಯಾವುದೇ"
+msgstr "ಇಲ್ಲ"
 
 #: db_datadict.php:157 js/messages.php:406 libraries/Index.class.php:520
 #: libraries/Index.class.php:557 libraries/Index.class.php:970
@@ -223,27 +225,27 @@ msgstr "ಹೌದು"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "ಡೇಟಾಬೇಸ್ ಡಂಪ್ (ಸ್ಕೀಮಾ) ವೀಕ್ಷಿಸಿ"
 
 #: db_export.php:33 db_printview.php:42 db_structure.php:84 db_tracking.php:89
 #: export.php:360 libraries/DBQbe.class.php:312
 #: libraries/navigation/NavigationTree.class.php:847
 msgid "No tables found in database."
-msgstr ""
+msgstr "ಯಾವುದೇ ಟೇಬಲ್ ಡೇಟಾಬೇಸನ್ನಲ್ಲಿ ಕಂಡುಬಂದಿಲ್ಲ."
 
 #: db_export.php:41 libraries/DbSearch.class.php:446
 #: libraries/display_export.lib.php:44
 msgid "Select All"
-msgstr ""
+msgstr "ಎಲ್ಲಾ ಆಯ್ಕೆ ಮಾಡಿ"
 
 #: db_export.php:47 libraries/DbSearch.class.php:450
 #: libraries/display_export.lib.php:50
 msgid "Unselect All"
-msgstr ""
+msgstr "ಎಲ್ಲಾ ಆಯ್ಕೆರದ್ದುಮಾಡಿ"
 
 #: db_operations.php:51 tbl_create.php:24
 msgid "The database name is empty!"
-msgstr ""
+msgstr "ಡೇಟಾಬೇಸ್ ಹೆಸರು ಖಾಲಿಇದೆ!"
 
 #: db_operations.php:132
 #, php-format
@@ -12629,7 +12631,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:1663
 msgid "Track view"
-msgstr ""
+msgstr "ಮಾರ್ಗ ವೀಕ್ಷಣ"
 
 #: libraries/structure.lib.php:1704
 #: libraries/tbl_columns_definition_form.lib.php:189
@@ -12984,10 +12986,9 @@ msgid "Index type:"
 msgstr ""
 
 #: libraries/tbl_indexes.lib.php:346
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "ಸದಸ್ಯ:"
+msgstr "ವಿಶ್ಲೇಷಕ:"
 
 #: libraries/tbl_indexes.lib.php:358
 msgid "Comment:"
