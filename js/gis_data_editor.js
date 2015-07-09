@@ -138,7 +138,7 @@ function loadJSAndGISEditor(value, field, type, input_name, token) {
 function loadGISEditor(value, field, type, input_name, token) {
 
     var $gis_editor = $("#gis_editor");
-    $.post('gis_data_editor.php', {
+    $.get('gis_data_editor.php', {
         'field' : field,
         'value' : value,
         'type' : type,
