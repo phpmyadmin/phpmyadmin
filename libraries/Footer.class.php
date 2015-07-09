@@ -322,7 +322,7 @@ class PMA_Footer
                     // prime the client-side cache
                     $this->_scripts->addCode(
                         sprintf(
-                            'AJAX.cache.primer = {'
+                            'PMA_Microhistory.primer = {'
                             . ' url: "%s",'
                             . ' scripts: %s,'
                             . ' menuHash: "%s"'
