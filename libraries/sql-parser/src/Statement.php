@@ -6,7 +6,7 @@
  *
  * A statement represents the result of parsing the lexemes.
  *
- * @package SqlParser.
+ * @package SqlParser
  */
 namespace SqlParser;
 
@@ -22,6 +22,27 @@ use SqlParser\Fragments\OptionsFragment;
  */
 abstract class Statement
 {
+
+    /**
+     * Options for this statement.
+     *
+     * The option would be the key and the value can be an integer or an array.
+     *
+     * The integer represents only the index used.
+     *
+     * The array may have two keys: `0` is used to represent the index used and
+     * `1` is the type of the option (which may be 'var' or 'var='). Both
+     * options mean they expect a value after the option (e.g. `A = B` or `A B`,
+     * in which case `A` is the key and `B` is the value). The only difference
+     * is in the building process. `var` options are built as `A B` and  `var=`
+     * options are built as `A = B`
+     *
+     * Two options that can be used together must have different values for
+     * indexes, else, when they will be used together, an error will occur.
+     *
+     * @var array
+     */
+    public static $OPTIONS = array();
 
     /**
      * The clauses of this statement, in order.
@@ -157,7 +178,7 @@ abstract class Statement
          * default.
          * @var bool $parsedOptions
          */
-        $parsedOptions = isset(static::$OPTIONS) ? false : true;
+        $parsedOptions = !empty(static::$OPTIONS) ? false : true;
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**

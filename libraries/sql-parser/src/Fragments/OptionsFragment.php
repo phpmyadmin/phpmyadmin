@@ -65,6 +65,11 @@ class OptionsFragment extends Fragment
          * @var array $lastOption
          */
         $lastOption = null;
+
+        /**
+         * The index of the option that was processed last time.
+         * @var int $lastOptionId
+         */
         $lastOptionId = 0;
 
         $brackets = 0;
@@ -87,8 +92,8 @@ class OptionsFragment extends Fragment
             }
 
             if ($lastOption === null) {
-                if (isset($options[strtoupper($token->value)])) {
-                    $lastOption = $options[strtoupper($token->value)];
+                if (isset($options[strtoupper($token->token)])) {
+                    $lastOption = $options[strtoupper($token->token)];
                     $lastOptionId = is_array($lastOption) ? $lastOption[0] : $lastOption;
 
                     // Checking for option conflicts.

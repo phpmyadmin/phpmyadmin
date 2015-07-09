@@ -231,6 +231,7 @@ class FieldDefFragment extends Fragment
     public static function build($fragment)
     {
         $ret = array();
+
         foreach ($fragment as $f) {
             $tmp = '';
 
@@ -258,6 +259,7 @@ class FieldDefFragment extends Fragment
 
             $ret[] = trim($tmp);
         }
-        return '(' . implode(', ', $ret) . ')';
+
+        return "(\n" . implode(",\n", $ret) . "\n)";
     }
 }

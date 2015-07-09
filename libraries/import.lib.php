@@ -1006,10 +1006,10 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     if ($create_db) {
         if (PMA_DRIZZLE) {
             $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_Util::backquote($db_name)
-                . " COLLATE " . $collation;
+                . " COLLATE " . $collation . ";";
         } else {
             $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_Util::backquote($db_name)
-                . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation;
+                . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation . ";";
         }
     }
 

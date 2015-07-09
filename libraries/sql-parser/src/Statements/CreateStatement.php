@@ -65,6 +65,20 @@ class CreateStatement extends Statement
     );
 
     /**
+     * All database options.
+     *
+     * @var array
+     */
+    public static $DB_OPTIONS = array(
+        'CHARACTER SET'                 => array(1, 'var='),
+        'CHARSET'                       => array(1, 'var='),
+        'DEFAULT CHARACTER SET'         => array(1, 'var='),
+        'DEFAULT CHARSET'               => array(1, 'var='),
+        'DEFAULT COLLATE'               => array(2, 'var='),
+        'COLLATE'                       => array(2, 'var='),
+    );
+
+    /**
      * All table options.
      *
      * @var array
@@ -78,7 +92,7 @@ class CreateStatement extends Statement
         'DEFAULT CHARACTER SET'         => array(4, 'var='),
         'DEFAULT CHARSET'               => array(4, 'var='),
         'CHECKSUM'                      => array(5, 'var'),
-        'DEFAULT COLLATE'               => array(5, 'var='),
+        'DEFAULT COLLATE'               => array(6, 'var='),
         'COLLATE'                       => array(6, 'var='),
         'COMMENT'                       => array(7, 'var='),
         'CONNECTION'                    => array(8, 'var'),
@@ -201,7 +215,12 @@ class CreateStatement extends Statement
      */
     public function build()
     {
-        if ($this->options->has('TABLE')) {
+        if ($this->options->has('DATABASE')) {
+            return 'CREATE '
+                . OptionsFragment::build($this->options) . ' '
+                . FieldFragment::build($this->name) . ' '
+                . OptionsFragment::build($this->entityOptions);
+        } elseif ($this->options->has('TABLE')) {
             return 'CREATE '
                 . OptionsFragment::build($this->options) . ' '
                 . FieldFragment::build($this->name) . ' '
@@ -266,7 +285,13 @@ class CreateStatement extends Statement
         );
         ++$list->idx; // Skipping field.
 
-        if ($this->options->has('TABLE')) {
+        if ($this->options->has('DATABASE')) {
+            $this->entityOptions = OptionsFragment::parse(
+                $parser,
+                $list,
+                static::$DB_OPTIONS
+            );
+        } elseif ($this->options->has('TABLE')) {
             $this->fields = FieldDefFragment::parse($parser, $list);
             ++$list->idx;
 

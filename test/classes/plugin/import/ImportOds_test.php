@@ -136,11 +136,18 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
         $this->object->doImport();
 
         //asset that all sql are executed
-        $this->assertContains(
-            'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET '
-            . 'utf8 COLLATE utf8_general_ci',
-            $sql_query
-        );
+        if (PMA_DRIZZLE) {
+            $this->assertContains(
+                'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT COLLATE utf8_general_ci',
+                $sql_query
+            );
+        } else {
+            $this->assertContains(
+                'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET '
+                . 'utf8 COLLATE utf8_general_ci',
+                $sql_query
+            );
+        }
         $this->assertContains(
             'CREATE TABLE IF NOT EXISTS `ODS_DB`.`pma_bookmark`',
             $sql_query

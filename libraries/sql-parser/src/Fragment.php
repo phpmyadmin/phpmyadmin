@@ -35,6 +35,8 @@ abstract class Fragment
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
+        // This method should be abstract, but it can't be both static and
+        // abstract.
         return null;
     }
 
@@ -50,6 +52,8 @@ abstract class Fragment
      */
     public static function build($fragment)
     {
+        // This method should be abstract, but it can't be both static and
+        // abstract.
         return null;
     }
 }

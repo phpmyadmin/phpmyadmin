@@ -1221,8 +1221,13 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $row = array(
             '',
-            "CREATE TABLE `db`.`table`,\n CONSTRAINT KEYS \nFOREIGN  KEY\n) " .
-            "unsigned NOT NULL\n(\r\n"
+            "CREATE TABLE `table` (\n" .
+            "`id` INT NOT NULL AUTO_INCREMENT,\n" .
+            "username VARCHAR(64) NULL,\n" .
+            "`password` VARCHAR(256) DEFAULT '123456',\n" .
+            "CONSTRAINT pk_id PRIMARY KEY (`id`),\n" .
+            "UNIQUE (username)\n" .
+            ")"
         );
 
         $dbi->expects($this->once())
@@ -1258,12 +1263,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            "CREATE TABLE `table`\n",
-            $result
-        );
-
-        $this->assertContains(
-            ") NOT NULL\n",
+            "CREATE TABLE `table`",
             $result
         );
 
@@ -1278,27 +1278,22 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'ALTER TABLE "table"' . "\n",
+            'ALTER TABLE "table"',
             $GLOBALS['sql_constraints']
         );
 
         $this->assertContains(
-            'ADD CONSTRAINT KEYS ' . "\n",
+            'ADD CONSTRAINT',
             $GLOBALS['sql_constraints']
         );
 
         $this->assertContains(
-            'ADD FOREIGN  KEY;',
-            $GLOBALS['sql_constraints']
-        );
-
-        $this->assertContains(
-            'ALTER TABLE "table"' . "\n",
+            'ALTER TABLE "table"',
             $GLOBALS['sql_constraints_query']
         );
 
         $this->assertContains(
-            '  ADD CONSTRAINT KEYS   ADD FOREIGN  KEY;',
+            'ADD CONSTRAINT',
             $GLOBALS['sql_constraints_query']
         );
 
@@ -1308,7 +1303,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'DROP FOREIGN KEY KEYS',
+            'DROP FOREIGN KEY',
             $GLOBALS['sql_drop_foreign_keys']
         );
 
@@ -1398,8 +1393,13 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $row = array(
             '',
-            "CREATE TABLE `db`.`table` ROW_FORMAT='row',\n CONSTRAINT "
-             . "KEYS \nFOREIGN  KEY\n) unsigned NOT NULL\n(\r"
+            "CREATE TABLE `db`.`table` (\n" .
+            "`id` INT NOT NULL AUTO_INCREMENT,\n" .
+            "username VARCHAR(64) NULL,\n" .
+            "`password` VARCHAR(256) DEFAULT '123456',\n" .
+            "CONSTRAINT pk_id PRIMARY KEY (`id`),\n" .
+            "UNIQUE (username)\n" .
+            ")"
         );
 
         $dbi->expects($this->once())
@@ -1415,12 +1415,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            "CREATE TABLE IF NOT EXISTS `table` ROW_FORMAT=row",
-            $result
-        );
-
-        $this->assertContains(
-            ") unsigned NOT NULL\n",
+            "CREATE TABLE IF NOT EXISTS `table`",
             $result
         );
 
@@ -2255,14 +2250,14 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $db = 'a';
         $table = 'foo';
-        $sql_query = "CREATE TABLE IF NOT EXISTS foo ("
-            . "baz tinyint(3) unsigned NOT NULL COMMENT 'Primary Key',"
+        $sql_query = "CREATE TABLE IF NOT EXISTS foo (\n"
+            . "baz tinyint(3) unsigned NOT NULL COMMENT 'Primary Key',\n"
             . "xyz varchar(255) COLLATE latin1_general_ci NOT NULL "
-            . "COMMENT 'xyz',"
+            . "COMMENT 'xyz',\n"
             . "pqr varchar(10) COLLATE latin1_general_ci NOT NULL "
-            . "COMMENT 'pqr',"
+            . "COMMENT 'pqr',\n"
             . "CONSTRAINT fk_om_dept FOREIGN KEY (baz) "
-            . "REFERENCES dept_master (baz)"
+            . "REFERENCES dept_master (baz)\n"
             . ") ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE="
             . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5";
         $result = $this->object->replaceWithAliases(
@@ -2270,11 +2265,11 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            "CREATE TABLE IF NOT EXISTS `bartest` (" .
-            "`p` TINYINT (3) UNSIGNED NOT NULL COMMENT 'Primary Key', " .
-            "`xyz` VARCHAR (255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz', " .
-            "`pphymdain` VARCHAR (10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr', " .
-            "CONSTRAINT `fk_om_dept` FOREIGN KEY (`p`) REFERENCES `dept_master` (`baz`)" .
+            "CREATE TABLE IF NOT EXISTS `bartest` (\n" .
+            "`p` TINYINT (3) UNSIGNED NOT NULL COMMENT 'Primary Key',\n" .
+            "`xyz` VARCHAR (255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz',\n" .
+            "`pphymdain` VARCHAR (10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr',\n" .
+            "CONSTRAINT `fk_om_dept` FOREIGN KEY (`p`) REFERENCES `dept_master` (`baz`)\n" .
             ") ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='List'",
             $result
         );
@@ -2282,11 +2277,11 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $result = $this->object->replaceWithAliases($sql_query, array(), '', '');
 
         $this->assertEquals(
-            "CREATE TABLE IF NOT EXISTS foo (" .
-            "`baz` TINYINT (3) UNSIGNED NOT NULL COMMENT 'Primary Key', " .
-            "`xyz` VARCHAR (255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz', " .
-            "`pqr` VARCHAR (10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr', " .
-            "CONSTRAINT `fk_om_dept` FOREIGN KEY (`baz`) REFERENCES `dept_master` (`baz`)" .
+            "CREATE TABLE IF NOT EXISTS foo (\n" .
+            "`baz` TINYINT (3) UNSIGNED NOT NULL COMMENT 'Primary Key',\n" .
+            "`xyz` VARCHAR (255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz',\n" .
+            "`pqr` VARCHAR (10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr',\n" .
+            "CONSTRAINT `fk_om_dept` FOREIGN KEY (`baz`) REFERENCES `dept_master` (`baz`)\n" .
             ") ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='List'",
             $result
         );
