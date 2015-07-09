@@ -4224,6 +4224,22 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
         // for all initials, even non A-Z
         $array_initials = array();
 
+        foreach ($db_rights as $right) {
+            foreach ($right as $account) {
+                if (empty($account['User']) && $account['Host'] == 'localhost') {
+                    $html_output .= PMA_Message::notice(
+                        __(
+                            'A user account allowing any user from localhost to '
+                            . 'connect is present. This may cause trouble for '
+                            . 'other users who are allowed to connect from any '
+                            . 'host in connecting.'
+                        )
+                    )->getDisplay();
+                    break 2;
+                }
+            }
+        }
+
         /**
          * Displays the initials
          * Also not necessary if there is less than 20 privileges
