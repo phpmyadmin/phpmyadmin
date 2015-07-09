@@ -3337,7 +3337,7 @@ AJAX.registerOnload('functions.js', function () {
         if (! (db + '_' + table in central_column_list)) {
             central_column_list.push(db + '_' + table);
             $.ajax({
-                type: 'POST',
+                type: 'GET',
                 url: href,
                 data: params,
                 success: function (data) {
