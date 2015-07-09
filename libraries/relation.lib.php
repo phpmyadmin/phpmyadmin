@@ -326,14 +326,14 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             $messages
         );
         $retval .= PMA_getDiagMessageForParameter(
-            'exporttemplates',
-            isset($cfgRelation['exporttemplates']),
+            'export_templates',
+            isset($cfgRelation['export_templates']),
             $messages,
-            'exporttemplates'
+            'export_templates'
         );
         $retval .= PMA_getDiagMessageForFeature(
             __('Saving export templates'),
-            'exporttemplateswork',
+            'export_templateswork',
             $messages
         );
         $retval .= '</table>' . "\n";
@@ -463,7 +463,7 @@ function PMA_checkRelationsParam()
     $cfgRelation['savedsearcheswork'] = false;
     $cfgRelation['central_columnswork'] = false;
     $cfgRelation['designer_settingswork'] = false;
-    $cfgRelation['exporttemplateswork'] = false;
+    $cfgRelation['export_templateswork'] = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
 
@@ -539,8 +539,8 @@ function PMA_checkRelationsParam()
             $cfgRelation['central_columns']    = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['designer_settings']) {
             $cfgRelation['designer_settings'] = $curr_table[0];
-        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['exporttemplates']) {
-            $cfgRelation['exporttemplates']    = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['export_templates']) {
+            $cfgRelation['export_templates']    = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -611,8 +611,8 @@ function PMA_checkRelationsParam()
         $cfgRelation['designer_settingswork']    = true;
     }
 
-    if (isset($cfgRelation['exporttemplates'])) {
-        $cfgRelation['exporttemplateswork']      = true;
+    if (isset($cfgRelation['export_templates'])) {
+        $cfgRelation['export_templateswork']      = true;
     }
 
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
@@ -624,7 +624,7 @@ function PMA_checkRelationsParam()
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
         && $cfgRelation['savedsearcheswork'] && $cfgRelation['favoritework']
         && $cfgRelation['designer_settingswork']
-        && $cfgRelation['exporttemplateswork']
+        && $cfgRelation['export_templateswork']
     ) {
         $cfgRelation['allworks'] = true;
     }
@@ -1841,7 +1841,7 @@ function PMA_fixPMATables($db, $create = true)
         'pma__savedsearches' => 'savedsearches',
         'pma__central_columns' => 'central_columns',
         'pma__designer_settings' => 'designer_settings',
-        'pma__exporttemplates' => 'exporttemplates',
+        'pma__export_templates' => 'export_templates',
     );
 
     $existingTables = $GLOBALS['dbi']->getTables($db, $GLOBALS['controllink']);

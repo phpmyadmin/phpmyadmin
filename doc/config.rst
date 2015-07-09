@@ -812,8 +812,8 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['savedsearches']` (e.g.
       ``pma__savedsearches``)
 
-.. _exporttemplates:
-.. config:option:: $cfg['Servers'][$i]['exporttemplates']
+.. _export_templates:
+.. config:option:: $cfg['Servers'][$i]['export_templates']
 
     :type: string
     :default: ``''``
@@ -823,8 +823,8 @@ Server connection settings
     To allow the usage of this functionality:
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
-    * put the table name in :config:option:`$cfg['Servers'][$i]['exporttemplates']` (e.g.
-      ``pma__exporttemplates``)
+    * put the table name in :config:option:`$cfg['Servers'][$i]['export_templates']` (e.g.
+      ``pma__export_templates``)
 
 .. _tracking:
 .. config:option:: $cfg['Servers'][$i]['tracking']

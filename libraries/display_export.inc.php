@@ -42,7 +42,7 @@ if (empty($export_list)) {
 $html  = PMA_getHtmlForExportOptionHeader($export_type, $db, $table);
 
 $cfgRelation = PMA_getRelationsParam();
-if ($cfgRelation['exporttemplateswork']) {
+if ($cfgRelation['export_templateswork']) {
     $html .= PMA_getHtmlForExportTemplateLoading($export_type);
 }
 

@@ -1028,7 +1028,7 @@ function PMA_getMetadataTypesToExport()
         'pdf_pages',
         'savedsearches',
         'central_columns',
-        'exporttemplates',
+        'export_templates',
     );
 }
 ?>

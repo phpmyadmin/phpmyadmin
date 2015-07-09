@@ -291,10 +291,10 @@ CREATE TABLE IF NOT EXISTS `pma__designer_settings` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pma__exporttemplates`
+-- Table structure for table `pma__export_templates`
 --
 
-CREATE TABLE IF NOT EXISTS `pma__exporttemplates` (
+CREATE TABLE IF NOT EXISTS `pma__export_templates` (
   `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(64) NOT NULL,
   `export_type` varchar(10) NOT NULL,

@@ -655,7 +655,7 @@ $strConfigServers_savedsearches_desc = __(
 $strConfigServers_savedsearches_name = __('Export templates table');
 $strConfigServers_savedsearches_desc = __(
     'Leave blank for no export template support, suggested: '
-    . '[kbd]pma__exporttemplates[/kbd].'
+    . '[kbd]pma__export_templates[/kbd].'
 );
 $strConfigServers_central_columns_name = __('Central columns table');
 $strConfigServers_central_columns_desc = __(

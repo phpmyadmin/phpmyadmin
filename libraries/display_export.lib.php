@@ -199,7 +199,7 @@ function PMA_getHtmlForExportOptionHeader($export_type, $db, $table)
  */
 function PMA_getHtmlForExportTemplateLoading($export_type)
 {
-    $html  = '<div class="exportoptions" id="exporttemplates">';
+    $html  = '<div class="exportoptions" id="export_templates">';
     $html .= '<h3>' . __('Export templates:') . '</h3>';
 
     $html .= '<div class="floatleft">';
@@ -220,7 +220,7 @@ function PMA_getHtmlForExportTemplateLoading($export_type)
     $html .= '<h4>' . __('Existing templates:') . '</h4>';
     $html .= '<label for="template">' . __('Template:') . '</label>';
     $html .= '<select required="required" name="template" id="template">';
-    $html .= PMA_getOptionsForExportTemplates($export_type);
+    $html .= PMA_getOptionsForexport_templates($export_type);
     $html .= '</select>';
     $html .= '<input type="submit" name="updateTemplate" '
         . 'id="updateTemplate" value="' . __('Update') . '" />';
@@ -243,7 +243,7 @@ function PMA_getHtmlForExportTemplateLoading($export_type)
  *
  * @return string HTML for the options in teplate dropdown
  */
-function PMA_getOptionsForExportTemplates($export_type)
+function PMA_getOptionsForexport_templates($export_type)
 {
     $ret = '<option value="">-- ' . __('Select a template') . ' --</option>';
 
@@ -252,7 +252,7 @@ function PMA_getOptionsForExportTemplates($export_type)
 
     $query = "SELECT `id`, `template_name` FROM "
        . PMA_Util::backquote($cfgRelation['db']) . '.'
-       . PMA_Util::backquote($cfgRelation['exporttemplates'])
+       . PMA_Util::backquote($cfgRelation['export_templates'])
        . " WHERE `username` = "
        . "'" . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
        . " AND `export_type` = '" . $export_type . "'"

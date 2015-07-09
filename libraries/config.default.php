@@ -493,11 +493,11 @@ $cfg['Servers'][$i]['designer_settings'] = '';
 /**
  * table to store export templates
  *   - leave blank to disable saved searches feature
- *     SUGGESTED: 'pma__exporttemplates'
+ *     SUGGESTED: 'pma__export_templates'
  *
- * @global string $cfg['Servers'][$i]['exporttemplates']
+ * @global string $cfg['Servers'][$i]['export_templates']
  */
-$cfg['Servers'][$i]['exporttemplates'] = '';
+$cfg['Servers'][$i]['export_templates'] = '';
 
 /**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.

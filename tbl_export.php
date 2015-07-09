@@ -24,7 +24,7 @@ $scripts->addFile('export.js');
 $cfgRelation = PMA_getRelationsParam();
 
 // handling export template actions
-if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
+if (isset($_REQUEST['templateAction']) && $cfgRelation['export_templateswork']) {
 
     if (isset($_REQUEST['templateId'])) {
         $templateId = $_REQUEST['templateId'];
@@ -32,7 +32,7 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
     }
 
     $templateTable = PMA_Util::backquote($cfgRelation['db']) . '.'
-       . PMA_Util::backquote($cfgRelation['exporttemplates']);
+       . PMA_Util::backquote($cfgRelation['export_templates']);
     $user = PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']);
 
     switch ($_REQUEST['templateAction']) {
@@ -77,7 +77,7 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
     if ('create' == $_REQUEST['templateAction']) {
         $response->addJSON(
             'data',
-            PMA_getOptionsForExportTemplates($_REQUEST['exportType'])
+            PMA_getOptionsForexport_templates($_REQUEST['exportType'])
         );
     } elseif ('load' == $_REQUEST['templateAction']) {
         $data = null;
