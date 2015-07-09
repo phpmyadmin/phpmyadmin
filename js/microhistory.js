@@ -311,7 +311,7 @@ PMA_SetUrlHash = (function (jQuery, window) {
      * Register an event handler for when the url hash changes
      */
     jQuery(function () {
-        jQuery(window).hashchange(function () { return;
+        jQuery(window).hashchange(function () {
             if (userChange === false) {
                 // Ignore internally triggered hash changes
                 userChange = true;

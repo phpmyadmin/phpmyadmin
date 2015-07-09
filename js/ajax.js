@@ -240,6 +240,8 @@ var AJAX = {
             return false;
         }
         AJAX.resetLock();
+        var isLink = !! href || false;
+        var previousLinkAborted = false;
 
         if (AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
@@ -253,6 +255,9 @@ var AJAX = {
                     AJAX.$msgbox = PMA_ajaxShowMessage(PMA_messages.strAbortedRequest);
                     AJAX.active = false;
                     AJAX.xhr = null;
+                    if (isLink) {
+                        previousLinkAborted = true;
+                    }
                 } else {
                     //If can't abort
                     return false;
@@ -267,7 +272,6 @@ var AJAX = {
 
         $('html, body').animate({scrollTop: 0}, 'fast');
 
-        var isLink = !! href || false;
         var url = isLink ? href : $(this).attr('action');
         var params = 'ajax_request=true&ajax_page_request=true';
         if (! isLink) {
@@ -287,6 +291,15 @@ var AJAX = {
             AJAX.$msgbox = PMA_ajaxShowMessage();
             //Save reference for the new link request
             AJAX.xhr = $.get(url, params, AJAX.responseHandler);
+            if (history && history.pushState) {
+                if (previousLinkAborted) {
+                    //hack: there is already an aborted entry on stack
+                    //so just modify the aborted one
+                    history.replaceState(null, null, href);
+                } else {
+                    history.pushState(null, null, href);
+                }
+            }
         } else {
             /**
              * Manually fire the onsubmit event for the form, if any.
@@ -339,8 +352,14 @@ var AJAX = {
                     $('title').replaceWith(data._title);
                 }
                 if (data._menu) {
-                    
-                    if (! (history && history.pushState)) {
+                    if (history && history.pushState) {
+                        history.replaceState({
+                            menu : data._menu
+                            },
+                            null
+                        );
+                        AJAX.handleMenu.replace(data._menu);
+                    } else {
                         PMA_MicroHistory.menus.replace(data._menu);
                         PMA_MicroHistory.menus.add(data._menuHash, data._menu);
                     }
@@ -380,7 +399,6 @@ var AJAX = {
                 }
 
                 if (data._selflink) {
-
                     var source = data._selflink.split('?')[0];
                     //Check for faulty links
                     $selflink_replace = {
@@ -678,20 +696,36 @@ AJAX.registerOnload('functions.js', function () {
  * Page load event handler
  */
 $(function () {
+    var menuContent = $('<div></div>')
+        .append($('#serverinfo').clone())
+        .append($('#topmenucontainer').clone())
+        .html();
     if (history && history.pushState) {
-        // Add menu and scripts to history state object
+        $(window).on('popstate', function(event) {
+            if (event && event.originalEvent.state && event.originalEvent.state.menu) {
+                var params = 'ajax_request=true&ajax_page_request=true';
+                $.get(location.href, params, AJAX.responseHandler);
+                //TODO: Check if sometimes menu is not retrieved from server,
+                // Not sure but it seems menu was missing only for printview which
+                // been removed lately, so if it's right some dead menu checks/fallbacks
+                // may need to be removed from this file and Header.class.php
+                //AJAX.handleMenu.replace(event.originalEvent.state.menu);
+            }
+        });
+        // Add initial menu to history state object
+        history.replaceState({
+            menu : menuContent
+            },
+            null
+        );
     } else {
-       // AJAX.scriptHandler.load();
-           // Add the menu from the initial page into the cache
+        // Fallback to microhistory mechanism
+        AJAX.scriptHandler.load([{'name' : 'microhistory.js', 'fire' : 1}]);
         // The cache primer is set by the footer class
         if (PMA_MicroHistory.primer.url) {
             PMA_MicroHistory.menus.add(
                 PMA_MicroHistory.primer.menuHash,
-                $('<div></div>')
-                    .append('<div></div>')
-                    .append($('#serverinfo').clone())
-                    .append($('#topmenucontainer').clone())
-                    .html()
+                menuContent
             );
         }
         $(function () {

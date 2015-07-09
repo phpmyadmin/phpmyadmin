@@ -399,7 +399,7 @@ AJAX.registerOnload('sql.js', function () {
                         PMA_Microhistory.menus.replace(data._menu);
                         PMA_Microhistory.menus.add(data._menuHash, data._menu);
                     }
-                } else if (data._menuHash) {
+                } else if (data._menuHash) {debugger;
                     if (! (history && history.pushState)) {
                         PMA_Microhistory.menus.replace(PMA_Microhistory.menus.get(data._menuHash));
                     }
