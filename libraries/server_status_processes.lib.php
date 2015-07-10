@@ -93,6 +93,10 @@ function PMA_getHtmlForServerProcesslist()
             'order_by_field' => 'State'
         ),
         array(
+            'column_name' => __('Progress'),
+            'order_by_field' => 'Progress'
+        ),
+        array(
             'column_name' => __('SQL query'),
             'order_by_field' => 'Info'
         )
@@ -305,6 +309,8 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
     $retval .= '<td class="value">' . $process['Time'] . '</td>';
     $processStatusStr = empty($process['State']) ? '---' : $process['State'];
     $retval .= '<td>' . $processStatusStr . '</td>';
+    $processProgress = empty($process['Progress']) ? '---' : $process['Progress'];
+    $retval .= '<td>' . $processProgress . '</td>';
     $retval .= '<td>';
 
     if (empty($process['Info'])) {

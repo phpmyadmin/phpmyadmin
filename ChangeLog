@@ -72,6 +72,7 @@ phpMyAdmin - ChangeLog
 + rfe #1603 select structure or data for each table when exporting
 - bug #4916 Autocomplete completes the original table name when joining multiple aliased tables
 + rfe       Remove configuration storage data related to a user upon deleting the user
++ rfe #1685 Improved processlist for mariadb
 
 4.4.12.0 (not yet released)
 - bug       Saved chart image does not have a proper name or an extension
