@@ -26,7 +26,7 @@ class Error
     /**
      * Gets the errors of a lexer and a parser.
      *
-     * @param array $objs
+     * @param array $objs Objects from where the errors will be extracted.
      *
      * @return array Each element of the array represents an error.
      *                    `$err[0]` holds the error message.

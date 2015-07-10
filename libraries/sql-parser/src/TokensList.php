@@ -58,7 +58,7 @@ class TokensList implements \ArrayAccess
     /**
      * Builds an array of tokens by merging their raw value.
      *
-     * @param string|Token[]|TokensList $list
+     * @param string|Token[]|TokensList $list The tokens to be built.
      *
      * @return string
      */
