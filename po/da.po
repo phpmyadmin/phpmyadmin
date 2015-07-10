@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 13:23-0400\n"
+"POT-Creation-Date: 2015-07-10 07:02-0400\n"
 "PO-Revision-Date: 2015-06-10 23:07+0200\n"
 "Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -365,7 +365,7 @@ msgstr "Opdateret"
 #: db_tracking.php:129 js/messages.php:243 libraries/Menu.class.php:551
 #: libraries/Util.class.php:4391 libraries/config.values.php:104
 #: libraries/rte/rte_events.lib.php:393 libraries/rte/rte_list.lib.php:101
-#: libraries/server_status_processes.lib.php:94 libraries/tracking.lib.php:278
+#: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:278
 msgid "Status"
 msgstr "Status"
 
@@ -560,9 +560,9 @@ msgstr "Tilføj geometri"
 #: libraries/normalization.lib.php:164 libraries/normalization.lib.php:820
 #: libraries/operations.lib.php:38 libraries/operations.lib.php:108
 #: libraries/operations.lib.php:262 libraries/operations.lib.php:305
-#: libraries/operations.lib.php:797 libraries/operations.lib.php:870
-#: libraries/operations.lib.php:919 libraries/operations.lib.php:1333
-#: libraries/operations.lib.php:1654
+#: libraries/operations.lib.php:799 libraries/operations.lib.php:872
+#: libraries/operations.lib.php:921 libraries/operations.lib.php:1335
+#: libraries/operations.lib.php:1656
 #: libraries/plugins/auth/AuthenticationCookie.class.php:244
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:160
 #: libraries/replication_gui.lib.php:320 libraries/replication_gui.lib.php:457
@@ -574,7 +574,7 @@ msgstr "Tilføj geometri"
 #: libraries/server_privileges.lib.php:1980
 #: libraries/server_privileges.lib.php:2745
 #: libraries/server_privileges.lib.php:3401
-#: libraries/server_privileges.lib.php:4364
+#: libraries/server_privileges.lib.php:4381
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:368 libraries/sql_query_form.lib.php:428
 #: libraries/sql_query_form.lib.php:496 libraries/structure.lib.php:1785
@@ -1327,7 +1327,7 @@ msgid "Connections"
 msgstr "Forbindelser"
 
 #: js/messages.php:170 libraries/ServerStatusData.class.php:434
-#: libraries/server_status_processes.lib.php:152
+#: libraries/server_status_processes.lib.php:157
 msgid "Processes"
 msgstr "Processer"
 
@@ -1402,7 +1402,7 @@ msgstr "Tilføj mindst en variabel til serien!"
 #: libraries/plugins/schema/SchemaPdf.class.php:102
 #: libraries/server_privileges.lib.php:2920
 #: libraries/server_status_monitor.lib.php:236
-#: libraries/server_status_processes.lib.php:304
+#: libraries/server_status_processes.lib.php:309
 #: templates/columns_definitions/transformation.phtml:4
 #: templates/designer/options_panel.phtml:178
 #: templates/table/options_zoom.phtml:12 templates/table/rows_zoom.phtml:26
@@ -1417,7 +1417,7 @@ msgstr "Genstart monitor"
 msgid "Pause monitor"
 msgstr "Sæt monitor på pause"
 
-#: js/messages.php:192 libraries/server_status_processes.lib.php:39
+#: js/messages.php:192 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
 msgstr "Start auto-genopfrisk"
 
@@ -1605,7 +1605,7 @@ msgstr "Forklar output"
 #: libraries/plugins/export/ExportTexytext.class.php:426
 #: libraries/plugins/export/PMA_ExportPdf.class.php:309
 #: libraries/rte/rte_list.lib.php:90
-#: libraries/server_status_processes.lib.php:90 libraries/sql.lib.php:289
+#: libraries/server_status_processes.lib.php:88 libraries/sql.lib.php:289
 msgid "Time"
 msgstr "Tid"
 
@@ -3116,7 +3116,7 @@ msgstr "Genforespørg"
 #: libraries/server_privileges.lib.php:3017
 #: libraries/server_privileges.lib.php:3029
 #: libraries/server_privileges.lib.php:4105
-#: libraries/server_status_processes.lib.php:82
+#: libraries/server_status_processes.lib.php:80
 #: templates/tbl_relation/foreign_key_row.phtml:166
 #: templates/tbl_relation/internal_relational_row.phtml:55
 msgid "Database"
@@ -3305,7 +3305,7 @@ msgstr "Antal"
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1263
 #: libraries/config/messages.inc.php:802
-#: libraries/server_status_processes.lib.php:251
+#: libraries/server_status_processes.lib.php:256
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Opdater"
@@ -3361,9 +3361,9 @@ msgstr "Skift til den kopierede tabel"
 #: libraries/DBQbe.class.php:405 libraries/DisplayResults.class.php:1489
 #: libraries/DisplayResults.class.php:2283
 #: libraries/DisplayResults.class.php:2289 libraries/config.values.php:70
-#: libraries/operations.lib.php:790 libraries/server_databases.lib.php:307
+#: libraries/operations.lib.php:792 libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
-#: libraries/server_status_processes.lib.php:186
+#: libraries/server_status_processes.lib.php:191
 #: libraries/structure.lib.php:977 libraries/structure.lib.php:994
 #: templates/table/options.phtml:68
 msgid "Ascending"
@@ -3372,9 +3372,9 @@ msgstr "Stigende"
 #: libraries/DBQbe.class.php:408 libraries/DisplayResults.class.php:1501
 #: libraries/DisplayResults.class.php:2279
 #: libraries/DisplayResults.class.php:2293 libraries/config.values.php:71
-#: libraries/operations.lib.php:793 libraries/server_databases.lib.php:307
+#: libraries/operations.lib.php:795 libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
-#: libraries/server_status_processes.lib.php:183
+#: libraries/server_status_processes.lib.php:188
 #: libraries/structure.lib.php:982 libraries/structure.lib.php:999
 #: templates/table/options.phtml:69
 msgid "Descending"
@@ -3691,7 +3691,7 @@ msgstr "Rækken er slettet."
 
 #: libraries/DisplayResults.class.php:3558
 #: libraries/DisplayResults.class.php:4833
-#: libraries/server_status_processes.lib.php:298
+#: libraries/server_status_processes.lib.php:303
 msgid "Kill"
 msgstr "Dræb (Kill)"
 
@@ -3893,7 +3893,7 @@ msgstr "Kardinalitet"
 #: libraries/Index.class.php:701 libraries/build_html_for_db.lib.php:22
 #: libraries/central_columns.lib.php:705
 #: libraries/central_columns.lib.php:1357 libraries/mysql_charsets.lib.php:45
-#: libraries/operations.lib.php:292 libraries/operations.lib.php:1068
+#: libraries/operations.lib.php:292 libraries/operations.lib.php:1070
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:887
 #: libraries/structure.lib.php:1342 libraries/structure.lib.php:1904
 #: libraries/tracking.lib.php:880 libraries/tracking.lib.php:976
@@ -3918,7 +3918,7 @@ msgid "Index %s has been dropped."
 msgstr "Indeks %s er blevet slettet."
 
 #: libraries/Index.class.php:757 libraries/Util.class.php:3674
-#: libraries/Util.class.php:3675 libraries/operations.lib.php:1603
+#: libraries/Util.class.php:3675 libraries/operations.lib.php:1605
 #: libraries/rte/rte_list.lib.php:150 libraries/server_databases.lib.php:146
 #: libraries/structure.lib.php:331 libraries/structure.lib.php:1537
 #: libraries/structure.lib.php:2281 libraries/structure.lib.php:2283
@@ -4187,7 +4187,7 @@ msgid "Error while loading the search."
 msgstr "Fejl under indlæsning af søgningen."
 
 #: libraries/ServerStatusData.class.php:115
-#: libraries/server_status_processes.lib.php:98
+#: libraries/server_status_processes.lib.php:100
 msgid "SQL query"
 msgstr "SQL-forespørgsel"
 
@@ -4333,29 +4333,29 @@ msgstr "Kildedatabasen '%s' blev ikke fundet!"
 msgid "Target database `%s` was not found!"
 msgstr "Mål-databasen '%s' blev ikke fundet!"
 
-#: libraries/Table.class.php:1337
+#: libraries/Table.class.php:1339
 msgid "Invalid database:"
 msgstr "Ugyldig database:"
 
-#: libraries/Table.class.php:1351
+#: libraries/Table.class.php:1353
 msgid "Invalid table name:"
 msgstr "Ugyldigt tabelnavn:"
 
-#: libraries/Table.class.php:1386
+#: libraries/Table.class.php:1388
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Fejl ved omdøbning af tabel %1$s til %2$s!"
 
-#: libraries/Table.class.php:1405
+#: libraries/Table.class.php:1407
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabellen %1$s er nu omdøbt til %2$s."
 
-#: libraries/Table.class.php:1585
+#: libraries/Table.class.php:1587
 msgid "Could not save table UI preferences!"
 msgstr "Kunne ikke gemme indstillinger af brugergrænseflade for tabel!"
 
-#: libraries/Table.class.php:1614
+#: libraries/Table.class.php:1616
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4364,7 +4364,7 @@ msgstr ""
 "Kunne ikke rydde op i indstillinger for tabel-UI (se $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1770
+#: libraries/Table.class.php:1772
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4375,19 +4375,19 @@ msgstr ""
 "efter at du opfrisker denne side. Undersøg, om tabelstrukturen er blevet "
 "ændret."
 
-#: libraries/Table.class.php:1904
+#: libraries/Table.class.php:1906
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Navnet på primærnøglen skal være \"PRIMARY\"!"
 
-#: libraries/Table.class.php:1915
+#: libraries/Table.class.php:1917
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kan ikke omdøbe indeks til PRIMARY!"
 
-#: libraries/Table.class.php:1937
+#: libraries/Table.class.php:1939
 msgid "No index parts defined!"
 msgstr "Ingen dele af indeks er defineret!"
 
-#: libraries/Table.class.php:2238
+#: libraries/Table.class.php:2240
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Fejl ved dannelse af fremmednøgle på %1$s (tjek datatyper)"
@@ -5969,7 +5969,7 @@ msgid "Remember file name template"
 msgstr "Husk skabelon for filnavn"
 
 #: libraries/config/messages.inc.php:168 libraries/operations.lib.php:222
-#: libraries/operations.lib.php:845 libraries/operations.lib.php:1283
+#: libraries/operations.lib.php:847 libraries/operations.lib.php:1285
 msgid "Add AUTO_INCREMENT value"
 msgstr "Tilføj AUTO_INCREMENT værdi"
 
@@ -6015,7 +6015,7 @@ msgstr "%sOpret%s manglende tabeller for phpMyAdmin-konfigurationslager."
 #: libraries/config/messages.inc.php:182 libraries/config/messages.inc.php:183
 #: libraries/config/messages.inc.php:185 libraries/config/messages.inc.php:187
 #: libraries/config/messages.inc.php:194 libraries/operations.lib.php:217
-#: libraries/operations.lib.php:1279
+#: libraries/operations.lib.php:1281
 #, php-format
 msgid "Add %s"
 msgstr "Tilføj %s"
@@ -7290,7 +7290,7 @@ msgstr "Eksportér visninger som tabeller"
 #| "kbd]."
 msgid ""
 "Leave blank for no export template support, suggested: "
-"[kbd]pma__exporttemplates[/kbd]."
+"[kbd]pma__export_templates[/kbd]."
 msgstr ""
 "Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
 "[kbd]pma_pdf_pages[/kbd]."
@@ -9873,8 +9873,8 @@ msgid "Rename database to"
 msgstr "Omdøb database til:"
 
 #: libraries/operations.lib.php:94 libraries/operations.lib.php:242
-#: libraries/operations.lib.php:859 libraries/operations.lib.php:953
-#: libraries/operations.lib.php:1307
+#: libraries/operations.lib.php:861 libraries/operations.lib.php:955
+#: libraries/operations.lib.php:1309
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
@@ -9884,8 +9884,8 @@ msgid ""
 msgstr "Du har ikke tilstrækkelige rettigheder til at være her!"
 
 #: libraries/operations.lib.php:101 libraries/operations.lib.php:248
-#: libraries/operations.lib.php:865 libraries/operations.lib.php:959
-#: libraries/operations.lib.php:1313 libraries/rte/rte_routines.lib.php:1115
+#: libraries/operations.lib.php:867 libraries/operations.lib.php:961
+#: libraries/operations.lib.php:1315 libraries/rte/rte_routines.lib.php:1115
 #: templates/columns_definitions/table_fields_definitions.phtml:47
 #, fuzzy
 #| msgid "Edit Privileges"
@@ -9905,17 +9905,17 @@ msgstr "Fjern database"
 msgid "Drop the database (DROP)"
 msgstr "Drop databasen (DROP)"
 
-#: libraries/operations.lib.php:171 libraries/operations.lib.php:1266
+#: libraries/operations.lib.php:171 libraries/operations.lib.php:1268
 #: libraries/tracking.lib.php:517
 msgid "Structure only"
 msgstr "Kun strukturen"
 
-#: libraries/operations.lib.php:172 libraries/operations.lib.php:1267
+#: libraries/operations.lib.php:172 libraries/operations.lib.php:1269
 #: libraries/tracking.lib.php:523
 msgid "Structure and data"
 msgstr "Struktur og data"
 
-#: libraries/operations.lib.php:173 libraries/operations.lib.php:1268
+#: libraries/operations.lib.php:173 libraries/operations.lib.php:1270
 #: libraries/tracking.lib.php:520
 msgid "Data only"
 msgstr "Kun data"
@@ -9928,7 +9928,7 @@ msgstr "Kopier database til:"
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE før kopiering"
 
-#: libraries/operations.lib.php:226 libraries/operations.lib.php:1291
+#: libraries/operations.lib.php:226 libraries/operations.lib.php:1293
 msgid "Add constraints"
 msgstr "Tilføj begrænsninger"
 
@@ -9936,179 +9936,179 @@ msgstr "Tilføj begrænsninger"
 msgid "Switch to copied database"
 msgstr "Skift til den kopierede database"
 
-#: libraries/operations.lib.php:778
+#: libraries/operations.lib.php:780
 msgid "Alter table order by"
 msgstr "Arranger tabelrækkefølge efter"
 
-#: libraries/operations.lib.php:786
+#: libraries/operations.lib.php:788
 msgid "(singly)"
 msgstr "(enkeltvis)"
 
-#: libraries/operations.lib.php:822
+#: libraries/operations.lib.php:824
 msgid "Move table to (database<b>.</b>table)"
 msgstr "Flyt tabel til (database<b>.</b>tabel):"
 
-#: libraries/operations.lib.php:934
+#: libraries/operations.lib.php:936
 msgid "Rename table to"
 msgstr "Omdøb tabel til"
 
-#: libraries/operations.lib.php:977
+#: libraries/operations.lib.php:979
 msgid "Table comments"
 msgstr "Tabel kommentarer"
 
-#: libraries/operations.lib.php:1050
+#: libraries/operations.lib.php:1052
 msgid "Table options"
 msgstr "Tabel-indstillinger"
 
-#: libraries/operations.lib.php:1057 libraries/server_engines.lib.php:49
+#: libraries/operations.lib.php:1059 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
 msgstr "Datalager"
 
-#: libraries/operations.lib.php:1082
+#: libraries/operations.lib.php:1084
 #, fuzzy
 #| msgid "Make all columns atomic"
 msgid "Change all column collations"
 msgstr "Gør alle kolonner atomare"
 
-#: libraries/operations.lib.php:1249
+#: libraries/operations.lib.php:1251
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "Kopier tabel til (database<b>.</b>tabel):"
 
-#: libraries/operations.lib.php:1329
+#: libraries/operations.lib.php:1331
 msgid "Switch to copied table"
 msgstr "Skift til den kopierede tabel"
 
-#: libraries/operations.lib.php:1356 libraries/structure.lib.php:334
+#: libraries/operations.lib.php:1358 libraries/structure.lib.php:334
 msgid "Table maintenance"
 msgstr "Tabelvedligeholdelse"
 
-#: libraries/operations.lib.php:1394 libraries/structure.lib.php:336
+#: libraries/operations.lib.php:1396 libraries/structure.lib.php:336
 msgid "Analyze table"
 msgstr "Analyser tabel"
 
-#: libraries/operations.lib.php:1409 libraries/structure.lib.php:338
+#: libraries/operations.lib.php:1411 libraries/structure.lib.php:338
 msgid "Check table"
 msgstr "Tjek tabel"
 
-#: libraries/operations.lib.php:1424 libraries/structure.lib.php:341
+#: libraries/operations.lib.php:1426 libraries/structure.lib.php:341
 #, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
 msgstr "Tjek tabel"
 
-#: libraries/operations.lib.php:1439
+#: libraries/operations.lib.php:1441
 msgid "Defragment table"
 msgstr "Defragmenter tabel"
 
-#: libraries/operations.lib.php:1451
+#: libraries/operations.lib.php:1453
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "Tabel %s er blevet flushet."
 
-#: libraries/operations.lib.php:1457
+#: libraries/operations.lib.php:1459
 msgid "Flush the table (FLUSH)"
 msgstr "Udskriv tabellen (\"FLUSH\")"
 
-#: libraries/operations.lib.php:1473 libraries/structure.lib.php:343
+#: libraries/operations.lib.php:1475 libraries/structure.lib.php:343
 #: libraries/structure.lib.php:1828
 msgid "Optimize table"
 msgstr "Optimer tabel"
 
-#: libraries/operations.lib.php:1488 libraries/structure.lib.php:345
+#: libraries/operations.lib.php:1490 libraries/structure.lib.php:345
 msgid "Repair table"
 msgstr "Reparer tabel"
 
-#: libraries/operations.lib.php:1534 libraries/structure.lib.php:327
+#: libraries/operations.lib.php:1536 libraries/structure.lib.php:327
 #: view_operations.php:127
 msgid "Delete data or table"
 msgstr "Slet data eller tabel"
 
-#: libraries/operations.lib.php:1542
+#: libraries/operations.lib.php:1544
 msgid "Empty the table (TRUNCATE)"
 msgstr "Tøm tabellen (TRUNCATE)"
 
-#: libraries/operations.lib.php:1550
+#: libraries/operations.lib.php:1552
 msgid "Delete the table (DROP)"
 msgstr "Slet tabellen (DROP)"
 
-#: libraries/operations.lib.php:1590
+#: libraries/operations.lib.php:1592
 msgid "Analyze"
 msgstr "Analyser"
 
-#: libraries/operations.lib.php:1591
+#: libraries/operations.lib.php:1593
 msgid "Check"
 msgstr "Tjek"
 
-#: libraries/operations.lib.php:1592
+#: libraries/operations.lib.php:1594
 msgid "Optimize"
 msgstr "Optimer"
 
-#: libraries/operations.lib.php:1593
+#: libraries/operations.lib.php:1595
 msgid "Rebuild"
 msgstr "Genopbyg"
 
-#: libraries/operations.lib.php:1594
+#: libraries/operations.lib.php:1596
 msgid "Repair"
 msgstr "Reparer"
 
-#: libraries/operations.lib.php:1595
+#: libraries/operations.lib.php:1597
 msgid "Truncate"
 msgstr ""
 
-#: libraries/operations.lib.php:1605
+#: libraries/operations.lib.php:1607
 #, fuzzy
 #| msgid "Collapse"
 msgid "Coalesce"
 msgstr "Fold sammen"
 
-#: libraries/operations.lib.php:1614
+#: libraries/operations.lib.php:1616
 msgid "Partition maintenance"
 msgstr "Vedligehold af partition"
 
-#: libraries/operations.lib.php:1631
+#: libraries/operations.lib.php:1633
 #, php-format
 msgid "Partition %s"
 msgstr "Partitionen %s"
 
-#: libraries/operations.lib.php:1649
+#: libraries/operations.lib.php:1651
 msgid "Remove partitioning"
 msgstr "Fjern partitionering"
 
-#: libraries/operations.lib.php:1675
+#: libraries/operations.lib.php:1677
 msgid "Check referential integrity:"
 msgstr "Tjek reference-integriteten:"
 
-#: libraries/operations.lib.php:2087
+#: libraries/operations.lib.php:2089
 msgid "Can't move table to same one!"
 msgstr "Kan ikke flytte tabellen til den samme!"
 
-#: libraries/operations.lib.php:2089
+#: libraries/operations.lib.php:2091
 msgid "Can't copy table to same one!"
 msgstr "Kan ikke kopiere tabellen til den samme!"
 
-#: libraries/operations.lib.php:2112
+#: libraries/operations.lib.php:2114
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabel %s er flyttet til %s."
 
-#: libraries/operations.lib.php:2116
+#: libraries/operations.lib.php:2118
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabellen %s er nu kopieret til: %s."
 
-#: libraries/operations.lib.php:2123
+#: libraries/operations.lib.php:2125
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabel %s er flyttet til %s."
 
-#: libraries/operations.lib.php:2127
+#: libraries/operations.lib.php:2129
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabellen %s er nu kopieret til: %s."
 
-#: libraries/operations.lib.php:2149
+#: libraries/operations.lib.php:2151
 msgid "The table name is empty!"
 msgstr "Intet tabelnavn!"
 
@@ -11585,7 +11585,7 @@ msgstr "Server-ID"
 #: libraries/server_privileges.lib.php:1610
 #: libraries/server_privileges.lib.php:2242
 #: libraries/server_privileges.lib.php:3203
-#: libraries/server_status_processes.lib.php:78
+#: libraries/server_status_processes.lib.php:76
 msgid "Host"
 msgstr "Vært"
 
@@ -12133,12 +12133,12 @@ msgid "Information"
 msgstr "Information"
 
 #: libraries/server_bin_log.lib.php:183
-#: libraries/server_status_processes.lib.php:197
+#: libraries/server_status_processes.lib.php:202
 msgid "Truncate Shown Queries"
 msgstr "Trunker viste forespørgsler"
 
 #: libraries/server_bin_log.lib.php:187
-#: libraries/server_status_processes.lib.php:202
+#: libraries/server_status_processes.lib.php:207
 msgid "Show Full Queries"
 msgstr "Vis fuldstændige forespørgsler"
 
@@ -12563,7 +12563,7 @@ msgstr "Bruger er blevet tilføjet."
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_status_processes.lib.php:74
+#: libraries/server_status_processes.lib.php:72
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
 msgstr "Bruger"
@@ -12753,7 +12753,14 @@ msgstr ""
 msgid "User accounts overview"
 msgstr "Oversigt over brugere"
 
-#: libraries/server_privileges.lib.php:4255
+#: libraries/server_privileges.lib.php:4232
+msgid ""
+"A user account allowing any user from localhost to connect is present. This "
+"will prevent other users from connecting if the host part of their account "
+"allows a connection from any (%) host."
+msgstr ""
+
+#: libraries/server_privileges.lib.php:4272
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -12767,11 +12774,11 @@ msgstr ""
 "ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne"
 "%s før du fortsætter."
 
-#: libraries/server_privileges.lib.php:4306
+#: libraries/server_privileges.lib.php:4323
 msgid "The selected user was not found in the privilege table."
 msgstr "Den valgte bruger blev ikke fundet i privilegietabellen."
 
-#: libraries/server_privileges.lib.php:4538
+#: libraries/server_privileges.lib.php:4555
 msgid "You have added a new user."
 msgstr "Du har tilføjet en ny bruger."
 
@@ -13029,7 +13036,7 @@ msgid "Enable charts dragging"
 msgstr "Aktivér mulighed for at trække rundt på diagrammer"
 
 #: libraries/server_status_monitor.lib.php:288
-#: libraries/server_status_processes.lib.php:31
+#: libraries/server_status_processes.lib.php:29
 msgid "Refresh rate"
 msgstr "Opdateringsfrekvens"
 
@@ -13053,7 +13060,7 @@ msgstr ""
 msgid "Reset to default"
 msgstr "Gendan standardværdi"
 
-#: libraries/server_status_processes.lib.php:26
+#: libraries/server_status_processes.lib.php:24
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
@@ -13061,21 +13068,25 @@ msgstr ""
 "Bemærk: Aktivering af auto-genopfrisk her kan forårsage tung trafik mellem "
 "webserveren og MySQL-serveren."
 
-#: libraries/server_status_processes.lib.php:70
+#: libraries/server_status_processes.lib.php:68
 msgid "ID"
 msgstr "ID"
 
-#: libraries/server_status_processes.lib.php:86
+#: libraries/server_status_processes.lib.php:84
 msgid "Command"
 msgstr "Kommando"
 
-#: libraries/server_status_processes.lib.php:248
+#: libraries/server_status_processes.lib.php:96
+msgid "Progress"
+msgstr ""
+
+#: libraries/server_status_processes.lib.php:253
 #: libraries/server_status_variables.lib.php:39
 #: libraries/server_variables.lib.php:179
 msgid "Filters"
 msgstr "Filtre"
 
-#: libraries/server_status_processes.lib.php:256
+#: libraries/server_status_processes.lib.php:261
 msgid "Show only active"
 msgstr "Vis kun aktive"
 

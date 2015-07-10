@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 13:23-0400\n"
+"POT-Creation-Date: 2015-07-10 07:02-0400\n"
 "PO-Revision-Date: 2015-04-21 08:43+0200\n"
 "Last-Translator: fundawang <fundawang@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/"
@@ -364,7 +364,7 @@ msgstr "更新"
 #: db_tracking.php:129 js/messages.php:243 libraries/Menu.class.php:551
 #: libraries/Util.class.php:4391 libraries/config.values.php:104
 #: libraries/rte/rte_events.lib.php:393 libraries/rte/rte_list.lib.php:101
-#: libraries/server_status_processes.lib.php:94 libraries/tracking.lib.php:278
+#: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:278
 msgid "Status"
 msgstr "状态"
 
@@ -556,9 +556,9 @@ msgstr "添加几何体"
 #: libraries/normalization.lib.php:164 libraries/normalization.lib.php:820
 #: libraries/operations.lib.php:38 libraries/operations.lib.php:108
 #: libraries/operations.lib.php:262 libraries/operations.lib.php:305
-#: libraries/operations.lib.php:797 libraries/operations.lib.php:870
-#: libraries/operations.lib.php:919 libraries/operations.lib.php:1333
-#: libraries/operations.lib.php:1654
+#: libraries/operations.lib.php:799 libraries/operations.lib.php:872
+#: libraries/operations.lib.php:921 libraries/operations.lib.php:1335
+#: libraries/operations.lib.php:1656
 #: libraries/plugins/auth/AuthenticationCookie.class.php:244
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:160
 #: libraries/replication_gui.lib.php:320 libraries/replication_gui.lib.php:457
@@ -570,7 +570,7 @@ msgstr "添加几何体"
 #: libraries/server_privileges.lib.php:1980
 #: libraries/server_privileges.lib.php:2745
 #: libraries/server_privileges.lib.php:3401
-#: libraries/server_privileges.lib.php:4364
+#: libraries/server_privileges.lib.php:4381
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:368 libraries/sql_query_form.lib.php:428
 #: libraries/sql_query_form.lib.php:496 libraries/structure.lib.php:1785
@@ -1336,7 +1336,7 @@ msgid "Connections"
 msgstr "连接"
 
 #: js/messages.php:170 libraries/ServerStatusData.class.php:434
-#: libraries/server_status_processes.lib.php:152
+#: libraries/server_status_processes.lib.php:157
 msgid "Processes"
 msgstr "进程"
 
@@ -1411,7 +1411,7 @@ msgstr "请至少添加一个数据！"
 #: libraries/plugins/schema/SchemaPdf.class.php:102
 #: libraries/server_privileges.lib.php:2920
 #: libraries/server_status_monitor.lib.php:236
-#: libraries/server_status_processes.lib.php:304
+#: libraries/server_status_processes.lib.php:309
 #: templates/columns_definitions/transformation.phtml:4
 #: templates/designer/options_panel.phtml:178
 #: templates/table/options_zoom.phtml:12 templates/table/rows_zoom.phtml:26
@@ -1426,7 +1426,7 @@ msgstr "继续监控"
 msgid "Pause monitor"
 msgstr "暂停监控"
 
-#: js/messages.php:192 libraries/server_status_processes.lib.php:39
+#: js/messages.php:192 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
 msgstr "开启自动刷新"
 
@@ -1607,7 +1607,7 @@ msgstr "解析输出"
 #: libraries/plugins/export/ExportTexytext.class.php:426
 #: libraries/plugins/export/PMA_ExportPdf.class.php:309
 #: libraries/rte/rte_list.lib.php:90
-#: libraries/server_status_processes.lib.php:90 libraries/sql.lib.php:289
+#: libraries/server_status_processes.lib.php:88 libraries/sql.lib.php:289
 msgid "Time"
 msgstr "时间"
 
@@ -3135,7 +3135,7 @@ msgstr "子查询"
 #: libraries/server_privileges.lib.php:3017
 #: libraries/server_privileges.lib.php:3029
 #: libraries/server_privileges.lib.php:4105
-#: libraries/server_status_processes.lib.php:82
+#: libraries/server_status_processes.lib.php:80
 #: templates/tbl_relation/foreign_key_row.phtml:166
 #: templates/tbl_relation/internal_relational_row.phtml:55
 msgid "Database"
@@ -3347,7 +3347,7 @@ msgstr "数量"
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1263
 #: libraries/config/messages.inc.php:802
-#: libraries/server_status_processes.lib.php:251
+#: libraries/server_status_processes.lib.php:256
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "刷新"
@@ -3417,9 +3417,9 @@ msgstr "切换到复制的数据表"
 #: libraries/DBQbe.class.php:405 libraries/DisplayResults.class.php:1489
 #: libraries/DisplayResults.class.php:2283
 #: libraries/DisplayResults.class.php:2289 libraries/config.values.php:70
-#: libraries/operations.lib.php:790 libraries/server_databases.lib.php:307
+#: libraries/operations.lib.php:792 libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
-#: libraries/server_status_processes.lib.php:186
+#: libraries/server_status_processes.lib.php:191
 #: libraries/structure.lib.php:977 libraries/structure.lib.php:994
 #: templates/table/options.phtml:68
 msgid "Ascending"
@@ -3428,9 +3428,9 @@ msgstr "递增"
 #: libraries/DBQbe.class.php:408 libraries/DisplayResults.class.php:1501
 #: libraries/DisplayResults.class.php:2279
 #: libraries/DisplayResults.class.php:2293 libraries/config.values.php:71
-#: libraries/operations.lib.php:793 libraries/server_databases.lib.php:307
+#: libraries/operations.lib.php:795 libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
-#: libraries/server_status_processes.lib.php:183
+#: libraries/server_status_processes.lib.php:188
 #: libraries/structure.lib.php:982 libraries/structure.lib.php:999
 #: templates/table/options.phtml:69
 msgid "Descending"
@@ -3742,7 +3742,7 @@ msgstr "已删除该行。"
 
 #: libraries/DisplayResults.class.php:3558
 #: libraries/DisplayResults.class.php:4833
-#: libraries/server_status_processes.lib.php:298
+#: libraries/server_status_processes.lib.php:303
 msgid "Kill"
 msgstr "杀死"
 
@@ -3942,7 +3942,7 @@ msgstr "基数"
 #: libraries/Index.class.php:701 libraries/build_html_for_db.lib.php:22
 #: libraries/central_columns.lib.php:705
 #: libraries/central_columns.lib.php:1357 libraries/mysql_charsets.lib.php:45
-#: libraries/operations.lib.php:292 libraries/operations.lib.php:1068
+#: libraries/operations.lib.php:292 libraries/operations.lib.php:1070
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:887
 #: libraries/structure.lib.php:1342 libraries/structure.lib.php:1904
 #: libraries/tracking.lib.php:880 libraries/tracking.lib.php:976
@@ -3967,7 +3967,7 @@ msgid "Index %s has been dropped."
 msgstr "已删除索引 %s。"
 
 #: libraries/Index.class.php:757 libraries/Util.class.php:3674
-#: libraries/Util.class.php:3675 libraries/operations.lib.php:1603
+#: libraries/Util.class.php:3675 libraries/operations.lib.php:1605
 #: libraries/rte/rte_list.lib.php:150 libraries/server_databases.lib.php:146
 #: libraries/structure.lib.php:331 libraries/structure.lib.php:1537
 #: libraries/structure.lib.php:2281 libraries/structure.lib.php:2283
@@ -4233,7 +4233,7 @@ msgid "Error while loading the search."
 msgstr "加载搜索时出现错误。"
 
 #: libraries/ServerStatusData.class.php:115
-#: libraries/server_status_processes.lib.php:98
+#: libraries/server_status_processes.lib.php:100
 msgid "SQL query"
 msgstr "SQL 查询"
 
@@ -4375,36 +4375,36 @@ msgstr "未找到源数据库 `%s`！"
 msgid "Target database `%s` was not found!"
 msgstr "未找到目标数据库 `%s`！"
 
-#: libraries/Table.class.php:1337
+#: libraries/Table.class.php:1339
 msgid "Invalid database:"
 msgstr "无效的数据库："
 
-#: libraries/Table.class.php:1351
+#: libraries/Table.class.php:1353
 msgid "Invalid table name:"
 msgstr "无效的数据表名："
 
-#: libraries/Table.class.php:1386
+#: libraries/Table.class.php:1388
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "将表 %1$s 改名为 %2$s 失败！"
 
-#: libraries/Table.class.php:1405
+#: libraries/Table.class.php:1407
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "已将表 %1$s 改名为 %2$s。"
 
-#: libraries/Table.class.php:1585
+#: libraries/Table.class.php:1587
 msgid "Could not save table UI preferences!"
 msgstr "无法保存表界面设置！"
 
-#: libraries/Table.class.php:1614
+#: libraries/Table.class.php:1616
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr "清除表界面设置失败（参见 $cfg['Servers'][$i]['MaxTableUiprefs'] %s）"
 
-#: libraries/Table.class.php:1770
+#: libraries/Table.class.php:1772
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4413,19 +4413,19 @@ msgid ""
 msgstr ""
 "无法保存用户界面属性“%s”。修改将在刷新本页后丢失。请检查表结构是否已修改。"
 
-#: libraries/Table.class.php:1904
+#: libraries/Table.class.php:1906
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "主键的名称必须称为 “PRIMARY”！"
 
-#: libraries/Table.class.php:1915
+#: libraries/Table.class.php:1917
 msgid "Can't rename index to PRIMARY!"
 msgstr "无法将索引改为主键 (PRIMARY) ！"
 
-#: libraries/Table.class.php:1937
+#: libraries/Table.class.php:1939
 msgid "No index parts defined!"
 msgstr "没有定义的索引部分！"
 
-#: libraries/Table.class.php:2238
+#: libraries/Table.class.php:2240
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "在 %1$s 创建外键时发生错误 (检查数据类型)"
@@ -5951,7 +5951,7 @@ msgid "Remember file name template"
 msgstr "记住文件名模板"
 
 #: libraries/config/messages.inc.php:168 libraries/operations.lib.php:222
-#: libraries/operations.lib.php:845 libraries/operations.lib.php:1283
+#: libraries/operations.lib.php:847 libraries/operations.lib.php:1285
 msgid "Add AUTO_INCREMENT value"
 msgstr "添加自增值"
 
@@ -5997,7 +5997,7 @@ msgstr "丢失 phpMyAdmin 高级功能数据表"
 #: libraries/config/messages.inc.php:182 libraries/config/messages.inc.php:183
 #: libraries/config/messages.inc.php:185 libraries/config/messages.inc.php:187
 #: libraries/config/messages.inc.php:194 libraries/operations.lib.php:217
-#: libraries/operations.lib.php:1279
+#: libraries/operations.lib.php:1281
 #, php-format
 msgid "Add %s"
 msgstr "添加 %s"
@@ -7438,7 +7438,7 @@ msgstr "将视图作为表导出"
 #| "kbd]"
 msgid ""
 "Leave blank for no export template support, suggested: "
-"[kbd]pma__exporttemplates[/kbd]."
+"[kbd]pma__export_templates[/kbd]."
 msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:660
@@ -10071,8 +10071,8 @@ msgid "Rename database to"
 msgstr "将数据库改名为"
 
 #: libraries/operations.lib.php:94 libraries/operations.lib.php:242
-#: libraries/operations.lib.php:859 libraries/operations.lib.php:953
-#: libraries/operations.lib.php:1307
+#: libraries/operations.lib.php:861 libraries/operations.lib.php:955
+#: libraries/operations.lib.php:1309
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
@@ -10082,8 +10082,8 @@ msgid ""
 msgstr "权限不足！"
 
 #: libraries/operations.lib.php:101 libraries/operations.lib.php:248
-#: libraries/operations.lib.php:865 libraries/operations.lib.php:959
-#: libraries/operations.lib.php:1313 libraries/rte/rte_routines.lib.php:1115
+#: libraries/operations.lib.php:867 libraries/operations.lib.php:961
+#: libraries/operations.lib.php:1315 libraries/rte/rte_routines.lib.php:1115
 #: templates/columns_definitions/table_fields_definitions.phtml:47
 #, fuzzy
 #| msgid "Edit Privileges"
@@ -10103,17 +10103,17 @@ msgstr "删除数据库"
 msgid "Drop the database (DROP)"
 msgstr "删除数据库 (DROP)"
 
-#: libraries/operations.lib.php:171 libraries/operations.lib.php:1266
+#: libraries/operations.lib.php:171 libraries/operations.lib.php:1268
 #: libraries/tracking.lib.php:517
 msgid "Structure only"
 msgstr "仅结构"
 
-#: libraries/operations.lib.php:172 libraries/operations.lib.php:1267
+#: libraries/operations.lib.php:172 libraries/operations.lib.php:1269
 #: libraries/tracking.lib.php:523
 msgid "Structure and data"
 msgstr "结构和数据"
 
-#: libraries/operations.lib.php:173 libraries/operations.lib.php:1268
+#: libraries/operations.lib.php:173 libraries/operations.lib.php:1270
 #: libraries/tracking.lib.php:520
 msgid "Data only"
 msgstr "仅数据"
@@ -10128,7 +10128,7 @@ msgstr "复制数据库到"
 msgid "CREATE DATABASE before copying"
 msgstr "复制前创建数据库 (CREATE DATABASE)"
 
-#: libraries/operations.lib.php:226 libraries/operations.lib.php:1291
+#: libraries/operations.lib.php:226 libraries/operations.lib.php:1293
 msgid "Add constraints"
 msgstr "添加约束"
 
@@ -10136,177 +10136,177 @@ msgstr "添加约束"
 msgid "Switch to copied database"
 msgstr "切换到复制的数据库"
 
-#: libraries/operations.lib.php:778
+#: libraries/operations.lib.php:780
 msgid "Alter table order by"
 msgstr "更改表的排序，根据"
 
-#: libraries/operations.lib.php:786
+#: libraries/operations.lib.php:788
 msgid "(singly)"
 msgstr "(逐一)"
 
-#: libraries/operations.lib.php:822
+#: libraries/operations.lib.php:824
 msgid "Move table to (database<b>.</b>table)"
 msgstr "将数据表移动到(数据库名<b>.</b>数据表名)："
 
-#: libraries/operations.lib.php:934
+#: libraries/operations.lib.php:936
 msgid "Rename table to"
 msgstr "将表改名为"
 
-#: libraries/operations.lib.php:977
+#: libraries/operations.lib.php:979
 msgid "Table comments"
 msgstr "表注释"
 
-#: libraries/operations.lib.php:1050
+#: libraries/operations.lib.php:1052
 msgid "Table options"
 msgstr "表选项"
 
-#: libraries/operations.lib.php:1057 libraries/server_engines.lib.php:49
+#: libraries/operations.lib.php:1059 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
 msgstr "存储引擎"
 
-#: libraries/operations.lib.php:1082
+#: libraries/operations.lib.php:1084
 msgid "Change all column collations"
 msgstr ""
 
-#: libraries/operations.lib.php:1249
+#: libraries/operations.lib.php:1251
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "将数据表复制到(数据库名<b>.</b>数据表名)："
 
-#: libraries/operations.lib.php:1329
+#: libraries/operations.lib.php:1331
 msgid "Switch to copied table"
 msgstr "切换到复制的数据表"
 
-#: libraries/operations.lib.php:1356 libraries/structure.lib.php:334
+#: libraries/operations.lib.php:1358 libraries/structure.lib.php:334
 msgid "Table maintenance"
 msgstr "表维护"
 
-#: libraries/operations.lib.php:1394 libraries/structure.lib.php:336
+#: libraries/operations.lib.php:1396 libraries/structure.lib.php:336
 msgid "Analyze table"
 msgstr "分析表"
 
-#: libraries/operations.lib.php:1409 libraries/structure.lib.php:338
+#: libraries/operations.lib.php:1411 libraries/structure.lib.php:338
 msgid "Check table"
 msgstr "检查表"
 
-#: libraries/operations.lib.php:1424 libraries/structure.lib.php:341
+#: libraries/operations.lib.php:1426 libraries/structure.lib.php:341
 #, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
 msgstr "检查表"
 
-#: libraries/operations.lib.php:1439
+#: libraries/operations.lib.php:1441
 msgid "Defragment table"
 msgstr "整理表碎片"
 
-#: libraries/operations.lib.php:1451
+#: libraries/operations.lib.php:1453
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "已强制更新表 %s。"
 
-#: libraries/operations.lib.php:1457
+#: libraries/operations.lib.php:1459
 msgid "Flush the table (FLUSH)"
 msgstr "刷新表 (FLUSH)"
 
-#: libraries/operations.lib.php:1473 libraries/structure.lib.php:343
+#: libraries/operations.lib.php:1475 libraries/structure.lib.php:343
 #: libraries/structure.lib.php:1828
 msgid "Optimize table"
 msgstr "优化表"
 
-#: libraries/operations.lib.php:1488 libraries/structure.lib.php:345
+#: libraries/operations.lib.php:1490 libraries/structure.lib.php:345
 msgid "Repair table"
 msgstr "修复表"
 
-#: libraries/operations.lib.php:1534 libraries/structure.lib.php:327
+#: libraries/operations.lib.php:1536 libraries/structure.lib.php:327
 #: view_operations.php:127
 msgid "Delete data or table"
 msgstr "删除数据或数据表"
 
-#: libraries/operations.lib.php:1542
+#: libraries/operations.lib.php:1544
 msgid "Empty the table (TRUNCATE)"
 msgstr "清空数据表 (TRUNCATE)"
 
-#: libraries/operations.lib.php:1550
+#: libraries/operations.lib.php:1552
 msgid "Delete the table (DROP)"
 msgstr "删除数据表 (DROP)"
 
-#: libraries/operations.lib.php:1590
+#: libraries/operations.lib.php:1592
 msgid "Analyze"
 msgstr "分析"
 
-#: libraries/operations.lib.php:1591
+#: libraries/operations.lib.php:1593
 msgid "Check"
 msgstr "检查"
 
-#: libraries/operations.lib.php:1592
+#: libraries/operations.lib.php:1594
 msgid "Optimize"
 msgstr "优化"
 
-#: libraries/operations.lib.php:1593
+#: libraries/operations.lib.php:1595
 msgid "Rebuild"
 msgstr "重建"
 
-#: libraries/operations.lib.php:1594
+#: libraries/operations.lib.php:1596
 msgid "Repair"
 msgstr "修复"
 
-#: libraries/operations.lib.php:1595
+#: libraries/operations.lib.php:1597
 msgid "Truncate"
 msgstr ""
 
-#: libraries/operations.lib.php:1605
+#: libraries/operations.lib.php:1607
 #, fuzzy
 #| msgid "Close"
 msgid "Coalesce"
 msgstr "关闭"
 
-#: libraries/operations.lib.php:1614
+#: libraries/operations.lib.php:1616
 msgid "Partition maintenance"
 msgstr "分区维护"
 
-#: libraries/operations.lib.php:1631
+#: libraries/operations.lib.php:1633
 #, php-format
 msgid "Partition %s"
 msgstr "分区 %s"
 
-#: libraries/operations.lib.php:1649
+#: libraries/operations.lib.php:1651
 msgid "Remove partitioning"
 msgstr "删除分区"
 
-#: libraries/operations.lib.php:1675
+#: libraries/operations.lib.php:1677
 msgid "Check referential integrity:"
 msgstr "检查引用完整性："
 
-#: libraries/operations.lib.php:2087
+#: libraries/operations.lib.php:2089
 msgid "Can't move table to same one!"
 msgstr "目标数据表不能为源数据表！"
 
-#: libraries/operations.lib.php:2089
+#: libraries/operations.lib.php:2091
 msgid "Can't copy table to same one!"
 msgstr "目标数据表不能为源数据表！"
 
-#: libraries/operations.lib.php:2112
+#: libraries/operations.lib.php:2114
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "已将数据表 %s 移动到 %s。"
 
-#: libraries/operations.lib.php:2116
+#: libraries/operations.lib.php:2118
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "已将数据表 %s 复制为 %s。"
 
-#: libraries/operations.lib.php:2123
+#: libraries/operations.lib.php:2125
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "已将数据表 %s 移动到 %s。"
 
-#: libraries/operations.lib.php:2127
+#: libraries/operations.lib.php:2129
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "已将数据表 %s 复制为 %s。"
 
-#: libraries/operations.lib.php:2149
+#: libraries/operations.lib.php:2151
 msgid "The table name is empty!"
 msgstr "表名不能为空！"
 
@@ -11821,7 +11821,7 @@ msgstr "服务器ID"
 #: libraries/server_privileges.lib.php:1610
 #: libraries/server_privileges.lib.php:2242
 #: libraries/server_privileges.lib.php:3203
-#: libraries/server_status_processes.lib.php:78
+#: libraries/server_status_processes.lib.php:76
 msgid "Host"
 msgstr "主机"
 
@@ -12403,12 +12403,12 @@ msgid "Information"
 msgstr "信息"
 
 #: libraries/server_bin_log.lib.php:183
-#: libraries/server_status_processes.lib.php:197
+#: libraries/server_status_processes.lib.php:202
 msgid "Truncate Shown Queries"
 msgstr "截断显示的查询"
 
 #: libraries/server_bin_log.lib.php:187
-#: libraries/server_status_processes.lib.php:202
+#: libraries/server_status_processes.lib.php:207
 msgid "Show Full Queries"
 msgstr "显示完整查询"
 
@@ -12834,7 +12834,7 @@ msgstr "用户已添加。"
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_status_processes.lib.php:74
+#: libraries/server_status_processes.lib.php:72
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
 msgstr "用户"
@@ -13024,7 +13024,14 @@ msgstr ""
 msgid "User accounts overview"
 msgstr "用户概况"
 
-#: libraries/server_privileges.lib.php:4255
+#: libraries/server_privileges.lib.php:4232
+msgid ""
+"A user account allowing any user from localhost to connect is present. This "
+"will prevent other users from connecting if the host part of their account "
+"allows a connection from any (%) host."
+msgstr ""
+
+#: libraries/server_privileges.lib.php:4272
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -13036,11 +13043,11 @@ msgstr ""
 "将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
 "限%s。"
 
-#: libraries/server_privileges.lib.php:4306
+#: libraries/server_privileges.lib.php:4323
 msgid "The selected user was not found in the privilege table."
 msgstr "在权限表内找不到选中的用户。"
 
-#: libraries/server_privileges.lib.php:4538
+#: libraries/server_privileges.lib.php:4555
 msgid "You have added a new user."
 msgstr "您已添加了一个新用户。"
 
@@ -13287,7 +13294,7 @@ msgid "Enable charts dragging"
 msgstr "启用高亮"
 
 #: libraries/server_status_monitor.lib.php:288
-#: libraries/server_status_processes.lib.php:31
+#: libraries/server_status_processes.lib.php:29
 msgid "Refresh rate"
 msgstr "刷新频率"
 
@@ -13310,7 +13317,7 @@ msgstr ""
 msgid "Reset to default"
 msgstr "恢复默认"
 
-#: libraries/server_status_processes.lib.php:26
+#: libraries/server_status_processes.lib.php:24
 #, fuzzy
 #| msgid ""
 #| "Note: Enabling the database statistics here might cause heavy traffic "
@@ -13321,21 +13328,25 @@ msgid ""
 msgstr ""
 "注意：在此启用数据库统计可能导致网站服务器和 MySQL 服务器之间的流量骤增。"
 
-#: libraries/server_status_processes.lib.php:70
+#: libraries/server_status_processes.lib.php:68
 msgid "ID"
 msgstr "ID"
 
-#: libraries/server_status_processes.lib.php:86
+#: libraries/server_status_processes.lib.php:84
 msgid "Command"
 msgstr "命令"
 
-#: libraries/server_status_processes.lib.php:248
+#: libraries/server_status_processes.lib.php:96
+msgid "Progress"
+msgstr ""
+
+#: libraries/server_status_processes.lib.php:253
 #: libraries/server_status_variables.lib.php:39
 #: libraries/server_variables.lib.php:179
 msgid "Filters"
 msgstr "过滤器"
 
-#: libraries/server_status_processes.lib.php:256
+#: libraries/server_status_processes.lib.php:261
 #, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
