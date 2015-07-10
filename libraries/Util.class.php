@@ -585,7 +585,7 @@ class PMA_Util
      * Displays a MySQL error message in the main panel when $exit is true.
      * Returns the error message otherwise.
      *
-     * @param string|bool $esrver_msg Server's error message.
+     * @param string|bool $esrver_msg     Server's error message.
      * @param string      $sql_query      The SQL query that failed.
      * @param bool        $is_modify_link Whether to show a "modify" link or not.
      * @param string      $back_url       URL for the "back" link (full path is

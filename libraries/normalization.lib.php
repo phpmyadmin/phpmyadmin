@@ -106,12 +106,14 @@ function PMA_getHtmlForCreateNewColumn(
     }
 
     return PMA\Template::get('columns_definitions/table_fields_definitions')
-        ->render(array(
+        ->render(
+            array(
             'is_backup' => true,
             'fields_meta' => null,
             'mimework' => $cfgRelation['mimework'],
             'content_cells' => $content_cells
-        ));
+            )
+        );
 }
 /**
  * build the html for step 1.1 of normalization
