@@ -132,10 +132,6 @@ function PMA_getPluginTab($plugins)
 
         $html .= '<table class="data_full_width" id="' . $key . '">';
         $html .= '<caption class="tblHeaders">';
-        $html .= '<a class="top" href="#serverinfo">';
-        $html .=  __('Begin');
-        $html .=  PMA_Util::getImage('s_asc.png');
-        $html .= '</a>';
         $html .=  htmlspecialchars($plugin_type);
         $html .= '</caption>';
         $html .= '<thead>';
