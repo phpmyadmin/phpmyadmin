@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-10 07:02-0400\n"
-"PO-Revision-Date: 2015-07-08 20:32+0200\n"
+"PO-Revision-Date: 2015-07-10 23:39+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
@@ -7219,7 +7219,6 @@ msgid "Export templates table"
 msgstr "Izvozi tabelo s predlogami"
 
 #: libraries/config/messages.inc.php:657
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no export template support, suggested: "
 #| "[kbd]pma__exporttemplates[/kbd]."
@@ -7228,7 +7227,7 @@ msgid ""
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
 "Pustite prazno, če ne želite podpore izvoza predlog; predlagano: "
-"[kbd]pma__exporttemplates[/kbd]."
+"[kbd]pma__export_templates[/kbd]."
 
 #: libraries/config/messages.inc.php:660
 msgid "Central columns table"
@@ -12616,6 +12615,10 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"Prisoten je uporabniški račun, ki dovoljuje povezavo vsakemu uporabniku na "
+"lokalnem gostitelju. To prepreči povezovanje ostalih uporabnikov, če "
+"gostiteljski del njihovega računa dovoljuje povezavo s katerega koli (%) "
+"gostitelja."
 
 #: libraries/server_privileges.lib.php:4272
 #, php-format
@@ -12934,10 +12937,9 @@ msgid "Command"
 msgstr "Ukaz"
 
 #: libraries/server_status_processes.lib.php:96
-#, fuzzy
 #| msgid "Press"
 msgid "Progress"
-msgstr "Pritisnite"
+msgstr "Napredek"
 
 #: libraries/server_status_processes.lib.php:253
 #: libraries/server_status_variables.lib.php:39
