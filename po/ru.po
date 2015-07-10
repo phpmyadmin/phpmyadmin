@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-07-11 00:44+0200\n"
-"Last-Translator: Олег Карпов <salvadoporjc@gmail.com>\n"
+"PO-Revision-Date: 2015-07-11 01:34+0200\n"
+"Last-Translator: ddrmoscow <ddrmoscow@gmail.com>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/ru/>\n"
 "Language: ru\n"
@@ -6387,7 +6387,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:428
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Отображать навигацию базы данных в виде дерева."
+msgstr "Показать навигацию по базам данных в виде дерева"
 
 #: libraries/config/messages.inc.php:430
 msgid "Link with main panel by highlighting the current database or table."
@@ -6745,10 +6745,9 @@ msgid "Allow root login"
 msgstr "Разрешить вход под root"
 
 #: libraries/config/messages.inc.php:556
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Значение сессии"
+msgstr "Временная зона сессии"
 
 #: libraries/config/messages.inc.php:557
 msgid ""
@@ -7745,10 +7744,9 @@ msgid "Select Export Relational Type"
 msgstr "Выберите тип экспорта связей"
 
 #: libraries/db_designer.lib.php:255 libraries/db_designer.lib.php:259
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "Отображение таблиц:"
+msgstr "Показать/Скрыть список таблиц"
 
 #: libraries/db_designer.lib.php:263 libraries/db_designer.lib.php:268
 msgid "View in fullscreen"
@@ -9027,10 +9025,9 @@ msgid "unknown"
 msgstr "неизвестно"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "При загрузке дерева навигации произошла ошибка"
+msgstr "При загрузке панели навигации произошла ошибка"
 
 #: libraries/navigation/Navigation.class.php:187
 msgid "Events:"
@@ -9075,20 +9072,19 @@ msgid ""
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:871
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "найден еще %s результат"
-msgstr[1] "найдено еще %s результата"
-msgstr[2] "найдено еще %s результатов"
+msgstr[0] "найден %s результат"
+msgstr[1] "найдено %s результата"
+msgstr[2] "найдено %s результатов"
 
 #: libraries/navigation/NavigationTree.class.php:1210
-#, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a database."
-msgstr "Выберите базу данных"
+msgstr "Выберите базу данных."
 
 #: libraries/navigation/NavigationTree.class.php:1268
 msgid "Filter databases by name or regex"
@@ -13917,10 +13913,9 @@ msgid "Storage Engine:"
 msgstr "Тип таблиц:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Соединения"
+msgstr "Соединение:"
 
 #: libraries/tbl_columns_definition_form.lib.php:129
 msgid "PARTITION definition:"
@@ -15017,11 +15012,12 @@ msgid "'percona' found in version_comment"
 msgstr "В version_comment найдено слово 'percona'"
 
 #: libraries/advisory_rules.txt:139
-#, fuzzy
 #| msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgid ""
 "Drizzle documentation is at http://www.drizzle.org/content/documentation/"
-msgstr "Документация Drizzle находится на http://docs.drizzle.org/"
+msgstr ""
+"Документация по Drizzle находится на "
+"http://www.drizzle.org/content/documentation/"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -15852,7 +15848,6 @@ msgid "Too many connections are aborted."
 msgstr "Слишком большое количество соединений было прервано."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -15863,10 +15858,10 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Обычно соединения прерываются при невозможности авторизации. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Данная статья</a> поможет вам в отслеживании "
-"источника проблемы."
+"Обычно соединения прерываются при невозможности авторизации. <a href=\""
+"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Данная статья</a> может помочь Вам отследить источник "
+"проблемы."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
