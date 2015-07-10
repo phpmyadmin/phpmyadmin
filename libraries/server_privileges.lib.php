@@ -4234,6 +4234,7 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
                             . 'from connecting if the host part of their account '
                             . 'allows a connection from any (%) host.'
                         )
+                        . PMA_Util::showMySQLDocu('problems-connecting')
                     )->getDisplay();
                     break 2;
                 }
