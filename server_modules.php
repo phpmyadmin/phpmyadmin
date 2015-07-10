@@ -12,15 +12,6 @@
 require_once 'libraries/common.inc.php';
 
 /**
- * JS includes
- */
-$response = PMA_Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
-$scripts->addFile('jquery/jquery.tablesorter.js');
-$scripts->addFile('server_modules.js');
-
-/**
  * Does the common work
  */
 require 'libraries/server_common.inc.php';
@@ -31,6 +22,7 @@ $modules = PMA_getServerModules();
 /**
  * Displays the page
  */
+$response = PMA_Response::getInstance();
 $response->addHTML('<div>');
 $response->addHTML(PMA_getHtmlForPluginsSubTabs('server_modules.php'));
 $response->addHTML(PMA_getModuleTab($modules));
