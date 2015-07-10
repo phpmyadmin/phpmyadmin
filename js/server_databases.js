@@ -130,7 +130,9 @@ AJAX.registerOnload('server_databases.js', function () {
             var dbStruct_url = data.url_query;
             dbStruct_url = dbStruct_url.replace(/amp;/ig, '');
             var params = 'ajax_request=true&ajax_page_request=true';
-            params += AJAX.cache.menus.getRequestParam();
+            if (! (history && history.pushState)) {
+                params += PMA_Microhistory.menus.getRequestParam();
+            }
             $.get(dbStruct_url, params, AJAX.responseHandler);
         }); // end $.post()
     }); // end $(document).on()

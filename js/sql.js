@@ -388,10 +388,21 @@ AJAX.registerOnload('sql.js', function () {
                 PMA_highlightSQL($sqlqueryresultsouter);
 
                 if (data._menu) {
-                    AJAX.cache.menus.replace(data._menu);
-                    AJAX.cache.menus.add(data._menuHash, data._menu);
+                    if (history && history.pushState) {
+                        history.replaceState({
+                                menu : data._menu
+                            },
+                            null
+                        );
+                        AJAX.handleMenu.replace(data._menu);
+                    } else {
+                        PMA_Microhistory.menus.replace(data._menu);
+                        PMA_Microhistory.menus.add(data._menuHash, data._menu);
+                    }
                 } else if (data._menuHash) {
-                    AJAX.cache.menus.replace(AJAX.cache.menus.get(data._menuHash));
+                    if (! (history && history.pushState)) {
+                        PMA_Microhistory.menus.replace(PMA_Microhistory.menus.get(data._menuHash));
+                    }
                 }
 
                 if (data._params) {

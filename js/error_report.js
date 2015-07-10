@@ -188,35 +188,6 @@ var ErrorReport = {
         ErrorReport._showReportDialog(ErrorReport._last_exception);
     },
     /**
-     * Returns the needed info about stored microhistory
-     *
-     * @return object
-     */
-    _get_microhistory: function () {
-        var cached_pages = AJAX.cache.pages.slice(-7);
-        var remove = ["common_query", "table", "db", "token", "pma_absolute_uri"];
-        return {
-            pages: cached_pages.map(function (page) {
-                var simplepage = {
-                    hash: page.hash
-                };
-
-                if (page.params) {
-                    simplepage.params = $.extend({}, page.params);
-                    $.each(simplepage.params, function (param) {
-                        if ($.inArray(param, remove) != -1) {
-                            delete simplepage.params[param];
-                        }
-                    });
-                }
-
-                return simplepage;
-            }),
-            current_index: AJAX.cache.current -
-                (AJAX.cache.pages.length - cached_pages.length)
-        };
-    },
-    /**
      * Redirects to the settings page containing error report
      * preferences
      *
@@ -238,11 +209,10 @@ var ErrorReport = {
             "token": PMA_commonParams.get('token'),
             "exception": exception,
             "current_url": window.location.href,
-            "microhistory": ErrorReport._get_microhistory(),
             "exception_type": 'js'
         };
-        if (typeof AJAX.cache.pages[AJAX.cache.current - 1] !== 'undefined') {
-            report_data.scripts = AJAX.cache.pages[AJAX.cache.current - 1].scripts.map(
+        if (AJAX.scriptHandler._scripts.length > 0) {
+            report_data.scripts = AJAX.scriptHandler._scripts.map(
                 function (script) {
                     return script.name;
                 }
