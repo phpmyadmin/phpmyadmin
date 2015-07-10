@@ -1222,12 +1222,21 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $row = array(
             '',
             "CREATE TABLE `table` (\n" .
-            "`id` INT NOT NULL AUTO_INCREMENT,\n" .
-            "username VARCHAR(64) NULL,\n" .
-            "`password` VARCHAR(256) DEFAULT '123456',\n" .
-            "CONSTRAINT pk_id PRIMARY KEY (`id`),\n" .
-            "UNIQUE (username)\n" .
-            ")"
+            "`payment_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,\n" .
+            "`customer_id` smallint(5) unsigned NOT NULL,\n" .
+            "`staff_id` tinyint(3) unsigned NOT NULL,\n" .
+            "`rental_id` int(11) DEFAULT NULL,\n" .
+            "`amount` decimal(5,2) NOT NULL,\n" .
+            "`payment_date` datetime NOT NULL,\n" .
+            "`last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n" .
+            "PRIMARY KEY (`payment_id`),\n" .
+            "KEY `idx_fk_staff_id` (`staff_id`),\n" .
+            "KEY `idx_fk_customer_id` (`customer_id`),\n" .
+            "KEY `fk_payment_rental` (`rental_id`),\n" .
+            "CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE,\n" .
+            "CONSTRAINT `fk_payment_rental` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`rental_id`) ON DELETE SET NULL ON UPDATE CASCADE,\n" .
+            "CONSTRAINT `fk_payment_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON UPDATE CASCADE\n" .
+            ") ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8\n"
         );
 
         $dbi->expects($this->once())
@@ -1298,7 +1307,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'ALTER TABLE "db"."table"' . "\n",
+            'ALTER TABLE "table"',
             $GLOBALS['sql_drop_foreign_keys']
         );
 

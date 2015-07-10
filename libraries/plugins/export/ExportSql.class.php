@@ -1392,6 +1392,9 @@ class ExportSql extends ExportPlugin
             return $this->_exportComment(__('in use') . '(' . $tmp_error . ')');
         }
 
+        // Old mode is stored so it can be restored once exporting is done.
+        $old_mode = SqlParser\Context::$MODE;
+
         $warning = '';
         if ($result != false && ($row = $GLOBALS['dbi']->fetchRow($result))) {
             $create_query = $row[1];
@@ -1535,7 +1538,7 @@ class ExportSql extends ExportPlugin
                     unset($statement->fields[$key]);
                 }
 
-                // Creating the parts that drop froeign keys.
+                // Creating the parts that drop foreign keys.
                 if (!empty($field->key)) {
                     if ($field->key->type === 'FOREIGN KEY') {
                         $dropped[] = 'FOREIGN KEY ' . SqlParser\Context::escape($field->name);
@@ -1637,6 +1640,10 @@ class ExportSql extends ExportPlugin
         }
 
         $GLOBALS['dbi']->freeResult($result);
+
+        // Restoring old mode.
+        SqlParser\Context::$MODE = $old_mode;
+
         return $warning . $schema_create . ($add_semicolon ? ';' . $crlf : '');
     } // end of the 'getTableDef()' function
 
