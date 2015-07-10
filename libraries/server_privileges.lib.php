@@ -4230,9 +4230,9 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
                     $html_output .= PMA_Message::notice(
                         __(
                             'A user account allowing any user from localhost to '
-                            . 'connect is present. This may cause trouble for '
-                            . 'other users who are allowed to connect from any '
-                            . 'host in connecting.'
+                            . 'connect is present. This will prevent other users '
+                            . 'from connecting if the host part of their account '
+                            . 'allows a connection from any (%) host.'
                         )
                     )->getDisplay();
                     break 2;
