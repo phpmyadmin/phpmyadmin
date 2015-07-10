@@ -612,6 +612,13 @@ class PMA_Menu
             $tabs['plugins']['icon'] = 'b_engine.png';
             $tabs['plugins']['link'] = 'server_plugins.php';
             $tabs['plugins']['text'] = __('Plugins');
+            $tabs['plugins']['active'] = in_array(
+                basename($GLOBALS['PMA_PHP_SELF']),
+                array(
+                    'server_plugins.php',
+                    'server_modules.php',
+                )
+            );
         } else {
             $tabs['engine']['icon'] = 'b_engine.png';
             $tabs['engine']['link'] = 'server_engines.php';

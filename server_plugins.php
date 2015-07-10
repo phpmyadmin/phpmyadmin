@@ -26,32 +26,14 @@ $scripts->addFile('server_plugins.js');
 require 'libraries/server_common.inc.php';
 require 'libraries/server_plugins.lib.php';
 
-/**
- * Prepare plugin list
- */
-$sql = "SELECT p.plugin_name, p.plugin_type, p.is_active, m.module_name,
-        m.module_library, m.module_version, m.module_author,
-        m.module_description, m.module_license
-    FROM data_dictionary.plugins p
-        JOIN data_dictionary.modules m USING (module_name)
-    ORDER BY m.module_name, p.plugin_type, p.plugin_name";
-$res = $GLOBALS['dbi']->query($sql);
-$plugins = array();
-$modules = array();
-while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-    $plugins[$row['plugin_type']][] = $row;
-    $modules[$row['module_name']]['info'] = $row;
-    $modules[$row['module_name']]['plugins'][$row['plugin_type']][] = $row;
-}
-$GLOBALS['dbi']->freeResult($res);
-
-// sort plugin list (modules are already sorted)
-ksort($plugins);
+$plugins = PMA_getServerPlugins();
 
 /**
  * Displays the page
  */
-$response->addHTML(PMA_getHtmlForSubPageHeader('plugins'));
-$response->addHTML(PMA_getPluginAndModuleInfo($plugins, $modules));
+$response->addHTML('<div>');
+$response->addHTML(PMA_getHtmlForPluginsSubTabs('server_plugins.php'));
+$response->addHTML(PMA_getPluginTab($plugins));
+$response->addHTML('</div>');
 
 exit;
