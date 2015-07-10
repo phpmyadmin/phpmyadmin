@@ -71,8 +71,8 @@ class DataType extends Component
     /**
      * Constructor.
      *
-     * @param string          $name       The name of this data type.
-     * @param array           $parameters The parameters (size or possible values).
+     * @param string       $name       The name of this data type.
+     * @param array        $parameters The parameters (size or possible values).
      * @param OptionsArray $options    The options of this data type.
      */
     public function __construct($name = null, array $parameters = array(),

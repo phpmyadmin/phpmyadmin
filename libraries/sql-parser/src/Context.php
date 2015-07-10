@@ -123,6 +123,10 @@ abstract class Context
      * https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html
      */
 
+    // Compatibility mode for Microsoft's SQL server.
+    // This is the equivalent of ANSI_QUOTES.
+    const COMPAT_MYSQL                  =       2;
+
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_allow_invalid_dates
     const ALLOW_INVALID_DATES           =       1;
 
@@ -446,11 +450,12 @@ abstract class Context
     /**
      * Escapes the symbol by adding surrounding backticks.
      *
-     * @param array|string $str The string to be escaped.
+     * @param array|string $str   The string to be escaped.
+     * @param string       $quote Quote to be used when escaping.
      *
      * @return string
      */
-    public static function escape($str)
+    public static function escape($str, $quote = '`')
     {
         if (is_array($str)) {
             foreach ($str as $key => $value) {
@@ -458,10 +463,11 @@ abstract class Context
             }
             return $str;
         }
+
         if (static::$MODE & Context::ANSI_QUOTES) {
-            return '"' . str_replace('"', '""', $str) . '"';
+            $quote = '"';
         }
-        return '`' . str_replace('`', '``', $str) . '`';
+        return $quote . str_replace($quote, $quote . $quote, $str) . $quote;
     }
 }
 

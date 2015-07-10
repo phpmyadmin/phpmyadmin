@@ -174,8 +174,9 @@ class ContextMySql50700 extends Context
         'MASTER_SSL_VERIFY_SERVER_CERT' => 3,
 
         'GROUP BY' => 7, 'NOT NULL' => 7, 'ORDER BY' => 7, 'SET NULL' => 7,
-        'IF EXISTS' => 7, 'NO ACTION' => 7, 'ON DELETE' => 7, 'ON UPDATE' => 7,
-        'OR REPLACE' => 7,
+        'FULL JOIN' => 7, 'IF EXISTS' => 7, 'LEFT JOIN' => 7, 'NO ACTION' => 7,
+        'ON DELETE' => 7, 'ON UPDATE' => 7,
+        'INNER JOIN' => 7, 'OR REPLACE' => 7, 'RIGHT JOIN' => 7,
         'FOR EACH ROW' => 7, 'SQL SECURITY' => 7,
         'CHARACTER SET' => 7, 'IF NOT EXISTS' => 7,
         'DATA DIRECTORY' => 7,

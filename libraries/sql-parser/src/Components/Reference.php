@@ -61,8 +61,8 @@ class Reference extends Component
     /**
      * Constructor.
      *
-     * @param string          $table   The name of the table referenced.
-     * @param array           $columns The columns referenced.
+     * @param string       $table   The name of the table referenced.
+     * @param array        $columns The columns referenced.
      * @param OptionsArray $options The options.
      */
     public function __construct($table = null, array $columns = array(), $options = null)

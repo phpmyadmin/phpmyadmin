@@ -94,11 +94,11 @@ class FieldDefinition extends Component
     /**
      * Constructor.
      *
-     * @param string                       $name         The name of the field.
-     * @param OptionsArray              $options      The options of this field.
+     * @param string       $name         The name of the field.
+     * @param OptionsArray $options      The options of this field.
      * @param DataType|Key $type         The data type of this field or the key.
-     * @param bool                         $isConstraint Whether this field is a constraint or not.
-     * @param Reference            $references   References.
+     * @param bool         $isConstraint Whether this field is a constraint or not.
+     * @param Reference    $references   References.
      */
     public function __construct($name = null, $options = null, $type = null,
         $isConstraint = false, $references = null
@@ -230,36 +230,38 @@ class FieldDefinition extends Component
      */
     public static function build($component)
     {
-        $ret = array();
-
-        foreach ($component as $f) {
+        if (is_array($component)) {
+            $ret = array();
+            foreach ($component as $c) {
+                $ret[] = static::build($c);
+            }
+            return "(\n" . implode(",\n", $ret) . "\n)";
+        } else {
             $tmp = '';
 
-            if ($f->isConstraint) {
+            if ($component->isConstraint) {
                 $tmp .= 'CONSTRAINT ';
             }
 
-            if (!empty($f->name)) {
-                $tmp .= Context::escape($f->name) . ' ';
+            if (!empty($component->name)) {
+                $tmp .= Context::escape($component->name) . ' ';
             }
 
-            if (!empty($f->type)) {
-                $tmp .= DataType::build($f->type) . ' ';
+            if (!empty($component->type)) {
+                $tmp .= DataType::build($component->type) . ' ';
             }
 
-            if (!empty($f->key)) {
-                $tmp .= Key::build($f->key) . ' ';
+            if (!empty($component->key)) {
+                $tmp .= Key::build($component->key) . ' ';
             }
 
-            if (!empty($f->references)) {
-                $tmp .= 'REFERENCES ' . Reference::build($f->references) . ' ';
+            if (!empty($component->references)) {
+                $tmp .= 'REFERENCES ' . Reference::build($component->references) . ' ';
             }
 
-            $tmp .= OptionsArray::build($f->options);
+            $tmp .= OptionsArray::build($component->options);
 
-            $ret[] = trim($tmp);
+            return trim($tmp);
         }
-
-        return "(\n" . implode(",\n", $ret) . "\n)";
     }
 }

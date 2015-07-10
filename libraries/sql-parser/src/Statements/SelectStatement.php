@@ -90,6 +90,7 @@ class SelectStatement extends Statement
         '_SELECT'                       => array('SELECT',      1),
         'FROM'                          => array('FROM',        3),
         'PARTITION'                     => array('PARTITION',   3),
+        'JOIN'                          => array('JOIN',        1),
         'WHERE'                         => array('WHERE',       3),
         'GROUP BY'                      => array('GROUP BY',    3),
         'HAVING'                        => array('HAVING',      3),
@@ -98,7 +99,6 @@ class SelectStatement extends Statement
         'PROCEDURE'                     => array('PROCEDURE',   3),
         'INTO'                          => array('INTO',        3),
         'UNION'                         => array('UNION',       3),
-        'JOIN'                          => array('JOIN',        3),
     );
 
     /**
@@ -174,7 +174,7 @@ class SelectStatement extends Statement
     /**
      * Joins.
      *
-     * @var JoinKeyword
+     * @var JoinKeyword[]
      */
     public $join;
 

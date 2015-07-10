@@ -70,9 +70,9 @@ class Key extends Component
     /**
      * Constructor.
      *
-     * @param string          $name    The name of the key.
-     * @param array           $columns The columns covered by this key.
-     * @param string          $type    The type of this key.
+     * @param string       $name    The name of the key.
+     * @param array        $columns The columns covered by this key.
+     * @param string       $type    The type of this key.
      * @param OptionsArray $options The options of this key.
      */
     public function __construct($name = null, array $columns = array(),

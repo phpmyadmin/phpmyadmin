@@ -42,7 +42,7 @@ class FunctionCall extends Component
     /**
      * Constructor.
      *
-     * @param string              $name       The name of the function to be called.
+     * @param string         $name       The name of the function to be called.
      * @param array|ArrayObj $parameters The parameters of this function.
      */
     public function __construct($name = null, $parameters = null)

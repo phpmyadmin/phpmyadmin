@@ -33,8 +33,8 @@ class Misc
     public static function getAliases($statement, $database)
     {
         if (!($statement instanceof SelectStatement)
-            || (empty($statement->from))
             || (empty($statement->expr))
+            || (empty($statement->from))
         ) {
             return array();
         }
@@ -43,28 +43,21 @@ class Misc
 
         $tables = array();
 
-        if ((!empty($statement->join->expr->table))
-            && (!empty($statement->join->expr->alias))
-        ) {
-            $thisDb = empty($statement->join->expr->database) ?
-                $database : $statement->join->expr->database;
+        /**
+         * Expressions that may contain aliases.
+         * These are extracted from `FROM` and `JOIN` keywords.
+         * @var Expression[]
+         */
+        $expressions = $statement->from;
 
-            $retval = array(
-                $thisDb => array(
-                    'alias' => null,
-                    'tables' => array(
-                        $statement->join->expr->table => array(
-                            'alias' => $statement->join->expr->alias,
-                            'columns' => array(),
-                        ),
-                    ),
-                ),
-            );
-
-            $tables[$thisDb][$statement->join->expr->alias] = $statement->join->expr->table;
+        // Adding expressions from JOIN.
+        if (!empty($statement->join)) {
+            foreach ($statement->join as $join) {
+                $expressions[] = $join->expr;
+            }
         }
 
-        foreach ($statement->from as $expr) {
+        foreach ($expressions as $expr) {
             if (empty($expr->table)) {
                 continue;
             }

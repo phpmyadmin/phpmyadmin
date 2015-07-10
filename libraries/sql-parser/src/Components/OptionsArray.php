@@ -182,9 +182,29 @@ class OptionsArray extends Component
     public function has($key)
     {
         foreach ($this->options as $option) {
-            if ((is_array($option)) && ($key === $option['name'])) {
+            if ($key === $option) {
+                return true;
+            } elseif ((is_array($option)) && ($key === $option['name'])) {
                 return $option['value'];
-            } elseif ($key === $option) {
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Removes the option from the array.
+     *
+     * @param string $key The key to be removed.
+     *
+     * @return bool Whether the key was found and deleted or not.
+     */
+    public function remove($key)
+    {
+        foreach ($this->options as $idx => $option) {
+            if (($key === $option)
+                || ((is_array($option)) && ($key === $option['name']))
+            ) {
+                unset($this->options[$idx]);
                 return true;
             }
         }

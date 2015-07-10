@@ -285,6 +285,7 @@ if (!defined('TESTSUITE')) {
     // export page, Export page aliases are given more
     // preference over SQL Query aliases.
     $parser = new SqlParser\Parser($sql_query);
+    $aliases = array();
     if (!empty($parser->statements[0])) {
         if (!empty($_REQUEST['aliases'])) {
             $aliases = PMA_mergeAliases(

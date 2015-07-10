@@ -1396,6 +1396,7 @@ class ExportSql extends ExportPlugin
         if ($result != false && ($row = $GLOBALS['dbi']->fetchRow($result))) {
             $create_query = $row[1];
             unset($row);
+
             // Convert end of line chars to one that we want (note that MySQL
             // doesn't return query it will accept in all cases)
             if (/*overload*/mb_strpos($create_query, "(\r\n ")) {
@@ -1420,11 +1421,13 @@ class ExportSql extends ExportPlugin
                     $create_query
                 );
             }
-            // substitute aliases in create query
+
+            // Substitute aliases in `CREATE` query.
             $create_query = $this->replaceWithAliases(
                 $create_query, $aliases, $db, $table, $flag
             );
-            // One warning per view
+
+            // One warning per view.
             if ($flag && $view) {
                 $warning = $this->_exportComment()
                     . $this->_exportComment(
@@ -1435,7 +1438,8 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->_exportComment();
             }
-            // Should we use IF NOT EXISTS?
+
+            // Adding IF NOT EXISTS, if required.
             if (isset($GLOBALS['sql_if_not_exists'])) {
                 $create_query = preg_replace(
                     '/^CREATE TABLE/',
@@ -1444,14 +1448,15 @@ class ExportSql extends ExportPlugin
                 );
             }
 
+            // Making the query MSSQL compatible.
             if ($compat == 'MSSQL') {
                 $create_query = $this->_makeCreateTableMSSQLCompatible(
                     $create_query
                 );
             }
 
-            // Drizzle (checked on 2011.03.13) returns ROW_FORMAT surrounded
-            // with quotes, which is not accepted by parser
+            // Drizzle (checked on 2011.03.13) returns `ROW_FORMAT`'s value
+            // surrounded with quotes, which is not accepted by parser
             if (PMA_DRIZZLE) {
                 $create_query = preg_replace(
                     '/ROW_FORMAT=\'(\S+)\'/',
@@ -1460,292 +1465,175 @@ class ExportSql extends ExportPlugin
                 );
             }
 
-            //are there any constraints to cut out?
-            if (preg_match('@CONSTRAINT|KEY@', $create_query)) {
-                $has_constraints = 0;
-                $has_indexes = 0;
+            // Using appropriate quotes.
+            if (($compat === 'MSSQL') || ($sql_backquotes === '"')) {
+                SqlParser\Context::$MODE |= SqlParser\Context::ANSI_QUOTES;
+            }
 
-                //if there are constraints
-                if (preg_match(
-                    '@CONSTRAINT@',
-                    $create_query
-                )) {
-                    $has_constraints = 1;
-                    // comments -> constraints for dumped tables
-                    $sql_constraints = $this->generateComment(
-                        $crlf, $sql_constraints, __('Constraints for dumped tables'),
-                        __('Constraints for table'), $table_alias, $compat
-                    );
+            /**
+             * Parser used for analysis.
+             * @var SqlParser
+             */
+            $parser = new SqlParser\Parser($create_query);
 
-                    $sql_constraints_query .= 'ALTER TABLE '
-                        . PMA_Util::backquoteCompat(
-                            $table_alias, $compat, $sql_backquotes
-                        )
-                    . $crlf;
-                    $sql_constraints .= 'ALTER TABLE '
-                        . PMA_Util::backquoteCompat(
-                            $table_alias, $compat, $sql_backquotes
-                        )
-                    . $crlf;
-                    $sql_drop_foreign_keys .= 'ALTER TABLE '
-                        . PMA_Util::backquoteCompat(
-                            $db_alias, $compat, $sql_backquotes
-                        )
-                        . '.'
-                        . PMA_Util::backquoteCompat(
-                            $table_alias, $compat, $sql_backquotes
-                        )
-                        . $crlf;
-                }
-                //if there are indexes
-                // (look for KEY followed by whitespace to avoid matching
-                //  keywords like PACK_KEYS)
-                if ($update_indexes_increments && preg_match(
-                    '@KEY[\s]+@',
-                    $create_query
-                )) {
-                    $has_indexes = 1;
+            /**
+             * `CREATE TABLE` statement.
+             * @var SqlParser\Statements\SelectStatement
+             */
+            $statement = $parser->statements[0];
 
-                    // comments -> indexes for dumped tables
-                    $sql_indexes = $this->generateComment(
-                        $crlf, $sql_indexes, __('Indexes for dumped tables'),
-                        __('Indexes for table'), $table_alias, $compat
-                    );
-                    $sql_indexes_query_start = 'ALTER TABLE '
-                        . PMA_Util::backquoteCompat(
-                            $table_alias, $compat, $sql_backquotes
-                        );
-                    $sql_indexes_query .= $sql_indexes_query_start;
+            /**
+             * Fragments containining definition of each constraint.
+             * @var array
+             */
+            $constraints = array();
 
-                    $sql_indexes_start = 'ALTER TABLE '
-                        . PMA_Util::backquoteCompat(
-                            $table_alias,  $compat, $sql_backquotes
-                        );
-                    $sql_indexes .= $sql_indexes_start;
-                }
-                if ($update_indexes_increments && preg_match(
-                    '@AUTO_INCREMENT@',
-                    $create_query
-                )) {
-                    // comments -> auto increments for dumped tables
-                    $sql_auto_increments = $this->generateComment(
-                        $crlf, $sql_auto_increments,
-                        __('AUTO_INCREMENT for dumped tables'),
-                        __('AUTO_INCREMENT for table'), $table_alias, $compat
-                    );
-                    $sql_auto_increments .= 'ALTER TABLE '
-                        . PMA_Util::backquoteCompat(
-                            $table_alias, $compat, $sql_backquotes
-                        )
-                        . $crlf;
+            /**
+             * Fragments containining definition of each index.
+             * @var array
+             */
+            $indexes = array();
+
+            /**
+             * Fragments containining definition of each FULLTEXT index.
+             * @var array
+             */
+            $indexes_fulltext = array();
+
+            /**
+             * Fragments containining definition of each foreign key that will
+             * be dropped.
+             * @var array
+             */
+            $dropped = array();
+
+            /**
+             * Fragment containining definition of the `AUTO_INCREMENT`.
+             * @var array
+             */
+            $auto_increment = array();
+
+            // Scanning each field of the `CREATE` statement to fill the arrays
+            // above.
+            // If the field is used in any of the arrays above, it is removed
+            // from the original definition.
+            // Also, AUTO_INCREMENT attribute is removed.
+            foreach ($statement->fields as $key => $field) {
+
+                if ($field->isConstraint) {
+                    // Creating the parts that add constraints.
+                    $constraints[] = $field::build($field);
+                    unset($statement->fields[$key]);
+                } elseif (!empty($field->key)) {
+                    // Creating the parts that add indexes (must not be
+                    // constraints).
+                    if ($field->key->type === 'FULLTEXT KEY') {
+                        $indexes_fulltext[] = $field->build($field);
+                    } else {
+                        $indexes[] = $field->build($field);
+                    }
+                    unset($statement->fields[$key]);
                 }
 
-                // Split the query into lines, so we can easily handle it.
-                // We know lines are separated by $crlf (done few lines above).
-                $sql_lines = explode($crlf, $create_query);
-                $sql_count = count($sql_lines);
-
-                // lets find first line with constraints
-                $first_occur = -1;
-                for ($i = 0; $i < $sql_count; $i++) {
-                    $sql_line = current(explode(' COMMENT ', $sql_lines[$i], 2));
-                    if (preg_match(
-                        '@[\s]+(CONSTRAINT|KEY)@',
-                        $sql_line
-                    ) && $first_occur == -1) {
-                        $first_occur = $i;
+                // Creating the parts that drop froeign keys.
+                if (!empty($field->key)) {
+                    if ($field->key->type === 'FOREIGN KEY') {
+                        $dropped[] = 'FOREIGN KEY ' . SqlParser\Context::escape($field->name);
                     }
+                    unset($statement->fields[$key]);
                 }
 
-                for ($k = 0; $k < $sql_count; $k++) {
-                    if ($update_indexes_increments && preg_match(
-                        '( AUTO_INCREMENT | AUTO_INCREMENT,| AUTO_INCREMENT$)',
-                        $sql_lines[$k]
-                    )) {
-                        //creates auto increment code
-                        $sql_auto_increments .= "  MODIFY " . ltrim($sql_lines[$k]);
-                        //removes auto increment code from table definition
-                        $sql_lines[$k] = str_replace(
-                            " AUTO_INCREMENT", "", $sql_lines[$k]
-                        );
+                // Dropping AUTO_INCREMENT.
+                if (!empty($field->options)) {
+                    if ($field->options->has('AUTO_INCREMENT')) {
+                        $auto_increment[] = $field::build($field);
+                        $field->options->remove('AUTO_INCREMENT');
                     }
-                    if (isset($GLOBALS['sql_auto_increment'])
-                        && $update_indexes_increments && preg_match(
-                            '@[\s]+(AUTO_INCREMENT=)@',
-                            $sql_lines[$k]
-                        )) {
-                        //adds auto increment value
-                        $increment_value = /*overload*/mb_substr(
-                            $sql_lines[$k],
-                            /*overload*/mb_strpos($sql_lines[$k], "AUTO_INCREMENT")
-                        );
-                        $increment_value_array = explode(' ', $increment_value);
-                        $sql_auto_increments .= $increment_value_array[0] . ";";
-
-                    }
-                }
-
-                if ($sql_auto_increments != '') {
-                    $sql_auto_increments = /*overload*/mb_substr(
-                        $sql_auto_increments, 0, -1
-                    ) . ';';
-                }
-                // If we really found a constraint
-                if ($first_occur != $sql_count) {
-                    // lets find first line
-                    $sql_lines[$first_occur - 1] = preg_replace(
-                        '@,$@',
-                        '',
-                        $sql_lines[$first_occur - 1]
-                    );
-
-                    $first = true;
-                    $sql_index_ended = false;
-                    for ($j = $first_occur; $j < $sql_count; $j++) {
-                        //removes extra space at the beginning, if there is
-                        $sql_lines[$j]=ltrim($sql_lines[$j], ' ');
-
-                        //if it's a constraint
-                        if (preg_match(
-                            '@CONSTRAINT|FOREIGN[\s]+KEY@',
-                            $sql_lines[$j]
-                        )) {
-                            if (! $first) {
-                                $sql_constraints .= $crlf;
-                            }
-                            $posConstraint = /*overload*/mb_strpos(
-                                $sql_lines[$j],
-                                'CONSTRAINT'
-                            );
-                            $tmp_str = $sql_lines[$j];
-                            if (! $sql_backquotes) {
-                                $tmp_str = preg_replace_callback(
-                                    '/REFERENCES[\s]([\S]*)[\s]\(([\S]*)\)/',
-                                    function ($matches) {
-                                        global $compat, $sql_backquotes;
-
-                                        $refTable = PMA_Util::backquoteCompat(
-                                            $matches[1], $compat, $sql_backquotes
-                                        );
-                                        $refColumn = PMA_Util::backquoteCompat(
-                                            $matches[2], $compat, $sql_backquotes
-                                        );
-                                        return 'REFERENCES ' . $refTable . ' (' . $refColumn . ')';
-                                    },
-                                    $tmp_str
-                                );
-                            }
-                            if ($posConstraint === false) {
-                                $tmp_str = preg_replace(
-                                    '/(FOREIGN[\s]+KEY)/',
-                                    '  ADD \1',
-                                    $tmp_str
-                                );
-
-                                $sql_constraints_query .= $tmp_str;
-                                $sql_constraints .= $tmp_str;
-
-                            } else {
-                                $tmp_str = preg_replace(
-                                    '/(CONSTRAINT)/',
-                                    '  ADD \1',
-                                    $tmp_str
-                                );
-
-                                $sql_constraints_query .= $tmp_str;
-                                $sql_constraints .= $tmp_str;
-                                preg_match(
-                                    '/(CONSTRAINT)([\s])([\S]*)([\s])/',
-                                    $sql_lines[$j],
-                                    $matches
-                                );
-                                if (! $first) {
-                                    $sql_drop_foreign_keys .= ', ';
-                                }
-                                $sql_drop_foreign_keys .= 'DROP FOREIGN KEY '
-                                    . $matches[3];
-                            }
-                            $first = false;
-                        } else if ($update_indexes_increments && preg_match(
-                            '@KEY[\s]+@',
-                            $sql_lines[$j]
-                        )) {
-                            //if it's a index
-
-                            // if index query was terminated earlier
-                            if ($sql_index_ended) {
-                                // start a new query with ALTER TABLE
-                                $sql_indexes .= $sql_indexes_start;
-                                $sql_indexes_query .= $sql_indexes_query_start;
-
-                                $sql_index_ended = false;
-                            }
-
-                            $tmp_str = $crlf . "  ADD " . $sql_lines[$j];
-                            $sql_indexes_query .= $tmp_str;
-                            $sql_indexes .= $tmp_str;
-
-                            // InnoDB supports one FULLTEXT index creation at a time
-                            // So end the query and start over
-                            if ($update_indexes_increments && preg_match(
-                                '@FULLTEXT KEY[\s]+@',
-                                $sql_lines[$j]
-                            )) {
-                                //removes superfluous comma at the end
-                                $sql_indexes = rtrim($sql_indexes, ',');
-                                $sql_indexes_query = rtrim($sql_indexes_query, ',');
-
-                                // add ending semicolon
-                                $sql_indexes .= ';' . $crlf;
-                                $sql_indexes_query .= ';' . $crlf;
-
-                                $sql_index_ended = true;
-                            }
-                        } else {
-                            break;
-                        }
-                    }
-                    //removes superfluous comma at the end
-                    $sql_indexes = rtrim($sql_indexes, ',');
-                    $sql_indexes_query = rtrim($sql_indexes_query, ',');
-                    //removes superfluous semicolon at the end
-                    if ($has_constraints == 1) {
-                        $sql_constraints .= ';' . $crlf;
-                        $sql_constraints_query .= ';';
-                    }
-                    if ($has_indexes == 1 && ! $sql_index_ended) {
-                        $sql_indexes .= ';' . $crlf;
-                        $sql_indexes_query .= ';';
-                    }
-                    //remove indexes and constraints from the $create_query
-                    $create_query = implode(
-                        $crlf,
-                        array_slice($sql_lines, 0, $first_occur)
-                    )
-                    . $crlf
-                    . implode(
-                        $crlf,
-                        array_slice($sql_lines, $j, $sql_count - 1)
-                    );
-                    unset($sql_lines);
                 }
             }
-            $schema_create .= $create_query;
-        }
 
-        // remove a possible "AUTO_INCREMENT = value" clause
-        // that could be there starting with MySQL 5.0.24
-        // in Drizzle it's useless as it contains the value given at table
-        // creation time
-        if (preg_match('/AUTO_INCREMENT\s*=\s*([0-9])+/', $schema_create)) {
-            if ($compat == 'MSSQL' || $auto_increment == '') {
-                $auto_increment = ' ';
+            /**
+             * The header of the `ALTER` statement (`ALTER TABLE tbl`).
+             * @var string
+             */
+            $alter_header = 'ALTER TABLE ' .
+                PMA_Util::backquoteCompat(
+                    $table_alias, $compat, $sql_backquotes
+                );
+
+            /**
+             * The footer of the `ALTER` statement (usually ';')
+             * @var string
+             */
+            $alter_footer = ';' . $crlf;
+
+            // Generating constraints-related query.
+            if (!empty($constraints)) {
+                $sql_constraints_query = $alter_header .
+                    $crlf . '  ADD ' . implode(',' . $crlf . '  ADD ', $constraints) .
+                    $alter_footer;
+
+                $sql_constraints = $this->generateComment(
+                    $crlf, $sql_constraints, __('Constraints for dumped tables'),
+                    __('Constraints for table'), $table_alias, $compat
+                ) . $sql_constraints_query;
             }
-            $schema_create = preg_replace(
-                '/\sAUTO_INCREMENT\s*=\s*([0-9])+\s/',
-                $auto_increment,
-                $schema_create
-            );
+
+            // Generating indexes-related query.
+            $sql_indexes_query = '';
+
+            if (!empty($indexes)) {
+                $sql_indexes_query .= $alter_header .
+                    $crlf . '  ADD ' . implode(',' . $crlf . '  ADD ', $indexes) .
+                    $alter_footer;
+            }
+
+            if (!empty($fulltext_indexes)) {
+                // InnoDB supports one FULLTEXT index creation at a time.
+                // So FULLTEXT indexes are created one-by-one after other
+                // indexes where created.
+                $sql_indexes_query .= $alter_header .
+                ' ADD ' . implode(
+                    $alter_footer . $alter_header . ' ADD ', $indexes_fulltext
+                ) . $alter_footer;
+            }
+
+            if ((!empty($indexes)) || (!empty($fulltext_indexes))) {
+                $sql_indexes = $this->generateComment(
+                    $crlf, $sql_indexes, __('Indexes for dumped tables'),
+                    __('Indexes for table'), $table_alias, $compat
+                ) . $sql_indexes_query;
+            }
+
+            // Generating drop foreign keys-related query.
+            if (!empty($dropped)) {
+                $sql_drop_foreign_keys = $alter_header .
+                    $crlf . '  DROP ' . implode(',' . $crlf . '  DROP ', $dropped) .
+                    $alter_footer;
+            }
+
+            // Generating auto-increment-related query.
+            if ((!empty($auto_increment)) && ($update_indexes_increments)) {
+                $sql_auto_increments_query = $alter_header .
+                    $crlf . '  MODIFY ' . implode(',' . $crlf . '  MODIFY ', $auto_increment) .
+                    ', AUTO_INCREMENT=' . $statement->entityOptions->has('AUTO_INCREMENT')
+                    . $alter_footer;
+
+                $sql_auto_increments = $this->generateComment(
+                    $crlf, $sql_auto_increments,
+                    __('AUTO_INCREMENT for dumped tables'),
+                    __('AUTO_INCREMENT for table'), $table_alias, $compat
+                ) . $sql_auto_increments_query;
+            }
+
+            // Removing the `AUTO_INCREMENT` attribute from the `CREATE TABLE`
+            // too.
+            if (!empty($statement->entityOptions)) {
+                $statement->entityOptions->remove('AUTO_INCREMENT');
+            }
+
+            // Rebuilding the query.
+            $schema_create .= $statement->build();
         }
 
         $GLOBALS['dbi']->freeResult($result);

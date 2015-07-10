@@ -145,15 +145,15 @@ class ParameterDefinition extends Component
     public static function build($component)
     {
         $ret = array();
-        foreach ($component as $f) {
+        foreach ($component as $c) {
             $tmp = '';
-            if (!empty($f->inOut)) {
-                $tmp .= $f->inOut . ' ';
+            if (!empty($c->inOut)) {
+                $tmp .= $c->inOut . ' ';
             }
 
             $ret[] = trim(
-                $tmp . Context::escape($f->name) . ' ' .
-                DataType::build($f->type)
+                $tmp . Context::escape($c->name) . ' ' .
+                DataType::build($c->type)
             );
         }
         return '(' . implode(', ', $ret) . ')';

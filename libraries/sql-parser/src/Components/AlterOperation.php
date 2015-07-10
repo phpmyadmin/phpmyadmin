@@ -91,7 +91,7 @@ class AlterOperation extends Component
     /**
      * Unparsed tokens.
      *
-     * @var Token[]
+     * @var Token[]|string
      */
     public $unknown = array();
 
@@ -194,9 +194,7 @@ class AlterOperation extends Component
         if (!empty($component->field)) {
             $ret .= Expression::build($component->field) . ' ';
         }
-        foreach ($component->unknown as $token) {
-            $ret .= $token->token;
-        }
+        $ret .= TokensList::build($component->unknown);
         return $ret;
     }
 }
