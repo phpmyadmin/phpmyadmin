@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 4.4.12.0 (not yet released)
 - bug       Saved chart image does not have a proper name or an extension
 - bug #4976 Timepicker CSS issues in Original theme
+- bug #4975 Move/Copy/Rename operations on Table/Db fail on Drizzle server
 
 4.4.11.0 (2015-07-06)
 - bug       Missing selected/entered values when editing active options in visual query builder
