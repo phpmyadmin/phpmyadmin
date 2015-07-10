@@ -1065,9 +1065,11 @@ class PMA_Table
         if (($what == 'data' || $what == 'dataonly')
             && ! PMA_Table::isView($target_db, $target_table)
         ) {
-            $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
-            $GLOBALS['dbi']->query($sql_set_mode);
-            $GLOBALS['sql_query'] .= "\n\n" . $sql_set_mode . ';';
+            if (! PMA_DRIZZLE) {
+                $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
+                $GLOBALS['dbi']->query($sql_set_mode);
+                $GLOBALS['sql_query'] .= "\n\n" . $sql_set_mode . ';';
+            }
 
             $sql_insert_data = 'INSERT INTO ' . $target
                 . ' SELECT * FROM ' . $source;
