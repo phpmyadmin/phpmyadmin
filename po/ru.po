@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-10 07:02-0400\n"
-"PO-Revision-Date: 2015-07-11 01:26+0200\n"
-"Last-Translator: Олег Карпов <salvadoporjc@gmail.com>\n"
+"PO-Revision-Date: 2015-07-11 01:39+0200\n"
+"Last-Translator: ddrmoscow <ddrmoscow@gmail.com>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
@@ -2622,7 +2622,7 @@ msgid "Some error occurred while getting SQL debug info."
 msgstr "В процессе получения информации по отладке SQL произошла ошибка."
 
 #: js/messages.php:599
-#, fuzzy, php-format
+#, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s запрос(ов) выполнено %s раз(а) за %s секунд(у/ы)."
@@ -6074,6 +6074,8 @@ msgstr "Лимит внешних ключей"
 #: libraries/config/messages.inc.php:218
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Значение по умолчанию для флажка проверок внешнего ключа для некоторых "
+"запросов."
 
 #: libraries/config/messages.inc.php:220
 #, fuzzy
@@ -15007,10 +15009,9 @@ msgid "Storage Engine:"
 msgstr "Тип таблиц:"
 
 #: templates/columns_definitions/column_definitions_form.phtml:92
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Соединения"
+msgstr "Соединение:"
 
 #: templates/columns_definitions/column_definitions_form.phtml:137
 msgid "PARTITION definition:"
