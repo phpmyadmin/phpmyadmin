@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-10 07:02-0400\n"
-"PO-Revision-Date: 2015-07-08 07:30+0200\n"
-"Last-Translator: Олег Карпов <salvadoporjc@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ru/>\n"
+"PO-Revision-Date: 2015-07-11 01:24+0200\n"
+"Last-Translator: ddrmoscow <ddrmoscow@gmail.com>\n"
+"Language-Team: Russian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
@@ -45,7 +45,7 @@ msgstr "База данных %1$s создана."
 
 #: db_datadict.php:48 libraries/operations.lib.php:31
 msgid "Database comment"
-msgstr "Комментарий к базе данных:"
+msgstr "Комментарий к базе данных"
 
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:997
@@ -276,7 +276,6 @@ msgid "Data"
 msgstr "Данные"
 
 #: db_export.php:54
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "Выбрать все"
@@ -1176,26 +1175,23 @@ msgid "Close"
 msgstr "Закрыть"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "Количество созданных страниц."
+msgstr "Шаблон создан."
 
 #: js/messages.php:130
 msgid "Template was loaded."
 msgstr ""
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Профиль был обновлен."
+msgstr "Шаблон обновлен."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Строка была удалена."
+msgstr "Шаблон удален."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:135 libraries/ServerStatusData.class.php:132
@@ -1750,10 +1746,9 @@ msgid "Cancel"
 msgstr "Отменить"
 
 #: js/messages.php:296 libraries/Header.class.php:455
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Изменить настройки"
+msgstr "Настройки страницы"
 
 #: js/messages.php:297 libraries/config/FormDisplay.tpl.php:402
 msgid "Apply"
@@ -5571,10 +5566,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Невозможно подключиться к серверу MySQL"
+msgstr "Ограничить вход на сервер MySQL"
 
 #: libraries/config/messages.inc.php:27
 msgid ""
@@ -6664,10 +6658,9 @@ msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
 #: libraries/config/messages.inc.php:441
-#, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Отображать скрытые пункты дерева навигации."
+msgstr "Показать навигацию по базам данных в виде дерева"
 
 #: libraries/config/messages.inc.php:443
 msgid "Link with main panel by highlighting the current database or table."
@@ -7089,10 +7082,9 @@ msgid "Allow root login"
 msgstr "Разрешить вход под root"
 
 #: libraries/config/messages.inc.php:586
-#, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
-msgstr "Значение сессии"
+msgstr "Временная зона сессии"
 
 #: libraries/config/messages.inc.php:587
 msgid ""
@@ -9411,10 +9403,9 @@ msgid "unknown"
 msgstr "неизвестно"
 
 #: libraries/navigation/Navigation.class.php:54
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "При загрузке дерева навигации произошла ошибка"
+msgstr "При загрузке панели навигации произошла ошибка"
 
 #: libraries/navigation/Navigation.class.php:192
 #, fuzzy
@@ -9471,14 +9462,14 @@ msgid ""
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:921
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "найден еще %s результат"
-msgstr[1] "найдено еще %s результата"
-msgstr[2] "найдено еще %s результатов"
+msgstr[0] "найден %s результат"
+msgstr[1] "найдено %s результата"
+msgstr[2] "найдено %s результатов"
 
 #: libraries/navigation/NavigationTree.class.php:1331
 msgid "Filter databases by name or regex"
@@ -9913,7 +9904,7 @@ msgstr "Частичных зависимостей не найдено!"
 
 #: libraries/operations.lib.php:74
 msgid "Rename database to"
-msgstr "Переименовать базу данных в:"
+msgstr "Переименовать базу данных в"
 
 #: libraries/operations.lib.php:94 libraries/operations.lib.php:242
 #: libraries/operations.lib.php:861 libraries/operations.lib.php:955
@@ -9965,7 +9956,7 @@ msgstr "Только данные"
 
 #: libraries/operations.lib.php:201
 msgid "Copy database to"
-msgstr "Скопировать базу данных в:"
+msgstr "Скопировать базу данных в"
 
 #: libraries/operations.lib.php:213
 msgid "CREATE DATABASE before copying"
@@ -9989,7 +9980,7 @@ msgstr "(столбец)"
 
 #: libraries/operations.lib.php:824
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Переместить таблицы в (база данных<b>.</b>таблица):"
+msgstr "Переместить таблицу в (таблицу базы данных <b>.</b>)"
 
 #: libraries/operations.lib.php:936
 msgid "Rename table to"
@@ -10015,7 +10006,7 @@ msgstr "Сделать все столбцы atomic"
 
 #: libraries/operations.lib.php:1251
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Скопировать таблицу в (база данных<b>.</b>таблица):"
+msgstr "Скопировать таблицу в (таблицу базы данных<b>.</b>)"
 
 #: libraries/operations.lib.php:1331
 msgid "Switch to copied table"
@@ -15204,10 +15195,9 @@ msgid "Select Export Relational Type"
 msgstr "Выберите тип экспорта связей"
 
 #: templates/designer/side_menu.phtml:19 templates/designer/side_menu.phtml:25
-#, fuzzy
 #| msgid "Showing tables:"
 msgid "Show/Hide tables list"
-msgstr "Отображение таблиц:"
+msgstr "Показать/Скрыть список таблиц"
 
 #: templates/designer/side_menu.phtml:29 templates/designer/side_menu.phtml:35
 #: templates/designer/side_menu.phtml:36
@@ -16706,7 +16696,6 @@ msgid "Too many connections are aborted."
 msgstr "Слишком большое количество соединений было прервано."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -16717,10 +16706,10 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Обычно соединения прерываются при невозможности авторизации. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Данная статья</a> поможет вам в отслеживании "
-"источника проблемы."
+"Обычно соединения прерываются при невозможности авторизации. <a href=\""
+"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Данная статья</a> может помочь Вам отследить источник "
+"проблемы."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
