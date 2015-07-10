@@ -119,6 +119,9 @@ function PMA_getHtmlForServerProcesslist()
                 . ($show_full_sql
                 ? 'LEFT JOIN data_dictionary.SESSIONS s ON s.session_id = p.id'
                 : '');
+        if (! empty($_REQUEST['showExecuting'])) {
+            $sql_query .= ' WHERE p.state = "executing" ';
+        }
         if (! empty($_REQUEST['order_by_field'])
             && ! empty($_REQUEST['sort_order'])
         ) {
