@@ -1823,6 +1823,30 @@ class PMA_DatabaseInterface
                     self::QUERY_STORE
                 );
             }
+
+            if (isset($GLOBALS['character_set_results'])
+                && ! empty($GLOBALS['character_set_results'])
+            ) {
+                $this->query(
+                    "SET @@session.character_set_results = '"
+                    . PMA_Util::sqlAddSlashes($GLOBALS['character_set_results'])
+                    . "';",
+                    $link,
+                    self::QUERY_STORE
+                );
+            }
+
+            if (isset($GLOBALS['character_set_client'])
+                && ! empty($GLOBALS['character_set_client'])
+            ) {
+                $this->query(
+                    "SET @@session.character_set_client = '"
+                    . PMA_Util::sqlAddSlashes($GLOBALS['character_set_client'])
+                    . "';",
+                    $link,
+                    self::QUERY_STORE
+                );
+            }
         }
 
         // Cache plugin list for Drizzle

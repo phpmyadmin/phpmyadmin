@@ -854,8 +854,11 @@ class PMA_Config
         $this->checkFontsize();
 
         if (! $this->checkConfigSource()) {
-            // even if no config file, set collation_connection
+            // even if no config file, set collation_connection, character_set_results
+            // and character_set_client
             $this->checkCollationConnection();
+            $this->checkCharacterSetResults();
+            $this->checkCharacterSetClient();
             return false;
         }
 
@@ -913,6 +916,8 @@ class PMA_Config
         // (from config.inc.php) so that $cfg['DefaultConnectionCollation']
         // can have an effect.
         $this->checkCollationConnection();
+        $this->checkCharacterSetResults();
+        $this->checkCharacterSetClient();
 
         return true;
     }
@@ -929,6 +934,7 @@ class PMA_Config
         if (!PMA_DRIZZLE) {
             // just to shorten the lines
             $collation = 'collation_connection';
+
             if (isset($GLOBALS[$collation])
                 && (isset($_COOKIE['pma_collation_connection'])
                 || isset($_POST[$collation]))
@@ -953,6 +959,92 @@ class PMA_Config
                     $this->setCookie(
                         'pma_collation_connection',
                         $GLOBALS[$collation]
+                    );
+                }
+            }
+        }
+    }
+
+    /**
+     * Saves the character_set_results
+     *
+     * @param array $config_data configuration data from user preferences
+     *
+     * @return void
+     */
+    private function _saveCharacterSetResults($config_data)
+    {
+        if (!PMA_DRIZZLE) {
+            // just to shorten the lines
+            $charset_results = 'character_set_results';
+
+            if (isset($GLOBALS[$charset_results])
+                && (isset($_COOKIE['pma_character_set_results'])
+                || isset($_POST[$charset_results]))
+            ) {
+                if ((! isset($config_data[$charset_results])
+                    && $GLOBALS[$charset_results] != 'utf8')
+                    || isset($config_data[$charset_results])
+                    && $GLOBALS[$charset_results] != $config_data[$charset_results]
+                ) {
+                    $this->setUserValue(
+                        null,
+                        $charset_results,
+                        $GLOBALS[$charset_results],
+                        'utf8'
+                    );
+                }
+            } else {
+                // read collation from settings
+                if (isset($config_data[$charset_results])) {
+                    $GLOBALS[$charset_results]
+                        = $config_data[$charset_results];
+                    $this->setCookie(
+                        'pma_character_set_results',
+                        $GLOBALS[$charset_results]
+                    );
+                }
+            }
+        }
+    }
+
+    /**
+     * Saves the character_set_client
+     *
+     * @param array $config_data configuration data from user preferences
+     *
+     * @return void
+     */
+    private function _saveCharacterSetClient($config_data)
+    {
+        if (!PMA_DRIZZLE) {
+            // just to shorten the lines
+            $charset_client = 'character_set_client';
+
+            if (isset($GLOBALS[$charset_client])
+                && (isset($_COOKIE['pma_character_set_results'])
+                || isset($_POST[$charset_client]))
+            ) {
+                if ((! isset($config_data[$charset_client])
+                    && $GLOBALS[$charset_client] != 'utf8')
+                    || isset($config_data[$charset_client])
+                    && $GLOBALS[$charset_client] != $config_data[$charset_client]
+                ) {
+                    $this->setUserValue(
+                        null,
+                        $charset_client,
+                        $GLOBALS[$charset_client],
+                        'utf8'
+                    );
+                }
+            } else {
+                // read collation from settings
+                if (isset($config_data[$charset_client])) {
+                    $GLOBALS[$charset_client]
+                        = $config_data[$charset_client];
+                    $this->setCookie(
+                        'pma_character_set_client',
+                        $GLOBALS[$charset_client]
                     );
                 }
             }
@@ -1076,6 +1168,12 @@ class PMA_Config
 
         // save connection collation
         $this->_saveConnectionCollation($config_data);
+
+        // save character_set_results
+        $this->_saveCharacterSetResults($config_data);
+
+        // save character_set_client
+        $this->_saveCharacterSetClient($config_data);
     }
 
     /**
@@ -1493,6 +1591,52 @@ class PMA_Config
     }
 
     /**
+     * Sets character_set_results based on user preference. First is checked
+     * value from request, then cookies with fallback to default.
+     *
+     * After setting it here, cookie is set in common.inc.php to persist
+     * the selection.
+     *
+     * @todo check validity of charset string
+     *
+     * @return void
+     */
+    function checkCharacterSetResults()
+    {
+        if (! empty($_REQUEST['character_set_results'])) {
+            $collation = strip_tags($_REQUEST['character_set_results']);
+        } elseif (! empty($_COOKIE['pma_character_set_results'])) {
+            $collation = strip_tags($_COOKIE['pma_character_set_results']);
+        } else {
+            $collation = $this->get('DefaultCharacterSetResults');
+        }
+        $this->set('character_set_results', $collation);
+    }
+
+    /**
+     * Sets character_set_client based on user preference. First is checked
+     * value from request, then cookies with fallback to default.
+     *
+     * After setting it here, cookie is set in common.inc.php to persist
+     * the selection.
+     *
+     * @todo check validity of charset string
+     *
+     * @return void
+     */
+    function checkCharacterSetClient()
+    {
+        if (! empty($_REQUEST['character_set_client'])) {
+            $collation = strip_tags($_REQUEST['character_set_client']);
+        } elseif (! empty($_COOKIE['pma_character_set_client'])) {
+            $collation = strip_tags($_COOKIE['pma_character_set_client']);
+        } else {
+            $collation = $this->get('DefaultCharacterSetClient');
+        }
+        $this->set('character_set_client', $collation);
+    }
+
+    /**
      * checks for font size configuration, and sets font size as requested by user
      *
      * @return void
@@ -1690,6 +1834,8 @@ class PMA_Config
         $GLOBALS['default_server']  = $this->default_server;
         unset($this->default_server);
         $GLOBALS['collation_connection'] = $this->get('collation_connection');
+        $GLOBALS['character_set_results'] = $this->get('character_set_results');
+        $GLOBALS['character_set_client'] = $this->get('character_set_client');
         $GLOBALS['is_upload']       = $this->get('enable_upload');
         $GLOBALS['max_upload_size'] = $this->get('max_upload_size');
         $GLOBALS['cookie_path']     = $this->get('cookie_path');
