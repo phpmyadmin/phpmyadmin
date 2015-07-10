@@ -56,14 +56,14 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForServerProcesses
+     * Test for PMA_getHtmlForProcessListAutoRefresh
      *
      * @return void
      * @group medium
      */
-    public function testPMAGetHtmlForServerProcesses()
+    public function testPMAGetHtmlForProcessListAutoRefresh()
     {
-        $html = PMA_getHtmlForServerProcesses();
+        $html = PMA_getHtmlForProcessListAutoRefresh();
 
         // Test Notice
         $this->assertContains(
