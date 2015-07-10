@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-08 13:23-0400\n"
+"POT-Creation-Date: 2015-07-10 07:02-0400\n"
 "PO-Revision-Date: 2015-06-29 00:58+0200\n"
 "Last-Translator: Arben Çokaj <acokaj@shkoder.net>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -365,7 +365,7 @@ msgstr "Aktualizuar"
 #: db_tracking.php:129 js/messages.php:243 libraries/Menu.class.php:551
 #: libraries/Util.class.php:4391 libraries/config.values.php:104
 #: libraries/rte/rte_events.lib.php:393 libraries/rte/rte_list.lib.php:101
-#: libraries/server_status_processes.lib.php:94 libraries/tracking.lib.php:278
+#: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:278
 msgid "Status"
 msgstr "Statusi"
 
@@ -561,9 +561,9 @@ msgstr "Shto gjeometri"
 #: libraries/normalization.lib.php:164 libraries/normalization.lib.php:820
 #: libraries/operations.lib.php:38 libraries/operations.lib.php:108
 #: libraries/operations.lib.php:262 libraries/operations.lib.php:305
-#: libraries/operations.lib.php:797 libraries/operations.lib.php:870
-#: libraries/operations.lib.php:919 libraries/operations.lib.php:1333
-#: libraries/operations.lib.php:1654
+#: libraries/operations.lib.php:799 libraries/operations.lib.php:872
+#: libraries/operations.lib.php:921 libraries/operations.lib.php:1335
+#: libraries/operations.lib.php:1656
 #: libraries/plugins/auth/AuthenticationCookie.class.php:244
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:160
 #: libraries/replication_gui.lib.php:320 libraries/replication_gui.lib.php:457
@@ -575,7 +575,7 @@ msgstr "Shto gjeometri"
 #: libraries/server_privileges.lib.php:1980
 #: libraries/server_privileges.lib.php:2745
 #: libraries/server_privileges.lib.php:3401
-#: libraries/server_privileges.lib.php:4364
+#: libraries/server_privileges.lib.php:4381
 #: libraries/server_user_groups.lib.php:285
 #: libraries/sql_query_form.lib.php:368 libraries/sql_query_form.lib.php:428
 #: libraries/sql_query_form.lib.php:496 libraries/structure.lib.php:1785
@@ -1336,7 +1336,7 @@ msgid "Connections"
 msgstr "Lidhjet"
 
 #: js/messages.php:170 libraries/ServerStatusData.class.php:434
-#: libraries/server_status_processes.lib.php:152
+#: libraries/server_status_processes.lib.php:157
 msgid "Processes"
 msgstr "Proçeset"
 
@@ -1411,7 +1411,7 @@ msgstr "Ju lutem, shtoni së paku një variabël në seri!"
 #: libraries/plugins/schema/SchemaPdf.class.php:102
 #: libraries/server_privileges.lib.php:2920
 #: libraries/server_status_monitor.lib.php:236
-#: libraries/server_status_processes.lib.php:304
+#: libraries/server_status_processes.lib.php:309
 #: templates/columns_definitions/transformation.phtml:4
 #: templates/designer/options_panel.phtml:178
 #: templates/table/options_zoom.phtml:12 templates/table/rows_zoom.phtml:26
@@ -1426,7 +1426,7 @@ msgstr "Rifillo monitorin"
 msgid "Pause monitor"
 msgstr "Monitori i pauzës"
 
-#: js/messages.php:192 libraries/server_status_processes.lib.php:39
+#: js/messages.php:192 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
 msgstr "Fillo auto rifreskim"
 
@@ -1621,7 +1621,7 @@ msgstr "Sqaro rezultatin"
 #: libraries/plugins/export/ExportTexytext.class.php:426
 #: libraries/plugins/export/PMA_ExportPdf.class.php:309
 #: libraries/rte/rte_list.lib.php:90
-#: libraries/server_status_processes.lib.php:90 libraries/sql.lib.php:289
+#: libraries/server_status_processes.lib.php:88 libraries/sql.lib.php:289
 msgid "Time"
 msgstr "Koha"
 
@@ -3129,7 +3129,7 @@ msgstr "Requery (kërkesë)"
 #: libraries/server_privileges.lib.php:3017
 #: libraries/server_privileges.lib.php:3029
 #: libraries/server_privileges.lib.php:4105
-#: libraries/server_status_processes.lib.php:82
+#: libraries/server_status_processes.lib.php:80
 #: templates/tbl_relation/foreign_key_row.phtml:166
 #: templates/tbl_relation/internal_relational_row.phtml:55
 msgid "Database"
@@ -3298,7 +3298,7 @@ msgstr "Numri:"
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1263
 #: libraries/config/messages.inc.php:802
-#: libraries/server_status_processes.lib.php:251
+#: libraries/server_status_processes.lib.php:256
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Rifresko"
@@ -3354,9 +3354,9 @@ msgstr "Kalo tek modeli i errët"
 #: libraries/DBQbe.class.php:405 libraries/DisplayResults.class.php:1489
 #: libraries/DisplayResults.class.php:2283
 #: libraries/DisplayResults.class.php:2289 libraries/config.values.php:70
-#: libraries/operations.lib.php:790 libraries/server_databases.lib.php:307
+#: libraries/operations.lib.php:792 libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
-#: libraries/server_status_processes.lib.php:186
+#: libraries/server_status_processes.lib.php:191
 #: libraries/structure.lib.php:977 libraries/structure.lib.php:994
 #: templates/table/options.phtml:68
 msgid "Ascending"
@@ -3365,9 +3365,9 @@ msgstr "Ngritëse"
 #: libraries/DBQbe.class.php:408 libraries/DisplayResults.class.php:1501
 #: libraries/DisplayResults.class.php:2279
 #: libraries/DisplayResults.class.php:2293 libraries/config.values.php:71
-#: libraries/operations.lib.php:793 libraries/server_databases.lib.php:307
+#: libraries/operations.lib.php:795 libraries/server_databases.lib.php:307
 #: libraries/server_databases.lib.php:335
-#: libraries/server_status_processes.lib.php:183
+#: libraries/server_status_processes.lib.php:188
 #: libraries/structure.lib.php:982 libraries/structure.lib.php:999
 #: templates/table/options.phtml:69
 msgid "Descending"
@@ -3683,7 +3683,7 @@ msgstr "Radha është fshirë."
 
 #: libraries/DisplayResults.class.php:3558
 #: libraries/DisplayResults.class.php:4833
-#: libraries/server_status_processes.lib.php:298
+#: libraries/server_status_processes.lib.php:303
 msgid "Kill"
 msgstr "Vrit"
 
@@ -3886,7 +3886,7 @@ msgstr "Kardinaliteti"
 #: libraries/Index.class.php:701 libraries/build_html_for_db.lib.php:22
 #: libraries/central_columns.lib.php:705
 #: libraries/central_columns.lib.php:1357 libraries/mysql_charsets.lib.php:45
-#: libraries/operations.lib.php:292 libraries/operations.lib.php:1068
+#: libraries/operations.lib.php:292 libraries/operations.lib.php:1070
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:887
 #: libraries/structure.lib.php:1342 libraries/structure.lib.php:1904
 #: libraries/tracking.lib.php:880 libraries/tracking.lib.php:976
@@ -3911,7 +3911,7 @@ msgid "Index %s has been dropped."
 msgstr "Indeksi %s është fshirë."
 
 #: libraries/Index.class.php:757 libraries/Util.class.php:3674
-#: libraries/Util.class.php:3675 libraries/operations.lib.php:1603
+#: libraries/Util.class.php:3675 libraries/operations.lib.php:1605
 #: libraries/rte/rte_list.lib.php:150 libraries/server_databases.lib.php:146
 #: libraries/structure.lib.php:331 libraries/structure.lib.php:1537
 #: libraries/structure.lib.php:2281 libraries/structure.lib.php:2283
@@ -4180,7 +4180,7 @@ msgid "Error while loading the search."
 msgstr "Gabim gjatë ngarkimit të kërkimit."
 
 #: libraries/ServerStatusData.class.php:115
-#: libraries/server_status_processes.lib.php:98
+#: libraries/server_status_processes.lib.php:100
 msgid "SQL query"
 msgstr "SQL pyetsor"
 
@@ -4325,29 +4325,29 @@ msgstr "Databaza e burimit `%s` nuk gjendet!"
 msgid "Target database `%s` was not found!"
 msgstr "Databaza e objektivit `%s` nuk u gjend!"
 
-#: libraries/Table.class.php:1337
+#: libraries/Table.class.php:1339
 msgid "Invalid database:"
 msgstr "Databazë e pavlefshme:"
 
-#: libraries/Table.class.php:1351
+#: libraries/Table.class.php:1353
 msgid "Invalid table name:"
 msgstr "Emër tabele i pavlefshëm:"
 
-#: libraries/Table.class.php:1386
+#: libraries/Table.class.php:1388
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Dështoi në riemërimin e tabelës %1$s në %2$s!"
 
-#: libraries/Table.class.php:1405
+#: libraries/Table.class.php:1407
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabela %1$s është riemëruar në %2$s."
 
-#: libraries/Table.class.php:1585
+#: libraries/Table.class.php:1587
 msgid "Could not save table UI preferences!"
 msgstr "Nuk mund të ruajë tabelën e preferencave UI!"
 
-#: libraries/Table.class.php:1614
+#: libraries/Table.class.php:1616
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -4356,7 +4356,7 @@ msgstr ""
 "Dështoi në pastrimin e tabelës së preferencave UI (shiko $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1770
+#: libraries/Table.class.php:1772
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4367,19 +4367,19 @@ msgstr ""
 "qëndrueshme, pasi ju ta rifreskoni këtë faqe. Ju lutem, kontrollo nëse "
 "struktura e tabelës ka ndryshuar."
 
-#: libraries/Table.class.php:1904
+#: libraries/Table.class.php:1906
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Emri i çelësit primar duhet të jetë \"PRIMARY\"!"
 
-#: libraries/Table.class.php:1915
+#: libraries/Table.class.php:1917
 msgid "Can't rename index to PRIMARY!"
 msgstr "uk mund ta riemërojë indeksin tek PRIMARY!"
 
-#: libraries/Table.class.php:1937
+#: libraries/Table.class.php:1939
 msgid "No index parts defined!"
 msgstr "Nuk janë përcaktuar pjesë të indeksit!"
 
-#: libraries/Table.class.php:2238
+#: libraries/Table.class.php:2240
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -5967,7 +5967,7 @@ msgid "Remember file name template"
 msgstr "Kujto modelin e emrit të filit"
 
 #: libraries/config/messages.inc.php:168 libraries/operations.lib.php:222
-#: libraries/operations.lib.php:845 libraries/operations.lib.php:1283
+#: libraries/operations.lib.php:847 libraries/operations.lib.php:1285
 msgid "Add AUTO_INCREMENT value"
 msgstr "Shto vlerën AUTO_INCREMENT"
 
@@ -6012,7 +6012,7 @@ msgstr "Eksporti i metadata të lidhura nga ruajtja e konfigurimit phpMyAdmin"
 #: libraries/config/messages.inc.php:182 libraries/config/messages.inc.php:183
 #: libraries/config/messages.inc.php:185 libraries/config/messages.inc.php:187
 #: libraries/config/messages.inc.php:194 libraries/operations.lib.php:217
-#: libraries/operations.lib.php:1279
+#: libraries/operations.lib.php:1281
 #, php-format
 msgid "Add %s"
 msgstr "Shto %s"
@@ -7266,7 +7266,7 @@ msgstr "Eksporto pamjet si tabela"
 #| "kbd]."
 msgid ""
 "Leave blank for no export template support, suggested: "
-"[kbd]pma__exporttemplates[/kbd]."
+"[kbd]pma__export_templates[/kbd]."
 msgstr ""
 "Lëre të zbrazët për asnjë mbështetje të skemës PDF, sugjerohet: "
 "[kbd]pma__pdf_pages[/kbd]."
@@ -9855,8 +9855,8 @@ msgid "Rename database to"
 msgstr "Riemëro databazën në"
 
 #: libraries/operations.lib.php:94 libraries/operations.lib.php:242
-#: libraries/operations.lib.php:859 libraries/operations.lib.php:953
-#: libraries/operations.lib.php:1307
+#: libraries/operations.lib.php:861 libraries/operations.lib.php:955
+#: libraries/operations.lib.php:1309
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
@@ -9866,8 +9866,8 @@ msgid ""
 msgstr "Nuk keni privilegje të mjaftueshme të jeni këtu tani!"
 
 #: libraries/operations.lib.php:101 libraries/operations.lib.php:248
-#: libraries/operations.lib.php:865 libraries/operations.lib.php:959
-#: libraries/operations.lib.php:1313 libraries/rte/rte_routines.lib.php:1115
+#: libraries/operations.lib.php:867 libraries/operations.lib.php:961
+#: libraries/operations.lib.php:1315 libraries/rte/rte_routines.lib.php:1115
 #: templates/columns_definitions/table_fields_definitions.phtml:47
 msgid "Adjust Privileges"
 msgstr "Përshtat privilegjet"
@@ -9885,17 +9885,17 @@ msgstr "Largo databazën"
 msgid "Drop the database (DROP)"
 msgstr "Fshij databazën (DROP)"
 
-#: libraries/operations.lib.php:171 libraries/operations.lib.php:1266
+#: libraries/operations.lib.php:171 libraries/operations.lib.php:1268
 #: libraries/tracking.lib.php:517
 msgid "Structure only"
 msgstr "Struktura vetëm"
 
-#: libraries/operations.lib.php:172 libraries/operations.lib.php:1267
+#: libraries/operations.lib.php:172 libraries/operations.lib.php:1269
 #: libraries/tracking.lib.php:523
 msgid "Structure and data"
 msgstr "Struktura dhe të dhënat"
 
-#: libraries/operations.lib.php:173 libraries/operations.lib.php:1268
+#: libraries/operations.lib.php:173 libraries/operations.lib.php:1270
 #: libraries/tracking.lib.php:520
 msgid "Data only"
 msgstr "Vetëm të dhënat"
@@ -9908,7 +9908,7 @@ msgstr "Kopjo databazën në"
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE para kopjimit"
 
-#: libraries/operations.lib.php:226 libraries/operations.lib.php:1291
+#: libraries/operations.lib.php:226 libraries/operations.lib.php:1293
 msgid "Add constraints"
 msgstr "Shto detyrime"
 
@@ -9916,171 +9916,171 @@ msgstr "Shto detyrime"
 msgid "Switch to copied database"
 msgstr "Kalo në databazën e kopjuar"
 
-#: libraries/operations.lib.php:778
+#: libraries/operations.lib.php:780
 msgid "Alter table order by"
 msgstr "Alternon renditjen e tabelës sipas"
 
-#: libraries/operations.lib.php:786
+#: libraries/operations.lib.php:788
 msgid "(singly)"
 msgstr "(vetëm)"
 
-#: libraries/operations.lib.php:822
+#: libraries/operations.lib.php:824
 msgid "Move table to (database<b>.</b>table)"
 msgstr "Lëviz tabelën tek (databaza<b>.</b>tabela)"
 
-#: libraries/operations.lib.php:934
+#: libraries/operations.lib.php:936
 msgid "Rename table to"
 msgstr "Riemëro tabelën në"
 
-#: libraries/operations.lib.php:977
+#: libraries/operations.lib.php:979
 msgid "Table comments"
 msgstr "Komentet e tabelës"
 
-#: libraries/operations.lib.php:1050
+#: libraries/operations.lib.php:1052
 msgid "Table options"
 msgstr "Opsionet e tabelës"
 
-#: libraries/operations.lib.php:1057 libraries/server_engines.lib.php:49
+#: libraries/operations.lib.php:1059 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
 msgstr "Makinat e ruajtjes"
 
-#: libraries/operations.lib.php:1082
+#: libraries/operations.lib.php:1084
 msgid "Change all column collations"
 msgstr "Ndrysho të gjitha kolonat e sistemit"
 
-#: libraries/operations.lib.php:1249
+#: libraries/operations.lib.php:1251
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "Kopjo tabelën tek (databaza<b>.</b>tabela)"
 
-#: libraries/operations.lib.php:1329
+#: libraries/operations.lib.php:1331
 msgid "Switch to copied table"
 msgstr "Kalo tek tabela e kopjuar"
 
-#: libraries/operations.lib.php:1356 libraries/structure.lib.php:334
+#: libraries/operations.lib.php:1358 libraries/structure.lib.php:334
 msgid "Table maintenance"
 msgstr "Mirëmbajta e tabelës"
 
-#: libraries/operations.lib.php:1394 libraries/structure.lib.php:336
+#: libraries/operations.lib.php:1396 libraries/structure.lib.php:336
 msgid "Analyze table"
 msgstr "Tabela e analizës"
 
-#: libraries/operations.lib.php:1409 libraries/structure.lib.php:338
+#: libraries/operations.lib.php:1411 libraries/structure.lib.php:338
 msgid "Check table"
 msgstr "Kontrollo tabelën"
 
-#: libraries/operations.lib.php:1424 libraries/structure.lib.php:341
+#: libraries/operations.lib.php:1426 libraries/structure.lib.php:341
 msgid "Checksum table"
 msgstr "Tabela e kontrollshumës"
 
-#: libraries/operations.lib.php:1439
+#: libraries/operations.lib.php:1441
 msgid "Defragment table"
 msgstr "Tabela e defragmentimit"
 
-#: libraries/operations.lib.php:1451
+#: libraries/operations.lib.php:1453
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "Tabela %s është pastruar."
 
-#: libraries/operations.lib.php:1457
+#: libraries/operations.lib.php:1459
 msgid "Flush the table (FLUSH)"
 msgstr "Zbraz tabelën (FLUSH)"
 
-#: libraries/operations.lib.php:1473 libraries/structure.lib.php:343
+#: libraries/operations.lib.php:1475 libraries/structure.lib.php:343
 #: libraries/structure.lib.php:1828
 msgid "Optimize table"
 msgstr "Optimizo tabelë"
 
-#: libraries/operations.lib.php:1488 libraries/structure.lib.php:345
+#: libraries/operations.lib.php:1490 libraries/structure.lib.php:345
 msgid "Repair table"
 msgstr "Riparo tabelën"
 
-#: libraries/operations.lib.php:1534 libraries/structure.lib.php:327
+#: libraries/operations.lib.php:1536 libraries/structure.lib.php:327
 #: view_operations.php:127
 msgid "Delete data or table"
 msgstr "Fshij të dhënat ose tabelat"
 
-#: libraries/operations.lib.php:1542
+#: libraries/operations.lib.php:1544
 msgid "Empty the table (TRUNCATE)"
 msgstr "Zbraz tabelën (TRUNCATE)"
 
-#: libraries/operations.lib.php:1550
+#: libraries/operations.lib.php:1552
 msgid "Delete the table (DROP)"
 msgstr "Fshij tabelën (DROP)"
 
-#: libraries/operations.lib.php:1590
+#: libraries/operations.lib.php:1592
 msgid "Analyze"
 msgstr "Analizë"
 
-#: libraries/operations.lib.php:1591
+#: libraries/operations.lib.php:1593
 msgid "Check"
 msgstr "Kontrollo"
 
-#: libraries/operations.lib.php:1592
+#: libraries/operations.lib.php:1594
 msgid "Optimize"
 msgstr "Optimizo"
 
-#: libraries/operations.lib.php:1593
+#: libraries/operations.lib.php:1595
 msgid "Rebuild"
 msgstr "Rindërto"
 
-#: libraries/operations.lib.php:1594
+#: libraries/operations.lib.php:1596
 msgid "Repair"
 msgstr "Riparo"
 
-#: libraries/operations.lib.php:1595
+#: libraries/operations.lib.php:1597
 msgid "Truncate"
 msgstr "Cungo"
 
-#: libraries/operations.lib.php:1605
+#: libraries/operations.lib.php:1607
 msgid "Coalesce"
 msgstr "Bashko"
 
-#: libraries/operations.lib.php:1614
+#: libraries/operations.lib.php:1616
 msgid "Partition maintenance"
 msgstr "Mirëmbajtja e pjesës"
 
-#: libraries/operations.lib.php:1631
+#: libraries/operations.lib.php:1633
 #, php-format
 msgid "Partition %s"
 msgstr "Pjesa %s"
 
-#: libraries/operations.lib.php:1649
+#: libraries/operations.lib.php:1651
 msgid "Remove partitioning"
 msgstr "Largo particionimin"
 
-#: libraries/operations.lib.php:1675
+#: libraries/operations.lib.php:1677
 msgid "Check referential integrity:"
 msgstr "Kontrollo integritetin referencial:"
 
-#: libraries/operations.lib.php:2087
+#: libraries/operations.lib.php:2089
 msgid "Can't move table to same one!"
 msgstr "Nuk mund t'i lëvizë tabelat tek vetvetja!"
 
-#: libraries/operations.lib.php:2089
+#: libraries/operations.lib.php:2091
 msgid "Can't copy table to same one!"
 msgstr "Nuk mund ta kopjojë tabelën tek vetvetja!"
 
-#: libraries/operations.lib.php:2112
+#: libraries/operations.lib.php:2114
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabela %s ka lëvizur tek %s. Privilegjet janë përshtatur."
 
-#: libraries/operations.lib.php:2116
+#: libraries/operations.lib.php:2118
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabela %s është kopjuar tek %s. Privilegjet janë përshtatur."
 
-#: libraries/operations.lib.php:2123
+#: libraries/operations.lib.php:2125
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabela %s ka lëvizur tek %s."
 
-#: libraries/operations.lib.php:2127
+#: libraries/operations.lib.php:2129
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabela %s është kopjuar tek %s."
 
-#: libraries/operations.lib.php:2149
+#: libraries/operations.lib.php:2151
 msgid "The table name is empty!"
 msgstr "Emri i tabelës është i zbrazët!"
 
@@ -11541,7 +11541,7 @@ msgstr "ID e serverit"
 #: libraries/server_privileges.lib.php:1610
 #: libraries/server_privileges.lib.php:2242
 #: libraries/server_privileges.lib.php:3203
-#: libraries/server_status_processes.lib.php:78
+#: libraries/server_status_processes.lib.php:76
 msgid "Host"
 msgstr "Hosti (pritësi)"
 
@@ -12092,12 +12092,12 @@ msgid "Information"
 msgstr "Informacioni"
 
 #: libraries/server_bin_log.lib.php:183
-#: libraries/server_status_processes.lib.php:197
+#: libraries/server_status_processes.lib.php:202
 msgid "Truncate Shown Queries"
 msgstr "Cungo pyetsorët e shfaqur"
 
 #: libraries/server_bin_log.lib.php:187
-#: libraries/server_status_processes.lib.php:202
+#: libraries/server_status_processes.lib.php:207
 msgid "Show Full Queries"
 msgstr "Shfaq pyetsorët e plotë"
 
@@ -12526,7 +12526,7 @@ msgstr "Përdoruesi është shtuar."
 
 #: libraries/server_privileges.lib.php:2241
 #: libraries/server_privileges.lib.php:4014
-#: libraries/server_status_processes.lib.php:74
+#: libraries/server_status_processes.lib.php:72
 #: libraries/server_user_groups.lib.php:39
 msgid "User"
 msgstr "Përdoruesi"
@@ -12716,7 +12716,14 @@ msgstr ""
 msgid "User accounts overview"
 msgstr "Pamja e përgjithshme e përdoruesve"
 
-#: libraries/server_privileges.lib.php:4255
+#: libraries/server_privileges.lib.php:4232
+msgid ""
+"A user account allowing any user from localhost to connect is present. This "
+"will prevent other users from connecting if the host part of their account "
+"allows a connection from any (%) host."
+msgstr ""
+
+#: libraries/server_privileges.lib.php:4272
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -12729,11 +12736,11 @@ msgstr ""
 "privilegjet që përdor serveri, nëse ato janë ndryshuar manualisht. Në këtë "
 "rast, ju duhet të %sngarkoni privilegjet%s para se të vazhdoni."
 
-#: libraries/server_privileges.lib.php:4306
+#: libraries/server_privileges.lib.php:4323
 msgid "The selected user was not found in the privilege table."
 msgstr "Përdoruesi i zgjedhur nuk gjendet në tabelën e të drejtave."
 
-#: libraries/server_privileges.lib.php:4538
+#: libraries/server_privileges.lib.php:4555
 msgid "You have added a new user."
 msgstr "Keni shtuar një përdorues të ri."
 
@@ -12993,7 +13000,7 @@ msgid "Enable charts dragging"
 msgstr "Aftëso tërheqjen e grafikëve"
 
 #: libraries/server_status_monitor.lib.php:288
-#: libraries/server_status_processes.lib.php:31
+#: libraries/server_status_processes.lib.php:29
 msgid "Refresh rate"
 msgstr "Rifresko normën"
 
@@ -13017,7 +13024,7 @@ msgstr ""
 msgid "Reset to default"
 msgstr "Rivendos standardin"
 
-#: libraries/server_status_processes.lib.php:26
+#: libraries/server_status_processes.lib.php:24
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
@@ -13025,21 +13032,25 @@ msgstr ""
 "Shënim: Aftësimi i auto rifreskimit këtu mund të shkaktojë trafik të rënduar "
 "ndërmjet ueb serverit dhe MySQL server."
 
-#: libraries/server_status_processes.lib.php:70
+#: libraries/server_status_processes.lib.php:68
 msgid "ID"
 msgstr "ID"
 
-#: libraries/server_status_processes.lib.php:86
+#: libraries/server_status_processes.lib.php:84
 msgid "Command"
 msgstr "Komanda"
 
-#: libraries/server_status_processes.lib.php:248
+#: libraries/server_status_processes.lib.php:96
+msgid "Progress"
+msgstr ""
+
+#: libraries/server_status_processes.lib.php:253
 #: libraries/server_status_variables.lib.php:39
 #: libraries/server_variables.lib.php:179
 msgid "Filters"
 msgstr "Filtrat"
 
-#: libraries/server_status_processes.lib.php:256
+#: libraries/server_status_processes.lib.php:261
 msgid "Show only active"
 msgstr "Shfaq vetëm aktive"
 
