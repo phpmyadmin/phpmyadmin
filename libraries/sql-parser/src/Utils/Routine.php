@@ -10,8 +10,8 @@ namespace SqlParser\Utils;
 
 use SqlParser\Lexer;
 use SqlParser\Parser;
-use SqlParser\Fragments\DataTypeFragment;
-use SqlParser\Fragments\ParamDefFragment;
+use SqlParser\Components\DataType;
+use SqlParser\Components\ParameterDefinition;
 use SqlParser\Statements\CreateStatement;
 
 /**
@@ -38,7 +38,7 @@ class Routine
         $lexer = new Lexer($param);
 
         // A dummy parser is used for error reporting.
-        $type = DataTypeFragment::parse(new Parser(), $lexer->list);
+        $type = DataType::parse(new Parser(), $lexer->list);
 
         if ($type === null) {
             return array('', '', '', '', '');
@@ -70,7 +70,7 @@ class Routine
         $lexer = new Lexer('(' . $param . ')');
 
         // A dummy parser is used for error reporting.
-        $param = ParamDefFragment::parse(new Parser(), $lexer->list);
+        $param = ParameterDefinition::parse(new Parser(), $lexer->list);
 
         if (empty($param[0])) {
             return array('', '', '', '', '');

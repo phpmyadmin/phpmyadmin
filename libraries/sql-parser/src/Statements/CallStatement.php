@@ -9,7 +9,7 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
-use SqlParser\Fragments\CallKeyword;
+use SqlParser\Components\FunctionCall;
 
 /**
  * `CALL` statement.
@@ -32,7 +32,7 @@ class CallStatement extends Statement
     /**
      * The name of the function and its parameters.
      *
-     * @var CallKeyword
+     * @var FunctionCall
      */
     public $call;
 }

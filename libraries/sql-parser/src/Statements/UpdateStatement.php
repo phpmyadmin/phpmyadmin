@@ -9,11 +9,11 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
-use SqlParser\Fragments\FieldFragment;
-use SqlParser\Fragments\LimitKeyword;
-use SqlParser\Fragments\OrderKeyword;
-use SqlParser\Fragments\SetKeyword;
-use SqlParser\Fragments\WhereKeyword;
+use SqlParser\Components\Expression;
+use SqlParser\Components\Limit;
+use SqlParser\Components\OrderKeyword;
+use SqlParser\Components\SetOperation;
+use SqlParser\Components\Condition;
 
 /**
  * `UPDATE` statement.
@@ -71,21 +71,21 @@ class UpdateStatement extends Statement
     /**
      * Tables used as sources for this statement.
      *
-     * @var FieldFragment[]
+     * @var Expression[]
      */
     public $tables;
 
     /**
      * The updated values.
      *
-     * @var SetKeyword[]
+     * @var SetOperation[]
      */
     public $set;
 
     /**
      * Conditions used for filtering each row of the result set.
      *
-     * @var WhereKeyword[]
+     * @var Condition[]
      */
     public $where;
 
@@ -99,7 +99,7 @@ class UpdateStatement extends Statement
     /**
      * Conditions used for limiting the size of the result set.
      *
-     * @var LimitKeyword
+     * @var Limit
      */
     public $limit;
 }

@@ -9,14 +9,14 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
-use SqlParser\Fragments\ArrayFragment;
-use SqlParser\Fragments\CallKeyword;
-use SqlParser\Fragments\FieldFragment;
-use SqlParser\Fragments\IntoKeyword;
-use SqlParser\Fragments\JoinKeyword;
-use SqlParser\Fragments\LimitKeyword;
-use SqlParser\Fragments\OrderKeyword;
-use SqlParser\Fragments\WhereKeyword;
+use SqlParser\Components\ArrayObj;
+use SqlParser\Components\FunctionCall;
+use SqlParser\Components\Expression;
+use SqlParser\Components\IntoKeyword;
+use SqlParser\Components\JoinKeyword;
+use SqlParser\Components\Limit;
+use SqlParser\Components\OrderKeyword;
+use SqlParser\Components\Condition;
 
 /**
  * `SELECT` statement.
@@ -104,28 +104,28 @@ class SelectStatement extends Statement
     /**
      * Expressions that are being selected by this statement.
      *
-     * @var FieldFragment[]
+     * @var Expression[]
      */
     public $expr = array();
 
     /**
      * Tables used as sources for this statement.
      *
-     * @var FieldFragment[]
+     * @var Expression[]
      */
     public $from = array();
 
     /**
      * Partitions used as source for this statement.
      *
-     * @var ArrayFragment
+     * @var ArrayObj
      */
     public $partition;
 
     /**
      * Conditions used for filtering each row of the result set.
      *
-     * @var WhereKeyword[]
+     * @var Condition[]
      */
     public $where;
 
@@ -139,7 +139,7 @@ class SelectStatement extends Statement
     /**
      * Conditions used for filtering the result set.
      *
-     * @var WhereKeyword[]
+     * @var Condition[]
      */
     public $having;
 
@@ -153,14 +153,14 @@ class SelectStatement extends Statement
     /**
      * Conditions used for limiting the size of the result set.
      *
-     * @var LimitKeyword
+     * @var Limit
      */
     public $limit;
 
     /**
      * Procedure that should process the data in the result set.
      *
-     * @var CallKeyword
+     * @var FunctionCall
      */
     public $procedure;
 

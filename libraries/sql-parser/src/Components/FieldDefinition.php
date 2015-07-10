@@ -6,12 +6,12 @@
  * Used for parsing `CREATE TABLE` statement.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
 use SqlParser\Context;
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -21,13 +21,13 @@ use SqlParser\TokensList;
  *
  * Used for parsing `CREATE TABLE` statement.
  *
- * @category   Fragments
+ * @category   Components
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class FieldDefFragment extends Fragment
+class FieldDefinition extends Component
 {
 
     /**
@@ -66,28 +66,28 @@ class FieldDefFragment extends Fragment
     /**
      * The data type of thew new column.
      *
-     * @var DataTypeFragment
+     * @var DataType
      */
     public $type;
 
     /**
      * The key.
      *
-     * @var KeyFragment
+     * @var Key
      */
     public $key;
 
     /**
      * The table that is referenced.
      *
-     * @var ReferencesKeyword
+     * @var Reference
      */
     public $references;
 
     /**
-     * The options of the new field fragment.
+     * The options of this field.
      *
-     * @var OptionsFragment
+     * @var OptionsArray
      */
     public $options;
 
@@ -95,19 +95,19 @@ class FieldDefFragment extends Fragment
      * Constructor.
      *
      * @param string                       $name         The name of the field.
-     * @param OptionsFragment              $options      The options of this field.
-     * @param DataTypeFragment|KeyFragment $type         The data type of this field or the key.
+     * @param OptionsArray              $options      The options of this field.
+     * @param DataType|Key $type         The data type of this field or the key.
      * @param bool                         $isConstraint Whether this field is a constraint or not.
-     * @param ReferencesKeyword            $references   References.
+     * @param Reference            $references   References.
      */
     public function __construct($name = null, $options = null, $type = null,
         $isConstraint = false, $references = null
     ) {
         $this->name = $name;
         $this->options = $options;
-        if ($type instanceof DataTypeFragment) {
+        if ($type instanceof DataType) {
             $this->type = $type;
-        } elseif ($type instanceof KeyFragment) {
+        } elseif ($type instanceof Key) {
             $this->key = $type;
             $this->isConstraint = $isConstraint;
             $this->references = $references;
@@ -119,13 +119,13 @@ class FieldDefFragment extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return FieldDefFragment[]
+     * @return FieldDefinition[]
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = array();
 
-        $expr = new FieldDefFragment();
+        $expr = new FieldDefinition();
 
         /**
          * The state of the parser.
@@ -176,7 +176,7 @@ class FieldDefFragment extends Fragment
                 if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'CONSTRAINT')) {
                     $expr->isConstraint = true;
                 } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_KEY)) {
-                    $expr->key = KeyFragment::parse($parser, $list);
+                    $expr->key = Key::parse($parser, $list);
                     $state = 4;
                 } else {
                     $expr->name = $token->value;
@@ -185,15 +185,15 @@ class FieldDefFragment extends Fragment
                     }
                 }
             } elseif ($state === 2) {
-                $expr->type = DataTypeFragment::parse($parser, $list);
+                $expr->type = DataType::parse($parser, $list);
                 $state = 3;
             } elseif ($state === 3) {
-                $expr->options = OptionsFragment::parse($parser, $list, static::$FIELD_OPTIONS);
+                $expr->options = OptionsArray::parse($parser, $list, static::$FIELD_OPTIONS);
                 $state = 4;
             } elseif ($state === 4) {
                 if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'REFERENCES')) {
                     ++$list->idx; // Skipping keyword 'REFERENCES'.
-                    $expr->references = ReferencesKeyword::parse($parser, $list);
+                    $expr->references = Reference::parse($parser, $list);
                 } else {
                     --$list->idx;
                 }
@@ -202,7 +202,7 @@ class FieldDefFragment extends Fragment
                 if ((!empty($expr->type)) || (!empty($expr->key))) {
                     $ret[] = $expr;
                 }
-                $expr = new FieldDefFragment();
+                $expr = new FieldDefinition();
                 if ($token->value === ',') {
                     $state = 1;
                     continue;
@@ -224,15 +224,15 @@ class FieldDefFragment extends Fragment
     }
 
     /**
-     * @param FieldDefFragment[] $fragment The fragment to be built.
+     * @param FieldDefinition[] $component The component to be built.
      *
      * @return string
      */
-    public static function build($fragment)
+    public static function build($component)
     {
         $ret = array();
 
-        foreach ($fragment as $f) {
+        foreach ($component as $f) {
             $tmp = '';
 
             if ($f->isConstraint) {
@@ -244,18 +244,18 @@ class FieldDefFragment extends Fragment
             }
 
             if (!empty($f->type)) {
-                $tmp .= DataTypeFragment::build($f->type) . ' ';
+                $tmp .= DataType::build($f->type) . ' ';
             }
 
             if (!empty($f->key)) {
-                $tmp .= KeyFragment::build($f->key) . ' ';
+                $tmp .= Key::build($f->key) . ' ';
             }
 
             if (!empty($f->references)) {
-                $tmp .= 'REFERENCES ' . ReferencesKeyword::build($f->references) . ' ';
+                $tmp .= 'REFERENCES ' . Reference::build($f->references) . ' ';
             }
 
-            $tmp .= OptionsFragment::build($f->options);
+            $tmp .= OptionsArray::build($f->options);
 
             $ret[] = trim($tmp);
         }

@@ -9,7 +9,7 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
-use SqlParser\Fragments\FieldFragment;
+use SqlParser\Components\Expression;
 
 /**
  * `TRUNCATE` statement.
@@ -35,7 +35,7 @@ class TruncateStatement extends Statement
     /**
      * The name of the truncated table.
      *
-     * @var FieldFragment
+     * @var Expression
      */
     public $table;
 }

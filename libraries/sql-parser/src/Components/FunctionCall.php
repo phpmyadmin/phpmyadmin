@@ -1,66 +1,79 @@
 <?php
 
 /**
- * `ORDER BY` keyword parser.
+ * Parses a function call.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
 
 /**
- * `ORDER BY` keyword parser.
+ * Parses a function call.
  *
  * @category   Keywords
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class OrderKeyword extends Fragment
+class FunctionCall extends Component
 {
 
     /**
-     * The field that is used for ordering.
-     *
-     * @var FieldFragment
-     */
-    public $field;
-
-    /**
-     * The order type.
+     * The name of this function.
      *
      * @var string
      */
-    public $type = 'ASC';
+    public $name;
+
+    /**
+     * The list of parameters
+     *
+     * @var ArrayObj
+     */
+    public $parameters;
+
+    /**
+     * Constructor.
+     *
+     * @param string              $name       The name of the function to be called.
+     * @param array|ArrayObj $parameters The parameters of this function.
+     */
+    public function __construct($name = null, $parameters = null)
+    {
+        $this->name = $name;
+        if (is_array($parameters)) {
+            $this->parameters = new ArrayObj($parameters);
+        } elseif ($parameters instanceof ArrayObj) {
+            $this->parameters = $parameters;
+        }
+    }
 
     /**
      * @param Parser     $parser  The parser that serves as context.
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return OrderKeyword[]
+     * @return FunctionCall
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = array();
-
-        $expr = new OrderKeyword();
+        $ret = new FunctionCall();
 
         /**
          * The state of the parser.
          *
          * Below are the states of the parser.
          *
-         *      0 ----------------------[ field ]----------------------> 1
+         *      0 ----------------------[ name ]-----------------------> 1
          *
-         *      1 ------------------------[ , ]------------------------> 0
-         *      1 -------------------[ ASC / DESC ]--------------------> 1
+         *      1 --------------------[ parameters ]-------------------> -1
          *
          * @var int
          */
@@ -84,30 +97,27 @@ class OrderKeyword extends Fragment
             }
 
             if ($state === 0) {
-                $expr->field = FieldFragment::parse($parser, $list);
+                $ret->name = $token->value;
                 $state = 1;
             } elseif ($state === 1) {
-                if (($token->type === Token::TYPE_KEYWORD) && (($token->value === 'ASC') || ($token->value === 'DESC'))) {
-                    $expr->type = $token->value;
-                } elseif (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
-                    if (!empty($expr->field)) {
-                        $ret[] = $expr;
-                    }
-                    $expr = new OrderKeyword();
-                    $state = 0;
-                } else {
-                    break;
+                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
+                    $ret->parameters = ArrayObj::parse($parser, $list);
                 }
+                break;
             }
 
         }
 
-        // Last iteration was not processed.
-        if (!empty($expr->field)) {
-            $ret[] = $expr;
-        }
-
-        --$list->idx;
         return $ret;
+    }
+
+    /**
+     * @param FunctionCall $component The component to be built.
+     *
+     * @return string
+     */
+    public static function build($component)
+    {
+        return $component->name . ArrayObj::build($component->parameters);
     }
 }

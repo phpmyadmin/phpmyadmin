@@ -12,9 +12,9 @@ use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Token;
 use SqlParser\TokensList;
-use SqlParser\Fragments\AlterFragment;
-use SqlParser\Fragments\FieldFragment;
-use SqlParser\Fragments\OptionsFragment;
+use SqlParser\Components\AlterOperation;
+use SqlParser\Components\Expression;
+use SqlParser\Components\OptionsArray;
 
 /**
  * `ALTER` statement.
@@ -31,14 +31,14 @@ class AlterStatement extends Statement
     /**
      * Table affected.
      *
-     * @var FieldFragment
+     * @var Expression
      */
     public $table;
 
     /**
      * Column affected by this statement.
      *
-     * @var AlterFragment[]
+     * @var AlterOperation[]
      */
     public $altered = array();
 
@@ -62,7 +62,7 @@ class AlterStatement extends Statement
     public function parse(Parser $parser, TokensList $list)
     {
         ++$list->idx; // Skipping `ALTER`.
-        $this->options = OptionsFragment::parse(
+        $this->options = OptionsArray::parse(
             $parser,
             $list,
             static::$OPTIONS
@@ -72,7 +72,7 @@ class AlterStatement extends Statement
         $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'TABLE');
 
         // Parsing affected table.
-        $this->table = FieldFragment::parse(
+        $this->table = Expression::parse(
             $parser, $list, array(
             'noAlias' => true,
             'noBrackets' => true,
@@ -111,7 +111,7 @@ class AlterStatement extends Statement
             }
 
             if ($state === 0) {
-                $this->altered[] = AlterFragment::parse($parser, $list);
+                $this->altered[] = AlterOperation::parse($parser, $list);
                 $state = 1;
             } else if ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
@@ -131,8 +131,8 @@ class AlterStatement extends Statement
             $tmp[] = $altered::build($altered);
         }
 
-        return 'ALTER ' .  OptionsFragment::build($this->options)
-            . ' TABLE ' . FieldFragment::build($this->table)
+        return 'ALTER ' .  OptionsArray::build($this->options)
+            . ' TABLE ' . Expression::build($this->table)
             . ' ' . implode(', ', $tmp);
     }
 }

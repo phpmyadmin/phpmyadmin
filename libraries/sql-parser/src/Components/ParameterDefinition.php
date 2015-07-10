@@ -4,12 +4,12 @@
  * The definition of a parameter of a function or procedure.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
 use SqlParser\Context;
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -17,13 +17,13 @@ use SqlParser\TokensList;
 /**
  * The definition of a parameter of a function or procedure.
  *
- * @category   Fragments
+ * @category   Components
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class ParamDefFragment extends Fragment
+class ParameterDefinition extends Component
 {
 
     /**
@@ -43,7 +43,7 @@ class ParamDefFragment extends Fragment
     /**
      * The data type of thew new column.
      *
-     * @var DataTypeFragment
+     * @var DataType
      */
     public $type;
 
@@ -52,13 +52,13 @@ class ParamDefFragment extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return ParamDefFragment[]
+     * @return ParameterDefinition[]
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = array();
 
-        $expr = new ParamDefFragment();
+        $expr = new ParameterDefinition();
 
         /**
          * The state of the parser.
@@ -113,11 +113,11 @@ class ParamDefFragment extends Fragment
                     $state = 2;
                 }
             } elseif ($state === 2) {
-                $expr->type = DataTypeFragment::parse($parser, $list);
+                $expr->type = DataType::parse($parser, $list);
                 $state = 3;
             } elseif ($state === 3) {
                 $ret[] = $expr;
-                $expr = new ParamDefFragment();
+                $expr = new ParameterDefinition();
                 if ($token->value === ',') {
                     $state = 1;
                     continue;
@@ -138,14 +138,14 @@ class ParamDefFragment extends Fragment
     }
 
     /**
-     * @param ParamDefFragment[] $fragment The fragment to be built.
+     * @param ParameterDefinition[] $component The component to be built.
      *
      * @return string
      */
-    public static function build($fragment)
+    public static function build($component)
     {
         $ret = array();
-        foreach ($fragment as $f) {
+        foreach ($component as $f) {
             $tmp = '';
             if (!empty($f->inOut)) {
                 $tmp .= $f->inOut . ' ';
@@ -153,7 +153,7 @@ class ParamDefFragment extends Fragment
 
             $ret[] = trim(
                 $tmp . Context::escape($f->name) . ' ' .
-                DataTypeFragment::build($f->type)
+                DataType::build($f->type)
             );
         }
         return '(' . implode(', ', $ret) . ')';

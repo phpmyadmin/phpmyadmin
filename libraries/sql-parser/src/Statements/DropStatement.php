@@ -9,7 +9,7 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
-use SqlParser\Fragments\FieldFragment;
+use SqlParser\Components\Expression;
 
 /**
  * `DROP` statement.
@@ -64,7 +64,7 @@ class DropStatement extends Statement
     /**
      * Dropped elements.
      *
-     * @var FieldFragment[]
+     * @var Expression[]
      */
     public $fields;
 }

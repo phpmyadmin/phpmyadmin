@@ -4,11 +4,11 @@
  * `VALUES` keyword parser.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -18,11 +18,11 @@ use SqlParser\TokensList;
  *
  * @category   Keywords
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class ValuesKeyword extends Fragment
+class Array2d extends Component
 {
 
     /**
@@ -37,13 +37,13 @@ class ValuesKeyword extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return ValuesKeyword
+     * @return Array2d
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = array();
 
-        $expr = new ValuesKeyword();
+        $expr = new Array2d();
         $value = '';
 
         /**
@@ -102,7 +102,7 @@ class ValuesKeyword extends Fragment
                     $expr->values[] = $value;
                     $ret[] = $expr;
                     $value = '';
-                    $expr = new ValuesKeyword();
+                    $expr = new Array2d();
                     continue;
                 }
 

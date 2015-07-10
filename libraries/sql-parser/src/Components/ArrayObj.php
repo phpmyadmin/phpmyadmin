@@ -4,11 +4,11 @@
  * Parses an array.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -16,13 +16,13 @@ use SqlParser\TokensList;
 /**
  * Parses an array.
  *
- * @category   Fragments
+ * @category   Components
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class ArrayFragment extends Fragment
+class ArrayObj extends Component
 {
 
     /**
@@ -56,11 +56,11 @@ class ArrayFragment extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return ArrayFragment
+     * @return ArrayObj
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new ArrayFragment();
+        $ret = new ArrayObj();
 
         /**
          * The state of the parser.
@@ -127,17 +127,17 @@ class ArrayFragment extends Fragment
     }
 
     /**
-     * @param ArrayFragment $fragment The fragment to be built.
+     * @param ArrayObj $component The component to be built.
      *
      * @return string
      */
-    public static function build($fragment)
+    public static function build($component)
     {
         $values = array();
-        if (!empty($fragment->raw)) {
-            $values = $fragment->raw;
+        if (!empty($component->raw)) {
+            $values = $component->raw;
         } else {
-            foreach ($fragment->values as $value) {
+            foreach ($component->values as $value) {
                 $values[] = $value;
             }
         }

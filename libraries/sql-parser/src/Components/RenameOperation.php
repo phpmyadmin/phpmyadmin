@@ -4,11 +4,11 @@
  * `RENAME TABLE` keyword parser.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -18,24 +18,24 @@ use SqlParser\TokensList;
  *
  * @category   Keywords
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class RenameKeyword extends Fragment
+class RenameOperation extends Component
 {
 
     /**
      * The old table name.
      *
-     * @var FieldFragment
+     * @var Expression
      */
     public $old;
 
     /**
      * The new table name.
      *
-     * @var FieldFragment
+     * @var Expression
      */
     public $new;
 
@@ -44,13 +44,13 @@ class RenameKeyword extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return RenameKeyword
+     * @return RenameOperation
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = array();
 
-        $expr = new RenameKeyword();
+        $expr = new RenameOperation();
 
         /**
          * The state of the parser.
@@ -100,7 +100,7 @@ class RenameKeyword extends Fragment
             if ($token->type === Token::TYPE_OPERATOR) {
                 if (($state === 3) && ($token->value === ',')) {
                     $ret[] = $expr;
-                    $expr = new RenameKeyword();
+                    $expr = new RenameOperation();
                     $state = 0;
                     continue;
                 }
@@ -110,7 +110,7 @@ class RenameKeyword extends Fragment
             }
 
             if ($state == 0) {
-                $expr->old = FieldFragment::parse(
+                $expr->old = Expression::parse(
                     $parser,
                     $list,
                     array(
@@ -121,7 +121,7 @@ class RenameKeyword extends Fragment
                 );
                 $state = 1;
             } elseif ($state == 2) {
-                $expr->new = FieldFragment::parse(
+                $expr->new = Expression::parse(
                     $parser,
                     $list,
                     array(

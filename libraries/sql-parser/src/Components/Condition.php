@@ -4,11 +4,11 @@
  * `WHERE` keyword parser.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -18,11 +18,11 @@ use SqlParser\TokensList;
  *
  * @category   Keywords
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class WhereKeyword extends Fragment
+class Condition extends Component
 {
 
     /**
@@ -49,7 +49,7 @@ class WhereKeyword extends Fragment
     public $identifiers = array();
 
     /**
-     * Whether this fragment is an operator.
+     * Whether this component is an operator.
      *
      * @var bool
      */
@@ -77,13 +77,13 @@ class WhereKeyword extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return WhereKeyword[]
+     * @return Condition[]
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = array();
 
-        $expr = new WhereKeyword();
+        $expr = new Condition();
 
         /**
          * Counts brackets.
@@ -130,11 +130,11 @@ class WhereKeyword extends Fragment
                     }
 
                     // Adding the operator.
-                    $expr = new WhereKeyword($token->value);
+                    $expr = new Condition($token->value);
                     $expr->isOperator = true;
                     $ret[] = $expr;
 
-                    $expr = new WhereKeyword();
+                    $expr = new Condition();
                     continue;
                 }
             }
@@ -178,14 +178,14 @@ class WhereKeyword extends Fragment
     }
 
     /**
-     * @param WhereKeyword[] $fragment The fragment to be built.
+     * @param Condition[] $component The component to be built.
      *
      * @return string
      */
-    public static function build($fragment)
+    public static function build($component)
     {
         $ret = array();
-        foreach ($fragment as $f) {
+        foreach ($component as $f) {
             $ret[] = $f->expr;
         }
         return implode(' ', $ret);

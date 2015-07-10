@@ -4,12 +4,12 @@
  * `REFERENCES` keyword parser.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
 use SqlParser\Context;
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -19,11 +19,11 @@ use SqlParser\TokensList;
  *
  * @category   Keywords
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class ReferencesKeyword extends Fragment
+class Reference extends Component
 {
 
     /**
@@ -54,7 +54,7 @@ class ReferencesKeyword extends Fragment
     /**
      * The options of the referencing.
      *
-     * @var OptionsFragment
+     * @var OptionsArray
      */
     public $options;
 
@@ -63,7 +63,7 @@ class ReferencesKeyword extends Fragment
      *
      * @param string          $table   The name of the table referenced.
      * @param array           $columns The columns referenced.
-     * @param OptionsFragment $options The options.
+     * @param OptionsArray $options The options.
      */
     public function __construct($table = null, array $columns = array(), $options = null)
     {
@@ -77,11 +77,11 @@ class ReferencesKeyword extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return ReferencesKeyword
+     * @return Reference
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new ReferencesKeyword();
+        $ret = new Reference();
 
         /**
          * The state of the parser.
@@ -119,10 +119,10 @@ class ReferencesKeyword extends Fragment
                 $ret->table = $token->value;
                 $state = 1;
             } elseif ($state === 1) {
-                $ret->columns = ArrayFragment::parse($parser, $list)->values;
+                $ret->columns = ArrayObj::parse($parser, $list)->values;
                 $state = 2;
             } elseif ($state === 2) {
-                $ret->options = OptionsFragment::parse($parser, $list, static::$REFERENCES_OPTIONS);
+                $ret->options = OptionsArray::parse($parser, $list, static::$REFERENCES_OPTIONS);
                 ++$list->idx;
                 break;
             }
@@ -134,16 +134,16 @@ class ReferencesKeyword extends Fragment
     }
 
     /**
-     * @param ReferencesKeyword $fragment The fragment to be built.
+     * @param Reference $component The component to be built.
      *
      * @return string
      */
-    public static function build($fragment)
+    public static function build($component)
     {
         return trim(
-            Context::escape($fragment->table)
-            . ' (' . implode(', ', Context::escape($fragment->columns)) . ') '
-            . OptionsFragment::build($fragment->options)
+            Context::escape($component->table)
+            . ' (' . implode(', ', Context::escape($component->columns)) . ') '
+            . OptionsArray::build($component->options)
         );
     }
 }

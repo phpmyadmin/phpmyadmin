@@ -4,11 +4,11 @@
  * Parses a data type.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -16,13 +16,13 @@ use SqlParser\TokensList;
 /**
  * Parses a data type.
  *
- * @category   Fragments
+ * @category   Components
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class DataTypeFragment extends Fragment
+class DataType extends Component
 {
 
     /**
@@ -64,7 +64,7 @@ class DataTypeFragment extends Fragment
     /**
      * The options of this data type.
      *
-     * @var OptionsFragment
+     * @var OptionsArray
      */
     public $options;
 
@@ -73,7 +73,7 @@ class DataTypeFragment extends Fragment
      *
      * @param string          $name       The name of this data type.
      * @param array           $parameters The parameters (size or possible values).
-     * @param OptionsFragment $options    The options of this data type.
+     * @param OptionsArray $options    The options of this data type.
      */
     public function __construct($name = null, array $parameters = array(),
         $options = null
@@ -88,11 +88,11 @@ class DataTypeFragment extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return DataTypeFragment
+     * @return DataType
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new DataTypeFragment();
+        $ret = new DataType();
 
         /**
          * The state of the parser.
@@ -127,12 +127,12 @@ class DataTypeFragment extends Fragment
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $parameters = ArrayFragment::parse($parser, $list);
+                    $parameters = ArrayObj::parse($parser, $list);
                     ++$list->idx;
                     $ret->parameters = (($ret->name === 'ENUM') || ($ret->name === 'SET')) ?
                         $parameters->raw : $parameters->values;
                 }
-                $ret->options = OptionsFragment::parse($parser, $list, static::$DATA_TYPE_OPTIONS);
+                $ret->options = OptionsArray::parse($parser, $list, static::$DATA_TYPE_OPTIONS);
                 ++$list->idx;
                 break;
             }
@@ -148,19 +148,19 @@ class DataTypeFragment extends Fragment
     }
 
     /**
-     * @param DataTypeFragment $fragment The fragment to be built.
+     * @param DataType $component The component to be built.
      *
      * @return string
      */
-    public static function build($fragment)
+    public static function build($component)
     {
         $tmp = '';
-        if (!empty($fragment->parameters)) {
-            $tmp = '(' . implode(', ', $fragment->parameters) . ')';
+        if (!empty($component->parameters)) {
+            $tmp = '(' . implode(', ', $component->parameters) . ')';
         }
         return trim(
-            $fragment->name . ' ' . $tmp . ' '
-            . OptionsFragment::build($fragment->options)
+            $component->name . ' ' . $tmp . ' '
+            . OptionsArray::build($component->options)
         );
     }
 }

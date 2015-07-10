@@ -9,8 +9,8 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
-use SqlParser\Fragments\IntoKeyword;
-use SqlParser\Fragments\ValuesKeyword;
+use SqlParser\Components\IntoKeyword;
+use SqlParser\Components\Array2d;
 
 /**
  * `INSERT` statement.
@@ -76,7 +76,7 @@ class InsertStatement extends Statement
     /**
      * Values to be inserted.
      *
-     * @var ValuesKeyword
+     * @var Array2d
      */
     public $values;
 }

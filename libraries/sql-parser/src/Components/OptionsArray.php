@@ -4,11 +4,11 @@
  * Parses a list of options.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -16,17 +16,17 @@ use SqlParser\TokensList;
 /**
  * Parses a list of options.
  *
- * @category   Fragments
+ * @category   Components
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class OptionsFragment extends Fragment
+class OptionsArray extends Component
 {
 
     /**
-     * Array of selected options.
+     * ArrayObj of selected options.
      *
      * @var array
      */
@@ -48,11 +48,11 @@ class OptionsFragment extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return OptionsFragment
+     * @return OptionsArray
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new OptionsFragment();
+        $ret = new OptionsArray();
 
          /**
           * The ID that will be assigned to duplicate options.
@@ -150,17 +150,17 @@ class OptionsFragment extends Fragment
     }
 
     /**
-     * @param OptionsFragment $fragment The fragment to be built.
+     * @param OptionsArray $component The component to be built.
      *
      * @return string
      */
-    public static function build($fragment)
+    public static function build($component)
     {
-        if ((empty($fragment)) || (!is_array($fragment->options))) {
+        if ((empty($component)) || (!is_array($component->options))) {
             return '';
         }
         $options = array();
-        foreach ($fragment->options as $option) {
+        foreach ($component->options as $option) {
             if (is_array($option)) {
                 $options[] = $option['name']
                     . (!empty($option['equal']) ? '=' : ' ')
@@ -195,7 +195,7 @@ class OptionsFragment extends Fragment
      * Merges the specified options with these ones. Values with same ID will be
      * replaced.
      *
-     * @param array|OptionsFragment $options The options to be merged.
+     * @param array|OptionsArray $options The options to be merged.
      *
      * @return void
      */
@@ -203,7 +203,7 @@ class OptionsFragment extends Fragment
     {
         if (is_array($options)) {
             $this->options = array_merge_recursive($this->options, $options);
-        } elseif ($options instanceof OptionsFragment) {
+        } elseif ($options instanceof OptionsArray) {
             $this->options = array_merge_recursive($this->options, $options->options);
         }
     }

@@ -13,7 +13,7 @@ use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Token;
 use SqlParser\TokensList;
-use SqlParser\Fragments\FieldFragment;
+use SqlParser\Components\Expression;
 use SqlParser\Statements\AlterStatement;
 use SqlParser\Statements\AnalyzeStatement;
 use SqlParser\Statements\CallStatement;
@@ -482,7 +482,7 @@ class Query
             if (!empty($field->table)) {
                 $field->expr = null; // Force rebuild.
                 $field->alias = null; // Aliases are not required.
-                $ret[] = FieldFragment::build($field);
+                $ret[] = Expression::build($field);
             }
         }
         return $ret;

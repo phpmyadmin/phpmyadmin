@@ -4,11 +4,11 @@
  * Parses a a list of fields delimited by a single comma.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -18,11 +18,11 @@ use SqlParser\TokensList;
  *
  * @category   Keywords
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class FieldListFragment extends Fragment
+class ExpressionArray extends Component
 {
 
     /**
@@ -30,7 +30,7 @@ class FieldListFragment extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return FieldFragment[]
+     * @return Expression[]
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
@@ -63,7 +63,7 @@ class FieldListFragment extends Fragment
             if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
                 $ret[] = $expr;
             } else {
-                $expr = FieldFragment::parse($parser, $list, $options);
+                $expr = Expression::parse($parser, $list, $options);
                 if ($expr === null) {
                     break;
                 }
@@ -81,14 +81,14 @@ class FieldListFragment extends Fragment
     }
 
     /**
-     * @param FieldFragment[] $fragment The fragment to be built.
+     * @param Expression[] $component The component to be built.
      *
      * @return string
      */
-    public static function build($fragment)
+    public static function build($component)
     {
         $ret = array();
-        foreach ($fragment as $frag) {
+        foreach ($component as $frag) {
             $ret[] = $frag::build($frag);
         }
         return implode($ret, ', ');

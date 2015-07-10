@@ -9,11 +9,11 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
-use SqlParser\Fragments\ArrayFragment;
-use SqlParser\Fragments\FieldFragment;
-use SqlParser\Fragments\LimitKeyword;
-use SqlParser\Fragments\OrderKeyword;
-use SqlParser\Fragments\WhereKeyword;
+use SqlParser\Components\ArrayObj;
+use SqlParser\Components\Expression;
+use SqlParser\Components\Limit;
+use SqlParser\Components\OrderKeyword;
+use SqlParser\Components\Condition;
 
 /**
  * `DELETE` statement.
@@ -65,21 +65,21 @@ class DeleteStatement extends Statement
     /**
      * Tables used as sources for this statement.
      *
-     * @var FieldFragment[]
+     * @var Expression[]
      */
     public $from;
 
     /**
      * Partitions used as source for this statement.
      *
-     * @var ArrayFragment
+     * @var ArrayObj
      */
     public $partition;
 
     /**
      * Conditions used for filtering each row of the result set.
      *
-     * @var WhereKeyword[]
+     * @var Condition[]
      */
     public $where;
 
@@ -93,7 +93,7 @@ class DeleteStatement extends Statement
     /**
      * Conditions used for limiting the size of the result set.
      *
-     * @var LimitKeyword
+     * @var Limit
      */
     public $limit;
 }

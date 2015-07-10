@@ -10,7 +10,7 @@
  */
 namespace SqlParser;
 
-use SqlParser\Fragments\OptionsFragment;
+use SqlParser\Components\OptionsArray;
 
 /**
  * Abstract statement definition.
@@ -61,7 +61,7 @@ abstract class Statement
     /**
      * The options of this query.
      *
-     * @var OptionsFragment
+     * @var OptionsArray
      *
      * @see static::$OPTIONS
      */
@@ -233,7 +233,7 @@ abstract class Statement
             if (!empty(Parser::$STATEMENT_PARSERS[$token->value])) {
                 if (!$parsedOptions) {
                     ++$list->idx; // Skipping keyword.
-                    $this->options = OptionsFragment::parse(
+                    $this->options = OptionsArray::parse(
                         $parser,
                         $list,
                         static::$OPTIONS

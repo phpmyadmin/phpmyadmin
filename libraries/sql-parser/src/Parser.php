@@ -75,7 +75,7 @@ class Parser
     );
 
     /**
-     * Array of classes that are used in parsing SQL fragments.
+     * Array of classes that are used in parsing SQL components.
      *
      * @var array
      */
@@ -83,128 +83,128 @@ class Parser
 
         // This is not a proper keyword and was added here to help the builder.
         '_OPTIONS'      => array(
-            'class'     => 'SqlParser\\Fragments\\OptionsFragment',
+            'class'     => 'SqlParser\\Components\\OptionsArray',
             'field'     => 'options',
         ),
 
         'ALTER'         => array(
-            'class'     => 'SqlParser\\Fragments\\FieldFragment',
+            'class'     => 'SqlParser\\Components\\Expression',
             'field'     => 'table',
             'options'   => array('skipColumn' => true),
         ),
         'ANALYZE'       => array(
-            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
+            'class'     => 'SqlParser\\Components\\ExpressionArray',
             'field'     => 'tables',
             'options'   => array('skipColumn' => true),
         ),
         'BACKUP'        => array(
-            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
+            'class'     => 'SqlParser\\Components\\ExpressionArray',
             'field'     => 'tables',
             'options'   => array('skipColumn' => true),
         ),
         'CALL'          => array(
-            'class'     => 'SqlParser\\Fragments\\CallKeyword',
+            'class'     => 'SqlParser\\Components\\FunctionCall',
             'field'     => 'call',
         ),
         'CHECK'         => array(
-            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
+            'class'     => 'SqlParser\\Components\\ExpressionArray',
             'field'     => 'tables',
             'options'   => array('skipColumn' => true),
         ),
         'CHECKSUM'      => array(
-            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
+            'class'     => 'SqlParser\\Components\\ExpressionArray',
             'field'     => 'tables',
             'options'   => array('skipColumn' => true),
         ),
         'DROP'          => array(
-            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
+            'class'     => 'SqlParser\\Components\\ExpressionArray',
             'field'     => 'fields',
             'options'   => array('skipColumn' => true),
         ),
         'FROM'          => array(
-            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
+            'class'     => 'SqlParser\\Components\\ExpressionArray',
             'field'     => 'from',
             'options'   => array('skipColumn' => true),
         ),
         'GROUP BY'      => array(
-            'class'     => 'SqlParser\\Fragments\\OrderKeyword',
+            'class'     => 'SqlParser\\Components\\OrderKeyword',
             'field'     => 'group',
         ),
         'HAVING'        => array(
-            'class'     => 'SqlParser\\Fragments\\WhereKeyword',
+            'class'     => 'SqlParser\\Components\\Condition',
             'field'     => 'having',
         ),
         'INTO'          => array(
-            'class'     => 'SqlParser\\Fragments\\IntoKeyword',
+            'class'     => 'SqlParser\\Components\\IntoKeyword',
             'field'     => 'into',
         ),
         'JOIN'          => array(
-            'class'     => 'SqlParser\\Fragments\\JoinKeyword',
+            'class'     => 'SqlParser\\Components\\JoinKeyword',
             'field'     => 'join',
         ),
         'LIMIT'         => array(
-            'class'     => 'SqlParser\\Fragments\\LimitKeyword',
+            'class'     => 'SqlParser\\Components\\Limit',
             'field'     => 'limit',
         ),
         'OPTIMIZE'      => array(
-            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
+            'class'     => 'SqlParser\\Components\\ExpressionArray',
             'field'     => 'tables',
             'options'   => array('skipColumn' => true),
         ),
         'ORDER BY'      => array(
-            'class'     => 'SqlParser\\Fragments\\OrderKeyword',
+            'class'     => 'SqlParser\\Components\\OrderKeyword',
             'field'     => 'order',
         ),
         'PARTITION'     => array(
-            'class'     => 'SqlParser\\Fragments\\ArrayFragment',
+            'class'     => 'SqlParser\\Components\\ArrayObj',
             'field'     => 'partition',
         ),
         'PROCEDURE'     => array(
-            'class'     => 'SqlParser\\Fragments\\CallKeyword',
+            'class'     => 'SqlParser\\Components\\FunctionCall',
             'field'     => 'procedure',
         ),
         'RENAME'        => array(
-            'class'     => 'SqlParser\\Fragments\\RenameKeyword',
+            'class'     => 'SqlParser\\Components\\RenameOperation',
             'field'     => 'renames',
         ),
         'REPAIR'        => array(
-            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
+            'class'     => 'SqlParser\\Components\\ExpressionArray',
             'field'     => 'tables',
             'options'   => array('skipColumn' => true),
         ),
         'RESTORE'       => array(
-            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
+            'class'     => 'SqlParser\\Components\\ExpressionArray',
             'field'     => 'tables',
             'options'   => array('skipColumn' => true),
         ),
         'SET'           => array(
-            'class'     => 'SqlParser\\Fragments\\SetKeyword',
+            'class'     => 'SqlParser\\Components\\SetOperation',
             'field'     => 'set',
         ),
         'SELECT'        => array(
-            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
+            'class'     => 'SqlParser\\Components\\ExpressionArray',
             'field'     => 'expr',
         ),
         'TRUNCATE'      => array(
-            'class'     => 'SqlParser\\Fragments\\FieldFragment',
+            'class'     => 'SqlParser\\Components\\Expression',
             'field'     => 'table',
             'options'   => array('skipColumn' => true),
         ),
         'UPDATE'        => array(
-            'class'     => 'SqlParser\\Fragments\\FieldListFragment',
+            'class'     => 'SqlParser\\Components\\ExpressionArray',
             'field'     => 'tables',
             'options'   => array('skipColumn' => true),
         ),
         'VALUE'         => array(
-            'class'     => 'SqlParser\\Fragments\\ValuesKeyword',
+            'class'     => 'SqlParser\\Components\\Array2d',
             'field'     => 'values',
         ),
         'VALUES'        => array(
-            'class'     => 'SqlParser\\Fragments\\ValuesKeyword',
+            'class'     => 'SqlParser\\Components\\Array2d',
             'field'     => 'values',
         ),
         'WHERE'         => array(
-            'class'     => 'SqlParser\\Fragments\\WhereKeyword',
+            'class'     => 'SqlParser\\Components\\Condition',
             'field'     => 'where',
         ),
 

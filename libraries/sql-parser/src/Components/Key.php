@@ -4,12 +4,12 @@
  * Parses the definition of a key.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
 use SqlParser\Context;
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -19,13 +19,13 @@ use SqlParser\TokensList;
  *
  * Used for parsing `CREATE TABLE` statement.
  *
- * @category   Fragments
+ * @category   Components
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class KeyFragment extends Fragment
+class Key extends Component
 {
 
     /**
@@ -63,7 +63,7 @@ class KeyFragment extends Fragment
     /**
      * The options of this key.
      *
-     * @var OptionsFragment
+     * @var OptionsArray
      */
     public $options;
 
@@ -73,7 +73,7 @@ class KeyFragment extends Fragment
      * @param string          $name    The name of the key.
      * @param array           $columns The columns covered by this key.
      * @param string          $type    The type of this key.
-     * @param OptionsFragment $options The options of this key.
+     * @param OptionsArray $options The options of this key.
      */
     public function __construct($name = null, array $columns = array(),
         $type = null, $options = null
@@ -89,11 +89,11 @@ class KeyFragment extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return KeyFragment[]
+     * @return Key[]
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new KeyFragment();
+        $ret = new Key();
 
         /**
          * The state of the parser.
@@ -133,13 +133,13 @@ class KeyFragment extends Fragment
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $ret->columns = ArrayFragment::parse($parser, $list)->values;
+                    $ret->columns = ArrayObj::parse($parser, $list)->values;
                     $state = 2;
                 } else {
                     $ret->name = $token->value;
                 }
             } elseif ($state === 2) {
-                $ret->options = OptionsFragment::parse($parser, $list, static::$KEY_OPTIONS);
+                $ret->options = OptionsArray::parse($parser, $list, static::$KEY_OPTIONS);
                 ++$list->idx;
                 break;
             }
@@ -151,18 +151,18 @@ class KeyFragment extends Fragment
     }
 
     /**
-     * @param KeyFragment $fragment The fragment to be built.
+     * @param Key $component The component to be built.
      *
      * @return string
      */
-    public static function build($fragment)
+    public static function build($component)
     {
-        $ret = $fragment->type . ' ';
-        if (!empty($fragment->name)) {
-            $ret .= Context::escape($fragment->name) . ' ';
+        $ret = $component->type . ' ';
+        if (!empty($component->name)) {
+            $ret .= Context::escape($component->name) . ' ';
         }
-        $ret .= '(' . implode(', ', Context::escape($fragment->columns)) . ')';
-        $ret .= OptionsFragment::build($fragment->options);
+        $ret .= '(' . implode(', ', Context::escape($component->columns)) . ')';
+        $ret .= OptionsArray::build($component->options);
         return trim($ret);
     }
 }

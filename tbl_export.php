@@ -138,8 +138,8 @@ if (! empty($sql_query)) {
 
         // Rebuilding the SELECT and FROM clauses.
         $replaces = array(
-            array('SELECT', 'SELECT ' . SqlParser\Fragments\FieldListFragment::build($parser->statements[0]->expr)),
-            array('FROM', 'FROM ' . SqlParser\Fragments\FieldListFragment::build($parser->statements[0]->from)),
+            array('SELECT', 'SELECT ' . SqlParser\Components\ExpressionArray::build($parser->statements[0]->expr)),
+            array('FROM', 'FROM ' . SqlParser\Components\ExpressionArray::build($parser->statements[0]->from)),
         );
 
         // Checking if the WHERE clause has to be replaced.

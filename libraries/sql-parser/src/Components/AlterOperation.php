@@ -4,11 +4,11 @@
  * Parses a reference to a field.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -16,13 +16,13 @@ use SqlParser\TokensList;
 /**
  * Parses a reference to a field.
  *
- * @category   Fragments
+ * @category   Components
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class AlterFragment extends Fragment
+class AlterOperation extends Component
 {
 
     /**
@@ -77,14 +77,14 @@ class AlterFragment extends Fragment
     /**
      * Options of this operation.
      *
-     * @var OptionsFragment
+     * @var OptionsArray
      */
     public $options;
 
     /**
      * The altered field.
      *
-     * @var FieldFragment
+     * @var Expression
      */
     public $field;
 
@@ -100,11 +100,11 @@ class AlterFragment extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return AlterFragment
+     * @return AlterOperation
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new AlterFragment();
+        $ret = new AlterOperation();
 
         /**
          * Counts brackets.
@@ -148,10 +148,10 @@ class AlterFragment extends Fragment
             }
 
             if ($state === 0) {
-                $ret->options = OptionsFragment::parse($parser, $list, static::$OPTIONS);
+                $ret->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
                 $state = 1;
             } elseif ($state === 1) {
-                $ret->field = FieldFragment::parse(
+                $ret->field = Expression::parse(
                     $parser,
                     $list,
                     array(
@@ -184,17 +184,17 @@ class AlterFragment extends Fragment
     }
 
     /**
-     * @param AlterFragment $fragment The fragment to be built.
+     * @param AlterOperation $component The component to be built.
      *
      * @return string
      */
-    public static function build($fragment)
+    public static function build($component)
     {
-        $ret = OptionsFragment::build($fragment->options) . ' ';
-        if (!empty($fragment->field)) {
-            $ret .= FieldFragment::build($fragment->field) . ' ';
+        $ret = OptionsArray::build($component->options) . ' ';
+        if (!empty($component->field)) {
+            $ret .= Expression::build($component->field) . ' ';
         }
-        foreach ($fragment->unknown as $token) {
+        foreach ($component->unknown as $token) {
             $ret .= $token->token;
         }
         return $ret;

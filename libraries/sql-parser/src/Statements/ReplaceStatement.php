@@ -9,9 +9,9 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
-use SqlParser\Fragments\IntoKeyword;
-use SqlParser\Fragments\SetKeyword;
-use SqlParser\Fragments\ValuesKeyword;
+use SqlParser\Components\IntoKeyword;
+use SqlParser\Components\SetOperation;
+use SqlParser\Components\Array2d;
 
 /**
  * `REPLACE` statement.
@@ -55,14 +55,14 @@ class ReplaceStatement extends Statement
     /**
      * Values to be replaced.
      *
-     * @var ValuesKeyword
+     * @var Array2d
      */
     public $values;
 
     /**
      * The replaced values.
      *
-     * @var SetKeyword[]
+     * @var SetOperation[]
      */
     public $set;
 }

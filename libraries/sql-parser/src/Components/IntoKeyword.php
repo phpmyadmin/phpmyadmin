@@ -4,11 +4,11 @@
  * `INTO` keyword parser.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -18,11 +18,11 @@ use SqlParser\TokensList;
  *
  * @category   Keywords
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class IntoKeyword extends Fragment
+class IntoKeyword extends Component
 {
 
     /**
@@ -35,7 +35,7 @@ class IntoKeyword extends Fragment
     /**
      * The destination, which can be a table or a file.
      *
-     * @var string|FieldFragment
+     * @var string|Expression
      */
     public $dest;
 
@@ -102,7 +102,7 @@ class IntoKeyword extends Fragment
             }
 
             if ($state === 0) {
-                $ret->dest = FieldFragment::parse(
+                $ret->dest = Expression::parse(
                     $parser,
                     $list,
                     array(
@@ -114,7 +114,7 @@ class IntoKeyword extends Fragment
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $ret->fields = ArrayFragment::parse($parser, $list)->values;
+                    $ret->fields = ArrayObj::parse($parser, $list)->values;
                     ++$list->idx;
                 }
                 break;

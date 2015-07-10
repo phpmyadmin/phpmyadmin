@@ -12,8 +12,8 @@ use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Token;
 use SqlParser\TokensList;
-use SqlParser\Fragments\FieldFragment;
-use SqlParser\Fragments\OptionsFragment;
+use SqlParser\Components\Expression;
+use SqlParser\Components\OptionsArray;
 
 /**
  * Maintenance statement.
@@ -33,14 +33,14 @@ class MaintenanceStatement extends Statement
     /**
      * Tables maintained.
      *
-     * @var FieldFragment[]
+     * @var Expression[]
      */
     public $tables;
 
     /**
      * Function called after the token was processed.
      *
-     * Parses the additional options fragment at the end.
+     * Parses the additional options from the end.
      *
      * @param Parser     $parser The instance that requests parsing.
      * @param TokensList $list   The list of tokens to be parsed.
@@ -58,7 +58,7 @@ class MaintenanceStatement extends Statement
         // Finally, we parse here [some more options] and that's all.
         ++$list->idx;
         $this->options->merge(
-            OptionsFragment::parse(
+            OptionsArray::parse(
                 $parser,
                 $list,
                 static::$OPTIONS

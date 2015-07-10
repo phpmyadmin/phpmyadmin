@@ -4,12 +4,12 @@
  * Parses a reference to a field.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
 use SqlParser\Context;
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -17,13 +17,13 @@ use SqlParser\TokensList;
 /**
  * Parses a reference to a field.
  *
- * @category   Fragments
+ * @category   Components
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class FieldFragment extends Fragment
+class Expression extends Component
 {
 
     /**
@@ -79,10 +79,10 @@ class FieldFragment extends Fragment
      * Constructor.
      *
      * Syntax:
-     *     new FieldFragment('expr')
-     *     new FieldFragment('expr', 'alias')
-     *     new FieldFragment('database', 'table', 'column')
-     *     new FieldFragment('database', 'table', 'column', 'alias')
+     *     new Expression('expr')
+     *     new Expression('expr', 'alias')
+     *     new Expression('database', 'table', 'column')
+     *     new Expression('database', 'table', 'column', 'alias')
      *
      * If the database, table or column name is not required, pass an empty
      * string.
@@ -112,11 +112,11 @@ class FieldFragment extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return FieldFragment
+     * @return Expression
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new FieldFragment();
+        $ret = new Expression();
 
         /**
          * Whether current tokens make an expression or a table reference.
@@ -306,30 +306,30 @@ class FieldFragment extends Fragment
     }
 
     /**
-     * @param FieldFragment $fragment The fragment to be built.
+     * @param Expression $component The component to be built.
      *
      * @return string
      */
-    public static function build($fragment)
+    public static function build($component)
     {
-        if (!empty($fragment->expr)) {
-            $ret = $fragment->expr;
+        if (!empty($component->expr)) {
+            $ret = $component->expr;
         } else {
             $fields = array();
-            if (!empty($fragment->database)) {
-                $fields[] = $fragment->database;
+            if (!empty($component->database)) {
+                $fields[] = $component->database;
             }
-            if (!empty($fragment->table)) {
-                $fields[] = $fragment->table;
+            if (!empty($component->table)) {
+                $fields[] = $component->table;
             }
-            if (!empty($fragment->column)) {
-                $fields[] = $fragment->column;
+            if (!empty($component->column)) {
+                $fields[] = $component->column;
             }
             $ret = implode('.', Context::escape($fields));
         }
 
-        if (!empty($fragment->alias)) {
-            $ret .= ' AS ' . Context::escape($fragment->alias);
+        if (!empty($component->alias)) {
+            $ret .= ' AS ' . Context::escape($component->alias);
         }
 
         return $ret;

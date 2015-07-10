@@ -4,11 +4,11 @@
  * `LIMIT` keyword parser.
  *
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  */
-namespace SqlParser\Fragments;
+namespace SqlParser\Components;
 
-use SqlParser\Fragment;
+use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -18,11 +18,11 @@ use SqlParser\TokensList;
  *
  * @category   Keywords
  * @package    SqlParser
- * @subpackage Fragments
+ * @subpackage Components
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
-class LimitKeyword extends Fragment
+class Limit extends Component
 {
 
     /**
@@ -56,11 +56,11 @@ class LimitKeyword extends Fragment
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return LimitKeyword
+     * @return Limit
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new LimitKeyword();
+        $ret = new Limit();
 
         $offset = false;
 
@@ -116,16 +116,16 @@ class LimitKeyword extends Fragment
     }
 
     /**
-     * @param LimitKeyword $fragment The fragment to be built.
+     * @param Limit $component The component to be built.
      *
      * @return string
      */
-    public static function build($fragment)
+    public static function build($component)
     {
-        if (empty($fragment->offset)) {
-            return $fragment->rowCount;
+        if (empty($component->offset)) {
+            return $component->rowCount;
         } else {
-            return $fragment->offset . ', ' . $fragment->rowCount;
+            return $component->offset . ', ' . $component->rowCount;
         }
     }
 }

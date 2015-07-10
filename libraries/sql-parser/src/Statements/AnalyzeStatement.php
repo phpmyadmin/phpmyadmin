@@ -9,7 +9,7 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
-use SqlParser\Fragments\FieldFragment;
+use SqlParser\Components\Expression;
 
 /**
  * `ANALYZE` statement.
@@ -42,7 +42,7 @@ class AnalyzeStatement extends Statement
     /**
      * Analyzed tables.
      *
-     * @var FieldFragment[]
+     * @var Expression[]
      */
     public $tables;
 }

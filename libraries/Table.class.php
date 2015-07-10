@@ -818,9 +818,9 @@ class PMA_Table
 
             /**
              * The destination where the table is moved or copied to.
-             * @var SqlParser\Fragments\FieldFragment
+             * @var SqlParser\Components\Expression
              */
-            $destination = new SqlParser\Fragments\FieldFragment(
+            $destination = new SqlParser\Components\Expression(
                 $target_db, $target_table, ''
             );
 
@@ -850,7 +850,7 @@ class PMA_Table
                  */
                 $statement = new SqlParser\Statements\DropStatement();
 
-                $statement->options = new SqlParser\Fragments\OptionsFragment(
+                $statement->options = new SqlParser\Components\OptionsArray(
                     array(
                         PMA_Table::isView($target_db, $target_table) ?
                             'VIEW' : 'TABLE',

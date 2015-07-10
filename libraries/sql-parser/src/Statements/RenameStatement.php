@@ -12,7 +12,7 @@ use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Token;
 use SqlParser\TokensList;
-use SqlParser\Fragments\RenameKeyword;
+use SqlParser\Components\RenameOperation;
 
 /**
  * `RENAME` statement.
@@ -32,7 +32,7 @@ class RenameStatement extends Statement
     /**
      * The old and new names of the tables.
      *
-     * @var RenameKeyword[]
+     * @var RenameOperation[]
      */
     public $renames;
 

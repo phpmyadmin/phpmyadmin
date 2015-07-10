@@ -9,7 +9,7 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
-use SqlParser\Fragments\FieldFragment;
+use SqlParser\Components\Expression;
 
 /**
  * `OPTIMIZE` statement.
@@ -42,7 +42,7 @@ class OptimizeStatement extends Statement
     /**
      * Optimized tables.
      *
-     * @var FieldFragment[]
+     * @var Expression[]
      */
     public $tables;
 }
