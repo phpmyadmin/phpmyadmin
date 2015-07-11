@@ -1057,6 +1057,9 @@ function insertQuery(queryType)
                 'sql': codemirror_editor.getValue()
             };
             $.ajax({
+                // Even though formatting SQL does not change any server side
+                // resources, GET requests might not be suitable here due to url
+                // length limits
                 type: 'POST',
                 url: href,
                 data: params,
