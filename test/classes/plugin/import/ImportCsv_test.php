@@ -145,10 +145,7 @@ class ImportCsv_Test extends PHPUnit_Framework_TestCase
                 $sql_query
             );
         }
-        $this->assertContains(
-            'SET utf8 COLLATE utf8_general_ci',
-            $sql_query
-        );
+
         $this->assertContains(
             'CREATE TABLE IF NOT EXISTS `CSV_DB`.`TBL_NAME`',
             $sql_query
@@ -158,7 +155,6 @@ class ImportCsv_Test extends PHPUnit_Framework_TestCase
             true,
             $GLOBALS['finished']
         );
-
     }
 
     /**
@@ -211,10 +207,7 @@ class ImportCsv_Test extends PHPUnit_Framework_TestCase
                 $sql_query
             );
         }
-        $this->assertContains(
-            'SET utf8 COLLATE utf8_general_ci',
-            $sql_query
-        );
+
         $this->assertContains(
             'CREATE TABLE IF NOT EXISTS `CSV_DB`.`TBL_NAME`',
             $sql_query
@@ -224,6 +217,5 @@ class ImportCsv_Test extends PHPUnit_Framework_TestCase
             true,
             $GLOBALS['finished']
         );
-
     }
 }

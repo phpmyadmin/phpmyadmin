@@ -1248,7 +1248,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $result = $this->object->getTableDef(
-            'db', 'table', "\n", "example.com/err", true, true, true
+            'db', 'table', "\n", "example.com/err", true, true, false
         );
 
         $this->assertContains(
@@ -1402,7 +1402,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $row = array(
             '',
-            "CREATE TABLE `db`.`table` (\n" .
+            "CREATE TABLE `table` (\n" .
             "`id` INT NOT NULL AUTO_INCREMENT,\n" .
             "username VARCHAR(64) NULL,\n" .
             "`password` VARCHAR(256) DEFAULT '123456',\n" .
@@ -1420,7 +1420,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $result = $this->object->getTableDef(
-            'db', 'table', "\n", "example.com/err", true, true, true
+            'db', 'table', "\n", "example.com/err", true, true, false
         );
 
         $this->assertContains(
@@ -1533,7 +1533,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $result = $this->object->getTableDef(
-            'db', 'table', "\n", "example.com/err", true, true, true
+            'db', 'table', "\n", "example.com/err", true, true, false
         );
 
         $this->assertContains(
