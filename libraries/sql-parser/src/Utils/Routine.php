@@ -33,7 +33,7 @@ class Routine
      *
      * @return array
      */
-    public function getReturnType($param)
+    public static function getReturnType($param)
     {
         $lexer = new Lexer($param);
 
@@ -65,7 +65,7 @@ class Routine
      *
      * @return array
      */
-    public function getParameter($param)
+    public static function getParameter($param)
     {
         $lexer = new Lexer('(' . $param . ')');
 

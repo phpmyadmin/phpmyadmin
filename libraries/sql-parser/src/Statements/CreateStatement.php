@@ -215,6 +215,14 @@ class CreateStatement extends Statement
      */
     public function build()
     {
+        $fields = '';
+        if (!empty($this->fields)) {
+            if (is_array($this->fields)) {
+                $fields = FieldDefinition::build($this->fields) . ' ';
+            } elseif ($this->fields instanceof ArrayObj) {
+                $fields = ArrayObj::build($this->fields);
+            }
+        }
         if ($this->options->has('DATABASE')) {
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
@@ -224,17 +232,13 @@ class CreateStatement extends Statement
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
-                . FieldDefinition::build($this->fields) . ' '
+                . $fields
                 . OptionsArray::build($this->entityOptions);
         } elseif ($this->options->has('VIEW')) {
-            $tmp = '';
-            if (!empty($this->fields)) {
-                $tmp = ArrayObj::build($this->fields);
-            }
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
-                . $tmp . ' AS ' . TokensList::build($this->body) . ' '
+                . $fields . ' AS ' . TokensList::build($this->body) . ' '
                 . OptionsArray::build($this->entityOptions);
         } elseif ($this->options->has('TRIGGER')) {
             return 'CREATE '

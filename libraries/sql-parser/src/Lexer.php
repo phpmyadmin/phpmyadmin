@@ -516,11 +516,8 @@ class Lexer
         $state = 1;
         for (; $this->last < $this->len; ++$this->last) {
             if ($state === 1) {
-                if ($this->str[$this->last] === '+') {
-                    // Do nothing.
-                } elseif ($this->str[$this->last] === '-') {
+                if ($this->str[$this->last] === '-') {
                     $flags |= Token::FLAG_NUMBER_NEGATIVE;
-                    // Do nothing.
                 } elseif (($this->str[$this->last] === '0') && ($this->last + 1 < $this->len)
                     && (($this->str[$this->last + 1] === 'x') || ($this->str[$this->last + 1] === 'X'))
                 ) {
@@ -530,36 +527,33 @@ class Lexer
                     $state = 3;
                 } elseif ($this->str[$this->last] === '.') {
                     $state = 4;
-                } else {
+                } elseif ($this->str[$this->last] !== '+') {
+                    // `+` is a valid character in a number.
                     break;
                 }
             } elseif ($state === 2) {
                 $flags |= Token::FLAG_NUMBER_HEX;
-                if ((($this->str[$this->last] >= '0') && ($this->str[$this->last] <= '9'))
+                if (!((($this->str[$this->last] >= '0') && ($this->str[$this->last] <= '9'))
                     || (($this->str[$this->last] >= 'A') && ($this->str[$this->last] <= 'F'))
-                    || (($this->str[$this->last] >= 'a') && ($this->str[$this->last] <= 'f'))
+                    || (($this->str[$this->last] >= 'a') && ($this->str[$this->last] <= 'f')))
                 ) {
-                    // Do nothing.
-                } else {
                     break;
                 }
             } elseif ($state === 3) {
-                if (($this->str[$this->last] >= '0') && ($this->str[$this->last] <= '9')) {
-                    // Do nothing.
-                } elseif ($this->str[$this->last] === '.') {
+                if ($this->str[$this->last] === '.') {
                     $state = 4;
                 } elseif (($this->str[$this->last] === 'e') || ($this->str[$this->last] === 'E')) {
                     $state = 5;
-                } else {
+                } elseif (($this->str[$this->last] < '0') || ($this->str[$this->last] > '9')) {
+                    // Just digits and `.`, `e` and `E` are valid characters.
                     break;
                 }
             } elseif ($state === 4) {
                 $flags |= Token::FLAG_NUMBER_FLOAT;
-                if (($this->str[$this->last] >= '0') && ($this->str[$this->last] <= '9')) {
-                    // Do nothing.
-                } elseif (($this->str[$this->last] === 'e') || ($this->str[$this->last] === 'E')) {
+                if (($this->str[$this->last] === 'e') || ($this->str[$this->last] === 'E')) {
                     $state = 5;
-                } else {
+                } elseif (($this->str[$this->last] < '0') || ($this->str[$this->last] > '9')) {
+                    // Just digits, `e` and `E` are valid characters.
                     break;
                 }
             } elseif ($state === 5) {
@@ -572,9 +566,8 @@ class Lexer
                     break;
                 }
             } elseif ($state === 6) {
-                if (($this->str[$this->last] >= '0') && ($this->str[$this->last] <= '9')) {
-                    // Do nothing.
-                } else {
+                if (($this->str[$this->last] < '0') || ($this->str[$this->last] > '9')) {
+                    // Just digits are valid characters.
                     break;
                 }
             }

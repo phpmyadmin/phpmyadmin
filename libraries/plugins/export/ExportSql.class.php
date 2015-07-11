@@ -1591,7 +1591,7 @@ class ExportSql extends ExportPlugin
                     $alter_footer;
             }
 
-            if (!empty($fulltext_indexes)) {
+            if (!empty($indexes_fulltext)) {
                 // InnoDB supports one FULLTEXT index creation at a time.
                 // So FULLTEXT indexes are created one-by-one after other
                 // indexes where created.
@@ -1601,7 +1601,7 @@ class ExportSql extends ExportPlugin
                 ) . $alter_footer;
             }
 
-            if ((!empty($indexes)) || (!empty($fulltext_indexes))) {
+            if ((!empty($indexes)) || (!empty($indexes_fulltext))) {
                 $sql_indexes = $this->generateComment(
                     $crlf, $sql_indexes, __('Indexes for dumped tables'),
                     __('Indexes for table'), $table_alias, $compat
