@@ -1468,176 +1468,187 @@ class ExportSql extends ExportPlugin
                 );
             }
 
-            // Using appropriate quotes.
-            if (($compat === 'MSSQL') || ($sql_backquotes === '"')) {
-                SqlParser\Context::$MODE |= SqlParser\Context::ANSI_QUOTES;
-            }
+            // Views have no constraints, indexes, etc. They do not require any
+            // analysis.
+            if (!$view) {
 
-            /**
-             * Parser used for analysis.
-             * @var SqlParser
-             */
-            $parser = new SqlParser\Parser($create_query);
-
-            /**
-             * `CREATE TABLE` statement.
-             * @var SqlParser\Statements\SelectStatement
-             */
-            $statement = $parser->statements[0];
-
-            /**
-             * Fragments containining definition of each constraint.
-             * @var array
-             */
-            $constraints = array();
-
-            /**
-             * Fragments containining definition of each index.
-             * @var array
-             */
-            $indexes = array();
-
-            /**
-             * Fragments containining definition of each FULLTEXT index.
-             * @var array
-             */
-            $indexes_fulltext = array();
-
-            /**
-             * Fragments containining definition of each foreign key that will
-             * be dropped.
-             * @var array
-             */
-            $dropped = array();
-
-            /**
-             * Fragment containining definition of the `AUTO_INCREMENT`.
-             * @var array
-             */
-            $auto_increment = array();
-
-            // Scanning each field of the `CREATE` statement to fill the arrays
-            // above.
-            // If the field is used in any of the arrays above, it is removed
-            // from the original definition.
-            // Also, AUTO_INCREMENT attribute is removed.
-            foreach ($statement->fields as $key => $field) {
-
-                if ($field->isConstraint) {
-                    // Creating the parts that add constraints.
-                    $constraints[] = $field::build($field);
-                    unset($statement->fields[$key]);
-                } elseif (!empty($field->key)) {
-                    // Creating the parts that add indexes (must not be
-                    // constraints).
-                    if ($field->key->type === 'FULLTEXT KEY') {
-                        $indexes_fulltext[] = $field->build($field);
-                    } else {
-                        $indexes[] = $field->build($field);
-                    }
-                    unset($statement->fields[$key]);
+                // Using appropriate quotes.
+                if (($compat === 'MSSQL') || ($sql_backquotes === '"')) {
+                    SqlParser\Context::$MODE |= SqlParser\Context::ANSI_QUOTES;
                 }
 
-                // Creating the parts that drop foreign keys.
-                if (!empty($field->key)) {
-                    if ($field->key->type === 'FOREIGN KEY') {
-                        $dropped[] = 'FOREIGN KEY ' . SqlParser\Context::escape($field->name);
+                /**
+                 * Parser used for analysis.
+                 * @var SqlParser
+                 */
+                $parser = new SqlParser\Parser($create_query);
+            }
+
+            if (!empty($parser->statements[0]->fields)) {
+
+                /**
+                 * `CREATE TABLE` statement.
+                 * @var SqlParser\Statements\SelectStatement
+                 */
+                $statement = $parser->statements[0];
+
+                /**
+                 * Fragments containining definition of each constraint.
+                 * @var array
+                 */
+                $constraints = array();
+
+                /**
+                 * Fragments containining definition of each index.
+                 * @var array
+                 */
+                $indexes = array();
+
+                /**
+                 * Fragments containining definition of each FULLTEXT index.
+                 * @var array
+                 */
+                $indexes_fulltext = array();
+
+                /**
+                 * Fragments containining definition of each foreign key that will
+                 * be dropped.
+                 * @var array
+                 */
+                $dropped = array();
+
+                /**
+                 * Fragment containining definition of the `AUTO_INCREMENT`.
+                 * @var array
+                 */
+                $auto_increment = array();
+
+                // Scanning each field of the `CREATE` statement to fill the arrays
+                // above.
+                // If the field is used in any of the arrays above, it is removed
+                // from the original definition.
+                // Also, AUTO_INCREMENT attribute is removed.
+                foreach ($statement->fields as $key => $field) {
+
+                    if ($field->isConstraint) {
+                        // Creating the parts that add constraints.
+                        $constraints[] = $field::build($field);
+                        unset($statement->fields[$key]);
+                    } elseif (!empty($field->key)) {
+                        // Creating the parts that add indexes (must not be
+                        // constraints).
+                        if ($field->key->type === 'FULLTEXT KEY') {
+                            $indexes_fulltext[] = $field->build($field);
+                        } else {
+                            $indexes[] = $field->build($field);
+                        }
+                        unset($statement->fields[$key]);
                     }
-                    unset($statement->fields[$key]);
+
+                    // Creating the parts that drop foreign keys.
+                    if (!empty($field->key)) {
+                        if ($field->key->type === 'FOREIGN KEY') {
+                            $dropped[] = 'FOREIGN KEY ' . SqlParser\Context::escape($field->name);
+                        }
+                        unset($statement->fields[$key]);
+                    }
+
+                    // Dropping AUTO_INCREMENT.
+                    if (!empty($field->options)) {
+                        if ($field->options->has('AUTO_INCREMENT')) {
+                            $auto_increment[] = $field::build($field);
+                            $field->options->remove('AUTO_INCREMENT');
+                        }
+                    }
                 }
 
-                // Dropping AUTO_INCREMENT.
-                if (!empty($field->options)) {
-                    if ($field->options->has('AUTO_INCREMENT')) {
-                        $auto_increment[] = $field::build($field);
-                        $field->options->remove('AUTO_INCREMENT');
-                    }
+                /**
+                 * The header of the `ALTER` statement (`ALTER TABLE tbl`).
+                 * @var string
+                 */
+                $alter_header = 'ALTER TABLE ' .
+                    PMA_Util::backquoteCompat(
+                        $table_alias, $compat, $sql_backquotes
+                    );
+
+                /**
+                 * The footer of the `ALTER` statement (usually ';')
+                 * @var string
+                 */
+                $alter_footer = ';' . $crlf;
+
+                // Generating constraints-related query.
+                if (!empty($constraints)) {
+                    $sql_constraints_query = $alter_header .
+                        $crlf . '  ADD ' . implode(',' . $crlf . '  ADD ', $constraints) .
+                        $alter_footer;
+
+                    $sql_constraints = $this->generateComment(
+                        $crlf, $sql_constraints, __('Constraints for dumped tables'),
+                        __('Constraints for table'), $table_alias, $compat
+                    ) . $sql_constraints_query;
                 }
+
+                // Generating indexes-related query.
+                $sql_indexes_query = '';
+
+                if (!empty($indexes)) {
+                    $sql_indexes_query .= $alter_header .
+                        $crlf . '  ADD ' . implode(',' . $crlf . '  ADD ', $indexes) .
+                        $alter_footer;
+                }
+
+                if (!empty($indexes_fulltext)) {
+                    // InnoDB supports one FULLTEXT index creation at a time.
+                    // So FULLTEXT indexes are created one-by-one after other
+                    // indexes where created.
+                    $sql_indexes_query .= $alter_header .
+                    ' ADD ' . implode(
+                        $alter_footer . $alter_header . ' ADD ', $indexes_fulltext
+                    ) . $alter_footer;
+                }
+
+                if ((!empty($indexes)) || (!empty($indexes_fulltext))) {
+                    $sql_indexes = $this->generateComment(
+                        $crlf, $sql_indexes, __('Indexes for dumped tables'),
+                        __('Indexes for table'), $table_alias, $compat
+                    ) . $sql_indexes_query;
+                }
+
+                // Generating drop foreign keys-related query.
+                if (!empty($dropped)) {
+                    $sql_drop_foreign_keys = $alter_header .
+                        $crlf . '  DROP ' . implode(',' . $crlf . '  DROP ', $dropped) .
+                        $alter_footer;
+                }
+
+                // Generating auto-increment-related query.
+                if ((!empty($auto_increment)) && ($update_indexes_increments)) {
+                    $sql_auto_increments_query = $alter_header .
+                        $crlf . '  MODIFY ' . implode(',' . $crlf . '  MODIFY ', $auto_increment) .
+                        ', AUTO_INCREMENT=' . $statement->entityOptions->has('AUTO_INCREMENT')
+                        . $alter_footer;
+
+                    $sql_auto_increments = $this->generateComment(
+                        $crlf, $sql_auto_increments,
+                        __('AUTO_INCREMENT for dumped tables'),
+                        __('AUTO_INCREMENT for table'), $table_alias, $compat
+                    ) . $sql_auto_increments_query;
+                }
+
+                // Removing the `AUTO_INCREMENT` attribute from the `CREATE TABLE`
+                // too.
+                if (!empty($statement->entityOptions)) {
+                    $statement->entityOptions->remove('AUTO_INCREMENT');
+                }
+
+                // Rebuilding the query.
+                $create_query = $statement->build();
             }
 
-            /**
-             * The header of the `ALTER` statement (`ALTER TABLE tbl`).
-             * @var string
-             */
-            $alter_header = 'ALTER TABLE ' .
-                PMA_Util::backquoteCompat(
-                    $table_alias, $compat, $sql_backquotes
-                );
-
-            /**
-             * The footer of the `ALTER` statement (usually ';')
-             * @var string
-             */
-            $alter_footer = ';' . $crlf;
-
-            // Generating constraints-related query.
-            if (!empty($constraints)) {
-                $sql_constraints_query = $alter_header .
-                    $crlf . '  ADD ' . implode(',' . $crlf . '  ADD ', $constraints) .
-                    $alter_footer;
-
-                $sql_constraints = $this->generateComment(
-                    $crlf, $sql_constraints, __('Constraints for dumped tables'),
-                    __('Constraints for table'), $table_alias, $compat
-                ) . $sql_constraints_query;
-            }
-
-            // Generating indexes-related query.
-            $sql_indexes_query = '';
-
-            if (!empty($indexes)) {
-                $sql_indexes_query .= $alter_header .
-                    $crlf . '  ADD ' . implode(',' . $crlf . '  ADD ', $indexes) .
-                    $alter_footer;
-            }
-
-            if (!empty($indexes_fulltext)) {
-                // InnoDB supports one FULLTEXT index creation at a time.
-                // So FULLTEXT indexes are created one-by-one after other
-                // indexes where created.
-                $sql_indexes_query .= $alter_header .
-                ' ADD ' . implode(
-                    $alter_footer . $alter_header . ' ADD ', $indexes_fulltext
-                ) . $alter_footer;
-            }
-
-            if ((!empty($indexes)) || (!empty($indexes_fulltext))) {
-                $sql_indexes = $this->generateComment(
-                    $crlf, $sql_indexes, __('Indexes for dumped tables'),
-                    __('Indexes for table'), $table_alias, $compat
-                ) . $sql_indexes_query;
-            }
-
-            // Generating drop foreign keys-related query.
-            if (!empty($dropped)) {
-                $sql_drop_foreign_keys = $alter_header .
-                    $crlf . '  DROP ' . implode(',' . $crlf . '  DROP ', $dropped) .
-                    $alter_footer;
-            }
-
-            // Generating auto-increment-related query.
-            if ((!empty($auto_increment)) && ($update_indexes_increments)) {
-                $sql_auto_increments_query = $alter_header .
-                    $crlf . '  MODIFY ' . implode(',' . $crlf . '  MODIFY ', $auto_increment) .
-                    ', AUTO_INCREMENT=' . $statement->entityOptions->has('AUTO_INCREMENT')
-                    . $alter_footer;
-
-                $sql_auto_increments = $this->generateComment(
-                    $crlf, $sql_auto_increments,
-                    __('AUTO_INCREMENT for dumped tables'),
-                    __('AUTO_INCREMENT for table'), $table_alias, $compat
-                ) . $sql_auto_increments_query;
-            }
-
-            // Removing the `AUTO_INCREMENT` attribute from the `CREATE TABLE`
-            // too.
-            if (!empty($statement->entityOptions)) {
-                $statement->entityOptions->remove('AUTO_INCREMENT');
-            }
-
-            // Rebuilding the query.
-            $schema_create .= $statement->build();
+            $schema_create .= $create_query;
         }
+
 
         $GLOBALS['dbi']->freeResult($result);
 

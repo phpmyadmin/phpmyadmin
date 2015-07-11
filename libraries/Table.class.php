@@ -881,21 +881,24 @@ class PMA_Table
              */
             $parser = new SqlParser\Parser($sql_structure);
 
-            /**
-             * The CREATE statement of this structure.
-             * @var SqlParser\Statements\CreateStatement $statement
-             */
-            $statement = $parser->statements[0];
+            if (!empty($parser->statements[0])) {
 
-            // Changing the destination.
-            $statement->name = $destination;
+                /**
+                 * The CREATE statement of this structure.
+                 * @var SqlParser\Statements\CreateStatement $statement
+                 */
+                $statement = $parser->statements[0];
 
-            // Building back the query.
-            $sql_structure = $statement->build() . ';';
+                // Changing the destination.
+                $statement->name = $destination;
 
-            // Executing it.
-            $GLOBALS['dbi']->query($sql_structure);
-            $GLOBALS['sql_query'] .= "\n" . $sql_structure;
+                // Building back the query.
+                $sql_structure = $statement->build() . ';';
+
+                // Executing it.
+                $GLOBALS['dbi']->query($sql_structure);
+                $GLOBALS['sql_query'] .= "\n" . $sql_structure;
+            }
 
             // -----------------------------------------------------------------
             // Phase 3: Adding constraints.
