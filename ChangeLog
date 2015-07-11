@@ -75,6 +75,7 @@ phpMyAdmin - ChangeLog
 + rfe #1685 Improved processlist for mariadb
 + rfe #1686 Warn about "Any user" potential problem
 + rfe #1683 Hide/diable edit links for read-only variables
++ rfe #1680 Human readable/writable URLs (html5 api)
 
 4.4.12.0 (not yet released)
 - bug       Saved chart image does not have a proper name or an extension
