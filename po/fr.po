@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-10 07:02-0400\n"
-"PO-Revision-Date: 2015-07-09 11:52+0200\n"
+"PO-Revision-Date: 2015-07-11 13:08+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7271,7 +7271,6 @@ msgid "Export templates table"
 msgstr "Table des modèles d'exportation"
 
 #: libraries/config/messages.inc.php:657
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no export template support, suggested: "
 #| "[kbd]pma__exporttemplates[/kbd]."
@@ -7280,7 +7279,7 @@ msgid ""
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
 "Laisser vide pour désactiver le support des modèles d'exportation, "
-"suggestion : [kbd]pma__exporttemplates[/kbd]."
+"suggestion : [kbd]pma__export_templates[/kbd]."
 
 #: libraries/config/messages.inc.php:660
 msgid "Central columns table"
@@ -12747,6 +12746,10 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"Un compte d'utilisateur permettant à tout utilisateur de se connecter depuis "
+"« localhost » est présent. Cela empêchera les autres utilisateurs de se "
+"connecter si la partie hôte de leur compte permet une connexion de n'importe "
+"quel hôte (%)."
 
 #: libraries/server_privileges.lib.php:4272
 #, php-format
@@ -13068,7 +13071,7 @@ msgstr "Commande"
 
 #: libraries/server_status_processes.lib.php:96
 msgid "Progress"
-msgstr ""
+msgstr "Progression"
 
 #: libraries/server_status_processes.lib.php:253
 #: libraries/server_status_variables.lib.php:39
