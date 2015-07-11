@@ -247,6 +247,10 @@ fieldset .formelement {
     white-space:        nowrap;
 }
 
+.read_only_var {
+    padding: 20%;
+}
+
 /* revert for Gecko */
 fieldset div[class=formelement] {
     white-space:        normal;
