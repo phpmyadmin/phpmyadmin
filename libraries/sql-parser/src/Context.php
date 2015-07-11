@@ -422,10 +422,56 @@ abstract class Context
             $context = self::$contextPrefix . $context;
         }
         if (!class_exists($context)) {
-            throw new \Exception('Specified context ("' . $context . '") does not exist.');
+            throw new \Exception(
+                'Specified context ("' . $context . '") does not exist.'
+            );
         }
         self::$loadedContext = $context;
         self::$KEYWORDS = $context::$KEYWORDS;
+    }
+
+    /**
+     * Loads the context with the closest version to the one specified.
+     *
+     * The closest context is found by replacing last digits with zero until one
+     * is loaded succesfully.
+     *
+     * @see Context::load()
+     *
+     * @param string $context Name of the context or full class name that
+     *                        defines the context.
+     *
+     * @return string The loaded context. `null` if no context was loaded.
+     */
+    public static function loadClosest($context = '')
+    {
+        /**
+         * The number of replaces done by `preg_replace`.
+         * This actually represents whether a new context was generated or not.
+         * @var int
+         */
+        $count = 0;
+
+        // As long as a new context can be generated, we try to laod it.
+        do {
+            $loaded = true;
+            try {
+                // Trying to load the new context.
+                static::load($context);
+            } catch (\Exception $e) {
+                // If it didn't work, we are looking for a new one and skipping
+                // over to the next generation that will try the new context.
+                $context = preg_replace(
+                    '/[1-9](0*)$/', '0$1', $context, -1, $count
+                );
+                continue;
+            }
+            // Last generated context was valid (did not throw any exceptions).
+            // So we return it, to let the user know what context was loaded.
+            return $context;
+        } while ($count !== 0);
+
+        return null;
     }
 
     /**

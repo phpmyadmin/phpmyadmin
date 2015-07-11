@@ -103,7 +103,15 @@ class Lexer
     public $list;
 
     /**
+     * The default delimiter. This is used, by default, in all new instances.
+     *
+     * @var string
+     */
+    public static $DEFAULT_DELIMITER = ';';
+
+    /**
      * Statements delimiter.
+     * This may change during lexing.
      *
      * @var string
      */
@@ -145,6 +153,9 @@ class Lexer
         $this->len = ($str instanceof UtfString) ?
             $str->length() : strlen($str);
         $this->strict = $strict;
+
+        $this->delimiter = static::$DEFAULT_DELIMITER;
+
         $this->lex();
     }
 

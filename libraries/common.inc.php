@@ -1065,14 +1065,21 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         /**
-         * SQL Parser code
+         * Initializes the SQL parsing library.
          */
         include_once './libraries/sql-parser/autoload.php';
-        try {
-            SqlParser\Context::load((PMA_DRIZZLE ? 'Drizzle' : 'MySql') . PMA_MYSQL_INT_VERSION);
-        } catch (\Exception $e) {
-            // If this fails, it will continue using the default context.
+
+       // Loads closest context to this version.
+        SqlParser\Context::loadClosest(
+            (PMA_DRIZZLE ? 'Drizzle' : 'MySql') . PMA_MYSQL_INT_VERSION
+        );
+
+        // Sets the default delimiter (if specified).
+        if (!empty($_REQUEST['sql_delimiter'])) {
+            SqlParser\Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
         }
+
+        // TODO: Set SQL modes too.
 
         /**
          * the PMA_List_Database class
