@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2014-06-08 19:34+0200\n"
-"Last-Translator: Nikola Stojaković <nikola.stojakovic@hotmail.com>\n"
-"Language-Team: Serbian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sr/>\n"
+"PO-Revision-Date: 2015-07-13 00:25+0200\n"
+"Last-Translator: Smart Kid <kidsmart33@gmail.com>\n"
+"Language-Team: Serbian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/sr/>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -31,7 +31,7 @@ msgstr ""
 
 #: db_central_columns.php:113
 msgid "Click to sort."
-msgstr ""
+msgstr "Кликните да би сте сортирали."
 
 #: db_central_columns.php:129
 #, fuzzy, php-format
@@ -381,7 +381,7 @@ msgstr "Направи"
 
 #: db_tracking.php:128 libraries/tracking.lib.php:277
 msgid "Updated"
-msgstr ""
+msgstr "Ажурирано"
 
 #: db_tracking.php:129 js/messages.php:212 libraries/Menu.class.php:545
 #: libraries/Util.class.php:4151 libraries/rte/rte_events.lib.php:404
@@ -416,30 +416,28 @@ msgid "Delete tracking"
 msgstr "Дозвољава уметање и замену података."
 
 #: db_tracking.php:140
-#, fuzzy
 msgid "Versions"
-msgstr "Персијски"
+msgstr "Верзије"
 
 #: db_tracking.php:141 libraries/tracking.lib.php:288
 #: libraries/tracking.lib.php:456
 msgid "Tracking report"
-msgstr ""
+msgstr "Извештај о праћењу"
 
 #: db_tracking.php:142 libraries/tracking.lib.php:289
 #: libraries/tracking.lib.php:826
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Само структура"
+msgstr "Снимак структуре"
 
 #: db_tracking.php:184 libraries/tracking.lib.php:418
 #: libraries/tracking.lib.php:1436
 msgid "not active"
-msgstr ""
+msgstr "неактивно"
 
 #: db_tracking.php:189 libraries/tracking.lib.php:416
 #: libraries/tracking.lib.php:1434
 msgid "active"
-msgstr ""
+msgstr "активно"
 
 #: db_tracking.php:277
 #, fuzzy
@@ -447,9 +445,8 @@ msgid "Untracked tables"
 msgstr "Провери табелу"
 
 #: db_tracking.php:303 db_tracking.php:334 libraries/structure.lib.php:1649
-#, fuzzy
 msgid "Track table"
-msgstr "Провери табелу"
+msgstr "Прати табелу"
 
 #: db_tracking.php:347
 #, fuzzy
@@ -481,30 +478,27 @@ msgid "You may want to refresh the page."
 msgstr ""
 
 #: export.php:182 schema_export.php:71
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Врста упита"
+msgstr "Погрешан тип!"
 
 #: export.php:263
-#, fuzzy
 #| msgid "Add new field"
 msgid "Bad parameters!"
-msgstr "Додај ново поље"
+msgstr "Погрешни параметри!"
 
 #: file_echo.php:22
-#, fuzzy
 msgid "Invalid export type"
-msgstr "Тип извоза"
+msgstr "Погрешан тип извоза"
 
 #: gis_data_editor.php:118
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "Вредност за колону %s"
 
 #: gis_data_editor.php:146 libraries/tbl_gis_visualization.lib.php:165
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Искористи OpenStreetMaps као основни слој"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:168
@@ -583,9 +577,8 @@ msgid "Add a polygon"
 msgstr "Додај %s поља"
 
 #: gis_data_editor.php:403
-#, fuzzy
 msgid "Add geometry"
-msgstr "Додај новог корисника"
+msgstr "Додај геометрију"
 
 #: gis_data_editor.php:409 js/messages.php:261
 #: libraries/DbSearch.class.php:467 libraries/DisplayResults.class.php:1685
@@ -708,6 +701,7 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
+"Није могуће променити сет знакова датотеке без библиотеке за конверзију!"
 
 #: import.php:595 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
