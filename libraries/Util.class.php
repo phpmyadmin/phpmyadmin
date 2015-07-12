@@ -585,68 +585,105 @@ class PMA_Util
      * Displays a MySQL error message in the main panel when $exit is true.
      * Returns the error message otherwise.
      *
-     * @param string|bool $error_message  the error message
-     * @param string      $the_query      the sql query that failed
-     * @param bool        $is_modify_link whether to show a "modify" link or not
-     * @param string      $back_url       the "back" link url (full path is not
-     *                                    required)
-     * @param bool        $exit           EXIT the page?
+     * @param string|bool $server_msg     Server's error message.
+     * @param string      $sql_query      The SQL query that failed.
+     * @param bool        $is_modify_link Whether to show a "modify" link or not.
+     * @param string      $back_url       URL for the "back" link (full path is
+     *                                    not required).
+     * @param bool        $exit           Whether execution should be stopped or
+     *                                    the error message should be returned.
      *
      * @return string
      *
-     * @global string $table the current table
-     * @global string $db    the current db
+     * @global string $table The current table.
+     * @global string $db    The current database.
      *
      * @access public
      */
     public static function mysqlDie(
-        $error_message = '', $the_query = '',
+        $server_msg = '', $sql_query = '',
         $is_modify_link = true, $back_url = '', $exit = true
     ) {
         global $table, $db;
 
+        /**
+         * Error message to be built.
+         * @var string $error_msg
+         */
         $error_msg = '';
 
-        if (! $error_message) {
-            $error_message = $GLOBALS['dbi']->getError();
-        }
-        if (! $the_query && ! empty($GLOBALS['sql_query'])) {
-            $the_query = $GLOBALS['sql_query'];
+        // Checking for any server errors.
+        if (empty($server_msg)) {
+            $server_msg = $GLOBALS['dbi']->getError();
         }
 
-        // --- Added to solve bug #641765
-        if (! function_exists('PMA_SQP_isError') || PMA_SQP_isError()) {
-            $formatted_sql = htmlspecialchars($the_query);
-        } elseif (empty($the_query) || (trim($the_query) == '')) {
+        // Finding the query that failed, if not specified.
+        if ((empty($sql_query) && (!empty($GLOBALS['sql_query'])))) {
+            $sql_query = $GLOBALS['sql_query'];
+        }
+        $sql_query = trim($sql_query);
+
+        /**
+         * The lexer used for analysis.
+         * @var SqlParser\Lexer $lexer
+         */
+        $lexer = new SqlParser\Lexer($sql_query);
+
+        /**
+         * The parser used for analysis.
+         * @var SqlParser\Parser $parser
+         */
+        $parser = new SqlParser\Parser($lexer->list);
+
+        /**
+         * The errors found by the lexer and the parser.
+         * @var array $errors
+         */
+        $errors = SqlParser\Utils\Error::get(array($lexer, $parser));
+
+        if (empty($sql_query)) {
             $formatted_sql = '';
+        } elseif (count($errors)) {
+            $formatted_sql = htmlspecialchars($sql_query);
         } else {
-            $formatted_sql = self::formatSql($the_query, true);
+            $formatted_sql = self::formatSql($sql_query, true);
         }
-        // ---
-        $error_msg .= "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
-        $error_msg .= '    <div class="error"><h1>' . __('Error')
-            . '</h1>' . "\n";
 
-        // if the config password is wrong, or the MySQL server does not
-        // respond, do not show the query that would reveal the
-        // username/password
-        if (! empty($the_query) && ! /*overload*/mb_strstr($the_query, 'connect')) {
-            // --- Added to solve bug #641765
-            if (function_exists('PMA_SQP_isError') && PMA_SQP_isError()) {
-                $error_msg .= PMA_SQP_getErrorString() . "\n";
-                $error_msg .= '<br />' . "\n";
+        $error_msg .= '<div class="error"><h1>' . __('Error') . '</h1>';
+
+        // For security reasons, if the MySQL refuses the connection, the query
+        // is hidden so no details are revealed.
+        if ((!empty($sql_query)) && (!(mb_strstr($sql_query, 'connect')))) {
+
+            // Static analysis errors.
+            if (!empty($errors)) {
+                $error_msg .= '<p><strong>' . __('Static analysis:') . '</strong></p>';
+                $error_msg .= '<p>' . sprintf(
+                    __('%d errors were found during analysis.'), count($errors)
+                ) . '</p>';
+                $error_msg .= '<p><ol>';
+                $error_msg .= implode(
+                    SqlParser\Utils\Error::format(
+                        $errors,
+                        '<li>%2$s (near "%4$s" at position %5$d)</li>'
+                    )
+                );
+                $error_msg .= '</ol></p>';
             }
-            // ---
-            // modified to show the help on sql errors
+
+            // Display the SQL query and link to MySQL documentation.
             $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . "\n";
             $formattedSqlToLower = /*overload*/mb_strtolower($formatted_sql);
+
+            // TODO: Show documentation for all statement types.
             if (/*overload*/mb_strstr($formattedSqlToLower, 'select')) {
                 // please show me help to the error on select
                 $error_msg .= self::showMySQLDocu('SELECT');
             }
+
             if ($is_modify_link) {
                 $_url_params = array(
-                    'sql_query' => $the_query,
+                    'sql_query' => $sql_query,
                     'show_query' => 1,
                 );
                 if (/*overload*/mb_strlen($table)) {
@@ -666,46 +703,47 @@ class PMA_Util
                 $error_msg .= $doedit_goto
                    . self::getIcon('b_edit.png', __('Edit'))
                    . '</a>';
-            } // end if
+            }
+
             $error_msg .= '    </p>' . "\n"
                 . '<p>' . "\n"
                 . $formatted_sql . "\n"
                 . '</p>' . "\n";
-        } // end if
+        }
 
-        if (! empty($error_message)) {
-            $error_message = preg_replace(
+        // Display server's error.
+        if (!empty($server_msg)) {
+            $server_msg = preg_replace(
                 "@((\015\012)|(\015)|(\012)){3,}@",
                 "\n\n",
-                $error_message
+                $server_msg
             );
+
+            // Adds a link to MySQL documentation.
+            $error_msg .= '<p>' . "\n"
+                . '    <strong>' . __('MySQL said: ') . '</strong>'
+                . self::showMySQLDocu('Error-messages-server')
+                . "\n"
+                . '</p>' . "\n";
+
+            // The error message will be displayed within a CODE segment.
+            // To preserve original formatting, but allow word-wrapping,
+            // a couple of replacements are done.
+            // All non-single blanks and  TAB-characters are replaced with their
+            // HTML-counterpart
+            $server_msg = str_replace(
+                array('  ', "\t"),
+                array('&nbsp;&nbsp;', '&nbsp;&nbsp;&nbsp;&nbsp;'),
+                $server_msg
+            );
+
+            // Replace line breaks
+            $server_msg = nl2br($server_msg);
+
+            $error_msg .= '<code>' . $server_msg . '</code><br/>';
         }
-        // modified to show the help on error-returns
-        // (now error-messages-server)
-        $error_msg .= '<p>' . "\n"
-            . '    <strong>' . __('MySQL said: ') . '</strong>'
-            . self::showMySQLDocu('Error-messages-server')
-            . "\n"
-            . '</p>' . "\n";
 
-        // The error message will be displayed within a CODE segment.
-        // To preserve original formatting, but allow wordwrapping,
-        // we do a couple of replacements
-
-        // Replace all non-single blanks with their HTML-counterpart
-        $error_message = str_replace('  ', '&nbsp;&nbsp;', $error_message);
-        // Replace TAB-characters with their HTML-counterpart
-        $error_message = str_replace(
-            "\t", '&nbsp;&nbsp;&nbsp;&nbsp;', $error_message
-        );
-        // Replace line breaks
-        $error_message = nl2br($error_message);
-
-        $error_msg .= '<code>' . "\n"
-            . $error_message . "\n"
-            . '</code><br />' . "\n";
         $error_msg .= '</div>';
-
         $_SESSION['Import_message']['message'] = $error_msg;
 
         if (!$exit) {
@@ -713,19 +751,17 @@ class PMA_Util
         }
 
         /**
-         * If in an Ajax request
-         * - avoid displaying a Back link
-         * - use PMA_Response() to transmit the message and exit
+         * If this is an AJAX request, there is no "Back" link and
+         * `PMA_Response()` is used to send the response.
          */
-        if (isset($GLOBALS['is_ajax_request'])
-            && $GLOBALS['is_ajax_request'] == true
-        ) {
+        if (!empty($GLOBALS['is_ajax_request'])) {
             $response = PMA_Response::getInstance();
             $response->isSuccess(false);
             $response->addJSON('message', $error_msg);
             exit;
         }
-        if (! empty($back_url)) {
+
+        if (!empty($back_url)) {
             if (/*overload*/mb_strstr($back_url, '?')) {
                 $back_url .= '&amp;no_history=true';
             } else {
@@ -738,9 +774,9 @@ class PMA_Util
                 . '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]'
                 . '</fieldset>' . "\n\n";
         }
-        echo $error_msg;
-        exit;
-    } // end of the 'mysqlDie()' function
+
+        exit($error_msg);
+    }
 
     /**
      * Check the correct row count
@@ -907,9 +943,7 @@ class PMA_Util
         }
 
         if (! $do_it) {
-            global $PMA_SQPdata_forbidden_word;
-            $eltNameUpper = /*overload*/mb_strtoupper($a_name);
-            if (!in_array($eltNameUpper, $PMA_SQPdata_forbidden_word)) {
+            if (!(SqlParser\Context::isKeyword($a_name) & SqlParser\Token::FLAG_KEYWORD_RESERVED)) {
                 return $a_name;
             }
         }
@@ -954,9 +988,7 @@ class PMA_Util
         }
 
         if (! $do_it) {
-            global $PMA_SQPdata_forbidden_word;
-            $eltNameUpper = /*overload*/mb_strtoupper($a_name);
-            if (!in_array($eltNameUpper, $PMA_SQPdata_forbidden_word)) {
+            if (!SqlParser\Context::isKeyword($a_name)) {
                 return $a_name;
             }
         }
@@ -1091,56 +1123,6 @@ class PMA_Util
                         ) . '[...]'
                     )
                 );
-            } elseif (! empty($GLOBALS['parsed_sql'])
-                && $query_base == $GLOBALS['parsed_sql']['raw']
-            ) {
-                // (here, use "! empty" because when deleting a bookmark,
-                // $GLOBALS['parsed_sql'] is set but empty
-                $parsed_sql = $GLOBALS['parsed_sql'];
-            } else {
-                // Parse SQL if needed
-                $parsed_sql = PMA_SQP_parse($query_base);
-            }
-
-            // Analyze it
-            if (isset($parsed_sql) && ! PMA_SQP_isError()) {
-                $analyzed_display_query = PMA_SQP_analyze($parsed_sql);
-
-                // Same as below (append LIMIT), append the remembered ORDER BY
-                if ($GLOBALS['cfg']['RememberSorting']
-                    && isset($analyzed_display_query[0]['queryflags']['select_from'])
-                    && isset($GLOBALS['sql_order_to_append'])
-                ) {
-                    $query_base = $analyzed_display_query[0]['section_before_limit']
-                        . "\n" . $GLOBALS['sql_order_to_append']
-                        . $analyzed_display_query[0]['limit_clause'] . ' '
-                        . $analyzed_display_query[0]['section_after_limit'];
-                    // update the $analyzed_display_query
-                    $analyzed_display_query[0]['section_before_limit']
-                        .= $GLOBALS['sql_order_to_append'];
-                    $analyzed_display_query[0]['order_by_clause']
-                        = $GLOBALS['sorted_col'];
-                }
-
-                // Here we append the LIMIT added for navigation, to
-                // enable its display. Adding it higher in the code
-                // to $sql_query would create a problem when
-                // using the Refresh or Edit links.
-
-                // Only append it on SELECTs.
-
-                /**
-                 * @todo what would be the best to do when someone hits Refresh:
-                 * use the current LIMITs ?
-                 */
-
-                if (isset($analyzed_display_query[0]['queryflags']['select_from'])
-                    && ! empty($GLOBALS['sql_limit_to_append'])
-                ) {
-                    $query_base = $analyzed_display_query[0]['section_before_limit']
-                        . "\n" . $GLOBALS['sql_limit_to_append']
-                        . $analyzed_display_query[0]['section_after_limit'];
-                }
             }
 
             if (! empty($GLOBALS['show_as_php'])) {
@@ -2143,22 +2125,24 @@ class PMA_Util
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param resource       $handle            current query result
-     * @param integer        $fields_cnt        number of fields
-     * @param array          $fields_meta       meta information about fields
-     * @param array          $row               current row
-     * @param boolean        $force_unique      generate condition only on pk or
-     *                                          unique
-     * @param string|boolean $restrict_to_table restrict the unique condition to
-     *                                          this table or false if none
+     * @param resource       $handle               current query result
+     * @param integer        $fields_cnt           number of fields
+     * @param array          $fields_meta          meta information about fields
+     * @param array          $row                  current row
+     * @param boolean        $force_unique         generate condition only on pk
+     *                                             or unique
+     * @param string|boolean $restrict_to_table    restrict the unique condition
+     *                                             to this table or false if
+     *                                             none
+     * @param array          $analyzed_sql_results the analyzed query
      *
      * @access public
      *
-     * @return array     the calculated condition and whether condition is unique
+     * @return array the calculated condition and whether condition is unique
      */
     public static function getUniqueCondition(
         $handle, $fields_cnt, $fields_meta, $row, $force_unique = false,
-        $restrict_to_table = false
+        $restrict_to_table = false, $analyzed_sql_results = null
     ) {
         $primary_key          = '';
         $unique_key           = '';
@@ -2179,19 +2163,16 @@ class PMA_Util
             if (! isset($meta->orgname) || ! /*overload*/mb_strlen($meta->orgname)) {
                 $meta->orgname = $meta->name;
 
-                if (isset($GLOBALS['analyzed_sql'][0]['select_expr'])
-                    && is_array($GLOBALS['analyzed_sql'][0]['select_expr'])
-                ) {
-                    foreach (
-                        $GLOBALS['analyzed_sql'][0]['select_expr'] as $select_expr
-                    ) {
-                        // need (string) === (string)
-                        // '' !== 0 but '' == 0
-                        if ((string)$select_expr['alias'] === (string)$meta->name) {
-                            $meta->orgname = $select_expr['column'];
+                if (!empty($analyzed_sql_results['statement']->expr)) {
+                    foreach ($analyzed_sql_results['statement']->expr as $expr) {
+                        if ((empty($expr->alias)) || (empty($expr->column))) {
+                            continue;
+                        }
+                        if (strcasecmp($meta->name, $expr->alias) == 0) {
+                            $meta->orgname = $expr->column;
                             break;
-                        } // end if
-                    } // end foreach
+                        }
+                    }
                 }
             }
 
@@ -3947,7 +3928,6 @@ class PMA_Util
      * @param bool  $insert_mode Whether the operation is 'insert'
      *
      * @global   array    $cfg            PMA configuration
-     * @global   array    $analyzed_sql   Analyzed SQL query
      * @global   mixed    $data           data of currently edited row
      *                                    (used to detect whether to choose defaults)
      *
@@ -4183,38 +4163,6 @@ class PMA_Util
         }
 
         return $server_type;
-    }
-
-    /**
-     * Analyzes the limit clause and return the start and length attributes of it.
-     *
-     * @param string $limit_clause limit clause
-     *
-     * @return array|bool Start and length attributes of the limit clause or false
-     *                    on failure
-     */
-    public static function analyzeLimitClause($limit_clause)
-    {
-        $limitParams = trim(str_ireplace('LIMIT', '', $limit_clause));
-        if ('' == $limitParams) {
-            return false;
-        }
-
-        $start_and_length = explode(',', $limitParams);
-        $size = count($start_and_length);
-        if ($size == 1) {
-            return array(
-                'start'  => '0',
-                'length' => trim($start_and_length[0])
-            );
-        } elseif ($size == 2) {
-            return array(
-                'start'  => trim($start_and_length[0]),
-                'length' => trim($start_and_length[1])
-            );
-        }
-
-        return false;
     }
 
     /**

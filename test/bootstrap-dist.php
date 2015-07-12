@@ -55,6 +55,7 @@ $CFG = new PMA_Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);
+require_once 'libraries/sql-parser/autoload.php';
 
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');

@@ -435,12 +435,12 @@ function PMA_makeConsistentWithList($db, $selected_tables)
                 if ($column['col_default']) {
                     if ($column['col_default'] != 'CURRENT_TIMESTAMP') {
                         $query .= ' DEFAULT \'' . PMA_Util::sqlAddSlashes(
-                                $column['col_default']
-                            ) . '\'';
+                            $column['col_default']
+                        ) . '\'';
                     } else {
                         $query .= ' DEFAULT ' . PMA_Util::sqlAddSlashes(
-                                $column['col_default']
-                            );
+                            $column['col_default']
+                        );
                     }
                 }
                 $query .= ',';
@@ -514,7 +514,7 @@ function PMA_getCentralColumnsFromTable($db, $table, $allFields=false)
  * @return true|PMA_Message
  */
 function PMA_updateOneColumn($db, $orig_col_name, $col_name, $col_type,
-                             $col_attribute,$col_length, $col_isNull, $collation, $col_extra, $col_default
+    $col_attribute,$col_length, $col_isNull, $collation, $col_extra, $col_default
 ) {
     $cfgCentralColumns = PMA_centralColumnsGetParams();
     if (empty($cfgCentralColumns)) {
@@ -865,7 +865,8 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
         . '<input name="orig_col_name" type="hidden" '
         . 'value="' . htmlspecialchars($row['col_name']) . '">'
         . PMA\Template::get('columns_definitions/column_name')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => $row_num,
                 'ci' => 0,
                 'ci_offset' => 0,
@@ -875,19 +876,22 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
                 'cfgRelation' => array(
                     'centralcolumnswork' => false
                 )
-            ))
+                )
+            )
         . '</td>';
     $tableHtml .=
         '<td name = "col_type" class="nowrap"><span>'
         . htmlspecialchars($row['col_type']) . '</span>'
         . PMA\Template::get('columns_definitions/column_type')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => $row_num,
                 'ci' => 1,
                 'ci_offset' => 0,
                 'type_upper' => /*overload*/mb_strtoupper($row['col_type']),
                 'columnMeta' => array()
-            ))
+                )
+            )
         . '</td>';
     $tableHtml .=
         '<td class="nowrap" name="col_length">'
@@ -922,13 +926,15 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
             ? htmlspecialchars($row['col_default']) : 'None')
         . '</span>'
         . PMA\Template::get('columns_definitions/column_default')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => $row_num,
                 'ci' => 3,
                 'ci_offset' => 0,
                 'type_upper' => /*overload*/mb_strtoupper($row['col_type']),
                 'columnMeta' => $meta
-            ))
+                )
+            )
         . '</td>';
 
     $tableHtml .=
@@ -946,29 +952,32 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $odd_row, $row_num, $db)
             ? htmlspecialchars($row['col_attribute']) : "" )
         . '</span>'
         . PMA\Template::get('columns_definitions/column_attribute')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => $row_num,
                 'ci' => 5,
                 'ci_offset' => 0,
                 'extracted_columnspec' => array(),
                 'columnMeta' => $row['col_attribute'],
                 'submit_attribute' => false,
-                'analyzed_sql' => null
-            ))
+                )
+            )
         . '</td>';
     $tableHtml .=
         '<td class="nowrap" name="col_isNull">'
         . '<span>' . ($row['col_isNull'] ? __('Yes') : __('No'))
         . '</span>'
         . PMA\Template::get('columns_definitions/column_null')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => $row_num,
                 'ci' => 6,
                 'ci_offset' => 0,
                 'columnMeta' => array(
                     'Null' => $row['col_isNull']
                 )
-            ))
+                )
+            )
         . '</td>';
 
     $tableHtml .=
@@ -1006,7 +1015,8 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
         . 'value="' . htmlspecialchars($row['col_name']) . '">'
         . '<td name="col_name" class="nowrap">'
         . PMA\Template::get('columns_definitions/column_name')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => $row_num,
                 'ci' => 0,
                 'ci_offset' => 0,
@@ -1016,18 +1026,21 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
                 'cfgRelation' => array(
                     'centralcolumnswork' => false
                 )
-            ))
+                )
+            )
         . '</td>';
     $tableHtml .=
         '<td name = "col_type" class="nowrap">'
         . PMA\Template::get('columns_definitions/column_type')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => $row_num,
                 'ci' => 1,
                 'ci_offset' => 0,
                 'type_upper' => /*overload*/mb_strtoupper($row['col_type']),
                 'columnMeta' => array()
-            ))
+                )
+            )
         . '</td>';
     $tableHtml .=
         '<td class="nowrap" name="col_length">'
@@ -1057,13 +1070,15 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
     $tableHtml .=
         '<td class="nowrap" name="col_default">'
         . PMA\Template::get('columns_definitions/column_default')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => $row_num,
                 'ci' => 3,
                 'ci_offset' => 0,
                 'type_upper' => /*overload*/mb_strtoupper($row['col_default']),
                 'columnMeta' => $meta
-            ))
+                )
+            )
         . '</td>';
     $tableHtml .=
         '<td name="collation" class="nowrap">'
@@ -1075,7 +1090,8 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
     $tableHtml .=
         '<td class="nowrap" name="col_attribute">'
         . PMA\Template::get('columns_definitions/column_attribute')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => $row_num,
                 'ci' => 5,
                 'ci_offset' => 0,
@@ -1084,20 +1100,22 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $odd_row, $row_num)
                 ),
                 'columnMeta' => array(),
                 'submit_attribute' => false,
-                'analyzed_sql' => null
-            ))
+                )
+            )
         . '</td>';
     $tableHtml .=
         '<td class="nowrap" name="col_isNull">'
         . PMA\Template::get('columns_definitions/column_null')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => $row_num,
                 'ci' => 6,
                 'ci_offset' => 0,
                 'columnMeta' => array(
                     'Null' => $row['col_isNull']
                 )
-            ))
+                )
+            )
         . '</td>';
 
     $tableHtml .=
@@ -1255,7 +1273,8 @@ function PMA_getHTMLforAddNewColumn($db)
         . '<td></td>'
         . '<td name="col_name" class="nowrap">'
         . PMA\Template::get('columns_definitions/column_name')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => 0,
                 'ci' => 0,
                 'ci_offset' => 0,
@@ -1263,17 +1282,20 @@ function PMA_getHTMLforAddNewColumn($db)
                 'cfgRelation' => array(
                     'centralcolumnswork' => false
                 )
-            ))
+                )
+            )
         . '</td>'
         . '<td name = "col_type" class="nowrap">'
         . PMA\Template::get('columns_definitions/column_type')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => 0,
                 'ci' => 1,
                 'ci_offset' => 0,
                 'type_upper' => '',
                 'columnMeta' => array()
-            ))
+                )
+            )
         . '</td>'
         . '<td class="nowrap" name="col_length">'
         . PMA\Template::get('columns_definitions/column_length')->render(
@@ -1288,13 +1310,15 @@ function PMA_getHTMLforAddNewColumn($db)
         . '</td>'
         . '<td class="nowrap" name="col_default">'
         . PMA\Template::get('columns_definitions/column_default')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => 0,
                 'ci' => 3,
                 'ci_offset' => 0,
                 'type_upper' => '',
                 'columnMeta' => array()
-            ))
+                )
+            )
         . '</td>'
         . '<td name="collation" class="nowrap">'
         . PMA_generateCharsetDropdownBox(
@@ -1304,24 +1328,27 @@ function PMA_getHTMLforAddNewColumn($db)
         . '</td>'
         . '<td class="nowrap" name="col_attribute">'
         . PMA\Template::get('columns_definitions/column_attribute')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => 0,
                 'ci' => 5,
                 'ci_offset' => 0,
                 'extracted_columnspec' => array(),
                 'columnMeta' => array(),
                 'submit_attribute' => false,
-                'analyzed_sql' => null
-            ))
+                )
+            )
         . '</td>'
         . '<td class="nowrap" name="col_isNull">'
         . PMA\Template::get('columns_definitions/column_null')
-            ->render(array(
+            ->render(
+                array(
                 'columnNumber' => 0,
                 'ci' => 6,
                 'ci_offset' => 0,
                 'columnMeta' => array()
-            ))
+                )
+            )
         . '</td>'
         . '<td class="nowrap" name="col_extra">'
         . PMA\Template::get('columns_definitions/column_extra')->render(

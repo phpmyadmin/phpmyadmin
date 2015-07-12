@@ -94,15 +94,16 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testisSelect()
     {
-        $analyzed_sql = array(array());
-        $analyzed_sql[0]['select_expr'] = array();
-        $analyzed_sql[0]['queryflags']['select_from'] = 'pma';
-        $analyzed_sql[0]['table_ref'] = array('table_ref');
-
+        $parser = new \SqlParser\Parser('SELECT * FROM pma');
         $this->assertTrue(
             $this->_callPrivateFunction(
                 '_isSelect',
-                array($analyzed_sql)
+                array(
+                    array(
+                        'statement' => $parser->statements[0],
+                        'select_from' => true,
+                    ),
+                )
             )
         );
     }
@@ -346,57 +347,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             array(9, 0),
             $this->_callPrivateFunction('_getOffsets', array())
-        );
-    }
-
-    /**
-     * Data provider for testGetSortParams
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForGetSortParams()
-    {
-        return array(
-            array('', array(array(''), array(''), array(''))),
-            array(
-                '`a_sales`.`customer_id` ASC',
-                array(
-                    array('`a_sales`.`customer_id` ASC'),
-                    array('`a_sales`.`customer_id`'),
-                    array('ASC')
-                )
-            ),
-            array(
-                '`a_sales`.`customer_id` ASC, `b_sales`.`customer_id` DESC',
-                array(
-                    array(
-                        '`a_sales`.`customer_id` ASC',
-                        '`b_sales`.`customer_id` DESC'
-                    ),
-                    array('`a_sales`.`customer_id`', '`b_sales`.`customer_id`'),
-                    array('ASC', 'DESC')
-                )
-            ),
-        );
-    }
-
-    /**
-     * Test for _getSortParams
-     *
-     * @param string $order_by_clause the order by clause of the sql query
-     * @param string $output          output of _getSortParams
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForGetSortParams
-     */
-    public function testGetSortParams($order_by_clause, $output)
-    {
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getSortParams', array($order_by_clause)
-            )
         );
     }
 
@@ -1288,26 +1238,18 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function dataProviderForTestSetHighlightedColumnGlobalField()
     {
+        $parser = new SqlParser\Parser(
+            'SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10'
+        );
         return array(
             array(
-                array(),
-                array()
-            ),
-            array(
+                array('statement' => $parser->statements[0]),
                 array(
-                    0 => array(
-                        'where_clause_identifiers' => array(
-                            0 => '`id`',
-                            1 => '`id`',
-                            2 => '`db_name`'
-                        )
-                    )
+                    'db_name' => 'true',
+                    'tbl' => 'true',
+                    'id' => 'true',
                 ),
-                array(
-                    '`id`' => 'true',
-                    '`db_name`' => 'true'
-                )
-            )
+            ),
         );
     }
 
@@ -1620,7 +1562,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @param string  $default_function      the default transformation function
      * @param string  $transform_options     the transformation parameters
      * @param boolean $is_field_truncated    is data truncated due to LimitChars
-     * @param array   $analyzed_sql          the analyzed query
+     * @param array   $analyzed_sql_results  the analyzed query
      * @param integer $dt_result             the link id associated to the query
      *                                       which results have to be displayed
      * @param integer $col_index             the column index
@@ -1634,7 +1576,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $protectBinary, $column, $class, $meta, $map,
         $_url_params, $condition_field, $transformation_plugin,
         $default_function, $transform_options, $is_field_truncated,
-        $analyzed_sql, $dt_result, $col_index, $output
+        $analyzed_sql_results, $dt_result, $col_index, $output
     ) {
         $_SESSION['tmpval']['display_binary'] = true;
         $_SESSION['tmpval']['display_blob'] = false;
@@ -1648,7 +1590,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 array(
                     $column, $class, $meta, $map, $_url_params, $condition_field,
                     $transformation_plugin, $default_function, $transform_options,
-                    $is_field_truncated, $analyzed_sql, &$dt_result, $col_index
+                    $is_field_truncated, $analyzed_sql_results, &$dt_result, $col_index
                 )
             )
         );

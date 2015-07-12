@@ -60,7 +60,6 @@ function PMA_getTableNameBySQL($sql, $tables)
     return trim($table);
 }
 
-
 /**
  * Handle remembered sorting order, only for single table query
  *
@@ -75,34 +74,36 @@ function PMA_handleSortOrder(
     $db, $table, &$analyzed_sql_results, &$full_sql_query
 ) {
     $pmatable = new PMA_Table($table, $db);
-    if (empty($analyzed_sql_results['analyzed_sql'][0]['order_by_clause'])) {
-        $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
-        if ($sorted_col) {
-            //remove the tablename from retrieved preference
-            //to get just the column name and the sort order
-            $sorted_col = str_replace(
-                PMA_Util::backquote($table) . '.', '', $sorted_col
-            );
-            // retrieve the remembered sorting order for current table
-            $sql_order_to_append = ' ORDER BY ' . $sorted_col . ' ';
-            $full_sql_query
-                = $analyzed_sql_results['analyzed_sql'][0]['section_before_limit']
-                . $sql_order_to_append
-                . $analyzed_sql_results['analyzed_sql'][0]['limit_clause']
-                . ' '
-                . $analyzed_sql_results['analyzed_sql'][0]['section_after_limit'];
 
-            // update the $analyzed_sql
-            $analyzed_sql_results['analyzed_sql'][0]['section_before_limit']
-                .= $sql_order_to_append;
-            $analyzed_sql_results['analyzed_sql'][0]['order_by_clause']
-                = $sorted_col;
+    if (empty($analyzed_sql_results['order'])) {
+
+        // Retrieving the name of the column we should sort after.
+        $sortCol = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
+        if (empty($sortCol)) {
+            return;
         }
+
+        // Remove the name of the the table from the retrieved field name.
+        $sortCol = str_replace(PMA_Util::backquote($table) . '.', '', $sortCol);
+
+        // Create the new query.
+        $full_sql_query = SqlParser\Utils\Query::replaceClause(
+            $analyzed_sql_results['statement'],
+            $analyzed_sql_results['parser']->list,
+            'ORDER BY ' . $sortCol
+        );
+
+        // TODO: Avoid reparsing the query.
+        $analyzed_sql_results = SqlParser\Utils\Query::getAll($full_sql_query);
     } else {
-        // store the remembered table into session
+        // Store the remembered table into session.
         $pmatable->setUiProp(
             PMA_Table::PROP_SORTED_COLUMN,
-            $analyzed_sql_results['analyzed_sql'][0]['order_by_clause']
+            SqlParser\Utils\Query::getClause(
+                $analyzed_sql_results['statement'],
+                $analyzed_sql_results['parser']->list,
+                'ORDER BY'
+            )
         );
     }
 }
@@ -110,16 +111,18 @@ function PMA_handleSortOrder(
 /**
  * Append limit clause to SQL query
  *
- * @param array  $analyzed_sql        the analyzed query
- * @param string $sql_limit_to_append clause to append
+ * @param array &$analyzed_sql_results the analyzed query results
  *
  * @return string limit clause appended SQL query
  */
-function PMA_getSqlWithLimitClause($analyzed_sql,
-    $sql_limit_to_append
-) {
-    return $analyzed_sql[0]['section_before_limit'] . "\n"
-        . $sql_limit_to_append . $analyzed_sql[0]['section_after_limit'];
+function PMA_getSqlWithLimitClause(&$analyzed_sql_results)
+{
+    return SqlParser\Utils\Query::replaceClause(
+        $analyzed_sql_results['statement'],
+        $analyzed_sql_results['parser']->list,
+        'LIMIT ' . $_SESSION['tmpval']['pos'] . ', '
+        . $_SESSION['tmpval']['max_rows']
+    );
 }
 
 
@@ -617,23 +620,16 @@ function PMA_getHtmlForBookmark($displayParts, $cfgBookmark, $sql_query, $db,
  */
 function PMA_isRememberSortingOrder($analyzed_sql_results)
 {
-    $select_from = isset(
-        $analyzed_sql_results['analyzed_sql'][0]['queryflags']['select_from']
-    );
-    if ($GLOBALS['cfg']['RememberSorting']
+    return $GLOBALS['cfg']['RememberSorting']
         && ! ($analyzed_sql_results['is_count']
-        || $analyzed_sql_results['is_export']
-        || $analyzed_sql_results['is_func']
-        || $analyzed_sql_results['is_analyse'])
-        && isset($analyzed_sql_results['analyzed_sql'][0]['select_expr'])
-        && (count($analyzed_sql_results['analyzed_sql'][0]['select_expr']) == 0)
-        && $select_from
-        && count($analyzed_sql_results['analyzed_sql'][0]['table_ref']) == 1
-    ) {
-        return true;
-    } else {
-        return false;
-    }
+            || $analyzed_sql_results['is_export']
+            || $analyzed_sql_results['is_func']
+            || $analyzed_sql_results['is_analyse'])
+        && $analyzed_sql_results['select_from']
+        && ((empty($analyzed_sql_results['select_expr']))
+            || (count($analyzed_sql_results['select_expr'] == 1)
+                && ($analyzed_sql_results['select_expr'][0] == '*')))
+        && count($analyzed_sql_results['select_tables']) == 1;
 }
 
 /**
@@ -646,20 +642,12 @@ function PMA_isRememberSortingOrder($analyzed_sql_results)
  */
 function PMA_isAppendLimitClause($analyzed_sql_results)
 {
-    $select_from = isset(
-        $analyzed_sql_results['analyzed_sql'][0]['queryflags']['select_from']
-    );
-    if (($_SESSION['tmpval']['max_rows'] != 'all')
+    return ($_SESSION['tmpval']['max_rows'] != 'all')
         && ! ($analyzed_sql_results['is_export']
         || $analyzed_sql_results['is_analyse'])
-        && ($select_from || $analyzed_sql_results['is_subquery'])
-        && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['offset'])
-        && empty($analyzed_sql_results['analyzed_sql'][0]['limit_clause'])
-    ) {
-        return true;
-    } else {
-        return false;
-    }
+        && ($analyzed_sql_results['select_from']
+            || $analyzed_sql_results['is_subquery'])
+        && empty($analyzed_sql_results['limit']);
 }
 
 /**
@@ -673,29 +661,18 @@ function PMA_isAppendLimitClause($analyzed_sql_results)
  */
 function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
 {
-    $distinct = isset(
-        $analyzed_sql_results['analyzed_sql'][0]['queryflags']['distinct']
-    );
-
-    $table_name = isset(
-        $analyzed_sql_results['analyzed_sql'][0]['table_ref'][1]['table_name']
-    );
-    if (! $analyzed_sql_results['is_group']
+    return ! $analyzed_sql_results['is_group']
         && ! $analyzed_sql_results['is_func']
-        && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])
-        && ! $distinct
-        && ! $table_name
-        && (empty($analyzed_sql_results['analyzed_sql'][0]['where_clause'])
-        || $analyzed_sql_results['analyzed_sql'][0]['where_clause'] == '1 ')
-        && empty($analyzed_sql_results['analyzed_sql'][0]['group_by_clause'])
+        && empty($analyzed_sql_results['union'])
+        && empty($analyzed_sql_results['distinct'])
+        && count($analyzed_sql_results['select_tables'] <= 1)
+        && (empty($analyzed_sql_results['statement']->where)
+            || (count($analyzed_sql_results['statement']->where) == 1
+                && $analyzed_sql_results['statement']->where[0]->expr ==='1'))
+        && empty($analyzed_sql_results['group'])
         && ! isset($find_real_end)
-        && !$analyzed_sql_results['is_subquery']
-        && empty($analyzed_sql_results['analyzed_sql'][0]['having_clause'])
-    ) {
-        return true;
-    } else {
-        return false;
-    }
+        && ! $analyzed_sql_results['is_subquery']
+        && empty($analyzed_sql_results['having']);
 }
 
 /**
@@ -708,14 +685,9 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
  */
 function PMA_isDeleteTransformationInfo($analyzed_sql_results)
 {
-    if (!empty($analyzed_sql_results['analyzed_sql'][0]['querytype'])
-        && (($analyzed_sql_results['analyzed_sql'][0]['querytype'] == 'ALTER')
-        || ($analyzed_sql_results['analyzed_sql'][0]['querytype'] == 'DROP'))
-    ) {
-        return true;
-    } else {
-        return false;
-    }
+    return !empty($analyzed_sql_results['querytype'])
+        && (($analyzed_sql_results['querytype'] == 'ALTER')
+            || ($analyzed_sql_results['querytype'] == 'DROP'));
 }
 
 /**
@@ -1099,18 +1071,13 @@ function PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result)
  */
 function PMA_hasCurrentDbChanged($db)
 {
-    // Checks if the current database has changed
-    // This could happen if the user sends a query like "USE `database`;"
-    $reload = 0;
     if (/*overload*/mb_strlen($db)) {
         $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
         // $current_db is false, except when a USE statement was sent
-        if ($current_db != false && $db !== $current_db) {
-            $reload = 1;
-        }
+        return ($current_db != false) && ($db !== $current_db);
     }
 
-    return $reload;
+    return false;
 }
 
 /**
@@ -1154,26 +1121,26 @@ function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
  * the 'LIMIT' clause that may have been programatically added
  *
  * @param int    $num_rows             number of rows affected/changed by the query
- * @param bool   $is_select            whether the query is SELECT or not
  * @param bool   $justBrowsing         whether just browsing or not
  * @param string $db                   the current database
  * @param string $table                the current table
- * @param array  $parsed_sql           parsed sql
  * @param array  $analyzed_sql_results the analyzed query and other variables set
  *                                     after analyzing the query
  *
  * @return int $unlim_num_rows unlimited number of rows
  */
 function PMA_countQueryResults(
-    $num_rows, $is_select, $justBrowsing,
-    $db, $table, $parsed_sql, $analyzed_sql_results
+    $num_rows, $justBrowsing, $db, $table, $analyzed_sql_results
 ) {
+
     if (!PMA_isAppendLimitClause($analyzed_sql_results)) {
         // if we did not append a limit, set this to get a correct
         // "Showing rows..." message
         // $_SESSION['tmpval']['max_rows'] = 'all';
-        $unlim_num_rows         = $num_rows;
-    } elseif ($is_select || $analyzed_sql_results['is_subquery']) {
+        $unlim_num_rows = $num_rows;
+    } elseif ($analyzed_sql_results['querytype'] == 'SELECT'
+        || $analyzed_sql_results['is_subquery']
+    ) {
         //    c o u n t    q u e r y
 
         // If we are "just browsing", there is only one table,
@@ -1210,62 +1177,32 @@ function PMA_countQueryResults(
             }
 
         } else {
-            // add select expression after the SQL_CALC_FOUND_ROWS
 
-            // for UNION, just adding SQL_CALC_FOUND_ROWS
-            // after the first SELECT works.
+            // The SQL_CALC_FOUND_ROWS option of the SELECT statement is used.
 
-            // take the left part, could be:
-            // SELECT
-            // (SELECT
+            // For UNION statements, only a SQL_CALC_FOUND_ROWS is required
+            // after the first SELECT.
 
-            $analyzed_sql = $analyzed_sql_results['analyzed_sql'];
-
-            $count_query = PMA_SQP_format(
-                $parsed_sql,
-                'query_only',
-                0,
-                $analyzed_sql[0]['position_of_first_select'] + 1
+            $count_query = SqlParser\Utils\Query::replaceClause(
+                $analyzed_sql_results['statement'],
+                $analyzed_sql_results['parser']->list,
+                'SELECT SQL_CALC_FOUND_ROWS',
+                null,
+                true
             );
-            $count_query .= ' SQL_CALC_FOUND_ROWS ';
-            // add everything that was after the first SELECT
-            $count_query .= PMA_SQP_format(
-                $parsed_sql,
-                'query_only',
-                $analyzed_sql[0]['position_of_first_select'] + 1
-            );
-            // ensure there is no semicolon at the end of the
-            // count query because we'll probably add
-            // a LIMIT 1 clause after it
-            $count_query = rtrim($count_query);
-            $count_query = rtrim($count_query, ';');
 
-            // if using SQL_CALC_FOUND_ROWS, add a LIMIT to avoid
-            // long delays. Returned count will be complete anyway.
-            // (but a LIMIT would disrupt results in an UNION)
+            // Another LIMIT clause is added to avoid long delays.
+            // A complete result will be returned anyway, but the LIMIT would
+            // stop the query as soon as the result that is required has been
+            // computed.
 
-            if (! isset($analyzed_sql[0]['queryflags']['union'])) {
+            if (empty($analyzed_sql_results['union'])) {
                 $count_query .= ' LIMIT 1';
             }
 
-            // run the count query
-
+            // Running the count query.
             $GLOBALS['dbi']->tryQuery($count_query);
-            // if (mysql_error()) {
-            // void.
-            // I tried the case
-            // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
-            // UNION (SELECT `User`, `Host`, "%" AS "Db",
-            // `Select_priv`
-            // FROM `user`) ORDER BY `User`, `Host`, `Db`;
-            // and although the generated count_query is wrong
-            // the SELECT FOUND_ROWS() work! (maybe it gets the
-            // count from the latest query that worked)
-            //
-            // another case where the count_query is wrong:
-            // SELECT COUNT(*), f1 from t1 group by f1
-            // and you click to sort on count(*)
-            // }
+
             $unlim_num_rows = $GLOBALS['dbi']->fetchValue('SELECT FOUND_ROWS()');
         } // end else "just browsing"
     } else {// not $is_select
@@ -1341,8 +1278,7 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         );
 
         $unlim_num_rows = PMA_countQueryResults(
-            $num_rows, $analyzed_sql_results['is_select'], $justBrowsing, $db,
-            $table, $analyzed_sql_results['parsed_sql'], $analyzed_sql_results
+            $num_rows, $justBrowsing, $db, $table, $analyzed_sql_results
         );
 
         $extra_data = PMA_cleanupRelations(
@@ -1365,31 +1301,27 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
 /**
  * Delete related tranformatioinformationn information
  *
- * @param String $db           current database
- * @param String $table        current table
- * @param array  $analyzed_sql analyzed sql query
+ * @param String $db                   current database
+ * @param String $table                current table
+ * @param array  $analyzed_sql_results analyzed sql results
  *
  * @return void
  */
-function PMA_deleteTransformationInfo($db, $table, $analyzed_sql)
+function PMA_deleteTransformationInfo($db, $table, $analyzed_sql_results)
 {
     include_once 'libraries/transformations.lib.php';
-    if ($analyzed_sql[0]['querytype'] == 'ALTER') {
-        $posDrop = /*overload*/mb_stripos(
-            $analyzed_sql[0]['unsorted_query'],
-            'DROP'
-        );
-        if ($posDrop !== false) {
-            $drop_column = PMA_getColumnNameInColumnDropSql(
-                $analyzed_sql[0]['unsorted_query']
-            );
-
-            if ($drop_column != '') {
-                PMA_clearTransformations($db, $table, $drop_column);
+    $statement = $analyzed_sql_results['statement'];
+    if ($statement instanceof SqlParser\Statements\AlterStatement) {
+        if ($statement->altered[0]->options->has('DROP')) {
+            if (!empty($statement->altered[0]->field->column)) {
+                PMA_clearTransformations(
+                    $db,
+                    $table,
+                    $statement->altered[0]->field->column
+                );
             }
         }
-
-    } else if (($analyzed_sql[0]['querytype'] == 'DROP') && ($table != '')) {
+    } elseif ($statement instanceof SqlParser\Statements\DropStatement) {
         PMA_clearTransformations($db, $table);
     }
 }
@@ -1403,14 +1335,14 @@ function PMA_deleteTransformationInfo($db, $table, $analyzed_sql)
  *
  * @return string $message
  */
-function PMA_getMessageForNoRowsReturned($message_to_show, $analyzed_sql_results,
-    $num_rows
+function PMA_getMessageForNoRowsReturned($message_to_show,
+    $analyzed_sql_results, $num_rows
 ) {
-    if ($analyzed_sql_results['is_delete']) {
+    if ($analyzed_sql_results['querytype'] == 'DELETE"') {
         $message = PMA_Message::getMessageForDeletedRows($num_rows);
     } elseif ($analyzed_sql_results['is_insert']) {
-        if ($analyzed_sql_results['is_replace']) {
-            // For replace we get DELETED + INSERTED row count,
+        if ($analyzed_sql_results['querytype'] == 'REPLACE') {
+            // For REPLACE we get DELETED + INSERTED row count,
             // so we have to call it affected
             $message = PMA_Message::getMessageForAffectedRows($num_rows);
         } else {
@@ -1438,7 +1370,9 @@ function PMA_getMessageForNoRowsReturned($message_to_show, $analyzed_sql_results
         // fact that $message_to_show is sent for every case.
         // The $message_to_show containing a success message and sent with
         // the form should not have priority over errors
-    } elseif (! empty($message_to_show) && ! $analyzed_sql_results['is_select']) {
+    } elseif (! empty($message_to_show)
+        && $analyzed_sql_results['querytype'] != 'SELECT'
+    ) {
         $message = PMA_Message::rawSuccess(htmlspecialchars($message_to_show));
     } elseif (! empty($GLOBALS['show_as_php'])) {
         $message = PMA_Message::success(__('Showing as PHP code'));
@@ -1492,14 +1426,12 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
     $table, $message_to_show, $num_rows, $displayResultsObject, $extra_data
 ) {
     if (PMA_isDeleteTransformationInfo($analyzed_sql_results)) {
-        PMA_deleteTransformationInfo(
-            $db, $table, $analyzed_sql_results['analyzed_sql']
-        );
+        PMA_deleteTransformationInfo($db, $table, $analyzed_sql_results);
     }
 
     $message = PMA_getMessageForNoRowsReturned(
-        isset($message_to_show) ? $message_to_show : null, $analyzed_sql_results,
-        $num_rows
+        isset($message_to_show) ? $message_to_show : null,
+        $analyzed_sql_results, $num_rows
     );
 
     $html_output = '';
@@ -1526,10 +1458,9 @@ function PMA_getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
         $response = PMA_Response::getInstance();
         $response->addJSON(isset($extra_data) ? $extra_data : array());
 
-        $query_type = PMA_DisplayResults::QUERY_TYPE_SELECT;
-        if ($analyzed_sql_results['analyzed_sql'][0]['querytype'] == $query_type) {
+        if (!empty($analyzed_sql_results['is_select'])) {
             $html_output .= $displayResultsObject->getCreateViewQueryResultOp(
-                $analyzed_sql_results['analyzed_sql']
+                $analyzed_sql_results
             );
         }
     }
@@ -1688,7 +1619,7 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
                 $table_html .= $displayResultsObject->getTable(
                     $result,
                     $displayParts,
-                    $analyzed_sql_results['analyzed_sql']
+                    $analyzed_sql_results
                 );
             }
 
@@ -1704,17 +1635,29 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
         }
         $_SESSION['is_multi_query'] = false;
         $displayResultsObject->setProperties(
-            $unlim_num_rows, $fields_meta, $analyzed_sql_results['is_count'],
-            $analyzed_sql_results['is_export'], $analyzed_sql_results['is_func'],
-            $analyzed_sql_results['is_analyse'], $num_rows,
-            $fields_cnt, $GLOBALS['querytime'], $pmaThemeImage, $GLOBALS['text_dir'],
-            $analyzed_sql_results['is_maint'], $analyzed_sql_results['is_explain'],
-            $analyzed_sql_results['is_show'], $showtable, $printview, $url_query,
-            $editable, $browse_dist
+            $unlim_num_rows,
+            $fields_meta,
+            $analyzed_sql_results['is_count'],
+            $analyzed_sql_results['is_export'],
+            $analyzed_sql_results['is_func'],
+            $analyzed_sql_results['is_analyse'],
+            $num_rows,
+            $fields_cnt, $GLOBALS['querytime'],
+            $pmaThemeImage, $GLOBALS['text_dir'],
+            $analyzed_sql_results['is_maint'],
+            $analyzed_sql_results['is_explain'],
+            $analyzed_sql_results['is_show'],
+            $showtable,
+            $printview,
+            $url_query,
+            $editable,
+            $browse_dist
         );
 
         $table_html .= $displayResultsObject->getTable(
-            $result, $displayParts, $analyzed_sql_results['analyzed_sql']
+            $result,
+            $displayParts,
+            $analyzed_sql_results
         );
         $GLOBALS['dbi']->freeResult($result);
     }
@@ -1854,12 +1797,10 @@ function PMA_getHtmlForIndexesProblems($query_type, $selectedTables, $db)
  *
  * @return string html
  */
-function PMA_getQueryResponseForResultsReturned($result,
-    $analyzed_sql_results, $db, $table, $message, $sql_data,
-    $displayResultsObject, $pmaThemeImage,
-    $unlim_num_rows, $num_rows, $disp_query,
-    $disp_message, $profiling_results, $query_type, $selectedTables, $sql_query,
-    $complete_query
+function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
+    $db, $table, $message, $sql_data, $displayResultsObject, $pmaThemeImage,
+    $unlim_num_rows, $num_rows, $disp_query, $disp_message, $profiling_results,
+    $query_type, $selectedTables, $sql_query, $complete_query
 ) {
     // If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here
@@ -1886,10 +1827,16 @@ function PMA_getQueryResponseForResultsReturned($result,
     // - if the result set does not contain all the columns of a unique key
     //   (unless this is an updatable view)
 
-    $sele_exp_cls = $analyzed_sql_results['analyzed_sql'][0]['select_expr_clause'];
-    $updatableView
-        = trim($sele_exp_cls) == '*'
-        && PMA_Table::isUpdatableView($db, $table);
+    $updatableView = false;
+
+    $statement = $analyzed_sql_results['statement'];
+    if ($statement instanceof SqlParser\Statements\SelectStatement) {
+        if (!empty($statement->expr)) {
+            if ($statement->expr[0]->expr === '*') {
+                $updatableView = PMA_Table::isUpdatableView($db, $table);
+            }
+        }
+    }
 
     $has_unique = PMA_resultSetContainsUniqueKey(
         $db, $table, $fields_meta
@@ -2029,7 +1976,6 @@ function PMA_getQueryResponseForResultsReturned($result,
  * @param bool|null  $find_real_end          whether to find real end or not
  * @param string     $sql_query_for_bookmark the sql query to be stored as bookmark
  * @param array|null $extra_data             extra data
- * @param bool       $is_affected            whether affected or not
  * @param string     $message_to_show        message to show
  * @param string     $message                message
  * @param array|null $sql_data               sql data
@@ -2049,16 +1995,29 @@ function PMA_getQueryResponseForResultsReturned($result,
  */
 function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     $is_gotofile, $db, $table, $find_real_end, $sql_query_for_bookmark,
-    $extra_data, $is_affected, $message_to_show, $message,
-    $sql_data, $goto, $pmaThemeImage, $disp_query, $disp_message,
-    $query_type, $sql_query, $selectedTables, $complete_query
+    $extra_data, $message_to_show, $message, $sql_data, $goto, $pmaThemeImage,
+    $disp_query, $disp_message, $query_type, $sql_query, $selectedTables,
+    $complete_query
 ) {
     $html_output = PMA_executeQueryAndGetQueryResponse(
-        $analyzed_sql_results, $is_gotofile, $db, $table,
-        $find_real_end, $sql_query_for_bookmark,
-        $extra_data, $is_affected, $message_to_show, $message,
-        $sql_data, $goto, $pmaThemeImage, $disp_query, $disp_message,
-        $query_type, $sql_query, $selectedTables, $complete_query
+        $analyzed_sql_results, // analyzed_sql_results
+        $is_gotofile, // is_gotofile
+        $db, // db
+        $table, // table
+        $find_real_end, // find_real_end
+        $sql_query_for_bookmark, // sql_query_for_bookmark
+        $extra_data, // extra_data
+        $message_to_show, // message_to_show
+        $message, // message
+        $sql_data, // sql_data
+        $goto, // goto
+        $pmaThemeImage, // pmaThemeImage
+        $disp_query, // disp_query
+        $disp_message, // disp_message
+        $query_type, // query_type
+        $sql_query, // sql_query
+        $selectedTables, // selectedTables
+        $complete_query // complete_query
     );
 
     $response = PMA_Response::getInstance();
@@ -2075,7 +2034,6 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
  * @param bool|null  $find_real_end          whether to find real end or not
  * @param string     $sql_query_for_bookmark the sql query to be stored as bookmark
  * @param array|null $extra_data             extra data
- * @param bool       $is_affected            whether affected or not
  * @param string     $message_to_show        message to show
  * @param string     $message                message
  * @param array|null $sql_data               sql data
@@ -2095,9 +2053,9 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
  */
 function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
     $is_gotofile, $db, $table, $find_real_end, $sql_query_for_bookmark,
-    $extra_data, $is_affected, $message_to_show, $message,
-    $sql_data, $goto, $pmaThemeImage, $disp_query, $disp_message,
-    $query_type, $sql_query, $selectedTables, $complete_query
+    $extra_data, $message_to_show, $message, $sql_data, $goto, $pmaThemeImage,
+    $disp_query, $disp_message, $query_type, $sql_query, $selectedTables,
+    $complete_query
 ) {
     // Include PMA_Index class for use in PMA_DisplayResults class
     include_once './libraries/Index.class.php';
@@ -2111,7 +2069,7 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
     // Handling is not required when it's a union query
     // (the parser never sets the 'union' key to 0)
     if (PMA_isRememberSortingOrder($analyzed_sql_results)
-        && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])
+        && empty($analyzed_sql_results['union'])
     ) {
         if (! isset($_SESSION['sql_from_query_box'])) {
             PMA_handleSortOrder($db, $table, $analyzed_sql_results, $sql_query);
@@ -2131,11 +2089,7 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
 
     // Do append a "LIMIT" clause?
     if (PMA_isAppendLimitClause($analyzed_sql_results)) {
-        $full_sql_query = PMA_getSqlWithLimitClause(
-            $analyzed_sql_results['analyzed_sql'],
-            ' LIMIT ' . $_SESSION['tmpval']['pos']
-            . ', ' . $_SESSION['tmpval']['max_rows'] . " "
-        );
+        $full_sql_query = PMA_getSqlWithLimitClause($analyzed_sql_results);
     }
 
     $GLOBALS['reload'] = PMA_hasCurrentDbChanged($db);
@@ -2155,7 +2109,7 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
         );
 
     // No rows returned -> move back to the calling page
-    if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
+    if ((0 == $num_rows && 0 == $unlim_num_rows) || $analyzed_sql_results['is_affected']) {
         $html_output = PMA_getQueryResponseForNoResultsReturned(
             $analyzed_sql_results, $db, $table,
             isset($message_to_show) ? $message_to_show : null,

@@ -134,14 +134,18 @@ class ImportCsv_Test extends PHPUnit_Framework_TestCase
         $this->object->doImport();
 
         //asset that all sql are executed
-        $this->assertContains(
-            'CREATE DATABASE IF NOT EXISTS `CSV_DB` DEFAULT CHARACTER',
-            $sql_query
-        );
-        $this->assertContains(
-            'SET utf8 COLLATE utf8_general_ci',
-            $sql_query
-        );
+        if (PMA_DRIZZLE) {
+            $this->assertContains(
+                'CREATE DATABASE IF NOT EXISTS `CSV_DB` COLLATE',
+                $sql_query
+            );
+        } else {
+            $this->assertContains(
+                'CREATE DATABASE IF NOT EXISTS `CSV_DB` DEFAULT CHARACTER',
+                $sql_query
+            );
+        }
+
         $this->assertContains(
             'CREATE TABLE IF NOT EXISTS `CSV_DB`.`TBL_NAME`',
             $sql_query
@@ -151,7 +155,6 @@ class ImportCsv_Test extends PHPUnit_Framework_TestCase
             true,
             $GLOBALS['finished']
         );
-
     }
 
     /**
@@ -193,14 +196,18 @@ class ImportCsv_Test extends PHPUnit_Framework_TestCase
         $this->object->doImport();
 
         //asset that all sql are executed
-        $this->assertContains(
-            'CREATE DATABASE IF NOT EXISTS `CSV_DB` DEFAULT CHARACTER',
-            $sql_query
-        );
-        $this->assertContains(
-            'SET utf8 COLLATE utf8_general_ci',
-            $sql_query
-        );
+        if (PMA_DRIZZLE) {
+            $this->assertContains(
+                'CREATE DATABASE IF NOT EXISTS `CSV_DB` COLLATE',
+                $sql_query
+            );
+        } else {
+            $this->assertContains(
+                'CREATE DATABASE IF NOT EXISTS `CSV_DB` DEFAULT CHARACTER',
+                $sql_query
+            );
+        }
+
         $this->assertContains(
             'CREATE TABLE IF NOT EXISTS `CSV_DB`.`TBL_NAME`',
             $sql_query
@@ -210,6 +217,5 @@ class ImportCsv_Test extends PHPUnit_Framework_TestCase
             true,
             $GLOBALS['finished']
         );
-
     }
 }

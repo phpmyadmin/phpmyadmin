@@ -21,7 +21,6 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/Types.class.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/central_columns.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 
 /**
  * tests for central_columns.lib.php

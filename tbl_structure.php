@@ -51,11 +51,11 @@ if (isset($_REQUEST['reserved_word_check'])) {
         $columns_names = $_REQUEST['field_name'];
         $reserved_keywords_names = array();
         foreach ($columns_names as $column) {
-            if (PMA_SQP_isKeyWord(trim($column))) {
+            if (SqlParser\Context::isKeyword(trim($column), true)) {
                 $reserved_keywords_names[] = trim($column);
             }
         }
-        if (PMA_SQP_isKeyWord(trim($table))) {
+        if (SqlParser\Context::isKeyword(trim($table), true)) {
             $reserved_keywords_names[] = trim($table);
         }
         if (count($reserved_keywords_names) == 0) {
@@ -199,7 +199,14 @@ $show_create_table = $GLOBALS['dbi']->fetchValue(
     . PMA_Util::backquote($table),
     0, 1
 );
-$analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+$parser = new SqlParser\Parser($show_create_table);
+
+/**
+ * @var CreateStatement $stmt
+ */
+$stmt = $parser->statements[0];
+
+$create_table_fields = SqlParser\Utils\Table::getFields($stmt);
 
 /**
  * prepare table infos

@@ -18,42 +18,6 @@ require_once 'libraries/Util.class.php';
  */
 class PMA_Util_Test extends PHPUnit_Framework_TestCase
 {
-    /**
-     * Test for analyze Limit Clause
-     *
-     * @return void
-     */
-    public function testAnalyzeLimitClause()
-    {
-        $limit_data = PMA_Util::analyzeLimitClause("limit 2,4");
-        $this->assertEquals(
-            '2',
-            $limit_data['start']
-        );
-        $this->assertEquals(
-            '4',
-            $limit_data['length']
-        );
-
-        $limit_data = PMA_Util::analyzeLimitClause("limit 3");
-        $this->assertEquals(
-            '0',
-            $limit_data['start']
-        );
-        $this->assertEquals(
-            '3',
-            $limit_data['length']
-        );
-
-        $limit_data = PMA_Util::analyzeLimitClause("limit 3,2,5");
-        $this->assertFalse($limit_data);
-
-        $limit_data = PMA_Util::analyzeLimitClause("limit");
-        $this->assertFalse($limit_data);
-
-        $limit_data = PMA_Util::analyzeLimitClause("limit ");
-        $this->assertFalse($limit_data);
-    }
 
     /**
      * Test for createGISData

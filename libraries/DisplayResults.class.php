@@ -660,7 +660,7 @@ class PMA_DisplayResults
      * Return true if we are executing a query in the form of
      * "SELECT * FROM <a table> ..."
      *
-     * @param array $analyzed_sql the analyzed query
+     * @param array $analyzed_sql_results analyzed sql results
      *
      * @return boolean
      *
@@ -668,17 +668,16 @@ class PMA_DisplayResults
      *
      * @see     _getTableHeaders(), _getColumnParams()
      */
-    private function _isSelect($analyzed_sql)
+    private function _isSelect($analyzed_sql_results)
     {
-        if (!isset($analyzed_sql[0]['select_expr'])) {
-            $analyzed_sql[0]['select_expr'] = 0;
-        }
-
-        return ! ($this->__get('is_count') || $this->__get('is_export')
-            || $this->__get('is_func') || $this->__get('is_analyse'))
-            && (count($analyzed_sql[0]['select_expr']) == 0)
-            && isset($analyzed_sql[0]['queryflags']['select_from'])
-            && (count($analyzed_sql[0]['table_ref']) == 1);
+        return ! ($this->__get('is_count')
+                || $this->__get('is_export')
+                || $this->__get('is_func')
+                || $this->__get('is_analyse'))
+            && !empty($analyzed_sql_results['select_from'])
+            && !empty($analyzed_sql_results['statement']->from)
+            && (count($analyzed_sql_results['statement']->from) == 1)
+            && !empty($analyzed_sql_results['statement']->from[0]->table);
     }
 
 
@@ -1139,7 +1138,7 @@ class PMA_DisplayResults
      * Get the headers of the results table, for all of the columns
      *
      * @param array   $displayParts                which elements to display
-     * @param array   $analyzed_sql                the analyzed query
+     * @param array   $analyzed_sql_results        analyzed sql results
      * @param array   $sort_expression             sort expression
      * @param string  $sort_expression_nodirection sort expression
      *                                             without direction
@@ -1155,9 +1154,9 @@ class PMA_DisplayResults
      * @see    getTableHeaders()
      */
     private function _getTableHeadersForColumns(
-        $displayParts, $analyzed_sql,
-        $sort_expression, $sort_expression_nodirection,
-        $sort_direction, $is_limited_display, $unsorted_sql_query
+        $displayParts, $analyzed_sql_results, $sort_expression,
+        $sort_expression_nodirection, $sort_direction, $is_limited_display,
+        $unsorted_sql_query
     ) {
         $html = '';
 
@@ -1175,9 +1174,9 @@ class PMA_DisplayResults
 
         // Prepare Display column comments if enabled
         // ($GLOBALS['cfg']['ShowBrowseComments']).
-        $comments_map = $this->_getTableCommentsArray($analyzed_sql);
+        $comments_map = $this->_getTableCommentsArray($analyzed_sql_results);
 
-        list($col_order, $col_visib) = $this->_getColumnParams($analyzed_sql);
+        list($col_order, $col_visib) = $this->_getColumnParams($analyzed_sql_results);
 
         // optimize: avoid calling a method on each iteration
         $number_of_columns = $this->__get('fields_cnt');
@@ -1245,7 +1244,7 @@ class PMA_DisplayResults
      * Get the headers of the results table
      *
      * @param array   &$displayParts               which elements to display
-     * @param array   $analyzed_sql                the analyzed query
+     * @param array   $analyzed_sql_results        analyzed sql results
      * @param array   $sort_expression             sort expression
      * @param string  $sort_expression_nodirection sort expression
      *                                             without direction
@@ -1260,9 +1259,9 @@ class PMA_DisplayResults
      * @see    getTable()
      */
     private function _getTableHeaders(
-        &$displayParts, $analyzed_sql,
-        $sort_expression = array(), $sort_expression_nodirection = '',
-        $sort_direction = '', $is_limited_display = false
+        &$displayParts, $analyzed_sql_results, $sort_expression = array(),
+        $sort_expression_nodirection = '', $sort_direction = '',
+        $is_limited_display = false
     ) {
 
         $table_headers_html = '';
@@ -1270,10 +1269,6 @@ class PMA_DisplayResults
         // use with array indexes/safe use in foreach
         $printview = $this->__get('printview');
         $display_params = $this->__get('display_params');
-
-        if ($analyzed_sql == '') {
-            $analyzed_sql = array();
-        }
 
         // can the result be sorted?
         if ($displayParts['sort_lnk'] == '1') {
@@ -1284,7 +1279,7 @@ class PMA_DisplayResults
             // "Sort by key" drop-down
             list($unsorted_sql_query, $drop_down_html)
                 = $this->_getUnsortedSqlAndSortByKeyDropDown(
-                    $analyzed_sql, $sort_expression[0]
+                    $analyzed_sql_results, $sort_expression[0]
                 );
 
             $table_headers_html .= $drop_down_html;
@@ -1303,7 +1298,7 @@ class PMA_DisplayResults
             . '</div>';
 
         // Output data needed for column reordering and show/hide column
-        if ($this->_isSelect($analyzed_sql)) {
+        if ($this->_isSelect($analyzed_sql_results)) {
             $table_headers_html .= $this->_getDataForResettingColumnOrder();
         }
 
@@ -1343,11 +1338,11 @@ class PMA_DisplayResults
 
         // See if we have to highlight any header fields of a WHERE query.
         // Uses SQL-Parser results.
-        $this->_setHighlightedColumnGlobalField($analyzed_sql);
+        $this->_setHighlightedColumnGlobalField($analyzed_sql_results);
 
         // Get the headers for all of the columns
         $table_headers_html .= $this->_getTableHeadersForColumns(
-            $displayParts, $analyzed_sql, $sort_expression,
+            $displayParts, $analyzed_sql_results, $sort_expression,
             $sort_expression_nodirection, $sort_direction,
             $is_limited_display, $unsorted_sql_query
         );
@@ -1368,8 +1363,8 @@ class PMA_DisplayResults
     /**
      * Prepare unsorted sql query and sort by key drop down
      *
-     * @param array  $analyzed_sql    the analyzed query
-     * @param string $sort_expression sort expression
+     * @param array  $analyzed_sql_results analyzed sql results
+     * @param string $sort_expression      sort expression
      *
      * @return  array   two element array - $unsorted_sql_query, $drop_down_html
      *
@@ -1378,29 +1373,19 @@ class PMA_DisplayResults
      * @see     _getTableHeaders()
      */
     private function _getUnsortedSqlAndSortByKeyDropDown(
-        $analyzed_sql, $sort_expression
+        $analyzed_sql_results, $sort_expression
     ) {
-
         $drop_down_html = '';
 
-        // Just as fallback
-        $unsorted_sql_query     = $this->__get('sql_query');
-        if (isset($analyzed_sql[0]['unsorted_query'])) {
-            $unsorted_sql_query = $analyzed_sql[0]['unsorted_query'];
-        }
-        // Handles the case of multiple clicks on a column's header
-        // which would add many spaces before "ORDER BY" in the
-        // generated query.
-        $unsorted_sql_query = trim($unsorted_sql_query);
+        $unsorted_sql_query = SqlParser\Utils\Query::replaceClause(
+            $analyzed_sql_results['statement'],
+            $analyzed_sql_results['parser']->list,
+            'ORDER BY',
+            ''
+        );
 
-        // sorting by indexes, only if it makes sense (only one table ref)
-        if (isset($analyzed_sql)
-            && isset($analyzed_sql[0])
-            && isset($analyzed_sql[0]['querytype'])
-            && ($analyzed_sql[0]['querytype'] == self::QUERY_TYPE_SELECT)
-            && isset($analyzed_sql[0]['table_ref'])
-            && (count($analyzed_sql[0]['table_ref']) == 1)
-        ) {
+        // Data is sorted by indexes only if it there is only one table.
+        if ($this->_isSelect($analyzed_sql_results)) {
             // grab indexes data:
             $indexes = PMA_Index::getFromTable(
                 $this->__get('table'),
@@ -1598,34 +1583,34 @@ class PMA_DisplayResults
     /**
      * Get table comments as array
      *
-     * @param array $analyzed_sql the analyzed query
+     * @param array $analyzed_sql_results analyzed sql results
      *
-     * @return  array $comments_map table comments when condition true
-     *          null                when condition falls
+     * @return array $comments_map table comments
      *
      * @access  private
      *
      * @see     _getTableHeaders()
      */
-    private function _getTableCommentsArray($analyzed_sql)
+    private function _getTableCommentsArray($analyzed_sql_results)
     {
-
-        $comments_map = array();
-
-        if ($GLOBALS['cfg']['ShowBrowseComments']) {
-            if (isset($analyzed_sql[0])
-                && is_array($analyzed_sql[0])
-                && isset($analyzed_sql[0]['table_ref'])
-            ) {
-                foreach ($analyzed_sql[0]['table_ref'] as $tbl) {
-                    $tb = $tbl['table_true_name'];
-                    $comments_map[$tb] = PMA_getComments($this->__get('db'), $tb);
-                    unset($tb);
-                }
-            }
+        if ((!$GLOBALS['cfg']['ShowBrowseComments'])
+            || (empty($analyzed_sql_results['statement']->from))
+        ) {
+            return array();
         }
 
-        return $comments_map;
+        $ret = array();
+        foreach ($analyzed_sql_results['statement']->from as $field) {
+            if (empty($field->table)) {
+                continue;
+            }
+            $ret[$field->table] = PMA_getComments(
+                empty($field->database) ? $this->__get('db') : $field->database,
+                $field->table
+            );
+        }
+
+        return $ret;
 
     } // end of the '_getTableCommentsArray()' function
 
@@ -1633,7 +1618,7 @@ class PMA_DisplayResults
     /**
      * Set global array for store highlighted header fields
      *
-     * @param array $analyzed_sql the analyzed query
+     * @param array $analyzed_sql_results analyzed sql results
      *
      * @return  void
      *
@@ -1641,16 +1626,15 @@ class PMA_DisplayResults
      *
      * @see     _getTableHeaders()
      */
-    private function _setHighlightedColumnGlobalField($analyzed_sql)
+    private function _setHighlightedColumnGlobalField($analyzed_sql_results)
     {
-
         $highlight_columns = array();
-        if (isset($analyzed_sql) && isset($analyzed_sql[0])
-            && isset($analyzed_sql[0]['where_clause_identifiers'])
-            && is_array($analyzed_sql[0]['where_clause_identifiers'])
-        ) {
-            foreach ($analyzed_sql[0]['where_clause_identifiers'] as $wci) {
-                $highlight_columns[$wci] = 'true';
+
+        if (!empty($analyzed_sql_results['statement']->where)) {
+            foreach ($analyzed_sql_results['statement']->where as $expr) {
+                foreach ($expr->identifiers as $identifier) {
+                    $highlight_columns[$identifier] = 'true';
+                }
             }
         }
 
@@ -2667,12 +2651,12 @@ class PMA_DisplayResults
     /**
      * Prepare the body of the results table
      *
-     * @param integer &$dt_result         the link id associated to the query
+     * @param integer &$dt_result           the link id associated to the query which results have to be displayed
      *                                    which results have to be displayed
-     * @param array   &$displayParts      which elements to display
-     * @param array   $map                the list of relations
-     * @param array   $analyzed_sql       the analyzed query
-     * @param boolean $is_limited_display with limited operations or not
+     * @param array   &$displayParts        which elements to display
+     * @param array   $map                  the list of relations
+     * @param array   $analyzed_sql_results analyzed sql results
+     * @param boolean $is_limited_display   with limited operations or not
      *
      * @return string $table_body_html  html content
      *
@@ -2683,7 +2667,8 @@ class PMA_DisplayResults
      * @see     getTable()
      */
     private function _getTableBody(
-        &$dt_result, &$displayParts, $map, $analyzed_sql, $is_limited_display = false
+        &$dt_result, &$displayParts, $map, $analyzed_sql_results,
+        $is_limited_display = false
     ) {
 
         global $row; // mostly because of browser transformations,
@@ -2693,7 +2678,7 @@ class PMA_DisplayResults
 
         // query without conditions to shorten URLs when needed, 200 is just
         // guess, it should depend on remaining URL length
-        $url_sql_query = $this->_getUrlSqlQuery($analyzed_sql);
+        $url_sql_query = $this->_getUrlSqlQuery($analyzed_sql_results);
 
         $display_params = $this->__get('display_params');
 
@@ -2701,7 +2686,7 @@ class PMA_DisplayResults
             $map = array();
         }
 
-        $row_no                         = 0;
+        $row_no                       = 0;
         $display_params['edit']       = array();
         $display_params['copy']       = array();
         $display_params['delete']     = array();
@@ -2731,7 +2716,7 @@ class PMA_DisplayResults
         }
 
         // prepare to get the column order, if available
-        list($col_order, $col_visib) = $this->_getColumnParams($analyzed_sql);
+        list($col_order, $col_visib) = $this->_getColumnParams($analyzed_sql_results);
 
         // Correction University of Virginia 19991216 in the while below
         // Previous code assumed that all tables have keys, specifically that
@@ -2793,12 +2778,13 @@ class PMA_DisplayResults
                  */
                 list($where_clause, $clause_is_unique, $condition_array)
                     = PMA_Util::getUniqueCondition(
-                        $dt_result,
-                        $this->__get('fields_cnt'),
-                        $this->__get('fields_meta'),
-                        $row,
-                        false,
-                        $this->__get('table')
+                        $dt_result, // handle
+                        $this->__get('fields_cnt'), // fields_cnt
+                        $this->__get('fields_meta'), // fields_meta
+                        $row, // row
+                        false, // force_unique
+                        $this->__get('table'), // restrict_to_table
+                        $analyzed_sql_results // analyzed_sql_results
                     );
                 $whereClauseMap[$row_no][$this->__get('table')] = $where_clause;
                 $this->__set('whereClauseMap', $whereClauseMap);
@@ -2854,9 +2840,15 @@ class PMA_DisplayResults
                 $this->_setMimeMap();
             }
             $table_body_html .= $this->_getRowValues(
-                $dt_result, $row, $row_no, $col_order, $map,
-                $grid_edit_class, $col_visib,
-                $url_sql_query, $analyzed_sql
+                $dt_result,
+                $row,
+                $row_no,
+                $col_order,
+                $map,
+                $grid_edit_class,
+                $col_visib,
+                $url_sql_query,
+                $analyzed_sql_results
             );
 
             // 3. Displays the modify/delete links on the right if required
@@ -2959,18 +2951,18 @@ class PMA_DisplayResults
     /**
      * Get the values for one data row
      *
-     * @param integer &$dt_result      the link id associated to the query
+     * @param integer &$dt_result           the link id associated to the query which results have to be displayed
      *                                 which results have to be displayed
-     * @param array   $row             current row data
-     * @param integer $row_no          the index of current row
-     * @param array   $col_order       the column order
+     * @param array   $row                  current row data
+     * @param integer $row_no               the index of current row
+     * @param array   $col_order            the column order false when a property not found
      *                                 false when a property not found
-     * @param array   $map             the list of relations
-     * @param string  $grid_edit_class the class for all editable columns
-     * @param boolean $col_visib       column is visible(false)
+     * @param array   $map                  the list of relations
+     * @param string  $grid_edit_class      the class for all editable columns
+     * @param boolean $col_visib            column is visible(false) array                    column isn't visible(string array)
      *        array                    column isn't visible(string array)
-     * @param string  $url_sql_query   the analyzed sql query
-     * @param array   $analyzed_sql    the analyzed query
+     * @param string  $url_sql_query        the analyzed sql query
+     * @param array   $analyzed_sql_results analyzed sql results
      *
      * @return  string $row_values_html  html content
      *
@@ -2981,9 +2973,8 @@ class PMA_DisplayResults
     private function _getRowValues(
         &$dt_result, $row, $row_no, $col_order, $map,
         $grid_edit_class, $col_visib,
-        $url_sql_query, $analyzed_sql
+        $url_sql_query, $analyzed_sql_results
     ) {
-
         $row_values_html = '';
 
         // Following variable are needed for use in isset/empty or
@@ -3143,12 +3134,13 @@ class PMA_DisplayResults
              */
             if (! isset($whereClauseMap[$row_no][$meta->orgtable])) {
                 $unique_conditions = PMA_Util::getUniqueCondition(
-                    $dt_result,
-                    $this->__get('fields_cnt'),
-                    $this->__get('fields_meta'),
-                    $row,
-                    false,
-                    $meta->orgtable
+                    $dt_result, // handle
+                    $this->__get('fields_cnt'), // fields_cnt
+                    $this->__get('fields_meta'), // fields_meta
+                    $row, // row
+                    false, // force_unique
+                    $meta->orgtable, // restrict_to_table
+                    $analyzed_sql_results // analyzed_sql_results
                 );
                 $whereClauseMap[$row_no][$meta->orgtable] = $unique_conditions[0];
             }
@@ -3174,9 +3166,15 @@ class PMA_DisplayResults
 
                 $display_params['data'][$row_no][$i]
                     = $this->_getDataCellForNumericColumns(
-                        $row[$i], $class, $condition_field, $meta, $map,
-                        $is_field_truncated, $analyzed_sql,
-                        $transformation_plugin, $default_function,
+                        $row[$i],
+                        $class,
+                        $condition_field,
+                        $meta,
+                        $map,
+                        $is_field_truncated,
+                        $analyzed_sql_results,
+                        $transformation_plugin,
+                        $default_function,
                         $transform_options
                     );
 
@@ -3189,9 +3187,16 @@ class PMA_DisplayResults
 
                 $display_params['data'][$row_no][$i]
                     = $this->_getDataCellForGeometryColumns(
-                        $row[$i], $class, $meta, $map, $_url_params,
-                        $condition_field, $transformation_plugin,
-                        $default_function, $transform_options, $analyzed_sql
+                        $row[$i],
+                        $class,
+                        $meta,
+                        $map,
+                        $_url_params,
+                        $condition_field,
+                        $transformation_plugin,
+                        $default_function,
+                        $transform_options,
+                        $analyzed_sql_results
                     );
 
             } else {
@@ -3199,10 +3204,19 @@ class PMA_DisplayResults
 
                 $display_params['data'][$row_no][$i]
                     = $this->_getDataCellForNonNumericColumns(
-                        $row[$i], $class, $meta, $map, $_url_params,
-                        $condition_field, $transformation_plugin,
-                        $default_function, $transform_options,
-                        $is_field_truncated, $analyzed_sql, $dt_result, $i
+                        $row[$i],
+                        $class,
+                        $meta,
+                        $map,
+                        $_url_params,
+                        $condition_field,
+                        $transformation_plugin,
+                        $default_function,
+                        $transform_options,
+                        $is_field_truncated,
+                        $analyzed_sql_results,
+                        $dt_result,
+                        $i
                     );
 
             }
@@ -3310,11 +3324,10 @@ class PMA_DisplayResults
 
     }
 
-
     /**
      * Get url sql query without conditions to shorten URLs
      *
-     * @param array $analyzed_sql analyzed query
+     * @param array $analyzed_sql_results analyzed sql results
      *
      * @return  string  $url_sql        analyzed sql query
      *
@@ -3322,30 +3335,31 @@ class PMA_DisplayResults
      *
      * @see     _getTableBody()
      */
-    private function _getUrlSqlQuery($analyzed_sql)
+    private function _getUrlSqlQuery($analyzed_sql_results)
     {
-
-        if (isset($analyzed_sql)
-            && isset($analyzed_sql[0])
-            && isset($analyzed_sql[0]['querytype'])
-            && ($analyzed_sql[0]['querytype'] == self::QUERY_TYPE_SELECT)
-            && (/*overload*/mb_strlen($this->__get('sql_query')) > 200)
+        if (($analyzed_sql_results['querytype'] != 'SELECT')
+            || (/*overload*/mb_strlen($this->__get('sql_query')) < 200)
         ) {
-
-            $url_sql_query = 'SELECT ';
-            if (isset($analyzed_sql[0]['queryflags']['distinct'])) {
-                $url_sql_query .= ' DISTINCT ';
-            }
-
-            $url_sql_query .= $analyzed_sql[0]['select_expr_clause'];
-            if (!empty($analyzed_sql[0]['from_clause'])) {
-                $url_sql_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
-            }
-
-            return $url_sql_query;
+            return $this->__get('sql_query');
         }
 
-        return $this->__get('sql_query');
+        $query = 'SELECT ' . SqlParser\Utils\Query::getClause(
+            $analyzed_sql_results['statement'],
+            $analyzed_sql_results['parser']->list,
+            'SELECT'
+        );
+
+        $from_clause = SqlParser\Utils\Query::getClause(
+            $analyzed_sql_results['statement'],
+            $analyzed_sql_results['parser']->list,
+            'FROM'
+        );
+
+        if (!empty($from_clause)) {
+            $query .= ' FROM ' . $from_clause;
+        }
+
+        return $query;
 
     } // end of the '_getUrlSqlQuery()' function
 
@@ -3353,7 +3367,7 @@ class PMA_DisplayResults
     /**
      * Get column order and column visibility
      *
-     * @param array $analyzed_sql the analyzed query
+     * @param array $analyzed_sql_results analyzed sql results
      *
      * @return  array           2 element array - $col_order, $col_visib
      *
@@ -3361,9 +3375,9 @@ class PMA_DisplayResults
      *
      * @see     _getTableBody()
      */
-    private function _getColumnParams($analyzed_sql)
+    private function _getColumnParams($analyzed_sql_results)
     {
-        if ($this->_isSelect($analyzed_sql)) {
+        if ($this->_isSelect($analyzed_sql_results)) {
             $pmatable = new PMA_Table($this->__get('table'), $this->__get('db'));
             $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
             $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
@@ -3725,7 +3739,7 @@ class PMA_DisplayResults
      * @param array         $map                   the list of relations
      * @param boolean       $is_field_truncated    the condition for blob data
      *                                             replacements
-     * @param array         $analyzed_sql          the analyzed query
+     * @param array         $analyzed_sql_results  the analyzed query
      * @param object|string $transformation_plugin the name of transformation plugin
      * @param string        $default_function      the default transformation
      *                                             function
@@ -3739,7 +3753,7 @@ class PMA_DisplayResults
      */
     private function _getDataCellForNumericColumns(
         $column, $class, $condition_field, $meta, $map, $is_field_truncated,
-        $analyzed_sql, $transformation_plugin, $default_function,
+        $analyzed_sql_results, $transformation_plugin, $default_function,
         $transform_options
     ) {
 
@@ -3756,7 +3770,7 @@ class PMA_DisplayResults
 
             $cell = $this->_getRowData(
                 'right ' . $class, $condition_field,
-                $analyzed_sql, $meta, $map, $column,
+                $analyzed_sql_results, $meta, $map, $column,
                 $transformation_plugin, $default_function, $nowrap,
                 $where_comparison, $transform_options,
                 $is_field_truncated, ''
@@ -3789,7 +3803,7 @@ class PMA_DisplayResults
      * @param string        $default_function      the default transformation
      *                                             function
      * @param string        $transform_options     the transformation parameters
-     * @param array         $analyzed_sql          the analyzed query
+     * @param array         $analyzed_sql_results  the analyzed query
      *
      * @return  string  $cell                  the prepared data cell, html content
      *
@@ -3800,7 +3814,7 @@ class PMA_DisplayResults
     private function _getDataCellForGeometryColumns(
         $column, $class, $meta, $map, $_url_params, $condition_field,
         $transformation_plugin, $default_function, $transform_options,
-        $analyzed_sql
+        $analyzed_sql_results
     ) {
         if (! isset($column) || is_null($column)) {
             $cell = $this->_buildNullDisplay($class, $condition_field, $meta);
@@ -3838,7 +3852,7 @@ class PMA_DisplayResults
             ) = $this->_getPartialText($wktval);
 
             $cell = $this->_getRowData(
-                $class, $condition_field, $analyzed_sql, $meta, $map,
+                $class, $condition_field, $analyzed_sql_results, $meta, $map,
                 $wktval, $transformation_plugin, $default_function, '',
                 $where_comparison, $transform_options,
                 $is_field_truncated, ''
@@ -3860,7 +3874,7 @@ class PMA_DisplayResults
 
             $cell = $this->_getRowData(
                 $class, $condition_field,
-                $analyzed_sql, $meta, $map, $wkbval,
+                $analyzed_sql_results, $meta, $map, $wkbval,
                 $transformation_plugin, $default_function, '',
                 $where_comparison, $transform_options,
                 $is_field_truncated, ''
@@ -3902,7 +3916,7 @@ class PMA_DisplayResults
      * @param string        $transform_options     the transformation parameters
      * @param boolean       $is_field_truncated    is data truncated due to
      *                                             LimitChars
-     * @param array         $analyzed_sql          the analyzed query
+     * @param array         $analyzed_sql_results  the analyzed query
      * @param integer       &$dt_result            the link id associated to
      *                                             the query which results
      *                                             have to be displayed
@@ -3917,7 +3931,7 @@ class PMA_DisplayResults
     private function _getDataCellForNonNumericColumns(
         $column, $class, $meta, $map, $_url_params, $condition_field,
         $transformation_plugin, $default_function, $transform_options,
-        $is_field_truncated, $analyzed_sql, &$dt_result, $col_index
+        $is_field_truncated, $analyzed_sql_results, &$dt_result, $col_index
     ) {
         $original_length = 0;
 
@@ -4028,7 +4042,7 @@ class PMA_DisplayResults
 
         $cell = $this->_getRowData(
             $class, $condition_field,
-            $analyzed_sql, $meta, $map, $column,
+            $analyzed_sql_results, $meta, $map, $column,
             $transformation_plugin, $default_function, $nowrap,
             $where_comparison, $transform_options,
             $is_field_truncated, $original_length
@@ -4197,15 +4211,14 @@ class PMA_DisplayResults
             = $query['repeat_cells'];
     }
 
-
     /**
      * Prepare a table of results returned by a SQL query.
      *
-     * @param integer &$dt_result         the link id associated to the query
-     *                                    which results have to be displayed
-     * @param array   &$displayParts      the parts to display
-     * @param array   $analyzed_sql       the analyzed query
-     * @param boolean $is_limited_display With limited operations or not
+     * @param integer &$dt_result           the link id associated to the query
+     *                                      which results have to be displayed
+     * @param array   &$displayParts        the parts to display
+     * @param array   $analyzed_sql_results analyzed sql results
+     * @param boolean $is_limited_display   With limited operations or not
      *
      * @return  string   $table_html   Generated HTML content for resulted table
      *
@@ -4214,9 +4227,15 @@ class PMA_DisplayResults
      * @see     sql.php file
      */
     public function getTable(
-        &$dt_result, &$displayParts, $analyzed_sql,
+        &$dt_result, &$displayParts, $analyzed_sql_results,
         $is_limited_display = false
     ) {
+
+        /**
+         * The statement this table is built for.
+         * @var SqlParser\Statements\SelectStatement
+         */
+        $statement = $analyzed_sql_results['statement'];
 
         $table_html = '';
         // Following variable are needed for use in isset/empty or
@@ -4236,10 +4255,7 @@ class PMA_DisplayResults
             && $showtable['Type'] == self::TABLE_TYPE_INNO_DB);
 
         if ($is_innodb
-            && ! isset($analyzed_sql[0]['queryflags']['union'])
-            && ! isset($analyzed_sql[0]['table_ref'][1]['table_name'])
-            && (empty($analyzed_sql[0]['where_clause'])
-            || ($analyzed_sql[0]['where_clause'] == '1 '))
+            && PMA_isJustBrowsing($analyzed_sql_results, true)
         ) {
             // "j u s t   b r o w s i n g"
             $pre_count = '~';
@@ -4264,19 +4280,28 @@ class PMA_DisplayResults
         if ($displayParts['nav_bar'] == '1') {
             list($pos_next, $pos_prev) = $this->_getOffsets();
         } // end if
-        if (!isset($analyzed_sql[0]['order_by_clause'])) {
-            $analyzed_sql[0]['order_by_clause'] = "";
+
+        // 1.3 Extract sorting expressions.
+        //     we need $sort_expression and $sort_expression_nodirection
+        //     even if there are many table references
+        $sort_expression = array();
+        $sort_expression_nodirection = array();
+        $sort_direction = array();
+
+        if (!empty($statement->order)) {
+            foreach ($statement->order as $o) {
+                $sort_expression[] = $o->field->expr . ' ' . $o->type;
+                $sort_expression_nodirection[] = $o->field->expr;
+                $sort_direction[] = $o->type;
+            }
+        } else {
+            $sort_expression[] = '';
+            $sort_expression_nodirection[] = '';
+            $sort_direction[] = '';
         }
 
-        // 1.3 Find the sort expression
-        // we need $sort_expression and $sort_expression_nodirection
-        // even if there are many table references
-        list(
-            $sort_expression, $sort_expression_nodirection,
-            $sort_direction
-        ) = $this->_getSortParams($analyzed_sql[0]['order_by_clause']);
-
         $number_of_columns = count($sort_expression_nodirection);
+
         // 1.4 Prepares display of first and last value of the sorted column
         $sorted_column_message = '';
         for ( $i = 0; $i < $number_of_columns; $i++ ) {
@@ -4291,8 +4316,12 @@ class PMA_DisplayResults
         if (($displayParts['nav_bar'] == '1') && isset($pos_next)) {
 
             $message = $this->_setMessageInformation(
-                $sorted_column_message, $analyzed_sql[0]['limit_clause'],
-                $total, $pos_next, $pre_count, $after_count
+                $sorted_column_message,
+                $analyzed_sql_results,
+                $total,
+                $pos_next,
+                $pre_count,
+                $after_count
             );
 
             $table_html .= PMA_Util::getMessage(
@@ -4310,9 +4339,7 @@ class PMA_DisplayResults
         // 2.3 Prepare the navigation bars
         if (!/*overload*/mb_strlen($this->__get('table'))) {
 
-            if (isset($analyzed_sql[0]['query_type'])
-                && ($analyzed_sql[0]['query_type'] == self::QUERY_TYPE_SELECT)
-            ) {
+            if ($analyzed_sql_results['querytype'] == 'SELECT') {
                 // table does not always contain a real table name,
                 // for example in MySQL 5.0.x, the query SHOW STATUS
                 // returns STATUS as a table name
@@ -4323,15 +4350,11 @@ class PMA_DisplayResults
 
         }
 
-        if (($displayParts['nav_bar'] == '1')
-            && empty($analyzed_sql[0]['limit_clause'])
-        ) {
-
+        if (($displayParts['nav_bar'] == '1') && (empty($statement->limit))) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_TOP_DIRECTION_DROPDOWN,
                 $is_innodb
             );
-
         } elseif (! isset($printview) || ($printview != '1')) {
             $table_html .= "\n" . '<br /><br />' . "\n";
         }
@@ -4342,18 +4365,13 @@ class PMA_DisplayResults
         // initialize map
         $map = array();
 
-        // find tables
         $target = array();
-        if (isset($analyzed_sql[0]['table_ref'])
-            && is_array($analyzed_sql[0]['table_ref'])
-        ) {
-
-            foreach ($analyzed_sql[0]['table_ref']
-                as $table_ref_position => $table_ref) {
-                $target[] = $analyzed_sql[0]['table_ref']
-                    [$table_ref_position]['table_true_name'];
+        if (!empty($statement->from)) {
+            foreach ($statement->from as $field) {
+                if (!empty($field->table)) {
+                    $target[] = $field->table;
+                }
             }
-
         }
 
         if (/*overload*/mb_strlen($this->__get('table'))) {
@@ -4375,19 +4393,27 @@ class PMA_DisplayResults
 
         // 3. ----- Prepare the results table -----
         $table_html .= $this->_getTableHeaders(
-            $displayParts, $analyzed_sql, $sort_expression,
-            $sort_expression_nodirection, $sort_direction, $is_limited_display
-        )
-        . '<tbody>' . "\n";
+            $displayParts,
+            $analyzed_sql_results,
+            $sort_expression,
+            $sort_expression_nodirection,
+            $sort_direction,
+            $is_limited_display
+        );
+
+        $table_html .= '<tbody>' . "\n";
 
         $table_html .= $this->_getTableBody(
-            $dt_result, $displayParts, $map, $analyzed_sql, $is_limited_display
+            $dt_result,
+            $displayParts,
+            $map,
+            $analyzed_sql_results,
+            $is_limited_display
         );
 
         $this->__set('display_params', null);
 
-        $table_html .= '</tbody>' . "\n"
-            . '</table>';
+        $table_html .= '</tbody>' . "\n" . '</table>';
 
         // 4. ----- Prepares the link for multi-fields edit and delete
 
@@ -4396,15 +4422,15 @@ class PMA_DisplayResults
         ) {
 
             $table_html .= $this->_getMultiRowOperationLinks(
-                $dt_result, $analyzed_sql, $displayParts['del_lnk']
+                $dt_result,
+                $analyzed_sql_results,
+                $displayParts['del_lnk']
             );
 
         }
 
         // 5. ----- Get the navigation bar at the bottom if required -----
-        if (($displayParts['nav_bar'] == '1')
-            && empty($analyzed_sql[0]['limit_clause'])
-        ) {
+        if (($displayParts['nav_bar'] == '1') && empty($statement->limit)) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_BOTTOM_DIRECTION_DROPDOWN,
                 $is_innodb
@@ -4416,7 +4442,7 @@ class PMA_DisplayResults
         // 6. ----- Prepare "Query results operations"
         if ((! isset($printview) || ($printview != '1')) && ! $is_limited_display) {
             $table_html .= $this->_getResultsOperations(
-                $displayParts, $analyzed_sql
+                $displayParts, $analyzed_sql_results
             );
         }
 
@@ -4456,61 +4482,6 @@ class PMA_DisplayResults
         return array($pos_next, $pos_prev);
 
     } // end of the '_getOffsets()' function
-
-
-    /**
-     * Get sort parameters
-     *
-     * @param string $order_by_clause the order by clause of the sql query
-     *
-     * @return  array                 3 element array: $sort_expression,
-     *                                $sort_expression_nodirection, $sort_direction
-     *
-     * @access  private
-     *
-     * @see     getTable()
-     */
-    private function _getSortParams($order_by_clause)
-    {
-
-        $sort_expression             = array();
-        $sort_expression_nodirection = array();
-        $sort_direction              = array();
-        if (! empty($order_by_clause)) {
-            // Each order by clause is assumed to be delimited by a comma
-            // A typical order by clause would be order by column1 asc, column2 desc
-            // The following line counts the number of columns in order by clause
-            $matches = explode(',', $order_by_clause);
-            // Iterate over each column in order by clause
-            foreach ($matches as $index=>$order_by_clause2) {
-
-                $sort_expression[$index] = trim(
-                    str_replace('  ', ' ', $order_by_clause2)
-                );
-                /**
-                 * Get rid of ASC|DESC
-                 */
-                preg_match(
-                    '@(.*)([[:space:]]*(ASC|DESC))@si',
-                    $sort_expression[$index], $matches
-                );
-
-                $sort_expression_nodirection[$index] = isset($matches[1])
-                    ? trim($matches[1])
-                    : $sort_expression[$index];
-                $sort_direction[$index]
-                    = isset($matches[2]) ? trim($matches[2]) : '';
-            }
-        } else {
-            $sort_expression[0] = $sort_expression_nodirection[0]
-                = $sort_direction[0] = '';
-        }
-
-        return array($sort_expression, $sort_expression_nodirection,
-            $sort_direction
-        );
-
-    } // end of the '_getSortParams()' function
 
 
     /**
@@ -4635,7 +4606,7 @@ class PMA_DisplayResults
      * Set the content that needs to be shown in message
      *
      * @param string  $sorted_column_message the message for sorted column
-     * @param string  $limit_clause          the limit clause of analyzed query
+     * @param array   $analyzed_sql_results  the analyzed query
      * @param integer $total                 the total number of rows returned by
      *                                       the SQL query without any
      *                                       programmatically appended LIMIT clause
@@ -4650,22 +4621,21 @@ class PMA_DisplayResults
      * @see     getTable()
      */
     private function _setMessageInformation(
-        $sorted_column_message, $limit_clause, $total,
+        $sorted_column_message, $analyzed_sql_results, $total,
         $pos_next, $pre_count, $after_count
     ) {
 
         $unlim_num_rows = $this->__get('unlim_num_rows'); // To use in isset()
 
-        if (! empty($limit_clause)) {
+        if (!empty($analyzed_sql_results['statement']->limit)) {
 
-            $limit_data
-                = PMA_Util::analyzeLimitClause($limit_clause);
-            $first_shown_rec = $limit_data['start'];
+            $first_shown_rec = $analyzed_sql_results['statement']->limit->offset;
+            $row_count = $analyzed_sql_results['statement']->limit->rowCount;
 
-            if ($limit_data['length'] < $total) {
-                $last_shown_rec = $limit_data['start'] + $limit_data['length'] - 1;
+            if ($row_count < $total) {
+                $last_shown_rec = $first_shown_rec + $row_count - 1;
             } else {
-                $last_shown_rec = $limit_data['start'] + $total - 1;
+                $last_shown_rec = $first_shown_rec + $total - 1;
             }
 
         } elseif (($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS)
@@ -4813,10 +4783,10 @@ class PMA_DisplayResults
     /**
      * Prepare multi field edit/delete links
      *
-     * @param integer &$dt_result   the link id associated to the query
+     * @param integer &$dt_result           the link id associated to the query which results have to be displayed
      *                              which results have to be displayed
-     * @param array   $analyzed_sql the analyzed query
-     * @param string  $del_link     the display element - 'del_link'
+     * @param array   $analyzed_sql_results analyzed sql results
+     * @param string  $del_link             the display element - 'del_link'
      *
      * @return string $links_html html content
      *
@@ -4825,7 +4795,7 @@ class PMA_DisplayResults
      * @see     getTable()
      */
     private function _getMultiRowOperationLinks(
-        &$dt_result, $analyzed_sql, $del_link
+        &$dt_result, $analyzed_sql_results, $del_link
     ) {
 
         $links_html = '<div class="print_ignore" >';
@@ -4859,9 +4829,7 @@ class PMA_DisplayResults
             $delete_text, 'b_drop.png', 'delete'
         );
 
-        if (isset($analyzed_sql[0])
-            && $analyzed_sql[0]['querytype'] == self::QUERY_TYPE_SELECT
-        ) {
+        if ($analyzed_sql_results['querytype'] == 'SELECT') {
             $links_html .= PMA_Util::getButtonOrImage(
                 'submit_mult', 'mult_submit', 'submit_mult_export',
                 __('Export'), 'b_tblexport.png', 'export'
@@ -4887,10 +4855,13 @@ class PMA_DisplayResults
         // in the multi-edit and multi-delete form
         list($where_clause, $clause_is_unique, $condition_array)
             = PMA_Util::getUniqueCondition(
-                $dt_result,
-                $this->__get('fields_cnt'),
-                $this->__get('fields_meta'),
-                $row
+                $dt_result, // handle
+                $this->__get('fields_cnt'), // fields_cnt
+                $this->__get('fields_meta'), // fields_meta
+                $row, // row
+                false, // force_unique
+                false, // restrict_to_table
+                $analyzed_sql_results // analyzed_sql_results
             );
         unset($where_clause, $condition_array);
 
@@ -4946,8 +4917,8 @@ class PMA_DisplayResults
     /**
      * Generates HTML to display the Create view in span tag
      *
-     * @param array  $analyzed_sql the analyzed Query
-     * @param string $url_query    String with URL Parameters
+     * @param array  $analyzed_sql_results analyzed sql results
+     * @param string $url_query            String with URL Parameters
      *
      * @return string
      *
@@ -4955,10 +4926,10 @@ class PMA_DisplayResults
      *
      * @see _getResultsOperations()
      */
-    private function _getLinkForCreateView($analyzed_sql, $url_query)
+    private function _getLinkForCreateView($analyzed_sql_results, $url_query)
     {
         $results_operations_html = '';
-        if (!PMA_DRIZZLE && !isset($analyzed_sql[0]['queryflags']['procedure'])) {
+        if (!PMA_DRIZZLE && empty($analyzed_sql_results['procedure'])) {
 
             $ajax_class = ' ajax';
 
@@ -4979,14 +4950,14 @@ class PMA_DisplayResults
     /**
      * Calls the _getResultsOperations with $only_view as true
      *
-     * @param array $analyzed_sql the analyzed Query
+     * @param array $analyzed_sql_results analyzed sql results
      *
      * @return string
      *
      * @access public
      *
      */
-    public function getCreateViewQueryResultOp($analyzed_sql)
+    public function getCreateViewQueryResultOp($analyzed_sql_results)
     {
 
         $results_operations_html = '';
@@ -4994,7 +4965,7 @@ class PMA_DisplayResults
         //and setting only_view parameter to be true to generate just view
         $results_operations_html .= $this->_getResultsOperations(
             array(),
-            $analyzed_sql,
+            $analyzed_sql_results,
             true
         );
         return $results_operations_html;
@@ -5026,9 +4997,9 @@ class PMA_DisplayResults
     /**
      * Get operations that are available on results.
      *
-     * @param array   $displayParts the parts to display
-     * @param array   $analyzed_sql the analyzed query
-     * @param boolean $only_view    Whether to show only view
+     * @param array   $displayParts         the parts to display
+     * @param array   $analyzed_sql_results analyzed sql results
+     * @param boolean $only_view            Whether to show only view
      *
      * @return string $results_operations_html  html content
      *
@@ -5037,7 +5008,7 @@ class PMA_DisplayResults
      * @see     getTable()
      */
     private function _getResultsOperations(
-        $displayParts, $analyzed_sql, $only_view = false
+        $displayParts, $analyzed_sql_results, $only_view = false
     ) {
         global $printview;
 
@@ -5063,7 +5034,7 @@ class PMA_DisplayResults
         // show only view and not other options
         if ($only_view == true) {
             $results_operations_html .= $this->_getLinkForCreateView(
-                $analyzed_sql, $url_query
+                $analyzed_sql_results, $url_query
             );
 
             if ($header_shown) {
@@ -5084,15 +5055,12 @@ class PMA_DisplayResults
         // If the parser found a PROCEDURE clause
         // (most probably PROCEDURE ANALYSE()) it makes no sense to
         // display the Export link).
-        if (isset($analyzed_sql[0])
-            && ($analyzed_sql[0]['querytype'] == self::QUERY_TYPE_SELECT)
+        if (($analyzed_sql_results['querytype'] == self::QUERY_TYPE_SELECT)
             && ! isset($printview)
-            && ! isset($analyzed_sql[0]['queryflags']['procedure'])
+            && empty($analyzed_sql_results['procedure'])
         ) {
 
-            if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name'])
-                && ! isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])
-            ) {
+            if (count($analyzed_sql_results['select_tables']) == 1) {
                 $_url_params['single_table'] = 'true';
             }
 
@@ -5185,7 +5153,7 @@ class PMA_DisplayResults
         }
 
         $results_operations_html .= $this->_getLinkForCreateView(
-            $analyzed_sql, $url_query
+            $analyzed_sql_results, $url_query
         );
 
         if ($header_shown) {
@@ -5352,7 +5320,7 @@ class PMA_DisplayResults
      * @param string        $class                 css classes for the td element
      * @param bool          $condition_field       whether the column is a part of
      *                                             the where clause
-     * @param array         $analyzed_sql          the analyzed query
+     * @param array         $analyzed_sql_results  the analyzed query
      * @param object        $meta                  the meta-information about the
      *                                             field
      * @param array         $map                   the list of relations
@@ -5377,11 +5345,10 @@ class PMA_DisplayResults
      *
      */
     private function _getRowData(
-        $class, $condition_field, $analyzed_sql, $meta, $map, $data,
+        $class, $condition_field, $analyzed_sql_results, $meta, $map, $data,
         $transformation_plugin, $default_function, $nowrap, $where_comparison,
         $transform_options, $is_field_truncated, $original_length=''
     ) {
-
         $relational_display = $_SESSION['tmpval']['relational_display'];
         $printview = $this->__get('printview');
         $decimals = isset($meta->decimals) ? $meta->decimals : '-1';
@@ -5400,32 +5367,16 @@ class PMA_DisplayResults
             )
             . '">';
 
-        if (isset($analyzed_sql[0]['select_expr'])
-            && is_array($analyzed_sql[0]['select_expr'])
-        ) {
-
-            foreach ($analyzed_sql[0]['select_expr']
-                as $select_expr_position => $select_expr
-            ) {
-
-                $alias = $analyzed_sql[0]['select_expr']
-                    [$select_expr_position]['alias'];
-
-                if (!isset($alias) || !/*overload*/mb_strlen($alias)) {
+        if (!empty($analyzed_sql_results['statement']->expr)) {
+            foreach ($analyzed_sql_results['statement']->expr as $expr) {
+                if ((empty($expr->alias)) || (empty($expr->column))) {
                     continue;
-                } // end if
-
-                $true_column = $analyzed_sql[0]['select_expr']
-                    [$select_expr_position]['column'];
-
-                if ($alias == $meta->name) {
-                    // this change in the parameter does not matter
-                    // outside of the function
-                    $meta->name = $true_column;
-                } // end if
-
-            } // end foreach
-        } // end if
+                }
+                if (strcasecmp($meta->name, $expr->alias) == 0) {
+                    $meta->name = $expr->column;
+                }
+            }
+        }
 
         if (isset($map[$meta->name])) {
 
@@ -5471,16 +5422,10 @@ class PMA_DisplayResults
                     'table' => $map[$meta->name][0],
                     'pos'   => '0',
                     'sql_query' => 'SELECT * FROM '
-                        . PMA_Util::backquote(
-                            $map[$meta->name][3]
-                        ) . '.'
-                        . PMA_Util::backquote(
-                            $map[$meta->name][0]
-                        )
+                        . PMA_Util::backquote($map[$meta->name][3]) . '.'
+                        . PMA_Util::backquote($map[$meta->name][0])
                         . ' WHERE '
-                        . PMA_Util::backquote(
-                            $map[$meta->name][1]
-                        )
+                        . PMA_Util::backquote($map[$meta->name][1])
                         . $where_comparison,
                 );
 

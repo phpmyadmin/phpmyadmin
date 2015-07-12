@@ -745,10 +745,24 @@ if ($go_sql) {
         include 'libraries/parse_analyze.inc.php';
 
         $html_output .= PMA_executeQueryAndGetQueryResponse(
-            $analyzed_sql_results, false, $db, $table, null,
-            $sql_query, null, $analyzed_sql_results['is_affected'],
-            null, null, null, $goto, $pmaThemeImage,
-            null, null, null, $sql_query, null, null
+            $analyzed_sql_results, // analyzed_sql_results
+            false, // is_gotofile
+            $db, // db
+            $table, // table
+            null, // find_real_end
+            $sql_query, // sql_query_for_bookmark
+            null, // extra_data
+            null, // message_to_show
+            null, // message
+            null, // sql_data
+            $goto, // goto
+            $pmaThemeImage, // pmaThemeImage
+            null, // disp_query
+            null, // disp_message
+            null, // query_type
+            $sql_query, // sql_query
+            null, // selectedTables
+            null // complete_query
         );
     }
 

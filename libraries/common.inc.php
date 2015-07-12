@@ -1054,9 +1054,32 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         /**
-         * SQL Parser code
+         * Charset information
          */
-        include_once './libraries/sqlparser.lib.php';
+        if (!PMA_DRIZZLE) {
+            include_once './libraries/mysql_charsets.inc.php';
+        }
+        if (!isset($mysql_charsets)) {
+            $mysql_charsets = array();
+            $mysql_collations_flat = array();
+        }
+
+        /**
+         * Initializes the SQL parsing library.
+         */
+        include_once './libraries/sql-parser/autoload.php';
+
+       // Loads closest context to this version.
+        SqlParser\Context::loadClosest(
+            (PMA_DRIZZLE ? 'Drizzle' : 'MySql') . PMA_MYSQL_INT_VERSION
+        );
+
+        // Sets the default delimiter (if specified).
+        if (!empty($_REQUEST['sql_delimiter'])) {
+            SqlParser\Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
+        }
+
+        // TODO: Set SQL modes too.
 
         /**
          * the PMA_List_Database class

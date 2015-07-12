@@ -220,16 +220,21 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     // Check if the routine has any input parameters. If it does,
     // we will show a dialog to get values for these parameters,
     // otherwise we can execute it directly.
-    $params = PMA_RTN_parseAllParameters(
-        PMA_SQP_parse(
-            $GLOBALS['dbi']->getDefinition(
-                $db,
-                $routine['type'],
-                $routine['name']
-            )
-        ),
-        $routine['type']
+
+    $parser = new SqlParser\Parser(
+        $GLOBALS['dbi']->getDefinition(
+            $db,
+            $routine['type'],
+            $routine['name']
+        )
     );
+
+    /**
+     * @var CreateStatement $stmt
+     */
+    $stmt = $parser->statements[0];
+
+    $params = SqlParser\Utils\Routine::getParameters($stmt);
     if ($routine !== false) {
         if (PMA_Util::currentUserHasPrivilege('EXECUTE', $db)) {
             $execute_action = 'execute_routine';
