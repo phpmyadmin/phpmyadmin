@@ -706,6 +706,7 @@ $(function () {
     if (history && history.pushState) {
         $(window).on('popstate', function(event) {
             if (event && event.originalEvent.state && event.originalEvent.state.menu) {
+                AJAX.$msgbox = PMA_ajaxShowMessage();
                 var params = 'ajax_request=true&ajax_page_request=true';
                 $.get(location.href, params, AJAX.responseHandler);
                 //TODO: Check if sometimes menu is not retrieved from server,
