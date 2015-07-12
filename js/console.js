@@ -943,6 +943,14 @@ var PMA_consoleMessages = {
         });
         $targetMessage.find('.action.dbg_show_trace').click(function () {
             var $message = $(this).closest('.message');
+            if (!$message.find('.trace').length) {
+                PMA_consoleDebug.getQueryDetails(
+                    $message.data('queryInfo'),
+                    $message.data('totalTime'),
+                    $message
+                );
+                PMA_consoleMessages._msgEventBinds($message.find('.message:not(.binded)'));
+            }
             $message.addClass('show_trace');
             $message.removeClass('hide_trace');
         });
@@ -1332,16 +1340,29 @@ var PMA_consoleDebug = {
             .append(
                 $('<div class="query">')
                     .text(queryText)
-            );
+            )
+            .data('queryInfo', queryInfo)
+            .data('totalTime', totalTime);
         if (grouped) {
             $query.find('.text.count').removeClass('hide');
             $query.find('.text.count span').text(count);
         }
         $query.find('.text.time span').text(queryTime + 's (' + ((queryTime * 100) / totalTime).toFixed(3) + '%)');
 
-        if (grouped) {
+        return $query;
+    },
+    _appendQueryExtraInfo: function(query, $elem) {
+        if ('error' in query) {
+            $elem.append(
+                $('<div>').html(query.error)
+            );
+        }
+        $elem.append(this._formatBackTrace(query.trace));
+    },
+    getQueryDetails: function(queryInfo, totalTime, $query) {
+        if (Array.isArray(queryInfo)) {
             var $singleQuery;
-            for (i in queryInfo) {
+            for (var i in queryInfo) {
                 $singleQuery = $('<div class="message welcome trace">')
                     .text( (parseInt(i) + 1) + '.' )
                     .append(
@@ -1359,16 +1380,6 @@ var PMA_consoleDebug = {
         } else {
             this._appendQueryExtraInfo(queryInfo, $query);
         }
-
-        return $query;
-    },
-    _appendQueryExtraInfo: function(query, $elem) {
-        if ('error' in query) {
-            $elem.append(
-                $('<div>').html(query.error)
-            );
-        }
-        $elem.append(this._formatBackTrace(query.trace));
     },
     showLog: function(debugInfo, url) {
         this._lastDebugInfo.debugInfo = debugInfo;
