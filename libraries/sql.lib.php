@@ -83,7 +83,7 @@ function PMA_handleSortOrder(
             return;
         }
 
-        // Remove the name of the the table from the retrieved field name.
+        // Remove the name of the table from the retrieved field name.
         $sortCol = str_replace(PMA_Util::backquote($table) . '.', '', $sortCol);
 
         // Create the new query.
