@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-12 11:07-0400\n"
-"PO-Revision-Date: 2015-07-10 23:39+0200\n"
+"PO-Revision-Date: 2015-07-12 20:53+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
@@ -4753,15 +4753,14 @@ msgid "Max: %s%s"
 msgstr "Največja velikost: %s %s"
 
 #: libraries/Util.class.php:660
-#, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
-msgstr "Statični podatki"
+msgstr "Statični analiza:"
 
 #: libraries/Util.class.php:662
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "Med analizo smo našli %d napak."
 
 #: libraries/Util.class.php:724 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
@@ -13757,7 +13756,7 @@ msgstr "Skupna vrednost"
 
 #: libraries/server_variables.lib.php:242
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Spremenljivka je samo za branje in je ni mogoče urejati"
 
 #: libraries/sql.lib.php:284
 msgid "Detailed profile"
