@@ -72,6 +72,12 @@ function PMA_buildColumnCreationStatement(
                     : false,
                     isset($_REQUEST['field_comments'][$i])
                     ? $_REQUEST['field_comments'][$i]
+                    : '',
+                    isset($_REQUEST['field_virtuality'][$i])
+                    ? $_REQUEST['field_virtuality'][$i]
+                    : '',
+                    isset($_REQUEST['field_expression'][$i])
+                    ? $_REQUEST['field_expression'][$i]
                     : ''
                 );
 

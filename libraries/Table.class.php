@@ -380,6 +380,8 @@ class PMA_Table
      *                                   default type
      * @param string      $extra         'AUTO_INCREMENT'
      * @param string      $comment       field comment
+     * @param string      $virtuality    virtuality of the column
+     * @param string      $expression    expression for the virtual column
      * @param string      $move_to       new position for column
      *
      * @todo    move into class PMA_Column
@@ -391,7 +393,7 @@ class PMA_Table
     static function generateFieldSpec($name, $type, $length = '',
         $attribute = '', $collation = '', $null = false,
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
-        $comment = '', $move_to = ''
+        $comment = '', $virtuality = '', $expression = '', $move_to = ''
     ) {
         $is_timestamp = /*overload*/mb_strpos(
             /*overload*/mb_strtoupper($type),
@@ -412,70 +414,74 @@ class PMA_Table
             $query .= '(' . $length . ')';
         }
 
-        if ($attribute != '') {
-            $query .= ' ' . $attribute;
-        }
-
-        $matches = preg_match(
-            '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',
-            $type
-        );
-        if (! empty($collation) && $collation != 'NULL' && $matches) {
-            $query .= PMA_generateCharsetQueryPart($collation);
-        }
-
-        if ($null !== false) {
-            if ($null == 'NULL') {
-                $query .= ' NULL';
-            } else {
-                $query .= ' NOT NULL';
+        if ($virtuality) {
+            $query .= ' AS (' . $expression . ') ' . $virtuality;
+        } else {
+            if ($attribute != '') {
+                $query .= ' ' . $attribute;
             }
-        }
 
-        switch ($default_type) {
-        case 'USER_DEFINED' :
-            if ($is_timestamp && $default_value === '0') {
-                // a TIMESTAMP does not accept DEFAULT '0'
-                // but DEFAULT 0 works
-                $query .= ' DEFAULT 0';
-            } elseif ($type == 'BIT') {
-                $query .= ' DEFAULT b\''
-                        . preg_replace('/[^01]/', '0', $default_value)
-                        . '\'';
-            } elseif ($type == 'BOOLEAN') {
-                if (preg_match('/^1|T|TRUE|YES$/i', $default_value)) {
-                    $query .= ' DEFAULT TRUE';
-                } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
-                    $query .= ' DEFAULT FALSE';
+            $matches = preg_match(
+                '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',
+                $type
+            );
+            if (! empty($collation) && $collation != 'NULL' && $matches) {
+                $query .= PMA_generateCharsetQueryPart($collation);
+            }
+
+            if ($null !== false) {
+                if ($null == 'NULL') {
+                    $query .= ' NULL';
                 } else {
-                    // Invalid BOOLEAN value
+                    $query .= ' NOT NULL';
+                }
+            }
+
+            switch ($default_type) {
+            case 'USER_DEFINED' :
+                if ($is_timestamp && $default_value === '0') {
+                    // a TIMESTAMP does not accept DEFAULT '0'
+                    // but DEFAULT 0 works
+                    $query .= ' DEFAULT 0';
+                } elseif ($type == 'BIT') {
+                    $query .= ' DEFAULT b\''
+                            . preg_replace('/[^01]/', '0', $default_value)
+                            . '\'';
+                } elseif ($type == 'BOOLEAN') {
+                    if (preg_match('/^1|T|TRUE|YES$/i', $default_value)) {
+                        $query .= ' DEFAULT TRUE';
+                    } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
+                        $query .= ' DEFAULT FALSE';
+                    } else {
+                        // Invalid BOOLEAN value
+                        $query .= ' DEFAULT \''
+                            . PMA_Util::sqlAddSlashes($default_value) . '\'';
+                    }
+                } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
+                    $query .= ' DEFAULT 0x' . $default_value;
+                } else {
                     $query .= ' DEFAULT \''
                         . PMA_Util::sqlAddSlashes($default_value) . '\'';
                 }
-            } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
-                $query .= ' DEFAULT 0x' . $default_value;
-            } else {
-                $query .= ' DEFAULT \''
-                    . PMA_Util::sqlAddSlashes($default_value) . '\'';
-            }
-            break;
-        case 'NULL' :
-            // If user uncheck null checkbox and not change default value null,
-            // default value will be ignored.
-            if ($null !== false && $null !== 'NULL') {
+                break;
+            case 'NULL' :
+                // If user uncheck null checkbox and not change default value null,
+                // default value will be ignored.
+                if ($null !== false && $null !== 'NULL') {
+                    break;
+                }
+                // else fall-through intended, no break here
+            case 'CURRENT_TIMESTAMP' :
+                $query .= ' DEFAULT ' . $default_type;
+                break;
+            case 'NONE' :
+            default :
                 break;
             }
-            // else fall-through intended, no break here
-        case 'CURRENT_TIMESTAMP' :
-            $query .= ' DEFAULT ' . $default_type;
-            break;
-        case 'NONE' :
-        default :
-            break;
-        }
 
-        if (!empty($extra)) {
-            $query .= ' ' . $extra;
+            if (!empty($extra)) {
+                $query .= ' ' . $extra;
+            }
         }
         if (!empty($comment)) {
             $query .= " COMMENT '" . PMA_Util::sqlAddSlashes($comment) . "'";
@@ -592,6 +598,8 @@ class PMA_Table
      *                                   type
      * @param string      $extra         'AUTO_INCREMENT'
      * @param string      $comment       field comment
+     * @param string      $virtuality    virtuality of the column
+     * @param string      $expression    expression for the virtual column
      * @param string      $move_to       new position for column
      *
      * @see PMA_Table::generateFieldSpec()
@@ -600,13 +608,13 @@ class PMA_Table
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default_type, $default_value,
-        $extra, $comment, $move_to
+        $extra, $comment, $virtuality, $expression, $move_to
     ) {
         return PMA_Util::backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec(
                 $newcol, $type, $length, $attribute,
                 $collation, $null, $default_type, $default_value, $extra,
-                $comment, $move_to
+                $comment, $virtuality, $expression, $move_to
             );
     } // end function
 
@@ -2271,6 +2279,36 @@ class PMA_Table
         $sql_query .= ';';
 
         return $sql_query;
+    }
+
+    /**
+     * Returns the generation expression for virtual columns
+     *
+     * @param string $column name of the column
+     *
+     * @return array associative array of column name and their expressions
+     */
+    public function getColumnGenerationExpression($column = null)
+    {
+        $serverType = PMA_Util::getServerType();
+        if ($serverType == 'MySQL'
+            && PMA_MYSQL_INT_VERSION > 50705
+            && ! $GLOBALS['cfg']['Server']['DisableIS']
+        ) {
+            $sql = "SELECT
+                `COLUMN_NAME` AS `Field`,
+                `GENERATION_EXPRESSION` AS `Expression`
+                FROM
+                `information_schema`.`COLUMNS`
+                WHERE
+                `TABLE_SCHEMA` = '" . PMA_Util::sqlAddSlashes($this->_db_name) . "'
+                AND `TABLE_NAME` = '"  . PMA_Util::sqlAddSlashes($this->_name) . "'";
+            if ($column != null) {
+                $sql .= " AND  `COLUMN_NAME` = '"  . PMA_Util::sqlAddSlashes($column) . "'";
+            }
+            $columns = $this->_dbi->fetchResult($sql, 'Field', 'Expression');
+            return $columns;
+        }
     }
 }
 ?>

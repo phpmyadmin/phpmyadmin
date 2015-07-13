@@ -146,6 +146,8 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             'DefaultType' => Util\get($_REQUEST, "field_default_type.${columnNumber}", 'NONE'),
             'DefaultValue' => Util\get($_REQUEST, "field_default_value.${columnNumber}", ''),
             'Extra' => Util\get($_REQUEST, "field_extra.${columnNumber}", false),
+            'Virtuality' => Util\get($_REQUEST, "field_virtuality.${columnNumber}", ''),
+            'Expression' => Util\get($_REQUEST, "field_expression.${columnNumber}", ''),
         ));
 
         $columnMeta['Key'] = '';
@@ -193,6 +195,14 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
     } elseif (isset($fields_meta[$columnNumber])) {
         $columnMeta = $fields_meta[$columnNumber];
+        $virtual = array(
+            'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
+        );
+        if (in_array($columnMeta['Extra'], $virtual)) {
+            $table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+            $expressions = $table->getColumnGenerationExpression($columnMeta['Field']);
+            $columnMeta['Expression'] = $expressions[$columnMeta['Field']];
+        }
         switch ($columnMeta['Default']) {
             case null:
                 if (is_null($columnMeta['Default'])) { // null
@@ -305,6 +315,8 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             "field_null_orig[${columnNumber}]" => Util\get($columnMeta, 'Null', ''),
             "field_extra_orig[${columnNumber}]" => Util\get($columnMeta, 'Extra', ''),
             "field_comments_orig[${columnNumber}]" => Util\get($columnMeta, 'Comment', ''),
+            "field_virtuality_orig[${columnNumber}]" => Util\get($columnMeta, 'Virtuality', ''),
+            "field_expression_orig[${columnNumber}]" => Util\get($columnMeta, 'Expression', ''),
         ));
     }
 

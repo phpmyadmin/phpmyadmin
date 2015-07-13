@@ -2579,6 +2579,12 @@ function PMA_updateColumns($db, $table)
                 isset($_REQUEST['field_comments'][$i])
                 ? $_REQUEST['field_comments'][$i]
                 : '',
+                isset($_REQUEST['field_virtuality'][$i])
+                ? $_REQUEST['field_virtuality'][$i]
+                : '',
+                isset($_REQUEST['field_expression'][$i])
+                ? $_REQUEST['field_expression'][$i]
+                : '',
                 isset($_REQUEST['field_move_to'][$i])
                 ? $_REQUEST['field_move_to'][$i]
                 : ''
@@ -2868,6 +2874,18 @@ function PMA_moveColumns($db, $table)
                         ? 'NONE'
                         : 'USER_DEFINED'));
 
+        $virtual = array(
+            'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
+        );
+        $data['Virtuality'] = '';
+        $data['Expression'] = '';
+        if (isset($data['Extra']) && in_array($data['Extra'], $virtual)) {
+            $data['Virtuality'] = str_replace(' GENERATED', '', $data['Extra']);
+            $table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+            $expressions = $table->getColumnGenerationExpression($column);
+            $data['Expression'] = $expressions[$column];
+        }
+
         $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
             $column,
             $column,
@@ -2881,6 +2899,8 @@ function PMA_moveColumns($db, $table)
             isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra'] : false,
             isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
             ? $data['COLUMN_COMMENT'] : false,
+            $data['Virtuality'],
+            $data['Expression'],
             $i === 0 ? '-first' : $column_names[$i - 1]
         );
         // update current column_names array, first delete old position

@@ -4832,6 +4832,15 @@ class PMA_Util
                 )
             );
     }
+
+    /**
+     * Returns whether the database server supports virtual columns
+     */
+    public static function isVirtualColumnsSupported()
+    {
+        $serverType = self::getServerType();
+        return $serverType == 'MySQL' && PMA_MYSQL_INT_VERSION > 50705;
+    }
 }
 
 ?>

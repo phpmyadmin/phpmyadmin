@@ -131,6 +131,18 @@ $ci_offset = -1;
             'comments_map' => $comments_map
         )); ?>
 </td>
+ <!-- column virtuality -->
+<?php if (PMA_Util::isVirtualColumnsSupported()): ?>
+    <td class="center">
+        <?php echo PMA\Template::get('columns_definitions/column_virtuality')
+            ->render(array(
+                'columnNumber' => $columnNumber,
+                'ci' => $ci++,
+                'ci_offset' => $ci_offset,
+                'columnMeta' => isset($columnMeta) ? $columnMeta : null
+            )); ?>
+    </td>
+<?php endif; ?>
 <!-- move column -->
 <?php if (isset($fields_meta)): ?>
     <?php $current_index = 0;

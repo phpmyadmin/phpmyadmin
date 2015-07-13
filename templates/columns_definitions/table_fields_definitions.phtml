@@ -65,6 +65,12 @@
             <?php echo __('Comments'); ?>
         </th>
 
+        <?php if (PMA_Util::isVirtualColumnsSupported()): ?>
+            <th>
+                <?php echo __('Virtuality'); ?>
+            </th>
+        <?php endif; ?>
+
         <?php if (isset($fields_meta)): ?>
             <th>
                 <?php echo __('Move column'); ?>
