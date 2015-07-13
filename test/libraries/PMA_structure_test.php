@@ -241,8 +241,8 @@ class PMA_Structure_Test extends PHPUnit_Framework_TestCase
             ->will(
                 $this->returnValue(
                     array(
-                        'Table' => 'PMA_Table',
-                        'Create Table' => $expected_result
+                        'PMA_Table',
+                        $expected_result
                     )
                 )
             );
