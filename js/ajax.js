@@ -255,9 +255,7 @@ var AJAX = {
                     AJAX.$msgbox = PMA_ajaxShowMessage(PMA_messages.strAbortedRequest);
                     AJAX.active = false;
                     AJAX.xhr = null;
-                    if (isLink) {
-                        previousLinkAborted = true;
-                    }
+                    previousLinkAborted = true;
                 } else {
                     //If can't abort
                     return false;
@@ -292,12 +290,15 @@ var AJAX = {
             //Save reference for the new link request
             AJAX.xhr = $.get(url, params, AJAX.responseHandler);
             if (history && history.pushState) {
+                var state = {
+                    url : href
+                };
                 if (previousLinkAborted) {
                     //hack: there is already an aborted entry on stack
                     //so just modify the aborted one
-                    history.replaceState(null, null, href);
+                    history.replaceState(state, null, href);
                 } else {
-                    history.pushState(null, null, href);
+                    history.pushState(state, null, href);
                 }
             }
         } else {
@@ -353,11 +354,11 @@ var AJAX = {
                 }
                 if (data._menu) {
                     if (history && history.pushState) {
-                        history.replaceState({
-                                menu : data._menu
-                            },
-                            null
-                        );
+                        var state = {
+                            url : data._selflink,
+                            menu : data._menu
+                        };
+                        history.replaceState(state, null);
                         AJAX.handleMenu.replace(data._menu);
                     } else {
                         PMA_MicroHistory.menus.replace(data._menu);
@@ -704,11 +705,28 @@ $(function () {
         .append($('#topmenucontainer').clone())
         .html();
     if (history && history.pushState) {
+        //set initial state reload
+        var initState = ('state' in window.history && window.history.state !== null);
+        var initURL = $('#selflink > a').attr('href') || location.href;
+        var state = {
+            url : initURL,
+            menu : menuContent
+        };
+        history.replaceState(state, null);
+
         $(window).on('popstate', function(event) {
-            if (event && event.originalEvent.state && event.originalEvent.state.menu) {
+            var initPop = (! initState && location.href == initURL);
+            initState = true;
+            //check if popstate fired on first page itself
+            if (initPop) {
+                return;
+            }
+            var state = event.originalEvent.state;
+            if (state && state.menu) {
                 AJAX.$msgbox = PMA_ajaxShowMessage();
                 var params = 'ajax_request=true&ajax_page_request=true';
-                $.get(location.href, params, AJAX.responseHandler);
+                var url = state.url || location.href;
+                $.get(url, params, AJAX.responseHandler);
                 //TODO: Check if sometimes menu is not retrieved from server,
                 // Not sure but it seems menu was missing only for printview which
                 // been removed lately, so if it's right some dead menu checks/fallbacks
@@ -716,12 +734,6 @@ $(function () {
                 //AJAX.handleMenu.replace(event.originalEvent.state.menu);
             }
         });
-        // Add initial menu to history state object
-        history.replaceState({
-                menu : menuContent
-            },
-            null
-        );
     } else {
         // Fallback to microhistory mechanism
         AJAX.scriptHandler
