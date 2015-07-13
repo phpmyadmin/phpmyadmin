@@ -734,11 +734,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
 
     if (($source == 'both' || $source == 'foreign') && /*overload*/mb_strlen($table)
     ) {
-        $show_create_table = $GLOBALS['dbi']->fetchValue(
-            'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
-            . PMA_Util::backquote($table),
-            0, 1
-        );
+        $tableObj = new PMA_Table($table, $db);
+        $show_create_table = $tableObj->showCreate();
         if ($show_create_table) {
             $parser = new SqlParser\Parser($show_create_table);
             /**

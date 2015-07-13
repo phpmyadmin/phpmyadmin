@@ -2310,5 +2310,17 @@ class PMA_Table
             return $columns;
         }
     }
+
+    /**
+     * Returns the CREATE statement for this table
+     */
+    public function showCreate()
+    {
+        return $GLOBALS['dbi']->fetchValue(
+            'SHOW CREATE TABLE ' . PMA_Util::backquote($this->_db_name) . '.'
+            . PMA_Util::backquote($this->_name),
+            0, 1
+        );
+    }
 }
 ?>

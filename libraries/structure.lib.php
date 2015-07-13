@@ -1626,9 +1626,8 @@ function PMA_getHtmlForEditView($url_params)
         . " AND TABLE_NAME='" . PMA_Util::sqlAddSlashes($GLOBALS['table']) . "';";
     $item = $GLOBALS['dbi']->fetchSingleRow($query);
 
-    $query = "SHOW CREATE TABLE " . PMA_Util::backquote($GLOBALS['db'])
-        . "." . PMA_Util::backquote($GLOBALS['table']);
-    $createView = $GLOBALS['dbi']->fetchValue($query, 0, 'Create View');
+    $tableObj = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+    $createView = $tableObj->showCreate();
     // get algorithm from $createView of the form CREATE ALGORITHM=<ALGORITHM> DE...
     $parts = explode(" ", substr($createView, 17));
     $item['ALGORITHM'] = $parts[0];
@@ -3253,29 +3252,28 @@ function PMA_getHtmlShowCreate($db, $db_objects)
     $odd2 = true;
     // Iterate through each object.
     foreach ($db_objects as $object) {
+        $tableObj = new PMA_Table($object, $db);
         // Check if current object is a View or Table.
         $isView = PMA_Table::isView($db, $object);
         if ($isView) {
             $row_class = ($odd1) ? 'odd' : 'even';
-            $create_data = PMA_getShowCreate($db, $object, 'view');
             $views .= '<tr class="' . $row_class . '">'
                 . '<td><strong>'
-                . PMA_mimeDefaultFunction($create_data['View'])
+                . PMA_mimeDefaultFunction($object)
                 . '</strong></td>'
                 . '<td>'
-                . PMA_mimeDefaultFunction($create_data['Create View'])
+                . PMA_mimeDefaultFunction($tableObj->showCreate())
                 . '</td>'
                 . '</tr>';
             $odd1 = ! $odd1;
         } else {
             $row_class = ($odd2) ? 'odd' : 'even';
-            $create_data = PMA_getShowCreate($db, $object, 'table');
             $tables .= '<tr class="' . $row_class . '">'
                 . '<td><strong>'
-                . PMA_mimeDefaultFunction($create_data['Table'])
+                . PMA_mimeDefaultFunction($object)
                 . '</strong></td>'
                 . '<td>'
-                . PMA_mimeDefaultFunction($create_data['Create Table'])
+                . PMA_mimeDefaultFunction($tableObj->showCreate())
                 . '</td>'
                 . '</tr>';
             $odd2 = ! $odd2;
@@ -3298,36 +3296,6 @@ function PMA_getHtmlShowCreate($db, $db_objects)
     $html_output .= $tables . $views . '</div>';
 
     return $html_output;
-}
-
-/**
- * Return 'SHOW CREATE' query for a DB object
- *
- * @param string $db        Database name
- * @param string $db_object Database object name
- * @param string $type      Type of object (table or view)
- *
- * @return mysqli_result collection | boolean(false)
- */
-function PMA_getShowCreate($db, $db_object, $type = 'table')
-{
-    // 'SHOW CREATE' SQL query for specific type of DB object.
-    switch ($type) {
-    case 'table':
-        $sql_query = 'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
-            . PMA_Util::backquote($db_object);
-        break;
-    case 'view':
-        $sql_query = 'SHOW CREATE VIEW ' . PMA_Util::backquote($db) . '.'
-            . PMA_Util::backquote($db_object);
-        break;
-    default:
-        $sql_query = '';
-    }
-    // Execute the query.
-    $result = $GLOBALS['dbi']->fetchSingleRow($sql_query);
-
-    return $result;
 }
 
 /**
