@@ -23,6 +23,8 @@ $drops = array(
     'lang',
     'server',
     'collation_connection',
+    'character_set_client',
+    'character_set_results',
     'db',
     'table'
 );
@@ -198,8 +200,8 @@ if ($server > 0 || count($cfg['Servers']) > 1
                 );
             }
         } // end if
-        echo '    <li id="li_select_mysql_collation" class="no_bullets" >';
-        echo '        <form method="post" action="index.php">' . "\n"
+        echo '    <form method="post" action="index.php">' . "\n";
+        echo '        <li id="li_select_mysql_collation" class="no_bullets" >'
            . PMA_URL_getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
            . '                ' . PMA_Util::getImage('s_asci.png') . " "
@@ -217,8 +219,52 @@ if ($server > 0 || count($cfg['Servers']) > 1
                true,
                true
            )
-           . '        </form>' . "\n"
-           . '    </li>' . "\n";
+           . '        </li>' . "\n";
+
+        echo '        <li id="li_select_client_collation" class="no_bullets" >'
+           . PMA_URL_getHiddenInputs(null, null, 4, 'character_set_results')
+           . '            <label for="select_character_set_results">' . "\n"
+           . '                ' . PMA_Util::getImage('s_asci.png') . " "
+                               . __('Character Set Results') . "\n"
+           . PMA_Util::showMySQLDocu(
+               'server-system-variables', false, 'sysvar_character_set_results',
+               false
+           )
+           . ': ' .  "\n"
+           . '            </label>' . "\n"
+
+           . PMA_generateCharsetDropdownBox(
+               PMA_CSDROPDOWN_CHARSET,
+               'character_set_results',
+               'select_character_set_results',
+               $character_set_results,
+               true,
+               true
+           )
+           . '        </li>' . "\n";
+
+        echo '        <li id="li_select_client_collation" class="no_bullets" >'
+           . PMA_URL_getHiddenInputs(null, null, 4, 'character_set_client')
+           . '            <label for="select_character_set_client">' . "\n"
+           . '                ' . PMA_Util::getImage('s_asci.png') . " "
+                               . __('Character Set Client') . "\n"
+           . PMA_Util::showMySQLDocu(
+               'server-system-variables', false, 'sysvar_character_set_client',
+               false
+           )
+           . ': ' .  "\n"
+           . '            </label>' . "\n"
+
+           . PMA_generateCharsetDropdownBox(
+               PMA_CSDROPDOWN_CHARSET,
+               'character_set_client',
+               'select_character_set_client',
+               $character_set_client,
+               true,
+               true
+           )
+           . '        </li>' . "\n"
+           . '    </form>' . "\n";
     } // end of if ($server > 0 && !PMA_DRIZZLE)
     echo '</ul>';
     echo '</div>';

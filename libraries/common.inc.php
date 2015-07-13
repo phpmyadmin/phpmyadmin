@@ -51,7 +51,8 @@ if (version_compare(PHP_VERSION, '5.3.0', 'lt')) {
  */
 define('PHPMYADMIN', true);
 
-
+error_reporting(E_ALL);
+ini_set('error_reporting', E_ALL);
 /**
  * String handling (security)
  */
@@ -461,7 +462,8 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * f.e. PMA_Config: fontsize
  *
  * @todo variables should be handled by their respective owners (objects)
- * f.e. lang, server, collation_connection in PMA_Config
+ * f.e. lang, server, collation_connection, character_set_results,
+ * character_set_client in PMA_Config
  */
 $token_mismatch = true;
 $token_provided = false;
@@ -482,7 +484,8 @@ if ($token_mismatch) {
         /* Session ID */
         'phpMyAdmin',
         /* Cookie preferences */
-        'pma_lang', 'pma_collation_connection',
+        'pma_lang', 'pma_collation_connection', 'pma_character_set_results',
+        'pma_character_set_client',
         /* Possible login form */
         'pma_servername', 'pma_username', 'pma_password',
         'g-recaptcha-response',
@@ -814,6 +817,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $GLOBALS['PMA_Config']->setCookie(
             'pma_collation_connection',
             $GLOBALS['collation_connection']
+        );
+    }
+    if (isset($GLOBALS['character_set_client'])) {
+        $GLOBALS['PMA_Config']->setCookie(
+            'pma_character_set_client',
+            $GLOBALS['character_set_client']
+        );
+    }
+    if (isset($GLOBALS['character_set_results'])) {
+        $GLOBALS['PMA_Config']->setCookie(
+            'pma_character_set_results',
+            $GLOBALS['character_set_results']
         );
     }
 
