@@ -236,14 +236,11 @@ class PMA_Structure_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(false));
 
         $dbi->expects($this->any())
-            ->method('fetchSingleRow')
-            ->with($show_create_query)
+            ->method('fetchValue')
+            ->with($show_create_query, 0, 1)
             ->will(
                 $this->returnValue(
-                    array(
-                        'PMA_Table',
-                        $expected_result
-                    )
+                    $expected_result
                 )
             );
 
