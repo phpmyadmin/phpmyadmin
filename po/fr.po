@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-12 11:07-0400\n"
-"PO-Revision-Date: 2015-07-11 13:08+0200\n"
+"PO-Revision-Date: 2015-07-13 12:36+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4781,15 +4781,14 @@ msgid "Max: %s%s"
 msgstr "Taille maximum: %s%s"
 
 #: libraries/Util.class.php:660
-#, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
-msgstr "Données statiques"
+msgstr "Analyse statique :"
 
 #: libraries/Util.class.php:662
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "%d erreurs trouvées lors de l'analyse."
 
 #: libraries/Util.class.php:724 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
@@ -13903,7 +13902,7 @@ msgstr "Valeur globale"
 
 #: libraries/server_variables.lib.php:242
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Ceci est une variable en lecture seule qui ne peut pas être modifiée"
 
 #: libraries/sql.lib.php:284
 msgid "Detailed profile"
