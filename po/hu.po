@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-12 11:07-0400\n"
-"PO-Revision-Date: 2015-07-11 08:37+0200\n"
+"PO-Revision-Date: 2015-07-13 21:07+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4745,15 +4745,14 @@ msgid "Max: %s%s"
 msgstr "Max: %s%s"
 
 #: libraries/Util.class.php:660
-#, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
-msgstr "Statikus adat"
+msgstr "Statikus elemzés:"
 
 #: libraries/Util.class.php:662
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "%d hibát találtunk az elemzés során."
 
 #: libraries/Util.class.php:724 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
@@ -13828,7 +13827,7 @@ msgstr "Globális változó"
 
 #: libraries/server_variables.lib.php:242
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Ez egy csak olvasható változó és nem szerkeszthető"
 
 #: libraries/sql.lib.php:284
 msgid "Detailed profile"
