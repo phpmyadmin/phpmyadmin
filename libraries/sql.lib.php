@@ -2065,11 +2065,14 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
     // Handle disable/enable foreign key checks
     $default_fk_check = PMA_Util::handleDisableFKCheckInit();
 
-    // Handle remembered sorting order, only for single table query
+    // Handle remembered sorting order, only for single table query.
     // Handling is not required when it's a union query
-    // (the parser never sets the 'union' key to 0)
+    // (the parser never sets the 'union' key to 0).
+    // Handling is also not required if we came from the "Sort by key"
+    // drop-down.
     if (PMA_isRememberSortingOrder($analyzed_sql_results)
         && empty($analyzed_sql_results['union'])
+        && ! isset($_REQUEST['sort_by_key'])
     ) {
         if (! isset($_SESSION['sql_from_query_box'])) {
             PMA_handleSortOrder($db, $table, $analyzed_sql_results, $sql_query);
