@@ -85,6 +85,7 @@ phpMyAdmin - ChangeLog
 - bug #4975 Move/Copy/Rename operations on Table/Db fail on Drizzle server
 - bug #4826 Two inline edit windows
 - bug #4979 Problem when import *.ods file
+- bug       Add missing head tag
 
 4.4.11.0 (2015-07-06)
 - bug       Missing selected/entered values when editing active options in visual query builder
