@@ -197,7 +197,10 @@ class ImportOds extends ImportPlugin
                     continue;
                 }
                 /* Iterate over columns */
+                $cellCount = count($row);
+                $a = 0;
                 foreach ($row as $cell) {
+                    $a++;
                     $text = $cell->children('text', true);
                     $cell_attrs = $cell->attributes('office', true);
 
@@ -219,6 +222,40 @@ class ImportOds extends ImportPlugin
                             ++$col_count;
                         }
                         continue;
+                    }
+
+                    // skip empty repeats in the last row
+                    if ($a == $cellCount) {
+                        continue;
+                    }
+
+                    $attr = $cell->attributes('table', true);
+                    $num_null = (int)$attr['number-columns-repeated'];
+
+                    if ($num_null) {
+                        if (! $col_names_in_first_row) {
+                            for ($i = 0; $i < $num_null; ++$i) {
+                                $tempRow[] = 'NULL';
+                                ++$col_count;
+                            }
+                        } else {
+                            for ($i = 0; $i < $num_null; ++$i) {
+                                $col_names[] = PMA_getColumnAlphaName(
+                                    $col_count + 1
+                                );
+                                ++$col_count;
+                            }
+                        }
+                    } else {
+                        if (! $col_names_in_first_row) {
+                            $tempRow[] = 'NULL';
+                        } else {
+                            $col_names[] = PMA_getColumnAlphaName(
+                                $col_count + 1
+                            );
+                        }
+
+                        ++$col_count;
                     }
                 } //Endforeach
 
