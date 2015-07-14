@@ -57,4 +57,16 @@ abstract class Component
         // abstract.
         return null;
     }
+
+    /**
+     * Builds the string representation of a component of this type.
+     *
+     * @see static::build
+     *
+     * @return string
+     */
+    public function __toString() 
+    {
+        return static::build($this);
+    }
 }

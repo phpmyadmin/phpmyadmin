@@ -205,7 +205,7 @@ class Expression extends Component
                     // We don't check to see if `$prev` is `true` (open bracket
                     // was found before) because the brackets count is one (the
                     // only bracket we found is this one).
-                    if (($brackets === 1) && (empty($ret->function)) && ($prev !== null) && ($prev !== true)) {
+                    if ((empty($ret->function)) && ($prev !== null) && ($prev !== true)) {
                         // A function name was previously found and now an open
                         // bracket, so this is a function call.
                         $ret->function = $prev;
@@ -213,7 +213,15 @@ class Expression extends Component
                     $isExpr = true;
                 } elseif ($token->value === ')') {
                     --$brackets;
-                    if ($brackets < 0) {
+                    if ($brackets === 0) {
+                        if (!empty($options['bracketsDelimited'])) {
+                            // The current token is the last brackets, the next
+                            // one will be outside.
+                            $ret->expr .= $token->token;
+                            ++$list->idx;
+                            break;
+                        }
+                    } elseif ($brackets < 0) {
                         $parser->error('Unexpected bracket.', $token);
                         $brackets = 0;
                     }
@@ -268,11 +276,12 @@ class Expression extends Component
                 } else {
                     // Parsing aliases without `AS` keyword.
                     // Example: SELECT 'foo' `bar`
-                    if ($brackets === 0) {
+                    if (($brackets === 0) && (empty($options['noAlias']))) {
                         if (($token->type === Token::TYPE_NONE) || ($token->type === Token::TYPE_STRING)
                             || (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))
                         ) {
                             $ret->alias = $token->value;
+                            continue;
                         }
                     }
                 }

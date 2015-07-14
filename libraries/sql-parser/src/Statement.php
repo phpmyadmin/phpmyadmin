@@ -95,7 +95,7 @@ abstract class Statement
     }
 
     /**
-     * Builds the statement.
+     * Builds the string representation of this statement.
      *
      * @return string
      */
@@ -291,5 +291,17 @@ abstract class Statement
     public function after(Parser $parser, TokensList $list, Token $token)
     {
 
+    }
+
+    /**
+     * Builds the string representation of this statement.
+     *
+     * @see static::build
+     *
+     * @return string
+     */
+    public function __toString() 
+    {
+        return static::build($this);
     }
 }
