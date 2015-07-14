@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2014-11-05 10:27+0200\n"
+"PO-Revision-Date: 2015-07-14 11:09+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bn/>\n"
+"Language-Team: Bengali "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.0-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -7146,6 +7146,7 @@ msgid "Connect without password"
 msgstr "পাসওর্য়াডহীন সংযোগ কর"
 
 #: libraries/config/messages.inc.php:633
+#, fuzzy
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -7154,8 +7155,8 @@ msgstr ""
 "আপনি MySQL wildcard অক্ষর (% and _)ব্যবহার করতে পারেন, ওগুলো escape করেন যদি "
 "এগুলো আক্ষরিকভাবে ব্যবহার করতে চান, যেমন [kbd]'my\\_db'[/kbd] এবং  "
 "[kbd]'my_db'[/kbd]'টি নয়। এই অপশন ব্যবহার করে ডাটাবেইজের তালিকা গুছানো যাবে, "
-"শুধু ওগুলোর নাম দেন এবং শেষে[kbd]*[/kbd] ব্যবহার করুন alphabetical ভাবে সাজানোর "
-"জন্য।"
+"শুধু ওগুলোর নাম দেন এবং শেষে[kbd]*[/kbd] ব্যবহার করুন alphabetical ভাবে "
+"সাজানোর জন্য।"
 
 #: libraries/config/messages.inc.php:637
 msgid "Show only listed databases"
