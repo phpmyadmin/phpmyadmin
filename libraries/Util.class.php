@@ -4839,7 +4839,8 @@ class PMA_Util
     public static function isVirtualColumnsSupported()
     {
         $serverType = self::getServerType();
-        return $serverType == 'MySQL' && PMA_MYSQL_INT_VERSION > 50705;
+        return $serverType == 'MySQL' && PMA_MYSQL_INT_VERSION >= 50705
+             || ($serverType == 'MariaDB' && PMA_MYSQL_INT_VERSION >= 50200);
     }
 }
 
