@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-12 11:07-0400\n"
-"PO-Revision-Date: 2015-07-14 18:10+0200\n"
-"Last-Translator: Aleš Hakl <ales@hakl.net>\n"
+"PO-Revision-Date: 2015-07-15 00:37+0200\n"
+"Last-Translator: Dalibor Straka <dalibor.straka3@gmail.com>\n"
 "Language-Team: Czech "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -32,7 +32,7 @@ msgstr "Centrální seznam sloupců pro aktuální databázi je prázdný."
 
 #: db_central_columns.php:130
 msgid "Click to sort."
-msgstr "Klikněte pro řazení."
+msgstr "Klikněte pro seřazení."
 
 #: db_central_columns.php:149
 #, php-format
@@ -1022,14 +1022,15 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Opravdu chcete ZRUŠIT vybrané oddíly? Smažou se i data na vybraných oddílech!"
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Opravdu si přejete odstranit vyhledávání „%s“?"
+msgstr "Opravdu si přejete ZKRÁTIT vybrané oddíly?"
 
 #: js/messages.php:67
+#, fuzzy
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -1037,14 +1038,19 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Tato operace se pokusí převést data do nového řazení. Výjimečně se stane, "
+"pokud nějaký znak neexistuje v novém řazení, že se data mohou v novém řazení "
+"zobrazit nesprávně; v tom případě doporučujeme vrátit se k původnímu řazení "
+"a podívat se na rady a návody na "
 
 #: js/messages.php:73
 msgid "Garbled Data"
 msgstr "Poškozená data"
 
 #: js/messages.php:75
+#, fuzzy
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "Opravdu chcete změnit řazení a zkonvertovat data?"
 
 #: js/messages.php:77
 msgid ""
@@ -1057,10 +1063,11 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:85
+#, fuzzy
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
-msgstr ""
+msgstr "Opravdu chcete změnit řazení ve všech sloupcích a zkonvertovat data?"
 
 #: js/messages.php:88
 msgid "Save & Close"
@@ -4764,9 +4771,9 @@ msgid "Skip Explain SQL"
 msgstr "Bez vysvětlení SQL"
 
 #: libraries/Util.class.php:1185
-#, php-format
+#, fuzzy, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Analyzovat výstup příkazu Explain na %s"
 
 #: libraries/Util.class.php:1216
 msgid "Without PHP Code"
@@ -6027,8 +6034,9 @@ msgid "Foreign key limit"
 msgstr "Nejvyšší počet cizích klíčů"
 
 #: libraries/config/messages.inc.php:218
+#, fuzzy
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
+msgstr "Implicitní hodnota cizího klíče, u některých dotazů, zaškrtne checkbox."
 
 #: libraries/config/messages.inc.php:220
 #| msgid "Foreign key check:"
@@ -6688,7 +6696,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Seskupovat položky v navigačním stromu (určeno oddělovačem nastaveným níže)."
+"Seskupovat položky v navigačním stromu (určeno oddělovačem nastaveným nahoře "
+"v záložce Databáze a Tabulky)."
 
 #: libraries/config/messages.inc.php:473
 msgid "Group items in the tree"
