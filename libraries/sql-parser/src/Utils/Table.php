@@ -122,6 +122,11 @@ class Table
                         $ret[$field->name]['on_update_current_timestamp'] = true;
                     }
                 }
+
+                if (($option = $field->options->has('AS'))) {
+                    $ret[$field->name]['generated'] = true;
+                    $ret[$field->name]['expr'] = $option->expr;
+                }
             }
 
         }

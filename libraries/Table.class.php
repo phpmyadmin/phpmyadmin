@@ -2308,6 +2308,29 @@ class PMA_Table
             }
             $columns = $this->_dbi->fetchResult($sql, 'Field', 'Expression');
             return $columns;
+        }  else {
+            $createTable = $this->showCreate();
+            if ($createTable) {
+                $parser = new SqlParser\Parser($createTable);
+                /**
+                 * @var CreateStatement $stmt
+                */
+                $stmt = $parser->statements[0];
+                $fields = SqlParser\Utils\Table::getFields($stmt);
+                if ($column != null) {
+                    $expression = isset($fields[$column]['expr']) ?
+                        substr($fields[$column]['expr'], 1, -1) : '';
+                    return array($column => $expression);
+                }
+
+                $ret = array();
+                foreach ($fields as $field => $options) {
+                    if (isset($options['expr'])) {
+                        $ret[$field] = substr($options['expr'], 1, -1);
+                    }
+                }
+                return $ret;
+            }
         }
     }
 
@@ -2316,7 +2339,7 @@ class PMA_Table
      */
     public function showCreate()
     {
-        return $GLOBALS['dbi']->fetchValue(
+        return $this->_dbi->fetchValue(
             'SHOW CREATE TABLE ' . PMA_Util::backquote($this->_db_name) . '.'
             . PMA_Util::backquote($this->_name),
             0, 1
