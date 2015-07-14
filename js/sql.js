@@ -623,6 +623,7 @@ AJAX.registerOnload('sql.js', function () {
         var $form = $button.closest('form');
         var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
+        AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });
 }); // end $()

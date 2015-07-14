@@ -66,6 +66,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         }
         var editColumnData = editColumnList+ '&edit_central_columns_page=true&ajax_request=true&ajax_page_request=true&token='+PMA_commonParams.get('token')+'&db='+PMA_commonParams.get('db');
         PMA_ajaxShowMessage();
+        AJAX.source = $(this);
         $.get('db_central_columns.php', editColumnData, AJAX.responseHandler);
     });
     $('#multi_edit_central_columns').submit(function(event){
@@ -73,6 +74,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         event.stopPropagation();
         var multi_column_edit_data = $("#multi_edit_central_columns").serialize()+'&multi_edit_central_column_save=true&ajax_request=true&ajax_page_request=true&token='+PMA_commonParams.get('token')+'&db='+PMA_commonParams.get('db');
         PMA_ajaxShowMessage();
+        AJAX.source = $(this);
         $.post('db_central_columns.php', multi_column_edit_data, AJAX.responseHandler);
     });
     $('#add_new td').each(function(){
