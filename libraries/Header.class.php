@@ -609,6 +609,7 @@ class PMA_Header
         $retval .= /*overload*/mb_strtolower(PMA_USR_BROWSER_AGENT) . " ";
         $retval .= /*overload*/mb_strtolower(PMA_USR_BROWSER_AGENT)
             . intval(PMA_USR_BROWSER_VER) . "'>";
+        $retval .= '<head>';
 
         return $retval;
     }
