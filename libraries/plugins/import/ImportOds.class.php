@@ -220,35 +220,6 @@ class ImportOds extends ImportPlugin
                         }
                         continue;
                     }
-
-                    $attr = $cell->attributes('table', true);
-                    $num_null = (int)$attr['number-columns-repeated'];
-
-                    if ($num_null) {
-                        if (! $col_names_in_first_row) {
-                            for ($i = 0; $i < $num_null; ++$i) {
-                                $tempRow[] = 'NULL';
-                                ++$col_count;
-                            }
-                        } else {
-                            for ($i = 0; $i < $num_null; ++$i) {
-                                $col_names[] = PMA_getColumnAlphaName(
-                                    $col_count + 1
-                                );
-                                ++$col_count;
-                            }
-                        }
-                    } else {
-                        if (! $col_names_in_first_row) {
-                            $tempRow[] = 'NULL';
-                        } else {
-                            $col_names[] = PMA_getColumnAlphaName(
-                                $col_count + 1
-                            );
-                        }
-
-                        ++$col_count;
-                    }
                 } //Endforeach
 
                 /* Find the widest row */
