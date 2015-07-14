@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-05-14 15:44+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-4/cs/"
-">\n"
+"PO-Revision-Date: 2015-07-14 18:10+0200\n"
+"Last-Translator: Aleš Hakl <ales@hakl.net>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-4/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -696,7 +696,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Nelze zjistit průběh importu."
 
 #: import_status.php:112 js/messages.php:340 libraries/Util.class.php:735
 #: libraries/export.lib.php:464
@@ -5281,6 +5281,8 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Umožní omezit použítý MySQL server pomocí regulárního výrazu i pokud je "
+"zapnuta možnost připojení k uživatelsky zadánému MySQL serveru."
 
 #: libraries/config/messages.inc.php:25
 msgid "Restrict login to MySQL server"
@@ -6110,11 +6112,11 @@ msgstr "Nepřerušit při chybě v příkazu INSERT"
 
 #: libraries/config/messages.inc.php:337 libraries/config/messages.inc.php:349
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Přidat ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:338 libraries/config/messages.inc.php:350
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "Aktualizovat data pokud importované klíče už existují"
 
 #: libraries/config/messages.inc.php:341
 msgid ""
@@ -6950,7 +6952,6 @@ msgid "Recently used table"
 msgstr "Naposledy použité tabulky"
 
 #: libraries/config/messages.inc.php:659
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]."
@@ -6958,8 +6959,8 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Nechte prázdné pro vypnutí „trvalého“ ukládání nedávných tabulek, výchozí "
-"nastavení: [kbd]pma__recent[/kbd]."
+"Nechte prázdné pro vypnutí „trvalého“ ukládání oblíbených tabulek, výchozí "
+"nastavení: [kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:662
 msgid "Favorites table"
@@ -8600,13 +8601,12 @@ msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Dotazy UPDATE nebo DELETE mohou být simulovány pouze na jedné tabulce."
 
 #: libraries/import.lib.php:1814
-#, fuzzy
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
-"Pouze INSERT, UPDATE, DELETE nebo REPLACE SQL dotazy obsahující transakční "
-"metodu mohou být navráceny."
+"Pouze INSERT, UPDATE, DELETE nebo REPLACE SQL dotazy používající tabulky "
+"podporující transakce mohou být navráceny."
 
 #: libraries/index.lib.php:34
 #, php-format
@@ -10302,16 +10302,15 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Schéma databáze %s - Strana %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:252
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "Chybný typ exportu"
+msgstr "Stránka exportu PDF"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:474
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "Schéma databáze %s - Strana %s"
+msgstr "Schéma databáze %s"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:497
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:877
@@ -10512,16 +10511,14 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr ""
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.class.php:44
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Zobrazí text jako SQL dotaz se zvýrazňováním syntaxe."
+msgstr "Zobrazí text jako JSON se zvýrazňováním syntaxe."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.class.php:44
-#, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Zobrazí text jako SQL dotaz se zvýrazňováním syntaxe."
+msgstr "Zobrazí text jako XML se zvýrazňováním syntaxe."
 
 #: libraries/pmd_common.php:492
 msgid "Error: relation already exists."
@@ -10532,10 +10529,9 @@ msgid "FOREIGN KEY relation has been added."
 msgstr "Relace FOREIGN KEY byla vytvořena."
 
 #: libraries/pmd_common.php:543
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be added!"
-msgstr "Chyba: Relace nemohla být přidána!"
+msgstr "Chyba: Relace cizího klíče nemohla být přidána!"
 
 #: libraries/pmd_common.php:548
 msgid "Error: Missing index on column(s)."
@@ -10550,32 +10546,28 @@ msgid "Internal relation has been added."
 msgstr "Interní relace byla vytvořena."
 
 #: libraries/pmd_common.php:577
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relation could not be added!"
-msgstr "Chyba: Relace nemohla být přidána!"
+msgstr "Chyba: Interní relace nemohla být přidána!"
 
 #: libraries/pmd_common.php:618
-#, fuzzy
 #| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relation has been removed."
-msgstr "Relace FOREIGN KEY byla vytvořena."
+msgstr "Relace FOREIGN KEY byla odstraněna."
 
 #: libraries/pmd_common.php:624
-#, fuzzy
 #| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relation could not be removed!"
-msgstr "Chyba: Relace nemohla být přidána!"
+msgstr "Chyba: Relace FOREGN KEY nemohla být odstraněna!"
 
 #: libraries/pmd_common.php:651
 msgid "Error: Internal relation could not be removed!"
 msgstr "Chyba: Itenrní relace nemohla být odstraněna!"
 
 #: libraries/pmd_common.php:655
-#, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relation has been removed."
-msgstr "Interní relace byla vytvořena."
+msgstr "Interní relace byla odstraněna."
 
 #: libraries/relation.lib.php:86
 msgid "not OK"
@@ -10591,10 +10583,9 @@ msgid "Enabled"
 msgstr "Zapnuto"
 
 #: libraries/relation.lib.php:97
-#, fuzzy
 #| msgid "Configuration saved."
 msgid "Configuration of pmadb… "
-msgstr "Nastavení bylo uloženo."
+msgstr "Konfigurace pmadb... "
 
 #: libraries/relation.lib.php:101 libraries/relation.lib.php:128
 msgid "General relation features"
@@ -10605,10 +10596,9 @@ msgid "Display Features"
 msgstr "Zobrazení funkcí"
 
 #: libraries/relation.lib.php:156
-#, fuzzy
 #| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Vytváření PDF"
+msgstr "Návrh a vytváření PDF"
 
 #: libraries/relation.lib.php:167
 msgid "Displaying Column Comments"
@@ -10619,13 +10609,12 @@ msgid "Browser transformation"
 msgstr "Transformace při prohlížení"
 
 #: libraries/relation.lib.php:180
-#, fuzzy
 #| msgid ""
 #| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table. "
 msgstr ""
 "Podívejte se prosím do dokumentace, jak aktualizovat informace o polích v "
-"tabulce column_comments."
+"tabulce column_info. "
 
 #: libraries/relation.lib.php:193 libraries/sql_query_form.lib.php:362
 msgid "Bookmarked SQL query"
@@ -10640,10 +10629,9 @@ msgid "Persistent recently used tables"
 msgstr "Trvalé nedávné tabulky"
 
 #: libraries/relation.lib.php:226
-#, fuzzy
 #| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "Trvalé nedávné tabulky"
+msgstr "Trvalé oblíbené tabulky"
 
 #: libraries/relation.lib.php:237
 msgid "Persistent tables' UI preferences"
@@ -10674,13 +10662,12 @@ msgid "Quick steps to setup advanced features:"
 msgstr "Stručný návod pro zapnutí rozšířených funkcí:"
 
 #: libraries/relation.lib.php:323
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
 msgstr ""
-"Vytvořte potřebné tabulky pomocí skriptu <code>examples/create_tables.sql</"
-"code>."
+"Vytvořte potřebné tabulky pomocí skriptu <code>%screate_tables.sql</code>."
 
 #: libraries/relation.lib.php:331
 msgid "Create a pma user and give access to these tables."
@@ -11739,10 +11726,9 @@ msgstr "Skupina uživatele"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Trvalé připojení"
+msgstr "Požaduje zabezpečené připojení."
 
 #: libraries/server_privileges.lib.php:734
 msgid "Require SSL"
@@ -12404,10 +12390,9 @@ msgid "Filters"
 msgstr "Filtry"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Zobrazit jen hodnoty s upozorněním"
+msgstr "Zobrazit jen aktivní"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13509,16 +13494,14 @@ msgid "Propose table structure"
 msgstr "Navrhnout strukturu tabulky"
 
 #: libraries/structure.lib.php:1656
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "Navrhnout strukturu tabulky"
+msgstr "Vylepšit strukturu tabulky"
 
 #: libraries/structure.lib.php:1663
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Sledovat tabulku"
+msgstr "Sledovat pohled"
 
 #: libraries/structure.lib.php:1704
 #: libraries/tbl_columns_definition_form.lib.php:189
@@ -13527,10 +13510,9 @@ msgid "Add %s column(s)"
 msgstr "Přidat %s polí"
 
 #: libraries/structure.lib.php:1713
-#, fuzzy
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
-msgstr "Na začátku tabulky"
+msgstr "na začátku tabulky"
 
 #: libraries/structure.lib.php:1727
 #: libraries/tbl_columns_definition_form.lib.php:854
@@ -13632,10 +13614,9 @@ msgid "Showing create queries"
 msgstr "Zobrazuji SQL dotaz pro vytvoření"
 
 #: libraries/structure.lib.php:3289
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
-msgstr "Zobrazit relace"
+msgstr "Zobrazení relací"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -13738,10 +13719,9 @@ msgid "Storage Engine:"
 msgstr "Úložiště:"
 
 #: libraries/tbl_columns_definition_form.lib.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "Připojení"
+msgstr "Připojení:"
 
 #: libraries/tbl_columns_definition_form.lib.php:129
 msgid "PARTITION definition:"
@@ -13793,16 +13773,14 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:376
 #: transformation_overview.php:41
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Transformace při prohlížení"
+msgstr "Transformace při zobrazení"
 
 #: libraries/tbl_columns_definition_form.lib.php:378
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Transformace při prohlížení"
+msgstr "Možnosti transformace při zobrazení"
 
 #: libraries/tbl_columns_definition_form.lib.php:381
 #: transformation_overview.php:42
@@ -13810,10 +13788,9 @@ msgid "Input transformation"
 msgstr "Transformace při zadávání"
 
 #: libraries/tbl_columns_definition_form.lib.php:383
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Input transformation options"
-msgstr "Parametry transformace"
+msgstr "Parametry vstupní transformace"
 
 #: libraries/tbl_columns_definition_form.lib.php:624
 #, php-format
@@ -13889,10 +13866,9 @@ msgid ""
 msgstr "„PRIMARY“ <b>musí</b> být jméno <b>pouze</b> primárního klíče!"
 
 #: libraries/tbl_indexes.lib.php:305
-#, fuzzy
 #| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Velikost mezipaměti klíčů"
+msgstr "Výběr indexu:"
 
 #: libraries/tbl_indexes.lib.php:321
 msgid "Key block size:"
@@ -13903,20 +13879,18 @@ msgid "Index type:"
 msgstr "Typ klíče:"
 
 #: libraries/tbl_indexes.lib.php:346
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Uživatel:"
+msgstr "Syntaktický analyzátor:"
 
 #: libraries/tbl_indexes.lib.php:358
 msgid "Comment:"
 msgstr "Komentář:"
 
 #: libraries/tbl_indexes.lib.php:393 libraries/tbl_indexes.lib.php:430
-#, fuzzy
 #| msgid "Drag to reorder."
 msgid "Drag to reorder"
-msgstr "Uspořádejte přetažením."
+msgstr "Uspořádejte přetažením"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
@@ -13956,10 +13930,9 @@ msgid "Actions"
 msgstr "Akce"
 
 #: libraries/tbl_relation.lib.php:371
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "Omezení pro tabulku"
+msgstr "Vlastnosti omezení"
 
 #: libraries/tbl_relation.lib.php:376
 msgid ""
@@ -13975,10 +13948,10 @@ msgid "+ Add constraint"
 msgstr "+ Přidat omezení"
 
 #: libraries/tbl_relation.lib.php:439
-#, fuzzy, php-format
+#, php-format
 #| msgid "Foreign key constraint"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Omezení cizího klíče"
+msgstr "Omezení cizího klíče %s bylo odstraněno"
 
 #: libraries/tbl_relation.lib.php:463
 msgid "Constraint name"
@@ -13993,10 +13966,9 @@ msgid "Choose column to display:"
 msgstr "Zvolte která pole zobrazit:"
 
 #: libraries/tbl_relation.lib.php:829
-#, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "Vlákno %s bylo úspěšně zabito."
+msgstr "Zobrazený sloupec byl aktualizován."
 
 #: libraries/tbl_relation.lib.php:913
 msgid "Internal relations were successfully updated."
@@ -14013,10 +13985,10 @@ msgid "Create version %1$s of %2$s"
 msgstr "Vytvořit verzi %1$s z %2$s"
 
 #: libraries/tracking.lib.php:74
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Create version %1$s"
-msgstr "Vytvořit verzi"
+msgstr "Vytvořit verzi %1$s"
 
 #: libraries/tracking.lib.php:79
 msgid "Track these data definition statements:"
@@ -14049,10 +14021,9 @@ msgid "Deactivate now"
 msgstr "Vypnout teď"
 
 #: libraries/tracking.lib.php:287 libraries/tracking.lib.php:350
-#, fuzzy
 #| msgid "Create version"
 msgid "Delete version"
-msgstr "Vytvořit verzi"
+msgstr "Odstranit verzi"
 
 #: libraries/tracking.lib.php:460
 msgid "Tracking statements"
@@ -14154,10 +14125,10 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Sledování pro %1$s bylo vypnuto ve verzi %2$s."
 
 #: libraries/tracking.lib.php:1306
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Vytvořit verzi %1$s z %2$s"
+msgstr "Verze %1$s z %2$s byla odstraněna."
 
 #: libraries/tracking.lib.php:1337
 #, php-format
@@ -14512,13 +14483,13 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Řádek: %1$s, Sloupec: %2$s, Chyba: %3$s"
 
 #: tbl_structure.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "Název pole \"%s\" je rezervovaným klíčovým slovem MySQL."
-msgstr[1] "Název pole \"%s\" je rezervovaným klíčovým slovem MySQL."
-msgstr[2] "Název pole \"%s\" je rezervovaným klíčovým slovem MySQL."
+msgstr[0] "Název \"%s\" je rezervovaným klíčovým slovem MySQL."
+msgstr[1] "Názvy \"%s\" jsou rezervovaným klíčovým slovem MySQL."
+msgstr[2] "Názvy \"%s\" jsou rezervovaným klíčovým slovem MySQL."
 
 #: tbl_structure.php:114
 msgid "No column selected."
@@ -14536,10 +14507,9 @@ msgid "Tracking versions deleted successfully."
 msgstr "Vybraní uživatelé byli úspěšně odstraněni."
 
 #: tbl_tracking.php:107
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Nebyl vybrán žádný řádek"
+msgstr "Nebyly vybrány žádné verze."
 
 #: tbl_tracking.php:138
 msgid "SQL statements executed."
@@ -15626,7 +15596,6 @@ msgid "Too many connections are aborted."
 msgstr "Je příliš mnoho přerušených spojení."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -15637,8 +15606,8 @@ msgid ""
 "\"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Připojení jsou obvykle přerušena pokud nemohou být ověřena. <a href=\"http://"
-"www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-"
+"Připojení jsou obvykle přerušena pokud nemohou být ověřena. <a href=\""
+"http://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">Tento článek</a> vám může pomoc najít příčinu."
 
 #: libraries/advisory_rules.txt:404
@@ -15761,7 +15730,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Velikost záznamového souboru je příliš velká."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -15786,14 +15755,14 @@ msgstr ""
 "Obvykle je dostačující mít nastavené {innodb_log_file_size} na 25%% "
 "velikosti {innodb_buffer_pool_size}. Příliš velká {innodb_log_file_size} "
 "zpomaluje obnovení databáze v případě jejího pádu nebo problémů s hardware. "
-"Více informací naleznete v <a href=\"http://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">tomto článku</a>. "
-"Prosím uvědomte si, že tato hodnota nemůže být přímo změněna. Musí být "
-"ukončen server, odstraněny záznamy InnoDB a až poté změněna hodnota v my.cnf "
-"a znovu spuštěn server. Poté zkontrolujte chybové záznamy MySQL, jestli "
-"všechno proběhlo v pořádku. Více viz <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">zápisek v blogu</a>"
+"Více informací naleznete v <a href=\"http://www.percona.com/blog/2006/07/03"
+"/choosing-proper-innodb_log_file_size/\">tomto článku</a>. Prosím uvědomte "
+"si, že tato hodnota nemůže být přímo změněna. Musí být ukončen server, "
+"odstraněny záznamy InnoDB a až poté změněna hodnota v my.cnf a znovu spuštěn "
+"server. Poté zkontrolujte chybové záznamy MySQL, jestli všechno proběhlo v "
+"pořádku. Více viz <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">zápisek v blogu</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -15809,7 +15778,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Nastavená vyrovnávací paměť InnoDB je poměrně malá."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -15840,8 +15809,8 @@ msgstr ""
 "pečlivě zvažte spotřebu paměti ostatními službami a podle toho nastavte tuto "
 "hodnotu. Pokud ji nastavíte příliš velkou, váš systém začne využívat "
 "odkládací paměť, což výrazně zhorší jeho celkový výkon. Více informací "
-"naleznete v <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/"
-"choosing-innodb_buffer_pool_size/\">tomto článku</a>"
+"naleznete v <a href=\"http://www.percona.com/blog/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">tomto článku</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
