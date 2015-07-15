@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-12 11:07-0400\n"
-"PO-Revision-Date: 2015-06-27 03:51+0200\n"
+"PO-Revision-Date: 2015-07-15 17:01+0200\n"
 "Last-Translator: Franco <fulanodetal.github@openaliasbox.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -275,7 +275,6 @@ msgid "Data"
 msgstr "Datos"
 
 #: db_export.php:54
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "Seleccionar todo"
@@ -1204,26 +1203,23 @@ msgid "Close"
 msgstr "Cerrar"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "El número de páginas creadas."
+msgstr "Plantilla creada."
 
 #: js/messages.php:130
 msgid "Template was loaded."
-msgstr ""
+msgstr "Plantilla cargada."
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Se actualizó el perfil."
+msgstr "Plantilla actualizada."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "La fila se ha borrado."
+msgstr "Plantilla borrada."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:135 libraries/ServerStatusData.class.php:132
@@ -4057,10 +4053,9 @@ msgid "Databases"
 msgstr "Bases de datos"
 
 #: libraries/Menu.class.php:567
-#, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
-msgstr "Groupos de usuario"
+msgstr "Cuentas de usuarios"
 
 #: libraries/Menu.class.php:594 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4344 libraries/server_common.lib.php:36
@@ -4797,12 +4792,12 @@ msgstr "Máximo: %s%s"
 
 #: libraries/Util.class.php:660
 msgid "Static analysis:"
-msgstr ""
+msgstr "Análisis estático:"
 
 #: libraries/Util.class.php:662
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "Se encontraron %d errores durante el análisis."
 
 #: libraries/Util.class.php:724 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
@@ -5997,10 +5992,9 @@ msgid "Overwrite existing file(s)"
 msgstr "Sobreescribir el(los) archivo(s) existente(s)"
 
 #: libraries/config/messages.inc.php:163
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "Exportar cabeceras de tablas"
+msgstr "Exportar como archivos separados"
 
 #: libraries/config/messages.inc.php:167
 msgid "Remember file name template"
@@ -6219,16 +6213,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Cambiar la apariencia del panel de navegación."
 
 #: libraries/config/messages.inc.php:249
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Panel de navegación"
+msgstr "Árbol de navegación"
 
 #: libraries/config/messages.inc.php:250
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Personalizar el panel de navegación"
+msgstr "Personalizar el árbol de navegación."
 
 #: libraries/config/messages.inc.php:251 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
@@ -6838,63 +6830,57 @@ msgid "Enable navigation tree expansion"
 msgstr "Activar la expansión del árbol de navegación"
 
 #: libraries/config/messages.inc.php:488
-#, fuzzy
 #| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Mostrar/Ocultar lista de tablas"
+msgstr "Mostrar tablas en árbol"
 
 #: libraries/config/messages.inc.php:490
-#, fuzzy
 #| msgid ""
 #| "Whether to offer the possibility of tree expansion in the navigation "
 #| "panel."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr ""
-"Si tendrá la posibilidad de expandir el árbol en el panel de navegación."
+msgstr "Si se muestran las tablas bajo base de datos en el árbol de navegación"
 
 #: libraries/config/messages.inc.php:491
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Mostrar versiones"
+msgstr "Mostrar vistas en árbol"
 
 #: libraries/config/messages.inc.php:493
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Mostrar las bases de datos navegación como árbol"
+msgstr "Si se muestran vistas bajo base de datos en el árbol de navegación"
 
 #: libraries/config/messages.inc.php:494
-#, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Mostrar los campos de función"
+msgstr "Mostrar funciones en árbol"
 
 #: libraries/config/messages.inc.php:496
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
+"Si se muestran las funciones bajo la base de datos en el árbol de navegación"
 
 #: libraries/config/messages.inc.php:497
-#, fuzzy
 #| msgid "procedures"
 msgid "Show procedures in tree"
-msgstr "procedimientos"
+msgstr "Mostrar procedimientos en árbol"
 
 #: libraries/config/messages.inc.php:499
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
+"Si se muestran los procedimientos bajo la base de datos en el árbol de "
+"navegación"
 
 #: libraries/config/messages.inc.php:500
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Mostrar versiones"
+msgstr "Mostrar eventos en árbol"
 
 #: libraries/config/messages.inc.php:502
-#, fuzzy
 #| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Mostrar las bases de datos navegación como árbol"
+msgstr "Si se muestran eventos bajo la base de datos en el árbol de navegación"
 
 #: libraries/config/messages.inc.php:504
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -7336,10 +7322,9 @@ msgstr ""
 "sugerido: [kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:655
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export templates table"
-msgstr "Exportar vistas como tablas"
+msgstr "Exportar tabla de plantillas"
 
 #: libraries/config/messages.inc.php:657
 #, fuzzy
@@ -7350,8 +7335,8 @@ msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Dejar en blanco para evitar soporte para esquema en PDF, sugerido: "
-"[kbd]pma__pdf_pages[/kbd]."
+"Dejar en blanco para evitar soporte para exportar plantilla, sugerido: "
+"[kbd]pma__pdf_templates[/kbd]."
 
 #: libraries/config/messages.inc.php:660
 msgid "Central columns table"
@@ -8266,52 +8251,44 @@ msgstr "Exportando filas de la tabla \"%s\""
 # Used as description for SQL syntax Export Type (options are INSERT, UPDATE
 # and REPLACE)
 #: libraries/display_export.lib.php:203
-#, fuzzy
 #| msgid "Export type"
 msgid "Export templates:"
-msgstr "Tipo de exportación"
+msgstr "Exportar plantillas:"
 
 #: libraries/display_export.lib.php:208
-#, fuzzy
 #| msgid "File name template:"
 msgid "New template:"
-msgstr "Plantilla del nombre del archivo:"
+msgstr "Nueva plantilla:"
 
 #: libraries/display_export.lib.php:211
-#, fuzzy
 #| msgid "Table name"
 msgid "Template name"
-msgstr "Nombre de la tabla"
+msgstr "Nombre de plantilla"
 
 #: libraries/display_export.lib.php:220
-#, fuzzy
 #| msgid "File name template:"
 msgid "Existing templates:"
-msgstr "Plantilla del nombre del archivo:"
+msgstr "Plantillas existentes:"
 
 #: libraries/display_export.lib.php:221
-#, fuzzy
 #| msgid "Temp disk rate"
 msgid "Template:"
-msgstr "Tasa de tablas temporales en el disco"
+msgstr "Plantilla:"
 
 #: libraries/display_export.lib.php:226
-#, fuzzy
 #| msgid "Updated"
 msgid "Update"
-msgstr "Actualizado"
+msgstr "Actualizar"
 
 #: libraries/display_export.lib.php:248
-#, fuzzy
 #| msgid "Select a table"
 msgid "Select a template"
-msgstr "Seleccionar una tabla"
+msgstr "Seleccionar plantilla"
 
 #: libraries/display_export.lib.php:294
-#, fuzzy
 #| msgid "Export method"
 msgid "Export method:"
-msgstr "Método de exportación"
+msgstr "Método de exportación:"
 
 #: libraries/display_export.lib.php:304
 msgid "Quick - display only the minimal options"
@@ -8429,16 +8406,14 @@ msgid "View output as text"
 msgstr "Ver salida como texto"
 
 #: libraries/display_export.lib.php:753
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "Exportar vistas como tablas"
+msgstr "Exportar bases de datos como archivos separados"
 
 #: libraries/display_export.lib.php:755
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "Exportar cabeceras de tablas"
+msgstr "Exportar tablas como archivos separados"
 
 #: libraries/display_export.lib.php:785 libraries/display_export.lib.php:910
 msgid "Rename exported databases/tables/columns"
@@ -9457,10 +9432,9 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Ocurrió un error al cargar la vista de navegación"
 
 #: libraries/navigation/Navigation.class.php:192
-#, fuzzy
 #| msgid "Group name:"
 msgid "Groups:"
-msgstr "Nombre del grupo:"
+msgstr "Grupos:"
 
 #: libraries/navigation/Navigation.class.php:193
 msgid "Events:"
@@ -9959,12 +9933,13 @@ msgstr "Renombrar base de datos a"
 #: libraries/operations.lib.php:861 libraries/operations.lib.php:955
 #: libraries/operations.lib.php:1309
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "¡Usted no tiene suficientes privilegios para estar aquí ahora!"
+msgstr ""
+"Sin privilegios suficientes para realizar esta operación; Por favor, "
+"consulte la documentación para más detalles"
 
 #: libraries/operations.lib.php:101 libraries/operations.lib.php:248
 #: libraries/operations.lib.php:867 libraries/operations.lib.php:961
@@ -10070,10 +10045,9 @@ msgid "Check table"
 msgstr "Revisar la tabla"
 
 #: libraries/operations.lib.php:1426 libraries/structure.lib.php:341
-#, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
-msgstr "Revisar la tabla"
+msgstr "Tabla de suma de comprobación"
 
 #: libraries/operations.lib.php:1441
 msgid "Defragment table"
@@ -10132,13 +10106,12 @@ msgstr "Repare"
 
 #: libraries/operations.lib.php:1597
 msgid "Truncate"
-msgstr ""
+msgstr "Truncar"
 
 #: libraries/operations.lib.php:1607
-#, fuzzy
 #| msgid "Collapse"
 msgid "Coalesce"
-msgstr "Colapsar"
+msgstr "Fusionar"
 
 #: libraries/operations.lib.php:1616
 msgid "Partition maintenance"
@@ -10412,8 +10385,9 @@ msgid "Stand-in structure for view"
 msgstr "Estructura Stand-in para la vista"
 
 #: libraries/plugins/export/ExportJson.class.php:70
+#, fuzzy
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Impresión de salida JSON (uso de formato legible)"
 
 #: libraries/plugins/export/ExportLatex.class.php:43
 msgid "Content of table @TABLE@"
@@ -11127,7 +11101,6 @@ msgstr ""
 "la altura y anchura máxima en píxeles. La proporción original es mantenida."
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
 #| "standard dotted format."
@@ -11135,8 +11108,8 @@ msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
 msgstr ""
-"Convierte una dirección de red internet (IPv4) en una cadena en formato "
-"estándar de Internet con puntos."
+"Convierte una dirección de red de Internet (IPv4) almacenada como un BIGINT "
+"en una cadena en formato de puntos estándar de Internet."
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
 msgid ""
@@ -11372,15 +11345,14 @@ msgstr "Gestión de la lista central de columnas"
 #, fuzzy
 #| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Recordar ordenamiento de la tabla"
+msgstr "Recordar ajustes de diseño"
 
 # Used as description for SQL syntax Export Type (options are INSERT, UPDATE
 # and REPLACE)
 #: libraries/relation.lib.php:335
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "Saving export templates"
-msgstr "Tipo de exportación inválido"
+msgstr "Guardar exportación de plantillas"
 
 #: libraries/relation.lib.php:343
 msgid "Quick steps to setup advanced features:"
@@ -12007,6 +11979,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Sin privilegios suficientes para realizar esta operación; Por favor, "
+"consulte la documentación para más detalles"
 
 #: libraries/rte/rte_routines.lib.php:935
 msgid "Security type"
@@ -12625,16 +12599,14 @@ msgstr "Ha revocado los privilegios para %s."
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-#, fuzzy
 #| msgid "Add user group"
 msgid "Add user account"
-msgstr "Agregar groupo de usuarios"
+msgstr "Agregar cuenta de usuario"
 
 #: libraries/server_privileges.lib.php:1942
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
-msgstr "Base de datos para el usuario"
+msgstr "Base de datos para la cuenta de usuario"
 
 #: libraries/server_privileges.lib.php:1946
 msgid "Create database with same name and grant all privileges."
@@ -12743,13 +12715,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "Cambiar la información de la cuenta / Copiar el usuario"
+msgstr "Cambiar la información de la cuenta / Copiar cuenta de usuario"
 
 #: libraries/server_privileges.lib.php:2734
-#, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "Crear un nuevo usuario con los mismos privilegios y…"
+msgstr "Crear una cuenta de usuario nueva con los mismos privilegios y…"
 
 #: libraries/server_privileges.lib.php:3036
 msgid "Column-specific privileges"
@@ -12770,10 +12741,9 @@ msgid "Add privileges on the following table:"
 msgstr "Añadir privilegios a esta tabla:"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
-msgstr "Eliminar a los usuarios seleccionados"
+msgstr "Eliminar cuentas de usuario seleccionadas"
 
 #: libraries/server_privileges.lib.php:3376
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -12829,16 +12799,14 @@ msgid "New"
 msgstr "Nuevo"
 
 #: libraries/server_privileges.lib.php:4084
-#, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "Editar los privilegios:"
 
 #: libraries/server_privileges.lib.php:4085
-#, fuzzy
 #| msgid "User group"
 msgid "User account"
-msgstr "Grupo de usuario"
+msgstr "Cuenta de usuario"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -12849,10 +12817,9 @@ msgstr ""
 "la sesión actual."
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-#, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
-msgstr "Vista global de usuarios"
+msgstr "Vista global de las cuentas de usuario"
 
 #: libraries/server_privileges.lib.php:4232
 msgid ""
@@ -12860,6 +12827,9 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"Existe una cuenta de usuario que permite a cualquier usuario de localhost "
+"conectarse. Esto evitará conectarse a otros usuarios, si la parte del host "
+"de su cuenta permite una conexión desde cualquier host (%)."
 
 #: libraries/server_privileges.lib.php:4272
 #, php-format
@@ -13184,10 +13154,9 @@ msgid "Command"
 msgstr "Comando"
 
 #: libraries/server_status_processes.lib.php:96
-#, fuzzy
 #| msgid "Press"
 msgid "Progress"
-msgstr "Pulse"
+msgstr "Progreso"
 
 #: libraries/server_status_processes.lib.php:253
 #: libraries/server_status_variables.lib.php:39
@@ -13196,7 +13165,6 @@ msgid "Filters"
 msgstr "Filtros"
 
 #: libraries/server_status_processes.lib.php:261
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
 msgstr "Mostrar sólo activo"
@@ -14040,7 +14008,7 @@ msgstr "Valor global"
 
 #: libraries/server_variables.lib.php:242
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Esta es una variable de sólo lectura y no puede ser editada"
 
 #: libraries/sql.lib.php:284
 msgid "Detailed profile"
@@ -14141,10 +14109,9 @@ msgid "Get auto-saved query"
 msgstr "Obtener consulta almacenada automáticamente"
 
 #: libraries/sql_query_form.lib.php:267
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "¡Parámetros incorrectos!"
+msgstr "Enlazar parámetros"
 
 #: libraries/sql_query_form.lib.php:313
 msgid "Bookmark this SQL query:"
@@ -14212,10 +14179,9 @@ msgid "Show create"
 msgstr "Mostrar creación"
 
 #: libraries/structure.lib.php:349
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Prefix"
-msgstr "Agregar prefijo"
+msgstr "Prefijo"
 
 #: libraries/structure.lib.php:351
 msgid "Add prefix to table"
@@ -14410,7 +14376,9 @@ msgstr "Efectivo/a"
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Los cambios en la Tabla %1$s se hicieron exitosamente."
+msgstr ""
+"Los cambios en la Tabla %1$s se hicieron exitosamente. Los privilegios se "
+"ajustaron."
 
 #: libraries/structure.lib.php:2729 libraries/tracking.lib.php:1093
 msgid "Query error"
@@ -15086,14 +15054,14 @@ msgid "Operator"
 msgstr "Operador"
 
 #: templates/designer/database_tables.phtml:29
+#, fuzzy
 msgid "Toggle"
-msgstr ""
+msgstr "Conmutador"
 
 #: templates/designer/database_tables.phtml:40
-#, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
-msgstr "Estructura de tabla"
+msgstr "Ver estructura de tabla"
 
 #: templates/designer/delete_relation_panel.phtml:21
 msgid "Delete relation"
@@ -15246,10 +15214,9 @@ msgstr "Mover el Menú"
 
 #: templates/designer/side_menu.phtml:181
 #: templates/designer/side_menu.phtml:186
-#, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
-msgstr "Textos parciales"
+msgstr "Fijar texto"
 
 #: templates/designer/table_list.phtml:4
 msgid "Hide/Show all"
@@ -15470,10 +15437,9 @@ msgid "Series column:"
 msgstr "Columna de series:"
 
 #: templates/tbl_chart.phtml:120
-#, fuzzy
 #| msgid "Value column:"
 msgid "Value Column:"
-msgstr "Columna de valores:"
+msgstr "Columna de valor:"
 
 #: templates/tbl_chart.phtml:140
 msgid "Save chart as image"
@@ -15823,6 +15789,9 @@ msgid ""
 "Percona documentation is at <a href=\"http://www.percona.com/software/"
 "documentation/\">http://www.percona.com/software/documentation/</a>"
 msgstr ""
+"La documentación de Percona está en <a href=\""
+"http://www.percona.com/software/documentation/\""
+">http://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -15834,6 +15803,9 @@ msgid ""
 "Drizzle documentation is at <a href=\"http://www.drizzle.org/content/"
 "documentation/\">http://www.drizzle.org/content/documentation/</a>"
 msgstr ""
+"La documentación de Drizzle está en <a href=\""
+"http://www.drizzle.org/content/documentation/\""
+">http://www.drizzle.org/content/documentation/</a>"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
