@@ -1429,6 +1429,8 @@ class PMA_DisplayResults
             . PMA_URL_getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
+            // to avoid calling PMA_handleSortOrder() later
+            . PMA_getHiddenFields(array('sort_by_key' => '1'))
             . __('Sort by key')
             . ': <select name="sql_query" class="autosubmit">' . "\n";
 
