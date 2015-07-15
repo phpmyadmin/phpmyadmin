@@ -360,7 +360,7 @@ class Node_Database extends Node
 
         // Remove hidden items so that they are not displayed in navigation tree
         $cfgRelation = PMA_getRelationsParam();
-        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
+        if ($cfgRelation['navwork']) {
             $hiddenItems = $this->getHiddenItems(substr($type, 0, -1));
             foreach ($retval as $key => $item) {
                 if (in_array($item, $hiddenItems)) {
@@ -648,7 +648,7 @@ class Node_Database extends Node
     {
         $ret = '';
         $cfgRelation = PMA_getRelationsParam();
-        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
+        if ($cfgRelation['navwork']) {
             if ($this->hiddenCount > 0) {
                 $ret = '<span class="dbItemControls">'
                     . '<a href="navigation.php'

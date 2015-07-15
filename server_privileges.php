@@ -29,7 +29,6 @@ $scripts->addFile('server_privileges.js');
 
 if ((isset($_REQUEST['viewing_mode'])
     && $_REQUEST['viewing_mode'] == 'server')
-    && isset($GLOBALS['cfgRelation']['menuswork'])
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
     include_once 'libraries/server_users.lib.php';

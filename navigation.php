@@ -29,7 +29,7 @@ if (isset($_REQUEST['getNaviSettings']) && $_REQUEST['getNaviSettings']) {
 }
 
 $cfgRelation = PMA_getRelationsParam();
-if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
+if ($cfgRelation['navwork']) {
     if (isset($_REQUEST['hideNavItem'])) {
         if (! empty($_REQUEST['itemName'])
             && ! empty($_REQUEST['itemType'])
