@@ -405,7 +405,7 @@ if (!defined('TESTSUITE')) {
 
         if ($separate_files != 'database') {
             // Add possibly some comments to export
-            if (! $export_plugin->exportHeader($db)) {
+            if (! $export_plugin->exportHeader()) {
                 break;
             }
         }
