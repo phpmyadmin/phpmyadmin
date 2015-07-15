@@ -102,6 +102,7 @@ function PMA_getReportData($exception_type = 'js')
             return array();
         }
         foreach ($_SESSION['prev_errors'] as $errorObj) {
+            /* @var $errorObj PMA_Error */
             if ($errorObj->getLine()
                 && $errorObj->getType()
                 && $errorObj->getNumber() != E_USER_WARNING
