@@ -111,6 +111,9 @@
     var tip = document.createElement("div");
     tip.className = "CodeMirror-lint-message-" + severity;
     tip.appendChild(document.createTextNode(ann.message));
+    // Unescaping only the <code> tag.
+    tip.innerHTML = tip.innerHTML.replace("&lt;code&gt;", "<code>")
+      .replace("&lt;/code&gt;", "</code>");
     return tip;
   }
 

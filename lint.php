@@ -121,7 +121,7 @@ function linter($query)
 
         // Building the response.
         $response[] = array(
-            'message' => $error[0] . ' (near ' . $error[2] . ')',
+            'message' => $error[0] . ' (near <code>' . $error[2] . '</code>)',
             'fromLine' => $fromLine,
             'fromColumn' => $fromColumn,
             'toLine' => $toLine,
