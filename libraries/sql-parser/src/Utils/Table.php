@@ -125,7 +125,7 @@ class Table
 
                 if (($option = $field->options->has('AS'))) {
                     $ret[$field->name]['generated'] = true;
-                    $ret[$field->name]['expr'] = $option->expr;
+                    $ret[$field->name]['expr'] = $option;
                 }
             }
 

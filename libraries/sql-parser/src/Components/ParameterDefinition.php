@@ -120,7 +120,6 @@ class ParameterDefinition extends Component
                 $expr = new ParameterDefinition();
                 if ($token->value === ',') {
                     $state = 1;
-                    continue;
                 } elseif ($token->value === ')') {
                     ++$list->idx;
                     break;

@@ -126,9 +126,9 @@ class Expression extends Component
 
         /**
          * Whether a period was previously found.
-         * @var bool $period
+         * @var bool $dot
          */
-        $period = false;
+        $dot = false;
 
         /**
          * Whether an alias is expected. Is 2 if `AS` keyword was found.
@@ -146,7 +146,7 @@ class Expression extends Component
          * Keeps track of the previous token.
          * Possible values:
          *     string, if function was previously found;
-         *     true, if open bracket was previously found;
+         *     true, if opening bracket was previously found;
          *     null, in any other case.
          * @var string|bool $prev
          */
@@ -169,7 +169,7 @@ class Expression extends Component
                 if (($isExpr) && (!$alias)) {
                     $ret->expr .= $token->token;
                 }
-                if (($alias === 0) && (empty($options['noAlias'])) && (!$isExpr) && (!$period) && (!empty($ret->expr))) {
+                if (($alias === 0) && (empty($options['noAlias'])) && (!$isExpr) && (!$dot) && (!empty($ret->expr))) {
                     $alias = 1;
                 }
                 continue;
@@ -202,9 +202,6 @@ class Expression extends Component
                 }
                 if ($token->value === '(') {
                     ++$brackets;
-                    // We don't check to see if `$prev` is `true` (open bracket
-                    // was found before) because the brackets count is one (the
-                    // only bracket we found is this one).
                     if ((empty($ret->function)) && ($prev !== null) && ($prev !== true)) {
                         // A function name was previously found and now an open
                         // bracket, so this is a function call.
@@ -222,7 +219,7 @@ class Expression extends Component
                             break;
                         }
                     } elseif ($brackets < 0) {
-                        $parser->error('Unexpected bracket.', $token);
+                        $parser->error('Unexpected closing bracket.', $token);
                         $brackets = 0;
                     }
                 } elseif ($token->value === ',') {
@@ -250,28 +247,36 @@ class Expression extends Component
                         // Found a `.` which means we expect a column name and
                         // the column name we parsed is actually the table name
                         // and the table name is actually a database name.
-                        if ((!empty($ret->database)) || ($period)) {
+                        if ((!empty($ret->database)) || ($dot)) {
                             $parser->error('Unexpected dot.', $token);
                         }
                         $ret->database = $ret->table;
                         $ret->table = $ret->column;
                         $ret->column = null;
-                        $period = true;
+                        $dot = true;
                     } else {
                         // We found the name of a column (or table if column
                         // field should be skipped; used to parse table names).
-                        if (!empty($options['skipColumn'])) {
-                            if (!empty($ret->table)) {
+                        $field = (!empty($options['skipColumn'])) ? 'table' : 'column';
+                        if (!empty($ret->$field)) {
+
+                            // No alias is expected.
+                            if (!empty($options['noAlias'])) {
                                 break;
                             }
-                            $ret->table = $token->value;
+
+                            // Parsing aliases without `AS` keyword and any whitespace.
+                            // Example: SELECT 1`foo`
+                            if (($token->type === Token::TYPE_STRING)
+                                || (($token->type === Token::TYPE_SYMBOL)
+                                && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))
+                            ) {
+                                $ret->alias = $token->value;
+                            }
                         } else {
-                            if (!empty($ret->column)) {
-                                break;
-                            }
-                            $ret->column = $token->value;
+                            $ret->$field = $token->value;
                         }
-                        $period = false;
+                        $dot = false;
                     }
                 } else {
                     // Parsing aliases without `AS` keyword.
@@ -298,9 +303,8 @@ class Expression extends Component
             }
 
         }
-
         if ($alias === 2) {
-            $parser->error('Alias was expected.');
+            $parser->error('An alias was expected.', $list->tokens[$list->idx - 1]);
         }
 
         // Whitespaces might be added at the end.

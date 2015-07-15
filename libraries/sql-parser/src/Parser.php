@@ -338,7 +338,7 @@ class Parser
             // Checking if it is a known statement that can be parsed.
             if (empty(static::$STATEMENT_PARSERS[$token->value])) {
                 $this->error(
-                    'Unrecognized statement type "' . $token->value . '".',
+                    'Unrecognized statement type.',
                     $token
                 );
                 // Skipping to the end of this statement.
@@ -376,6 +376,10 @@ class Parser
                 && ($lastStatement instanceof SelectStatement)
                 && ($stmt instanceof SelectStatement)
             ) {
+                /**
+                 * Last SELECT statement.
+                 * @var SelectStatement $lastStatement
+                 */
                 $lastStatement->union[] = $stmt;
                 $inUnion = false;
             } else {

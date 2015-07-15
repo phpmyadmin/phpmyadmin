@@ -36,7 +36,8 @@ class OptionsArray extends Component
      * Constructor.
      *
      * @param array $options The array of options. Options that have a value
-     *                       must be an array with two keys 'name' and 'value'.
+     *                       must be an array with at least two keys `name` and
+     *                       `expr` or `value`.
      */
     public function __construct(array $options = array())
     {
@@ -162,11 +163,11 @@ class OptionsArray extends Component
                         'name' => $token->value,
                         // @var bool Whether it contains an equal sign.
                         //           This is used by the builder to rebuild it.
-                        'equal' => $lastOption[1] === 'var=',
+                        'equals' => $lastOption[1] === 'var=',
                         // @var string Raw value.
-                        'value' => '',
+                        'expr' => '',
                         // @var string Processed value.
-                        'value_' => '',
+                        'value' => '',
                     );
                     $state = 1;
                 } elseif ($lastOption[1] === 'expr') {
@@ -179,14 +180,14 @@ class OptionsArray extends Component
                         // @var string The name of the option.
                         'name' => $token->value,
                         // @var Expression The parsed expression.
-                        'value' => null,
+                        'expr' => null,
                     );
                     $state = 1;
                 }
             } elseif ($state === 1) {
                 $state = 2;
                 if ($token->value === '=') {
-                    $ret->options[$lastOptionId]['equal'] = true;
+                    $ret->options[$lastOptionId]['equals'] = true;
                     continue;
                 }
             }
@@ -195,11 +196,13 @@ class OptionsArray extends Component
             // change this iteration.
             if ($state === 2) {
                 if ($lastOption[1] === 'expr') {
-                    $ret->options[$lastOptionId]['value'] = Expression::parse(
+                    $ret->options[$lastOptionId]['expr'] = Expression::parse(
                         $parser,
                         $list,
                         empty($lastOption[2]) ? array() : $lastOption[2]
                     );
+                    $ret->options[$lastOptionId]['value'] =
+                        $ret->options[$lastOptionId]['expr']->expr;
                     $lastOption = null;
                     $state = 0;
                 } else {
@@ -209,11 +212,14 @@ class OptionsArray extends Component
                         --$brackets;
                     }
 
-                    // Raw value.
-                    $ret->options[$lastOptionId]['value'] .= $token->token;
+                    $ret->options[$lastOptionId]['expr'] .= $token->token;
 
-                    // Processed value.
-                    $ret->options[$lastOptionId]['value_'] .= $token->value;
+                    if (!((($token->token === '(') && ($brackets === 1))
+                        || (($token->token === ')') && ($brackets === 0)))
+                    ) {
+                        // First pair of brackets is being skipped.
+                        $ret->options[$lastOptionId]['value'] .= $token->value;
+                    }
 
                     // Checking if we finished parsing.
                     if ($brackets === 0) {
@@ -223,7 +229,9 @@ class OptionsArray extends Component
             }
         }
 
-        ksort($ret->options);
+        if (empty($options['_UNSORTED'])) {
+            ksort($ret->options);
+        }
 
         --$list->idx;
         return $ret;
@@ -245,9 +253,9 @@ class OptionsArray extends Component
                 $options[] = $option;
             } else {
                 $options[] = $option['name']
-                    . (!empty($option['equal']) ? '=' : ' ')
-                    . ((string) $option['value']);
-                // If `$option['value']` happens to be a component, the magic
+                    . (!empty($option['equals']) ? '=' : ' ')
+                    . (!empty($option['expr']) ? ((string) $option['expr']) : $option['value']);
+                // If `$option['expr']` happens to be a component, the magic
                 // method will build it automatically.
             }
         }
@@ -257,17 +265,19 @@ class OptionsArray extends Component
     /**
      * Checks if it has the specified option and returns it value or true.
      *
-     * @param string $key The key to be checked.
+     * @param string $key     The key to be checked.
+     * @param bool   $getExpr Gets the expression instead of the value.
+     *                        The value is the processed form of the expression.
      *
      * @return mixed
      */
-    public function has($key)
+    public function has($key, $getExpr = false)
     {
         foreach ($this->options as $option) {
             if ($key === $option) {
                 return true;
             } elseif ((is_array($option)) && ($key === $option['name'])) {
-                return $option['value'];
+                return $getExpr ? $option['expr'] : $option['value'];
             }
         }
         return false;
@@ -308,5 +318,15 @@ class OptionsArray extends Component
         } elseif ($options instanceof OptionsArray) {
             $this->options = array_merge_recursive($this->options, $options->options);
         }
+    }
+
+    /**
+     * Checks tf there are no options set.
+     *
+     * @return bool
+     */
+    public function isEmpty()
+    {
+        return empty($this->options);
     }
 }

@@ -287,7 +287,15 @@ class CreateStatement extends Statement
                 'skipColumn' => true,
             )
         );
-        ++$list->idx; // Skipping field.
+
+        if (empty($this->name)) {
+            $parser->error(
+                'The name of the entity was expected.',
+                $list->tokens[$list->idx]
+            );
+        } else {
+            ++$list->idx; // Skipping field.
+        }
 
         if ($this->options->has('DATABASE')) {
             $this->entityOptions = OptionsArray::parse(
@@ -297,6 +305,12 @@ class CreateStatement extends Statement
             );
         } elseif ($this->options->has('TABLE')) {
             $this->fields = FieldDefinition::parse($parser, $list);
+            if (empty($this->fields)) {
+                $parser->error(
+                    'At least one field definition was expected.',
+                    $list->tokens[$list->idx]
+                );
+            }
             ++$list->idx;
 
             $this->entityOptions = OptionsArray::parse(
@@ -312,7 +326,7 @@ class CreateStatement extends Statement
                 $token = $list->getNextOfType(Token::TYPE_KEYWORD);
                 if ($token->value !== 'RETURNS') {
                     $parser->error(
-                        '\'RETURNS\' keyword was expected.',
+                        'A \'RETURNS\' keyword was expected.',
                         $token
                     );
                 } else {
