@@ -25,7 +25,7 @@ class PMA_Error_Handler
     /**
      * holds errors to be displayed or reported later ...
      *
-     * @var array of PMA_Error
+     * @var PMA_Error[]
      */
     protected $errors = array();
 
@@ -86,7 +86,7 @@ class PMA_Error_Handler
     /**
      * returns array with all errors
      *
-     * @return array PMA_Error_Handler::$_errors
+     * @return PMA_Error[]
      */
     protected function getErrors()
     {
@@ -98,7 +98,7 @@ class PMA_Error_Handler
     * returns the errors occurred in the current run only.
     * Does not include the errors save din the SESSION
     *
-    * @return array of current errors
+    * @return PMA_Error[]
     */
     public function getCurrentErrors()
     {
