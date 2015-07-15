@@ -126,7 +126,8 @@ class PMA_Linter_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testLongQuery() {
+    public function testLongQuery()
+    {
         $this->expectOutputString(
             json_encode(
                 array(

@@ -14,7 +14,8 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin
  */
-class PMA_Linter {
+class PMA_Linter
+{
 
     /**
      * Gets the starting position of each line.
