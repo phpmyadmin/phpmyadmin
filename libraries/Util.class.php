@@ -4842,6 +4842,25 @@ class PMA_Util
         return $serverType == 'MySQL' && PMA_MYSQL_INT_VERSION >= 50705
              || ($serverType == 'MariaDB' && PMA_MYSQL_INT_VERSION >= 50200);
     }
+
+    /**
+     * Returns the proper class clause according to the column type
+     *
+     * @param string $type the column type
+     *
+     * @return string $class_clause the HTML class clause
+     */
+    public static function getClassForType($type)
+    {
+        if ('set' == $type
+            || 'enum' == $type
+        ) {
+            $class_clause = '';
+        } else {
+            $class_clause = ' class="nowrap"';
+        }
+        return $class_clause;
+    }
 }
 
 ?>

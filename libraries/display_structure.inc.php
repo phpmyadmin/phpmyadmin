@@ -81,13 +81,10 @@ foreach ($fields as $row) {
     $type             = $row['Type'];
     $extracted_columnspec = PMA_Util::extractColumnSpec($row['Type']);
 
-    if ('set' == $extracted_columnspec['type']
-        || 'enum' == $extracted_columnspec['type']
-    ) {
-        $type_nowrap  = '';
-    } else {
-        $type_nowrap  = ' class="nowrap"';
-    }
+    $class_for_type = PMA_Util::getClassForType(
+        $extracted_columnspec['type']
+    );
+
     $type         = $extracted_columnspec['print_type'];
     if (empty($type)) {
         $type     = ' ';
@@ -177,7 +174,7 @@ foreach ($fields as $row) {
     $response->addHTML(
         PMA_getHtmlTableStructureRow(
             $row, $rownum, $displayed_field_name,
-            $type_nowrap, $extracted_columnspec, $type_mime,
+            $class_for_type, $extracted_columnspec, $type_mime,
             $field_charset, $attribute, $tbl_is_view,
             $db_is_system_schema, $url_query, $field_encoded, $titles, $table
         )
