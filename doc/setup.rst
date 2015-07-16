@@ -436,6 +436,9 @@ newer (<= 4.2.x) and if you use the phpMyAdmin configuration storage, you
 should run the :term:`SQL` script found in
 :file:`sql/upgrade_column_info_4_3_0+.sql`.
 
+Do not forget to clear the browser cache and to empty the old session by
+logging out and logging in again.
+
 .. index:: Authentication mode
 
 .. _authentication_modes:
