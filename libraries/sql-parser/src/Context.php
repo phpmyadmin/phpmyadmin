@@ -397,7 +397,9 @@ abstract class Context
      */
     public static function isSeparator($str)
     {
-        return !ctype_alnum($str) && $str !== '_';
+        // NOTES:   Only ASCII characters may be separators.
+        //          `~` is the last printable ASCII character.
+        return ($str <= '~') && (!ctype_alnum($str)) && ($str !== '_');
     }
 
     /**

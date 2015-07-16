@@ -93,7 +93,7 @@ class UtfString implements \ArrayAccess
      */
     public function offsetExists($offset)
     {
-        return $offset < $this->charLen;
+        return ($offset >= 0) && ($offset < $this->charLen);
     }
 
     /**
@@ -190,23 +190,10 @@ class UtfString implements \ArrayAccess
             return 3;
         } elseif ($byte < 248) {
             return 4;
-        } elseif ($byte === 252) {
+        } elseif ($byte < 252) {
             return 5; // unofficial
         }
         return 6; // unofficial
-    }
-
-    /**
-     * Returns the number of remaining characters.
-     *
-     * @return int
-     */
-    public function remaining()
-    {
-        if ($this->charIdx < $this->charLen) {
-            return $this->charLen - $this->charIdx;
-        }
-        return 0;
     }
 
     /**
@@ -220,30 +207,12 @@ class UtfString implements \ArrayAccess
     }
 
     /**
-     * Gets the values of the indexes.
+     * Returns the contained string.
      *
-     * @param int &$byte Reference to the byte index.
-     * @param int &$char Reference to the character index.
-     *
-     * @return void
+     * @return strin
      */
-    public function getIndexes(&$byte, &$char)
+    public function __toString()
     {
-        $byte = $this->byteIdx;
-        $char = $this->charIdx;
-    }
-
-    /**
-     * Sets the values of the indexes.
-     *
-     * @param int $byte The byte index.
-     * @param int $char The character index.
-     *
-     * @return void
-     */
-    public function setIndexes($byte = 0, $char = 0)
-    {
-        $this->byteIdx = $byte;
-        $this->charIdx = $char;
+        return $this->str;
     }
 }
