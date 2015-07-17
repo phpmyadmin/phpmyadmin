@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #4826 Two inline edit windows
 - bug #4979 Problem when import *.ods file
 - bug       Add missing head tag
+- bug #4985 Column headers move when scrolling
 
 4.4.11.0 (2015-07-06)
 - bug       Missing selected/entered values when editing active options in visual query builder
