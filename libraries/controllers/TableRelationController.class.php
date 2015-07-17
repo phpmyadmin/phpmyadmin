@@ -115,7 +115,7 @@ class TableRelationController extends TableController
         );
 
         // Gets tables information
-        require_once 'libraries/tbl_info.inc.php';
+        include_once 'libraries/tbl_info.inc.php';
 
         // updates for Internal relations
         if (isset($_POST['destination_db']) && $this->cfgRelation['relwork']) {
