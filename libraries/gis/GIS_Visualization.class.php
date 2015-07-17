@@ -450,7 +450,8 @@ class PMA_GIS_Visualization
         $pdf->Output($file_name, 'D');
     }
 
-    public function toImage($format) {
+    public function toImage($format)
+    {
         if ($format == 'svg') {
             return $this->asSvg();
         } elseif ($format == 'png') {
@@ -460,7 +461,8 @@ class PMA_GIS_Visualization
         }
     }
 
-    public function toFile($filename, $format) {
+    public function toFile($filename, $format)
+    {
         if ($format == 'svg') {
             $this->toFileAsSvg($filename);
         } elseif ($format == 'png') {

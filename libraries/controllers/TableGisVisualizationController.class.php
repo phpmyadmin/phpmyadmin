@@ -44,7 +44,8 @@ class TableGisVisualizationController extends TableController
      */
     protected $visualization;
 
-    public function __construct($sql_query, $url_params, $goto, $back, $visualizationSettings) {
+    public function __construct($sql_query, $url_params, $goto, $back, $visualizationSettings)
+    {
         parent::__construct();
 
         $this->sql_query = $sql_query;
@@ -54,14 +55,16 @@ class TableGisVisualizationController extends TableController
         $this->visualizationSettings = $visualizationSettings;
     }
 
-    public function saveToFileAction() {
+    public function saveToFileAction()
+    {
         $this->response->disable();
         $file_name = $this->visualizationSettings['spatialColumn'];
         $save_format = $_REQUEST['fileFormat'];
         $this->visualization->toFile($file_name, $save_format);
     }
 
-    public function indexAction() {
+    public function indexAction()
+    {
         // Throw error if no sql query is set
         if (! isset($this->sql_query) || $this->sql_query == '') {
             $this->response->isSuccess(false);

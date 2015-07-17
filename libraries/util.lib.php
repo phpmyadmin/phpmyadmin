@@ -10,7 +10,8 @@ namespace PMA\Util;
  * @param mixed         $default
  * @return mixed
  */
-function get($array, $path, $default = null) {
+function get($array, $path, $default = null)
+{
     if (is_string($path)) {
         $path = explode('.', $path);
     }
