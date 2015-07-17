@@ -28,7 +28,7 @@ abstract class ReflectorItem implements Item
     public function __construct(Container $container, $definition)
     {
         $this->container = $container;
-        $this->reflector = self::resolveReflector($definition);
+        $this->reflector = self::_resolveReflector($definition);
     }
 
     /**
@@ -44,7 +44,7 @@ abstract class ReflectorItem implements Item
         if ($reflector instanceof \ReflectionClass) {
             $constructor = $reflector->getConstructor();
             if (isset($constructor)) {
-                $args = $this->resolveArgs(
+                $args = $this->_resolveArgs(
                     $constructor->getParameters(),
                     $params
                 );
@@ -52,7 +52,7 @@ abstract class ReflectorItem implements Item
             return $reflector->newInstanceArgs($args);
         }
         /** @var \ReflectionFunctionAbstract $reflector */
-        $args = $this->resolveArgs(
+        $args = $this->_resolveArgs(
             $reflector->getParameters(),
             $params
         );
@@ -71,7 +71,7 @@ abstract class ReflectorItem implements Item
      * @param array $params
      * @return array
      */
-    private function resolveArgs($required, $params = array())
+    private function _resolveArgs($required, $params = array())
     {
         $args = array();
         foreach ($required as $param) {
@@ -104,7 +104,7 @@ abstract class ReflectorItem implements Item
      * @param mixed $definition
      * @return \Reflector
      */
-    private static function resolveReflector($definition)
+    private static function _resolveReflector($definition)
     {
         if (function_exists($definition)) {
             return new \ReflectionFunction($definition);

@@ -2169,7 +2169,7 @@ class PMA_Table
                 continue;
             }
 
-            $create_query = $this->getSQLToCreateForeignKey(
+            $create_query = $this->_getSQLToCreateForeignKey(
                 $table, $master_field, $foreign_db, $foreign_table, $foreign_field,
                 $_REQUEST['constraint_name'][$master_field_md5],
                 $options_array[$_REQUEST['on_delete'][$master_field_md5]],
@@ -2209,7 +2209,7 @@ class PMA_Table
             ) {
                 // a rollback may be better here
                 $sql_query_recreate = '# Restoring the dropped constraint...' . "\n";
-                $sql_query_recreate .= $this->getSQLToCreateForeignKey(
+                $sql_query_recreate .= $this->_getSQLToCreateForeignKey(
                     $table,
                     $master_field,
                     $existrel_foreign[$master_field_md5]['ref_db_name'],
@@ -2250,7 +2250,7 @@ class PMA_Table
      *
      * @return string SQL query for foreign key constraint creation
      */
-    private function getSQLToCreateForeignKey($table, $field, $foreignDb, $foreignTable,
+    private function _getSQLToCreateForeignKey($table, $field, $foreignDb, $foreignTable,
         $foreignField, $name = null, $onDelete = null, $onUpdate = null
     ) {
         $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD ';
