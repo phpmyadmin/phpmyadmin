@@ -1537,11 +1537,6 @@ class PMA_DisplayResults
                 = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
 
-            $button_html .= '<th class="print_ignore" colspan="' . $this->__get('fields_cnt') . '">'
-                . '</th>'
-                . '</tr>'
-                . '<tr>';
-
         } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
             || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
             && ($displayParts['text_btn'] == '1')
