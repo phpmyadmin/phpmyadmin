@@ -129,7 +129,7 @@ class PMA_Menu
     {
         $allowedTabs = PMA_Util::getMenuTabList($level);
         $cfgRelation = PMA_getRelationsParam();
-        if (isset($cfgRelation['menuswork']) && $cfgRelation['menuswork']) {
+        if ($cfgRelation['menuswork']) {
             $groupTable = PMA_Util::backquote($cfgRelation['db'])
                 . "."
                 . PMA_Util::backquote($cfgRelation['usergroups']);
@@ -500,7 +500,6 @@ class PMA_Menu
         }
 
         if (! $db_is_system_schema
-            && isset($cfgRelation['centralcolumnswork'])
             && $cfgRelation['centralcolumnswork']
         ) {
             $tabs['central_columns']['text'] = __('Central columns');

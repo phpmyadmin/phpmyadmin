@@ -27,9 +27,7 @@ function PMA_centralColumnsGetParams()
 
     $cfgRelation = PMA_getRelationsParam();
 
-    if (isset($cfgRelation['centralcolumnswork'])
-        && $cfgRelation['centralcolumnswork']
-    ) {
+    if ($cfgRelation['centralcolumnswork']) {
         $cfgCentralColumns = array(
             'user'  => $GLOBALS['cfg']['Server']['user'],
             'db'    => $cfgRelation['db'],

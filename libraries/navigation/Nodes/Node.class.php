@@ -798,7 +798,7 @@ class Node
     public function getNavigationHidingData()
     {
         $cfgRelation = PMA_getRelationsParam();
-        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
+        if ($cfgRelation['navwork']) {
             $navTable = PMA_Util::backquote($cfgRelation['db'])
             . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
             $sqlQuery = "SELECT `db_name`, COUNT(*) AS `count` FROM " . $navTable

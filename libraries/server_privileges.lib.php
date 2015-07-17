@@ -2630,7 +2630,7 @@ function PMA_getExtraDataForAjaxBehavior(
                 . '</td>' . "\n";
         }
 
-        if (isset($cfgRelation['menuswork']) && $user_group_count > 0) {
+        if ($cfgRelation['menuswork'] && $user_group_count > 0) {
             $new_user_string .= '<td>'
                 . PMA_getUserGroupEditLink($username)
                 . '</td>' . "\n";

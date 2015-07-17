@@ -1032,7 +1032,7 @@ class PMA_Table
             $GLOBALS['sql_query'] .= "\n\n" . $sql_insert_data . ';';
         }
 
-        $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
+        PMA_getRelationsParam();
 
         // Drops old table if the user has requested to move it
         if ($move) {
