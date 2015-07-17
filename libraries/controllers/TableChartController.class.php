@@ -99,18 +99,14 @@ class TableChartController extends TableController
         /**
          * Runs common work
          */
-        if (/*overload*/
-        mb_strlen($this->table)
-        ) {
+        if (/*overload*/ mb_strlen($this->table)) {
             $url_params['goto'] = PMA_Util::getScriptNameForOption(
                 $this->cfg['DefaultTabTable'], 'table'
             );
             $url_params['back'] = 'tbl_sql.php';
             include 'libraries/tbl_common.inc.php';
             include 'libraries/tbl_info.inc.php';
-        } elseif (/*overload*/
-        mb_strlen($this->db)
-        ) {
+        } elseif (/*overload*/ mb_strlen($this->db)) {
             $url_params['goto'] = PMA_Util::getScriptNameForOption(
                 $this->cfg['DefaultTabDatabase'], 'database'
             );
