@@ -45,6 +45,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['DBG']['sql'] = false;
 
         $_SESSION['relation'][$GLOBALS['server']] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'tracking' => 'tracking'
         );
@@ -107,6 +108,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         PMA_Tracker::enable();
 
         $_SESSION['relation'][$GLOBALS['server']] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'trackingwork' => false
         );
 
@@ -115,6 +117,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         );
 
         $_SESSION['relation'][$GLOBALS['server']] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'trackingwork' => true,
             'db' => 'pmadb',
             'tracking' => 'tracking'
@@ -180,6 +183,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
         PMA_Tracker::enable();
 
+        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
 
         $this->assertFalse(

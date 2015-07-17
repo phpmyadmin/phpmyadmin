@@ -36,6 +36,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['server'] = 1;
         $_SESSION['relation'][$GLOBALS['server']] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'users' => 'users',
             'usergroups' => 'usergroups'

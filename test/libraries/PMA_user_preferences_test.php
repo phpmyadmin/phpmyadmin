@@ -78,6 +78,8 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
      */
     public function testLoadUserprefs()
     {
+        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
+
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = null;
         unset($_SESSION['userconfig']);
 
@@ -152,6 +154,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
     public function testSaveUserprefs()
     {
         $GLOBALS['server'] = 2;
+        $_SESSION['relation'][2]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][2]['userconfigwork'] = null;
         unset($_SESSION['userconfig']);
 
@@ -322,6 +325,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
      */
     public function testPersistOption()
     {
+        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = null;
         $_SESSION['userconfig'] = array();
         $_SESSION['userconfig']['ts'] = "123";

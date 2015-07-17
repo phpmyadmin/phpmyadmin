@@ -50,6 +50,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
 
         $_SESSION['relation'][$GLOBALS['server']] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'tracking' => 'tracking',
             'trackingwork' => true

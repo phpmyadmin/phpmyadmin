@@ -1554,6 +1554,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
     public function testGetTableComments()
     {
         $_SESSION['relation'][0] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,

@@ -87,6 +87,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $_SESSION['relation'][$GLOBALS['server']] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'users' => 'users',
             'usergroups' => 'usergroups',
@@ -1862,6 +1863,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['old_hostname'] = "old_hostname";
         $_REQUEST['old_username'] = "old_username";
         $_SESSION['relation'][1] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'bookmarkwork' => false,
             'historywork' => false,
             'recentwork' => false,

@@ -447,6 +447,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = array(
+            'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,

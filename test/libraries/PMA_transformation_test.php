@@ -181,6 +181,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetMime()
     {
+        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['commwork'] = true;
         $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
         $_SESSION['relation'][$GLOBALS['server']]['column_info'] = "column_info";
@@ -259,6 +260,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
             $actual
         );
 
+        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['column_info'] = "column_info";
         $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
 
