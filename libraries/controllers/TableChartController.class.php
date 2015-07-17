@@ -75,19 +75,21 @@ class TableChartController extends TableController
             return;
         }
 
-        $this->response->getHeader()->getScripts()->addFiles(array(
-            'chart.js',
-            'tbl_chart.js',
-            'jqplot/jquery.jqplot.js',
-            'jqplot/plugins/jqplot.barRenderer.js',
-            'jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
-            'jqplot/plugins/jqplot.canvasTextRenderer.js',
-            'jqplot/plugins/jqplot.categoryAxisRenderer.js',
-            'jqplot/plugins/jqplot.dateAxisRenderer.js',
-            'jqplot/plugins/jqplot.pointLabels.js',
-            'jqplot/plugins/jqplot.pieRenderer.js',
-            'jqplot/plugins/jqplot.highlighter.js'
-        ));
+        $this->response->getHeader()->getScripts()->addFiles(
+            array(
+                'chart.js',
+                'tbl_chart.js',
+                'jqplot/jquery.jqplot.js',
+                'jqplot/plugins/jqplot.barRenderer.js',
+                'jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
+                'jqplot/plugins/jqplot.canvasTextRenderer.js',
+                'jqplot/plugins/jqplot.categoryAxisRenderer.js',
+                'jqplot/plugins/jqplot.dateAxisRenderer.js',
+                'jqplot/plugins/jqplot.pointLabels.js',
+                'jqplot/plugins/jqplot.pieRenderer.js',
+                'jqplot/plugins/jqplot.highlighter.js'
+            )
+        );
 
         /**
          * Extract values for common work
@@ -154,16 +156,19 @@ class TableChartController extends TableController
         /**
          * Displays the page
          */
-        $this->response->addHTML(Template::get('tbl_chart')
-            ->render(array(
-                'url_query' => $this->url_query,
-                'url_params' => $url_params,
-                'keys' => $keys,
-                'fields_meta' => $fields_meta,
-                'numeric_types' => $numeric_types,
-                'numeric_column_count' => $numeric_column_count,
-                'sql_query' => $this->sql_query
-            )));
+        $this->response->addHTML(
+            Template::get('tbl_chart')->render(
+                array(
+                    'url_query' => $this->url_query,
+                    'url_params' => $url_params,
+                    'keys' => $keys,
+                    'fields_meta' => $fields_meta,
+                    'numeric_types' => $numeric_types,
+                    'numeric_column_count' => $numeric_column_count,
+                    'sql_query' => $this->sql_query
+                )
+            )
+        );
     }
 
     /**

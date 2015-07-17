@@ -96,13 +96,15 @@ class TableIndexesController extends TableController
 
         $this->response->getHeader()->getScripts()->addFile('indexes.js');
 
-        $this->response->addHTML(Template::get('index_form')
-            ->render(array(
-                'fields' => $fields,
-                'index' => $this->index,
-                'form_params' => $form_params,
-                'add_fields' => $add_fields
-            ))
+        $this->response->addHTML(
+            Template::get('index_form')->render(
+                array(
+                    'fields' => $fields,
+                    'index' => $this->index,
+                    'form_params' => $form_params,
+                    'add_fields' => $add_fields
+                )
+            )
         );
     }
 

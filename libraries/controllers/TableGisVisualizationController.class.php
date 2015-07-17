@@ -125,12 +125,12 @@ class TableGisVisualizationController extends TableController
         }
 
         $this->response->getHeader()->getScripts()->addFiles(
-          array(
-              'openlayers/OpenLayers.js',
-              'jquery/jquery.svg.js',
-              'tbl_gis_visualization.js',
-              'OpenStreetMap.js'
-          )
+            array(
+                'openlayers/OpenLayers.js',
+                'jquery/jquery.svg.js',
+                'tbl_gis_visualization.js',
+                'OpenStreetMap.js'
+            )
         );
 
         // If all the rows contain SRID, use OpenStreetMaps on the initial loading.

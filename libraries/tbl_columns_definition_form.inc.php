@@ -62,9 +62,10 @@ if ($action == 'tbl_create.php') {
     $form_params['reload'] = 1;
 } else {
     if ($action == 'tbl_addfield.php') {
-        $form_params = array_merge($form_params, array(
-            'field_where' => Util\get($_REQUEST, 'field_where')
-        ));
+        $form_params = array_merge(
+            $form_params, array(
+            'field_where' => Util\get($_REQUEST, 'field_where'))
+        );
         if (isset($_REQUEST['field_where'])) {
             $form_params['after_field'] = $_REQUEST['after_field'];
         }
@@ -76,10 +77,13 @@ if (isset($num_fields)) {
     $form_params['orig_num_fields'] = $num_fields;
 }
 
-$form_params = array_merge($form_params, array(
-    'orig_field_where' => Util\get($_REQUEST, 'field_where'),
-    'orig_after_field' => Util\get($_REQUEST, 'after_field'),
-));
+$form_params = array_merge(
+    $form_params,
+    array(
+        'orig_field_where' => Util\get($_REQUEST, 'field_where'),
+        'orig_after_field' => Util\get($_REQUEST, 'after_field'),
+    )
+);
 
 if (isset($selected) && is_array($selected)) {
     foreach ($selected as $o_fld_nr => $o_fld_val) {
@@ -138,28 +142,34 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
     if (!empty($regenerate)) {
 
-        $columnMeta = array_merge($columnMeta, array(
-            'Field' => Util\get($_REQUEST, "field_name.${columnNumber}", false),
-            'Type' => Util\get($_REQUEST, "field_type.${columnNumber}", false),
-            'Collation' => Util\get($_REQUEST, "field_collation.${columnNumber}", ''),
-            'Null' => Util\get($_REQUEST, "field_null.${columnNumber}", ''),
-            'DefaultType' => Util\get($_REQUEST, "field_default_type.${columnNumber}", 'NONE'),
-            'DefaultValue' => Util\get($_REQUEST, "field_default_value.${columnNumber}", ''),
-            'Extra' => Util\get($_REQUEST, "field_extra.${columnNumber}", false),
-            'Virtuality' => Util\get($_REQUEST, "field_virtuality.${columnNumber}", ''),
-            'Expression' => Util\get($_REQUEST, "field_expression.${columnNumber}", ''),
-        ));
+        $columnMeta = array_merge(
+            $columnMeta,
+            array(
+                'Field' => Util\get($_REQUEST, "field_name.${columnNumber}", false),
+                'Type' => Util\get($_REQUEST, "field_type.${columnNumber}", false),
+                'Collation' => Util\get($_REQUEST, "field_collation.${columnNumber}", ''),
+                'Null' => Util\get($_REQUEST, "field_null.${columnNumber}", ''),
+                'DefaultType' => Util\get($_REQUEST, "field_default_type.${columnNumber}", 'NONE'),
+                'DefaultValue' => Util\get($_REQUEST, "field_default_value.${columnNumber}", ''),
+                'Extra' => Util\get($_REQUEST, "field_extra.${columnNumber}", false),
+                'Virtuality' => Util\get($_REQUEST, "field_virtuality.${columnNumber}", ''),
+                'Expression' => Util\get($_REQUEST, "field_expression.${columnNumber}", ''),
+            )
+        );
 
         $columnMeta['Key'] = '';
         $parts = explode('_', Util\get($_REQUEST, "field_key.${columnNumber}", ''), 2);
         if (count($parts) == 2 && $parts[1] == $columnNumber) {
-            $columnMeta['Key'] = Util\get(array(
-                'primary' => 'PRI',
-                'index' => 'MUL',
-                'unique' => 'UNI',
-                'fulltext' => 'FULLTEXT',
-                'spatial' => 'SPATIAL'
-            ), $parts[0], '');
+            $columnMeta['Key'] = Util\get(
+                array(
+                    'primary' => 'PRI',
+                    'index' => 'MUL',
+                    'unique' => 'UNI',
+                    'fulltext' => 'FULLTEXT',
+                    'spatial' => 'SPATIAL'
+                ),
+                $parts[0], ''
+            );
         }
 
         $columnMeta['Comment']
@@ -263,9 +273,9 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     // "longtext character set latin7" when their charset and / or collation
     // differs from the ones of the corresponding database.
     // rtrim the type, for cases like "float unsigned"
-    $type = rtrim(mb_ereg_replace(
-        '[\w\W]character set[\w\W]*', '', $type
-    ));
+    $type = rtrim(
+        mb_ereg_replace('[\w\W]character set[\w\W]*', '', $type)
+    );
 
     /**
      * old column attributes
@@ -307,17 +317,20 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $form_params['field_length_orig[' . $columnNumber . ']'] = $length;
 
         // old column default
-        $form_params = array_merge($form_params, array(
-            "field_default_value_orig[${columnNumber}]" => Util\get($columnMeta, 'Default', ''),
-            "field_default_type_orig[${columnNumber}]" => Util\get($columnMeta, 'DefaultType', ''),
-            "field_collation_orig[${columnNumber}]" => Util\get($columnMeta, 'Collation', ''),
-            "field_attribute_orig[${columnNumber}]" => trim(Util\get($extracted_columnspec, 'attribute', '')),
-            "field_null_orig[${columnNumber}]" => Util\get($columnMeta, 'Null', ''),
-            "field_extra_orig[${columnNumber}]" => Util\get($columnMeta, 'Extra', ''),
-            "field_comments_orig[${columnNumber}]" => Util\get($columnMeta, 'Comment', ''),
-            "field_virtuality_orig[${columnNumber}]" => Util\get($columnMeta, 'Virtuality', ''),
-            "field_expression_orig[${columnNumber}]" => Util\get($columnMeta, 'Expression', ''),
-        ));
+        $form_params = array_merge(
+            $form_params,
+            array(
+                "field_default_value_orig[${columnNumber}]" => Util\get($columnMeta, 'Default', ''),
+                "field_default_type_orig[${columnNumber}]" => Util\get($columnMeta, 'DefaultType', ''),
+                "field_collation_orig[${columnNumber}]" => Util\get($columnMeta, 'Collation', ''),
+                "field_attribute_orig[${columnNumber}]" => trim(Util\get($extracted_columnspec, 'attribute', '')),
+                "field_null_orig[${columnNumber}]" => Util\get($columnMeta, 'Null', ''),
+                "field_extra_orig[${columnNumber}]" => Util\get($columnMeta, 'Extra', ''),
+                "field_comments_orig[${columnNumber}]" => Util\get($columnMeta, 'Comment', ''),
+                "field_virtuality_orig[${columnNumber}]" => Util\get($columnMeta, 'Virtuality', ''),
+                "field_expression_orig[${columnNumber}]" => Util\get($columnMeta, 'Expression', ''),
+            )
+        );
     }
 
     $content_cells[$columnNumber] = array(

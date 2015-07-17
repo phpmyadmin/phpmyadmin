@@ -160,18 +160,20 @@ class TableRelationController extends TableController
         $columns = $this->dbi->getColumns($this->db, $this->table);
 
         // common form
-        $this->response->addHTML(Template::get('tbl_relation/common_form')->render(
-            array(
-                'db' => $this->db,
-                'table' => $this->table,
-                'columns' => $columns,
-                'cfgRelation' => $this->cfgRelation,
-                'tbl_storage_engine' => $this->tbl_storage_engine,
-                'existrel' => isset($this->existrel) ? $this->existrel : array(),
-                'existrel_foreign' => isset($this->existrel_foreign) ? $this->existrel_foreign['foreign_keys_data'] : array(),
-                'options_array' => $this->options_array
+        $this->response->addHTML(
+            Template::get('tbl_relation/common_form')->render(
+                array(
+                    'db' => $this->db,
+                    'table' => $this->table,
+                    'columns' => $columns,
+                    'cfgRelation' => $this->cfgRelation,
+                    'tbl_storage_engine' => $this->tbl_storage_engine,
+                    'existrel' => isset($this->existrel) ? $this->existrel : array(),
+                    'existrel_foreign' => isset($this->existrel_foreign) ? $this->existrel_foreign['foreign_keys_data'] : array(),
+                    'options_array' => $this->options_array
+                )
             )
-        ));
+        );
 
         if (PMA_Util::isForeignKeySupported($this->tbl_storage_engine)) {
             $this->response->addHTML(PMA_getHtmlForDisplayIndexes());
@@ -182,9 +184,11 @@ class TableRelationController extends TableController
     public function updateForDisplayField()
     {
         if ($this->upd_query->updateDisplayField($this->disp, $_POST['display_field'], $this->cfgRelation)) {
-            $this->response->addHTML(PMA_Util::getMessage(
-                __('Display column was successfully updated.'),
-                '', 'success')
+            $this->response->addHTML(
+                PMA_Util::getMessage(
+                    __('Display column was successfully updated.'),
+                    '', 'success'
+                )
             );
         }
     }
@@ -212,10 +216,12 @@ class TableRelationController extends TableController
 
         if (!empty($display_query) && !$seen_error) {
             $GLOBALS['display_query'] = $display_query;
-            $this->response->addHTML(PMA_Util::getMessage(
-                __('Your SQL query has been executed successfully.'),
-                null, 'success'
-            ));
+            $this->response->addHTML(
+                PMA_Util::getMessage(
+                    __('Your SQL query has been executed successfully.'),
+                    null, 'success'
+                )
+            );
         }
     }
 
@@ -230,10 +236,12 @@ class TableRelationController extends TableController
             $_POST['destination_column'], $this->cfgRelation, isset($this->existrel) ? $this->existrel : null
         )
         ) {
-            $this->response->addHTML(PMA_Util::getMessage(
-                __('Internal relations were successfully updated.'),
-                '', 'success'
-            ));
+            $this->response->addHTML(
+                PMA_Util::getMessage(
+                    __('Internal relations were successfully updated.'),
+                    '', 'success'
+                )
+            );
         }
     }
 
