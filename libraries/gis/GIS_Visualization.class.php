@@ -24,7 +24,7 @@ class PMA_GIS_Visualization
      */
     private $_data;
 
-    private $modified_sql;
+    private $_modified_sql;
 
     /**
      * @var array   Set of default settings values are here.
@@ -112,8 +112,8 @@ class PMA_GIS_Visualization
         if (isset($data)) {
             $this->_data = $data;
         } else {
-            $this->modified_sql = $this->modifySqlQuery($sql_query, $row, $pos);
-            $this->_data = $this->fetchRawData();
+            $this->_modified_sql = $this->_modifySqlQuery($sql_query, $row, $pos);
+            $this->_data = $this->_fetchRawData();
         }
 
     }
@@ -138,7 +138,7 @@ class PMA_GIS_Visualization
      *
      * @return string the modified sql query.
      */
-    private function modifySqlQuery($sql_query, $rows, $pos)
+    private function _modifySqlQuery($sql_query, $rows, $pos)
     {
         $modified_query = 'SELECT ';
         // If label column is chosen add it to the query
@@ -179,9 +179,9 @@ class PMA_GIS_Visualization
      *
      * @return string the raw data.
      */
-    private function fetchRawData()
+    private function _fetchRawData()
     {
-        $modified_result = $GLOBALS['dbi']->tryQuery($this->modified_sql);
+        $modified_result = $GLOBALS['dbi']->tryQuery($this->_modified_sql);
 
         $data = array();
         while ($row = $GLOBALS['dbi']->fetchAssoc($modified_result)) {
