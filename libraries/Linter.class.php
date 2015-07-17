@@ -27,7 +27,19 @@ class PMA_Linter
     public static function getLines($str)
     {
         $lines = array(0);
-        for ($i = 0, $len = strlen($str); $i < $len; ++$i) {
+
+        // The reason for using the '8bit' parameter is that the length
+        // required is the length in bytes, not characters.
+        //
+        // Given the following string: `????+`, where `?` represents a
+        // multi-byte character (lets assume that every `?` is a 2-byte
+        // character) and `+` is a newline, the first value of `$i` is `0` and
+        // the last one is `4` (because there are 5 characters). Bytes `$str[0]`
+        // and `$str[1]` are the first character, `$str[2]` and `$str[3]` are
+        // the second one and `$str[4]` is going to be the first byte of the
+        // third character. The fourth and the last one (which is actually a new
+        // line) aren't going to be processed at all.
+        for ($i = 0, $len = /*overload*/mb_strlen($str, '8bit'); $i < $len; ++$i) {
             if ($str[$i] === "\n") {
                 $lines[] = $i + 1;
             }
@@ -65,7 +77,7 @@ class PMA_Linter
     public static function lint($query)
     {
         // Disabling lint for huge queries to save some resources.
-        if (strlen($query) > 10000) {
+        if (/*overload*/mb_strlen($query) > 10000) {
             echo json_encode(
                 array(
                     array(
@@ -129,7 +141,7 @@ class PMA_Linter
 
             // Ending position of the string that caused the error.
             list($toLine, $toColumn) = static::findLineNumberAndColumn(
-                $lines, $error[3] + strlen($error[2])
+                $lines, $error[3] + /*overload*/mb_strlen($error[2])
             );
 
             // Building the response.
