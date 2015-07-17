@@ -28,9 +28,9 @@ class SqlFormatter_Test extends PHPUnit_Framework_TestCase
 array(
 "SELECT * FROM `test`",
 "SELECT 
-	* 
+    * 
 FROM 
-	`test`",
+    `test`",
 ),
 
 array(
@@ -38,45 +38,45 @@ array(
 INNER JOIN orders ON customers.customer_id = orders.customer_id GROUP BY customer_id,
 customer_name HAVING COUNT(order_id) > 5 ORDER BY COUNT(order_id) DESC;",
 "SELECT 
-	customer_id, 
-	customer_name, 
-	COUNT(order_id) as total 
+    customer_id, 
+    customer_name, 
+    COUNT(order_id) as total 
 FROM 
-	customers 
-	INNER JOIN orders ON customers.customer_id = orders.customer_id 
+    customers 
+    INNER JOIN orders ON customers.customer_id = orders.customer_id 
 GROUP BY 
-	customer_id, 
-	customer_name 
+    customer_id, 
+    customer_name 
 HAVING 
-	COUNT(order_id) > 5 
+    COUNT(order_id) > 5 
 ORDER BY 
-	COUNT(order_id) DESC;"
+    COUNT(order_id) DESC;"
 ),
 
 array(
 "SELECT a,b as c FROM `ab`; UPDATE `cd` SET `col` = REPLACE(col, 'find', 'replace')
 WHERE row_id in (SELECT row_id FROM new_table WHERE col = 's' AND col2 = '3') LIMIT 256",
 "SELECT 
-	a, 
-	b as c 
+    a, 
+    b as c 
 FROM 
-	`ab`; 
+    `ab`; 
 UPDATE 
-	`cd` 
+    `cd` 
 SET 
-	`col` = REPLACE(col, 'find', 'replace') 
+    `col` = REPLACE(col, 'find', 'replace') 
 WHERE 
-	row_id in (
-		SELECT 
-			row_id 
-		FROM 
-			new_table 
-		WHERE 
-			col = 's' 
-			AND col2 = '3'
-	) 
+    row_id in (
+        SELECT 
+            row_id 
+        FROM 
+            new_table 
+        WHERE 
+            col = 's' 
+            AND col2 = '3'
+    ) 
 LIMIT 
-	256"
+    256"
 ),
 
 array(
@@ -85,29 +85,29 @@ array(
 VALUES (1, 0, '', 1, NOW(), NOW(), 0),
 (1, 0, 'helloabcdefgijk', 1, 'hello_world_again', NOW(), 0)",
 "INSERT INTO `a_long_table_name_it_is_really_log_but_still_not_that_long` (
-	a, b, c, d, e, f, g, a, b, c, d, e, f, c, d, e
+    a, b, c, d, e, f, g, a, b, c, d, e, f, c, d, e
 ) 
 VALUES 
-	(1, 0, '', 1, NOW(), NOW(), 0), 
-	(
-		1, 0, 'helloabcdefgijk', 1, 'hello_world_again', 
-		NOW(), 0
-	)"
+    (1, 0, '', 1, NOW(), NOW(), 0), 
+    (
+        1, 0, 'helloabcdefgijk', 1, 'hello_world_again', 
+        NOW(), 0
+    )"
 ),
 
 array(
 "ALTER TABLE `PREFIX_product` DROP `reduction_price`,DROP `reduction_percent`, 
 DROP `reduction_from`, DROP `reduction_to`",
 "ALTER TABLE 
-	`PREFIX_product` 
+    `PREFIX_product` 
 DROP 
-	`reduction_price`, 
+    `reduction_price`, 
 DROP 
-	`reduction_percent`, 
+    `reduction_percent`, 
 DROP 
-	`reduction_from`, 
+    `reduction_from`, 
 DROP 
-	`reduction_to`"
+    `reduction_to`"
 ),
         );
     }

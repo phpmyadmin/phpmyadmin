@@ -194,7 +194,7 @@ $forms['Export']['Export_defaults'] = array(
         'Export/compression',
         'Export/charset',
         'Export/lock_tables',
-		'Export/as_separate_files',
+        'Export/as_separate_files',
         'Export/asfile' => ':group',
             'Export/onserver',
             'Export/onserver_overwrite',

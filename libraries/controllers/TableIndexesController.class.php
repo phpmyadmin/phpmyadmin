@@ -35,7 +35,7 @@ class TableIndexesController extends TableController
     {
         parent::__construct();
 
-		$this->index = $index;
+        $this->index = $index;
     }
 
     public function indexAction()

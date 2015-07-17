@@ -20,11 +20,11 @@ $container->alias('TableGisVisualizationController', 'PMA\Controllers\Table\Tabl
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = array(
-	"sql_query" => &$GLOBALS['sql_query'],
-	"url_params" => &$GLOBALS['url_params'],
-	"goto" => PMA_Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database'),
-	"back" => 'sql.php',
-	"visualizationSettings" => array()
+    "sql_query" => &$GLOBALS['sql_query'],
+    "url_params" => &$GLOBALS['url_params'],
+    "goto" => PMA_Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database'),
+    "back" => 'sql.php',
+    "visualizationSettings" => array()
 );
 
 /** @var Controllers\Table\TableGisVisualizationController $controller */

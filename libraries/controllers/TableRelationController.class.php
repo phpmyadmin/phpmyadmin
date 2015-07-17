@@ -78,7 +78,7 @@ class TableRelationController extends TableController
     protected $upd_query;
 
     public function __construct($options_array, $cfgRelation, $tbl_storage_engine,
-		$existrel, $existrel_foreign, $disp, $upd_query
+        $existrel, $existrel_foreign, $disp, $upd_query
     ) {
         parent::__construct();
 
@@ -86,8 +86,8 @@ class TableRelationController extends TableController
         $this->cfgRelation = $cfgRelation;
         $this->tbl_storage_engine = $tbl_storage_engine;
         $this->existrel = $existrel;
-		$this->existrel_foreign = $existrel_foreign;
-		$this->disp = $disp;
+        $this->existrel_foreign = $existrel_foreign;
+        $this->disp = $disp;
         $this->upd_query = $upd_query;
     }
 
