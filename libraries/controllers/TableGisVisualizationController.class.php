@@ -135,8 +135,9 @@ class TableGisVisualizationController extends TableController
 
         // If all the rows contain SRID, use OpenStreetMaps on the initial loading.
         if (! isset($_REQUEST['displayVisualization'])) {
-            if ($this->visualization->hasSrid())
+            if ($this->visualization->hasSrid()) {
                 unset($this->visualizationSettings['choice']);
+            }
             $this->visualizationSettings['choice'] = 'useBaseLayer';
         }
 
