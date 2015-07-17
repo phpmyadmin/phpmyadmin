@@ -29,6 +29,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
         $_SESSION = array(
             'relation' => array(
                 '1' => array(
+                    'PMA_VERSION' => PMA_VERSION,
                     'db' => 'pmadb',
                     'pdf_pages' => 'pdf_pages',
                     'pdfwork' => true,
