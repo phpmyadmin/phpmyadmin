@@ -1649,7 +1649,6 @@ class ExportSql extends ExportPlugin
             $schema_create .= $create_query;
         }
 
-
         $GLOBALS['dbi']->freeResult($result);
 
         // Restoring old mode.
