@@ -351,15 +351,16 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     );
 } // end for
 
-$html = PMA\Template::get('columns_definitions/column_definitions_form')
-    ->render(array(
+$html = PMA\Template::get('columns_definitions/column_definitions_form')->render(
+    array(
         'is_backup' => $is_backup,
         'fields_meta' => isset($fields_meta) ? $fields_meta : null,
         'mimework' => $cfgRelation['mimework'],
         'action' => $action,
         'form_params' => $form_params,
         'content_cells' => $content_cells,
-    ));
+    )
+);
 
 unset($form_params);
 
