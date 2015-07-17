@@ -65,17 +65,11 @@ if (!empty($_POST['selected_tbl']) && empty($table_select)) {
 
 // Check if the selected tables are defined in $_GET
 // (from clicking Back button on export.php)
-if (isset($_GET['table_select'])) {
-    $_GET['table_select'] = urldecode($_GET['table_select']);
-    $_GET['table_select'] = explode(",", $_GET['table_select']);
-}
-if (isset($_GET['table_structure'])) {
-    $_GET['table_structure'] = urldecode($_GET['table_structure']);
-    $_GET['table_structure'] = explode(",", $_GET['table_structure']);
-}
-if (isset($_GET['table_data'])) {
-    $_GET['table_data'] = urldecode($_GET['table_data']);
-    $_GET['table_data'] = explode(",", $_GET['table_data']);
+foreach (array('table_select', 'table_structure', 'table_data') as $one_key) {
+    if (isset($_GET[$one_key])) {
+        $_GET[$one_key] = urldecode($_GET[$one_key]);
+        $_GET[$one_key] = explode(",", $_GET[$one_key]);
+    }
 }
 
 foreach ($tables as $each_table) {
