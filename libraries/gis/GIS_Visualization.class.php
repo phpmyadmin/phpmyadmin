@@ -109,11 +109,9 @@ class PMA_GIS_Visualization
     private function __construct($sql_query, $options, $row, $pos, $data = null)
     {
         $this->_userSpecifiedSettings = $options;
-        if (isset($data))
-        {
+        if (isset($data)) {
             $this->_data = $data;
-        }
-        else {
+        } else {
             $this->modified_sql = $this->modifySqlQuery($sql_query, $row, $pos);
             $this->_data = $this->fetchRawData();
         }

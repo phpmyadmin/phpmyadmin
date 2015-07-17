@@ -2308,7 +2308,7 @@ class PMA_Table
             }
             $columns = $this->_dbi->fetchResult($sql, 'Field', 'Expression');
             return $columns;
-        }  else {
+        } else {
             $createTable = $this->showCreate();
             if ($createTable) {
                 $parser = new SqlParser\Parser($createTable);
