@@ -220,7 +220,7 @@ function PMA_getHtmlForExportTemplateLoading($export_type)
     $html .= '<h4>' . __('Existing templates:') . '</h4>';
     $html .= '<label for="template">' . __('Template:') . '</label>';
     $html .= '<select required="required" name="template" id="template">';
-    $html .= PMA_getOptionsForexport_templates($export_type);
+    $html .= PMA_getOptionsForExportTemplates($export_type);
     $html .= '</select>';
     $html .= '<input type="submit" name="updateTemplate" '
         . 'id="updateTemplate" value="' . __('Update') . '" />';
@@ -243,7 +243,7 @@ function PMA_getHtmlForExportTemplateLoading($export_type)
  *
  * @return string HTML for the options in teplate dropdown
  */
-function PMA_getOptionsForexport_templates($export_type)
+function PMA_getOptionsForExportTemplates($export_type)
 {
     $ret = '<option value="">-- ' . __('Select a template') . ' --</option>';
 

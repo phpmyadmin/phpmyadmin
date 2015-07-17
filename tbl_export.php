@@ -77,7 +77,7 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
     if ('create' == $_REQUEST['templateAction']) {
         $response->addJSON(
             'data',
-            PMA_getOptionsForexport_templates($_REQUEST['exportType'])
+            PMA_getOptionsForExportTemplates($_REQUEST['exportType'])
         );
     } elseif ('load' == $_REQUEST['templateAction']) {
         $data = null;
