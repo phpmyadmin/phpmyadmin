@@ -1069,7 +1069,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          */
         include_once './libraries/sql-parser/autoload.php';
 
-       // Loads closest context to this version.
+        // Loads closest context to this version.
         SqlParser\Context::loadClosest(
             (PMA_DRIZZLE ? 'Drizzle' : 'MySql') . PMA_MYSQL_INT_VERSION
         );

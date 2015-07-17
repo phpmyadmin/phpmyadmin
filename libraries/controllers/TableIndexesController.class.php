@@ -143,9 +143,10 @@ class TableIndexesController extends TableController
                     'message', PMA_Util::getMessage($message, $sql_query, 'success')
                 );
                 $response->addJSON(
-                    'index_table', PMA_Index::getHtmlForIndexes(
-                    $this->table, $this->db
-                )
+                    'index_table',
+                    PMA_Index::getHtmlForIndexes(
+                        $this->table, $this->db
+                    )
                 );
             } else {
                 include 'tbl_structure.php';

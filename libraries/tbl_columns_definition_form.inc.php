@@ -168,16 +168,16 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 ? 'FULLTEXT' : false;
 
         switch ($columnMeta['DefaultType']) {
-            case 'NONE':
-                $columnMeta['Default'] = null;
-                break;
-            case 'USER_DEFINED':
-                $columnMeta['Default'] = $columnMeta['DefaultValue'];
-                break;
-            case 'NULL':
-            case 'CURRENT_TIMESTAMP':
-                $columnMeta['Default'] = $columnMeta['DefaultType'];
-                break;
+        case 'NONE':
+            $columnMeta['Default'] = null;
+            break;
+        case 'USER_DEFINED':
+            $columnMeta['Default'] = $columnMeta['DefaultValue'];
+            break;
+        case 'NULL':
+        case 'CURRENT_TIMESTAMP':
+            $columnMeta['Default'] = $columnMeta['DefaultType'];
+            break;
         }
 
         $length = Util\get($_REQUEST, "field_length.${columnNumber}", $length);
@@ -204,28 +204,28 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             $columnMeta['Expression'] = $expressions[$columnMeta['Field']];
         }
         switch ($columnMeta['Default']) {
-            case null:
-                if (is_null($columnMeta['Default'])) { // null
-                    if ($columnMeta['Null'] == 'YES') {
-                        $columnMeta['DefaultType'] = 'NULL';
-                        $columnMeta['DefaultValue'] = '';
-                    } else {
-                        $columnMeta['DefaultType'] = 'NONE';
-                        $columnMeta['DefaultValue'] = '';
-                    }
-                } else { // empty
-                    $columnMeta['DefaultType'] = 'USER_DEFINED';
-                    $columnMeta['DefaultValue'] = $columnMeta['Default'];
+        case null:
+            if (is_null($columnMeta['Default'])) { // null
+                if ($columnMeta['Null'] == 'YES') {
+                    $columnMeta['DefaultType'] = 'NULL';
+                    $columnMeta['DefaultValue'] = '';
+                } else {
+                    $columnMeta['DefaultType'] = 'NONE';
+                    $columnMeta['DefaultValue'] = '';
                 }
-                break;
-            case 'CURRENT_TIMESTAMP':
-                $columnMeta['DefaultType'] = 'CURRENT_TIMESTAMP';
-                $columnMeta['DefaultValue'] = '';
-                break;
-            default:
+            } else { // empty
                 $columnMeta['DefaultType'] = 'USER_DEFINED';
                 $columnMeta['DefaultValue'] = $columnMeta['Default'];
-                break;
+            }
+            break;
+        case 'CURRENT_TIMESTAMP':
+            $columnMeta['DefaultType'] = 'CURRENT_TIMESTAMP';
+            $columnMeta['DefaultValue'] = '';
+            break;
+        default:
+            $columnMeta['DefaultType'] = 'USER_DEFINED';
+            $columnMeta['DefaultValue'] = $columnMeta['Default'];
+            break;
         }
     }
 
