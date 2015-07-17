@@ -59,7 +59,10 @@ function PMA_queryAsControlUser($sql, $show_error = true, $options = 0)
  */
 function PMA_getRelationsParam()
 {
-    if (empty($_SESSION['relation'][$GLOBALS['server']])) {
+    if (empty($_SESSION['relation'][$GLOBALS['server']])
+        || (empty($_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION']))
+        || $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] != PMA_VERSION
+    ) {
         $_SESSION['relation'][$GLOBALS['server']] = PMA_checkRelationsParam();
     }
 
@@ -445,6 +448,8 @@ function PMA_getDiagMessageForParameter($parameter,
 function PMA_checkRelationsParam()
 {
     $cfgRelation                   = array();
+    $cfgRelation['PMA_VERSION']    = PMA_VERSION;
+
     $cfgRelation['relwork']        = false;
     $cfgRelation['displaywork']    = false;
     $cfgRelation['bookmarkwork']   = false;

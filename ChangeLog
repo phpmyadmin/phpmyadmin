@@ -78,6 +78,7 @@ phpMyAdmin - ChangeLog
 + rfe #1680 Human readable/writable URLs (html5 api)
 + rfe       Support virtual columns in MySQL 5.7.5+
 + rfe #1517 Support for virtual/persistent columns in MariaDB
+- bug #4984 Undefined <feature>work upon upgrade to new version
 
 4.4.12.0 (not yet released)
 - bug       Saved chart image does not have a proper name or an extension
