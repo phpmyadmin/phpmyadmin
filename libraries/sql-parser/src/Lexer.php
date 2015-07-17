@@ -159,24 +159,21 @@ class Lexer
      */
     public function __construct($str, $strict = false)
     {
+        // `strlen` is used instead of `mb_strlen` because the lexer needs to
+        // parse each byte of the input.
+        $len = ($str instanceof UtfString) ? $str->length() : strlen($str);
+
         // For multi-byte strings, a new instance of `UtfString` is
         // initialized (only if `UtfString` usage is forced.
         if (!($str instanceof UtfString)) {
-            $len = strlen($str);
             if ((USE_UTF_STRINGS) && ($len != mb_strlen($str))) {
                 $str = new UtfString($str);
             }
         }
 
-        if ($str instanceof UtfString) {
-            $this->str = $str;
-            $this->len = $str->length();
-        } else {
-            $this->str = $str;
-            // `strlen` is used instead of `mb_strlen` because the lexer
-            // needs to parse each byte of the input.
-            $this->len = $len;
-        }
+        $this->str = $str;
+        $this->len = ($str instanceof UtfString) ? $str->length() : $len;
+
         $this->strict = $strict;
 
         // Setting the delimiter.
