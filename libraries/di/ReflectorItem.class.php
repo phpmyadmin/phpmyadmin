@@ -14,10 +14,10 @@ abstract class ReflectorItem implements Item
 {
 
     /** @var Container */
-    private $container;
+    private $_container;
 
     /** @var \Reflector */
-    private $reflector;
+    private $_reflector;
 
     /**
      * Constructor
@@ -27,8 +27,8 @@ abstract class ReflectorItem implements Item
      */
     public function __construct(Container $container, $definition)
     {
-        $this->container = $container;
-        $this->reflector = self::_resolveReflector($definition);
+        $this->_container = $container;
+        $this->_reflector = self::_resolveReflector($definition);
     }
 
     /**
@@ -40,7 +40,7 @@ abstract class ReflectorItem implements Item
     protected function invoke($params = array())
     {
         $args = array();
-        $reflector = $this->reflector;
+        $reflector = $this->_reflector;
         if ($reflector instanceof \ReflectionClass) {
             $constructor = $reflector->getConstructor();
             if (isset($constructor)) {
@@ -85,11 +85,11 @@ abstract class ReflectorItem implements Item
             } elseif (is_string($type) && isset($params[$type])) {
                 $args[] = $params[$type];
             } else {
-                $content = $this->container->get($name);
+                $content = $this->_container->get($name);
                 if (isset($content)) {
                     $args[] = $content;
                 } elseif (is_string($type)) {
-                    $args[] = $this->container->get($type);
+                    $args[] = $this->_container->get($type);
                 } else {
                     $args[] = null;
                 }
