@@ -162,8 +162,8 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             ), $parts[0], '');
         }
 
-        $columnMeta['Comment'] =
-            isset($submit_fulltext[$columnNumber])
+        $columnMeta['Comment']
+            = isset($submit_fulltext[$columnNumber])
             && ($submit_fulltext[$columnNumber] == $columnNumber)
                 ? 'FULLTEXT' : false;
 
