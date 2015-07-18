@@ -97,7 +97,7 @@ class ArrayObj extends Component
 
             if ($state === 0) {
                 if (($token->type !== Token::TYPE_OPERATOR) || ($token->value !== '(')) {
-                    $parser->error('An open bracket was expected.', $token);
+                    $parser->error('An opening bracket was expected.', $token);
                     break;
                 }
                 $state = 1;
@@ -111,7 +111,7 @@ class ArrayObj extends Component
                 $state = 2;
             } elseif ($state === 2) {
                 if (($token->type !== Token::TYPE_OPERATOR) || (($token->value !== ',') && ($token->value !== ')'))) {
-                    $parser->error('Symbols \')\' or \',\' were expected', $token);
+                    $parser->error('A comma or a closing bracket was expected', $token);
                     break;
                 }
                 if ($token->value === ',') {

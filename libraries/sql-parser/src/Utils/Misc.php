@@ -8,6 +8,7 @@
  */
 namespace SqlParser\Utils;
 
+use SqlParser\Components\Expression;
 use SqlParser\Statements\SelectStatement;
 
 /**

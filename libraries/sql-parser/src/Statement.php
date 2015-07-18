@@ -244,7 +244,7 @@ abstract class Statement
                 // There is no parser for this keyword and isn't the beginning
                 // of a statement (so no options) either.
                 $parser->error(
-                    'Unrecognized keyword "' . $token->value . '".',
+                    'Unrecognized keyword.',
                     $token
                 );
                 continue;
@@ -300,8 +300,8 @@ abstract class Statement
      *
      * @return string
      */
-    public function __toString() 
+    public function __toString()
     {
-        return static::build($this);
+        return $this->build();
     }
 }

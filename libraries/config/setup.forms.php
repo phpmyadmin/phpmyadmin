@@ -162,6 +162,7 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'MaxCharactersInDisplayedSQL',
     'RetainQueryBox',
     'CodemirrorEnable',
+    'LintEnable',
     'EnableAutocompleteForTablesAndColumns',
     'DefaultForeignKeyChecks');
 $forms['Sql_queries']['Sql_box'] = array('SQLQuery' => array(

@@ -758,6 +758,13 @@ $cfg['RetainQueryBox'] = false;
 $cfg['CodemirrorEnable'] = true;
 
 /**
+ * use the parser to find any errors in the query before executing
+ *
+ * @global boolean $cfg['LintEnable']
+ */
+$cfg['LintEnable'] = true;
+
+/**
  * show a 'Drop database' link to normal users
  *
  * @global boolean $cfg['AllowUserDropDatabase']
