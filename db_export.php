@@ -11,6 +11,7 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/config/page_settings.class.php';
+include_once 'libraries/export.lib.php';
 
 PMA_PageSettings::showGroup('Export');
 
@@ -74,35 +75,27 @@ foreach (array('table_select', 'table_structure', 'table_data') as $one_key) {
 
 foreach ($tables as $each_table) {
     if (isset($_GET['table_select'])) {
-        if (in_array($each_table['Name'], $_GET['table_select'])) {
-            $is_checked = ' checked="checked"';
-        } else {
-            $is_checked = '';
-        }
+        $is_checked = PMA_getCheckedClause(
+            $each_table['Name'], $_GET['table_select']
+        );
     } elseif (isset($table_select)) {
-        if (in_array($each_table['Name'], $table_select)) {
-            $is_checked = ' checked="checked"';
-        } else {
-            $is_checked = '';
-        }
+        $is_checked = PMA_getCheckedClause(
+            $each_table['Name'], $table_select
+        );
     } else {
         $is_checked = ' checked="checked"';
     }
     if (isset($_GET['table_structure'])) {
-        if (in_array($each_table['Name'], $_GET['table_structure'])) {
-            $str_checked = ' checked="checked"';
-        } else {
-            $str_checked = '';
-        }
+        $structure_checked = PMA_getCheckedClause(
+            $each_table['Name'], $_GET['table_structure']
+        );
     } else {
-        $str_checked = $is_checked;
+        $structure_checked = $is_checked;
     }
     if (isset($_GET['table_data'])) {
-        if (in_array($each_table['Name'], $_GET['table_data'])) {
-            $data_checked = ' checked="checked"';
-        } else {
-            $data_checked = '';
-        }
+        $data_checked = PMA_getCheckedClause(
+            $each_table['Name'], $_GET['table_data']
+        );
     } else {
         $data_checked = $is_checked;
     }
@@ -112,7 +105,7 @@ foreach ($tables as $each_table) {
         . ' value="' . $table_html . '"' . $is_checked . ' /></td>';
     $multi_values .= '<td class="export_table_name">' . str_replace(' ', '&nbsp;', $table_html) . '</td>';
     $multi_values .= '<td class="export_structure"><input type="checkbox" name="table_structure[]"'
-        . ' value="' . $table_html . '"' . $str_checked . ' /></td>';
+        . ' value="' . $table_html . '"' . $structure_checked . ' /></td>';
     $multi_values .= '<td class="export_data"><input type="checkbox" name="table_data[]"'
         . ' value="' . $table_html . '"' . $data_checked . ' /></td>';
     $multi_values .= '</tr>';
