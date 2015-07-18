@@ -11,7 +11,7 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/config/page_settings.class.php';
-include_once 'libraries/export.lib.php';
+require_once 'libraries/export.lib.php';
 
 PMA_PageSettings::showGroup('Export');
 
