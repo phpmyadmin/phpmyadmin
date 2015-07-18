@@ -859,4 +859,3 @@ $strConfigZeroConf_desc = __(
 );
 $strConfigZeroConf_name = __('Enable Zero Configuration mode');
 
-?>

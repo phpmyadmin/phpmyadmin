@@ -87,4 +87,3 @@ class SchemaSvg extends SchemaPlugin
         $export->showOutput();
     }
 }
-?>

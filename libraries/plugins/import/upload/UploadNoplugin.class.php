@@ -61,4 +61,3 @@ class UploadNoplugin implements UploadInterface
         return $ret;
     }
 }
-?>

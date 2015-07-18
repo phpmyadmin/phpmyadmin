@@ -33,4 +33,3 @@ class PMA_StorageEngine_MrgMyisam extends PMA_StorageEngine_Merge
     }
 }
 
-?>

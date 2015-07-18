@@ -74,4 +74,3 @@ abstract class ImportPlugin
         return array($db_name, $options);
     }
 }
-?>

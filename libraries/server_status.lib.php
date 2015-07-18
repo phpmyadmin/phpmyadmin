@@ -314,4 +314,3 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
     return $retval;
 }
 
-?>

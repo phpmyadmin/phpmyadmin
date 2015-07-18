@@ -319,4 +319,3 @@ function PMA_Replication_Slave_binLogMaster($link = null)
     }
     return $output;
 }
-?>

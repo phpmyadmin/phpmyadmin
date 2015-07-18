@@ -506,4 +506,3 @@ class PMA_ServerStatusData
     }
 }
 
-?>

@@ -926,4 +926,3 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

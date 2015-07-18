@@ -94,4 +94,3 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
         return "Text file upload";
     }
 }
-?>

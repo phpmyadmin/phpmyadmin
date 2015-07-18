@@ -385,4 +385,3 @@ function PMA_tryColumnCreationQuery($db, $table, $err_url)
     }
     return array($GLOBALS['dbi']->tryQuery($sql_query) , $sql_query);
 }
-?>

@@ -377,4 +377,3 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
         );
     }
 }
-?>

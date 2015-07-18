@@ -441,4 +441,3 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

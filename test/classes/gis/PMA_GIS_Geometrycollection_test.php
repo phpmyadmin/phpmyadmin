@@ -404,4 +404,3 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

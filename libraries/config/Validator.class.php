@@ -621,4 +621,3 @@ class PMA_Validator
             : sprintf(__('Value must be equal or lower than %s!'), $max_value)));
     }
 }
-?>

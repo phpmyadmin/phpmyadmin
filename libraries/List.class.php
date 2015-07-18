@@ -119,4 +119,3 @@ abstract class PMA_List extends ArrayObject
      */
     abstract public function build();
 }
-?>

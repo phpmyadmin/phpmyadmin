@@ -394,4 +394,3 @@ function PMA_getQueryDetails()
 {
     return PMA\Template::get('designer/query_details')->render();
 }
-?>

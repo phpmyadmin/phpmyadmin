@@ -618,4 +618,3 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
     return $html;
 }
 
-?>

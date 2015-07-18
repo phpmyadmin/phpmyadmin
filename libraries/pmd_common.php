@@ -700,4 +700,3 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
 
     return array(true, __('Internal relation has been removed.'));
 }
-?>

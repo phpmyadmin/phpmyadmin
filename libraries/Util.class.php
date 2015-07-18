@@ -4863,4 +4863,3 @@ class PMA_Util
     }
 }
 
-?>

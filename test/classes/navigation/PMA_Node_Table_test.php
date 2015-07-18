@@ -89,4 +89,3 @@ class Node_Table_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

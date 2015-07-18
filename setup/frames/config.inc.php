@@ -49,4 +49,3 @@ echo '</tr>';
 
 echo PMA_displayFieldsetBottomSimple();
 echo PMA_displayFormBottom();
-?>

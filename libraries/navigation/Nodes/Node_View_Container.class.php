@@ -53,4 +53,3 @@ class Node_View_Container extends Node_DatabaseChild_Container
     }
 }
 
-?>

@@ -87,4 +87,3 @@ interface PMA_StringType
      */
     public function numberInRangeInclusive($num, $lower, $upper);
 }
-?>

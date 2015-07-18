@@ -259,4 +259,3 @@ function PMA_defineClientAPI($version)
         );
     }
 }
-?>

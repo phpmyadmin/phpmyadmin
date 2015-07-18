@@ -96,4 +96,3 @@ class Text_Plain_Json extends TransformationsPlugin
         return "JSON";
     }
 }
-?>

@@ -78,4 +78,3 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
         return "Image Link";
     }
 }
-?>

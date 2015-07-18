@@ -32,4 +32,3 @@ class DocPropertyItem extends OptionsPropertyOneItem
         return "doc";
     }
 }
-?>

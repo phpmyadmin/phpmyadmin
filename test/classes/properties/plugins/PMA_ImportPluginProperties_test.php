@@ -85,4 +85,3 @@ class PMA_ImportPluginProperties_Test extends PHPUnit_Framework_TestCase
     }
 
 }
-?>

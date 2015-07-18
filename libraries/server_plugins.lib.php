@@ -266,4 +266,3 @@ function PMA_getModuleList($modules)
     return $html;
 }
 
-?>

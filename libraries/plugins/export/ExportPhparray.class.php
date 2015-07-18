@@ -230,4 +230,3 @@ class ExportPhparray extends ExportPlugin
         return true;
     }
 }
-?>

@@ -159,4 +159,3 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
         $this->_object->replace(0, $find, $replaceWith, $useRegex, $charSet);
     }
 }
-?>

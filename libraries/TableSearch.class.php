@@ -852,4 +852,3 @@ class PMA_TableSearch
         return $result;
     }
 }
-?>

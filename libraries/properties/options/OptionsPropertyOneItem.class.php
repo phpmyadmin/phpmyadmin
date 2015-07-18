@@ -169,4 +169,3 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
         $this->_size = $size;
     }
 }
-?>

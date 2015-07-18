@@ -97,4 +97,3 @@ abstract class AuthenticationPlugin
     {
     }
 }
-?>

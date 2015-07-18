@@ -177,4 +177,3 @@ class ConfigGenerator
         return $ret;
     }
 }
-?>

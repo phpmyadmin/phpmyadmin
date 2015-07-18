@@ -448,4 +448,3 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
     return $retval;
 } // end PMA_EVN_getRowForList()
 
-?>

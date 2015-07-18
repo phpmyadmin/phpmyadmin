@@ -54,4 +54,3 @@ class Node_Procedure_Container extends Node_DatabaseChild_Container
     }
 }
 
-?>

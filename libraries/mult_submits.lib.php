@@ -635,4 +635,3 @@ function PMA_getQueryFromSelected($what, $db, $table, $selected, $views)
     return array($full_query, $reload, $full_query_views);
 }
 
-?>

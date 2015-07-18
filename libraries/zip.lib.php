@@ -208,4 +208,3 @@ class ZipFile
     } // end of the 'file()' method
 
 } // end of the 'ZipFile' class
-?>

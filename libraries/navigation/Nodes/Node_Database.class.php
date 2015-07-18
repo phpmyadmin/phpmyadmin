@@ -689,4 +689,3 @@ class Node_Database extends Node
     }
 }
 
-?>

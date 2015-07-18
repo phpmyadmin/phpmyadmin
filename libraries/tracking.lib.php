@@ -1444,4 +1444,3 @@ function PMA_getVersionStatus($version)
         return __('not active');
     }
 }
-?>

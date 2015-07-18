@@ -1730,4 +1730,3 @@ function PMA_isTableTransactional($table)
         return false;
     }
 }
-?>

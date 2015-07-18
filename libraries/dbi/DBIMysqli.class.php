@@ -620,4 +620,3 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
         return implode(' ', $flags);
     }
 }
-?>

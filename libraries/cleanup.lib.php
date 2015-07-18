@@ -48,4 +48,3 @@ function PMA_removeRequestVars(&$whitelist)
         }
     }
 }
-?>

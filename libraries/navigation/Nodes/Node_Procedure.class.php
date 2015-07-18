@@ -54,4 +54,3 @@ class Node_Procedure extends Node_DatabaseChild
     }
 }
 
-?>

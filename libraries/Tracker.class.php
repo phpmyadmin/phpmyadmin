@@ -1028,4 +1028,3 @@ class PMA_Tracker
             . '.' . PMA_Util::backquote($cfgRelation['tracking']);
     }
 }
-?>

@@ -714,4 +714,3 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

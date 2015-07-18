@@ -48,4 +48,3 @@ class Node_Index_Container_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals('indexes', $parent->real_name);
     }
 }
-?>

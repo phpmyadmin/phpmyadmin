@@ -457,4 +457,3 @@ class PMA_Theme_Manager
         return false;
     }
 }
-?>

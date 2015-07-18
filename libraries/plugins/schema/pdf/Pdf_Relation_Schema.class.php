@@ -1131,4 +1131,3 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         } //end each
     }
 }
-?>

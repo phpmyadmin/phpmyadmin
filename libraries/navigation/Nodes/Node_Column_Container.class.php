@@ -54,4 +54,3 @@ class Node_Column_Container extends Node
     }
 }
 
-?>

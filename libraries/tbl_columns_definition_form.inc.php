@@ -365,8 +365,10 @@ $html = PMA\Template::get('columns_definitions/column_definitions_form')->render
 unset($form_params);
 
 $response = PMA_Response::getInstance();
-$response->getHeader()->getScripts()->addFiles(array(
-    'jquery/jquery.uitablefilter.js',
-    'indexes.js'
-));
+$response->getHeader()->getScripts()->addFiles(
+    array(
+        'jquery/jquery.uitablefilter.js',
+        'indexes.js'
+    )
+);
 $response->addHTML($html);

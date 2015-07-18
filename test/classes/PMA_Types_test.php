@@ -339,4 +339,3 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

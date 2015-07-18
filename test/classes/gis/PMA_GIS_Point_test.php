@@ -360,4 +360,3 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
         );
     }
 }
-?>

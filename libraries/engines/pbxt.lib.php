@@ -191,4 +191,3 @@ class PMA_StorageEngine_Pbxt extends PMA_StorageEngine
     }
 }
 
-?>

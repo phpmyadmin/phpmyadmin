@@ -1014,4 +1014,3 @@ function PMA_setGlobalDbOrTable($param)
         $GLOBALS['url_params'][$param] = $GLOBALS[$param];
     }
 }
-?>

@@ -1048,4 +1048,3 @@ function PMA_getCheckedClause($array, $key)
         return '';
     }
 }
-?>

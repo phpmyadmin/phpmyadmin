@@ -126,4 +126,3 @@ function PMA_importAjaxStatus($id)
         $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)
     );
 }
-?>

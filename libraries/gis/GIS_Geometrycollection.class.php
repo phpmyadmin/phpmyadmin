@@ -361,4 +361,3 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
         return $params;
     }
 }
-?>

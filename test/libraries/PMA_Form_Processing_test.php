@@ -119,4 +119,3 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
 
 
 }
-?>

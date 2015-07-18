@@ -32,4 +32,3 @@ class SelectPropertyItem extends OptionsPropertyOneItem
         return "select";
     }
 }
-?>

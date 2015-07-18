@@ -69,4 +69,3 @@ class PMA_JS_Escape_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

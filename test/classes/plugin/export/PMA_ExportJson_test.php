@@ -254,4 +254,3 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

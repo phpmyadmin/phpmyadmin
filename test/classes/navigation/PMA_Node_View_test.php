@@ -50,4 +50,3 @@ class Node_View_Test extends PHPUnit_Framework_TestCase
         $this->assertContains('view', $parent->classes);
     }
 }
-?>

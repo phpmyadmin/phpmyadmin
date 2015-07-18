@@ -180,4 +180,3 @@ abstract class PluginPropertyItem extends PropertyItem
         return "plugin";
     }
 }
-?>

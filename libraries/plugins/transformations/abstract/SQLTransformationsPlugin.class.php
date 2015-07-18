@@ -62,4 +62,3 @@ abstract class SQLTransformationsPlugin extends TransformationsPlugin
         return "SQL";
     }
 }
-?>

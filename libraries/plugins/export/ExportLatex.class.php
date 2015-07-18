@@ -653,4 +653,3 @@ class ExportLatex extends ExportPlugin
         return $string;
     }
 }
-?>

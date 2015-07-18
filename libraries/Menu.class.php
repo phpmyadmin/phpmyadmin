@@ -640,4 +640,3 @@ class PMA_Menu
     }
 }
 
-?>

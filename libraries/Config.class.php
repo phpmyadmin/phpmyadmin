@@ -1944,4 +1944,3 @@ if (!defined('TESTSUITE')) {
     register_shutdown_function('PMA_Config_fatalErrorHandler');
 }
 
-?>

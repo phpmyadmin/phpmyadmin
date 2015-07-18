@@ -610,4 +610,3 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         );
     }
 }
-?>

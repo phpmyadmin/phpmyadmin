@@ -779,4 +779,3 @@ class PMA_Header
     }
 }
 
-?>
