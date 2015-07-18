@@ -162,7 +162,7 @@ function PMA_getTransformationClassName($filename)
 /**
  * Returns the description of the transformation
  *
- * @param string  $file transformation file
+ * @param string $file transformation file
  *
  * @return String the description of the transformation
  */

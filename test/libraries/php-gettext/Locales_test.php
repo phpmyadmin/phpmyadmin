@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
-require_once('libraries/php-gettext/gettext.inc');
+require_once 'libraries/php-gettext/gettext.inc';
 
 class LocaleTest extends PHPUnit_Framework_TestCase
 {

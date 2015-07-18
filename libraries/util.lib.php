@@ -5,9 +5,9 @@ namespace PMA\Util;
 /**
  * Access to a multidimensional array by dot notation
  *
- * @param array         $array
- * @param string|array  $path
- * @param mixed         $default
+ * @param array        $array
+ * @param string|array $path
+ * @param mixed        $default
  * @return mixed
  */
 function get($array, $path, $default = null)

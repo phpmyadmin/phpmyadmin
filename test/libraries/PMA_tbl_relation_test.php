@@ -56,7 +56,8 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
     public function testPMAGetSQLToCreateForeignKey()
     {
         // @todo Move this test to PMA_Table_test
-/*        $table = "PMA_table";
+        /*
+        $table = "PMA_table";
         $field = array("PMA_field1", "PMA_field2");
         $foreignDb = "foreignDb";
         $foreignTable = "foreignTable";
@@ -71,7 +72,8 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $sql_excepted,
             $sql
-        );*/
+        );
+        */
     }
 
     /**
@@ -94,7 +96,7 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetQueryForDisplayUpdate()
     {
-    /*
+        /*
         $disp = true;
         $display_field = '';
         $db = "pma_db";

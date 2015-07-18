@@ -19,23 +19,23 @@ require_once 'libraries/Util.class.php';
  */
 class PMA_GIS_ModifyQueryTest extends PHPUnit_Framework_TestCase
 {
-//    @todo: Move this test to GIS_Visualization's
-//    /**
-//     * Test PMA_GIS_modifyQuery method
-//     *
-//     * @param string $sql_query      query to modify
-//     * @param array  $settings       visualization settings
-//     * @param string $modified_query modified query
-//     *
-//     * @dataProvider provider
-//     * @return void
-//     */
+    // @todo: Move this test to GIS_Visualization's
+    // /**
+    //  * Test PMA_GIS_modifyQuery method
+    //  *
+    //  * @param string $sql_query      query to modify
+    //  * @param array  $settings       visualization settings
+    //  * @param string $modified_query modified query
+    //  *
+    //  * @dataProvider provider
+    //  * @return void
+    //  */
     public function testModifyQuery(/*$sql_query, $settings, $modified_query*/)
     {
-//        $this->assertEquals(
-//            PMA_GIS_modifyQuery($sql_query, $settings),
-//            $modified_query
-//        );
+        // $this->assertEquals(
+        //     PMA_GIS_modifyQuery($sql_query, $settings),
+        //     $modified_query
+        // );
         $this->markTestIncomplete('Not yet implemented!');
     }
 
