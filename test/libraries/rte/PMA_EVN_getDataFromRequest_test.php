@@ -118,4 +118,3 @@ class PMA_EVN_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

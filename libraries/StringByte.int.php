@@ -175,4 +175,3 @@ interface PMA_StringByte
      */
     public function chr($ascii);
 }
-?>

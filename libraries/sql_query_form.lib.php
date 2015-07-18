@@ -504,4 +504,3 @@ function PMA_getHtmlForSqlQueryFormUpload()
 
     return $html;
 }
-?>

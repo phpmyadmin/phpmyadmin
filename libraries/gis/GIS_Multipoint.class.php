@@ -364,4 +364,3 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         return $ol_array;
     }
 }
-?>

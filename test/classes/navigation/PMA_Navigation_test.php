@@ -156,4 +156,3 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

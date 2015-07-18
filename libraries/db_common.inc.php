@@ -105,4 +105,3 @@ if (isset($_REQUEST['submitcollation'])
  */
 $url_query = PMA_URL_getCommon(array('db' => $db));
 
-?>

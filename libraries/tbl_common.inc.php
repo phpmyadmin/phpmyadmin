@@ -51,4 +51,3 @@ $err_url = PMA_Util::getScriptNameForOption(
  */
 require_once './libraries/db_table_exists.lib.php';
 
-?>

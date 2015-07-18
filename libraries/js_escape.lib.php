@@ -174,4 +174,3 @@ function PMA_printJsValueForFormValidation($key, $value, $addOn=false, $comma=tr
 {
     echo PMA_getJsValueForFormValidation($key, $value, $addOn, $comma);
 }
-?>

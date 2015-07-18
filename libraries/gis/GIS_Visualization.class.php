@@ -626,4 +626,3 @@ class PMA_GIS_Visualization
         $this->_userSpecifiedSettings = $userSpecifiedSettings;
     }
 }
-?>

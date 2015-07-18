@@ -90,4 +90,3 @@ class Node_DatabaseChildTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

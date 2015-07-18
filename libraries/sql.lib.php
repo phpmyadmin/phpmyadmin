@@ -2189,4 +2189,3 @@ function PMA_calculatePosForLastPage($db, $table, $pos)
     return $pos;
 }
 
-?>

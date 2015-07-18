@@ -641,4 +641,3 @@ class ExportHtmlword extends ExportPlugin
         return $definition;
     }
 }
-?>

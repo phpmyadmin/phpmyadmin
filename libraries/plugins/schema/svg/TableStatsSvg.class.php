@@ -169,4 +169,3 @@ class Table_Stats_Svg extends TableStats
         }
     }
 }
-?>

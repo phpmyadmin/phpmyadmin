@@ -1590,4 +1590,3 @@ function PMA_RTN_getExecuteForm($routine)
     return $retval;
 } // end PMA_RTN_getExecuteForm()
 
-?>

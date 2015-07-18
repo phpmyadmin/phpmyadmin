@@ -57,4 +57,3 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
         return "Plain";
     }
 }
-?>

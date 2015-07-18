@@ -551,4 +551,3 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
         return false;
     }
 }
-?>

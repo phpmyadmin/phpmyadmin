@@ -32,4 +32,3 @@ class HiddenPropertyItem extends OptionsPropertyOneItem
         return "hidden";
     }
 }
-?>

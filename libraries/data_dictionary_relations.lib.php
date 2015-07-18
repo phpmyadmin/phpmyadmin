@@ -164,4 +164,3 @@ $GLOBALS['data_dictionary_relations'] = array(
     )
 );
 
-?>

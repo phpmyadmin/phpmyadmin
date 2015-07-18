@@ -2613,4 +2613,3 @@ function PMA_getDynamicSystemVariables()
 
 }
 
-?>

@@ -72,4 +72,3 @@ function PMA_RTE_getWord($index)
     return isset($words[$index]) ? $words[$index] : '';
 } // end PMA_RTE_getWord()
 
-?>

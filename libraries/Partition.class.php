@@ -97,4 +97,3 @@ class PMA_Partition
         return $have_partitioning;
     }
 }
-?>

@@ -73,4 +73,3 @@ class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

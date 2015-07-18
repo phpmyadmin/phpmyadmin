@@ -69,4 +69,3 @@ class Environment_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(5, $version_parts[1]);
     }
 }
-?>

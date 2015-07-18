@@ -3439,4 +3439,3 @@ function PMA_getStructureSubTabs()
 
     return $subtabs;
 }
-?>

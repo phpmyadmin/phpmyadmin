@@ -1090,4 +1090,3 @@ function PMA_handleRequestForSlaveSkipError()
 
     return $result;
 }
-?>

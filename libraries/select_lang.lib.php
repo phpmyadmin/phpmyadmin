@@ -619,4 +619,3 @@ unset(
     $line, $fall_back_lang, $GLOBALS['lang_failed_cfg'],
     $GLOBALS['lang_failed_cookie'], $GLOBALS['lang_failed_request']
 );
-?>

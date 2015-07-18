@@ -428,4 +428,3 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
         );
     }
 }
-?>

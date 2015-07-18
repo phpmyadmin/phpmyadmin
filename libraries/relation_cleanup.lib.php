@@ -291,4 +291,3 @@ function PMA_relationsCleanupUser($username)
     }
 }
 
-?>

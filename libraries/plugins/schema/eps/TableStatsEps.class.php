@@ -150,4 +150,3 @@ class Table_Stats_Eps extends TableStats
         }
     }
 }
-?>

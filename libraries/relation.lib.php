@@ -1980,4 +1980,3 @@ function PMA_getRelationsAndStatus($condition, $db, $table)
     } // end if
     return(array($res_rel, $have_rel));
 }
-?>

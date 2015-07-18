@@ -66,4 +66,3 @@ abstract class TransformationsPlugin implements TransformationsInterface
         return $result;
     }
 }
-?>

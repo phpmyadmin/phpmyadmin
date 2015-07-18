@@ -822,4 +822,3 @@ function PMA_getJsonForQueryAnalyzer()
     return $return;
 }
 
-?>

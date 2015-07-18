@@ -1022,4 +1022,3 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
     $html .= '</div>';
     return $html;
 }
-?>

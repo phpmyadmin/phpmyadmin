@@ -578,4 +578,3 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         return $params;
     }
 }
-?>

@@ -51,4 +51,3 @@ abstract class Node_DatabaseChild extends Node
         return $ret;
     }
 }
-?>

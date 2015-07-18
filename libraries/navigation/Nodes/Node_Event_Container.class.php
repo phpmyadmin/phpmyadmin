@@ -53,4 +53,3 @@ class Node_Event_Container extends Node_DatabaseChild_Container
     }
 }
 
-?>

@@ -55,4 +55,3 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
 
     return $retval;
 }
-?>

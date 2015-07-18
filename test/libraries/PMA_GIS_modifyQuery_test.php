@@ -71,4 +71,3 @@ class PMA_GIS_ModifyQueryTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

@@ -404,4 +404,3 @@ if (!PMA_DRIZZLE) {
     $GLOBALS['dbs_to_test']       = false;
 }
 
-?>

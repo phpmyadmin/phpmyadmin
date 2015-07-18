@@ -926,4 +926,3 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 }
 
-?>

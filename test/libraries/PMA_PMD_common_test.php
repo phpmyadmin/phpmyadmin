@@ -288,4 +288,3 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($first_pg, $result);
     }
 }
-?>

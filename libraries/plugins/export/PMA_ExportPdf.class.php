@@ -806,4 +806,3 @@ class PMA_ExportPdf extends PMA_PDF
     } // end of mysqlReport function
 
 } // end of PMA_Export_PDF class
-?>

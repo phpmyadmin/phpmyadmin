@@ -340,4 +340,3 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

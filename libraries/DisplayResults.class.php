@@ -5762,4 +5762,3 @@ class PMA_DisplayResults
     }
 }
 
-?>

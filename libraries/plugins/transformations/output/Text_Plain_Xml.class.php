@@ -96,4 +96,3 @@ class Text_Plain_Xml extends TransformationsPlugin
         return "XML";
     }
 }
-?>

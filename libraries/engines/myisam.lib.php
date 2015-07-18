@@ -66,4 +66,3 @@ class PMA_StorageEngine_Myisam extends PMA_StorageEngine
     }
 }
 
-?>

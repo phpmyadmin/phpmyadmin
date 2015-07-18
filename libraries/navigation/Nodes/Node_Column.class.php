@@ -44,4 +44,3 @@ class Node_Column extends Node
     }
 }
 
-?>

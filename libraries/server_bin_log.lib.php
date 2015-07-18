@@ -241,4 +241,3 @@ function PMA_getAllLogItemInfo($result, $dontlimitchars)
     return $html;
 }
 
-?>

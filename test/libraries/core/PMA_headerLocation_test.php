@@ -283,4 +283,3 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
         PMA_sendHeaderLocation($testUri);
     }
 }
-?>

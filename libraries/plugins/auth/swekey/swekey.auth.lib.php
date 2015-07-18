@@ -315,4 +315,3 @@ if (isset($_GET['swekey_reset'])) {
     unset($_SESSION['SWEKEY']);
 }
 
-?>

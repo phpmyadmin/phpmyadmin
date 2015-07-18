@@ -83,4 +83,3 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
         return "Inline";
     }
 }
-?>

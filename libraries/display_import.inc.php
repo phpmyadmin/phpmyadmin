@@ -62,4 +62,3 @@ $html = PMA_getHtmlForImport(
 $response = PMA_Response::getInstance();
 $response->addHTML($html);
 
-?>

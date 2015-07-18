@@ -572,4 +572,3 @@ class ExportTexytext extends ExportPlugin
         return $definition;
     }
 }
-?>

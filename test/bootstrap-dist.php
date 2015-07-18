@@ -164,4 +164,3 @@ function tearDownForTestsUsingDate()
         runkit_function_rename('test_date_override', 'date');
     }
 }
-?>

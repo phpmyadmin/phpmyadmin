@@ -132,4 +132,3 @@ function PMA_secureSession()
     }
     $_SESSION[' PMA_token '] = md5(uniqid(rand(), true));
 }
-?>

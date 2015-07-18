@@ -131,4 +131,3 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
         return "Plain";
     }
 }
-?>

@@ -540,4 +540,3 @@ class ConfigFile
         return $c;
     }
 }
-?>

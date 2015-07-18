@@ -165,4 +165,3 @@ function PMA_Kanji_encodingForm()
 
 PMA_Kanji_checkEncoding();
 
-?>

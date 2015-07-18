@@ -54,4 +54,3 @@ class Node_View_Container_Test extends PHPUnit_Framework_TestCase
         $this->assertContains('viewContainer', $parent->classes);
     }
 }
-?>

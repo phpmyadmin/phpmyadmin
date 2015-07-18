@@ -581,4 +581,3 @@ class ExportXml extends ExportPlugin
         $this->_tables = $tables;
     }
 }
-?>

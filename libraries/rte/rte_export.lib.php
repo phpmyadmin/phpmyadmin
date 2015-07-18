@@ -119,4 +119,3 @@ function PMA_TRI_handleExport()
         PMA_RTE_handleExport($export_data);
     }
 } // end PMA_TRI_handleExport()
-?>

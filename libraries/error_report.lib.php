@@ -401,4 +401,3 @@ function PMA_prettyPrint($object, $namespace="")
     return $output;
 }
 
-?>

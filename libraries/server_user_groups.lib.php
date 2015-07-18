@@ -357,4 +357,3 @@ function PMA_editUserGroup($userGroup, $new = false)
     $sql_query .= ";";
     PMA_queryAsControlUser($sql_query, true);
 }
-?>

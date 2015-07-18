@@ -107,4 +107,3 @@ class PMA_ResultSetHasJustOneTableTest extends PHPUnit_Framework_TestCase
         $this->assertFalse(PMA_resultSetHasJustOneTable($fields_meta));
     }
 }
-?>

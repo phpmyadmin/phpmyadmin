@@ -327,4 +327,3 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
     return $retval;
 }
 
-?>

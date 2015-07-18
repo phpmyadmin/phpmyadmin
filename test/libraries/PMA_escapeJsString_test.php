@@ -52,4 +52,3 @@ class PMA_EscapeJsString_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

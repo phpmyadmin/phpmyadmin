@@ -106,4 +106,3 @@ class PMA
         return $this->databases;
     }
 }
-?>

@@ -91,4 +91,3 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
         return "Plain";
     }
 }
-?>

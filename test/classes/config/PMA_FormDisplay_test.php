@@ -555,4 +555,3 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
 
 }
-?>

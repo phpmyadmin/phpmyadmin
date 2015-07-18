@@ -113,4 +113,3 @@ class Relation_Stats_Svg extends RelationStats
         );
     }
 }
-?>

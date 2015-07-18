@@ -298,4 +298,3 @@ function PMA_userprefsAutoloadGetHeader()
     }
     return $retval;
 }
-?>

@@ -510,4 +510,3 @@ function PMA_displayErrors($name, $error_list)
     $htmlOutput .= '</dl>';
     return $htmlOutput;
 }
-?>

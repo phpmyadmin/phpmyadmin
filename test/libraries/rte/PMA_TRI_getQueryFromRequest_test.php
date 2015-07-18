@@ -125,4 +125,3 @@ class PMA_TRI_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

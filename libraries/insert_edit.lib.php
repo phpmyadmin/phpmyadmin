@@ -2963,4 +2963,3 @@ function PMA_userHasColumnPrivileges($table_column, $insert_mode)
         || (! $insert_mode && strstr($privileges, 'update') !== false)
         || is_null($privileges); // Drizzle
 }
-?>

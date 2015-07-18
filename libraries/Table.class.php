@@ -2346,4 +2346,3 @@ class PMA_Table
         );
     }
 }
-?>

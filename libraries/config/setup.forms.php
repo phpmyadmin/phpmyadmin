@@ -398,4 +398,3 @@ $forms['Export']['Texy'] = array('Export' => array(
     ':group:' . __('Data'),
         'texytext_null',
         'texytext_columns'));
-?>

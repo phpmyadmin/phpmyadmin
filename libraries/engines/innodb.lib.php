@@ -389,4 +389,3 @@ class PMA_StorageEngine_Innodb extends PMA_StorageEngine
     }
 }
 
-?>
