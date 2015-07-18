@@ -4267,24 +4267,43 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
         if (! $GLOBALS['is_ajax_request']
             || ! empty($_REQUEST['ajax_page_request'])
         ) {
-            $flushnote = new PMA_Message(
-                __(
-                    'Note: phpMyAdmin gets the users\' privileges directly '
-                    . 'from MySQL\'s privilege tables. The content of these tables '
-                    . 'may differ from the privileges the server uses, '
-                    . 'if they have been changed manually. In this case, '
-                    . 'you should %sreload the privileges%s before you continue.'
-                ),
-                PMA_Message::NOTICE
-            );
-            $flushLink = '<a href="server_privileges.php'
-                . PMA_URL_getCommon(array('flush_privileges' => 1))
-                . '" id="reload_privileges_anchor">';
-            $flushnote->addParam(
-                $flushLink,
-                false
-            );
-            $flushnote->addParam('</a>', false);
+            if (isset($GLOBALS['flush_priv']) && $GLOBALS['flush_priv']) {
+                $flushnote = new PMA_Message(
+                    __(
+                        'Note: phpMyAdmin gets the users\' privileges directly '
+                        . 'from MySQL\'s privilege tables. The content of these tables '
+                        . 'may differ from the privileges the server uses, '
+                        . 'if they have been changed manually. In this case, '
+                        . 'you should %sreload the privileges%s before you continue.'
+                    ),
+                    PMA_Message::NOTICE
+                );
+                $flushLink = '<a href="server_privileges.php'
+                    . PMA_URL_getCommon(array('flush_privileges' => 1))
+                    . '" id="reload_privileges_anchor">';
+                $flushnote->addParam(
+                    $flushLink,
+                    false
+                );
+                $flushnote->addParam('</a>', false);
+            } else {
+                $flushnote = new PMA_Message(
+                    __(
+                        'Note: phpMyAdmin gets the users\' privileges directly '
+                        . 'from MySQL\'s privilege tables. The content of these tables '
+                        . 'may differ from the privileges the server uses, '
+                        . 'if they have been changed manually. In this case, '
+                        . 'the privileges have to be reloaded but currently, you don\'t have '
+                        . 'the RELOAD privilege.'
+                    )
+                    . PMA_Util::showMySQLDocu(
+                        'privileges-provided',
+                        false,
+                        'priv_reload'
+                    ),
+                    PMA_Message::NOTICE
+                );
+            }
             $html_output .= $flushnote->getDisplay();
         }
     }
