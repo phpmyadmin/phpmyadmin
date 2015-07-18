@@ -81,7 +81,7 @@ class PMA_Linter
             echo json_encode(
                 array(
                     array(
-                        'message' => 'The linting is disabled for this query because it exceededs the maxmimum length.',
+                        'message' => 'Linting is disabled for this query because it exceeds the maximum length.',
                         'fromLine' => 0,
                         'fromColumn' => 0,
                         'toLine' => 0,
