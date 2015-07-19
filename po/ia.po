@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-19 05:31-0400\n"
-"PO-Revision-Date: 2015-07-12 22:13+0200\n"
+"PO-Revision-Date: 2015-07-19 22:28+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4371,20 +4371,21 @@ msgstr ""
 
 #: libraries/Table.class.php:1851
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr ""
+msgstr "Le nomine del clave primari debe esser \"PRIMARY\"!"
 
 #: libraries/Table.class.php:1862
 msgid "Can't rename index to PRIMARY!"
-msgstr ""
+msgstr "Non pote renominar indice a PRIMARY!"
 
 #: libraries/Table.class.php:1884
 msgid "No index parts defined!"
-msgstr ""
+msgstr "Nulle partes de indice definite!"
 
 #: libraries/Table.class.php:2188
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
+"Error quando on creava clave extranee sur %1$s (verifica typos de datos)"
 
 #: libraries/TableSearch.class.php:184
 msgid "Table search"
@@ -4782,12 +4783,12 @@ msgstr "Dimension maxime: %s%s"
 
 #: libraries/Util.class.php:660
 msgid "Static analysis:"
-msgstr ""
+msgstr "Analysis static:"
 
 #: libraries/Util.class.php:662
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "%d errores esseva trovate durante le analysis."
 
 #: libraries/Util.class.php:724 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
@@ -4811,7 +4812,7 @@ msgstr "Non explica SQL"
 #: libraries/Util.class.php:1185
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "Explication de Analysis a %s"
 
 #: libraries/Util.class.php:1216
 msgid "Without PHP Code"
@@ -5186,7 +5187,7 @@ msgstr "monstra columna"
 
 #: libraries/config.values.php:102
 msgid "Welcome"
-msgstr ""
+msgstr "Benvenite"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5690,12 +5691,13 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Trova ulle errores in le query ante executar lo. Il require que CodeMirror "
+"esseva habilitate."
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Enable %s"
 msgid "Enable linter"
-msgstr "Habilita %s"
+msgstr "Habilita linter"
 
 #: libraries/config/messages.inc.php:64
 msgid ""
@@ -5775,6 +5777,8 @@ msgstr "Confirma queries de DROP"
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
+"queries de registro de SQL e lor tempore de execution,  que on debe esser "
+"monstrate in le console"
 
 #: libraries/config/messages.inc.php:92
 msgid "Tab that is displayed when entering a database."
@@ -6110,6 +6114,8 @@ msgstr "Limite de clave externe"
 #: libraries/config/messages.inc.php:221
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Valor predefinite pro le checkbox del controlo de clave externe pro alcun "
+"query."
 
 #: libraries/config/messages.inc.php:223
 msgid "Foreign key checks"
@@ -6475,11 +6481,11 @@ msgstr "Non aborta quando on ha un error de INSERT"
 
 #: libraries/config/messages.inc.php:353 libraries/config/messages.inc.php:365
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Adde ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:354 libraries/config/messages.inc.php:366
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "Actualisa datos quando on trova claves duplicate durante le importation"
 
 #: libraries/config/messages.inc.php:357
 msgid ""
@@ -6842,7 +6848,7 @@ msgstr "Monstra functiones in arbore"
 
 #: libraries/config/messages.inc.php:499
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Si monstrar functiones sub base de datos in le arbore d navigation"
 
 #: libraries/config/messages.inc.php:500
 msgid "Show procedures in tree"
@@ -6850,7 +6856,7 @@ msgstr "Monstra proceduras in arbore"
 
 #: libraries/config/messages.inc.php:502
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Si monstrar proceduras sub base de datos in le arbore de navigation"
 
 #: libraries/config/messages.inc.php:503
 msgid "Show events in tree"
@@ -6882,11 +6888,11 @@ msgstr "Ubi monstrar le ligamines de rango de tabellas"
 
 #: libraries/config/messages.inc.php:514
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "Si monstrar ligamines de rango anque in le absentia de un clave univoc."
 
 #: libraries/config/messages.inc.php:515
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Monstra ligamines de rango de omne modo"
 
 #: libraries/config/messages.inc.php:517
 msgid "Use natural order for sorting table and database names."
@@ -8089,7 +8095,7 @@ msgstr ""
 
 #: libraries/controllers/TableChartController.class.php:208
 msgid "No data to display"
-msgstr ""
+msgstr "Necun dato de monstrar"
 
 #: libraries/controllers/TableIndexesController.class.php:140
 #: libraries/structure.lib.php:2670 tbl_addfield.php:92
@@ -14449,10 +14455,9 @@ msgid "Pick from Central Columns"
 msgstr "Prende ex le columnas central"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
-#, fuzzy
 #| msgid "Compression"
 msgid "Expression"
-msgstr "Compression"
+msgstr "Expression"
 
 #: templates/columns_definitions/move_column.phtml:7
 msgid "first"
@@ -14474,7 +14479,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
-msgstr ""
+msgstr "Virtualitate"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
 msgid "Move column"
@@ -14483,7 +14488,7 @@ msgstr "Move columna"
 #: templates/columns_definitions/table_fields_definitions.phtml:86
 #: templates/columns_definitions/table_fields_definitions.phtml:105
 msgid "List of available transformations and their options"
-msgstr ""
+msgstr "Lista de transformationes disponibile e lor operationes"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:88
 #: transformation_overview.php:41
@@ -16070,11 +16075,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
-msgstr ""
+msgstr "Insertiones concurrente de MyISAM"
 
 #: libraries/advisory_rules.txt:462
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr ""
+msgstr "Habilita (insertion concurrente) per poner lo a 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
@@ -16085,7 +16090,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert - insertion concurrente- es ponite a 0"
 
 #~ msgid "Begin"
 #~ msgstr "Initio"
