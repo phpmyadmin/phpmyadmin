@@ -14731,7 +14731,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
-msgstr "Navidezost"
+msgstr "Navideznost"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
 msgid "Move column"
