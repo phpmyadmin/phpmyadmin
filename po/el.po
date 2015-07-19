@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-19 05:31-0400\n"
-"PO-Revision-Date: 2015-07-16 07:37+0200\n"
+"PO-Revision-Date: 2015-07-19 12:56+0200\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5677,12 +5677,13 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Βρίσκει οποιαδήποτε σφάλματα στο ερώτημα πριν την εκτέλεσή του. Απαιτείται η "
+"ενεργοποίηση του CodeMirror."
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "Ενεργοποίηση του Εγκυροποιητή SQL"
+msgstr "Ενεργοποίηση βάμβακα"
 
 #: libraries/config/messages.inc.php:64
 msgid ""
@@ -14881,10 +14882,9 @@ msgid "Pick from Central Columns"
 msgstr "Επιλογή από τις Κεντρικές Στήλες"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
-#, fuzzy
 #| msgid "Compression"
 msgid "Expression"
-msgstr "Συμπίεση"
+msgstr "Έκφραση"
 
 #: templates/columns_definitions/move_column.phtml:7
 msgid "first"
@@ -14912,7 +14912,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
-msgstr ""
+msgstr "Εικονικά"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
 msgid "Move column"
