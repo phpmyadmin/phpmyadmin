@@ -195,6 +195,11 @@ abstract class Statement
             // Only keywords are relevant here. Other parts of the query are
             // processed in the functions below.
             if ($token->type !== Token::TYPE_KEYWORD) {
+                if (($token->type !== TOKEN::TYPE_COMMENT)
+                    && ($token->type !== Token::TYPE_WHITESPACE)
+                ) {
+                    $parser->error('Unexpected token.', $token);
+                }
                 continue;
             }
 

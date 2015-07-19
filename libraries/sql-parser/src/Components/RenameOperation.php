@@ -53,13 +53,6 @@ class RenameOperation extends Component
         $expr = new RenameOperation();
 
         /**
-         * Whether an operation was parsed or not. To be a valid parsing, at
-         * least one operation must be parsed after each comma.
-         * @var bool $parsed
-         */
-        $parsed = false;
-
-        /**
          * The state of the parser.
          *
          * Below are the states of the parser.
@@ -129,21 +122,18 @@ class RenameOperation extends Component
                     $parser->error('The new name of the table was expected.', $token);
                 }
                 $state = 3;
-                $parsed = true;
             } elseif ($state === 3) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
                     $ret[] = $expr;
                     $expr = new RenameOperation();
                     $state = 0;
-                    // Found a comma, looking for another operation.
-                    $parsed = false;
                 } else {
                     break;
                 }
             }
         }
 
-        if (!$parsed) {
+        if ($state !== 3) {
             $parser->error('A rename operation was expected.', $list->tokens[$list->idx - 1]);
         }
 
