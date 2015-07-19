@@ -327,6 +327,13 @@ class Parser
             // Statements can start with keywords only.
             // Comments, whitespaces, etc. are ignored.
             if ($token->type !== Token::TYPE_KEYWORD) {
+                if (($token->type !== TOKEN::TYPE_COMMENT)
+                    && ($token->type !== Token::TYPE_WHITESPACE)
+                    && ($token->type !== Token::TYPE_OPERATOR) // `(` and `)`
+                    && ($token->type !== Token::TYPE_DELIMITER)
+                ) {
+                    $this->error('Unexpected beginning of statement.', $token);
+                }
                 continue;
             }
 
@@ -337,10 +344,7 @@ class Parser
 
             // Checking if it is a known statement that can be parsed.
             if (empty(static::$STATEMENT_PARSERS[$token->value])) {
-                $this->error(
-                    'Unrecognized statement type.',
-                    $token
-                );
+                $this->error('Unrecognized statement type.', $token);
                 // Skipping to the end of this statement.
                 $list->getNextOfType(Token::TYPE_DELIMITER);
                 //
@@ -356,35 +360,35 @@ class Parser
 
             /**
              * Processed statement.
-             * @var Statement $stmt
+             * @var Statement $statement
              */
-            $stmt = new $class($this, $this->list);
+            $statement = new $class($this, $this->list);
 
             // The first token that is a part of this token is the next token
             // unprocessed by the previous statement.
             // There might be brackets around statements and this shouldn't
             // affect the parser
-            $stmt->first = $prevLastIdx + 1;
+            $statement->first = $prevLastIdx + 1;
 
             // Storing the index of the last token parsed and updating the old
             // index.
-            $stmt->last = $list->idx;
+            $statement->last = $list->idx;
             $prevLastIdx = $list->idx;
 
             // Finally, storing the statement.
             if (($inUnion)
                 && ($lastStatement instanceof SelectStatement)
-                && ($stmt instanceof SelectStatement)
+                && ($statement instanceof SelectStatement)
             ) {
                 /**
                  * Last SELECT statement.
                  * @var SelectStatement $lastStatement
                  */
-                $lastStatement->union[] = $stmt;
+                $lastStatement->union[] = $statement;
                 $inUnion = false;
             } else {
-                $this->statements[] = $stmt;
-                $lastStatement = $stmt;
+                $this->statements[] = $statement;
+                $lastStatement = $statement;
             }
 
         }

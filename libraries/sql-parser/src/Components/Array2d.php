@@ -37,13 +37,6 @@ class Array2d extends Component
         $ret = array();
 
         /**
-         * Whether an array was parsed or not. To be a valid parsing, at least
-         * one array must be parsed after each comma.
-         * @var bool $parsed
-         */
-        $parsed = false;
-
-        /**
          * The number of values in each set.
          * @var int
          */
@@ -95,14 +88,12 @@ class Array2d extends Component
                         $parser->error("{$count} values were expected, but found {$arrCount}.", $token);
                     }
                     $ret[] = $arr;
-                    $parsed = true;
                     $state = 1;
                 } else {
                     break;
                 }
             } elseif ($state === 1) {
                 if ($token->value === ',') {
-                    $parsed = false;
                     $state = 0;
                 } else {
                     break;
@@ -110,7 +101,7 @@ class Array2d extends Component
             }
         }
 
-        if (!$parsed) {
+        if ($state === 0) {
             $parser->error(
                 'An opening bracket followed by a set of values was expected.',
                 $list->tokens[$list->idx]

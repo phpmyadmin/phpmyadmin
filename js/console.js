@@ -553,7 +553,12 @@ var PMA_consoleInput = {
                 mode: 'text/x-sql',
                 lineWrapping: true,
                 extraKeys: {"Ctrl-Space": "autocomplete"},
-                hintOptions: {"completeSingle": false, "completeOnSingleClick": true}
+                hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
+                gutters: ["CodeMirror-lint-markers"],
+                lint: {
+                    "getAnnotations": CodeMirror.sqlLint,
+                    "async": true,
+                }
             });
             PMA_consoleInput._inputs.console.on("inputRead", codemirrorAutocompleteOnInputRead);
             PMA_consoleInput._inputs.console.on("keydown", function(instance, event) {
@@ -565,7 +570,12 @@ var PMA_consoleInput = {
                     mode: 'text/x-sql',
                     lineWrapping: true,
                     extraKeys: {"Ctrl-Space": "autocomplete"},
-                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true}
+                    hintOptions: {"completeSingle": false, "completeOnSingleClick": true},
+                    gutters: ["CodeMirror-lint-markers"],
+                    lint: {
+                        "getAnnotations": CodeMirror.sqlLint,
+                        "async": true,
+                    }
                 });
                 PMA_consoleInput._inputs.bookmark.on("inputRead", codemirrorAutocompleteOnInputRead);
             }
