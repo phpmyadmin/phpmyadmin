@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-19 05:31-0400\n"
-"PO-Revision-Date: 2015-07-12 20:53+0200\n"
+"PO-Revision-Date: 2015-07-19 14:17+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
@@ -5643,12 +5643,12 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Pred izvedbo poizvedbe najdi napake v njej. CodeMirror mora biti omogočen."
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "Omogoči Preverjalnik SQL"
+msgstr "Omogoči linter"
 
 #: libraries/config/messages.inc.php:64
 msgid ""
@@ -14701,10 +14701,9 @@ msgid "Pick from Central Columns"
 msgstr "Izberite iz osrednjih stolpcev"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
-#, fuzzy
 #| msgid "Compression"
 msgid "Expression"
-msgstr "Stiskanje"
+msgstr "Izraz"
 
 #: templates/columns_definitions/move_column.phtml:7
 msgid "first"
@@ -14732,7 +14731,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
 msgid "Virtuality"
-msgstr ""
+msgstr "Navidezost"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:76
 msgid "Move column"
