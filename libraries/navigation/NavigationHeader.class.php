@@ -107,11 +107,11 @@ class PMA_NavigationHeader
                 break;
             case 'main':
                 // do not add our parameters for an external link
-                $navLogoLinkLower = /*overload*/mb_strtolower(
-                    $GLOBALS['cfg']['NavigationLogoLink']
+                $host = parse_url(
+                    $GLOBALS['cfg']['NavigationLogoLink'], PHP_URL_HOST
                 );
-                if (/*overload*/mb_substr($navLogoLinkLower, 0, 4) !== '://') {
-                    $retval .= $GLOBALS['url_query'] . '"';
+                if (empty($host)) {
+                    $retval .= PMA_URL_getCommon() . '"';
                 } else {
                     $retval .= '" target="_blank"';
                 }

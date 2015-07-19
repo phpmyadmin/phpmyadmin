@@ -358,7 +358,12 @@ function Re_load()
 
                     //alert(tab_hide_button.innerHTML);
                     if (tab_hide_button.innerHTML == 'v') {
-                        row_offset_top = document.getElementById(key2 + "." + key3).offsetTop;
+                        var fromColumn = document.getElementById(key2 + "." + key3);
+                        if (fromColumn) {
+                            row_offset_top = fromColumn.offsetTop;
+                        } else {
+                            continue;
+                        }
                     }
 
                     var y1 = document.getElementById(key2).offsetTop +
@@ -369,8 +374,13 @@ function Re_load()
                     row_offset_top = 0;
                     tab_hide_button = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
                     if (tab_hide_button.innerHTML == 'v') {
-                        row_offset_top = document.getElementById(contr[K][key][key2][key3][0]
-                            + '.' + contr[K][key][key2][key3][1]).offsetTop;
+                        var toColumn = document.getElementById(contr[K][key][key2][key3][0]
+                            + '.' + contr[K][key][key2][key3][1]);
+                        if (toColumn) {
+                            row_offset_top = toColumn.offsetTop;
+                        } else {
+                            continue;
+                        }
                     }
 
                     var y2 =

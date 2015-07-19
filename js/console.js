@@ -173,7 +173,7 @@ var PMA_console = {
                     PMA_console.ajaxCallback(data);
                 } catch (e) {
                     console.log("Invalid JSON!" + e.message);
-                    if(AJAX.xhr.status === 0 && AJAX.xhr.statusText !== 'abort') {
+                    if(AJAX.xhr && AJAX.xhr.status === 0 && AJAX.xhr.statusText !== 'abort') {
                         PMA_ajaxShowMessage($('<div />',{class:'error',html:PMA_messages.strRequestFailed+' ( '+AJAX.xhr.statusText+' )'}));
                         AJAX.active = false;
                         AJAX.xhr = null;
@@ -235,6 +235,7 @@ var PMA_console = {
             .val(PMA_consoleMessages.appendQuery({sql_query: queryString}).message_id);
         PMA_console.$requestForm.trigger('submit');
         PMA_consoleInput.clear();
+        PMA_reloadNavigation();
     },
     ajaxCallback: function(data) {
         if(data && data.console_message_id) {

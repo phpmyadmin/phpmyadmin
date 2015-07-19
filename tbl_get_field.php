@@ -49,7 +49,7 @@ if ($result === false) {
 PMA_downloadHeader(
     $table . '-' .  $_GET['transform_key'] . '.bin',
     PMA_detectMIME($result),
-    /*overload*/mb_strlen($result)
+    /*overload*/mb_strlen($result, '8bit')
 );
 echo $result;
 ?>
