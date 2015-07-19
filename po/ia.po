@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-07-08 22:54+0200\n"
+"PO-Revision-Date: 2015-07-19 22:28+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/ia/>\n"
@@ -6220,11 +6220,11 @@ msgstr "Non aborta quando on ha un error de INSERT"
 
 #: libraries/config/messages.inc.php:337 libraries/config/messages.inc.php:349
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Adde ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:338 libraries/config/messages.inc.php:350
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "Actualisa datos quando on trova claves duplicate durante le importation"
 
 #: libraries/config/messages.inc.php:341
 msgid ""
@@ -13633,7 +13633,7 @@ msgstr "Move columna"
 
 #: libraries/tbl_columns_definition_form.lib.php:363
 msgid "List of available transformations and their options"
-msgstr ""
+msgstr "Lista de transformationes disponibile e lor operationes"
 
 #: libraries/tbl_columns_definition_form.lib.php:368
 msgid ""
@@ -13713,15 +13713,15 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:116
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr ""
+msgstr "Le nomine del clave primari debe esser \"PRIMARY\"!"
 
 #: libraries/tbl_indexes.lib.php:126
 msgid "Can't rename index to PRIMARY!"
-msgstr ""
+msgstr "Non pote renominar indice a PRIMARY!"
 
 #: libraries/tbl_indexes.lib.php:142
 msgid "No index parts defined!"
-msgstr ""
+msgstr "Nulle partes de indice definite!"
 
 #: libraries/tbl_indexes.lib.php:283
 msgid "Index name:"
@@ -13836,6 +13836,7 @@ msgstr "Relationes interne ha essite actualisate on successo."
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
+"Error quando on creava clave extranee sur %1$s (verifica typos de datos)"
 
 #: libraries/tracking.lib.php:69
 #, php-format
@@ -14277,7 +14278,7 @@ msgstr ""
 
 #: tbl_chart.php:37
 msgid "No data to display"
-msgstr ""
+msgstr "Necun dato de monstrar"
 
 #: tbl_chart.php:61 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
@@ -15423,11 +15424,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
-msgstr ""
+msgstr "Insertiones concurrente de MyISAM"
 
 #: libraries/advisory_rules.txt:462
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr ""
+msgstr "Habilita (insertion concurrente) per poner lo a 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
@@ -15438,7 +15439,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert - insertion concurrente- es ponite a 0"
 
 #~ msgid "Replace table data with file"
 #~ msgstr "Reimplacia tabella de datos con file"
