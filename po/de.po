@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-18 18:02-0400\n"
+"POT-Creation-Date: 2015-07-19 05:31-0400\n"
 "PO-Revision-Date: 2015-06-24 09:21+0200\n"
 "Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5717,7 +5717,7 @@ msgstr "CodeMirror aktivieren"
 
 #: libraries/config/messages.inc.php:60
 msgid ""
-"Find any errors in the query before executing it.Requires CodeMirror to be "
+"Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
 

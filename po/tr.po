@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2015-07-18 18:02-0400\n"
+"POT-Creation-Date: 2015-07-19 05:31-0400\n"
 "PO-Revision-Date: 2015-07-19 11:25+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5635,15 +5635,18 @@ msgid "Enable CodeMirror"
 msgstr "CodeMirror etkinleştir"
 
 #: libraries/config/messages.inc.php:60
+#, fuzzy
+#| msgid ""
+#| "Find any errors in the query before executing it.Requires CodeMirror to "
+#| "be enabled."
 msgid ""
-"Find any errors in the query before executing it.Requires CodeMirror to be "
+"Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
 "Sorguyu çalıştırmadan önce sorgudaki herhangi bir hatayı bulur. "
 "CodeMirror'ın etkinleştirilmesi gerekir."
 
 #: libraries/config/messages.inc.php:62
-#| msgid "Enable SQL Validator"
 msgid "Enable linter"
 msgstr "Linter etkinleştir"
 
@@ -14719,7 +14722,6 @@ msgid "Pick from Central Columns"
 msgstr "Merkezi Sütunlardan seç"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
-#| msgid "Compression"
 msgid "Expression"
 msgstr "İfade"
 
