@@ -35,7 +35,7 @@ class TableChartController extends TableController
     protected $sql_query;
 
     /**
-     * @var $url_query
+     * @var string $url_query
      */
     protected $url_query;
 
@@ -44,6 +44,13 @@ class TableChartController extends TableController
      */
     protected $cfg;
 
+    /**
+     * Constructor
+     *
+     * @param string $sql_query
+     * @param string $url_query
+     * @param array $cfg
+     */
     function __construct($sql_query, $url_query, $cfg)
     {
         parent::__construct();
@@ -53,8 +60,10 @@ class TableChartController extends TableController
         $this->cfg = $cfg;
     }
 
-    /*
+    /**
      * Execute the query and return the result
+     *
+     * @return void
      */
     public function indexAction()
     {
@@ -173,6 +182,8 @@ class TableChartController extends TableController
 
     /**
      * Handle ajax request
+     *
+     * @return void
      */
     public function ajaxAction()
     {
@@ -213,7 +224,9 @@ class TableChartController extends TableController
         foreach ($data as $data_row_number => $data_row) {
             $tmp_row = array();
             foreach ($data_row as $data_column => $data_value) {
-                $tmp_row[htmlspecialchars($data_column)] = htmlspecialchars($data_value);
+                $tmp_row[htmlspecialchars($data_column)] = htmlspecialchars(
+                    $data_value
+                );
             }
             $sanitized_data[] = $tmp_row;
         }

@@ -2250,8 +2250,15 @@ class PMA_Table
      *
      * @return string SQL query for foreign key constraint creation
      */
-    private function _getSQLToCreateForeignKey($table, $field, $foreignDb, $foreignTable,
-        $foreignField, $name = null, $onDelete = null, $onUpdate = null
+    private function _getSQLToCreateForeignKey(
+        $table,
+        $field,
+        $foreignDb,
+        $foreignTable,
+        $foreignField,
+        $name = null,
+        $onDelete = null,
+        $onUpdate = null
     ) {
         $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD ';
         // if user entered a constraint name
@@ -2295,16 +2302,18 @@ class PMA_Table
             && PMA_MYSQL_INT_VERSION > 50705
             && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {
-            $sql = "SELECT
+            $sql
+                = "SELECT
                 `COLUMN_NAME` AS `Field`,
                 `GENERATION_EXPRESSION` AS `Expression`
                 FROM
                 `information_schema`.`COLUMNS`
                 WHERE
                 `TABLE_SCHEMA` = '" . PMA_Util::sqlAddSlashes($this->db_name) . "'
-                AND `TABLE_NAME` = '"  . PMA_Util::sqlAddSlashes($this->name) . "'";
+                AND `TABLE_NAME` = '" . PMA_Util::sqlAddSlashes($this->name) . "'";
             if ($column != null) {
-                $sql .= " AND  `COLUMN_NAME` = '"  . PMA_Util::sqlAddSlashes($column) . "'";
+                $sql .= " AND  `COLUMN_NAME` = '" . PMA_Util::sqlAddSlashes($column)
+                    . "'";
             }
             $columns = $this->dbi->fetchResult($sql, 'Field', 'Expression');
             return $columns;
@@ -2336,6 +2345,8 @@ class PMA_Table
 
     /**
      * Returns the CREATE statement for this table
+     *
+     * @return mixed
      */
     public function showCreate()
     {

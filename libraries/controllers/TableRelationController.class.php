@@ -77,6 +77,17 @@ class TableRelationController extends TableController
      */
     protected $upd_query;
 
+    /**
+     * Constructor
+     *
+     * @param array  $options_array
+     * @param array  $cfgRelation
+     * @param string $tbl_storage_engine
+     * @param array  $existrel
+     * @param array  $existrel_foreign
+     * @param string $disp
+     * @param string $upd_query
+     */
     public function __construct($options_array, $cfgRelation, $tbl_storage_engine,
         $existrel, $existrel_foreign, $disp, $upd_query
     ) {
@@ -91,6 +102,11 @@ class TableRelationController extends TableController
         $this->upd_query = $upd_query;
     }
 
+    /**
+     * Index
+     *
+     * @retun void
+     */
     public function indexAction()
     {
         // Send table of column names to populate corresponding dropdowns depending
@@ -134,12 +150,16 @@ class TableRelationController extends TableController
 
         // If we did an update, refresh our data
         if (isset($_POST['destination_db']) && $this->cfgRelation['relwork']) {
-            $this->existrel = PMA_getForeigners($this->db, $this->table, '', 'internal');
+            $this->existrel = PMA_getForeigners(
+                $this->db, $this->table, '', 'internal'
+            );
         }
         if (isset($_POST['destination_foreign_db'])
             && PMA_Util::isForeignKeySupported($this->tbl_storage_engine)
         ) {
-            $this->existrel_foreign = PMA_getForeigners($this->db, $this->table, '', 'foreign');
+            $this->existrel_foreign = PMA_getForeigners(
+                $this->db, $this->table, '', 'foreign'
+            );
         }
 
         if ($this->cfgRelation['displaywork']) {
@@ -169,7 +189,8 @@ class TableRelationController extends TableController
                     'cfgRelation' => $this->cfgRelation,
                     'tbl_storage_engine' => $this->tbl_storage_engine,
                     'existrel' => isset($this->existrel) ? $this->existrel : array(),
-                    'existrel_foreign' => isset($this->existrel_foreign) ? $this->existrel_foreign['foreign_keys_data'] : array(),
+                    'existrel_foreign' => isset($this->existrel_foreign)
+                        ? $this->existrel_foreign['foreign_keys_data'] : array(),
                     'options_array' => $this->options_array
                 )
             )
@@ -181,9 +202,17 @@ class TableRelationController extends TableController
         $this->response->addHTML('</div>');
     }
 
+    /**
+     * Update for display field
+     *
+     * @return void
+     */
     public function updateForDisplayField()
     {
-        if ($this->upd_query->updateDisplayField($this->disp, $_POST['display_field'], $this->cfgRelation)) {
+        if ($this->upd_query->updateDisplayField(
+            $this->disp, $_POST['display_field'], $this->cfgRelation
+        )
+        ) {
             $this->response->addHTML(
                 PMA_Util::getMessage(
                     __('Display column was successfully updated.'),
@@ -193,6 +222,11 @@ class TableRelationController extends TableController
         }
     }
 
+    /**
+     * Update for FK
+     *
+     * @return void
+     */
     public function updateForForeignKeysAction()
     {
         $multi_edit_columns_name = isset($_REQUEST['foreign_key_fields_name'])
@@ -201,12 +235,15 @@ class TableRelationController extends TableController
 
         // (for now, one index name only; we keep the definitions if the
         // foreign db is not the same)
-        list($html, $preview_sql_data, $display_query, $seen_error) = $this->upd_query->updateForeignKeys(
-            $_POST['destination_foreign_db'],
-            $multi_edit_columns_name, $_POST['destination_foreign_table'],
-            $_POST['destination_foreign_column'], $this->options_array, $this->table,
-            isset($this->existrel_foreign) ? $this->existrel_foreign['foreign_keys_data'] : null
-        );
+        list($html, $preview_sql_data, $display_query, $seen_error)
+            = $this->upd_query->updateForeignKeys(
+                $_POST['destination_foreign_db'],
+                $multi_edit_columns_name, $_POST['destination_foreign_table'],
+                $_POST['destination_foreign_column'], $this->options_array,
+                $this->table,
+                isset($this->existrel_foreign) ?
+                    $this->existrel_foreign['foreign_keys_data'] : null
+            );
         $this->response->addHTML($html);
 
         // If there is a request for SQL previewing.
@@ -225,6 +262,11 @@ class TableRelationController extends TableController
         }
     }
 
+    /**
+     * Update for internal relation
+     *
+     * @return void
+     */
     public function updateForInternalRelationAction()
     {
         $multi_edit_columns_name = isset($_REQUEST['fields_name'])

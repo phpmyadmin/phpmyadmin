@@ -43,6 +43,9 @@ abstract class Controller
      */
     protected $container;
 
+    /**
+     * Constructor
+     */
     function __construct()
     {
         $container = Container::getDefaultContainer();
