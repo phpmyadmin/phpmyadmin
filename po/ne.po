@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2014-08-26 15:28+0200\n"
+"PO-Revision-Date: 2015-07-19 05:08+0200\n"
 "Last-Translator: Nabin Ghimire <nnabinn@hotmail.com>\n"
-"Language-Team: Nepali <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ne/>\n"
+"Language-Team: Nepali "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-4/ne/>\n"
 "Language: ne\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -37,10 +37,10 @@ msgid "Click to sort."
 msgstr "क्रमबद्ध गर्नका लागि क्लिक गर्नुहोस।"
 
 #: db_central_columns.php:129
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "पङ्तिहरु %1$s - %2$s देखाउँदै"
+msgstr "%1$s - %2$s पङ्तिहरु देखाउँदै।"
 
 #: db_create.php:61
 #, php-format
@@ -344,7 +344,7 @@ msgstr ""
 
 #: db_tracking.php:79
 msgid "No tables selected."
-msgstr ""
+msgstr "कुनैपनि डेटाबेस चयन गरिएको छैन।"
 
 #: db_tracking.php:114
 msgid "Tracked tables"
@@ -360,7 +360,7 @@ msgstr "निर्माण गरियो/गरिएको छ"
 
 #: db_tracking.php:128 libraries/tracking.lib.php:277
 msgid "Updated"
-msgstr ""
+msgstr "सुधार गरियो"
 
 #: db_tracking.php:129 js/messages.php:212 libraries/Menu.class.php:545
 #: libraries/Util.class.php:4151 libraries/rte/rte_events.lib.php:404
@@ -3500,7 +3500,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:215
 #: libraries/tracking.lib.php:873
 msgid "Structure"
-msgstr ""
+msgstr "संरचना"
 
 #: libraries/Menu.class.php:317 libraries/Menu.class.php:421
 #: libraries/Menu.class.php:541 libraries/Util.class.php:3209
@@ -3781,7 +3781,7 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.class.php:120
 #: libraries/structure.lib.php:3102
 msgid "Tables"
-msgstr ""
+msgstr "टेबलहरु"
 
 #: libraries/ServerStatusData.class.php:202
 msgid "Transaction coordinator"
@@ -4500,7 +4500,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1162 libraries/structure.lib.php:2353
 #: libraries/tbl_printview.lib.php:308
 msgid "Data"
-msgstr ""
+msgstr "डाटा"
 
 #: libraries/build_html_for_db.lib.php:48 libraries/engines/innodb.lib.php:171
 #: libraries/server_databases.lib.php:173 libraries/server_status.lib.php:185
