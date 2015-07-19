@@ -1,6 +1,16 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Util file creation
+ *
+ * @package PhpMyAdmin
+ */
 
 namespace PMA\Util;
+
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Access to a multidimensional array by dot notation
