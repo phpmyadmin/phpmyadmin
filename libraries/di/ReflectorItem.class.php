@@ -10,6 +10,11 @@ namespace PMA\DI;
 
 require_once 'libraries/di/Item.int.php';
 
+/**
+ * Reflector manager
+ *
+ * @package PMA\DI
+ */
 abstract class ReflectorItem implements Item
 {
 
@@ -23,7 +28,7 @@ abstract class ReflectorItem implements Item
      * Constructor
      *
      * @param Container $container
-     * @param mixed $definition
+     * @param mixed     $definition
      */
     public function __construct(Container $container, $definition)
     {
@@ -34,7 +39,7 @@ abstract class ReflectorItem implements Item
     /**
      * Invoke the reflector with given parameters
      *
-     * @param array $params
+     * @param array $params Parameters
      * @return mixed
      */
     protected function invoke($params = array())
@@ -68,8 +73,9 @@ abstract class ReflectorItem implements Item
      * Getting required arguments with given parameters
      *
      * @param \ReflectionParameter[] $required
-     * @param array $params
-     * @return array
+     * @param array                  $params
+     *
+*@return array
      */
     private function _resolveArgs($required, $params = array())
     {
