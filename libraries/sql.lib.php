@@ -1772,7 +1772,7 @@ function PMA_getHtmlForIndexesProblems($query_type, $selectedTables, $db)
 /**
  * Function to display results when the executed query returns non empty results
  *
- * @param array              $result               executed query results
+ * @param object             $result               executed query results
  * @param array              $analyzed_sql_results analysed sql results
  * @param string             $db                   current database
  * @param string             $table                current table
