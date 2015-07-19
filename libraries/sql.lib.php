@@ -665,6 +665,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         && ! $analyzed_sql_results['is_func']
         && empty($analyzed_sql_results['union'])
         && empty($analyzed_sql_results['distinct'])
+        && $analyzed_sql_results['select_from']
         && count($analyzed_sql_results['select_tables'] <= 1)
         && (empty($analyzed_sql_results['statement']->where)
             || (count($analyzed_sql_results['statement']->where) == 1
