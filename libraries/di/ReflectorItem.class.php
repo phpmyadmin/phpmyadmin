@@ -27,8 +27,8 @@ abstract class ReflectorItem implements Item
     /**
      * Constructor
      *
-     * @param Container $container
-     * @param mixed     $definition
+     * @param Container $container  Container
+     * @param mixed     $definition Definition
      */
     public function __construct(Container $container, $definition)
     {
@@ -72,8 +72,8 @@ abstract class ReflectorItem implements Item
     /**
      * Getting required arguments with given parameters
      *
-     * @param \ReflectionParameter[] $required
-     * @param array                  $params
+     * @param \ReflectionParameter[] $required Arguments
+     * @param array                  $params   Parameters
      *
 *@return array
      */
@@ -107,7 +107,8 @@ abstract class ReflectorItem implements Item
     /**
      * Resolve the reflection
      *
-     * @param mixed $definition
+     * @param mixed $definition Definition
+     *
      * @return \Reflector
      */
     private static function _resolveReflector($definition)

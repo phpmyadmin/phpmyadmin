@@ -14,6 +14,11 @@ require_once 'libraries/di/ValueItem.class.php';
 require_once 'libraries/di/ServiceItem.class.php';
 require_once 'libraries/di/FactoryItem.class.php';
 
+/**
+ * Class Container
+ *
+ * @package PMA\DI
+ */
 class Container
 {
 
@@ -30,7 +35,7 @@ class Container
     /**
      * Create a dependency injection container
      *
-     * @param Container $base
+     * @param Container $base Container
      */
     function __construct(Container $base = null)
     {
@@ -45,8 +50,9 @@ class Container
     /**
      * Get an object with given name and parameters
      *
-     * @param string $name
-     * @param array $params
+     * @param string $name   Name
+     * @param array  $params Paramters
+     *
      * @return mixed
      */
     public function get($name, $params = array())
@@ -65,7 +71,9 @@ class Container
     /**
      * Remove an object from container
      *
-     * @param string $name
+     * @param string $name Name
+     *
+     * @return void
      */
     public function remove($name)
     {
@@ -75,8 +83,10 @@ class Container
     /**
      * Rename an object in container
      *
-     * @param string $name
-     * @param string $newName
+     * @param string $name    Name
+     * @param string $newName New name
+     *
+     * @return void
      */
     public function rename($name, $newName)
     {
@@ -87,8 +97,10 @@ class Container
     /**
      * Set values in the container
      *
-     * @param string|array $name
-     * @param mixed $value
+     * @param string|array $name  Name
+     * @param mixed        $value Value
+     *
+     * @return void
      */
     public function set($name, $value = null)
     {
@@ -104,8 +116,10 @@ class Container
     /**
      * Register a service in the container
      *
-     * @param string $name
-     * @param mixed $service
+     * @param string $name    Name
+     * @param mixed  $service Service
+     *
+     * @return void
      */
     public function service($name, $service = null)
     {
@@ -118,8 +132,10 @@ class Container
     /**
      * Register a factory in the container
      *
-     * @param string $name
-     * @param mixed $factory
+     * @param string $name    Name
+     * @param mixed  $factory Factory
+     *
+     * @return void
      */
     public function factory($name, $factory = null)
     {
@@ -132,8 +148,10 @@ class Container
     /**
      * Register an alias in the container
      *
-     * @param string $name
-     * @param string $target
+     * @param string $name   Name
+     * @param string $target Target
+     *
+     * @return void
      */
     public function alias($name, $target)
     {
@@ -143,6 +161,8 @@ class Container
 
     /**
      * Get the global default container
+     *
+     * @return Container
      */
     public static function getDefaultContainer()
     {

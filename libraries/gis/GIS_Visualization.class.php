@@ -95,9 +95,9 @@ class PMA_GIS_Visualization
     /**
      * Get visualization
      *
-     * @param array $options Users specified options
      * @param array $data    Raw data, if set, parameters other than $options will be
      *                       ignored
+     * @param array $options Users specified options
      *
      * @return PMA_GIS_Visualization
      */

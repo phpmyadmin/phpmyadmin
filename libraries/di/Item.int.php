@@ -8,13 +8,18 @@
 
 namespace PMA\DI;
 
+/**
+ * Interface Item
+ *
+ * @package PMA\DI
+ */
 interface Item
 {
 
     /**
      * Get a value from the item
      *
-     * @param array $params
+     * @param array $params Parameters
      * @return mixed
      */
     public function get($params = array());

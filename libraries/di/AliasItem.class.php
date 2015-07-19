@@ -10,6 +10,11 @@ namespace PMA\DI;
 
 require_once 'libraries/di/Item.int.php';
 
+/**
+ * Class AliasItem
+ *
+ * @package PMA\DI
+ */
 class AliasItem implements Item
 {
 
@@ -22,8 +27,8 @@ class AliasItem implements Item
     /**
      * Constructor
      *
-     * @param Container $container
-     * @param string $target
+     * @param Container $container Container
+     * @param string    $target    Target
      */
     function __construct(Container $container, $target)
     {
@@ -34,7 +39,7 @@ class AliasItem implements Item
     /**
      * Get the target item
      *
-     * @param array $params
+     * @param array $params Parameters
      * @return mixed
      */
     public function get($params = array())
