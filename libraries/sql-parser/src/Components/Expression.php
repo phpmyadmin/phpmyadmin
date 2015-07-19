@@ -239,6 +239,9 @@ class Expression extends Component
 
             if ($alias) {
                 // An alias is expected (the keyword `AS` was previously found).
+                if (!empty($ret->alias)) {
+                    $parser->error('An alias was previously found.', $token);
+                }
                 $ret->alias = $token->value;
                 $alias = 0;
             } else {
@@ -265,12 +268,18 @@ class Expression extends Component
                                 break;
                             }
 
-                            // Parsing aliases without `AS` keyword and any whitespace.
+                            // Parsing aliases without `AS` keyword and any
+                            // whitespace.
                             // Example: SELECT 1`foo`
                             if (($token->type === Token::TYPE_STRING)
                                 || (($token->type === Token::TYPE_SYMBOL)
                                 && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))
                             ) {
+                                if (!empty($ret->alias)) {
+                                    $parser->error(
+                                        'An alias was previously found.', $token
+                                    );
+                                }
                                 $ret->alias = $token->value;
                             }
                         } else {
@@ -285,6 +294,11 @@ class Expression extends Component
                         if (($token->type === Token::TYPE_NONE) || ($token->type === Token::TYPE_STRING)
                             || (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))
                         ) {
+                            if (!empty($ret->alias)) {
+                                $parser->error(
+                                    'An alias was previously found.', $token
+                                );
+                            }
                             $ret->alias = $token->value;
                             continue;
                         }
@@ -301,8 +315,8 @@ class Expression extends Component
             } else {
                 $prev = null;
             }
-
         }
+
         if ($alias === 2) {
             $parser->error('An alias was expected.', $list->tokens[$list->idx - 1]);
         }
