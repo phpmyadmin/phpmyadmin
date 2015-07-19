@@ -10,6 +10,11 @@ namespace PMA\DI;
 
 require_once 'libraries/di/ReflectorItem.class.php';
 
+/**
+ * Service manager
+ *
+ * @package PMA\DI
+ */
 class ServiceItem extends ReflectorItem
 {
 
@@ -19,8 +24,8 @@ class ServiceItem extends ReflectorItem
     /**
      * Constructor
      *
-     * @param Container $container
-     * @param mixed $definition
+     * @param Container $container  Container
+     * @param mixed     $definition Definition
      */
     function __construct(Container $container, $definition)
     {
@@ -30,7 +35,7 @@ class ServiceItem extends ReflectorItem
     /**
      * Get the instance of the service
      *
-     * @param array $params
+     * @param array $params Parameters
      * @return mixed
      */
     public function get($params = array())

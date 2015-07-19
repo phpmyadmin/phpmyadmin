@@ -10,6 +10,11 @@ namespace PMA\DI;
 
 require_once 'libraries/di/Item.int.php';
 
+/**
+ * Value manager
+ *
+ * @package PMA\DI
+ */
 class ValueItem implements Item
 {
 
@@ -19,7 +24,7 @@ class ValueItem implements Item
     /**
      * Constructor
      *
-     * @param $value
+     * @param mixed $value Value
      */
     function __construct($value)
     {
@@ -29,7 +34,7 @@ class ValueItem implements Item
     /**
      * Get the value
      *
-     * @param array $params
+     * @param array $params Parameters
      * @return mixed
      */
     public function get($params = array())
