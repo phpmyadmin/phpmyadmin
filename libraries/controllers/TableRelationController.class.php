@@ -105,7 +105,7 @@ class TableRelationController extends TableController
     /**
      * Index
      *
-     * @retun void
+     * @return void
      */
     public function indexAction()
     {

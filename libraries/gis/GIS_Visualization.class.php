@@ -660,9 +660,9 @@ class PMA_GIS_Visualization
     }
 
     /**
-     * Set user specific settings
+     * Set user specified settings
      *
-     * @param array $userSpecifiedSettings
+     * @param array $userSpecifiedSettings User specified settings
      *
      * @return void
      */

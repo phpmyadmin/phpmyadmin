@@ -24,6 +24,11 @@ require_once 'libraries/Index.class.php';
 require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/Template.class.php';
 
+/**
+ * Class TableIndexesController
+ *
+ * @package PMA\Controllers\Table
+ */
 class TableIndexesController extends TableController
 {
     /**
@@ -61,7 +66,7 @@ class TableIndexesController extends TableController
     /**
      * Display the form to edit/create an index
      *
-     * @retun void
+     * @return void
      */
     public function displayFormAction()
     {

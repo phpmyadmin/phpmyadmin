@@ -21,6 +21,11 @@ require_once 'libraries/gis/GIS_Visualization.class.php';
 require_once 'libraries/gis/GIS_Factory.class.php';
 require_once 'libraries/Message.class.php';
 
+/**
+ * Class TableGisVisualizationController
+ *
+ * @package PMA\Controllers\Table
+ */
 class TableGisVisualizationController extends TableController
 {
 

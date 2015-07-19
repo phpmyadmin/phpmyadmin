@@ -21,8 +21,8 @@ class FactoryItem extends ReflectorItem
     /**
      * Constructor
      *
-     * @param Container $container
-     * @param mixed     $definition
+     * @param Container $container  Container
+     * @param mixed     $definition Definition
      */
     function __construct(Container $container, $definition)
     {
@@ -32,7 +32,8 @@ class FactoryItem extends ReflectorItem
     /**
      * Construct an instance
      *
-     * @param array $params Paramters
+     * @param array $params Parameters
+     *
      * @return mixed
      */
     public function get($params = array())
