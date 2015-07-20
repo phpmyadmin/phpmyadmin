@@ -339,38 +339,28 @@ AJAX.registerOnload('tbl_change.js', function () {
         // validate the comment form when it is submitted
         $("#insertForm").validate();
         jQuery.validator.addMethod("validationFunctionForHex", function(value, element) {
-            if (value.match(/^[a-f0-9]*$/i) === null) {
-                return false;
-            } else {
-                return true;
-            }
+            return value.match(/^[a-f0-9]*$/i) !== null;
         });
 
         jQuery.validator.addMethod("validationFunctionForFuns", function(value, element, options) {
             if (value.substring(0, 3) === "AES" && options.data('type') !== 'HEX') {
                 return false;
-            } else if (value.substring(0, 3) === "MD5"
-                    && typeof options.data('maxlength') !== 'undefined'
-                    && options.data('maxlength') < 32) {
-                return false;
-            } else {
-                return true;
             }
+
+            return !(value.substring(0, 3) === "MD5"
+            && typeof options.data('maxlength') !== 'undefined'
+            && options.data('maxlength') < 32);
         });
 
         jQuery.validator.addMethod("validationFunctionForDateTime", function(value, element, options) {
             var dt_value = value;
             var theType = options;
             if (theType == "date") {
-                if (! isDate(dt_value)) {
-                    return false;
-                }
-                return true;
+                return isDate(dt_value);
+
             } else if (theType == "time") {
-                if (! isTime(dt_value)) {
-                    return false;
-                }
-                return true;
+                return isTime(dt_value);
+
             } else if (theType == "datetime" || theType == "timestamp") {
                 var tmstmp = false;
                 dt_value = dt_value.trim();
@@ -385,16 +375,12 @@ AJAX.registerOnload('tbl_change.js', function () {
                 }
                 var dv = dt_value.indexOf(" ");
                 if (dv == -1) { // Only the date component, which is valid
-                    if (!  isDate(dt_value, tmstmp)) {
-                        return false;
-                    }
-                    return true;
+                    return isDate(dt_value, tmstmp);
+
                 } else {
-                    if (! (isDate(dt_value.substring(0, dv), tmstmp)
-                        && isTime(dt_value.substring(dv + 1)))) {
-                        return false;
-                    }
-                    return true;
+                    return isDate(dt_value.substring(0, dv), tmstmp)
+                        && isTime(dt_value.substring(dv + 1));
+
                 }
             }
         });
