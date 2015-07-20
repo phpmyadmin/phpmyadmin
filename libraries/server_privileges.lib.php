@@ -1500,12 +1500,12 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
 
     $html_output .= '<div class="item">' . "\n"
         . '<label for="select_pred_hostname">' . "\n"
-        . '    ' . __('Host:') . "\n"
+        . '    ' . __('Host name:') . "\n"
         . '</label>' . "\n";
 
     $html_output .= '<span class="options">' . "\n"
         . '    <select name="pred_hostname" id="select_pred_hostname" '
-        . 'title="' . __('Host') . '"' . "\n";
+        . 'title="' . __('Host name') . '"' . "\n";
     $_current_user = $GLOBALS['dbi']->fetchValue('SELECT USER();');
     if (! empty($_current_user)) {
         $thishost = str_replace(
@@ -1607,7 +1607,7 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         . $hostname_length . '" value="'
         // use default value of '%' to match with the default 'Any host'
         . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '%')
-        . '" title="' . __('Host')
+        . '" title="' . __('Host name')
         . '" onchange="pred_hostname.value = \'userdefined\'; this.required = true;" '
         . ((isset($GLOBALS['pred_hostname'])
                 && $GLOBALS['pred_hostname'] == 'userdefined'
@@ -2238,8 +2238,8 @@ function PMA_getHtmlForPrivsTableHead()
     return '<thead>'
         . '<tr>'
         . '<th></th>'
-        . '<th>' . __('User') . '</th>'
-        . '<th>' . __('Host') . '</th>'
+        . '<th>' . __('User name') . '</th>'
+        . '<th>' . __('Host name') . '</th>'
         . '<th>' . __('Type') . '</th>'
         . '<th>' . __('Privileges') . '</th>'
         . '<th>' . __('Grant') . '</th>'
@@ -3200,7 +3200,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         . '<thead>' . "\n"
         . '<tr><th></th>' . "\n"
         . '<th>' . __('User name') . '</th>' . "\n"
-        . '<th>' . __('Host') . '</th>' . "\n"
+        . '<th>' . __('Host name') . '</th>' . "\n"
         . '<th>' . __('Password') . '</th>' . "\n"
         . '<th>' . __('Global privileges') . ' '
         . PMA_Util::showHint(

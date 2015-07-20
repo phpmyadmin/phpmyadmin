@@ -454,7 +454,9 @@ class PMA_Util
         $mysql = '5.5';
         $lang = 'en';
         if (defined('PMA_MYSQL_INT_VERSION')) {
-            if (PMA_MYSQL_INT_VERSION >= 50600) {
+            if (PMA_MYSQL_INT_VERSION >= 50700) {
+                $mysql = '5.7';
+            } else if (PMA_MYSQL_INT_VERSION >= 50600) {
                 $mysql = '5.6';
             } else if (PMA_MYSQL_INT_VERSION >= 50500) {
                 $mysql = '5.5';

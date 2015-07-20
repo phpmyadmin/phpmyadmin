@@ -241,10 +241,7 @@ function PMA_getHtmlForServerVariablesItems($variable_doc_links)
             $output .= '<span title="'
                 . __('This is a read-only variable and can not be edited')
                 . '" class="read_only_var" >'
-                . PMA_Util::getImage(
-                    's_error2.png',
-                    ''
-                )
+                . PMA_Util::getIcon('bd_edit.png', __('Edit'))
                 . '</span>';
         }
 
