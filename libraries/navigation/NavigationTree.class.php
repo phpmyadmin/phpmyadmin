@@ -1512,4 +1512,3 @@ class PMA_NavigationTree
         return $retval;
     }
 }
-?>

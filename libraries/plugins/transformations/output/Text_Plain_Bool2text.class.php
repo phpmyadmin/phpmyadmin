@@ -44,4 +44,3 @@ class Text_Plain_Bool2Text extends Bool2TextTransformationsPlugin
         return "Plain";
     }
 }
-?>

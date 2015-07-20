@@ -32,4 +32,3 @@ class BoolPropertyItem extends OptionsPropertyOneItem
         return "bool";
     }
 }
-?>

@@ -13,6 +13,23 @@ namespace SqlParser;
 
 use SqlParser\Exceptions\LexerException;
 
+if (!defined('USE_UTF_STRINGS')) {
+
+    /**
+     * Forces usage of `UtfString` if the string is multibyte.
+     * `UtfString` may be slower, but it gives better results.
+     * @var bool
+     */
+    define('USE_UTF_STRINGS', true);
+}
+
+// Set internal character to UTF-8.
+// In previous versions of PHP (5.5 and older) the default internal encoding is
+// "ISO-8859-1".
+if ((defined('USE_UTF_STRINGS')) && (USE_UTF_STRINGS)) {
+    mb_internal_encoding('UTF-8');
+}
+
 /**
  * Performs lexical analysis over a SQL statement and splits it in multiple
  * tokens.
@@ -149,11 +166,24 @@ class Lexer
      */
     public function __construct($str, $strict = false)
     {
+        // `strlen` is used instead of `mb_strlen` because the lexer needs to
+        // parse each byte of the input.
+        $len = ($str instanceof UtfString) ? $str->length() : strlen($str);
+
+        // For multi-byte strings, a new instance of `UtfString` is
+        // initialized (only if `UtfString` usage is forced.
+        if (!($str instanceof UtfString)) {
+            if ((USE_UTF_STRINGS) && ($len != mb_strlen($str))) {
+                $str = new UtfString($str);
+            }
+        }
+
         $this->str = $str;
-        $this->len = ($str instanceof UtfString) ?
-            $str->length() : strlen($str);
+        $this->len = ($str instanceof UtfString) ? $str->length() : $len;
+
         $this->strict = $strict;
 
+        // Setting the delimiter.
         $this->delimiter = static::$DEFAULT_DELIMITER;
 
         $this->lex();

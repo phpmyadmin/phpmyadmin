@@ -420,4 +420,3 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

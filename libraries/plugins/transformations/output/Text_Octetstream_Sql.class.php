@@ -42,4 +42,3 @@ class Text_Octetstream_Sql extends SQLTransformationsPlugin
         return "Octetstream";
     }
 }
-?>

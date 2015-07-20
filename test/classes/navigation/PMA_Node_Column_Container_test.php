@@ -48,4 +48,3 @@ class Node_Column_Container_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals('columns', $parent->real_name);
     }
 }
-?>

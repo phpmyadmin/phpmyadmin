@@ -33,6 +33,9 @@ abstract class TableController extends Controller
      */
     protected $table;
 
+    /**
+     * Constructor
+     */
     function __construct()
     {
         parent::__construct();

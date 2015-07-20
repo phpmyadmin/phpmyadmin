@@ -283,4 +283,3 @@ class TableProperty
         return $text;
     }
 }
-?>

@@ -168,4 +168,3 @@ class PMA_Kanji_Encoding_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

@@ -193,4 +193,3 @@ class PMA_TblIndexTest extends PHPUnit_Framework_TestCase
         $this->markTestIncomplete('Not yet implemented!');
     }
 }
-?>

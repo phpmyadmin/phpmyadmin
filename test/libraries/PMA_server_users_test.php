@@ -59,4 +59,3 @@ class PMA_ServerUsers_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

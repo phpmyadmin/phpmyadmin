@@ -42,4 +42,3 @@ class Text_Plain_PreApPend extends PreApPendTransformationsPlugin
         return "Plain";
     }
 }
-?>

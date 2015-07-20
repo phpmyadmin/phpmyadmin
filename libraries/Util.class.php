@@ -4835,6 +4835,8 @@ class PMA_Util
 
     /**
      * Returns whether the database server supports virtual columns
+     *
+     * @return bool
      */
     public static function isVirtualColumnsSupported()
     {
@@ -4863,4 +4865,3 @@ class PMA_Util
     }
 }
 
-?>

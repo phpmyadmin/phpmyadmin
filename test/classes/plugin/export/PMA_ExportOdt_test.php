@@ -1101,4 +1101,3 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

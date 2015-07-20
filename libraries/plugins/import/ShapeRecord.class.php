@@ -158,4 +158,3 @@ class PMA_ShapeRecord extends ShapeRecord
         }
     }
 }
-?>

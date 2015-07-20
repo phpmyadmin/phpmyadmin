@@ -75,4 +75,3 @@ class PMA_MessagesIncTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

@@ -231,4 +231,3 @@ class PMA_Navigation
         return $html;
     }
 }
-?>

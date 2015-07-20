@@ -139,12 +139,19 @@ class AlterOperation extends Component
                 break;
             }
 
-            // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
-                if ($state !== 2) {
-                    // State 2 parses the unknown part which must include whitespaces as well.
-                    continue;
+            // Skipping comments.
+            if ($token->type === Token::TYPE_COMMENT) {
+                continue;
+            }
+
+            // Skipping whitespaces.
+            if ($token->type === Token::TYPE_WHITESPACE) {
+                if ($state === 2) {
+                    // When parsing the unknown part, the whitespaces are
+                    // included to not break anything.
+                    $ret->unknown[] = $token;
                 }
+                continue;
             }
 
             if ($state === 0) {
@@ -177,6 +184,11 @@ class AlterOperation extends Component
                 }
                 $ret->unknown[] = $token;
             }
+        }
+
+        if ($ret->options->isEmpty()) {
+            $parser->error('Unrecognized alter operation.', $list->tokens[$list->idx]);
+            return null;
         }
 
         --$list->idx;

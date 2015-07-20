@@ -211,4 +211,3 @@ class Table_Stats_Pdf extends TableStats
     }
 }
 
-?>

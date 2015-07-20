@@ -130,4 +130,3 @@ class Relation_Stats_Pdf extends RelationStats
         $this->diagram->SetDrawColor(0);
     }
 }
-?>

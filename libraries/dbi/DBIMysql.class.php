@@ -466,4 +466,3 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
         return false;
     }
 }
-?>

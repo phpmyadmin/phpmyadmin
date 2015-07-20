@@ -78,4 +78,3 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     header('Location: index.php' . PMA_URL_getCommon() . '&page=config');
     exit;
 }
-?>

@@ -488,4 +488,3 @@ $GLOBALS['special_schema_links'] = array(
     )
 );
 
-?>

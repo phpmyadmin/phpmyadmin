@@ -212,4 +212,3 @@ class Relation_Stats_Dia
         );
     }
 }
-?>

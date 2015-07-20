@@ -73,4 +73,3 @@ abstract class SchemaPlugin
         $propertyGroup->addProperty($leaf);
     }
 }
-?>

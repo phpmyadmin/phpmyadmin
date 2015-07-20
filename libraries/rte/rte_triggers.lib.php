@@ -460,4 +460,3 @@ function PMA_TRI_getQueryFromRequest()
     return $query;
 } // end PMA_TRI_getQueryFromRequest()
 
-?>

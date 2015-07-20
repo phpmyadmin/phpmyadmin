@@ -217,4 +217,3 @@ class Table_Stats_Dia extends TableStats
         $this->diagram->endElement();
     }
 }
-?>

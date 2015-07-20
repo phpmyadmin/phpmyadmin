@@ -397,7 +397,9 @@ abstract class Context
      */
     public static function isSeparator($str)
     {
-        return !ctype_alnum($str) && $str !== '_';
+        // NOTES:   Only ASCII characters may be separators.
+        //          `~` is the last printable ASCII character.
+        return ($str <= '~') && (!ctype_alnum($str)) && ($str !== '_');
     }
 
     /**
@@ -434,7 +436,7 @@ abstract class Context
      * Loads the context with the closest version to the one specified.
      *
      * The closest context is found by replacing last digits with zero until one
-     * is loaded succesfully.
+     * is loaded successfully.
      *
      * @see Context::load()
      *
@@ -448,13 +450,12 @@ abstract class Context
         /**
          * The number of replaces done by `preg_replace`.
          * This actually represents whether a new context was generated or not.
-         * @var int
+         * @var int $count
          */
         $count = 0;
 
-        // As long as a new context can be generated, we try to laod it.
+        // As long as a new context can be generated, we try to load it.
         do {
-            $loaded = true;
             try {
                 // Trying to load the new context.
                 static::load($context);

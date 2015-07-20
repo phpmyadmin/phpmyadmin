@@ -291,4 +291,3 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

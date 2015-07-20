@@ -494,4 +494,3 @@ function PMA_dropMultiDatabases()
     }
 }
 
-?>

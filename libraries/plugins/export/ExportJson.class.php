@@ -228,4 +228,3 @@ class ExportJson extends ExportPlugin
         return true;
     }
 }
-?>

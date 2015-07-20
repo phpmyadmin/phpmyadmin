@@ -212,104 +212,104 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
     public function testGetColumnMetaForDefault()
     {
         // @todo Move test
-//        $cmeta = array(
-//            'Default' => null,
-//            'Null' => 'YES',
-//            'DefaultType' => 'a',
-//            'DefaultValue' => 'b',
-//        );
-//
-//        $result = PMA_getColumnMetaForDefault($cmeta, null);
-//
-//        $this->assertEquals(
-//            'NULL',
-//            $result['DefaultType']
-//        );
-//
-//        $this->assertEquals(
-//            '',
-//            $result['DefaultValue']
-//        );
-//
-//        // case 2
-//        $cmeta = array(
-//            'Default' => null,
-//            'Null' => 'NO',
-//            'DefaultType' => 'a',
-//            'DefaultValue' => 'b',
-//        );
-//
-//        $result = PMA_getColumnMetaForDefault($cmeta, true);
-//
-//        $this->assertEquals(
-//            'USER_DEFINED',
-//            $result['DefaultType']
-//        );
-//
-//        $this->assertEquals(
-//            null,
-//            $result['DefaultValue']
-//        );
-//
-//        // case 3
-//        $cmeta = array(
-//            'Default' => null,
-//            'Null' => 'NO',
-//            'DefaultType' => 'a',
-//            'DefaultValue' => 'b',
-//        );
-//
-//        $result = PMA_getColumnMetaForDefault($cmeta, false);
-//
-//        $this->assertEquals(
-//            'NONE',
-//            $result['DefaultType']
-//        );
-//
-//        $this->assertEquals(
-//            null,
-//            $result['DefaultValue']
-//        );
-//
-//        // case 4
-//        $cmeta = array(
-//            'Default' => 'CURRENT_TIMESTAMP',
-//            'Null' => 'NO',
-//            'DefaultType' => 'a',
-//            'DefaultValue' => 'b',
-//        );
-//
-//        $result = PMA_getColumnMetaForDefault($cmeta, false);
-//
-//        $this->assertEquals(
-//            'CURRENT_TIMESTAMP',
-//            $result['DefaultType']
-//        );
-//
-//        $this->assertEquals(
-//            null,
-//            $result['DefaultValue']
-//        );
-//
-//        // case 5
-//        $cmeta = array(
-//            'Default' => 'SOMETHING_ELSE',
-//            'Null' => 'NO',
-//            'DefaultType' => 'a',
-//            'DefaultValue' => 'b',
-//        );
-//
-//        $result = PMA_getColumnMetaForDefault($cmeta, false);
-//
-//        $this->assertEquals(
-//            'USER_DEFINED',
-//            $result['DefaultType']
-//        );
-//
-//        $this->assertEquals(
-//            'SOMETHING_ELSE',
-//            $result['DefaultValue']
-//        );
+        // $cmeta = array(
+        //     'Default' => null,
+        //     'Null' => 'YES',
+        //     'DefaultType' => 'a',
+        //     'DefaultValue' => 'b',
+        // );
+
+        // $result = PMA_getColumnMetaForDefault($cmeta, null);
+
+        // $this->assertEquals(
+        //     'NULL',
+        //     $result['DefaultType']
+        // );
+
+        // $this->assertEquals(
+        //     '',
+        //     $result['DefaultValue']
+        // );
+
+        // // case 2
+        // $cmeta = array(
+        //     'Default' => null,
+        //     'Null' => 'NO',
+        //     'DefaultType' => 'a',
+        //     'DefaultValue' => 'b',
+        // );
+
+        // $result = PMA_getColumnMetaForDefault($cmeta, true);
+
+        // $this->assertEquals(
+        //     'USER_DEFINED',
+        //     $result['DefaultType']
+        // );
+
+        // $this->assertEquals(
+        //     null,
+        //     $result['DefaultValue']
+        // );
+
+        // // case 3
+        // $cmeta = array(
+        //     'Default' => null,
+        //     'Null' => 'NO',
+        //     'DefaultType' => 'a',
+        //     'DefaultValue' => 'b',
+        // );
+
+        // $result = PMA_getColumnMetaForDefault($cmeta, false);
+
+        // $this->assertEquals(
+        //     'NONE',
+        //     $result['DefaultType']
+        // );
+
+        // $this->assertEquals(
+        //     null,
+        //     $result['DefaultValue']
+        // );
+
+        // // case 4
+        // $cmeta = array(
+        //     'Default' => 'CURRENT_TIMESTAMP',
+        //     'Null' => 'NO',
+        //     'DefaultType' => 'a',
+        //     'DefaultValue' => 'b',
+        // );
+
+        // $result = PMA_getColumnMetaForDefault($cmeta, false);
+
+        // $this->assertEquals(
+        //     'CURRENT_TIMESTAMP',
+        //     $result['DefaultType']
+        // );
+
+        // $this->assertEquals(
+        //     null,
+        //     $result['DefaultValue']
+        // );
+
+        // // case 5
+        // $cmeta = array(
+        //     'Default' => 'SOMETHING_ELSE',
+        //     'Null' => 'NO',
+        //     'DefaultType' => 'a',
+        //     'DefaultValue' => 'b',
+        // );
+
+        // $result = PMA_getColumnMetaForDefault($cmeta, false);
+
+        // $this->assertEquals(
+        //     'USER_DEFINED',
+        //     $result['DefaultType']
+        // );
+
+        // $this->assertEquals(
+        //     'SOMETHING_ELSE',
+        //     $result['DefaultValue']
+        // );
     }
 
     /**
@@ -742,4 +742,3 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         $this->markTestIncomplete('Not yet implemented!');
     }
 }
-?>

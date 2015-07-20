@@ -396,4 +396,3 @@ class PMA_Response
     }
 }
 
-?>

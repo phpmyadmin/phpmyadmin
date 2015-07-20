@@ -94,4 +94,3 @@ class PMA_NodeFactory
     }
 }
 
-?>

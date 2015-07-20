@@ -364,4 +364,3 @@ class PMA_GIS_LinestringTest extends PMA_GIS_GeomTest
         );
     }
 }
-?>

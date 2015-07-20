@@ -21,6 +21,11 @@ require_once 'libraries/gis/GIS_Visualization.class.php';
 require_once 'libraries/gis/GIS_Factory.class.php';
 require_once 'libraries/Message.class.php';
 
+/**
+ * Class TableGisVisualizationController
+ *
+ * @package PMA\Controllers\Table
+ */
 class TableGisVisualizationController extends TableController
 {
 
@@ -44,8 +49,22 @@ class TableGisVisualizationController extends TableController
      */
     protected $visualization;
 
-    public function __construct($sql_query, $url_params, $goto, $back, $visualizationSettings)
-    {
+    /**
+     * Constructor
+     *
+     * @param string $sql_query
+     * @param array  $url_params
+     * @param string $goto
+     * @param string $back
+     * @param array  $visualizationSettings
+     */
+    public function __construct(
+        $sql_query,
+        $url_params,
+        $goto,
+        $back,
+        $visualizationSettings
+    ) {
         parent::__construct();
 
         $this->sql_query = $sql_query;
@@ -55,6 +74,11 @@ class TableGisVisualizationController extends TableController
         $this->visualizationSettings = $visualizationSettings;
     }
 
+    /**
+     * Save to file
+     *
+     * @return void
+     */
     public function saveToFileAction()
     {
         $this->response->disable();
@@ -63,6 +87,11 @@ class TableGisVisualizationController extends TableController
         $this->visualization->toFile($file_name, $save_format);
     }
 
+    /**
+     * Index
+     *
+     * @return void
+     */
     public function indexAction()
     {
         // Throw error if no sql query is set

@@ -762,4 +762,3 @@ function PMA_getStatusVariablesDescriptions()
     );
 }
 
-?>

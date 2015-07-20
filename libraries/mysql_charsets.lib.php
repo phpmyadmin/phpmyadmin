@@ -382,4 +382,3 @@ function PMA_getCollationDescr($collation)
 
     return $descr;
 }
-?>

@@ -79,4 +79,3 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
         return "TextLink";
     }
 }
-?>

@@ -36,6 +36,11 @@ class FieldDefinition extends Component
      * @var array
      */
     public static $FIELD_OPTIONS = array(
+
+        // Tells the `OptionsArray` to not sort the options.
+        // See the note below.
+        '_UNSORTED'                     => true,
+
         'NOT NULL'                      => 1,
         'NULL'                          => 1,
         'DEFAULT'                       => array(2, 'var'),
@@ -48,13 +53,26 @@ class FieldDefinition extends Component
         'COLUMN_FORMAT'                 => array(6, 'var'),
         'ON UPDATE'                     => array(7, 'var'),
 
-        // MariaDB options.
-        'GENERATED ALWAYS'              => 1,
-        'AS'                            => array(2, 'expr', array('bracketsDelimited' => true)),
-        'VIRTUAL'                       => 3,
-        'PERSISTENT'                    => 3,
-        // 'UNIQUE'                        => 4, // common
-        // 'UNIQUE KEY'                    => 4, // common
+        // Generated columns options.
+        'GENERATED ALWAYS'              => 8,
+        'AS'                            => array(9, 'expr', array('bracketsDelimited' => true)),
+        'VIRTUAL'                       => 10,
+        'PERSISTENT'                    => 11,
+        'STORED'                        => 11,
+        // Common entries.
+        //
+        // NOTE: Some of the common options are not in the same order which
+        // causes troubles when checking if the options are in the right order.
+        // I should find a way to define multiple sets of options and make the
+        // parser select the right set.
+        //
+        // 'UNIQUE'                        => 4,
+        // 'UNIQUE KEY'                    => 4,
+        // 'COMMENT'                       => array(5, 'var'),
+        // 'NOT NULL'                      => 1,
+        // 'NULL'                          => 1,
+        // 'PRIMARY'                       => 4,
+        // 'PRIMARY KEY'                   => 4,
     );
 
     /**
@@ -153,7 +171,7 @@ class FieldDefinition extends Component
          *      4 --------------------[ REFERENCES ]------------------> 4
          *
          *      5 ------------------------[ , ]-----------------------> 1
-         *      5 ------------------------[ ) ]-----------------------> -1
+         *      5 ------------------------[ ) ]-----------------------> 6 (-1)
          *
          * @var int
          */
@@ -179,6 +197,9 @@ class FieldDefinition extends Component
             if ($state === 0) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
                     $state = 1;
+                } else {
+                    $parser->error('An opening bracket was expected.', $token);
+                    break;
                 }
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'CONSTRAINT')) {
@@ -213,13 +234,12 @@ class FieldDefinition extends Component
                 $expr = new FieldDefinition();
                 if ($token->value === ',') {
                     $state = 1;
-                    continue;
                 } elseif ($token->value === ')') {
+                    $state = 6;
                     ++$list->idx;
                     break;
                 }
             }
-
         }
 
         // Last iteration was not saved.
@@ -227,12 +247,16 @@ class FieldDefinition extends Component
             $ret[] = $expr;
         }
 
+        if (($state !== 0) && ($state !== 6)) {
+            $parser->error('A closing bracket was expected.', $list->tokens[$list->idx - 1]);
+        }
+
         --$list->idx;
         return $ret;
     }
 
     /**
-     * @param FieldDefinition[] $component The component to be built.
+     * @param FieldDefinition|FieldDefinition[] $component The component to be built.
      *
      * @return string
      */

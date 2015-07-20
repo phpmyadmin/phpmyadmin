@@ -42,4 +42,3 @@ class Node_Index extends Node
     }
 }
 
-?>

@@ -105,4 +105,3 @@ if ($showtable) {
         : $pack_keys;
     unset($create_options, $each_create_option);
 } // end if
-?>

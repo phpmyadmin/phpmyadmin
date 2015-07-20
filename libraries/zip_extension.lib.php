@@ -192,4 +192,3 @@ function PMA_getZipError($code)
     }
     return $message;
 }
-?>

@@ -376,4 +376,3 @@ class ExportMediawiki extends ExportPlugin
         return "\n";
     }
 }
-?>

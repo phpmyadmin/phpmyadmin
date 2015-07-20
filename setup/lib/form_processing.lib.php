@@ -78,4 +78,3 @@ function PMA_generateHeader303()
         exit;
     }
 }
-?>

@@ -3133,4 +3133,3 @@ class PMA_DatabaseInterface
         return new PMA_Table($table_name, $db_name, $this);
     }
 }
-?>

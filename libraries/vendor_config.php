@@ -90,4 +90,3 @@ define('PHPSECLIB_INC_DIR', './libraries/phpseclib/');
  */
 define('K_PATH_IMAGES', '');
 
-?>

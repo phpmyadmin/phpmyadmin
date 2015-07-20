@@ -228,4 +228,3 @@ class Form
         $this->readTypes();
     }
 }
-?>

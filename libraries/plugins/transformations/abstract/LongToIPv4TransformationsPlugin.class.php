@@ -65,4 +65,3 @@ abstract class LongToIPv4TransformationsPlugin extends TransformationsPlugin
         return "Long To IPv4";
     }
 }
-?>

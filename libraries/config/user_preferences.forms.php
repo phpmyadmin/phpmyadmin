@@ -70,6 +70,7 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'MaxCharactersInDisplayedSQL',
     'RetainQueryBox',
     'CodemirrorEnable',
+    'LintEnable',
     'EnableAutocompleteForTablesAndColumns',
     'DefaultForeignKeyChecks');
 $forms['Sql_queries']['Sql_box'] = array(
@@ -296,4 +297,3 @@ $forms['Export']['Texy'] = array(
     ':group:' . __('Data'),
         'Export/texytext_null',
         'Export/texytext_columns');
-?>

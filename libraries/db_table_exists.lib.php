@@ -103,4 +103,3 @@ if (empty($is_table)
         }
     }
 } // end if (ensures table exists)
-?>

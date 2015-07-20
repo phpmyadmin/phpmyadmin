@@ -246,4 +246,3 @@ class PMA_NavigationHeader
         return $retval;
     }
 }
-?>

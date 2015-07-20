@@ -123,4 +123,3 @@ class PMA_List_Database_Test extends PHPUnit_Framework_TestCase
     }
 
 }
-?>

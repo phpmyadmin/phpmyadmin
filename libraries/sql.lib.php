@@ -665,6 +665,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         && ! $analyzed_sql_results['is_func']
         && empty($analyzed_sql_results['union'])
         && empty($analyzed_sql_results['distinct'])
+        && $analyzed_sql_results['select_from']
         && count($analyzed_sql_results['select_tables'] <= 1)
         && (empty($analyzed_sql_results['statement']->where)
             || (count($analyzed_sql_results['statement']->where) == 1
@@ -1772,7 +1773,7 @@ function PMA_getHtmlForIndexesProblems($query_type, $selectedTables, $db)
 /**
  * Function to display results when the executed query returns non empty results
  *
- * @param array              $result               executed query results
+ * @param object             $result               executed query results
  * @param array              $analyzed_sql_results analysed sql results
  * @param string             $db                   current database
  * @param string             $table                current table
@@ -2189,4 +2190,3 @@ function PMA_calculatePosForLastPage($db, $table, $pos)
     return $pos;
 }
 
-?>

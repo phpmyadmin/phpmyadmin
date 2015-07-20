@@ -2162,4 +2162,3 @@ function PMA_moveOrCopyTable($db, $table)
         exit;
     }
 }
-?>

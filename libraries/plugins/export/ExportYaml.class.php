@@ -209,4 +209,3 @@ class ExportYaml extends ExportPlugin
         return true;
     } // end getTableYAML
 }
-?>

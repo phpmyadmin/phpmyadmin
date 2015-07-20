@@ -42,4 +42,3 @@ class Text_Plain_Dateformat extends DateFormatTransformationsPlugin
         return "Plain";
     }
 }
-?>

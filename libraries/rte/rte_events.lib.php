@@ -604,4 +604,3 @@ function PMA_EVN_getQueryFromRequest()
     return $query;
 } // end PMA_EVN_getQueryFromRequest()
 
-?>

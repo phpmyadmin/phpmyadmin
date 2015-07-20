@@ -407,6 +407,10 @@ class PMA_Header
                     $this->_scripts->addFile('codemirror/addon/runmode/runmode.js');
                     $this->_scripts->addFile('codemirror/addon/hint/show-hint.js');
                     $this->_scripts->addFile('codemirror/addon/hint/sql-hint.js');
+                    if ($GLOBALS['cfg']['LintEnable']) {
+                        $this->_scripts->addFile('codemirror/addon/lint/lint.js');
+                        $this->_scripts->addFile('codemirror/addon/lint/sql-lint.js');
+                    }
                 }
                 $this->_scripts->addCode(
                     'ConsoleEnterExecutes='
@@ -659,6 +663,8 @@ class PMA_Header
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'js/codemirror/addon/hint/show-hint.css" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
+                . $basedir . 'js/codemirror/addon/lint/lint.css" />';
+            $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'phpmyadmin.css.php?'
                 . 'nocache=' . $theme_id . $GLOBALS['text_dir'] . '" />';
             // load Print view's CSS last, so that it overrides all other CSS while 'printing'
@@ -773,4 +779,3 @@ class PMA_Header
     }
 }
 
-?>

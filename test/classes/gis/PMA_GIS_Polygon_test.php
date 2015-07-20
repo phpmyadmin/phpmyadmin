@@ -588,4 +588,3 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
         );
     }
 }
-?>

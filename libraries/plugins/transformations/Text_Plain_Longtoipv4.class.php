@@ -41,4 +41,3 @@ class Text_Plain_Longtoipv4 extends LongToIPv4TransformationsPlugin
         return "Plain";
     }
 }
-?>

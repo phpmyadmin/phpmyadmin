@@ -83,4 +83,3 @@ class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationsPlugin
         return "Plain";
     }
 }
-?>

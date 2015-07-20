@@ -54,4 +54,3 @@ class Node_Function extends Node_DatabaseChild
     }
 }
 
-?>

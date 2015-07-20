@@ -1404,4 +1404,3 @@ function PMA_getHTMLforEditingPage($selected_fld,$selected_db)
     $html .= '</form>';
     return $html;
 }
-?>

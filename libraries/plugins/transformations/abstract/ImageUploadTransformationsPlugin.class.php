@@ -111,4 +111,3 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
         return "Image upload";
     }
 }
-?>

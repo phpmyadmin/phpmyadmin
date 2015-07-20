@@ -966,4 +966,3 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
         return '';
     }
 }
-?>

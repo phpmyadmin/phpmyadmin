@@ -224,4 +224,3 @@ class PMA_DesginerTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

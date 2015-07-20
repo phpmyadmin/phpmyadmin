@@ -31,4 +31,3 @@ class PMA_StorageEngine_Memory extends PMA_StorageEngine
     }
 }
 
-?>

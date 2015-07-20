@@ -106,4 +106,3 @@ class PMA_NavigationTreeTest extends PHPUnit_Framework_TestCase
         $this->assertContains('pma_navigation_select_database', $result);
     }
 }
-?>

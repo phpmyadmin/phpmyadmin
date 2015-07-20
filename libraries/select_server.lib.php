@@ -112,4 +112,3 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
 
     return $retval;
 }
-?>

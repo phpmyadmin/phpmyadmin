@@ -50,4 +50,3 @@ PMA_Util::checkParameters(
  */
 require_once './libraries/server_common.lib.php';
 
-?>

@@ -48,4 +48,3 @@ class Node_Database_Container extends Node
         }
     }
 }
-?>

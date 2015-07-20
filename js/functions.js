@@ -112,6 +112,17 @@ function PMA_getSQLEditor($textarea, options, resize) {
             mode: "text/x-mysql",
             lineWrapping: true
         };
+
+        if (CodeMirror.sqlLint) {
+            $.extend(defaults, {
+                gutters: ["CodeMirror-lint-markers"],
+                lint: {
+                    "getAnnotations": CodeMirror.sqlLint,
+                    "async": true,
+                }
+            });
+        }
+
         $.extend(true, defaults, options);
 
         // create CodeMirror editor

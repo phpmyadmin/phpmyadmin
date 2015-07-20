@@ -271,4 +271,3 @@ if ($cfg['ShowStats']) {
 $response->addHTML(
     '<div class="clearfloat"></div>'
 );
-?>

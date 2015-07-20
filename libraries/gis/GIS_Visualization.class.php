@@ -75,16 +75,42 @@ class PMA_GIS_Visualization
         return $this->_settings;
     }
 
+    /**
+     * Factory
+     *
+     * @param string  $sql_query SQL to fetch raw data for visualization
+     * @param array   $options   Users specified options
+     * @param integer $row       number of rows
+     * @param integer $pos       start position
+     *
+     * @return PMA_GIS_Visualization
+     *
+     * @access public
+     */
     public static function get($sql_query, $options, $row, $pos)
     {
         return new PMA_GIS_Visualization($sql_query, $options, $row, $pos);
     }
 
+    /**
+     * Get visualization
+     *
+     * @param array $data    Raw data, if set, parameters other than $options will be
+     *                       ignored
+     * @param array $options Users specified options
+     *
+     * @return PMA_GIS_Visualization
+     */
     public static function getByData($data, $options)
     {
         return new PMA_GIS_Visualization(null, $options, null, null, $data);
     }
 
+    /**
+     * Check if data as srid
+     *
+     * @return bool
+     */
     public function hasSrid()
     {
         foreach ($this->_data as $row) {
@@ -132,9 +158,9 @@ class PMA_GIS_Visualization
     /**
      * Returns sql for fetching raw data
      *
-     * @param string $sql_query The SQL to modify.
-     * @param integer $rows     Number of rows.
-     * @param integer $pos      Start posistion.
+     * @param string  $sql_query The SQL to modify.
+     * @param integer $rows      Number of rows.
+     * @param integer $pos       Start position.
      *
      * @return string the modified sql query.
      */
@@ -450,6 +476,13 @@ class PMA_GIS_Visualization
         $pdf->Output($file_name, 'D');
     }
 
+    /**
+     * Convert file to image
+     *
+     * @param string $format Output format
+     *
+     * @return string File
+     */
     public function toImage($format)
     {
         if ($format == 'svg') {
@@ -461,6 +494,14 @@ class PMA_GIS_Visualization
         }
     }
 
+    /**
+     * Convert file to given format
+     *
+     * @param string $filename Filename
+     * @param string $format   Output format
+     *
+     * @return void
+     */
     public function toFile($filename, $format)
     {
         if ($format == 'svg') {
@@ -619,11 +660,14 @@ class PMA_GIS_Visualization
     }
 
     /**
-     * @param array $userSpecifiedSettings
+     * Set user specified settings
+     *
+     * @param array $userSpecifiedSettings User specified settings
+     *
+     * @return void
      */
     public function setUserSpecifiedSettings($userSpecifiedSettings)
     {
         $this->_userSpecifiedSettings = $userSpecifiedSettings;
     }
 }
-?>

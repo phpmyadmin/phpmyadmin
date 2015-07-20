@@ -448,4 +448,3 @@ class PMA_StorageEngine
     }
 }
 
-?>

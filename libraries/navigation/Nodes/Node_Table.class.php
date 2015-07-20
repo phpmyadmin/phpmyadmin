@@ -300,4 +300,3 @@ class Node_Table extends Node_DatabaseChild
     }
 }
 
-?>

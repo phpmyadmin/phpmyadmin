@@ -57,6 +57,9 @@ $strConfigCodemirrorEnable_desc = __(
     . 'line numbers.'
 );
 $strConfigCodemirrorEnable_name = __('Enable CodeMirror');
+$strConfigLintEnable_desc = __('Find any errors in the query before executing it.'
+    . ' Requires CodeMirror to be enabled.');
+$strConfigLintEnable_name = __('Enable linter');
 $strConfigMinSizeForInputField_desc = __(
     'Defines the minimum size for input fields generated for CHAR and VARCHAR '
     . 'columns.'
@@ -856,4 +859,3 @@ $strConfigZeroConf_desc = __(
 );
 $strConfigZeroConf_name = __('Enable Zero Configuration mode');
 
-?>

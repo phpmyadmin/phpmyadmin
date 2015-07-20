@@ -79,4 +79,3 @@ function PMA_getHtmlForCreateTable($db)
 if (!defined('TESTSUITE')) {
     echo PMA_getHtmlForCreateTable($db);
 }
-?>

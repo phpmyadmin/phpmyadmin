@@ -51,4 +51,3 @@ class PMA_IsForeignKeySupportedTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

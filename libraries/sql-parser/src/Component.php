@@ -34,8 +34,11 @@ abstract class Component
      *
      * @return mixed
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
-    {
+    public static function parse(
+        Parser $parser,
+        TokensList $list,
+        array $options = array()
+    ) {
         // This method should be abstract, but it can't be both static and
         // abstract.
         return null;
@@ -65,7 +68,7 @@ abstract class Component
      *
      * @return string
      */
-    public function __toString() 
+    public function __toString()
     {
         return static::build($this);
     }

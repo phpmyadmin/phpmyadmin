@@ -26,39 +26,31 @@ class Array2d extends Component
 {
 
     /**
-     * An array with the values of the row to be inserted.
-     *
-     * @var array
-     */
-    public $values;
-
-    /**
      * @param Parser     $parser  The parser that serves as context.
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return Array2d
+     * @return ArrayObj[]
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = array();
 
-        $expr = new Array2d();
-        $value = '';
+        /**
+         * The number of values in each set.
+         * @var int
+         */
+        $count = -1;
 
         /**
          * The state of the parser.
          *
          * Below are the states of the parser.
          *
-         *      0 ------------------------[ ( ]-----------------------> 1
+         *      0 ----------------------[ array ]---------------------> 1
          *
-         *      1 ----------------------[ value ]---------------------> 2
-         *
-         *      2 ------------------------[ , ]-----------------------> 1
-         *      2 ------------------------[ ) ]-----------------------> 3
-         *
-         *      3 ---------------------[ options ]--------------------> 4
+         *      1 ------------------------[ , ]------------------------> 0
+         *      1 -----------------------[ else ]----------------------> -1
          *
          * @var int
          */
@@ -86,40 +78,34 @@ class Array2d extends Component
                 break;
             }
 
-            if ($token->type === Token::TYPE_OPERATOR) {
+            if ($state === 0) {
                 if ($token->value === '(') {
-                    $state = 1;
-                    continue;
-                } elseif ($token->value === ',') {
-                    if ($state !== 3) {
-                        $expr->values[] = $value;
-                        $value = '';
-                        $state = 1;
+                    $arr = ArrayObj::parse($parser, $list, $options);
+                    $arrCount = count($arr->values);
+                    if ($count === -1) {
+                        $count = $arrCount;
+                    } elseif ($arrCount != $count) {
+                        $parser->error("{$count} values were expected, but found {$arrCount}.", $token);
                     }
-                    continue;
-                } elseif ($token->value === ')') {
-                    $state = 3;
-                    $expr->values[] = $value;
-                    $ret[] = $expr;
-                    $value = '';
-                    $expr = new Array2d();
-                    continue;
+                    $ret[] = $arr;
+                    $state = 1;
+                } else {
+                    break;
                 }
-
-                // No other operator is expected.
-                break;
+            } elseif ($state === 1) {
+                if ($token->value === ',') {
+                    $state = 0;
+                } else {
+                    break;
+                }
             }
-
-            if ($state === 1) {
-                $value .= $token->value;
-                $state = 2;
-            }
-
         }
 
-        // Last iteration was not saved.
-        if (!empty($expr->values)) {
-            $ret[] = $expr;
+        if ($state === 0) {
+            $parser->error(
+                'An opening bracket followed by a set of values was expected.',
+                $list->tokens[$list->idx]
+            );
         }
 
         --$list->idx;

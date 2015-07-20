@@ -1,14 +1,25 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Util file creation
+ *
+ * @package PhpMyAdmin
+ */
 
 namespace PMA\Util;
+
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Access to a multidimensional array by dot notation
  *
- * @param array         $array
- * @param string|array  $path
- * @param mixed         $default
- * @return mixed
+ * @param array        $array   List of values
+ * @param string|array $path    Path to searched value
+ * @param mixed        $default Default value
+ *
+ * @return mixed Searched value
  */
 function get($array, $path, $default = null)
 {

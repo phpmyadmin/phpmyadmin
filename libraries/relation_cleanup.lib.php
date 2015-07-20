@@ -215,6 +215,8 @@ function PMA_relationsCleanupDatabase($db)
  * Cleanup user related relation stuff
  *
  * @param string $username username
+ *
+ * @return void
  */
 function PMA_relationsCleanupUser($username)
 {
@@ -291,4 +293,3 @@ function PMA_relationsCleanupUser($username)
     }
 }
 
-?>

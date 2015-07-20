@@ -45,4 +45,3 @@ abstract class Node_DatabaseChild_Container extends Node_DatabaseChild
         return 'group';
     }
 }
-?>

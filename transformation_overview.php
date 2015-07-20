@@ -71,4 +71,3 @@ $th = array(
     </table>
     <?php
 } // End of foreach ($transformation_types)
-?>

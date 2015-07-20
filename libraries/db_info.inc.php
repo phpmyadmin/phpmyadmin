@@ -246,4 +246,3 @@ unset($each_table, $db_info_result);
 if (empty($sub_part)) {
     $sub_part = '_structure';
 }
-?>

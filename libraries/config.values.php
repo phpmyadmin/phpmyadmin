@@ -272,4 +272,3 @@ $cfg_db['_userValidators'] = array(
         array('validateUpperBound', 'value:QueryHistoryMax')
     )
 );
-?>

@@ -762,4 +762,3 @@ class ExportOdt extends ExportPlugin
         return $definition;
     }
 }
-?>

@@ -92,4 +92,3 @@ abstract class IOTransformationsPlugin extends TransformationsPlugin
         $this->error = '';
     }
 }
-?>

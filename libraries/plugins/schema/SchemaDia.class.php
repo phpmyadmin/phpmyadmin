@@ -114,4 +114,3 @@ class SchemaDia extends SchemaPlugin
         $export->showOutput();
     }
 }
-?>

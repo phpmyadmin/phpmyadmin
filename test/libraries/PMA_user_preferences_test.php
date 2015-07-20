@@ -444,4 +444,3 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

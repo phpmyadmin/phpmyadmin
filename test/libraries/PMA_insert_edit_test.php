@@ -3087,4 +3087,3 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-?>

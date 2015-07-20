@@ -24,6 +24,11 @@ require_once 'libraries/Index.class.php';
 require_once 'libraries/controllers/TableController.class.php';
 require_once 'libraries/Template.class.php';
 
+/**
+ * Class TableIndexesController
+ *
+ * @package PMA\Controllers\Table
+ */
 class TableIndexesController extends TableController
 {
     /**
@@ -31,6 +36,11 @@ class TableIndexesController extends TableController
      */
     protected $index;
 
+    /**
+     * Constructor
+     *
+     * @param PMA_Index $index Index
+     */
     function __construct($index)
     {
         parent::__construct();
@@ -38,6 +48,11 @@ class TableIndexesController extends TableController
         $this->index = $index;
     }
 
+    /**
+     * Index
+     *
+     * @return void
+     */
     public function indexAction()
     {
         if (isset($_REQUEST['do_save_data'])) {
@@ -50,6 +65,8 @@ class TableIndexesController extends TableController
 
     /**
      * Display the form to edit/create an index
+     *
+     * @return void
      */
     public function displayFormAction()
     {
@@ -73,12 +90,14 @@ class TableIndexesController extends TableController
         if (isset($_REQUEST['create_edit_table'])) {
             $fields = json_decode($_REQUEST['columns'], true);
             $index_params = array(
-                'Non_unique' => ($_REQUEST['index']['Index_choice'] == 'UNIQUE') ? '0' : '1'
+                'Non_unique' => ($_REQUEST['index']['Index_choice'] == 'UNIQUE')
+                    ? '0' : '1',
             );
             $this->index->set($index_params);
             $add_fields = count($fields);
         } else {
-            $fields = $this->dbi->getTable($this->db, $this->table)->getNameAndTypeOfTheColumns();
+            $fields = $this->dbi->getTable($this->db, $this->table)
+                ->getNameAndTypeOfTheColumns();
         }
 
         $form_params = array(
@@ -112,6 +131,8 @@ class TableIndexesController extends TableController
      * Process the data from the edit/create index form,
      * run the query to build the new index
      * and moves back to "tbl_sql.php"
+     *
+     * @return void
      */
     public function doSaveDataAction()
     {

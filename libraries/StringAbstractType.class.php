@@ -32,4 +32,3 @@ abstract class PMA_StringAbstractType implements PMA_StringType
         return ($num >= $lower && $num <= $upper);
     }
 }
-?>

@@ -65,4 +65,3 @@ abstract class CodeMirrorEditorTransformationsPlugin extends IOTransformationsPl
         return $html;
     }
 }
-?>

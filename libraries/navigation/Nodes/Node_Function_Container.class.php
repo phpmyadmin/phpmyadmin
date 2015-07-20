@@ -52,4 +52,3 @@ class Node_Function_Container extends Node_DatabaseChild_Container
     }
 }
 
-?>

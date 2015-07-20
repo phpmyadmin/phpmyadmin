@@ -141,4 +141,3 @@ class SchemaPdf extends SchemaPlugin
         $export->showOutput();
     }
 }
-?>

@@ -129,4 +129,3 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_URL_getCommon());
     }
 }
-?>

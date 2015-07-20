@@ -117,4 +117,3 @@ function PMA_convertString($src_charset, $dest_charset, $what)
     }
 } //  end of the "PMA_convertString()" function
 
-?>

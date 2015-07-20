@@ -371,4 +371,3 @@ class ExportPdf extends ExportPlugin
         $this->_pdfReportTitle = $pdfReportTitle;
     }
 }
-?>
