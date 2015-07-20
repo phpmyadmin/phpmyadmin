@@ -1807,6 +1807,7 @@ div.sqlvalidate {
     margin-bottom: 0;
     max-height: 10em;
     overflow: auto;
+    direction: ltr;
 }
 
 .result_query div.sqlOuter {
@@ -3523,3 +3524,18 @@ th.headerSortDown .sorticon, th.headerSortUp:hover .sorticon {
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
 }
 /* end of styles of sortable tables */
+
+/* styles for jQuery-ui to support rtl languages */
+body .ui-dialog .ui-dialog-titlebar-close {
+    <?php echo $right; ?>: .3em;
+    <?php echo $left; ?>: initial;
+}
+
+body .ui-dialog .ui-dialog-title {
+    float: <?php echo $left; ?>;
+}
+
+body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+    float: <?php echo $right; ?>;
+}
+/* end of styles for jQuery-ui to support rtl languages */
