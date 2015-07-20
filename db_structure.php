@@ -170,7 +170,8 @@ foreach ($tables as $keyname => $current_table) {
                 $is_show_stats, $table_is_view, $sum_size, $overhead_size
             );
 
-    if (! PMA_Table::isMerge($db, $current_table['TABLE_NAME'])) {
+    $_table = new PMA_Table($current_table['TABLE_NAME'], $db);
+    if (! $_table->isMerge()) {
         $sum_entries += $current_table['TABLE_ROWS'];
     }
 

@@ -241,7 +241,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 if ($plugin_param['export_type'] == 'table') {
-                    if (PMA_Table::isView($GLOBALS['db'], $GLOBALS['table'])) {
+                    if ($GLOBALS['dbi']->getTable($GLOBALS['db'], $GLOBALS['table'])->isView()) {
                         $drop_clause = '<code>DROP VIEW</code>';
                     } else {
                         $drop_clause = '<code>DROP TABLE</code>';
@@ -1355,7 +1355,7 @@ class ExportSql extends ExportPlugin
         $schema_create .= $new_crlf;
 
         // no need to generate a DROP VIEW here, it was done earlier
-        if (! empty($sql_drop_table) && ! PMA_Table::isView($db, $table)) {
+        if (! empty($sql_drop_table) && ! $GLOBALS['dbi']->getTable($db, $table)->isView()) {
             $schema_create .= 'DROP TABLE IF EXISTS '
                 . PMA_Util::backquote($table_alias, $sql_backquotes) . ';'
                 . $crlf;
@@ -1987,7 +1987,8 @@ class ExportSql extends ExportPlugin
 
         // Do not export data for a VIEW, unless asked to export the view as a table
         // (For a VIEW, this is called only when exporting a single VIEW)
-        if (PMA_Table::isView($db, $table)
+        $_table = new PMA_Table($table, $db);
+        if ($_table->isView()
             && empty($GLOBALS['sql_views_as_tables'])
         ) {
             $head = $this->_possibleCRLF()

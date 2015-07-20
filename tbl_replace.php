@@ -424,9 +424,9 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     );
 
     /**Get the total row count of the table*/
-    $extra_data['row_count'] = PMA_Table::countRecords(
-        $_REQUEST['db'], $_REQUEST['table']
-    );
+    $_table = new PMA_Table($_REQUEST['table'], $_REQUEST['db']);
+    $extra_data['row_count'] =
+    $extra_data['row_count'] = $_table->countRecords();
 
     $extra_data['sql_query']
         = PMA_Util::getMessage($message, $GLOBALS['display_query']);

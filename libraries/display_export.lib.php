@@ -441,7 +441,8 @@ function PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows)
     } elseif (!empty($unlim_num_rows)) {
         $html .= $unlim_num_rows;
     } else {
-        $html .= PMA_Table::countRecords($db, $table);
+        $_table = new PMA_Table($table, $db);
+        $html .= $_table->countRecords();
     }
     $html .= '" onfocus="this.select()" />';
     $html .= '</li>';
@@ -871,7 +872,8 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 
     $tableLength = /*overload*/mb_strlen($table);
-    if ($tableLength && empty($num_tables) && ! PMA_Table::isMerge($db, $table)) {
+    $_table = new PMA_Table($table, $db);
+    if ($tableLength && empty($num_tables) && ! $_table->isMerge()) {
         $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);
     }
 

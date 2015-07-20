@@ -830,7 +830,7 @@ function PMA_addBookmark($pmaAbsoluteUri, $goto)
  */
 function PMA_findRealEndOfRows($db, $table)
 {
-    $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
+    $unlim_num_rows = $GLOBALS['dbi']->getTable($db, $table)->countRecords(true);
     $_SESSION['tmpval']['pos'] = PMA_getStartPosToDisplayRow($unlim_num_rows);
 
     return $unlim_num_rows;
@@ -1153,11 +1153,7 @@ function PMA_countQueryResults(
         // due to $find_real_end == true
         if ($justBrowsing) {
             // Get row count (is approximate for InnoDB)
-            $unlim_num_rows = PMA_Table::countRecords(
-                $db,
-                $table,
-                false
-            );
+            $unlim_num_rows = $GLOBALS['dbi']->getTable($db, $table)->countRecords();
             /**
              * @todo Can we know at this point that this is InnoDB,
              *       (in this case there would be no need for getting
@@ -1170,11 +1166,7 @@ function PMA_countQueryResults(
                  * @todo In countRecords(), MaxExactCount is also verified,
                  *       so can we avoid checking it twice?
                  */
-                $unlim_num_rows = PMA_Table::countRecords(
-                    $db,
-                    $table,
-                    true
-                );
+                $unlim_num_rows = $GLOBALS['dbi']->getTable($db, $table)->countRecords(true);
             }
 
         } else {
@@ -1834,7 +1826,8 @@ function PMA_getQueryResponseForResultsReturned($result, $analyzed_sql_results,
     if ($statement instanceof SqlParser\Statements\SelectStatement) {
         if (!empty($statement->expr)) {
             if ($statement->expr[0]->expr === '*') {
-                $updatableView = PMA_Table::isUpdatableView($db, $table);
+                $_table = new PMA_Table($table, $db);
+                $updatableView = $_table->isUpdatableView();
             }
         }
     }
@@ -2181,7 +2174,8 @@ function PMA_calculatePosForLastPage($db, $table, $pos)
         $pos = $_SESSION['tmpval']['pos'];
     }
 
-    $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
+    $_table = new PMA_Table($table, $db);
+    $unlim_num_rows = $_table->countRecords(true);
     //If position is higher than number of rows
     if ($unlim_num_rows <= $pos && 0 != $pos) {
         $pos = PMA_getStartPosToDisplayRow($unlim_num_rows);

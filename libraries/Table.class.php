@@ -24,8 +24,6 @@ class PMA_Table
     const PROP_COLUMN_ORDER = 'col_order';
     const PROP_COLUMN_VISIB = 'col_visib';
 
-    static public $cache = array();
-
     /**
      * @var string  engine (innodb, myisam, bdb, ...)
      */
@@ -35,11 +33,6 @@ class PMA_Table
      * @var string  type (view, base table, system view)
      */
     var $type = '';
-
-    /**
-     * @var array   settings
-     */
-    var $settings = array();
 
     /**
      * @var array UI preferences
@@ -83,9 +76,9 @@ class PMA_Table
         if (empty($dbi)) {
             $dbi = $GLOBALS['dbi'];
         }
-        $this->dbi = $dbi;
-        $this->setName($table_name);
-        $this->setDbName($db_name);
+        $this->_dbi = $dbi;
+        $this->_name = $table_name;
+        $this->_db_name = $db_name;
     }
 
     /**
@@ -120,18 +113,6 @@ class PMA_Table
     }
 
     /**
-     * sets table name
-     *
-     * @param string $table_name new table name
-     *
-     * @return void
-     */
-    function setName($table_name)
-    {
-        $this->name = $table_name;
-    }
-
-    /**
      * returns table name
      *
      * @param boolean $backquoted whether to quote name with backticks ``
@@ -144,18 +125,6 @@ class PMA_Table
             return PMA_Util::backquote($this->name);
         }
         return $this->name;
-    }
-
-    /**
-     * sets database name for this table
-     *
-     * @param string $db_name database name
-     *
-     * @return void
-     */
-    function setDbName($db_name)
-    {
-        $this->db_name = $db_name;
     }
 
     /**
@@ -189,19 +158,18 @@ class PMA_Table
     /**
      * returns whether the table is actually a view
      *
-     * @param string $db    database
-     * @param string $table table
-     *
      * @return boolean whether the given is a view
      */
-    static public function isView($db = null, $table = null)
+    public function isView()
     {
+        $db = $this->_db_name;
+        $table = $this->_name;
         if (empty($db) || empty($table)) {
             return false;
         }
 
         // use cached data or load information with SHOW command
-        if (isset(PMA_Table::$cache[$db][$table])
+        if ($GLOBALS['dbi']->getCachedTableContent("${db}.${table}") != null
             || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
@@ -226,54 +194,68 @@ class PMA_Table
     /**
      * Returns whether the table is actually an updatable view
      *
-     * @param string $db    database
-     * @param string $table table
-     *
      * @return boolean whether the given is an updatable view
      */
-    static public function isUpdatableView($db = null, $table = null)
+    public function isUpdatableView()
     {
-        if (empty($db) || empty($table)) {
+        if (empty($this->_db_name) || empty($this->_name)) {
             return false;
         }
 
-        $result = $GLOBALS['dbi']->fetchResult(
+        $result = $this->_dbi->fetchResult(
             "SELECT TABLE_NAME
             FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($db) . "'
-                AND TABLE_NAME = '" . PMA_Util::sqlAddSlashes($table) . "'
+            WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($this->_db_name) . "'
+                AND TABLE_NAME = '" . PMA_Util::sqlAddSlashes($this->_name) . "'
                 AND IS_UPDATABLE = 'YES'"
         );
         return $result ? true : false;
     }
 
     /**
-     * sets given $value for given $param
+     * Returns the analysis of 'SHOW CREATE TABLE' query for the table.
+     * In case of a view, the values are taken from the information_schema.
      *
-     * @param string $param name
-     * @param mixed  $value value
-     *
-     * @return void
+     * @return array analysis of 'SHOW CREATE TABLE' query for the table
      */
-    function set($param, $value)
+    public function analyzeStructure()
     {
-        $this->settings[$param] = $value;
-    }
-
-    /**
-     * returns value for given setting/param
-     *
-     * @param string $param name for value to return
-     *
-     * @return mixed   value for $param
-     */
-    function get($param)
-    {
-        if (isset($this->settings[$param])) {
-            return $this->settings[$param];
+        if (empty($this->_db_name) || empty($this->_name)) {
+            return false;
         }
 
-        return null;
+        $analyzed_sql = array();
+        if ($this->isView()) {
+            // For a view, 'SHOW CREATE TABLE' returns the definition,
+            // but the structure of the view. So, we try to mock
+            // the result of analyzing 'SHOW CREATE TABLE' query.
+            $analyzed_sql[0] = array();
+            $analyzed_sql[0]['create_table_fields'] = array();
+
+            $results = $this->_dbi->fetchResult(
+                "SELECT COLUMN_NAME, DATA_TYPE
+                FROM information_schema.COLUMNS
+                WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($this->_db_name) . "'
+                AND TABLE_NAME = '" . PMA_Util::sqlAddSlashes($this->_name) . "'"
+            );
+
+            foreach ($results as $result) {
+                $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
+                    = array(
+                        'type' => /*overload*/mb_strtoupper($result['DATA_TYPE'])
+                    );
+            }
+        } else {
+            $show_create_table = $this->_dbi->fetchValue(
+                'SHOW CREATE TABLE '
+                . PMA_Util::backquote($this->_db_name)
+                . '.' . PMA_Util::backquote($this->_name),
+                0,
+                1
+            );
+            $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+        }
+        return $analyzed_sql;
     }
 
     /**
@@ -282,18 +264,16 @@ class PMA_Table
      * If the ENGINE of the table is MERGE or MRG_MYISAM (alias),
      * this is a merge table.
      *
-     * @param string $db    the database name
-     * @param string $table the table name
      *
      * @return boolean  true if it is a merge table
      */
-    static public function isMerge($db = null, $table = null)
+    public function isMerge()
     {
         $engine = null;
         // if called static, with parameters
-        if (! empty($db) && ! empty($table)) {
+        if (! empty($this->_db_name) && ! empty($this->_name)) {
             $engine = PMA_Table::sGetStatusInfo(
-                $db, $table, 'ENGINE', null, true
+                $this->_db_name, $this->_name, 'ENGINE', null, true
             );
         }
 
@@ -333,14 +313,14 @@ class PMA_Table
 
         // sometimes there is only one entry (ExactRows) so
         // we have to get the table's details
-        if (! isset(PMA_Table::$cache[$db][$table])
+        if ($GLOBALS['dbi']->getCachedTableContent("${db}.${table}") == null
             || $force_read
-            || count(PMA_Table::$cache[$db][$table]) == 1
+            || count($GLOBALS['dbi']->getCachedTableContent("${db}.${table}")) == 1
         ) {
             $GLOBALS['dbi']->getTablesFull($db, $table);
         }
 
-        if (! isset(PMA_Table::$cache[$db][$table])) {
+        if ($GLOBALS['dbi']->getCachedTableContent("${db}.${table}") == null) {
             // happens when we enter the table creation dialog
             // or when we really did not get any status info, for example
             // when $table == 'TABLE_NAMES' after the user tried SHOW TABLES
@@ -348,11 +328,11 @@ class PMA_Table
         }
 
         if (null === $info) {
-            return PMA_Table::$cache[$db][$table];
+            return $GLOBALS['dbi']->getCachedTableContent("${db}.${table}");
         }
 
         // array_key_exists allows for null values
-        if (!array_key_exists($info, PMA_Table::$cache[$db][$table])) {
+        if (!array_key_exists($info, $GLOBALS['dbi']->getCachedTableContent("${db}.${table}"))) {
             if (! $disable_error) {
                 trigger_error(
                     __('Unknown table status:') . ' ' . $info,
@@ -362,7 +342,7 @@ class PMA_Table
             return false;
         }
 
-        return PMA_Table::$cache[$db][$table][$info];
+        return $GLOBALS['dbi']->getCachedTableContent("${db}.${table}.${info}");
     }
 
     /**
@@ -499,42 +479,37 @@ class PMA_Table
     /**
      * Counts and returns (or displays) the number of records in a table
      *
-     * @param string $db          the current database name
-     * @param string $table       the current table name
      * @param bool   $force_exact whether to force an exact count
-     * @param bool   $is_view     whether the table is a view
      *
      * @return mixed the number of records if "retain" param is true,
      *               otherwise true
      */
-    static public function countRecords($db, $table, $force_exact = false,
-        $is_view = null
-    ) {
-        if (isset(PMA_Table::$cache[$db][$table]['ExactRows'])) {
-            $row_count = PMA_Table::$cache[$db][$table]['ExactRows'];
+    public function countRecords($force_exact = false) {
+        $is_view = $this->isView();
+        $db = $this->_db_name;
+        $table = $this->_name;
+        
+        if ($this->_dbi->getCachedTableContent("${db}.${table}.ExactRows") != null) {
+            $row_count = $this->_dbi->getCachedTableContent("${db}.${table}.ExactRows");
             return $row_count;
         }
-
         $row_count = false;
 
-        if (null === $is_view) {
-            $is_view = PMA_Table::isView($db, $table);
-        }
-
         if (! $force_exact) {
-            if (! isset(PMA_Table::$cache[$db][$table]['Rows']) && ! $is_view) {
-                $tmp_tables = $GLOBALS['dbi']->getTablesFull($db, $table);
+            if (($this->_dbi->getCachedTableContent("${db}.${table}.Rows") == null)
+                && !$is_view
+            ) {
+                $tmp_tables = $this->_dbi->getTablesFull($db, $table);
                 if (isset($tmp_tables[$table])) {
-                    PMA_Table::$cache[$db][$table] = $tmp_tables[$table];
+                    $this->_dbi->cacheTableContent("${db}.${table}", $tmp_tables[$table]);
                 }
             }
-            if (isset(PMA_Table::$cache[$db][$table]['Rows'])) {
-                $row_count = PMA_Table::$cache[$db][$table]['Rows'];
+            if ($this->_dbi->getCachedTableContent("${db}.${table}.Rows") != null) {
+                $row_count = $this->_dbi->getCachedTableContent("${db}.${table}.Rows");
             } else {
                 $row_count = false;
             }
         }
-
         // for a VIEW, $row_count is always false at this point
         if (false !== $row_count
             && $row_count >= $GLOBALS['cfg']['MaxExactCount']
@@ -546,9 +521,9 @@ class PMA_Table
         // Drizzle, as these map to in-memory data and should execute
         // fast enough
         if (! $is_view
-            || (PMA_DRIZZLE && $GLOBALS['dbi']->isSystemSchema($db))
+            || (PMA_DRIZZLE && $this->_dbi->isSystemSchema($db))
         ) {
-            $row_count = $GLOBALS['dbi']->fetchValue(
+            $row_count = $this->_dbi->fetchValue(
                 'SELECT COUNT(*) FROM ' . PMA_Util::backquote($db) . '.'
                 . PMA_Util::backquote($table)
             );
@@ -565,21 +540,21 @@ class PMA_Table
                 // so use a LIMIT clause.
                 // Use try_query because it can fail (when a VIEW is
                 // based on a table that no longer exists)
-                $result = $GLOBALS['dbi']->tryQuery(
+                $result = $this->_dbi->tryQuery(
                     'SELECT 1 FROM ' . PMA_Util::backquote($db) . '.'
                     . PMA_Util::backquote($table) . ' LIMIT '
                     . $GLOBALS['cfg']['MaxExactCountViews'],
                     null,
                     PMA_DatabaseInterface::QUERY_STORE
                 );
-                if (!$GLOBALS['dbi']->getError()) {
-                    $row_count = $GLOBALS['dbi']->numRows($result);
-                    $GLOBALS['dbi']->freeResult($result);
+                if (!$this->_dbi->getError()) {
+                    $row_count = $this->_dbi->numRows($result);
+                    $this->_dbi->freeResult($result);
                 }
             }
         }
         if ($row_count) {
-            PMA_Table::$cache[$db][$table]['ExactRows'] = $row_count;
+            $this->_dbi->cacheTableContent("${db}.${table}.ExactRows", $row_count);
         }
 
         return $row_count;
@@ -1017,9 +992,10 @@ class PMA_Table
             $GLOBALS['sql_query'] = '';
         }
 
+        $_table = new PMA_Table($target_table, $target_db);
         // Copy the data unless this is a VIEW
         if (($what == 'data' || $what == 'dataonly')
-            && ! PMA_Table::isView($target_db, $target_table)
+            && ! $_table->isView()
         ) {
             if (! PMA_DRIZZLE) {
                 $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
@@ -1042,7 +1018,8 @@ class PMA_Table
             // moving table from replicated one to not replicated one
             $GLOBALS['dbi']->selectDb($source_db);
 
-            if (PMA_Table::isView($source_db, $source_table)) {
+            $_source_table = new PMA_Table($source_table, $source_db);
+            if ($_source_table->isView()) {
                 $sql_drop_query = 'DROP VIEW';
             } else {
                 $sql_drop_query = 'DROP TABLE';
@@ -1335,8 +1312,8 @@ class PMA_Table
 
         $old_name = $this->getName();
         $old_db = $this->getDbName();
-        $this->setName($new_name);
-        $this->setDbName($new_db);
+        $this->_name = $new_name;
+        $this->_db_name = $new_db;
 
         // Renable table in configuration storage
         PMA_REL_renameTable(
@@ -1650,7 +1627,7 @@ class PMA_Table
         } elseif ($property == self::PROP_COLUMN_ORDER
             || $property == self::PROP_COLUMN_VISIB
         ) {
-            if (! PMA_Table::isView($this->db_name, $this->name)
+            if (! $this->isView()
                 && isset($this->uiprefs[$property])
             ) {
                 // check if the table has not been modified
@@ -1694,7 +1671,7 @@ class PMA_Table
             $this->loadUiPrefs();
         }
         // we want to save the create time if the property is PROP_COLUMN_ORDER
-        if (! PMA_Table::isView($this->db_name, $this->name)
+        if (! $this->isView()
             && ($property == self::PROP_COLUMN_ORDER
             || $property == self::PROP_COLUMN_VISIB)
         ) {

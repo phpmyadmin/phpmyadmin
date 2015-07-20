@@ -211,7 +211,7 @@ if (isset($_REQUEST['submit_partition'])
 if ($reread_info) {
     // to avoid showing the old value (for example the AUTO_INCREMENT) after
     // a change, clear the cache
-    PMA_Table::$cache = array();
+    $GLOBALS['dbi']->clearTableCache();
     $page_checksum = $checksum = $delay_key_write = 0;
     include 'libraries/tbl_info.inc.php';
 }

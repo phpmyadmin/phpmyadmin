@@ -1288,7 +1288,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
 
         unset($params);
 
-        if (! PMA_Table::isView($db_name, $tables[$i][TBL_NAME])) {
+        $_table = new PMA_Table($tables[$i][TBL_NAME], $db_name);
+        if (! $_table->isView()) {
             $message .= sprintf(
                 '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __('Structure') . '</a>) (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
                 $tbl_url,

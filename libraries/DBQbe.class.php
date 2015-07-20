@@ -1471,11 +1471,8 @@ class PMA_DbQbe
         $csize = array();
         foreach ($candidate_columns as $table) {
             if ($checked_tables[$table] != 1) {
-                $tsize[$table] = PMA_Table::countRecords(
-                    $this->_db,
-                    $table,
-                    false
-                );
+                $_table = new PMA_Table($table, $this->_db);
+                $tsize[$table] = $_table->countRecords();
                 $checked_tables[$table] = 1;
             }
             $csize[$table] = $tsize[$table];
