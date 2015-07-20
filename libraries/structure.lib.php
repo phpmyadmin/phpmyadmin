@@ -10,6 +10,8 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/Template.class.php';
+
 /**
  * Get the HTML links for action links
  * Actions are, Browse, Search, Browse table label, empty table
@@ -162,122 +164,22 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     $sum_size, $overhead_size, $create_time_all, $update_time_all,
     $check_time_all, $approx_rows
 ) {
-    $html_output = '<tbody id="tbl_summary_row">'
-        . '<tr><th class="print_ignore"></th>';
-    $html_output .= '<th class="tbl_num nowrap">';
-    $html_output .= sprintf(
-        _ngettext('%s table', '%s tables', $num_tables),
-        PMA_Util::formatNumber($num_tables, 0)
+    return PMA\Template::get('structure/body_for_table_summary')->render(
+        array(
+            'num_tables' => $num_tables,
+            'server_slave_status' => $server_slave_status,
+            'db_is_system_schema' => $db_is_system_schema,
+            'sum_entries' => $sum_entries,
+            'db_collation' => $db_collation,
+            'is_show_stats' => $is_show_stats,
+            'sum_size' => $sum_size,
+            'overhead_size' => $overhead_size,
+            'create_time_all' => $create_time_all,
+            'update_time_all' => $update_time_all,
+            'check_time_all' => $check_time_all,
+            'approx_rows' => $approx_rows
+        )
     );
-    $html_output .= '</th>';
-
-    if ($server_slave_status) {
-        $html_output .= '<th>' . __('Replication') . '</th>' . "\n";
-    }
-    $sum_colspan = ($db_is_system_schema ? 4 : 7);
-    if ($GLOBALS['cfg']['NumFavoriteTables'] == 0) {
-        $sum_colspan--;
-    }
-    $html_output .= '<th colspan="' . $sum_colspan . '" class="print_ignore" >'
-        . __('Sum')
-        . '</th>';
-
-    $row_count_sum = PMA_Util::formatNumber($sum_entries, 0);
-    // If a table shows approximate rows count, display update-all-real-count anchor.
-    $row_sum_url = array();
-    if (isset($approx_rows)) {
-        $row_sum_url = array(
-            'ajax_request'       => true,
-            'db'                 => $GLOBALS['db'],
-            'real_row_count'     => 'true',
-            'real_row_count_all' => 'true'
-        );
-    }
-    $cell_text = ($approx_rows)
-        ? '<a href="db_structure.php' . PMA_URL_getCommon($row_sum_url)
-        . '" class="ajax row_count_sum"><bdi>' . '~' . $row_count_sum . '</bdi></a>'
-        : $row_count_sum;
-    $html_output .= '<th class="value tbl_rows">'
-        . $cell_text
-        . '</th>';
-
-    if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
-        $default_engine = $GLOBALS['dbi']->fetchValue(
-            'SHOW VARIABLES LIKE \'storage_engine\';',
-            0,
-            1
-        );
-        $html_output .=  '<th class="center">' . "\n"
-            . '<dfn title="'
-            . sprintf(
-                __('%s is the default storage engine on this MySQL server.'),
-                $default_engine
-            )
-            . '">' . $default_engine . '</dfn></th>' . "\n";
-        // we got a case where $db_collation was empty
-        $html_output .= '<th>' . "\n";
-
-        if (! empty($db_collation)) {
-            $html_output .= '<dfn title="'
-                . PMA_getCollationDescr($db_collation)
-                . ' (' . __('Default') . ')">'
-                . $db_collation
-                . '</dfn>';
-        }
-        $html_output .= '</th>';
-    }
-    if ($is_show_stats) {
-        list($sum_formatted, $unit) = PMA_Util::formatByteDown(
-            $sum_size, 3, 1
-        );
-        list($overhead_formatted, $overhead_unit)
-            = PMA_Util::formatByteDown($overhead_size, 3, 1);
-
-        $html_output .= '<th class="value tbl_size">'
-            . $sum_formatted . ' ' . $unit
-            . '</th>';
-        $html_output .= '<th class="value tbl_overhead">'
-            . $overhead_formatted . ' ' . $overhead_unit
-            . '</th>';
-    }
-
-    if ($GLOBALS['cfg']['ShowDbStructureComment']) {
-        $html_output .= '<th></th>';
-    }
-
-    if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
-        $html_output .= '<th class="value tbl_creation">' . "\n"
-            . '        '
-            . ($create_time_all
-                ? PMA_Util::localisedDate(strtotime($create_time_all))
-                : '-'
-            )
-            . '</th>';
-    }
-
-    if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
-        $html_output .= '<th class="value tbl_last_update">' . "\n"
-            . '        '
-            . ($update_time_all
-                ? PMA_Util::localisedDate(strtotime($update_time_all))
-                : '-'
-            )
-            . '</th>';
-    }
-
-    if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
-        $html_output .= '<th class="value tbl_last_check">' . "\n"
-            . '        '
-            . ($check_time_all
-                ? PMA_Util::localisedDate(strtotime($check_time_all))
-                : '-'
-            )
-            . '</th>';
-    }
-    $html_output .= '</tr>'
-        . '</tbody>';
-
-    return $html_output;
 }
 
 /**
@@ -294,102 +196,16 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
 function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
     $overhead_check, $db_is_system_schema, $hidden_fields
 ) {
-    $html_output = '<div class="clearfloat print_ignore">';
-    $html_output .= '<img class="selectallarrow" '
-        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
-        . 'width="38" height="22" alt="' . __('With selected:') . '" />';
-
-    $html_output .= '<input type="checkbox" id="tablesForm_checkall" '
-        . 'class="checkall_box" title="' . __('Check All') . '" />';
-    $html_output .= '<label for="tablesForm_checkall">' . __('Check All')
-        . '</label>';
-
-    if ($overhead_check != '') {
-        $html_output .= PMA_getHtmlForCheckTablesHavingOverheadlink(
-            $overhead_check
-        );
-    }
-
-    $html_output .= '<select name="submit_mult" class="autosubmit" '
-        . 'style="margin: 0 3em 0 3em;">';
-
-    $html_output .= '<option value="' . __('With selected:')
-        . '" selected="selected">'
-        . __('With selected:') . '</option>' . "\n";
-    $html_output .= '<option value="show_create" >'
-        . __('Show create') . '</option>' . "\n";
-    $html_output .= '<option value="export" >'
-        . __('Export') . '</option>' . "\n";
-
-    if (!$db_is_system_schema
-        && !$GLOBALS['cfg']['DisableMultiTableMaintenance']
-    ) {
-        $html_output .= '<optgroup label="' . __('Delete data or table') . '">';
-        $html_output .= '<option value="empty_tbl" >'
-            . __('Empty') . '</option>' . "\n";
-        $html_output .= '<option value="drop_tbl" >'
-            . __('Drop') . '</option>' . "\n";
-        $html_output .= '</optgroup>';
-
-        $html_output .= '<optgroup label="' . __('Table maintenance') . '">';
-        $html_output .= '<option value="analyze_tbl" >'
-            . __('Analyze table') . '</option>' . "\n";
-        $html_output .= '<option value="check_tbl" >'
-            . __('Check table') . '</option>' . "\n";
-        if (!PMA_DRIZZLE) {
-            $html_output .= '<option value="checksum_tbl" >'
-                . __('Checksum table') . '</option>' . "\n";
-            $html_output .= '<option value="optimize_tbl" >'
-                . __('Optimize table') . '</option>' . "\n";
-            $html_output .= '<option value="repair_tbl" >'
-                . __('Repair table') . '</option>' . "\n";
-        }
-        $html_output .= '</optgroup>';
-
-        $html_output .= '<optgroup label="' . __('Prefix') . '">';
-        $html_output .= '<option value="add_prefix_tbl" >'
-            . __('Add prefix to table') . '</option>' . "\n";
-        $html_output .= '<option value="replace_prefix_tbl" >'
-            . __('Replace table prefix') . '</option>' . "\n";
-        $html_output .= '<option value="copy_tbl_change_prefix" >'
-            . __('Copy table with prefix') . '</option>' . "\n";
-        $html_output .= '</optgroup>';
-    }
-
-    if ($GLOBALS['cfgRelation']['centralcolumnswork']) {
-        $html_output .= '<optgroup label="' . __('Central columns') . '">';
-        $html_output .= '<option value="sync_unique_columns_central_list" >'
-            . __('Add columns to central list') . '</option>' . "\n";
-        $html_output .= '<option value="delete_unique_columns_central_list" >'
-            . __('Remove columns from central list') . '</option>' . "\n";
-        $html_output .= '<option value="make_consistent_with_central_list" >'
-            . __('Make consistent with central list') . '</option>' . "\n";
-        $html_output .= '</optgroup>';
-    }
-
-    $html_output .= '</select>'
-        . implode("\n", $hidden_fields) . "\n";
-    $html_output .= '</div>';
-
-    return $html_output;
+    return PMA\Template::get('structure/check_all_tables')->render(
+        array(
+            'pmaThemeImage' => $pmaThemeImage,
+            'text_dir' => $text_dir,
+            'overhead_check' => $overhead_check,
+            'db_is_system_schema' => $db_is_system_schema,
+            'hidden_fields' => $hidden_fields
+        )
+    );
 }
-
-/**
- * Get HTML code for "Check tables having overhead" link
- *
- * @param string $overhead_check overhead check
- *
- * @return string $html_output
- */
-function PMA_getHtmlForCheckTablesHavingOverheadlink($overhead_check)
-{
-    return ' / '
-        . '<a href="#" onclick="unMarkAllRows(\'tablesForm\');'
-        . $overhead_check . 'return false;">'
-        . __('Check tables having overhead')
-        . '</a>';
-}
-
 
 /**
  * Get HTML links for "Print view" options
@@ -583,27 +399,17 @@ function PMA_getHtmlForStructureTableRow(
 function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view,
     $titles, $empty_table, $current_table, $drop_query, $drop_message
 ) {
-    $html_output = '<td class="insert_table center print_ignore">'
-        . '<a href="tbl_change.php' . $tbl_url_query . '">'
-        . $titles['Insert']
-        . '</a></td>';
-    $html_output .= '<td class="center print_ignore">' . $empty_table . '</td>';
-    $html_output .= '<td class="center print_ignore">';
-    $html_output .= '<a ';
-    $html_output .= 'class="ajax drop_table_anchor';
-    if ($table_is_view || $current_table['ENGINE'] == null) {
-        // this class is used in db_structure.js to display the
-        // correct confirmation message
-        $html_output .= ' view';
-    }
-    $html_output .= '" ';
-    $html_output .= 'href="sql.php' . $tbl_url_query
-        . '&amp;reload=1&amp;purge=1&amp;sql_query='
-        . urlencode($drop_query) . '&amp;message_to_show='
-        . urlencode($drop_message) . '" >'
-        . $titles['Drop'] . '</a></td>';
-
-    return $html_output;
+    return PMA\Template::get('structure/insert_empty_drop_action_links')->render(
+        array(
+            'tbl_url_query' => $tbl_url_query,
+            'table_is_view' => $table_is_view,
+            'titles' => $titles,
+            'empty_table' => $empty_table,
+            'current_table' => $current_table,
+            'drop_query' => $drop_query,
+            'drop_message' => $drop_message
+        )
+    );
 }
 
 /**
@@ -1331,34 +1137,12 @@ function PMA_getHtmlForTableStructureHeader(
     $db_is_system_schema,
     $tbl_is_view
 ) {
-    $html_output = '<thead>';
-    $html_output .= '<tr>';
-    $html_output .= '<th class="print_ignore"></th>'
-        . '<th>#</th>'
-        . '<th>' . __('Name') . '</th>'
-        . '<th>' . __('Type') . '</th>'
-        . '<th>' . __('Collation') . '</th>'
-        . '<th>' . __('Attributes') . '</th>'
-        . '<th>' . __('Null') . '</th>'
-        . '<th>' . __('Default') . '</th>'
-        . '<th>' . __('Extra') . '</th>';
-
-    /* see tbl_structure.js, function moreOptsMenuResize() */
-    if (! $db_is_system_schema && ! $tbl_is_view) {
-        $colspan = 9;
-        if (PMA_DRIZZLE) {
-            $colspan -= 2;
-        }
-        if (PMA_Util::showIcons('ActionLinksMode')) {
-            $colspan--;
-        }
-        $html_output .= '<th colspan="' . $colspan . '" '
-            . 'class="action print_ignore">' . __('Action') . '</th>';
-    }
-    $html_output .= '</tr>'
-        . '</thead>';
-
-    return $html_output;
+    return PMA\Template::get('structure/table_structure_header')->render(
+        array(
+            'db_is_system_schema' => $db_is_system_schema,
+            'tbl_is_view' => $tbl_is_view
+        )
+    );
 }
 
 /**
@@ -1392,65 +1176,24 @@ function PMA_getHtmlTableStructureRow($row, $rownum,
     $field_charset, $attribute, $tbl_is_view, $db_is_system_schema,
     $url_query, $field_encoded, $titles, $table
 ) {
-    $html_output = '<td class="center print_ignore">'
-        . '<input type="checkbox" class="checkall" name="selected_fld[]" '
-        . 'value="' . htmlspecialchars($row['Field']) . '" '
-        . 'id="checkbox_row_' . $rownum . '"/>'
-        . '</td>';
-
-    $html_output .= '<td class="right">'
-        . $rownum
-        . '</td>';
-
-    $html_output .= '<th class="nowrap">'
-        . '<label for="checkbox_row_' . $rownum . '">'
-        . preg_replace(
-            '/[\x00-\x1F]/',
-            '&#x2051;',
-            $displayed_field_name
-        ) . '</label>'
-        . '</th>';
-
-    $html_output .= '<td' . $type_nowrap . '>'
-        . '<bdo dir="ltr" lang="en">'
-        . $extracted_columnspec['displayed_type'] . $type_mime
-        . '</bdo></td>';
-
-    $html_output .= '<td>';
-    if (! empty($field_charset)) {
-        $html_output .= '<dfn title="' . PMA_getCollationDescr($field_charset)
-            . '">' . $field_charset . '</dfn>';
-    }
-    $html_output .= '</td>';
-
-    $html_output .= '<td class="column_attribute nowrap">'
-        . $attribute . '</td>';
-    $html_output .= '<td>'
-        . (($row['Null'] == 'YES') ? __('Yes') : __('No')) . '  </td>';
-
-    $html_output .= '<td class="nowrap">';
-    if (isset($row['Default'])) {
-        if ($extracted_columnspec['type'] == 'bit') {
-            // here, $row['Default'] contains something like b'010'
-            $html_output .= PMA_Util::convertBitDefaultValue($row['Default']);
-        } else {
-            $html_output .= $row['Default'];
-        }
-    } else {
-        $html_output .= '<i>' . _pgettext('None for default', 'None') . '</i>';
-    }
-    $html_output .= '</td>';
-
-    $html_output .= '<td class="nowrap">'
-        . /*overload*/mb_strtoupper($row['Extra']) . '</td>';
-
-    $html_output .= PMA_getHtmlForDropColumn(
-        $tbl_is_view, $db_is_system_schema,
-        $url_query, $field_encoded,
-        $titles, $table, $row
+    return PMA\Template::get('libraries/table_structure_row')->render(
+      array(
+          'row' => $row,
+          'rownum' => $rownum,
+          'displayed_field_name' => $displayed_field_name,
+          'type_nowrap' => $type_nowrap,
+          'extracted_columnspec' => $extracted_columnspec,
+          'type_mime' => $type_mime,
+          'field_charset' => $field_charset,
+          'attribute' => $attribute,
+          'tbl_is_view' => $tbl_is_view,
+          'db_is_system_schema' => $db_is_system_schema,
+          'url_query' => $url_query,
+          'field_encoded' => $field_encoded,
+          'titles' => $titles,
+          'table' => $table
+      )
     );
-
-    return $html_output;
 }
 
 /**
@@ -1668,48 +1411,13 @@ function PMA_getHtmlForEditView($url_params)
 function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
     $db_is_system_schema
 ) {
-    $html_output = '<a href="#"'
-        . ' id="printView">'
-        . PMA_Util::getIcon('b_print.png', __('Print view'), true)
-        . '</a>';
-
-    if (! $tbl_is_view && ! $db_is_system_schema) {
-        if (!PMA_DRIZZLE) {
-            $html_output .= '<a href="sql.php' . $url_query
-                . '&amp;session_max_rows=all&amp;sql_query=' . urlencode(
-                    'SELECT * FROM ' . PMA_Util::backquote($GLOBALS['table'])
-                    . ' PROCEDURE ANALYSE()'
-                ) . '">'
-                . PMA_Util::getIcon(
-                    'b_tblanalyse.png',
-                    __('Propose table structure'),
-                    true
-                )
-                . '</a>';
-            $html_output .= PMA_Util::showMySQLDocu('procedure_analyse') . "\n";
-        }
-        if (PMA_Tracker::isActive()) {
-            $html_output .= '<a href="tbl_tracking.php' . $url_query . '">'
-                . PMA_Util::getIcon('eye.png', __('Track table'), true)
-                . '</a>';
-        }
-        $html_output .= '<a href="#" id="move_columns_anchor">'
-            . PMA_Util::getIcon('b_move.png', __('Move columns'), true)
-            . '</a>';
-        $html_output .= '<a href="normalization.php' . $url_query . '">'
-            . PMA_Util::getIcon('normalize.png', __('Improve table structure'), true)
-            . '</a>';
-    }
-
-    if ($tbl_is_view && ! $db_is_system_schema) {
-        if (PMA_Tracker::isActive()) {
-            $html_output .= '<a href="tbl_tracking.php' . $url_query . '">'
-                . PMA_Util::getIcon('eye.png', __('Track view'), true)
-                . '</a>';
-        }
-    }
-
-    return $html_output;
+    return PMA\Template::get('structure/optional_action_links')->render(
+        array(
+            'url_query' => $url_query,
+            'tbl_is_view' => $tbl_is_view,
+            'db_is_system_schema' => $db_is_system_schema
+        )
+    );
 }
 
 /**
@@ -1721,66 +1429,11 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
  */
 function PMA_getHtmlForAddColumn($columns_list)
 {
-    $html_output = '<form method="post" action="tbl_addfield.php" '
-        . 'id="addColumns" name="addColumns" '
-        . 'onsubmit="return checkFormElementInRange('
-            . 'this, \'num_fields\', \'' . str_replace(
-                '\'',
-                '\\\'',
-                __('You have to add at least one column.')
-            ) . '\', 1)'
-        . '">';
-
-    $html_output .= PMA_URL_getHiddenInputs(
-        $GLOBALS['db'],
-        $GLOBALS['table']
-    );
-    if (PMA_Util::showIcons('ActionLinksMode')) {
-        $html_output .=PMA_Util::getImage(
-            'b_insrow.png',
-            __('Add column')
-        );
-        $html_output .= '&nbsp;';
-    }
-    $num_fields = '<input type="number" name="num_fields" '
-        . 'value="1" onfocus="this.select()" '
-        . 'min="1" required />';
-    $html_output .= sprintf(__('Add %s column(s)'), $num_fields);
-
-    // I tried displaying the drop-down inside the label but with Firefox
-    // the drop-down was blinking
-    $column_selector = '<select name="after_field" '
-        . 'onchange="checkFirst()">';
-
-    $column_selector .= '<option '
-            . 'value="first" data-pos = "first">'
-            . __('at beginning of table')
-            . '</option>';
-    $cols_count = count($columns_list);
-    foreach ($columns_list as $one_column_name) {
-        //by default select the last column (add column at the end of the table)
-        if (--$cols_count == 0) {
-            $column_selector .= '<option '
-                . 'value="' . htmlspecialchars($one_column_name)
-                . '" selected="selected">';
-        } else {
-            $column_selector .= '<option '
-                . 'value="' . htmlspecialchars($one_column_name) . '">';
-        }
-        $column_selector .= sprintf(
-            __('after %s'),
-            htmlspecialchars($one_column_name)
+    return PMA\Template::get('structure/add_column')->render(
+        array(
+            'columns_list' => $columns_list
         )
-            . '</option>';
-    }
-    $column_selector .= '</select>';
-    $html_output .= '<input type="hidden" name="field_where" value="after"/>';
-    $html_output .= '&nbsp;';
-    $html_output .= $column_selector;
-    $html_output .= '<input type="submit" value="' . __('Go') . '" />'
-        . '</form>';
-
-    return $html_output;
+    );
 }
 
 /**
