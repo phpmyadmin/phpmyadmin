@@ -3202,6 +3202,21 @@ th.headerSortDown .sorticon, th.headerSortUp:hover .sorticon {
 }
 /* end of styles of sortable tables */
 
+/* styles for jQuery-ui to support rtl languages */
+body .ui-dialog .ui-dialog-titlebar-close {
+    <?php echo $right; ?>: .3em;
+    <?php echo $left; ?>: initial;
+}
+
+body .ui-dialog .ui-dialog-title {
+    float: <?php echo $left; ?>;
+}
+
+body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+    float: <?php echo $right; ?>;
+}
+/* end of styles for jQuery-ui to support rtl languages */
+
 /* Override some jQuery-ui styling to have square corners */
 body .ui-corner-all,
 body .ui-corner-top,
