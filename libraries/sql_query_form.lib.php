@@ -225,13 +225,14 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '<legend>' . $legend . '</legend>';
     $html .= '<div id="queryfieldscontainer">';
     $html .= '<div id="' . $sqlquerycontainer_id . '">'
+        . '<div dir="ltr">'
         . '<textarea tabindex="100" name="sql_query" id="sqlquery"'
         . '  cols="' . $GLOBALS['cfg']['TextareaCols'] . '"'
         . '  rows="' . $height . '"'
-        . '  dir="' . $GLOBALS['text_dir'] . '"'
         . $auto_sel . $locking . '>'
         . htmlspecialchars($query)
-        . '</textarea>';
+        . '</textarea>'
+        . '</div>';
     $html .= '<div id="querymessage"></div>';
     // Add buttons to generate query easily for
     // select all, single select, insert, update and delete
