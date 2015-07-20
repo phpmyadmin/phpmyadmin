@@ -17,8 +17,9 @@ AJAX.registerTeardown('config.js', function () {
 });
 
 AJAX.registerOnload('config.js', function () {
-    $('#topmenu2.user_prefs_tabs').find('li.active a').attr('rel', 'samepage');
-    $('#topmenu2.user_prefs_tabs').find('li:not(.active) a').attr('rel', 'newpage');
+    var $topmenu_upt = $('#topmenu2.user_prefs_tabs');
+    $topmenu_upt.find('li.active a').attr('rel', 'samepage');
+    $topmenu_upt.find('li:not(.active) a').attr('rel', 'newpage');
 });
 
 // default values for fields
@@ -496,7 +497,7 @@ function setupValidation() {
     }
     // register validators and mark custom values
     var $elements = $('.optbox input[id], .optbox select[id], .optbox textarea[id]');
-    $('.optbox input[id], .optbox select[id], .optbox textarea[id]').each(function () {
+    $elements.each(function () {
         markField(this);
         var $el = $(this);
         $el.bind('change', function () {
@@ -802,7 +803,7 @@ function updatePrefsDate()
         '@DATE@',
         PMA_formatDateTime(d)
     );
-    $('#opts_import_local_storage div.localStorage-exists').html(msg);
+    $('#opts_import_local_storage').find('div.localStorage-exists').html(msg);
 }
 
 /**
