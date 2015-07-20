@@ -1348,6 +1348,7 @@ div.sqlvalidate {
     margin-bottom:      0;
     max-height:         10em;
     overflow:           auto;
+    direction:          ltr;
 }
 
 .result_query div.sqlOuter,
