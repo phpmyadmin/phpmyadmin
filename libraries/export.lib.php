@@ -1012,7 +1012,7 @@ function PMA_unlockTables()
 }
 
 /**
- * Returns the all the metadata types the can be exported with a database or a table
+ * Returns all the metadata types that can be exported with a database or a table
  *
  * @return array metadata types.
  */
