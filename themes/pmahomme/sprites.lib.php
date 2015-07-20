@@ -802,4 +802,3 @@ function PMA_sprites()
         ),
     );
 }
-?>

@@ -74,5 +74,3 @@ $GLOBALS['cfg']['ThColor']              = '#000000';
 $GLOBALS['cfg']['BgOne']                = '#E5E5E5';
 // table data row background, alternate
 $GLOBALS['cfg']['BgTwo']                = '#D5D5D5';
-
-?>
