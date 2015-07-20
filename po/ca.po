@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-19 05:31-0400\n"
-"PO-Revision-Date: 2015-05-30 17:56+0200\n"
+"PO-Revision-Date: 2015-07-20 08:07+0200\n"
 "Last-Translator: josep constanti <jconstanti@yahoo.es>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ca/>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -707,7 +707,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "No es pot carregar la progressió en la importació."
 
 #: import_status.php:112 js/messages.php:378 libraries/Util.class.php:774
 #: libraries/export.lib.php:515
@@ -6484,11 +6484,13 @@ msgstr "No avortar en cas d'error d' INSERT"
 
 #: libraries/config/messages.inc.php:353 libraries/config/messages.inc.php:365
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Afegeix ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:354 libraries/config/messages.inc.php:366
 msgid "Update data when duplicate keys found on import"
 msgstr ""
+"Actualitza amb les dades noves quan es trobin claus duplicades en la "
+"importació"
 
 #: libraries/config/messages.inc.php:357
 msgid ""
@@ -6773,7 +6775,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Mínim nombre de bases de dades a mostrar a la caixa de filtre"
 
 #: libraries/config/messages.inc.php:474
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)."
@@ -6781,8 +6782,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Agrupar ítems a l'arbre de navegació (determinat pel separador definit tot "
-"seguit)."
+"Agrupar ítems a l'arbre de navegació (determinat pel separador definit a les "
+"pestanyes de Bases de dades i de Taules de dalt)."
 
 #: libraries/config/messages.inc.php:476
 msgid "Group items in the tree"
@@ -10742,6 +10743,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Actualitza amb les dades noves quan  es trobin claus duplicades en la "
+"importació (afegeix ON DUPLICATE KEY UPDATE)"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -16587,7 +16590,6 @@ msgid "Too many connections are aborted."
 msgstr "Massa connexions avortades."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
-#, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
 #| "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -16599,9 +16601,8 @@ msgid ""
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
 "Les connexions s'avorten generalment quan no poden ser autoritzades. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Aquest article</a> pot ajudar a rastrejar el "
-"motiu."
+"\"http://www.percona.com/blog.com/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Aquest article</a> pot ajudar a rastrejar el motiu."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -16728,7 +16729,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "La mida de l'arxiu de registre InnoDB és inadequadament gran."
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -16753,14 +16754,14 @@ msgstr ""
 "Normalment és suficient establir {innodb_log_file_size} al 25%% de la mida "
 "de {innodb_buffer_pool_size}. Un valor de {innodb_log_file_size} molt gran "
 "alenteix el temps de recuperació després d'una caiguda de la base de dades "
-"de manera considerable. Consulta també el <a href=\"http://www."
-"mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
+"de manera considerable. Consulta també el <a href=\""
+"http://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/"
 "\">present article</a>. Cal apagar el servidor, eliminar els arxius de "
 "registre d'InnoDB, definir el nou valor a l'arxiu my.cnf, iniciar el "
 "servidor, i comprovar immediatament els registres d'error per veure si tot "
-"ha anat bé. Consulta també <a href=\"http://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">aquest "
-"article</a>"
+"ha anat bé. Consulta també <a href=\""
+"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">aquest article</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -16776,7 +16777,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "La memòria intermèdia d'InnoDB és relativament petita."
 
 #: libraries/advisory_rules.txt:454
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -16809,9 +16810,9 @@ msgstr ""
 "cal avaluar acuradament el consum de memòria dels altres serveis i taules "
 "amb altres motors i definir aquesta variable en conseqüència. Si és massa "
 "alt, el sistema començarà a utilitzar l'àrea d'intercanvi a disc, el que "
-"disminueix significativament el rendiment. Consulta també <a href=\"http://"
-"www.mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">aquest article</a>"
+"disminueix significativament el rendiment. Consulta també <a href=\""
+"http://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">"
+"aquest article</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
