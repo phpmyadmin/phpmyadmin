@@ -91,7 +91,7 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('stickycolumns', ".sqlqueryresults");
     $("#togglequerybox").unbind('click');
     $(document).off('click', "#button_submit_query");
-    $(document).off('change', '#id_bookmark')
+    $(document).off('change', '#id_bookmark');
     $("input[name=bookmark_variable]").unbind("keypress");
     $(document).off('submit', "#sqlqueryform.ajax");
     $(document).off('click', "input[name=navig].ajax");
