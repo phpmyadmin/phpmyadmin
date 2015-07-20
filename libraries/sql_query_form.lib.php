@@ -256,11 +256,6 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '<input type="button" value="' . __('Get auto-saved query') . '" id="saved"'
         . ' class="button sqlbutton" />';
 
-    // Disable/Enable foreign key checks
-    $html .= '<div>';
-    $html .= PMA_Util::getFKCheckbox();
-    $html .= '</div>';
-
     // parameter binding
     $html .= '<div>';
     $html .= '<input type="checkbox" name="parameterized" id="parameterized" />';
@@ -362,6 +357,9 @@ function PMA_getHtmlForSqlQueryFormInsert(
         . 'id="rollback_query" tabindex="134" />'
         . '<label for="rollback_query">' . __('Rollback when finished')
         . '</label>';
+
+    // Disable/Enable foreign key checks
+    $html .= PMA_Util::getFKCheckbox();
 
     $html .= '</div>' . "\n";
     $html .= '<input type="submit" id="button_submit_query" name="SQL"';
