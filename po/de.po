@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-19 05:31-0400\n"
-"PO-Revision-Date: 2015-06-24 09:21+0200\n"
+"PO-Revision-Date: 2015-07-20 02:02+0200\n"
 "Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -275,7 +275,6 @@ msgid "Data"
 msgstr "Daten"
 
 #: db_export.php:55
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
 msgstr "Alle auswählen"
@@ -1211,26 +1210,23 @@ msgid "Close"
 msgstr "Schließen"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "Anzahl erstellter Seiten."
+msgstr "Vorlage wurde erstellt."
 
 #: js/messages.php:130
 msgid "Template was loaded."
-msgstr ""
+msgstr "Vorlage wurde geladen."
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Benutzer wurde geändert."
+msgstr "Vorlage wurde geändert."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Der Datensatz wurde gelöscht."
+msgstr "Vorlage wurde gelöscht."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:135 libraries/ServerStatusData.class.php:132
@@ -4074,10 +4070,9 @@ msgid "Databases"
 msgstr "Datenbanken"
 
 #: libraries/Menu.class.php:566
-#, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
-msgstr "Benutzergruppen"
+msgstr "Benutzerkonten"
 
 #: libraries/Menu.class.php:593 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4344 libraries/server_common.lib.php:36
@@ -4806,15 +4801,14 @@ msgid "Max: %s%s"
 msgstr "Maximal: %s%s"
 
 #: libraries/Util.class.php:660
-#, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
-msgstr "Statische Daten"
+msgstr "Statische Analyse:"
 
 #: libraries/Util.class.php:662
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "%d Fehler wurden während der Analyse gefunden."
 
 #: libraries/Util.class.php:724 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_events.lib.php:150
@@ -5720,12 +5714,13 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Findet Fehler in der Abfrage, bevor diese ausgeführt wird. Erfordert, dass "
+"CodeMirror aktiviert ist."
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "SQL-Validator aktivieren"
+msgstr "Linter aktivieren"
 
 #: libraries/config/messages.inc.php:64
 msgid ""
@@ -6021,10 +6016,9 @@ msgid "Overwrite existing file(s)"
 msgstr "Bestehende Datei(en) überschreiben"
 
 #: libraries/config/messages.inc.php:166
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "Exportiere Tabellenkopfzeilen"
+msgstr "Exportiere als separate Dateien"
 
 #: libraries/config/messages.inc.php:170
 msgid "Remember file name template"
@@ -6241,16 +6235,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Aussehen des Navigationspanels anpassen."
 
 #: libraries/config/messages.inc.php:252
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Navigationspanel"
+msgstr "Navigationsbaum"
 
 #: libraries/config/messages.inc.php:253
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Navigationspanel anpassen"
+msgstr "Navigationsbaum anpassen."
 
 #: libraries/config/messages.inc.php:254 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
@@ -6854,10 +6846,9 @@ msgid "Enable navigation tree expansion"
 msgstr "Erweiterung des Navigationsbaumes aktivieren"
 
 #: libraries/config/messages.inc.php:491
-#, fuzzy
 #| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Tabellen-Liste anzeigen/ausblenden"
+msgstr "Tabellen-Liste im Baum anzeigen"
 
 #: libraries/config/messages.inc.php:493
 #, fuzzy
