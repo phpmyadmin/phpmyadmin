@@ -4,9 +4,9 @@ As an open source project, phpMyAdmin welcomes contributions of many forms.
 
 ## Bug reporting
 
-Please report [bugs on SourceForge.net][1].
+Please report [bugs on GitHub][1].
 
-[1]: https://sourceforge.net/p/phpmyadmin/bugs/new/
+[1]: https://github.com/phpmyadmin/phpmyadmin/issues/new
 
 ## Patches submission
 
