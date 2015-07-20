@@ -265,6 +265,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '<div>';
     $html .= '<input type="checkbox" name="parameterized" id="parameterized" />';
     $html .= '<label for="parameterized">' . __('Bind parameters') . '</label>';
+    $html .= PMA_Util::showDocu('faq', 'faq6-40');
     $html .= '<div id="parametersDiv"></div>';
     $html .= '</div>';
 
