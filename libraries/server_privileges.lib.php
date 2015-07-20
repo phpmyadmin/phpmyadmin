@@ -2238,7 +2238,7 @@ function PMA_getHtmlForPrivsTableHead()
     return '<thead>'
         . '<tr>'
         . '<th></th>'
-        . '<th>' . __('User') . '</th>'
+        . '<th>' . __('User name') . '</th>'
         . '<th>' . __('Host') . '</th>'
         . '<th>' . __('Type') . '</th>'
         . '<th>' . __('Privileges') . '</th>'
