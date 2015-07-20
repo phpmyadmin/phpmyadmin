@@ -36,8 +36,6 @@ class ExpressionArray extends Component
     {
         $ret = array();
 
-        $expr = null;
-
         /**
          * The state of the parser.
          *
@@ -92,7 +90,7 @@ class ExpressionArray extends Component
 
         if ($state === 0) {
             $parser->error(
-                'An expression was expected.',
+                __('An expression was expected.'),
                 $list->tokens[$list->idx]
             );
         }

@@ -122,7 +122,7 @@ class DataType extends Component
             if ($state === 0) {
                 $ret->name = strtoupper($token->value);
                 if (($token->type !== Token::TYPE_KEYWORD) || (!($token->flags & Token::FLAG_KEYWORD_DATA_TYPE))) {
-                    $parser->error('Unrecognized data type.', $token);
+                    $parser->error(__('Unrecognized data type.'), $token);
                 }
                 $state = 1;
             } elseif ($state === 1) {

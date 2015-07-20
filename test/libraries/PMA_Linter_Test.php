@@ -74,8 +74,7 @@ class PMA_Linter_Test extends PHPUnit_Framework_TestCase
      */
     public function testLintEmpty()
     {
-        $this->expectOutputString('[]');
-        PMA_Linter::lint('');
+        $this->assertEquals(array(), PMA_Linter::lint(''));
     }
 
     /**
@@ -85,8 +84,7 @@ class PMA_Linter_Test extends PHPUnit_Framework_TestCase
      */
     public function testLintNoErrors()
     {
-        $this->expectOutputString('[]');
-        PMA_Linter::lint('SELECT * FROM tbl');
+        $this->assertEquals(array(), PMA_Linter::lint('SELECT * FROM tbl'));
     }
 
     /**
@@ -96,29 +94,27 @@ class PMA_Linter_Test extends PHPUnit_Framework_TestCase
      */
     public function testLintErrors()
     {
-        $this->expectOutputString(
-            json_encode(
+        $this->assertEquals(
+            array(
                 array(
-                    array(
-                        'message' => 'Unrecognized data type. (near <code>IN</code>)',
-                        'fromLine' => 0,
-                        'fromColumn' => 22,
-                        'toLine' => 0,
-                        'toColumn' => 24,
-                        'severity' => 'error',
-                    ),
-                    array(
-                        'message' => 'A closing bracket was expected. (near <code>IN</code>)',
-                        'fromLine' => 0,
-                        'fromColumn' => 22,
-                        'toLine' => 0,
-                        'toColumn' => 24,
-                        'severity' => 'error',
-                    )
+                    'message' => 'Unrecognized data type. (near <code>IN</code>)',
+                    'fromLine' => 0,
+                    'fromColumn' => 22,
+                    'toLine' => 0,
+                    'toColumn' => 24,
+                    'severity' => 'error',
+                ),
+                array(
+                    'message' => 'A closing bracket was expected. (near <code>IN</code>)',
+                    'fromLine' => 0,
+                    'fromColumn' => 22,
+                    'toLine' => 0,
+                    'toColumn' => 24,
+                    'severity' => 'error',
                 )
-            )
+            ),
+            PMA_Linter::lint('CREATE TABLE tbl ( id IN')
         );
-        PMA_Linter::lint('CREATE TABLE tbl ( id IN');
     }
 
     /**
@@ -128,20 +124,18 @@ class PMA_Linter_Test extends PHPUnit_Framework_TestCase
      */
     public function testLongQuery()
     {
-        $this->expectOutputString(
-            json_encode(
+        $this->assertEquals(
+            array(
                 array(
-                    array(
-                        'message' => 'Linting is disabled for this query because it exceeds the maximum length.',
-                        'fromLine' => 0,
-                        'fromColumn' => 0,
-                        'toLine' => 0,
-                        'toColumn' => 0,
-                        'severity' => 'warning',
-                    )
+                    'message' => 'Linting is disabled for this query because it exceeds the maximum length.',
+                    'fromLine' => 0,
+                    'fromColumn' => 0,
+                    'toLine' => 0,
+                    'toColumn' => 0,
+                    'severity' => 'warning',
                 )
-            )
+            ),
+            PMA_Linter::lint(str_repeat(";", 10001))
         );
-        PMA_Linter::lint(str_repeat(";", 10001));
     }
 }
