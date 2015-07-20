@@ -14,7 +14,7 @@
     ],
     "support": {
         "forum": "https://www.phpmyadmin.net/support/",
-        "issues": "https://sourceforge.net/p/phpmyadmin/bugs/",
+        "issues": "https://github.com/phpmyadmin/phpmyadmin/issues",
         "wiki": "http://wiki.phpmyadmin.net/",
         "source": "https://github.com/phpmyadmin/phpmyadmin"
     },
