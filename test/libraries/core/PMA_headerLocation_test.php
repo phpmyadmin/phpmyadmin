@@ -263,7 +263,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             . "<meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
             . "<meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . "\">"
             . "<script type=\"text/javascript\">//<![CDATA[
-        setTimeout(\"window.location = unescape('" . $testUri_js . "')\", 2000);
+        setTimeout(\"window.location = decodeURI('" . $testUri_js . "')\", 2000);
         //]]></script></head>
 <body><script type=\"text/javascript\">//<![CDATA[
     document.write('<p><a href=\"" . $testUri_html . "\">" . __('Go') . "</a></p>');
