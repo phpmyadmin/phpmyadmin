@@ -182,7 +182,7 @@ function MouseMove(e)
         if (ON_grid) {
             new_x = parseInt(new_x / grid_size) * grid_size;
             new_y = parseInt(new_y / grid_size) * grid_size;
-        };
+        }
 
         $cur_click.css('left', new_x + 'px');
         $cur_click.css('top', new_y + 'px');
@@ -1535,7 +1535,7 @@ function No_have_constr(id_this)
 
     if (id_this.alt == 'v') {
         id_this.alt = '>';
-        id_this.src = id_this.dataset.right;;
+        id_this.src = id_this.dataset.right;
     } else {
         id_this.alt = 'v';
         id_this.src = id_this.dataset.down;

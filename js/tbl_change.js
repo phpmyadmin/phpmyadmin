@@ -389,7 +389,7 @@ AJAX.registerOnload('tbl_change.js', function () {
          * after initiation of functions
          */
         extendingValidatorMessages();
-    };
+    }
 
     $.datepicker.initialized = false;
 

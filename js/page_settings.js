@@ -19,7 +19,7 @@ function showSettings(selector) {
     };
 
     // Keeping a clone to restore in case the user cancels the operation
-    var $clone = $(selector + ' .page_settings').clone(true);;
+    var $clone = $(selector + ' .page_settings').clone(true);
     $(selector)
     .dialog({
         title: PMA_messages.strPageSettings,
