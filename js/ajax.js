@@ -412,7 +412,7 @@ var AJAX = {
                         var replacement = $selflink_replace[source];
                         data._selflink = data._selflink.replace(source, replacement);
                     }
-                    $('#selflink > a').attr('href', data._selflink);
+                    $('#selflink').find('> a').attr('href', data._selflink);
                 }
                 if (data._scripts) {
                     AJAX.scriptHandler.load(data._scripts);
@@ -709,7 +709,7 @@ $(function () {
     if (history && history.pushState) {
         //set initial state reload
         var initState = ('state' in window.history && window.history.state !== null);
-        var initURL = $('#selflink > a').attr('href') || location.href;
+        var initURL = $('#selflink').find('> a').attr('href') || location.href;
         var state = {
             url : initURL,
             menu : menuContent
