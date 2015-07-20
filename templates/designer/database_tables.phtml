@@ -17,7 +17,7 @@
                     <td class="select_all">
                         <input class="select_all_1"
                                type="checkbox"
-                               style="margin: 0px;"
+                               style="margin: 0;"
                                value="select_all_<?php echo htmlspecialchars($t_n_url); ?>"
                                id="select_all_<?php echo htmlspecialchars($t_n_url); ?>"
                                title="select all"
@@ -88,7 +88,7 @@
                                    value="<?php echo htmlspecialchars($t_n_url) . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
                                    type="checkbox"
                                    id="select_<?php echo htmlspecialchars($t_n_url); ?>._<?php echo urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
-                                   style="margin: 0px;"
+                                   style="margin: 0;"
                                    title="select_<?php echo urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
                                    store_column_param="<?php echo urlencode($GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]); ?>,<?php echo htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]); ?>,<?php echo urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>">
                         </td>
