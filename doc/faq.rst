@@ -2067,6 +2067,16 @@ Notes:
 Thus, if you want to replicate the database/table/column/procedure as it is
 while renaming/copying/moving these objects, make sure you have checked this option.
 
+.. _faq6_40:
+
+6.40 I see "Bind parameters" checkbox in the "SQL" page. How do I write parameterized SQL queries?
+--------------------------------------------------------------------------------------------------
+
+From version 4.5, phpMyAdmin allows users to execute parameterized queries in the "SQL" page.
+Parameters should be prefixed with a colon(:) and when the "Bind parameters" checkbox is checked
+these parameters will be identified and input fields for these parameters will be presented.
+Values entered in these field will be substituted in the query before being executed.
+
 .. _faqproject:
 
 phpMyAdmin project
