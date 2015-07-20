@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-20 06:34-0400\n"
-"PO-Revision-Date: 2015-07-20 21:03+0200\n"
+"PO-Revision-Date: 2015-07-20 21:04+0200\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
@@ -708,7 +708,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr "Voortgang van de import kon niet worden geladen."
+msgstr "Voortgang van de import kon niet worden ingelezen."
 
 #: import_status.php:112 js/messages.php:378 libraries/Util.class.php:776
 #: libraries/export.lib.php:515
@@ -6471,7 +6471,8 @@ msgstr "Voeg ON DUPLICATE KEY UPDATE toe"
 #: libraries/config/messages.inc.php:354 libraries/config/messages.inc.php:366
 msgid "Update data when duplicate keys found on import"
 msgstr ""
-"Werk data bij wanneer identieke sleutelvelden worden gevonden bij importeren"
+"Werk data bij wanneer identieke sleutelvelden worden gevonden bij het "
+"importeren"
 
 #: libraries/config/messages.inc.php:357
 msgid ""
