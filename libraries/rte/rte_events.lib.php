@@ -420,7 +420,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     } else {
         $retval .= "        <input name='item_type' type='hidden' \n";
         $retval .= "               value='{$item['item_type']}' />\n";
-        $retval .= "        <div style='width: 49%; float: left; text-align: center;"
+        $retval .= "        <div class='floatleft' style='width: 49%; text-align: center;"
                                 . " font-weight: bold;'>\n";
         $retval .= "            {$item['item_type']}\n";
         $retval .= "        </div>\n";
