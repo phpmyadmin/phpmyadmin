@@ -4718,3 +4718,26 @@ function isStorageSupported(type)
     }
     return false;
 }
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function(){
+    $(document).off('keydown', 'form input, form textarea, form select');
+});
+
+AJAX.registerOnload('functions.js', function () {
+    /**
+     * Handle 'Ctrl/Alt + Enter' form submits
+     */
+    $('form input, form textarea, form select').on('keydown', function(e){
+        if((e.ctrlKey && e.which == 13) || (e.altKey && e.which == 13)) {
+            $form = $(this).closest('form');
+            if (! $form.find('input[type="submit"]') ||
+                ! $form.find('input[type="submit"]').click()
+            ) {
+                $form.submit();
+            }
+        }
+    });
+});
