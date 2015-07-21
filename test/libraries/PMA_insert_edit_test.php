@@ -2862,7 +2862,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-            '<span class="column_type">varchar(20)</span>',
+            '<span class="column_type" dir="ltr">varchar(20)</span>',
             $actual
         );
         $this->assertContains(
@@ -2972,7 +2972,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-            '<span class="column_type">longtext</span>',
+            '<span class="column_type" dir="ltr">longtext</span>',
             $actual
         );
         $this->assertContains(
