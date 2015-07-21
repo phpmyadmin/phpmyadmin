@@ -587,11 +587,11 @@ if (! function_exists('__')) {
 }
 
 /* Text direction for language */
-//if (in_array($GLOBALS['lang'], array('ar', 'fa', 'he', 'ur'))) {
+if (in_array($GLOBALS['lang'], array('ar', 'fa', 'he', 'ur'))) {
     $GLOBALS['text_dir'] = 'rtl';
-//} else {
-//   $GLOBALS['text_dir'] = 'ltr';
-//}
+} else {
+   $GLOBALS['text_dir'] = 'ltr';
+}
 
 /* TCPDF */
 $GLOBALS['l'] = array();
