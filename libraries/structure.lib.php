@@ -195,7 +195,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     }
     $cell_text = ($approx_rows)
         ? '<a href="db_structure.php' . PMA_URL_getCommon($row_sum_url)
-        . '" class="ajax row_count_sum">' . '~' . $row_count_sum . '</a>'
+        . '" class="ajax row_count_sum"><bdi>' . '~' . $row_count_sum . '</bdi></a>'
         : $row_count_sum;
     $html_output .= '<th class="value tbl_rows">'
         . $cell_text
@@ -725,7 +725,7 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
     // If row count is approximate, display it as an anchor to get real count.
     $cell_text = (! empty($row_count_pre))
         ? '<a href="db_structure.php' . PMA_URL_getCommon($real_count_url)
-        . '" class="ajax real_row_count">' . $row_count . '</a>'
+        . '" class="ajax real_row_count"><bdi>' . $row_count . '</bdi></a>'
         : $row_count;
     $html_output .= '<td class="value tbl_rows" data-table="'
         . htmlspecialchars($current_table['TABLE_NAME']) . '">'
