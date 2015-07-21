@@ -37,7 +37,7 @@ function PMA_exportCheckboxCheck($str)
  */
 function PMA_getHtmlForExportSelectOptions($tmp_select = '')
 {
-    $multi_values  = '<div style="text-align: left">';
+    $multi_values  = '<div>';
     $multi_values .= '<a href="#"';
     $multi_values .= ' onclick="setSelectOptions'
         . '(\'dump\', \'db_select[]\', true); return false;">';
