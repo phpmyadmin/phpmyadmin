@@ -3221,7 +3221,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
     $html_output .= '</tbody>'
         . '</table>' . "\n";
 
-    $html_output .= '<div style="float:left;">'
+    $html_output .= '<div class="floatleft">'
         . PMA_Util::getWithSelected($pmaThemeImage, $text_dir, "usersForm") . "\n";
 
     $html_output .= PMA_Util::getButtonOrImage(
