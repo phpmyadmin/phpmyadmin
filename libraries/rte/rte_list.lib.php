@@ -283,7 +283,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     $retval .= "            <td>\n";
     $retval .= "                 {$routine['type']}\n";
     $retval .= "            </td>\n";
-    $retval .= "            <td>\n";
+    $retval .= "            <td dir=\"ltr\">\n";
     $retval .= "                "
         . htmlspecialchars($routine['returns']) . "\n";
     $retval .= "            </td>\n";
