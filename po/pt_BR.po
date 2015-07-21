@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-07-21 03:13+0200\n"
+"PO-Revision-Date: 2015-07-21 03:18+0200\n"
 "Last-Translator: Vinicius Pitta Lima de Araujo <vinipitta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/pt_BR/>\n"
@@ -6201,12 +6201,12 @@ msgstr "Não aborta em erro de INSERT"
 
 #: libraries/config/messages.inc.php:337 libraries/config/messages.inc.php:349
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Adicionar ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:338 libraries/config/messages.inc.php:350
 msgid "Update data when duplicate keys found on import"
 msgstr ""
-"Atualizar dados quando chaves duplicadas forem encontradas na importação"
+"Atualizar dados quando forem encontradas chaves duplicadas na importação"
 
 #: libraries/config/messages.inc.php:341
 msgid ""
