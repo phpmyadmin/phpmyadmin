@@ -2916,7 +2916,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-            '<span class="column_type">datetime</span>',
+            '<span class="column_type" dir="ltr">datetime</span>',
             $actual
         );
         $this->assertContains(
