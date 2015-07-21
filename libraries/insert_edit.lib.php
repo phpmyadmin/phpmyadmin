@@ -2612,7 +2612,7 @@ function PMA_getHtmlForFunctionOption($odd_row, $column, $column_name_appendix)
 function PMA_getHtmlForInsertEditColumnType($column)
 {
     return '<td class="center' . $column['wrap'] . '">'
-        . '<span class="column_type">' . $column['pma_type'] . '</span>'
+        . '<span class="column_type" dir="ltr">' . $column['pma_type'] . '</span>'
         . '</td>';
 
 }
