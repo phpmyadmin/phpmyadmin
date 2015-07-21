@@ -4741,3 +4741,25 @@ AJAX.registerOnload('functions.js', function () {
         }
     });
 });
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function(){
+    $(document).off('change', 'input[type=radio][name="pw_hash"]');
+});
+
+AJAX.registerOnload('functions.js', function(){
+    /*
+     * Display warning regarding SSL when sha256_password
+     * method is selected
+     * Used in user_password.php (Change Password link on index.php)
+     */
+    $(document).on("change", 'input[type=radio][name="pw_hash"]', function() {
+        if (this.value === 'sha256_password') {
+            $('#ssl_reqd_warning').show();
+        } else {
+            $('#ssl_reqd_warning').hide();
+        }
+    });
+});
