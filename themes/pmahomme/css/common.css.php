@@ -1556,14 +1556,16 @@ div#profilingchart {
 /* end profiling */
 
 /* table charting */
-
 #resizer {
     border: 1px solid silver;
 }
 #inner-resizer { /* make room for the resize handle */
     padding: 10px;
 }
-
+.chartOption {
+    float: <?php echo $left; ?>;
+    margin-<?php echo $right;?>: 40px;
+}
 /* end table charting */
 
 /* querybox */

@@ -11,17 +11,27 @@
             <legend>
                 <?php echo __('Display chart'); ?>
             </legend>
-            <div style="float:left; width:420px;">
-                <input type="radio" name="chartType" value="bar" id="radio_bar" />
-                <label for ="radio_bar"><?php echo _pgettext('Chart type', 'Bar') ?></label>
-                <input type="radio" name="chartType" value="column" id="radio_column" />
-                <label for ="radio_column"><?php echo _pgettext('Chart type', 'Column') ?></label>
-                <input type="radio" name="chartType" value="line" id="radio_line" checked="checked" />
-                <label for ="radio_line"><?php echo _pgettext('Chart type', 'Line') ?></label>
-                <input type="radio" name="chartType" value="spline" id="radio_spline" />
-                <label for ="radio_spline"><?php echo _pgettext('Chart type', 'Spline') ?></label>
-                <input type="radio" name="chartType" value="area" id="radio_area" />
-                <label for ="radio_area"><?php echo _pgettext('Chart type', 'Area') ?></label>
+            <div class="chartOption">
+                <div class="formelement">
+                    <input type="radio" name="chartType" value="bar" id="radio_bar" />
+                    <label for ="radio_bar"><?php echo _pgettext('Chart type', 'Bar') ?></label>
+                </div>
+                <div class="formelement">
+                    <input type="radio" name="chartType" value="column" id="radio_column" />
+                    <label for ="radio_column"><?php echo _pgettext('Chart type', 'Column') ?></label>
+                </div>
+                <div class="formelement">
+                    <input type="radio" name="chartType" value="line" id="radio_line" checked="checked" />
+                    <label for ="radio_line"><?php echo _pgettext('Chart type', 'Line') ?></label>
+                </div>
+                <div class="formelement">
+                    <input type="radio" name="chartType" value="spline" id="radio_spline" />
+                    <label for ="radio_spline"><?php echo _pgettext('Chart type', 'Spline') ?></label>
+                </div>
+                <div class="formelement">
+                    <input type="radio" name="chartType" value="area" id="radio_area" />
+                    <label for ="radio_area"><?php echo _pgettext('Chart type', 'Area') ?></label>
+                </div>
                 <span class="span_pie" style="display:none;">
                     <input type="radio" name="chartType" value="pie" id="radio_pie" />
                     <label for ="radio_pie"><?php echo _pgettext('Chart type', 'Pie') ?></label>
@@ -43,7 +53,7 @@
                 <input type="text" name="chartTitle" value="<?php echo __('Chart title'); ?>">
             </div>
             <?php $xaxis = null; ?>
-            <div style="float:left; padding-left:40px;">
+            <div class="chartOption">
                 <label for="select_chartXAxis"><?php echo __('X-Axis:'); ?></label>
                 <select name="chartXAxis" id="select_chartXAxis">
                     <?php foreach ($keys as $idx => $key) : ?>
@@ -87,7 +97,7 @@
                     }?>"
                 />
             </div>
-            <div style="float:left; padding-left:40px;">
+            <div class="chartOption">
                 <label for="xaxis_panel">
                     <?php echo __('X-Axis label:'); ?>
                 </label>

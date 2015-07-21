@@ -1170,6 +1170,13 @@ div#profilingchart {
 }
 /* end profiling */
 
+/* table charting */
+.chartOption {
+    float: <?php echo $left; ?>;
+    margin-<?php echo $right;?>: 40px;
+}
+/* end table charting */
+
 /* querybox */
 
 div#sqlquerycontainer {
