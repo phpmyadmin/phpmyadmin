@@ -904,15 +904,13 @@ function PMA_reloadNavigation(callback, paths) {
 }
 
 function PMA_selectCurrentDb() {
-    if ($('#navi_db_select').length) {
+    var $navi_db_select = ('#navi_db_select');
+    if ($navi_db_select.length) {
         if (PMA_commonParams.get('db')) { // db selected
             $('#navi_db_select').show();
         }
-        $('#navi_db_select').val(PMA_commonParams.get('db'));
-        if ($('#navi_db_select').val() !== PMA_commonParams.get('db')) {
-            return false;
-        }
-        return true;
+        $navi_db_select.val(PMA_commonParams.get('db'));
+        return $navi_db_select.val() === PMA_commonParams.get('db');
     }
 }
 

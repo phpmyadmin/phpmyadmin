@@ -186,7 +186,7 @@ class PMA_Eps_Relation_Schema_Test extends PHPUnit_Framework_TestCase
      *
      * @group medium
      */
-    public function testSetPageNumbere()
+    public function testSetPageNumber()
     {
         $this->object->setPageNumber(33);
         $this->assertEquals(

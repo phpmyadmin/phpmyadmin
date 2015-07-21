@@ -359,9 +359,9 @@ var orderby = function(norder) {
     };
     this.get_order = function() {
         return order;
-    }
+    };
     this.set_order(norder);
-}
+};
 
 /**
  * Having object closure, makes an object with all information of where

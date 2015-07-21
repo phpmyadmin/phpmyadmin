@@ -717,4 +717,3 @@ function PMA_sprites()
         ),
     );
 }
-?>

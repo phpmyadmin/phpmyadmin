@@ -390,12 +390,13 @@ var AJAX = {
                     .not('#pma_console_container')
                     .not('#prefs_autoload')
                     .remove();
+                var $page_content = $('#page_content');
                 // Replace #page_content with new content
                 if (data.message && data.message.length > 0) {
-                    $('#page_content').replaceWith(
+                    $page_content.replaceWith(
                         "<div id='page_content'>" + data.message + "</div>"
                     );
-                    PMA_highlightSQL($('#page_content'));
+                    PMA_highlightSQL($page_content);
                     checkNumberOfFields();
                 }
 
@@ -411,7 +412,7 @@ var AJAX = {
                         var replacement = $selflink_replace[source];
                         data._selflink = data._selflink.replace(source, replacement);
                     }
-                    $('#selflink > a').attr('href', data._selflink);
+                    $('#selflink').find('> a').attr('href', data._selflink);
                 }
                 if (data._scripts) {
                     AJAX.scriptHandler.load(data._scripts);
@@ -431,8 +432,8 @@ var AJAX = {
                     PMA_commonParams.setAll(data._params);
                 }
                 if (data._displayMessage) {
-                    $('#page_content').prepend(data._displayMessage);
-                    PMA_highlightSQL($('#page_content'));
+                    $page_content.prepend(data._displayMessage);
+                    PMA_highlightSQL($page_content);
                 }
 
                 $('#pma_errors').remove();
@@ -650,11 +651,12 @@ AJAX.registerOnload('functions.js', function () {
         }
     });
 
+    var $page_content = $('#page_content');
     /**
      * Workaround for passing submit button name,value on ajax form submit
      * by appending hidden element with submit button name and value.
      */
-    $("#page_content").on('click', 'form input[type=submit]', function() {
+    $page_content.on('click', 'form input[type=submit]', function() {
         var buttonName = $(this).attr('name');
         if (typeof buttonName === 'undefined') {
             return;
@@ -670,7 +672,7 @@ AJAX.registerOnload('functions.js', function () {
      * Attach event listener to events when user modify visible
      * Input,Textarea and select fields to make changes in forms
      */
-    $('#page_content').on(
+    $page_content.on(
         'keyup change',
         'form.lock-page textarea, ' +
         'form.lock-page input[type="text"], ' +
@@ -679,7 +681,7 @@ AJAX.registerOnload('functions.js', function () {
         {value:1},
         AJAX.lockPageHandler
     );
-    $('#page_content').on(
+    $page_content.on(
         'change',
         'form.lock-page input[type="checkbox"], ' +
         'form.lock-page input[type="radio"]',
@@ -707,7 +709,7 @@ $(function () {
     if (history && history.pushState) {
         //set initial state reload
         var initState = ('state' in window.history && window.history.state !== null);
-        var initURL = $('#selflink > a').attr('href') || location.href;
+        var initURL = $('#selflink').find('> a').attr('href') || location.href;
         var state = {
             url : initURL,
             menu : menuContent

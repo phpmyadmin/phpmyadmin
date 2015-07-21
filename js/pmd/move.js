@@ -182,7 +182,7 @@ function MouseMove(e)
         if (ON_grid) {
             new_x = parseInt(new_x / grid_size) * grid_size;
             new_y = parseInt(new_y / grid_size) * grid_size;
-        };
+        }
 
         $cur_click.css('left', new_x + 'px');
         $cur_click.css('top', new_y + 'px');
@@ -195,14 +195,15 @@ function MouseMove(e)
         if (menu_moved) {
             delta_x = -delta_x;
         }
-        var new_width = $('#layer_menu').width() + delta_x;
+        var $layer_menu = $('#layer_menu');
+        var new_width = $layer_menu.width() + delta_x;
         if (new_width < 150) {
             new_width = 150;
         }
         else {
             dx = e.pageX;
         }
-        $('#layer_menu').width(new_width);
+        $layer_menu.width(new_width);
     }
 
     if (ON_relation || ON_display_field) {
@@ -265,12 +266,13 @@ function setDefaultValuesFromSavedState()
     }
     Grid();
 
-    if ($('#relLineInvert').attr('class') === 'M_butt') {
+    var $relLineInvert = $('#relLineInvert');
+    if ($relLineInvert.attr('class') === 'M_butt') {
         show_relation_lines = false;
-        $('#relLineInvert').attr('class', 'M_butt');
+        $relLineInvert.attr('class', 'M_butt');
     } else {
         show_relation_lines = true;
-        $('#relLineInvert').attr('class', 'M_butt_Selected_down');
+        $relLineInvert.attr('class', 'M_butt_Selected_down');
     }
     Relation_lines_invert();
 
@@ -281,14 +283,16 @@ function setDefaultValuesFromSavedState()
         always_show_text = false;
     }
 
-    if ($('#key_SB_all').attr('class') === 'M_butt_Selected_down') {
-        $('#key_SB_all').click();
-        $('#key_SB_all').toggleClass('M_butt_Selected_down');
-        $('#key_SB_all').toggleClass('M_butt');
+    var $key_SB_all = $('#key_SB_all');
+    if ($key_SB_all.attr('class') === 'M_butt_Selected_down') {
+        $key_SB_all.click();
+        $key_SB_all.toggleClass('M_butt_Selected_down');
+        $key_SB_all.toggleClass('M_butt');
     }
 
-    if ($('#key_Left_Right').attr('class') === 'M_butt_Selected_down') {
-        $('#key_Left_Right').click();
+    var $key_Left_Right = $('#key_Left_Right');
+    if ($key_Left_Right.attr('class') === 'M_butt_Selected_down') {
+        $key_Left_Right.click();
     }
 
 }
@@ -1531,7 +1535,7 @@ function No_have_constr(id_this)
 
     if (id_this.alt == 'v') {
         id_this.alt = '>';
-        id_this.src = id_this.dataset.right;;
+        id_this.src = id_this.dataset.right;
     } else {
         id_this.alt = 'v';
         id_this.src = id_this.dataset.down;
