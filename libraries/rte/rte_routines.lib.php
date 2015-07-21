@@ -809,7 +809,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     } else {
         $retval .= "<input name='item_type' type='hidden'"
             . " value='{$routine['item_type']}' />\n"
-            . "<div style='width: 49%; float: left; text-align: center;"
+            . "<div class='floatleft' style='width: 49%; text-align: center;"
             . " font-weight: bold;'>\n"
             . $routine['item_type'] . "\n"
             . "</div>\n"
