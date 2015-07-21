@@ -1,9 +1,10 @@
 <td class="center print_ignore">
-    <input type="checkbox" class="checkall" name="selected_fld[]" value="<?php htmlspecialchars($row['Field']); ?>" id="checkbox_row_<?php echo $rownum; ?>"/>
+    <input type="checkbox" class="checkall" name="selected_fld[]" value="<?php echo htmlspecialchars($row['Field']); ?>" id="checkbox_row_<?php echo $rownum; ?>"/>
 </td>
 <td class="right"><?php echo $rownum; ?></td>
 <th class="nowrap">
-    <label for="checkbox_row_<?php echo $rownum; ?>"><?php echo preg_replace(/[\x00-\x1F]/', '&#x2051;', $displayed_field_name); ?>
+    <label for="checkbox_row_<?php echo $rownum; ?>">
+        <?php echo preg_replace('/[\x00-\x1F]/', '&#x2051;', $displayed_field_name); ?>
     </label>
 </th>
 <td <?php echo $type_nowrap; ?>>

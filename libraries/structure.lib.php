@@ -1176,7 +1176,7 @@ function PMA_getHtmlTableStructureRow($row, $rownum,
     $field_charset, $attribute, $tbl_is_view, $db_is_system_schema,
     $url_query, $field_encoded, $titles, $table
 ) {
-    return PMA\Template::get('libraries/table_structure_row')->render(
+    return PMA\Template::get('structure/table_structure_row')->render(
       array(
           'row' => $row,
           'rownum' => $rownum,
