@@ -124,7 +124,7 @@ var ErrorReport = {
             PMA_getImage("s_error.png") + PMA_messages.strErrorOccurred
         );
 
-        var $buttons = $('<div style="float:right"></div>');
+        var $buttons = $('<div class="floatright"></div>');
 
         var button_html  = '<button id="show_error_report">';
         button_html += PMA_messages.strShowReportDetails;

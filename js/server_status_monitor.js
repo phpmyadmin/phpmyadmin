@@ -1821,7 +1821,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             // Display some stats at the bottom of the table
             $('#logTable table tfoot tr')
                 .html('<th colspan="' + (runtime.logDataCols.length - 1) + '">' +
-                      PMA_messages.strSumRows + ' ' + rowSum + '<span style="float:right">' +
+                      PMA_messages.strSumRows + ' ' + rowSum + '<span class="floatright">' +
                       PMA_messages.strTotal + '</span></th><th class="right">' + totalSum + '</th>');
         }
     }
@@ -1900,7 +1900,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         $table.append('<tfoot>' +
                     '<tr><th colspan="' + (cols.length - 1) + '">' + PMA_messages.strSumRows +
-                    ' ' + data.numRows + '<span style="float:right">' + PMA_messages.strTotal +
+                    ' ' + data.numRows + '<span class="floatright">' + PMA_messages.strTotal +
                     '</span></th><th class="right">' + data.sum.TOTAL + '</th></tr></tfoot>');
 
         // Append a tooltip to the count column, if there exist one
