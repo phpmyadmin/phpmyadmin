@@ -52,17 +52,17 @@ class PMA_Table
     /**
      * @var string  table name
      */
-    protected $name = '';
+    protected $_name = '';
 
     /**
      * @var string  database name
      */
-    protected $db_name = '';
+    protected $_db_name = '';
 
     /**
      * @var PMA_DatabaseInterface
      */
-    protected $dbi;
+    protected $_dbi;
 
     /**
      * Constructor
@@ -122,9 +122,9 @@ class PMA_Table
     function getName($backquoted = false)
     {
         if ($backquoted) {
-            return PMA_Util::backquote($this->name);
+            return PMA_Util::backquote($this->_name);
         }
-        return $this->name;
+        return $this->_name;
     }
 
     /**
@@ -137,9 +137,9 @@ class PMA_Table
     function getDbName($backquoted = false)
     {
         if ($backquoted) {
-            return PMA_Util::backquote($this->db_name);
+            return PMA_Util::backquote($this->_db_name);
         }
-        return $this->db_name;
+        return $this->_db_name;
     }
 
     /**
@@ -152,7 +152,7 @@ class PMA_Table
     function getFullName($backquoted = false)
     {
         return $this->getDbName($backquoted) . '.'
-            . $this->getName($backquoted);
+        . $this->getName($backquoted);
     }
 
     /**
@@ -169,10 +169,10 @@ class PMA_Table
         }
 
         // use cached data or load information with SHOW command
-        if ($GLOBALS['dbi']->getCachedTableContent("${db}.${table}") != null
+        if ($this->_dbi->getCachedTableContent("${db}.${table}") != null
             || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
-            $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
+            $type = $this->sGetStatusInfo('TABLE_TYPE');
             return $type == 'VIEW' || $type == 'SYSTEM VIEW';
         }
 
@@ -182,7 +182,7 @@ class PMA_Table
         }
 
         // query information_schema
-        $result = $GLOBALS['dbi']->fetchResult(
+        $result = $this->_dbi->fetchResult(
             "SELECT TABLE_NAME
             FROM information_schema.VIEWS
             WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($db) . "'
@@ -242,8 +242,8 @@ class PMA_Table
             foreach ($results as $result) {
                 $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
                     = array(
-                        'type' => /*overload*/mb_strtoupper($result['DATA_TYPE'])
-                    );
+                    'type' => /*overload*/mb_strtoupper($result['DATA_TYPE'])
+                );
             }
         } else {
             $show_create_table = $this->_dbi->fetchValue(
@@ -272,9 +272,7 @@ class PMA_Table
         $engine = null;
         // if called static, with parameters
         if (! empty($this->_db_name) && ! empty($this->_name)) {
-            $engine = PMA_Table::sGetStatusInfo(
-                $this->_db_name, $this->_name, 'ENGINE', null, true
-            );
+            $engine = $this->sGetStatusInfo('ENGINE', null, true);
         }
 
         // did we get engine?
@@ -284,7 +282,7 @@ class PMA_Table
 
         // any of known merge engines?
         return in_array(
-            /*overload*/mb_strtoupper($engine),
+        /*overload*/mb_strtoupper($engine),
             array('MERGE', 'MRG_MYISAM')
         );
     }
@@ -293,8 +291,6 @@ class PMA_Table
      * Returns full table status info, or specific if $info provided
      * this info is collected from information_schema
      *
-     * @param string  $db            database name
-     * @param string  $table         table name
      * @param string  $info          specific information to be fetched
      * @param boolean $force_read    read new rather than serving from cache
      * @param boolean $disable_error if true, disables error message
@@ -304,23 +300,24 @@ class PMA_Table
      *
      * @return mixed
      */
-    static public function sGetStatusInfo($db, $table, $info = null,
-        $force_read = false, $disable_error = false
-    ) {
+    public function sGetStatusInfo($info = null, $force_read = false, $disable_error = false) {
+        $db = $this->_db_name;
+        $table = $this->_name;
+
         if (! empty($_SESSION['is_multi_query'])) {
             $disable_error = true;
         }
 
         // sometimes there is only one entry (ExactRows) so
         // we have to get the table's details
-        if ($GLOBALS['dbi']->getCachedTableContent("${db}.${table}") == null
+        if ($this->_dbi->getCachedTableContent("${db}.${table}") == null
             || $force_read
-            || count($GLOBALS['dbi']->getCachedTableContent("${db}.${table}")) == 1
+            || count($this->_dbi->getCachedTableContent("${db}.${table}")) == 1
         ) {
-            $GLOBALS['dbi']->getTablesFull($db, $table);
+            $this->_dbi->getTablesFull($db, $table);
         }
 
-        if ($GLOBALS['dbi']->getCachedTableContent("${db}.${table}") == null) {
+        if ($this->_dbi->getCachedTableContent("${db}.${table}") == null) {
             // happens when we enter the table creation dialog
             // or when we really did not get any status info, for example
             // when $table == 'TABLE_NAMES' after the user tried SHOW TABLES
@@ -328,11 +325,11 @@ class PMA_Table
         }
 
         if (null === $info) {
-            return $GLOBALS['dbi']->getCachedTableContent("${db}.${table}");
+            return $this->_dbi->getCachedTableContent("${db}.${table}");
         }
 
         // array_key_exists allows for null values
-        if (!array_key_exists($info, $GLOBALS['dbi']->getCachedTableContent("${db}.${table}"))) {
+        if (!array_key_exists($info, $this->_dbi->getCachedTableContent("${db}.${table}"))) {
             if (! $disable_error) {
                 trigger_error(
                     __('Unknown table status:') . ' ' . $info,
@@ -342,7 +339,7 @@ class PMA_Table
             return false;
         }
 
-        return $GLOBALS['dbi']->getCachedTableContent("${db}.${table}.${info}");
+        return $this->_dbi->getCachedTableContent("${db}.${table}.${info}");
     }
 
     /**
@@ -371,14 +368,14 @@ class PMA_Table
      * @return string  field specification
      */
     static function generateFieldSpec($name, $type, $length = '',
-        $attribute = '', $collation = '', $null = false,
-        $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
-        $comment = '', $virtuality = '', $expression = '', $move_to = ''
+                                      $attribute = '', $collation = '', $null = false,
+                                      $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
+                                      $comment = '', $virtuality = '', $expression = '', $move_to = ''
     ) {
         $is_timestamp = /*overload*/mb_strpos(
             /*overload*/mb_strtoupper($type),
-            'TIMESTAMP'
-        ) !== false;
+                'TIMESTAMP'
+            ) !== false;
 
         $query = PMA_Util::backquote($name) . ' ' . $type;
 
@@ -418,45 +415,45 @@ class PMA_Table
             }
 
             switch ($default_type) {
-            case 'USER_DEFINED' :
-                if ($is_timestamp && $default_value === '0') {
-                    // a TIMESTAMP does not accept DEFAULT '0'
-                    // but DEFAULT 0 works
-                    $query .= ' DEFAULT 0';
-                } elseif ($type == 'BIT') {
-                    $query .= ' DEFAULT b\''
+                case 'USER_DEFINED' :
+                    if ($is_timestamp && $default_value === '0') {
+                        // a TIMESTAMP does not accept DEFAULT '0'
+                        // but DEFAULT 0 works
+                        $query .= ' DEFAULT 0';
+                    } elseif ($type == 'BIT') {
+                        $query .= ' DEFAULT b\''
                             . preg_replace('/[^01]/', '0', $default_value)
                             . '\'';
-                } elseif ($type == 'BOOLEAN') {
-                    if (preg_match('/^1|T|TRUE|YES$/i', $default_value)) {
-                        $query .= ' DEFAULT TRUE';
-                    } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
-                        $query .= ' DEFAULT FALSE';
+                    } elseif ($type == 'BOOLEAN') {
+                        if (preg_match('/^1|T|TRUE|YES$/i', $default_value)) {
+                            $query .= ' DEFAULT TRUE';
+                        } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
+                            $query .= ' DEFAULT FALSE';
+                        } else {
+                            // Invalid BOOLEAN value
+                            $query .= ' DEFAULT \''
+                                . PMA_Util::sqlAddSlashes($default_value) . '\'';
+                        }
+                    } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
+                        $query .= ' DEFAULT 0x' . $default_value;
                     } else {
-                        // Invalid BOOLEAN value
                         $query .= ' DEFAULT \''
                             . PMA_Util::sqlAddSlashes($default_value) . '\'';
                     }
-                } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
-                    $query .= ' DEFAULT 0x' . $default_value;
-                } else {
-                    $query .= ' DEFAULT \''
-                        . PMA_Util::sqlAddSlashes($default_value) . '\'';
-                }
-                break;
-            case 'NULL' :
-                // If user uncheck null checkbox and not change default value null,
-                // default value will be ignored.
-                if ($null !== false && $null !== 'NULL') {
                     break;
-                }
+                case 'NULL' :
+                    // If user uncheck null checkbox and not change default value null,
+                    // default value will be ignored.
+                    if ($null !== false && $null !== 'NULL') {
+                        break;
+                    }
                 // else fall-through intended, no break here
-            case 'CURRENT_TIMESTAMP' :
-                $query .= ' DEFAULT ' . $default_type;
-                break;
-            case 'NONE' :
-            default :
-                break;
+                case 'CURRENT_TIMESTAMP' :
+                    $query .= ' DEFAULT ' . $default_type;
+                    break;
+                case 'NONE' :
+                default :
+                    break;
             }
 
             if (!empty($extra)) {
@@ -488,7 +485,7 @@ class PMA_Table
         $is_view = $this->isView();
         $db = $this->_db_name;
         $table = $this->_name;
-        
+
         if ($this->_dbi->getCachedTableContent("${db}.${table}.ExactRows") != null) {
             $row_count = $this->_dbi->getCachedTableContent("${db}.${table}.ExactRows");
             return $row_count;
@@ -585,15 +582,15 @@ class PMA_Table
      * @return string  field specification
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
-        $attribute, $collation, $null, $default_type, $default_value,
-        $extra, $comment, $virtuality, $expression, $move_to
+                                         $attribute, $collation, $null, $default_type, $default_value,
+                                         $extra, $comment, $virtuality, $expression, $move_to
     ) {
         return PMA_Util::backquote($oldcol) . ' '
-            . PMA_Table::generateFieldSpec(
-                $newcol, $type, $length, $attribute,
-                $collation, $null, $default_type, $default_value, $extra,
-                $comment, $virtuality, $expression, $move_to
-            );
+        . PMA_Table::generateFieldSpec(
+            $newcol, $type, $length, $attribute,
+            $collation, $null, $default_type, $default_value, $extra,
+            $comment, $virtuality, $expression, $move_to
+        );
     } // end function
 
     /**
@@ -617,7 +614,7 @@ class PMA_Table
      * @return int|true
      */
     static public function duplicateInfo($work, $pma_table, $get_fields,
-        $where_fields, $new_fields
+                                         $where_fields, $new_fields
     ) {
         $last_id = -1;
 
@@ -696,7 +693,7 @@ class PMA_Table
      * @return bool true if success, false otherwise
      */
     static public function moveCopy($source_db, $source_table, $target_db,
-        $target_table, $what, $move, $mode
+                                    $target_table, $what, $move, $mode
     ) {
 
         global $err_url;
@@ -1274,7 +1271,7 @@ class PMA_Table
         }
 
         // If the table is moved to a different database drop its triggers first
-        $triggers = $GLOBALS['dbi']->getTriggers(
+        $triggers = $this->_dbi->getTriggers(
             $this->getDbName(), $this->getName(), ''
         );
         $handle_triggers = $this->getDbName() != $new_db && $triggers;
@@ -1283,7 +1280,7 @@ class PMA_Table
                 $sql = 'DROP TRIGGER IF EXISTS '
                     . PMA_Util::backquote($this->getDbName())
                     . '.' . PMA_Util::backquote($trigger['name']) . ';';
-                $GLOBALS['dbi']->query($sql);
+                $this->_dbi->query($sql);
             }
         }
 
@@ -1294,12 +1291,12 @@ class PMA_Table
             RENAME TABLE ' . $this->getFullName(true) . '
                   TO ' . $new_table->getFullName(true) . ';';
         // I don't think a specific error message for views is necessary
-        if (! $GLOBALS['dbi']->query($GLOBALS['sql_query'])) {
+        if (! $this->_dbi->query($GLOBALS['sql_query'])) {
             // Restore triggers in the old database
             if ($handle_triggers) {
-                $GLOBALS['dbi']->selectDb($this->getDbName());
+                $this->_dbi->selectDb($this->getDbName());
                 foreach ($triggers as $trigger) {
-                    $GLOBALS['dbi']->query($trigger['create']);
+                    $this->_dbi->query($trigger['create']);
                 }
             }
             $this->errors[] = sprintf(
@@ -1348,12 +1345,12 @@ class PMA_Table
      */
     public function getUniqueColumns($backquoted = true, $fullName = true)
     {
-        $sql = $GLOBALS['dbi']->getTableIndexesSql(
+        $sql = $this->_dbi->getTableIndexesSql(
             $this->getDbName(),
             $this->getName(),
             'Non_unique = 0'
         );
-        $uniques = $GLOBALS['dbi']->fetchResult(
+        $uniques = $this->_dbi->fetchResult(
             $sql,
             array('Key_name', null),
             'Column_name'
@@ -1397,12 +1394,12 @@ class PMA_Table
      */
     public function getIndexedColumns($backquoted = true, $fullName = true)
     {
-        $sql = $GLOBALS['dbi']->getTableIndexesSql(
+        $sql = $this->_dbi->getTableIndexesSql(
             $this->getDbName(),
             $this->getName(),
             ''
         );
-        $indexed = $GLOBALS['dbi']->fetchResult($sql, 'Column_name', 'Column_name');
+        $indexed = $this->_dbi->fetchResult($sql, 'Column_name', 'Column_name');
 
         $return = array();
         foreach ($indexed as $column) {
@@ -1426,7 +1423,7 @@ class PMA_Table
     public function getColumns($backquoted = true, $fullName = true)
     {
         $sql = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
-        $indexed = $GLOBALS['dbi']->fetchResult($sql, 'Field', 'Field');
+        $indexed = $this->_dbi->fetchResult($sql, 'Field', 'Field');
 
         $return = array();
         foreach ($indexed as $column) {
@@ -1446,11 +1443,11 @@ class PMA_Table
     {
         $move_columns_sql_query = sprintf(
             'SELECT * FROM %s.%s LIMIT 1',
-            PMA_Util::backquote($this->db_name),
-            PMA_Util::backquote($this->name)
+            PMA_Util::backquote($this->_db_name),
+            PMA_Util::backquote($this->_name)
         );
-        $move_columns_sql_result = $this->dbi->tryQuery($move_columns_sql_query);
-        return $this->dbi->getFieldsMeta($move_columns_sql_result);
+        $move_columns_sql_result = $this->_dbi->tryQuery($move_columns_sql_query);
+        return $this->_dbi->getFieldsMeta($move_columns_sql_result);
     }
 
     /**
@@ -1467,10 +1464,10 @@ class PMA_Table
         // Read from phpMyAdmin database
         $sql_query = " SELECT `prefs` FROM " . $pma_table
             . " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'"
-            . " AND `db_name` = '" . PMA_Util::sqlAddSlashes($this->db_name) . "'"
-            . " AND `table_name` = '" . PMA_Util::sqlAddSlashes($this->name) . "'";
+            . " AND `db_name` = '" . PMA_Util::sqlAddSlashes($this->_db_name) . "'"
+            . " AND `table_name` = '" . PMA_Util::sqlAddSlashes($this->_name) . "'";
 
-        $row = $GLOBALS['dbi']->fetchArray(PMA_queryAsControlUser($sql_query));
+        $row = $this->_dbi->fetchArray(PMA_queryAsControlUser($sql_query));
         if (isset($row[0])) {
             return json_decode($row[0], true);
         } else {
@@ -1489,16 +1486,16 @@ class PMA_Table
         $pma_table = PMA_Util::backquote($cfgRelation['db']) . "."
             . PMA_Util::backquote($cfgRelation['table_uiprefs']);
 
-        $secureDbName = PMA_Util::sqlAddSlashes($this->db_name);
+        $secureDbName = PMA_Util::sqlAddSlashes($this->_db_name);
 
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query = " REPLACE INTO " . $pma_table
             . " (username, db_name, table_name, prefs) VALUES ('"
             . $username . "', '" . $secureDbName
-            . "', '" . PMA_Util::sqlAddSlashes($this->name) . "', '"
+            . "', '" . PMA_Util::sqlAddSlashes($this->_name) . "', '"
             . PMA_Util::sqlAddSlashes(json_encode($this->uiprefs)) . "')";
 
-        $success = $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['controllink']);
+        $success = $this->_dbi->tryQuery($sql_query, $GLOBALS['controllink']);
 
         if (!$success) {
             $message = PMA_Message::error(
@@ -1507,7 +1504,7 @@ class PMA_Table
             $message->addMessage('<br /><br />');
             $message->addMessage(
                 PMA_Message::rawError(
-                    $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                    $this->_dbi->getError($GLOBALS['controllink'])
                 )
             );
             return $message;
@@ -1516,7 +1513,7 @@ class PMA_Table
         // Remove some old rows in table_uiprefs if it exceeds the configured
         // maximum rows
         $sql_query = 'SELECT COUNT(*) FROM ' . $pma_table;
-        $rows_count = $GLOBALS['dbi']->fetchValue($sql_query);
+        $rows_count = $this->_dbi->fetchValue($sql_query);
         $max_rows = $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
         if ($rows_count > $max_rows) {
             $num_rows_to_delete = $rows_count - $max_rows;
@@ -1524,7 +1521,7 @@ class PMA_Table
                 = ' DELETE FROM ' . $pma_table .
                 ' ORDER BY last_update ASC' .
                 ' LIMIT ' . $num_rows_to_delete;
-            $success = $GLOBALS['dbi']->tryQuery(
+            $success = $this->_dbi->tryQuery(
                 $sql_query, $GLOBALS['controllink']
             );
 
@@ -1541,7 +1538,7 @@ class PMA_Table
                 $message->addMessage('<br /><br />');
                 $message->addMessage(
                     PMA_Message::rawError(
-                        $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                        $this->_dbi->getError($GLOBALS['controllink'])
                     )
                 );
                 print_r($message);
@@ -1565,15 +1562,15 @@ class PMA_Table
         $server_id = $GLOBALS['server'];
 
         // set session variable if it's still undefined
-        if (!isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name][$this->name])) {
+        if (!isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name][$this->_name])) {
             // check whether we can get from pmadb
-            $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name]
-            [$this->name] = $cfgRelation['uiprefswork']
+            $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name]
+            [$this->_name] = $cfgRelation['uiprefswork']
                 ?  $this->getUiPrefsFromDb()
                 : array();
         }
         $this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$server_id]
-            [$this->db_name][$this->name];
+        [$this->_db_name][$this->_name];
     }
 
     /**
@@ -1608,11 +1605,11 @@ class PMA_Table
                     foreach ($avail_columns as $each_col) {
                         // check if $each_col ends with $colname
                         if (substr_compare(
-                            $each_col,
-                            $colname,
-                            /*overload*/mb_strlen($each_col)
-                            - /*overload*/mb_strlen($colname)
-                        ) === 0
+                                $each_col,
+                                $colname,
+                                /*overload*/mb_strlen($each_col)
+                                - /*overload*/mb_strlen($colname)
+                            ) === 0
                         ) {
                             return $this->uiprefs[$property];
                         }
@@ -1631,10 +1628,7 @@ class PMA_Table
                 && isset($this->uiprefs[$property])
             ) {
                 // check if the table has not been modified
-                if (self::sGetStatusInfo(
-                    $this->db_name,
-                    $this->name, 'Create_time'
-                ) == $this->uiprefs['CREATE_TIME']) {
+                if ($this->sGetStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']) {
                     return $this->uiprefs[$property];
                 } else {
                     // remove the property, since the table has been modified
@@ -1673,13 +1667,9 @@ class PMA_Table
         // we want to save the create time if the property is PROP_COLUMN_ORDER
         if (! $this->isView()
             && ($property == self::PROP_COLUMN_ORDER
-            || $property == self::PROP_COLUMN_VISIB)
+                || $property == self::PROP_COLUMN_VISIB)
         ) {
-            $curr_create_time = self::sGetStatusInfo(
-                $this->db_name,
-                $this->name,
-                'CREATE_TIME'
-            );
+            $curr_create_time = $this->sGetStatusInfo('CREATE_TIME');
             if (isset($table_create_time)
                 && $table_create_time == $curr_create_time
             ) {
@@ -1763,8 +1753,8 @@ class PMA_Table
     public function getNameAndTypeOfTheColumns()
     {
         $columns = array();
-        foreach ($this->dbi->getColumnsFull(
-            $this->db_name, $this->name
+        foreach ($this->_dbi->getColumnsFull(
+            $this->_db_name, $this->_name
         ) as $row) {
             if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
                 $tmp[2] = /*overload*/
@@ -1789,7 +1779,7 @@ class PMA_Table
      */
     public function getIndex($index)
     {
-        return PMA_Index::singleton($this->db_name, $this->name, $index);
+        return PMA_Index::singleton($this->_db_name, $this->_name, $index);
     }
 
     /**
@@ -1805,8 +1795,8 @@ class PMA_Table
         // $sql_query is the one displayed in the query box
         $sql_query = sprintf(
             'ALTER TABLE %s.%s',
-            PMA_Util::backquote($this->db_name),
-            PMA_Util::backquote($this->name)
+            PMA_Util::backquote($this->_db_name),
+            PMA_Util::backquote($this->_name)
         );
 
         // Drops the old index
@@ -1823,33 +1813,33 @@ class PMA_Table
 
         // Builds the new one
         switch ($index->getChoice()) {
-        case 'PRIMARY':
-            if ($index->getName() == '') {
-                $index->setName('PRIMARY');
-            } elseif ($index->getName() != 'PRIMARY') {
-                $error = PMA_Message::error(
-                    __('The name of the primary key must be "PRIMARY"!')
+            case 'PRIMARY':
+                if ($index->getName() == '') {
+                    $index->setName('PRIMARY');
+                } elseif ($index->getName() != 'PRIMARY') {
+                    $error = PMA_Message::error(
+                        __('The name of the primary key must be "PRIMARY"!')
+                    );
+                }
+                $sql_query .= ' ADD PRIMARY KEY';
+                break;
+            case 'FULLTEXT':
+            case 'UNIQUE':
+            case 'INDEX':
+            case 'SPATIAL':
+                if ($index->getName() == 'PRIMARY') {
+                    $error = PMA_Message::error(
+                        __('Can\'t rename index to PRIMARY!')
+                    );
+                }
+                $sql_query .= sprintf(
+                    ' ADD %s ',
+                    $index->getChoice()
                 );
-            }
-            $sql_query .= ' ADD PRIMARY KEY';
-            break;
-        case 'FULLTEXT':
-        case 'UNIQUE':
-        case 'INDEX':
-        case 'SPATIAL':
-            if ($index->getName() == 'PRIMARY') {
-                $error = PMA_Message::error(
-                    __('Can\'t rename index to PRIMARY!')
-                );
-            }
-            $sql_query .= sprintf(
-                ' ADD %s ',
-                $index->getChoice()
-            );
-            if ($index->getName()) {
-                $sql_query .= PMA_Util::backquote($index->getName());
-            }
-            break;
+                if ($index->getName()) {
+                    $sql_query .= PMA_Util::backquote($index->getName());
+                }
+                break;
         } // end switch
 
         $index_fields = array();
@@ -1938,13 +1928,13 @@ class PMA_Table
                 . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
                 . '.' . PMA_Util::backquote($cfgRelation['table_info'])
                 . '(db_name, table_name, display_field) VALUES('
-                . '\'' . PMA_Util::sqlAddSlashes($this->db_name) . '\','
-                . '\'' . PMA_Util::sqlAddSlashes($this->name) . '\','
+                . '\'' . PMA_Util::sqlAddSlashes($this->_db_name) . '\','
+                . '\'' . PMA_Util::sqlAddSlashes($this->_name) . '\','
                 . '\'' . PMA_Util::sqlAddSlashes($display_field) . '\')';
         }
 
         if ($upd_query) {
-            $this->dbi->query(
+            $this->_dbi->query(
                 $upd_query,
                 $GLOBALS['controllink'],
                 0,
@@ -1968,8 +1958,8 @@ class PMA_Table
      * @return boolean
      */
     public function updateInternalRelations($multi_edit_columns_name,
-        $destination_db, $destination_table, $destination_column,
-        $cfgRelation, $existrel
+                                            $destination_db, $destination_table, $destination_column,
+                                            $cfgRelation, $existrel
     ) {
         $updated = false;
         foreach ($destination_db as $master_field_md5 => $foreign_db) {
@@ -1989,8 +1979,8 @@ class PMA_Table
                         . '(master_db, master_table, master_field, foreign_db,'
                         . ' foreign_table, foreign_field)'
                         . ' values('
-                        . '\'' . PMA_Util::sqlAddSlashes($this->db_name) . '\', '
-                        . '\'' . PMA_Util::sqlAddSlashes($this->name) . '\', '
+                        . '\'' . PMA_Util::sqlAddSlashes($this->_db_name) . '\', '
+                        . '\'' . PMA_Util::sqlAddSlashes($this->_name) . '\', '
                         . '\'' . PMA_Util::sqlAddSlashes($master_field) . '\', '
                         . '\'' . PMA_Util::sqlAddSlashes($foreign_db) . '\', '
                         . '\'' . PMA_Util::sqlAddSlashes($foreign_table) . '\','
@@ -2010,9 +2000,9 @@ class PMA_Table
                         . ' foreign_field    = \''
                         . PMA_Util::sqlAddSlashes($foreign_field) . '\' '
                         . ' WHERE master_db  = \''
-                        . PMA_Util::sqlAddSlashes($this->db_name) . '\''
+                        . PMA_Util::sqlAddSlashes($this->_db_name) . '\''
                         . ' AND master_table = \''
-                        . PMA_Util::sqlAddSlashes($this->name) . '\''
+                        . PMA_Util::sqlAddSlashes($this->_name) . '\''
                         . ' AND master_field = \''
                         . PMA_Util::sqlAddSlashes($master_field) . '\'';
                 } // end if... else....
@@ -2029,7 +2019,7 @@ class PMA_Table
             } // end if... else....
 
             if (isset($upd_query)) {
-                $this->dbi->query(
+                $this->_dbi->query(
                     $upd_query,
                     $GLOBALS['controllink'],
                     0,
@@ -2055,8 +2045,8 @@ class PMA_Table
      * @return array
      */
     public function updateForeignKeys($destination_foreign_db,
-        $multi_edit_columns_name, $destination_foreign_table,
-        $destination_foreign_column, $options_array, $table, $existrel_foreign
+                                      $multi_edit_columns_name, $destination_foreign_table,
+                                      $destination_foreign_column, $options_array, $table, $existrel_foreign
     ) {
         $html_output = '';
         $preview_sql_data = '';
@@ -2139,8 +2129,8 @@ class PMA_Table
 
                 if (! isset($_REQUEST['preview_sql'])) {
                     $display_query .= $drop_query . "\n";
-                    $this->dbi->tryQuery($drop_query);
-                    $tmp_error_drop = $GLOBALS['dbi']->getError();
+                    $this->_dbi->tryQuery($drop_query);
+                    $tmp_error_drop = $this->_dbi->getError();
 
                     if (! empty($tmp_error_drop)) {
                         $seen_error = true;
@@ -2167,8 +2157,8 @@ class PMA_Table
 
             if (! isset($_REQUEST['preview_sql'])) {
                 $display_query .= $create_query . "\n";
-                $GLOBALS['dbi']->tryQuery($create_query);
-                $tmp_error_create = $GLOBALS['dbi']->getError();
+                $this->_dbi->tryQuery($create_query);
+                $tmp_error_create = $this->_dbi->getError();
                 if (! empty($tmp_error_create)) {
                     $seen_error = true;
 
@@ -2184,8 +2174,8 @@ class PMA_Table
                         );
                     }
                     $html_output .= PMA_Util::showMySQLDocu(
-                        'InnoDB_foreign_key_constraints'
-                    ) . "\n";
+                            'InnoDB_foreign_key_constraints'
+                        ) . "\n";
                 }
             } else {
                 $preview_sql_data .= $create_query . "\n";
@@ -2210,7 +2200,7 @@ class PMA_Table
                 );
                 if (! isset($_REQUEST['preview_sql'])) {
                     $display_query .= $sql_query_recreate . "\n";
-                    $this->dbi->tryQuery($sql_query_recreate);
+                    $this->_dbi->tryQuery($sql_query_recreate);
                 } else {
                     $preview_sql_data .= $sql_query_recreate;
                 }
@@ -2298,13 +2288,13 @@ class PMA_Table
                 FROM
                 `information_schema`.`COLUMNS`
                 WHERE
-                `TABLE_SCHEMA` = '" . PMA_Util::sqlAddSlashes($this->db_name) . "'
-                AND `TABLE_NAME` = '" . PMA_Util::sqlAddSlashes($this->name) . "'";
+                `TABLE_SCHEMA` = '" . PMA_Util::sqlAddSlashes($this->_db_name) . "'
+                AND `TABLE_NAME` = '" . PMA_Util::sqlAddSlashes($this->_name) . "'";
             if ($column != null) {
                 $sql .= " AND  `COLUMN_NAME` = '" . PMA_Util::sqlAddSlashes($column)
                     . "'";
             }
-            $columns = $this->dbi->fetchResult($sql, 'Field', 'Expression');
+            $columns = $this->_dbi->fetchResult($sql, 'Field', 'Expression');
             return $columns;
         }
 
@@ -2341,9 +2331,9 @@ class PMA_Table
      */
     public function showCreate()
     {
-        return $this->dbi->fetchValue(
-            'SHOW CREATE TABLE ' . PMA_Util::backquote($this->db_name) . '.'
-            . PMA_Util::backquote($this->name),
+        return $this->_dbi->fetchValue(
+            'SHOW CREATE TABLE ' . PMA_Util::backquote($this->_db_name) . '.'
+            . PMA_Util::backquote($this->_name),
             0, 1
         );
     }

@@ -55,11 +55,10 @@ if ($foreign_db) {
             PMA_DatabaseInterface::QUERY_STORE
         );
         while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
-            $engine = PMA_Table::sGetStatusInfo(
+            $engine = $GLOBALS['dbi']->getTable(
                 $foreign_db,
-                $row[0],
-                'Engine'
-            );
+                $row[0]
+            )->sGetStatusInfo('Engine');
             if (isset($engine)
                 && /*overload*/mb_strtoupper($engine) == $tbl_storage_engine
             ) {

@@ -1675,9 +1675,10 @@ class PMA_DisplayResults
         $table = new PMA_Table($this->__get('table'), $this->__get('db'));
         if (! $table->isView()) {
             $data_html .= '<input class="table_create_time" type="hidden" value="'
-                . PMA_Table::sGetStatusInfo(
-                    $this->__get('db'), $this->__get('table'), 'Create_time'
-                ) . '" />';
+                . $GLOBALS['dbi']->getTable(
+                    $this->__get('db'), $this->__get('table')
+                )->sGetStatusInfo('Create_time')
+                . '" />';
         }
 
         return $data_html;

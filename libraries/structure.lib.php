@@ -436,12 +436,10 @@ function PMA_getHtmlForDataDictionaryLink($url_query)
  */
 function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
 {
-    $showtable = PMA_Table::sGetStatusInfo(
+    $showtable = $GLOBALS['dbi']->getTable(
         $GLOBALS['db'],
-        $current_table['TABLE_NAME'],
-        null,
-        true
-    );
+        $current_table['TABLE_NAME']
+    )->sGetStatusInfo(null, true);
     $time = isset($showtable[$time_label])
         ? $showtable[$time_label]
         : false;
@@ -2317,9 +2315,9 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
 ) {
     $html_output = '<div id="tablestatistics">';
     if (empty($showtable)) {
-        $showtable = PMA_Table::sGetStatusInfo(
-            $GLOBALS['db'], $GLOBALS['table'], null, true
-        );
+        $showtable = $GLOBALS['dbi']->getTable(
+            $GLOBALS['db'], $GLOBALS['table']
+        )->sGetStatusInfo(null, true);
     }
 
     if (empty($showtable['Data_length'])) {

@@ -42,9 +42,10 @@ $GLOBALS['showtable'] = array();
 // we force reading of the current table status
 // if $reread_info is true (for example, coming from tbl_operations.php
 // and we just changed the table's storage engine)
-$GLOBALS['showtable'] = PMA_Table::sGetStatusInfo(
+$GLOBALS['showtable'] = $GLOBALS['dbi']->getTable(
     $GLOBALS['db'],
-    $GLOBALS['table'],
+    $GLOBALS['table']
+)->sGetStatusInfo(
     null,
     (isset($reread_info) && $reread_info ? true : false)
 );

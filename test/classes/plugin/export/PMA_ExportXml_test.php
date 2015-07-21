@@ -345,6 +345,10 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
+        $dbi->expects($this->once())
+            ->method('getTable')
+            ->will($this->returnValue(new PMA_Table('table', 'd<"b')));
+
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['tables'] = array();
@@ -446,6 +450,10 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             ->method('fetchResult')
             ->will($this->returnValue(false));
 
+        $dbi->expects($this->any())
+            ->method('getTable')
+            ->will($this->returnValue(new PMA_Table('table', 'd<"b')));
+
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['tables'] = array('t1', 't2');
@@ -534,6 +542,10 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->at(2))
             ->method('fetchResult')
             ->will($this->returnValue(false));
+
+        $dbi->expects($this->once())
+            ->method('getTable')
+            ->will($this->returnValue(new PMA_Table('table', 'd<b')));
 
         $GLOBALS['dbi'] = $dbi;
 

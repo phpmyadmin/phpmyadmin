@@ -1987,8 +1987,7 @@ class ExportSql extends ExportPlugin
 
         // Do not export data for a VIEW, unless asked to export the view as a table
         // (For a VIEW, this is called only when exporting a single VIEW)
-        $_table = new PMA_Table($table, $db);
-        if ($_table->isView()
+        if ($GLOBALS['dbi']->getTable($db, $table)->isView()
             && empty($GLOBALS['sql_views_as_tables'])
         ) {
             $head = $this->_possibleCRLF()
