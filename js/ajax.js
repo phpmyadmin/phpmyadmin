@@ -390,13 +390,12 @@ var AJAX = {
                     .not('#pma_console_container')
                     .not('#prefs_autoload')
                     .remove();
-                var $page_content = $('#page_content');
                 // Replace #page_content with new content
                 if (data.message && data.message.length > 0) {
-                    $page_content.replaceWith(
+                    $('#page_content').replaceWith(
                         "<div id='page_content'>" + data.message + "</div>"
                     );
-                    PMA_highlightSQL($page_content);
+                    PMA_highlightSQL($('#page_content'));
                     checkNumberOfFields();
                 }
 
@@ -432,8 +431,8 @@ var AJAX = {
                     PMA_commonParams.setAll(data._params);
                 }
                 if (data._displayMessage) {
-                    $page_content.prepend(data._displayMessage);
-                    PMA_highlightSQL($page_content);
+                    $('#page_content').prepend(data._displayMessage);
+                    PMA_highlightSQL($('#page_content'));
                 }
 
                 $('#pma_errors').remove();
