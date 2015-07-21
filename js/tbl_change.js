@@ -237,6 +237,8 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     // if a function has been selected in the function drop-down,
     // do not validate the input field
     if (target.name && target.name.substring(0, 6) === "fields" && ! function_selected) {
+        //call validate before adding rules
+        $($this_input[0].form).validate();
         // validate for date time
         if (theType == "datetime" || theType == "time" || theType == "date" || theType == "timestamp") {
             $this_input.rules("add", {
