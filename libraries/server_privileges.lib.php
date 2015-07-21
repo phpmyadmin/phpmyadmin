@@ -2076,7 +2076,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
         $html_output .= '</table>';
 
-        $html_output .= '<div style="float:left;">';
+        $html_output .= '<div class="floatleft">';
         $html_output .= PMA_Util::getWithSelected(
             $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], "usersForm"
         );
