@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-20 06:34-0400\n"
-"PO-Revision-Date: 2015-07-15 17:01+0200\n"
+"PO-Revision-Date: 2015-07-22 19:46+0200\n"
 "Last-Translator: Franco <fulanodetal.github@openaliasbox.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5697,6 +5697,8 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Encuentre errores en la consulta antes de ejecutarlo. Requiere que "
+"CodeMirror esté habilitado."
 
 #: libraries/config/messages.inc.php:62
 #, fuzzy
@@ -6121,8 +6123,11 @@ msgid "Foreign key limit"
 msgstr "Límite de las claves foráneas"
 
 #: libraries/config/messages.inc.php:221
+#, fuzzy
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Valor predeterminado de la clave externa controla checkbox para algunas "
+"consultas."
 
 #: libraries/config/messages.inc.php:223
 msgid "Foreign key checks"
@@ -7322,7 +7327,6 @@ msgid "Export templates table"
 msgstr "Exportar tabla de plantillas"
 
 #: libraries/config/messages.inc.php:660
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]."
@@ -7330,8 +7334,8 @@ msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Dejar en blanco para evitar soporte para exportar plantilla, sugerido: "
-"[kbd]pma__pdf_templates[/kbd]."
+"Dejar en blanco para evitar exportar el soporte de plantilla, sugerido: "
+"[kbd]pma__export_templates[/kbd]."
 
 #: libraries/config/messages.inc.php:663
 msgid "Central columns table"
@@ -10348,7 +10352,6 @@ msgid "Stand-in structure for view"
 msgstr "Estructura Stand-in para la vista"
 
 #: libraries/plugins/export/ExportJson.class.php:70
-#, fuzzy
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr "Impresión de salida JSON (uso de formato legible)"
 
@@ -11301,10 +11304,9 @@ msgid "Managing Central list of columns"
 msgstr "Gestión de la lista central de columnas"
 
 #: libraries/relation.lib.php:327
-#, fuzzy
 #| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Recordar ajustes de diseño"
+msgstr "Recordando ajustes de diseño"
 
 # Used as description for SQL syntax Export Type (options are INSERT, UPDATE
 # and REPLACE)
@@ -12539,10 +12541,9 @@ msgstr ""
 "nombre de servidor diferente."
 
 #: libraries/server_privileges.lib.php:1503
-#, fuzzy
 #| msgid "User name:"
 msgid "Host name:"
-msgstr "Nombre de usuario:"
+msgstr "Nombre de Host:"
 
 # It is about binary logs, not about login names
 #: libraries/server_privileges.lib.php:1508
