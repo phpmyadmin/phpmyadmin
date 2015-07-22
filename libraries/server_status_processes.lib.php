@@ -244,7 +244,6 @@ function PMA_getHtmlForProcessListFilter()
     }
 
     $url_params = array(
-        'showExecuting' => 1,
         'ajax_request' => true
     );
 
