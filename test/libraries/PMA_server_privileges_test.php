@@ -1629,13 +1629,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //$username & $username
+        //$username & $hostname
         $this->assertContains(
             htmlspecialchars($username),
             $html
         );
         $this->assertContains(
-            htmlspecialchars($username),
+            htmlspecialchars($hostname),
             $html
         );
 
