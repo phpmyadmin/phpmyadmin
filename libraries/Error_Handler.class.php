@@ -331,25 +331,23 @@ class PMA_Error_Handler
                     . '<input type="hidden" name="send_error_report" value="1" />'
                     . '<input type="submit" value="'
                     . __('Report')
-                    . '" id="pma_report_errors" style="float: right; margin: 20px;">'
+                    . '" id="pma_report_errors" class="floatright">'
                     . '<input type="checkbox" name="always_send"'
                     . ' id="always_send_checkbox" value="true"/>'
                     . '<label for="always_send_checkbox">'
                     . __('Automatically send report next time')
-                    . '</label>'
-                    . '</form>';
+                    . '</label>';
 
             if ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
                 // add ignore buttons
                 $retval .= '<input type="submit" value="'
                         . __('Ignore')
-                        . '" id="pma_ignore_errors_bottom"'
-                        . ' style="float: right; margin: 20px;">';
+                        . '" id="pma_ignore_errors_bottom" class="floatright">';
             }
             $retval .= '<input type="submit" value="'
                     . __('Ignore All')
-                    . '" id="pma_ignore_all_errors_bottom"'
-                    . ' style="float: right; margin: 20px;">';
+                    . '" id="pma_ignore_all_errors_bottom" class="floatright">';
+            $retval .= '</form>';
         }
         return $retval;
     }
@@ -537,11 +535,13 @@ class PMA_Error_Handler
                             function() {
                                 PMA_ignorePhpErrors(false)
                             });'
-                        . '$("#pma_ignore_errors_bottom").bind("click", function() {
+                        . '$("#pma_ignore_errors_bottom").bind("click", function(e) {
+                            e.preventDefaulut();
                             PMA_ignorePhpErrors()
                         });'
                         . '$("#pma_ignore_all_errors_bottom").bind("click",
-                            function() {
+                            function(e) {
+                                e.preventDefault();
                                 PMA_ignorePhpErrors(false)
                             });'
                         . '$("html, body").animate({

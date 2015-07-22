@@ -572,14 +572,15 @@ $js_messages['strTooManyInputs'] = __(
 
 $js_messages['phpErrorsFound'] = '<div class="error">'
     . __('Some errors have been detected on the server!')
-    . '<div>'
+    . '<br/>'
     . __('Please look at the bottom of this window.')
+    . '<div>'
     . '<input id="pma_ignore_errors_popup" type="submit" value="'
     . __('Ignore')
-    . '" style="float: right; margin: 20px;">'
+    . '" class="floatright" style="margin-top: 20px;">'
     . '<input id="pma_ignore_all_errors_popup" type="submit" value="'
     . __('Ignore All')
-    . '" style="float: right; margin: 20px;">'
+    . '" class="floatright" style="margin-top: 20px;">'
     . '</div></div>';
 
 $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
