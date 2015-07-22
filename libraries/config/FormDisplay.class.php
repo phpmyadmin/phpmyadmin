@@ -372,8 +372,6 @@ class FormDisplay
         $name = PMA_langName($system_path);
         $description = PMA_langName($system_path, 'desc', '');
 
-        $htmlOutput = '';
-
         $value = $this->_configFile->get($work_path);
         $value_default = $this->_configFile->getDefault($system_path);
         $value_is_default = false;
@@ -421,12 +419,13 @@ class FormDisplay
             break;
         case 'group':
             // :group:end is changed to :group:end:{unique id} in Form class
+            $htmlOutput = '';
             if (/*overload*/mb_substr($field, 7, 4) != 'end:') {
                 $htmlOutput .= PMA_displayGroupHeader(/*overload*/mb_substr($field, 7));
             } else {
                 PMA_displayGroupFooter();
             }
-            return;
+            return $htmlOutput;
         case 'NULL':
             trigger_error("Field $system_path has no type", E_USER_WARNING);
             return;
@@ -474,7 +473,7 @@ class FormDisplay
         }
         $js_default[] = $js_line;
 
-        return $htmlOutput . PMA_displayInput(
+        return PMA_displayInput(
             $translated_path, $name, $type, $value,
             $description, $value_is_default, $opts
         );
