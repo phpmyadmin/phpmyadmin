@@ -83,69 +83,68 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
         }
     }
 
-    if ($GLOBALS['dbi']->tryQuery($sql_query)) {
-
-        // If different column names defined for VIEW
-        $view_columns = array();
-        if (isset($_REQUEST['view']['column_names'])) {
-            $view_columns = explode(',', $_REQUEST['view']['column_names']);
-        }
-
-        $column_map = $GLOBALS['dbi']->getColumnMapFromSql(
-            $_REQUEST['view']['as'], $view_columns
-        );
-        $pma_transformation_data = $GLOBALS['dbi']->getSystemDatabase()->getExistingTransformationData(
-            $GLOBALS['db']
-        );
-
-        if ($pma_transformation_data !== false) {
-
-            // SQL for store new transformation details of VIEW
-            $new_transformations_sql = $GLOBALS['dbi']->getSystemDatabase()->getNewTransformationDataSql(
-                $pma_transformation_data, $column_map,
-                $_REQUEST['view']['name'], $GLOBALS['db']
-            );
-
-            // Store new transformations
-            if ($new_transformations_sql != '') {
-                $GLOBALS['dbi']->tryQuery($new_transformations_sql);
-            }
-
-        }
-        unset($pma_transformation_data);
-
-        if (! isset($_REQUEST['ajax_dialog'])) {
-            $message = PMA_Message::success();
-            include 'tbl_structure.php';
-        } else {
-            $response = PMA_Response::getInstance();
-            $response->addJSON(
-                'message',
-                PMA_Util::getMessage(
-                    PMA_Message::success(), $sql_query
-                )
-            );
-            $response->isSuccess(true);
-        }
-
-        exit;
-
-    } else {
+    if (!$GLOBALS['dbi']->tryQuery($sql_query)) {
         if (! isset($_REQUEST['ajax_dialog'])) {
             $message = PMA_Message::rawError($GLOBALS['dbi']->getError());
-        } else {
-            $response = PMA_Response::getInstance();
-            $response->addJSON(
-                'message',
-                PMA_Message::error(
-                    "<i>" . htmlspecialchars($sql_query) . "</i><br /><br />"
-                    . $GLOBALS['dbi']->getError()
-                )
-            );
-            $response->isSuccess(false);
-            exit;
+            return;
         }
+
+        $response = PMA_Response::getInstance();
+        $response->addJSON(
+            'message',
+            PMA_Message::error(
+                "<i>" . htmlspecialchars($sql_query) . "</i><br /><br />"
+                . $GLOBALS['dbi']->getError()
+            )
+        );
+        $response->isSuccess(false);
+        exit;
     }
+
+    // If different column names defined for VIEW
+    $view_columns = array();
+    if (isset($_REQUEST['view']['column_names'])) {
+        $view_columns = explode(',', $_REQUEST['view']['column_names']);
+    }
+
+    $column_map = $GLOBALS['dbi']->getColumnMapFromSql(
+        $_REQUEST['view']['as'], $view_columns
+    );
+
+    $systemDb = $GLOBALS['dbi']->getSystemDatabase();
+    $pma_transformation_data = $systemDb->getExistingTransformationData(
+        $GLOBALS['db']
+    );
+
+    if ($pma_transformation_data !== false) {
+
+        // SQL for store new transformation details of VIEW
+        $new_transformations_sql = $systemDb->getNewTransformationDataSql(
+            $pma_transformation_data, $column_map,
+            $_REQUEST['view']['name'], $GLOBALS['db']
+        );
+
+        // Store new transformations
+        if ($new_transformations_sql != '') {
+            $GLOBALS['dbi']->tryQuery($new_transformations_sql);
+        }
+
+    }
+    unset($pma_transformation_data);
+
+    if (! isset($_REQUEST['ajax_dialog'])) {
+        $message = PMA_Message::success();
+        include 'tbl_structure.php';
+    } else {
+        $response = PMA_Response::getInstance();
+        $response->addJSON(
+            'message',
+            PMA_Util::getMessage(PMA_Message::success(), $sql_query)
+        );
+        $response->isSuccess(true);
+    }
+
+    exit;
 }
 
 // prefill values if not already filled from former submission

@@ -29,7 +29,9 @@ require_once 'libraries/Util.class.php';
 
 $container = DI\Container::getDefaultContainer();
 $container->factory('PMA\Controllers\Table\TableRelationController');
-$container->alias('TableRelationController', 'PMA\Controllers\Table\TableRelationController');
+$container->alias(
+    'TableRelationController', 'PMA\Controllers\Table\TableRelationController'
+);
 
 /* Define dependencies for the concerned controller */
 $db = $container->get('db');
@@ -59,10 +61,14 @@ $dependency_definitions = array(
     "upd_query" => $upd_query
 );
 if ($cfgRelation['relwork']) {
-    $dependency_definitions['existrel'] = PMA_getForeigners($db, $table, '', 'internal');
+    $dependency_definitions['existrel'] = PMA_getForeigners(
+        $db, $table, '', 'internal'
+    );
 }
 if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
-    $dependency_definitions['existrel_foreign'] = PMA_getForeigners($db, $table, '', 'foreign');
+    $dependency_definitions['existrel_foreign'] = PMA_getForeigners(
+        $db, $table, '', 'foreign'
+    );
 }
 if ($cfgRelation['displaywork']) {
     $dependency_definitions['disp'] = PMA_getDisplayField($db, $table);
