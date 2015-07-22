@@ -50,7 +50,7 @@ function PMA_checkRequiredPrivilgesForAdjust()
     if ($privs_available) {
         $delete_privs_available = $GLOBALS['dbi']->tryQuery(
             'DELETE FROM `mysql`.`db` WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" LIMIT 1;'
+            . '`Db` = "" AND `User` = "" LIMIT 1'
         );
         $privs_available = $delete_privs_available && $privs_available;
     }
@@ -58,13 +58,13 @@ function PMA_checkRequiredPrivilgesForAdjust()
     if ($privs_available) {
         $insert_privs_available = $GLOBALS['dbi']->tryQuery(
             'INSERT INTO `mysql`.`db`(`host`, `Db`, `User`) VALUES("pma_test_host", '
-            . '"mysql", "pma_test_user");'
+            . '"mysql", "pma_test_user")'
         );
         // If successful test insert, delete the test row
         if ($insert_privs_available) {
             $GLOBALS['dbi']->tryQuery(
                 'DELETE FROM `mysql`.`db` WHERE host = "pma_test_host" AND '
-                . 'Db = "mysql" AND User = "pma_test_user" LIMIT 1;'
+                . 'Db = "mysql" AND User = "pma_test_user" LIMIT 1'
             );
         }
         $privs_available = $insert_privs_available && $privs_available;
@@ -73,7 +73,7 @@ function PMA_checkRequiredPrivilgesForAdjust()
     if ($privs_available) {
         $update_privs_available = $GLOBALS['dbi']->tryQuery(
             'UPDATE `mysql`.`db` SET `host` = "" WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" LIMIT 1;'
+            . '`Db` = "" AND `User` = "" LIMIT 1'
         );
         $privs_available = $update_privs_available && $privs_available;
     }
@@ -92,7 +92,7 @@ function PMA_checkRequiredPrivilgesForAdjust()
     if ($privs_available) {
         $delete_privs_available = $GLOBALS['dbi']->tryQuery(
             'DELETE FROM `mysql`.`columns_priv` WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" LIMIT 1;'
+            . '`Db` = "" AND `User` = "" LIMIT 1'
         );
         $privs_available = $delete_privs_available && $privs_available;
     }
@@ -108,7 +108,7 @@ function PMA_checkRequiredPrivilgesForAdjust()
             $GLOBALS['dbi']->tryQuery(
                 'DELETE FROM `mysql`.`columns_priv` WHERE host = "pma_test_host" AND '
                 . 'Db = "mysql" AND User = "pma_test_user" AND Table_name = ""'
-                . ' AND Column_name = "" LIMIT 1;'
+                . ' AND Column_name = "" LIMIT 1'
             );
         }
         $privs_available = $insert_privs_available && $privs_available;
@@ -117,7 +117,7 @@ function PMA_checkRequiredPrivilgesForAdjust()
     if ($privs_available) {
         $update_privs_available = $GLOBALS['dbi']->tryQuery(
             'UPDATE `mysql`.`columns_priv` SET `host` = "" WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND Column_name = "" AND Table_name = "" LIMIT 1;'
+            . '`Db` = "" AND `User` = "" AND Column_name = "" AND Table_name = "" LIMIT 1'
         );
         $privs_available = $update_privs_available && $privs_available;
 
@@ -137,7 +137,7 @@ function PMA_checkRequiredPrivilgesForAdjust()
     if ($privs_available) {
         $delete_privs_available = $GLOBALS['dbi']->tryQuery(
             'DELETE FROM `mysql`.`tables_priv` WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND Table_name = "" LIMIT 1;'
+            . '`Db` = "" AND `User` = "" AND Table_name = "" LIMIT 1'
         );
         $privs_available = $delete_privs_available && $privs_available;
     }
@@ -152,7 +152,7 @@ function PMA_checkRequiredPrivilgesForAdjust()
         if ($insert_privs_available) {
             $GLOBALS['dbi']->tryQuery(
                 'DELETE FROM `mysql`.`tables_priv` WHERE host = "pma_test_host" AND '
-                . 'Db = "mysql" AND User = "pma_test_user" AND Table_name = "" LIMIT 1;'
+                . 'Db = "mysql" AND User = "pma_test_user" AND Table_name = "" LIMIT 1'
             );
         }
         $privs_available = $insert_privs_available && $privs_available;
@@ -161,7 +161,7 @@ function PMA_checkRequiredPrivilgesForAdjust()
     if ($privs_available) {
         $update_privs_available = $GLOBALS['dbi']->tryQuery(
             'UPDATE `mysql`.`tables_priv` SET `host` = "" WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND Table_name = "" LIMIT 1;'
+            . '`Db` = "" AND `User` = "" AND Table_name = "" LIMIT 1'
         );
         $privs_available = $update_privs_available && $privs_available;
 
@@ -182,7 +182,7 @@ function PMA_checkRequiredPrivilgesForAdjust()
         $delete_privs_available = $GLOBALS['dbi']->tryQuery(
             'DELETE FROM `mysql`.`procs_priv` WHERE `host` = "" AND '
             . '`Db` = "" AND `User` = "" AND `Routine_name` = ""'
-            . ' AND `Routine_type` = "" LIMIT 1;'
+            . ' AND `Routine_type` = "" LIMIT 1'
         );
         $privs_available = $delete_privs_available && $privs_available;
     }
@@ -198,7 +198,7 @@ function PMA_checkRequiredPrivilgesForAdjust()
             $GLOBALS['dbi']->tryQuery(
                 'DELETE FROM `mysql`.`procs_priv` WHERE `host` = "pma_test_host" AND '
                 . '`Db` = "mysql" AND `User` = "pma_test_user" AND `Routine_name` = ""'
-                . ' AND `Routine_type` = "PROCEDURE" LIMIT 1;'
+                . ' AND `Routine_type` = "PROCEDURE" LIMIT 1'
             );
         }
         $privs_available = $insert_privs_available && $privs_available;
@@ -207,7 +207,7 @@ function PMA_checkRequiredPrivilgesForAdjust()
     if ($privs_available) {
         $update_privs_available = $GLOBALS['dbi']->tryQuery(
             'UPDATE `mysql`.`procs_priv` SET `host` = "" WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND `Routine_name` = "" LIMIT 1;'
+            . '`Db` = "" AND `User` = "" AND `Routine_name` = "" LIMIT 1'
         );
         $privs_available = $update_privs_available && $privs_available;
     }
