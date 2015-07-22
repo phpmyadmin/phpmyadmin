@@ -99,6 +99,10 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
         return $sql_suffix;
     }
 
+    if ($_REQUEST['field_where'] == 'last') {
+        return $sql_suffix;
+    }
+
     // Only the first field can be added somewhere other than at the end
     if ($current_field_num == 0) {
         if ($_REQUEST['field_where'] == 'first') {
