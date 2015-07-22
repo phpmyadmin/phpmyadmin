@@ -625,7 +625,23 @@ are always ways to make your installation more secure:
   phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them.
 * Consider hiding phpMyAdmin behind an authentication proxy, so that
   users need to authenticate prior to providing MySQL credentials
-  to phpMyAdmin.
+  to phpMyAdmin. You can achieve this by confiuring your web server to request
+  HTTP authentication. For exaple in Apache this can be done by:
+    
+  .. code-block:: apache
+
+     AuthType Basic
+     AuthName "Restricted Access"
+     AuthUserFile /usr/share/phpmyadmin/passwd
+     Require valid-user
+
+  Once you have changed configuration, you need to create list of users which
+  can authenticate. This can be done using :program:`htpasswd` utility:
+
+  .. code-block:: sh
+
+     htpasswd -c /usr/share/phpmyadmin/passwd username
+
 * If you are afraid of automated attacks, enabling Captcha by
   :config:option:`$cfg['CaptchaLoginPublicKey']` and
   :config:option:`$cfg['CaptchaLoginPrivateKey']` might be an option.
