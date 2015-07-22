@@ -163,6 +163,7 @@ function PMA_initQueryForm($query)
         }
     } else {
         $db     = $GLOBALS['db'];
+        $table  = $GLOBALS['table'];
         // Get the list and number of fields
         // we do a try_query here, because we could be in the query window,
         // trying to synchronize and the table has not yet been created
@@ -170,13 +171,12 @@ function PMA_initQueryForm($query)
             $db, $GLOBALS['table'], null, true
         );
 
-        $tmp_db_link = '<a href="' . PMA_Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
-        )
-            . PMA_URL_getCommon(array('db' => $db)) . '"';
-        $tmp_db_link .= '>'
-            . htmlspecialchars($db) . '</a>';
-        $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
+        $tmp_tbl_link = '<a href="' . PMA_Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+        ) . PMA_URL_getCommon(array('db' => $db, 'table' => $table)) . '" >';
+        $tmp_tbl_link .= htmlspecialchars($db)
+            . '.' . htmlspecialchars($table) . '</a>';
+        $legend = sprintf(__('Run SQL query/queries on table %s'), $tmp_tbl_link);
         if (empty($query)) {
             $query = PMA_Util::expandUserString(
                 $GLOBALS['cfg']['DefaultQueryTable'], 'backquote'
