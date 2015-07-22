@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-20 06:34-0400\n"
-"PO-Revision-Date: 2015-07-20 18:30+0200\n"
+"PO-Revision-Date: 2015-07-22 07:21+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/si/>\n"
@@ -1885,10 +1885,9 @@ msgid "Changing Charset"
 msgstr "අක්ෂර කට්ටලය වෙනස් කෙරෙමින්"
 
 #: js/messages.php:320 libraries/Util.class.php:3220
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "අන්‍ය මූල පරීක්ෂා අක්‍රිය කරන්න"
+msgstr "අන්‍ය මූල පරීක්ෂා සක්‍රිය කරන්න"
 
 #: js/messages.php:323
 #, fuzzy
@@ -3545,17 +3544,16 @@ msgstr "තීර:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "අන්වර්ථය:"
 
 #: libraries/DBQbe.class.php:566
 msgid "Sort:"
 msgstr "සුබෙදන්න:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "සුබෙදන්න:"
+msgstr "සුබෙදුම් අනුපිළිවෙල:"
 
 #: libraries/DBQbe.class.php:679
 msgid "Show:"
@@ -4215,10 +4213,9 @@ msgstr "සැලසුම්කරණය"
 
 #: libraries/Menu.class.php:505 libraries/Util.class.php:4367
 #: libraries/structure.lib.php:360
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "පෙළ පෙදෙසේ පළල"
+msgstr "මධ්‍යම තීර"
 
 #: libraries/Menu.class.php:542 libraries/Util.class.php:4339
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:248
@@ -4229,10 +4226,9 @@ msgid "Databases"
 msgstr "දත්තගබඩා"
 
 #: libraries/Menu.class.php:566
-#, fuzzy
 #| msgid "Users"
 msgid "User accounts"
-msgstr "භාවිතා කරන්නන්"
+msgstr "භාවිත ගිණුම්"
 
 #: libraries/Menu.class.php:593 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4346 libraries/server_common.lib.php:36
@@ -7200,10 +7196,9 @@ msgid "Default sort order for tables with a primary key."
 msgstr ""
 
 #: libraries/config/messages.inc.php:572
-#, fuzzy
 #| msgid "Default sorting order"
 msgid "Primary key default sort order"
-msgstr "පෙරනිමි අනුපිළිවෙල"
+msgstr "ප්‍රාථමික යතුරු පෙරනිමි සුබෙදුම් අනුපිළිවෙල"
 
 #: libraries/config/messages.inc.php:574
 #, fuzzy
@@ -7504,10 +7499,9 @@ msgstr ""
 "[kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:658
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export templates table"
-msgstr "\"%s\" වගුවෙන් පේළි අපනයනය කිරීම"
+msgstr "අපනයන ආකෘති වගුව"
 
 #: libraries/config/messages.inc.php:660
 #, fuzzy
@@ -8525,16 +8519,14 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "\"%s\" වගුවෙන් පේළි අපනයනය කිරීම"
 
 #: libraries/display_export.lib.php:203
-#, fuzzy
 #| msgid "Export type"
 msgid "Export templates:"
-msgstr "අපනයන වර්ගය"
+msgstr "අපනයන ආකෘති:"
 
 #: libraries/display_export.lib.php:208
-#, fuzzy
 #| msgid "File name template:"
 msgid "New template:"
-msgstr "ගොනු නාම අච්චුව:"
+msgstr "නව ආකෘතිය:"
 
 #: libraries/display_export.lib.php:211
 #, fuzzy
@@ -8543,23 +8535,20 @@ msgid "Template name"
 msgstr "වගුවේ නම"
 
 #: libraries/display_export.lib.php:220
-#, fuzzy
 #| msgid "File name template:"
 msgid "Existing templates:"
-msgstr "ගොනු නාම අච්චුව:"
+msgstr "පවත්නා ආකෘති:"
 
 #: libraries/display_export.lib.php:221
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Template:"
-msgstr "%s වගු"
+msgstr "ආකෘතිය:"
 
 #: libraries/display_export.lib.php:226
-#, fuzzy
 #| msgid "Updated"
 msgid "Update"
-msgstr "යාවත්කාලීන කරන ලදි"
+msgstr "යාවත්කාලීන කරන්න"
 
 #: libraries/display_export.lib.php:248
 #, fuzzy
@@ -9554,7 +9543,7 @@ msgstr "රුමේනියානු"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Sinhalese"
-msgstr ""
+msgstr "සිංහල"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Slovak"
@@ -9599,10 +9588,9 @@ msgid "multilingual"
 msgstr "බහුභාෂා"
 
 #: libraries/mysql_charsets.lib.php:273
-#, fuzzy
 #| msgid "File name"
 msgid "Vietnamese"
-msgstr "ගොනුවේ නම"
+msgstr "වියට්නාම්"
 
 #: libraries/mysql_charsets.lib.php:300
 msgid "Central European"
@@ -10160,10 +10148,9 @@ msgstr ""
 #: libraries/operations.lib.php:867 libraries/operations.lib.php:961
 #: libraries/operations.lib.php:1315 libraries/rte/rte_routines.lib.php:907
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Adjust Privileges"
-msgstr "වරප්‍රසාද සංස්කරණය කරන්න"
+msgstr "වරප්‍රසාද හැඩ ගස්වන්න"
 
 #: libraries/operations.lib.php:133
 #, php-format
@@ -11578,10 +11565,9 @@ msgid "Remembering Designer Settings"
 msgstr "වගුව සැකසූ අනුපිළිවෙල මතක තබාගන්න"
 
 #: libraries/relation.lib.php:338
-#, fuzzy
 #| msgid "Invalid export type"
 msgid "Saving export templates"
-msgstr "වැරදි අපනයන වර්ගයකි"
+msgstr "අපනයන ආකෘති සුරකිමින්"
 
 #: libraries/relation.lib.php:346
 msgid "Quick steps to setup advanced features:"
@@ -12776,19 +12762,17 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1503
-#, fuzzy
 #| msgid "User name:"
 msgid "Host name:"
-msgstr "භාවිත නාමය:"
+msgstr "දාරක නාමය:"
 
 #: libraries/server_privileges.lib.php:1508
 #: libraries/server_privileges.lib.php:1610
 #: libraries/server_privileges.lib.php:2242
 #: libraries/server_privileges.lib.php:3203
-#, fuzzy
 #| msgid "Log name"
 msgid "Host name"
-msgstr "ලොග් නම"
+msgstr "දාරක නාමය"
 
 #: libraries/server_privileges.lib.php:1645
 msgid "Do not change the password"
@@ -12806,16 +12790,14 @@ msgstr "ඔබ %s සඳහා වරප්‍රසාද අහෝසි ක�
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user account"
-msgstr "භාවිතා කරන්නෙක් එක් කරන්න"
+msgstr "භාවිත ගිණුමක් එක් කරන්න"
 
 #: libraries/server_privileges.lib.php:1942
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
-msgstr "භාවිතා කරන්නා සඳහා දත්තගබඩාව"
+msgstr "භාවිත ගිණුම සඳහා දත්තගබඩාව"
 
 #: libraries/server_privileges.lib.php:1946
 msgid "Create database with same name and grant all privileges."
@@ -12912,16 +12894,14 @@ msgid ""
 msgstr "… භාවිතා කරන්නන්ගේ වගුවෙන් පැරණි එක ඉවත් කර වරප්‍රසාද නැවත අලුත් කරන්න."
 
 #: libraries/server_privileges.lib.php:2728
-#, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "ලොගින් තොරතුරු වෙනස් කරන්න / භාවිතා කරන්නා පිටපත් කරන්න"
+msgstr "ලොගින් තොරතුරු වෙනස් කරන්න / භාවිත ගිණුම පිටපත් කරන්න"
 
 #: libraries/server_privileges.lib.php:2734
-#, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "සහ එකම වරප්‍රසාද සහිතව නව භාවිතා කරන්නෙක් එක් කරන්න …"
+msgstr "සහ එකම වරප්‍රසාද සහිතව නව භාවිත ගිණුමක් එක් කරන්න …"
 
 #: libraries/server_privileges.lib.php:3036
 msgid "Column-specific privileges"
@@ -12942,10 +12922,9 @@ msgid "Add privileges on the following table:"
 msgstr "පහත වගුවට වරප්‍රසාද එක් කරන්න:"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
-msgstr "තෝරාගත් භාවිතා කරන්නන් ඉවත් කරන්න"
+msgstr "තෝරාගත් භාවිත ගිණුම් ඉවත් කරන්න"
 
 #: libraries/server_privileges.lib.php:3376
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -13011,10 +12990,9 @@ msgid "Edit privileges:"
 msgstr "වරප්‍රසාද සංස්කරණය කරන්න:"
 
 #: libraries/server_privileges.lib.php:4085
-#, fuzzy
 #| msgid "Users"
 msgid "User account"
-msgstr "භාවිතා කරන්නන්"
+msgstr "භාවිත ගිණුම"
 
 #: libraries/server_privileges.lib.php:4144
 msgid ""
@@ -13023,10 +13001,9 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:4164 libraries/server_users.lib.php:25
-#, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
-msgstr "භාවිතා කරන්නන් පිළිබඳ දළ විශ්ලේෂණය"
+msgstr "භාවිත ගිණුම් පිළිබඳ දළ විශ්ලේෂණය"
 
 #: libraries/server_privileges.lib.php:4232
 msgid ""
@@ -14196,13 +14173,12 @@ msgstr "SQL විමසුමක් සිදු කරන්න/%s දත්�
 
 #: libraries/sql_query_form.lib.php:256
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "ස්වයං සුරැකුණු විමසුම ලබාගන්න"
 
 #: libraries/sql_query_form.lib.php:267
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "වැරදි පරාමිතියන්!"
+msgstr "පරාමිතියන් බඳින්න"
 
 #: libraries/sql_query_form.lib.php:314
 msgid "Bookmark this SQL query:"
@@ -14354,16 +14330,14 @@ msgid "Fulltext"
 msgstr "සම්පූර්ණ පාඨය"
 
 #: libraries/structure.lib.php:1571 libraries/structure.lib.php:2208
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "CHAR පෙළ පෙදෙසේ පළල"
+msgstr "මධ්‍යම තීර වලට එක් කරන්න"
 
 #: libraries/structure.lib.php:1576 libraries/structure.lib.php:2198
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove from central columns"
-msgstr "පේළි(යක්) ඉවත් කරන්න"
+msgstr "මධ්‍යම තීර වලින් ඉවත් කරන්න"
 
 #: libraries/structure.lib.php:1594 libraries/structure.lib.php:1697
 msgid "Move columns"
@@ -14382,10 +14356,9 @@ msgid "Propose table structure"
 msgstr "සැකිල්ලක් යෝජනා කරන්න"
 
 #: libraries/structure.lib.php:1700
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure"
-msgstr "සැකිල්ලක් යෝජනා කරන්න"
+msgstr "වගුවේ සැකිල්ල වැඩි දියුණු කරන්න"
 
 #: libraries/structure.lib.php:1707
 #| msgid "Track table"

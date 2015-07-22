@@ -81,6 +81,8 @@ phpMyAdmin - ChangeLog
 - bug #4984 Undefined <feature>work upon upgrade to new version
 
 4.4.13.0 (not yet released)
+- issue #1808 "Improve table structure" generates invalid SQL
+- bug         Once checked "Show only active" checkbox is always checked
 
 4.4.12.0 (2015-07-20)
 - bug       Saved chart image does not have a proper name or an extension

@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-20 06:34-0400\n"
-"PO-Revision-Date: 2015-03-30 03:03+0200\n"
-"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ko/>\n"
+"PO-Revision-Date: 2015-07-22 08:21+0200\n"
+"Last-Translator: Koo Youngmin <youngminz.kr@gmail.com>\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -678,16 +678,14 @@ msgid "Import has been successfully finished, %d queries executed."
 msgstr "가져오기를 성공적으로 마쳤습니다. %d 쿼리가 실행되었습니다."
 
 #: import.php:692
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
 #| "file and import will resume."
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
-msgstr ""
-"스크립트 타임아웃이 통보되었습니다. 가져오기를 이어서 계속 완료시키려면 같은 "
-"파일을 다시 전송해주십시오."
+msgstr "스크립트 시간 제한이 초과되었습니다. 이어서 하시려면 같은 파일을 다시 전송해 주세요 (%s, %s)."
 
 #: import.php:702
 msgid ""
@@ -699,7 +697,7 @@ msgstr ""
 
 #: import_status.php:103
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "가져오기에 필요한 절차를 로드할 수 없습니다."
 
 #: import_status.php:112 js/messages.php:378 libraries/Util.class.php:776
 #: libraries/export.lib.php:515
@@ -826,7 +824,6 @@ msgid "List of changes"
 msgstr "변경 목록"
 
 #: index.php:451
-#, fuzzy
 #| msgid ""
 #| "Your configuration file contains settings (root with no password) that "
 #| "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -838,9 +835,8 @@ msgid ""
 "default, is open to intrusion, and you really should fix this security hole "
 "by setting a password for user 'root'."
 msgstr ""
-"환경설정파일에 MySQL 관리자 암호가 없습니다. 이같은 기본설정상태로 MySQL 서버"
-"가 작동한다면 누구나 침입할 수 있으므로, 'root'유저에 암호를 설정하여 이 보"
-"안 취약점을 수정하시기 바랍니다."
+"비밀번호 없이 MySQL의 최고 권한을 가지고 있는 root 유저로 로그인했습니다. MySQL 서버는 외부의 해킹에 대해 취약한 기본 "
+"설정으로 돌아가고 있으며, 설정에서 root 유저의 비밀번호를 설정하는 것으로 이 취약점을 최대한 빨리 고쳐야 합니다."
 
 #: index.php:468
 msgid ""

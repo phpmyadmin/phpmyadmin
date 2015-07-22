@@ -446,10 +446,12 @@ var AJAX = {
                         .insertAfter('#selflink')
                         .append(data._errors);
                     // bind for php error reporting forms (bottom)
-                    $("#pma_ignore_errors_bottom").bind("click", function() {
+                    $("#pma_ignore_errors_bottom").bind("click", function(e) {
+                        e.preventDefault();
                         PMA_ignorePhpErrors();
                     });
-                    $("#pma_ignore_all_errors_bottom").bind("click", function() {
+                    $("#pma_ignore_all_errors_bottom").bind("click", function(e) {
+                        e.preventDefault();
                         PMA_ignorePhpErrors(false);
                     });
                     // In case of 'sendErrorReport'='always'
