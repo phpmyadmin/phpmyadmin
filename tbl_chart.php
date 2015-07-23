@@ -13,7 +13,9 @@ require_once 'libraries/controllers/TableChartController.class.php';
 
 $container = DI\Container::getDefaultContainer();
 $container->factory('PMA\Controllers\Table\TableChartController');
-$container->alias('TableChartController', 'PMA\Controllers\Table\TableChartController');
+$container->alias(
+    'TableChartController', 'PMA\Controllers\Table\TableChartController'
+);
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = array(

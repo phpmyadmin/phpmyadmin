@@ -16,7 +16,9 @@ require_once 'libraries/Index.class.php';
 
 $container = DI\Container::getDefaultContainer();
 $container->factory('PMA\Controllers\Table\TableIndexesController');
-$container->alias('TableIndexesController', 'PMA\Controllers\Table\TableIndexesController');
+$container->alias(
+    'TableIndexesController', 'PMA\Controllers\Table\TableIndexesController'
+);
 
 /* Define dependencies for the concerned controller */
 $db = $container->get('db');

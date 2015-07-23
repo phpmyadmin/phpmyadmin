@@ -81,7 +81,9 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
         );
     } elseif ('load' == $_REQUEST['templateAction']) {
         $data = null;
-        while ($row = $GLOBALS['dbi']->fetchAssoc($result, $GLOBALS['controllink'])) {
+        while ($row = $GLOBALS['dbi']->fetchAssoc(
+            $result, $GLOBALS['controllink']
+        )) {
             $data = $row['template_data'];
         }
         $response->addJSON('data', $data);
@@ -138,8 +140,16 @@ if (! empty($sql_query)) {
 
         // Rebuilding the SELECT and FROM clauses.
         $replaces = array(
-            array('SELECT', 'SELECT ' . SqlParser\Components\ExpressionArray::build($parser->statements[0]->expr)),
-            array('FROM', 'FROM ' . SqlParser\Components\ExpressionArray::build($parser->statements[0]->from)),
+            array(
+                'SELECT', 'SELECT ' . SqlParser\Components\ExpressionArray::build(
+                    $parser->statements[0]->expr
+                ),
+            ),
+            array(
+                'FROM', 'FROM ' . SqlParser\Components\ExpressionArray::build(
+                    $parser->statements[0]->from
+                ),
+            ),
         );
 
         // Checking if the WHERE clause has to be replaced.

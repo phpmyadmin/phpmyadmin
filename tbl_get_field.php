@@ -40,7 +40,9 @@ $result = $GLOBALS['dbi']->fetchValue($sql);
 
 /* Check return code */
 if ($result === false) {
-    PMA_Util::mysqlDie(__('MySQL returned an empty result set (i.e. zero rows).'), $sql);
+    PMA_Util::mysqlDie(
+        __('MySQL returned an empty result set (i.e. zero rows).'), $sql
+    );
 }
 
 /* Avoid corrupting data */

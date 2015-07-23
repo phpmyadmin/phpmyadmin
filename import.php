@@ -184,7 +184,10 @@ if (! empty($sql_query)) {
 // upload limit has been reached, let's assume the second possibility.
 if ($_POST == array() && $_GET == array()) {
     $message = PMA_Message::error(
-        __('You probably tried to upload a file that is too large. Please refer to %sdocumentation%s for a workaround for this limit.')
+        __(
+            'You probably tried to upload a file that is too large. Please refer ' .
+            'to %sdocumentation%s for a workaround for this limit.'
+        )
     );
     $message->addParam('[doc@faq1-16]');
     $message->addParam('[/doc]');
@@ -471,7 +474,11 @@ if ($import_file != 'none' && ! $error) {
             // instead.
 
             $message = PMA_Message::error(
-                __('Uploaded file cannot be moved, because the server has open_basedir enabled without access to the %s directory (for temporary files).')
+                __(
+                    'Uploaded file cannot be moved, because the server has ' .
+                    'open_basedir enabled without access to the %s directory ' .
+                    '(for temporary files).'
+                )
             );
             $message->addParam($tmp_subdir);
             PMA_stopImport($message);
@@ -494,7 +501,11 @@ if ($import_file != 'none' && ! $error) {
             $import_handle = @bzopen($import_file, 'r');
         } else {
             $message = PMA_Message::error(
-                __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
+                __(
+                    'You attempted to load file with unsupported compression ' .
+                    '(%s). Either support for it is not implemented or disabled ' .
+                    'by your configuration.'
+                )
             );
             $message->addParam($compression);
             PMA_stopImport($message);
@@ -505,7 +516,11 @@ if ($import_file != 'none' && ! $error) {
             $import_handle = @gzopen($import_file, 'r');
         } else {
             $message = PMA_Message::error(
-                __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
+                __(
+                    'You attempted to load file with unsupported compression ' .
+                    '(%s). Either support for it is not implemented or disabled ' .
+                    'by your configuration.'
+                )
             );
             $message->addParam($compression);
             PMA_stopImport($message);
@@ -526,7 +541,11 @@ if ($import_file != 'none' && ! $error) {
             }
         } else {
             $message = PMA_Message::error(
-                __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
+                __(
+                    'You attempted to load file with unsupported compression ' .
+                    '(%s). Either support for it is not implemented or disabled ' .
+                    'by your configuration.'
+                )
             );
             $message->addParam($compression);
             PMA_stopImport($message);
@@ -537,7 +556,11 @@ if ($import_file != 'none' && ! $error) {
         break;
     default:
         $message = PMA_Message::error(
-            __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
+            __(
+                'You attempted to load file with unsupported compression (%s). ' .
+                'Either support for it is not implemented or disabled by your ' .
+                'configuration.'
+            )
         );
         $message->addParam($compression);
         PMA_stopImport($message);
@@ -551,7 +574,11 @@ if ($import_file != 'none' && ! $error) {
 } elseif (! $error) {
     if (! isset($import_text) || empty($import_text)) {
         $message = PMA_Message::error(
-            __('No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See [doc@faq1-16]FAQ 1.16[/doc].')
+            __(
+                'No data was received to import. Either no file name was ' .
+                'submitted, or the file size exceeded the maximum size permitted ' .
+                'by your PHP configuration. See [doc@faq1-16]FAQ 1.16[/doc].'
+            )
         );
         PMA_stopImport($message);
     }
@@ -683,7 +710,9 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
 
 // Did we hit timeout? Tell it user.
 if ($timeout_passed) {
-    $importUrl = $err_url .= '&timeout_passed=1&offset=' . urlencode($GLOBALS['offset']);
+    $importUrl = $err_url .= '&timeout_passed=1&offset=' . urlencode(
+            $GLOBALS['offset']
+        );
     if (isset($local_import_file)) {
         $importUrl .= '&local_import_file=' . urlencode($local_import_file);
     }

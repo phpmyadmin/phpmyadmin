@@ -496,7 +496,13 @@ if ($cfg['LoginCookieValidityDisableWarning'] == false) {
     $gc_time = (int)@ini_get('session.gc_maxlifetime');
     if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
         trigger_error(
-            __('Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity configured in phpMyAdmin, because of this, your login might expire sooner than configured in phpMyAdmin.'),
+            __(
+                'Your PHP parameter [a@http://php.net/manual/en/session.' .
+                'configuration.php#ini.session.gc-maxlifetime@_blank]session.' .
+                'gc_maxlifetime[/a] is lower than cookie validity configured ' .
+                'in phpMyAdmin, because of this, your login might expire sooner ' .
+                'than configured in phpMyAdmin.'
+            ),
             E_USER_WARNING
         );
     }
@@ -509,7 +515,11 @@ if ($GLOBALS['cfg']['LoginCookieStore'] != 0
     && $GLOBALS['cfg']['LoginCookieStore'] < $GLOBALS['cfg']['LoginCookieValidity']
 ) {
     trigger_error(
-        __('Login cookie store is lower than cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.'),
+        __(
+            'Login cookie store is lower than cookie validity configured in ' .
+            'phpMyAdmin, because of this, your login will expire sooner than ' .
+            'configured in phpMyAdmin.'
+        ),
         E_USER_WARNING
     );
 }
@@ -521,7 +531,9 @@ if (! empty($_SESSION['encryption_key'])
     && empty($GLOBALS['cfg']['blowfish_secret'])
 ) {
     trigger_error(
-        __('The configuration file now needs a secret passphrase (blowfish_secret).'),
+        __(
+            'The configuration file now needs a secret passphrase (blowfish_secret).'
+        ),
         E_USER_WARNING
     );
 }
@@ -532,7 +544,13 @@ if (! empty($_SESSION['encryption_key'])
  */
 if (file_exists('config')) {
     trigger_error(
-        __('Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. It is strongly recommended to remove it once phpMyAdmin has been configured. Otherwise the security of your server may be compromised by unauthorized people downloading your configuration.'),
+        __(
+            'Directory [code]config[/code], which is used by the setup script, ' .
+            'still exists in your phpMyAdmin directory. It is strongly ' .
+            'recommended to remove it once phpMyAdmin has been configured. ' .
+            'Otherwise the security of your server may be compromised by ' .
+            'unauthorized people downloading your configuration.'
+        ),
         E_USER_WARNING
     );
 }
@@ -598,7 +616,10 @@ if (isset($GLOBALS['dbi'])
         trigger_error(
             PMA_sanitize(
                 sprintf(
-                    __('Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.'),
+                    __(
+                        'Your PHP MySQL library version %s differs from your ' .
+                        'MySQL server version %s. This may cause unpredictable behavior.'
+                    ),
                     $_client_info,
                     substr(
                         PMA_MYSQL_STR_VERSION,
@@ -622,7 +643,10 @@ if ($cfg['SuhosinDisableWarning'] == false
 ) {
     trigger_error(
         sprintf(
-            __('Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.'),
+            __(
+                'Server running with Suhosin. Please refer to %sdocumentation%s ' .
+                'for possible issues.'
+            ),
             '[doc@faq1-38]',
             '[/doc]'
         ),
