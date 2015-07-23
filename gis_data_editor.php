@@ -88,9 +88,11 @@ $visualizationSettings = array(
     'spatialColumn' => 'wkt'
 );
 $data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
-$visualization = PMA_GIS_Visualization::getByData($data, $visualizationSettings)->toImage($format);
+$visualization = PMA_GIS_Visualization::getByData($data, $visualizationSettings)
+    ->toImage($format);
 
-$open_layers = PMA_GIS_Visualization::getByData($data, $visualizationSettings)->asOl();
+$open_layers = PMA_GIS_Visualization::getByData($data, $visualizationSettings)
+    ->asOl();
 
 // If the call is to update the WKT and visualization make an AJAX response
 if (isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
