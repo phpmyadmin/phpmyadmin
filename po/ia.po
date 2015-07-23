@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-21 10:28+0200\n"
+"PO-Revision-Date: 2015-07-23 14:34+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13595,16 +13595,14 @@ msgid "Unexpected dot."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/Expression.php:324
-#, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Necun tabellas seligite."
+msgstr "On expectava un alias."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:93
-#, fuzzy
 #| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "Necun versiones seligite."
+msgstr "On expectava un expression."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:255
 msgid "A closing bracket was expected."
@@ -13621,10 +13619,9 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:102
-#, fuzzy
 #| msgid "Title of browser window when a table is selected."
 msgid "The old name of the table was expected."
-msgstr "Titulo de fenestra de navigation quando un tabella es seligite."
+msgstr "On expectava le vetule nomine de le tabella."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:112
 msgid "Keyword \"TO\" was expected."
@@ -13635,16 +13632,14 @@ msgid "The new name of the table was expected."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:147
-#, fuzzy
 #| msgid "Template was deleted."
 msgid "A rename operation was expected."
-msgstr "Patrono ha essite delite."
+msgstr "On expectava un operation de renominar.."
 
 #: libraries/sql-parser/src/Lexer.php:252
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Character inexpectate al linea %s."
+msgstr "Un  character non expectate."
 
 #: libraries/sql-parser/src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
@@ -13660,26 +13655,23 @@ msgid "Ending quote %1$s was expected."
 msgstr ""
 
 #: libraries/sql-parser/src/Lexer.php:721
-#, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Patrono de nomine de tabella"
+msgstr "On expectava un nomine de variabile."
 
 #: libraries/sql-parser/src/Parser.php:355
-#, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "a le initio de tabella"
+msgstr "Un initio de instruction non expectate."
 
 #: libraries/sql-parser/src/Parser.php:370
 msgid "Unrecognized statement type."
 msgstr ""
 
 #: libraries/sql-parser/src/Statement.php:201
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Character inexpectate al linea %s."
+msgstr "Un indicio non expectate."
 
 #: libraries/sql-parser/src/Statement.php:251
 msgid "Unrecognized keyword."
@@ -13789,10 +13781,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:179
-#, fuzzy, php-format
+#, php-format
 #| msgid "SQL query history table"
 msgid "Run SQL query/queries on table %s"
-msgstr "Tabella de chronologia de query de SQL"
+msgstr "Executa query/queries de SQL sur tabella %s"
 
 #: libraries/sql_query_form.lib.php:255
 msgid "Get auto-saved query"
