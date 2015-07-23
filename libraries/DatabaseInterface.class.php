@@ -12,6 +12,9 @@ if (! defined('PHPMYADMIN')) {
 require_once './libraries/logging.lib.php';
 require_once './libraries/Index.class.php';
 require_once './libraries/SystemDatabase.class.php';
+require_once './libraries/util.lib.php';
+
+use PMA\Util;
 
 /**
  * Main interface for database interactions
@@ -43,6 +46,11 @@ class PMA_DatabaseInterface
     private $_extension;
 
     /**
+     * @var array Table data cache
+     */
+    private $_table_cache;
+
+    /**
      * Constructor
      *
      * @param PMA_DBI_Extension $ext Object to be used for database queries
@@ -50,6 +58,7 @@ class PMA_DatabaseInterface
     function __construct($ext)
     {
         $this->_extension = $ext;
+        $this->_table_cache = array();
     }
 
     /**
@@ -87,6 +96,54 @@ class PMA_DatabaseInterface
         return $res;
     }
 
+    /**
+     * Get a cached value from table cache.
+     *
+     * @param $contentPath string  Dot notation of the target value
+     * @param $default     mixed   Return value on cache miss
+     * @return mixed
+     */
+    public function getCachedTableContent($contentPath, $default = null) {
+        return Util\get($this->_table_cache, $contentPath, $default);
+    }
+
+    /**
+     * Set an item in table cache using dot notation.
+     *
+     * @param $contentPath string  Dot notation of the target path
+     * @param $value       mixed   Target value
+     */
+    public function cacheTableContent($contentPath, $value) {
+        $loc = &$this->_table_cache;
+
+        if (!isset($contentPath)) {
+            $loc = $value;
+            return;
+        }
+
+        $keys = explode('.', $contentPath);
+
+        while (count($keys) > 1) {
+            $key = array_shift($keys);
+
+            // If the key doesn't exist at this depth, we will just create an empty array
+            // to hold the next value, allowing us to create the arrays to hold final
+            // values at the correct depth. Then we'll keep digging into the array.
+            if (!isset($loc[$key]) || !is_array($loc[$key])) {
+                $loc[$key] = array();
+            }
+            $loc = &$loc[$key];
+        }
+
+        $loc[array_shift($keys)] = $value;
+    }
+
+    /**
+     * Clear the table cache.
+     */
+    public function clearTableCache() {
+        $this->_table_cache = array();
+    }
 
     /**
      * Caches table data so PMA_Table does not require to issue
@@ -107,18 +164,18 @@ class PMA_DatabaseInterface
         //  we would lose a db name that consists only of numbers
 
         foreach ($tables as $one_database => $its_tables) {
-            if (isset(PMA_Table::$cache[$one_database])) {
+            if (isset($this->_table_cache[$one_database])) {
                 // the + operator does not do the intended effect
                 // when the cache for one table already exists
                 if ($table
-                    && isset(PMA_Table::$cache[$one_database][$table])
+                    && isset($this->_table_cache[$one_database][$table])
                 ) {
-                    unset(PMA_Table::$cache[$one_database][$table]);
+                    unset($this->_table_cache[$one_database][$table]);
                 }
-                PMA_Table::$cache[$one_database]
-                    = PMA_Table::$cache[$one_database] + $tables[$one_database];
+                $this->_table_cache[$one_database]
+                    = $this->_table_cache[$one_database] + $tables[$one_database];
             } else {
-                PMA_Table::$cache[$one_database] = $tables[$one_database];
+                $this->_table_cache[$one_database] = $tables[$one_database];
             }
         }
     }
@@ -476,7 +533,7 @@ class PMA_DatabaseInterface
 
         $tables = array();
 
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! isset($GLOBALS['cfg']['Server']['DisableIS']) || !$GLOBALS['cfg']['Server']['DisableIS']) {
             $sql_where_table = $this->_getTableCondition(
                 $table, $tbl_is_group, $table_type
             );
@@ -873,7 +930,8 @@ class PMA_DatabaseInterface
 
         foreach ($tables_full as $table=>$tmp) {
 
-            if (PMA_Table::isView($db, $table)) {
+            $_table = $this->getTable($db, $table);
+            if ($_table->isView($db, $table)) {
                 $views[] = $table;
             }
 

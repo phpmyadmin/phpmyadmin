@@ -1337,7 +1337,7 @@ function PMA_createTrackingVersion()
         $GLOBALS['table'],
         $_REQUEST['version'],
         $tracking_set,
-        PMA_Table::isView($GLOBALS['db'], $GLOBALS['table'])
+        $GLOBALS['dbi']->getTable($GLOBALS['db'], $GLOBALS['table'])->isView()
     );
     if ($versionCreated) {
         $msg = PMA_Message::success(
@@ -1370,7 +1370,7 @@ function PMA_createTrackingForMultipleTables($selected)
             $selected_table,
             $_REQUEST['version'],
             $tracking_set,
-            PMA_Table::isView($GLOBALS['db'], $selected_table)
+            $GLOBALS['dbi']->getTable($GLOBALS['db'], $selected_table)->isView()
         );
     }
 }

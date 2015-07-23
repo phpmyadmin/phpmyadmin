@@ -436,12 +436,10 @@ function PMA_getHtmlForDataDictionaryLink($url_query)
  */
 function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
 {
-    $showtable = PMA_Table::sGetStatusInfo(
+    $showtable = $GLOBALS['dbi']->getTable(
         $GLOBALS['db'],
-        $current_table['TABLE_NAME'],
-        null,
-        true
-    );
+        $current_table['TABLE_NAME']
+    )->sGetStatusInfo(null, true);
     $time = isset($showtable[$time_label])
         ? $showtable[$time_label]
         : false;
@@ -1214,10 +1212,9 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_system_schema,
         || $current_table['TABLE_TYPE'] == 'SYSTEM VIEW'
     ) {
         // countRecords() takes care of $cfg['MaxExactCountViews']
-        $current_table['TABLE_ROWS'] = PMA_Table::countRecords(
-            $GLOBALS['db'], $current_table['TABLE_NAME'],
-            true, true
-        );
+        $current_table['TABLE_ROWS'] = $GLOBALS['dbi']
+            ->getTable($GLOBALS['db'], $current_table['TABLE_NAME'])
+            ->countRecords(true);
         $table_is_view = true;
     }
 
@@ -1248,9 +1245,9 @@ function PMA_getValuesForAriaTable($db_is_system_schema, $current_table,
     $formatted_overhead, $overhead_unit
 ) {
     if ($db_is_system_schema) {
-        $current_table['Rows'] = PMA_Table::countRecords(
-            $GLOBALS['db'], $current_table['Name']
-        );
+        $current_table['Rows'] = $GLOBALS['dbi']
+            ->getTable($GLOBALS['db'], $current_table['Name'])
+            ->countRecords();
     }
 
     if ($is_show_stats) {
@@ -1295,10 +1292,9 @@ function PMA_getValuesForInnodbTable($current_table, $is_show_stats, $sum_size)
         || !isset($current_table['TABLE_ROWS'])
     ) {
         $current_table['COUNTED'] = true;
-        $current_table['TABLE_ROWS'] = PMA_Table::countRecords(
-            $GLOBALS['db'], $current_table['TABLE_NAME'],
-            true, false
-        );
+        $current_table['TABLE_ROWS'] = $GLOBALS['dbi']
+            ->getTable($GLOBALS['db'], $current_table['TABLE_NAME'])
+            ->countRecords(true);
     } else {
         $current_table['COUNTED'] = false;
     }
@@ -2319,9 +2315,9 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
 ) {
     $html_output = '<div id="tablestatistics">';
     if (empty($showtable)) {
-        $showtable = PMA_Table::sGetStatusInfo(
-            $GLOBALS['db'], $GLOBALS['table'], null, true
-        );
+        $showtable = $GLOBALS['dbi']->getTable(
+            $GLOBALS['db'], $GLOBALS['table']
+        )->sGetStatusInfo(null, true);
     }
 
     if (empty($showtable['Data_length'])) {
@@ -2335,7 +2331,8 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
 
     // Gets some sizes
 
-    $mergetable = PMA_Table::isMerge($GLOBALS['db'], $GLOBALS['table']);
+    $table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+    $mergetable = $table->isMerge();
 
     // this is to display for example 261.2 MiB instead of 268k KiB
     $max_digits = 3;
@@ -3248,7 +3245,8 @@ function PMA_getHtmlShowCreate($db, $db_objects)
     foreach ($db_objects as $object) {
         $tableObj = new PMA_Table($object, $db);
         // Check if current object is a View or Table.
-        $isView = PMA_Table::isView($db, $object);
+        $_table = new PMA_Table($object, $db);
+        $isView = $_table->isView();
         if ($isView) {
             $row_class = ($odd1) ? 'odd' : 'even';
             $views .= '<tr class="' . $row_class . '">'

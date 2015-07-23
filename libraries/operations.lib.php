@@ -415,7 +415,7 @@ function PMA_getViewsAndCreateSqlViewStandIn(
         // to be able to rename a db containing views,
         // first all the views are collected and a stand-in is created
         // the real views are created after the tables
-        if (PMA_Table::isView($db, $each_table)) {
+        if ($GLOBALS['dbi']->getTable($db, $each_table)->isView()) {
 
             // If view exists, and 'add drop view' is selected: Drop it!
             if ($_REQUEST['what'] != 'nocopy'
@@ -457,7 +457,7 @@ function PMA_copyTables($tables_full, $move, $db)
     $sqlContraints = array();
     foreach ($tables_full as $each_table => $tmp) {
         // skip the views; we have created stand-in definitions
-        if (PMA_Table::isView($db, $each_table)) {
+        if ($GLOBALS['dbi']->getTable($db, $each_table)->isView()) {
             continue;
         }
 
@@ -466,7 +466,8 @@ function PMA_copyTables($tables_full, $move, $db)
 
         // do not copy the data from a Merge table
         // note: on the calling FORM, 'data' means 'structure and data'
-        if (PMA_Table::isMerge($db, $each_table)) {
+        $table = new PMA_Table($each_table, $db);
+        if ($table->isMerge()) {
             if ($this_what == 'data') {
                 $this_what = 'structure';
             }

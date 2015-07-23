@@ -1329,7 +1329,7 @@ function PMA_getForeignData(
         // We could also do the SELECT anyway, with a LIMIT, and ensure that
         // the current value of the field is one of the choices.
 
-        $the_total   = PMA_Table::countRecords($foreign_db, $foreign_table, true);
+        $the_total   = $GLOBALS['dbi']->getTable($foreign_db, $foreign_table)->countRecords(true);
 
         if ($override_total == true
             || $the_total < $GLOBALS['cfg']['ForeignKeyMaxLimit']

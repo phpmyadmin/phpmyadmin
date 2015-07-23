@@ -120,7 +120,7 @@ if (! empty($submit_mult)) {
 }
 
 // display secondary level tabs if necessary
-$engine = PMA_Table::sGetStatusInfo($db, $table, 'ENGINE');
+$engine = $GLOBALS['dbi']->getTable($db, $table)->sGetStatusInfo('ENGINE');
 $response->addHTML(PMA_getStructureSecondaryTabs($engine));
 $response->addHTML('<div id="structure_content">');
 

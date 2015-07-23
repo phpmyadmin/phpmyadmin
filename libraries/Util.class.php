@@ -806,12 +806,9 @@ class PMA_Util
             $tbl_is_view = $table['TABLE_TYPE'] == 'VIEW';
 
             if ($tbl_is_view || $GLOBALS['dbi']->isSystemSchema($db)) {
-                $rowCount = PMA_Table::countRecords(
-                    $db,
-                    $table['Name'],
-                    false,
-                    $tbl_is_view
-                );
+                $rowCount = $GLOBALS['dbi']
+                    ->getTable($db, $table['Name'])
+                    ->countRecords();
             }
         }
         return $rowCount;
@@ -2191,7 +2188,7 @@ class PMA_Util
             // because there is some caching in the function).
             if (isset($meta->orgtable)
                 && ($meta->table != $meta->orgtable)
-                && ! PMA_Table::isView($GLOBALS['db'], $meta->table)
+                && ! $GLOBALS['dbi']->getTable($GLOBALS['db'], $meta->table)->isView()
             ) {
                 $meta->table = $meta->orgtable;
             }

@@ -2763,6 +2763,14 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
                 )
             );
 
+        $dbi->expects($this->any())
+            ->method('getTable')
+            ->will(
+                $this->returnValue(
+                    new PMA_Table('table', 'db')
+                )
+            );
+
         $GLOBALS['dbi'] = $dbi;
 
         $this->assertEquals(

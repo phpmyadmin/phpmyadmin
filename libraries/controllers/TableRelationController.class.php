@@ -167,7 +167,7 @@ class TableRelationController extends TableController
         }
 
         // display secondary level tabs if necessary
-        $engine = PMA_Table::sGetStatusInfo($this->db, $this->table, 'ENGINE');
+        $engine = $GLOBALS['dbi']->getTable($this->db, $this->table)->sGetStatusInfo('ENGINE');
         $this->response->addHTML(PMA_getStructureSecondaryTabs($engine));
         $this->response->addHTML('<div id="structure_content">');
 
@@ -298,7 +298,7 @@ class TableRelationController extends TableController
         $foreignTable = $_REQUEST['foreignTable'];
         $table_obj = new PMA_Table($foreignTable, $_REQUEST['foreignDb']);
         // Since views do not have keys defined on them provide the full list of columns
-        if (PMA_Table::isView($_REQUEST['foreignDb'], $foreignTable)) {
+        if ($GLOBALS['dbi']->getTable($_REQUEST['foreignDb'], $foreignTable)->isView()) {
             $columnList = $table_obj->getColumns(false, false);
         } else {
             $columnList = $table_obj->getIndexedColumns(false, false);
@@ -360,11 +360,10 @@ class TableRelationController extends TableController
                 if ($foreign && PMA_DRIZZLE) {
                     $engine = /*overload*/
                         mb_strtoupper(
-                            PMA_Table::sGetStatusInfo(
+                            $GLOBALS['dbi']->getTable(
                                 $_REQUEST['foreignDb'],
-                                $row[0],
-                                'Engine'
-                            )
+                                $row[0]
+                            )->sGetStatusInfo('Engine')
                         );
                     if (isset($engine) && $engine == $this->tbl_storage_engine) {
                         $tables[] = htmlspecialchars($row[0]);

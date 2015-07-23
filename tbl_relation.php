@@ -46,11 +46,7 @@ $options_array = array(
 $cfgRelation = PMA_getRelationsParam();
 $tbl_storage_engine = /*overload*/
     mb_strtoupper(
-        PMA_Table::sGetStatusInfo(
-            $db,
-            $table,
-            'Engine'
-        )
+        $GLOBALS['dbi']->getTable($db, $table)->sGetStatusInfo('Engine')
     );
 $upd_query = new PMA_Table($table, $db, $dbi);
 

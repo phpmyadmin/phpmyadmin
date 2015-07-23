@@ -637,9 +637,10 @@ function PMA_exportDatabase(
     $views = array();
 
     foreach ($tables as $table) {
+        $_table = new PMA_Table($table, $db);
         // if this is a view, collect it for later;
         // views must be exported after the tables
-        $is_view = PMA_Table::isView($db, $table);
+        $is_view = $_table->isView();
         if ($is_view) {
             $views[] = $table;
         }
@@ -696,7 +697,7 @@ function PMA_exportDatabase(
         if (($whatStrucOrData == 'data'
             || $whatStrucOrData == 'structure_and_data')
             && in_array($table, $table_data)
-            && ! ($is_view || PMA_Table::isMerge($db, $table))
+            && ! ($is_view || $_table->isMerge())
         ) {
             $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
                 . '.' . PMA_Util::backquote($table);
@@ -821,7 +822,8 @@ function PMA_exportTable(
         $add_query  = '';
     }
 
-    $is_view = PMA_Table::isView($db, $table);
+    $_table = new PMA_Table($table, $db);
+    $is_view = $_table->isView();
     if ($whatStrucOrData == 'structure'
         || $whatStrucOrData == 'structure_and_data'
     ) {
@@ -854,9 +856,10 @@ function PMA_exportTable(
     // If this is an export of a single view, we have to export data;
     // for example, a PDF report
     // if it is a merge table, no data is exported
+    $table = new PMA_Table($table, $db);
     if (($whatStrucOrData == 'data'
         || $whatStrucOrData == 'structure_and_data')
-        && ! PMA_Table::isMerge($db, $table)
+        && ! $table->isMerge()
     ) {
         if (! empty($sql_query)) {
             // only preg_replace if needed

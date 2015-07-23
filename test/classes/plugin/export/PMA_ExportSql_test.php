@@ -1244,6 +1244,10 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->with('res')
             ->will($this->returnValue($row));
 
+        $dbi->expects($this->once())
+            ->method('getTable')
+            ->will($this->returnValue(new PMA_Table('table', 'db')));
+
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
@@ -1416,6 +1420,10 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->with('res')
             ->will($this->returnValue($row));
 
+        $dbi->expects($this->once())
+            ->method('getTable')
+            ->will($this->returnValue(new PMA_Table('table', 'db')));
+
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
@@ -1528,6 +1536,10 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->once())
             ->method('getError')
             ->will($this->returnValue('error occurred'));
+
+        $dbi->expects($this->once())
+            ->method('getTable')
+            ->will($this->returnValue(new PMA_Table('table', 'db')));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -1872,6 +1884,12 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
+        $_table = new PMA_Table('table', 'db');
+
+        $dbi->expects($this->once())
+            ->method('getTable')
+            ->will($this->returnValue($_table));
+
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_backquotes'] = true;
@@ -1988,6 +2006,10 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
+        $dbi->expects($this->once())
+            ->method('getTable')
+            ->will($this->returnValue(new PMA_Table('table', 'db')));
+
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_backquotes'] = true;
@@ -2026,9 +2048,16 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->once())
-            ->method('fetchResult')
+        $_table = $this->getMockBuilder('PMA_Table')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $_table->expects($this->once())
+            ->method('isView')
             ->will($this->returnValue(true));
+
+        $dbi->expects($this->once())
+            ->method('getTable')
+            ->will($this->returnValue($_table));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -2067,6 +2096,10 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->once())
             ->method('getError')
             ->will($this->returnValue('err'));
+
+        $dbi->expects($this->once())
+            ->method('getTable')
+            ->will($this->returnValue(new PMA_Table('table', 'db')));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

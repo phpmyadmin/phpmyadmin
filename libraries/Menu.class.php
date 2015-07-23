@@ -165,7 +165,8 @@ class PMA_Menu
     private function _getBreadcrumbs()
     {
         $retval = '';
-        $tbl_is_view = PMA_Table::isView($this->_db, $this->_table);
+        $table = new PMA_Table($this->_table, $this->_db);
+        $tbl_is_view = $table->isView();
         $server_info = ! empty($GLOBALS['cfg']['Server']['verbose'])
             ? $GLOBALS['cfg']['Server']['verbose']
             : $GLOBALS['cfg']['Server']['host'];
@@ -298,7 +299,8 @@ class PMA_Menu
     private function _getTableTabs()
     {
         $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
-        $tbl_is_view = PMA_Table::isView($this->_db, $this->_table);
+        $table = new PMA_Table($this->_table, $this->_db);
+        $tbl_is_view = $table->isView();
         $is_superuser = $GLOBALS['dbi']->isSuperuser();
         $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
             || $GLOBALS['dbi']->isUserType('create');

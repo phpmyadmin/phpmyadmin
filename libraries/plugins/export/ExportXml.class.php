@@ -237,7 +237,7 @@ class ExportXml extends ExportPlugin
                 );
                 $tbl =  $result[$table][1];
 
-                $is_view = PMA_Table::isView($db, $table);
+                $is_view = $GLOBALS['dbi']->getTable($db, $table)->isView();
 
                 if ($is_view) {
                     $type = 'view';
