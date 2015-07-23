@@ -865,13 +865,9 @@ AJAX.registerOnload('functions.js', function () {
         var $tr = $this.closest('tr');
         var $table = $this.closest('table');
 
-        // make the table unselectable (to prevent default highlighting when shift+click)
-        //$tr.parents('table').noSelect();
-
         if (!e.shiftKey || last_clicked_row == -1) {
             // usual click
 
-            // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
             var $checkbox = $tr.find(':checkbox.checkall');
             var checked = $this.prop('checked');
             $checkbox.prop('checked', checked).trigger('change');
