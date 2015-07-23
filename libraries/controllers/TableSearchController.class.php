@@ -304,8 +304,8 @@ class TableSearchController extends TableController {
             // Defines the url to return to in case of error in the next sql
             // statement
             $err_url = $goto . PMA_URL_getCommon(
-                    array('db' => $this->db, 'table' => $this->table)
-                );
+                array('db' => $this->db, 'table' => $this->table)
+            );
 
             //Set default datalabel if not selected
             if (!isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {

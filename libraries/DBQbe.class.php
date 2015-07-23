@@ -1532,32 +1532,40 @@ class PMA_DbQbe
     private function _getFromClause()
     {
         $from_clause = '';
-        if (isset($_POST['criteriaColumn']) && count($_POST['criteriaColumn']) > 0) {
-            // Initialize some variables
-            $search_tables = $search_columns = array();
+        if (!isset($_POST['criteriaColumn'])
+            || count($_POST['criteriaColumn']) <= 0
+        ) {
+            return $from_clause;
+        }
 
-            // We only start this if we have fields, otherwise it would be dumb
-            foreach ($_POST['criteriaColumn'] as $value) {
-                $parts = explode('.', $value);
-                if (! empty($parts[0]) && ! empty($parts[1])) {
-                    $table = str_replace('`', '', $parts[0]);
-                    $search_tables[$table] = $table;
-                    $search_columns[] = $table . '.' . str_replace('`', '', $parts[1]);
-                }
-            } // end while
+        // Initialize some variables
+        $search_tables = $search_columns = array();
 
-            // Create LEFT JOINS out of Relations
-            $from_clause = $this->_getJoinForFromClause($search_tables, $search_columns);
-
-            // In case relations are not defined, just generate the FROM clause
-            // from the list of tables, however we don't generate any JOIN
-            if (empty($from_clause)) {
-                // Create cartesian product
-                $from_clause = implode(
-                    ", ", array_map('PMA_Util::backquote', $search_tables)
+        // We only start this if we have fields, otherwise it would be dumb
+        foreach ($_POST['criteriaColumn'] as $value) {
+            $parts = explode('.', $value);
+            if (! empty($parts[0]) && ! empty($parts[1])) {
+                $table = str_replace('`', '', $parts[0]);
+                $search_tables[$table] = $table;
+                $search_columns[] = $table . '.' . str_replace(
+                    '`', '', $parts[1]
                 );
             }
-        } // end count($_POST['criteriaColumn']) > 0
+        } // end while
+
+        // Create LEFT JOINS out of Relations
+        $from_clause = $this->_getJoinForFromClause(
+            $search_tables, $search_columns
+        );
+
+        // In case relations are not defined, just generate the FROM clause
+        // from the list of tables, however we don't generate any JOIN
+        if (empty($from_clause)) {
+            // Create cartesian product
+            $from_clause = implode(
+                ", ", array_map('PMA_Util::backquote', $search_tables)
+            );
+        }
 
         return $from_clause;
     }
@@ -1619,36 +1627,38 @@ class PMA_DbQbe
                     foreach ($columnReferences as $reference) {
 
                         // Only from this schema
-                        if ($reference['table_schema'] == $this->_db) {
-                            $table = $reference['table_name'];
+                        if ($reference['table_schema'] != $this->_db) {
+                            continue;
+                        }
 
-                            $this->_loadRelationsForTable($relations, $table);
+                        $table = $reference['table_name'];
 
-                            // Make copies
-                            $tempFinalized = $finalized;
-                            $tempSearchTables = $searchTables;
-                            $tempSearchTables[] = $table;
+                        $this->_loadRelationsForTable($relations, $table);
 
-                            // Try joining with the added table
-                            $this->_fillJoinClauses(
-                                $tempFinalized, $relations, $tempSearchTables
-                            );
+                        // Make copies
+                        $tempFinalized = $finalized;
+                        $tempSearchTables = $searchTables;
+                        $tempSearchTables[] = $table;
 
-                            $tempUnfinalized = array_diff(
-                                $tempSearchTables, array_keys($tempFinalized)
-                            );
-                            // Take greedy approach.
-                            // If the unfinalized count drops we keep the new table
-                            // and switch temporary varibles with the original ones
-                            if (count($tempUnfinalized) < count($unfinalized)) {
-                                $finalized = $tempFinalized;
-                                $searchTables = $tempSearchTables;
-                            }
+                        // Try joining with the added table
+                        $this->_fillJoinClauses(
+                            $tempFinalized, $relations, $tempSearchTables
+                        );
 
-                            // We are done if no unfinalized tables anymore
-                            if (count($tempUnfinalized) == 0) {
-                                break 3;
-                            }
+                        $tempUnfinalized = array_diff(
+                            $tempSearchTables, array_keys($tempFinalized)
+                        );
+                        // Take greedy approach.
+                        // If the unfinalized count drops we keep the new table
+                        // and switch temporary varibles with the original ones
+                        if (count($tempUnfinalized) < count($unfinalized)) {
+                            $finalized = $tempFinalized;
+                            $searchTables = $tempSearchTables;
+                        }
+
+                        // We are done if no unfinalized tables anymore
+                        if (count($tempUnfinalized) == 0) {
+                            break 3;
                         }
                     }
                 }

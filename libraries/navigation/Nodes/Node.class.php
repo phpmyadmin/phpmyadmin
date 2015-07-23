@@ -386,19 +386,24 @@ class Node
                 $query = "SHOW DATABASES ";
                 $query .= $this->_getWhereClause('Database', $searchClause);
                 $handle = $GLOBALS['dbi']->tryQuery($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
-                        while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                            if ($count < $maxItems) {
-                                $retval[] = $arr[0];
-                                $count++;
-                            } else {
-                                break;
-                            }
-                        }
+                if ($handle === false) {
+                    return $retval;
+                }
+
+                $count = 0;
+                if (!$GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                    return $retval;
+                }
+
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                    if ($count < $maxItems) {
+                        $retval[] = $arr[0];
+                        $count++;
+                    } else {
+                        break;
                     }
                 }
+
                 return $retval;
             }
 
