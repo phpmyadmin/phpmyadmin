@@ -154,180 +154,210 @@ class TableSearchController extends TableController {
     public function indexAction()
     {
         switch ($this->_searchType) {
-            case 'replace':
-                if (isset($_POST['find'])) {
-                    $this->findAction();
-                    return;
-                }
-                $this->response
-                    ->getHeader()
-                    ->getScripts()
-                    ->addFile('tbl_find_replace.js');
+        case 'replace':
+            if (isset($_POST['find'])) {
+                $this->findAction();
 
-                // Show secondary level of tabs
-                $this->response->addHTML(
-                    Template::get('table/secondary_tabs')->render(
+                return;
+            }
+            $this->response
+                ->getHeader()
+                ->getScripts()
+                ->addFile('tbl_find_replace.js');
+
+            // Show secondary level of tabs
+            $this->response->addHTML(
+                Template::get('table/secondary_tabs')
+                    ->render(
                         array(
                             'url_params' => array(
-                                'db' => $this->db,
-                                'table' => $this->table
+                                'db'    => $this->db,
+                                'table' => $this->table,
                             ),
-                            'sub_tabs' => $this->_getSubTabs()
+                            'sub_tabs'   => $this->_getSubTabs(),
                         )
                     )
+            );
+
+            if (isset($_POST['replace'])) {
+                $this->replaceAction();
+            }
+
+            if (!isset($goto)) {
+                $goto = PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 );
-
-                if (isset($_POST['replace'])) {
-                    $this->replaceAction();
-                }
-
-                if (! isset($goto)) {
-                    $goto = PMA_Util::getScriptNameForOption(
-                        $GLOBALS['cfg']['DefaultTabTable'], 'table'
-                    );
-                }
-                // Defines the url to return to in case of error in the next sql statement
-                $params = array('db' => $this->db, 'table' => $this->table);
-                $err_url = $goto . '?' . PMA_URL_getCommon($params);
-                // Displays the find and replace form
-                $this->response->addHTML(Template::get('table/selection_form')->render(
+            }
+            // Defines the url to return to in case of error in the next sql
+            // statement
+            $params = array('db' => $this->db, 'table' => $this->table);
+            $err_url = $goto . '?' . PMA_URL_getCommon($params);
+            // Displays the find and replace form
+            $this->response->addHTML(
+                Template::get('table/selection_form')
+                    ->render(
                         array(
-                            'searchType' => $this->_searchType,
-                            'db' => $this->db,
-                            'table' => $this->table,
-                            'goto' => $goto,
-                            'self' => $this,
-                            'geomColumnFlag' => $this->_geomColumnFlag,
-                            'columnNames' => $this->_columnNames,
-                            'columnTypes' => $this->_columnTypes,
+                            'searchType'       => $this->_searchType,
+                            'db'               => $this->db,
+                            'table'            => $this->table,
+                            'goto'             => $goto,
+                            'self'             => $this,
+                            'geomColumnFlag'   => $this->_geomColumnFlag,
+                            'columnNames'      => $this->_columnNames,
+                            'columnTypes'      => $this->_columnTypes,
                             'columnCollations' => $this->_columnCollations,
-                            'dataLabel' => null
+                            'dataLabel'        => null,
                         )
                     )
+            );
+            break;
+
+        case 'normal':
+            $this->response->getHeader()
+                ->getScripts()
+                ->addFiles(
+                    array(
+                        'makegrid.js',
+                        'sql.js',
+                        'tbl_select.js',
+                        'tbl_change.js',
+                        'jquery/jquery-ui-timepicker-addon.js',
+                        'jquery/jquery.uitablefilter.js',
+                        'gis_data_editor.js',
+                    )
                 );
-                break;
 
-            case 'normal':
-                $this->response->getHeader()->getScripts()->addFiles(array(
-                    'makegrid.js',
-                    'sql.js',
-                    'tbl_select.js',
-                    'tbl_change.js',
-                    'jquery/jquery-ui-timepicker-addon.js',
-                    'jquery/jquery.uitablefilter.js',
-                    'gis_data_editor.js'
-                ));
+            if (isset($_REQUEST['range_search'])) {
+                $this->rangeSearchAction();
 
-                if (isset($_REQUEST['range_search'])) {
-                    $this->rangeSearchAction();
-                    return;
-                }
+                return;
+            }
 
-                /**
-                 * No selection criteria received -> display the selection form
-                 */
-                if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns'])) {
-                    $this->displaySelectionFormAction();
-                } else {
-                    $this->doSelectionAction();
-                }
-                break;
+            /**
+             * No selection criteria received -> display the selection form
+             */
+            if (!isset($_POST['columnsToDisplay'])
+                && !isset($_POST['displayAllColumns'])
+            ) {
+                $this->displaySelectionFormAction();
+            } else {
+                $this->doSelectionAction();
+            }
+            break;
 
-            case 'zoom':
-                $this->response->getHeader()->getScripts()->addFiles(array(
-                    'makegrid.js',
-                    'sql.js',
-                    'jqplot/jquery.jqplot.js',
-                    'jqplot/plugins/jqplot.canvasTextRenderer.js',
-                    'jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
-                    'jqplot/plugins/jqplot.dateAxisRenderer.js',
-                    'jqplot/plugins/jqplot.highlighter.js',
-                    'jqplot/plugins/jqplot.cursor.js',
-                    'canvg/canvg.js',
-                    'jquery/jquery-ui-timepicker-addon.js',
-                    'tbl_zoom_plot_jqplot.js',
-                    'tbl_change.js'
-                ));
+        case 'zoom':
+            $this->response->getHeader()
+                ->getScripts()
+                ->addFiles(
+                    array(
+                        'makegrid.js',
+                        'sql.js',
+                        'jqplot/jquery.jqplot.js',
+                        'jqplot/plugins/jqplot.canvasTextRenderer.js',
+                        'jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
+                        'jqplot/plugins/jqplot.dateAxisRenderer.js',
+                        'jqplot/plugins/jqplot.highlighter.js',
+                        'jqplot/plugins/jqplot.cursor.js',
+                        'canvg/canvg.js',
+                        'jquery/jquery-ui-timepicker-addon.js',
+                        'tbl_zoom_plot_jqplot.js',
+                        'tbl_change.js',
+                    )
+                );
 
-                /**
-                 * Handle AJAX request for data row on point select
-                 * @var post_params Object containing parameters for the POST request
-                 */
-                if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
-                    $this->getDataRowAction();
-                    return;
-                }
-                /**
-                 * Handle AJAX request for changing field information
-                 * (value,collation,operators,field values) in input form
-                 * @var post_params Object containing parameters for the POST request
-                 */
-                if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true) {
-                    $this->changeTableInfoAction();
-                    return;
-                }
+            /**
+             * Handle AJAX request for data row on point select
+             *
+             * @var post_params Object containing parameters for the POST request
+             */
+            if (isset($_REQUEST['get_data_row'])
+                && $_REQUEST['get_data_row'] == true
+            ) {
+                $this->getDataRowAction();
 
-                $this->url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
+                return;
+            }
+            /**
+             * Handle AJAX request for changing field information
+             * (value,collation,operators,field values) in input form
+             *
+             * @var post_params Object containing parameters for the POST request
+             */
+            if (isset($_REQUEST['change_tbl_info'])
+                && $_REQUEST['change_tbl_info'] == true
+            ) {
+                $this->changeTableInfoAction();
 
-                // Gets tables information
-                require_once './libraries/tbl_info.inc.php';
+                return;
+            }
 
-                if (! isset($goto)) {
-                    $goto = PMA_Util::getScriptNameForOption(
-                        $GLOBALS['cfg']['DefaultTabTable'], 'table'
-                    );
-                }
-                // Defines the url to return to in case of error in the next sql statement
-                $err_url   = $goto . PMA_URL_getCommon(array('db' => $this->db, 'table' => $this->table));
+            $this->url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
-                //Set default datalabel if not selected
-                if (!isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
-                    $dataLabel = PMA_getDisplayField($this->db, $this->table);
-                } else {
-                    $dataLabel = $_POST['dataLabel'];
-                }
+            // Gets tables information
+            require_once './libraries/tbl_info.inc.php';
 
-                // Displays the zoom search form
-                $this->response->addHTML(
-                    Template::get('table/secondary_tabs')->render(
+            if (!isset($goto)) {
+                $goto = PMA_Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                );
+            }
+            // Defines the url to return to in case of error in the next sql
+            // statement
+            $err_url = $goto . PMA_URL_getCommon(
+                    array('db' => $this->db, 'table' => $this->table)
+                );
+
+            //Set default datalabel if not selected
+            if (!isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
+                $dataLabel = PMA_getDisplayField($this->db, $this->table);
+            } else {
+                $dataLabel = $_POST['dataLabel'];
+            }
+
+            // Displays the zoom search form
+            $this->response->addHTML(
+                Template::get('table/secondary_tabs')
+                    ->render(
                         array(
                             'url_params' => array(
-                                'db' => $this->db,
-                                'table' => $this->table
+                                'db'    => $this->db,
+                                'table' => $this->table,
                             ),
-                            'sub_tabs' => $this->_getSubTabs()
+                            'sub_tabs'   => $this->_getSubTabs(),
                         )
                     )
-                );
-                $this->response->addHTML(
-                    Template::get('table/selection_form')->render(
+            );
+            $this->response->addHTML(
+                Template::get('table/selection_form')
+                    ->render(
                         array(
-                            'searchType' => $this->_searchType,
-                            'db' => $this->db,
-                            'table' => $this->table,
-                            'goto' => $goto,
-                            'self' => $this,
-                            'geomColumnFlag' => $this->_geomColumnFlag,
-                            'columnNames' => $this->_columnNames,
-                            'columnTypes' => $this->_columnTypes,
+                            'searchType'       => $this->_searchType,
+                            'db'               => $this->db,
+                            'table'            => $this->table,
+                            'goto'             => $goto,
+                            'self'             => $this,
+                            'geomColumnFlag'   => $this->_geomColumnFlag,
+                            'columnNames'      => $this->_columnNames,
+                            'columnTypes'      => $this->_columnTypes,
                             'columnCollations' => $this->_columnCollations,
-                            'dataLabel' => $dataLabel
+                            'dataLabel'        => $dataLabel,
                         )
                     )
-                );
+            );
 
-                /*
-                 * Handle the input criteria and generate the query result
-                 * Form for displaying query results
-                 */
-                if (isset($_POST['zoom_submit'])
-                    && $_POST['criteriaColumnNames'][0] != 'pma_null'
-                    && $_POST['criteriaColumnNames'][1] != 'pma_null'
-                    && $_POST['criteriaColumnNames'][0] != $_POST['criteriaColumnNames'][1]
-                ) {
-                    $this->zoomSubmitAction($dataLabel, $goto);
-                }
-                break;
+            /*
+             * Handle the input criteria and generate the query result
+             * Form for displaying query results
+             */
+            if (isset($_POST['zoom_submit'])
+                && $_POST['criteriaColumnNames'][0] != 'pma_null'
+                && $_POST['criteriaColumnNames'][1] != 'pma_null'
+                && $_POST['criteriaColumnNames'][0]
+                != $_POST['criteriaColumnNames'][1]
+            ) {
+                $this->zoomSubmitAction($dataLabel, $goto);
+            }
+            break;
         }
     }
 

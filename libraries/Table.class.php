@@ -235,15 +235,15 @@ class PMA_Table
             $results = $this->_dbi->fetchResult(
                 "SELECT COLUMN_NAME, DATA_TYPE
                 FROM information_schema.COLUMNS
-                WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($this->_db_name) . "'
-                AND TABLE_NAME = '" . PMA_Util::sqlAddSlashes($this->_name) . "'"
+                WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($this->_db_name)
+                . " AND TABLE_NAME = '" . PMA_Util::sqlAddSlashes($this->_name) . "'"
             );
 
             foreach ($results as $result) {
                 $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
                     = array(
-                    'type' => /*overload*/mb_strtoupper($result['DATA_TYPE'])
-                );
+                        'type' => /*overload*/mb_strtoupper($result['DATA_TYPE'])
+                    );
             }
         } else {
             $show_create_table = $this->_dbi->fetchValue(
@@ -282,7 +282,7 @@ class PMA_Table
 
         // any of known merge engines?
         return in_array(
-        /*overload*/mb_strtoupper($engine),
+            /*overload*/mb_strtoupper($engine),
             array('MERGE', 'MRG_MYISAM')
         );
     }
@@ -300,7 +300,11 @@ class PMA_Table
      *
      * @return mixed
      */
-    public function sGetStatusInfo($info = null, $force_read = false, $disable_error = false) {
+    public function sGetStatusInfo(
+        $info = null,
+        $force_read = false,
+        $disable_error = false
+    ) {
         $db = $this->_db_name;
         $table = $this->_name;
 
@@ -329,7 +333,10 @@ class PMA_Table
         }
 
         // array_key_exists allows for null values
-        if (!array_key_exists($info, $this->_dbi->getCachedTableContent("${db}.${table}"))) {
+        if (!array_key_exists(
+            $info, $this->_dbi->getCachedTableContent("${db}.${table}")
+        )
+        ) {
             if (! $disable_error) {
                 trigger_error(
                     __('Unknown table status:') . ' ' . $info,
@@ -368,14 +375,14 @@ class PMA_Table
      * @return string  field specification
      */
     static function generateFieldSpec($name, $type, $length = '',
-                                      $attribute = '', $collation = '', $null = false,
-                                      $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
-                                      $comment = '', $virtuality = '', $expression = '', $move_to = ''
+        $attribute = '', $collation = '', $null = false,
+        $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
+        $comment = '', $virtuality = '', $expression = '', $move_to = ''
     ) {
         $is_timestamp = /*overload*/mb_strpos(
             /*overload*/mb_strtoupper($type),
-                'TIMESTAMP'
-            ) !== false;
+            'TIMESTAMP'
+        ) !== false;
 
         $query = PMA_Util::backquote($name) . ' ' . $type;
 
@@ -415,45 +422,46 @@ class PMA_Table
             }
 
             switch ($default_type) {
-                case 'USER_DEFINED' :
-                    if ($is_timestamp && $default_value === '0') {
-                        // a TIMESTAMP does not accept DEFAULT '0'
-                        // but DEFAULT 0 works
-                        $query .= ' DEFAULT 0';
-                    } elseif ($type == 'BIT') {
-                        $query .= ' DEFAULT b\''
-                            . preg_replace('/[^01]/', '0', $default_value)
-                            . '\'';
-                    } elseif ($type == 'BOOLEAN') {
-                        if (preg_match('/^1|T|TRUE|YES$/i', $default_value)) {
-                            $query .= ' DEFAULT TRUE';
-                        } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
-                            $query .= ' DEFAULT FALSE';
-                        } else {
-                            // Invalid BOOLEAN value
-                            $query .= ' DEFAULT \''
-                                . PMA_Util::sqlAddSlashes($default_value) . '\'';
-                        }
-                    } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
-                        $query .= ' DEFAULT 0x' . $default_value;
+            case 'USER_DEFINED' :
+                if ($is_timestamp && $default_value === '0') {
+                    // a TIMESTAMP does not accept DEFAULT '0'
+                    // but DEFAULT 0 works
+                    $query .= ' DEFAULT 0';
+                } elseif ($type == 'BIT') {
+                    $query .= ' DEFAULT b\''
+                        . preg_replace('/[^01]/', '0', $default_value)
+                        . '\'';
+                } elseif ($type == 'BOOLEAN') {
+                    if (preg_match('/^1|T|TRUE|YES$/i', $default_value)) {
+                        $query .= ' DEFAULT TRUE';
+                    } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
+                        $query .= ' DEFAULT FALSE';
                     } else {
+                        // Invalid BOOLEAN value
                         $query .= ' DEFAULT \''
                             . PMA_Util::sqlAddSlashes($default_value) . '\'';
                     }
+                } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
+                    $query .= ' DEFAULT 0x' . $default_value;
+                } else {
+                    $query .= ' DEFAULT \''
+                        . PMA_Util::sqlAddSlashes($default_value) . '\'';
+                }
+                break;
+            /** @noinspection PhpMissingBreakStatementInspection */
+            case 'NULL' :
+                // If user uncheck null checkbox and not change default value null,
+                // default value will be ignored.
+                if ($null !== false && $null !== 'NULL') {
                     break;
-                case 'NULL' :
-                    // If user uncheck null checkbox and not change default value null,
-                    // default value will be ignored.
-                    if ($null !== false && $null !== 'NULL') {
-                        break;
-                    }
+                }
                 // else fall-through intended, no break here
-                case 'CURRENT_TIMESTAMP' :
-                    $query .= ' DEFAULT ' . $default_type;
-                    break;
-                case 'NONE' :
-                default :
-                    break;
+            case 'CURRENT_TIMESTAMP' :
+                $query .= ' DEFAULT ' . $default_type;
+                break;
+            case 'NONE' :
+            default :
+                break;
             }
 
             if (!empty($extra)) {
@@ -1605,11 +1613,11 @@ class PMA_Table
                     foreach ($avail_columns as $each_col) {
                         // check if $each_col ends with $colname
                         if (substr_compare(
-                                $each_col,
-                                $colname,
-                                /*overload*/mb_strlen($each_col)
-                                - /*overload*/mb_strlen($colname)
-                            ) === 0
+                            $each_col,
+                            $colname,
+                            /*overload*/mb_strlen($each_col)
+                            - /*overload*/mb_strlen($colname)
+                        ) === 0
                         ) {
                             return $this->uiprefs[$property];
                         }
@@ -1813,33 +1821,33 @@ class PMA_Table
 
         // Builds the new one
         switch ($index->getChoice()) {
-            case 'PRIMARY':
-                if ($index->getName() == '') {
-                    $index->setName('PRIMARY');
-                } elseif ($index->getName() != 'PRIMARY') {
-                    $error = PMA_Message::error(
-                        __('The name of the primary key must be "PRIMARY"!')
-                    );
-                }
-                $sql_query .= ' ADD PRIMARY KEY';
-                break;
-            case 'FULLTEXT':
-            case 'UNIQUE':
-            case 'INDEX':
-            case 'SPATIAL':
-                if ($index->getName() == 'PRIMARY') {
-                    $error = PMA_Message::error(
-                        __('Can\'t rename index to PRIMARY!')
-                    );
-                }
-                $sql_query .= sprintf(
-                    ' ADD %s ',
-                    $index->getChoice()
+        case 'PRIMARY':
+            if ($index->getName() == '') {
+                $index->setName('PRIMARY');
+            } elseif ($index->getName() != 'PRIMARY') {
+                $error = PMA_Message::error(
+                    __('The name of the primary key must be "PRIMARY"!')
                 );
-                if ($index->getName()) {
-                    $sql_query .= PMA_Util::backquote($index->getName());
-                }
-                break;
+            }
+            $sql_query .= ' ADD PRIMARY KEY';
+            break;
+        case 'FULLTEXT':
+        case 'UNIQUE':
+        case 'INDEX':
+        case 'SPATIAL':
+            if ($index->getName() == 'PRIMARY') {
+                $error = PMA_Message::error(
+                    __('Can\'t rename index to PRIMARY!')
+                );
+            }
+            $sql_query .= sprintf(
+                ' ADD %s ',
+                $index->getChoice()
+            );
+            if ($index->getName()) {
+                $sql_query .= PMA_Util::backquote($index->getName());
+            }
+            break;
         } // end switch
 
         $index_fields = array();
@@ -2164,7 +2172,10 @@ class PMA_Table
 
                     if (substr($tmp_error_create, 1, 4) == '1005') {
                         $message = PMA_Message::error(
-                            __('Error creating foreign key on %1$s (check data types)')
+                            __(
+                                'Error creating foreign key on %1$s (check data ' .
+                                'types)'
+                            )
                         );
                         $message->addParam(implode(', ', $master_field));
                         $html_output .= $message->getDisplay();
@@ -2174,8 +2185,8 @@ class PMA_Table
                         );
                     }
                     $html_output .= PMA_Util::showMySQLDocu(
-                            'InnoDB_foreign_key_constraints'
-                        ) . "\n";
+                        'InnoDB_foreign_key_constraints'
+                    ) . "\n";
                 }
             } else {
                 $preview_sql_data .= $create_query . "\n";

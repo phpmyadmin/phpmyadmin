@@ -590,7 +590,7 @@ if (! function_exists('__')) {
 if (in_array($GLOBALS['lang'], array('ar', 'fa', 'he', 'ur'))) {
     $GLOBALS['text_dir'] = 'rtl';
 } else {
-   $GLOBALS['text_dir'] = 'ltr';
+    $GLOBALS['text_dir'] = 'ltr';
 }
 
 /* TCPDF */

@@ -200,7 +200,8 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
             ?>
             </td>
             <td>
-            <a class="delete_tracking_anchor ajax" href="<?php echo $delete_link;?>" >
+            <a class="delete_tracking_anchor ajax"
+               href="<?php echo $delete_link;?>" >
             <?php echo $delete; ?></a>
         <?php
         echo '</td>'

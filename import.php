@@ -711,8 +711,8 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
 // Did we hit timeout? Tell it user.
 if ($timeout_passed) {
     $importUrl = $err_url .= '&timeout_passed=1&offset=' . urlencode(
-            $GLOBALS['offset']
-        );
+        $GLOBALS['offset']
+    );
     if (isset($local_import_file)) {
         $importUrl .= '&local_import_file=' . urlencode($local_import_file);
     }
