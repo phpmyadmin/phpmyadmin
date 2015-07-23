@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-23 22:23+0200\n"
+"PO-Revision-Date: 2015-07-23 22:37+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -3904,7 +3904,7 @@ msgstr ""
 #: libraries/Linter.class.php:83
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
-msgstr ""
+msgstr "Linting bu sorgu için etkisizleştirildi çünkü en fazla uzunluğu aştı."
 
 #: libraries/Linter.class.php:147
 #, php-format
