@@ -20,20 +20,6 @@ require_once 'libraries/controllers/TableController.class.php';
 class TableSearchController extends TableController {
 
     /**
-     * Database name
-     *
-     * @access private
-     * @var string
-     */
-    private $_db;
-    /**
-     * Table name
-     *
-     * @access private
-     * @var string
-     */
-    private $_table;
-    /**
      * Normal search or Zoom search
      *
      * @access private
@@ -96,8 +82,6 @@ class TableSearchController extends TableController {
     {
         parent::__construct();
 
-        $this->_db = $db;
-        $this->_table = $table;
         $this->url_query = $url_query;
         $this->_searchType = $searchType;
         $this->_columnNames = array();
@@ -123,7 +107,7 @@ class TableSearchController extends TableController {
     {
         // Gets the list and number of columns
         $columns = $this->dbi->getColumns(
-            $this->_db, $this->_table, null, true
+            $this->db, $this->table, null, true
         );
         // Get details about the geometry functions
         $geom_types = PMA_Util::getGISDatatypes();
@@ -164,7 +148,7 @@ class TableSearchController extends TableController {
         } // end for
 
         // Retrieve foreign keys
-        $this->_foreigners = PMA_getForeigners($this->_db, $this->_table);
+        $this->_foreigners = PMA_getForeigners($this->db, $this->table);
     }
 
     public function indexAction()
@@ -185,8 +169,8 @@ class TableSearchController extends TableController {
                     Template::get('table/secondary_tabs')->render(
                         array(
                             'url_params' => array(
-                                'db' => $this->_db,
-                                'table' => $this->_table
+                                'db' => $this->db,
+                                'table' => $this->table
                             ),
                             'sub_tabs' => $this->_getSubTabs()
                         )
@@ -203,14 +187,14 @@ class TableSearchController extends TableController {
                     );
                 }
                 // Defines the url to return to in case of error in the next sql statement
-                $params = array('db' => $this->_db, 'table' => $this->_table);
+                $params = array('db' => $this->db, 'table' => $this->table);
                 $err_url = $goto . '?' . PMA_URL_getCommon($params);
                 // Displays the find and replace form
                 $this->response->addHTML(Template::get('table/selection_form')->render(
                         array(
                             'searchType' => $this->_searchType,
-                            'db' => $this->_db,
-                            'table' => $this->_table,
+                            'db' => $this->db,
+                            'table' => $this->table,
                             'goto' => $goto,
                             'self' => $this,
                             'geomColumnFlag' => $this->_geomColumnFlag,
@@ -294,11 +278,11 @@ class TableSearchController extends TableController {
                     );
                 }
                 // Defines the url to return to in case of error in the next sql statement
-                $err_url   = $goto . PMA_URL_getCommon(array('db' => $this->_db, 'table' => $this->_table));
+                $err_url   = $goto . PMA_URL_getCommon(array('db' => $this->db, 'table' => $this->table));
 
                 //Set default datalabel if not selected
                 if (!isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
-                    $dataLabel = PMA_getDisplayField($this->_db, $this->_table);
+                    $dataLabel = PMA_getDisplayField($this->db, $this->table);
                 } else {
                     $dataLabel = $_POST['dataLabel'];
                 }
@@ -308,8 +292,8 @@ class TableSearchController extends TableController {
                     Template::get('table/secondary_tabs')->render(
                         array(
                             'url_params' => array(
-                                'db' => $this->_db,
-                                'table' => $this->_table
+                                'db' => $this->db,
+                                'table' => $this->table
                             ),
                             'sub_tabs' => $this->_getSubTabs()
                         )
@@ -319,8 +303,8 @@ class TableSearchController extends TableController {
                     Template::get('table/selection_form')->render(
                         array(
                             'searchType' => $this->_searchType,
-                            'db' => $this->_db,
-                            'table' => $this->_table,
+                            'db' => $this->db,
+                            'table' => $this->table,
                             'goto' => $goto,
                             'self' => $this,
                             'geomColumnFlag' => $this->_geomColumnFlag,
@@ -400,8 +384,8 @@ class TableSearchController extends TableController {
         );
         $this->response->addHTML(Template::get('table/zoom_result_form')->render(
             array(
-                '_db' => $this->_db,
-                '_table' => $this->_table,
+                '_db' => $this->db,
+                '_table' => $this->table,
                 '_columnNames' => $this->_columnNames,
                 '_foreigners' => $this->_foreigners,
                 '_columnNullFlags' => $this->_columnNullFlags,
@@ -466,8 +450,8 @@ class TableSearchController extends TableController {
         /**
          * Add this to ensure following procedures included running correctly.
          */
-        $db = $this->_db;
-        $table = $this->_table;
+        $db = $this->db;
+        $table = $this->table;
         /**
          * Parse and analyze the query
          */
@@ -476,8 +460,8 @@ class TableSearchController extends TableController {
         PMA_executeQueryAndSendQueryResponse(
             $analyzed_sql_results, // analyzed_sql_results
             false, // is_gotofile
-            $this->_db, // db
-            $this->_table, // table
+            $this->db, // db
+            $this->table, // table
             null, // find_real_end
             null, // sql_query_for_bookmark
             null, // extra_data
@@ -507,13 +491,13 @@ class TableSearchController extends TableController {
             );
         }
         // Defines the url to return to in case of error in the next sql statement
-        $err_url = $goto . PMA_URL_getCommon(array('db' => $this->_db, 'table' => $this->_table));
+        $err_url = $goto . PMA_URL_getCommon(array('db' => $this->db, 'table' => $this->table));
         // Displays the table search form
         $this->response->addHTML(Template::get('table/secondary_tabs')->render(
             array(
                 'url_params' => array(
-                    'db' => $this->_db,
-                    'table' => $this->_table
+                    'db' => $this->db,
+                    'table' => $this->table
                 ),
                 'sub_tabs' => $this->_getSubTabs()
             )
@@ -521,8 +505,8 @@ class TableSearchController extends TableController {
         $this->response->addHTML(Template::get('table/selection_form')->render(
             array(
                 'searchType' => $this->_searchType,
-                'db' => $this->_db,
-                'table' => $this->_table,
+                'db' => $this->db,
+                'table' => $this->table,
                 'goto' => $goto,
                 'self' => $this,
                 'geomColumnFlag' => $this->_geomColumnFlag,
@@ -593,8 +577,8 @@ class TableSearchController extends TableController {
                 . $replaceWith
                 . "'),"
                 . " COUNT(*)"
-                . " FROM " . PMA_Util::backquote($this->_db)
-                . "." . PMA_Util::backquote($this->_table)
+                . " FROM " . PMA_Util::backquote($this->db)
+                . "." . PMA_Util::backquote($this->table)
                 . " WHERE " . PMA_Util::backquote($column)
                 . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
             // change the collation of the 2nd operand to a case sensitive
@@ -608,8 +592,8 @@ class TableSearchController extends TableController {
 
         return Template::get('table/replace_preview')->render(
             array(
-                'db' => $this->_db,
-                'table' => $this->_table,
+                'db' => $this->db,
+                'table' => $this->table,
                 'columnIndex' => $columnIndex,
                 'find' => $find,
                 'replaceWith' => $replaceWith,
@@ -636,8 +620,8 @@ class TableSearchController extends TableController {
             . PMA_Util::backquote($column) . ","
             . " 1," // to add an extra column that will have replaced value
             . " COUNT(*)"
-            . " FROM " . PMA_Util::backquote($this->_db)
-            . "." . PMA_Util::backquote($this->_table)
+            . " FROM " . PMA_Util::backquote($this->db)
+            . "." . PMA_Util::backquote($this->table)
             . " WHERE " . PMA_Util::backquote($column)
             . " RLIKE '" . PMA_Util::sqlAddSlashes($find) . "' COLLATE "
             . $charSet . "_bin"; // here we
@@ -678,8 +662,8 @@ class TableSearchController extends TableController {
             $toReplace = $this->_getRegexReplaceRows(
                 $columnIndex, $find, $replaceWith, $charSet
             );
-            $sql_query = "UPDATE " . PMA_Util::backquote($this->_db)
-                . "." . PMA_Util::backquote($this->_table)
+            $sql_query = "UPDATE " . PMA_Util::backquote($this->db)
+                . "." . PMA_Util::backquote($this->table)
                 . " SET " . PMA_Util::backquote($column) . " = CASE";
             if (is_array($toReplace)) {
                 foreach ($toReplace as $row) {
@@ -696,8 +680,8 @@ class TableSearchController extends TableController {
             // binary collation to make sure that the comparison
             // is case sensitive
         } else {
-            $sql_query = "UPDATE " . PMA_Util::backquote($this->_db)
-                . "." . PMA_Util::backquote($this->_table)
+            $sql_query = "UPDATE " . PMA_Util::backquote($this->db)
+                . "." . PMA_Util::backquote($this->table)
                 . " SET " . PMA_Util::backquote($column) . " ="
                 . " REPLACE("
                 . PMA_Util::backquote($column) . ", '" . $find . "', '"
@@ -726,8 +710,8 @@ class TableSearchController extends TableController {
     {
         $sql_query = 'SELECT MIN(' . PMA_Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . PMA_Util::backquote($column) . ') AS `max` '
-            . 'FROM ' . PMA_Util::backquote($this->_db) . '.'
-            . PMA_Util::backquote($this->_table);
+            . 'FROM ' . PMA_Util::backquote($this->db) . '.'
+            . PMA_Util::backquote($this->table);
 
         $result = $this->dbi->fetchSingleRow($sql_query);
 
@@ -850,11 +834,11 @@ class TableSearchController extends TableController {
                 '_foreigners' => $this->_foreigners,
                 'column_name' => $this->_columnNames[$column_index],
                 'foreignData' => $foreignData,
-                'table' => $this->_table,
+                'table' => $this->table,
                 'column_index' => $search_index,
                 'foreignMaxLimit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
                 'criteriaValues' => $entered_value,
-                'db' => $this->_db,
+                'db' => $this->db,
                 'titles' => $titles,
                 'in_fbs' => false
             )

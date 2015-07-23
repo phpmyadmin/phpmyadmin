@@ -48,16 +48,6 @@ class TableRelationController extends TableController
     protected $existrel;
 
     /**
-     * @var string $db
-     */
-    protected $db;
-
-    /**
-     * @var string $table
-     */
-    protected $table;
-
-    /**
      * @var string $disp
      */
     protected $disp;
