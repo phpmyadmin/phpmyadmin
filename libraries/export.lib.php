@@ -597,7 +597,8 @@ function PMA_exportDatabase(
     $db_alias = !empty($aliases[$db]['alias'])
         ? $aliases[$db]['alias'] : '';
 
-    // If single file, add DB header and Create but don't store in $dump_buffer_objects
+    // If single file, add DB header and Create but don't store in
+    // $dump_buffer_objects
     if (! $separate_files == 'database') {
         if (! $export_plugin->exportDBHeader($db, $db_alias)) {
             return;
@@ -651,16 +652,15 @@ function PMA_exportDatabase(
             // for a view, export a stand-in definition of the table
             // to resolve view dependencies (only when it's a single-file export)
             if ($is_view) {
-                if ($separate_files == '') {
-                    if (isset($GLOBALS['sql_create_view'])) {
-                        if (! $export_plugin->exportStructure(
-                            $db, $table, $crlf, $err_url, 'stand_in',
-                            $export_type, $do_relation, $do_comments,
-                            $do_mime, $do_dates, $aliases
-                        )) {
-                            break;
-                        }
-                    }
+                if ($separate_files == ''
+                    && isset($GLOBALS['sql_create_view'])
+                    && ! $export_plugin->exportStructure(
+                        $db, $table, $crlf, $err_url, 'stand_in',
+                        $export_type, $do_relation, $do_comments,
+                        $do_mime, $do_dates, $aliases
+                    )
+                ) {
+                    break;
                 }
             } else if (isset($GLOBALS['sql_create_table'])) {
 

@@ -1087,47 +1087,51 @@ class PMA_DatabaseInterface
                 $databases[$database_name]['DEFAULT_COLLATION_NAME']
                     = PMA_getDbCollation($database_name);
 
-                if ($force_stats) {
-
-                    // get additional info about tables
-                    $databases[$database_name]['SCHEMA_TABLES']          = 0;
-                    $databases[$database_name]['SCHEMA_TABLE_ROWS']      = 0;
-                    $databases[$database_name]['SCHEMA_DATA_LENGTH']     = 0;
-                    $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH'] = 0;
-                    $databases[$database_name]['SCHEMA_INDEX_LENGTH']    = 0;
-                    $databases[$database_name]['SCHEMA_LENGTH']          = 0;
-                    $databases[$database_name]['SCHEMA_DATA_FREE']       = 0;
-
-                    $res = $this->query(
-                        'SHOW TABLE STATUS FROM '
-                        . PMA_Util::backquote($database_name) . ';'
-                    );
-
-                    if ($res !== false) {
-                        while ($row = $this->fetchAssoc($res)) {
-                            $databases[$database_name]['SCHEMA_TABLES']++;
-                            $databases[$database_name]['SCHEMA_TABLE_ROWS']
-                                += $row['Rows'];
-                            $databases[$database_name]['SCHEMA_DATA_LENGTH']
-                                += $row['Data_length'];
-                            $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH']
-                                += $row['Max_data_length'];
-                            $databases[$database_name]['SCHEMA_INDEX_LENGTH']
-                                += $row['Index_length'];
-
-                            // for InnoDB, this does not contain the number of
-                            // overhead bytes but the total free space
-                            if ('InnoDB' != $row['Engine']) {
-                                $databases[$database_name]['SCHEMA_DATA_FREE']
-                                    += $row['Data_free'];
-                            }
-                            $databases[$database_name]['SCHEMA_LENGTH']
-                                += $row['Data_length'] + $row['Index_length'];
-                        }
-                        $this->freeResult($res);
-                    }
-                    unset($res);
+                if (!$force_stats) {
+                    continue;
                 }
+
+                // get additional info about tables
+                $databases[$database_name]['SCHEMA_TABLES']          = 0;
+                $databases[$database_name]['SCHEMA_TABLE_ROWS']      = 0;
+                $databases[$database_name]['SCHEMA_DATA_LENGTH']     = 0;
+                $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH'] = 0;
+                $databases[$database_name]['SCHEMA_INDEX_LENGTH']    = 0;
+                $databases[$database_name]['SCHEMA_LENGTH']          = 0;
+                $databases[$database_name]['SCHEMA_DATA_FREE']       = 0;
+
+                $res = $this->query(
+                    'SHOW TABLE STATUS FROM '
+                    . PMA_Util::backquote($database_name) . ';'
+                );
+
+                if ($res === false) {
+                    unset($res);
+                    continue;
+                }
+
+                while ($row = $this->fetchAssoc($res)) {
+                    $databases[$database_name]['SCHEMA_TABLES']++;
+                    $databases[$database_name]['SCHEMA_TABLE_ROWS']
+                        += $row['Rows'];
+                    $databases[$database_name]['SCHEMA_DATA_LENGTH']
+                        += $row['Data_length'];
+                    $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH']
+                        += $row['Max_data_length'];
+                    $databases[$database_name]['SCHEMA_INDEX_LENGTH']
+                        += $row['Index_length'];
+
+                    // for InnoDB, this does not contain the number of
+                    // overhead bytes but the total free space
+                    if ('InnoDB' != $row['Engine']) {
+                        $databases[$database_name]['SCHEMA_DATA_FREE']
+                            += $row['Data_free'];
+                    }
+                    $databases[$database_name]['SCHEMA_LENGTH']
+                        += $row['Data_length'] + $row['Index_length'];
+                }
+                $this->freeResult($res);
+                unset($res);
             }
         }
 
