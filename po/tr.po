@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-23 22:20+0200\n"
+"PO-Revision-Date: 2015-07-23 22:23+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -13845,7 +13845,7 @@ msgstr "Kapalı bir köşeli parantez beklendi."
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
 msgid "An offset was expected."
-msgstr ""
+msgstr "Bir karşılık beklendi."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:142
 #, php-format
@@ -13914,18 +13914,17 @@ msgid "Unrecognized keyword."
 msgstr "Tanınmayan anahtar kelime."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:293
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Açık olan tablo sayısıdır."
+msgstr "Varlığın adı beklendi."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:310
 msgid "At least one field definition was expected."
-msgstr ""
+msgstr "En az bir alan tanımı beklendi."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:329
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "\"RETURNS\" anahtar kelimesi beklendi."
 
 #: libraries/sql.lib.php:284
 msgid "Detailed profile"
@@ -14018,10 +14017,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "%s veritabanı üzerinde SQL sorgusunu/sorgularını çalıştır"
 
 #: libraries/sql_query_form.lib.php:179
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "%s veritabanı üzerinde SQL sorgusunu/sorgularını çalıştır"
+msgstr "%s tablosu üzerinde SQL sorgusunu/sorgularını çalıştır"
 
 #: libraries/sql_query_form.lib.php:255
 msgid "Get auto-saved query"
