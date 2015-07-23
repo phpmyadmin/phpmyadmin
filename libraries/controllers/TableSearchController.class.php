@@ -78,6 +78,14 @@ class TableSearchController extends TableController {
 
     protected $url_query;
 
+    /**
+     * Constructor
+     *
+     * @param string $db
+     * @param string $table
+     * @param string $searchType
+     * @param string $url_query
+     */
     public function __construct($db, $table, $searchType, $url_query)
     {
         parent::__construct();
@@ -151,6 +159,11 @@ class TableSearchController extends TableController {
         $this->_foreigners = PMA_getForeigners($this->db, $this->table);
     }
 
+    /**
+     * Index action
+     *
+     * @return void
+     */
     public function indexAction()
     {
         switch ($this->_searchType) {
@@ -361,6 +374,11 @@ class TableSearchController extends TableController {
         }
     }
 
+    /**
+     * Zoom submit action
+     *
+     * @return void
+     */
     public function zoomSubmitAction($dataLabel, $goto)
     {
         //Query generation part
@@ -412,21 +430,29 @@ class TableSearchController extends TableController {
                 __('Browse foreign values')
             )
         );
-        $this->response->addHTML(Template::get('table/zoom_result_form')->render(
-            array(
-                '_db' => $this->db,
-                '_table' => $this->table,
-                '_columnNames' => $this->_columnNames,
-                '_foreigners' => $this->_foreigners,
-                '_columnNullFlags' => $this->_columnNullFlags,
-                '_columnTypes' => $this->_columnTypes,
-                'titles' => $titles,
-                'goto' => $goto,
-                'data' => $data
-            )
-        ));
+        $this->response->addHTML(
+            Template::get('table/zoom_result_form')
+                ->render(
+                    array(
+                        '_db'              => $this->db,
+                        '_table'           => $this->table,
+                        '_columnNames'     => $this->_columnNames,
+                        '_foreigners'      => $this->_foreigners,
+                        '_columnNullFlags' => $this->_columnNullFlags,
+                        '_columnTypes'     => $this->_columnTypes,
+                        'titles'           => $titles,
+                        'goto'             => $goto,
+                        'data'             => $data,
+                    )
+                )
+        );
     }
 
+    /**
+     * Change table info action
+     *
+     * @return void
+     */
     public function changeTableInfoAction()
     {
         $field = $_REQUEST['field'];
@@ -439,12 +465,19 @@ class TableSearchController extends TableController {
         }
         $key = array_search($field, $this->_columnNames);
         $properties = $this->getColumnProperties($_REQUEST['it'], $key);
-        $this->response->addJSON('field_type', htmlspecialchars($properties['type']));
+        $this->response->addJSON(
+            'field_type', htmlspecialchars($properties['type'])
+        );
         $this->response->addJSON('field_collation', $properties['collation']);
         $this->response->addJSON('field_operators', $properties['func']);
         $this->response->addJSON('field_value', $properties['value']);
     }
 
+    /**
+     * Get data row action
+     *
+     * @return void
+     */
     public function getDataRowAction()
     {
         $extra_data = array();
@@ -470,6 +503,11 @@ class TableSearchController extends TableController {
         $this->response->addJSON($extra_data);
     }
 
+    /**
+     * Do selection action
+     *
+     * @return void
+     */
     public function doSelectionAction()
     {
         /**
@@ -509,6 +547,11 @@ class TableSearchController extends TableController {
         );
     }
 
+    /**
+     * Display selection form action
+     *
+     * @return void
+     */
     public function displaySelectionFormAction()
     {
         //$err_url   = 'tbl_select.php' . $err_url;
@@ -521,39 +564,57 @@ class TableSearchController extends TableController {
             );
         }
         // Defines the url to return to in case of error in the next sql statement
-        $err_url = $goto . PMA_URL_getCommon(array('db' => $this->db, 'table' => $this->table));
+        $err_url = $goto . PMA_URL_getCommon(
+            array('db' => $this->db, 'table' => $this->table)
+        );
         // Displays the table search form
-        $this->response->addHTML(Template::get('table/secondary_tabs')->render(
-            array(
-                'url_params' => array(
-                    'db' => $this->db,
-                    'table' => $this->table
-                ),
-                'sub_tabs' => $this->_getSubTabs()
-            )
-        ));
-        $this->response->addHTML(Template::get('table/selection_form')->render(
-            array(
-                'searchType' => $this->_searchType,
-                'db' => $this->db,
-                'table' => $this->table,
-                'goto' => $goto,
-                'self' => $this,
-                'geomColumnFlag' => $this->_geomColumnFlag,
-                'columnNames' => $this->_columnNames,
-                'columnTypes' => $this->_columnTypes,
-                'columnCollations' => $this->_columnCollations,
-                'dataLabel' => null
-            )
-        ));
+        $this->response->addHTML(
+            Template::get('table/secondary_tabs')
+                ->render(
+                    array(
+                        'url_params' => array(
+                            'db'    => $this->db,
+                            'table' => $this->table,
+                        ),
+                        'sub_tabs'   => $this->_getSubTabs(),
+                    )
+                )
+        );
+        $this->response->addHTML(
+            Template::get('table/selection_form')
+                ->render(
+                    array(
+                        'searchType'       => $this->_searchType,
+                        'db'               => $this->db,
+                        'table'            => $this->table,
+                        'goto'             => $goto,
+                        'self'             => $this,
+                        'geomColumnFlag'   => $this->_geomColumnFlag,
+                        'columnNames'      => $this->_columnNames,
+                        'columnTypes'      => $this->_columnTypes,
+                        'columnCollations' => $this->_columnCollations,
+                        'dataLabel'        => null,
+                    )
+                )
+        );
     }
 
+    /**
+     * Range search action
+     *
+     * @return void
+     */
     public function rangeSearchAction()
     {
         $min_max = $this->getColumnMinMax($_REQUEST['column']);
         $this->response->addJSON('column_data', $min_max);
     }
 
+    /**
+     * Find action
+     *
+     * @return void
+     */
     public function findAction()
     {
         $preview = $this->getReplacePreview(
@@ -566,6 +627,11 @@ class TableSearchController extends TableController {
         $this->response->addJSON('preview', $preview);
     }
 
+    /**
+     * Replace action
+     *
+     * @return void
+     */
     public function replaceAction()
     {
         $this->replace(
@@ -573,11 +639,14 @@ class TableSearchController extends TableController {
             $_POST['findString'],
             $_POST['replaceWith'],
             $_POST['useRegex'],
-            $this->_connectionCharSet);
-        $this->response->addHTML(PMA_Util::getMessage(
-            __('Your SQL query has been executed successfully.'),
-            null, 'success'
-        ));
+            $this->_connectionCharSet
+        );
+        $this->response->addHTML(
+            PMA_Util::getMessage(
+                __('Your SQL query has been executed successfully.'),
+                null, 'success'
+            )
+        );
     }
 
     /**
