@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-20 14:19+0200\n"
+"PO-Revision-Date: 2015-07-23 21:46+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
@@ -3910,7 +3910,7 @@ msgstr ""
 #: libraries/Linter.class.php:147
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (blizu <code>%2$s</code>)"
 
 #: libraries/Menu.class.php:199 libraries/ServerStatusData.class.php:430
 #: libraries/config/messages.inc.php:823
@@ -13769,72 +13769,69 @@ msgid "This is a read-only variable and can not be edited"
 msgstr "Spremenljivka je samo za branje in je ni mogoče urejati"
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:191
-#, fuzzy
 #| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Ikonski posegi tabel"
+msgstr "Neprepoznan poseg spremembe."
 
 #: libraries/sql-parser/src/Components/Array2d.php:90
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "Pričakovali smo %1$d vrednosti, vendar smo jih našli %2$d."
 
 #: libraries/sql-parser/src/Components/Array2d.php:113
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Pričakovali smo začetni oklepaj, ki mu sledi množica vrednosti."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:101
 #: libraries/sql-parser/src/Components/FieldDefinition.php:202
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Pričakovali smo začetni oklepaj."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 msgid "A comma or a closing bracket was expected"
-msgstr ""
+msgstr "Pričakovali smo vejico ali zaklepaj"
 
 #: libraries/sql-parser/src/Components/DataType.php:125
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Neprepoznana vrsta podatkov."
 
 #: libraries/sql-parser/src/Components/Expression.php:222
 msgid "Unexpected closing bracket."
-msgstr ""
+msgstr "Nepričakovan zakepaj."
 
 #: libraries/sql-parser/src/Components/Expression.php:243
 #: libraries/sql-parser/src/Components/Expression.php:280
 #: libraries/sql-parser/src/Components/Expression.php:300
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Vzdevek smo našli že prej."
 
 #: libraries/sql-parser/src/Components/Expression.php:254
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Nepričakovana pika."
 
 #: libraries/sql-parser/src/Components/Expression.php:324
-#, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Ni izbranih tabel."
+msgstr "Pričakovali smo vzdevek."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:93
-#, fuzzy
 #| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "Ni izbranih različic."
+msgstr "Pričakovali smo izraz."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:255
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Pričakovali smo zaklepaj."
 
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
 msgid "An offset was expected."
-msgstr ""
+msgstr "Pričakovali smo odmik."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:142
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Izbira je v sporu z \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:102
 #, fuzzy
