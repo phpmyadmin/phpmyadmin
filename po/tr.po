@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-23 16:30+0200\n"
+"PO-Revision-Date: 2015-07-23 22:20+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -13799,50 +13799,48 @@ msgstr "%1$d değer beklendi, ancak %2$d bulundu."
 
 #: libraries/sql-parser/src/Components/Array2d.php:113
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Açık bir köşeli parantez ardından bir grup değer beklendi."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:101
 #: libraries/sql-parser/src/Components/FieldDefinition.php:202
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Açık bir köşeli parantez beklendi."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 msgid "A comma or a closing bracket was expected"
-msgstr ""
+msgstr "Bir virgül ya da kapalı bir köşeli parantez beklendi"
 
 #: libraries/sql-parser/src/Components/DataType.php:125
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Tanınmayan veri türü."
 
 #: libraries/sql-parser/src/Components/Expression.php:222
 msgid "Unexpected closing bracket."
-msgstr ""
+msgstr "Beklenmedik kapalı köşeli parantez."
 
 #: libraries/sql-parser/src/Components/Expression.php:243
 #: libraries/sql-parser/src/Components/Expression.php:280
 #: libraries/sql-parser/src/Components/Expression.php:300
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Bir kodadı daha önce bulundu."
 
 #: libraries/sql-parser/src/Components/Expression.php:254
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Beklenmedik nokta."
 
 #: libraries/sql-parser/src/Components/Expression.php:324
-#, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Seçilen tablolar yok."
+msgstr "Bir kodadı beklendi."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:93
-#, fuzzy
 #| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "Seçilen sürümler yok."
+msgstr "Bir ifade beklendi."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:255
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Kapalı bir köşeli parantez beklendi."
 
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
@@ -13852,75 +13850,68 @@ msgstr ""
 #: libraries/sql-parser/src/Components/OptionsArray.php:142
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Bu seçenek \"%1$s\" ile çakışıyor."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:102
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Açık olan tablo sayısıdır."
+msgstr "Tablonun eski adı beklendi."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:112
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "\"TO\" anahtar kelimesi beklendi."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:129
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Açık olan tablo sayısıdır."
+msgstr "Tablonun yeni adı beklendi."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:147
-#, fuzzy
 #| msgid "Template was deleted."
 msgid "A rename operation was expected."
-msgstr "Şablon silindi."
+msgstr "Yeniden adlandırma işlemi beklendi."
 
 #: libraries/sql-parser/src/Lexer.php:252
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "%s. satırda beklenmedik karakterler."
+msgstr "Beklenmedik karakter."
 
 #: libraries/sql-parser/src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Sınırlayıcıdan önce beklenen boşluk(lar)."
 
 #: libraries/sql-parser/src/Lexer.php:298
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Beklenen sınırlayıcı."
 
 #: libraries/sql-parser/src/Lexer.php:688
-#, fuzzy, php-format
+#, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
-msgstr "Olay %1$s oluşturuldu."
+msgstr "Sonlandırma tırnak işareti %1$s beklendi."
 
 #: libraries/sql-parser/src/Lexer.php:721
-#, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Tablo adı şablonu"
+msgstr "Değişken adı beklendi."
 
 #: libraries/sql-parser/src/Parser.php:355
-#, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "tablonun başı"
+msgstr "Beklenmedik ifade başlangıcı."
 
 #: libraries/sql-parser/src/Parser.php:370
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Tanınmayan ifade türü."
 
 #: libraries/sql-parser/src/Statement.php:201
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "%s. satırda beklenmedik karakterler."
+msgstr "Beklenmedik belirteç."
 
 #: libraries/sql-parser/src/Statement.php:251
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Tanınmayan anahtar kelime."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:293
 #, fuzzy
