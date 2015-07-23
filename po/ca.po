@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-20 06:34-0400\n"
-"PO-Revision-Date: 2015-07-20 08:07+0200\n"
+"PO-Revision-Date: 2015-07-23 07:46+0200\n"
 "Last-Translator: josep constanti <jconstanti@yahoo.es>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ca/>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -275,10 +275,9 @@ msgid "Data"
 msgstr "Dades"
 
 #: db_export.php:55
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
-msgstr "Tria Tot"
+msgstr "Selecciona-ho tot"
 
 #: db_operations.php:52 tbl_create.php:24
 msgid "The database name is empty!"
@@ -1030,7 +1029,7 @@ msgstr "Realment vols esborrar aquesta columna central?"
 #, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Realment vols esborrar la cerca \"%s\"?"
+msgstr "Realment voleu suprimir els elements seleccionats?"
 
 #: js/messages.php:64
 msgid ""
@@ -1042,7 +1041,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Realment vols esborrar la cerca \"%s\"?"
+msgstr "Realment voleu TRUNCAR les particions seleccionades?"
 
 #: js/messages.php:67
 msgid ""
@@ -1191,26 +1190,23 @@ msgid "Close"
 msgstr "Tanca"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "El nombre de pàgines creades."
+msgstr "S'ha creat la plantilla."
 
 #: js/messages.php:130
 msgid "Template was loaded."
 msgstr ""
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "S'ha actualitzat el perfil."
+msgstr "S'ha actualitzat la plantilla."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "S'ha esborrat la fila."
+msgstr "S'ha esborrat la plantilla."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:135 libraries/ServerStatusData.class.php:132
@@ -1769,10 +1765,9 @@ msgid "Cancel"
 msgstr "Cancel.lar"
 
 #: js/messages.php:296 libraries/Header.class.php:459
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Canviar configuracions"
+msgstr "Configuració de la pàgina relacionada"
 
 #: js/messages.php:297 libraries/config/FormDisplay.tpl.php:402
 msgid "Apply"
