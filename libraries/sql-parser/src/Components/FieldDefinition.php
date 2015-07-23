@@ -198,7 +198,10 @@ class FieldDefinition extends Component
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
                     $state = 1;
                 } else {
-                    $parser->error('An opening bracket was expected.', $token);
+                    $parser->error(
+                        __('An opening bracket was expected.'),
+                        $token
+                    );
                     break;
                 }
             } elseif ($state === 1) {
@@ -248,7 +251,10 @@ class FieldDefinition extends Component
         }
 
         if (($state !== 0) && ($state !== 6)) {
-            $parser->error('A closing bracket was expected.', $list->tokens[$list->idx - 1]);
+            $parser->error(
+                __('A closing bracket was expected.'),
+                $list->tokens[$list->idx - 1]
+            );
         }
 
         --$list->idx;

@@ -187,7 +187,10 @@ class AlterOperation extends Component
         }
 
         if ($ret->options->isEmpty()) {
-            $parser->error('Unrecognized alter operation.', $list->tokens[$list->idx]);
+            $parser->error(
+                __('Unrecognized alter operation.'),
+                $list->tokens[$list->idx]
+            );
             return null;
         }
 

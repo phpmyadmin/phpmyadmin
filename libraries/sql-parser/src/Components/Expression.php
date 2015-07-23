@@ -219,7 +219,7 @@ class Expression extends Component
                             break;
                         }
                     } elseif ($brackets < 0) {
-                        $parser->error('Unexpected closing bracket.', $token);
+                        $parser->error(__('Unexpected closing bracket.'), $token);
                         $brackets = 0;
                     }
                 } elseif ($token->value === ',') {
@@ -240,7 +240,7 @@ class Expression extends Component
             if ($alias) {
                 // An alias is expected (the keyword `AS` was previously found).
                 if (!empty($ret->alias)) {
-                    $parser->error('An alias was previously found.', $token);
+                    $parser->error(__('An alias was previously found.'), $token);
                 }
                 $ret->alias = $token->value;
                 $alias = 0;
@@ -251,7 +251,7 @@ class Expression extends Component
                         // the column name we parsed is actually the table name
                         // and the table name is actually a database name.
                         if ((!empty($ret->database)) || ($dot)) {
-                            $parser->error('Unexpected dot.', $token);
+                            $parser->error(__('Unexpected dot.'), $token);
                         }
                         $ret->database = $ret->table;
                         $ret->table = $ret->column;
@@ -277,7 +277,8 @@ class Expression extends Component
                             ) {
                                 if (!empty($ret->alias)) {
                                     $parser->error(
-                                        'An alias was previously found.', $token
+                                        __('An alias was previously found.'),
+                                        $token
                                     );
                                 }
                                 $ret->alias = $token->value;
@@ -296,7 +297,8 @@ class Expression extends Component
                         ) {
                             if (!empty($ret->alias)) {
                                 $parser->error(
-                                    'An alias was previously found.', $token
+                                    __('An alias was previously found.'),
+                                    $token
                                 );
                             }
                             $ret->alias = $token->value;
@@ -318,7 +320,10 @@ class Expression extends Component
         }
 
         if ($alias === 2) {
-            $parser->error('An alias was expected.', $list->tokens[$list->idx - 1]);
+            $parser->error(
+                __('An alias was expected.'),
+                $list->tokens[$list->idx - 1]
+            );
         }
 
         // Whitespaces might be added at the end.

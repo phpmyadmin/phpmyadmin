@@ -198,7 +198,7 @@ abstract class Statement
                 if (($token->type !== TOKEN::TYPE_COMMENT)
                     && ($token->type !== Token::TYPE_WHITESPACE)
                 ) {
-                    $parser->error('Unexpected token.', $token);
+                    $parser->error(__('Unexpected token.'), $token);
                 }
                 continue;
             }
@@ -248,10 +248,7 @@ abstract class Statement
             } elseif ($class === null) {
                 // There is no parser for this keyword and isn't the beginning
                 // of a statement (so no options) either.
-                $parser->error(
-                    'Unrecognized keyword.',
-                    $token
-                );
+                $parser->error(__('Unrecognized keyword.'), $token);
                 continue;
             }
 

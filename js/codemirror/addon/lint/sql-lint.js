@@ -30,7 +30,8 @@ CodeMirror.sqlLint = function(text, updateLinting, options, cm) {
         method: "POST",
         url: "lint.php",
         data: {
-            'sql_query': text
+            sql_query: text,
+            token: PMA_commonParams.get('token'),
         },
         success: handleResponse
     });
