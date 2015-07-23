@@ -1482,25 +1482,6 @@ function PMA_getHtmlForOptimizeLink($url_query)
 }
 
 /**
- * Get HTML for 'Row statistics' table row
- *
- * @param boolean $odd_row whether current row is odd or even
- * @param string  $name    statement name
- * @param mixed   $value   value
- *
- * @return string $html_output
- */
-function PMA_getHtmlForRowStatsTableRow($odd_row, $name, $value)
-{
-    $html_output = '<tr class="' . (($odd_row = !$odd_row) ? 'odd' : 'even') . '">';
-    $html_output .= '<th class="name">' . $name . '</th>';
-    $html_output .= '<td class="value">' . $value . '</td>';
-    $html_output .= '</tr>';
-
-    return $html_output;
-}
-
-/**
  * Get HTML snippet for display Row statistics table
  *
  * @param array   $showtable     show table array
@@ -1515,260 +1496,16 @@ function PMA_getHtmlForRowStatsTableRow($odd_row, $name, $value)
 function getHtmlForRowStatsTable($showtable, $tbl_collation,
     $is_innodb, $mergetable, $avg_size, $avg_unit
 ) {
-    $odd_row = false;
-    $html_output = '<table id="tablerowstats" class="data">';
-    $html_output .= '<caption class="tblHeaders">'
-        . __('Row statistics') . '</caption>';
-    $html_output .= '<tbody>';
-
-    if (isset($showtable['Row_format'])) {
-        if ($showtable['Row_format'] == 'Fixed') {
-            $value = __('static');
-        } elseif ($showtable['Row_format'] == 'Dynamic') {
-            $value = __('dynamic');
-        } else {
-            $value = $showtable['Row_format'];
-        }
-        $html_output .= PMA_getHtmlForRowStatsTableRow(
-            $odd_row, __('Format'), $value
-        );
-        $odd_row = !$odd_row;
-    }
-    if (! empty($showtable['Create_options'])) {
-        if ($showtable['Create_options'] == 'partitioned') {
-            $value = __('partitioned');
-        } else {
-            $value = $showtable['Create_options'];
-        }
-        $html_output .= PMA_getHtmlForRowStatsTableRow(
-            $odd_row, __('Options'), $value
-        );
-        $odd_row = !$odd_row;
-    }
-    if (!empty($tbl_collation)) {
-        $value = '<dfn title="' . PMA_getCollationDescr($tbl_collation) . '">'
-            . $tbl_collation . '</dfn>';
-        $html_output .= PMA_getHtmlForRowStatsTableRow(
-            $odd_row, __('Collation'), $value
-        );
-        $odd_row = !$odd_row;
-    }
-    if (!$is_innodb && isset($showtable['Rows'])) {
-        $html_output .= PMA_getHtmlForRowStatsTableRow(
-            $odd_row,
-            __('Rows'),
-            PMA_Util::formatNumber($showtable['Rows'], 0)
-        );
-        $odd_row = !$odd_row;
-    }
-    if (!$is_innodb
-        && isset($showtable['Avg_row_length'])
-        && $showtable['Avg_row_length'] > 0
-    ) {
-        list($avg_row_length_value, $avg_row_length_unit)
-            = PMA_Util::formatByteDown(
-                $showtable['Avg_row_length'],
-                6,
-                1
-            );
-        $html_output .= PMA_getHtmlForRowStatsTableRow(
-            $odd_row,
-            __('Row length'),
-            ($avg_row_length_value . ' ' . $avg_row_length_unit)
-        );
-        unset($avg_row_length_value, $avg_row_length_unit);
-        $odd_row = !$odd_row;
-    }
-    if (!$is_innodb
-        && isset($showtable['Data_length'])
-        && isset($showtable['Rows'])
-        && $showtable['Rows'] > 0
-        && $mergetable == false
-    ) {
-        $html_output .= PMA_getHtmlForRowStatsTableRow(
-            $odd_row,
-            __('Row size'),
-            ($avg_size . ' ' . $avg_unit)
-        );
-        $odd_row = !$odd_row;
-    }
-    if (isset($showtable['Auto_increment'])) {
-        $html_output .= PMA_getHtmlForRowStatsTableRow(
-            $odd_row,
-            __('Next autoindex'),
-            PMA_Util::formatNumber($showtable['Auto_increment'], 0)
-        );
-        $odd_row = !$odd_row;
-    }
-    if (isset($showtable['Create_time'])) {
-        $html_output .= PMA_getHtmlForRowStatsTableRow(
-            $odd_row,
-            __('Creation'),
-            PMA_Util::localisedDate(strtotime($showtable['Create_time']))
-        );
-        $odd_row = !$odd_row;
-    }
-    if (isset($showtable['Update_time'])) {
-        $html_output .= PMA_getHtmlForRowStatsTableRow(
-            $odd_row,
-            __('Last update'),
-            PMA_Util::localisedDate(strtotime($showtable['Update_time']))
-        );
-        $odd_row = !$odd_row;
-    }
-    if (isset($showtable['Check_time'])) {
-        $html_output .= PMA_getHtmlForRowStatsTableRow(
-            $odd_row,
-            __('Last check'),
-            PMA_Util::localisedDate(strtotime($showtable['Check_time']))
-        );
-    }
-    $html_output .= '</tbody>'
-    . '</table>';
-
-    return $html_output;
-}
-
-/**
- * Get HTML snippet for action row in structure table,
- * This function returns common HTML <td> for Primary, Unique, Index,
- * Spatial actions
- *
- * @param string         $type               column type
- * @param string         $tbl_storage_engine table storage engine
- * @param string         $class              class attribute for <td>
- * @param boolean        $hasField           has field
- * @param boolean        $hasLinkClass       has <a> the class attribute
- * @param string         $url_query          url query
- * @param object|boolean $primary            primary if set, false otherwise
- * @param string         $syntax             Sql syntax
- * @param string         $message            message to show
- * @param string         $action             action
- * @param array          $titles             titles array
- * @param array          $row                current row
- * @param boolean        $isPrimary          is primary action
- *
- * @return string $html_output
- */
-function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
-    $class, $hasField, $hasLinkClass, $url_query, $primary, $syntax,
-    $message, $action, $titles, $row, $isPrimary
-) {
-    $html_output = '<li class="' . $class . '">';
-
-    if ($type == 'text'
-        || $type == 'blob'
-        || 'ARCHIVE' == $tbl_storage_engine
-        || $hasField
-    ) {
-        $html_output .= $titles['No' . $action];
-    } else {
-        $html_output .= '<a rel="samepage" class="ajax add_key print_ignore';
-        if ($hasLinkClass) {
-            $html_output .= ' add_primary_key_anchor"';
-        } else if ($action=='Index') {
-            $html_output .= ' add_index_anchor"';
-        } else if ($action=='Unique') {
-            $html_output .= ' add_unique_anchor"';
-        } else if ($action=='Spatial') {
-            $html_output .= ' add_spatial_anchor"';
-        } else {
-            $html_output .= '"';
-        }
-        $html_output .= ' href="tbl_structure.php' . $url_query
-            . '&amp;add_key=1&amp;sql_query='
-            . urlencode(
-                'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
-                . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '')
-                . ' ' . $syntax . '('
-                . PMA_Util::backquote($row['Field']) . ');'
-            )
-            . '&amp;message_to_show=' . urlencode(
-                sprintf(
-                    $message,
-                    htmlspecialchars($row['Field'])
-                )
-            ) . '" >'
-            . $titles[$action] . '</a>';
-    }
-    $html_output .= '</li>';
-
-    return $html_output;
-}
-
-/**
- * Get HTML for fulltext action
- *
- * @param string $tbl_storage_engine table storage engine
- * @param string $type               column type
- * @param string $url_query          url query
- * @param array  $row                current row
- * @param array  $titles             titles array
- *
- * @return string $html_output
- */
-function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
-    $row, $titles
-) {
-    $html_output = '<li class="fulltext nowrap">';
-    if (! empty($tbl_storage_engine)
-        && ($tbl_storage_engine == 'MYISAM'
-        || $tbl_storage_engine == 'ARIA'
-        || $tbl_storage_engine == 'MARIA'
-        || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
-        && (/*overload*/mb_strpos($type, 'text') !== false
-        || /*overload*/mb_strpos($type, 'char') !== false)
-    ) {
-        $html_output .= '<a rel="samepage" class="ajax add_key add_fulltext_anchor" '
-            . 'href="tbl_structure.php' . $url_query
-            . '&amp;add_key=1&amp;sql_query='
-            . urlencode(
-                'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
-                . ' ADD FULLTEXT(' . PMA_Util::backquote($row['Field'])
-                . ');'
-            )
-            . '&amp;message_to_show='
-            . urlencode(
-                sprintf(
-                    __('An index has been added on %s.'),
-                    htmlspecialchars($row['Field'])
-                )
-            )
-            . '">';
-        $html_output .= $titles['IdxFulltext'] . '</a>';
-    } else {
-        $html_output .= $titles['NoIdxFulltext'];
-    }
-    $html_output .= '</li>';
-    return $html_output;
-}
-
-/**
- * Get HTML snippet for "Distinc Value" action
- *
- * @param string $url_query url query
- * @param array  $row       current row
- * @param array  $titles    titles array
- *
- * @return string $html_output
- */
-function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
-{
-    $html_output = '<li class="browse nowrap">';
-    $html_output .= '<a href="sql.php' . $url_query . '&amp;sql_query='
-        . urlencode(
-            'SELECT COUNT(*) AS ' . PMA_Util::backquote(__('Rows'))
-            . ', ' . PMA_Util::backquote($row['Field'])
-            . ' FROM ' . PMA_Util::backquote($GLOBALS['table'])
-            . ' GROUP BY ' . PMA_Util::backquote($row['Field'])
-            . ' ORDER BY ' . PMA_Util::backquote($row['Field'])
-        )
-        . '&amp;is_browse_distinct=1">'
-        . $titles['DistinctValues']
-        . '</a>';
-    $html_output .= '</li>';
-
-    return $html_output;
+    return PMA\Template::get('structure/row_stats_table')->render(
+      array(
+          'showtable' => $showtable,
+          'tbl_collation' => $tbl_collation,
+          'is_innodb' => $is_innodb,
+          'mergetable' => $mergetable,
+          'avg_size' => $avg_size,
+          'avg_unit' => $avg_unit
+      )
+    );
 }
 
 /**
@@ -1793,80 +1530,20 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     $primary, $field_name, $url_query, $titles, $row, $rownum,
     $columns_with_unique_index, $isInCentralColumns
 ) {
-    $html_output = '<td class="print_ignore">'
-        . '<ul class="table-structure-actions resizable-menu">';
-    $html_output .= PMA_getHtmlForActionRowInStructureTable(
-        $type, $tbl_storage_engine,
-        'primary nowrap',
-        ($primary && $primary->hasColumn($field_name)),
-        true, $url_query, $primary,
-        'ADD PRIMARY KEY',
-        __('A primary key has been added on %s.'),
-        'Primary', $titles, $row, true
+    return PMA\Template::get('structure/actions_in_table_structure')->render(
+      array(
+          'type' => $type,
+          'tbl_storage_engine' => $tbl_storage_engine,
+          'primary' => $primary,
+          'field_name' => $field_name,
+          'url_query' => $url_query,
+          'titles' => $titles,
+          'row' => $row,
+          'rownum' => $rownum,
+          'columns_with_unique_index' => $columns_with_unique_index,
+          'isInCentralColumns' => $isInCentralColumns
+      )
     );
-    $html_output .= PMA_getHtmlForActionRowInStructureTable(
-        $type, $tbl_storage_engine,
-        'add_unique unique nowrap',
-        in_array($field_name, $columns_with_unique_index),
-        false, $url_query, $primary, 'ADD UNIQUE',
-        __('An index has been added on %s.'),
-        'Unique', $titles, $row, false
-    );
-    $html_output .= PMA_getHtmlForActionRowInStructureTable(
-        $type, $tbl_storage_engine,
-        'add_index nowrap', false, false, $url_query,
-        $primary, 'ADD INDEX', __('An index has been added on %s.'),
-        'Index', $titles, $row, false
-    );
-    if (!PMA_DRIZZLE) {
-        $spatial_types = array(
-            'geometry', 'point', 'linestring', 'polygon', 'multipoint',
-            'multilinestring', 'multipolygon', 'geomtrycollection'
-        );
-        $html_output .= PMA_getHtmlForActionRowInStructureTable(
-            $type, $tbl_storage_engine,
-            'spatial nowrap',
-            (! in_array($type, $spatial_types)
-                || 'MYISAM' != $tbl_storage_engine
-            ),
-            false, $url_query, $primary, 'ADD SPATIAL',
-            __('An index has been added on %s.'), 'Spatial',
-            $titles, $row, false
-        );
-
-        // FULLTEXT is possible on TEXT, CHAR and VARCHAR
-        $html_output .= PMA_getHtmlForFullTextAction(
-            $tbl_storage_engine, $type, $url_query, $row, $titles
-        );
-    }
-    $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
-    if ($GLOBALS['cfgRelation']['centralcolumnswork']) {
-        $html_output .= '<li class="browse nowrap">';
-        if ($isInCentralColumns) {
-            $html_output .=
-                '<a href="#" onclick=$("input:checkbox").prop("checked",false);'
-                . '$("#checkbox_row_' . $rownum . '").prop("checked",true);'
-                . '$("button[value=remove_from_central_columns]").click();>'
-            . PMA_Util::getIcon(
-                'centralColumns_delete.png',
-                __('Remove from central columns')
-            )
-            . '</a>';
-        } else {
-            $html_output .=
-                '<a href="#" onclick=$("input:checkbox").prop("checked",false);'
-                . '$("#checkbox_row_' . $rownum . '").prop("checked",true);'
-                . '$("button[value=add_to_central_columns]").click();>'
-            . PMA_Util::getIcon(
-                'centralColumns_add.png',
-                __('Add to central columns')
-            )
-            . '</a>';
-        }
-        $html_output .= '</li>';
-    }
-    $html_output .= '</ul></td>';
-    return $html_output;
 }
 
 /**
