@@ -290,7 +290,7 @@ class CreateStatement extends Statement
 
         if (empty($this->name)) {
             $parser->error(
-                'The name of the entity was expected.',
+                __('The name of the entity was expected.'),
                 $list->tokens[$list->idx]
             );
         } else {
@@ -307,7 +307,7 @@ class CreateStatement extends Statement
             $this->fields = FieldDefinition::parse($parser, $list);
             if (empty($this->fields)) {
                 $parser->error(
-                    'At least one field definition was expected.',
+                    __('At least one field definition was expected.'),
                     $list->tokens[$list->idx]
                 );
             }
@@ -326,7 +326,7 @@ class CreateStatement extends Statement
                 $token = $list->getNextOfType(Token::TYPE_KEYWORD);
                 if ($token->value !== 'RETURNS') {
                     $parser->error(
-                        'A \'RETURNS\' keyword was expected.',
+                        __('A "RETURNS" keyword was expected.'),
                         $token
                     );
                 } else {

@@ -78,19 +78,16 @@ class PMA_Linter
     {
         // Disabling lint for huge queries to save some resources.
         if (/*overload*/mb_strlen($query) > 10000) {
-            echo json_encode(
+            return array(
                 array(
-                    array(
-                        'message' => 'Linting is disabled for this query because it exceeds the maximum length.',
-                        'fromLine' => 0,
-                        'fromColumn' => 0,
-                        'toLine' => 0,
-                        'toColumn' => 0,
-                        'severity' => 'warning',
-                    )
+                    'message' => __('Linting is disabled for this query because it exceeds the maximum length.'),
+                    'fromLine' => 0,
+                    'fromColumn' => 0,
+                    'toLine' => 0,
+                    'toColumn' => 0,
+                    'severity' => 'warning',
                 )
             );
-            return;
         }
 
         /**
@@ -146,7 +143,10 @@ class PMA_Linter
 
             // Building the response.
             $response[] = array(
-                'message' => $error[0] . ' (near <code>' . $error[2] . '</code>)',
+                'message' => sprintf(
+                    __('%1$s (near <code>%2$s</code>)'),
+                    $error[0], $error[2]
+                ),
                 'fromLine' => $fromLine,
                 'fromColumn' => $fromColumn,
                 'toLine' => $toLine,
@@ -156,7 +156,7 @@ class PMA_Linter
         }
 
         // Sending back the answer.
-        echo json_encode($response);
+        return $response;
     }
 
 }

@@ -137,7 +137,13 @@ class OptionsArray extends Component
                     // real options (e.g.  if there are 5 options, the first
                     // fake ID is 6).
                     if (isset($ret->options[$lastOptionId])) {
-                        $parser->error('This option conflicts with \'' . $ret->options[$lastOptionId] . '\'.', $token);
+                        $parser->error(
+                            sprintf(
+                                __('This option conflicts with "%1$s".'),
+                                $ret->options[$lastOptionId]
+                            ),
+                            $token
+                        );
                         $lastOptionId = $lastAssignedId++;
                     }
                 } else {

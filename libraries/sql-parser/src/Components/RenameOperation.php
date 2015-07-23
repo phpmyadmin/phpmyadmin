@@ -98,14 +98,20 @@ class RenameOperation extends Component
                     )
                 );
                 if (empty($expr->old)) {
-                    $parser->error('The old name of the table was expected.', $token);
+                    $parser->error(
+                        __('The old name of the table was expected.'),
+                        $token
+                    );
                 }
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'TO')) {
                     $state = 2;
                 } else {
-                    $parser->error('Keyword "TO" was expected.', $token);
+                    $parser->error(
+                        __('Keyword "TO" was expected.'),
+                        $token
+                    );
                     break;
                 }
             } elseif ($state === 2) {
@@ -119,7 +125,10 @@ class RenameOperation extends Component
                     )
                 );
                 if (empty($expr->new)) {
-                    $parser->error('The new name of the table was expected.', $token);
+                    $parser->error(
+                        __('The new name of the table was expected.'),
+                        $token
+                    );
                 }
                 $state = 3;
             } elseif ($state === 3) {
@@ -134,7 +143,10 @@ class RenameOperation extends Component
         }
 
         if ($state !== 3) {
-            $parser->error('A rename operation was expected.', $list->tokens[$list->idx - 1]);
+            $parser->error(
+                __('A rename operation was expected.'),
+                $list->tokens[$list->idx - 1]
+            );
         }
 
         // Last iteration was not saved.
