@@ -733,7 +733,7 @@ function PMA_exportDatabase(
     }
 
     if ($separate_files == 'database') {
-        if (! $export_plugin->exportDBFooter($db, $db_alias)) {
+        if (! $export_plugin->exportDBFooter($db)) {
             return;
         }
         PMA_saveObjectInBuffer('extra', true);
@@ -772,7 +772,7 @@ function PMA_exportDatabase(
     }
 
     if ($separate_files != 'database') {
-        if (! $export_plugin->exportDBFooter($db, $db_alias)) {
+        if (! $export_plugin->exportDBFooter($db)) {
             return;
         }
     }
@@ -892,7 +892,7 @@ function PMA_exportTable(
             return;
         }
     }
-    if (! $export_plugin->exportDBFooter($db, $db_alias)) {
+    if (! $export_plugin->exportDBFooter($db)) {
         return;
     }
 

@@ -10,54 +10,18 @@ if (!defined('PHPMYADMIN')) {
 }
 
 /**
- * Get the database name inside a query
+ * Parses and analyzes the given SQL query.
  *
- * @param string $sql       SQL query
- * @param array  $databases array with all databases
- *
- * @return string $db new database name
+ * @param string $sql_query
  */
-function PMA_getNewDatabase($sql, $databases)
+function PMA_parseAndAnalyze($sql_query, $db = null)
 {
-    $db = '';
-    // loop through all the databases
-    foreach ($databases as $database) {
-        if (/*overload*/mb_strpos($sql, $database['SCHEMA_NAME']) !== false
-        ) {
-            $db = $database['SCHEMA_NAME'];
-            break;
-        }
-    }
-    return $db;
-}
-
-/**
- * Get the table name in a sql query
- * If there are several tables in the SQL query,
- * first table will return
- *
- * @param string $sql    SQL query
- * @param array  $tables array of names in current database
- *
- * @return string $table table name
- */
-function PMA_getTableNameBySQL($sql, $tables)
-{
-    $table = '';
-
-    // loop through all the tables in the database
-    foreach ($tables as $tbl) {
-        if (/*overload*/mb_strpos($sql, $tbl)) {
-            $table .= ' ' . $tbl;
-        }
+    if (($db === null) && (!empty($GLOBALS['db']))) {
+        $db = $GLOBALS['db'];
     }
 
-    if (count(explode(' ', trim($table))) > 1) {
-        $tmp_array = explode(' ', trim($table));
-        return $tmp_array[0];
-    }
-
-    return trim($table);
+    // `$sql_query` is being used inside `parse_analyze.inc.php`.
+    return require 'libraries/parse_analyze.inc.php';
 }
 
 /**
@@ -123,33 +87,6 @@ function PMA_getSqlWithLimitClause(&$analyzed_sql_results)
         'LIMIT ' . $_SESSION['tmpval']['pos'] . ', '
         . $_SESSION['tmpval']['max_rows']
     );
-}
-
-
-/**
- * Get column name from a drop SQL statement
- *
- * @param string $sql SQL query
- *
- * @return string $drop_column Name of the column
- */
-function PMA_getColumnNameInColumnDropSql($sql)
-{
-    $tmpArray1 = explode('DROP', $sql);
-    $str_to_check = trim($tmpArray1[1]);
-
-    if (/*overload*/mb_stripos($str_to_check, 'COLUMN') !== false) {
-        $tmpArray2 = explode('COLUMN', $str_to_check);
-        $str_to_check = trim($tmpArray2[1]);
-    }
-
-    $tmpArray3 = explode(' ', $str_to_check);
-    $str_to_check = trim($tmpArray3[0]);
-
-    $drop_column = str_replace(';', '', trim($str_to_check));
-    $drop_column = str_replace('`', '', $drop_column);
-
-    return $drop_column;
 }
 
 /**
@@ -666,7 +603,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         && empty($analyzed_sql_results['union'])
         && empty($analyzed_sql_results['distinct'])
         && $analyzed_sql_results['select_from']
-        && count($analyzed_sql_results['select_tables'] <= 1)
+        && (count($analyzed_sql_results['select_tables']) <= 1)
         && (empty($analyzed_sql_results['statement']->where)
             || (count($analyzed_sql_results['statement']->where) == 1
                 && $analyzed_sql_results['statement']->where[0]->expr ==='1'))
@@ -704,16 +641,10 @@ function PMA_isDeleteTransformationInfo($analyzed_sql_results)
 function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
     $allowUserDropDatabase, $is_superuser
 ) {
-    if (! defined('PMA_CHK_DROP')
+    return ! defined('PMA_CHK_DROP')
         && ! $allowUserDropDatabase
-        && isset ($analyzed_sql_results['drop_database'])
-        && $analyzed_sql_results['drop_database'] == 1
-        && ! $is_superuser
-    ) {
-        return true;
-    } else {
-        return false;
-    }
+        && $analyzed_sql_results['drop_database']
+        && ! $is_superuser;
 }
 
 /**

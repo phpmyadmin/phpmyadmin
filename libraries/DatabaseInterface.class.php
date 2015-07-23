@@ -939,7 +939,7 @@ class PMA_DatabaseInterface
         foreach ($tables_full as $table=>$tmp) {
 
             $_table = $this->getTable($db, $table);
-            if ($_table->isView($db, $table)) {
+            if ($_table->isView()) {
                 $views[] = $table;
             }
 
