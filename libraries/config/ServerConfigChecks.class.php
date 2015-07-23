@@ -48,7 +48,7 @@ class ServerConfigChecks
             $sGZipDumpWarn, $sLoginCookieValidityWarn,
             $sLoginCookieValidityWarn2, $sLoginCookieValidityWarn3,
             $sSecurityInfoMsg, $sSrvAuthCfgMsg, $sZipDumpExportWarn,
-            $sZipDumpImportWarn
+            $sZipDumpImportWarn, $sXZDumpImportWarn
         ) = self::defineMessages();
 
         list($cookieAuthUsed, $blowfishSecret, $blowfishSecretSet)
@@ -121,7 +121,7 @@ class ServerConfigChecks
 
         $this->performConfigChecksZips(
             $sGZipDumpWarn, $sBZipDumpWarn, $sZipDumpImportWarn,
-            $sZipDumpExportWarn
+            $sZipDumpExportWarn, $sXZDumpImportWarn
         );
     }
 
@@ -256,18 +256,20 @@ class ServerConfigChecks
      * @param string $sBZipDumpWarning   Bzip dump warning
      * @param string $sZipDumpImportWarn Zip dump import warning
      * @param string $sZipDumpExportWarn Zip dump export warning
+     * @param string $sXZDumpImportWarn  XZ dump import warning
      *
      * @return void
      */
     protected function performConfigChecksZips(
         $sGZipDumpWarning, $sBZipDumpWarning, $sZipDumpImportWarn,
-        $sZipDumpExportWarn
+        $sZipDumpExportWarn, $sXZDumpImportWarn
     ) {
         $this->performConfigChecksServerGZipdump($sGZipDumpWarning);
         $this->performConfigChecksServerBZipdump($sBZipDumpWarning);
         $this->performConfigChecksServersZipdump(
             $sZipDumpImportWarn, $sZipDumpExportWarn
         );
+        $this->performConfigChecksServersXZdump($sXZDumpImportWarn);
     }
 
     /**
@@ -304,6 +306,28 @@ class ServerConfigChecks
                 'ZipDump_export',
                 PMA_lang(PMA_langName('ZipDump')),
                 PMA_lang($sZipDumpExportWarn, 'gzcompress')
+            );
+        }
+    }
+
+    /**
+     * Perform config checks for xz part.
+     *
+     * @param string $sXZDumpImportWarn XZ dump import warning
+     *
+     * @return void
+     */
+    protected function performConfigChecksServersXZdump($sXZDumpImportWarn) {
+        //
+        // $cfg['XZDump']
+        // requires xzopen in import
+        //
+        if ($this->cfg->getValue('XZDump') && !@function_exists('xzopen')) {
+            PMA_messagesSet(
+                'error',
+                'XZDump_import',
+                PMA_lang(PMA_langName('XZDump')),
+                PMA_lang($sXZDumpImportWarn, 'xzopen')
             );
         }
     }
@@ -452,12 +476,19 @@ class ServerConfigChecks
             '[/a]',
             '%s'
         );
+        $sXZDumpImportWarn = __('%sXZ decompression%s requires functions (%s) which are unavailable on this system.');
+        $sXZDumpImportWarn = sprintf(
+            $sXZDumpImportWarn,
+            '[a@?page=form&amp;formset=Features#tab_Import_export]',
+            '[/a]',
+            '%s'
+        );
         return array(
             $sAllowArbitraryServerWarn, $sBlowfishSecretMsg, $sBZipDumpWarning,
             $sDirectoryNotice, $sForceSSLNotice, $sGZipDumpWarning,
             $sLoginCookieValidityWarn, $sLoginCookieValidityWarn2,
             $sLoginCookieValidityWarn3, $sSecurityInfoMsg, $sServerAuthConfigMsg,
-            $sZipDumpExportWarn, $sZipDumpImportWarn
+            $sZipDumpExportWarn, $sZipDumpImportWarn, $sXZDumpImportWarn
         );
     }
 

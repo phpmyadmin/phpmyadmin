@@ -287,6 +287,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $_SESSION[$sessionID]['GZipDump'] = true;
         $_SESSION[$sessionID]['BZipDump'] = true;
         $_SESSION[$sessionID]['ZipDump'] = true;
+        $_SESSION[$sessionID]['XZDump'] = true;
 
         $noticeArrayKeys = array(
             'TempDir',
@@ -317,6 +318,10 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
         if (!@function_exists('gzcompress')) {
             $errorArrayKeys[] = 'ZipDump_export';
+        }
+
+        if (!@function_exists('xzopen')) {
+            $errorArrayKeys[] = 'XZDump_import';
         }
 
         $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
@@ -360,6 +365,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $_SESSION[$sessionID]['GZipDump'] = false;
         $_SESSION[$sessionID]['BZipDump'] = false;
         $_SESSION[$sessionID]['ZipDump'] = false;
+        $_SESSION[$sessionID]['XZDump'] = false;
 
         $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
         $configChecker->performConfigChecks();

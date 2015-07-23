@@ -1309,6 +1309,13 @@ $cfg['GZipDump'] = true;
 $cfg['BZipDump'] = true;
 
 /**
+ * Allow for the use of xz compression (requires xz support to be enabled)
+ *
+ * @global boolean $cfg['XZDump']
+ */
+$cfg['XZDump'] = true;
+
+/**
  * Will compress gzip exports on the fly without the need for much memory.
  * If you encounter problems with created gzip files disable this feature.
  *

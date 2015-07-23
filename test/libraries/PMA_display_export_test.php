@@ -56,6 +56,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ZipDump'] = true;
         $GLOBALS['cfg']['GZipDump'] = false;
         $GLOBALS['cfg']['BZipDump'] = false;
+        $GLOBALS['cfg']['XZDump'] = false;
         $GLOBALS['cfg']['Export']['asfile'] = true;
         $GLOBALS['cfg']['Export']['file_template_server'] = "file_template_server";
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');

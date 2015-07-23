@@ -393,6 +393,10 @@ function PMA_importGetNextChunk($size = 32768)
         $result = gzread($import_handle, $size);
         $GLOBALS['finished'] = feof($import_handle);
         break;
+    case 'application/x-xz':
+        $result = xzread($import_handle, $size);
+        $GLOBALS['finished'] = feof($import_handle);
+        break;
     case 'application/zip':
         $result = /*overload*/mb_substr($GLOBALS['import_text'], 0, $size);
         $GLOBALS['import_text'] = /*overload*/mb_substr(

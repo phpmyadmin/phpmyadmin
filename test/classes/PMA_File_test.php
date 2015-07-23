@@ -29,6 +29,7 @@ class PMA_File_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['BZipDump'] = true;
         $GLOBALS['cfg']['GZipDump'] = true;
         $GLOBALS['cfg']['ZipDump'] = true;
+        $GLOBALS['cfg']['XZDump'] = true;
         $GLOBALS['charset_conversion'] = false;
     }
 

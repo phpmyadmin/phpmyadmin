@@ -1962,7 +1962,12 @@ Export and import settings
     :type: boolean
     :default: true
 
-    Defines whether to allow the use of zip/GZip/BZip2 compression when
+.. config:option:: $cfg['XZDump']
+
+    :type: boolean
+    :default: true
+
+    Defines whether to allow the use of zip/GZip/BZip2/xz compression when
     creating a dump file
 
 .. config:option:: $cfg['CompressOnFly']
