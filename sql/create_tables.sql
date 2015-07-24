@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `pma__history` (
   `username` varchar(64) NOT NULL default '',
   `db` varchar(64) NOT NULL default '',
   `table` varchar(64) NOT NULL default '',
-  `timevalue` timestamp NOT NULL,
+  `timevalue` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `sqlquery` text NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `username` (`username`,`db`,`table`,`timevalue`)
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `pma__tracking` (
 
 CREATE TABLE IF NOT EXISTS `pma__userconfig` (
   `username` varchar(64) NOT NULL,
-  `timevalue` timestamp NOT NULL,
+  `timevalue` timestamp NOT NULL default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `config_data` text NOT NULL,
   PRIMARY KEY  (`username`)
 )
