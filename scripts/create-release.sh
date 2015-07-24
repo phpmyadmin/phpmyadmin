@@ -294,8 +294,8 @@ Todo now:
         ./scripts/upload-release $version release
  4. add a news item to our website; a good idea is to include a link to the release notes such as https://www.phpmyadmin.net/files/4.4.10/
  5. send a short mail (with list of major changes) to
-        phpmyadmin-devel@lists.sourceforge.net
-        phpmyadmin-news@lists.sourceforge.net
+        developers@phpmyadmin.net
+        news@phpmyadmin.net
 
     Don't forget to update the Description section in the announcement,
     based on documentation.
