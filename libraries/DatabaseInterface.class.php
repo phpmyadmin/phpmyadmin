@@ -104,7 +104,8 @@ class PMA_DatabaseInterface
      *
      * @return mixed cached value or default
      */
-    public function getCachedTableContent($contentPath, $default = null) {
+    public function getCachedTableContent($contentPath, $default = null)
+    {
         return Util\get($this->_table_cache, $contentPath, $default);
     }
 
@@ -116,7 +117,8 @@ class PMA_DatabaseInterface
      *
      * @return void
      */
-    public function cacheTableContent($contentPath, $value) {
+    public function cacheTableContent($contentPath, $value)
+    {
         $loc = &$this->_table_cache;
 
         if (!isset($contentPath)) {
@@ -146,7 +148,8 @@ class PMA_DatabaseInterface
      *
      * @return void
      */
-    public function clearTableCache() {
+    public function clearTableCache()
+    {
         $this->_table_cache = array();
     }
 
