@@ -39,7 +39,7 @@ msgstr "Կտտացրեք՝ դասակարգելու համար։"
 #: db_central_columns.php:149
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "1$s -ից %2$s տողերի ցուցադրում։"
+msgstr "%1$s -ից %2$s տողերի ցուցադրում։"
 
 #: db_create.php:61
 #, php-format
@@ -536,7 +536,7 @@ msgid "Outer ring:"
 msgstr "Արտաքին ուրվագիծը՝"
 
 #: gis_data_editor.php:272 gis_data_editor.php:349
-#, php-format
+#, fuzzy, php-format
 msgid "Inner ring %d:"
 msgstr "Ներքին ուրվագիծը՝"
 
