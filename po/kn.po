@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-09 08:27+0200\n"
+"PO-Revision-Date: 2015-07-24 11:24+0200\n"
 "Last-Translator: Shameem Ahmed A Mulla <shameem.sam@gmail.com>\n"
-"Language-Team: Kannada <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/kn/>\n"
+"Language-Team: Kannada "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/kn/>\n"
 "Language: kn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -288,12 +288,12 @@ msgstr "ಡೇಟಾಬೇಸ್ ಹೆಸರು ಖಾಲಿಇದೆ!"
 #: db_operations.php:140
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr ""
+msgstr "ಡೇಟಾಬೇಸ್ %1$s %2$s ಎಂದು ಮರುನಾಮಕರಣ ಮಾಡಲಾಯಿತು."
 
 #: db_operations.php:152
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr ""
+msgstr "ಡೇಟಾಬೇಸ್ %1$s %2$s ಎಂದು ನಕಲು ಮಾಡಲಾಗಿದೆ."
 
 #: db_operations.php:273
 #, php-format
@@ -303,19 +303,19 @@ msgstr ""
 
 #: db_qbe.php:118
 msgid "You have to choose at least one column to display!"
-msgstr ""
+msgstr "ನೀವು ಪ್ರದರ್ಶಿಸಲು ಕನಿಷ್ಠ ಒಂದು ಸ್ತಂಭ ಆರಿಸಬೇಕಾಗುತ್ತದೆ!"
 
 #: db_qbe.php:135
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "%sನೋಟದ ದೃಷ್ಟಿಯ ನಿರ್ಮಾಣಕಾರ%s ಗೆ ಬದಲಾಯಿಸಲು"
 
 #: db_search.php:30 libraries/plugins/AuthenticationPlugin.class.php:70
 #: libraries/plugins/auth/AuthenticationConfig.class.php:103
 #: libraries/plugins/auth/AuthenticationConfig.class.php:118
 #: libraries/plugins/auth/AuthenticationHttp.class.php:91
 msgid "Access denied!"
-msgstr ""
+msgstr "ಪ್ರವೇಶವನ್ನು ನಿರಾಕರಿಸಲಾಗಿದೆ!"
 
 #: db_tracking.php:39 db_tracking.php:64
 msgid "Tracking data deleted successfully."
@@ -347,7 +347,7 @@ msgstr ""
 #: templates/tbl_relation/foreign_key_row.phtml:177
 #: templates/tbl_relation/internal_relational_row.phtml:63
 msgid "Table"
-msgstr ""
+msgstr "ಟೇಬಲ್"
 
 #: db_tracking.php:126
 msgid "Last version"
@@ -4670,7 +4670,7 @@ msgstr ""
 #: libraries/structure.lib.php:870 libraries/structure.lib.php:1906
 #: libraries/structure.lib.php:2107
 msgid "Rows"
-msgstr ""
+msgstr "ಸಾಲುಗಳು"
 
 #: libraries/build_html_for_db.lib.php:48 libraries/engines/innodb.lib.php:171
 #: libraries/server_databases.lib.php:173 libraries/server_status.lib.php:185
@@ -9815,22 +9815,22 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:1318
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1004
 msgid "Creation:"
-msgstr ""
+msgstr "ಸೃಷ್ಟಿ:"
 
 #: libraries/plugins/export/ExportSql.class.php:1331
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1011
 msgid "Last update:"
-msgstr ""
+msgstr "ಕೊನೆಯ ನವೀಕರಣ:"
 
 #: libraries/plugins/export/ExportSql.class.php:1344
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1018
 msgid "Last check:"
-msgstr ""
+msgstr "ಕೊನೆಯ ಪರಿಶೀಲನೆ:"
 
 #: libraries/plugins/export/ExportSql.class.php:1392
 #: libraries/structure.lib.php:830
 msgid "in use"
-msgstr ""
+msgstr "ಬಳಕೆಯಲ್ಲಿ"
 
 #: libraries/plugins/export/ExportSql.class.php:1437
 msgid "It appears your database uses views;"
@@ -13054,8 +13054,8 @@ msgstr ""
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s ಕೋಷ್ಟಕ"
+msgstr[1] "%s ಕೋಷ್ಟಕಗಳು"
 
 #: libraries/structure.lib.php:182
 msgid "Sum"
@@ -13105,7 +13105,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:892 templates/index_form.phtml:127
 msgid "Size"
-msgstr ""
+msgstr "ಆಕಾರ"
 
 #: libraries/structure.lib.php:898 libraries/structure.lib.php:2408
 msgid "Overhead"
