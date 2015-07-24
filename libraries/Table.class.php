@@ -484,7 +484,7 @@ class PMA_Table
     /**
      * Counts and returns (or displays) the number of records in a table
      *
-     * @param bool   $force_exact whether to force an exact count
+     * @param bool $force_exact whether to force an exact count
      *
      * @return mixed the number of records if "retain" param is true,
      *               otherwise true

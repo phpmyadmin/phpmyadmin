@@ -52,11 +52,11 @@ class TableGisVisualizationController extends TableController
     /**
      * Constructor
      *
-     * @param string $sql_query
-     * @param array  $url_params
-     * @param string $goto
-     * @param string $back
-     * @param array  $visualizationSettings
+     * @param string $sql_query             SQL query for retrieving GIS data
+     * @param array  $url_params            array of URL parameters
+     * @param string $goto                  goto script
+     * @param string $back                  back script
+     * @param array  $visualizationSettings visualization settings
      */
     public function __construct(
         $sql_query,
