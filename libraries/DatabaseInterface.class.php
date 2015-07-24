@@ -2694,7 +2694,8 @@ class PMA_DatabaseInterface
     public function getSystemSchemas()
     {
         $schemas = array(
-            'information_schema', 'performance_schema', 'data_dictionary', 'mysql'
+            'information_schema', 'performance_schema', 'data_dictionary', 'mysql',
+            'sys'
         );
         $systemSchemas = array();
         foreach ($schemas as $schema) {
@@ -2726,7 +2727,8 @@ class PMA_DatabaseInterface
                 && strtolower($schema_name) == 'performance_schema')
             || (PMA_DRIZZLE
                 && strtolower($schema_name) == 'data_dictionary')
-            || ($testForMysqlSchema && !PMA_DRIZZLE && $schema_name == 'mysql');
+            || ($testForMysqlSchema && !PMA_DRIZZLE && $schema_name == 'mysql')
+            || (!PMA_DRIZZLE && strtolower($schema_name) == 'sys');
     }
 
     /**
