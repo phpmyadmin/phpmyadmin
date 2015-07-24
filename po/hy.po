@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-24 20:24+0200\n"
+"PO-Revision-Date: 2015-07-24 22:09+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -535,9 +535,9 @@ msgid "Outer ring:"
 msgstr "Արտաքին ուրվագիծը՝"
 
 #: gis_data_editor.php:272 gis_data_editor.php:349
-#, fuzzy, php-format
+#, php-format
 msgid "Inner ring %d:"
-msgstr "Ներքին ուրվագիծը՝"
+msgstr "%d-ի ներքին ուրվագիծը՝"
 
 #: gis_data_editor.php:309
 msgid "Add a linestring"
@@ -683,7 +683,7 @@ msgstr ""
 #, php-format
 #| msgid "Database %1$s has been created."
 msgid "Bookmark %s has been created."
-msgstr "%1$s էջանիշը ստեղծվեց։"
+msgstr "%s էջանիշը ստեղծվեց։"
 
 #: import.php:666
 #, php-format
@@ -886,7 +886,7 @@ msgid ""
 msgstr ""
 
 #: index.php:546
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
@@ -894,8 +894,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"phpMyAdmin-ի որոշ հնարավորություններ անհասանելի են։ Պատճառն իմանալու համար "
-"սեղմեք %sայստեղ%s։"
+"phpMyAdmin-ի կազմաձևի տարածությունը լիովին կազմաձևած չէ, որոշ հավելյալ "
+"հատկությունները կասեցվեցին %sԻմացեք, թե ինչու%s։ "
 
 #: index.php:553
 msgid ""
@@ -2437,10 +2437,9 @@ msgid "Hide Panel"
 msgstr ""
 
 #: js/messages.php:532
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Show hidden navigation tree items."
-msgstr "Աղյուսակներ՝"
+msgstr "Ցուցադրել թաքնված նավարկման ստորակարգման տարրերը։"
 
 #: js/messages.php:533 libraries/config/messages.inc.php:448
 #: libraries/navigation/NavigationTree.class.php:1398
@@ -2461,16 +2460,14 @@ msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
 
 #: js/messages.php:537
-#, fuzzy
 #| msgid "Table"
 msgid "tables"
-msgstr "Աղյուսակ"
+msgstr "աղյուսակների"
 
 #: js/messages.php:538
-#, fuzzy
 #| msgid "View"
 msgid "views"
-msgstr "Ներկայացում"
+msgstr "ներկայացումների"
 
 #: js/messages.php:539
 msgid "procedures"
@@ -2481,10 +2478,9 @@ msgid "events"
 msgstr ""
 
 #: js/messages.php:541
-#, fuzzy
 #| msgid "Action"
 msgid "functions"
-msgstr "Գործողություն"
+msgstr "գործառույթների"
 
 #: js/messages.php:544
 msgid "The requested page was not found in the history, it may have expired."
@@ -3168,115 +3164,105 @@ msgid "Press Enter to execute query"
 msgstr "Սեղմեք Enter՝ հարցումը կատարելու համար"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Աճման կարգով"
+msgstr "ըստ աճման"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Նվազման կարգով"
+msgstr "ըստ նվազման"
 
 #: libraries/Console.class.php:283
 msgid "Order:"
-msgstr ""
+msgstr "Հերթականություն՝"
 
 #: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Սյուն"
+msgstr "Քանակ"
 
 #: libraries/Console.class.php:292
 msgid "Execution order"
-msgstr ""
+msgstr "Կատարման հերթականությունը"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
-msgstr ""
+msgstr "Տևողություն"
 
 #: libraries/Console.class.php:298
 msgid "Order by:"
-msgstr ""
+msgstr "Դասակարգել ըստ՝"
 
 #: libraries/Console.class.php:301
 msgid "Group queries"
-msgstr ""
+msgstr "Խմբավորել հարցումները"
 
 #: libraries/Console.class.php:304
 msgid "Ungroup queries"
-msgstr ""
+msgstr "Ապախմբավորել հարցումները"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show trace"
-msgstr "Ցուցադրել վահանակը"
+msgstr "Ցուցադրել հետագիծը"
 
 #: libraries/Console.class.php:316
 msgid "Hide trace"
-msgstr ""
+msgstr "Թաքցնել հետագիծը"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Column"
 msgid "Count:"
-msgstr "Սյուն"
+msgstr "Քանակ՝"
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1247
 #: libraries/config/messages.inc.php:806
 #: libraries/server_status_processes.lib.php:255
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
-msgstr ""
+msgstr "Թարմացնել"
 
 #: libraries/Console.class.php:335
-#, fuzzy
 #| msgid "And"
 msgid "Add"
-msgstr "Եվ"
+msgstr "Ավելացնել"
 
 #: libraries/Console.class.php:344
-#, fuzzy
 #| msgid "Delete"
 msgid "Add bookmark"
-msgstr "Հեռացնել"
+msgstr "Ավելացնել էջանիշ"
 
 #: libraries/Console.class.php:348
 msgid "Label"
-msgstr ""
+msgstr "Պիտակ"
 
 #: libraries/Console.class.php:350
-#, fuzzy
 #| msgid "Remove database"
 msgid "Target database"
-msgstr "Հեռացնել տվյալների բազան"
+msgstr "Նպատակային տվյալների բազան"
 
 #: libraries/Console.class.php:353
-#, fuzzy
 #| msgid "Delete"
 msgid "Share this bookmark"
-msgstr "Հեռացնել"
+msgstr "Տարածել այս էջանիշը"
 
 #: libraries/Console.class.php:370
-#, fuzzy
 #| msgid "Default"
 msgid "Set default"
-msgstr "Լռելյան"
+msgstr "Նշանակել լռելյայնը"
 
 #: libraries/Console.class.php:374
 msgid "Always expand query messages"
-msgstr ""
+msgstr "Միշտ ընդարձակել հարցումների ուղերձները"
 
 #: libraries/Console.class.php:376
 msgid "Show query history at start"
-msgstr ""
+msgstr "Սկզբոից ցուցադրել հարցումների պատմությունը"
 
 #: libraries/Console.class.php:378
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Ցուցադրել ընթացիկ դիտվող հարցումը"
 
 #: libraries/Console.class.php:381
 msgid ""
@@ -3285,10 +3271,9 @@ msgid ""
 msgstr ""
 
 #: libraries/Console.class.php:385
-#, fuzzy
 #| msgid "Switch to copied database"
 msgid "Switch to dark theme"
-msgstr "Անցնել պատճենված տվյալների բազային"
+msgstr "Փոխակրել մուգ ոճին"
 
 #: libraries/DBQbe.class.php:405 libraries/DisplayResults.class.php:1476
 #: libraries/DisplayResults.class.php:2264
@@ -3299,7 +3284,7 @@ msgstr "Անցնել պատճենված տվյալների բազային"
 #: libraries/structure.lib.php:975 libraries/structure.lib.php:992
 #: templates/table/options.phtml:68
 msgid "Ascending"
-msgstr "Աճման կարգով"
+msgstr "Ըստ աճման"
 
 #: libraries/DBQbe.class.php:408 libraries/DisplayResults.class.php:1488
 #: libraries/DisplayResults.class.php:2260
@@ -3310,128 +3295,116 @@ msgstr "Աճման կարգով"
 #: libraries/structure.lib.php:980 libraries/structure.lib.php:997
 #: templates/table/options.phtml:69
 msgid "Descending"
-msgstr "Նվազման կարգով"
+msgstr "Ըստ նվազման"
 
 #: libraries/DBQbe.class.php:467 templates/table/search_and_replace.phtml:6
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Սյուն"
+msgstr "Սյունակ՝"
 
 #: libraries/DBQbe.class.php:513
 msgid "Alias:"
-msgstr ""
+msgstr "Այլանուն՝"
 
 #: libraries/DBQbe.class.php:566
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Դասավորել"
+msgstr "Դասակարգել՝"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort order:"
-msgstr "Դասավորել"
+msgstr "Դասակարգման հերթականությունը՝"
 
 #: libraries/DBQbe.class.php:679
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Ցուցադրել"
+msgstr "Ցուցադրել՝"
 
 #: libraries/DBQbe.class.php:728
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Չափորոշիչ"
+msgstr "Չափորոշիչներ՝"
 
 #: libraries/DBQbe.class.php:797
 msgid "Add/Delete criteria rows"
-msgstr ""
+msgstr "Ավելացնել/ջնջել չափորոշիչների տողերը"
 
 #: libraries/DBQbe.class.php:797
 msgid "Add/Delete columns"
-msgstr ""
+msgstr "Ավելացնել/ջնջել սյունակները"
 
 #: libraries/DBQbe.class.php:824 libraries/DBQbe.class.php:856
 msgid "Update Query"
-msgstr "Լրացնել հարցումը"
+msgstr "Արդիացնել հարցումը"
 
 #: libraries/DBQbe.class.php:839
 msgid "Use Tables"
 msgstr "Օգտագործել աղյուսակներ"
 
 #: libraries/DBQbe.class.php:877 libraries/DBQbe.class.php:988
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "Կամ"
+msgstr "Կամ՝"
 
 #: libraries/DBQbe.class.php:881 libraries/DBQbe.class.php:973
 msgid "And:"
-msgstr ""
+msgstr "Եւ՝"
 
 #: libraries/DBQbe.class.php:886
 msgid "Ins"
-msgstr "Տեղադրել"
+msgstr "Զետեղել"
 
 #: libraries/DBQbe.class.php:889
 msgid "Del"
-msgstr "Հեռացնել"
+msgstr "Ջնջել"
 
 #: libraries/DBQbe.class.php:905
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Փոփոխել"
+msgstr "Փոփոխել՝"
 
 #: libraries/DBQbe.class.php:968
 msgid "Ins:"
-msgstr ""
+msgstr "Զետեղել՝"
 
 #: libraries/DBQbe.class.php:983
 msgid "Del:"
-msgstr ""
+msgstr "Ջնջել՝"
 
 #: libraries/DBQbe.class.php:1838
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr ""
+msgstr "SQL հարցում՝ <b>%s</b> տվյալների բազային՝"
 
 #: libraries/DBQbe.class.php:1852 libraries/Util.class.php:1233
 msgid "Submit Query"
 msgstr "Կատարել հարցումը"
 
 #: libraries/DBQbe.class.php:1866
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Որոնում"
+msgstr "Պահպանված էջանիշերում որոնում՝"
 
 #: libraries/DBQbe.class.php:1868
-#, fuzzy
 #| msgid "Delete"
 msgid "New bookmark"
-msgstr "Հեռացնել"
+msgstr "Նոր էջանիշ"
 
 #: libraries/DBQbe.class.php:1894
-#, fuzzy
 #| msgid "Delete"
 msgid "Create bookmark"
-msgstr "Հեռացնել"
+msgstr "Ստեղծել էջանիշ"
 
 #: libraries/DBQbe.class.php:1897
-#, fuzzy
 #| msgid "Delete"
 msgid "Update bookmark"
-msgstr "Հեռացնել"
+msgstr "Արդիացնել էջանիշը"
 
 #: libraries/DBQbe.class.php:1899
-#, fuzzy
 #| msgid "Delete"
 msgid "Delete bookmark"
-msgstr "Հեռացնել"
+msgstr "Ջնջել էջանիշը"
 
 #: libraries/DatabaseInterface.class.php:2449
 msgid ""
@@ -3441,7 +3414,7 @@ msgstr ""
 
 #: libraries/DatabaseInterface.class.php:2454
 msgid "The server is not responding."
-msgstr ""
+msgstr "Սպասարկիչը չի պատասխանում։"
 
 #: libraries/DatabaseInterface.class.php:2459
 msgid "Please check privileges of directory containing database."
@@ -3449,7 +3422,7 @@ msgstr ""
 
 #: libraries/DatabaseInterface.class.php:2469
 msgid "Details…"
-msgstr ""
+msgstr "Մանրամասները …"
 
 #: libraries/DatabaseInterface.class.php:2692
 msgid "Connection for controluser as defined in your configuration failed."
@@ -3465,11 +3438,11 @@ msgstr "բոլոր բառերը"
 
 #: libraries/DbSearch.class.php:100 libraries/DbSearch.class.php:412
 msgid "the exact phrase"
-msgstr "ճիշտ համընկնում"
+msgstr "ըստ ամբողջական արտահայտության"
 
 #: libraries/DbSearch.class.php:101 libraries/DbSearch.class.php:413
 msgid "as regular expression"
-msgstr "կանոնավոր արտահայտություն"
+msgstr "որպես կանոնավոր արտահայտություն"
 
 #: libraries/DbSearch.class.php:271
 #, php-format
@@ -3480,14 +3453,15 @@ msgstr "«<i>%s</i>» որոնման արդյունքները %s՝"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Ընդհանուր՝</b> <i>%s</i> համընկնում"
-msgstr[1] "<b>Ընդհանուր՝</b> <i>%s</i> համընկնում"
+msgstr[0] "<b>Ընդամենը՝</b> <i>%s</i> համընկնում"
+msgstr[1] "<b>Ընդամենը՝</b> <i>%s</i> համընկնում"
 
 #: libraries/DbSearch.class.php:335
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] ""
+msgstr[0] "%1$s համընկնում <strong>%2$s-ում</strong>"
+msgstr[1] "%1$s համընկնում <strong>%2$s-ում</strong>"
 
 #: libraries/DbSearch.class.php:354 libraries/Menu.class.php:309
 #: libraries/Util.class.php:3340 libraries/Util.class.php:3350
@@ -3497,12 +3471,12 @@ msgstr[0] ""
 #: libraries/navigation/Nodes/Node_Table.class.php:297
 #: libraries/structure.lib.php:1525
 msgid "Browse"
-msgstr "Թերթել"
+msgstr "Դիտարկում"
 
 #: libraries/DbSearch.class.php:361
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr ""
+msgstr "Ջնջե՞լ համընկնումները %s աղյուսակի համար։"
 
 #: libraries/DbSearch.class.php:388
 msgid "Search in database"
@@ -3518,16 +3492,16 @@ msgstr "Գտնել՝"
 
 #: libraries/DbSearch.class.php:406 libraries/DbSearch.class.php:410
 msgid "Words are separated by a space character (\" \")."
-msgstr "Բառերն առանձնացվում են (« »)։"
+msgstr "Բառերն առանձնացվում են բացատներով (« »)։"
 
 #: libraries/DbSearch.class.php:425
 msgid "Inside tables:"
-msgstr "Աղյուսակներ՝"
+msgstr "Աղյուսակներում՝"
 
 #: libraries/DbSearch.class.php:446 libraries/display_export.lib.php:44
 #: libraries/replication_gui.lib.php:373
 msgid "Select All"
-msgstr "Նշել բոլորը"
+msgstr "Ընտրել բոլորը"
 
 #: libraries/DbSearch.class.php:450 libraries/display_export.lib.php:50
 #: libraries/replication_gui.lib.php:375
@@ -3536,81 +3510,80 @@ msgstr "Հանել նշումը"
 
 #: libraries/DbSearch.class.php:455
 msgid "Inside column:"
-msgstr "Սյուներ՝"
+msgstr "Սյունակում՝"
 
 #: libraries/DisplayResults.class.php:889
 msgid "Save edited data"
-msgstr ""
+msgstr "Պահպանել փոփոխված տվյալները"
 
 #: libraries/DisplayResults.class.php:895
 msgid "Restore column order"
-msgstr ""
+msgstr "Վերականգնել սյունակների հերթականությունը"
 
 #: libraries/DisplayResults.class.php:943
 #: libraries/central_columns.lib.php:662
 msgid "Filter rows"
-msgstr ""
+msgstr "Զտել տողերը"
 
 #: libraries/DisplayResults.class.php:945
 #: libraries/central_columns.lib.php:664
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "Որոնումը տվյալների բազայում"
+msgstr "Որոնել այս աղյուսակում"
 
 #: libraries/DisplayResults.class.php:973 libraries/Util.class.php:2535
 #: libraries/Util.class.php:2538
 msgctxt "First page"
 msgid "Begin"
-msgstr ""
+msgstr "Սկիզբ"
 
 #: libraries/DisplayResults.class.php:976 libraries/Util.class.php:2536
 #: libraries/Util.class.php:2539 libraries/server_bin_log.lib.php:170
 #: libraries/server_bin_log.lib.php:172
 msgctxt "Previous page"
 msgid "Previous"
-msgstr ""
+msgstr "Նախորդ"
 
 #: libraries/DisplayResults.class.php:1042 libraries/Util.class.php:2567
 #: libraries/Util.class.php:2577 libraries/server_bin_log.lib.php:204
 #: libraries/server_bin_log.lib.php:206
 msgctxt "Next page"
 msgid "Next"
-msgstr ""
+msgstr "Հաջորդ"
 
 #: libraries/DisplayResults.class.php:1072 libraries/Util.class.php:2568
 #: libraries/Util.class.php:2578
 msgctxt "Last page"
 msgid "End"
-msgstr ""
+msgstr "Վերջ"
 
 #: libraries/DisplayResults.class.php:1115
 msgid "All"
-msgstr ""
+msgstr "Բոլորը"
 
 #: libraries/DisplayResults.class.php:1125
 #: libraries/display_export.lib.php:437
 #: templates/startAndNumberOfRowsPanel.phtml:10
 msgid "Number of rows:"
-msgstr ""
+msgstr "Տողերի քանակը՝"
 
 #: libraries/DisplayResults.class.php:1434
 msgid "Sort by key"
-msgstr ""
+msgstr "Դասակարգել ըստ բանալիի"
 
 #: libraries/DisplayResults.class.php:1723
 #: libraries/DisplayResults.class.php:1831
 msgid "Partial texts"
-msgstr ""
+msgstr "Մասնակի գրվածքներ"
 
 #: libraries/DisplayResults.class.php:1724
 #: libraries/DisplayResults.class.php:1835
 msgid "Full texts"
-msgstr ""
+msgstr "Ամբողջական գրվածքներ"
 
 #: libraries/DisplayResults.class.php:1740
 msgid "Relational key"
-msgstr ""
+msgstr "Կապակցող բանալի"
 
 #: libraries/DisplayResults.class.php:1741
 msgid "Relational display column"
@@ -3618,15 +3591,15 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:1754
 msgid "Show binary contents"
-msgstr ""
+msgstr "Ցուցադրել երկուական տվյալները"
 
 #: libraries/DisplayResults.class.php:1760
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Ցուցադրել BLOB տվյալները"
 
 #: libraries/DisplayResults.class.php:1772
 msgid "Hide browser transformation"
-msgstr ""
+msgstr "Թաքցնել կերպարանափոխությունը"
 
 #: libraries/DisplayResults.class.php:1782
 msgid "Well Known Text"
@@ -3638,16 +3611,15 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:3516
 #: libraries/DisplayResults.class.php:3532
-#, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "The row has been deleted."
-msgstr "%s աղյուսակն դատարկված է"
+msgstr "Տողը ջնջվեց։"
 
 #: libraries/DisplayResults.class.php:3569
 #: libraries/DisplayResults.class.php:4800
 #: libraries/server_status_processes.lib.php:302
 msgid "Kill"
-msgstr ""
+msgstr "Ավարտել"
 
 #: libraries/DisplayResults.class.php:4261
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
@@ -3659,7 +3631,7 @@ msgstr ""
 #: tbl_find_replace.php:51 tbl_operations.php:227 tbl_row_action.php:129
 #: view_operations.php:62
 msgid "Your SQL query has been executed successfully."
-msgstr ""
+msgstr "Ձեր SQL հարցումը հաջողությամբ կատարվեց։"
 
 #: libraries/DisplayResults.class.php:4658 libraries/structure.lib.php:691
 #, php-format
@@ -3671,22 +3643,22 @@ msgstr ""
 #: libraries/DisplayResults.class.php:4671
 #, php-format
 msgid "Showing rows %1s - %2s"
-msgstr ""
+msgstr "%1s -ից %2s տողերի ցուցադրում"
 
 #: libraries/DisplayResults.class.php:4686
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "Ընդամենը %1$d,%2$d հարցման մեջ"
 
 #: libraries/DisplayResults.class.php:4691
 #, php-format
 msgid "%d total"
-msgstr ""
+msgstr "Ընդամենը %d"
 
 #: libraries/DisplayResults.class.php:4703 libraries/sql.lib.php:1391
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr ""
+msgstr "Հարցումը տևեց %01.4f վայրկյան։"
 
 #: libraries/DisplayResults.class.php:4805
 #: libraries/DisplayResults.class.php:4812 libraries/Util.class.php:4794
@@ -3694,7 +3666,7 @@ msgstr ""
 #: libraries/structure.lib.php:300 libraries/structure.lib.php:316
 #: libraries/structure.lib.php:318
 msgid "With selected:"
-msgstr "Նշվածները՝"
+msgstr "Նշվածներով՝"
 
 #: libraries/DisplayResults.class.php:4809
 #: libraries/DisplayResults.class.php:4811 libraries/Util.class.php:4796
@@ -3709,53 +3681,55 @@ msgstr "Նշել բոլորը"
 #: libraries/DisplayResults.class.php:4983 libraries/Header.class.php:382
 #: libraries/structure.lib.php:405 libraries/structure.lib.php:1673
 msgid "Print view"
-msgstr ""
+msgstr "Տպման տարբերակը"
 
 #: libraries/DisplayResults.class.php:5015
 msgid "Query results operations"
-msgstr ""
+msgstr "Հարցման արդյունքների օգտագործումը"
 
 #: libraries/DisplayResults.class.php:5103 templates/tbl_chart.phtml:12
 msgid "Display chart"
-msgstr ""
+msgstr "Ցուցադրել գծապատկերը"
 
 #: libraries/DisplayResults.class.php:5128
 msgid "Visualize GIS data"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:5305
-#, fuzzy
 #| msgid "Links to"
 msgid "Link not found!"
-msgstr "Կապեր"
+msgstr "Հղումներ չեն գտնվել։"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Չափազանց մեծ սխալների քանակը, որոշները չեն ցուցադրվում։"
 
 #: libraries/Error_Handler.class.php:333
-#, fuzzy
 #| msgid "Export"
 msgid "Report"
-msgstr "Արտահանում"
+msgstr "Զեկույց"
 
 #: libraries/Error_Handler.class.php:338 templates/error/report_form.phtml:28
 msgid "Automatically send report next time"
-msgstr ""
+msgstr "Հաջորդ անգամ զեկույցը ինքնաշխատ ուղարկել"
 
 #: libraries/File.class.php:225
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Ֆայլը՝ վերբեռնված ֆայլ չէր։"
 
 #: libraries/File.class.php:264
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"Վերբեռնված ֆայլը գերազանցում է php.ini-ում նշված upload_max_filesize "
+"հարաչափի սահմանաչափը։"
 
 #: libraries/File.class.php:267
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Վերբեռնված ֆայլը գերազանցում է HTML ձևի մեջ նշված MAX_FILE_SIZE հարաչափի "
+"սահմանաչափը։"
 
 #: libraries/File.class.php:270
 msgid "The uploaded file was only partially uploaded."
@@ -3783,7 +3757,7 @@ msgstr ""
 
 #: libraries/File.class.php:479
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Վերբեռնված ֆայլի տեղափոխման սխալ։"
 
 #: libraries/File.class.php:487
 msgid "Cannot read (moved) upload file."
@@ -3801,7 +3775,7 @@ msgstr ""
 #: libraries/Footer.class.php:201 libraries/Footer.class.php:205
 #: libraries/Footer.class.php:208
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "Բացել phpMyAdmin-ը նոր պատուհանում"
 
 #: libraries/Header.class.php:466
 msgid "Click on the bar to scroll to top of page"
@@ -3814,7 +3788,7 @@ msgstr ""
 
 #: libraries/Index.class.php:667
 msgid "No index defined!"
-msgstr ""
+msgstr "Ցուցակագիրը սահմանված չէ։"
 
 #: libraries/Index.class.php:672 libraries/Index.class.php:683
 #: libraries/build_html_for_db.lib.php:43 libraries/index.lib.php:29
@@ -3822,23 +3796,23 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:27
 #: libraries/tracking.lib.php:966
 msgid "Indexes"
-msgstr ""
+msgstr "Ցուցակագրեր"
 
 #: libraries/Index.class.php:695 libraries/browse_foreigners.lib.php:159
 #: libraries/browse_foreigners.lib.php:163 libraries/tracking.lib.php:970
 msgid "Keyname"
-msgstr "Ինդեքսի անվանումը"
+msgstr "Բանալիի անվանումը"
 
 #: libraries/Index.class.php:697 libraries/structure.lib.php:1544
 #: libraries/structure.lib.php:2282 libraries/structure.lib.php:2292
 #: libraries/tracking.lib.php:972
 #: templates/columns_definitions/column_indexes.phtml:11
 msgid "Unique"
-msgstr ""
+msgstr "Յուրահատուկ"
 
 #: libraries/Index.class.php:698 libraries/tracking.lib.php:973
 msgid "Packed"
-msgstr ""
+msgstr "Փաթեթավորված"
 
 #: libraries/Index.class.php:700 libraries/tracking.lib.php:975
 msgid "Cardinality"
@@ -3860,16 +3834,16 @@ msgstr "Համեմատումը"
 #: libraries/rte/rte_routines.lib.php:956 libraries/structure.lib.php:905
 #: libraries/tracking.lib.php:884 libraries/tracking.lib.php:978
 msgid "Comment"
-msgstr ""
+msgstr "Մեկնաբանություն"
 
 #: libraries/Index.class.php:731
 msgid "The primary key has been dropped."
-msgstr ""
+msgstr "Առաջնային բանալին ջնջվեց։"
 
 #: libraries/Index.class.php:740
 #, php-format
 msgid "Index %s has been dropped."
-msgstr ""
+msgstr "%s ցուցակագիրը ջնջվեց։"
 
 #: libraries/Index.class.php:757 libraries/Util.class.php:3657
 #: libraries/Util.class.php:3658 libraries/operations.lib.php:1605
@@ -3878,7 +3852,7 @@ msgstr ""
 #: libraries/structure.lib.php:2274 libraries/structure.lib.php:2276
 #: templates/tbl_relation/foreign_key_row.phtml:94
 msgid "Drop"
-msgstr "Հեռացնել"
+msgstr "Ջնջել"
 
 #: libraries/Index.class.php:873
 #, php-format
@@ -3900,7 +3874,7 @@ msgstr ""
 #: libraries/Menu.class.php:199 libraries/ServerStatusData.class.php:430
 #: libraries/config/messages.inc.php:823
 msgid "Server"
-msgstr ""
+msgstr "Սպասարկիչ"
 
 #: libraries/Menu.class.php:247
 #: libraries/navigation/Nodes/Node_View.class.php:34
@@ -3939,7 +3913,7 @@ msgstr "Որոնում"
 #: libraries/navigation/Nodes/Node_Table.class.php:291
 #: libraries/sql_query_form.lib.php:290 libraries/sql_query_form.lib.php:293
 msgid "Insert"
-msgstr ""
+msgstr "Զետեղել"
 
 #: libraries/Menu.class.php:360 libraries/Menu.class.php:465
 #: libraries/Util.class.php:4361 libraries/Util.class.php:4377
@@ -3948,7 +3922,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3031
 #: libraries/server_privileges.lib.php:3994
 msgid "Privileges"
-msgstr ""
+msgstr "Արտոնություններ"
 
 #: libraries/Menu.class.php:369 libraries/Menu.class.php:377
 #: libraries/Menu.class.php:457 libraries/Util.class.php:3341
@@ -3956,13 +3930,13 @@ msgstr ""
 #: libraries/Util.class.php:4378 libraries/config.values.php:112
 #: view_operations.php:92
 msgid "Operations"
-msgstr ""
+msgstr "Գործողություններ"
 
 #: libraries/Menu.class.php:382 libraries/Menu.class.php:490
 #: libraries/Util.class.php:4365 libraries/Util.class.php:4379
 #: libraries/relation.lib.php:255
 msgid "Tracking"
-msgstr ""
+msgstr "Հետագծում"
 
 #: libraries/Menu.class.php:395 libraries/Menu.class.php:484
 #: libraries/Util.class.php:4364 libraries/Util.class.php:4380
@@ -4115,16 +4089,14 @@ msgstr ""
 
 #: libraries/RecentFavoriteTable.class.php:254
 #: libraries/config/messages.inc.php:512
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Favorite tables"
-msgstr "Աղյուսակներ՝"
+msgstr "Ընտրյալ աղյուսակներ"
 
 #: libraries/RecentFavoriteTable.class.php:256
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Favorites"
-msgstr "Աղյուսակներ՝"
+msgstr "Ընտրյալ"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
@@ -4282,10 +4254,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr ""
 
 #: libraries/Table.class.php:358
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Unknown table status:"
-msgstr "Աղյուսակներ՝"
+msgstr "Անհայտ աղյուսակի կարգավիճակ՝"
 
 #: libraries/Table.class.php:748
 #, php-format
@@ -4298,16 +4269,14 @@ msgid "Target database `%s` was not found!"
 msgstr ""
 
 #: libraries/Table.class.php:1280
-#, fuzzy
 #| msgid "Search in database"
 msgid "Invalid database:"
-msgstr "Որոնումը տվյալների բազայում"
+msgstr "Անվավեր տվյալների բազան՝"
 
 #: libraries/Table.class.php:1294
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Invalid table name:"
-msgstr "Աղյուսակներ՝"
+msgstr "Անվավեր աղյուսակի անունը՝"
 
 #: libraries/Table.class.php:1329
 #, php-format
@@ -4356,10 +4325,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: libraries/TableSearch.class.php:184
-#, fuzzy
 #| msgid "Table"
 msgid "Table search"
-msgstr "Աղյուսակ"
+msgstr "Աղյուսակում որոնում"
 
 #: libraries/TableSearch.class.php:191
 msgid "Zoom search"
@@ -4815,10 +4783,9 @@ msgid "Users"
 msgstr ""
 
 #: libraries/browse_foreigners.lib.php:136
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Որոնում"
+msgstr "Որոնում՝"
 
 #: libraries/browse_foreigners.lib.php:160
 #: libraries/browse_foreigners.lib.php:162
@@ -4930,26 +4897,23 @@ msgid "A_I"
 msgstr ""
 
 #: libraries/central_columns.lib.php:750
-#, fuzzy
 #| msgid "Select All"
 msgid "Select a table"
-msgstr "Նշել բոլորը"
+msgstr "Ընտրել աղյուսակը"
 
 #: libraries/central_columns.lib.php:804 libraries/structure.lib.php:1741
 msgid "Add column"
 msgstr ""
 
 #: libraries/central_columns.lib.php:816
-#, fuzzy
 #| msgid "Select All"
 msgid "Select a column."
-msgstr "Նշել բոլորը"
+msgstr "Ընտրեք սյունակը։"
 
 #: libraries/central_columns.lib.php:1261
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Add new column"
-msgstr "Սյուներ՝"
+msgstr "Ավելացնել նոր սյունակ"
 
 #: libraries/central_columns.lib.php:1382
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1032
@@ -5030,10 +4994,9 @@ msgstr ""
 
 #: libraries/config.values.php:56 libraries/config.values.php:76
 #: libraries/config.values.php:88
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "Տեղադրել"
+msgstr "Պատկերակներ"
 
 #: libraries/config.values.php:57 libraries/config.values.php:77
 #: libraries/config.values.php:89
@@ -5076,10 +5039,9 @@ msgid "key"
 msgstr ""
 
 #: libraries/config.values.php:99
-#, fuzzy
 #| msgid "Inside column:"
 msgid "display column"
-msgstr "Սյուներ՝"
+msgstr "ցուցադրել սյունակը"
 
 #: libraries/config.values.php:102
 msgid "Welcome"
@@ -6005,10 +5967,9 @@ msgid "LaTeX"
 msgstr ""
 
 #: libraries/config/messages.inc.php:250
-#, fuzzy
 #| msgid "Database comment"
 msgid "Databases display options."
-msgstr "Տվյալների բազայի մեկնաբանությունը՝ "
+msgstr "Տվյալների բազայների ցանկի ցուցադրման կայանքները։"
 
 #: libraries/config/messages.inc.php:251 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
@@ -6040,10 +6001,9 @@ msgid "Servers display options."
 msgstr ""
 
 #: libraries/config/messages.inc.php:258
-#, fuzzy
 #| msgid "Table comments"
 msgid "Tables display options."
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Աղյուսակների ցանկի ցուցադրման կայանքները։"
 
 #: libraries/config/messages.inc.php:259 setup/frames/menu.inc.php:25
 msgid "Main panel"
@@ -6468,20 +6428,18 @@ msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
 #: libraries/config/messages.inc.php:445
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Show databases navigation as tree"
-msgstr "Աղյուսակներ՝"
+msgstr "Ցուցադրել տվյալների բազայի նավարկումը ծառի տեսքով"
 
 #: libraries/config/messages.inc.php:447
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
 #: libraries/config/messages.inc.php:449
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show logo in navigation panel."
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Ցուցադրել լոգոն նավարկման գոտում։"
 
 #: libraries/config/messages.inc.php:450
 msgid "Display logo"
@@ -6579,10 +6537,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:491
-#, fuzzy
 #| msgid "Table comments"
 msgid "Enable navigation tree expansion"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Միացնել նավարկման ծառի ընդարձակումը"
 
 #: libraries/config/messages.inc.php:492
 #, fuzzy
@@ -6678,10 +6635,9 @@ msgid "Use only icons, only text or both."
 msgstr ""
 
 #: libraries/config/messages.inc.php:521
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table navigation bar"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Աղյուսակի նավարկման գոտին"
 
 #: libraries/config/messages.inc.php:523
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
@@ -6817,10 +6773,9 @@ msgid "Relational display"
 msgstr ""
 
 #: libraries/config/messages.inc.php:580
-#, fuzzy
 #| msgid "Table comments"
 msgid "For display Options"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Ցուցադրման կայանքների համար"
 
 #: libraries/config/messages.inc.php:581
 msgid "Grid editing: save all edited cells at once"
@@ -7119,10 +7074,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:701
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Favorites table"
-msgstr "Աղյուսակներ՝"
+msgstr "Ընտրյալների աղյուսակ"
 
 #: libraries/config/messages.inc.php:703
 msgid ""
@@ -7270,10 +7224,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:765
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Օգտագործել աղյուսակներ"
+msgstr "Օգտվողների աղյուսակ"
 
 #: libraries/config/messages.inc.php:766
 msgid ""
@@ -7728,10 +7681,9 @@ msgid "Display column was successfully updated."
 msgstr ""
 
 #: libraries/controllers/TableRelationController.class.php:283
-#, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "Internal relations were successfully updated."
-msgstr "%s աղյուսակն դատարկված է"
+msgstr "Ներքին կապակցումները հաջողությամբ արդիացվեցին։"
 
 #: libraries/core.lib.php:306
 #, php-format
@@ -7807,10 +7759,9 @@ msgid "Create"
 msgstr ""
 
 #: libraries/display_create_database.lib.php:50
-#, fuzzy
 #| msgid "Remove database"
 msgid "Create database:"
-msgstr "Հեռացնել տվյալների բազան"
+msgstr "Ստեղծել տվյալների բազան՝"
 
 #: libraries/display_create_database.lib.php:60 server_privileges.php:128
 #: server_replication.php:32 server_user_groups.php:27
@@ -8016,28 +7967,24 @@ msgid "Skip tables larger than"
 msgstr ""
 
 #: libraries/display_export.lib.php:937
-#, fuzzy
 #| msgid "Select All"
 msgid "Select database"
-msgstr "Նշել բոլորը"
+msgstr "Ընտրեք տվյալների բազան"
 
 #: libraries/display_export.lib.php:939
-#, fuzzy
 #| msgid "Select All"
 msgid "Select table"
-msgstr "Նշել բոլորը"
+msgstr "Ընտրեք աղյուսակը"
 
 #: libraries/display_export.lib.php:955
-#, fuzzy
 #| msgid "The database name is empty!"
 msgid "New database name"
-msgstr "Տվյալների բազայի անունն նշված չէ"
+msgstr "Նոր տվյալների բազայի անունը"
 
 #: libraries/display_export.lib.php:979
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "New table name"
-msgstr "Աղյուսակներ՝"
+msgstr "Նոր աղյուսակի անունը"
 
 #: libraries/display_export.lib.php:989
 msgid "Old column name"
@@ -8699,16 +8646,14 @@ msgid "Success!"
 msgstr ""
 
 #: libraries/mult_submits.lib.php:344
-#, fuzzy
 #| msgid "Repair table"
 msgid "Replace table prefix:"
-msgstr "Վերականգնել աղյուսակը"
+msgstr "Փոխարինել աղյուսակի նախածանցը՝"
 
 #: libraries/mult_submits.lib.php:346
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy table with prefix:"
-msgstr "Պատճենել տվյալների բազան"
+msgstr "Կրկնապատկել աղյուսակը նախածանցով՝"
 
 #: libraries/mult_submits.lib.php:351
 msgid "From"
@@ -8938,26 +8883,23 @@ msgid "Events:"
 msgstr ""
 
 #: libraries/navigation/Navigation.class.php:194
-#, fuzzy
 #| msgid "Action"
 msgid "Functions:"
-msgstr "Գործողություն"
+msgstr "Գործառույթներ՝"
 
 #: libraries/navigation/Navigation.class.php:195
 msgid "Procedures:"
 msgstr ""
 
 #: libraries/navigation/Navigation.class.php:196
-#, fuzzy
 #| msgid "Table"
 msgid "Tables:"
-msgstr "Աղյուսակ"
+msgstr "Աղյուսակներ՝"
 
 #: libraries/navigation/Navigation.class.php:197
-#, fuzzy
 #| msgid "View"
 msgid "Views:"
-msgstr "Ներկայացում"
+msgstr "Ներկայացումներ՝"
 
 #: libraries/navigation/NavigationHeader.class.php:163
 msgid "Home"
@@ -8978,10 +8920,9 @@ msgid "Navigation panel settings"
 msgstr "Աղյուսակի մեկնաբանությունը"
 
 #: libraries/navigation/NavigationHeader.class.php:218
-#, fuzzy
 #| msgid "Table comments"
 msgid "Reload navigation panel"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Թարմացնել նավարկման գոտին"
 
 #: libraries/navigation/NavigationTree.class.php:738
 msgid ""
@@ -8997,10 +8938,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/navigation/NavigationTree.class.php:1331
-#, fuzzy
 #| msgid "The database name is empty!"
 msgid "Filter databases by name or regex"
-msgstr "Տվյալների բազայի անունն նշված չէ"
+msgstr "Զտել տվյալների բազաները ըստ անվան կամ կանոնավոր արտահայտության"
 
 #: libraries/navigation/NavigationTree.class.php:1333
 #: libraries/navigation/NavigationTree.class.php:1367
@@ -9008,10 +8948,9 @@ msgid "Clear fast filter"
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:1366
-#, fuzzy
 #| msgid "The database name is empty!"
 msgid "Filter by name or regex"
-msgstr "Տվյալների բազայի անունն նշված չէ"
+msgstr "Զտել ըստ անվան կամ կանոնավոր արտահայտության"
 
 #: libraries/navigation/NavigationTree.class.php:1392
 msgid "Collapse all"
@@ -9044,16 +8983,14 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/Nodes/Node_Database.class.php:41
-#, fuzzy
 #| msgid "Database comment"
 msgid "Database operations"
-msgstr "Տվյալների բազայի մեկնաբանությունը՝ "
+msgstr "Տվյալների բազայի հետ գործողություններ"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:660
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Show hidden items"
-msgstr "Աղյուսակներ՝"
+msgstr "Ցուցադրել թաքնված տարրերը"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:36
 msgctxt "Create new database"
@@ -9151,10 +9088,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:155 normalization.php:18
-#, fuzzy
 #| msgid "Select All"
 msgid "Select one…"
-msgstr "Նշել բոլորը"
+msgstr "Ընտրեք ցանկացած մեկը …"
 
 #: libraries/normalization.lib.php:156 normalization.php:19
 msgid "No such column"
@@ -9188,10 +9124,9 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:211
-#, fuzzy
 #| msgid "Inside column:"
 msgid "+ Add a new primary key column"
-msgstr "Սյուներ՝"
+msgstr "+ Ավելացնել առաջնային բանալիի նոր սյունակը"
 
 #: libraries/normalization.lib.php:234
 msgid "Remove redundant columns"
@@ -9211,16 +9146,14 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:248
-#, fuzzy
 #| msgid "With selected:"
 msgid "Remove selected"
-msgstr "Նշվածները՝"
+msgstr "Ջնջել ընտրածը"
 
 #: libraries/normalization.lib.php:249
-#, fuzzy
 #| msgid "Inside column:"
 msgid "No redundant column"
-msgstr "Սյուներ՝"
+msgstr "Ավելորդ սյունակներ չկան"
 
 #: libraries/normalization.lib.php:272
 msgid "Move repeating groups"
@@ -9861,10 +9794,9 @@ msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table caption:"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Աղյուսակի վերնագիրը՝"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
@@ -9913,32 +9845,28 @@ msgstr ""
 #: libraries/plugins/export/ExportLatex.class.php:213
 #: libraries/plugins/export/ExportSql.class.php:689
 #: libraries/plugins/export/ExportXml.class.php:190
-#, fuzzy
 #| msgid "Versions"
 msgid "PHP Version:"
-msgstr "Տարբերակներ"
+msgstr "PHP-ի տարբերակը՝"
 
 #: libraries/plugins/export/ExportLatex.class.php:242
 #: libraries/plugins/export/ExportSql.class.php:874
 #: libraries/plugins/export/ExportXml.class.php:422
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "Տվյալների բազա"
+msgstr "Տվյալների բազան՝"
 
 #: libraries/plugins/export/ExportLatex.class.php:306
 #: libraries/plugins/export/ExportSql.class.php:1996
-#, fuzzy
 #| msgid "Database"
 msgid "Data:"
-msgstr "Տվյալների բազա"
+msgstr "Տվյալներ՝"
 
 #: libraries/plugins/export/ExportLatex.class.php:488
-#, fuzzy
 #| msgid "Structure only"
 msgid "Structure:"
-msgstr "Միայն կառուղվածքը"
+msgstr "Կառուցվածքը՝"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
@@ -10144,28 +10072,24 @@ msgid "Constraints for table"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1613
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for dumped tables"
-msgstr "Աղյուսակներ՝"
+msgstr "Պահպանված աղյուսակների ցուցակագրերը"
 
 #: libraries/plugins/export/ExportSql.class.php:1614
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "Աղյուսակներ՝"
+msgstr "Աղյուսակի ցուցակագրերը"
 
 #: libraries/plugins/export/ExportSql.class.php:1634
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "Ավելացնել AUTO_INCREMENT"
+msgstr "AUTO_INCREMENT՝ պահպանված աղյուսակների համար"
 
 #: libraries/plugins/export/ExportSql.class.php:1635
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "Ավելացնել AUTO_INCREMENT"
+msgstr "AUTO_INCREMENT՝ աղյուսակի համար"
 
 #: libraries/plugins/export/ExportSql.class.php:1705
 msgid "MIME TYPES FOR TABLE"
@@ -10197,10 +10121,9 @@ msgid "Export contents"
 msgstr ""
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:117
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
-msgstr "Աղյուսակ"
+msgstr "Աղյուսակ՝"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:118
 msgid "Purpose:"
@@ -10408,16 +10331,15 @@ msgid "Schema of the %s database - Page %s"
 msgstr ""
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:255
-#, fuzzy
 #| msgid "Delete"
 msgid "PDF export page"
-msgstr "Հեռացնել"
+msgstr "PDF-ին արտահանման էջ"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:485
-#, fuzzy, php-format
+#, php-format
 #| msgid "Search in database"
 msgid "Schema of the %s database"
-msgstr "Որոնումը տվյալների բազայում"
+msgstr "%s տվյալների բազայի ուրվագիծը"
 
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:513
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:925
@@ -10614,38 +10536,33 @@ msgid "Error: Relational features are disabled!"
 msgstr ""
 
 #: libraries/pmd_common.php:618
-#, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "Internal relation has been added."
-msgstr "%s աղյուսակն դատարկված է"
+msgstr "Ավելացվել է մերքին կապակցումը։"
 
 #: libraries/pmd_common.php:623
-#, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "Error: Internal relation could not be added!"
-msgstr "%s աղյուսակն դատարկված է"
+msgstr "Սխալ՝ չհաջողվեց ավելացնել ներքին կապակցումը։"
 
 #: libraries/pmd_common.php:664
-#, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "FOREIGN KEY relation has been removed."
-msgstr "%s աղյուսակն դատարկված է"
+msgstr "Արտաքին բանալիի կապակցումը ջնջվեց։"
 
 #: libraries/pmd_common.php:670
 msgid "Error: FOREIGN KEY relation could not be removed!"
 msgstr ""
 
 #: libraries/pmd_common.php:697
-#, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "Error: Internal relation could not be removed!"
-msgstr "%s աղյուսակն դատարկված է"
+msgstr "Սխալ՝ չհաջողվեց ջնջել ներքին կապակցումը։"
 
 #: libraries/pmd_common.php:701
-#, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "Internal relation has been removed."
-msgstr "%s աղյուսակն դատարկված է"
+msgstr "Ներքին կապակցումը ջնջվեց։"
 
 #: libraries/relation.lib.php:89
 msgid "not OK"
@@ -10701,10 +10618,9 @@ msgid "Persistent recently used tables"
 msgstr ""
 
 #: libraries/relation.lib.php:233
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Persistent favorite tables"
-msgstr "Աղյուսակներ՝"
+msgstr "Մշտական ընտրյալ աղյուսակներ"
 
 #: libraries/relation.lib.php:244
 msgid "Persistent tables' UI preferences"
@@ -12418,10 +12334,9 @@ msgid "Filters"
 msgstr ""
 
 #: libraries/server_status_processes.lib.php:260
-#, fuzzy
 #| msgid "not active"
 msgid "Show only active"
-msgstr "անջատված է"
+msgstr "Ցուցադրել միայն գործունը"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13053,28 +12968,24 @@ msgid "User groups"
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:79
-#, fuzzy
 #| msgid "Table comments"
 msgid "Server level tabs"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Սպասարկչի մակարդակի ներդիրներ"
 
 #: libraries/server_user_groups.lib.php:80
-#, fuzzy
 #| msgid "Database comment"
 msgid "Database level tabs"
-msgstr "Տվյալների բազայի մեկնաբանությունը՝ "
+msgstr "Տվյալների բազայի մակարդակի ներդիրներ"
 
 #: libraries/server_user_groups.lib.php:81
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Աղյուսակի մակարդակի ներդիրներ"
 
 #: libraries/server_user_groups.lib.php:110
-#, fuzzy
 #| msgid "in use"
 msgid "View users"
-msgstr "օգտագործվում է"
+msgstr "Դիտել օգտվողներին"
 
 #: libraries/server_user_groups.lib.php:147
 #: libraries/server_user_groups.lib.php:209
@@ -13095,22 +13006,19 @@ msgid "Group name:"
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:272
-#, fuzzy
 #| msgid "Table comments"
 msgid "Server-level tabs"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Սպասարկչի մակարդակի ներդիրներ"
 
 #: libraries/server_user_groups.lib.php:275
-#, fuzzy
 #| msgid "Database comment"
 msgid "Database-level tabs"
-msgstr "Տվյալների բազայի մեկնաբանությունը՝ "
+msgstr "Տվյալների բազայի մակարդակի ներդիրներ"
 
 #: libraries/server_user_groups.lib.php:278
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Աղյուսակի մակարդակի ներդիրներ"
 
 #: libraries/server_variables.lib.php:114
 msgid "Setting variable failed"
@@ -13271,10 +13179,9 @@ msgid "Order"
 msgstr ""
 
 #: libraries/sql.lib.php:289 libraries/sql.lib.php:305
-#, fuzzy
 #| msgid "Status"
 msgid "State"
-msgstr "Վիճակը"
+msgstr "Կարգավիճակ"
 
 #: libraries/sql.lib.php:302
 msgid "Summary by state"
@@ -13404,19 +13311,19 @@ msgstr ""
 
 #: libraries/structure.lib.php:131 tbl_operations.php:400
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
-msgstr "%s ներկայացումն հեռացված է"
+msgstr "%s ներկայացումը ջնջվեց։"
 
 #: libraries/structure.lib.php:132 tbl_operations.php:401
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
-msgstr "%s աղյուսակն հեռացված է"
+msgstr "%s աղյուսակը ջնջվեց։"
 
 #: libraries/structure.lib.php:169
-#, fuzzy, php-format
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s աղյուսակ"
@@ -13427,10 +13334,9 @@ msgid "Sum"
 msgstr "Ընդամենը"
 
 #: libraries/structure.lib.php:320
-#, fuzzy
 #| msgid "Show Panel"
 msgid "Show create"
-msgstr "Ցուցադրել վահանակը"
+msgstr "Ցուցադրել ստեղծման ձևը"
 
 #: libraries/structure.lib.php:349
 msgid "Prefix"
@@ -13449,20 +13355,18 @@ msgid "Copy table with prefix"
 msgstr ""
 
 #: libraries/structure.lib.php:362
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add columns to central list"
-msgstr "Ավելացնել սահմանափակում"
+msgstr "Ավելացնել սյունակներ՝ կենտրոնական ցանկին"
 
 #: libraries/structure.lib.php:364
 msgid "Remove columns from central list"
 msgstr ""
 
 #: libraries/structure.lib.php:366
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Make consistent with central list"
-msgstr "Ավելացնել սահմանափակում"
+msgstr "Համապատասխանեցնել կենտրոնական ցանկին"
 
 #: libraries/structure.lib.php:389
 msgid "Check tables having overhead"
@@ -13653,10 +13557,9 @@ msgid "Showing create queries"
 msgstr ""
 
 #: libraries/structure.lib.php:3437
-#, fuzzy
 #| msgid "Replication"
 msgid "Relation view"
-msgstr "Վերարադրում"
+msgstr "Կապակցման դիտում"
 
 #: libraries/tracking.lib.php:69
 #, php-format
@@ -13664,10 +13567,10 @@ msgid "Create version %1$s of %2$s"
 msgstr ""
 
 #: libraries/tracking.lib.php:74
-#, fuzzy, php-format
+#, php-format
 #| msgid "Last version"
 msgid "Create version %1$s"
-msgstr "Վերջին տարբերակը"
+msgstr "Ստեղծել %1$s տարբերակը"
 
 #: libraries/tracking.lib.php:79
 msgid "Track these data definition statements:"
@@ -13700,10 +13603,9 @@ msgid "Deactivate now"
 msgstr ""
 
 #: libraries/tracking.lib.php:287 libraries/tracking.lib.php:350
-#, fuzzy
 #| msgid "Last version"
 msgid "Delete version"
-msgstr "Վերջին տարբերակը"
+msgstr "Ջնջել տարբերակը"
 
 #: libraries/tracking.lib.php:460
 msgid "Tracking statements"
@@ -14142,10 +14044,9 @@ msgid "Tracking versions deleted successfully."
 msgstr ""
 
 #: tbl_tracking.php:107
-#, fuzzy
 #| msgid "With selected:"
 msgid "No versions selected."
-msgstr "Նշվածները՝"
+msgstr "Ընտրած տարբերակներ չկան։"
 
 #: tbl_tracking.php:138
 msgid "SQL statements executed."
@@ -14165,20 +14066,18 @@ msgid "Table name"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.phtml:83
-#, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
-msgstr "Համեմատումը"
+msgstr "Համեմատումը՝"
 
 #: templates/columns_definitions/column_definitions_form.phtml:87
 msgid "Storage Engine:"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.phtml:92
-#, fuzzy
 #| msgid "Creation"
 msgid "Connection:"
-msgstr "Ստեղծում"
+msgstr "Կապ՝"
 
 #: templates/columns_definitions/column_definitions_form.phtml:137
 msgid "PARTITION definition:"
@@ -14359,10 +14258,9 @@ msgid "Select Export Relational Type"
 msgstr ""
 
 #: templates/designer/side_menu.phtml:19 templates/designer/side_menu.phtml:25
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Show/Hide tables list"
-msgstr "Աղյուսակներ՝"
+msgstr "Ցուցադրել/թաքցնել աղյուսակների ցանկը"
 
 #: templates/designer/side_menu.phtml:29 templates/designer/side_menu.phtml:35
 #: templates/designer/side_menu.phtml:36
@@ -14378,10 +14276,9 @@ msgid "New page"
 msgstr ""
 
 #: templates/designer/side_menu.phtml:70 templates/designer/side_menu.phtml:73
-#, fuzzy
 #| msgid "Delete"
 msgid "Delete pages"
-msgstr "Հեռացնել"
+msgstr "Ջնջել էջերը"
 
 #: templates/designer/side_menu.phtml:98
 #: templates/designer/side_menu.phtml:101
@@ -14425,10 +14322,9 @@ msgstr ""
 
 #: templates/designer/side_menu.phtml:153
 #: templates/designer/side_menu.phtml:156
-#, fuzzy
 #| msgid "Export"
 msgid "Export schema"
-msgstr "Արտահանում"
+msgstr "Ուրվագծի արտահանում"
 
 #: templates/designer/side_menu.phtml:165
 #: templates/designer/side_menu.phtml:168
@@ -14558,10 +14454,9 @@ msgid "Original string"
 msgstr ""
 
 #: templates/table/replace_preview.phtml:19
-#, fuzzy
 #| msgid "Replication"
 msgid "Replaced string"
-msgstr "Վերարադրում"
+msgstr "Փոխարինված տողը"
 
 #: templates/table/replace_preview.phtml:40
 msgid "Replace"
@@ -14572,16 +14467,14 @@ msgid "Additional search criteria"
 msgstr ""
 
 #: templates/table/search_and_replace.phtml:3
-#, fuzzy
 #| msgid "Replication"
 msgid "Replace with:"
-msgstr "Վերարադրում"
+msgstr "Փոխարինել՝"
 
 #: templates/table/search_and_replace.phtml:22
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "կանոնավոր արտահայտություն"
+msgstr "Օգտագործել կանոնավոր արտահայտությունը"
 
 #: templates/table/selection_form.phtml:12
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
@@ -14676,10 +14569,9 @@ msgid "Series names are in a column"
 msgstr ""
 
 #: templates/tbl_chart.phtml:118
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Series column:"
-msgstr "Սյուներ՝"
+msgstr "Շարքի սյունակ՝"
 
 #: templates/tbl_chart.phtml:130
 #, fuzzy
@@ -14692,10 +14584,9 @@ msgid "Save chart as image"
 msgstr ""
 
 #: templates/tbl_relation/common_form.phtml:7
-#, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "Internal relations"
-msgstr "%s աղյուսակն դատարկված է"
+msgstr "Ներքին կապակցումներ"
 
 #: templates/tbl_relation/common_form.phtml:11
 msgid "Internal relation"
@@ -14708,22 +14599,19 @@ msgid ""
 msgstr ""
 
 #: templates/tbl_relation/common_form.phtml:37
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Foreign key constraints"
-msgstr "Ավելացնել սահմանափակում"
+msgstr "Արտաքին բանալիի սահմանափակումները"
 
 #: templates/tbl_relation/common_form.phtml:40
-#, fuzzy
 #| msgid "Action"
 msgid "Actions"
-msgstr "Գործողություն"
+msgstr "Գործողություններ"
 
 #: templates/tbl_relation/common_form.phtml:41
-#, fuzzy
 #| msgid "Constraint name"
 msgid "Constraint properties"
-msgstr "Սահմանափակման անվանում"
+msgstr "Սահմանափակման հատկություններ"
 
 #: templates/tbl_relation/common_form.phtml:44
 msgid ""
@@ -14735,30 +14623,28 @@ msgid "Foreign key constraint"
 msgstr ""
 
 #: templates/tbl_relation/common_form.phtml:81
-#, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "Ավելացնել սահմանափակում"
+msgstr "+ Ավելացնել սահմանափակում"
 
 #: templates/tbl_relation/common_form.phtml:91
 msgid "Choose column to display:"
 msgstr ""
 
 #: templates/tbl_relation/foreign_key_row.phtml:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add constraints"
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Ավելացնել սահմանափակում"
+msgstr "Արտաքին բանալիի %s սահմանափակումը ջնջվեց"
 
 #: templates/tbl_relation/foreign_key_row.phtml:103
 msgid "Constraint name"
 msgstr "Սահմանափակման անվանում"
 
 #: templates/tbl_relation/foreign_key_row.phtml:158
-#, fuzzy
 #| msgid "Inside column:"
 msgid "+ Add column"
-msgstr "Սյուներ՝"
+msgstr "+ Ավելացնել սյունակ"
 
 #: themes.php:17 themes.php:22
 msgid "Theme"
@@ -14773,10 +14659,9 @@ msgid "Available MIME types"
 msgstr ""
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Table comments"
 msgid "Available browser display transformations"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Առկա դիտարկչի ցուցադրման կերպարանափոխումներ"
 
 #: transformation_overview.php:38
 msgid "Available input transformations"
@@ -14813,10 +14698,9 @@ msgid "Rename view to"
 msgstr ""
 
 #: view_operations.php:133
-#, fuzzy
 #| msgid "Drop the database (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "Հեռացնել տվյալների բազան (DROP)"
+msgstr "Ջնջել ներկայացումը (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
