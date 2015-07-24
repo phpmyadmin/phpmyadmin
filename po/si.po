@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-07-22 04:02+0200\n"
+"PO-Revision-Date: 2015-07-24 06:59+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/si/>\n"
@@ -31,10 +31,10 @@ msgid "Click to sort."
 msgstr "අනුපිළිවෙල අනුව සැකසීමට ක්ලික් කරන්න."
 
 #: db_central_columns.php:129
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing row(s) %1$s - %2$s"
 msgid "Showing rows %1$s - %2$s."
-msgstr "%1$s - %2$s පේළි(ය) පෙන්වමින්"
+msgstr "%1$s - %2$s පේළි පෙන්වමින්."
 
 #: db_create.php:61
 #, php-format
@@ -1386,11 +1386,11 @@ msgstr "අධීක්ෂණය තාවකාලිකව නවතන්න"
 
 #: js/messages.php:161 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "ස්වයංක්‍රීය යාවත්කාලීන කිරීම අරඹන්න"
 
 #: js/messages.php:162
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "ස්වයංක්‍රීය යාවත්කාලීන කිරීම නවතන්න"
 
 #: js/messages.php:164
 msgid "general_log and slow_query_log are enabled."
@@ -3968,23 +3968,20 @@ msgid "Recent tables"
 msgstr "මෑතදී භාවිතා කල වගු"
 
 #: libraries/RecentFavoriteTable.class.php:252
-#, fuzzy
 #| msgid "Reset"
 msgid "Recent"
-msgstr "ප්‍රතිසකසන්න"
+msgstr "මෑතකාලීන"
 
 #: libraries/RecentFavoriteTable.class.php:254
 #: libraries/config/messages.inc.php:480
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "විචල්‍යනයන්"
+msgstr "ප්‍රියතම වගු"
 
 #: libraries/RecentFavoriteTable.class.php:256
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
-msgstr "විචල්‍යනයන්"
+msgstr "ප්‍රියතම"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
@@ -12079,7 +12076,7 @@ msgstr "කිසිවක් නැත"
 #: libraries/server_privileges.lib.php:3223
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
-msgstr ""
+msgstr "භාවිතා කරන්නන් කණ්ඩායම"
 
 #: libraries/server_privileges.lib.php:726
 #: libraries/server_privileges.lib.php:837
@@ -12303,10 +12300,9 @@ msgid "Revoke"
 msgstr "අහෝසි කරන්න"
 
 #: libraries/server_privileges.lib.php:2542
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "සේවාදායකය සංස්කරණය කරන්න"
+msgstr "භාවිතා කරන්නන් කණ්ඩායම සංස්කරණය කරන්න"
 
 #: libraries/server_privileges.lib.php:2722
 msgid "… keep the old one."
@@ -12748,10 +12744,9 @@ msgid "Filters"
 msgstr "පෙරහන්"
 
 #: libraries/server_status_processes.lib.php:253
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "අනතුරුදායක අගයන් පමණක් පෙන්වන්න"
+msgstr "සක්‍රීය ඒවා පමණක් පෙන්වන්න"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format
@@ -13382,10 +13377,9 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:64 libraries/server_users.lib.php:33
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "භාවිතා කරන්නන්"
+msgstr "භාවිතා කරන්නන් කණ්ඩායම්"
 
 #: libraries/server_user_groups.lib.php:79
 #, fuzzy
@@ -13413,15 +13407,14 @@ msgstr "දසුන්"
 
 #: libraries/server_user_groups.lib.php:147
 #: libraries/server_user_groups.lib.php:209
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "භාවිතා කරන්නෙක් එක් කරන්න"
+msgstr "භාවිතා කරන්නන් කණ්ඩායමක් එක් කරන්න"
 
 #: libraries/server_user_groups.lib.php:212
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "'%s' භාවිතා කරන්නන් කණ්ඩායම සංස්කරණය කරන්න"
 
 #: libraries/server_user_groups.lib.php:228
 #, fuzzy
