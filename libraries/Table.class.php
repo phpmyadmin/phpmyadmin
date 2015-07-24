@@ -489,7 +489,8 @@ class PMA_Table
      * @return mixed the number of records if "retain" param is true,
      *               otherwise true
      */
-    public function countRecords($force_exact = false) {
+    public function countRecords($force_exact = false)
+    {
         $is_view = $this->isView();
         $db = $this->_db_name;
         $table = $this->_name;
