@@ -231,8 +231,9 @@ class TableRelationController extends TableController
                 $multi_edit_columns_name, $_POST['destination_foreign_table'],
                 $_POST['destination_foreign_column'], $this->options_array,
                 $this->table,
-                isset($this->existrel_foreign) ?
-                    $this->existrel_foreign['foreign_keys_data'] : null
+                isset($this->existrel_foreign)
+                ? $this->existrel_foreign['foreign_keys_data']
+                : null
             );
         $this->response->addHTML($html);
 
