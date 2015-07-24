@@ -2722,13 +2722,12 @@ class PMA_DatabaseInterface
             define("PMA_DRIZZLE", false);
         }
 
-        return strtolower($schema_name) == 'information_schema'
-            || (!PMA_DRIZZLE
-                && strtolower($schema_name) == 'performance_schema')
-            || (PMA_DRIZZLE
-                && strtolower($schema_name) == 'data_dictionary')
-            || ($testForMysqlSchema && !PMA_DRIZZLE && $schema_name == 'mysql')
-            || (!PMA_DRIZZLE && strtolower($schema_name) == 'sys');
+        $schema_name = strtolower($schema_name);
+        return $schema_name == 'information_schema'
+            || (!PMA_DRIZZLE && $schema_name == 'performance_schema')
+            || (!PMA_DRIZZLE && $schema_name == 'mysql' && $testForMysqlSchema)
+            || (!PMA_DRIZZLE && $schema_name == 'sys')
+            || ( PMA_DRIZZLE && $schema_name == 'data_dictionary');
     }
 
     /**
