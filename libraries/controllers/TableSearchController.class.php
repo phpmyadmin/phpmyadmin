@@ -365,8 +365,7 @@ class TableSearchController extends TableController {
             if (isset($_POST['zoom_submit'])
                 && $_POST['criteriaColumnNames'][0] != 'pma_null'
                 && $_POST['criteriaColumnNames'][1] != 'pma_null'
-                && $_POST['criteriaColumnNames'][0]
-                != $_POST['criteriaColumnNames'][1]
+                && $_POST['criteriaColumnNames'][0] != $_POST['criteriaColumnNames'][1]
             ) {
                 $this->zoomSubmitAction($dataLabel, $goto);
             }

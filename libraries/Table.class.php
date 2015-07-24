@@ -1675,7 +1675,7 @@ class PMA_Table
         // we want to save the create time if the property is PROP_COLUMN_ORDER
         if (! $this->isView()
             && ($property == self::PROP_COLUMN_ORDER
-                || $property == self::PROP_COLUMN_VISIB)
+            || $property == self::PROP_COLUMN_VISIB)
         ) {
             $curr_create_time = $this->sGetStatusInfo('CREATE_TIME');
             if (isset($table_create_time)
