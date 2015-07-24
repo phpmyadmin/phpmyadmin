@@ -590,8 +590,8 @@ class PMA_Table
      * @return string  field specification
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
-                                         $attribute, $collation, $null, $default_type, $default_value,
-                                         $extra, $comment, $virtuality, $expression, $move_to
+        $attribute, $collation, $null, $default_type, $default_value,
+        $extra, $comment, $virtuality, $expression, $move_to
     ) {
         return PMA_Util::backquote($oldcol) . ' '
         . PMA_Table::generateFieldSpec(
@@ -622,7 +622,7 @@ class PMA_Table
      * @return int|true
      */
     static public function duplicateInfo($work, $pma_table, $get_fields,
-                                         $where_fields, $new_fields
+        $where_fields, $new_fields
     ) {
         $last_id = -1;
 
@@ -701,7 +701,7 @@ class PMA_Table
      * @return bool true if success, false otherwise
      */
     static public function moveCopy($source_db, $source_table, $target_db,
-                                    $target_table, $what, $move, $mode
+        $target_table, $what, $move, $mode
     ) {
 
         global $err_url;
@@ -1966,8 +1966,8 @@ class PMA_Table
      * @return boolean
      */
     public function updateInternalRelations($multi_edit_columns_name,
-                                            $destination_db, $destination_table, $destination_column,
-                                            $cfgRelation, $existrel
+        $destination_db, $destination_table, $destination_column,
+        $cfgRelation, $existrel
     ) {
         $updated = false;
         foreach ($destination_db as $master_field_md5 => $foreign_db) {
@@ -2053,8 +2053,8 @@ class PMA_Table
      * @return array
      */
     public function updateForeignKeys($destination_foreign_db,
-                                      $multi_edit_columns_name, $destination_foreign_table,
-                                      $destination_foreign_column, $options_array, $table, $existrel_foreign
+        $multi_edit_columns_name, $destination_foreign_table,
+        $destination_foreign_column, $options_array, $table, $existrel_foreign
     ) {
         $html_output = '';
         $preview_sql_data = '';
