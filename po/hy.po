@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2014-11-14 19:09+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hy/>\n"
+"PO-Revision-Date: 2015-07-24 16:24+0200\n"
+"Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
+"Language-Team: Armenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 2.1-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: changelog.php:37 license.php:28
 #, php-format
@@ -34,12 +34,12 @@ msgstr ""
 
 #: db_central_columns.php:130
 msgid "Click to sort."
-msgstr ""
+msgstr "Կտտացրեք՝ դասակարգելու համար։"
 
 #: db_central_columns.php:149
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr ""
+msgstr "1$s -ից %2$s տողերի ցուցադրում։"
 
 #: db_create.php:61
 #, php-format
@@ -53,10 +53,9 @@ msgstr "Տվյալների բազայի մեկնաբանությունը՝"
 #: db_datadict.php:94
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:997
 #: templates/columns_definitions/column_definitions_form.phtml:79
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Աղյուսակների մեկնաբանությունները՝"
 
 #: db_datadict.php:103 libraries/Index.class.php:699
 #: libraries/insert_edit.lib.php:1567
@@ -81,7 +80,7 @@ msgstr "Աղյուսակի մեկնաբանությունը"
 #: templates/tbl_relation/foreign_key_row.phtml:207
 #: templates/tbl_relation/internal_relational_row.phtml:71
 msgid "Column"
-msgstr "Սյուն"
+msgstr "Սյունակ"
 
 #: db_datadict.php:104 libraries/Index.class.php:696
 #: libraries/central_columns.lib.php:697
@@ -154,7 +153,7 @@ msgstr "Լռելյան"
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1036
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1059
 msgid "Links to"
-msgstr "Կապեր"
+msgstr "Հղումներ դեպի"
 
 #: db_datadict.php:110 libraries/config/messages.inc.php:144
 #: libraries/config/messages.inc.php:160 libraries/config/messages.inc.php:193
@@ -174,7 +173,7 @@ msgstr "Մեկնաբանություններ"
 #: libraries/structure.lib.php:2288 libraries/tracking.lib.php:921
 #: templates/columns_definitions/column_indexes.phtml:6
 msgid "Primary"
-msgstr ""
+msgstr "Առաջնային"
 
 #: db_datadict.php:155 js/messages.php:317 libraries/Index.class.php:567
 #: libraries/Index.class.php:606 libraries/Index.class.php:1018
@@ -230,13 +229,13 @@ msgstr "Այո"
 
 #: db_export.php:33
 msgid "View dump (schema) of database"
-msgstr "Ցուցադրել տվյալների բազայի dump-ը (սխեման)"
+msgstr "Ցուցադրել տվյալների բազայի դամփը (ուրվակազմը)"
 
 #: db_export.php:37 db_structure.php:88 db_tracking.php:89 export.php:387
 #: libraries/DBQbe.class.php:326
 #: libraries/navigation/NavigationTree.class.php:897
 msgid "No tables found in database."
-msgstr "Տվյալների բազայում աղյուսակներ չկան։"
+msgstr "Տվյալների բազայում աղյուսակներ չեն հայտնաբերվել։"
 
 #: db_export.php:50 libraries/ServerStatusData.class.php:128
 #: libraries/build_html_for_db.lib.php:28
@@ -291,36 +290,34 @@ msgid "The database name is empty!"
 msgstr "Տվյալների բազայի անունն նշված չէ"
 
 #: db_operations.php:140
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "%1$s տվյալների բազան վերանված է %2$s-ի"
+msgstr "%1$s տվյալների բազան վերանվել է %2$s-ի։"
 
 #: db_operations.php:152
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "%1$s տվյալների բազան պատճենված է %2$s-ում"
+msgstr "%1$s տվյալների բազան կրկնապատկվել է %2$s-ին։"
 
 #: db_operations.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
 #| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"phpMyAdmin-ի որոշ հնարավորություններ անհասանելի են։ Պատճառն իմանալու համար "
-"սեղմեք %sայստեղ%s։"
+msgstr "phpMyAdmin-ի կազմաձևի պաշարները կասեցվել են։ %sԻմացեք պատճառը այստեղ%s։"
 
 #: db_qbe.php:118
 msgid "You have to choose at least one column to display!"
-msgstr ""
+msgstr "Անհրաժեշտ է ընտրել առնվազն մեկ սյունակ՝ ցուցադրելու համար։"
 
 #: db_qbe.php:135
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Միացնել հարցումների %sտեսական կառուցողին%s"
+msgstr "Փոխարկել %sհարցումների տեսական կառուցողին%s"
 
 #: db_search.php:30 libraries/plugins/AuthenticationPlugin.class.php:70
 #: libraries/plugins/auth/AuthenticationConfig.class.php:103
@@ -331,23 +328,23 @@ msgstr "Մուտքն արգելված է"
 
 #: db_tracking.php:39 db_tracking.php:64
 msgid "Tracking data deleted successfully."
-msgstr ""
+msgstr "Հետագծման տվյալները հաջողությամբ ջնջվեցին։"
 
 #: db_tracking.php:48
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Նշված աղյուսակների համար %1$s տարբերակը ստեղծված է, հետագծումը միացրած է։"
 
 #: db_tracking.php:79
-#, fuzzy
 #| msgid "With selected:"
 msgid "No tables selected."
-msgstr "Նշվածները՝"
+msgstr "Որևէ աղյուսակ չի նշվել։"
 
 #: db_tracking.php:114
 msgid "Tracked tables"
-msgstr ""
+msgstr "Հետագծվող աղյուսակներ"
 
 #: db_tracking.php:125 db_tracking.php:287 libraries/Menu.class.php:247
 #: libraries/config/messages.inc.php:825
@@ -369,18 +366,18 @@ msgstr "Վերջին տարբերակը"
 
 #: db_tracking.php:127 libraries/tracking.lib.php:276
 msgid "Created"
-msgstr "Ստեղծված է"
+msgstr "Ստեղծված"
 
 #: db_tracking.php:128 libraries/tracking.lib.php:277
 msgid "Updated"
-msgstr "Թարմացված է"
+msgstr "Թարմացված"
 
 #: db_tracking.php:129 js/messages.php:243 libraries/Menu.class.php:550
 #: libraries/Util.class.php:4341 libraries/config.values.php:104
 #: libraries/rte/rte_events.lib.php:393 libraries/rte/rte_list.lib.php:101
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:278
 msgid "Status"
-msgstr "Վիճակը"
+msgstr "Կարգավիճակ"
 
 #: db_tracking.php:130 db_tracking.php:288 libraries/Index.class.php:693
 #: libraries/central_columns.lib.php:687 libraries/rte/rte_list.lib.php:74
@@ -402,10 +399,9 @@ msgid "Show"
 msgstr "Ցուցադրել"
 
 #: db_tracking.php:139 db_tracking.php:231
-#, fuzzy
 #| msgid "Delete"
 msgid "Delete tracking"
-msgstr "Հեռացնել"
+msgstr "Վերացնել հետագծումը"
 
 #: db_tracking.php:140
 msgid "Versions"
@@ -414,7 +410,7 @@ msgstr "Տարբերակներ"
 #: db_tracking.php:141 libraries/tracking.lib.php:288
 #: libraries/tracking.lib.php:456
 msgid "Tracking report"
-msgstr ""
+msgstr "Հետագծման զեկույց"
 
 #: db_tracking.php:142 libraries/tracking.lib.php:289
 #: libraries/tracking.lib.php:826
@@ -424,20 +420,20 @@ msgstr "Կառուցվածքի պատկերը"
 #: db_tracking.php:184 libraries/tracking.lib.php:418
 #: libraries/tracking.lib.php:1444
 msgid "not active"
-msgstr "անջատված է"
+msgstr "կասեցված"
 
 #: db_tracking.php:189 libraries/tracking.lib.php:416
 #: libraries/tracking.lib.php:1442
 msgid "active"
-msgstr "միացված է"
+msgstr "գործուն"
 
 #: db_tracking.php:277
 msgid "Untracked tables"
-msgstr ""
+msgstr "Չհետագծվող աղյուսակներ"
 
 #: db_tracking.php:303 db_tracking.php:334 libraries/structure.lib.php:1693
 msgid "Track table"
-msgstr ""
+msgstr "Հետագծել աղյուսակը"
 
 #: db_tracking.php:347
 msgid "Database Log"
@@ -448,108 +444,114 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Հայտնաբերվել է սխալ։ Սխալի վերաբերյալ զեկույցը ներկայացվել է ինքնաշխատ՝ ըստ "
+"ձեր կայանքների։"
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Շնորհակալություն՝ այս զեկույցը ներկայացնելու համար։"
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Հայտնաբերվել է սխալ։ Սխալի վերաբերյալ զեկույցը պատրաստվել է, սակայն դրա "
+"ուղարկումը ձախողվեց։"
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Եթե ձեզ մոտ առաջանում են որևէ խնդիրներ, խնդրում ենք սխալի վերաբերյալ "
+"զեկույցը ուղարկել ձեռքով։"
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Ցանկալի է թարմացնել էջը։"
 
 #: export.php:189 schema_export.php:61
 msgid "Bad type!"
-msgstr "Սխալ տեսակ"
+msgstr "Անվավեր տեսակ"
 
 #: export.php:281
 msgid "Bad parameters!"
-msgstr "Սխալ պարամետրեր"
+msgstr "Անվավեր հարաչափեր"
 
 #: file_echo.php:22
 msgid "Invalid export type"
-msgstr ""
+msgstr "Անվավեր արտահանման տեսակ"
 
 #: gis_data_editor.php:116
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" սյունակի համար արժեքը"
 
 #: gis_data_editor.php:144
 #: templates/gis_visualization/gis_visualization.phtml:37
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Օգտագործեք OpenStreetMaps որպես հիմնական շերտ"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:166
 msgid "SRID:"
-msgstr ""
+msgstr "SRID՝"
 
 #: gis_data_editor.php:189
 #, php-format
 msgid "Geometry %d:"
-msgstr ""
+msgstr "%d-ի երկրաչափությունը՝"
 
 #: gis_data_editor.php:211
 msgid "Point:"
-msgstr ""
+msgstr "Կետ՝"
 
 #: gis_data_editor.php:212 gis_data_editor.php:239 gis_data_editor.php:295
 #: gis_data_editor.php:368 js/messages.php:432
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:215 gis_data_editor.php:243 gis_data_editor.php:299
 #: gis_data_editor.php:374 js/messages.php:433
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:237 gis_data_editor.php:293 gis_data_editor.php:366
 #: js/messages.php:435
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "%d կետ"
 
 #: gis_data_editor.php:250 gis_data_editor.php:306 gis_data_editor.php:384
 #: js/messages.php:441
 msgid "Add a point"
-msgstr ""
+msgstr "Ավելացնել նոր կետ"
 
 #: gis_data_editor.php:267
 #, php-format
 msgid "Linestring %d:"
-msgstr ""
+msgstr "%d հատվածը՝"
 
 #: gis_data_editor.php:270 gis_data_editor.php:347
 msgid "Outer ring:"
-msgstr ""
+msgstr "Արտաքին ուրվագիծը՝"
 
 #: gis_data_editor.php:272 gis_data_editor.php:349
 #, php-format
 msgid "Inner ring %d:"
-msgstr ""
+msgstr "Ներքին ուրվագիծը՝"
 
 #: gis_data_editor.php:309
 msgid "Add a linestring"
-msgstr ""
+msgstr "Ավելացնել նոր հատված"
 
 #: gis_data_editor.php:310 gis_data_editor.php:389 js/messages.php:442
 msgid "Add an inner ring"
-msgstr ""
+msgstr "Ավելացնել ներքին ուրվագիծ"
 
 #: gis_data_editor.php:331
 #, php-format
 msgid "Polygon %d:"
-msgstr ""
+msgstr "%d բազմանկյուն՝"
 
 #: gis_data_editor.php:395
 msgid "Add a polygon"
@@ -10087,24 +10089,21 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1318
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1004
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Ստեղծում"
+msgstr "Ստեղծում՝"
 
 #: libraries/plugins/export/ExportSql.class.php:1331
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1011
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Վերջին թարմացումը"
+msgstr "Վերջին թարմացումը՝"
 
 #: libraries/plugins/export/ExportSql.class.php:1344
 #: libraries/plugins/schema/pdf/Pdf_Relation_Schema.class.php:1018
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Վերջին ստուգումը"
+msgstr "Վերջին ստուգումը՝"
 
 #: libraries/plugins/export/ExportSql.class.php:1392
 #: libraries/structure.lib.php:830
@@ -13400,7 +13399,7 @@ msgstr "%s աղյուսակն հեռացված է"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s աղյուսակ"
-msgstr[1] ""
+msgstr[1] "%s աղյուսակ"
 
 #: libraries/structure.lib.php:182
 msgid "Sum"
