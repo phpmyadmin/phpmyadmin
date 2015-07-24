@@ -36,7 +36,7 @@ class PMA_SVG extends XMLWriter
      *
      * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()
      */
-    function __construct()
+    public function __construct()
     {
         $this->openMemory();
         /*
@@ -64,9 +64,8 @@ class PMA_SVG extends XMLWriter
      * @param string $value sets the title text
      *
      * @return void
-     * @access public
      */
-    function setTitle($value)
+    public function setTitle($value)
     {
         $this->title = $value;
     }
@@ -77,9 +76,8 @@ class PMA_SVG extends XMLWriter
      * @param string $value sets the author
      *
      * @return void
-     * @access public
      */
-    function setAuthor($value)
+    public function setAuthor($value)
     {
         $this->author = $value;
     }
@@ -90,9 +88,8 @@ class PMA_SVG extends XMLWriter
      * @param string $value sets the font e.g Arial, Sans-serif etc
      *
      * @return void
-     * @access public
      */
-    function setFont($value)
+    public function setFont($value)
     {
         $this->font = $value;
     }
@@ -101,9 +98,8 @@ class PMA_SVG extends XMLWriter
      * Get document font
      *
      * @return string returns the font name
-     * @access public
      */
-    function getFont()
+    public function getFont()
     {
         return $this->font;
     }
@@ -114,9 +110,8 @@ class PMA_SVG extends XMLWriter
      * @param string $value sets the font size in pixels
      *
      * @return void
-     * @access public
      */
-    function setFontSize($value)
+    public function setFontSize($value)
     {
         $this->fontSize = $value;
     }
@@ -125,9 +120,8 @@ class PMA_SVG extends XMLWriter
      * Get document font size
      *
      * @return string returns the font size
-     * @access public
      */
-    function getFontSize()
+    public function getFontSize()
     {
         return $this->fontSize;
     }
@@ -143,11 +137,10 @@ class PMA_SVG extends XMLWriter
      * @param integer $height total height of the Svg document
      *
      * @return void
-     * @access public
      *
      * @see XMLWriter::startElement(),XMLWriter::writeAttribute()
      */
-    function startSvgDoc($width,$height)
+    public function startSvgDoc($width,$height)
     {
         $this->startElement('svg');
         $this->writeAttribute('width', $width);
@@ -160,10 +153,9 @@ class PMA_SVG extends XMLWriter
      * Ends Svg Document
      *
      * @return void
-     * @access public
      * @see XMLWriter::endElement(),XMLWriter::endDocument()
      */
-    function endSvgDoc()
+    public function endSvgDoc()
     {
         $this->endElement();
         $this->endDocument();
@@ -179,10 +171,9 @@ class PMA_SVG extends XMLWriter
      * @param string $fileName file name
      *
      * @return void
-     * @access public
      * @see XMLWriter::startElement(),XMLWriter::writeAttribute()
      */
-    function showOutput($fileName)
+    public function showOutput($fileName)
     {
         //ob_get_clean();
         $output = $this->flush();
@@ -215,12 +206,11 @@ class PMA_SVG extends XMLWriter
      * styles can be defined like CSS styles
      *
      * @return void
-     * @access public
      *
      * @see XMLWriter::startElement(), XMLWriter::writeAttribute(),
      * XMLWriter::text(), XMLWriter::endElement()
      */
-    function printElement($name, $x, $y, $width = '', $height = '',
+    public function printElement($name, $x, $y, $width = '', $height = '',
         $text = '', $styles = ''
     ) {
         $this->startElement($name);
@@ -253,12 +243,11 @@ class PMA_SVG extends XMLWriter
      *                        styles can be defined like CSS styles
      *
      * @return void
-     * @access public
      *
      * @see XMLWriter::startElement(), XMLWriter::writeAttribute(),
      * XMLWriter::endElement()
      */
-    function printElementLine($name,$x1,$y1,$x2,$y2,$styles)
+    public function printElementLine($name,$x1,$y1,$x2,$y2,$styles)
     {
         $this->startElement($name);
         $this->writeAttribute('x1', $x1);
@@ -401,9 +390,8 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * Output Svg Document for download
      *
      * @return void
-     * @access public
      */
-    function showOutput()
+    public function showOutput()
     {
         $this->diagram->showOutput($this->getFileName('.svg'));
     }
@@ -415,7 +403,6 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * @param string $table The table name
      *
      * @return void
-     * @access private
      */
     private function _setMinMax($table)
     {
@@ -436,7 +423,6 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * @param string  $foreignField   The relation field in the foreign table
      * @param boolean $tableDimension Whether to display table position or not
      *
-     * @access private
      * @return void
      *
      * @see _setMinMax,Table_Stats_Svg::__construct(),
@@ -477,7 +463,6 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * foreign table's foreign field
      *
      * @return void
-     * @access private
      *
      * @see Relation_Stats_Svg::relationDraw()
      */
@@ -492,7 +477,6 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * Draws tables
      *
      * @return void
-     * @access private
      *
      * @see Table_Stats_Svg::Table_Stats_tableDraw()
      */

@@ -37,7 +37,7 @@ class Container
      *
      * @param Container $base Container
      */
-    function __construct(Container $base = null)
+    public function __construct(Container $base = null)
     {
         if (isset($base)) {
             $this->content = $base->content;

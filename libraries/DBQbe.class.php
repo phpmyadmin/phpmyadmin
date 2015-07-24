@@ -1148,7 +1148,7 @@ class PMA_DbQbe
                 $select_clauses[] = $select;
             }
         } // end for
-        if ($select_clauses) {
+        if (!empty($select_clauses)) {
             $select_clause = 'SELECT '
                 . htmlspecialchars(implode(", ", $select_clauses)) . "\n";
         }
@@ -1263,7 +1263,7 @@ class PMA_DbQbe
         $field = $this->_curField;
         $sort = $this->_curSort;
         $sortOrder = $this->_curSortOrder;
-        if ($sortOrder
+        if (!empty($sortOrder)
             && count($sortOrder) == count($sort)
             && count($sortOrder) == count($field)
         ) {
@@ -1294,7 +1294,7 @@ class PMA_DbQbe
                     . $sort[$column_index];
             }
         } // end for
-        if ($orderby_clauses) {
+        if (!empty($orderby_clauses)) {
             $orderby_clause = 'ORDER BY '
                 . htmlspecialchars(implode(", ", $orderby_clauses)) . "\n";
         }

@@ -20,8 +20,6 @@ class Node_View_Container extends Node_DatabaseChild_Container
 {
     /**
      * Initialises the class
-     *
-     * @return Node_View_Container
      */
     public function __construct()
     {

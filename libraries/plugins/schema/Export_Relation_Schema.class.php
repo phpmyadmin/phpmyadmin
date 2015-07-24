@@ -25,7 +25,7 @@ class PMA_Export_Relation_Schema
      * @param string $db      database name
      * @param object $diagram schema diagram
      */
-    function __construct($db, $diagram)
+    public function __construct($db, $diagram)
     {
         $this->db = $db;
         $this->diagram = $diagram;
@@ -52,8 +52,6 @@ class PMA_Export_Relation_Schema
      * @param integer $value Page Number of the document to be created
      *
      * @return void
-     *
-     * @access public
      */
     public function setPageNumber($value)
     {
@@ -98,8 +96,6 @@ class PMA_Export_Relation_Schema
      * @param boolean $value show table co-ordinates or not
      *
      * @return void
-     *
-     * @access public
      */
     public function setTableDimension($value)
     {
@@ -122,8 +118,6 @@ class PMA_Export_Relation_Schema
      * @param boolean $value set same width of all tables or not
      *
      * @return void
-     *
-     * @access public
      */
     public function setAllTablesSameWidth($value)
     {

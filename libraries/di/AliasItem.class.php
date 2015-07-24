@@ -30,7 +30,7 @@ class AliasItem implements Item
      * @param Container $container Container
      * @param string    $target    Target
      */
-    function __construct(Container $container, $target)
+    public function __construct(Container $container, $target)
     {
         $this->container = $container;
         $this->target = $target;

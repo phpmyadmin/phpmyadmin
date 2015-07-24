@@ -273,7 +273,7 @@ class PMA_Footer
      */
     public function setAjax($isAjax)
     {
-        $this->_isAjax = ($isAjax == true);
+        $this->_isAjax = !!$isAjax;
     }
 
     /**

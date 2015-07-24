@@ -48,7 +48,7 @@ class Relation_Stats_Dia
      *
      * @see Relation_Stats_Dia::_getXy
      */
-    function __construct(
+    public function __construct(
         $diagram, $master_table, $master_field, $foreign_table, $foreign_field
     ) {
         $this->diagram = $diagram;

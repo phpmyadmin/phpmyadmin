@@ -5033,7 +5033,7 @@ class PMA_DisplayResults
         }
         // if empty result set was produced we need to
         // show only view and not other options
-        if ($only_view == true) {
+        if ($only_view) {
             $results_operations_html .= $this->_getLinkForCreateView(
                 $analyzed_sql_results, $url_query
             );

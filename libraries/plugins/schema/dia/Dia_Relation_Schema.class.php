@@ -30,7 +30,7 @@ class PMA_DIA extends XMLWriter
      *
      * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()
      */
-    function __construct()
+    public function __construct()
     {
         $this->openMemory();
         /*
@@ -66,7 +66,7 @@ class PMA_DIA extends XMLWriter
      * @see XMLWriter::startElement(),XMLWriter::writeAttribute(),
      *      XMLWriter::writeRaw()
      */
-    function startDiaDoc($paper, $topMargin, $bottomMargin, $leftMargin,
+    public function startDiaDoc($paper, $topMargin, $bottomMargin, $leftMargin,
         $rightMargin, $orientation
     ) {
         if ($orientation == 'P') {
@@ -153,7 +153,7 @@ class PMA_DIA extends XMLWriter
      * @access public
      * @see XMLWriter::endElement(),XMLWriter::endDocument()
      */
-    function endDiaDoc()
+    public function endDiaDoc()
     {
         $this->endElement();
         $this->endDocument();
@@ -168,7 +168,7 @@ class PMA_DIA extends XMLWriter
      * @access public
      * @see XMLWriter::flush()
      */
-    function showOutput($fileName)
+    public function showOutput($fileName)
     {
         if (ob_get_clean()) {
             ob_end_clean();
@@ -222,7 +222,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @see PMA_DIA,Table_Stats_Dia,Relation_Stats_Dia
      */
-    function __construct($db)
+    private function __construct($db)
     {
         parent::__construct($db, new PMA_DIA());
 
@@ -299,7 +299,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      * @access public
      */
-    function showOutput()
+    public function showOutput()
     {
         $this->diagram->showOutput($this->getFileName('.dia'));
     }

@@ -100,11 +100,9 @@ class PMA_Schema_PDF extends PMA_PDF
      * @param float|int $leftMargin The left margin
      * @param float|int $topMargin  The top margin
      *
-     * @access public
-     *
      * @return void
      */
-    function setScale($scale = 1, $xMin = 0, $yMin = 0,
+    public function setScale($scale = 1, $xMin = 0, $yMin = 0,
         $leftMargin = -1, $topMargin = -1
     ) {
         $this->scale = $scale;
@@ -130,13 +128,11 @@ class PMA_Schema_PDF extends PMA_PDF
      * @param integer   $fill   Whether to fill the cell with a color or not
      * @param string    $link   Link
      *
-     * @access public
-     *
      * @return void
      *
      * @see TCPDF::Cell()
      */
-    function cellScale($w, $h = 0, $txt = '', $border = 0, $ln = 0,
+    public function cellScale($w, $h = 0, $txt = '', $border = 0, $ln = 0,
         $align = '', $fill = 0, $link = ''
     ) {
         $h = $h / $this->scale;
@@ -152,13 +148,11 @@ class PMA_Schema_PDF extends PMA_PDF
      * @param float $x2 The horizontal position of the ending point
      * @param float $y2 The vertical position of the ending point
      *
-     * @access public
-     *
      * @return void
      *
      * @see TCPDF::Line()
      */
-    function lineScale($x1, $y1, $x2, $y2)
+    public function lineScale($x1, $y1, $x2, $y2)
     {
         $x1 = ($x1 - $this->_xMin) / $this->scale + $this->leftMargin;
         $y1 = ($y1 - $this->_yMin) / $this->scale + $this->topMargin;
@@ -173,13 +167,11 @@ class PMA_Schema_PDF extends PMA_PDF
      * @param float $x The x position
      * @param float $y The y position
      *
-     * @access public
-     *
      * @return void
      *
      * @see TCPDF::SetXY()
      */
-    function setXyScale($x, $y)
+    public function setXyScale($x, $y)
     {
         $x = ($x - $this->_xMin) / $this->scale + $this->leftMargin;
         $y = ($y - $this->_yMin) / $this->scale + $this->topMargin;
@@ -191,13 +183,11 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @param float $x The x position
      *
-     * @access public
-     *
      * @return void
      *
      * @see TCPDF::SetX()
      */
-    function setXScale($x)
+    public function setXScale($x)
     {
         $x = ($x - $this->_xMin) / $this->scale + $this->leftMargin;
         $this->SetX($x);
@@ -208,13 +198,11 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @param float $size The font size (in points)
      *
-     * @access public
-     *
      * @return void
      *
      * @see TCPDF::SetFontSize()
      */
-    function setFontSizeScale($size)
+    public function setFontSizeScale($size)
     {
         // Set font size in points
         $size = $size / $this->scale;
@@ -226,13 +214,11 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @param float $width The line width
      *
-     * @access public
-     *
      * @return void
      *
      * @see TCPDF::SetLineWidth()
      */
-    function setLineWidthScale($width)
+    public function setLineWidthScale($width)
     {
         $width = $width / $this->scale;
         $this->SetLineWidth($width);
@@ -245,7 +231,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @see TCPDF::Header()
      */
-    function Header()
+    public function Header()
     {
         // We only show this if we find something in the new pdf_pages table
 
@@ -278,7 +264,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @see PMA_PDF::Footer()
      */
-    function Footer()
+    public function Footer()
     {
         if ($this->_withDoc) {
             parent::Footer();
@@ -292,7 +278,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @return void
      */
-    function SetWidths($w)
+    public function SetWidths($w)
     {
         // column widths
         $this->widths = $w;
@@ -306,7 +292,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @return void
      */
-    function Row($data, $links)
+    public function Row($data, $links)
     {
         // line height
         $nb = 0;
@@ -347,7 +333,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @return int
      */
-    function NbLines($w, $txt)
+    public function NbLines($w, $txt)
     {
         $cw = &$this->CurrentFont['cw'];
         if ($w == 0) {
@@ -432,6 +418,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     private $_showGrid;
     private $_withDoc;
     private $_tableOrder;
+
     /**
      * @var Table_Stats_Pdf[]
      */
@@ -447,6 +434,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     private $_leftMargin = 10;
     private $_rightMargin = 10;
     private $_tablewidth;
+
     /**
      * @var Relation_Stats_Pdf[]
      */
@@ -457,10 +445,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @param string $db database name
      *
-     * @access private
      * @see PMA_Schema_PDF
      */
-    function __construct($db)
+    public function __construct($db)
     {
         $this->setShowGrid(isset($_REQUEST['pdf_show_grid']));
         $this->setShowColor(isset($_REQUEST['pdf_show_color']));
@@ -623,8 +610,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * @param boolean $value show grid of the document or not
      *
      * @return void
-     *
-     * @access public
      */
     public function setShowGrid($value)
     {
@@ -647,8 +632,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * @param boolean $value show selected database data dictionary or not
      *
      * @return void
-     *
-     * @access public
      */
     public function setWithDataDictionary($value)
     {
@@ -671,8 +654,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * @param string $value table order
      *
      * @return void
-     *
-     * @access public
      */
     public function setTableOrder($value)
     {
@@ -693,9 +674,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * Output Pdf Document for download
      *
      * @return void
-     * @access public
      */
-    function showOutput()
+    public function showOutput()
     {
         $this->diagram->Download($this->getFileName('.pdf'));
     }
@@ -706,8 +686,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * @param Table_Stats_Pdf $table The table name of which sets XY co-ordinates
      *
      * @return void
-     *
-     * @access private
      */
     private function _setMinMax($table)
     {
@@ -724,8 +702,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * @param string $masterField  The relation field in the master table
      * @param string $foreignTable The foreign table name
      * @param string $foreignField The relation field in the foreign table
-     *
-     * @access private
      *
      * @return void
      *
@@ -771,8 +747,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
     /**
      * Draws the grid
-     *
-     * @access private
      *
      * @return void
      *
@@ -841,8 +815,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Draws relation arrows
      *
-     * @access private
-     *
      * @return void
      *
      * @see Relation_Stats_Pdf::relationdraw()
@@ -858,8 +830,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
     /**
      * Draws tables
-     *
-     * @access private
      *
      * @return void
      *

@@ -55,7 +55,7 @@ class PMA_DatabaseInterface
      *
      * @param PMA_DBI_Extension $ext Object to be used for database queries
      */
-    function __construct($ext)
+    public function __construct($ext)
     {
         $this->_extension = $ext;
         $this->_table_cache = array();
@@ -253,7 +253,8 @@ class PMA_DatabaseInterface
             $time = microtime(true) - $time;
             $this->_dbgQuery($query, $link, $result, $time);
         }
-        if ($result != false && PMA_Tracker::isActive() == true ) {
+
+        if ((!empty($result)) && (PMA_Tracker::isActive())) {
             PMA_Tracker::handleQuery($query);
         }
 
@@ -2289,7 +2290,7 @@ class PMA_DatabaseInterface
                     . " = '" . PMA_Util::sqlAddSlashes($name) . "'";
             }
             $result = $this->fetchResult($query);
-            if ($result) {
+            if (!empty($result)) {
                 $routines = $result;
             }
         } else {
@@ -2301,7 +2302,7 @@ class PMA_DatabaseInterface
                         . PMA_Util::sqlAddSlashes($name) . "'";
                 }
                 $result = $this->fetchResult($query);
-                if ($result) {
+                if (!empty($result)) {
                     $routines = array_merge($routines, $result);
                 }
             }
@@ -2313,7 +2314,7 @@ class PMA_DatabaseInterface
                         . PMA_Util::sqlAddSlashes($name) . "'";
                 }
                 $result = $this->fetchResult($query);
-                if ($result) {
+                if (!empty($result)) {
                     $routines = array_merge($routines, $result);
                 }
             }

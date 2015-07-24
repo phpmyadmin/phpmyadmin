@@ -56,7 +56,7 @@ class PMA_Console
      */
     public function setAjax($isAjax)
     {
-        $this->_isAjax = ($isAjax == true);
+        $this->_isAjax = !!$isAjax;
     }
 
     /**

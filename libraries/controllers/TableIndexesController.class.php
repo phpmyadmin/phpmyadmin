@@ -41,7 +41,7 @@ class TableIndexesController extends TableController
      *
      * @param PMA_Index $index Index
      */
-    function __construct($index)
+    public function __construct($index)
     {
         parent::__construct();
 
