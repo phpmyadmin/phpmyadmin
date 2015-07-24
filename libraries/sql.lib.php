@@ -21,7 +21,7 @@ function PMA_parseAndAnalyze($sql_query, $db = null)
     }
 
     // `$sql_query` is being used inside `parse_analyze.inc.php`.
-    return require 'libraries/parse_analyze.inc.php';
+    return include 'libraries/parse_analyze.inc.php';
 }
 
 /**
