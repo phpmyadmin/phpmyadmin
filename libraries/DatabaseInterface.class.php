@@ -99,9 +99,10 @@ class PMA_DatabaseInterface
     /**
      * Get a cached value from table cache.
      *
-     * @param $contentPath string  Dot notation of the target value
-     * @param $default     mixed   Return value on cache miss
-     * @return mixed
+     * @param string $contentPath Dot notation of the target value
+     * @param mixed  $default     Return value on cache miss
+     *
+     * @return mixed cached value or default
      */
     public function getCachedTableContent($contentPath, $default = null) {
         return Util\get($this->_table_cache, $contentPath, $default);
@@ -110,8 +111,10 @@ class PMA_DatabaseInterface
     /**
      * Set an item in table cache using dot notation.
      *
-     * @param $contentPath string  Dot notation of the target path
-     * @param $value       mixed   Target value
+     * @param string $contentPath Dot notation of the target path
+     * @param mixed  $value       Target value
+     *
+     * @return void
      */
     public function cacheTableContent($contentPath, $value) {
         $loc = &$this->_table_cache;
@@ -140,6 +143,8 @@ class PMA_DatabaseInterface
 
     /**
      * Clear the table cache.
+     *
+     * @return void
      */
     public function clearTableCache() {
         $this->_table_cache = array();
