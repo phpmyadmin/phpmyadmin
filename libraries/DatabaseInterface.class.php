@@ -2718,10 +2718,6 @@ class PMA_DatabaseInterface
      */
     public function isSystemSchema($schema_name, $testForMysqlSchema = false)
     {
-        if (!defined("PMA_DRIZZLE")) {
-            define("PMA_DRIZZLE", false);
-        }
-
         $schema_name = strtolower($schema_name);
         return $schema_name == 'information_schema'
             || (!PMA_DRIZZLE && $schema_name == 'performance_schema')
