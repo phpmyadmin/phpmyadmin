@@ -17,8 +17,8 @@ require_once 'libraries/controllers/TableController.class.php';
 
 
 
-class TableSearchController extends TableController {
-
+class TableSearchController extends TableController
+{
     /**
      * Normal search or Zoom search
      *
@@ -381,7 +381,7 @@ class TableSearchController extends TableController {
     public function zoomSubmitAction($dataLabel, $goto)
     {
         //Query generation part
-        $sql_query = $this->buildSqlQuery();
+        $sql_query = $this->_buildSqlQuery();
         $sql_query .= ' LIMIT ' . $_POST['maxPlotLimit'];
 
         //Query execution part
@@ -512,7 +512,7 @@ class TableSearchController extends TableController {
         /**
          * Selection criteria have been submitted -> do the work
          */
-        $sql_query = $this->buildSqlQuery();
+        $sql_query = $this->_buildSqlQuery();
 
         /**
          * Add this to ensure following procedures included running correctly.
@@ -659,8 +659,8 @@ class TableSearchController extends TableController {
      *
      * @return string HTML for previewing strings found and their replacements
      */
-    function getReplacePreview($columnIndex, $find, $replaceWith, $useRegex,
-                               $charSet
+    function getReplacePreview(
+        $columnIndex, $find, $replaceWith, $useRegex, $charSet
     ) {
         $column = $this->_columnNames[$columnIndex];
         if ($useRegex) {
@@ -711,8 +711,9 @@ class TableSearchController extends TableController {
      *
      * @return array Array containing original values, replaced values and count
      */
-    private function _getRegexReplaceRows($columnIndex, $find, $replaceWith, $charSet)
-    {
+    private function _getRegexReplaceRows(
+        $columnIndex, $find, $replaceWith, $charSet
+    ) {
         $column = $this->_columnNames[$columnIndex];
         $sql_query = "SELECT "
             . PMA_Util::backquote($column) . ","
@@ -850,7 +851,7 @@ class TableSearchController extends TableController {
      *
      * @return string the generated SQL query
      */
-    private function buildSqlQuery()
+    private function _buildSqlQuery()
     {
         $sql_query = 'SELECT ';
 
@@ -1052,7 +1053,7 @@ class TableSearchController extends TableController {
      * @return string part of where clause.
      */
     private function _getGeomWhereClause($criteriaValues, $names,
-                                         $func_type, $types, $geom_func = null
+        $func_type, $types, $geom_func = null
     ) {
         $geom_unary_functions = array(
             'IsEmpty' => 1,
@@ -1108,7 +1109,7 @@ class TableSearchController extends TableController {
      * @return string generated where clause.
      */
     private function _getWhereClause($criteriaValues, $names, $types,
-                                     $func_type, $unaryFlag, $geom_func = null
+        $func_type, $unaryFlag, $geom_func = null
     ) {
         // If geometry function is set
         if ($geom_func != null && trim($geom_func) != '') {
