@@ -8,7 +8,7 @@ use PMA_DatabaseInterface;
 use PMA_Util;
 
 require_once 'libraries/common.inc.php';
-include_once 'libraries/tbl_info.inc.php';
+require_once 'libraries/tbl_info.inc.php';
 require_once 'libraries/Template.class.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/sql.lib.php';
@@ -307,7 +307,7 @@ class TableSearchController extends TableController {
             $this->url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
             // Gets tables information
-            require_once './libraries/tbl_info.inc.php';
+            include_once './libraries/tbl_info.inc.php';
 
             if (!isset($goto)) {
                 $goto = PMA_Util::getScriptNameForOption(
