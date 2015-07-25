@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-24 22:09+0200\n"
+"PO-Revision-Date: 2015-07-25 06:41+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -1180,10 +1180,9 @@ msgid "Template was updated."
 msgstr ""
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "Template was deleted."
-msgstr "%s աղյուսակն դատարկված է"
+msgstr "Ձևանմուշը ջնջվեց։"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:135 libraries/ServerStatusData.class.php:132
@@ -1721,10 +1720,9 @@ msgid "Cancel"
 msgstr "Չեղարկել"
 
 #: js/messages.php:296 libraries/Header.class.php:459
-#, fuzzy
 #| msgid "Replication"
 msgid "Page-related settings"
-msgstr "Վերարադրում"
+msgstr "Էջերի կայանքներ"
 
 #: js/messages.php:297 libraries/config/FormDisplay.tpl.php:402
 msgid "Apply"
@@ -5068,22 +5066,19 @@ msgid "Never send error reports"
 msgstr ""
 
 #: libraries/config.values.php:132
-#, fuzzy
 #| msgid "Default"
 msgid "Server default"
-msgstr "Լռելյան"
+msgstr "Լռելյայն սպասարկիչ"
 
 #: libraries/config.values.php:133
-#, fuzzy
 #| msgid "Table"
 msgid "Enable"
-msgstr "Աղյուսակ"
+msgstr "Միացնել"
 
 #: libraries/config.values.php:134
-#, fuzzy
 #| msgid "Table"
 msgid "Disable"
-msgstr "Աղյուսակ"
+msgstr "Կասեցնել"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -5480,10 +5475,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Table"
 msgid "Enable linter"
-msgstr "Աղյուսակ"
+msgstr "Միացնել linter"
 
 #: libraries/config/messages.inc.php:65
 msgid ""
@@ -5883,10 +5877,9 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Foreign key checks"
-msgstr "Ավելացնել սահմանափակում"
+msgstr "Արտաքին բանալիների ստուգումներ"
 
 #: libraries/config/messages.inc.php:225
 msgid "Browse mode"
@@ -5980,16 +5973,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr ""
 
 #: libraries/config/messages.inc.php:253
-#, fuzzy
 #| msgid "Table comments"
 msgid "Navigation tree"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Նավարկման ծառ"
 
 #: libraries/config/messages.inc.php:254
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Customize the navigation tree."
-msgstr "Աղյուսակներ՝"
+msgstr "Ընտելացնել նավարկման ծառը։"
 
 #: libraries/config/messages.inc.php:255 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
@@ -6542,28 +6533,25 @@ msgid "Enable navigation tree expansion"
 msgstr "Միացնել նավարկման ծառի ընդարձակումը"
 
 #: libraries/config/messages.inc.php:492
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Show tables in tree"
-msgstr "Աղյուսակներ՝"
+msgstr "Ցուցադրել աղյուսակները ծառում"
 
 #: libraries/config/messages.inc.php:494
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "Աղյուսակներ՝"
+msgstr "Աչդյո՞ք ցուցադրել աղյուսակները նավարկման ծառում՝ տվյալների բազայի տակ"
 
 #: libraries/config/messages.inc.php:495
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Show views in tree"
-msgstr "Աղյուսակներ՝"
+msgstr "Ցուցադրել ներկայացումները ծառում"
 
 #: libraries/config/messages.inc.php:497
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Աղյուսակներ՝"
+msgstr ""
+"Աչդյո՞ք ցուցադրել ներակայցումները նավարկման խառում՝ տվյալների բազայի տակ"
 
 #: libraries/config/messages.inc.php:498
 msgid "Show functions in tree"
@@ -6582,16 +6570,15 @@ msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
 #: libraries/config/messages.inc.php:504
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Show events in tree"
-msgstr "Աղյուսակներ՝"
+msgstr "Ցուցադրել իրադարձությունները ծառում"
 
 #: libraries/config/messages.inc.php:506
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Աղյուսակներ՝"
+msgstr ""
+"Արդյո՞ք ցուցադրել իրադարձությունները նավարկման ծառում՝ տվյալների բազայի տակ"
 
 #: libraries/config/messages.inc.php:508
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -7291,10 +7278,9 @@ msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
 
 #: libraries/config/messages.inc.php:780
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Ցուցադրել աղյուսակի մեկնաբանությունները"
 
 #: libraries/config/messages.inc.php:781
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -7796,20 +7782,18 @@ msgid "Exporting rows from \"%s\" table"
 msgstr ""
 
 #: libraries/display_export.lib.php:203
-#, fuzzy
 #| msgid "Export"
 msgid "Export templates:"
-msgstr "Արտահանում"
+msgstr "Արտահանել ձևանմուշները՝"
 
 #: libraries/display_export.lib.php:208
 msgid "New template:"
 msgstr ""
 
 #: libraries/display_export.lib.php:211
-#, fuzzy
 #| msgid "The database name is empty!"
 msgid "Template name"
-msgstr "Տվյալների բազայի անունն նշված չէ"
+msgstr "Ձևանմուշի անունը"
 
 #: libraries/display_export.lib.php:220
 msgid "Existing templates:"
@@ -7820,22 +7804,19 @@ msgid "Template:"
 msgstr ""
 
 #: libraries/display_export.lib.php:226
-#, fuzzy
 #| msgid "Updated"
 msgid "Update"
-msgstr "Թարմացված է"
+msgstr "Արդիացում"
 
 #: libraries/display_export.lib.php:248
-#, fuzzy
 #| msgid "Select All"
 msgid "Select a template"
-msgstr "Նշել բոլորը"
+msgstr "Ընտրեք ձևանմուշը"
 
 #: libraries/display_export.lib.php:294
-#, fuzzy
 #| msgid "Export"
 msgid "Export method:"
-msgstr "Արտահանում"
+msgstr "Արտահանման եղանակը՝"
 
 #: libraries/display_export.lib.php:304
 msgid "Quick - display only the minimal options"
@@ -8914,10 +8895,9 @@ msgid "phpMyAdmin documentation"
 msgstr ""
 
 #: libraries/navigation/NavigationHeader.class.php:207
-#, fuzzy
 #| msgid "Table comments"
 msgid "Navigation panel settings"
-msgstr "Աղյուսակի մեկնաբանությունը"
+msgstr "Նավարկման գոտու կայանքներ"
 
 #: libraries/navigation/NavigationHeader.class.php:218
 #| msgid "Table comments"
@@ -9325,10 +9305,9 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:74
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to"
-msgstr "Վերնվանել տվյալների բազան"
+msgstr "Վերանվանել տվյալների բազան"
 
 #: libraries/operations.lib.php:94 libraries/operations.lib.php:242
 #: libraries/operations.lib.php:861 libraries/operations.lib.php:955
@@ -9375,10 +9354,9 @@ msgid "Data only"
 msgstr "Միայն տվյալները"
 
 #: libraries/operations.lib.php:201
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to"
-msgstr "Պատճենել տվյալների բազան"
+msgstr "Կրկնապատկել տվյալների բազան"
 
 #: libraries/operations.lib.php:213
 msgid "CREATE DATABASE before copying"
@@ -9445,10 +9423,9 @@ msgid "Check table"
 msgstr "Ստուգել աղյուսակը"
 
 #: libraries/operations.lib.php:1426 libraries/structure.lib.php:341
-#, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
-msgstr "Ստուգել աղյուսակը"
+msgstr "Ստուգել աղյուսակի ստւգագումարը"
 
 #: libraries/operations.lib.php:1441
 msgid "Defragment table"
@@ -9885,10 +9862,9 @@ msgid "Dumping data"
 msgstr ""
 
 #: libraries/plugins/export/ExportPdf.class.php:285
-#, fuzzy
 #| msgid "Structure only"
 msgid "View structure"
-msgstr "Միայն կառուղվածքը"
+msgstr "Դիտել կառուցվածքը"
 
 #: libraries/plugins/export/ExportPdf.class.php:288
 msgid "Stand in"
@@ -9911,10 +9887,9 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:161
-#, fuzzy
 #| msgid "Export"
 msgid "Export metadata"
-msgstr "Արտահանում"
+msgstr "Արտահանել անդրտվյալները"
 
 #: libraries/plugins/export/ExportSql.class.php:176
 msgid ""
@@ -10026,10 +10001,9 @@ msgid "It appears your database uses functions;"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:978
-#, fuzzy
 #| msgid "Export"
 msgid "Metadata"
-msgstr "Արտահանում"
+msgstr "Անդրտվյալներ"
 
 #: libraries/plugins/export/ExportSql.class.php:1055
 #, php-format
@@ -10299,22 +10273,19 @@ msgid "Data Dictionary"
 msgstr "Տվյալների բառարան"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:99
-#, fuzzy
 #| msgid "Search in database"
 msgid "Order of the tables"
-msgstr "Որոնումը տվյալների բազայում"
+msgstr "Դասակարգել աղյուսակները"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:103
-#, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Աճման կարգով"
+msgstr "Անուն (ըստ աճման)"
 
 #: libraries/plugins/schema/SchemaPdf.class.php:104
-#, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Նվազման կարգով"
+msgstr "Անուն (ըստ նվազման)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.class.php:65
 #: libraries/plugins/schema/eps/TableStatsEps.class.php:80
@@ -10651,10 +10622,9 @@ msgid "Remembering Designer Settings"
 msgstr ""
 
 #: libraries/relation.lib.php:338
-#, fuzzy
 #| msgid "Delete"
 msgid "Saving export templates"
-msgstr "Հեռացնել"
+msgstr "Արտահանման ձևանմուշների պահպանում"
 
 #: libraries/relation.lib.php:346
 msgid "Quick steps to setup advanced features:"
@@ -11807,19 +11777,17 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1503
-#, fuzzy
 #| msgid "Constraint name"
 msgid "Host name:"
-msgstr "Սահմանափակման անվանում"
+msgstr "Խնամորդի անունը՝"
 
 #: libraries/server_privileges.lib.php:1508
 #: libraries/server_privileges.lib.php:1610
 #: libraries/server_privileges.lib.php:2242
 #: libraries/server_privileges.lib.php:3203
-#, fuzzy
 #| msgid "Constraint name"
 msgid "Host name"
-msgstr "Սահմանափակման անվանում"
+msgstr "Խնամորդի անունը"
 
 #: libraries/server_privileges.lib.php:1645
 msgid "Do not change the password"
@@ -11837,16 +11805,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1933
 #: libraries/server_privileges.lib.php:4063
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Add user account"
-msgstr "Սյուներ՝"
+msgstr "Ավելացնել օգտվողի հաշիվ"
 
 #: libraries/server_privileges.lib.php:1942
-#, fuzzy
 #| msgid "Database comment"
 msgid "Database for user account"
-msgstr "Տվյալների բազայի մեկնաբանությունը՝ "
+msgstr "Տվյալների բազա՝ օգտվողի հաշվի համար"
 
 #: libraries/server_privileges.lib.php:1946
 msgid "Create database with same name and grant all privileges."
@@ -11964,10 +11930,9 @@ msgid "Add privileges on the following table:"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "With selected:"
 msgid "Remove selected user accounts"
-msgstr "Նշվածները՝"
+msgstr "Ջնջել նշված օգտվողների հաշիվները"
 
 #: libraries/server_privileges.lib.php:3376
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -13078,16 +13043,14 @@ msgid "Unexpected dot."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/Expression.php:324
-#, fuzzy
 #| msgid "With selected:"
 msgid "An alias was expected."
-msgstr "Նշվածները՝"
+msgstr "Սպասվում էր այլանունը։"
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:93
-#, fuzzy
 #| msgid "With selected:"
 msgid "An expression was expected."
-msgstr "Նշվածները՝"
+msgstr "Սպասվում էր արտահայտությունը։"
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:255
 msgid "A closing bracket was expected."
@@ -13116,10 +13079,9 @@ msgid "The new name of the table was expected."
 msgstr ""
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:147
-#, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "A rename operation was expected."
-msgstr "%s աղյուսակն դատարկված է"
+msgstr "Սպասվում էր վերանվանման գործողությունը։"
 
 #: libraries/sql-parser/src/Lexer.php:252
 msgid "Unexpected character."
@@ -13267,10 +13229,9 @@ msgid "Get auto-saved query"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:261
-#, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "Սխալ պարամետրեր"
+msgstr "Կապել հարաչափերը"
 
 #: libraries/sql_query_form.lib.php:308
 msgid "Bookmark this SQL query:"
@@ -14182,10 +14143,9 @@ msgid "Toggle"
 msgstr ""
 
 #: templates/designer/database_tables.phtml:40
-#, fuzzy
 #| msgid "Structure only"
 msgid "See table structure"
-msgstr "Միայն կառուղվածքը"
+msgstr "Դիտել աղյուսակի կառուցվածքը"
 
 #: templates/designer/delete_relation_panel.phtml:21
 msgid "Delete relation"
@@ -14574,10 +14534,9 @@ msgid "Series column:"
 msgstr "Շարքի սյունակ՝"
 
 #: templates/tbl_chart.phtml:130
-#, fuzzy
 #| msgid "Inside column:"
 msgid "Value Column:"
-msgstr "Սյուներ՝"
+msgstr "Արժեքի սյունակը՝"
 
 #: templates/tbl_chart.phtml:150
 msgid "Save chart as image"

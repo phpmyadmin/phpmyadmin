@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-23 21:46+0200\n"
+"PO-Revision-Date: 2015-07-25 12:41+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
@@ -3905,7 +3905,7 @@ msgstr ""
 #: libraries/Linter.class.php:83
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
-msgstr ""
+msgstr "Linting je za to poizvedbo onemogočen, ker presega največjo dolžino."
 
 #: libraries/Linter.class.php:147
 #, php-format
@@ -13834,86 +13834,78 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr "Izbira je v sporu z \"%1$s\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:102
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Število odprtih tabel."
+msgstr "Pričakovali smo staro ime tabele."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:112
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Pričakovali smo ključno besedo \"TO\"."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:129
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Število odprtih tabel."
+msgstr "Pričakovali smo novo ime tabele."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:147
-#, fuzzy
 #| msgid "Template was deleted."
 msgid "A rename operation was expected."
-msgstr "Predlogo smo izbrisali."
+msgstr "Pričakovali smo poseg preimenovanja."
 
 #: libraries/sql-parser/src/Lexer.php:252
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Nepričakovani znaki v vrstici %s."
+msgstr "Nepričakovan znak."
 
 #: libraries/sql-parser/src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Pred ločitvenim znakom smo pričakoval prazne znake."
 
 #: libraries/sql-parser/src/Lexer.php:298
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Pričakovali smo ločitveni znak."
 
 #: libraries/sql-parser/src/Lexer.php:688
-#, fuzzy, php-format
+#, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
-msgstr "Dogodek %1$s je ustvarjen."
+msgstr "Pričakovali smo končni narekovaj %1$s."
 
 #: libraries/sql-parser/src/Lexer.php:721
-#, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Predloga imena tabele"
+msgstr "Pričakovali smo ime spremenljivke."
 
 #: libraries/sql-parser/src/Parser.php:355
-#, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "na začetku tabele"
+msgstr "Nepričakovan začetek stavka."
 
 #: libraries/sql-parser/src/Parser.php:370
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Neprepoznana vrsta stavka."
 
 #: libraries/sql-parser/src/Statement.php:201
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Nepričakovani znaki v vrstici %s."
+msgstr "Nepričakovan žeton."
 
 #: libraries/sql-parser/src/Statement.php:251
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Nepričakovana ključna beseda."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:293
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Število odprtih tabel."
+msgstr "Pričakovali smo ime entitete."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:310
 msgid "At least one field definition was expected."
-msgstr ""
+msgstr "Pričakovali smo vsaj eno opredelitev polja."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:329
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Pričakovali smo ključno besedo \"RETURNS\"."
 
 #: libraries/sql.lib.php:284
 msgid "Detailed profile"
@@ -14006,10 +13998,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Izvedi poizvedbo/poizvedbe SQL na zbirki podatkov %s"
 
 #: libraries/sql_query_form.lib.php:179
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "Izvedi poizvedbo/poizvedbe SQL na zbirki podatkov %s"
+msgstr "Izvedi poizvedbo/poizvedbe SQL na tabeli %s"
 
 #: libraries/sql_query_form.lib.php:255
 msgid "Get auto-saved query"
