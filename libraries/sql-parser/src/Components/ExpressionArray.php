@@ -67,7 +67,10 @@ class ExpressionArray extends Component
                 continue;
             }
 
-            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
+            if (($token->type === Token::TYPE_KEYWORD)
+                && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
+                && ($token->value !== 'DUAL')
+            ) {
                 // No keyword is expected.
                 break;
             }
