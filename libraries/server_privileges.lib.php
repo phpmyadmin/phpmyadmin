@@ -800,8 +800,8 @@ function PMA_getHtmlForRequires($row)
         . 'REQUIRE SUBJECT'
         . '</dfn></code></label>';
     $html_output .= '<input type="text" name="x509_subject" id="text_x509_subject" '
-        . 'value="' . (isset($row['x509_subject']) ? $row['x509_subject'] : '') . '" '
-        . 'size=80" title="'
+        . 'value="' . (isset($row['x509_subject']) ? $row['x509_subject'] : '')
+        . '" size=80" title="'
         . __(
             'Requires that a valid X509 certificate with this subject be presented.'
         )
@@ -837,7 +837,9 @@ function PMA_getHtmlForRequires($row)
             'Requires SSL-encrypted connections.'
         )
         . '"'
-        . ((isset($row['ssl_type']) && ($row['ssl_type'] == 'ANY' || $row['ssl_type'] == ''))
+        . ((isset($row['ssl_type'])
+            && ($row['ssl_type'] == 'ANY'
+                || $row['ssl_type'] == ''))
             ? ' checked="checked"'
             : ''
         )
@@ -1608,7 +1610,8 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         // use default value of '%' to match with the default 'Any host'
         . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '%')
         . '" title="' . __('Host name')
-        . '" onchange="pred_hostname.value = \'userdefined\'; this.required = true;" '
+        . '" onchange="pred_hostname.value = \'userdefined\'; '
+        . 'this.required = true;" '
         . ((isset($GLOBALS['pred_hostname'])
                 && $GLOBALS['pred_hostname'] == 'userdefined'
             )
@@ -1658,7 +1661,8 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         . '</span>' . "\n"
         . '<input type="password" id="text_pma_pw" name="pma_pw" '
         . 'title="' . __('Password') . '" '
-        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; pma_pw2.required = true;" '
+        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; '
+        . 'pma_pw2.required = true;" '
         . (isset($GLOBALS['username']) ? '' : 'required="required"')
         . '/>' . "\n"
         . '</div>' . "\n";
@@ -1671,7 +1675,8 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         . '<span class="options">&nbsp;</span>' . "\n"
         . '<input type="password" name="pma_pw2" id="text_pma_pw2" '
         . 'title="' . __('Re-type') . '" '
-        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; pma_pw.required = true;" '
+        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; '
+        . 'pma_pw.required = true;" '
         . (isset($GLOBALS['username']) ? '' : 'required="required"')
         . '/>' . "\n"
         . '</div>' . "\n"
@@ -2295,7 +2300,8 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
                 $html_output .= ' rowspan="' . $nbPrivileges . '"';
             }
             $html_output .= '>';
-            $html_output .= '<input type="checkbox" class="checkall" name="selected_usr[]" '
+            $html_output .= '<input type="checkbox" class="checkall" '
+                . 'name="selected_usr[]" '
                 . 'id="checkbox_sel_users_' . ($index_checkbox++) . '" '
                 . 'value="' . $value . '" /></td>' . "\n";
 
