@@ -6,7 +6,9 @@
  * @package PhpMyAdmin
  */
 
-define('PHPMYADMIN', true);
+if (!defined('PHPMYADMIN')) {
+    define('PHPMYADMIN', true);
+}
 
 /**
  * The SQL query to be analyzed.
