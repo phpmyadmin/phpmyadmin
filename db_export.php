@@ -44,7 +44,8 @@ if (isset($_GET['structure_or_data_forced'])) {
 } else {
     $force_val = 0;
 }
-$multi_values .= '<input type="hidden" name="structure_or_data_forced" value="' . $force_val . '">';
+$multi_values .= '<input type="hidden" name="structure_or_data_forced" value="'
+    . $force_val . '">';
 $multi_values .= '<table class="export_table_select">'
     . '<thead><tr><th></th>'
     . '<th>' . __('Tables') . '</th>'
@@ -53,8 +54,10 @@ $multi_values .= '<table class="export_table_select">'
     . '</tr><tr>'
     . '<td></td>'
     . '<td class="export_table_name all">' . __('Select all') . '</td>'
-    . '<td class="export_structure all"><input type="checkbox" id="table_structure_all" /></td>'
-    . '<td class="export_data all"><input type="checkbox" id="table_data_all" /></td>'
+    . '<td class="export_structure all">'
+    . '<input type="checkbox" id="table_structure_all" /></td>'
+    . '<td class="export_data all"><input type="checkbox" id="table_data_all" />'
+    . '</td>'
     . '</tr></thead>'
     . '<tbody>';
 $multi_values .= "\n";
@@ -103,10 +106,13 @@ foreach ($tables as $each_table) {
     $multi_values .= '<tr>';
     $multi_values .= '<td><input type="checkbox" name="table_select[]"'
         . ' value="' . $table_html . '"' . $is_checked . ' /></td>';
-    $multi_values .= '<td class="export_table_name">' . str_replace(' ', '&nbsp;', $table_html) . '</td>';
-    $multi_values .= '<td class="export_structure"><input type="checkbox" name="table_structure[]"'
+    $multi_values .= '<td class="export_table_name">'
+        . str_replace(' ', '&nbsp;', $table_html) . '</td>';
+    $multi_values .= '<td class="export_structure">'
+        . '<input type="checkbox" name="table_structure[]"'
         . ' value="' . $table_html . '"' . $structure_checked . ' /></td>';
-    $multi_values .= '<td class="export_data"><input type="checkbox" name="table_data[]"'
+    $multi_values .= '<td class="export_data">'
+        . '<input type="checkbox" name="table_data[]"'
         . ' value="' . $table_html . '"' . $data_checked . ' /></td>';
     $multi_values .= '</tr>';
 } // end for

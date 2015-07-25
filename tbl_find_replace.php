@@ -20,7 +20,9 @@ use PMA\DI;
 
 $container = DI\Container::getDefaultContainer();
 $container->factory('PMA\Controllers\Table\TableSearchController');
-$container->alias('TableSearchController', 'PMA\Controllers\Table\TableSearchController');
+$container->alias(
+    'TableSearchController', 'PMA\Controllers\Table\TableSearchController'
+);
 
 $dependency_definitions = array(
     'searchType' => 'replace',

@@ -618,7 +618,8 @@ if (isset($GLOBALS['dbi'])
                 sprintf(
                     __(
                         'Your PHP MySQL library version %s differs from your ' .
-                        'MySQL server version %s. This may cause unpredictable behavior.'
+                        'MySQL server version %s. This may cause unpredictable ' .
+                        'behavior.'
                     ),
                     $_client_info,
                     substr(
