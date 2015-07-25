@@ -37,7 +37,19 @@ class OrderKeyword extends Component
      *
      * @var string
      */
-    public $type = 'ASC';
+    public $type;
+
+    /**
+     * Constructor.
+     *
+     * @param Expression $field The field that we are sorting by.
+     * @param string     $type  The sorting type.
+     */
+    public function __construct($field = null, $type = 'ASC')
+    {
+        $this->field = $field;
+        $this->type = $type;
+    }
 
     /**
      * @param Parser     $parser  The parser that serves as context.
@@ -109,5 +121,23 @@ class OrderKeyword extends Component
 
         --$list->idx;
         return $ret;
+    }
+
+    /**
+     * @param OrderKeyword $component The component to be built.
+     *
+     * @return string
+     */
+    public static function build($component)
+    {
+        if (is_array($component)) {
+            $ret = array();
+            foreach ($component as $c) {
+                $ret[] = static::build($c);
+            }
+            return implode(", ", $ret);
+        } else {
+            return Expression::build($component->field) . ' ' . $component->type;
+        }
     }
 }

@@ -117,4 +117,22 @@ class SetOperation extends Component
         --$list->idx;
         return $ret;
     }
+
+    /**
+     * @param SetOperation|SetOperation[] $component The component to be built.
+     *
+     * @return string
+     */
+    public static function build($component)
+    {
+        if (is_array($component)) {
+            $ret = array();
+            foreach ($component as $c) {
+                $ret[] = static::build($c);
+            }
+            return implode(", ", $ret);
+        } else {
+            return $component->column . ' = ' . $component->value;
+        }
+    }
 }

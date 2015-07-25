@@ -175,7 +175,10 @@ class Expression extends Component
                 continue;
             }
 
-            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
+            if (($token->type === Token::TYPE_KEYWORD)
+                && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
+                && ($token->value !== 'DUAL')
+            ) {
                 // Keywords may be found only between brackets.
                 if ($brackets === 0) {
                     if ((empty($options['noAlias'])) && ($token->value === 'AS')) {

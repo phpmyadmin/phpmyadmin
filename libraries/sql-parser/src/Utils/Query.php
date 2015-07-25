@@ -533,6 +533,14 @@ class Query
          */
         $clauses = array_flip(array_keys($statement::$CLAUSES));
 
+        // This is a cheap fix for `SELECT` statements that contain `UNION`.
+        // Replacing the `ORDER BY` or `LIMIT` clauses should replace the last
+        // clause.
+        if (($statement instanceof SelectStatement) && (!empty($statement->union))) {
+            $clauses['ORDER BY'] = count($clauses) + 1;
+            $clauses['LIMIT'] = count($clauses) + 2;
+        }
+
         /**
          * Lexer used for lexing the clause.
          * @var Lexer $lexer
@@ -552,10 +560,9 @@ class Query
         $clauseIdx = $clauses[$clauseType];
 
         $firstClauseIdx = $clauseIdx;
-
         $lastClauseIdx = $clauseIdx + 1;
 
-        // Determining the behaviour of this function.
+        // Determining the behavior of this function.
         if ($type === -1) {
             $firstClauseIdx = -1; // Something small enough.
             $lastClauseIdx = $clauseIdx - 1;
