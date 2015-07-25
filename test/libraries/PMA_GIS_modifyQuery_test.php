@@ -20,16 +20,17 @@ require_once 'libraries/Util.class.php';
 class PMA_GIS_ModifyQueryTest extends PHPUnit_Framework_TestCase
 {
      //@todo: Move this test to GIS_Visualization's
-     /**
-      * Test PMA_GIS_modifyQuery method
-      *
-      * @param string $sql_query      query to modify
-      * @param array  $settings       visualization settings
-      * @param string $modified_query modified query
-      *
-      * @dataProvider provider
-      * @return void
-      */
+    /**
+     * Test PMA_GIS_modifyQuery method
+     *
+     * @internal     param string $sql_query query to modify
+     * @internal     param array  $settings visualization settings
+     * @internal     param string $modified_query modified query
+     *
+     * @return void
+     *
+     * @dataProvider provider
+     */
     public function testModifyQuery(/*$sql_query, $settings, $modified_query*/)
     {
         // $this->assertEquals(

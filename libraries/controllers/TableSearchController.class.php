@@ -90,10 +90,10 @@ class TableSearchController extends TableController
     /**
      * Constructor
      *
-     * @param string $db
-     * @param string $table
-     * @param string $searchType
-     * @param string $url_query
+     * @param string $db         DB name
+     * @param string $table      Table name
+     * @param string $searchType Search type
+     * @param string $url_query  URL query
      */
     public function __construct($db, $table, $searchType, $url_query)
     {
@@ -384,6 +384,9 @@ class TableSearchController extends TableController
 
     /**
      * Zoom submit action
+     *
+     * @param string $dataLabel Data label
+     * @param string $goto      Goto
      *
      * @return void
      */
