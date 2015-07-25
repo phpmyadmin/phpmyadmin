@@ -222,7 +222,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @see PMA_DIA,Table_Stats_Dia,Relation_Stats_Dia
      */
-    private function __construct($db)
+    public function __construct($db)
     {
         parent::__construct($db, new PMA_DIA());
 
