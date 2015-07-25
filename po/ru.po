@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
 "PO-Revision-Date: 2015-07-25 19:09+0200\n"
-"Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
+"Last-Translator: Олег Карпов <salvadoporjc@gmail.com>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
@@ -5191,16 +5191,14 @@ msgid "Server default"
 msgstr "Сервер по умолчанию"
 
 #: libraries/config.values.php:133
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
-msgstr "Доступно"
+msgstr "Включить"
 
 #: libraries/config.values.php:134
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "Недоступно"
+msgstr "Отключить"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.class.php:69
