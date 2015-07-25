@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-25 06:41+0200\n"
+"PO-Revision-Date: 2015-07-25 17:56+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -918,7 +918,7 @@ msgstr ""
 
 #: js/messages.php:38 libraries/import.lib.php:125 sql.php:160
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "\"DROP DATABASE\" դրույթները կասեցված են։"
+msgstr "\"DROP DATABASE\" արտահայտությունները կասեցված են։"
 
 #: js/messages.php:44
 msgid "Confirm"
@@ -3531,7 +3531,6 @@ msgstr "Որոնել այս աղյուսակում"
 
 #: libraries/DisplayResults.class.php:973 libraries/Util.class.php:2535
 #: libraries/Util.class.php:2538
-#, fuzzy
 msgctxt "First page"
 msgid "Begin"
 msgstr "Սկիզբ"
