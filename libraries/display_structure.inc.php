@@ -179,7 +179,7 @@ foreach ($fields as $row) {
                 'row' => $row,
                 'rownum' => $rownum,
                 'displayed_field_name' => $displayed_field_name,
-                'type_nowrap' => $type_nowrap,
+                'type_nowrap' => $class_for_type,
                 'extracted_columnspec' => $extracted_columnspec,
                 'type_mime' => $type_mime,
                 'field_charset' => $field_charset,
@@ -236,7 +236,7 @@ $response->addHTML(
     '</form><hr class="print_ignore"/>'
 );
 $response->addHTML(
-    PMA_getHtmlDivForMoveColumnsDialog()
+    PMA\Template::get('structure/move_columns_dialog')->render()
 );
 
 /**

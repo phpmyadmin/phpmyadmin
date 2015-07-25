@@ -127,8 +127,11 @@ $response->addHTML(
 $response->addHTML(PMA_URL_getHiddenInputs($db));
 
 $response->addHTML(
-    PMA_tableHeader(
-        $db_is_system_schema, $GLOBALS['replication_info']['slave']['status']
+    PMA\Template::get('structure/table_header')->render(
+        array(
+            'db_is_system_schema' => $db_is_system_schema,
+            'replication' => $GLOBALS['replication_info']['slave']['status']
+        )
     )
 );
 
@@ -265,7 +268,12 @@ foreach ($tables as $keyname => $current_table) {
         );
 
         $response->addHTML(
-            PMA_tableHeader(false, $GLOBALS['replication_info']['slave']['status'])
+            PMA\Template::get('structure/table_header')->render(
+                array(
+                    'db_is_system_schema' => false,
+                    'replication' => $GLOBALS['replication_info']['slave']['status']
+                )
+            )
         );
     }
 

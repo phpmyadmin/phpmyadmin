@@ -209,50 +209,8 @@ function PMA_getHtmlForStructureTableRow(
     $check_time,$is_show_stats, $ignored, $do, $colspan_for_structure
 ) {
     global $db;
-    $html_output = '<tr class="' . ($odd_row ? 'odd' : 'even');
-    $odd_row = ! $odd_row;
-    $html_output .= ($table_is_view ? ' is_view' : '')
-        . '" id="row_tbl_' . $curr . '">';
 
-    $html_output .= '<td class="center print_ignore">'
-        . '<input type="checkbox" name="selected_tbl[]" class="checkall" '
-        . 'value="' . htmlspecialchars($current_table['TABLE_NAME']) . '" '
-        . 'id="checkbox_tbl_' . $curr . '" /></td>';
-
-    $html_output .= '<th>'
-        . $browse_table_label
-        . (! empty($tracking_icon) ? $tracking_icon : '')
-        . '</th>';
-
-    if ($server_slave_status) {
-        $html_output .= '<td class="center">'
-            . ($ignored
-                ? PMA_Util::getImage('s_cancel.png', 'NOT REPLICATED')
-                : '')
-            . ($do
-                ? PMA_Util::getImage('s_success.png', 'REPLICATED')
-                : '')
-            . '</td>';
-    }
-    //Favorite table anchor.
-    if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
-        $html_output .= '<td class="center print_ignore">'
-            . PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
-            . '</td>';
-    }
-
-    $html_output .= '<td class="center print_ignore">' . $browse_table . '</td>';
-    $html_output .= '<td class="center print_ignore">'
-        . '<a href="tbl_structure.php' . $tbl_url_query . '">'
-        . $titles['Structure'] . '</a></td>';
-    $html_output .= '<td class="center print_ignore">' . $search_table . '</td>';
-
-    if (! $db_is_system_schema) {
-        $html_output .= PMA_getHtmlForInsertEmptyDropActionLinks(
-            $tbl_url_query, $table_is_view,
-            $titles, $empty_table, $current_table, $drop_query, $drop_message
-        );
-    } // end if (! $db_is_system_schema)
+    $show_superscript = '';
 
     // there is a null value in the ENGINE
     // - when the table needs to be repaired, or
@@ -260,388 +218,53 @@ function PMA_getHtmlForStructureTableRow(
     //  so ensure that we'll display "in use" below for a table
     //  that needs to be repaired
     $approx_rows = false;
-    if (isset($current_table['TABLE_ROWS'])
-        && ($current_table['ENGINE'] != null
-        || $table_is_view)
-    ) {
-        list($html_view_table, $approx_rows) = PMA_getHtmlForNotNullEngineViewTable(
-            $table_is_view, $current_table, $collation, $is_show_stats,
-            $tbl_url_query, $formatted_size, $unit, $overhead, $create_time,
-            $update_time, $check_time
-        );
-        $html_output .= $html_view_table;
-    } elseif ($table_is_view) {
-        $html_output .= PMA_getHtmlForViewTable($is_show_stats);
-    } else {
-        $html_output .= PMA_getHtmlForRepairtable(
-            $colspan_for_structure,
-            $db_is_system_schema
-        );
-    } // end if (isset($current_table['TABLE_ROWS'])) else
-    $html_output .= '</tr>';
+    if (isset($current_table['TABLE_ROWS']) && ($current_table['ENGINE'] != null || $table_is_view)) {
+        // InnoDB table: we did not get an accurate row count
+        $approx_rows = !$table_is_view && $current_table['ENGINE'] == 'InnoDB' && !$current_table['COUNTED'];
 
-    return array($html_output, $odd_row, $approx_rows);
-}
-
-/**
- * Get HTML for Insert/Empty/Drop action links
- *
- * @param string  $tbl_url_query table url query
- * @param boolean $table_is_view whether table is view or not
- * @param array   $titles        titles array
- * @param string  $empty_table   HTML link for empty table
- * @param array   $current_table current table
- * @param string  $drop_query    query for drop table
- * @param string  $drop_message  table drop message
- *
- * @return string $html_output
- */
-function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view,
-    $titles, $empty_table, $current_table, $drop_query, $drop_message
-) {
-    return PMA\Template::get('structure/insert_empty_drop_action_links')->render(
-        array(
-            'tbl_url_query' => $tbl_url_query,
-            'table_is_view' => $table_is_view,
-            'titles' => $titles,
-            'empty_table' => $empty_table,
-            'current_table' => $current_table,
-            'drop_query' => $drop_query,
-            'drop_message' => $drop_message
-        )
-    );
-}
-
-/**
- * Get HTML for show stats
- *
- * @param string $tbl_url_query  table url query
- * @param string $formatted_size formatted size
- * @param string $unit           unit
- * @param string $overhead       overhead
- *
- * @return string $html_output
- */
-function PMA_getHtmlForShowStats($tbl_url_query, $formatted_size,
-    $unit, $overhead
-) {
-     $html_output = '<td class="value tbl_size"><a '
-        . 'href="tbl_structure.php' . $tbl_url_query . '#showusage" >'
-        . '<span>' . $formatted_size . '</span> '
-        . '<span class="unit">' . $unit . '</span>'
-        . '</a></td>';
-    $html_output .= '<td class="value tbl_overhead">' . $overhead . '</td>';
-
-    return $html_output;
-}
-
-/**
- * Get HTML to show either a database structure creation, last update or
- * last check time
- *
- * @param string $one_time     one of the times to show
- * @param string $config_param the related configuration parameter
- * @param string $class        the class to generate
- *
- * @return string $html_output
- */
-function PMA_getHtmlForStructureTime($one_time, $config_param, $class)
-{
-    $html_output = '';
-    if ($GLOBALS['cfg'][$config_param]) {
-        $html_output .= '<td class="value ' . $class . '">'
-            . ($one_time
-                ? PMA_Util::localisedDate(strtotime($one_time))
-                : '-' )
-            . '</td>';
-    } // end if
-    return $html_output;
-}
-
-/**
- * Get HTML for ENGINE value not null or view tables that are not empty tables
- *
- * @param boolean $table_is_view  whether table is view
- * @param array   $current_table  current table
- * @param string  $collation      collation
- * @param boolean $is_show_stats  whether stats show or not
- * @param string  $tbl_url_query  table url query
- * @param string  $formatted_size formatted size
- * @param string  $unit           unit
- * @param string  $overhead       overhead
- * @param string  $create_time    create time
- * @param string  $update_time    update time
- * @param string  $check_time     check time
- *
- * @return string $html_output
- */
-function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
-    $collation, $is_show_stats, $tbl_url_query, $formatted_size, $unit,
-    $overhead, $create_time, $update_time, $check_time
-) {
-    $html_output = '';
-    $row_count_pre = '';
-    $show_superscript = '';
-    if ($table_is_view) {
         // Drizzle views use FunctionEngine, and the only place where they are
         // available are I_S and D_D schemas, where we do exact counting
-        if ($current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
-            && $current_table['ENGINE'] != 'FunctionEngine'
-        ) {
-            $row_count_pre = '~';
-            $show_superscript = PMA_Util::showHint(
-                PMA_sanitize(
-                    sprintf(
-                        __(
-                            'This view has at least this number of rows. Please ' .
-                            'refer to %sdocumentation%s.'
-                        ),
-                        '[doc@cfg_MaxExactCountViews]',
-                        '[/doc]'
-                    )
-                )
-            );
-        }
-    } elseif ($current_table['ENGINE'] == 'InnoDB'
-        && (! $current_table['COUNTED'])
-    ) {
-        // InnoDB table: we did not get an accurate row count
-        $row_count_pre = '~';
-        $show_superscript = '';
-    }
-
-    // Set a flag if there are approximate row counts on page.
-    if (! empty($row_count_pre)) {
-        $approx_rows = true;
-    } else {
-        // this happens for information_schema, performance_schema,
-        // and in case there is no InnoDB table on this page
-        $approx_rows = false;
-    }
-    // Get the row count.
-    $row_count = $row_count_pre
-        . PMA_Util::formatNumber($current_table['TABLE_ROWS'], 0);
-    // URL parameters to fetch the real row count.
-    $real_count_url = array(
-        'ajax_request'   => true,
-        'db'             => $GLOBALS['db'],
-        'table'          => $current_table['TABLE_NAME'],
-        'real_row_count' => 'true'
-    );
-    // Content to be appended into 'tbl_rows' cell.
-    // If row count is approximate, display it as an anchor to get real count.
-    $cell_text = (! empty($row_count_pre))
-        ? '<a href="db_structure.php' . PMA_URL_getCommon($real_count_url)
-        . '" class="ajax real_row_count"><bdi>' . $row_count . '</bdi></a>'
-        : $row_count;
-    $html_output .= '<td class="value tbl_rows" data-table="'
-        . htmlspecialchars($current_table['TABLE_NAME']) . '">'
-        . $cell_text
-        . $show_superscript
-        . '</td>';
-
-    if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
-        $html_output .= '<td class="nowrap">'
-            . ( ! empty($current_table['ENGINE'])
-                ? $current_table['ENGINE']
-                : ($table_is_view ? __('View') : '')
-            )
-            . '</td>';
-        if (/*overload*/mb_strlen($collation)) {
-            $html_output .= '<td class="nowrap">' . $collation . '</td>';
+        if ($table_is_view && $current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews'] && $current_table['ENGINE'] != 'FunctionEngine') {
+            $approx_rows = true;
+            $show_superscript = PMA_Util::showHint(PMA_sanitize(sprintf(__('This view has at least this number of rows. Please refer to %sdocumentation%s.'), '[doc@cfg_MaxExactCountViews]', '[/doc]')));
         }
     }
 
-    if ($is_show_stats) {
-        $html_output .= PMA_getHtmlForShowStats(
-            $tbl_url_query, $formatted_size, $unit, $overhead
-        );
-    }
+    $html_output = PMA\Template::get('structure/structure_table_row', array(
+        'db' => $db,
+        'curr' => $curr,
+        'odd_row' => $odd_row,
+        'table_is_view' => $table_is_view,
+        'current_table' => $current_table,
+        'browse_table_label' => $browse_table_label,
+        'tracking_icon' => $tracking_icon,
+        'server_slave_status' => $server_slave_status,
+        'browse_table' => $browse_table,
+        'tbl_url_query' => $tbl_url_query,
+        'search_table' => $search_table,
+        'db_is_system_schema' => $db_is_system_schema,
+        'titles' => $titles,
+        'empty_table' => $empty_table,
+        'drop_query' => $drop_query,
+        'drop_message' => $drop_message,
+        'collation' => $collation,
+        'formatted_size' => $formatted_size,
+        'unit' => $unit,
+        'overhead' => $overhead,
+        'create_time' => $create_time,
+        'update_time' => $update_time,
+        'check_time' => $check_time,
+        'is_show_stats' => $is_show_stats,
+        'ignored' => $ignored,
+        'do' => $do,
+        'colspan_for_structure' => $colspan_for_structure,
+        'approx_rows' => $approx_rows,
+        'show_superscript' => $show_superscript
+    ));
 
-    if ($GLOBALS['cfg']['ShowDbStructureComment']) {
-        $comment = $current_table['Comment'];
-        $html_output .= '<td>';
-        if (/*overload*/mb_strlen($comment) > $GLOBALS['cfg']['LimitChars']) {
-            $html_output .= '<abbr title="' . htmlspecialchars($comment) . '">';
-            $html_output .= htmlspecialchars(
-                /*overload*/mb_substr(
-                    $comment, 0, $GLOBALS['cfg']['LimitChars']
-                ) . '...'
-            );
-            $comment .= '</abbr>';
-        } else {
-            $html_output .= htmlspecialchars($comment);
-        }
-        $html_output .= '</td>';
-    }
+    $odd_row = ! $odd_row;
 
-    $html_output .= PMA_getHtmlForStructureTime(
-        $create_time, 'ShowDbStructureCreation', 'tbl_creation'
-    );
-    $html_output .= PMA_getHtmlForStructureTime(
-        $update_time, 'ShowDbStructureLastUpdate', 'tbl_last_update'
-    );
-    $html_output .= PMA_getHtmlForStructureTime(
-        $check_time, 'ShowDbStructureLastCheck', 'tbl_last_check'
-    );
-
-    return array($html_output, $approx_rows);
-}
-
-/**
- * Get HTML snippet view table
- *
- * @param boolean $is_show_stats whether stats show or not
- *
- * @return string $html_output
- */
-function PMA_getHtmlForViewTable($is_show_stats)
-{
-    $html_output  = '<td class="value tbl_rows">-</td>';
-    $html_output .= '<td class="nowrap">' . __('View') . '</td>';
-    $html_output .= '<td class="nowrap">---</td>';
-    if ($is_show_stats) {
-        $html_output .= '<td class="value tbl_size">-</td>';
-        $html_output .= '<td class="value tbl_overhead">-</td>';
-    }
-    if ($GLOBALS['cfg']['ShowDbStructureComment']) {
-        $html_output .= '<td></td>';
-    }
-    if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
-        $html_output .= '<td class="value tbl_creation">-</td>';
-    }
-    if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
-        $html_output .= '<td class="value tbl_last_update">-</td>';
-    }
-    if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
-        $html_output .= '<td class="value tbl_last_check">-</td>';
-    }
-    return $html_output;
-}
-
-/**
- * display "in use" below for a table that needs to be repaired
- *
- * @param integer $colspan_for_structure colspan for structure
- * @param boolean $db_is_system_schema   whether db is information schema or not
- *
- * @return string HTML snippet
- */
-function PMA_getHtmlForRepairtable(
-    $colspan_for_structure,
-    $db_is_system_schema
-) {
-    return '<td colspan="'
-        . ($colspan_for_structure - ($db_is_system_schema ? 6 : 9)) . '"'
-        . 'class="center">'
-        . __('in use')
-        . '</td>';
-}
-
-/**
- * display table header (<table><thead>...</thead><tbody>)
- *
- * @param boolean $db_is_system_schema whether db is information schema or not
- * @param boolean $replication         whether to sho replication status
- *
- * @return string html data
- */
-function PMA_tableHeader($db_is_system_schema = false, $replication = false)
-{
-    $cnt = 0; // Let's count the columns...
-
-    if ($db_is_system_schema) {
-        $action_colspan = 3;
-    } else {
-        $action_colspan = 6;
-    }
-    if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
-        $action_colspan++;
-    }
-
-    $html_output = '<table class="data">' . "\n"
-        . '<thead>' . "\n"
-        . '<tr><th class="print_ignore"></th>' . "\n"
-        . '<th>'
-        . PMA_sortableTableHeader(__('Table'), 'table')
-        . '</th>' . "\n";
-    if ($replication) {
-        $html_output .= '<th>' . "\n"
-            . '        ' . __('Replication') . "\n"
-            . '</th>';
-    }
-    $html_output .= '<th colspan="' . $action_colspan . '" class="print_ignore">'
-        . "\n"
-        . '        ' . __('Action') . "\n"
-        . '</th>'
-        // larger values are more interesting so default sort order is DESC
-        . '<th>' . PMA_sortableTableHeader(__('Rows'), 'records', 'DESC')
-        . PMA_Util::showHint(
-            PMA_sanitize(
-                __(
-                    'May be approximate. Click on the number to get the exact'
-                    . ' count. See [doc@faq3-11]FAQ 3.11[/doc].'
-                )
-            )
-        ) . "\n"
-        . '</th>' . "\n";
-    if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
-        $html_output .= '<th>' . PMA_sortableTableHeader(__('Type'), 'type')
-            . '</th>' . "\n";
-        $cnt++;
-        $html_output .= '<th>'
-            . PMA_sortableTableHeader(__('Collation'), 'collation')
-            . '</th>' . "\n";
-        $cnt++;
-    }
-    if ($GLOBALS['is_show_stats']) {
-        // larger values are more interesting so default sort order is DESC
-        $html_output .= '<th>'
-            . PMA_sortableTableHeader(__('Size'), 'size', 'DESC')
-            . '</th>' . "\n";
-        $cnt++;
-
-        // larger values are more interesting so default sort order is DESC
-        $html_output .= '<th>'
-            . PMA_sortableTableHeader(__('Overhead'), 'overhead', 'DESC')
-            . '</th>' . "\n";
-        $cnt++;
-    }
-
-    if ($GLOBALS['cfg']['ShowDbStructureComment']) {
-        $html_output .= '<th>'
-            . PMA_sortableTableHeader(__('Comment'), 'comment')
-            . '</th>' . "\n";
-        $cnt++;
-    }
-
-    if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
-        // newer values are more interesting so default sort order is DESC
-        $html_output .= '<th>'
-            . PMA_sortableTableHeader(__('Creation'), 'creation', 'DESC')
-            . '</th>' . "\n";
-        $cnt++;
-    }
-    if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
-        // newer values are more interesting so default sort order is DESC
-        $html_output .= '<th>'
-            . PMA_sortableTableHeader(__('Last update'), 'last_update', 'DESC')
-            . '</th>' . "\n";
-        $cnt++;
-    }
-    if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
-        // newer values are more interesting so default sort order is DESC
-        $html_output .= '<th>'
-            . PMA_sortableTableHeader(__('Last check'), 'last_check', 'DESC')
-            . '</th>' . "\n";
-        $cnt++;
-    }
-    $html_output .= '</tr>' . "\n";
-    $html_output .= '</thead>' . "\n";
-    $html_output .= '<tbody>' . "\n";
-    $GLOBALS['colspan_for_structure'] = $cnt + $action_colspan + 3;
-
-    return $html_output;
+    return array($html_output, $odd_row, $approx_rows);
 }
 
 /**
@@ -1045,7 +668,7 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_system_schema,
             . ' href="tbl_structure.php'
             . $url_query . '&amp;field=' . $field_encoded
             . '&amp;change_column=1">'
-            . $titles['Change'] . '</a>' . '</td>';
+            . $titles['Change'] . '</a></td>';
         $html_output .= '<td class="drop center print_ignore">'
             . '<a class="drop_column_anchor ajax"'
             . ' href="sql.php' . $url_query . '&amp;sql_query='
@@ -1063,30 +686,6 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_system_schema,
             . $titles['Drop'] . '</a>'
             . '</td>';
     }
-
-    return $html_output;
-}
-
-/**
- * Get HTML for move columns dialog
- *
- * @return string $html_output
- */
-function PMA_getHtmlDivForMoveColumnsDialog()
-{
-    $html_output = '<div id="move_columns_dialog" '
-        . 'title="' . __('Move columns') . '" style="display: none">';
-
-    $html_output .= '<p>'
-        . __('Move the columns by dragging them up and down.') . '</p>';
-
-    $html_output .= '<form action="tbl_structure.php">'
-        . '<div>'
-        . PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
-        . '<ul></ul>'
-        . '</div>'
-        . '</form>'
-        . '</div>';
 
     return $html_output;
 }
@@ -1960,10 +1559,7 @@ function PMA_checkFavoriteTable($db, $current_table)
  */
 function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
 {
-    $html_output  = '<a ';
-    $html_output .= 'id="' . md5($current_table['TABLE_NAME'])
-        . '_favorite_anchor" ';
-    $html_output .= 'class="ajax favorite_table_anchor';
+    $html_output  = '<a id="' . md5($current_table['TABLE_NAME']) . '_favorite_anchor" class="ajax favorite_table_anchor';
 
     // Check if current table is already in favorite list.
     $already_favorite = PMA_checkFavoriteTable($db, $current_table['TABLE_NAME']);
@@ -2102,88 +1698,6 @@ function PMA_synchronizeFavoriteTables($fav_instance, $user, $favorite_tables)
     $server_id = $GLOBALS['server'];
     // Set flag when localStorage and pmadb(if present) are in sync.
     $_SESSION['tmpval']['favorites_synced'][$server_id] = true;
-}
-
-/**
- * Returns Html for show create.
- *
- * @param string $db         Database name
- * @param array  $db_objects Array containing DB objects
- *
- * @return string Html
- */
-function PMA_getHtmlShowCreate($db, $db_objects)
-{
-    // Main outer container.
-    $html_output = '<div class="show_create_results">'
-        . '<h2>' . __('Showing create queries') . '</h2>';
-    // Table header.
-    $output_table = '<fieldset>'
-        . '<legend>%s</legend>'
-        . '<table class="show_create">'
-        . '<thead>'
-        . '<tr>'
-        . '<th>%s</th>'
-        . '<th>Create %s</th>'
-        . '</tr>'
-        . '</thead>'
-        . '<tbody>';
-    // Holds rows html for views.
-    $views = '';
-    // Holds rows html for tables.
-    $tables = '';
-    // Handles odd, even classes for rows.
-    // for 'Views'
-    $odd1 = true;
-    // for 'Tables'
-    $odd2 = true;
-    // Iterate through each object.
-    foreach ($db_objects as $object) {
-        $tableObj = new PMA_Table($object, $db);
-        // Check if current object is a View or Table.
-        $_table = new PMA_Table($object, $db);
-        $isView = $_table->isView();
-        if ($isView) {
-            $row_class = ($odd1) ? 'odd' : 'even';
-            $views .= '<tr class="' . $row_class . '">'
-                . '<td><strong>'
-                . PMA_mimeDefaultFunction($object)
-                . '</strong></td>'
-                . '<td>'
-                . PMA_mimeDefaultFunction($tableObj->showCreate())
-                . '</td>'
-                . '</tr>';
-            $odd1 = ! $odd1;
-        } else {
-            $row_class = ($odd2) ? 'odd' : 'even';
-            $tables .= '<tr class="' . $row_class . '">'
-                . '<td><strong>'
-                . PMA_mimeDefaultFunction($object)
-                . '</strong></td>'
-                . '<td>'
-                . PMA_mimeDefaultFunction($tableObj->showCreate())
-                . '</td>'
-                . '</tr>';
-            $odd2 = ! $odd2;
-        }
-    }
-    // Prepare table header for each type of object.
-    if (! empty($tables)) {
-        $title = __('Tables');
-        $tables = sprintf($output_table, $title, 'Table', 'Table')
-            . $tables
-            . '</tbody></table></fieldset>';
-    }
-    if (! empty($views)) {
-        $title = __('Views');
-        $views = sprintf($output_table, $title, 'View', 'View')
-            . $views
-            . '</tbody></table></fieldset>';
-    }
-    // Compile the final html.
-    $html_output .= $tables . $views . '</div>';
-
-    return $html_output;
 }
 
 /**
