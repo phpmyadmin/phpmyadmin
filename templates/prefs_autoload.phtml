@@ -1,0 +1,17 @@
+<div id="prefs_autoload" class="notice print_ignore" style="display:none">
+    <form action="prefs_manage.php" method="post" class="disableAjax">
+        <?php echo $hiddenInputs; ?>
+        <input type="hidden" name="json" value="" />
+        <input type="hidden" name="submit_import" value="1" />
+        <input type="hidden" name="return_url" value="<?php echo $return_url ?>" />
+        <?php
+        echo __(
+            'Your browser has phpMyAdmin configuration for this domain. '
+            . 'Would you like to import it for current session?'
+        );
+        ?>
+        <br />
+        <a href="#yes"><?php echo __('Yes') ?></a>
+        / <a href="#no"><?php echo __('No') ?></a>
+    </form>
+</div>
