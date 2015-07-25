@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-25 19:07+0200\n"
-"Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
+"PO-Revision-Date: 2015-07-25 19:08+0200\n"
+"Last-Translator: Олег Карпов <salvadoporjc@gmail.com>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
@@ -2934,16 +2934,14 @@ msgid "Please enter a valid number"
 msgstr "Пожалуйста, введите правильное числовое значение"
 
 #: js/messages.php:781
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Пожалуйста, введите правильное числовое значение!"
+msgstr "Пожалуйста, введите правильный номер кредитной карты"
 
 #: js/messages.php:782
-#, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Пожалуйста, введите правильную длину!"
+msgstr "Пожалуйста, введите только цифровые символы"
 
 #: js/messages.php:783
 msgid "Please enter the same value again"
@@ -3318,10 +3316,9 @@ msgid ""
 msgstr ""
 
 #: libraries/Console.class.php:385
-#, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Переключиться на скопированную таблицу"
+msgstr "Переключиться на темную тему"
 
 #: libraries/DBQbe.class.php:405 libraries/DisplayResults.class.php:1476
 #: libraries/DisplayResults.class.php:2264
