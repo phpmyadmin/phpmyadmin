@@ -1166,7 +1166,8 @@ function PMA_countQueryResults(
                  * @todo In countRecords(), MaxExactCount is also verified,
                  *       so can we avoid checking it twice?
                  */
-                $unlim_num_rows = $GLOBALS['dbi']->getTable($db, $table)->countRecords(true);
+                $unlim_num_rows = $GLOBALS['dbi']->getTable($db, $table)
+                    ->countRecords(true);
             }
 
         } else {
@@ -2106,7 +2107,9 @@ function PMA_executeQueryAndGetQueryResponse($analyzed_sql_results,
         );
 
     // No rows returned -> move back to the calling page
-    if ((0 == $num_rows && 0 == $unlim_num_rows) || $analyzed_sql_results['is_affected']) {
+    if ((0 == $num_rows && 0 == $unlim_num_rows)
+        || $analyzed_sql_results['is_affected']
+    ) {
         $html_output = PMA_getQueryResponseForNoResultsReturned(
             $analyzed_sql_results, $db, $table,
             isset($message_to_show) ? $message_to_show : null,

@@ -1581,18 +1581,22 @@ function PMA_getArrayForDocumentLinks()
         'performance_schema_digests_size',
         'performance-schema-system-variables',
         'sysvar');
-    $variable_doc_links['performance_schema_events_stages_history_long_size'] = array(
-        'performance_schema_events_stages_history_long_size',
-        'performance-schema-system-variables',
-        'sysvar');
+    $variable_doc_links['performance_schema_events_stages_history_long_size']
+        = array(
+            'performance_schema_events_stages_history_long_size',
+            'performance-schema-system-variables',
+            'sysvar',
+        );
     $variable_doc_links['performance_schema_events_stages_history_size'] = array(
         'performance_schema_events_stages_history_size',
         'performance-schema-system-variables',
         'sysvar');
-    $variable_doc_links['performance_schema_events_statements_history_long_size'] = array(
-        'performance_schema_events_statements_history_long_size',
-        'performance-schema-system-variables',
-        'sysvar');
+    $variable_doc_links['performance_schema_events_statements_history_long_size']
+        = array(
+            'performance_schema_events_statements_history_long_size',
+            'performance-schema-system-variables',
+            'sysvar',
+        );
     $variable_doc_links['performance_schema_events_statements_history_size'] = array(
         'performance_schema_events_statements_history_size',
         'performance-schema-system-variables',

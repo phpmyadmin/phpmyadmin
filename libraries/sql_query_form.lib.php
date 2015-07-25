@@ -252,8 +252,8 @@ function PMA_getHtmlForSqlQueryFormInsert(
         $html .= '<input type="button" value="' . __('Format') . '" id="format"'
             . ' class="button sqlbutton" />';
     }
-    $html .= '<input type="button" value="' . __('Get auto-saved query') . '" id="saved"'
-        . ' class="button sqlbutton" />';
+    $html .= '<input type="button" value="' . __('Get auto-saved query')
+        . '" id="saved" class="button sqlbutton" />';
 
     // parameter binding
     $html .= '<div>';

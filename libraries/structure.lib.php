@@ -686,7 +686,10 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
             $show_superscript = PMA_Util::showHint(
                 PMA_sanitize(
                     sprintf(
-                        __('This view has at least this number of rows. Please refer to %sdocumentation%s.'),
+                        __(
+                            'This view has at least this number of rows. Please ' .
+                            'refer to %sdocumentation%s.'
+                        ),
                         '[doc@cfg_MaxExactCountViews]',
                         '[/doc]'
                     )
@@ -861,7 +864,8 @@ function PMA_tableHeader($db_is_system_schema = false, $replication = false)
             . '        ' . __('Replication') . "\n"
             . '</th>';
     }
-    $html_output .= '<th colspan="' . $action_colspan . '" class="print_ignore">' . "\n"
+    $html_output .= '<th colspan="' . $action_colspan . '" class="print_ignore">'
+        . "\n"
         . '        ' . __('Action') . "\n"
         . '</th>'
         // larger values are more interesting so default sort order is DESC
@@ -2136,7 +2140,8 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     $primary, $field_name, $url_query, $titles, $row, $rownum,
     $columns_with_unique_index, $isInCentralColumns
 ) {
-    $html_output = '<td class="print_ignore"><ul class="table-structure-actions resizable-menu">';
+    $html_output = '<td class="print_ignore">'
+        . '<ul class="table-structure-actions resizable-menu">';
     $html_output .= PMA_getHtmlForActionRowInStructureTable(
         $type, $tbl_storage_engine,
         'primary nowrap',
@@ -2595,7 +2600,8 @@ function PMA_updateColumns($db, $table)
                 && ! empty($_REQUEST['field_adjust_privileges'][$i])
                 && $_REQUEST['field_orig'][$i] != $_REQUEST['field_name'][$i]
             ) {
-                    $adjust_privileges[$_REQUEST['field_orig'][$i]] = $_REQUEST['field_name'][$i];
+                $adjust_privileges[$_REQUEST['field_orig'][$i]]
+                    = $_REQUEST['field_name'][$i];
             }
         }
     } // end for
@@ -2656,11 +2662,16 @@ function PMA_updateColumns($db, $table)
         $result = $GLOBALS['dbi']->tryQuery($sql_query);
 
         if ($result !== false) {
-            $changed_privileges = PMA_adjustColumnPrivileges($db, $table, $adjust_privileges);
+            $changed_privileges = PMA_adjustColumnPrivileges(
+                $db, $table, $adjust_privileges
+            );
 
             if ($changed_privileges) {
                 $message = PMA_Message::success(
-                    __('Table %1$s has been altered successfully. Privileges have been adjusted.')
+                    __(
+                        'Table %1$s has been altered successfully. Privileges ' .
+                        'have been adjusted.'
+                    )
                 );
             } else {
                 $message = PMA_Message::success(

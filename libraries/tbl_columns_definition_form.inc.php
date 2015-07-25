@@ -145,20 +145,40 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $columnMeta = array_merge(
             $columnMeta,
             array(
-                'Field' => Util\get($_REQUEST, "field_name.${columnNumber}", false),
-                'Type' => Util\get($_REQUEST, "field_type.${columnNumber}", false),
-                'Collation' => Util\get($_REQUEST, "field_collation.${columnNumber}", ''),
-                'Null' => Util\get($_REQUEST, "field_null.${columnNumber}", ''),
-                'DefaultType' => Util\get($_REQUEST, "field_default_type.${columnNumber}", 'NONE'),
-                'DefaultValue' => Util\get($_REQUEST, "field_default_value.${columnNumber}", ''),
-                'Extra' => Util\get($_REQUEST, "field_extra.${columnNumber}", false),
-                'Virtuality' => Util\get($_REQUEST, "field_virtuality.${columnNumber}", ''),
-                'Expression' => Util\get($_REQUEST, "field_expression.${columnNumber}", ''),
+                'Field'        => Util\get(
+                    $_REQUEST, "field_name.${columnNumber}", false
+                ),
+                'Type'         => Util\get(
+                    $_REQUEST, "field_type.${columnNumber}", false
+                ),
+                'Collation'    => Util\get(
+                    $_REQUEST, "field_collation.${columnNumber}", ''
+                ),
+                'Null'         => Util\get(
+                    $_REQUEST, "field_null.${columnNumber}", ''
+                ),
+                'DefaultType'  => Util\get(
+                    $_REQUEST, "field_default_type.${columnNumber}", 'NONE'
+                ),
+                'DefaultValue' => Util\get(
+                    $_REQUEST, "field_default_value.${columnNumber}", ''
+                ),
+                'Extra'        => Util\get(
+                    $_REQUEST, "field_extra.${columnNumber}", false
+                ),
+                'Virtuality'   => Util\get(
+                    $_REQUEST, "field_virtuality.${columnNumber}", ''
+                ),
+                'Expression'   => Util\get(
+                    $_REQUEST, "field_expression.${columnNumber}", ''
+                ),
             )
         );
 
         $columnMeta['Key'] = '';
-        $parts = explode('_', Util\get($_REQUEST, "field_key.${columnNumber}", ''), 2);
+        $parts = explode(
+            '_', Util\get($_REQUEST, "field_key.${columnNumber}", ''), 2
+        );
         if (count($parts) == 2 && $parts[1] == $columnNumber) {
             $columnMeta['Key'] = Util\get(
                 array(
@@ -191,15 +211,23 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         }
 
         $length = Util\get($_REQUEST, "field_length.${columnNumber}", $length);
-        $submit_attribute = Util\get($_REQUEST, "field_attribute.${columnNumber}", false);
-        $comments_map[$columnMeta['Field']] = Util\get($_REQUEST, "field_comments.${columnNumber}");
+        $submit_attribute = Util\get(
+            $_REQUEST, "field_attribute.${columnNumber}", false
+        );
+        $comments_map[$columnMeta['Field']] = Util\get(
+            $_REQUEST, "field_comments.${columnNumber}"
+        );
 
         $mime_map[$columnMeta['Field']] = array_merge(
             $mime_map[$columnMeta['Field']],
             array(
                 'mimetype' => Util\get($_REQUEST, "field_mimetype.${$columnNumber}"),
-                'transformation' => Util\get($_REQUEST, "field_transformation.${$columnNumber}"),
-                'transformation_options' => Util\get($_REQUEST, "field_transformation_options.${$columnNumber}")
+                'transformation' => Util\get(
+                    $_REQUEST, "field_transformation.${$columnNumber}"
+                ),
+                'transformation_options' => Util\get(
+                    $_REQUEST, "field_transformation_options.${$columnNumber}"
+                ),
             )
         );
 
@@ -210,7 +238,9 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         );
         if (in_array($columnMeta['Extra'], $virtual)) {
             $table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-            $expressions = $table->getColumnGenerationExpression($columnMeta['Field']);
+            $expressions = $table->getColumnGenerationExpression(
+                $columnMeta['Field']
+            );
             $columnMeta['Expression'] = $expressions[$columnMeta['Field']];
         }
         switch ($columnMeta['Default']) {
@@ -320,15 +350,33 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $form_params = array_merge(
             $form_params,
             array(
-                "field_default_value_orig[${columnNumber}]" => Util\get($columnMeta, 'Default', ''),
-                "field_default_type_orig[${columnNumber}]" => Util\get($columnMeta, 'DefaultType', ''),
-                "field_collation_orig[${columnNumber}]" => Util\get($columnMeta, 'Collation', ''),
-                "field_attribute_orig[${columnNumber}]" => trim(Util\get($extracted_columnspec, 'attribute', '')),
-                "field_null_orig[${columnNumber}]" => Util\get($columnMeta, 'Null', ''),
-                "field_extra_orig[${columnNumber}]" => Util\get($columnMeta, 'Extra', ''),
-                "field_comments_orig[${columnNumber}]" => Util\get($columnMeta, 'Comment', ''),
-                "field_virtuality_orig[${columnNumber}]" => Util\get($columnMeta, 'Virtuality', ''),
-                "field_expression_orig[${columnNumber}]" => Util\get($columnMeta, 'Expression', ''),
+                "field_default_value_orig[${columnNumber}]" => Util\get(
+                    $columnMeta, 'Default', ''
+                ),
+                "field_default_type_orig[${columnNumber}]"  => Util\get(
+                    $columnMeta, 'DefaultType', ''
+                ),
+                "field_collation_orig[${columnNumber}]"     => Util\get(
+                    $columnMeta, 'Collation', ''
+                ),
+                "field_attribute_orig[${columnNumber}]"     => trim(
+                    Util\get($extracted_columnspec, 'attribute', '')
+                ),
+                "field_null_orig[${columnNumber}]"          => Util\get(
+                    $columnMeta, 'Null', ''
+                ),
+                "field_extra_orig[${columnNumber}]"         => Util\get(
+                    $columnMeta, 'Extra', ''
+                ),
+                "field_comments_orig[${columnNumber}]"      => Util\get(
+                    $columnMeta, 'Comment', ''
+                ),
+                "field_virtuality_orig[${columnNumber}]"    => Util\get(
+                    $columnMeta, 'Virtuality', ''
+                ),
+                "field_expression_orig[${columnNumber}]"    => Util\get(
+                    $columnMeta, 'Expression', ''
+                ),
             )
         );
     }

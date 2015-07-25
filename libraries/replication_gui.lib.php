@@ -152,8 +152,9 @@ function PMA_getHtmlForSlaveConfiguration(
         $html .= ' <select name="master_connection">';
         $html .= '<option value="">' . __('Default') . '</option>';
         foreach ($server_slave_multi_replication as $server) {
-            $html .= '<option' . (isset($_REQUEST['master_connection']) && $_REQUEST['master_connection'] == $server['Connection_name'] ?
-                ' selected="selected"' : '') . '>' . $server['Connection_name']
+            $html .= '<option' . (isset($_REQUEST['master_connection'])
+                && $_REQUEST['master_connection'] == $server['Connection_name'] ?
+                    ' selected="selected"' : '') . '>' . $server['Connection_name']
                 . '</option>';
         }
         $html .= '</select>';
@@ -228,7 +229,10 @@ function PMA_getHtmlForSlaveConfiguration(
         $reconfiguremaster_link = 'server_replication.php'
             . PMA_URL_getCommon($_url_params);
 
-        $html .= __('Server is configured as slave in a replication process. Would you like to:');
+        $html .= __(
+            'Server is configured as slave in a replication process. Would you ' .
+            'like to:'
+        );
         $html .= '<br />';
         $html .= '<ul>';
         $html .= ' <li><a href="#" id="slave_status_href">';

@@ -220,7 +220,8 @@ function PMA_getHtmlForActivateDeactivateTracking(
     );
     $html .= '</legend>';
     $html .= '<input type="hidden" name="version" value="' . $last_version . '" />';
-    $html .= '<input type="hidden" name="toggle_activation" value="' . $value . '" />';
+    $html .= '<input type="hidden" name="toggle_activation" value="' . $value
+        . '" />';
     $html .= '<input type="submit" value="' . $button . '" />';
     $html .= '</fieldset>';
     $html .= '</form>';
