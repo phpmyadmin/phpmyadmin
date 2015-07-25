@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
 "PO-Revision-Date: 2015-07-25 19:39+0200\n"
-"Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
+"Last-Translator: Олег Карпов <salvadoporjc@gmail.com>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
@@ -6710,10 +6710,9 @@ msgid "Target for quick access icon"
 msgstr "Цель иконки быстрого доступа"
 
 #: libraries/config/messages.inc.php:464
-#, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "Цель иконки быстрого доступа"
+msgstr "Цель второй иконки быстрого доступа"
 
 #: libraries/config/messages.inc.php:467
 msgid ""
