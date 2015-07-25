@@ -94,8 +94,8 @@ if (isset($_REQUEST['operation'])) {
             && $GLOBALS['cfgRelation']['designersettingswork']
         ) {
             $orig_data_query = 'SELECT ' . PMA_Util::backquote('settings_data')
-                . ' FROM `' . $cfgDesigner['db'] . '`.`' . $cfgDesigner['table'] . '` WHERE '
-                . PMA_Util::backquote('username') . ' = "'
+                . ' FROM `' . $cfgDesigner['db'] . '`.`' . $cfgDesigner['table']
+                . '` WHERE ' . PMA_Util::backquote('username') . ' = "'
                 . $cfgDesigner['user'] . '"';
 
             $orig_data = $GLOBALS['dbi']->fetchSingleRow($orig_data_query);
@@ -113,8 +113,8 @@ if (isset($_REQUEST['operation'])) {
                 $save_query = 'UPDATE `' . $cfgDesigner['db'] . '`.`'
                     . $cfgDesigner['table'] . '` SET '
                     . PMA_Util::backquote('settings_data') . ' = \''
-                    . $orig_data . '\' WHERE ' . PMA_Util::backquote('username') . ' = "'
-                    . $cfgDesigner['user'] . '";';
+                    . $orig_data . '\' WHERE ' . PMA_Util::backquote('username')
+                    . ' = "' . $cfgDesigner['user'] . '";';
 
                 $success = $GLOBALS['dbi']->query($save_query);
             } else {
@@ -122,7 +122,8 @@ if (isset($_REQUEST['operation'])) {
 
                 $query = 'INSERT INTO ' . PMA_Util::backquote($cfgDesigner['db'])
                     . '.' . PMA_Util::backquote($cfgDesigner['table'])
-                    . ' VALUES("' . PMA_Util::sqlAddSlashes($cfgDesigner['user']) . '", \''
+                    . ' VALUES("' . PMA_Util::sqlAddSlashes($cfgDesigner['user'])
+                    . '", \''
                     . PMA_Util::sqlAddSlashes(json_encode($save_data)) . '\');';
 
                 $success = $GLOBALS['dbi']->query($query);

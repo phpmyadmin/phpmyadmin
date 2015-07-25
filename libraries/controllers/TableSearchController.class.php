@@ -1,4 +1,10 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Holds the PMA\Controllers\Table\TableSearchController
+ *
+ * @package PMA\Controllers\Table
+ */
 
 namespace PMA\Controllers\Table;
 
@@ -15,8 +21,11 @@ require_once 'libraries/sql.lib.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/controllers/TableController.class.php';
 
-
-
+/**
+ * Class TableSearchController
+ *
+ * @package PhpMyAdmin
+ */
 class TableSearchController extends TableController
 {
     /**

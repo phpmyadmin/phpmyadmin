@@ -270,7 +270,10 @@ if (!$is_information_schema) {
         && $cfg['PmaNoRelation_DisableWarning'] == false
     ) {
         $message = PMA_Message::notice(
-            __('The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.')
+            __(
+                'The phpMyAdmin configuration storage has been deactivated. ' .
+                '%sFind out why%s.'
+            )
         );
         $message->addParam(
             '<a href="' . $cfg['PmaAbsoluteUri']
