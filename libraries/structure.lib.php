@@ -645,52 +645,6 @@ function PMA_getValuesForInnodbTable($current_table, $is_show_stats, $sum_size)
 }
 
 /**
- * Get HTML code for "Drop" Action link
- *
- * @param boolean $tbl_is_view         whether tables is view or not
- * @param boolean $db_is_system_schema whether db is information schema or not
- * @param string  $url_query           url query
- * @param string  $field_encoded       field encoded
- * @param array   $titles              tittles array
- * @param string  $table               table
- * @param array   $row                 current row
- *
- * @return string $html_output
- */
-function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_system_schema,
-    $url_query, $field_encoded, $titles, $table, $row
-) {
-    $html_output = '';
-
-    if (! $tbl_is_view && ! $db_is_system_schema) {
-        $html_output .= '<td class="edit center print_ignore">'
-            . '<a class="change_column_anchor ajax"'
-            . ' href="tbl_structure.php'
-            . $url_query . '&amp;field=' . $field_encoded
-            . '&amp;change_column=1">'
-            . $titles['Change'] . '</a></td>';
-        $html_output .= '<td class="drop center print_ignore">'
-            . '<a class="drop_column_anchor ajax"'
-            . ' href="sql.php' . $url_query . '&amp;sql_query='
-            . urlencode(
-                'ALTER TABLE ' . PMA_Util::backquote($table)
-                . ' DROP ' . PMA_Util::backquote($row['Field']) . ';'
-            )
-            . '&amp;dropped_column=' . urlencode($row['Field'])
-            . '&amp;message_to_show=' . urlencode(
-                sprintf(
-                    __('Column %s has been dropped.'),
-                    htmlspecialchars($row['Field'])
-                )
-            ) . '" >'
-            . $titles['Drop'] . '</a>'
-            . '</td>';
-    }
-
-    return $html_output;
-}
-
-/**
  * Get HTML for edit views'
  *
  * @param string $url_params URL parameters
@@ -736,51 +690,6 @@ function PMA_getHtmlForEditView($url_params)
         PMA_Util::getIcon('b_edit.png', __('Edit view'), true)
     );
     return $html_output;
-}
-
-/**
- * Get hidden action titles (image and string)
- *
- * @return array $hidden_titles
- */
-function PMA_getHiddenTitlesArray()
-{
-    $hidden_titles = array();
-    $hidden_titles['DistinctValues'] = PMA_Util::getIcon(
-        'b_browse.png', __('Distinct values'), true
-    );
-    $hidden_titles['Primary'] = PMA_Util::getIcon(
-        'b_primary.png', __('Add primary key'), true
-    );
-    $hidden_titles['NoPrimary'] = PMA_Util::getIcon(
-        'bd_primary.png', __('Add primary key'), true
-    );
-    $hidden_titles['Index'] = PMA_Util::getIcon(
-        'b_index.png', __('Add index'), true
-    );
-    $hidden_titles['NoIndex'] = PMA_Util::getIcon(
-        'bd_index.png', __('Add index'), true
-    );
-    $hidden_titles['Unique'] = PMA_Util::getIcon(
-        'b_unique.png', __('Add unique index'), true
-    );
-    $hidden_titles['NoUnique'] = PMA_Util::getIcon(
-        'bd_unique.png', __('Add unique index'), true
-    );
-    $hidden_titles['Spatial'] = PMA_Util::getIcon(
-        'b_spatial.png', __('Add SPATIAL index'), true
-    );
-    $hidden_titles['NoSpatial'] = PMA_Util::getIcon(
-        'bd_spatial.png', __('Add SPATIAL index'), true
-    );
-    $hidden_titles['IdxFulltext'] = PMA_Util::getIcon(
-        'b_ftext.png', __('Add FULLTEXT index'), true
-    );
-    $hidden_titles['NoIdxFulltext'] = PMA_Util::getIcon(
-        'bd_ftext.png', __('Add FULLTEXT index'), true
-    );
-
-    return $hidden_titles;
 }
 
 /**
@@ -1549,40 +1458,6 @@ function PMA_checkFavoriteTable($db, $current_table)
 }
 
 /**
- * Get HTML for favorite anchor.
- *
- * @param string $db            current database
- * @param array  $current_table current table
- * @param array  $titles        titles
- *
- * @return string The html output
- */
-function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
-{
-    $html_output  = '<a id="' . md5($current_table['TABLE_NAME']) . '_favorite_anchor" class="ajax favorite_table_anchor';
-
-    // Check if current table is already in favorite list.
-    $already_favorite = PMA_checkFavoriteTable($db, $current_table['TABLE_NAME']);
-    $fav_params = array('db' => $db,
-        'ajax_request' => true,
-        'favorite_table' => $current_table['TABLE_NAME'],
-        (($already_favorite?'remove':'add') . '_favorite') => true
-    );
-    $fav_url = 'db_structure.php' . PMA_URL_getCommon($fav_params);
-    $html_output .= '" ';
-    $html_output .= 'href="' . $fav_url
-        . '" title="' . ($already_favorite ? __("Remove from Favorites")
-        : __("Add to Favorites"))
-        . '" data-favtargets="'
-        . md5($db . "." . $current_table['TABLE_NAME'])
-        . '" >'
-        . (!$already_favorite ? $titles['NoFavorite']
-        : $titles['Favorite']) . '</a>';
-
-    return $html_output;
-}
-
-/**
  * Add or remove favorite tables
  *
  * @param string $db current database
@@ -1652,8 +1527,12 @@ function PMA_addRemoveFavoriteTables($db)
         );
         $ajax_response->addJSON(
             'anchor',
-            PMA_getHtmlForFavoriteAnchor(
-                $db, array('TABLE_NAME' => $favorite_table), $titles
+            PMA\Template::get('structure/favorite_anchor')->render(
+                array(
+                    'db' => $db,
+                    'current_table' => array('TABLE_NAME' => $favorite_table),
+                    'titles' => $titles
+                )
             )
         );
     } else {

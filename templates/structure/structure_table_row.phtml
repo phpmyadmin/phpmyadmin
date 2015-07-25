@@ -22,7 +22,13 @@
     ?>
     <?php if ($GLOBALS['cfg']['NumFavoriteTables'] > 0): ?>
         <td class="center print_ignore">
-            <?php echo PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles); ?>
+            <?php echo PMA\Template::get('structure/favorite_anchor')->render(
+                array(
+                    'db' => $db,
+                    'current_table' => $current_table,
+                    'titles' => $titles
+                )
+            ); ?>
         </td>
     <?php endif; ?>
 

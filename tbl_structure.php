@@ -211,9 +211,6 @@ $create_table_fields = SqlParser\Utils\Table::getFields($stmt);
 // action titles (image or string)
 $titles = PMA_getActionTitlesArray();
 
-// hidden action titles (image and string)
-$hidden_titles = PMA_getHiddenTitlesArray();
-
 //display table structure
 require_once 'libraries/display_structure.inc.php';
 
