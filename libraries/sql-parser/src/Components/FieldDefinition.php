@@ -241,6 +241,13 @@ class FieldDefinition extends Component
                     $state = 6;
                     ++$list->idx;
                     break;
+                } else {
+                    $parser->error(
+                        __('A comma or a closing bracket was expected.'),
+                        $token
+                    );
+                    $state = 0;
+                    break;
                 }
             }
         }
