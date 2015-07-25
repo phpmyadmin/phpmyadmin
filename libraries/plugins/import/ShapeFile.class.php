@@ -56,7 +56,7 @@ class PMA_ShapeFile extends ShapeFile
      * @return void
      * @see ShapeFile::_loadHeaders()
      */
-    private function _loadHeaders()
+    public function _loadHeaders()
     {
         ImportShp::readFromBuffer(24);
         $this->fileLength = loadData("N", ImportShp::readFromBuffer(4));
@@ -81,7 +81,7 @@ class PMA_ShapeFile extends ShapeFile
      * @return boolean|void
      * @see ShapeFile::_loadRecords()
      */
-    private function _loadRecords()
+    public function _loadRecords()
     {
         global $eof;
         ImportShp::readFromBuffer(32);
