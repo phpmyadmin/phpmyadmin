@@ -98,21 +98,21 @@ class PMA_SqlTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(
             PMA_isJustBrowsing(
                 PMA_parseAndAnalyze('SELECT * FROM db.tbl'),
-                false
+                null
             )
         );
 
         $this->assertTrue(
             PMA_isJustBrowsing(
                 PMA_parseAndAnalyze('SELECT * FROM tbl WHERE 1'),
-                false
+                null
             )
         );
 
         $this->assertFalse(
             PMA_isJustBrowsing(
                 PMA_parseAndAnalyze('SELECT * from tbl1, tbl2 LIMIT 0, 10'),
-                false
+                null
             )
         );
     }

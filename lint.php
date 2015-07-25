@@ -6,9 +6,16 @@
  * @package PhpMyAdmin
  */
 
-if (!defined('PHPMYADMIN')) {
-    define('PHPMYADMIN', true);
-}
+/**
+ * Loading common files. Used to check for authorization, localization and to
+ * load the parsing library.
+ */
+require_once 'libraries/common.inc.php';
+
+/**
+ * Loads the linter.
+ */
+require_once 'libraries/Linter.class.php';
 
 /**
  * The SQL query to be analyzed.
@@ -22,17 +29,6 @@ if (!defined('PHPMYADMIN')) {
  * @var string
  */
 $sql_query = $_REQUEST['sql_query'];
-
-/**
- * Loading common files. Used to check for authorization, localization and to
- * load the parsing library.
- */
-require_once 'libraries/common.inc.php';
-
-/**
- * Loads the linter.
- */
-require_once 'libraries/Linter.class.php';
 
 // Disabling standard response.
 $response = PMA_Response::getInstance();
