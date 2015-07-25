@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
 "PO-Revision-Date: 2015-07-25 19:07+0200\n"
-"Last-Translator: Олег Карпов <salvadoporjc@gmail.com>\n"
+"Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
@@ -2929,10 +2929,9 @@ msgid "Please enter a valid date ( ISO )"
 msgstr "Введите правильную дату ( ISO )"
 
 #: js/messages.php:780
-#, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Пожалуйста, введите правильное числовое значение!"
+msgstr "Пожалуйста, введите правильное числовое значение"
 
 #: js/messages.php:781
 #, fuzzy
