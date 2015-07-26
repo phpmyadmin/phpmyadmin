@@ -26,7 +26,7 @@ class ValueItem implements Item
      *
      * @param mixed $value Value
      */
-    function __construct($value)
+    public function __construct($value)
     {
         $this->value = $value;
     }

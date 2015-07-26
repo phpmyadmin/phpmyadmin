@@ -34,7 +34,7 @@ class Relation_Stats_Svg extends RelationStats
      * @param string $foreign_table The foreign table name
      * @param string $foreign_field The relation field in the foreign table
      */
-    function __construct(
+    public function __construct(
         $diagram, $master_table, $master_field, $foreign_table, $foreign_field
     ) {
         $this->wTick = 10;

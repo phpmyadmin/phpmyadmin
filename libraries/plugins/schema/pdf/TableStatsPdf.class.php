@@ -48,7 +48,7 @@ class Table_Stats_Pdf extends TableStats
      * @see PMA_Schema_PDF, Table_Stats_Pdf::Table_Stats_setWidth,
      *     Table_Stats_Pdf::Table_Stats_setHeight
      */
-    function __construct(
+    public function __construct(
         $diagram, $db, $tableName, $fontSize, $pageNumber, &$sameWideWidth,
         $showKeys = false, $tableDimension = false, $offline = false
     ) {

@@ -253,7 +253,7 @@ class ImportXml extends ImportPlugin
                     }
                 }
 
-                if ($isInTables == false) {
+                if (!$isInTables) {
                     $tables[] = array((string)$tbl_attr['name']);
                 }
 

@@ -491,14 +491,14 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
         }
     } elseif (/*overload*/mb_strstr($column['True_Type'], 'set')) {
         $nullify_code = '3';
-    } elseif ($foreigners
-        && $foreigner
+    } elseif (!empty($foreigners)
+        && !empty($foreigner)
         && $foreignData['foreign_link'] == false
     ) {
         // foreign key in a drop-down
         $nullify_code = '4';
-    } elseif ($foreigners
-        && $foreigner
+    } elseif (!empty($foreigners)
+        && !empty($foreigner)
         && $foreignData['foreign_link'] == true
     ) {
         // foreign key with a browsing icon

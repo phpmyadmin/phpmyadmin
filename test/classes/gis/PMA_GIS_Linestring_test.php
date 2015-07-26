@@ -178,7 +178,7 @@ class PMA_GIS_LinestringTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsPng($spatial, $label, $line_color,
         $scale_data, $image
     ) {
-        $return = $this->object->prepareRowAsPng(
+        $this->object->prepareRowAsPng(
             $spatial, $label, $line_color, $scale_data, $image
         );
         /* TODO: this never fails */

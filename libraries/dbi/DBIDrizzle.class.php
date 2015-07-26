@@ -186,7 +186,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      * @param resource $link  connection object
      * @param string   $query multi query statement to execute
      *
-     * @return result collection | boolean(false)
+     * @return array|bool
      */
     public function realMultiQuery($link, $query)
     {
@@ -380,7 +380,8 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      */
     public function affectedRows($link)
     {
-        return $link->affectedRows();
+        $affectedRows = $link->affectedRows();
+        return $affectedRows !== false ? $affectedRows : 0;
     }
 
     /**

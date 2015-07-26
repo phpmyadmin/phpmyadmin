@@ -3368,46 +3368,31 @@ class PMA_Util
      */
     public static function getScriptNameForOption($target, $location)
     {
-        $retval = '';
-
         if ($location == 'server') {
             // Values for $cfg['DefaultTabServer']
             switch ($target) {
             case 'welcome':
-                $retval = 'index.php';
-                break;
+                return 'index.php';
             case 'databases':
-                $retval = 'server_databases.php';
-                break;
+                return 'server_databases.php';
             case 'status':
-                $retval = 'server_status.php';
-                break;
+                return 'server_status.php';
             case 'variables':
-                $retval = 'server_variables.php';
-                break;
+                return 'server_variables.php';
             case 'privileges':
-                $retval = 'server_privileges.php';
-                break;
-            default:
-                $retval = $target;
+                return 'server_privileges.php';
             }
         } elseif ($location == 'database') {
             // Values for $cfg['DefaultTabDatabase']
             switch ($target) {
             case 'structure':
-                $retval = 'db_structure.php';
-                break;
+                return 'db_structure.php';
             case 'sql':
-                $retval = 'db_sql.php';
-                break;
+                return 'db_sql.php';
             case 'search':
-                $retval = 'db_search.php';
-                break;
+                return 'db_search.php';
             case 'operations':
-                $retval = 'db_operations.php';
-                break;
-            default:
-                $retval = $target;
+                return 'db_operations.php';
             }
         } elseif ($location == 'table') {
             // Values for $cfg['DefaultTabTable'],
@@ -3415,28 +3400,19 @@ class PMA_Util
             // $cfg['NavigationTreeDefaultTabTable2']
             switch ($target) {
             case 'structure':
-                $retval = 'tbl_structure.php';
-                break;
+                return 'tbl_structure.php';
             case 'sql':
-                $retval = 'tbl_sql.php';
-                break;
+                return 'tbl_sql.php';
             case 'search':
-                $retval = 'tbl_select.php';
-                break;
+                return 'tbl_select.php';
             case 'insert':
-                $retval = 'tbl_change.php';
-                break;
+                return 'tbl_change.php';
             case 'browse':
-                $retval = 'sql.php';
-                break;
-            default:
-                $retval = $target;
+                return 'sql.php';
             }
-        } else {
-            $retval = $target;
         }
 
-        return $retval;
+        return $target;
     }
 
     /**

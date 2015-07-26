@@ -302,7 +302,7 @@ class PMA_Header
      */
     public function setAjax($isAjax)
     {
-        $this->_isAjax = ($isAjax == true);
+        $this->_isAjax = !!$isAjax;
         $this->_console->setAjax($isAjax);
     }
 

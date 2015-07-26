@@ -124,8 +124,6 @@ class Node
      * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
      * @param bool   $is_group Whether this object has been created
      *                         while grouping nodes
-     *
-     * @return Node
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
@@ -211,14 +209,14 @@ class Node
         $parents = array();
         if ($self
             && ($this->type != Node::CONTAINER || $containers)
-            && ($this->is_group != true || $groups)
+            && (!$this->is_group || $groups)
         ) {
             $parents[] = $this;
         }
         $parent = $this->parent;
         while (isset($parent)) {
             if (($parent->type != Node::CONTAINER || $containers)
-                && ($parent->is_group != true || $groups)
+                && (!$parent->is_group || $groups)
             ) {
                 $parents[] = $parent;
             }

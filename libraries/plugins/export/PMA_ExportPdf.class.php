@@ -35,7 +35,7 @@ class PMA_ExportPdf extends PMA_PDF
      *
      * @return boolean true in case of page break, false otherwise.
      */
-    function checkPageBreak($h = 0, $y = '', $addpage = true)
+    public function checkPageBreak($h = 0, $y = '', $addpage = true)
     {
         if (TCPDF_STATIC::empty_string($y)) {
             $y = $this->y;
@@ -84,7 +84,7 @@ class PMA_ExportPdf extends PMA_PDF
      *
      * @return void
      */
-    function Header()
+    public function Header()
     {
         global $maxY;
         // We don't want automatic page breaks while generating header
@@ -169,7 +169,7 @@ class PMA_ExportPdf extends PMA_PDF
      *
      * @return void
      */
-    function morepagestable($lineheight = 8)
+    public function morepagestable($lineheight = 8)
     {
         // some things to set and 'remember'
         $l = $this->lMargin;
@@ -254,7 +254,7 @@ class PMA_ExportPdf extends PMA_PDF
      *
      * @return void
      */
-    function setAttributes($attr = array())
+    public function setAttributes($attr = array())
     {
         foreach ($attr as $key => $val) {
             $this->$key = $val ;
@@ -269,7 +269,7 @@ class PMA_ExportPdf extends PMA_PDF
      *
      * @return void
      */
-    function setTopMargin($topMargin)
+    public function setTopMargin($topMargin)
     {
         $this->tMargin = $topMargin;
     }
@@ -456,12 +456,7 @@ class PMA_ExportPdf extends PMA_PDF
             // Find which tables are related with the current one and write it in
             // an array
             $res_rel = PMA_getForeigners($db, $table);
-
-            if ($res_rel && count($res_rel) > 0) {
-                $have_rel = true;
-            } else {
-                $have_rel = false;
-            }
+            $have_rel = !empty($res_rel);
         } else {
                $have_rel = false;
         } // end if
@@ -655,7 +650,7 @@ class PMA_ExportPdf extends PMA_PDF
      *
      * @return void
      */
-    function mysqlReport($query)
+    public function mysqlReport($query)
     {
         unset($this->tablewidths);
         unset($this->colTitles);

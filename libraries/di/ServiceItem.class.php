@@ -27,7 +27,7 @@ class ServiceItem extends ReflectorItem
      * @param Container $container  Container
      * @param mixed     $definition Definition
      */
-    function __construct(Container $container, $definition)
+    public function __construct(Container $container, $definition)
     {
         parent::__construct($container, $definition);
     }

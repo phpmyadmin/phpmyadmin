@@ -710,8 +710,7 @@ class PMA_Table
         // Try moving the tables directly, using native `RENAME` statement.
         if ($move && $what == 'data') {
             $tbl = new PMA_Table($source_table, $source_db);
-            $result = $tbl->rename($target_table, $target_db);
-            if ($result) {
+            if ($tbl->rename($target_table, $target_db)) {
                 $GLOBALS['message'] = $tbl->getLastMessage();
                 return true;
             }
@@ -840,10 +839,11 @@ class PMA_Table
                  */
                 $statement = new SqlParser\Statements\DropStatement();
 
+                $tbl = new PMA_Table($target_db, $target_table);
+
                 $statement->options = new SqlParser\Components\OptionsArray(
                     array(
-                        PMA_Table::isView($target_db, $target_table) ?
-                            'VIEW' : 'TABLE',
+                        $tbl->isView() ? 'VIEW' : 'TABLE',
                         'IF EXISTS',
                     )
                 );

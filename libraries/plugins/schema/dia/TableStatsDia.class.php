@@ -37,7 +37,7 @@ class Table_Stats_Dia extends TableStats
      * @param boolean $showKeys   Whether to display ONLY keys or not
      * @param boolean $offline    Whether the coordinates are sent from the browser
      */
-    function __construct(
+    public function __construct(
         $diagram, $db, $tableName, $pageNumber, $showKeys = false, $offline = false
     ) {
         parent::__construct(

@@ -313,7 +313,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return string resulting schema
      */
-    function getTableDef(
+    public function getTableDef(
         $db,
         $table,
         $crlf,
@@ -419,7 +419,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return string Formatted triggers list
      */
-    function getTriggers($db, $table)
+    public function getTriggers($db, $table)
     {
         $dump = "|------\n";
         $dump .= '|' . __('Name');
@@ -469,7 +469,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    function exportStructure(
+    public function exportStructure(
         $db,
         $table,
         $crlf,
@@ -530,7 +530,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return string Formatted column definition
      */
-    function formatOneColumnDefinition(
+    public function formatOneColumnDefinition(
         $column, $unique_keys, $col_alias = ''
     ) {
         if (empty($col_alias)) {

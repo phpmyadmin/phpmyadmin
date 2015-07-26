@@ -44,11 +44,10 @@ class Table_Stats_Eps extends TableStats
      * @param boolean $offline          Whether the coordinates are sent
      *                                  from the browser
      *
-     * @access private
      * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
      *      Table_Stats_Eps::Table_Stats_setHeight
      */
-    function __construct(
+    public function __construct(
         $diagram, $db, $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
         $showKeys = false, $tableDimension = false, $offline = false
     ) {
@@ -89,7 +88,6 @@ class Table_Stats_Eps extends TableStats
      *
      * @return void
      *
-     * @access private
      * @see PMA_EPS
      */
     private function _setWidthTable($font,$fontSize)
@@ -117,7 +115,6 @@ class Table_Stats_Eps extends TableStats
      * @param integer $fontSize The font size
      *
      * @return void
-     * @access private
      */
     private function _setHeightTable($fontSize)
     {
@@ -132,7 +129,6 @@ class Table_Stats_Eps extends TableStats
      *
      * @return void
      *
-     * @access public
      * @see PMA_EPS,PMA_EPS::line,PMA_EPS::rect
      */
     public function tableDraw($showColor)

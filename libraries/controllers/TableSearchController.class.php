@@ -766,8 +766,9 @@ class TableSearchController extends TableController
      *
      * @return void
      */
-    function replace($columnIndex, $find, $replaceWith, $useRegex, $charSet)
-    {
+    public function replace($columnIndex, $find, $replaceWith, $useRegex,
+        $charSet
+    ) {
         $column = $this->_columnNames[$columnIndex];
         if ($useRegex) {
             $toReplace = $this->_getRegexReplaceRows(
@@ -1008,7 +1009,7 @@ class TableSearchController extends TableController
             }
         } // end while
 
-        if ($fullWhereClause) {
+        if (!empty($fullWhereClause)) {
             return ' WHERE ' . implode(' AND ', $fullWhereClause);
         }
         return '';

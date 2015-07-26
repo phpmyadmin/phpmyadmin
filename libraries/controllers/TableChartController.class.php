@@ -51,7 +51,7 @@ class TableChartController extends TableController
      * @param string $url_query Query URL
      * @param array  $cfg       Configuration
      */
-    function __construct($sql_query, $url_query, $cfg)
+    public function __construct($sql_query, $url_query, $cfg)
     {
         parent::__construct();
 

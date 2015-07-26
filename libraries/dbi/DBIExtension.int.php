@@ -49,7 +49,7 @@ interface PMA_DBI_Extension
      * @param resource $link    connection object
      * @param int      $options query options
      *
-     * @return object|bool result
+     * @return mixed result
      */
     public function realQuery($query, $link, $options);
 
@@ -59,7 +59,7 @@ interface PMA_DBI_Extension
      * @param resource $link  connection object
      * @param string   $query multi query statement to execute
      *
-     * @return result collection | boolean(false)
+     * @return array|bool
      */
     public function realMultiQuery($link, $query);
 

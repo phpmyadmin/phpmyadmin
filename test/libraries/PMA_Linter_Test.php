@@ -70,72 +70,68 @@ class PMA_Linter_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_Linter::lint
      *
-     * @return void
-     */
-    public function testLintEmpty()
-    {
-        $this->assertEquals(array(), PMA_Linter::lint(''));
-    }
-
-    /**
-     * Test for PMA_Linter::lint
+     * @dataProvider testLintProvider
+     *
+     * @param array  $expected The expected result.
+     * @param string $query    The query to be analyzed.
      *
      * @return void
      */
-    public function testLintNoErrors()
+    public function testLint($expected, $query)
     {
-        $this->assertEquals(array(), PMA_Linter::lint('SELECT * FROM tbl'));
+        $this->assertEquals($expected, PMA_Linter::lint($query));
     }
 
     /**
-     * Test for PMA_Linter::lint
+     * Provides data for `testLint`.
      *
-     * @return void
+     * @return array
      */
-    public function testLintErrors()
+    public static function testLintProvider()
     {
-        $this->assertEquals(
+        return array(
+            array(
+                array(),
+                '',
+            ),
+            array(
+                array(),
+                'SELECT * FROM tbl'
+            ),
             array(
                 array(
-                    'message' => 'Unrecognized data type. (near <code>IN</code>)',
-                    'fromLine' => 0,
-                    'fromColumn' => 22,
-                    'toLine' => 0,
-                    'toColumn' => 24,
-                    'severity' => 'error',
+                    array(
+                        'message' => 'Unrecognized data type. (near <code>IN</code>)',
+                        'fromLine' => 0,
+                        'fromColumn' => 22,
+                        'toLine' => 0,
+                        'toColumn' => 24,
+                        'severity' => 'error',
+                    ),
+                    array(
+                        'message' => 'A closing bracket was expected. (near <code>IN</code>)',
+                        'fromLine' => 0,
+                        'fromColumn' => 22,
+                        'toLine' => 0,
+                        'toColumn' => 24,
+                        'severity' => 'error',
+                    )
                 ),
-                array(
-                    'message' => 'A closing bracket was expected. (near <code>IN</code>)',
-                    'fromLine' => 0,
-                    'fromColumn' => 22,
-                    'toLine' => 0,
-                    'toColumn' => 24,
-                    'severity' => 'error',
-                )
+                'CREATE TABLE tbl ( id IN'
             ),
-            PMA_Linter::lint('CREATE TABLE tbl ( id IN')
-        );
-    }
-
-    /**
-     * Test for PMA_Linter::lint
-     *
-     * @return void
-     */
-    public function testLongQuery()
-    {
-        $this->assertEquals(
             array(
                 array(
-                    'message' => 'Linting is disabled for this query because it exceeds the maximum length.',
-                    'fromLine' => 0,
-                    'fromColumn' => 0,
-                    'toLine' => 0,
-                    'toColumn' => 0,
-                    'severity' => 'warning',
-                )
-            ),
-            PMA_Linter::lint(str_repeat(";", 10001))
+                    array(
+                        'message' => 'Linting is disabled for this query because it exceeds the maximum length.',
+                        'fromLine' => 0,
+                        'fromColumn' => 0,
+                        'toLine' => 0,
+                        'toColumn' => 0,
+                        'severity' => 'warning',
+                    )
+                ),
+                str_repeat(";", 10001)
+            )
         );
     }
 }

@@ -43,12 +43,11 @@ class Table_Stats_Svg extends TableStats
      * @param boolean $tableDimension   Whether to display table position or not
      * @param boolean $offline          Whether the coordinates are sent
      *
-     * @access private
      *
      * @see PMA_SVG, Table_Stats_Svg::Table_Stats_setWidth,
      *       Table_Stats_Svg::Table_Stats_setHeight
      */
-    function __construct(
+    public function __construct(
         $diagram, $db, $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
         $showKeys = false, $tableDimension = false, $offline = false
     ) {
@@ -119,9 +118,8 @@ class Table_Stats_Svg extends TableStats
      * @param integer $fontSize font size
      *
      * @return void
-     * @access private
      */
-    function _setHeightTable($fontSize)
+    private function _setHeightTable($fontSize)
     {
         $this->heightCell = $fontSize + 4;
         $this->height = (count($this->fields) + 1) * $this->heightCell;
