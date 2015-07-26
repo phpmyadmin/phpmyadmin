@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-25 14:45+0200\n"
+"PO-Revision-Date: 2015-07-26 13:21+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -13937,37 +13937,35 @@ msgstr "Une parenthèse gauche était attendue."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 msgid "A comma or a closing bracket was expected"
-msgstr ""
+msgstr "Une virgule ou une parenthèse droite était attendus"
 
 #: libraries/sql-parser/src/Components/DataType.php:125
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Type de données non reconnu."
 
 #: libraries/sql-parser/src/Components/Expression.php:222
 msgid "Unexpected closing bracket."
-msgstr ""
+msgstr "Parenthèse droite inattendue."
 
 #: libraries/sql-parser/src/Components/Expression.php:243
 #: libraries/sql-parser/src/Components/Expression.php:280
 #: libraries/sql-parser/src/Components/Expression.php:300
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Un alias a été constaté précédemment."
 
 #: libraries/sql-parser/src/Components/Expression.php:254
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Point inattendu."
 
 #: libraries/sql-parser/src/Components/Expression.php:324
-#, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Aucune table n'a été sélectionnée."
+msgstr "Un alias était attendu."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:93
-#, fuzzy
 #| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "Aucune version n'a été sélectionnée."
+msgstr "Une expression était attendue."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:255
 msgid "A closing bracket was expected."
