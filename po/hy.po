@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-26 13:01+0200\n"
+"PO-Revision-Date: 2015-07-26 13:05+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -4073,20 +4073,20 @@ msgstr "Չհաջողվեց պահպանել վերջին աղյուսակը։"
 
 #: libraries/RecentFavoriteTable.class.php:142
 msgid "Could not save favorite table!"
-msgstr ""
+msgstr "Չհաջողվեց պահպանել ընտրյալների աղյուսակը։"
 
 #: libraries/RecentFavoriteTable.class.php:212
 #: libraries/structure.lib.php:3085
 msgid "Remove from Favorites"
-msgstr ""
+msgstr "Ջնջել ընտրյալներից"
 
 #: libraries/RecentFavoriteTable.class.php:234
 msgid "There are no recent tables."
-msgstr ""
+msgstr "Վերջին օգտագործված աղյուսակներ չկան։"
 
 #: libraries/RecentFavoriteTable.class.php:235
 msgid "There are no favorite tables."
-msgstr ""
+msgstr "Ընտրյալ աղյուսակներ չկան։"
 
 #: libraries/RecentFavoriteTable.class.php:250
 msgid "Recent tables"
@@ -4109,7 +4109,7 @@ msgstr "Ընտրյալ"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "Տրամադրեք անուն՝ էջանշված որոնման համար։"
 
 #: libraries/SavedSearches.class.php:261
 msgid "Missing information to save the bookmarked search."
