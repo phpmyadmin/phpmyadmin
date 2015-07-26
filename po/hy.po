@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-26 13:05+0200\n"
+"PO-Revision-Date: 2015-07-26 19:26+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -912,6 +912,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Կամ անցեք ցանկացած տվյալների բազայի 'Գործողություններ' ներդիրը՝ այտեղից "
+"կազմաձևելու համար։"
 
 #: index.php:601
 #, php-format
@@ -919,6 +921,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"Ձեր PHP-ի MySQL դարանի %s տարբերակը տարբերվում է ձեր սպասարկչում տեղակայված "
+"MySQL-ի %s տարբերակից։ Այն կարող է հանգեցնել անկանխատեսելի վարքագծին։"
 
 #: index.php:625
 #, php-format
@@ -1011,7 +1015,7 @@ msgstr "Իսկապե՞ս եք ցանկանում հետարկել նշված օ�
 
 #: js/messages.php:62
 msgid "Do you really want to delete this central column?"
-msgstr ""
+msgstr "Իսկապե՞ս եք ցանկանում ջնջել այս կենտրոնական սյունակը։"
 
 #: js/messages.php:63
 msgid "Do you really want to delete the selected items?"
@@ -1025,7 +1029,7 @@ msgstr ""
 
 #: js/messages.php:65
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr ""
+msgstr "Իսկապե՞ս եք ցանկանում ԴԱՏԱՐԿԵԼ ընտրած մասնաբաժին(ներ)ը։"
 
 #: js/messages.php:67
 msgid ""
@@ -1038,7 +1042,7 @@ msgstr ""
 
 #: js/messages.php:73
 msgid "Garbled Data"
-msgstr ""
+msgstr "Խեղաթյուրված տվյալներ"
 
 #: js/messages.php:75
 msgid "Are you sure you wish to change the collation and convert the data?"
@@ -1180,15 +1184,15 @@ msgstr "Փակել"
 
 #: js/messages.php:129
 msgid "Template was created."
-msgstr ""
+msgstr "Ձևանմուշը ստեղծվեց։"
 
 #: js/messages.php:130
 msgid "Template was loaded."
-msgstr ""
+msgstr "Ձևանմուշը բեռնվեց։"
 
 #: js/messages.php:131
 msgid "Template was updated."
-msgstr ""
+msgstr "Ձևանմուշը արդիացվեց։"
 
 #: js/messages.php:132
 #| msgid "Table %s has been emptied."
@@ -1277,19 +1281,19 @@ msgstr "Օգտագործված հիշողությունը"
 
 #: js/messages.php:162
 msgid "Total Swap"
-msgstr ""
+msgstr "Ընդամենը փոխանակման տարածության"
 
 #: js/messages.php:163
 msgid "Cached Swap"
-msgstr ""
+msgstr "Շտեմավորված փոխանակման տարածություն"
 
 #: js/messages.php:164
 msgid "Used Swap"
-msgstr ""
+msgstr "Օգտագործված փոխանակման տարածություն"
 
 #: js/messages.php:165
 msgid "Free Swap"
-msgstr ""
+msgstr "Ազատ փոխանակման տարածություն"
 
 #: js/messages.php:167
 msgid "Bytes sent"
@@ -1451,7 +1455,7 @@ msgstr ""
 #: js/messages.php:205
 #, php-format
 msgid "Set log_output to %s"
-msgstr ""
+msgstr "Նշանակել log_output-ը %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:207
@@ -1469,7 +1473,7 @@ msgstr "Կասեցնել %s"
 #: js/messages.php:211
 #, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr ""
+msgstr "Նշանակել long_query_time-ը %d վայրկյան։"
 
 #: js/messages.php:213
 msgid ""
@@ -1544,6 +1548,8 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Քանի որ ընտրվել է ԶԵՏԵՂՄԱՆ հարցումների խմբավորումը, նույն աղյուսակի ԶԵՏԵՂՄԱՆ "
+"հարցումները նույնպես կխմբավորվեն, զետեղվող տվյալներից անկախ։"
 
 #: js/messages.php:235
 msgid "Log data loaded. Queries executed in this time span:"
@@ -1638,6 +1644,10 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Գծապատկերի համար նոր տվյալների հայցման ժամանակ սպասարկիչը վերադարձրեց "
+"անվավեր պատասխան։ Ըստ երևույթի, սա տեղի է ունեցել ձեր ժամանակաշրջանի սպառման "
+"պատճառով։ Էջի վերբեռնումը և ձեր հավատարմագրերի կրկնակի մուտքագրումը կարող է "
+"օգնել։"
 
 #: js/messages.php:262
 msgid "Reload page"
@@ -1656,6 +1666,8 @@ msgstr ""
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
+"Չհաջողվեց կառուցել գծապատկերի ցանցավորումը՝ ներմուծված կազմաձևից։ Վերակայում "
+"լռելյայն կազմաձևին …"
 
 #: js/messages.php:270 libraries/Menu.class.php:350
 #: libraries/Menu.class.php:453 libraries/Menu.class.php:580
@@ -1838,7 +1850,7 @@ msgstr "Ջնջում"
 
 #: js/messages.php:333
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Պահված գործառույթի սահմանումը պետք է պարունակի RETURN արտահայտությունը։"
 
 #: js/messages.php:334 libraries/DisplayResults.class.php:4832
 #: libraries/DisplayResults.class.php:5090 libraries/Menu.class.php:342
@@ -1882,6 +1894,8 @@ msgstr "Ավելացնել %d արժեք"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
+"Նշում՝ եթե ֆայլը պարունակում է բազմակի աղյուսակներ, դրանք կհամակցվեն մեկի "
+"մեջ։"
 
 #: js/messages.php:347
 msgid "Hide query box"
@@ -1957,6 +1971,9 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Կենտրոնական ցանկում սյունակներ չկան։ Համոզվեք, որ %s տվյալների բազայի համար "
+"կենտրոնական սյունակների ցանկը պարունակում է սյունակներ, որոնք ընթացիկ "
+"աղյուսակում առկա չեն։"
 
 #: js/messages.php:361
 msgid "See more"
@@ -1971,6 +1988,8 @@ msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Այս գործողությունը կարող է փոխել որոշ սյունակների սահմանումները։<br/>Համոզվա՞"
+"ծ եք, որ ցանկանում եք շարունակել։"
 
 #: js/messages.php:364
 #| msgid "Column"
@@ -2023,6 +2042,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"Նշում՝ a, b -> d,f ենթադրում է, որ a և b սյունակների համակցված արժեքները "
+"կարող են որոշել d և f սյունակների արժեքները։"
 
 #: js/messages.php:377
 msgid "No partial dependencies selected!"
@@ -2057,7 +2078,7 @@ msgstr "Կկատարվեն հետևյալ գործողությունները՝"
 #: js/messages.php:384
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "ՋՆՋԵԼ %s սյունակները %s աղյուսակից"
 
 #: js/messages.php:385
 msgid "Create the following table"
@@ -2145,10 +2166,12 @@ msgstr "Կտտացրեք 'Վերակայել չափը' կոճակը՝ սկզբն
 #: js/messages.php:419
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"Կտտացրեք տվյալների կետը՝ տվյալների տողը դիտելու և հավանաբար խմբագրելու համար։"
 
 #: js/messages.php:421
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"Գծագիրը կարող է չափափոխվել՝ այն ներքևի աջ անկյան երկայնքով քաշելու դեպքում։"
 
 #: js/messages.php:423
 msgid "Select two columns"
@@ -2191,11 +2214,11 @@ msgstr "Երկրաչափություն"
 
 #: js/messages.php:439
 msgid "Inner Ring"
-msgstr ""
+msgstr "Ներքին ուրվագիծ"
 
 #: js/messages.php:440
 msgid "Outer Ring"
-msgstr ""
+msgstr "Արտաքին ուրվագիծ"
 
 #: js/messages.php:444
 msgid "Do you want to copy encryption key?"
@@ -2210,14 +2233,16 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Ցուցադրում է, որ դուք կատարել եք փոփոխություններ այս էջում։ Դրանք չեղարկելու "
+"համար ձեզանից հաստատում կպահանջվի"
 
 #: js/messages.php:454
 msgid "Select referenced key"
-msgstr ""
+msgstr "Ընտրեք հղման բանալին"
 
 #: js/messages.php:455
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Ընտրեք արտաքին բանալին"
 
 #: js/messages.php:456
 msgid "Please select the primary key or a unique key!"
@@ -2312,6 +2337,8 @@ msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Դուք խմբագրեցիք որոշ տվյալներ, և դրանք դեռ չեն պահպանվել։ Համոզվա՞ծ եք, որ "
+"ցանկանում եք լքել այս էջը՝ առանց տվյալների պահպանման։"
 
 #: js/messages.php:483
 msgid "Drag to reorder."
@@ -2372,7 +2399,7 @@ msgstr ""
 
 #: js/messages.php:495
 msgid "Original length"
-msgstr ""
+msgstr "Սկզբնական երկարություն"
 
 #: js/messages.php:498
 msgid "cancel"
@@ -2408,6 +2435,8 @@ msgstr ""
 #: js/messages.php:512
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
+"Դուք կարող եք նաև խմբագրել տվյալների մեծ մասը<br />անմիջապես դրանց վրա "
+"կտտացնելով։"
 
 #: js/messages.php:517
 msgid "Go to link:"
@@ -2462,11 +2491,15 @@ msgstr "Ապակապել հիմնանակ փեղկից"
 #: js/messages.php:535
 msgid "To filter all databases on server, press Enter after a search term"
 msgstr ""
+"Բոլոր տվյալների բազաներով զտման համար սեղմեք Enter՝ որոնման հարցումը "
+"մուտքագրելուց հետո"
 
 #: js/messages.php:536
 #, php-format
 msgid "To filter all %s in database, press Enter after a search term"
 msgstr ""
+"Տվյալների բազայում բոլոր %s-ներով զտելու համար սեղմեք Enter՝ որոնման "
+"հարցումը մուտքագրելուց հետո"
 
 #: js/messages.php:537
 #| msgid "Table"
@@ -2493,7 +2526,7 @@ msgstr "գործառույթների"
 
 #: js/messages.php:544
 msgid "The requested page was not found in the history, it may have expired."
-msgstr ""
+msgstr "Հարցված էջը չի գտնվել պատմության մեջ, հնարավոր է որ այն սպառվել է։"
 
 #: js/messages.php:547 setup/lib/index.lib.php:160
 #, php-format
@@ -2501,6 +2534,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"Առկա է phpMyAdmin-ի ավելի նոր տարբերակը, և ձեզ խորհուրդ ենք տալիս արդիացնել "
+"այն։ Ամենավերջին տարբերակն է՝ %s, թողարկված՝ %s։"
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:549
@@ -2529,6 +2564,8 @@ msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
+"Տեղի է ունեցել JavaScript-ի ճակատագրական սխալը։ Ցանկանու՞մ եք ուղարկել սխալի "
+"զեկույցը։"
 
 #: js/messages.php:560
 msgid "Change Report Settings"
@@ -2543,6 +2580,8 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
+"Ձեր արտահանումը թերի է, PHP-ի մակարդակում կատարման ժամանակի  ցածր "
+"սահմանափակման պատճառով։"
 
 #: js/messages.php:568
 #, php-format
@@ -2550,6 +2589,9 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Զգուշացում՝ այս էջում առկա ձևը պարունակում է %d դաշտից ավել։ Ուղարկելու "
+"ժամանակ որոշ դաշտերը կարող են անտեսվել՝ PHP-ի կազմաձևի max_input_vars արժեքի "
+"պատճառով։"
 
 #: js/messages.php:574 js/messages.php:587
 msgid "Some errors have been detected on the server!"
@@ -2567,6 +2609,7 @@ msgstr "Անտեսել բոլորը"
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"Ձեր կայանքներին համապատասխան դրանք այժմ ներառվում են, խնդրում ենք սպասել։"
 
 #: js/messages.php:597
 msgid "Execute this query again?"
@@ -2973,21 +3016,25 @@ msgstr "Չհաջողվեց ձևավորել տողը՝ '%s' կանոնի համ�
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
+"Կանոնի անվավեր հայտարարություն %1$s տողում, սպասվում էր նախորդ կանոնի %2$s "
+"տողը։"
 
 #: libraries/Advisor.class.php:415
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr ""
+msgstr "Կանոնի անվավեր հայտարարություն %s տողում։"
 
 #: libraries/Advisor.class.php:423
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr ""
+msgstr "Անսպասելի նշաններ %s տողում։"
 
 #: libraries/Advisor.class.php:438
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
+"Անսպասելի նշան %1$s տողում։ Սպասվում էր աղյուսակավորման նշանը, սակայն գտնվել "
+"է \"%2$s\"։"
 
 #: libraries/Advisor.class.php:475
 msgid "per second"
@@ -3420,6 +3467,8 @@ msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
+"Սպասարկիչի չի պատասխանում (կամ էլ սպասարկչի տեղային բնակը պատշաճ կազմաձևած "
+"չէ)։"
 
 #: libraries/DatabaseInterface.class.php:2454
 msgid "The server is not responding."
@@ -3427,7 +3476,7 @@ msgstr "Սպասարկիչը չի պատասխանում։"
 
 #: libraries/DatabaseInterface.class.php:2459
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Խնդրում ենք ստուգել տվյալների բազան պարունակող պանակի արտոնությունները։"
 
 #: libraries/DatabaseInterface.class.php:2469
 msgid "Details…"
@@ -3493,7 +3542,7 @@ msgstr "Որոնումը տվյալների բազայում"
 
 #: libraries/DbSearch.class.php:392
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr ""
+msgstr "Բառեր կամ արժեքներ՝ որոնելու համար (դերանշան` \"%\")`"
 
 #: libraries/DbSearch.class.php:401 templates/table/search_and_replace.phtml:1
 msgid "Find:"
@@ -3632,7 +3681,7 @@ msgstr "Ավարտել"
 
 #: libraries/DisplayResults.class.php:4261
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
+msgstr "Կարող է մոտավոր լինել։ Դիմեք [doc@faq3-11]FAQ 3.11[/doc]։"
 
 #: libraries/DisplayResults.class.php:4331 libraries/Message.class.php:180
 #: libraries/controllers/TableRelationController.class.php:258
@@ -3762,7 +3811,7 @@ msgstr "Ֆայլի վերբեռման անհայտ սխալ։"
 
 #: libraries/File.class.php:461
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr ""
+msgstr "Վերբեռնված ֆայլի տեղափոխման սխալ, դիմեք [doc@faq1-11]FAQ 1.11[/doc]։"
 
 #: libraries/File.class.php:479
 msgid "Error while moving uploaded file."
@@ -3793,7 +3842,7 @@ msgstr ""
 #: libraries/Header.class.php:747
 #: libraries/plugins/auth/AuthenticationCookie.class.php:152
 msgid "Javascript must be enabled past this point!"
-msgstr ""
+msgstr "Javascript-ը պետք է միացրած լինի այս պահից սկսած։"
 
 #: libraries/Index.class.php:667
 msgid "No index defined!"
@@ -3825,7 +3874,7 @@ msgstr "Փաթեթավորված"
 
 #: libraries/Index.class.php:700 libraries/tracking.lib.php:975
 msgid "Cardinality"
-msgstr ""
+msgstr "Բազմության հզորություն"
 
 #: libraries/Index.class.php:701 libraries/build_html_for_db.lib.php:22
 #: libraries/central_columns.lib.php:703
@@ -3869,6 +3918,8 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
+"%1$s և %2$s ցուցակարգերը նույնն են, այդպես որ դրանցից մեկը հնարավոր է "
+"հեռացնել։"
 
 #: libraries/Linter.class.php:83
 msgid ""
@@ -4038,8 +4089,8 @@ msgstr "Շարժիչներ"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ազդվել է %1$d տող։"
+msgstr[1] "ազդվել է %1$d տող։"
 
 #: libraries/Message.class.php:273
 #, php-format
@@ -4113,7 +4164,7 @@ msgstr "Տրամադրեք անուն՝ էջանշված որոնման համա
 
 #: libraries/SavedSearches.class.php:261
 msgid "Missing information to save the bookmarked search."
-msgstr ""
+msgstr "Բացակայում են տեղեկություններ՝ էջանշված որոնումը պահպանելու համար։"
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
 msgid "An entry with this name already exists."
@@ -4121,28 +4172,28 @@ msgstr "Այս անունով միույթը արդեն իսկ առկա է։"
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Բացակայում են տեղեկություններ՝ որոնումը ջնջելու համար։"
 
 #: libraries/SavedSearches.class.php:375
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Բացակայում են տեղեկություններ՝ որոնումը բեռնելու համար։"
 
 #: libraries/SavedSearches.class.php:394
 msgid "Error while loading the search."
-msgstr ""
+msgstr "Սխալ որոնումը բեռնելու ժամանակ։"
 
 #: libraries/ServerStatusData.class.php:115
 #: libraries/server_status_processes.lib.php:100
 msgid "SQL query"
-msgstr ""
+msgstr "SQL հարցում"
 
 #: libraries/ServerStatusData.class.php:118
 msgid "Handler"
-msgstr ""
+msgstr "Բռնիչ"
 
 #: libraries/ServerStatusData.class.php:119
 msgid "Query cache"
-msgstr ""
+msgstr "Հարցումների շտեմ"
 
 #: libraries/ServerStatusData.class.php:120
 msgid "Threads"
@@ -4150,7 +4201,7 @@ msgstr "Հոսքեր"
 
 #: libraries/ServerStatusData.class.php:122
 msgid "Temporary data"
-msgstr ""
+msgstr "Ժամանակավոր տվյալներ"
 
 #: libraries/ServerStatusData.class.php:123
 msgid "Delayed inserts"
@@ -4158,19 +4209,19 @@ msgstr "Ուշացված զետեղումներ"
 
 #: libraries/ServerStatusData.class.php:124
 msgid "Key cache"
-msgstr ""
+msgstr "Բանալիների շտեմ"
 
 #: libraries/ServerStatusData.class.php:125
 msgid "Joins"
-msgstr ""
+msgstr "Միակցումներ"
 
 #: libraries/ServerStatusData.class.php:127
 msgid "Sorting"
-msgstr ""
+msgstr "Դասակարգում"
 
 #: libraries/ServerStatusData.class.php:129
 msgid "Transaction coordinator"
-msgstr ""
+msgstr "Գործարքների համակարգող"
 
 #: libraries/ServerStatusData.class.php:130
 #: libraries/server_bin_log.lib.php:53
@@ -4179,15 +4230,15 @@ msgstr "Ֆայլեր"
 
 #: libraries/ServerStatusData.class.php:146
 msgid "Flush (close) all tables"
-msgstr ""
+msgstr "Փակել բոլոր աղյուսակները"
 
 #: libraries/ServerStatusData.class.php:152
 msgid "Show open tables"
-msgstr ""
+msgstr "Ցուցադրել բաց աղյուսակների ցանկը"
 
 #: libraries/ServerStatusData.class.php:161
 msgid "Show slave hosts"
-msgstr ""
+msgstr "Ցուցադրել ենթարկվող խնամորդները"
 
 #: libraries/ServerStatusData.class.php:168
 #: libraries/replication_gui.lib.php:50
