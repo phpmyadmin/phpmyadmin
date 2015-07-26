@@ -12,7 +12,10 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Parses and analyzes the given SQL query.
  *
- * @param string $sql_query
+ * @param string $sql_query SQL query
+ * @param string $db        DB name
+ *
+ * @return mixed
  */
 function PMA_parseAndAnalyze($sql_query, $db = null)
 {
