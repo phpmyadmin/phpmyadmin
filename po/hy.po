@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.4.12-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-08 15:27+0200\n"
-"PO-Revision-Date: 2015-07-25 16:17+0200\n"
+"PO-Revision-Date: 2015-07-26 13:05+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-4/hy/>\n"
@@ -606,6 +606,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
+"\"Գործառույթ\" սյունակից ընտրեք \"GeomFromText\" և տեղադրեք տողը ներքևում՝ \""
+"Արժեքը\" դաշտի մեջ։"
 
 #: import.php:54
 #| msgid "Access denied!"
@@ -626,6 +628,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
+"Ըստ երևույթի դուք փորձեցիք վերբեռնել չափազանց մեծ ֆայլ։ Դիմեք "
+"%sուղեցույցներին%s՝ այս սահմանափակումը շրջանցելու համար։"
 
 #: import.php:344 import.php:627
 msgid "Showing bookmark"
@@ -641,6 +645,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Հնարավոր չէ տեղափոխել վերբեռնված ֆայլը, քանի որ սպասարկչում open_basedir "
+"հարաչափը միացրած է առանց %s ժամանակավոր պանակի մատչման արտոնությանը։"
 
 #: import.php:468 import.php:529 libraries/File.class.php:418
 #: libraries/File.class.php:512
@@ -663,6 +669,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"Ներմուծելու համար տվյալներ չկան։ Կամ ներմուծման ենթակա ֆայլը չի նշվել, կամ "
+"ֆայլի չափը գերազանցում է ձեր PHP կազմաձևում առավելագույն թույլատրելի չափը։ "
+"Դիմեք [doc@faq1-16]FAQ 1.16[/doc]։"
 
 #: import.php:555
 msgid ""
@@ -694,6 +703,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
+"Սցենարի կատարման ժամանակի սահմանաչափը սպառվել է։ Ներմուծումը ավարտելու համար "
+"խնդրում ենք %sկրկին ուղարկեք նույն ֆայլը%s, և ներմուծումը կշարունակվի։"
 
 #: import.php:675
 msgid ""
@@ -1170,7 +1181,7 @@ msgstr "Համակարգի հիշողություն"
 
 #: js/messages.php:122
 msgid "System swap"
-msgstr ""
+msgstr "Համակարգի փոխանակման ֆայլ"
 
 #: js/messages.php:124
 msgid "Average load"
@@ -1279,7 +1290,7 @@ msgstr "Հարցեր"
 
 #: js/messages.php:153 libraries/server_status.lib.php:134
 msgid "Traffic"
-msgstr ""
+msgstr "Երթևեկություն"
 
 #: js/messages.php:154 libraries/Menu.class.php:579
 #: libraries/Util.class.php:4155 libraries/server_status_monitor.lib.php:257
@@ -1471,7 +1482,7 @@ msgstr ""
 
 #: js/messages.php:206
 msgid "Jump to Log table"
-msgstr ""
+msgstr "Անցնել մատյանների աղյուսակին"
 
 #: js/messages.php:207
 msgid "No data found"
@@ -1545,11 +1556,11 @@ msgstr "Ընդամենը՝"
 
 #: js/messages.php:228
 msgid "Loading logs"
-msgstr ""
+msgstr "Մատյանների բեռնում"
 
 #: js/messages.php:229
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Ցուցարկիչի թարմացումը ձախողվեց"
 
 #: js/messages.php:230
 msgid ""
@@ -1755,7 +1766,7 @@ msgstr ""
 
 #: js/messages.php:301 libraries/rte/rte_routines.lib.php:811
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET խմբագիր"
 
 #: js/messages.php:302
 #, php-format
@@ -2079,7 +2090,7 @@ msgstr ""
 
 #: js/messages.php:407
 msgid "Do you want to copy encryption key?"
-msgstr ""
+msgstr "Ցանկանու՞մ եք պատճենել ծածկագրման բանալին։"
 
 #: js/messages.php:408
 msgid "Encryption key"
@@ -2280,15 +2291,15 @@ msgstr "Անցնել հղմանը՝"
 
 #: js/messages.php:478
 msgid "Copy column name."
-msgstr ""
+msgstr "Պատճենել սյունակի անունը։"
 
 #: js/messages.php:479
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "Աջ-կտտացրեք սյունակի անունը՝ այն պատճենելու համար։"
 
 #: js/messages.php:482
 msgid "Generate password"
-msgstr ""
+msgstr "Ստեղծել գաղտնաբառը"
 
 #: js/messages.php:483 libraries/replication_gui.lib.php:889
 msgid "Generate"
@@ -2318,11 +2329,11 @@ msgstr "Ցուցադրել թաքնված նավարկման ստորակարգ�
 #: js/messages.php:493 libraries/config/messages.inc.php:431
 #: libraries/navigation/NavigationTree.class.php:1335
 msgid "Link with main panel"
-msgstr ""
+msgstr "Կապել հիմնական փեղկին"
 
 #: js/messages.php:494 libraries/navigation/NavigationTree.class.php:1338
 msgid "Unlink from main panel"
-msgstr ""
+msgstr "Ապակապել հիմնանակ փեղկից"
 
 #: js/messages.php:495
 msgid "To filter all databases on server, press Enter after a search term"
@@ -2345,7 +2356,7 @@ msgstr "ներկայացումների"
 
 #: js/messages.php:499
 msgid "procedures"
-msgstr ""
+msgstr "ընթացակարգերի"
 
 #: js/messages.php:500
 msgid "events"
@@ -3430,23 +3441,23 @@ msgstr ""
 
 #: libraries/File.class.php:270
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Վերբեռնված ֆայլը միայն մասնակի է վերբեռնվել։"
 
 #: libraries/File.class.php:273
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Բացակայում է ժամանակավոր պանակը։"
 
 #: libraries/File.class.php:276
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Չհաջողվեց գրել ֆայլը սկավառակի վրա։"
 
 #: libraries/File.class.php:279
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "Ֆայլի վերբեռնումը կասեցվել է ընդլայնման պատճառով։"
 
 #: libraries/File.class.php:282
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Ֆայլի վերբեռման անհայտ սխալ։"
 
 #: libraries/File.class.php:461
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
@@ -3594,7 +3605,7 @@ msgstr "Կառուցվածք"
 #: libraries/navigation/Nodes/Node_Table.class.php:48
 #: libraries/navigation/Nodes/Node_Table.class.php:285
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/Menu.class.php:320 libraries/Menu.class.php:424
 #: libraries/Util.class.php:3210 libraries/Util.class.php:3217
@@ -3645,21 +3656,21 @@ msgstr "Հետագծում"
 #: libraries/plugins/export/ExportXml.class.php:125
 #: libraries/rte/rte_words.lib.php:50
 msgid "Triggers"
-msgstr ""
+msgstr "Ձգաններ"
 
 #: libraries/Menu.class.php:428 libraries/Menu.class.php:435
 #: libraries/Menu.class.php:442
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "Տվյալների բազան դատարկ է"
 
 #: libraries/Menu.class.php:431 libraries/Util.class.php:4167
 msgid "Query"
-msgstr ""
+msgstr "Հարցում"
 
 #: libraries/Menu.class.php:464 libraries/Util.class.php:4172
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
-msgstr ""
+msgstr "Գործընթացներ"
 
 #: libraries/Menu.class.php:471 libraries/Util.class.php:4173
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
@@ -3671,11 +3682,11 @@ msgstr "Իրադարձություններ"
 
 #: libraries/Menu.class.php:490 libraries/Util.class.php:4176
 msgid "Designer"
-msgstr ""
+msgstr "Ձևավորող"
 
 #: libraries/Menu.class.php:500 libraries/Util.class.php:4177
 msgid "Central columns"
-msgstr ""
+msgstr "Կենտրոնական սյունակներ"
 
 #: libraries/Menu.class.php:537 libraries/Util.class.php:4149
 #: libraries/config/messages.inc.php:233
@@ -3712,7 +3723,7 @@ msgstr "Կոդավորումներ"
 #: libraries/Menu.class.php:608 libraries/Util.class.php:4160
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
-msgstr ""
+msgstr "Խրվակներ"
 
 #: libraries/Menu.class.php:612 libraries/Util.class.php:4161
 msgid "Engines"
@@ -3736,15 +3747,15 @@ msgstr[1] ""
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d տող ջնջվեց."
+msgstr[1] "%1$d տող ջնջվեց."
 
 #: libraries/Message.class.php:292
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d տող զետեղվեց."
+msgstr[1] "%1$d տող զետեղվեց."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2469
 #: libraries/browse_foreigners.lib.php:294
@@ -3756,28 +3767,28 @@ msgstr "էջի համարը՝"
 
 #: libraries/PDF.class.php:126
 msgid "Error while creating PDF:"
-msgstr ""
+msgstr "PDF ստեղծելու սխալ՝"
 
 #: libraries/RecentFavoriteTable.class.php:138
 msgid "Could not save recent table!"
-msgstr ""
+msgstr "Չհաջողվեց պահպանել վերջին աղյուսակը։"
 
 #: libraries/RecentFavoriteTable.class.php:142
 msgid "Could not save favorite table!"
-msgstr ""
+msgstr "Չհաջողվեց պահպանել ընտրյալների աղյուսակը։"
 
 #: libraries/RecentFavoriteTable.class.php:212
 #: libraries/structure.lib.php:2908
 msgid "Remove from Favorites"
-msgstr ""
+msgstr "Ջնջել ընտրյալներից"
 
 #: libraries/RecentFavoriteTable.class.php:234
 msgid "There are no recent tables."
-msgstr ""
+msgstr "Վերջին օգտագործված աղյուսակներ չկան։"
 
 #: libraries/RecentFavoriteTable.class.php:235
 msgid "There are no favorite tables."
-msgstr ""
+msgstr "Ընտրյալ աղյուսակներ չկան։"
 
 #: libraries/RecentFavoriteTable.class.php:250
 msgid "Recent tables"
@@ -3800,7 +3811,7 @@ msgstr "Ընտրյալ"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "Տրամադրեք անուն՝ էջանշված որոնման համար։"
 
 #: libraries/SavedSearches.class.php:261
 msgid "Missing information to save the bookmarked search."
@@ -8346,7 +8357,7 @@ msgstr ""
 #: libraries/mult_submits.lib.php:360 libraries/mult_submits.lib.php:393
 #: libraries/sql_query_form.lib.php:382
 msgid "Submit"
-msgstr ""
+msgstr "Կատարել"
 
 #: libraries/mult_submits.lib.php:380
 msgid "Add table prefix:"
