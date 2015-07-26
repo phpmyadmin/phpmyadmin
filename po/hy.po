@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-25 17:56+0200\n"
+"PO-Revision-Date: 2015-07-26 12:17+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -608,6 +608,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
+"\"Գործառույթ\" սյունակից ընտրեք \"GeomFromText\" և տեղադրեք տողը ներքևում՝ \""
+"Արժեքը\" դաշտի մեջ։"
 
 #: import.php:54
 #| msgid "Access denied!"
@@ -628,6 +630,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
+"Ըստ երևույթի դուք փորձեցիք վերբեռնել չափազանց մեծ ֆայլ։ Դիմեք "
+"%sուղեցույցներին%s՝ այս սահմանափակումը շրջանցելու համար։"
 
 #: import.php:363 import.php:654
 msgid "Showing bookmark"
@@ -643,6 +647,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Հնարավոր չէ տեղափոխել վերբեռնված ֆայլը, քանի որ սպասարկչում open_basedir "
+"հարաչափը միացրած է առանց %s ժամանակավոր պանակի մատչման արտոնությանը։"
 
 #: import.php:487 import.php:548 libraries/File.class.php:418
 #: libraries/File.class.php:512
@@ -665,6 +671,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"Ներմուծելու համար տվյալներ չկան։ Կամ ներմուծման ենթակա ֆայլը չի նշվել, կամ "
+"ֆայլի չափը գերազանցում է ձեր PHP կազմաձևում առավելագույն թույլատրելի չափը։ "
+"Դիմեք [doc@faq1-16]FAQ 1.16[/doc]։"
 
 #: import.php:574
 msgid ""
@@ -696,6 +705,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
+"Սցենարի կատարման ժամանակի սահմանաչափը սպառվել է։ Ներմուծումը ավարտելու համար "
+"խնդրում ենք %sկրկին ուղարկեք նույն ֆայլը%s, և ներմուծումը կշարունակվի։"
 
 #: import.php:702
 msgid ""
@@ -1238,7 +1249,7 @@ msgstr "Համակարգի հիշողություն"
 
 #: js/messages.php:153
 msgid "System swap"
-msgstr ""
+msgstr "Համակարգի փոխանակման ֆայլ"
 
 #: js/messages.php:155
 msgid "Average load"
@@ -1347,7 +1358,7 @@ msgstr "Հարցեր"
 
 #: js/messages.php:184 libraries/server_status.lib.php:134
 msgid "Traffic"
-msgstr ""
+msgstr "Երթևեկություն"
 
 #: js/messages.php:185 libraries/Menu.class.php:584
 #: libraries/Util.class.php:4345 libraries/server_status_monitor.lib.php:257
@@ -1540,7 +1551,7 @@ msgstr ""
 
 #: js/messages.php:237
 msgid "Jump to Log table"
-msgstr ""
+msgstr "Անցնել մատյանների աղյուսակին"
 
 #: js/messages.php:238
 msgid "No data found"
@@ -1615,11 +1626,11 @@ msgstr "Ընդամենը՝"
 
 #: js/messages.php:259
 msgid "Loading logs"
-msgstr ""
+msgstr "Մատյանների բեռնում"
 
 #: js/messages.php:260
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Ցուցարկիչի թարմացումը ձախողվեց"
 
 #: js/messages.php:261
 msgid ""
@@ -1799,7 +1810,7 @@ msgstr "Կոդավորման փոփոխում"
 
 #: js/messages.php:320 libraries/Util.class.php:3220
 msgid "Enable foreign key checks"
-msgstr ""
+msgstr "Միացնել արտաքին բանալիների ստուգումը"
 
 #: js/messages.php:323
 msgid "Failed to get real row count."
@@ -1847,7 +1858,7 @@ msgstr "Արտահանում"
 
 #: js/messages.php:337 libraries/rte/rte_routines.lib.php:652
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET խմբագիր"
 
 #: js/messages.php:338
 #, php-format
@@ -1925,7 +1936,7 @@ msgstr "Ինքնապահպանված հարցումներ չկան"
 #: js/messages.php:354
 #, php-format
 msgid "Variable %d:"
-msgstr ""
+msgstr "%d փոփոխական՝"
 
 #: js/messages.php:357 libraries/normalization.lib.php:885
 msgid "Pick"
@@ -2188,7 +2199,7 @@ msgstr ""
 
 #: js/messages.php:444
 msgid "Do you want to copy encryption key?"
-msgstr ""
+msgstr "Ցանկանու՞մ եք պատճենել ծածկագրման բանալին։"
 
 #: js/messages.php:445
 msgid "Encryption key"
@@ -2237,7 +2248,7 @@ msgstr "Պահպանել էջը"
 #: js/messages.php:464 templates/designer/side_menu.phtml:63
 #: templates/designer/side_menu.phtml:66
 msgid "Save page as"
-msgstr ""
+msgstr "Պահպանել էջը որպես"
 
 #: js/messages.php:465 templates/designer/side_menu.phtml:49
 #: templates/designer/side_menu.phtml:52
@@ -2290,7 +2301,7 @@ msgstr "ստեղծվել է %d առարկա։"
 #: js/messages.php:478 libraries/mult_submits.lib.php:366
 #: libraries/mult_submits.lib.php:399 libraries/sql_query_form.lib.php:413
 msgid "Submit"
-msgstr ""
+msgstr "Կատարել"
 
 #: js/messages.php:481
 msgid "Press escape to cancel editing."
@@ -2404,15 +2415,15 @@ msgstr "Անցնել հղմանը՝"
 
 #: js/messages.php:518
 msgid "Copy column name."
-msgstr ""
+msgstr "Պատճենել սյունակի անունը։"
 
 #: js/messages.php:519
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "Աջ-կտտացրեք սյունակի անունը՝ այն պատճենելու համար։"
 
 #: js/messages.php:522
 msgid "Generate password"
-msgstr ""
+msgstr "Ստեղծել գաղտնաբառը"
 
 #: js/messages.php:523 libraries/replication_gui.lib.php:894
 msgid "Generate"
@@ -2442,11 +2453,11 @@ msgstr "Ցուցադրել թաքնված նավարկման ստորակարգ�
 #: js/messages.php:533 libraries/config/messages.inc.php:448
 #: libraries/navigation/NavigationTree.class.php:1398
 msgid "Link with main panel"
-msgstr ""
+msgstr "Կապել հիմնական փեղկին"
 
 #: js/messages.php:534 libraries/navigation/NavigationTree.class.php:1401
 msgid "Unlink from main panel"
-msgstr ""
+msgstr "Ապակապել հիմնանակ փեղկից"
 
 #: js/messages.php:535
 msgid "To filter all databases on server, press Enter after a search term"
@@ -2469,7 +2480,7 @@ msgstr "ներկայացումների"
 
 #: js/messages.php:539
 msgid "procedures"
-msgstr ""
+msgstr "ընթացակարգերի"
 
 #: js/messages.php:540
 msgid "events"
