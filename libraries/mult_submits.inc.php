@@ -82,7 +82,12 @@ if (! empty($submit_mult)
             exit;
             break;
         case 'show_create':
-            $show_create = PMA_getHtmlShowCreate($GLOBALS['db'], $selected);
+            $show_create = PMA\Template::get('structure/show_create')->render(
+                array(
+                    'db' => $GLOBALS['db'],
+                    'db_objects' => $selected
+                )
+            );
             // Send response to client.
             $response = PMA_Response::getInstance();
             $response->addJSON('message', $show_create);

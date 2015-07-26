@@ -8,6 +8,7 @@
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
+require_once 'libraries/Template.class.php';
 require_once 'libraries/structure.lib.php';
 require_once 'libraries/index.lib.php';
 require_once 'libraries/tbl_info.inc.php';
@@ -44,11 +45,12 @@ $response->addHTML($tabletype);
 $tablestructure = '<table id="tablestructure" class="data topmargin">';
 $response->addHTML($tablestructure);
 
-
 $response->addHTML(
-    PMA_getHtmlForTableStructureHeader(
-        $db_is_system_schema,
-        $tbl_is_view
+    PMA\Template::get('structure/table_structure_header')->render(
+        array(
+            'db_is_system_schema' => $db_is_system_schema,
+            'tbl_is_view' => $tbl_is_view
+        )
     )
 );
 
@@ -172,21 +174,41 @@ foreach ($fields as $row) {
     $odd_row = !$odd_row;
     $isInCentralColumns = in_array($row['Field'], $central_list) ? true : false;
     $response->addHTML(
-        PMA_getHtmlTableStructureRow(
-            $row, $rownum, $displayed_field_name,
-            $class_for_type, $extracted_columnspec, $type_mime,
-            $field_charset, $attribute, $tbl_is_view,
-            $db_is_system_schema, $url_query, $field_encoded, $titles, $table
+        PMA\Template::get('structure/table_structure_row')->render(
+            array(
+                'row' => $row,
+                'rownum' => $rownum,
+                'displayed_field_name' => $displayed_field_name,
+                'type_nowrap' => $class_for_type,
+                'extracted_columnspec' => $extracted_columnspec,
+                'type_mime' => $type_mime,
+                'field_charset' => $field_charset,
+                'attribute' => $attribute,
+                'tbl_is_view' => $tbl_is_view,
+                'db_is_system_schema' => $db_is_system_schema,
+                'url_query' => $url_query,
+                'field_encoded' => $field_encoded,
+                'titles' => $titles,
+                'table' => $table
+            )
         )
     );
 
     if (! $tbl_is_view && ! $db_is_system_schema) {
         $response->addHTML(
-            PMA_getHtmlForActionsInTableStructure(
-                $type, $tbl_storage_engine, $primary,
-                $field_name, $url_query, $titles, $row, $rownum,
-                $columns_with_unique_index,
-                $isInCentralColumns
+            PMA\Template::get('structure/actions_in_table_structure')->render(
+                array(
+                    'type' => $type,
+                    'tbl_storage_engine' => $tbl_storage_engine,
+                    'primary' => $primary,
+                    'field_name' => $field_name,
+                    'url_query' => $url_query,
+                    'titles' => $titles,
+                    'row' => $row,
+                    'rownum' => $rownum,
+                    'columns_with_unique_index' => $columns_with_unique_index,
+                    'isInCentralColumns' => $isInCentralColumns
+                )
             )
         );
     } // end if (! $tbl_is_view && ! $db_is_system_schema)
@@ -199,9 +221,14 @@ foreach ($fields as $row) {
 $response->addHTML('</tbody></table>');
 
 $response->addHTML(
-    PMA_getHtmlForCheckAllTableColumn(
-        $pmaThemeImage, $text_dir, $tbl_is_view,
-        $db_is_system_schema, $tbl_storage_engine
+    PMA\Template::get('structure/check_all_table_column')->render(
+        array(
+            'pmaThemeImage' => $pmaThemeImage,
+            'text_dir' => $text_dir,
+            'tbl_is_view' => $tbl_is_view,
+            'db_is_system_schema' => $db_is_system_schema,
+            'tbl_storage_engine' => $tbl_storage_engine
+        )
     )
 );
 
@@ -209,7 +236,7 @@ $response->addHTML(
     '</form><hr class="print_ignore"/>'
 );
 $response->addHTML(
-    PMA_getHtmlDivForMoveColumnsDialog()
+    PMA\Template::get('structure/move_columns_dialog')->render()
 );
 
 /**
@@ -222,8 +249,12 @@ if ($tbl_is_view) {
     $response->addHTML(PMA_getHtmlForEditView($url_params));
 }
 $response->addHTML(
-    PMA_getHtmlForOptionalActionLinks(
-        $url_query, $tbl_is_view, $db_is_system_schema
+    PMA\Template::get('structure/optional_action_links')->render(
+        array(
+            'url_query' => $url_query,
+            'tbl_is_view' => $tbl_is_view,
+            'db_is_system_schema' => $db_is_system_schema
+        )
     )
 );
 
@@ -231,7 +262,11 @@ $response->addHTML('</div>');
 
 if (! $tbl_is_view && ! $db_is_system_schema) {
     $response->addHTML('<br />');
-    $response->addHTML(PMA_getHtmlForAddColumn($columns_list));
+    $response->addHTML(PMA\Template::get('structure/add_column')->render(
+        array(
+            'columns_list' => $columns_list
+        )
+    ));
 }
 
 /**

@@ -1,0 +1,65 @@
+<?php
+$cnt = 0; // Let's count the columns...
+
+if ($db_is_system_schema) {
+    $action_colspan = 3;
+} else {
+    $action_colspan = 6;
+}
+if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
+    $action_colspan++;
+}
+?>
+<table class="data">
+    <thead>
+    <tr>
+        <th class="print_ignore"></th>
+        <th><?php echo PMA_sortableTableHeader(__('Table'), 'table'); ?></th>
+        <?php if ($replication): ?>
+            <th><?php echo __('Replication'); ?></th>
+        <?php endif; ?>
+        <th colspan="<?php echo $action_colspan; ?>" class="print_ignore">
+            <?php echo __('Action'); ?>
+        </th>
+        <!-- larger values are more interesting so default sort order is DESC-->
+        <th>
+            <?php echo PMA_sortableTableHeader(__('Rows'), 'records', 'DESC'); ?>
+            <?php echo PMA_Util::showHint(PMA_sanitize(
+                    __('May be approximate. Click on the number to get the exact'
+                    . ' count. See [doc@faq3-11]FAQ 3.11[/doc].'))); ?>
+        </th>
+        <?php if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)): ?>
+            <th><?php echo PMA_sortableTableHeader(__('Type'), 'type'); $cnt++; ?></th>
+            <th><?php echo PMA_sortableTableHeader(__('Collation'), 'collation'); $cnt++; ?></th>
+        <?php endif; ?>
+
+        <?php if ($GLOBALS['is_show_stats']): ?>
+        <!-- larger values are more interesting so default sort order is DESC -->
+            <th><?php echo PMA_sortableTableHeader(__('Size'), 'size', 'DESC'); $cnt++; ?></th>
+        <!-- larger values are more interesting so default sort order is DESC -->
+            <th><?php echo PMA_sortableTableHeader(__('Overhead'), 'overhead', 'DESC'); $cnt++; ?></th>
+        <?php endif; ?>
+
+        <?php if ($GLOBALS['cfg']['ShowDbStructureComment']): ?>
+            <th><?php echo PMA_sortableTableHeader(__('Comment'), 'comment'); $cnt++; ?></th>
+        <?php endif; ?>
+
+        <?php if ($GLOBALS['cfg']['ShowDbStructureCreation']): ?>
+        <!-- newer values are more interesting so default sort order is DESC -->
+            <th><?php echo PMA_sortableTableHeader(__('Creation'), 'creation', 'DESC'); $cnt++; ?></th>
+        <?php endif; ?>
+
+        <?php if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']): ?>
+            <!-- newer values are more interesting so default sort order is DESC -->
+            <th><?php echo PMA_sortableTableHeader(__('Last update'), 'last_update', 'DESC'); $cnt++; ?></th>
+        <?php endif; ?>
+
+        <?php if ($GLOBALS['cfg']['ShowDbStructureLastCheck']): ?>
+            <!-- newer values are more interesting so default sort order is DESC -->
+            <th><?php echo PMA_sortableTableHeader(__('Last check'), 'last_check', 'DESC'); $cnt++; ?></th>
+        <?php endif; ?>
+    </tr>
+    </thead>
+    <tbody>
+    <?php $GLOBALS['colspan_for_structure'] = $cnt + $action_colspan + 3; ?>
+
