@@ -18,7 +18,11 @@ require_once 'libraries/sql.lib.php';
  */
 class PMA_SqlTest extends PHPUnit_Framework_TestCase
 {
-
+    /**
+     * Test PMA_getSqlWithLimitClause
+     *
+     * @return void
+     */
     public function testGetSqlWithLimitClause()
     {
         // Test environment.
@@ -26,13 +30,20 @@ class PMA_SqlTest extends PHPUnit_Framework_TestCase
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 2;
         $GLOBALS['db'] = 'db';
 
-        $analyzed_sql_results = PMA_parseAndAnalyze('SELECT * FROM test LIMIT 0, 10');
+        $analyzed_sql_results = PMA_parseAndAnalyze(
+            'SELECT * FROM test LIMIT 0, 10'
+        );
         $this->assertEquals(
             'SELECT * FROM test LIMIT 1, 2 ',
             PMA_getSqlWithLimitClause($analyzed_sql_results)
         );
     }
 
+    /**
+     * Test PMA_isRememberSortingOrder
+     *
+     * @return void
+     */
     public function testIsRememberSortingOrder()
     {
         // Test environment.
@@ -70,6 +81,11 @@ class PMA_SqlTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test PMA_isAppendLimitClause
+     *
+     * @return void
+     */
     public function testIsAppendLimitClause()
     {
         // Test environment.
@@ -89,6 +105,11 @@ class PMA_SqlTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test PMA_isJustBrowsing
+     *
+     * @return void
+     */
     public function testIsJustBrowsing()
     {
         // Test environment.
@@ -117,6 +138,11 @@ class PMA_SqlTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test PMA_isDeleteTransformationInfo
+     *
+     * @return void
+     */
     public function testIsDeleteTransformationInfo()
     {
         $this->assertTrue(
@@ -138,6 +164,11 @@ class PMA_SqlTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test PMA_hasNoRightsToDropDatabase
+     *
+     * @return void
+     */
     public function testHasNoRightsToDropDatabase()
     {
         $this->assertEquals(

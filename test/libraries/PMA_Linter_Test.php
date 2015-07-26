@@ -101,7 +101,8 @@ class PMA_Linter_Test extends PHPUnit_Framework_TestCase
             array(
                 array(
                     array(
-                        'message' => 'Unrecognized data type. (near <code>IN</code>)',
+                        'message' => 'Unrecognized data type. (near ' .
+                            '<code>IN</code>)',
                         'fromLine' => 0,
                         'fromColumn' => 22,
                         'toLine' => 0,
@@ -109,7 +110,8 @@ class PMA_Linter_Test extends PHPUnit_Framework_TestCase
                         'severity' => 'error',
                     ),
                     array(
-                        'message' => 'A closing bracket was expected. (near <code>IN</code>)',
+                        'message' => 'A closing bracket was expected. (near ' .
+                            '<code>IN</code>)',
                         'fromLine' => 0,
                         'fromColumn' => 22,
                         'toLine' => 0,
@@ -122,7 +124,8 @@ class PMA_Linter_Test extends PHPUnit_Framework_TestCase
             array(
                 array(
                     array(
-                        'message' => 'Linting is disabled for this query because it exceeds the maximum length.',
+                        'message' => 'Linting is disabled for this query because ' .
+                            'it exceeds the maximum length.',
                         'fromLine' => 0,
                         'fromColumn' => 0,
                         'toLine' => 0,
