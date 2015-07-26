@@ -230,37 +230,39 @@ function PMA_getHtmlForStructureTableRow(
         }
     }
 
-    $html_output = PMA\Template::get('structure/structure_table_row', array(
-        'db' => $db,
-        'curr' => $curr,
-        'odd_row' => $odd_row,
-        'table_is_view' => $table_is_view,
-        'current_table' => $current_table,
-        'browse_table_label' => $browse_table_label,
-        'tracking_icon' => $tracking_icon,
-        'server_slave_status' => $server_slave_status,
-        'browse_table' => $browse_table,
-        'tbl_url_query' => $tbl_url_query,
-        'search_table' => $search_table,
-        'db_is_system_schema' => $db_is_system_schema,
-        'titles' => $titles,
-        'empty_table' => $empty_table,
-        'drop_query' => $drop_query,
-        'drop_message' => $drop_message,
-        'collation' => $collation,
-        'formatted_size' => $formatted_size,
-        'unit' => $unit,
-        'overhead' => $overhead,
-        'create_time' => $create_time,
-        'update_time' => $update_time,
-        'check_time' => $check_time,
-        'is_show_stats' => $is_show_stats,
-        'ignored' => $ignored,
-        'do' => $do,
-        'colspan_for_structure' => $colspan_for_structure,
-        'approx_rows' => $approx_rows,
-        'show_superscript' => $show_superscript
-    ));
+    $html_output = PMA\Template::get('structure/structure_table_row')->render(
+        array(
+            'db' => $db,
+            'curr' => $curr,
+            'odd_row' => $odd_row,
+            'table_is_view' => $table_is_view,
+            'current_table' => $current_table,
+            'browse_table_label' => $browse_table_label,
+            'tracking_icon' => $tracking_icon,
+            'server_slave_status' => $server_slave_status,
+            'browse_table' => $browse_table,
+            'tbl_url_query' => $tbl_url_query,
+            'search_table' => $search_table,
+            'db_is_system_schema' => $db_is_system_schema,
+            'titles' => $titles,
+            'empty_table' => $empty_table,
+            'drop_query' => $drop_query,
+            'drop_message' => $drop_message,
+            'collation' => $collation,
+            'formatted_size' => $formatted_size,
+            'unit' => $unit,
+            'overhead' => $overhead,
+            'create_time' => $create_time,
+            'update_time' => $update_time,
+            'check_time' => $check_time,
+            'is_show_stats' => $is_show_stats,
+            'ignored' => $ignored,
+            'do' => $do,
+            'colspan_for_structure' => $colspan_for_structure,
+            'approx_rows' => $approx_rows,
+            'show_superscript' => $show_superscript
+        )
+    );
 
     $odd_row = ! $odd_row;
 
