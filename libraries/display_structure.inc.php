@@ -17,10 +17,12 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+global $db, $table, $tbl_is_view, $cfg, $db_is_system_schema,
+       $tbl_storage_engine, $pmaThemeImage, $text_dir, $url_query, $showtable, $tbl_collation, $table_info_num_rows;
+$response = PMA_Response::getInstance();
+
 /* TABLE INFORMATION */
 // table header
-
-
 $HideStructureActions = '';
 if ($GLOBALS['cfg']['HideStructureActions'] === true) {
     $HideStructureActions .= ' HideStructureActions';
@@ -71,16 +73,34 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 }
 require_once 'libraries/central_columns.lib.php';
 $central_list = PMA_getCentralColumnsFromTable($db, $table);
-$rownum    = 0;
+$rownum = 0;
 $columns_list = array();
-$save_row  = array();
-$odd_row   = true;
+$save_row = array();
+$odd_row = true;
+
+$titles = array(
+    'Change' => PMA_Util::getIcon('b_edit.png', __('Change')),
+    'Drop' => PMA_Util::getIcon('b_drop.png', __('Drop')),
+    'NoDrop' => PMA_Util::getIcon('b_drop.png', __('Drop')),
+    'Primary' => PMA_Util::getIcon('b_primary.png', __('Primary')),
+    'Index' => PMA_Util::getIcon('b_index.png', __('Index')),
+    'Unique' => PMA_Util::getIcon('b_unique.png', __('Unique')),
+    'Spatial' => PMA_Util::getIcon('b_spatial.png', __('Spatial')),
+    'IdxFulltext' => PMA_Util::getIcon('b_ftext.png', __('Fulltext')),
+    'NoPrimary' => PMA_Util::getIcon('bd_primary.png', __('Primary')),
+    'NoIndex' => PMA_Util::getIcon('bd_index.png', __('Index')),
+    'NoUnique' => PMA_Util::getIcon('bd_unique.png', __('Unique')),
+    'NoSpatial' => PMA_Util::getIcon('bd_spatial.png', __('Spatial')),
+    'NoIdxFulltext' => PMA_Util::getIcon('bd_ftext.png', __('Fulltext')),
+    'DistinctValues' => PMA_Util::getIcon('b_browse.png', __('Distinct values'))
+);
+
 foreach ($fields as $row) {
     $save_row[] = $row;
     $rownum++;
-    $columns_list[]   = $row['Field'];
+    $columns_list[] = $row['Field'];
 
-    $type             = $row['Type'];
+    $type = $row['Type'];
     $extracted_columnspec = PMA_Util::extractColumnSpec($row['Type']);
 
     $class_for_type = PMA_Util::getClassForType(
@@ -246,7 +266,46 @@ $response->addHTML(
 $response->addHTML('<div id="structure-action-links">');
 
 if ($tbl_is_view) {
-    $response->addHTML(PMA_getHtmlForEditView($url_params));
+
+    /** @var PMA_DatabaseInterface $dbi */
+    $dbi = $GLOBALS['dbi'];
+    $item = $dbi->fetchSingleRow(sprintf(
+        "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`, `SECURITY_TYPE`
+            FROM `INFORMATION_SCHEMA`.`VIEWS`
+            WHERE TABLE_SCHEMA='%s'
+            AND TABLE_NAME='%s';",
+        PMA_Util::sqlAddSlashes($GLOBALS['db']),
+        PMA_Util::sqlAddSlashes($GLOBALS['table'])
+    ));
+
+    $createView = $dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->showCreate();
+    // get algorithm from $createView of the form CREATE ALGORITHM=<ALGORITHM> DE...
+    $parts = explode(" ", substr($createView, 17));
+    $item['ALGORITHM'] = $parts[0];
+
+    $view = array(
+        'operation' => 'alter',
+        'definer' => $item['DEFINER'],
+        'sql_security' => $item['SECURITY_TYPE'],
+        'name' => $GLOBALS['table'],
+        'as' => $item['VIEW_DEFINITION'],
+        'with' => $item['CHECK_OPTION'],
+        'algorithm' => $item['ALGORITHM'],
+    );
+
+    $url = 'view_create.php' . PMA_URL_getCommon($url_params) . '&amp;' . implode(
+            '&amp;',
+            array_map(
+                function ($key, $val) {
+                    return 'view[' . urlencode($key) . ']=' . urlencode($val);
+                },
+                array_keys($view), $view
+            )
+        );
+    $response->addHTML(PMA_Util::linkOrButton(
+        $url,
+        PMA_Util::getIcon('b_edit.png', __('Edit view'), true)
+    ));
 }
 $response->addHTML(
     PMA\Template::get('structure/optional_action_links')->render(
@@ -295,11 +354,11 @@ if (! $tbl_is_view
 // Get valid statistics whatever is the table type
 if ($cfg['ShowStats']) {
     //get table stats in HTML format
-    $tablestats = PMA_getHtmlForDisplayTableStats(
-        $showtable, $table_info_num_rows, $tbl_is_view,
-        $db_is_system_schema, $tbl_storage_engine,
-        $url_query, $tbl_collation
-    );
+    $tablestats = PMA_getTableStats(
+            $showtable, $table_info_num_rows, $tbl_is_view,
+            $db_is_system_schema, $tbl_storage_engine,
+            $url_query, $tbl_collation
+        );
     //returning the response in JSON format to be used by Ajax
     $response->addJSON('tableStat', $tablestats);
     $response->addHTML($tablestats);
