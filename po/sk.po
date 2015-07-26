@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-06-16 07:14+0200\n"
+"PO-Revision-Date: 2015-07-26 08:26+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"Language-Team: Slovak "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -275,10 +275,9 @@ msgid "Data"
 msgstr "Dáta"
 
 #: db_export.php:55
-#, fuzzy
 #| msgid "Select All"
 msgid "Select all"
-msgstr "Označiť všetko"
+msgstr "Vybrať všetko"
 
 #: db_operations.php:52 tbl_create.php:24
 msgid "The database name is empty!"
@@ -1029,10 +1028,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Naozaj chcete odstrániť vyhľadávanie \"%s\"?"
+msgstr "Naozaj chcete SKRÁTIŤ vybrané oddiely?"
 
 #: js/messages.php:67
 msgid ""
@@ -1181,26 +1179,23 @@ msgid "Close"
 msgstr "Zavrieť"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "Počet vytvorených stránok."
+msgstr "Šablóna bola vytvorená."
 
 #: js/messages.php:130
 msgid "Template was loaded."
 msgstr ""
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Profil bol aktualizovaný."
+msgstr "Šablóna bola upravená."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Riadok bol zmazaný."
+msgstr "Šablóna bola zmazaná."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:135 libraries/ServerStatusData.class.php:132
@@ -1755,10 +1750,9 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: js/messages.php:296 libraries/Header.class.php:459
-#, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Zmeniť nastavenia"
+msgstr "Nastavenia stránky"
 
 #: js/messages.php:297 libraries/config/FormDisplay.tpl.php:402
 msgid "Apply"
@@ -2609,10 +2603,10 @@ msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
 #: js/messages.php:600
-#, fuzzy, php-format
+#, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Vykonaných dopytov"
+msgstr "%s dopytov bolo vykonaných %s krát za %s sekúnd."
 
 #: js/messages.php:601
 #, php-format
@@ -2620,16 +2614,14 @@ msgid "%s argument(s) passed"
 msgstr ""
 
 #: js/messages.php:602
-#, fuzzy
 #| msgid "Show table comments"
 msgid "Show arguments"
-msgstr "Zobraziť komentáre tabuľky"
+msgstr "Zobraziť argumenty"
 
 #: js/messages.php:603
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Skryť výsledky vyhľadávania"
+msgstr "Skryť argumenty"
 
 #: js/messages.php:604 libraries/Console.class.php:318
 msgid "Time taken:"
@@ -3201,54 +3193,47 @@ msgid "Press Enter to execute query"
 msgstr "Stlačte Enter pre spustenie dopytu"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Vzostupne"
+msgstr "vzostupne"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Zostupne"
+msgstr "zostupne"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "Poradie"
+msgstr "Poradie:"
 
 #: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
 msgid "Count"
 msgstr "Počet"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "Spustiť každých"
+msgstr "Poradie vykonávania"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
 msgstr ""
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "Poradie"
+msgstr "Zoradiť podľa:"
 
 #: libraries/Console.class.php:301
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "SQL dopyty"
+msgstr "Zoskupiť dopyty"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "SQL dopyty"
+msgstr "Zrušiť zoskupenie dopytov"
 
 #: libraries/Console.class.php:315
 #, fuzzy
@@ -3263,10 +3248,9 @@ msgid "Hide trace"
 msgstr "Skryť panel"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "Počet"
+msgstr "Počet:"
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1247
 #: libraries/config/messages.inc.php:806
@@ -3356,10 +3340,9 @@ msgid "Sort:"
 msgstr "Zoradiť:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "Zoradiť:"
+msgstr "Smer triedenia:"
 
 #: libraries/DBQbe.class.php:679
 msgid "Show:"
@@ -4031,10 +4014,9 @@ msgid "Databases"
 msgstr "Databázy"
 
 #: libraries/Menu.class.php:566
-#, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
-msgstr "Užívateľské skupiny"
+msgstr "Užívateľské účty"
 
 #: libraries/Menu.class.php:593 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4346 libraries/server_common.lib.php:36
@@ -4755,10 +4737,9 @@ msgid "Max: %s%s"
 msgstr "Maximálna veľkosť: %s%s"
 
 #: libraries/Util.class.php:662
-#, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
-msgstr "Statické data"
+msgstr "Statická analýza:"
 
 #: libraries/Util.class.php:664
 #, php-format
@@ -5148,10 +5129,9 @@ msgid "display column"
 msgstr "zobraziť stĺpec"
 
 #: libraries/config.values.php:102
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Vitajte v %s"
+msgstr "Vitajte"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5178,16 +5158,14 @@ msgid "Server default"
 msgstr "Prednastavené serverom"
 
 #: libraries/config.values.php:133
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
-msgstr "Zapnuté"
+msgstr "Zapnúť"
 
 #: libraries/config.values.php:134
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "Vypnuté"
+msgstr "Vypnúť"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -5917,10 +5895,9 @@ msgid "Overwrite existing file(s)"
 msgstr "Prepísať existujúce súbory"
 
 #: libraries/config/messages.inc.php:167
-#, fuzzy
 #| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "Exportovať záhlavia tabuliek"
+msgstr "Exportovať ako samostatné súbory"
 
 #: libraries/config/messages.inc.php:171
 msgid "Remember file name template"
@@ -6135,16 +6112,14 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Prizpôsobiť vzhľad navigačného panela."
 
 #: libraries/config/messages.inc.php:253
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Navigačný panel"
+msgstr "Navigačný strom"
 
 #: libraries/config/messages.inc.php:254
-#, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Prispôsobiť navigačný panel"
+msgstr "Prispôsobiť navigačný strom."
 
 #: libraries/config/messages.inc.php:255 libraries/select_server.lib.php:46
 #: setup/frames/index.inc.php:144
@@ -6740,24 +6715,21 @@ msgid "Enable navigation tree expansion"
 msgstr "Povoliť rozbalenie navigačného stromu"
 
 #: libraries/config/messages.inc.php:492
-#, fuzzy
 #| msgid "Show/Hide tables list"
 msgid "Show tables in tree"
-msgstr "Zobraziť/skryť zoznam tabuliek"
+msgstr "Zobraziť tabuľky v strome"
 
 #: libraries/config/messages.inc.php:494
-#, fuzzy
 #| msgid ""
 #| "Whether to offer the possibility of tree expansion in the navigation "
 #| "panel."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "Či sa má ponúknuť možnosť rozbaľovania stromu v navigačnom paneli."
+msgstr "Či sa majú zobrazovať tabuľky pod databázou v navigačnom strome"
 
 #: libraries/config/messages.inc.php:495
-#, fuzzy
 #| msgid "Group items in the tree"
 msgid "Show views in tree"
-msgstr "Zoskupovať položky v strome"
+msgstr "Zobraziť pohľady v strome"
 
 #: libraries/config/messages.inc.php:497
 #, fuzzy
@@ -6766,30 +6738,27 @@ msgid "Whether to show views under database in the navigation tree"
 msgstr "Zobraziť databázovú navigáciu ako strom"
 
 #: libraries/config/messages.inc.php:498
-#, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Zobraziť zoznam funkcií"
+msgstr "Zobraziť funkcie v strome"
 
 #: libraries/config/messages.inc.php:500
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
 #: libraries/config/messages.inc.php:501
-#, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Zobraziť procesy"
+msgstr "Zobraziť procedúry v strome"
 
 #: libraries/config/messages.inc.php:503
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
 #: libraries/config/messages.inc.php:504
-#, fuzzy
 #| msgid "Show hidden items"
 msgid "Show events in tree"
-msgstr "Zobraziť skryté položky"
+msgstr "Zobraziť udalosti v strome"
 
 #: libraries/config/messages.inc.php:506
 #, fuzzy
@@ -7226,10 +7195,9 @@ msgstr ""
 "[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/config/messages.inc.php:659
-#, fuzzy
 #| msgid "Export views as tables"
 msgid "Export templates table"
-msgstr "Exportovať pohľady (views) ako tabuľky"
+msgstr "Exportovať tabuľku šablón"
 
 #: libraries/config/messages.inc.php:661
 #, fuzzy
@@ -8008,10 +7976,9 @@ msgid "Table %1$s has been altered successfully."
 msgstr "Tabuľka %1$s bola úspešné upravená."
 
 #: libraries/controllers/TableRelationController.class.php:218
-#, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "Vlákno %s bol úspešne zabité."
+msgstr "Zobrazený stĺpec bol aktualizovný."
 
 #: libraries/controllers/TableRelationController.class.php:283
 msgid "Internal relations were successfully updated."
@@ -11089,17 +11056,18 @@ msgid ""
 msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
 
 #: libraries/relation.lib.php:1933
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
+msgstr ""
+"%sCreate%s miesto uloženia phpMyAdmin konfigurácie v aktuálnej databáze."
 
 #: libraries/relation.lib.php:1941
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
+msgstr "%sVytvoriť%s chýbajúce tabuľky pre uloženie phpMyAdmin konfigurácie."
 
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:339
 #: libraries/server_databases.lib.php:387
@@ -13529,22 +13497,19 @@ msgid "User groups"
 msgstr "Užívateľské skupiny"
 
 #: libraries/server_user_groups.lib.php:79
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Verzia serveru"
+msgstr "Záložky pre prácu so serverom"
 
 #: libraries/server_user_groups.lib.php:80
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Databázový server"
+msgstr "Záložky pre prácu s databázou"
 
 #: libraries/server_user_groups.lib.php:81
-#, fuzzy
 #| msgid "Table removal"
 msgid "Table level tabs"
-msgstr "Názov tabuľky"
+msgstr "Záložky pre prácu s tabuľkami"
 
 #: libraries/server_user_groups.lib.php:110
 msgid "View users"
@@ -13569,22 +13534,19 @@ msgid "Group name:"
 msgstr "Názov skupiny:"
 
 #: libraries/server_user_groups.lib.php:272
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Verzia serveru"
+msgstr "Záložky pre prácu so serverom"
 
 #: libraries/server_user_groups.lib.php:275
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Databázový server"
+msgstr "Záložky pre prácu s databázou"
 
 #: libraries/server_user_groups.lib.php:278
-#, fuzzy
 #| msgid "Table removal"
 msgid "Table-level tabs"
-msgstr "Názov tabuľky"
+msgstr "Záložky pre prácu s tabuľkami"
 
 #: libraries/server_variables.lib.php:114
 msgid "Setting variable failed"
@@ -14038,10 +14000,9 @@ msgid "Improve table structure"
 msgstr "Zlepšiť štruktúry tabuľky"
 
 #: libraries/structure.lib.php:1707
-#, fuzzy
 #| msgid "Track table"
 msgid "Track view"
-msgstr "Sledovať tabuľku"
+msgstr "Sledovať pohľad"
 
 #: libraries/structure.lib.php:1748
 #, php-format
@@ -14153,10 +14114,9 @@ msgid "Showing create queries"
 msgstr "Zobrazovanie SQL dopytov pre vytvorenie"
 
 #: libraries/structure.lib.php:3437
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation view"
-msgstr "Zobraziť prepojenia"
+msgstr "Zobrazenie relácii"
 
 #: libraries/tracking.lib.php:69
 #, php-format
@@ -14746,16 +14706,14 @@ msgstr "Zoznam dostupných transformácií a ich možnosti"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:88
 #: transformation_overview.php:41
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Transformácia pri prehliadaní"
+msgstr "Transformácia pri zobrazení"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:92
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser display transformation options"
-msgstr "Transformácia pri prehliadaní"
+msgstr "Možnosti transformácie pri zobrazení"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:95
 #: templates/columns_definitions/table_fields_definitions.phtml:114
@@ -15018,10 +14976,9 @@ msgid "Index type:"
 msgstr "Typ indexu&nbsp;:"
 
 #: templates/index_form.phtml:86
-#, fuzzy
 #| msgid "User:"
 msgid "Parser:"
-msgstr "Užívateľ:"
+msgstr "Syntaktický analyzátor:"
 
 #: templates/index_form.phtml:102
 msgid "Comment:"
@@ -15266,10 +15223,9 @@ msgid "Available MIME types"
 msgstr "Dostupné MIME typy"
 
 #: transformation_overview.php:37
-#, fuzzy
 #| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Dostupné transformácie"
+msgstr "Dostupné transformácie pre zobrazenie"
 
 #: transformation_overview.php:38
 msgid "Available input transformations"
