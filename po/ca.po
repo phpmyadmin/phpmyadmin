@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-23 07:46+0200\n"
+"PO-Revision-Date: 2015-07-26 11:18+0200\n"
 "Last-Translator: josep constanti <jconstanti@yahoo.es>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ca/>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1025,7 +1025,6 @@ msgid "Do you really want to delete this central column?"
 msgstr "Realment vols esborrar aquesta columna central?"
 
 #: js/messages.php:63
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
 msgstr "Realment voleu suprimir els elements seleccionats?"
@@ -1037,7 +1036,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:65
-#, fuzzy
 #| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Realment voleu TRUNCAR les particions seleccionades?"
@@ -1838,10 +1836,9 @@ msgid "Changing Charset"
 msgstr "Canvi de Joc de Caràcters"
 
 #: js/messages.php:320 libraries/Util.class.php:3220
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Desactiva les comprovacions de claus externes"
+msgstr "Activa les comprovacions de claus externes"
 
 #: js/messages.php:323
 msgid "Failed to get real row count."
@@ -2416,10 +2413,9 @@ msgstr ""
 "navegador."
 
 #: js/messages.php:495
-#, fuzzy
 #| msgid "Original string"
 msgid "Original length"
-msgstr "String original"
+msgstr "Longitud inicial"
 
 #: js/messages.php:498
 msgid "cancel"
@@ -2635,10 +2631,10 @@ msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
 #: js/messages.php:600
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enter executes queries in console"
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Enter executa consultes a la consola"
+msgstr "%s consultes executades %s vegades en %s segons."
 
 #: js/messages.php:601
 #, php-format
@@ -2646,16 +2642,14 @@ msgid "%s argument(s) passed"
 msgstr ""
 
 #: js/messages.php:602
-#, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
-msgstr "Comentaris de la taula"
+msgstr "Mostra els arguments"
 
 #: js/messages.php:603
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Amaga els resultats de cerca"
+msgstr "Amaga els arguments"
 
 #: js/messages.php:604 libraries/Console.class.php:318
 msgid "Time taken:"
@@ -3231,72 +3225,62 @@ msgid "Press Enter to execute query"
 msgstr "Prem Enter per executar la consulta"
 
 #: libraries/Console.class.php:277
-#, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
-msgstr "Ascendent"
+msgstr "ascendent"
 
 #: libraries/Console.class.php:280
-#, fuzzy
 #| msgid "Descending"
 msgid "descending"
-msgstr "Descendent"
+msgstr "descendent"
 
 #: libraries/Console.class.php:283
-#, fuzzy
 #| msgid "Order"
 msgid "Order:"
-msgstr "Ordre"
+msgstr "Ordre:"
 
 #: libraries/Console.class.php:289 templates/table/replace_preview.phtml:17
 msgid "Count"
 msgstr "Nombre"
 
 #: libraries/Console.class.php:292
-#, fuzzy
 #| msgid "Execute every"
 msgid "Execution order"
-msgstr "Executar cada"
+msgstr "Ordre d'execució"
 
 #: libraries/Console.class.php:295
 msgid "Time taken"
 msgstr ""
 
 #: libraries/Console.class.php:298
-#, fuzzy
 #| msgid "Order"
 msgid "Order by:"
-msgstr "Ordre"
+msgstr "Ordena per:"
 
 #: libraries/Console.class.php:301
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
-msgstr "Consultes SQL"
+msgstr "Agrupa consultes"
 
 #: libraries/Console.class.php:304
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "Consultes SQL"
+msgstr "Desagrupa consultes"
 
 #: libraries/Console.class.php:315
-#, fuzzy
 #| msgid "Show create"
 msgid "Show trace"
-msgstr "Mostra creació"
+msgstr "Mostra la traça"
 
 #: libraries/Console.class.php:316
-#, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Amagar el panell"
+msgstr "Amaga la traça"
 
 #: libraries/Console.class.php:317
-#, fuzzy
 #| msgid "Count"
 msgid "Count:"
-msgstr "Nombre"
+msgstr "Recompte:"
 
 #: libraries/Console.class.php:332 libraries/Util.class.php:1247
 #: libraries/config/messages.inc.php:806
@@ -3388,10 +3372,9 @@ msgid "Sort:"
 msgstr "Ordenació:"
 
 #: libraries/DBQbe.class.php:630
-#, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
-msgstr "Ordenació:"
+msgstr "Ordre de classificació:"
 
 #: libraries/DBQbe.class.php:679
 msgid "Show:"
@@ -4061,10 +4044,9 @@ msgid "Databases"
 msgstr "Bases de dades"
 
 #: libraries/Menu.class.php:566
-#, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
-msgstr "Grups d'usuaris"
+msgstr "Comptes d'usuaris"
 
 #: libraries/Menu.class.php:593 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4346 libraries/server_common.lib.php:36
@@ -4791,10 +4773,9 @@ msgid "Max: %s%s"
 msgstr "Màx: %s%s"
 
 #: libraries/Util.class.php:662
-#, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
-msgstr "Dades estàtiques"
+msgstr "Anàlisi estàtica:"
 
 #: libraries/Util.class.php:664
 #, php-format
@@ -5194,10 +5175,9 @@ msgid "display column"
 msgstr "mostra columna"
 
 #: libraries/config.values.php:102
-#, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Benvingut a %s"
+msgstr "Benvingut"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5220,22 +5200,19 @@ msgid "Never send error reports"
 msgstr "No enviar mai informes d'error"
 
 #: libraries/config.values.php:132
-#, fuzzy
 #| msgid "Set default"
 msgid "Server default"
-msgstr "Establir el valor per defecte"
+msgstr "Servidor predeterminat"
 
 #: libraries/config.values.php:133
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
-msgstr "Activat"
+msgstr "Activa"
 
 #: libraries/config.values.php:134
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "Desactivat"
+msgstr "Desactiva"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.class.php:69
