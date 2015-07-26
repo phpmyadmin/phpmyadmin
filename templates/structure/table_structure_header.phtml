@@ -1,0 +1,26 @@
+<thead>
+<tr>
+    <th class="print_ignore"></th>
+    <th>#</th>
+    <th><?php echo __('Name'); ?></th>
+    <th><?php echo __('Type'); ?></th>
+    <th><?php echo __('Collation'); ?></th>
+    <th><?php echo __('Attributes'); ?></th>
+    <th><?php echo __('Null'); ?></th>
+    <th><?php echo __('Default'); ?></th>
+    <th><?php echo __('Extra'); ?></th>
+     <!-- see tbl_structure.js, function moreOptsMenuResize() -->
+     <?php if (! $db_is_system_schema && ! $tbl_is_view): ?>
+        <?php
+            $colspan = 9;
+            if (PMA_DRIZZLE) {
+                $colspan -= 2;
+            }
+            if (PMA_Util::showIcons('ActionLinksMode')) {
+                $colspan--;
+            }
+        ?>
+        <th colspan="<?php echo $colspan; ?>" class="action print_ignore"><?php echo __('Action'); ?></th>
+    <?php endif; ?>
+</tr>
+</thead>

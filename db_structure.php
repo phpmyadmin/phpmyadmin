@@ -127,8 +127,11 @@ $response->addHTML(
 $response->addHTML(PMA_URL_getHiddenInputs($db));
 
 $response->addHTML(
-    PMA_tableHeader(
-        $db_is_system_schema, $GLOBALS['replication_info']['slave']['status']
+    PMA\Template::get('structure/table_header')->render(
+        array(
+            'db_is_system_schema' => $db_is_system_schema,
+            'replication' => $GLOBALS['replication_info']['slave']['status']
+        )
     )
 );
 
@@ -265,7 +268,12 @@ foreach ($tables as $keyname => $current_table) {
         );
 
         $response->addHTML(
-            PMA_tableHeader(false, $GLOBALS['replication_info']['slave']['status'])
+            PMA\Template::get('structure/table_header')->render(
+                array(
+                    'db_is_system_schema' => false,
+                    'replication' => $GLOBALS['replication_info']['slave']['status']
+                )
+            )
         );
     }
 
@@ -311,19 +319,34 @@ foreach ($tables as $keyname => $current_table) {
 // Show Summary
 $response->addHTML('</tbody>');
 $response->addHTML(
-    PMA_getHtmlBodyForTableSummary(
-        $num_tables, $GLOBALS['replication_info']['slave']['status'],
-        $db_is_system_schema, $sum_entries, $db_collation, $is_show_stats, $sum_size,
-        $overhead_size, $create_time_all, $update_time_all, $check_time_all,
-        $overall_approx_rows
+    PMA\Template::get('structure/body_for_table_summary')->render(
+        array(
+            'num_tables' => $num_tables,
+            'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
+            'db_is_system_schema' => $db_is_system_schema,
+            'sum_entries' => $sum_entries,
+            'db_collation' => $db_collation,
+            'is_show_stats' => $is_show_stats,
+            'sum_size' => $sum_size,
+            'overhead_size' => $overhead_size,
+            'create_time_all' => $create_time_all,
+            'update_time_all' => $update_time_all,
+            'check_time_all' => $check_time_all,
+            'approx_rows' => $overall_approx_rows
+        )
     )
 );
 $response->addHTML('</table>');
 //check all
 $response->addHTML(
-    PMA_getHtmlForCheckAllTables(
-        $pmaThemeImage, $text_dir, $overhead_check,
-        $db_is_system_schema, $hidden_fields
+    PMA\Template::get('structure/check_all_tables')->render(
+        array(
+            'pmaThemeImage' => $pmaThemeImage,
+            'text_dir' => $text_dir,
+            'overhead_check' => $overhead_check,
+            'db_is_system_schema' => $db_is_system_schema,
+            'hidden_fields' => $hidden_fields
+        )
     )
 );
 $response->addHTML('</form>'); //end of form
@@ -344,8 +367,9 @@ $response->addHTML('</div><hr />');
 /* DATABASE WORK */
 /* Printable view of a table */
 $response->addHTML(
-    PMA_getHtmlForTablePrintViewLink()
-    . PMA_getHtmlForDataDictionaryLink($url_query)
+    PMA\Template::get('structure/print_view_data_dictionary_link')->render(
+        array('url_query' => $url_query)
+    )
 );
 
 PMA_possiblyShowCreateTableDialog($db, $db_is_system_schema, $response);
