@@ -218,15 +218,29 @@ function PMA_getHtmlForStructureTableRow(
     //  so ensure that we'll display "in use" below for a table
     //  that needs to be repaired
     $approx_rows = false;
-    if (isset($current_table['TABLE_ROWS']) && ($current_table['ENGINE'] != null || $table_is_view)) {
+    if (isset($current_table['TABLE_ROWS'])
+        && ($current_table['ENGINE'] != null || $table_is_view)
+    ) {
         // InnoDB table: we did not get an accurate row count
-        $approx_rows = !$table_is_view && $current_table['ENGINE'] == 'InnoDB' && !$current_table['COUNTED'];
+        $approx_rows = !$table_is_view
+            && $current_table['ENGINE'] == 'InnoDB'
+            && !$current_table['COUNTED'];
 
         // Drizzle views use FunctionEngine, and the only place where they are
         // available are I_S and D_D schemas, where we do exact counting
-        if ($table_is_view && $current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews'] && $current_table['ENGINE'] != 'FunctionEngine') {
+        if ($table_is_view
+            && $current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
+            && $current_table['ENGINE'] != 'FunctionEngine'
+        ) {
             $approx_rows = true;
-            $show_superscript = PMA_Util::showHint(PMA_sanitize(sprintf(__('This view has at least this number of rows. Please refer to %sdocumentation%s.'), '[doc@cfg_MaxExactCountViews]', '[/doc]')));
+            $show_superscript = PMA_Util::showHint(
+                PMA_sanitize(
+                    sprintf(
+                        __('This view has at least this number of rows. Please refer to %sdocumentation%s.'),
+                        '[doc@cfg_MaxExactCountViews]', '[/doc]'
+                    )
+                )
+            );
         }
     }
 
@@ -814,29 +828,29 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
     }
 
     return PMA\Template::get('structure/display_table_stats')->render(
-      array(
-          'showtable' => $showtable,
-          'table_info_num_rows' => $table_info_num_rows,
-          'tbl_is_view' => $tbl_is_view,
-          'db_is_system_schema' => $db_is_system_schema,
-          'tbl_storage_engine' => $tbl_storage_engine,
-          'url_query' => $url_query,
-          'tbl_collation' => $tbl_collation,
-          'is_innodb' => $is_innodb,
-          'mergetable' => $mergetable,
-          'avg_size' => $avg_size,
-          'avg_unit' => $avg_unit,
-          'data_size' => $data_size,
-          'data_unit' => $data_unit,
-          'index_size' => $index_size,
-          'index_unit' => $index_unit,
-          'free_size' => isset($free_size) ? $free_size : null,
-          'free_unit' => isset($free_unit) ? $free_unit : null,
-          'effect_size' => $effect_size,
-          'effect_unit' => $effect_unit,
-          'tot_size' => $tot_size,
-          'tot_unit' => $tot_unit
-      )
+        array(
+            'showtable' => $showtable,
+            'table_info_num_rows' => $table_info_num_rows,
+            'tbl_is_view' => $tbl_is_view,
+            'db_is_system_schema' => $db_is_system_schema,
+            'tbl_storage_engine' => $tbl_storage_engine,
+            'url_query' => $url_query,
+            'tbl_collation' => $tbl_collation,
+            'is_innodb' => $is_innodb,
+            'mergetable' => $mergetable,
+            'avg_size' => $avg_size,
+            'avg_unit' => $avg_unit,
+            'data_size' => $data_size,
+            'data_unit' => $data_unit,
+            'index_size' => $index_size,
+            'index_unit' => $index_unit,
+            'free_size' => isset($free_size) ? $free_size : null,
+            'free_unit' => isset($free_unit) ? $free_unit : null,
+            'effect_size' => $effect_size,
+            'effect_unit' => $effect_unit,
+            'tot_size' => $tot_size,
+            'tot_unit' => $tot_unit
+        )
     );
 }
 
