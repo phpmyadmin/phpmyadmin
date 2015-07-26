@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-26 12:17+0200\n"
+"PO-Revision-Date: 2015-07-26 13:01+0200\n"
 "Last-Translator: Andrey Aleksanyants <aaleksanyants@yahoo.com>\n"
 "Language-Team: Armenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/hy/>\n"
@@ -3742,23 +3742,23 @@ msgstr ""
 
 #: libraries/File.class.php:270
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Վերբեռնված ֆայլը միայն մասնակի է վերբեռնվել։"
 
 #: libraries/File.class.php:273
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Բացակայում է ժամանակավոր պանակը։"
 
 #: libraries/File.class.php:276
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Չհաջողվեց գրել ֆայլը սկավառակի վրա։"
 
 #: libraries/File.class.php:279
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "Ֆայլի վերբեռնումը կասեցվել է ընդլայնման պատճառով։"
 
 #: libraries/File.class.php:282
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Ֆայլի վերբեռման անհայտ սխալ։"
 
 #: libraries/File.class.php:461
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
@@ -3901,7 +3901,7 @@ msgstr "Ներկայացում"
 #: libraries/config.values.php:116 libraries/config/messages.inc.php:304
 #: libraries/navigation/Nodes/Node_Table.class.php:294
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/Menu.class.php:326 libraries/Menu.class.php:430
 #: libraries/Util.class.php:3338 libraries/Util.class.php:3348
@@ -3958,21 +3958,21 @@ msgstr "Հետագծում"
 #: libraries/plugins/export/ExportXml.class.php:125
 #: libraries/rte/rte_words.lib.php:50
 msgid "Triggers"
-msgstr ""
+msgstr "Ձգաններ"
 
 #: libraries/Menu.class.php:434 libraries/Menu.class.php:441
 #: libraries/Menu.class.php:448
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "Տվյալների բազան դատարկ է"
 
 #: libraries/Menu.class.php:437 libraries/Util.class.php:4357
 msgid "Query"
-msgstr ""
+msgstr "Հարցում"
 
 #: libraries/Menu.class.php:470 libraries/Util.class.php:4362
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
-msgstr ""
+msgstr "Գործընթացներ"
 
 #: libraries/Menu.class.php:477 libraries/Util.class.php:4363
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:28
@@ -3984,12 +3984,12 @@ msgstr "Իրադարձություններ"
 
 #: libraries/Menu.class.php:496 libraries/Util.class.php:4366
 msgid "Designer"
-msgstr ""
+msgstr "Ձևավորող"
 
 #: libraries/Menu.class.php:505 libraries/Util.class.php:4367
 #: libraries/structure.lib.php:360
 msgid "Central columns"
-msgstr ""
+msgstr "Կենտրոնական սյունակներ"
 
 #: libraries/Menu.class.php:542 libraries/Util.class.php:4339
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:249
@@ -4001,7 +4001,7 @@ msgstr "Տվյալների բազաներ"
 
 #: libraries/Menu.class.php:566
 msgid "User accounts"
-msgstr ""
+msgstr "Օգտվողների հաշիվներ"
 
 #: libraries/Menu.class.php:593 libraries/ServerStatusData.class.php:121
 #: libraries/Util.class.php:4346 libraries/server_common.lib.php:36
@@ -4028,7 +4028,7 @@ msgstr "Կոդավորումներ"
 #: libraries/Menu.class.php:613 libraries/Util.class.php:4350
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:27
 msgid "Plugins"
-msgstr ""
+msgstr "Խրվակներ"
 
 #: libraries/Menu.class.php:624 libraries/Util.class.php:4351
 msgid "Engines"
@@ -4045,15 +4045,15 @@ msgstr[1] ""
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d տող ջնջվեց."
+msgstr[1] "%1$d տող ջնջվեց."
 
 #: libraries/Message.class.php:292
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d տող զետեղվեց."
+msgstr[1] "%1$d տող զետեղվեց."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2524
 #: libraries/browse_foreigners.lib.php:327
@@ -4065,11 +4065,11 @@ msgstr "էջի համարը՝"
 
 #: libraries/PDF.class.php:126
 msgid "Error while creating PDF:"
-msgstr ""
+msgstr "PDF ստեղծելու սխալ՝"
 
 #: libraries/RecentFavoriteTable.class.php:138
 msgid "Could not save recent table!"
-msgstr ""
+msgstr "Չհաջողվեց պահպանել վերջին աղյուսակը։"
 
 #: libraries/RecentFavoriteTable.class.php:142
 msgid "Could not save favorite table!"
