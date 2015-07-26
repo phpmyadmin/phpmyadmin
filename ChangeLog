@@ -81,6 +81,7 @@ phpMyAdmin - ChangeLog
 - bug #4984 Undefined <feature>work upon upgrade to new version
 - issue #1817 Creating configuration storage tables fail in MySQL 5.7
 - issue #6118 Parser does not handle nested selects
+- issue #5437 Support SELECT ... FROM DUAL
 
 4.4.13.0 (not yet released)
 - issue #1808 "Improve table structure" generates invalid SQL
