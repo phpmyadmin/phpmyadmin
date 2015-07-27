@@ -61,6 +61,7 @@ AJAX.registerTeardown('server_privileges.js', function () {
     $(document).off("click", ".checkall_box");
     $(document).off('change', '#checkbox_SSL_priv');
     $(document).off('change', 'input[name="ssl_type"]');
+    $(document).off('change', '#select_authentication_plugin');
 });
 
 AJAX.registerOnload('server_privileges.js', function () {
@@ -88,6 +89,18 @@ AJAX.registerOnload('server_privileges.js', function () {
             });
         } else {
             $warning.hide();
+        }
+    });
+
+    /**
+     * Display a notice if sha256_password is selected
+     */
+    $(document).on("change", "#select_authentication_plugin", function () {
+        var selected_plugin = $(this).val();
+        if (selected_plugin === 'sha256_password') {
+            $('#ssl_reqd_warning').show();
+        } else {
+            $('#ssl_reqd_warning').hide();
         }
     });
 

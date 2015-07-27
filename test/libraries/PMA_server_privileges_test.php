@@ -70,6 +70,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = "structure";
         $GLOBALS['cfg']['Confirm'] = "Confirm";
         $GLOBALS['cfg']['ShowHint'] = true;
+        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
 
         $GLOBALS['cfgRelation'] = array();
         $GLOBALS['cfgRelation']['menuswork'] = false;
@@ -630,6 +631,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
         $_REQUEST['createdb-3'] = true;
+        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
+
         list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
             = PMA_getSqlQueriesForDisplayAndAddUser(
                 $username, $hostname,
@@ -668,6 +671,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_POST['pred_hostname'] = 'localhost';
         $_REQUEST['createdb-3'] = true;
         $_REQUEST['userGroup'] = "username";
+        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
 
         list(
             $ret_message,,, $sql_query,
@@ -1641,7 +1645,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //PMA_getHtmlForLoginInformationFields
         $this->assertContains(
-            PMA_getHtmlForLoginInformationFields('change'),
+            PMA_getHtmlForLoginInformationFields('change', $username, $hostname),
             $html
         );
 

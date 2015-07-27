@@ -601,6 +601,15 @@ $GLOBALS['dummy_queries'] = array(
             . '`host` = "" AND `Db` = "" AND `User` = "" AND `Routine_name` = "" '
             . 'AND `Routine_type` = "" LIMIT 1',
         'result' => true
+    ),
+    array(
+        'query' => 'SELECT `plugin` FROM `mysql`.`user` WHERE '
+            . ' `User` = "pma_username" AND `Host` = "pma_hostname" LIMIT 1',
+        'result' => array()
+    ),
+    array(
+        'query' => 'SHOW VARIABLES like \'default_authentication_plugin\'',
+        'result' => array(array('Variable_name' => 'mysql_native_password'))
     )
 );
 /**
