@@ -79,10 +79,12 @@ phpMyAdmin - ChangeLog
 + rfe       Support virtual columns in MySQL 5.7.5+
 + rfe #1517 Support for virtual/persistent columns in MariaDB
 - bug #4984 Undefined <feature>work upon upgrade to new version
-- issue #1817 Creating configuration storage tables fail in MySQL 5.7
-- issue #6118 Parser does not handle nested selects
-- issue #5437 Support SELECT ... FROM DUAL
-- issue #4962 Support UNION
+- issue #1817  Creating configuration storage tables fail in MySQL 5.7
+- issue #6118  Parser does not handle nested selects
+- issue #5437  Support SELECT ... FROM DUAL
+- issue #4962  Support UNION
+- issue #11322 Missing null checkbox when grid editing a null cell
++ Upgrade TCPDF to version 6.2.9
 
 4.4.13.0 (not yet released)
 - issue #1808 "Improve table structure" generates invalid SQL

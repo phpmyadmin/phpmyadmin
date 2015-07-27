@@ -1829,26 +1829,26 @@ function add_object()
         }
         p = document.getElementById('Query');
         where_obj = new where(rel.value, p.value);//make where object
-        history_array.push(new history(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], "Where"));
+        history_array.push(new history_obj(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], "Where"));
         sum = sum + 1;
         rel.value = '--';
         p.value = "";
     }
     if (document.getElementById('new_name').value !== "") {
         var rename_obj = new rename(document.getElementById('new_name').value);//make Rename object
-        history_array.push(new history(col_name, rename_obj, tab_name, h_tabs[downer + '.' + tab_name], "Rename"));
+        history_array.push(new history_obj(col_name, rename_obj, tab_name, h_tabs[downer + '.' + tab_name], "Rename"));
         sum = sum + 1;
         document.getElementById('new_name').value = "";
     }
     if (document.getElementById('operator').value != '---') {
         var aggregate_obj = new aggregate(document.getElementById('operator').value);
-        history_array.push(new history(col_name, aggregate_obj, tab_name, h_tabs[downer + '.' + tab_name], "Aggregate"));
+        history_array.push(new history_obj(col_name, aggregate_obj, tab_name, h_tabs[downer + '.' + tab_name], "Aggregate"));
         sum = sum + 1;
         document.getElementById('operator').value = '---';
         //make aggregate operator
     }
     if (document.getElementById('groupby').checked === true) {
-        history_array.push(new history(col_name, 'GroupBy', tab_name, h_tabs[downer + '.' + tab_name], "GroupBy"));
+        history_array.push(new history_obj(col_name, 'GroupBy', tab_name, h_tabs[downer + '.' + tab_name], "GroupBy"));
         sum = sum + 1;
         document.getElementById('groupby').checked = false;
         //make groupby
@@ -1865,7 +1865,7 @@ function add_object()
             p.value,
             document.getElementById('h_operator').value
         );//make where object
-        history_array.push(new history(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], "Having"));
+        history_array.push(new history_obj(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], "Having"));
         sum = sum + 1;
         document.getElementById('h_rel_opt').value = '--';
         document.getElementById('h_operator').value = '---';
@@ -1873,7 +1873,7 @@ function add_object()
     }
     if (document.getElementById('orderby').value != '---') {
         var oderby_obj = new orderby(document.getElementById('orderby').value);
-        history_array.push(new history(col_name, oderby_obj, tab_name, h_tabs[downer + '.' + tab_name], "OrderBy"));
+        history_array.push(new history_obj(col_name, oderby_obj, tab_name, h_tabs[downer + '.' + tab_name], "OrderBy"));
         sum = sum + 1;
         document.getElementById('orderby').value = '---';
         //make orderby

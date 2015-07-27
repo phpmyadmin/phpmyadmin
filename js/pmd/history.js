@@ -264,7 +264,7 @@ function edit(type)
  *
 **/
 
-function history(ncolumn_name, nobj, ntab, nobj_no, ntype)
+function history_obj(ncolumn_name, nobj, ntab, nobj_no, ntype)
 {
     var and_or;
     var obj;

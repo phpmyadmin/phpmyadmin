@@ -1056,10 +1056,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     datepicker_div.css({'top': 0, 'left': 0, 'position': 'relative'});
                     $(g.cEdit).append(datepicker_div);
 
-                    if (is_null){
-                        $(g.cEdit).find('.edit_area').hide();
-                    }
-
                     // cancel any click on the datepicker element
                     $editArea.find('> *').click(function (e) {
                         e.stopPropagation();
@@ -1073,7 +1069,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     }
                 }
-                if ($editArea.children().length > 0 && !is_null) {
+                if ($editArea.children().length > 0) {
                     $editArea.show();
                 }
             }

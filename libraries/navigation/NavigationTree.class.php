@@ -42,28 +42,28 @@ class PMA_NavigationTree
     private $_pos;
 
     /**
-     * @var int The names of the type of items that are being paginated on
-     *          the second level of the navigation tree. These may be
-     *          tables, views, functions, procedures or events.
+     * @var array The names of the type of items that are being paginated on
+     *            the second level of the navigation tree. These may be
+     *            tables, views, functions, procedures or events.
      */
     private $_pos2_name = array();
 
     /**
-     * @var int The positions of nodes in the lists of tables, views,
-     *          routines or events used for pagination
+     * @var array The positions of nodes in the lists of tables, views,
+     *            routines or events used for pagination
      */
     private $_pos2_value = array();
 
     /**
-     * @var int The names of the type of items that are being paginated
-     *          on the second level of the navigation tree.
-     *          These may be columns or indexes
+     * @var array The names of the type of items that are being paginated
+     *            on the second level of the navigation tree.
+     *            These may be columns or indexes
      */
     private $_pos3_name = array();
 
     /**
-     * @var int The positions of nodes in the lists of columns or indexes
-     *          used for pagination
+     * @var array The positions of nodes in the lists of columns or indexes
+     *            used for pagination
      */
     private $_pos3_value = array();
 
@@ -82,8 +82,8 @@ class PMA_NavigationTree
     private $_searchClause2 = '';
 
     /**
-     * @var string Whether a warning was raised for large item groups
-     *             which can affect performance.
+     * @var bool Whether a warning was raised for large item groups
+     *           which can affect performance.
      */
     private $_largeGroupWarning = false;
 
@@ -1086,7 +1086,7 @@ class PMA_NavigationTree
                 'indexes'
             );
             $parent = $node->parents(false, true);
-            $isNewView = $parent[0]->real_name == 'views' && $node->isNew == true;
+            $isNewView = $parent[0]->real_name == 'views' && $node->isNew === true;
             if ($parent[0]->type == Node::CONTAINER
                 && (in_array($parent[0]->real_name, $haveAjax) || $isNewView)
             ) {
