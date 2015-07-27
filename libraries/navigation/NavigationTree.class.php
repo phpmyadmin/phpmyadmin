@@ -1086,7 +1086,7 @@ class PMA_NavigationTree
                 'indexes'
             );
             $parent = $node->parents(false, true);
-            $isNewView = $parent[0]->real_name == 'views' && $node->isNew == true;
+            $isNewView = $parent[0]->real_name == 'views' && $node->isNew === true;
             if ($parent[0]->type == Node::CONTAINER
                 && (in_array($parent[0]->real_name, $haveAjax) || $isNewView)
             ) {
