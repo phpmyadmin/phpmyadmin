@@ -1,13 +1,13 @@
 <?php
 //============================================================+
 // File name   : tcpdf_static.php
-// Version     : 1.1.0
+// Version     : 1.1.3
 // Begin       : 2002-08-03
-// Last Update : 2014-12-10
+// Last Update : 2015-04-28
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
-// Copyright (C) 2002-2014 Nicola Asuni - Tecnick.com LTD
+// Copyright (C) 2002-2015 Nicola Asuni - Tecnick.com LTD
 //
 // This file is part of TCPDF software library.
 //
@@ -38,7 +38,7 @@
  * This is a PHP class that contains static methods for the TCPDF class.<br>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 1.1.0
+ * @version 1.1.2
  */
 
 /**
@@ -46,7 +46,7 @@
  * Static methods used by the TCPDF class.
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 1.1.0
+ * @version 1.1.1
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_STATIC {
@@ -55,7 +55,7 @@ class TCPDF_STATIC {
 	 * Current TCPDF version.
 	 * @private static
 	 */
-	private static $tcpdf_version = '6.2.3';
+	private static $tcpdf_version = '6.2.9';
 
 	/**
 	 * String alias for total number of pages.
@@ -2434,8 +2434,8 @@ class TCPDF_STATIC {
 	public static function fopenLocal($filename, $mode) {
 		if (strpos($filename, '://') === false) {
 			$filename = 'file://'.$filename;
-		} elseif (strpos($filename, 'file://') !== 0) {
-			$this->Error('Unsupported file protocol');
+		} elseif (stream_is_local($filename) !== true) {
+			return false;
 		}
 		return fopen($filename, $mode);
 	}
@@ -2480,7 +2480,7 @@ class TCPDF_STATIC {
 		}
 		$urldata = @parse_url($url);
 		if (!isset($urldata['query']) OR (strlen($urldata['query']) <= 0)) {
-			if (strpos($url, K_PATH_URL) === 0) {
+			if (K_PATH_URL AND (strpos($url, K_PATH_URL) === 0)) {
 				// convert URL to full server path
 				$tmp = str_replace(K_PATH_URL, K_PATH_MAIN, $url);
 				$tmp = htmlspecialchars_decode(urldecode($tmp));
