@@ -64,7 +64,7 @@ function PMA_getHtmlForChangePassword($username, $hostname)
         . '<td>'
         . '<input type="radio" name="nopass" value="0" id="nopass_0" '
         . 'onclick="document.getElementById(\'text_pma_pw\').focus();" '
-        . 'checked="checked " />'
+        . 'checked="checked" />'
         . '<label for="nopass_0">' . __('Password:') . '&nbsp;</label>'
         . '</td>'
         . '<td>'
