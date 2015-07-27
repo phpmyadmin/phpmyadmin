@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2015-07-23 03:54-0700\n"
-"PO-Revision-Date: 2015-07-20 05:04+0200\n"
+"PO-Revision-Date: 2015-07-27 03:36+0200\n"
 "Last-Translator: Hauke Henningsen <sqrt@entless.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3952,11 +3952,13 @@ msgstr ""
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"Der Linter ist für diese Anfrage nicht verfügbar, da sie die zulässige "
+"Maximallänge überschreitet."
 
 #: libraries/Linter.class.php:147
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (bei <code>%2$s</code>)"
 
 #: libraries/Menu.class.php:199 libraries/ServerStatusData.class.php:430
 #: libraries/config/messages.inc.php:823
@@ -12555,19 +12557,17 @@ msgstr ""
 "anderem Hostnamen."
 
 #: libraries/server_privileges.lib.php:1503
-#, fuzzy
 #| msgid "User name:"
 msgid "Host name:"
-msgstr "Benutzername:"
+msgstr "Hostname:"
 
 #: libraries/server_privileges.lib.php:1508
 #: libraries/server_privileges.lib.php:1610
 #: libraries/server_privileges.lib.php:2242
 #: libraries/server_privileges.lib.php:3203
-#, fuzzy
 #| msgid "Log name"
 msgid "Host name"
-msgstr "Protokoll"
+msgstr "Hostname"
 
 #: libraries/server_privileges.lib.php:1645
 msgid "Do not change the password"
@@ -13988,154 +13988,144 @@ msgid "This is a read-only variable and can not be edited"
 msgstr "Diese Variable kann nicht verändert werden"
 
 #: libraries/sql-parser/src/Components/AlterOperation.php:191
-#, fuzzy
 #| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Tabellenbearbeitung mittels Icons"
+msgstr "Unerkannte ALTER-Operation."
 
 #: libraries/sql-parser/src/Components/Array2d.php:90
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "%1$d Werte erwartet, aber %2$d gefunden."
 
 #: libraries/sql-parser/src/Components/Array2d.php:113
 msgid "An opening bracket followed by a set of values was expected."
 msgstr ""
+"Eine öffnende Klammer, gefolgt von einer Liste von Werten, wurde erwartet."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:101
 #: libraries/sql-parser/src/Components/FieldDefinition.php:202
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Eine öffnende Klammer wurde erwartet."
 
 #: libraries/sql-parser/src/Components/ArrayObj.php:118
 msgid "A comma or a closing bracket was expected"
-msgstr ""
+msgstr "Ein Komma oder eine schließende Klammer wurde erwartet"
 
 #: libraries/sql-parser/src/Components/DataType.php:125
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Unerkannter Datentyp."
 
 #: libraries/sql-parser/src/Components/Expression.php:222
 msgid "Unexpected closing bracket."
-msgstr ""
+msgstr "Unerwartete schließende Klammer."
 
 #: libraries/sql-parser/src/Components/Expression.php:243
 #: libraries/sql-parser/src/Components/Expression.php:280
 #: libraries/sql-parser/src/Components/Expression.php:300
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Ein Alias wurde zuvor gefunden."
 
 #: libraries/sql-parser/src/Components/Expression.php:254
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Unerwarteter Punkt."
 
 #: libraries/sql-parser/src/Components/Expression.php:324
-#, fuzzy
 #| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Keine Tabellen ausgewählt."
+msgstr "Ein Alias wurde erwartet."
 
 #: libraries/sql-parser/src/Components/ExpressionArray.php:93
-#, fuzzy
 #| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "Keine Versionen ausgewählt."
+msgstr "Ein Ausdruck wurde erwartet."
 
 #: libraries/sql-parser/src/Components/FieldDefinition.php:255
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Eine schließende Klammer wurde erwartet."
 
 #: libraries/sql-parser/src/Components/Limit.php:90
 #: libraries/sql-parser/src/Components/Limit.php:112
 msgid "An offset was expected."
-msgstr ""
+msgstr "Ein Offset wurde erwartet."
 
 #: libraries/sql-parser/src/Components/OptionsArray.php:142
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Diese Option widerspricht „%1$s“."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:102
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Anzahl der geöffneten Tabellen."
+msgstr "Der ursprüngliche Tabellenname wurde erwartet."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:112
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Schlüsselwort „TO“ wurde erwartet."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:129
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Anzahl der geöffneten Tabellen."
+msgstr "Der neue Tabellenname wurde erwartet."
 
 #: libraries/sql-parser/src/Components/RenameOperation.php:147
-#, fuzzy
 #| msgid "Template was deleted."
 msgid "A rename operation was expected."
-msgstr "Vorlage wurde gelöscht."
+msgstr "Eine Umbenennungsoperation wurde erwartet."
 
 #: libraries/sql-parser/src/Lexer.php:252
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Unerwartete Zeichen in Zeile %s."
+msgstr "Unerwartetes Zeichen."
 
 #: libraries/sql-parser/src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Erwartete Whitespace vor dem Trennzeichen."
 
 #: libraries/sql-parser/src/Lexer.php:298
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Erwartete Trennzeichen."
 
 #: libraries/sql-parser/src/Lexer.php:688
-#, fuzzy, php-format
+#, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
-msgstr "Ereignis %1$s wurde erzeugt."
+msgstr "Schließendes Anführungszeichen %1$s wurde erzeugt."
 
 #: libraries/sql-parser/src/Lexer.php:721
-#, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Schablone für Tabellennamen"
+msgstr "Variablenname wurde erwartet."
 
 #: libraries/sql-parser/src/Parser.php:355
-#, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "am Tabellenanfang"
+msgstr "Unerwarteter Statement-Anfang."
 
 #: libraries/sql-parser/src/Parser.php:370
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Unerkannte Statement-Typ."
 
 #: libraries/sql-parser/src/Statement.php:201
-#, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Unerwartete Zeichen in Zeile %s."
+msgstr "Unerwartetes Zeichen."
 
 #: libraries/sql-parser/src/Statement.php:251
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Unerkanntes Schlüsselwort."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:293
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Anzahl der geöffneten Tabellen."
+msgstr "Der Name der Entität wurde erwartet."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:310
 msgid "At least one field definition was expected."
-msgstr ""
+msgstr "Mindestens eine Felddefinition wurde erwartet."
 
 #: libraries/sql-parser/src/Statements/CreateStatement.php:329
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Ein „RETURNS“-Schlüsselwort wurde erwartet."
 
 #: libraries/sql.lib.php:284
 msgid "Detailed profile"
@@ -14230,10 +14220,10 @@ msgid "Run SQL query/queries on database %s"
 msgstr "SQL-Befehl(e) in Datenbank %s ausführen"
 
 #: libraries/sql_query_form.lib.php:179
-#, fuzzy, php-format
+#, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
-msgstr "SQL-Befehl(e) in Datenbank %s ausführen"
+msgstr "SQL-Befehl(e) in Tabelle %s ausführen"
 
 #: libraries/sql_query_form.lib.php:255
 msgid "Get auto-saved query"
